@@ -6,14 +6,20 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 86822c5a9cef84ff4b51bc94b6b2dd3dbdee91bf
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.openlocfilehash: ac65693f2513338695e07cd8a19acb13333e7281
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
-ms.locfileid: "97702002"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625779"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Monte o volume baseado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível em um aplicativo de Malha do Service Fabric 
+
+> [!IMPORTANT]
+> A visualização da malha de Service Fabric do Azure foi desativada. Novas implantações não serão mais permitidas por meio da API de malha Service Fabric. O suporte para implantações existentes continuará até 28 de abril de 2021.
+> 
+> Para obter detalhes, consulte desativação da [Visualização da malha de Service Fabric do Azure](https://azure.microsoft.com/updates/azure-service-fabric-mesh-preview-retirement/).
+
 O método comum de persistir o estado com aplicativos de contêiner é usar o armazenamento remoto, como o armazenamento de arquivos do Azure ou banco de dados como o Azure Cosmos DB. Isso resulta em significativa leitura e gravação de latência de rede e o armazenamento remoto.
 
 Este artigo mostra como armazenar o estado em Disco Confiável do Microsoft Azure Service Fabric altamente disponível ao montar um volume dentro do contêiner de uma aplicativo de Malha do Service Fabric.

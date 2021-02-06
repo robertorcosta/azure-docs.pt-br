@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 06/26/2020
 ms.author: nicolela
-ms.openlocfilehash: dc6fdadbdfdbdd1d32f640e356a67841187a83c9
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3a7e8c47977f0518a3a3e9f8a6fd2e57454e1c42
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95999256"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99626097"
 ---
 # <a name="set-up-a-lab-for-engineering-classes-using-solidworks"></a>Configurar um laboratório para classes de engenharia usando o SOLIDWORKS
 
@@ -51,13 +51,13 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 | Configurações do laboratório | Valor/instruções |
 | ------------ | ------------------ |
 |Tamanho da Máquina Virtual| **GPU pequena (visualização)**.  Essa VM é mais adequada para visualização remota, streaming, jogos, codificação usando estruturas como OpenGL e DirectX.|  
-|Imagem de máquina virtual| Windows 10 Pro|
+|Imagem de máquina virtual| Windows 10 Pro|
 
 > [!NOTE]
 > O tamanho de máquina virtual de **GPU pequena (visualização)** é configurado para habilitar uma experiência gráfica de alto desempenho.  Para obter mais informações sobre esse tamanho de máquina virtual, consulte o artigo sobre [como configurar um laboratório com GPUs](./how-to-setup-lab-gpu.md).
 
 > [!WARNING]
-> Não se esqueça de [emparelhar a rede virtual](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) para a conta de laboratório para a rede virtual do servidor de licença **antes** de criar o laboratório.
+> Não se esqueça de [emparelhar a rede virtual](./how-to-connect-peer-virtual-network.md) para a conta de laboratório para a rede virtual do servidor de licença **antes** de criar o laboratório.
 
 ## <a name="template-virtual-machine-configuration"></a>Configuração de máquina virtual de modelo
 
@@ -76,7 +76,7 @@ As etapas nesta seção mostram como configurar sua máquina virtual de modelo b
     > [!NOTE]
     > Na caixa de diálogo **Adicionar servidor** , você será solicitado a fornecer o **número da porta** usada para o servidor de licença e o nome ou endereço IP do servidor de licença.
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 
 Vamos abordar uma possível estimativa de custo para essa classe. Essa estimativa não inclui o custo da execução do servidor de licença. Usaremos uma classe de 25 alunos. Há 20 horas de tempo de classe agendada. Além disso, cada aluno recebe uma cota de 10 horas de casa ou atribuições fora do tempo de classe agendado. O tamanho da máquina virtual que escolhemos era **pequena GPU (visualização)**, que é 160 unidades de laboratório.
 

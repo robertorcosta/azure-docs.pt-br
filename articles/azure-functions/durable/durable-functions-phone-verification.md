@@ -4,12 +4,12 @@ description: Saiba como lidar com interação humana e tempos limite na extensã
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: cba3cd0fd5d8727c4ffa4d1b42d7cd9250f21032
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: dd7f8416b2f4520ec8e94c8608f753f7412afc4d
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028296"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627365"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>Interação humana nas Funções Duráveis – exemplo de verificação por telefone
 
@@ -37,6 +37,9 @@ Este artigo aborda as seguintes funções no aplicativo de exemplo:
 
 * `E4_SmsPhoneVerification`: Uma [função de orquestrador](durable-functions-bindings.md#orchestration-trigger) que executa o processo de verificação de telefone, incluindo o gerenciamento de tempos limite e novas tentativas.
 * `E4_SendSmsChallenge`: Uma [função de atividade](durable-functions-bindings.md#activity-trigger) que envia um código por meio de mensagem de texto.
+
+> [!NOTE]
+> A `HttpStart` função no [aplicativo de exemplo e o início rápido](#prerequisites) atua como um [cliente de orquestração](durable-functions-bindings.md#orchestration-client) que dispara a função de orquestrador.
 
 ### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification função de orquestrador
 

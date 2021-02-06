@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: liud
 ms.reviewer: pimorano
-ms.openlocfilehash: ba5286b16b6e640e968b50174e39a05328e750a4
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5f82e8b7359b90d5127e2c20a2b89cc5ad739a56
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797304"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99624752"
 ---
 # <a name="continuous-integration-and-delivery-for-azure-synapse-workspace"></a>Integração e entrega contínuas para o espaço de trabalho Synapse do Azure
 
@@ -139,8 +139,8 @@ Se você estiver usando a integração do git com seu espaço de trabalho do Syn
 
 ### <a name="use-the-synapse-workspace-deployment-task"></a>Usar a tarefa de implantação do espaço de trabalho Synapse
 
-No Synapse, todos os tipos de artefatos não são recursos de ARM, que são diferentes com o ADF. Não é possível usar a tarefa de implantação de modelo ARM para implantar artefatos Synapse
+No Synapse, há vários artefatos que não são recursos de ARM. Isso é diferente do Azure Data Factory. A tarefa de implantação de modelo ARM não funcionará corretamente para implantar artefatos Synapse
  
 ### <a name="unexpected-token-error-in-release"></a>Erro de token inesperado na versão
 
-Quando o arquivo de parâmetro tem valores de parâmetro que não são de escape, o pipeline de liberação falha ao analisar o arquivo com o erro de token inesperado. Sugerimos que você substitua os parâmetros ou keyvault para obter parâmetros. Você também pode dobrar o escape como uma solução alternativa.
+Quando o arquivo de parâmetro tiver valores de parâmetro que não são de escape, o pipeline de liberação falhará ao analisar o arquivo e gerará o erro "token inesperado". Sugerimos que você substitua parâmetros ou use o Azure keyvault para recuperar valores de parâmetro. Você também pode usar caracteres de escape duplo como uma solução alternativa.

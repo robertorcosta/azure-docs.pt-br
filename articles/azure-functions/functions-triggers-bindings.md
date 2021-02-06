@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: aa0d78d52ec13c91b82e6a8d10720269076f59a1
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: 4cafe9af1eb5a765ab86bafb63cc9ab7d0889dc8
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96353537"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627592"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 
@@ -39,16 +39,19 @@ Esses exemplos não devem ser completos, mas são fornecidos para ilustrar como 
 
 ###  <a name="trigger-and-binding-definitions"></a>Definições de associação e gatilho
 
-Os gatilhos e as associações são definidos de forma diferente, dependendo da abordagem de desenvolvimento.
+Os gatilhos e as associações são definidos de forma diferente, dependendo da linguagem de desenvolvimento.
 
-| Plataforma | Gatilhos e associações são configurados por... |
+| Idioma | Gatilhos e associações são configurados por... |
 |-------------|--------------------------------------------|
 | Biblioteca de classes C# | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoração de métodos e parâmetros com atributos C# |
-| Todos os outros (incluindo portal do Azure) | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atualizando [function.jsem](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
+| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decoração de métodos e parâmetros com anotações Java  | 
+| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Atualizando [function.jsem](./functions-reference.md) ([esquema](http://json.schemastore.org/function)) |
 
-O portal fornece uma interface do usuário para essa configuração, mas você pode editar o arquivo diretamente abrindo o **Editor avançado** disponível por meio da guia **integrar** da sua função.
+Para idiomas que dependem de function.js, o portal fornece uma interface do usuário para adicionar associações na guia **integração** . Você também pode editar o arquivo diretamente no portal na guia **código + teste** da sua função. Visual Studio Code permite que você [Adicione facilmente uma associação a um function.jsno arquivo](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) seguindo um conjunto conveniente de prompts. 
 
-No .NET, o tipo de parâmetro define o tipo de dados para dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila, uma matriz de bytes para ler como binário e um tipo personalizado para desserializar para um objeto.
+No .NET e no Java, o tipo de parâmetro define o tipo de dados para dados de entrada. Por exemplo, use `string` para associar ao texto de um gatilho de fila, uma matriz de bytes para ler como binário e um tipo personalizado para desserializar para um objeto. Como as funções de biblioteca de classes do .NET e as funções Java não dependem *function.js* para definições de associação, elas não podem ser criadas e editadas no Portal. A edição do portal c# se baseia no script C#, que usa *function.jsem* vez de atributos.
+
+Para saber mais sobre como adicionar associações a funções existentes, confira [conectar funções aos serviços do Azure usando associações](add-bindings-existing-function.md).
 
 Para idiomas que são digitados dinamicamente como JavaScript, use a propriedade `dataType` no arquivo *function.json*. Por exemplo, para ler o conteúdo de uma solicitação HTTP em formato binário, defina `dataType` para `binary`:
 

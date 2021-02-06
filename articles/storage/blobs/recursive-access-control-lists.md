@@ -5,22 +5,25 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/22/2021
+ms.date: 02/05/2021
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 626e626cbd8fa86bd0366516cbaf5a54789f3988
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 737608e4f83846187decb92b090f2385a8ff4ac6
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741036"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627333"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Definir listas de controle de acesso (ACLs) recursivamente para Azure Data Lake Storage Gen2
 
 A herança de ACL já está disponível para novos itens filho que são criados em um diretório pai. Agora, você também pode adicionar, atualizar e remover ACLs recursivamente para itens filho existentes de um diretório pai sem precisar fazer essas alterações individualmente para cada item filho.
 
 [Bibliotecas](#libraries)  |  do [Exemplos](#code-samples)  |  [Práticas recomendadas](#best-practice-guidelines)
+
+> [!NOTE]
+> Gerenciador de Armazenamento do Azure agora dá suporte à capacidade de aplicar ACLs recursivamente. Para saber mais, confira [aplicar ACLs recursivamente no Gerenciador de armazenamento do Azure](data-lake-storage-explorer.md#apply-acls-recursively). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -334,7 +337,7 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 ```
 
 > [!NOTE]
-> Se você quiser definir uma entrada ACL **padrão** , use o parâmetro **-DefaultScope** ao executar o comando **set-AzDataLakeGen2ItemAclObject** . Por exemplo: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
+> Se você quiser definir uma entrada ACL **padrão** , use o parâmetro **-DefaultScope** ao executar o comando **set-AzDataLakeGen2ItemAclObject** . Por exemplo, `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
 Para ver um exemplo que define ACLs recursivamente em lotes especificando um tamanho de lote, consulte o artigo de referência [set-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/set-azdatalakegen2aclrecursive) .
 
@@ -417,7 +420,7 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 ```
 
 > [!NOTE]
-> Se você quiser atualizar uma entrada ACL **padrão** , use o parâmetro **-DefaultScope** ao executar o comando **set-AzDataLakeGen2ItemAclObject** . Por exemplo: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+> Se você quiser atualizar uma entrada ACL **padrão** , use o parâmetro **-DefaultScope** ao executar o comando **set-AzDataLakeGen2ItemAclObject** . Por exemplo, `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
 
 Para ver um exemplo que atualiza as ACLs recursivamente em lotes especificando um tamanho de lote, consulte o artigo de referência [Update-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/update-azdatalakegen2aclrecursive) .
 
@@ -492,7 +495,7 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 ```
 
 > [!NOTE]
-> Se você quiser remover uma entrada ACL **padrão** , use o parâmetro **-DefaultScope** ao executar o comando **set-AzDataLakeGen2ItemAclObject** . Por exemplo: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+> Se você quiser remover uma entrada ACL **padrão** , use o parâmetro **-DefaultScope** ao executar o comando **set-AzDataLakeGen2ItemAclObject** . Por exemplo, `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
 
 Para ver um exemplo que remove ACLs recursivamente em lotes especificando um tamanho de lote, consulte o artigo de referência [Remove-AzDataLakeGen2AclRecursive](/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) .
 
@@ -719,7 +722,7 @@ Para reduzir a latência, recomendamos que você execute o processo de ACL recur
 
 O número máximo de ACLs que você pode aplicar a um diretório ou arquivo é de 32 ACLs de acesso e 32 ACLs padrão. Para obter mais informações, consulte [Controle de acesso no Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Controle de acesso no Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md)
 - [Problemas conhecidos](data-lake-storage-known-issues.md)

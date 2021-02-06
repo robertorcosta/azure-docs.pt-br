@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/21/2021
 ms.author: cavoeg
-ms.openlocfilehash: 8ad5ee78a525b3798bbf613168ff74a9e21fe99b
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 3437c8bcf8ff508149abae2549d7c34521700840
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98920250"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627256"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -30,12 +30,15 @@ A API do Azure para FHIR dá suporte a $export nos seguintes níveis:
 * [Paciente](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---all-patients): `GET https://<<FHIR service base URL>>/Patient/$export>>`
 * [Grupo de pacientes *](https://hl7.org/Fhir/uv/bulkdata/export/index.html#endpoint---group-of-patients) – a API do Azure para FHIR exporta todos os recursos relacionados, mas não exporta as características do Grupo: `GET https://<<FHIR service base URL>>/Group/[ID]/$export>>`
 
+Quando os dados são exportados, um arquivo separado é criado para cada tipo de recurso. Para garantir que os arquivos exportados não se tornem muito grandes, criamos um novo arquivo depois que o tamanho de um único arquivo exportado se torna maior que 64 MB. O resultado é que você pode obter vários arquivos para cada tipo de recurso, que será enumerado (ou seja, paciente-1. ndjson, paciente-2. ndjson). 
 
 
 > [!Note] 
 > `Patient/$export` e `Group/[ID]/$export` poderá exportar recursos duplicados se o recurso estiver em um compartimento de mais de um recurso ou em vários grupos.
 
 Além disso, a verificação do status de exportação por meio da URL retornada pelo cabeçalho de local durante o enfileiramento tem suporte junto com o cancelamento do trabalho de exportação real.
+
+
 
 ## <a name="settings-and-parameters"></a>Configurações e parâmetros
 

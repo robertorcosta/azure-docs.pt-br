@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/12/2021
+ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: beadd250ec4472b894f0f474b1057ad44cf474ed
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 526ef0af08833954aef4136716930cec0df40eea
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98133507"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99625240"
 ---
 # <a name="how-azure-netapp-files-snapshots-work"></a>Como funcionam os instantâneos do Azure NetApp Files
 
@@ -49,26 +49,26 @@ Enquanto isso, os blocos de dados que são apontados de um instantâneo permanec
 
 Como um instantâneo de volume registra apenas as alterações de bloco desde o último instantâneo, ele fornece os seguintes benefícios principais:
 
-* Os instantâneos são ***eficientes no armazenamento**.   
-    Os instantâneos consomem espaço mínimo de armazenamento porque não copia os blocos de dados do volume inteiro. Dois instantâneos tirados em sequência diferem apenas pelos blocos adicionados ou alterados no intervalo de tempo entre os dois. Esse comportamento incremental de bloco limita o consumo de capacidade de armazenamento associado. Muitas implementações alternativas de instantâneos consomem volumes de armazenamento iguais ao sistema de arquivos ativo, aumentando os requisitos de capacidade de armazenamento. Dependendo das taxas de alteração no nível de _block do aplicativo * diárias, os instantâneos de Azure NetApp Files consumirão mais ou menos capacidade, mas somente nos dados alterados. O consumo de instantâneo diário médio varia de apenas 1-5% da capacidade de volume usada para muitos volumes de aplicativos ou até 20-30% para volumes como SAP HANA volumes de banco de dados. Certifique-se de [monitorar seu volume e o uso de instantâneo](azure-netapp-files-metrics.md#volumes) para consumo de capacidade de instantâneo em relação ao número de instantâneos criados e mantidos.   
+* Os instantâneos são ***eficientes no armazenamento***.   
+    Os instantâneos consomem espaço mínimo de armazenamento porque não copia os blocos de dados do volume inteiro. Dois instantâneos tirados em sequência diferem apenas pelos blocos adicionados ou alterados no intervalo de tempo entre os dois. Esse comportamento incremental de bloco limita o consumo de capacidade de armazenamento associado. Muitas implementações alternativas de instantâneos consomem volumes de armazenamento iguais ao sistema de arquivos ativo, aumentando os requisitos de capacidade de armazenamento. Dependendo das taxas de alteração no *nível de bloco* diário do aplicativo, os instantâneos de Azure NetApp files consumirão mais ou menos capacidade, mas somente nos dados alterados. O consumo de instantâneo diário médio varia de apenas 1-5% da capacidade de volume usada para muitos volumes de aplicativos ou até 20-30% para volumes como SAP HANA volumes de banco de dados. Certifique-se de [monitorar seu volume e o uso de instantâneo](azure-netapp-files-metrics.md#volumes) para consumo de capacidade de instantâneo em relação ao número de instantâneos criados e mantidos.   
 
-* Os instantâneos são ***rápidos para criar, replicar, restaurar ou clonar** _.   
+* Os instantâneos são ***rápidos de criar, replicar, restaurar ou clonar***.   
     Leva apenas alguns segundos para criar, replicar, restaurar ou clonar um instantâneo, independentemente do tamanho do volume e do nível de atividades. Você pode criar um instantâneo de volume [sob demanda](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume). Você também pode usar [políticas de instantâneo](azure-netapp-files-manage-snapshots.md#manage-snapshot-policies) para especificar quando Azure NetApp files deve criar automaticamente um instantâneo e quantos instantâneos devem ser mantidos em um volume.  A consistência do aplicativo pode ser obtida por meio da orquestração de instantâneos com a camada de aplicativo, por exemplo, usando a [ferramenta AzAcSnap](azacsnap-introduction.md) para SAP Hana.
 
-_ Instantâneos não têm impacto sobre o volume ***desempenho** _.   
+* Os instantâneos não têm impacto sobre o ***desempenho*** do volume.   
     Devido à natureza de "redirecionamento na gravação" da tecnologia de subposição, armazenar ou reter Azure NetApp Files instantâneos não tem impacto no desempenho, mesmo com atividade de dados pesada. A exclusão de um instantâneo também tem pouco ou nenhum impacto no desempenho na maioria dos casos. 
 
-_ Os instantâneos fornecem ***escalabilidade** _ porque eles podem ser criados com frequência e muitos podem ser retidos.   
+* Os instantâneos fornecem ***escalabilidade*** , pois podem ser criados com frequência e muitos podem ser retidos.   
     Os volumes Azure NetApp Files dão suporte a até 255 instantâneos. A capacidade de armazenar um grande número de instantâneos criados com frequência de baixo impacto aumenta a probabilidade de que a versão desejada de dados possa ser recuperada com êxito.
 
-_ Os instantâneos fornecem ***visibilidade do usuário** _ e capacidade de recuperação de _*_arquivos_*_.   
+* Os instantâneos fornecem ***visibilidade do usuário** _ e _ * recuperação de _arquivos_* *.   
 O alto desempenho, a escalabilidade e a estabilidade de Azure NetApp Files tecnologia de instantâneo significa que ele fornece um backup online ideal para a recuperação controlada pelo usuário. Os instantâneos podem se tornar acessíveis ao usuário para fins de restauração de arquivo, diretório ou volume. Soluções adicionais permitem copiar backups para armazenamento offline ou [replicar entre regiões](cross-region-replication-introduction.md) para fins de retenção ou recuperação de desastre.
 
 ## <a name="ways-to-create-snapshots"></a>Maneiras de criar instantâneos   
 
 Você pode usar vários métodos para criar e manter instantâneos:
 
-_ Manualmente (sob demanda), usando:   
+* Manualmente (sob demanda), usando:   
     * As ferramentas [portal do Azure](azure-netapp-files-manage-snapshots.md#create-an-on-demand-snapshot-for-a-volume), [API REST](/rest/api/netapp/snapshots), [CLI do Azure](/cli/azure/netappfiles/snapshot)ou [PowerShell](/powershell/module/az.netappfiles/new-aznetappfilessnapshot)
     * Scripts (veja [exemplos](azure-netapp-files-solution-architectures.md#sap-tech-community-and-blog-posts))
 
@@ -161,7 +161,7 @@ Consulte [excluir instantâneos](azure-netapp-files-manage-snapshots.md#delete-s
 * [Solucionar problemas de políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Vídeo de instantâneos de Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw)
-* [Instantâneo da NetApp – biblioteca de vídeos da NetApp](https://tv.netapp.com/detail/video/2579133646001/snapshot)
+* [Visão geral do instantâneo de Azure NetApp Files](https://anfcommunity.com/2021/01/31/azure-netapp-files-snapshot-overview/)
 
 
 

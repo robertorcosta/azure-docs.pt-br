@@ -4,8 +4,7 @@ description: Saiba mais sobre os principais recursos de segurança do Azure que 
 services: security
 documentationcenter: na
 author: TerryLanfear
-manager: barbkess
-editor: TomSh
+manager: rkarlin
 ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
@@ -13,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2018
+ms.date: 02/05/2021
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 2c7d51da361816841ff556c1da696a48d2ce6a06
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: d931d3923ff49dde2bea234278c995e79670429f
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94843682"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627626"
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 
@@ -46,7 +45,7 @@ O artigo se concentra nas seguintes funcionalidades de gerenciamento de identida
 * Gerenciamento de acesso e identidade do consumidor
 * Registro de dispositivos
 * Privileged Identity Management
-* Identity Protection
+* Proteção de identidade
 * Gerenciamento de identidade híbrida/conectar Azure Active Directory
 * Revisões de acesso do Azure AD
 
@@ -62,9 +61,9 @@ Os usuários não precisam apenas gerenciar vários conjuntos de nomes de usuár
 
 Saiba mais:
 
-* [Visão geral do logon único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
-* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../../active-directory/manage-apps/what-is-single-sign-on.md)
-* [Série de início rápido no gerenciamento de aplicativos](../../active-directory/manage-apps/view-applications-portal.md)
+* [Visão geral do SSO](../../active-directory/manage-apps/what-is-single-sign-on.md)
+* [Vídeo sobre conceitos básicos de autenticação](https://www.youtube.com/watch?v=fbSVgC8nGz4&feature=emb_title)
+* [Série de início rápido sobre o gerenciamento de aplicativos](../../active-directory/manage-apps/view-applications-portal.md)
 
 ## <a name="reverse-proxy"></a>Proxy reverso
 
@@ -84,8 +83,8 @@ A autenticação multifator do Azure AD é um método de autenticação que requ
 Saiba mais:
 
 * [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a autenticação multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
-* [Como funciona a autenticação multifator do Azure AD](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [O que é a Autenticação Multifator do Azure AD?](../../active-directory/authentication/concept-mfa-howitworks.md)
+* [Como a Autenticação Multifator do Azure AD funciona](../../active-directory/authentication/concept-mfa-howitworks.md)
 
 ## <a name="azure-rbac"></a>RBAC do Azure
 
@@ -163,7 +162,7 @@ Saiba mais:
 * [O que é o Azure AD Privileged Identity Management?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [Atribuir funções de diretório do Azure AD no PIM](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
 
-## <a name="identity-protection"></a>Identity Protection
+## <a name="identity-protection"></a>Proteção de identidade
 
 Azure AD Identity Protection é um serviço de segurança que fornece uma visão consolidada das detecções de risco e das possíveis vulnerabilidades que afetam as identidades da sua organização. O Identity Protection tira proveito das funcionalidades de detecção de anomalias existentes do Azure AD, que estão disponíveis por meio dos Relatórios de atividades anômalas do Azure AD. A proteção de identidade também apresenta novos tipos de detecção de riscos que podem detectar anomalias em tempo real.
 
