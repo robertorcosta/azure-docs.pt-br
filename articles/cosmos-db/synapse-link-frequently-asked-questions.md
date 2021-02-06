@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 82133f990c1714276aa13ff22c3f19d0993d16df
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: cef5f178ea879ba98df90da36ec9c4b639dd100a
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488707"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627761"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -109,7 +109,7 @@ No momento, o Terraform não é compatível com contêineres de repositório ana
 
 ## <a name="analytical-time-to-live-ttl"></a>Tempo de vida (TTL) analítico
 
-### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>O TTL de dados analíticos é compatível com os níveis de contêiner e de item?
+### <a name="is-ttl-for-analytical-data-supported-at-both-container-and-item-level"></a>O TTL de dados analíticos é compatível com o nível de contêiner e de item?
 
 Neste momento, o TTL para dados analíticos só pode ser configurado no nível de contêiner e não há suporte para definir TTL analítico no nível de item.
 
@@ -129,7 +129,7 @@ O modelo de cobrança do Link do Synapse inclui os custos incorridos usando o re
 
 ### <a name="what-is-the-billing-impact-if-i-enable-synapse-link-in-my-azure-cosmos-db-database-account"></a>Qual é o impacto de cobrança se eu habilitar o link Synapse em minha conta de banco de dados Azure Cosmos DB?
 
-nenhuma. Você só será cobrado quando criar um contêiner habilitado para repositório analítico e começar a carregar dados.
+Nenhum. Você só será cobrado quando criar um contêiner habilitado para repositório analítico e começar a carregar dados.
 
 
 ## <a name="security"></a>Segurança

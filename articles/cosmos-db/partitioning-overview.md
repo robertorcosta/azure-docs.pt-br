@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: a70cfc7ab01dabd3d740d878acb453b4d1e76b5f
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: b91c846b5a79125c1cee9c36ce81b5c3d3229ba9
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507410"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627758"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Particionamento e escala horizontal no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -42,7 +42,7 @@ O número de partições físicas no contêiner depende do seguinte:
 * O armazenamento de dados total (cada partição física individual pode armazenar até 50 GB de dados).
 
 > [!NOTE]
-> As partições físicas são uma implementação interna do sistema e são totalmente gerenciadas pelo Azure Cosmos DB. Ao desenvolver suas soluções, não se concentre em partições físicas porque você não pode controlá-las em vez disso, concentre-se nas chaves de partição. Se você escolher uma chave de partição que distribua uniformemente o consumo de taxa de transferência entre partições lógicas, você garantirá que o consumo de taxa de transferência entre partições físicas seja balanceado.
+> As partições físicas são uma implementação interna do sistema e são totalmente gerenciadas pelo Azure Cosmos DB. Ao desenvolver suas soluções, não se concentre em partições físicas porque não é possível controlá-las. Em vez disso, concentre-se nas chaves de partição. Se você escolher uma chave de partição que distribua uniformemente o consumo de taxa de transferência entre partições lógicas, você garantirá que o consumo de taxa de transferência entre partições físicas seja balanceado.
 
 Não há nenhum limite para o número total de partições físicas em seu contêiner. À medida que a produtividade provisionada ou o tamanho dos dados crescer, Azure Cosmos DB criará automaticamente novas partições físicas, dividindo as existentes. As divisões de partição física não afetam a disponibilidade do aplicativo. Após a divisão da partição física, todos os dados em uma única partição lógica ainda serão armazenados na mesma partição física. Uma divisão de partição física simplesmente cria um novo mapeamento de partições lógicas para partições físicas.
 
@@ -70,7 +70,7 @@ Você pode saber mais sobre [como Azure Cosmos DB gerencia partições](partitio
 
 Cada partição física consiste em um conjunto de réplicas, também conhecido como um [*conjunto de réplicas*](global-dist-under-the-hood.md). Cada conjunto de réplicas hospeda uma instância do mecanismo de banco de dados. Um conjunto de réplicas torna os dados armazenados na partição física durável, altamente disponível e consistente. Cada réplica que compõe a partição física herda a cota de armazenamento da partição. Todas as réplicas de uma partição física dão suporte coletiva à taxa de transferência alocada para a partição física. Azure Cosmos DB gerencia automaticamente os conjuntos de réplicas.
 
-Normalmente, os contêineres menores exigem apenas uma única partição física, mas eles ainda terão pelo menos 4 réplicas.
+Normalmente, contêineres menores exigem apenas uma única partição física, mas eles ainda terão pelo menos 4 réplicas.
 
 A imagem a seguir mostra como as partições lógicas são mapeadas para partições físicas distribuídas globalmente:
 

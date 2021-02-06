@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: e549a79930cf599b89cd549691e23f3587e8a85c
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 4a3f272ab6e4a1788368442d7d060233391442fd
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202701"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99627808"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -44,6 +44,10 @@ Os discos gerenciados são compatíveis com as [Zonas de Disponibilidade](../ava
 ### <a name="azure-backup-support"></a>Suporte de Backup do Azure
 
 Para proteger contra desastres regionais, o [Backup do Azure](../backup/backup-overview.md) pode ser usado para criar um trabalho de backup com backups baseados em tempo e políticas de retenção de backup. Isso permite que você execute restaurações de VM ou de disco gerenciado fáceis sempre que quiser. No momento, o Backup do Azure dá suporte a tamanhos de disco de até 32 TiB (tebibytes). [Saiba mais](../backup/backup-support-matrix-iaas.md) sobre o suporte de backup da VM do Azure.
+
+#### <a name="azure-disk-backup"></a>Backup de Disco do Azure
+
+O backup do Azure oferece o backup em disco do Azure (versão prévia) como uma solução de backup nativa baseada em nuvem que protege seus dados em discos gerenciados. É uma solução simples, segura e econômica que permite configurar a proteção de discos gerenciados em algumas etapas. O backup em disco do Azure oferece uma solução completa que fornece gerenciamento de ciclo de vida de instantâneos para discos gerenciados automatizando a criação periódica de instantâneos e retendo-o para duração configurada usando a política de backup. Para obter detalhes sobre o backup em disco do Azure, consulte [visão geral do backup em disco do Azure (em versão prévia)](../backup/disk-backup-overview.md).
 
 ### <a name="granular-access-control"></a>Controle de acesso granular
 
