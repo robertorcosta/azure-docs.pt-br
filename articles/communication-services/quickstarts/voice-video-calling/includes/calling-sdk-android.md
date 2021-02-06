@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 9/1/2020
 ms.author: mikben
-ms.openlocfilehash: 5d81e37ab547d12e33cfacb9725d9bdb22666142
-ms.sourcegitcommit: 86acfdc2020e44d121d498f0b1013c4c3903d3f3
+ms.openlocfilehash: 26e39b8f0429995bfa336c4971c76f90d903ff55
+ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97628643"
+ms.lasthandoff: 02/06/2021
+ms.locfileid: "99628933"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -111,7 +111,9 @@ call oneToOneCall = callAgent.call(appContext, participants, startCallOptions);
 
 ### <a name="place-a-1n-call-with-users-and-pstn"></a>Coloque uma chamada 1: n com usuários e PSTN
 > [!WARNING]
-> Atualmente, a chamada PSTN não está disponível para fazer uma chamada 1: n para um usuário e um número PSTN você precisa especificar o número de telefone do receptor.
+> Atualmente, a chamada PSTN não está disponível
+
+Para fazer uma chamada 1: n para um usuário e um número PSTN, você precisa especificar o número de telefone do receptor.
 O recurso de serviços de comunicação deve ser configurado para permitir a chamada de PSTN:
 ```java
 CommunicationUser acsUser1 = new CommunicationUser(<USER_ID>);
@@ -629,7 +631,7 @@ DeviceManager deviceManager = callClient.getDeviceManager().get();
 
 ### <a name="enumerate-local-devices"></a>Enumerar dispositivos locais
 
-Para acessar dispositivos locais, você pode usar métodos de enumeração no Device Manager. A enumeração é uma ação síncrona.
+Para acessar dispositivos locais, você pode usar métodos de enumeração no Gerenciador de Dispositivos. A enumeração é uma ação síncrona.
 
 ```java
 //  Get a list of available video devices for use.
