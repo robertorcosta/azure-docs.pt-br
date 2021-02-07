@@ -3,12 +3,12 @@ title: Habilitar Azure Monitor para contêineres | Microsoft Docs
 description: Este artigo descreve como habilitar e configurar Azure Monitor para contêineres para que você possa entender como o contêiner está sendo executado e quais problemas relacionados ao desempenho foram identificados.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f598b42f1a8d9fcb42f09d17e40850cf3a1282be
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 56f60b58cff351aa37e98cdba933c929aaaedab6
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98943822"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805995"
 ---
 # <a name="enable-azure-monitor-for-containers"></a>Habilitar Azure Monitor para contêineres
 
@@ -35,6 +35,12 @@ Você pode habilitar Azure Monitor para contêineres para uma nova implantação
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de começar, verifique se você atendeu aos seguintes requisitos:
+
+> [!IMPORTANT]
+> Log Analytics agente do Linux em contêineres (Pod do réplicaset) faz chamadas à API para todos os nós do Windows na porta Kubelet Secure (10250) no cluster para coletar métricas relacionadas ao desempenho do nó e do contêiner. A porta segura do Kubelet (: 10250) deve ser aberta na rede virtual do cluster para que a coleção de métricas relacionada ao nó do Windows e o desempenho do contêiner funcionem.
+>
+> Se você tiver um cluster kubernetes com nós do Windows, examine e configure o grupo de segurança de rede e as políticas de rede para certificar-se de que a porta segura do Kubelet (: 10250) esteja aberta para entrada e saída na rede virtual do cluster.
+
 
 - Você tem um espaço de trabalho Log Analytics.
 

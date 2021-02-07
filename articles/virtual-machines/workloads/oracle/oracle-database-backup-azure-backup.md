@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/28/2021
 ms.author: cholse
 ms.reviewer: dbakevlar
-ms.openlocfilehash: 3122b1c5d7ac8b9dca0e244a4b7e73a57c4c5fca
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.openlocfilehash: ac045694e8975509635e03221a8cb9cc84446b55
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99072397"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806402"
 ---
 # <a name="back-up-and-recover-an-oracle-database-19c-database-on-an-azure-linux-vm-using-azure-backup"></a>Fazer backup e recuperar um banco de dados Oracle Database 19C em uma VM Linux do Azure usando o backup do Azure
 
@@ -73,7 +73,7 @@ Esta etapa pressupõe que você tenha uma instância do Oracle (*teste*) em exec
     export ORACLE_SID=test;
     ```
 
-    Você também deve adicionar a variável ORACLE_SID ao `oracle` arquivo Users `.bashrc` para entradas futuras usando o seguinte comando:
+    Você também deve adicionar a variável ORACLE_SID ao arquivo `.bashrc` dos usuários `oracle` para entradas futuras usando o seguinte comando:
 
     ```bash
     echo "export ORACLE_SID=test" >> ~oracle/.bashrc
@@ -697,7 +697,7 @@ Para restaurar toda a VM, conclua estas etapas:
 
    1. Na portal do Azure, selecione **+ criar um recurso** e pesquise e selecione a **conta de armazenamento**.
     
-      ![Página de adição da conta de armazenamento](./media/oracle-backup-recovery/storage-1.png)
+      ![Captura de tela que mostra onde criar um recurso.](./media/oracle-backup-recovery/storage-1.png)
     
     
    1. Na página Criar conta de armazenamento, escolha seu grupo de recursos existente **RG-Oracle**, nomeie sua conta de armazenamento **Oracrestore** e escolha **armazenamento v2 (generalpurpose v2)** para tipo de conta. Altere a replicação para **armazenamento com redundância local (LRS)** e defina o desempenho como **padrão**. Verifique se o local está definido para a mesma região que todos os outros recursos no grupo de recursos. 
@@ -877,7 +877,7 @@ Depois que a VM for restaurada, você deverá reatribuir o endereço IP original
 
 5.  Agora você deve desanexar a NIC que foi criada com a operação de restauração da VM, pois ela está configurada como a interface primária. Clique em **desanexar interface de rede** e escolha a nova NIC semelhante a **vmoracle19c-NIC-xxxxxxxxxxxx** e clique em **OK**
 
-    ![Valor do endereço IP](./media/oracle-backup-recovery/create-ip-05.png)
+    ![Captura de tela que mostra onde selecionar desanexar interface de rede.](./media/oracle-backup-recovery/create-ip-05.png)
     
     Sua VM recriada agora terá o NIC original, que está associado ao endereço IP original e às regras do grupo de segurança de rede
     

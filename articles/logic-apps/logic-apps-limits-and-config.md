@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 01/25/2021
-ms.openlocfilehash: 8e5b43383e0b49c0fe6fffdd9ffee6667fb540f8
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.date: 02/05/2021
+ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054747"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805927"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -427,6 +427,12 @@ Esta seção lista os endereços IP de entrada para o serviço de Aplicativos L�
 
 > [!TIP]
 > Para ajudar a reduzir a complexidade ao criar regras de segurança, você pode, opcionalmente, usar a [marca de serviço](../virtual-network/service-tags-overview.md), **LogicAppsManagement**, em vez de especificar os endereços IP dos Aplicativos Lógicos de entrada para cada região. Opcionalmente, você também pode usar a marca de serviço **AzureConnectors** para conectores gerenciados que fazem retornos de chamada de webhook de entrada para o serviço de aplicativos lógicos, em vez de especificar prefixos de endereço IP do conector gerenciado de entrada para cada região. Essas marcas funcionam nas regiões em que o serviço de aplicativos lógicos está disponível.
+>
+> Os conectores a seguir fazem retornos de chamada de webhook de entrada para o serviço de aplicativos lógicos:
+>
+> Adobe Creative Cloud, Adobe Sign, demonstração do Adobe Sign, visualização do Adobe Sign, estágio do Adobe Sign, Azure Sentinel, Business central, Calendly, Common Data Service, DocuSign, DocuSign demo, Dynamics 365 for Fin & Ops, LiveChat, Office 365 Outlook, Outlook.com, Parserr, SAP *, turnos para Microsoft Teams, projetos de trabalho em equipe, Typeform
+>
+> \***SAP**: o chamador de retorno depende se o ambiente de implantação é um Azure ou ISE multilocatário. No ambiente multilocatário, o gateway de dados local faz a chamada de volta para o serviço de aplicativos lógicos. Em um ISE, o conector SAP faz a chamada de volta para o serviço de aplicativos lógicos.
 
 <a name="multi-tenant-inbound"></a>
 

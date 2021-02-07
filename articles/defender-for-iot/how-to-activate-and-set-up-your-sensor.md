@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7d045ad104f8e2055ae85b74f4aae8f4d3fd61a4
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 5d2d923fc448beeff8fa165226890d88d97d01ad
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509512"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805658"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -204,7 +204,7 @@ Você acessa as ferramentas do console no menu lateral.
 | Janela | ícone | Descrição |
 |---|---|---|
 | Usuários | :::image type="icon" source="media/concept-sensor-console-overview/users-icon-azure.png" border="false"::: | Defina usuários e funções com vários níveis de acesso. |
-| Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhe informações de alerta para parceiros e fontes internas (por exemplo, Sentinela) integrando-se com o defender para IoT, endereços de email, servidores de webhook e muito mais. <br /> Consulte [encaminhar informações de alerta](how-to-forward-alert-information-to-partners.md) para obter detalhes. |
+| Encaminhamento | :::image type="icon" source="media/concept-sensor-console-overview/forwarding-icon-azure.png" border="false"::: | Encaminhe informações de alerta para parceiros e fontes internas (por exemplo, Azure Sentinel) integrando-se com o defender para IoT, endereços de email, servidores de webhook e muito mais. <br /> Consulte [encaminhar informações de alerta](how-to-forward-alert-information-to-partners.md) para obter detalhes. |
 | Configurações de sistema | :::image type="icon" source="media/concept-sensor-console-overview/system-settings-icon-azure.png" border="false"::: | Defina as configurações do sistema. Por exemplo, defina as configurações de DHCP, forneça detalhes do servidor de email ou crie aliases de porta. |
 | Configurações de importação | :::image type="icon" source="media/concept-sensor-console-overview/import-settings-icon-azure.png" border="false"::: | Exibir a janela **configurações de importação** . Você pode executar alterações manuais nas informações de um dispositivo.<br /> Consulte [importar informações do dispositivo](how-to-import-device-information.md) para obter detalhes. |
 

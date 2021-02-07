@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 758f7de46c524406f31a40072250eb7d59745d42
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 648e7991784212e4fe781efd5d9f01cb571c5012
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98736081"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807845"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança do Azure para o serviço de aplicativo
 
@@ -397,7 +397,7 @@ Crie um processo para monitorar as configurações de recursos de rede e detecta
 
 Os aplicativos do serviço de aplicativo usam a identidade federada, na qual um provedor de identidade de terceiros gerencia as identidades de usuário e o fluxo de autenticação para você. Esses provedores de identidade estão disponíveis por padrão:
 
-- AD do Azure
+- Azure AD
 - Conta da Microsoft
 
 - Facebook
@@ -1111,7 +1111,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretrizes**: exporte seus alertas e recomendações da central de segurança usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Use o conector de dados da central de segurança para transmitir os alertas Sentinel de acordo com as necessidades comerciais.
+**Diretrizes**: exporte seus alertas e recomendações da central de segurança usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Use o conector de dados da central de segurança para transmitir os alertas para o Azure Sentinel de acordo com as necessidades comerciais.
 
 - [Como configurar a exportação contínua](../security-center/continuous-export.md)
 

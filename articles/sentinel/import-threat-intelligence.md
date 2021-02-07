@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
-ms.openlocfilehash: bde11c8e06891025be96810acf6d87952a3d8d2f
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: 5bf94d7c5889bb5a743655d65e48f021e91e01b7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660773"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807132"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar inteligência contra ameaças para o Azure Sentinel
 
@@ -36,7 +36,7 @@ Você pode integrar a TI (inteligência contra ameaças) ao Azure Sentinel por m
 - Use os modelos de regra de **análise** interna para gerar alertas de segurança e incidentes usando a inteligência de ameaças importada.
 - Visualize as principais informações sobre sua inteligência contra ameaças no Azure Sentinel com a **pasta de trabalho de inteligência contra ameaças**.
 
-A inteligência contra ameaças também fornece um contexto útil em outras experiências do Azure Sentinel, como **buscas** e **notebooks**, e, embora não seja abordada neste artigo, essas experiências são abordadas nesta [excelente postagem no blog, de Ian Hellen nos notebooks Jupyter no sentinela](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que abrange o uso de CTI dentro de notebooks.
+A inteligência contra ameaças também fornece um contexto útil em outras experiências do Azure Sentinel, como **buscas** e **notebooks**, e, embora não seja abordada neste artigo, essas experiências são abordadas nesta [excelente postagem no blog, de Ian Hellen nos notebooks Jupyter no Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/using-threat-intelligence-in-your-jupyter-notebooks/ba-p/860239), que abrange o uso de CTI dentro de notebooks.
 
 ## <a name="azure-sentinel-data-connectors-for-threat-intelligence"></a>Conectores de dados do Azure Sentinel para inteligência contra ameaças
 

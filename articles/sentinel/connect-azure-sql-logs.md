@@ -8,20 +8,20 @@ ms.subservice: azure-sentinel
 ms.topic: how-to
 ms.date: 01/06/2021
 ms.author: yelevin
-ms.openlocfilehash: df132c35ebb04596d91720431f5b08cb88e2abd9
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: a3a09ceffc75e2d396d7bd7aeedd97b7f2b6ec2b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98104170"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807726"
 ---
 # <a name="connect-azure-sql-database-diagnostics-and-auditing-logs"></a>Conectar logs de auditoria e diagnóstico do banco de dados SQL do Azure
 
 O SQL do Azure é um mecanismo de banco de dados PaaS (plataforma como serviço) totalmente gerenciado que lida com a maioria das funções de gerenciamento de banco de dados, como atualização, aplicação de patches, backups e monitoramento, sem envolvimento do usuário. 
 
-O conector do banco de dados SQL do Azure permite que você transmita os logs de auditoria e diagnóstico de seus bancos em Sentinel, permitindo que você monitore continuamente a atividade em todas as suas instâncias.
+O conector do banco de dados SQL do Azure permite que você transmita os logs de auditoria e diagnóstico de seus bancos para o Azure Sentinel, permitindo que você monitore continuamente a atividade em todas as suas instâncias.
 
-- A conexão de logs de diagnóstico permite que você envie logs de diagnóstico de banco de dados de diferentes tipos para seu espaço de trabalho do Sentinel.
+- A conexão de logs de diagnóstico permite que você envie logs de diagnóstico de banco de dados de tipos diferentes para seu espaço de trabalho do Azure Sentinel.
 
 - Conectar logs de auditoria permite que você transmita logs de auditoria de segurança de todos os seus bancos de dados SQL do Azure no nível do servidor.
 

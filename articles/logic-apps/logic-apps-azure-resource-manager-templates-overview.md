@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 11/06/2020
-ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 2e1536d4f2ea7d71691c611e9127109c154f3266
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96009765"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807336"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Visão geral: automatizar a implantação para aplicativos lógicos do Azure usando modelos de Azure Resource Manager
 
@@ -331,11 +331,11 @@ Aqui estão os atributos que são específicos para sua definição de recurso d
 | Atributo | Obrigatório | Type | Descrição |
 |-----------|----------|------|-------------|
 | `state` | Sim | String | O estado do aplicativo lógico na implantação, em que `Enabled` significa que seu aplicativo lógico está ativo e `Disabled` significa que seu aplicativo lógico está inativo. Por exemplo, se você não estiver pronto para que seu aplicativo lógico fique ativo, mas queira implantar uma versão de rascunho, você poderá usar a `Disabled` opção. |
-| `integrationAccount` | No | Objeto | Se seu aplicativo lógico usa uma conta de integração, que armazena artefatos para cenários B2B (entre empresas), esse objeto inclui o `id` atributo, que especifica a ID da conta de integração. |
+| `integrationAccount` | Não | Objeto | Se seu aplicativo lógico usa uma conta de integração, que armazena artefatos para cenários B2B (entre empresas), esse objeto inclui o `id` atributo, que especifica a ID da conta de integração. |
 | `definition` | Sim | Objeto | A definição de fluxo de trabalho subjacente do aplicativo lógico, que é o mesmo objeto que aparece na exibição de código e é totalmente descrita no tópico [referência de esquema para linguagem de definição de fluxo de trabalho](../logic-apps/logic-apps-workflow-definition-language.md) . Nesta definição de fluxo de trabalho, o `parameters` objeto declara parâmetros para os valores a serem usados no tempo de execução do aplicativo lógico. Para obter mais informações, consulte [definição de fluxo de trabalho e parâmetros](#workflow-definition-parameters). <p><p>Para exibir os atributos na definição de fluxo de trabalho do aplicativo lógico, alterne de "modo de exibição de design" para "exibição de código" no portal do Azure ou no Visual Studio ou usando uma ferramenta como [Azure Resource Explorer](https://resources.azure.com). |
-| `parameters` | No | Objeto | Os [valores de parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) a serem usados no tempo de execução do aplicativo lógico As definições de parâmetro para esses valores aparecem dentro do [objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters). Além disso, se seu aplicativo lógico usar [conectores gerenciados](../connectors/apis-list.md) para acessar outros serviços e sistemas, esse objeto incluirá um `$connections` objeto que define os valores de conexão a serem usados no tempo de execução. |
-| `accessControl` | No | Objeto | Para especificar atributos de segurança para seu aplicativo lógico, como restringir o acesso IP para solicitações de gatilhos ou entradas e saídas de histórico de execução. Para obter mais informações, consulte [proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md). |
-| `runtimeConfiguration` | No | Objeto | Para especificar qualquer `operationOptions` propriedade que controle a forma como seu aplicativo lógico se comporta em tempo de execução. Por exemplo, você pode executar seu aplicativo lógico no [modo de alta taxa de transferência](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
+| `parameters` | Não | Objeto | Os [valores de parâmetro de definição de fluxo de trabalho](#workflow-definition-parameters) a serem usados no tempo de execução do aplicativo lógico As definições de parâmetro para esses valores aparecem dentro do [objeto de parâmetros da definição de fluxo de trabalho](#workflow-definition-parameters). Além disso, se seu aplicativo lógico usar [conectores gerenciados](../connectors/apis-list.md) para acessar outros serviços e sistemas, esse objeto incluirá um `$connections` objeto que define os valores de conexão a serem usados no tempo de execução. |
+| `accessControl` | Não | Objeto | Para especificar atributos de segurança para seu aplicativo lógico, como restringir o acesso IP para solicitações de gatilhos ou entradas e saídas de histórico de execução. Para obter mais informações, consulte [proteger o acesso aos aplicativos lógicos](../logic-apps/logic-apps-securing-a-logic-app.md). |
+| `runtimeConfiguration` | Não | Objeto | Para especificar qualquer `operationOptions` propriedade que controle a forma como seu aplicativo lógico se comporta em tempo de execução. Por exemplo, você pode executar seu aplicativo lógico no [modo de alta taxa de transferência](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
 |||||
 
 Para obter mais informações sobre definições de recursos para esses objetos de aplicativos lógicos, consulte [tipos de recursos Microsoft. Logic](/azure/templates/microsoft.logic/allversions):
@@ -627,7 +627,7 @@ Quando seu aplicativo lógico cria e usa conexões com outros serviços e sistem
 }
 ```
 
-As definições de recurso de conexão fazem referência aos parâmetros de nível superior do modelo para seus valores, o que significa que você pode fornecer esses valores na implantação usando um arquivo de parâmetros. Verifique se as conexões usam o mesmo grupo de recursos do Azure e o mesmo local que seu aplicativo lógico.
+As definições de recurso de conexão fazem referência aos parâmetros de nível superior do modelo para seus valores, para que você possa fornecer esses valores na implantação usando um arquivo de parâmetros. Verifique se as conexões usam o mesmo grupo de recursos do Azure e o mesmo local que seu aplicativo lógico.
 
 Aqui está um exemplo de definição de recurso para uma conexão do Outlook do Office 365 e os parâmetros de modelo correspondentes:
 
@@ -746,12 +746,12 @@ Este exemplo mostra as interações entre a definição de recurso do aplicativo
                      }
                   }
                }
-            },
-            <other-logic-app-resource-information>,
-            "dependsOn": [
-               "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
-            ]
-         }
+            }
+         },
+         <other-logic-app-resource-information>,
+         "dependsOn": [
+            "[resourceId('Microsoft.Web/connections', parameters('office365_1_Connection_Name'))]"
+         ]
          // End logic app resource definition
       },
       // Office 365 Outlook API connection resource definition

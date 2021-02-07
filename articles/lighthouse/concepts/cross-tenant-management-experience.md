@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 02/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 5180b2c28bc1157cb785c04f794cc5c9636764c8
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576677"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805167"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -143,7 +143,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 - Gerenciar recursos do Azure Sentinel [em locatários do cliente](../../sentinel/multiple-tenants-service-providers.md)
 - [Acompanhar ataques e exibir alertas de segurança em vários locatários](https://techcommunity.microsoft.com/t5/azure-sentinel/using-azure-lighthouse-and-azure-sentinel-to-monitor-across/ba-p/1043899)
-- [Exibir incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Sentinel distribuídos entre locatários
+- [Exibir incidentes](../../sentinel/multiple-workspace-view.md) em vários espaços de trabalho do Azure Sentinel distribuídos entre locatários
 
 [Integridade do Serviço do Azure](../../service-health/index.yml):
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d625cb8e0d0fa0f2fff55fbd41818057b7e9cb89
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217644"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806911"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Linha de base de segurança do Azure para o IP público do Azure
 
@@ -436,7 +436,7 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretrizes**: exporte seus alertas e recomendações da central de segurança usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Sentinel.
+**Diretrizes**: exporte seus alertas e recomendações da central de segurança usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 - [Como configurar a exportação contínua](../security-center/continuous-export.md)
 
