@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4bda3622c1bb1cb66e83b82df0d13cbfee9e20a3
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878114"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807862"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de base de segurança do Azure para o Firewall do aplicativo Web do Azure
 
@@ -135,7 +135,7 @@ Escolha Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em r
 
 **Orientação**: configurar logs do WAF (firewall do aplicativo Web) do Azure para serem enviados a uma solução de gerenciamento de log de segurança central, como o Azure Sentinel ou um Siem de terceiros. Esses logs incluem atividade do Azure, diagnóstico e logs de WAF em tempo real, esses logs podem ser exibidos em diferentes ferramentas, como Azure Monitor, Excel e Power BI. Os logs de firewall do aplicativo Web do Azure fornecem informações sobre quais dados a WAF do Azure está avaliando, correspondendo e bloqueando.
 
-O Azure Sentinel tem uma pasta de trabalho interna do Azure WAF, que fornece uma visão geral dos eventos de segurança no WAF do Azure. Esta pasta de trabalho inclui eventos, regras de correspondência e bloqueadas e todo o resto que é registrado nos logs de firewall. Essa telemetria pode ser usada para disparar a automação do guia estratégico para notificar ou realizar ações de correção com base nos eventos WAF coletados pelo sentinela.
+O Azure Sentinel tem uma pasta de trabalho interna do Azure WAF, que fornece uma visão geral dos eventos de segurança no WAF do Azure. Esta pasta de trabalho inclui eventos, regras de correspondência e bloqueadas e todo o resto que é registrado nos logs de firewall. Essa telemetria pode ser usada para disparar a automação do guia estratégico para notificar ou realizar ações de correção com base nos eventos WAF coletados pelo Azure Sentinel.
 
 - [Exibir logs de atividade](../azure-resource-manager/management/view-activity-logs.md)
 

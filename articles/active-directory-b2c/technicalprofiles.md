@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66172fc9e258ae99e8ed263342025f5c33f7a168
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5eff20ecb1366114ead80877b684ef512742803b
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219665"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805387"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -86,7 +86,7 @@ O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 |---------|---------|---------|
-| ID | Yes | Um identificador exclusivo do perfil técnico. O perfil técnico pode ser referenciado usando esse identificador em outros elementos no arquivo de política. Por exemplo, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
+| ID | Sim | Um identificador exclusivo do perfil técnico. O perfil técnico pode ser referenciado usando esse identificador em outros elementos no arquivo de política. Por exemplo, **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 
@@ -120,8 +120,8 @@ O **protocolo** especifica o protocolo a ser usado para a comunicação com a ou
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Yes | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
-| Manipulador | No | Quando o nome do protocolo é definido como `Proprietary` , especifique o nome do assembly que é usado pelo Azure ad B2C para determinar o manipulador de protocolo. |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
+| Manipulador | Não | Quando o nome do protocolo é definido como `Proprietary` , especifique o nome do assembly que é usado pelo Azure ad B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
 
@@ -137,7 +137,7 @@ O elemento **Item** do elemento **Metadata** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Chave | Yes | A chave de metadados. Consulte cada [tipo de perfil técnico](#type-of-technical-profiles)para obter a lista de itens de metadados. |
+| Chave | Sim | A chave de metadados. Consulte cada [tipo de perfil técnico](#type-of-technical-profiles)para obter a lista de itens de metadados. |
 
 O exemplo a seguir ilustra o uso de metadados relevantes para o [perfil técnico do OAuth2](oauth2-technical-profile.md#metadata).
 
@@ -191,8 +191,8 @@ O elemento **Key** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | No | Um identificador exclusivo de um par de chaves específico referenciado por outros elementos no arquivo de política. |
-| StorageReferenceId | Yes | Um identificador de um contêiner de chave de armazenamento referenciado por outros elementos no arquivo de política. |
+| ID | Não | Um identificador exclusivo de um par de chaves específico referenciado por outros elementos no arquivo de política. |
+| StorageReferenceId | Sim | Um identificador de um contêiner de chave de armazenamento referenciado por outros elementos no arquivo de política. |
 
 ## <a name="input-claims-transformations"></a>Transformações de declarações de entrada
 
@@ -212,7 +212,7 @@ O elemento **InputClaimsTransformation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
+| ReferenceId | Sim | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
 
 Os perfis técnicos a seguir fazem referência à transformação de declarações **CreateOtherMailsFromEmail** . A transformação declarações adiciona o valor da `email` declaração à `otherMails` coleção, antes de persistir os dados para o diretório.
 
@@ -251,9 +251,9 @@ O elemento **InputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | O identificador de um tipo de declaração. A declaração já está definida na seção esquema de declarações no arquivo de política ou no arquivo de política pai. |
-| DefaultValue | No | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
-| PartnerClaimType | No | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo PartnerClaimType não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro com o mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
+| ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração. A declaração já está definida na seção esquema de declarações no arquivo de política ou no arquivo de política pai. |
+| DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração indicada por ClaimTypeReferenceId não existir. Assim, a declaração resultante poderá ser usada como um InputClaim pelo perfil técnico. |
+| PartnerClaimType | Não | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo PartnerClaimType não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro com o mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
 
 ## <a name="display-claims"></a>Exibir declarações
 
@@ -279,8 +279,8 @@ O elemento **DisplayClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | No | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
-| DisplayControlReferenceId | No | O identificador de um [controle de exibição](display-controls.md) já definido na seção de ClaimsSchema no arquivo de política ou de política pai. |
+| ClaimTypeReferenceId | Não | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
+| DisplayControlReferenceId | Não | O identificador de um [controle de exibição](display-controls.md) já definido na seção de ClaimsSchema no arquivo de política ou de política pai. |
 | Obrigatório | No | Indica se a declaração de exibição é necessária. |
 
 O exemplo a seguir ilustra o uso de declarações de exibição e controles de exibição com o em um perfil técnico autodeclarado.
@@ -325,9 +325,9 @@ O elemento **PersistedClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
-| DefaultValue | No | Um valor padrão a ser usado para criar uma declaração se a declaração não existir. |
-| PartnerClaimType | No | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo PartnerClaimType não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro com o mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
+| ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
+| DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração não existir. |
+| PartnerClaimType | Não | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo PartnerClaimType não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro com o mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
 
 No exemplo a seguir, o perfil técnico do **AAD-UserWriteUsingLogonEmail** ou o [pacote de início](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/SocialAndLocalAccounts), que cria uma nova conta local, persiste as seguintes declarações:
 
@@ -356,10 +356,10 @@ O elemento **OutputClaim** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | Yes | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
-| DefaultValue | No | Um valor padrão a ser usado para criar uma declaração se a declaração não existir. |
-|AlwaysUseDefaultValue |No |Força o uso do valor padrão.  |
-| PartnerClaimType | No | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo de tipo de declaração de parceiro não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro do mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
+| ClaimTypeReferenceId | Sim | O identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política ou no arquivo de política pai. |
+| DefaultValue | Não | Um valor padrão a ser usado para criar uma declaração se a declaração não existir. |
+|AlwaysUseDefaultValue |Não |Força o uso do valor padrão.  |
+| PartnerClaimType | Não | O identificador do tipo de declaração do parceiro externo para o qual o tipo de declaração da política especificado é mapeado. Se o atributo de tipo de declaração de parceiro não for especificado, o tipo de declaração de política especificado será mapeado para o tipo de declaração de parceiro do mesmo nome. Use essa propriedade quando seu nome do tipo de declaração for diferente do da outra parte. Por exemplo, o primeira nome da declaração é 'givenName', enquanto o parceiro usa uma declaração chamada 'first_name'. |
 
 ## <a name="output-claims-transformations"></a>Transformações de declarações de saída
 
@@ -379,7 +379,7 @@ O elemento **OutputClaimsTransformation** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
+| ReferenceId | Sim | Um identificador de uma transformação de declarações já definido no arquivo de política ou no arquivo de política pai. |
 
 O seguinte perfil técnico faz referência à transformação de declarações AssertAccountEnabledIsTrue para avaliar se a conta está habilitada ou não depois de ler a `accountEnabled` declaração do diretório.    
 
@@ -422,7 +422,7 @@ O elemento **ValidationTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
 ## <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
@@ -430,7 +430,7 @@ O **SubjectNamingInfo** define o nome da entidade usada em tokens em uma políti
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ClaimType | Yes | Um identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política. |
+| ClaimType | Sim | Um identificador de um tipo de declaração já definido na seção ClaimsSchema no arquivo de política. |
 
 ## <a name="include-technical-profile"></a>Incluir perfil técnico
 
@@ -442,20 +442,20 @@ O elemento **IncludeTechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
 
 O exemplo a seguir ilustra o uso da inclusão:
 
 - *REST-API-comum* -um perfil técnico comum com a configuração básica.
-- *REST-ValidateProfile* -inclui o perfil técnico *REST-API-commom* e especifica as declarações de entrada e saída.
-- *REST-UpdateProfile* -inclui o perfil técnico *REST-API-commom* , especifica as declarações de entrada e substitui os `ServiceUrl` metadados.
+- *REST-ValidateProfile* -inclui o perfil técnico *REST-API-comum* e especifica as declarações de entrada e saída.
+- *REST-UpdateProfile* -inclui o perfil técnico *REST-API-comum* , especifica as declarações de entrada e substitui os `ServiceUrl` metadados.
 
 ```xml
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    <TechnicalProfile Id="REST-API-Commom">
+    <TechnicalProfile Id="REST-API-Common">
       <DisplayName>Base REST API configuration</DisplayName>
       <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.RestfulProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
       <Metadata>
@@ -480,7 +480,7 @@ O exemplo a seguir ilustra o uso da inclusão:
       <OutputClaims>
         <OutputClaim ClaimTypeReferenceId="promoCode" />
       </OutputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
 
     <TechnicalProfile Id="REST-UpdateProfile">
@@ -492,7 +492,7 @@ O exemplo a seguir ilustra o uso da inclusão:
         <InputClaim ClaimTypeReferenceId="objectId" />
         <InputClaim ClaimTypeReferenceId="email" />
       </InputClaims>
-      <IncludeTechnicalProfile ReferenceId="REST-API-Commom" />
+      <IncludeTechnicalProfile ReferenceId="REST-API-Common" />
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
@@ -551,7 +551,7 @@ O perfil técnico de referência do elemento **UseTechnicalProfileForSessionMana
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ReferenceId | Yes | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
+| ReferenceId | Sim | Um identificador de um perfil técnico já definido no arquivo de política ou no arquivo de política pai. |
 
 ## <a name="enabled-for-user-journeys"></a>Habilitado para viagens do usuário
 

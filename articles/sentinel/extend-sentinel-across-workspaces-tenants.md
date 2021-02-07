@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 4312a819f8fd41805dca095556efdc6189f23af9
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: dfd8f94dc7ab4e428647b8f44a86a2cd06634e2a
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757112"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807234"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estender o Azure Sentinel entre workspaces e locatários
 
@@ -127,7 +127,7 @@ Os recursos de busca entre espaços de trabalho permitem que suas caçadores de 
 
 Para configurar e gerenciar vários espaços de trabalho do Azure Sentinel, você precisará automatizar o uso da API de gerenciamento do Sentinela do Azure. Para obter mais informações sobre como automatizar a implantação de recursos do Azure Sentinel, incluindo regras de alerta, consultas de busca, pastas de trabalho e guias estratégicos, consulte [estendendo o Azure sentinela: APIs, integração e automação de gerenciamento](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
-Consulte também [Implantando e gerenciando o Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Azure Lighthouse com os recursos de DevOps do Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada, contribuida pela Comunidade para gerenciar o Azure Sentinel como código e para implantar e configurar recursos de um repositório GitHub privado. 
+Consulte também [Implantando e gerenciando o Azure Sentinel como código](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinando o Azure Lighthouse com os recursos de DevOps do Azure Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) para uma metodologia consolidada e contribuida pela Comunidade para gerenciar o Azure Sentinel como código e para implantar e configurar recursos de um repositório GitHub privado. 
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gerenciando espaços de trabalho entre locatários usando o Azure Lighthouse
 

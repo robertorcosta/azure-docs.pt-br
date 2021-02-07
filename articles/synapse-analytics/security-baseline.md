@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 89a437504394797b8cbed5325210186248082c33
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 5e2f6d8ca1f3911959f396eb1ed77ce8377c0e3c
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218223"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807828"
 ---
 # <a name="azure-security-baseline-for-azure-synapse-analytics"></a>Linha de base de segurança do Azure para o Azure Synapse Analytics
 
@@ -1111,7 +1111,7 @@ Por padrão, os dados em uma conta de armazenamento são criptografados com chav
 
 ### <a name="105-incorporate-security-alerts-into-your-incident-response-system"></a>10.5: incorporar alertas de segurança em seu sistema de resposta a incidentes
 
-**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da central de segurança do Azure para transmitir os alertas para o sentinela.
+**Diretriz**: exporte os alertas e recomendações da Central de Segurança do Azure usando o recurso de exportação contínua. A exportação contínua permite exportar alertas e recomendações de forma manual ou contínua. Você pode usar o conector de dados da Central de Segurança do Azure para transmitir os alertas do Azure Sentinel.
 
 * [Como configurar a exportação contínua](../security-center/continuous-export.md)
 

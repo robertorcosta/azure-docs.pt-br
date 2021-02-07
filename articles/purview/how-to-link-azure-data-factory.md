@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/22/2020
-ms.openlocfilehash: 0e993cb1e53645f7081a20fc6a2785b8cfef1cce
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 010cfc307d2b2c10c31168fce73673fb1fb611b8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954168"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807641"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -107,29 +107,29 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 
 ### <a name="data-factory-copy-data-support"></a>Suporte ao Data Factory Copiar Dados
 
-| Sistema de armazenamento de dados | Tem suporte como origem | Tem suporte como coletor |
-| ------------------- | ------------------- | ----------------- |
-| ADLS Gen1 | Sim | Sim (somente cópia não binária) |
-| ADLS Gen2 | Sim | Sim |
-| Blob do Azure | Sim | Sim |
-| Azure Cosmos DB (API do SQL) | Sim | Sim |
-| Azure Cosmos DB (API Mongo) | Sim | Sim |
-| Pesquisa Cognitiva do Azure | Sim | Sim |
-| Azure Data Explorer | Sim | Sim |
-| Banco de dados do Azure para Maria DB \* | Sim | Sim |
-| Banco de dados do Azure para MYSQL \* | Sim | Sim |
-| Banco de dados do Azure para PostgreSQL \* | Sim | Sim |
-| Armazenamento de Arquivos do Azure | Sim | Sim |
-| Armazenamento de Tabelas do Azure | Sim | Sim |
-| Banco de dados SQL do Azure \* | Sim | Sim |
-| MI SQL do Azure \* | Sim | Sim |
-| Azure Synapse Analytics (antigo SQL DW) \* | Sim | Sim |
-| SQL Server local (SHIR obrigatório) \* | Sim | Sim |
-| Amazon S3 | Sim | Sim |
-| Teradata | Sim | Sim |
-| SAP S4 Hana | Sim | Sim |
-| SAP ECC | Sim | Sim |
-| Hive | Sim | Sim |
+| Sistema de armazenamento de dados | Tem suporte como origem | 
+| ------------------- | ------------------- | 
+| ADLS Gen1 | Sim | 
+| ADLS Gen2 | Sim | 
+| Blob do Azure | Sim |
+| Azure Cosmos DB (API do SQL) | Sim | 
+| Azure Cosmos DB (API Mongo) | Sim |
+| Azure Cognitive Search | Sim | 
+| Azure Data Explorer | Sim | 
+| Banco de dados do Azure para Maria DB \* | Sim | 
+| Banco de dados do Azure para MYSQL \* | Sim | 
+| Banco de dados do Azure para PostgreSQL \* | Sim |
+| Armazenamento de Arquivos do Azure | Sim | 
+| Armazenamento de Tabelas do Azure | Sim |
+| Banco de dados SQL do Azure \* | Sim | 
+| MI SQL do Azure \* | Sim | 
+| Azure Synapse Analytics (antigo SQL DW) \* | Sim | 
+| SQL Server local  \* | Sim | 
+| Amazon S3 | Sim | 
+| Teradata | Sim | 
+| Conector de tabela SAP | Sim |
+| SAP ECC | Sim | 
+| Hive | Sim | 
 
 > [!Note]
 > O recurso de linhagem tem determinada sobrecarga de desempenho na Data Factory atividade de cópia. Para aqueles que configuram data factory conexões no alcance, você pode observar que alguns trabalhos de cópia demoram mais para serem concluídos. Na maioria das vezes, o impacto é nenhum para insignificante. Entre em contato com o suporte com a comparação de tempo se os trabalhos de cópia demorarem significativamente mais para concluir do que o normal.
@@ -137,7 +137,7 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 ### <a name="data-factory-data-flow-support"></a>Suporte a Data Factory de fluxo de dados
 
 | Sistema de armazenamento de dados | Com suporte |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- | 
 | ADLS Gen1 | Sim |
 | ADLS Gen2 | Sim |
 | Blob do Azure | Sim |
@@ -147,7 +147,7 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 ### <a name="data-factory-execute-ssis-package-support"></a>Data Factory executar suporte a pacotes SSIS
 
 | Sistema de armazenamento de dados | Com suporte |
-| ------------------- | ------------------- | ----------------- |
+| ------------------- | ------------------- |
 | Blob do Azure | Sim |
 | ADLS Gen1 | Sim |
 | ADLS Gen2 | Sim |

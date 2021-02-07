@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2020
-ms.openlocfilehash: eb20bf4164cb2153f6786dbec04f79453554fa25
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: bde1c503d0aaaff1afcee67a26245d5021c43bb4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95995855"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807743"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solução de gerenciamento do Office 365 no Microsoft Azure | (Versão prévia)
 
@@ -109,7 +109,7 @@ ms.locfileid: "95995855"
 > - Se você não transferir sua solução manualmente até 31 de outubro, seus dados serão desconectados automaticamente e a tabela **OfficeActivity** será removida. Mesmo assim, você ainda poderá restaurar a tabela quando habilitar o conector do Office 365 no Azure Sentinel, conforme explicado abaixo.
 > 
 > ### <a name="q-will-my-data-transfer-to-the-new-solution"></a>P: meus dados serão transferidos para a nova solução?
-> Sim. Quando você remove a solução do **Office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector do **Office 365** no sentinela, o esquema é restaurado para o espaço de trabalho e todos os dados já coletados ficarão disponíveis. 
+> Sim. Quando você remove a solução do **Office 365** do seu espaço de trabalho, seus dados ficarão temporariamente indisponíveis porque o esquema é removido. Quando você habilita o novo conector do **Office 365** no Azure Sentinel, o esquema é restaurado para o espaço de trabalho e todos os dados já coletados ficarão disponíveis. 
  
 
 A solução de gerenciamento do Office 365 permite que você monitore o ambiente do Office 365 no Azure Monitor.
@@ -245,7 +245,7 @@ O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principa
 
 | Coluna | Descrição |
 |:--|:--|
-| Operations | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
+| Operações | Fornece informações sobre os usuários ativos de todas as suas assinaturas do Office 365 monitoradas. Você também poderá ver o número de atividades que ocorrem ao longo do tempo.
 | Exchange | Mostra a análise das atividades do Exchange Server, como a permissão Add-Mailbox ou Set-Mailbox. |
 | SharePoint | Mostra as principais atividades que os usuários executam em documentos do SharePoint. Quando você faz drill down desse bloco, a página de pesquisa mostra os detalhes dessas atividades, como o documento de destino e o local dessa atividade. Por exemplo, para um evento acessado por arquivo, você poderá ver o documento que está sendo acessado, o nome da conta associada e o endereço IP. |
 | Azure Active Directory | Inclui as principais atividades do usuário, como Tentativas de Logon e de Redefinição de Senha do Usuário. Quando você fizer o drill down, poderá ver os detalhes dessas atividades como o Status do Resultado. Isso é mais útil se você desejar monitorar atividades suspeitas no Azure Active Directory. |

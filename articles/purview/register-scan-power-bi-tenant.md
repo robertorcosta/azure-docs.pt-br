@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/19/2020
-ms.openlocfilehash: 5f42b5f2b2a7660ee0de975068f64572c470503a
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 78187b2cbb6603a0ae0df55465b9a5ce5e7dca7f
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98874899"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807539"
 ---
 # <a name="register-and-scan-a-power-bi-tenant-preview"></a>Registrar e verificar um locatário Power BI (versão prévia)
 
@@ -84,7 +84,7 @@ Primeiro, adicione um sinalizador de recurso especial à URL do alcance
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/select-power-bi-data-source.png" alt-text="Imagem mostrando a lista de fontes de dados disponíveis para escolher":::
 
-1. Dê um nome amigável à instância de Power BI.
+3. Dê um nome amigável à instância de Power BI.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-friendly-name.png" alt-text="Imagem mostrando Power BI nome amigável da fonte de dados":::
 
@@ -94,17 +94,21 @@ Primeiro, adicione um sinalizador de recurso especial à URL do alcance
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-datasource-registered.png" alt-text="Power BI fonte de dados registrada":::
 
-1. Dê um nome à sua verificação. Observe que o único método de autenticação com suporte é de **identidade gerenciada**.
+    > [!Note]
+    > Por Power BI, o registro e a verificação da fonte de dados são permitidos para apenas uma instância.
+
+
+4. Dê um nome à sua verificação. Observe que o único método de autenticação com suporte é de **identidade gerenciada**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-scan-setup.png" alt-text="Imagem mostrando a configuração da verificação de Power BI":::
 
     O nome da verificação deve ter entre 3-63 e caracteres de comprimento e deve conter apenas letras, números, sublinhados e hifens.  Não são permitidos espaços.
 
-1. Configurar um gatilho de verificação. Suas opções são **uma vez**, a **cada 7 dias** e a **cada 30 dias**.
+5. Configurar um gatilho de verificação. Suas opções são **uma vez**, a **cada 7 dias** e a **cada 30 dias**.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/scan-trigger.png" alt-text="Imagem do gatilho de verificação":::
 
-1. Em **examinar nova verificação**, selecione **salvar e executar** para iniciar a verificação.
+6. Em **examinar nova verificação**, selecione **salvar e executar** para iniciar a verificação.
 
     :::image type="content" source="media/setup-power-bi-scan-catalog-portal/save-run-power-bi-scan.png" alt-text="Salvar e executar Power BI imagem da tela":::
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.author: yelevin
-ms.openlocfilehash: 6a891a301d5869603a7d90d28bb9063d7d5bdb1d
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.openlocfilehash: f8d795dcf64230140e1dd07e3f30ca3aa6825ab4
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
-ms.locfileid: "94660569"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806996"
 ---
 # <a name="bring-your-own-machine-learning-ml-into-azure-sentinel"></a>Traga seu próprio Machine Learning (ML) para o Azure Sentinel
 
@@ -32,7 +32,7 @@ Os modelos de detecção de ML podem se adaptar a ambientes individuais e a alte
 
 ## <a name="what-is-the-bring-your-own-machine-learning-byo-ml-platform"></a>O que é a plataforma traga sua própria Machine Learning (BYO-ML)?
 
-Para organizações que têm recursos de ML e gostaria de criar modelos de ML personalizados para suas necessidades de negócios exclusivas, oferecemos a **plataforma BYO-ml**. A plataforma usa o ambiente de [Azure Databricks](/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) Azure Databricks e notebooks Jupyter para produzir o ambiente de ml. Ele fornece os seguintes componentes:
+Para organizações que têm recursos de ML e gostaria de criar modelos de ML personalizados para suas necessidades de negócios exclusivas, oferecemos a **plataforma BYO-ml**. A plataforma usa o ambiente de [](/azure/databricks/scenarios/what-is-azure-databricks) / [Apache Spark](http://spark.apache.org/) Azure Databricks e notebooks Jupyter para produzir o ambiente de ml. Ele fornece os seguintes componentes:
 
 - um pacote BYO-ML, que inclui bibliotecas para ajudá-lo a acessar dados e enviar os resultados por push para Log Analytics (LA), para que você possa integrar os resultados com sua detecção, investigação e busca. 
 
@@ -82,7 +82,7 @@ O pacote ML BYO inclui as práticas recomendadas e a pesquisa da Microsoft no fr
 | Nome do arquivo | Descrição |
 | --------- | ----------- |
 | azure_sentinel_utilities. WHL | Contém utilitários para a leitura de BLOBs do Azure e gravação no Log Analytics. |
-| AnomalousRASampleData | O notebook demonstra o uso do modelo de acesso a recursos anormais no sentinela com dados de exemplo de treinamento e teste gerados. |
+| AnomalousRASampleData | O notebook demonstra o uso do modelo de acesso a recursos anormais no Azure Sentinel com dados de exemplo de treinamento e teste gerados. |
 | AnomalousRATraining. ipynb | Notebook para treinar o algoritmo, criar e salvar os modelos. |
 | AnomalousRAScoring. ipynb | Bloco de anotações para agendar o modelo a ser executado, Visualizar o resultado e gravar a pontuação de volta no Azure Sentinel. |
 |
@@ -99,7 +99,7 @@ Você precisará configurar seu próprio ambiente do databricks se ainda não ti
 
 ### <a name="auto-export-instruction"></a>Instrução de exportação automática
 
-Para criar modelos de ML personalizados com base em seus próprios dados no sentinela, você precisará exportar seus dados de Log Analytics para um armazenamento de BLOBs ou recurso de Hub de eventos, para que o modelo de ML possa acessá-lo do databricks. Saiba como [incluir dados no Azure Sentinel](connect-data-sources.md).
+Para criar modelos de ML personalizados com base em seus próprios dados no Azure Sentinel, você precisará exportar seus dados do Log Analytics para um armazenamento de BLOBs ou recurso do hub de eventos, para que o modelo ML possa acessá-lo do databricks. Saiba como [incluir dados no Azure Sentinel](connect-data-sources.md).
 
 Para este exemplo, você precisa ter seus dados de treinamento para o log de acesso de compartilhamento de arquivos no armazenamento de BLOBs do Azure. O formato dos dados é documentado no bloco de anotações e nas bibliotecas.
 
@@ -141,7 +141,7 @@ Para dados personalizados que não têm suporte pelo Log Analytics exportação 
 
 ### <a name="correlate-with-data-outside-of-azure-sentinel"></a>Correlacione-se com dados fora do Azure Sentinel
 
-Você também pode trazer dados de fora do Azure Sentinel para o armazenamento de BLOBs ou Hub de eventos e correlacioná-los com os dados do sentinela para criar seus modelos de ML. 
+Você também pode trazer dados de fora do Azure Sentinel para o armazenamento de BLOBs ou Hub de eventos e correlacioná-los com os dados do Azure Sentinel para criar seus modelos de ML. 
  
 ### <a name="copy-and-install-the-related-packages"></a>Copiar e instalar os pacotes relacionados
 

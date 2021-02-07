@@ -1,6 +1,6 @@
 ---
 title: Conectar dados do syslog ao Azure Sentinel | Microsoft Docs
-description: Conecte qualquer computador ou dispositivo que dê suporte a syslog para o Azure Sentinel usando um agente em um computador Linux entre o dispositivo e o sentinela.
+description: Conecte qualquer computador ou dispositivo que dê suporte a syslog para o Azure Sentinel usando um agente em um computador Linux entre o dispositivo e o Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: 8c3cf4c3c135b3f275542af4f531d1071e180ebe
-ms.sourcegitcommit: 3c8964a946e3b2343eaf8aba54dee41b89acc123
+ms.openlocfilehash: 35c8c2aa31887feb294b04b8a88bbe5478659e5e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98747183"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807896"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Coletar dados de fontes baseadas em Linux usando syslog
 
@@ -77,7 +77,7 @@ Para obter mais informações, consulte [syslog Data Sources in Azure monitor](.
 
 1. Depois de adicionar todos os recursos que você deseja monitorar e ajustar as opções de severidade para cada um deles, marque a caixa de seleção **aplicar a configuração abaixo a meus computadores**.
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
 1. Em sua VM ou dispositivo, certifique-se de que você está enviando os recursos que você especificou.
 

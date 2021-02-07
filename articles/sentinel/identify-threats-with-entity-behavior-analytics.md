@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: yelevin
-ms.openlocfilehash: 7944ea48feaca1eb8312e01d876bf9627af429d1
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 458c801e1434832bf65da669ca89cb5c5eebe2e8
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98784788"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807556"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificar ameaças avançadas com UEBA (análise de comportamentos de usuário e entidade) no Azure Sentinel
 
 > [!IMPORTANT]
 >
-> - Os recursos de páginas de UEBA e entidade agora estão em **disponibilidade geral** em **_todas as_* regiões e Geografia do Azure Sentinel.
+> - Os recursos de páginas de UEBA e entidade agora estão em **disponibilidade geral** em **_todas as_** regiões e geografias do Azure Sentinel.
 
 ## <a name="what-is-user-and-entity-behavior-analytics-ueba"></a>O que é análise de comportamento de usuário e entidade (UEBA)?
 
@@ -35,7 +35,7 @@ Identificar ameaças dentro de sua organização e seu impacto potencial – sej
 
 O recurso UEBA no Azure Sentinel elimina o trabalho enfadonho das cargas de trabalho dos analistas e as incertezas de seus esforços, além de fornecer inteligência acionável e de alta fidelidade, para que eles possam se concentrar na investigação e na correção.
 
-À medida que o Azure Sentinel coleta logs e alertas de todas as suas fontes de dados conectadas, ele os analisa e cria perfis comportamentais de linha de base das entidades da sua organização (usuários, hosts, endereços IP, aplicativos etc.) ao longo do tempo e do horizonte do grupo de sistemas pares. Usando uma variedade de técnicas e recursos de aprendizado de máquina, o sentinela pode identificar a atividade anômala e ajudá-lo a determinar se um ativo foi comprometido. Não só isso, mas também pode descobrir a sensibilidade relativa de ativos específicos, identificar grupos de ativos de mesmo nível e avaliar o impacto potencial de qualquer ativo comprometido (seu "raio de transmissão"). Munido dessas informações, você pode priorizar efetivamente a investigação e o tratamento de incidentes. 
+Como o Azure Sentinel coleta logs e alertas de todas as suas fontes de dados conectadas, ele os analisa e cria perfis comportamentais de linha de base das entidades da sua organização (como usuários, hosts, endereços IP e aplicativos) ao longo do tempo e do horizonte do grupo de sistemas pares. Usando uma variedade de técnicas e recursos de aprendizado de máquina, o Azure Sentinel pode identificar a atividade anômala e ajudá-lo a determinar se um ativo foi comprometido. Não só isso, mas também pode descobrir a sensibilidade relativa de ativos específicos, identificar grupos de ativos de mesmo nível e avaliar o impacto potencial de qualquer ativo comprometido (seu "raio de transmissão"). Munido dessas informações, você pode priorizar efetivamente a investigação e o tratamento de incidentes. 
 
 ### <a name="architecture-overview"></a>Visão geral da arquitetura
 
@@ -45,7 +45,7 @@ O recurso UEBA no Azure Sentinel elimina o trabalho enfadonho das cargas de trab
 
 Inspirado pelo paradigma da Gartner para soluções UEBAs, o Azure Sentinel fornece uma abordagem "externa", com base em três quadros de referência:
 
-- _ *Casos de uso:** com a priorização de vetores de ataque e cenários relevantes com base na pesquisa de segurança alinhada com a estrutura de Mitre&ATT, técnicas e subtécnicas que coloca várias entidades como vítimas, criminosos ou pontos dinâmicos na cadeia de eliminação; O Azure Sentinel se concentra especificamente nos logs mais valiosos que cada fonte de dados pode fornecer.
+- **Casos de uso:** Com a priorização de vetores de ataque e cenários relevantes com base na pesquisa de segurança alinhada com a estrutura MITRE ATT&CK de táticas, técnicas e subtécnicas que coloca várias entidades como vítimas, criminosos ou pontos dinâmicos na cadeia de eliminação; O Azure Sentinel se concentra especificamente nos logs mais valiosos que cada fonte de dados pode fornecer.
 
 - **Fontes de dados:** Embora o suporte às fontes de dados do Azure seja o mais importante, o Azure Sentinel seleciona fontes de dados de terceiros para fornecer dados que correspondam aos nossos cenários de ameaça.
 
@@ -87,7 +87,7 @@ Os seguintes tipos de entidades estão atualmente identificados no Azure sentine
 - Endereço IP (IP)
 - Malware
 - Arquivo
-- Processo
+- Processar
 - Aplicativo de nuvem (CloudApplication)
 - Nome de domínio (DNS)
 - Recursos do Azure

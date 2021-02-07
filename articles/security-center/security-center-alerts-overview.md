@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.author: memildin
-ms.openlocfilehash: c1406e6a1f2f36c5d42544c52ade3f991fe2ba0a
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: b26d42ca32f0048bb2bedcb5fef337c3ac1d7d65
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96433012"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807217"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Alertas de segurança na Central de Segurança do Azure
 
@@ -23,7 +23,7 @@ Na central de segurança, há uma variedade de alertas para vários tipos de rec
 
 Os alertas de segurança são disparados por detecções avançadas e estão disponíveis somente com o Azure defender. Há uma avaliação gratuita disponível. Você pode atualizar da página de **configurações de & de preços** . Saiba mais sobre os [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="respond-to-todays-threats"></a>Responder às ameaças <a name="respond-threats"> </a> atuais
+## <a name="respond-to-todays-threats"></a>Responder às ameaças <a name="respond-threats"></a> atuais
 
 Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, pois podem ser financiados por Estados da nação ou crimes organizados.
 
@@ -91,7 +91,7 @@ Você tem uma variedade de opções para exibir seus alertas fora da central de 
 
 - **Baixar o relatório CSV** no painel alertas fornece uma única exportação para CSV.
 - A **exportação contínua** de configurações de & de preços permite que você configure fluxos de alertas de segurança e recomendações para log Analytics espaços de trabalho e hubs de eventos. [Saiba mais sobre a exportação contínua](continuous-export.md)
-- O **conector do Azure Sentinel** transmite alertas de segurança da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o sentinela](../sentinel/connect-azure-security-center.md)
+- O **conector do Azure Sentinel** transmite alertas de segurança da central de segurança do Azure para o Azure Sentinel. [Saiba mais sobre como conectar a central de segurança do Azure com o Azure Sentinel](../sentinel/connect-azure-security-center.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

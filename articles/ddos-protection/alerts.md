@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: d9b77def3ccefe3c866ccef78684d38da0b8a268
-ms.sourcegitcommit: 67b44a02af0c8d615b35ec5e57a29d21419d7668
+ms.openlocfilehash: ea62b5df7159440a7538c7db0711b7d8f63ec220
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97915140"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806283"
 ---
 # <a name="view-and-configure-ddos-protection-alerts"></a>Exibir e configurar os alertas da proteção contra DDoS
 
@@ -41,13 +41,13 @@ Neste tutorial, você aprenderá como:
 Com esses modelos, você poderá configurar alertas para todos os endereços IP públicos nos quais habilitou o log de diagnóstico. Portanto, para usar esses modelos de alerta, primeiro você precisará de um espaço de trabalho Log Analytics com as configurações de diagnóstico habilitadas. Consulte [Exibir e configurar o log de diagnóstico de DDoS](diagnostic-logging.md).
 
 ### <a name="azure-monitor-alert-rule"></a>Azure Monitor regra de alerta
-Essa [Azure monitor regra de alerta](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Azure%20Monitor%20Alert%20-%20DDoS%20Mitigation%20Started) executará uma consulta simples para detectar quando uma mitigação de DDoS ativa está ocorrendo. Isso indica um ataque potencial. Os grupos de ações podem ser usados para invocar ações como resultado do alerta.
+Essa [Azure monitor regra de alerta](https://aka.ms/ddosmitigationstatus) executará uma consulta simples para detectar quando uma mitigação de DDoS ativa está ocorrendo. Isso indica um ataque potencial. Os grupos de ações podem ser usados para invocar ações como resultado do alerta.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520Monitor%2520Alert%2520-%2520DDoS%2520Mitigation%2520Started%2FDDoSMitigationStarted.json)
 
 ### <a name="azure-monitor-alert-rule-with-logic-app"></a>Azure Monitor regra de alerta com o aplicativo lógico
 
-Este [modelo](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/DDoS%20Mitigation%20Alert%20Enrichment) implanta os componentes necessários de um alerta de mitigação de DDoS aprimorado: Azure monitor regra de alerta, grupo de ações e aplicativo lógico. O resultado do processo é um alerta de email com detalhes sobre o endereço IP sob ataque, incluindo informações sobre o recurso associado ao IP. O proprietário do recurso é adicionado como um destinatário do email, junto com a equipe de segurança. Um teste de disponibilidade de aplicativo básico também é executado e os resultados são incluídos no alerta de email.
+Este [modelo](https://aka.ms/ddosalert) implanta os componentes necessários de um alerta de mitigação de DDoS aprimorado: Azure monitor regra de alerta, grupo de ações e aplicativo lógico. O resultado do processo é um alerta de email com detalhes sobre o endereço IP sob ataque, incluindo informações sobre o recurso associado ao IP. O proprietário do recurso é adicionado como um destinatário do email, junto com a equipe de segurança. Um teste de disponibilidade de aplicativo básico também é executado e os resultados são incluídos no alerta de email.
 
 [![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FDDoS%2520Mitigation%2520Alert%2520Enrichment%2FEnrich-DDoSAlert.json)
 

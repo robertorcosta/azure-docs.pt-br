@@ -8,12 +8,12 @@ ms.date: 01/19/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 33af92c1987d9cd0c88e689dd7bafccadd60cb06
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: fad065795345314c58e83c8d2614ed01c9e78e49
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98612977"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99805522"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solução de problemas de sincronização de nuvem
 
@@ -164,7 +164,7 @@ A sincronização de nuvem monitora a integridade de sua configuração e coloca
 
 Ao selecionar o status, você poderá ver informações adicionais sobre a quarentena. Você também pode obter o código de erro e a mensagem.
 
-![Informações de status de quarentena](media/how-to-troubleshoot/quarantine-2.png)
+![Captura de tela que mostra informações adicionais sobre a quarentena.](media/how-to-troubleshoot/quarantine-2.png)
 
 Clicar com o botão direito do mouse no status abrirá opções adicionais:
     
@@ -172,11 +172,11 @@ Clicar com o botão direito do mouse no status abrirá opções adicionais:
    - Exibir agente
    - limpar quarentena
 
-![Informações de status de quarentena](media/how-to-troubleshoot/quarantine-4.png)
+![Captura de tela que mostra as opções de menu de clique com o botão direito do mouse.](media/how-to-troubleshoot/quarantine-4.png)
 
 
 ### <a name="resolve-a-quarantine"></a>Resolver uma quarentena
-Há duas maneiras diferentes de resolver uma quarentena.  Elas são:
+Há duas maneiras diferentes de resolver uma quarentena.  Eles são:
 
   - limpar quarentena-limpa a marca-d ' água e executa uma sincronização Delta
   - reiniciar o trabalho de provisionamento-limpa a marca-d ' água e executa uma sincronização inicial
@@ -186,7 +186,7 @@ Para limpar a marca-d ' água e executar uma sincronização Delta no trabalho d
 
 Você verá um aviso de que a quarentena está sendo limpa.
 
-![Informações de status de quarentena](media/how-to-troubleshoot/quarantine-5.png)
+![Captura de tela que mostra o aviso de que a quarentena está sendo limpa.](media/how-to-troubleshoot/quarantine-5.png)
 
 Em seguida, você deve ver o status em seu agente como íntegro.
 

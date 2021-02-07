@@ -1,6 +1,6 @@
 ---
 title: Integrar suas máquinas virtuais de Hub de Azure Stack ao Azure sentinela | Microsoft Docs
-description: Este artigo mostra como provisionar a extensão de máquina virtual de gerenciamento de Azure Monitor, atualização e configuração em máquinas virtuais de Hub Azure Stack e começar a monitorá-las com o sentinela.
+description: Este artigo mostra como provisionar a extensão de máquina virtual de gerenciamento de Azure Monitor, atualização e configuração em máquinas virtuais de Hub Azure Stack e começar a monitorá-las com o Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: 068296a02af0abd2fb18d284fdaf01b7c1b198fa
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 120f160e3c7bc7a9a0e81586ea4b97ee827dd33e
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631135"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807421"
 ---
 # <a name="connect-azure-stack-hub-virtual-machines-to-azure-sentinel"></a>Conectar máquinas virtuais do Hub Azure Stack ao sentinela do Azure
 
@@ -56,7 +56,7 @@ Para solução de problemas de agente do Linux, confira [Troubleshoot Azure Log 
 
 No portal do Azure Sentinel no Azure, em **máquinas virtuais**, você tem uma visão geral de todas as VMs e computadores junto com seu status. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, você poderá remover a extensão da máquina virtual por meio do portal do hub de Azure Stack.
 

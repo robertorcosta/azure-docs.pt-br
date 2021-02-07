@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: 9a80242422631995f6d5c24ba2118ee98a9b8d32
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f2818965013e44cbbe3202887bf79a737dbbbb58
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576169"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99806945"
 ---
 # <a name="public-ip-addresses"></a>Endereços IP públicos
 
@@ -64,9 +64,9 @@ Endereços IP públicos de SKU padrão:
 > Somente endereços IP públicos com SKU básico estão disponíveis ao usar o [serviço de metadados de instância IMDS](../virtual-machines/windows/instance-metadata-service.md). Não há suporte para o SKU Standard.
 
 > [!NOTE]
-> As configurações de diagnóstico não aparecem na folha de recursos ao usar um endereço IP público de SKU padrão. Para habilitar o registro em log no seu recurso de endereço IP público do stanrd, navegue até configurações de diagnóstico na folha Azure Monitor e selecione o recurso de endereço IP.
+> As configurações de diagnóstico não aparecem na folha de recursos ao usar um endereço IP público de SKU padrão. Para habilitar o registro em log em seu recurso de endereço IP público padrão, navegue até configurações de diagnóstico na folha Azure Monitor e selecione o recurso de endereço IP.
 
-### <a name="basic"></a>Basic
+### <a name="basic"></a>Básico
 
 Todos os endereços IP públicos criados antes da introdução dos SKUs são endereços IP públicos do SKU Básico. 
 
