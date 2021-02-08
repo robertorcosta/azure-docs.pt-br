@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: fd154ec40ed4d1650e44a67fd5d362a2bc0c519d
-ms.sourcegitcommit: 1140ff2b0424633e6e10797f6654359947038b8d
+ms.openlocfilehash: f4ce830c889feaeda05745eeb02b72f55ad9314a
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97813931"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99819836"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Início rápido: criar e configurar a proteção contra DDoS do Azure Standard
 
@@ -77,7 +77,7 @@ Você não pode mover uma rede virtual para outro grupo de recursos ou assinatur
 
 ### <a name="enable-ddos-protection-for-all-virtual-networks"></a>Habilitar a proteção contra DDoS para todas as redes virtuais
 
-Essa [política](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20DDoS%20Protection/Policy%20-%20Virtual%20Networks%20should%20be%20associated%20with%20an%20Azure%20DDoS%20Protection%20Standard%20plan) detectará todas as redes virtuais em um escopo definido que não tem a proteção contra DDoS padrão habilitada e, opcionalmente, criará uma tarefa de correção que criará a associação para proteger a VNet. Para obter instruções passo a passo detalhadas sobre como implantar essa política, consulte https://aka.ms/ddosvnetpolicy-techcommunity .
+Essa [política](https://aka.ms/ddosvnetpolicy) detectará todas as redes virtuais em um escopo definido que não tem a proteção contra DDoS padrão habilitada e, opcionalmente, criará uma tarefa de correção que criará a associação para proteger a VNet. Para obter instruções passo a passo detalhadas sobre como implantar essa política, consulte https://aka.ms/ddosvnetpolicy-techcommunity .
 
 ## <a name="validate-and-test"></a>Validar e testar
 
@@ -89,7 +89,7 @@ Primeiro, verifique os detalhes do seu plano de proteção contra DDoS:
 
 A rede virtual _MyVnet_ deve ser listada. 
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Você pode manter seus recursos para o próximo tutorial. Se não for mais necessário, exclua o grupo de recursos _MyResource_ Group. Ao excluir o grupo de recursos, você também exclui o plano de proteção contra DDoS e todos os seus recursos relacionados. Se você não pretende usar esse plano de proteção contra DDoS, remova os recursos para evitar encargos desnecessários.
 
@@ -113,7 +113,7 @@ Se você quiser excluir um plano de proteção contra DDoS, deverá primeiro dis
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como exibir e configurar a telemetria para seu plano de proteção contra DDoS, continue com os tutoriais.
+Para saber como exibir e configurar a telemetria para seu plano de proteção contra DDoS, prossiga para os tutoriais.
 
 > [!div class="nextstepaction"]
 > [Exibir e configurar a telemetria da Proteção contra DDoS](telemetry.md)

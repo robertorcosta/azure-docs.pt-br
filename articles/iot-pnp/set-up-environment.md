@@ -1,20 +1,20 @@
 ---
-title: Configurar os recursos de IoT necessários para o Plug and Play de IoT | Microsoft Docs
-description: Crie uma instância do serviço de provisionamento de dispositivos e Hub IoT para usar com os guias de início rápido e tutoriais do IoT Plug and Play.
+title: Início rápido-configurar os recursos de IoT necessários para a Plug and Play de IoT | Microsoft Docs
+description: Início rápido-Crie uma instância do serviço de provisionamento de dispositivos e Hub IoT para usar com os guias de início rápido e tutoriais do IoT Plug and Play.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/11/2020
-ms.topic: how-to
+ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6e6c090c02798103a30cc68f2ca28e8c4f7f2f17
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
-ms.translationtype: MT
+ms.openlocfilehash: 10ec761313ce39beb4b24b838d156478704f943e
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "96004255"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820023"
 ---
-# <a name="set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Configurar seu ambiente para os guias de início rápido e tutoriais do IoT Plug and Play
+# <a name="quickstart---set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Início rápido-configurar seu ambiente para os guias de início rápido e tutoriais do IoT Plug and Play
 
 Antes de concluir qualquer um dos tutoriais e guias de início rápido de IoT Plug and Play, você precisa configurar um hub IoT e o DPS (serviço de provisionamento de dispositivos) em sua assinatura do Azure. Você também precisará de cópias locais dos arquivos de modelo usados pelos aplicativos de exemplo e pela ferramenta do Azure IoT Explorer.
 

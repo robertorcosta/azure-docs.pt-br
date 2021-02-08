@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
-ms.openlocfilehash: bd750a05f34a18a1260226fb979a82cc620dfbfb
-ms.sourcegitcommit: c136985b3733640892fee4d7c557d40665a660af
+ms.openlocfilehash: fec130ff02d9796fb9a6cea7a831bbdcb25cb1ed
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98178272"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225623"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>Início Rápido: Adicionar entrada usando o OpenID Connect para um aplicativo Web do Node.js
 
@@ -37,15 +37,15 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 1. Insira um **Nome** para seu aplicativo, por exemplo, `MyWebApp`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 1. Na seção **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft (por exemplo, Skype, Xbox, Outlook.com)** .
 
-    Se houver mais de um URI de redirecionamento, você precisará adicioná-los da guia **Autenticação** posteriormente depois que o aplicativo tiver sido criado com êxito.
+    Se houver mais de um URI de redirecionamento, adicione-os por meio da guia **Autenticação** posteriormente depois que o aplicativo for criado com êxito.
 
 1. Selecione **Registrar** para criar o aplicativo.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do aplicativo (cliente)** e registre-o para uso posterior. Você precisará desse valor para configurar o aplicativo posteriormente neste projeto.
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Selecione **Adicionar uma plataforma** > **Web**. 
 1. Na seção **URIs de Redirecionamento**, insira `http://localhost:3000/auth/openid/return`.
-1. Insira uma **URL de logoff** `https://localhost:3000`.
-1. Na seção Concessão implícita, marque **Tokens de ID**, pois este exemplo requer que o [Fluxo de concessão implícita](./v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
+1. Insira uma **URL de logoff de front-channel** igual a `https://localhost:3000`.
+1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**, pois este exemplo exige que o [Fluxo de concessão implícita](./v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário.
 1. Selecione **Configurar**.
 1. Em **Gerenciar**, selecione **Certificados e segredos** > **Novo segredo do cliente**.
 1. Insira uma descrição de chave (para o segredo do aplicativo da instância).

@@ -4,12 +4,12 @@ description: Este artigo aborda dúvidas comuns sobre o Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: ca30f9ba190dfa3c7e224e47b90be4d3bc5d47ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 9db91a15c0ee5c982f73f36a36f12b38b969a125
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98746468"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820189"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Perguntas gerais sobre o Azure Site Recovery
 
@@ -188,7 +188,7 @@ Sim, o [ExpressRoute pode ser usado](concepts-expressroute-with-site-recovery.md
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>Se eu replicar no Azure, de que tipo de conta de armazenamento ou disco gerenciado preciso?
 
-Você precisa de um armazenamento LRS ou GRS. É recomendável usar GRS para que os dados sejam resilientes caso ocorra uma interrupção regional, ou se a região principal não puder ser recuperada. A rede deve estar na mesma região do que o cofre dos Serviços de Recuperação. O Armazenamento Premium tem suporte para VM do VMware, VM do Hyper-V e replicação de servidores físicos, quando você implantar o Site Recovery no Portal do Azure. Os discos gerenciados são compatíveis apenas com armazenamento com redundância local.
+Não há suporte para o uso de contas de armazenamento como armazenamento de destino pelo Azure Site Recovery. É recomendável usar discos gerenciados como o armazenamento de destino para seus computadores. O Managed disks dá suporte apenas ao tipo LRS para resiliência de dados.
 
 ### <a name="how-often-can-i-replicate-data"></a>Com que frequência posso replicar dados?
 * **Hyper-V:** VMs Hyper-V podem ser replicadas a cada 30 segundos (exceto para o armazenamento premium), 5 minutos ou 15 minutos.

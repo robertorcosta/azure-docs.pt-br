@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/10/2020
+ms.date: 02/02/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9b40ff3a5c9ce2103cde00b26543711d4c05efb0
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 228f837a8826612bbbadf2ca8c5ef339ab248397
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97028369"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99524985"
 ---
 ::: zone target="docs"
 
@@ -322,7 +322,7 @@ Once the upload to Azure is complete, the Data Box erases the data on its disks 
 
 ## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
 
-Se você estiver usando o Data Box no US Government, no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul ou no Oeste da Europa e tiver selecionado a remessa autogerenciada durante a criação do pedido, siga estas instruções.
+Se você estiver usando o Data Box no US Government, no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul, no Reino Unido, no Oeste da Europa ou na Austrália e tiver selecionado a remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Escreva o código de Autorização mostrado na página **Preparar para o Envio** da IU da Web local para o Data Box depois que a etapa for concluída com êxito.
 2. Desligue o dispositivo e remova os cabos. Enrole o cabo de alimentação fornecido com o dispositivo e coloque-o com segurança na parte traseira do dispositivo.

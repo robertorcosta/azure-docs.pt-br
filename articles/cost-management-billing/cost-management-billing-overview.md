@@ -4,17 +4,17 @@ description: Você usa os recursos do Gerenciamento de Custos do Azure + Cobran�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/26/2020
+ms.date: 01/28/2021
 ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: common
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 34034a99641d75e44783cb5b87af8948b4db1628
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: a070b2329777accab6f62b767f74dbc28e5d2623
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029933"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99051086"
 ---
 # <a name="what-is-azure-cost-management--billing"></a>O que é o Gerenciamento de Custos do Azure + Cobrança?
 
@@ -43,11 +43,11 @@ Uma conta de cobrança é criada quando você se inscreve para usar o Azure. Voc
 
 Atualmente, o portal do Azure dá suporte aos seguintes tipos de contas de cobrança:
 
-- **Programa Microsoft Online Services**: Uma conta de cobrança individual para o Programa Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma conta gratuita do Azure, uma conta com taxas pagas conforme o uso ou como assinante do Visual Studio.
+- **Programa Microsoft Online Services**: Uma conta de cobrança individual para o Programa Microsoft Online Services é criada quando você se inscreve no Azure por meio do site do Azure. Por exemplo, quando você se inscreve em uma [conta gratuita do Azure](./manage/create-free-services.md), uma conta com taxas pagas conforme o uso ou como assinante do Visual Studio.
 
 - **Contrato Enterprise**: Uma conta de cobrança para um Contrato Enterprise é criada quando sua organização assina um EA (Contrato Enterprise) para usar o Azure.
 
-- **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma conta com taxas pagas conforme o uso ou atualizam sua conta gratuita do Azure, também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
+- **Contrato de Cliente da Microsoft**: Uma conta de cobrança para um Contrato de Cliente da Microsoft é criada quando sua organização decide assinar um Contrato de Cliente da Microsoft por meio de um representante da Microsoft. Alguns clientes em regiões selecionadas, que se inscrevem por meio do site do Azure em uma conta com taxas pagas conforme o uso ou atualizam sua [conta gratuita do Azure](./manage/create-free-services.md), também podem ter uma conta de cobrança para um Contrato de Cliente da Microsoft.
 
 ### <a name="scopes-for-billing-accounts"></a>Escopos para contas de cobrança
 Um escopo é um nó em uma conta de cobrança que você usa para exibir e gerenciar a cobrança. É nele que você gerencia dados de cobrança, pagamentos, faturas e realiza o gerenciamento geral da conta.

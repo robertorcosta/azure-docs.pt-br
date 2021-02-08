@@ -3,18 +3,18 @@ title: 'Tutorial: criar e gerenciar orçamentos do Azure'
 description: Este tutorial ajuda a planejar e contabilizar os custos de serviços do Azure que você consome.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/16/2020
+ms.date: 01/27/2021
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: c8b0265a72911688f08e0f8c4a39fa657f034472
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 5659f3b2d020a97ed2460c55283bb41f2f7606cc
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97630132"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98943731"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: criar e gerenciar orçamentos do Azure
 
@@ -22,7 +22,7 @@ Orçamentos no Gerenciamento de Custos ajudam você a planejar e promover respon
 
 Os dados de custo e de uso geralmente ficam disponíveis no prazo de 8 a 24 horas, e os orçamentos são avaliados em relação a esses custos a cada 24 horas. Familiarize-se com os aspectos específicos das [Atualizações de dados de custo e de uso](./understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention). Quando um limite de orçamento é atingido, as notificações por email são enviadas normalmente em até uma hora da avaliação.
 
-Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data de expiração no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros.
+Os orçamentos são redefinidos automaticamente no final de um período (mensal, trimestral ou anual) para o mesmo valor de orçamento quando você seleciona uma data de expiração no futuro. Uma vez que redefinidos com o mesmo valor de orçamento, você precisará criar orçamentos separados quando os valores monetários orçados forem diferentes para períodos futuros. Quando um orçamento expira, ele é excluído automaticamente.
 
 Os exemplos deste tutorial ajudam você a criar e editar um orçamento para uma assinatura do Azure Enterprise Agreement (EA).
 

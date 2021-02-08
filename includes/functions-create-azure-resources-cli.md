@@ -4,19 +4,19 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/18/2020
 ms.author: glenga
-ms.openlocfilehash: 29a31948c5bfc9b5fd3a31f39144d186dbfe4885
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 99ae35aca485ac928f7c5ef9f98295eed4bc1245
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96027374"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500422"
 ---
 ## <a name="create-supporting-azure-resources-for-your-function"></a>Criar recursos de suporte do Azure para a função
 
 Antes de poder implantar o código da função no Azure, você precisa criar três recursos:
 
-- Um grupo de recursos, que é um contêiner lógico para recursos relacionados.
-- Uma conta de armazenamento, que mantém o estado e outras informações sobre seus projetos.
+- Um [grupo de recursos](../articles/azure-resource-manager/management/overview.md), que é um contêiner lógico para recursos relacionados.
+- Uma [conta de armazenamento](../articles/storage/common/storage-account-create.md), que é usada para manter o estado e outras informações sobre suas funções.
 - Um aplicativo de funções, que fornece o ambiente para a execução do código de função. Um aplicativo de funções é mapeado para seu projeto de função local e permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos.
 
 Use os comandos a seguir para criar esses itens. Tanto a CLI do Azure quanto o PowerShell são compatíveis.

@@ -3,12 +3,12 @@ title: Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 description: Encontre respostas para algumas das perguntas mais comuns sobre o AKS (Serviço de Kubernetes do Azure).
 ms.topic: conceptual
 ms.date: 08/06/2020
-ms.openlocfilehash: 7fc348ae7b3edb79e75aa1acd08941fec447da6f
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: 6c2eddf3b7002b101fed8face4a58f2d2b2f4878
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127627"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820255"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Perguntas frequentes sobre o Serviço de Kubernetes do Azure (AKS)
 
@@ -132,7 +132,9 @@ O suporte do Windows Server para pools de nós inclui algumas limitações que f
 
 ## <a name="does-aks-offer-a-service-level-agreement"></a>O AKS oferece um SLA?
 
-O AKS fornece garantias de SLA como um recurso complementar opcional com [SLA de tempo de atividade][uptime-sla].
+O AKS fornece garantias de SLA como um recurso complementar opcional com [SLA de tempo de atividade][uptime-sla]. 
+
+O SLA gratuito oferecido por padrão não garante um ponto de extremidade do servidor de API altamente disponível (nosso objetivo de nível de serviço é 99,5%). Pode acontecer que problemas de conectividade transitórios sejam observados em caso de atualizações, nós underlay não íntegros, manutenção de plataforma, etc... Se sua carga de trabalho não tolerar reinicializações APIServer, sugerimos o uso do SLA de tempo de atividade.
 
 ## <a name="can-i-apply-azure-reservation-discounts-to-my-aks-agent-nodes"></a>Posso aplicar descontos de reserva do Azure aos meus nós de agente do AKS?
 

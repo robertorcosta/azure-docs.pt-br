@@ -2,7 +2,7 @@
 title: 'Início Rápido: Enviar telemetria ao Hub IoT do Azure com Java'
 description: Neste início rápido, você executará dois aplicativos Java de exemplo para enviar telemetria simulada para um Hub IoT e ler telemetria do Hub IoT para processamento na nuvem.
 author: wesmc7777
-manager: philmea
+manager: lizross
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -15,13 +15,13 @@ ms.custom:
 - mqtt
 - devx-track-java
 - devx-track-azurecli
-ms.date: 05/26/2020
-ms.openlocfilehash: 8ac2ada18cdb3c9af4902b28d16fef640f979101
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.date: 01/27/2021
+ms.openlocfilehash: c0f1272bf195c6d5ef2dfe88cc6541f731fa51c8
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98121425"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98928564"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Início Rápido: Enviar telemetria para um hub IoT do Azure e lê-la com um aplicativo Java
 
@@ -33,7 +33,7 @@ Neste início rápido, você envia telemetria para um Hub IoT do Azure e a lê c
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?view=azure-java-stable), em **Suporte de longo prazo**, selecione **Java 8**.
+* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?view=azure-java-stable&preserve-view=true), em **Suporte de longo prazo**, selecione **Java 8**.
 
     Verifique a versão atual do Java no computador de desenvolvimento usando o seguinte comando:
 
@@ -49,7 +49,9 @@ Neste início rápido, você envia telemetria para um Hub IoT do Azure e a lê c
     mvn --version
     ```
 
-* [Um projeto Java de exemplo](https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip).
+* Baixe ou clone o repositório azure-iot-samples-java usando o botão **Código** na [página do repositório azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java). 
+
+    Este artigo usa os exemplos [simulated-device](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/simulated-device) e [read-d2c-messages](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Quickstarts/read-d2c-messages) do repositório.
 
 * Porta 8883 aberta no firewall. A amostra de dispositivo deste início rápido usa o protocolo MQTT, que se comunica pela porta 8883. Essa porta poderá ser bloqueada em alguns ambientes de rede corporativos e educacionais. Para obter mais informações e maneiras de resolver esse problema, confira [Como se conectar ao Hub IoT (MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub).
 
@@ -113,6 +115,16 @@ O aplicativo de dispositivo simulado se conecta a um ponto de extremidade espec�
 
     Substitua o valor da variável `connString` pela cadeia de conexão do dispositivo que você anotou anteriormente. Salve as alterações no **SimulatedDevice.java**.
 
+    ```java
+    public class SimulatedDevice {
+      // The device connection string to authenticate the device with your IoT hub.
+      // Using the Azure CLI:
+      // az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id MyJavaDevice --output table
+
+      //private static String connString = "{Your device connection string here}";    
+      private static String connString = "HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyJavaDevice;SharedAccessKey={YourSharedAccessKey}";    
+     ```
+
 3. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e compile o aplicativo de dispositivo simulado:
 
     ```cmd/sh
@@ -142,6 +154,23 @@ O aplicativo de back-end se conecta ao ponto de extremidade **Eventos** do lado 
     | `EVENT_HUBS_COMPATIBLE_ENDPOINT` | Substitua o valor da variável pelo ponto de extremidade compatível com os Hubs de Eventos que você anotou anteriormente. |
     | `EVENT_HUBS_COMPATIBLE_PATH`     | Substitua o valor da variável pelo caminho compatível com os Hubs de Eventos que você anotou anteriormente. |
     | `IOT_HUB_SAS_KEY`                | Substitua o valor da variável pela chave primária de serviço que você anotou anteriormente. |
+
+    ```java
+    public class ReadDeviceToCloudMessages {
+    
+      private static final String EH_COMPATIBLE_CONNECTION_STRING_FORMAT = "Endpoint=%s/;EntityPath=%s;"
+          + "SharedAccessKeyName=%s;SharedAccessKey=%s";
+    
+      // az iot hub show --query properties.eventHubEndpoints.events.endpoint --name {your IoT Hub name}
+      private static final String EVENT_HUBS_COMPATIBLE_ENDPOINT = "{your Event Hubs compatible endpoint}";
+    
+      // az iot hub show --query properties.eventHubEndpoints.events.path --name {your IoT Hub name}
+      private static final String EVENT_HUBS_COMPATIBLE_PATH = "{your Event Hubs compatible name}";
+    
+      // az iot hub policy show --name service --query primaryKey --hub-name {your IoT Hub name}
+      private static final String IOT_HUB_SAS_KEY = "{your service primary key}";    
+    ```
+
 
 3. Na janela de terminal local, execute os seguintes comandos para instalar as bibliotecas necessárias e compilar o aplicativo de back-end:
 

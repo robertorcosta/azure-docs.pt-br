@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: af0082ef04416d6b3700bbcd96995a154614e0d6
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: b451e2509ee618ac0996fd91191a7d59dcfd9fc9
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98798553"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99500263"
 ---
 ### <a name="is-azure-virtual-wan-in-ga"></a>A WAN Virtual do Azure está em GA?
 
@@ -140,6 +140,10 @@ O hub virtual é compatível com até 1.000 conexões. Cada conexão é composta
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>O que é uma conexão de ramificação WAN Virtual do Azure?
 
 Uma conexão de um dispositivo VPN ou de branch com a WAN Virtual do Azure é simplesmente uma conexão VPN que se conecta virtualmente com o site de VPN e com o Gateway de VPN do Azure em um hub virtual.
+
+### <a name="what-happens-if-the-on-premise-vpn-device-only-has-1-tunnel-to-a-azure-virtual-wan-vpn-gateway"></a>O que acontece se o dispositivo VPN local tem apenas um túnel para um gateway de VPN da WAN Virtual do Azure?
+
+Uma conexão da WAN Virtual do Azure é composta por dois túneis. Um gateway de VPN da WAN Virtual é implantado em um Hub Virtual no modo ativo-ativo, o que significa que há túneis separados de dispositivos locais que terminam em instâncias separadas. Essa é a recomendação para todos os usuários. No entanto, se o usuário optar por ter apenas um túnel para uma das instâncias de gateway de VPN da WAN Virtual e, se por algum motivo (manutenção, patches etc.), a instância de gateway precisar ser colocada offline, o túnel será movido para a instância ativa secundária e o usuário poderá experimentar uma reconexão. Também tenha em mente que a sessão BGP não se moverá entre instâncias.
 
 ### <a name="can-the-on-premises-vpn-device-connect-to-multiple-hubs"></a>O dispositivo VPN local pode se conectar a vários hubs?
 

@@ -8,16 +8,16 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: 0d1b2bd039f3e110c83d7ad4bf32f1e53e4c7a79
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 85585b771d9c0ed7c6fcdba9cfef7b589a987c8c
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98610141"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429255"
 ---
-# <a name="microsoft-azure-attestation-preview"></a>Atestado do Microsoft Azure (versão prévia)
+# <a name="microsoft-azure-attestation"></a>Atestado do Microsoft Azure 
 
-O Atestado do Microsoft Azure (versão prévia) é uma solução unificada para verificar remotamente a confiabilidade de uma plataforma e a integridade dos binários em execução dentro dela. O serviço dá suporte ao atestado das plataformas com suporte de TPMs (Trusted Platform Modules) juntamente com a capacidade de atestar TEEs (Ambientes de Execução Confiável), como enclaves [Intel® SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Software Guard Extensions) e enclaves [VBS](/windows-hardware/design/device-experiences/oem-vbs) (Segurança baseada em Virtualização). 
+O Atestado do Microsoft Azure é uma solução unificada para verificar remotamente a confiabilidade de uma plataforma e a integridade dos binários em execução dentro dela. O serviço dá suporte ao atestado das plataformas com suporte de TPMs (Trusted Platform Modules) juntamente com a capacidade de atestar TEEs (Ambientes de Execução Confiável), como enclaves [Intel® SGX](https://www.intel.com/content/www/us/en/architecture-and-technology/software-guard-extensions.html) (Software Guard Extensions) e enclaves [VBS](/windows-hardware/design/device-experiences/oem-vbs) (Segurança baseada em Virtualização). 
 
 O atestado é um processo usado para demonstrar que os binários de software foram instanciados corretamente em uma plataforma confiável. Em seguida, as partes confiáveis remotas podem ter a confiança de que apenas esse software pretendido está sendo executado no hardware confiável. O Atestado do Azure é um serviço unificado voltado ao cliente e uma estrutura para o atestado.
 
@@ -67,7 +67,7 @@ O Atestado do Azure é a escolha preferencial para atestar os TEEs, pois oferece
 
 - Estrutura unificada para atestar vários ambientes como enclaves TPMs, SGX e VBS 
 - Serviço multilocatário que permite a configuração de provedores de atestado personalizados e políticas para restringir a geração de token
-- Oferece provedores padrão que podem fornecer um atestado sem nenhuma configuração dos usuários
+- Oferece provedores compartilhados regionais que podem fornecer um atestado sem nenhuma configuração por parte dos usuários
 - Protege os dados durante o uso com a implementação em um enclave do SGX
 - Serviço altamente disponível 
 

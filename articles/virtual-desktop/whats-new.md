@@ -3,17 +3,17 @@ title: O que há de novo na Área de Trabalho Virtual do Windows? - Azure
 description: Novos recursos e atualizações de produto para a Área de Trabalho Virtual do Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 01/06/2021
+ms.date: 01/29/2021
 ms.author: helohr
 ms.reviewer: thhickli; darank
 manager: lizross
 ms.custom: references_regions
-ms.openlocfilehash: 2f49ec0fef5aa79c602e561746eb0f6dba16cb33
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f34a5b957f64558b468c456686f0f86172630135
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98876590"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258788"
 ---
 # <a name="whats-new-in-windows-virtual-desktop"></a>O que há de novo na Área de Trabalho Virtual do Windows?
 
@@ -25,6 +25,61 @@ A Área de Trabalho Virtual do Windows é atualizada regularmente. Neste artigo,
 - Correções de bug
 
 Este artigo é atualizado mensalmente. Volte a consultá-lo com frequência para acompanhar as atualizações.
+
+## <a name="client-updates"></a>Atualizações do cliente
+
+Confira estes artigos para saber mais sobre as atualizações para nossos clientes para Área de Trabalho Virtual do Windows e Serviços de Área de Trabalho Remota:
+
+- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
+- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
+- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
+- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
+- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
+
+## <a name="fslogix-updates"></a>Atualizações do FSLogix
+
+Curioso sobre as últimas atualizações do FSLogix? Confira [Novidades do FSLogix](/fslogix/whats-new).
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+Estas foram as alterações de janeiro de 2021:
+
+### <a name="new-windows-virtual-desktop-offer"></a>Nova oferta da Área de Trabalho Virtual do Windows
+
+Os novos clientes economizam 30% nos custos de computação da Área de Trabalho Virtual do Windows para máquinas virtuais das séries D e BS por até 90 dias ao usar a solução nativa da Microsoft. Resgate essa oferta no portal do Azure antes de 31 de março de 2021. Saiba mais em nossa [página de oferta da Área de Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/offer/).
+
+### <a name="networksecuritygrouprules-value-change"></a>alteração do valor de networkSecurityGroupRules 
+
+No modelo aninhado do Azure Resource Manager, alteramos o valor padrão de networkSecurityGroupRules de um objeto para uma matriz. Isso impedirá erros se você usar managedDisks-customimagevm.json sem especificar um valor para networkSecurityGroupRules. Essa não era uma alteração interruptiva e é compatível com versões anteriores.
+
+### <a name="fslogix-hotfix-update"></a>Atualização de hotfix do FSLogix
+
+Lançamos o FSLogix versão 2009 HF_01 (2.9.7654.46150) para resolver problemas da versão anterior (2.9.7621.30127). Recomendamos que você pare de usar a versão anterior e atualize o FSLogix assim que possível.
+
+Para obter mais informações, confira as notas sobre a versão em [Novidades do FSLogix](/fslogix/whats-new.md#fslogix-apps-2009-hf_01-29765446150).
+
+### <a name="azure-portal-experience-improvements"></a>Aprimoramentos na experiência do portal do Azure
+
+Fizemos os seguintes aprimoramentos na experiência do portal do Azure:
+
+- Agora você pode adicionar credenciais locais de administrador de VM diretamente em vez de precisar adicionar uma conta local criada com as credenciais da conta de ingresso no domínio do Active Directory.
+- Agora, os usuários podem listar as atribuições individuais e de grupo em guias separadas para usuários individuais e grupos.
+- O número de versão do Agente da Área de Trabalho Virtual do Windows agora está visível na visão geral da Máquina Virtual para pools de hosts.
+- Adição de exclusão em massa a pools de hosts e grupos de aplicativos.
+- Agora você pode habilitar ou desabilitar o modo esvaziar para vários hosts de sessão em um pool de host.
+- Remoção do campo de IP público da página de detalhes da VM.
+
+### <a name="windows-virtual-desktop-agent-troubleshooting"></a>Solução de problemas do Agente da Área de Trabalho Virtual do Windows
+
+Recentemente, elaboramos o [guia de solução de problemas do Agente da Área de Trabalho Virtual do Windows](troubleshoot-agent.md) para ajudar os clientes que encontraram problemas comuns.
+
+### <a name="microsoft-defender-for-endpoint-integration"></a>Integração do Microsoft Defender para Ponto de Extremidade
+
+A integração do Microsoft Defender para Ponto de Extremidade já está em disponibilidade geral. Esse recurso fornece às VMs da Área de Trabalho Virtual do Windows a mesma experiência de investigação de um computador local Windows 10. Se você estiver usando o Windows 10 Enterprise multissessão, o Microsoft Defender para Ponto de Extremidade dará suporte a até 50 conexões de usuário simultâneas, oferecendo a você a economia do Windows 10 Enterprise multissessão e a confiança do Microsoft Defender para Ponto de Extremidade. Para obter mais informações, confira nossa [postagem no blog](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/windows-virtual-desktop-support-is-now-generally-available/ba-p/2103712).
+
+### <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Linha de base de segurança do Azure para a Área de Trabalho Virtual do Windows
+
+Recentemente, publicamos [um artigo sobre a linha de base de segurança do Azure](security-baseline.md) para a Área de Trabalho Virtual do Windows para o qual desejamos chamar sua atenção. Essas diretrizes incluem informações sobre como aplicar o Azure Security Benchmark versão 2.0 à Área de Trabalho Virtual do Windows. O Azure Security Benchmark descreve as configurações e as práticas que recomendamos que você use para proteger suas soluções de nuvem no Azure.
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -257,16 +312,6 @@ Adicionamos um cluster de gateway na África do Sul para reduzir a latência de 
 Fizemos algumas melhorias ao Microsoft Teams para Área de Trabalho Virtual do Windows. O mais importante é que a Área de Trabalho Virtual do Windows agora dá suporte ao redirecionamento audiovisual para chamadas. O redirecionamento melhora a latência criando caminhos diretos entre os usuários quando eles chamam o uso de áudio ou vídeo. Menos distância significa menos saltos, tornando as chamadas mais tranquilas.
 
 Para saber mais, confira [nossa postagem no blog](https://azure.microsoft.com/updates/windows-virtual-desktop-media-optimization-for-microsoft-teams-is-now-available-in-public-preview/).
-
-## <a name="client-updates"></a>Atualizações do cliente
-
-Confira estes artigos para saber mais sobre as atualizações para nossos clientes para Área de Trabalho Virtual do Windows e Serviços de Área de Trabalho Remota:
-
-- [Windows](/windows-server/remote/remote-desktop-services/clients/windowsdesktop-whatsnew)
-- [macOS](/windows-server/remote/remote-desktop-services/clients/mac-whatsnew)
-- [iOS](/windows-server/remote/remote-desktop-services/clients/ios-whatsnew)
-- [Android](/windows-server/remote/remote-desktop-services/clients/android-whatsnew)
-- [Web](/windows-server/remote/remote-desktop-services/clients/web-client-whatsnew)
 
 ## <a name="next-steps"></a>Próximas etapas
 

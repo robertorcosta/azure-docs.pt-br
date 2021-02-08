@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/06/2020
+ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: 103f2c87cf9d14f81462fed145ff8df3d69bfca0
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cc35f9ee25511faec5723b49763cbdae8963e88b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916126"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820748"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -44,7 +44,7 @@ Definindo listas de aplicativos conhecidos e gerando alertas quando qualquer out
 - Evitar software específico que é banido por sua organização
 - Aumente a supervisão de aplicativos que acessam dados confidenciais
 
-
+Nenhuma opção de imposição está disponível e nenhuma está planejada. Os controles de aplicativo adaptáveis se destinam a fornecer alertas de segurança se qualquer aplicativo for executado além daqueles que você definiu como seguros.
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -235,7 +235,12 @@ Algumas das funções que estão disponíveis na API REST:
    > Remova as propriedades a seguir antes de usar o JSON na solicitação Put: recommendationStatus, configurationStatus, issues, Location e sourceSystem.
 
 
+## <a name="faq---adaptive-application-controls"></a>Perguntas frequentes – controles de aplicativo adaptáveis
 
+### <a name="are-there-any-options-to-enforce-the-application-controls"></a>Há alguma opção para impor os controles do aplicativo?
+Nenhuma opção de imposição está disponível e nenhuma está planejada. Os controles de aplicativo adaptáveis se destinam a fornecer **alertas de segurança** se qualquer aplicativo for executado além daqueles que você definiu como seguros. Eles têm uma variedade de benefícios ([quais são os benefícios dos controles de aplicativo adaptáveis?](#what-are-the-benefits-of-adaptive-application-controls)) e são extremamente personalizáveis, conforme mostrado nesta página.
+
+ 
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, você aprendeu a usar o controle de aplicativo adaptável na central de segurança do Azure para definir as listas de permissões de aplicativos em execução em seus computadores Azure e não Azure. Para saber mais sobre alguns dos outros recursos de proteção de carga de trabalho de nuvem da central de segurança, confira:

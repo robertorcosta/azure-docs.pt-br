@@ -10,12 +10,12 @@ ms.subservice: billing
 ms.topic: troubleshooting
 ms.date: 08/20/2020
 ms.author: v-miegge
-ms.openlocfilehash: 2e9b14fa264f3286134913e3c279c4400ce5bcc3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 915b4fb289b6af6f4aac84d8bfa4d491a7f77efe
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132322"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99050463"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Solucionar problemas de credenciais da assinatura do Azure
 
@@ -32,7 +32,7 @@ Se a página do navegador da Internet parar, experimente cada uma das etapas a s
 - Use um navegador de Internet diferente.
 - Use o modo de navegação privada do seu navegador:
 
-   - **Edge:** abra **Configurações** (os três pontos por sua imagem de perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [Centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Edge:** Abra **Configurações** (os três pontos ao lado da imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/). 
    - **Chrome:** escolha o modo **Incognito**.
    - **Safari:** escolha **Arquivo** e então **Nova Janela Particular**.
 
@@ -53,7 +53,7 @@ Para resolver o problema, tente usar um dos seguintes métodos:
    - **Chrome:** escolha **Configurações** e selecione **Limpar dados de navegação** em **Privacidade e Segurança**.
 - Redefina as configurações do navegador para os padrões.
 - Use o modo de navegação privada do seu navegador. 
-   - **Edge:** abra **Configurações** (os três pontos por sua imagem de perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/) ou no [Centro de contas do Azure](https://account.azure.com/Subscriptions). 
+   - **Edge:** Abra **Configurações** (os três pontos ao lado da imagem do seu perfil), selecione **Nova janela InPrivate** e navegue e entre no [portal do Azure](https://portal.azure.com/). 
    - **Chrome:** escolha o modo **Incognito**.
    - **Safari:** escolha **Arquivo** e então **Nova Janela Particular**.
 

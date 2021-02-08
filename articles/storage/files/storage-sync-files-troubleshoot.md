@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 65a1f8ef82ba9ec35e01a61d9682ebed0b9ba04c
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 534f9e76cfca4037634cfca089f1131984456636
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428327"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820697"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -210,10 +210,10 @@ No servidor que está sendo exibido como "Aparece offline" no portal, examine a 
         - Para usar os cmdlets TLS, consulte [Configurando o TLS Cipher Suite Order usando cmdlets do PowerShell do TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order-by-using-tls-powershell-cmdlets).
     
         O Sincronização de Arquivos do Azure atualmente dá suporte aos seguintes conjuntos de codificação para o protocolo TLS 1,2:  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256  
-        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA_P256  
-        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA_P256  
+        - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+        - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+        - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256  
 
 - Se **GetNextJob foi concluído com o status: -2134347764** for registrado, o servidor não poderá se comunicar com o serviço de Sincronização de Arquivos do Azure devido a um certificado expirado ou excluído.  
     - Execute o seguinte comando do PowerShell no servidor para redefinir o certificado usado para autenticação:

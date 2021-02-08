@@ -9,16 +9,16 @@ ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 522b67e62e7ad8560bb48e8d056ca6daeeb45251
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.openlocfilehash: f6aad15d70157dda110fce233fbdafb7f3d896ad
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96350901"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055052"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>Entender o uso de reserva do Azure para sua assinatura individual com taxas pagas conforme o uso
 
-Use o ReservationId da [página Reservation](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e o arquivo de uso do [portal Accounts do Azure](https://account.azure.com) para avaliar o uso de sua reserva.
+Use a ReservationId da [página Reserva](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) e o arquivo de uso do [portal do Azure](https://portal.azure.com) para avaliar o uso da sua reserva.
 
 Se você for um cliente com um Enterprise Agreement, consulte [entender o uso de reserva para seu registro de empresa.](understand-reserved-instance-usage-ea.md).
 

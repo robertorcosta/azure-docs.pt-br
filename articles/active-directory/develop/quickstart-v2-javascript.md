@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: b475d8072c4103e8a532cdf703e2d75b0c8aafa2
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2ae48c76ccba80d274e7463b31782b4fbc6a976
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754160"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225707"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa"></a>Início Rápido: Conectar usuários e obter um token de acesso em um JavaScript SPA
 
@@ -55,13 +55,14 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional e contas pessoais da Microsoft**.
 > 1. Selecione **Registrar**. Na página **Visão geral** do aplicativo, anote o valor de **ID do aplicativo (cliente)** para uso posterior.
 > 1. Este início rápido requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja ativado. Em **Gerenciar**, selecione **Autenticação**.
-> 1. Em **Configurações da Plataforma**, selecione **Adicionar uma plataforma**. Um painel será aberto à esquerda. Nele, selecione a região **Aplicativos Web**.
-> 1. Ainda à esquerda, defina o valor do **URI de Redirecionamento** como `http://localhost:3000/`. Em seguida, selecione **Token de Acesso** e **Token de ID**.
+> 1. Em **Configurações da Plataforma** > **Adicionar uma plataforma**. Selecione **Web**.
+> 1. Defina o valor do **URI de Redirecionamento** como `http://localhost:3000/`. 
+> 1. Selecione **Tokens de Acesso** e **Tokens de ID** em **Concessão implícita e fluxos híbridos**.
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste início rápido funcione, você precisará adicionar um `redirectUri` como `http://localhost:3000/` e habilitar a **Concessão implícita**.
+> O código de exemplo deste guia de início rápido exige um **URI de redirecionamento** igual a `http://localhost:3000/` e habilita a **Concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >

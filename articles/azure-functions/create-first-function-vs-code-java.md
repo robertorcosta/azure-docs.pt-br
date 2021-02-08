@@ -3,12 +3,12 @@ title: Criar uma função Java usando o Visual Studio Code – Azure Functions
 description: Saiba como criar uma função Java e publicar o projeto local por meio da hospedagem sem servidor no Azure Functions usando a extensão do Azure Functions no Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: daaa578b2842a6314706b3578f4c9e44d46aa6ce
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 36516abd8b50c0b0b7d72e6bae0b67701509ca65
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424564"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493627"
 ---
 # <a name="quickstart-create-a-java-function-in-azure-using-visual-studio-code"></a>Início rápido: Criar uma função Java no Azure usando o Visual Studio Code
 
@@ -86,7 +86,7 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. No próximo artigo, você pode expandir essa função adicionando uma associação de saída. Essa associação grava a cadeia de caracteres da solicitação HTTP em uma mensagem em uma fila do Armazenamento de Filas do Azure. 
+Você usou o [Visual Studio Code](functions-develop-vs-code.md?tabs=java) para criar um aplicativo de funções com uma função simples disparada por HTTP. No próximo artigo, você expandirá essa função conectando-se ao Armazenamento do Azure. Para saber mais sobre como se conectar a outros serviços do Azure, confira [Adicionar associações a uma função existente no Azure Functions](add-bindings-existing-function.md?tabs=java). 
 
 > [!div class="nextstepaction"]
 > [Conectar-se a uma fila do Armazenamento do Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-java)

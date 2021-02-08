@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/15/2019
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Android
-ms.openlocfilehash: 42a054f211d2509dee4e9e55eeb3ea82fa46da9d
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 6d05c4ba6af860616e5afdfba2378ad9b17fcc77
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754571"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938264"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Início Rápido: Entrada de usuários e chamada à API do Microsoft Graph em um aplicativo Android
 
@@ -35,7 +35,7 @@ Os aplicativos precisam ser representados por um objeto de aplicativo no Azure A
 
 > [!div class="sxs-lookup" renderon="portal"]
 > ### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
->  Para que o exemplo de código deste Início Rápido funcione, é necessário adicionar um URI de redirecionamento compatível com o Agente de autenticação.
+>  O código de exemplo deste guia de início rápido exige um URI de redirecionamento compatível com o agente de autenticação.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >

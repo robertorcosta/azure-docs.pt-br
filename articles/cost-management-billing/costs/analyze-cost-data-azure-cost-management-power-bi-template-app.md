@@ -3,25 +3,25 @@ title: Analisar os custos do Azure com o Aplicativo Power BI
 description: Este artigo explica como instalar e usar o aplicativo Power BI do Gerenciamento de Custos do Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 11/09/2020
+ms.date: 1/29/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: benshy
-ms.openlocfilehash: 1c5adf58f670f3cadcedbe710568551004b77b78
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: d3439f5a86c445898d95191a32496b5f0c86be0b
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94413234"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99070150"
 ---
 # <a name="analyze-cost-with-the-azure-cost-management-power-bi-app-for-enterprise-agreements-ea"></a>Analisar os custos com o aplicativo Power BI do Gerenciamento de Custos do Azure para EA (Enterprise Agreements)
 
 Este artigo explica como instalar e usar o aplicativo Power BI do Gerenciamento de Custos do Azure. O aplicativo ajuda a analisar e gerenciar seus custos do Azure no Power BI. Você pode usar o aplicativo para monitorar custos, tendências de uso e identificar opções de otimização de custos para reduzir seus gastos.
 
-Você pode usar o aplicativo como está, ou pode modificá-lo para estender os filtros, exibições e visualizações padrões para personalizar as suas necessidades. Em seguida, use-o para juntar dados adicionais para criar relatórios personalizados e obter visualizações holísticas do seu custo geral de negócios.
+No momento, o aplicativo Power BI do Gerenciamento de Custos do Azure só dá suporte aos clientes com um [Contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
 
-No momento, o Aplicativo Power BI do Gerenciamento de Custos do Azure dá suporte apenas a clientes com um [Enterprise Agreement](https://azure.microsoft.com/pricing/enterprise-agreement/).
+O aplicativo limita a capacidade de personalização. Caso deseje modificar e estender as exibições, as visualizações e os filtros padrão para personalizá-los de acordo com as suas necessidades, use o [conector do Gerenciamento de Custos do Azure no Power BI Desktop](/power-bi/connect-data/desktop-connect-azure-cost-management). Com o conector do Gerenciamento de Custos do Azure, você pode unir dados adicionais de outras fontes para criar relatórios personalizados e obter exibições holísticas do custo geral dos negócios. O conector também dá suporte aos Contratos de Clientes da Microsoft.
 
 > [!NOTE]
 > Os aplicativos de modelo do Power BI não dão suporte ao download do arquivo PBIX.

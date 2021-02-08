@@ -3,12 +3,12 @@ title: Criar uma função JavaScript usando o Visual Studio Code – Azure Funct
 description: Saiba como criar uma função JavaScript e publique o projeto Node.js local por meio da hospedagem sem servidor no Azure Functions usando a extensão do Azure Functions no Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/03/2020
-ms.openlocfilehash: 11195531cafadcc8b73c0913bc99b4119aa2d4fb
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 79da3686310013d4af2acebe5c7c941a38df1a8a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93424571"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493610"
 ---
 # <a name="quickstart-create-a-javascript-function-in-azure-using-visual-studio-code"></a>Início rápido: criar uma função JavaScript no Azure usando o Visual Studio Code
 
@@ -75,7 +75,7 @@ Nesta seção, você criará um aplicativo de funções e os recursos relacionad
 
 1. Escolha o ícone do Azure na Barra de atividade e, em seguida, na área **Azure: Functions**, escolha o botão **Implantar no aplicativo de funções...** .
 
-    ![Publicar seu projeto no Azure](./media/functions-create-first-function-vs-code/function-app-publish-project.png)
+    ![Publicar seu projeto no Azure](../../includes/media/functions-publish-project-vscode/function-app-publish-project.png)
 
 1. Forneça as seguintes informações nos prompts:
 
@@ -91,15 +91,17 @@ Nesta seção, você criará um aplicativo de funções e os recursos relacionad
 
     + **Selecione uma localização para novos recursos**:  Para obter um melhor desempenho, escolha uma [região](https://azure.microsoft.com/regions/) perto de você. 
 
+    A extensão mostra o status de recursos individuais conforme eles são criados no Azure na área de notificação.
+
+    :::image type="content" source="../../includes/media/functions-publish-project-vscode/resource-notification.png" alt-text="Notificação de criação de recurso do Azure":::
+
 1. Quando concluído, os seguintes recursos do Azure serão criados em sua assinatura, usando nomes baseados em seu nome do aplicativo de funções:
 
-    + Um grupo de recursos, que é um contêiner lógico para recursos relacionados.
-    + Uma conta de Armazenamento do Azure padrão, que mantém o estado e outras informações sobre seus projetos.
-    + Um plano de consumo, que define o host subjacente para o aplicativo de funções sem servidor. 
-    + Um aplicativo de funções, que fornece o ambiente para a execução do código de função. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação e o compartilhamento de recursos dentro do mesmo plano de hospedagem.
-    + Uma instância do Application Insights conectada ao aplicativo de funções, que controla o uso de sua função sem servidor.
+    [!INCLUDE [functions-vs-code-created-resources](../../includes/functions-vs-code-created-resources.md)]
 
     Uma notificação é exibida depois que seu aplicativo de funções é criado e o pacote de implantação é aplicado. 
+
+    [!INCLUDE [functions-vs-code-create-tip](../../includes/functions-vs-code-create-tip.md)]
 
 1. Escolha **Exibir Saída** nessa notificação para exibir a criação e os resultados da implantação, incluindo os recursos do Azure que você criou. Se você perder a notificação, selecione o ícone de sino no canto inferior direito para vê-lo novamente.
 
@@ -111,7 +113,7 @@ Nesta seção, você criará um aplicativo de funções e os recursos relacionad
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. No próximo artigo, você pode expandir essa função adicionando uma associação de saída. Essa associação grava a cadeia de caracteres da solicitação HTTP em uma mensagem em uma fila do Armazenamento de Filas do Azure. 
+Você usou o [Visual Studio Code](functions-develop-vs-code.md?tabs=javascript) para criar um aplicativo de funções com uma função simples disparada por HTTP. No próximo artigo, você expandirá essa função conectando-se ao Armazenamento do Azure. Para saber mais sobre como se conectar a outros serviços do Azure, confira [Adicionar associações a uma função existente no Azure Functions](add-bindings-existing-function.md?tabs=javascript).  
 
 > [!div class="nextstepaction"]
 > [Conectar-se a uma fila do Armazenamento do Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-javascript)

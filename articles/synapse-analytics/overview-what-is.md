@@ -9,12 +9,12 @@ ms.subservice: overview
 ms.date: 10/28/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: bff15cbc8827f4a0eb09a243e01b2cdb95ba5f2f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 7882fc6a6823a93d09c04a8ae2c19005df4843d8
+ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681346"
+ms.lasthandoff: 01/27/2021
+ms.locfileid: "98917086"
 ---
 # <a name="what-is-azure-synapse-analytics"></a>O que é o Azure Synapse Analytics?
 
@@ -26,8 +26,7 @@ O **Azure Synapse** é um serviço de análise integrada que acelera o tempo de 
 
 ### <a name="industry-leading-sql"></a>SQL líder do setor
 
-* O **SQL do Synapse** é um sistema de consulta distribuída que permite às empresas implementar cenários de data warehouse e de virtualização de dados usando experiências de T-SQL padrão e conhecidas. Ele também expande as funcionalidades do SQL para lidar com cenários de streaming e aprendizado de máquina.
-
+* O **SQL do Synapse** é um sistema de consulta distribuída para o T-SQL que permite cenários de data warehouse e virtualização de dados e estende o T-SQL para lidar com cenários de streaming e machine learning.
 * O SQL do Synapse fornece modelos de recursos **sem servidor** e **dedicados**, oferecendo opções de consumo e cobrança de acordo com as suas necessidades. Para obter desempenho e custo previsíveis, crie pools de SQL dedicados para reservar a capacidade de processamento para os dados armazenados em tabelas SQL. Para cargas de trabalho não planejadas ou intermitentes, use o ponto de extremidade SQL sem servidor e sempre disponível.
 * Use funcionalidades internas de **streaming** para enviar dados de fontes de dados na nuvem para tabelas SQL
 * Integrar a IA ao SQL usando modelos de **machine learning** para pontuar dados empregando a [função T-SQL PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true)

@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: e0fff67d6998e55854d4dc3c8db261bc4499f0be
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936049"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99492103"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -96,7 +96,7 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
+|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 compartilhamento de tela | 1 vídeo |
 |**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
 
 

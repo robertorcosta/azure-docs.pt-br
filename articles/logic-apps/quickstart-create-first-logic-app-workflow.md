@@ -7,12 +7,12 @@ ms.reviewer: logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/30/2020
-ms.openlocfilehash: 9d402599c4d6732ce92b8c64af6f660bcedbc4ba
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: d90b9e38158d951990fffc21a43317c688da12c9
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96455057"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99052035"
 ---
 # <a name="quickstart-create-your-first-logic-apps-workflow---azure-portal"></a>Início Rápido: Criar seu fluxo de trabalho de Aplicativos Lógicos – portal do Azure
 
@@ -30,11 +30,14 @@ Se você quiser aprender a criar e gerenciar seu primeiro aplicativo lógico por
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Caso não tenha uma, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* Uma conta e uma assinatura do Azure. Caso não tenha uma, [inscreva-se para obter uma conta do Azure gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 * Uma conta de email de um serviço com suporte dos Aplicativos Lógicos (como o Outlook do Office 365 ou o Outlook.com). Para outros fornecedores de email com suporte, [examine a lista de conectores](/connectors/).
 
     > [!IMPORTANT]
     > Se você estiver usando o [conector do Gmail](/connectors/gmail/), observe que apenas contas do G Suite podem usar esse conector sem restrição nos Aplicativos Lógicos. Se você tiver uma conta do Gmail de consumidor, poderá usar esse conector somente com serviços aprovados pelo Google específicos ou poderá [criar um aplicativo cliente do Google para usar para fazer autenticação com o conector do Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Para obter mais informações, confira [Políticas de privacidade e segurança de dados para os conectores do Google nos Aplicativos Lógicos do Azure](../connectors/connectors-google-data-security-privacy-policy.md).
+
+* Se o seu aplicativo lógico precisar se comunicar por um firewall que limita o tráfego a endereços IP específicos, esse firewall precisará permitir o acesso *tanto* para os endereços IP de [entrada](logic-apps-limits-and-config.md#inbound) quanto para os de [saída](logic-apps-limits-and-config.md#outbound) usados pelo runtime ou pelo serviço de Aplicativos Lógicos na região do Azure em que o aplicativo lógico existe. Se o aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector Outlook do Office 365 ou do SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](logic-apps-limits-and-config.md#outbound) na região do Azure do aplicativo lógico.
 
 <a name="create-logic-app"></a>
 
@@ -51,7 +54,7 @@ Se você quiser aprender a criar e gerenciar seu primeiro aplicativo lógico por
    ![Captura de tela da página do serviço de Aplicativos Lógicos no portal do Azure mostrando a lista de aplicativos lógicos e o botão selecionado, "Adicionar".](./media/quickstart-create-first-logic-app-workflow/add-new-logic-app.png)
 
 1. No painel **Aplicativo Lógico**, forneça configurações e detalhes básicos para seu aplicativo lógico. Crie um [grupo de recursos](../azure-resource-manager/management/overview.md#terminology) para os fins deste aplicativo lógico de exemplo.
-    
+
    | Propriedade | Valor | Descrição |
    |----------|-------|-------------|
    | **Nome** | <*logic-app-name*> | Nome do seu aplicativo lógico, que precisa ser exclusivo em todas as regiões. O nome só pode conter letras, números, hifens (`-`), sublinhados (`_`), parênteses (`(`, `)`) e pontos (`.`). Este exemplo usa "My-First-Logic-App". |

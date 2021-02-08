@@ -1,6 +1,6 @@
 ---
-title: Biblioteca do armazenamento de Blobs do Azure v12 – Java
-description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para Java para criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
+title: 'Início rápido: Biblioteca do Armazenamento de Blobs do Azure v12 – Java'
+description: Neste guia de início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para Java a fim de criar um contêiner e um blob no Armazenamento de Blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.custom: devx-track-java
 ms.author: mhopkins
@@ -8,12 +8,12 @@ ms.date: 12/01/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 02752af77d443e19278a96206bb7516fedd59d7f
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: b5c34cea5d8222a246462bfadde66fd8a5ddbec7
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96501117"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054696"
 ---
 # <a name="quickstart-manage-blobs-with-java-v12-sdk"></a>Início Rápido: Gerenciar blobs com o SDK do Java v12
 
@@ -37,7 +37,7 @@ Recursos adicionais:
 
 ## <a name="setting-up"></a>Configurando
 
-Esta seção fornece instruções sobre como preparar um projeto para funcionar com a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Java.
+Esta seção explica como preparar um projeto para funcionar com a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para Java.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
@@ -183,7 +183,7 @@ Use as seguintes classes Java para interagir com esses recursos:
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Esses trechos de código de exemplo mostram como executar o seguinte com a biblioteca de clientes do Armazenamento de Blobs do Azure para Java:
+Estes exemplos de snippets de código mostram como executar o seguinte com a biblioteca de clientes do Armazenamento de Blobs do Azure para Java:
 
 * [Obter a cadeia de conexão](#get-the-connection-string)
 * [Criar um contêiner](#create-a-container)
@@ -199,7 +199,7 @@ O código a seguir recupera a cadeia de conexão da conta de armazenamento a par
 Adicione esse código dentro do método `Main`:
 
 ```java
-System.out.println("Azure Blob storage v12 - Java quickstart sample\n");
+System.out.println("Azure Blob Storage v12 - Java quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -342,7 +342,7 @@ mvn exec:java -Dexec.mainClass="com.blobs.quickstart.App" -Dexec.cleanupDaemonTh
 A saída do aplicativo é semelhante ao seguinte exemplo:
 
 ```output
-Azure Blob storage v12 - Java quickstart sample
+Azure Blob Storage v12 - Java quickstart sample
 
 Uploading to Blob storage as blob:
         https://mystorageacct.blob.core.windows.net/quickstartblobsf9aa68a5-260e-47e6-bea2-2dcfcfa1fd9a/quickstarta9c3a53e-ae9d-4863-8b34-f3d807992d65.txt
@@ -371,7 +371,7 @@ Neste início rápido você aprendeu a carregar, baixar e listar blobs usando Ja
 Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 
 > [!div class="nextstepaction"]
-> [Exemplos do SDK do Armazenamento de Blobs do Azure v12 Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
+> [Exemplos do SDK do Armazenamento de Blobs do Azure v12 para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-blob/src/samples/java/com/azure/storage/blob)
 
 * Para saber mais, confira o [SDK do Azure para Java](https://github.com/Azure/azure-sdk-for-java/blob/master/README.md).
 * Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, acesse o [Azure para Desenvolvedores de nuvem de Java](/azure/developer/java/).

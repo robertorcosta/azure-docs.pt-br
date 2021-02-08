@@ -7,22 +7,26 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 3ab1e6011a1c127c9ac5a2c7652a4bf458372e1e
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 86adac557c6de133e95e97bfedbd302cc6a2b27e
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733930"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429149"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-portal"></a>Início rápido: Configurar Atestado do Azure com o portal do Azure
 
+## <a name="prerequisites"></a>Pré-requisitos
+
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+
 Siga as etapas abaixo para gerenciar um provedor de atestado usando o portal do Azure.
 
-## <a name="attestation-provider"></a>Provedor de atestado
+## <a name="1-attestation-provider"></a>1. Provedor de atestado
 
-### <a name="create-an-attestation-provider"></a>Criar um provedor de atestado
+### <a name="11-create-an-attestation-provider"></a>1.1 Criar um provedor de atestado
 
-#### <a name="to-configure-the-provider-with-unsigned-policies"></a>Para configurar o provedor com políticas não assinadas
+#### <a name="111-to-configure-the-provider-with-unsigned-policies"></a>1.1.1 Para configurar o provedor com políticas não assinadas
 
 1.  No menu do portal do Azure ou na home page, selecione **Criar um recurso**
 2.  Na caixa de pesquisa, insira **atestado**
@@ -42,7 +46,7 @@ Siga as etapas abaixo para gerenciar um provedor de atestado usando o portal do 
 6.  Depois de fornecer as entradas necessárias, clique em **Examinar+Criar**
 7.  Corrija problemas de validação, se houver, e clique em **Criar**.
 
-#### <a name="to-configure-the-provider-with-signed-policies"></a>Para configurar o provedor com políticas assinadas
+#### <a name="112-to-configure-the-provider-with-signed-policies"></a>1.1.2 Para configurar o provedor com políticas assinadas
 
 1.  No menu do portal do Azure ou na home page, selecione **Criar um recurso**
 2.  Na caixa de pesquisa, insira **atestado**
@@ -62,12 +66,12 @@ Siga as etapas abaixo para gerenciar um provedor de atestado usando o portal do 
 6.  Depois de fornecer as entradas necessárias, clique em **Examinar+Criar**
 7.  Corrija problemas de validação, se houver, e clique em **Criar**.
 
-### <a name="view-attestation-provider"></a>Exibir provedor de atestado
+### <a name="12-view-attestation-provider"></a>1.2 Exibir o provedor de atestado
 
 1.  No menu do portal do Azure ou na home page, selecione **Todos os recursos**
 2.  Na caixa de filtro, digite nome do provedor de atestado e selecione-o
 
-### <a name="delete-attestation-provider"></a>Excluir provedor de atestado
+### <a name="13-delete-attestation-provider"></a>1.3 Excluir o provedor de atestado
 
 1.  No menu do portal do Azure ou na home page, selecione **Todos os recursos**
 2.  Na caixa de filtro, digite nome do provedor de atestado
@@ -79,9 +83,9 @@ Siga as etapas abaixo para gerenciar um provedor de atestado usando o portal do 
 4.  Clique em **Excluir** no menu superior e clique em **Sim**
 
 
-## <a name="attestation-policy-signers"></a>Signatários de política de atestado
+## <a name="2-attestation-policy-signers"></a>2. Signatários de política de atestado
 
-### <a name="view-policy-signer-certificates"></a>Exibir certificados de signatário de política
+### <a name="21-view-policy-signer-certificates"></a>2.1 Exibir certificados de signatário de política
 
 1.  No menu do portal do Azure ou na home page, selecione **Todos os recursos**
 2.  Na caixa de filtro, digite nome do provedor de atestado
@@ -91,7 +95,7 @@ Siga as etapas abaixo para gerenciar um provedor de atestado usando o portal do 
 6.  O arquivo de texto baixado terá todos os certificados em um formato JWS.
 a.  Verifique a contagem dos certificados e se eles foram baixados.
 
-### <a name="add-policy-signer-certificate"></a>Adicionar certificado de signatário de política
+### <a name="22-add-policy-signer-certificate"></a>2.2 Adicionar um certificado de signatário de política
 
 1.  No menu do portal do Azure ou na home page, selecione **Todos os recursos**
 2.  Na caixa de filtro, digite nome do provedor de atestado
@@ -100,7 +104,7 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 5.  Clique em **Adicionar** no menu superior (o botão será desabilitado para os provedores de atestado criados sem o requisito de assinatura de política)
 6.  Carregue o arquivo de certificado de signatário de política e clique em **Adicionar**. Veja exemplos [aqui](./policy-signer-examples.md)
 
-### <a name="delete-policy-signer-certificate"></a>Excluir certificado de signatário de política
+### <a name="23-delete-policy-signer-certificate"></a>2.3 Excluir um certificado de signatário de política
 
 1.  No menu do portal do Azure ou na home page, selecione **Todos os recursos**
 2.  Na caixa de filtro, digite nome do provedor de atestado
@@ -109,9 +113,9 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 5.  Clique em **Excluir** no menu superior (o botão será desabilitado para os provedores de atestado criados sem o requisito de assinatura de política)
 6.  Carregue o arquivo de certificado de signatário de política e clique em **Excluir**. Veja exemplos [aqui](./policy-signer-examples.md) 
 
-## <a name="attestation-policy"></a>Política de atestado
+## <a name="3-attestation-policy"></a>3. Política de atestado
 
-### <a name="view-attestation-policy"></a>Exibir política de atestado
+### <a name="31-view-attestation-policy"></a>3.1 Exibir a política de atestado
 
 1.  No menu do portal do Azure ou na home page, selecione **Todos os recursos**
 2.  Na caixa de filtro, digite nome do provedor de atestado
@@ -119,9 +123,9 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 4.  Clique em **Política** no menu de recursos esquerdo ou no painel inferior
 5.  Selecione o **Tipo de Atestado** e veja a **Política atual**
 
-### <a name="configure-attestation-policy"></a>Configurar política de atestado
+### <a name="32-configure-attestation-policy"></a>3.2 Configurar a política de atestado
 
-#### <a name="when-attestation-provider-is-created-without-policy-signing-requirement"></a>Quando o provedor de atestado é criado sem o requisito de assinatura de política
+#### <a name="321-when-attestation-provider-is-created-without-policy-signing-requirement"></a>3.2.1 Quando o provedor de atestado é criado sem o requisito de assinatura de política
 
 ##### <a name="upload-policy-in-jwt-format"></a>Carregar política no formato JWT
 
@@ -153,7 +157,7 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
 
 8.  Clique em **Atualizar** para ver a política configurada
 
-#### <a name="when-attestation-provider-is-created-with-policy-signing-requirement"></a>Quando o provedor de atestado é criado com o requisito de assinatura de política
+#### <a name="322-when-attestation-provider-is-created-with-policy-signing-requirement"></a>3.2.2 Quando o provedor de atestado é criado com o requisito de assinatura de política
 
 ##### <a name="upload-policy-in-jwt-format"></a>Carregar política no formato JWT
 
@@ -168,4 +172,9 @@ a.  Verifique a contagem dos certificados e se eles foram baixados.
     Para a opção de upload de arquivo, a versão prévia da política será mostrada em formato de texto e a versão prévia da política não pode ser editada.
     
 8.  Clique em **Atualizar** para ver a política configurada
+
+## <a name="next-steps"></a>Próximas etapas
+
+- [Como criar e assinar uma política de atestado](author-sign-policy.md)
+- [Atestar um enclave do SGX usando exemplos de código](/samples/browse/?expanded=azure&terms=attestation)
 

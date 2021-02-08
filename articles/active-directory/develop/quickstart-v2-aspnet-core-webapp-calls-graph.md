@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: 8e54f71ef58b3ea76a5fe55347a1caa173046320
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 675a5526bfd741876de16fe41c969c09a4ed0ad7
+ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754496"
+ms.lasthandoff: 01/28/2021
+ms.locfileid: "98938230"
 ---
 # <a name="quickstart-aspnet-core-web-app-that-signs-in-users-and-calls-microsoft-graph-on-their-behalf"></a>Início Rápido: Aplicativo Web ASP.NET Core que conecta usuários e chama o Microsoft Graph em nome deles
 
@@ -55,7 +55,7 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Insira um **URI de Redirecionamento** de `https://localhost:44321/signin-oidc`.
 > 1. Selecione **Registrar**.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
-> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`.
+> 1. Insira uma **URL de logoff de front-channel** igual a `https://localhost:44321/signout-oidc`.
 > 1. Selecione **Salvar**.
 > 1. Em **Gerenciar**, selecione **Certificados e segredos** > **Novo segredo do cliente**.
 > 1. Insira uma **Descrição**, por exemplo, `clientsecret1`.
@@ -64,7 +64,7 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste guia de início rápido funcione, você precisará adicionar as URLs de resposta como `https://localhost:44321/signin-oidc` e adicionar a URL de Logoff como `https://localhost:44321/signout-oidc`.
+> O código de exemplo deste guia de início rápido exige um **URI de redirecionamento** igual a `https://localhost:44321/signin-oidc` e uma **URL de logoff de front-channel** igual a `https://localhost:44321/signout-oidc` no registro do aplicativo.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >

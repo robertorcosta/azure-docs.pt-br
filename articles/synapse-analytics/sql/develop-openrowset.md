@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2ead7291f52f33c271768ae2f470af65aca98030
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 9fd10d6a4fb748a61b5e1d9e27777c2fa1134039
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98734740"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225606"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como usar a OPENROWSET usando o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -121,7 +121,7 @@ Abaixo você encontrará os valores <storage account path> relevantes que serão
 | Armazenamento do Blobs do Azure         | wasb[s]  | \<container>@\<storage_account>.blob.core.windows.net/path/file |
 | Azure Data Lake Storage Gen1 | http[s]  | \<storage_account>.azuredatalakestore.net/webhdfs/v1 |
 | Azure Data Lake Storage Gen2 | http[s]  | \<storage_account>.dfs.core.windows.net /path/file   |
-| Azure Data Lake Storage Gen2 | aufs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
+| Azure Data Lake Storage Gen2 | abfs[s]  | [\<file_system>@\<account_name>.dfs.core.windows.net/path/file](../../storage/blobs/data-lake-storage-introduction-abfs-uri.md#uri-syntax)              |
 ||||
 
 '\<storage_path>'
@@ -222,6 +222,7 @@ Especificações do analisador CSV versão 1.0:
 Especificações do analisador CSV versão 2.0:
 
 - não há suporte para todos os tipos de dados.
+- O tamanho máximo da coluna de caracteres é 8.000.
 - O limite de tamanho máximo de linha é de 8 MB.
 - As opções a seguir não têm suporte: DATA_COMPRESSION.
 - A cadeia de caracteres vazia entre aspas ("") é interpretada como cadeia de caracteres vazia.

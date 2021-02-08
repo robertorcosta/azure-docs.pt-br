@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 161b7fcf4660ddb9515f0b82887f416d83598bdc
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 56359ba07513ac648c682b8114001e251b0ee44c
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754429"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225792"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 
@@ -49,11 +49,11 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 > 1. Se a conta tiver acesso a mais de um locatário, selecione sua conta na parte superior direita e defina sua sessão do portal para o locatário Azure AD que deseja usar.
 > 1. Siga as instruções para [registrar um aplicativo de página única](./scenario-spa-app-registration.md) no portal do Azure.
 > 1. Adicione uma nova plataforma no painel **Autenticação** do seu registro de aplicativo e registre o URI de redirecionamento: `http://localhost:4200/`.
-> 1. Este início rápido usa o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md). Selecione as configurações de **Concessão implícita** para **tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo conecta usuários e chama uma API.
+> 1. Este início rápido usa o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md). Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID** e **Tokens de acesso**. Os tokens de ID e tokens de acesso são necessários porque esse aplicativo conecta usuários e chama uma API.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-the-application-in-the-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
-> Para que o exemplo de código deste guia de início rápido funcione, é necessário ter um URI de redirecionamento como **http://localhost:4200/** e habilitar o recurso **Concessão implícita**.
+> Para que o exemplo de código deste guia de início rápido funcione, é necessário ter um URI de redirecionamento como **http://localhost:4200/** e habilitar a ****Concessão implícita**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
 >

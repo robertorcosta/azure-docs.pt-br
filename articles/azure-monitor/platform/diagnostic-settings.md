@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.subservice: logs
-ms.openlocfilehash: c25c53159fd0504956eed2cf7f968c573e9fc289
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98927731"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820544"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 Os [logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, apresentam informações detalhadas de diagnóstico e auditoria para recursos do Azure e para a plataforma do Azure da qual eles dependem. As [métricas da plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para diferentes destinos.
@@ -175,6 +175,24 @@ Consulte [configurações de diagnóstico](/rest/api/monitor/diagnosticsettings)
 
 ## <a name="create-using-azure-policy"></a>Criar usando Azure Policy
 Como uma configuração de diagnóstico precisa ser criada para cada recurso do Azure, Azure Policy pode ser usada para criar automaticamente uma configuração de diagnóstico à medida que cada recurso é criado. Consulte [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md) para obter detalhes.
+
+## <a name="metric-category-is-not-supported-error"></a>O erro de categoria de métrica não é suportado
+Ao implantar uma configuração de diagnóstico, você receberá a seguinte mensagem de erro:
+
+   "Não há suporte para a categoria de métrica '*xxxx*'"
+
+Por exemplo: 
+
+   "Não há suporte para a categoria de métrica ' ActionsFailed '"
+
+onde anteriormente sua implantação foi bem-sucedida. 
+
+O problema ocorre ao usar um modelo do Resource Manager, a API REST de configurações de diagnóstico, CLI do Azure ou Azure PowerShell. As configurações de diagnóstico criadas por meio do portal do Azure não são afetadas, pois apenas os nomes de categoria com suporte são apresentados.
+
+O problema é causado por uma alteração recente na API subjacente. Não há suporte para categorias de métrica diferentes de ' biometria ' e nunca foram feitas, exceto em cenários de lista de permissões de IP muito específicos. No passado, outros nomes de categoria foram ignorados durante a implantação de uma configuração de diagnóstico. O back-end de Azure Monitor simplesmente redirecionava essas categorias para ' Biometrics '.  A partir de fevereiro de 2021, o back-end foi atualizado para confirmar especificamente que a categoria de métrica fornecida é precisa. Essa alteração causou a falha de algumas implantações.
+
+Se você receber esse erro, atualize suas implantações para substituir quaisquer nomes de categoria de métricas por ' Biometrics ' para corrigir o problema. Se a implantação tiver sido adicionada anteriormente a várias categorias, somente uma com a referência ' Biometrics ' deverá ser mantida. Se você continuar tendo o problema, entre em contato com o suporte do Azure por meio do portal do Azure. 
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

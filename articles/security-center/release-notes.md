@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/27/2021
+ms.date: 02/03/2021
 ms.author: memildin
-ms.openlocfilehash: 5dd58dd5f43481184b17ca4bdd694a1df76697db
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: cdc29f89307a986b2d71604ca495eac45458632b
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98916449"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526612"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -29,6 +29,49 @@ Para saber mais sobre as alterações *planejadas* chegando em breve à Central 
 
 > [!TIP]
 > Se você estiver procurando itens que têm mais de seis meses, poderá encontrá-los nos [Arquivos de O que há de novo na Central de Segurança do Azure](release-notes-archive.md).
+
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+As atualizações de fevereiro incluem:
+
+- [Lançamento das recomendações de proteção de cargas de trabalho do Kubernetes em GA (disponibilidade geral)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
+- [Link direto para a política na página de detalhes da recomendação](#direct-link-to-policy-from-recommendation-details-page)
+- [A recomendação de classificação de dados SQL não afeta mais sua classificação de segurança](#sql-data-classification-recommendation-no-longer-affect-your-secure-score)
+
+### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Lançamento das recomendações de proteção de cargas de trabalho do Kubernetes em GA (disponibilidade geral)
+
+Estamos felizes em anunciar a GA (disponibilidade geral) do conjunto de recomendações para proteções de cargas de trabalho do Kubernetes.
+
+Para garantir que as cargas de trabalho do Kubernetes sejam seguras por padrão, a Central de Segurança adicionou recomendações de proteção no nível do Kubernetes, incluindo opções de imposição com o controle de admissão do Kubernetes.
+
+Quando o complemento do Azure Policy para Kubernetes for instalado no seu cluster do AKS (Serviço de Kubernetes do Azure), todas as solicitações para o servidor de API do Kubernetes serão monitoradas em relação ao conjunto predefinido de melhores práticas, exibidas como 13 recomendações de segurança, antes de serem persistidas no cluster. Em seguida, você pode configurá-lo para impor as melhores práticas e exigir o uso dele em cargas de trabalho futuras.
+
+Por exemplo, você poderá proibir a criação de contêineres privilegiados, e todas as futuras solicitações para fazer isso serão bloqueadas.
+
+Saiba mais em [Melhores práticas de proteção de cargas de trabalho usando o controle de admissão do Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+
+> [!NOTE]
+> Enquanto as recomendações estavam em versão prévia, elas não renderizavam um recurso de cluster do AKS não íntegro e não eram incluídas nos cálculos da sua classificação de segurança. Com este comunicado de GA, elas serão incluídas no cálculo da classificação. Se você ainda não corrigiu, isso pode resultar em um pequeno impacto em sua classificação de segurança. Corrija-as sempre que possível, conforme descrito em [Corrigir recomendações na Central de Segurança do Azure](security-center-remediate-recommendations.md).
+
+
+### <a name="direct-link-to-policy-from-recommendation-details-page"></a>Link direto para a política na página de detalhes da recomendação
+
+Quando você estiver examinando os detalhes de uma recomendação, muitas vezes, será útil poder ver a política subjacente. Para cada recomendação com suporte de uma política, há um novo link na página de detalhes da recomendação:
+
+:::image type="content" source="media/release-notes/view-policy-definition.png" alt-text="Link para a página do Azure Policy de uma política específica que dá suporte a uma recomendação":::
+
+Use esse link para ver a definição de política e examinar a lógica de avaliação. 
+
+Se você estiver examinando a lista de recomendações em nosso [Guia de referência de recomendações de segurança](recommendations-reference.md), também verá esses links para as páginas de definição da política:
+
+:::image type="content" source="media/release-notes/view-policy-definition-from-documentation.png" alt-text="Como acessar a página do Azure Policy de uma política específica diretamente na página de referência de recomendações da Central de Segurança do Azure":::
+
+
+### <a name="sql-data-classification-recommendation-no-longer-affect-your-secure-score"></a>A recomendação de classificação de dados SQL não afeta mais sua classificação de segurança
+
+A recomendação **Os dados confidenciais nos seus bancos de dados SQL devem ser classificados** não afetará mais sua classificação de segurança. Essa é a única recomendação no controle de segurança **Aplicar classificação de dados**, para que o controle agora tenha um valor de classificação de segurança igual a 0.
+
 
 
 ## <a name="january-2021"></a>Janeiro de 2021
@@ -102,9 +145,12 @@ Saiba mais sobre os [controles de segurança e classificação de segurança na 
 
 ### <a name="secure-score-api-is-released-for-general-availability-ga"></a>API de classificação de segurança liberada para GA (Disponibilidade Geral)
 
-Agora é possível acessar sua classificação por meio de uma [API de classificação de segurança](/rest/api/securitycenter/securescores/). Os métodos de API oferecem a flexibilidade para consultar os dados e criar seu mecanismo de relatório das suas classificações de segurança ao longo do tempo. Por exemplo, você pode usar a API **Classificações de Segurança** para obter a classificação de uma assinatura específica. Além disso, você pode usar a API **Controles de Classificação de Segurança** para listar os controles de segurança e a classificação atual das suas assinaturas.
+Agora é possível acessar sua classificação por meio de uma [API de classificação de segurança](/rest/api/securitycenter/securescores/). Os métodos de API oferecem a flexibilidade para consultar os dados e criar seu mecanismo de relatório das suas classificações de segurança ao longo do tempo. Por exemplo:
 
-Para obter exemplos de ferramentas externas possibilitadas com a API de classificação de segurança, confira [a área de classificação de segurança da nossa comunidade do GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
+- use a API **Classificações de Segurança** para obter a classificação de uma assinatura específica
+- use a API **Controles de Classificação de Segurança** para listar os controles de segurança e a classificação atual das suas assinaturas
+
+Saiba mais sobre as ferramentas externas que são possíveis com a API de classificação de segurança [na área de classificação de segurança da nossa comunidade do GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
 Saiba mais sobre os [controles de segurança e classificação de segurança na Central de Segurança do Azure](secure-score-security-controls.md).
 
@@ -156,7 +202,7 @@ Saiba mais em:
 
 Estamos expandindo a funcionalidade de isenção para incluir recomendações inteiras. Fornecendo mais opções para ajustar as recomendações de segurança que a Central de Segurança faz para as suas assinaturas, grupo de gerenciamento ou recursos.
 
-Ocasionalmente, um recurso será listado como não íntegro quando você souber que o problema foi resolvido por uma ferramenta de terceiros que não foi detectada pela Central de Segurança. Ou uma recomendação será mostrada em um escopo no qual você acha que ela não pertence. A recomendação pode ser inadequada para uma assinatura específica. Ou talvez a sua organização simplesmente tenha decidido aceitar os riscos relacionados ao recurso ou à recomendação específica.
+Ocasionalmente, um recurso será listado como não íntegro quando você souber que o problema foi resolvido por uma ferramenta de terceiros que não foi detectada pela Central de Segurança. Ou uma recomendação será mostrada em um escopo no qual você acha que ela não pertence. A recomendação pode ser inadequada para uma assinatura específica. Ou talvez a sua organização tenha decidido aceitar os riscos relacionados à recomendação ou ao recurso específico.
 
 Com essa versão prévia do recurso, agora você pode criar uma isenção de uma recomendação para:
 
@@ -233,7 +279,7 @@ Ao definir uma exportação contínua, defina a frequência de exportação:
 
 :::image type="content" source="media/release-notes/export-frequency.png" alt-text="Como escolher a frequência da exportação contínua":::
 
-- **Streaming** – as avaliações serão enviadas em tempo real quando o estado de integridade de um recurso for atualizado (se nenhuma atualização ocorrer, nenhum dado será enviado).
+- **Streaming**: as avaliações serão enviadas em tempo real quando o estado de integridade de um recurso for atualizado (se nenhuma atualização ocorrer, nenhum dado será enviado).
 - **Instantâneos** – um instantâneo do estado atual de todas as avaliações de conformidade regulatória será enviado a cada semana (essa é uma versão prévia do recurso para instantâneos semanais de classificações de segurança e dados de conformidade regulatória).
 
 Saiba mais sobre as funcionalidades completas desse recurso em [Exportar continuamente os dados da Central de Segurança](continuous-export.md)
@@ -347,7 +393,7 @@ A página de inventário na Central de Segurança do Azure foi atualizada com as
 - **Guias e comentários** adicionados à barra de ferramentas. Isso abre um painel com links para informações e ferramentas relacionadas. 
 - **Filtro de assinaturas** adicionado aos filtros padrão disponíveis para seus recursos.
 - Link **Abrir consulta** para abrir as opções de filtro atuais como uma consulta do Azure Resource Graph (anteriormente chamada de "Exibir no Resource Graph Explorer").
-- **Opções de operador** para cada filtro. Agora você pode escolher entre operadores lógicos adicionais diferentes de " = ". Por exemplo, talvez você queira localizar todos os recursos com recomendações ativas cujos títulos incluem a cadeia de caracteres "encrypt". 
+- **Opções de operador** para cada filtro. Agora você pode escolher entre mais operadores lógicos além de '='. Por exemplo, talvez você queira localizar todos os recursos com recomendações ativas cujos títulos incluem a cadeia de caracteres "encrypt". 
 
     :::image type="content" source="media/release-notes/inventory-filter-operators.png" alt-text="Controles para a opção de operador nos filtros de inventário de ativos":::
 
@@ -358,7 +404,7 @@ Saiba mais sobre inventário em [Explorar e gerenciar seus recursos com o invent
 
 A recomendação "Os aplicativos Web devem solicitar um certificado SSL para todas as solicitações de entrada" foi movida do controle de segurança **Gerenciar o acesso e as permissões** (vale no máximo quatro pontos) para **Implementar as melhores práticas de segurança** (que não vale nenhum ponto). 
 
-Garantir que seus aplicativos Web solicitem um certificado certamente os tornarão mais seguros. No entanto, para aplicativos Web voltados para o público, é irrelevante. se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se o aplicativo exigir certificados de cliente, você não deverá permitir solicitações ao seu aplicativo via HTTP. Saiba mais em [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo do Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
+Garantir que um aplicativo Web solicite um certificado certamente o torna mais seguro. No entanto, para aplicativos Web voltados para o público, é irrelevante. se você acessar seu site por HTTP e não por HTTPS, você não receberá nenhum certificado do cliente. Por isso, se o aplicativo exigir certificados de cliente, você não deverá permitir solicitações ao seu aplicativo via HTTP. Saiba mais em [Como configurar a autenticação mútua TLS para o Serviço de Aplicativo do Azure](../app-service/app-service-web-configure-tls-mutual-auth.md).
 
 Com essa alteração, a recomendação agora é uma prática recomendada que não afetará sua classificação. 
 
@@ -371,7 +417,7 @@ A Central de Segurança do Azure monitora todos os recursos conectados e gera re
 
 À medida que a Central de Segurança continua a expandir sua cobertura e seus recursos, a lista de recomendações de segurança cresce todos os meses. Por exemplo, confira [29 recomendações de versão prévia adicionadas para aumentar a cobertura do Azure Security Benchmark](#29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark).
 
-Com a lista crescente, há a necessidade de poder filtrar as recomendações de maior interesse. Em novembro, adicionamos filtros à página de recomendações (confira [A lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)).
+Com a lista cada vez maior, há a necessidade de filtrar as recomendações para encontrar as de maior interesse. Em novembro, adicionamos filtros à página de recomendações (confira [A lista de recomendações agora inclui filtros](#recommendations-list-now-includes-filters)).
 
 Os filtros adicionados neste mês fornecem opções para refinar a lista de recomendações de acordo com:
 
@@ -423,7 +469,7 @@ As atualizações de novembro incluem:
 
 ### <a name="29-preview-recommendations-added-to-increase-coverage-of-azure-security-benchmark"></a>29 recomendações de versão prévia adicionadas para aumentar a cobertura do Parâmetro de Comparação de Segurança do Azure
 
-O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft com as melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. [Saiba mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).
+O Azure Security Benchmark é um conjunto específico de diretrizes específicas do Azure criadas pela Microsoft de melhores práticas de segurança e conformidade baseadas em estruturas de conformidade comuns. [Saiba mais sobre o Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 As 29 recomendações de versão prévia a seguir foram adicionadas à Central de Segurança para aumentar a cobertura desse parâmetro de comparação.
 
@@ -475,7 +521,7 @@ Agora você pode filtrar a lista de recomendações de segurança com base em um
 
 O recurso de provisionamento automático ajuda a reduzir a sobrecarga de gerenciamento instalando as extensões necessárias em VMs novas e existentes do Azure, a fim de que elas possam se beneficiar das proteções da Central de Segurança. 
 
-À medida que a Central de Segurança do Azure cresce, mais extensões são desenvolvidas e é possível monitorar uma lista maior de tipos de recursos. As ferramentas de provisionamento automático foram expandidas para dar suporte a extensões e tipos de recursos adicionais, aproveitando os recursos do Azure Policy.
+À medida que a Central de Segurança do Azure cresce, mais extensões são desenvolvidas e é possível monitorar uma lista maior de tipos de recursos. As ferramentas de provisionamento automático já foram expandidas para dar suporte a outras extensões e tipos de recursos aproveitando as funcionalidades do Azure Policy.
 
 Agora você pode configurar o provisionamento automático de:
 
@@ -575,7 +621,7 @@ Para obter mais informações sobre essa recomendação e todas as outras recome
 
 O painel de conformidade regulatória da Central de Segurança fornece informações sobre sua postura de conformidade com base em como você está atendendo a requisitos e controles de conformidade específicos.
 
-O painel inclui um conjunto padrão de padrões regulatórios. Se qualquer um dos padrões fornecidos não for relevante para sua organização, agora é um processo simples removê-los da interface do usuário para uma assinatura. Os padrões podem ser removidos somente no nível da *assinatura* não no escopo do grupo de gerenciamento.
+O painel inclui um conjunto padrão de padrões regulatórios. Se um dos padrões fornecidos não é relevante para sua organização, removê-los da interface do usuário de uma assinatura passou a ser um processo simples. Os padrões podem ser removidos somente no nível da *assinatura* não no escopo do grupo de gerenciamento.
 
 Saiba mais em [Remover um padrão de seu painel](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
 
@@ -699,7 +745,7 @@ As atualizações de setembro incluem:
 
 ### <a name="security-center-gets-a-new-look"></a>A Central de Segurança ganha uma nova aparência!
 
-Lançamos uma interface do usuário atualizada para as páginas do portal da Central de Segurança. As novas páginas incluem uma nova página de visão geral, bem como painéis para a classificação de segurança, o inventário de ativos e o Azure Defender.
+Lançamos uma interface do usuário atualizada para as páginas do portal da Central de Segurança. As novas páginas incluem uma nova página de visão geral e painéis para a classificação de segurança, o inventário de ativos e o Azure Defender.
 
 A página de visão geral remodelada agora traz um bloco para acessar os painéis da classificação de segurança, do inventário de ativos e do Azure Defender. Também traz um bloco vinculado ao painel de conformidade regulatória.
 
@@ -892,114 +938,3 @@ Um exemplo de recomendação de versão prévia:
 A página de detalhes de recomendações agora inclui um indicador de intervalo de atualização (quando relevante) e uma exibição clara da severidade da recomendação.
 
 :::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Página de recomendações mostrando a atualização e a severidade":::
-
-
-
-## <a name="august-2020"></a>Agosto de 2020
-
-As atualizações de agosto incluem:
-
-- [Inventário de ativos: nova exibição avançada da postura de segurança dos ativos](#asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets)
-- [Adição de suporte para padrões de segurança do Azure Active Directory (para autenticação multifator)](#added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication)
-- [Adição da recomendação de entidades de serviço](#service-principals-recommendation-added)
-- [Avaliação de vulnerabilidades em VMs – recomendações e políticas consolidadas](#vulnerability-assessment-on-vms---recommendations-and-policies-consolidated)
-- [Adição de novas políticas de segurança do AKS à iniciativa ASC_default – para uso somente dos clientes da versão prévia privada](#new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only)
-
-
-### <a name="asset-inventory---powerful-new-view-of-the-security-posture-of-your-assets"></a>Inventário de ativos: nova exibição avançada da postura de segurança dos ativos
-
-O inventário de ativos da Central de Segurança (atualmente em versão prévia) fornece uma forma de exibir a postura de segurança dos recursos que você conectou à Central de Segurança.
-
-A Central de Segurança analisa periodicamente o estado de segurança dos seus recursos do Azure para identificar possíveis vulnerabilidades na segurança. Em seguida, ela fornece recomendações sobre como corrigir essas vulnerabilidades. Quando qualquer recurso tiver recomendações pendentes, eles serão exibidos no inventário.
-
-Use a exibição e os respectivos filtros para explorar seus dados de postura de segurança e realizar ações adicionais com base nas descobertas.
-
-Saiba mais sobre o [inventário de ativos](asset-inventory.md).
-
-
-### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Adição de suporte para padrões de segurança do Azure Active Directory (para autenticação multifator)
-
-A Central de Segurança adicionou suporte completo para os [padrões de segurança](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), as proteções gratuitas de segurança de identidade da Microsoft.
-
-Os padrões de segurança fornecem configurações de segurança de identidade pré-configuradas para defender sua organização contra ataques comuns relacionados à identidade. Os padrões de segurança já estão protegendo mais de 5 milhões de locatários em geral; 50 mil locatários também estão protegidos pela Central de Segurança.
-
-Agora, a Central de Segurança fornece uma recomendação de segurança sempre que identifica uma assinatura do Azure sem os padrões de segurança habilitados. Até agora, a Central de Segurança recomenda habilitar a autenticação multifator usando o acesso condicional, que faz parte da licença Premium do Azure AD (Active Directory). Para os clientes que usam o Azure AD gratuito, agora recomendamos habilitar os padrões de segurança. 
-
-Nossa meta é encorajar mais clientes a proteger ambientes de nuvem com a MFA e atenuar um dos maiores riscos que também é o mais impactante para a sua [classificação de segurança](secure-score-security-controls.md).
-
-Saiba mais sobre segurança os [padrões de segurança](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
-
-
-### <a name="service-principals-recommendation-added"></a>Adição da recomendação de entidades de serviço
-
-Uma nova recomendação foi adicionada a fim de aconselhar os clientes da Central de Segurança que usam certificados de gerenciamento a gerenciar as assinaturas alternem para as entidades de serviço.
-
-A recomendação **As entidades de serviço devem ser usadas para proteger suas assinaturas em vez dos certificados de gerenciamento** aconselha você a usar as entidades de serviço ou o Azure Resource Manager para gerenciar suas assinaturas com mais segurança. 
-
-Saiba mais sobre os [Objetos de entidade de serviço e aplicativo no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
-
-
-### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Avaliação de vulnerabilidades em VMs – recomendações e políticas consolidadas
-
-A Central de Segurança inspeciona suas VMs para detectar se estão executando uma solução de avaliação de vulnerabilidades. Se nenhuma solução de avaliação de vulnerabilidades for encontrada, a Central de Segurança fornecerá uma recomendação para simplificar a implantação.
-
-Quando as vulnerabilidades são encontradas, a Central de Segurança fornece uma recomendação resumindo as descobertas para você investigar e corrigir, conforme necessário.
-
-Para garantir uma experiência consistente para todos os usuários, independentemente do tipo de verificador que estão usando, unificamos quatro recomendações nas duas seguintes:
-
-|Recomendação unificada|Descrição das alterações|
-|----|:----|
-|**Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais**|Substitui as duas seguintes recomendações:<br> **•** Habilitar a solução interna de avaliação de vulnerabilidades em máquinas virtuais (ativada pela Qualys) (agora preterida) (incluída na camada Standard)<br> **•** A solução de avaliação de vulnerabilidades deve ser instalada nas máquinas virtuais (agora preterida) (incluída nas camadas Standard e Gratuita)|
-|**As vulnerabilidades nas suas máquinas virtuais devem ser corrigidas**|Substitui as duas seguintes recomendações:<br>**•** Corrija as vulnerabilidades encontradas nas máquinas virtuais (ativada pela Qualys) (agora preterida)<br>**•** As vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidades (agora preterida)|
-|||
-
-Agora, você usará a mesma recomendação para implantar a extensão de avaliação de vulnerabilidades da Central de Segurança ou uma solução de licença privada ("BYOL") de um parceiro, como a Qualys ou a Rapid7.
-
-Além disso, quando as vulnerabilidades forem encontradas e relatadas à Central de Segurança, uma só recomendação alertará você sobre as descobertas, independentemente da solução de avaliação de vulnerabilidades que as identificou.
-
-#### <a name="updating-dependencies"></a>Como atualizar dependências
-
-Se você tiver scripts, consultas ou automações referentes às recomendações ou aos nomes/às chaves de política anteriores, use as tabelas abaixo para atualizar as referências:
-
-##### <a name="before-august-2020"></a>Antes de agosto de 2020
-
-|Recomendação|Escopo|
-|----|:----|
-|**Habilitar a solução interna de avaliação de vulnerabilidades nas máquinas virtuais (ativada pela Qualys)**<br>Chave: 550e890b-e652-4d22-8274-60b3bdb24c63|Interno|
-|**Corrija as vulnerabilidades encontradas em suas máquinas virtuais (da plataforma Qualys)**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Interno|
-|**A solução de avaliação de vulnerabilidades deve ser instalada nas suas máquinas virtuais**<br>Chave: 01b1ed4c-b733-4fee-b145-f23236e70cf3|BYOL|
-|**As vulnerabilidades devem ser corrigidas por uma solução de Avaliação de Vulnerabilidades**<br>Chave: 71992a2a-d168-42e0-b10e-6b45fa2ecddb|BYOL|
-||||
-
-
-|Política|Escopo|
-|----|:----|
-|**A avaliação de vulnerabilidades deve estar habilitada nas máquinas virtuais**<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9|Interno|
-|**As vulnerabilidades devem ser corrigidas por uma solução de avaliação de vulnerabilidades**<br>ID da política: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
-||||
-
-
-##### <a name="from-august-2020"></a>A partir de agosto de 2020
-
-|Recomendação|Escopo|
-|----|:----|
-|**Uma solução de avaliação de vulnerabilidade deve ser habilitada nas máquinas virtuais**<br>Chave: ffff0522-1e88-47fc-8382-2a80ba848f5d|Interno + BYOL|
-|**As vulnerabilidades nas suas máquinas virtuais devem ser corrigidas**<br>Chave: 1195afff-c881-495e-9bc5-1486211ae03f|Interno + BYOL|
-||||
-
-|Política|Escopo|
-|----|:----|
-|[**A avaliação de vulnerabilidades deve estar habilitada nas máquinas virtuais**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID da política: 501541f7-f7e7-4cd6-868c-4190fdad3ac9 |Interno + BYOL|
-||||
-
-
-### <a name="new-aks-security-policies-added-to-asc_default-initiative--for-use-by-private-preview-customers-only"></a>Adição de novas políticas de segurança do AKS à iniciativa ASC_default – para uso somente dos clientes da versão prévia privada
-
-Para garantir que as cargas de trabalho do Kubernetes sejam seguras por padrão, a Central de Segurança está adicionando recomendações de proteção e políticas no nível do Kubernetes, incluindo opções de imposição com o controle de admissão do Kubernetes.
-
-A fase inicial deste projeto inclui uma versão prévia privada e a adição de novas políticas (desabilitadas por padrão) à iniciativa ASC_default.
-
-Você poderá ignorar essas políticas com segurança e não haverá nenhum impacto no seu ambiente. Se você quiser habilitá-las, inscreva-se na versão prévia em https://aka.ms/SecurityPrP e escolha uma das seguintes opções:
-
-1. **Versão prévia única**: para ingressar somente nessa versão prévia privada. Mencione explicitamente “Verificação contínua do ASC” como a versão prévia na qual deseja ingressar.
-1. **Programas em andamento** – para ser adicionado a esta e às futuras versões prévias privadas. Você precisará preencher um perfil e assinar um contrato de privacidade.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/25/2021
 ms.author: memildin
-ms.openlocfilehash: 99dadea37a519289120fcf30e394df1e0f7af5e7
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d5de16c8156762a229d6c707080bc197dc206a7c
+ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98757704"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99475583"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Futuras alterações importantes na Central de Segurança do Azure
 
@@ -38,7 +38,7 @@ Se você estiver procurando as notas sobre a versão mais recentes, poderá enco
 
 ### <a name="kubernetes-workload-protection-recommendations-will-soon-be-released-for-general-availability-ga"></a>As recomendações de proteção de cargas de trabalho do Kubernetes em breve serão lançadas em GA (disponibilidade geral)
 
-**Data estimada da alteração:** Janeiro de 2021
+**Data estimada da alteração:** Fevereiro de 2021
 
 As recomendações de proteção de cargas de trabalho do Kubernetes descritas em [Proteger suas cargas de trabalho do Kubernetes](kubernetes-workload-protections.md) estão atualmente em versão prévia. Embora uma recomendação esteja em versão prévia, ela não torna um recurso não íntegro e é incluída nos cálculos da sua classificação de segurança.
 
@@ -83,7 +83,7 @@ Saiba mais sobre cada uma dessas recomendações na [página de referência de r
 
 **Data estimada da alteração:** T2 de 2021
 
-A versão atual da recomendação **Os dados confidenciais em seus bancos de dado SQL devem ser classificados** no controle de segurança **Aplicar classificação de dados** será preterida e substituída por uma nova versão que está mais bem alinhada com a estratégia de classificação de dados da Microsoft. Como resultado:
+A versão atual da recomendação **Os dados confidenciais nos seus bancos de dados SQL devem ser classificados** no controle de segurança **Aplicar classificação de dados** será substituída por uma nova versão que está mais bem alinhada com a estratégia de classificação de dados da Microsoft. Como resultado:
 
 - A recomendação não afetará mais sua classificação de segurança
 - O controle de segurança ("Aplicar classificação de dados") não afetará mais sua classificação de segurança

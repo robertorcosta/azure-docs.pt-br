@@ -1,6 +1,6 @@
 ---
-title: 'Início Rápido: Biblioteca do armazenamento de Blobs do Azure v12 – .NET'
-description: Neste início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para .NET para criar um contêiner e um blob no Armazenamento de blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
+title: 'Início rápido: Biblioteca do Armazenamento de Blobs do Azure v12 – .NET'
+description: Neste guia de início rápido, você aprenderá a usar a biblioteca de clientes do Armazenamento de Blobs do Azure versão 12 para .NET a fim de criar um contêiner e um blob no Armazenamento de Blobs (objeto). Em seguida, você aprenderá como baixar o blob para seu computador local e como listar todos os blobs em um contêiner.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 07/24/2020
@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8cb8c193e09e841a8401cbb0a6ac78ce87afa01c
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: f8f27743d8680f5e73e1f7bb7a3f7bd6ff2e0464
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96021700"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99054713"
 ---
-# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Início Rápido: Biblioteca de clientes do Armazenamento do Blob v12 para .NET
+# <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>Início rápido: Biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET
 
 Introdução à biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET. O Armazenamento de Blobs do Azure é uma solução de armazenamento de objetos da Microsoft para a nuvem. Siga as etapas para instalar o pacote e testar o código de exemplo para tarefas básicas. O Armazenamento de Blobs é otimizado para armazenar grandes quantidades de dados não estruturados.
 
@@ -44,7 +44,7 @@ Recursos adicionais:
 
 ## <a name="setting-up"></a>Configurando
 
-Esta seção fornece instruções sobre como preparar um projeto para funcionar com a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET.
+Esta seção explica como preparar um projeto para funcionar com a biblioteca de clientes do Armazenamento de Blobs do Azure v12 para .NET.
 
 ### <a name="create-the-project"></a>Criar o projeto
 
@@ -70,7 +70,7 @@ Crie um aplicativo .NET Core chamado *BlobQuickstartV12*.
 
 ### <a name="install-the-package"></a>Instalar o pacote
 
-Ainda no diretório do aplicativo, instale a biblioteca de clientes do armazenamento de Blobs do Azure para o pacote .NET usando o comando `dotnet add package`.
+Ainda no diretório do aplicativo, instale a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET usando o comando `dotnet add package`.
 
 ```console
 dotnet add package Azure.Storage.Blobs
@@ -128,7 +128,7 @@ Use as seguintes classes .NET para interagir com esses recursos:
 
 ## <a name="code-examples"></a>Exemplos de código
 
-Esses snippets de código de exemplo mostram como executar o seguinte com a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET:
+Estes exemplos de snippets de código mostram como executar o seguinte com a biblioteca de clientes do Armazenamento de Blobs do Azure para .NET:
 
 * [Obter a cadeia de conexão](#get-the-connection-string)
 * [Criar um contêiner](#create-a-container)
@@ -144,7 +144,7 @@ O código a seguir recupera a cadeia de conexão da conta de armazenamento a par
 Adicione esse código dentro do método `Main`:
 
 ```csharp
-Console.WriteLine("Azure Blob storage v12 - .NET quickstart sample\n");
+Console.WriteLine("Azure Blob Storage v12 - .NET quickstart sample\n");
 
 // Retrieve the connection string for use with the application. The storage
 // connection string is stored in an environment variable on the machine
@@ -287,7 +287,7 @@ dotnet run
 A saída do aplicativo é semelhante ao seguinte exemplo:
 
 ```output
-Azure Blob storage v12 - .NET quickstart sample
+Azure Blob Storage v12 - .NET quickstart sample
 
 Uploading to Blob storage as blob:
          https://mystorageacct.blob.core.windows.net/quickstartblobs60c70d78-8d93-43ae-954d-8322058cfd64/quickstart2fe6c5b4-7918-46cb-96f4-8c4c5cb2fd31.txt
@@ -315,7 +315,7 @@ Neste início rápido você aprendeu a carregar, baixar e listar blobs usando .N
 Para ver os aplicativos de exemplo de armazenamento de blobs, acesse:
 
 > [!div class="nextstepaction"]
-> [Exemplos do SDK do Armazenamento de Blobs do Azure v12 .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+> [Exemplos do SDK do Armazenamento de Blobs do Azure v12 para .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
 
 * Para acessar tutoriais, exemplos, inícios rápidos e outras documentações, visite [Azure para Desenvolvedores de .NET e .NET Core](/dotnet/azure/).
 * Para saber mais sobre o núcleo do .NET, confira [Introdução ao .NET em 10 minutos](https://www.microsoft.com/net/learn/get-started/).

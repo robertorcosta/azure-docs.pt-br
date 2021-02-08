@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: e5fa4bde316f4b1677f78c65e913a6303a9f4735
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: eb5f2c6293042f44de5e3c061c6d379bee6e5b06
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98019135"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820578"
 ---
 # <a name="about-high-availability"></a>Sobre alta disponibilidade
 
@@ -149,6 +149,6 @@ Para atualizar com alta disponibilidade:
 
 3. Atualize os sensores.
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [Ativar e configurar seu console de gerenciamento local](how-to-activate-and-set-up-your-on-premises-management-console.md)

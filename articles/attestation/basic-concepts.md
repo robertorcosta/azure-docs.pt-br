@@ -7,12 +7,13 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c6c09dc771692cb2fc2f36840e729874cfaf2d09
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.custom: references_regions
+ms.openlocfilehash: 3cd7d2541cb980fc5ca6a1a9c42a430eac1ecb1b
+ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98572809"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99429272"
 ---
 # <a name="basic-concepts"></a>Conceitos básicos
 
@@ -30,9 +31,9 @@ A [JWK](https://tools.ietf.org/html/rfc7517) (Chave da Web JSON) é uma estrutur
 
 O provedor de atestado pertence ao provedor de recursos do Azure chamado Microsoft.Attestation. O provedor de recursos é um ponto de extremidade de serviço que fornece o contrato REST do Atestado do Azure e é implantado por meio do [Azure Resource Manager](../azure-resource-manager/management/overview.md). Cada provedor de atestado respeita uma política específica e detectável. Os provedores de atestado são criados com uma política padrão para cada tipo de atestado (observe que o enclave da VBS não tem nenhuma política padrão). Confira os [exemplos de uma política de atestado](policy-examples.md) para obter mais detalhes sobre a política padrão do SGX.
 
-### <a name="regional-default-provider"></a>Provedor padrão regional
+### <a name="regional-shared-provider"></a>Provedor compartilhado regional
 
-O Atestado do Azure fornece um provedor padrão em cada região. Os clientes podem optar por usar o provedor padrão para o atestado ou criar provedores próprios com políticas personalizadas. Os provedores padrão podem ser acessados por qualquer usuário do Azure AD, e a política associada a um provedor padrão não pode ser alterada.
+O Atestado do Azure fornece um provedor compartilhado regional em cada região disponível. Os clientes podem optar por usar o provedor compartilhado regional para o atestado ou criar provedores próprios com políticas personalizadas. Os provedores compartilhados podem ser acessados por qualquer usuário do Azure AD, e a política associada a ele não pode ser alterada.
 
 | Região | URI do atestado | 
 |--|--|

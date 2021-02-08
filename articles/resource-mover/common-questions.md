@@ -5,25 +5,18 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: ab4b8f5a691bc8e4091e9f3f01b709391deeddb0
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550701"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820867"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
 Este artigo responde a perguntas comuns sobre o [Azure Resource mover](overview.md).
-
-## <a name="general"></a>Geral
-
-### <a name="is-resource-mover-generally-available"></a>O Resource mover está disponível para o público geral?
-
-O movimentador de recursos está atualmente em visualização pública. Há suporte para cargas de trabalho de produção.
-
 
 
 ## <a name="moving-across-regions"></a>Movendo entre regiões
@@ -45,6 +38,9 @@ Usando o Resource Mover, no momento, você pode mover os seguintes recursos entr
 - Balanceadores de carga internos e públicos 
 - Bancos de dados SQL do Azure e pools elásticos
 
+### <a name="can-i-move-disks-across-regions"></a>Posso mover discos entre regiões?
+
+Não é possível selecionar discos como recursos para mover entre regiões. No entanto, os discos são movidos como parte de uma movimentação de VM.
 
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Posso mover recursos entre assinaturas quando movê-los entre regiões?
 
@@ -97,6 +93,12 @@ A assinatura foi movida para um locatário diferente. | Desabilite e habilite a 
 ### <a name="how-can-i-do-multiple-moves-together"></a>Como posso fazer várias movimentações juntas?
 
 Altere as combinações de origem/destino conforme necessário usando a opção alterar no Portal.
+
+### <a name="what-happens-when-i-remove-a-resource-from-a-list-of-move-resources"></a>O que acontece quando eu removo um recurso de uma lista de recursos de movimentação?
+
+Você pode remover os recursos que adicionou à lista de movimentação. O comportamento quando você remove um recurso da lista depende do estado do recurso. [Saiba mais](remove-move-resources.md#vm-resource-state-after-removing).
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

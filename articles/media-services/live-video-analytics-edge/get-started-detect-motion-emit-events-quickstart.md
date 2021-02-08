@@ -3,12 +3,12 @@ title: Introdução à Análise de Vídeo ao vivo no IoT Edge – Azure
 description: Este início rápido mostra como começar a usar a Análise Dinâmica de Vídeo no IoT Edge. Saiba como detectar movimento em um fluxo de vídeo ao vivo.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: cbe4b1280897064938222680fc932cfe289d2f32
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 93eb2ab4df77afd3c2a55a04db2d39591a46e726
+ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98631929"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99507770"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Início Rápido: Introdução – Análise de Vídeo ao vivo no IoT Edge
 
@@ -31,7 +31,7 @@ Veja o seguinte vídeo com etapas detalhadas sobre como começar a usar a Análi
   > Você precisará ter uma assinatura do Azure com permissões para criar entidades de serviço (a **função de proprietário** fornece isso). Caso não tenha as permissões corretas, entre em contato com o administrador da conta para conceder a você as permissões corretas.  
 
 * O [Visual Studio Code](https://code.visualstudio.com/) em seu computador de desenvolvimento. Verifique se você tem a [Extensão do Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools).
-* Verifique se a rede à qual seu computador de desenvolvimento está conectado permite o AMQP (Advanced Message Queueing Protocol) pela porta 5671. Essa configuração permite que o Azure IoT Tools se comunique com o Hub IoT do Azure.
+* Verifique se a rede à qual seu computador de desenvolvimento está conectado permite o AMQP (Advanced Message Queueing Protocol) pela porta 5671 para o tráfego de saída. Essa configuração permite que o Azure IoT Tools se comunique com o Hub IoT do Azure.
 
 > [!TIP]
 > Talvez você receba um prompt para instalar o Docker enquanto estiver instalando a extensão do Azure IoT Tools. Fique à vontade para ignorá-lo.
@@ -48,6 +48,8 @@ Este tutorial requer os seguintes recursos do Azure:
 Para este início rápido, recomendamos que você use o [Script de instalação de recursos da Análise Dinâmica de Vídeo](https://github.com/Azure/live-video-analytics/tree/master/edge/setup) para implantar os recursos necessários em sua assinatura do Azure. Para fazer isso, siga estas etapas:
 
 1. Acesse o [portal do Azure](https://portal.azure.com) e selecione o ícone do Cloud Shell.
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/quickstarts/cloud-shell.png" alt-text="Cloud Shell":::
 1. Se estiver usando Cloud Shell pela primeira vez, você receberá um prompt para selecionar uma assinatura a fim de criar uma conta de armazenamento e um compartilhamento de Arquivos do Microsoft Azure. Selecione **Criar armazenamento** para criar uma conta de armazenamento para suas informações de sessão do Cloud Shell. Essa conta de armazenamento é separada da conta que o script criará para usar com sua conta dos Serviços de Mídia do Azure.
 1. No menu suspenso no lado esquerdo da janela do Cloud Shell, selecione **Bash** como seu ambiente.
 
@@ -59,13 +61,27 @@ Para este início rápido, recomendamos que você use o [Script de instalação 
     bash -c "$(curl -sL https://aka.ms/lva-edge/setup-resources-for-samples)"
     ```
     
-Após a conclusão bem-sucedida do script, você deverá ver todos os recursos necessários em sua assinatura. Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso **`Microsoft.Devices/IotHubs`** e anote o nome. Você precisará desse nome para a próxima etapa.  
+    Após a conclusão bem-sucedida do script, você deverá ver todos os recursos necessários em sua assinatura. Um total de 12 recursos serão configurados pelo script:
+    1. **Ponto de extremidade de streaming**: isso ajudará na reprodução do ativo do AMS gravado.
+    1. **Máquina virtual**: essa é uma máquina virtual que funcionará como seu dispositivo de borda.
+    1. **Disco**: esse é um disco de armazenamento anexado à máquina virtual para armazenar mídia e artefatos.
+    1. **Grupo de segurança de rede**: usado para filtrar o tráfego de rede entre os recursos do Azure em uma rede virtual do Azure.
+    1. **Adaptador de rede**: permite que uma Máquina Virtual do Azure se comunique com a Internet, o Azure e outros recursos.
+    1. **Conexão do bastion**: permite que você se conecte à máquina virtual usando o navegador e o portal do Azure.
+    1. **Endereço IP público**: permite que os recursos do Azure se comuniquem com a Internet e os serviços do Azure voltados ao público
+    1. **Rede virtual**: permite a comunicação segura mútua de muitos tipos de recursos do Azure, como a sua máquina virtual, bem como com a Internet e as redes locais. Saiba mais sobre [Redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+    1. **Hub IoT**: funciona como um hub central de mensagens para comunicação bidirecional entre o aplicativo de IoT, os módulos do IoT Edge e os dispositivos gerenciados por ele.
+    1. **Conta do serviço de mídia**: ajuda a gerenciar e transmitir o conteúdo de mídia no Azure.
+    1. **Conta de armazenamento**: você precisa ter uma conta de armazenamento Primária e pode ter quantas contas de armazenamento Secundárias quiser associadas à sua conta dos Serviços de Mídia. Para obter mais informações, confira [Contas do Armazenamento do Azure com as contas dos Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Registro de contêiner**: ajuda a armazenar e gerenciar suas imagens particulares de contêiner do Docker e artefatos relacionados.
+
+Na saída do script, uma tabela de recursos lista o nome do hub IoT. Procure o tipo de recurso **`Microsoft.Devices/IotHubs`** e anote o nome. Você precisará desse nome para a próxima etapa.  
 
 > [!NOTE]
-> O script também gera alguns arquivos de configuração no diretório **_~/clouddrive/lva-sample/_* _. Você precisará desses arquivos posteriormente neste início rápido.
+> O script também gera alguns arquivos de configuração no diretório ***~/clouddrive/lva-sample/*** . Você precisará desses arquivos posteriormente neste início rápido.
 
 > [!TIP]
-> Se você tiver problemas com os recursos do Azure que são criados, confira nosso _ *[guia de solução de problemas](troubleshoot-how-to.md#common-error-resolutions)* * para resolver alguns problemas encontrados com frequência.
+> Se você tiver problemas com os recursos do Azure que são criados, confira nosso **[guia de solução de problemas](troubleshoot-how-to.md#common-error-resolutions)** para resolver alguns problemas encontrados com frequência.
 
 ## <a name="deploy-modules-on-your-edge-device"></a>Implantar módulos no dispositivo de borda
 
@@ -101,6 +117,12 @@ Siga estas instruções para se conectar ao seu hub IoT usando a extensão do Az
 1. No canto inferior esquerdo da guia **Explorer**, selecione **Hub IoT do Azure**.
 1. Selecione o ícone **Mais opções** para ver o menu de contexto. Em seguida, selecione **Definir cadeia de conexão do Hub IoT**.
 1. Quando uma caixa de diálogo de entrada aparecer, insira a cadeia de conexão do Hub IoT. No Cloud Shell, você pode obter a cadeia de conexão em *~/clouddrive/lva-sample/appsettings.json*.
+
+> [!NOTE]
+> Talvez você precise fornecer informações do ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será algo parecido com isto:  
+    ```
+    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+    ```
 
 Se a conexão for bem-sucedida, a lista de dispositivos de borda será mostrada. Deve haver pelo menos um dispositivo chamado **lva-sample-device**. Agora, você pode gerenciar seus dispositivos do IoT Edge e interagir com o Hub IoT do Azure por meio do menu de contexto. Para exibir os módulos implantados no dispositivo de borda, em **lva-sample-device**, expanda o nó **Módulos**.
 
@@ -145,7 +167,7 @@ Para enumerar todas as [topologias de grafo](media-graph-concept.md#media-graph-
 
 ### <a name="invoke-graphtopologyset"></a>Invocar GraphTopologySet
 
-Ao usar as etapas para invocar `GraphTopologyList`, você pode invocar `GraphTopologySet` para definir uma [topologia de grafo](media-graph-concept.md#media-graph-topologies-and-instances). Use o JSON a seguir como conteúdo.
+Como fizemos antes, agora você pode invocar `GraphTopologySet` para definir uma [topologia de grafo](media-graph-concept.md#media-graph-topologies-and-instances). Use o JSON a seguir como conteúdo.
 
 ```
 {

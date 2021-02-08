@@ -1,15 +1,15 @@
 ---
 title: 'Início Rápido: Enviar eventos personalizados para a fila de armazenamento – Grade de Eventos, CLI do Azure'
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure para publicar um tópico e assinar esse evento. Uma fila de armazenamento é usada para o ponto de extremidade.'
-ms.date: 07/07/2020
+ms.date: 02/02/2021
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4de7aa1c111b5b21a27b155474ae10f78feba083
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 00808e7eca13824833673ef820d39b70bf618dd2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94566309"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493253"
 ---
 # <a name="quickstart-route-custom-events-to-azure-queue-storage-with-azure-cli-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para o Armazenamento de Filas do Azure com a CLI do Azure e a Grade de Eventos
 
@@ -116,6 +116,11 @@ done
 Navegue até o Armazenamento em Filas no portal e observe que a Grade de Eventos enviou esses três eventos para a fila.
 
 ![Mostrar mensagens](./media/custom-event-to-queue-storage/messages.png)
+
+> [!NOTE]
+> Se você usar um [gatilho do Armazenamento de Filas do Azure para o Azure Functions](../azure-functions/functions-bindings-storage-queue-trigger.md) para uma fila que recebe mensagens da Grade de Eventos, poderá ver a seguinte mensagem de erro na execução da função: `The input is not a valid Base-64 string as it contains a non-base 64 character, more than two padding characters, or an illegal character among the padding characters.`
+> 
+> O motivo é que, ao usar um [gatilho do Armazenamento de Filas do Azure](../azure-functions/functions-bindings-storage-queue-trigger.md), o Azure Functions espera uma **cadeia de caracteres codificada em base64**, mas a Grade de Eventos envia mensagens para uma fila de armazenamento em um formato de texto sem formatação. No momento, não é possível configurar o gatilho de fila do Azure Functions para aceitar um texto sem formatação. 
 
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

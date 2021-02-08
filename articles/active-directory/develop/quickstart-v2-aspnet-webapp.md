@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/25/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, contperf-fy21q1
-ms.openlocfilehash: e2a71313294457e09e2bb152dea98c84b7730236
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: 420415cc3bc2228a104ccf054098543bf04847b0
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754407"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225758"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>Início Rápido: Adicionar a entrada da plataforma de identidade da Microsoft a um aplicativo Web ASP.NET
 
@@ -54,12 +54,13 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Insira um **Nome** para seu aplicativo, por exemplo, `ASPNET-Quickstart`. Os usuários do seu aplicativo podem ver esse nome e você pode alterá-lo mais tarde.
 > 1. Adicione `https://localhost:44368/` em **URI de redirecionamento** e selecione **Registrar**.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
-> 1. Na subseção **Concessão Implícita**, selecione **Tokens de ID**.
+> 1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**.
 > 1. Clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste início rápido funcione, você precisa adicionar uma URL de resposta como `https://localhost:44368/`.
+> O código de exemplo deste guia de início rápido exige um **URI de Redirecionamento** igual a `https://localhost:44368/`.
+
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >

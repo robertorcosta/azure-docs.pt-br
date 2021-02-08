@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core
-ms.openlocfilehash: c20685c0c392ece68dc80b57afc6680f2efd9e35
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: b2e42dcaeb72a053f20afa47439d1825445b0ad8
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754503"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99225826"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Início Rápido: Adicionar entrada com a Microsoft para um aplicativo Web do ASP.NET Core
 
@@ -56,13 +56,13 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Selecione **Registrar**.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
 > 1. Em **URIs de Redirecionamento**, selecione **Adicionar URI** e insira `https://localhost:44321/signin-oidc`.
-> 1. Insira uma **URL de Logoff** de `https://localhost:44321/signout-oidc`.
-> 1. Em **Concessão implícita**, selecione **Tokens de ID**.
+> 1. Insira uma **URL de logoff de front-channel** igual a `https://localhost:44321/signout-oidc`.
+> 1. Em **Concessão implícita e fluxos híbridos**, selecione **Tokens de ID**.
 > 1. Clique em **Salvar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste início rápido funcione, você precisa adicionar URLs de resposta como `https://localhost:44321/` e `https://localhost:44321/signin-oidc`, adicionar a URL de logoff como `https://localhost:44321/signout-oidc` e solicitar a emissão de tokens de ID pelo ponto de extremidade de autorização.
+> O código de exemplo deste guia de início rápido exige um **URI de redirecionamento** igual a `https://localhost:44321/` e `https://localhost:44321/signin-oidc` e uma **URL de logoff de front-channel** igual a `https://localhost:44321/signout-oidc`. Os tokens de ID de solicitação serão emitidos pelo ponto de extremidade da autorização.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >

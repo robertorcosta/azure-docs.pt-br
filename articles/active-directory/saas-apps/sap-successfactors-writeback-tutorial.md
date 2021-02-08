@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: chmutali
-ms.openlocfilehash: d39e00a80ab167936a749c73867b4343e6ed9d76
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 3260787dec4ae26cd6ef7cc3bd562f39db8e3655
+ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96006431"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99526968"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Tutorial: Configurar o write-back de atributos do Azure AD para o SAP SuccessFactors
 O objetivo deste tutorial é mostrar as etapas para fazer write-back de atributos do Azure AD para o SAP SuccessFactors Employee Central. 
@@ -282,7 +282,7 @@ Nesta seção, você vai configurar como o fluxo de dados do usuário flui do Su
    | 3 | 8448 | emailType | Esse valor constante é o valor da ID do SuccessFactors associada ao email empresarial. Atualize esse valor de maneira a corresponder ao seu ambiente do SuccessFactors. Confira a seção [Recuperar o valor constante de emailType](#retrieve-constant-value-for-emailtype) para obter as etapas para definir esse valor. |
    | 4 | true | emailIsPrimary | Use este atributo para definir o email empresarial como o principal no SuccessFactors. Se o email empresarial não for o principal, defina esse sinalizador como falso. |
    | 5 | userPrincipalName | [custom01 – custom15] | Usando **Adicionar Novo Mapeamento**, você pode gravar userPrincipalName ou qualquer atributo do Azure AD como um atributo personalizado disponível no objeto de Usuário do SuccessFactors.  |
-   | 6 | on-prem-samAccountName | Nome de Usuário | Usando **Adicionar Novo Mapeamento**, você pode mapear samAccountName local para o atributo de nome de usuário do SuccessFactors. |
+   | 6 | SamAccountName local | Nome de Usuário | Usando **Adicionar Novo Mapeamento**, você pode mapear samAccountName local para o atributo de nome de usuário do SuccessFactors. Use [Sincronização do Azure AD Connect: extensões de diretório](../hybrid/how-to-connect-sync-feature-directory-extensions.md) para sincronizar o samAccountName com o Azure AD. Ele será exibido no menu suspenso de origem como *extension_yourTenantGUID_samAccountName* |
    | 7 | SSO | loginMethod | Se o locatário do SuccessFactors for configurado para [SSO parcial](https://apps.support.sap.com/sap/support/knowledge/en/2320766), usando Adicionar Novo Mapeamento você poderá definir loginMethod como um valor constante de "SSO" ou "PWD". |
    | 8 | telephoneNumber | businessPhoneNumber | Use este mapeamento para transmitir o *telephoneNumber* do Azure AD para o número de telefone comercial/de trabalho do SuccessFactors. |
    | 9 | 10605 | businessPhoneType | Esse valor constante é o valor da ID do SuccessFactors associada ao telefone comercial. Atualize esse valor de maneira a corresponder ao seu ambiente do SuccessFactors. Confira a seção [Recuperar o valor constante de phoneType](#retrieve-constant-value-for-phonetype) para obter as etapas para definir esse valor. |

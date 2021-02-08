@@ -4,12 +4,12 @@ description: Saiba como criar uma função C# e publicar o projeto local por mei
 ms.topic: quickstart
 ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 791416a54fa75091facf1f7bc2aadf6fccf54b05
-ms.sourcegitcommit: 9514d24118135b6f753d8fc312f4b702a2957780
+ms.openlocfilehash: 0068a9cbf99117a0a2432a02c9be934eb749f19a
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/07/2021
-ms.locfileid: "97968612"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493678"
 ---
 # <a name="quickstart-create-a-c-function-in-azure-using-visual-studio-code"></a>Início rápido: criar uma função C# no Azure usando o Visual Studio Code
 
@@ -78,7 +78,7 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Você usou o Visual Studio Code para criar um aplicativo de funções com uma função disparada por HTTP simples. No próximo artigo, você pode expandir essa função adicionando uma associação de saída. Essa associação grava a cadeia de caracteres da solicitação HTTP em uma mensagem em uma fila do Armazenamento de Filas do Azure. 
+Você usou o [Visual Studio Code](functions-develop-vs-code.md?tabs=csharp) para criar um aplicativo de funções com uma função simples disparada por HTTP. No próximo artigo, você expandirá essa função conectando-se ao Armazenamento do Azure. Para saber mais sobre como se conectar a outros serviços do Azure, confira [Adicionar associações a uma função existente no Azure Functions](add-bindings-existing-function.md?tabs=csharp). 
 
 > [!div class="nextstepaction"]
 > [Conectar-se a uma fila do Armazenamento do Azure](functions-add-output-binding-storage-queue-vs-code.md?pivots=programming-language-csharp)
