@@ -760,6 +760,10 @@
           href: solution-template-databricks-notebook.md
     - name: Noções básicas sobre preços
       items:
+        - name: Visão geral da capacidade reservada do fluxo de dados
+          href: data-flow-reserved-capacity-overview.md
+        - name: Noções básicas sobre fluxo de dados de encargos de reserva
+          href: data-flow-understand-reservation-charges.md
         - name: Planejar e gerenciar custos
           href: plan-manage-costs.md
         - name: Exemplos de preços
