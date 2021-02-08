@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: yexu
-ms.openlocfilehash: e64f4ab31aed5c4c3e70ef10faf2049027525014
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 0fb6beb776f5a553e85f690d49e3433f93b9ee16
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593631"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809534"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerância a falhas da atividade de cópia no Azure Data Factory
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
@@ -58,7 +58,8 @@ Ao copiar arquivos binários entre repositórios de armazenamento, você pode ha
     "skipErrorFile": { 
         "fileMissing": true, 
         "fileForbidden": true, 
-        "dataInconsistency": true 
+        "dataInconsistency": true,
+        "invalidFileName": true     
     }, 
     "validateDataConsistency": true, 
     "logSettings": {
@@ -83,6 +84,7 @@ skipErrorFile | Um grupo de propriedades para especificar os tipos de falhas que
 fileMissing | Um dos pares chave-valor dentro do conjunto de propriedades skipErrorFile para determinar se você deseja ignorar arquivos, que estão sendo excluídos por outros aplicativos enquanto o Azure Data Factory está copiando. <br/> -True: você deseja copiar o restante ignorando os arquivos que estão sendo excluídos por outros aplicativos. <br/> -False: você deseja anular a atividade de cópia depois que todos os arquivos forem excluídos do repositório de origem no meio da movimentação de dados. <br/>Lembre-se de que essa propriedade é definida como true como padrão. | True (padrão) <br/>Falso | Não
 fileForbidden | Um dos pares chave-valor dentro do conjunto de propriedades skipErrorFile para determinar se você deseja ignorar os arquivos específicos, quando as ACLs desses arquivos ou pastas exigem um nível de permissão maior do que a conexão configurada no Azure Data Factory. <br/> -True: você deseja copiar o restante ignorando os arquivos. <br/> -False: você deseja anular a atividade de cópia depois de encontrar o problema de permissão em pastas ou arquivos. | True <br/>False (padrão) | Não
 dataInconsistency | Um dos pares chave-valor dentro do conjunto de propriedades skipErrorFile para determinar se você deseja ignorar os dados inconsistentes entre o repositório de origem e de destino. <br/> -True: você deseja copiar o restante ignorando arquivos inconsistentes. <br/> - Falso: você deseja anular a atividade de cópia quando dados inconsistentes forem encontrados. <br/>Lembre-se de que essa propriedade só é válida quando você define validateDataConsistency como True. | True <br/>False (padrão) | Não
+invalidFileName | Um dos pares chave-valor dentro do recipiente de propriedades skipErrorFile para determinar se você deseja ignorar os arquivos específicos, quando os nomes de arquivo são inválidos para o repositório de destino. <br/> -True: você deseja copiar o restante, ignorando os arquivos com nomes de arquivo inválidos. <br/> -False: você deseja anular a atividade de cópia depois que os arquivos tiverem nomes de arquivo inválidos. <br/>Lembre-se de que essa propriedade funciona ao copiar arquivos binários de qualquer armazenamento de armazenamento para ADLS Gen2 ou copiar arquivos binários do AWS S3 para qualquer armazenamento de armazenamento somente. | True <br/>False (padrão) | Não
 logSettings  | Um grupo de propriedades que poderá ser especificado quando você desejar registrar os nomes dos objetos ignorados. | &nbsp; | Não
 linkedServiceName | O serviço vinculado do [Armazenamento de Blobs do Azure](connector-azure-blob-storage.md#linked-service-properties) ou [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#linked-service-properties) para armazenar os arquivos de log da sessão. | O nome de um serviço vinculado `AzureBlobStorage` ou `AzureBlobFS`, que se refere à instância de armazenamento que você usa para armazenar o arquivo de log. | Não
 caminho | O caminho dos arquivos de log. | Especifique o caminho que você usa para armazenar os arquivos de log. Se você não fornecer um caminho, o serviço criará um contêiner para você. | Não
@@ -166,7 +168,7 @@ A atividade de cópia oferece suporte a três cenários para detectar, ignorar e
     Por exemplo:  Copiar dados de um servidor SQL para um banco de dados SQL. Uma chave primária é definida no banco de dados SQL do coletor, mas nenhuma chave primária é definida no SQL Server de origem. As linhas duplicadas que existem na origem não podem ser copiadas no coletor. A atividade de cópia copia apenas a primeira linha dos dados de origem no coletor. As linhas da origem subsequentes que contêm o valor de chave primária duplicado são detectadas como incompatíveis e ignoradas.
 
 >[!NOTE]
->- Para carregar dados no Azure Synapse Analytics (anteriormente SQL Data Warehouse) usando o polybase, defina as configurações de tolerância a falhas nativas do polybase especificando políticas de rejeição por meio de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Você ainda pode habilitar o redirecionamento de linhas incompatíveis com o PolyBase para o Blob ou ADLS como mostrado abaixo.
+>- Para carregar dados no Azure Synapse Analytics usando o polybase, defina as configurações nativas de tolerância a falhas do polybase especificando políticas de rejeição por meio de "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" na atividade de cópia. Você ainda pode habilitar o redirecionamento de linhas incompatíveis com o PolyBase para o Blob ou ADLS como mostrado abaixo.
 >- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
 >- Esse recurso não se aplica quando a atividade de cópia é configurada para chamar um [procedimento armazenado de um coletor SQL](./connector-azure-sql-database.md#invoke-a-stored-procedure-from-a-sql-sink).
 

@@ -1,6 +1,6 @@
 ---
-title: Arquitetura do Azure defender para IoT
-description: Saiba mais sobre o Azure defender para arquitetura de IoT e fluxo de informações.
+title: Arquitetura da solução sem agente
+description: Saiba mais sobre o fluxo de informações e a arquitetura sem agente do Azure defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -11,23 +11,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/13/2021
+ms.date: 1/25/2021
 ms.author: shhazam
-ms.openlocfilehash: 66b960bf874cc46985230e488c749663eff0b835
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 1eb939a63edc4abc638dc128af0d9ebbd7241bef
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621090"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809296"
 ---
 # <a name="azure-defender-for-iot-architecture"></a>Arquitetura do Azure defender para IoT
 
-Este artigo descreve a arquitetura do sistema funcional da solução defender para IoT. O Azure defender para IoT oferece dois conjuntos de recursos para atender às necessidades do seu ambiente, solução sem agente para organizações e solução baseada em agente para criadores de dispositivos.
+Este artigo descreve a arquitetura do sistema funcional da solução do defender for IoT sem agente. O Azure defender para IoT oferece dois conjuntos de recursos para atender às necessidades do seu ambiente, solução sem agente para organizações e solução baseada em agente para criadores de dispositivos.
 
 ## <a name="agentless-solution-for-organizations"></a>Solução sem agente para organizações
 ### <a name="defender-for-iot-components"></a>Componentes do defender para IoT
 
-O defender para IoT conecta-se à nuvem do Azure, bem como a componentes locais. A solução foi projetada para escalabilidade em ambientes grandes e geograficamente distribuídos com vários locais remotos. Essa solução permite uma arquitetura distribuída de várias camadas por país, região, unidade de negócios ou zona. 
+O defender para IoT conecta-se à nuvem do Azure e a componentes locais. A solução foi projetada para escalabilidade em ambientes grandes e geograficamente distribuídos com vários locais remotos. Essa solução permite uma arquitetura distribuída de várias camadas por país, região, unidade de negócios ou zona. 
 
 O Azure defender para IoT inclui os seguintes componentes: 
 
@@ -51,11 +51,11 @@ Os sensores do defender for IoT detectam e monitoram continuamente os dispositiv
  
 Desenvolvido especificamente para IoT e para redes, a tecnologia sem agente oferece visibilidade profunda do IoT e tem risco em minutos de serem conectados à rede. Ele tem impacto zero no desempenho na rede e nos dispositivos de rede devido à sua abordagem não invasiva de NTA (análise de tráfego de rede). 
  
-Aproveitando a análise de comportamento patenteado, de IoT e de OT e a inspeção de pacotes (DPI) de camada 7, ela permite que você analise além das soluções tradicionais baseadas em assinatura para detectar imediatamente as ameaças avançadas de IoT e de OT (como malware sem arquivo) com base em atividades anormais ou não autorizadas. 
+Aplicando a análise de comportamento patenteado, de IoT e de OT e a inspeção de pacotes (DPI) de camada 7, ele permite que você analise além das soluções tradicionais baseadas em assinatura para detectar imediatamente as ameaças avançadas de IoT e de OT (como malware sem arquivo) com base em atividades anormais ou não autorizadas. 
   
 Os sensores do defender for IoT se conectam a uma porta de SPAN ou toque de rede e imediatamente começa a executar DPI no IoT e no tráfego de rede. 
  
-A coleta de dados, o processamento, a análise e os alertas ocorrem diretamente no sensor. Isso o torna ideal para locais com baixa largura de banda ou conectividade de alta latência, pois apenas os metadados são transferidos para o console de gerenciamento.
+A coleta de dados, o processamento, a análise e os alertas ocorrem diretamente no sensor. Esse processo o torna ideal para locais com baixa largura de banda ou conectividade de alta latência, pois apenas os metadados são transferidos para o console de gerenciamento.
 
 O sensor inclui cinco mecanismos de detecção de análise. Os mecanismos acionam alertas com base na análise de tráfego em tempo real e gravados previamente. Os seguintes mecanismos estão disponíveis: 
 
@@ -90,13 +90,13 @@ O console de gerenciamento local permite que os operadores da SOC (central de op
 
 Essa arquitetura fornece uma exibição unificada abrangente da rede em um nível de SOC, tratamento otimizado de alertas e o controle da segurança de rede operacional, garantindo que a tomada de decisões e o gerenciamento de riscos permaneçam sem falhas.
 
-Além de multilocação, monitoramento, análise de dados e controle remoto de sensor centralizado, o console de gerenciamento fornece ferramentas adicionais de manutenção do sistema (como exclusão de alertas) e recursos de relatório totalmente personalizados para cada um dos dispositivos remotos. Essa arquitetura escalonável dá suporte ao gerenciamento local em nível de site, nível de zona e gerenciamento global no SOC.
+Além de multilocação, monitoramento, análise de dados e controle remoto de sensor centralizado, o console de gerenciamento fornece ferramentas de manutenção de sistema extras (como exclusão de alertas) e recursos de relatório totalmente personalizados para cada um dos dispositivos remotos. Essa arquitetura dá suporte ao gerenciamento local em nível de site, nível de zona e gerenciamento global no SOC.
 
 O console de gerenciamento pode ser implantado para configuração de alta disponibilidade, que fornece um console de backup que recebe periodicamente backups de todos os arquivos de configuração necessários para a recuperação. Se o console primário falhar, os dispositivos de gerenciamento de site local realizarão failover automaticamente para sincronizar com o console de backup a fim de manter a disponibilidade sem interrupção.
 
 Totalmente integrado aos seus fluxos de trabalho do SOC e execução de livros, ele permite uma priorização fácil de atividades de mitigação e correlação entre sites de ameaças.
 
-- Holística – reduza a complexidade com uma única plataforma unificada para gerenciamento de dispositivos, risco e gestão de vulnerabilidades, bem como o monitoramento de ameaças com resposta a incidentes.
+- Holística – reduza a complexidade com uma única plataforma unificada para gerenciamento de dispositivos, risco e gestão de vulnerabilidades e monitoramento de ameaças com resposta a incidentes.
 
 - Agregação e correlação – exibem, agregam e analisam dados e alertas coletados de todos os sites.
 
@@ -111,32 +111,12 @@ O portal do defender para IoT no Azure é usado para ajudá-lo:
 - Comprar dispositivos de solução
 
 - Instalar e atualizar software
+
 - Sensores integrados ao Azure
+
 - Atualizar pacotes de inteligência contra ameaças
 
-## <a name="agent-based-solution-for-device-builders"></a>Solução baseada em agente para construtores de dispositivos
-
-### <a name="embedded-security-agent-built-in-mode"></a>Agente de segurança inserido: modo interno
-
-No modo **interno** , o defender para IOT é habilitado quando você opta por ativar a opção de **segurança** em seu hub IOT. Oferecendo monitoramento, recomendações e alertas em tempo real, o modo interno oferece visibilidade de dispositivo de etapa única e segurança inigualável. O modo de compilação não requer a instalação do agente em nenhum dispositivo e usa análises avançadas em atividades registradas para analisar e proteger o dispositivo de campo e o Hub IoT.
-
-### <a name="embedded-security-agent-enhanced-mode"></a>Agente de segurança inserido: modo avançado
-
-No modo **avançado** , depois de ativar a opção de **segurança** em seu hub IOT e instalar o defender para agentes de dispositivo IOT em seus dispositivos, os agentes coletam, agregam e analisam eventos de segurança brutos de seus dispositivos. Os eventos de segurança brutos podem incluir conexões IP, criação de processo, logons de usuário e outras informações relevantes de segurança. Agentes de dispositivo do defender para IoT também gerencia a agregação de eventos para ajudar a evitar alta taxa de transferência de rede. Os agentes são altamente personalizáveis, permitindo que você os use para tarefas específicas, como enviar apenas informações importantes no SLA mais rápido ou para agregar informações de segurança extensivas e contexto em segmentos maiores, evitando custos de serviço mais altos.
-
-Os agentes de dispositivo e outros aplicativos usam o **SDK de mensagens de segurança do Azure Send** para enviar informações de segurança para o Hub IOT do Azure. O Hub IoT obtém essas informações e as encaminha para o serviço defender para IoT.
-
-Depois que o serviço do defender para IoT é habilitado, além dos dados encaminhados, o Hub IoT também envia todos os seus dados internos para análise pelo defender para IoT. Esses dados incluem logs de operação do dispositivo-nuvem, identidades do dispositivo e configuração do Hub. Todas essas informações ajudam a criar o pipeline do defender para análise de IoT.
-
-O defender for IoT Analytics pipeline também recebe fluxos adicionais de inteligência contra ameaças de várias fontes dentro da Microsoft e de parceiros da Microsoft. O pipeline de análise inteiro do defender para IoT funciona com cada configuração de cliente feita no serviço (como alertas personalizados e o uso do SDK de envio de mensagem de segurança).
-
-Usando o pipeline de análise, o defender para IoT combina todos os fluxos de informações para gerar alertas e recomendações acionáveis. O pipeline contém as regras personalizadas criadas por pesquisadores e especialistas de segurança, bem como modelos de aprendizado de máquina procurando desvios do comportamento padrão do dispositivo e da análise de riscos.
-
-Os alertas e recomendações do defender for IoT (saída de pipeline de análise) são gravados no espaço de trabalho Log Analytics de cada cliente. Incluir os eventos brutos no espaço de trabalho, bem como os alertas e as recomendações, permite investigações e consultas aprofundadas usando os detalhes exatos das atividades suspeitas detectadas.
-
-:::image type="content" source="media/architecture/micro-agent-architecture.png" alt-text="A arquitetura do micro Agent.":::
-
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Consulte também
 
 [FAQ do defender for IoT](resources-frequently-asked-questions.md)
 

@@ -8,14 +8,14 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0b04ebd9672990738d77bc5ae09d7f7fae4ffb9d
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99500238"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99808466"
 ---
-# <a name="azure-instance-metadata-service-imds"></a>Serviço de metadados de instância do Azure (IMDS)
+# <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
 O serviço de metadados de instância do Azure (IMDS) fornece informações sobre as instâncias de máquina virtual em execução no momento. Você pode usá-lo para gerenciar e configurar suas máquinas virtuais.
 Essas informações incluem a SKU, o armazenamento, as configurações de rede e os próximos eventos de manutenção. Para obter uma lista completa dos dados disponíveis, consulte o [Resumo de categorias de ponto de extremidade](#endpoint-categories).
@@ -92,7 +92,7 @@ Atualmente, há suporte para os seguintes verbos HTTP:
 |------|-------------|
 | `GET` | Recuperar o recurso solicitado
 
-## <a name="parameters"></a>parâmetros
+## <a name="parameters"></a>Parâmetros
 
 Os pontos de extremidade podem dar suporte a parâmetros obrigatórios e/ou opcionais. Consulte o [esquema](#schema) e a documentação do ponto de extremidade específico em questão para obter detalhes.
 
@@ -289,7 +289,7 @@ Retorna o conjunto de versões de API com suporte.
 GET /metadata/versions
 ```
 
-#### <a name="parameters"></a>parâmetros
+#### <a name="parameters"></a>Parâmetros
 
 Nenhum (este ponto de extremidade não tem versão).
 
@@ -330,7 +330,7 @@ Esse ponto de extremidade dá suporte à filtragem de resposta via [parâmetros 
 
 Divisão de esquema:
 
-**Compute**
+**Computação**
 
 | Dados | Descrição | Versão introduzida |
 |------|-------------|--------------------|

@@ -1,24 +1,24 @@
 ---
-title: Arquitetura do agente de segurança
+title: Visão geral dos agentes de segurança
 description: Entenda a arquitetura do agente de segurança para os agentes usados no serviço Azure defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
-author: mlottner
+author: shhazam-ms
 manager: rkarlin
 editor: ''
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
-ms.author: mlottner
-ms.openlocfilehash: 5773f7af3bb065976e8f05d7b54c58b90da2d3d2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.date: 01/24/2021
+ms.author: shhazam
+ms.openlocfilehash: 929b8de8a6b70519bb44e41ba5cfede9ec12f110
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97835118"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99808854"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitetura de referência do agente de segurança
 
@@ -28,11 +28,11 @@ Os agentes de segurança são projetados para funcionar em um ambiente de IoT re
 
 Os agentes de segurança oferecem suporte aos seguintes recursos:
 
+- Autentique com a identidade do dispositivo existente ou uma identidade de módulo dedicada. Para saber mais, consulte [métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md).
+
 - Coletar eventos de segurança brutos do sistema operacional subjacente (Linux, Windows). Para saber mais sobre os coletores de dados de segurança disponíveis, confira [configuração do agente do defender para IOT](how-to-agent-configuration.md).
 
 - Agregar eventos de segurança brutos em mensagens enviadas por meio do Hub IoT.
-
-- Autentique com a identidade do dispositivo existente ou uma identidade de módulo dedicada. Consulte [métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md) para saber mais.
 
 - Configure remotamente por meio do uso do módulo **azureiotsecurity** . Para saber mais, confira [configurar um agente do defender para IOT](how-to-agent-configuration.md).
 
@@ -43,17 +43,17 @@ Os agentes de segurança do defender para IoT são desenvolvidos como projetos d
 
 ## <a name="agent-supported-platforms"></a>Plataformas com suporte do agente
 
-O defender para IoT oferece agentes de instalador diferentes para as janelas de 32 bits e de 64 bits e o mesmo para Linux de 32 e 64 bits. Verifique se você tem o instalador do agente correto para cada um dos seus dispositivos de acordo com a tabela a seguir:
+O defender para IoT oferece agentes de instalador diferentes para o Windows de 32 bits e 64 bits e o mesmo para o Linux de 32 bits e de 64 bits. Verifique se você tem o instalador do agente correto para cada um dos seus dispositivos de acordo com a tabela a seguir:
 
 | Arquitetura | Linux | Windows | Detalhes |
 |--|--|--|--|
-| bits | C | C# |  |
+| 32 bits | C | C# |  |
 | 64 bits | C# ou C | C# | É recomendável usar o agente do C para dispositivos com recursos de dispositivo mais restritos ou mínimos. |
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre a arquitetura do agente de segurança do defender para IoT e os instaladores disponíveis.
+Neste artigo, você tem uma visão geral de alto nível sobre a arquitetura do módulo de segurança do defender para IoT e os instaladores disponíveis.
 
 Para continuar a introdução à implantação do defender para IoT, use os seguintes artigos:
 

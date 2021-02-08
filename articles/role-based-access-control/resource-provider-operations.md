@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/01/2021
 ms.custom: generated
-ms.openlocfilehash: 768a327421a941a39b6f66be411712a565097f66
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 72a8f2eb93a9c12510b093e29c7b8fc6867cb2eb
+ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557328"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99809365"
 ---
 # <a name="azure-resource-provider-operations"></a>Operações do provedor de recursos do Azure
 
@@ -158,9 +158,11 @@ Clique no nome do provedor de recursos na tabela a seguir para ver a lista de op
 | [Microsoft.Subscription](#microsoftsubscription) |
 | **Intune** |
 | [Microsoft.Intune](#microsoftintune) |
-| **Outras** |
+| **Outros** |
 | [Microsoft.BingMaps](#microsoftbingmaps) |
+| [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization) |
 | [Microsoft.DigitalTwins](#microsoftdigitaltwins) |
+| [Microsoft. ServicesHub](#microsoftserviceshub) |
 
 
 ## <a name="general"></a>Geral
@@ -10249,7 +10251,7 @@ Serviço do Azure: insights de monitoramento da Microsoft
 > | Microsoft.Intune/diagnosticsettings/delete | Exclusão de uma configuração de diagnóstico |
 > | Microsoft.Intune/diagnosticsettingscategories/read | Leitura de uma categoria de configuração de diagnóstico |
 
-## <a name="other"></a>Outro
+## <a name="other"></a>Outros
 
 ### <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
@@ -10267,6 +10269,51 @@ Serviço do Azure: [mapas do Bing](/BingMaps/)
 > | Microsoft.BingMaps/mapApis/listSecrets/action | Listar os segredos para Microsoft. BingMaps/mapApis |
 > | Microsoft. BingMaps/mapApis/listUsageMetrics/Action | Listar as métricas para Microsoft. BingMaps/mapApis |
 > | Microsoft.BingMaps/Operations/read | Listar as operações para Microsoft. BingMaps |
+
+### <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+
+Serviço do Azure: [área de trabalho virtual do Windows](../virtual-desktop/index.yml)
+
+> [!div class="mx-tableFixed"]
+> | Ação | Descrição |
+> | --- | --- |
+> | Microsoft. DesktopVirtualization/registro/ação | Registrar assinatura |
+> | Microsoft. DesktopVirtualization/applicationgroups/Read | Ler applicationgroups |
+> | Microsoft. DesktopVirtualization/applicationgroups/Write | Applicationgroups de gravação |
+> | Microsoft. DesktopVirtualization/applicationgroups/Delete | Excluir applicationgroups |
+> | Microsoft. DesktopVirtualization/applicationgroups/aplicativos/leitura | Ler applicationgroups/aplicativos |
+> | Microsoft. DesktopVirtualization/applicationgroups/Applications/Write | Gravar applicationgroups/aplicativos |
+> | Microsoft. DesktopVirtualization/applicationgroups/Applications/Delete | Excluir applicationgroups/aplicativos |
+> | Microsoft. DesktopVirtualization/applicationgroups/desktops/leitura | Ler applicationgroups/áreas de trabalho |
+> | Microsoft. DesktopVirtualization/applicationgroups/desktops/Write | Gravar applicationgroups/desktops |
+> | Microsoft. DesktopVirtualization/applicationgroups/desktops/excluir | Excluir applicationgroups/áreas de trabalho |
+> | Microsoft. DesktopVirtualization/applicationgroups/externaluserassignments/Read |  |
+> | Microsoft. DesktopVirtualization/applicationgroups/Providers/Microsoft. insights/diagnosticSettings/Read | Obter a configuração de diagnóstico |
+> | Microsoft. DesktopVirtualization/applicationgroups/Providers/Microsoft. insights/diagnosticSettings/Write | Criar ou atualizar a configuração de diagnóstico |
+> | Microsoft. DesktopVirtualization/applicationgroups/Providers/Microsoft. insights/logDefinitions/Read | Obter os logs disponíveis |
+> | Microsoft. DesktopVirtualization/applicationgroups/startmenuitems/Read | Ler itens do menu iniciar |
+> | Microsoft. DesktopVirtualization/hostpools/Read | Ler hostpools |
+> | Microsoft. DesktopVirtualization/hostpools/Write | Hostpools de gravação |
+> | Microsoft. DesktopVirtualization/hostpools/Delete | Excluir hostpools |
+> | Microsoft. DesktopVirtualization/hostpools/Providers/Microsoft. insights/diagnosticSettings/Read | Obter a configuração de diagnóstico |
+> | Microsoft. DesktopVirtualization/hostpools/Providers/Microsoft. insights/diagnosticSettings/Write | Criar ou atualizar a configuração de diagnóstico |
+> | Microsoft. DesktopVirtualization/hostpools/Providers/Microsoft. insights/logDefinitions/Read | Obter os logs disponíveis |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/Read | Ler hostpools/sessionhosts |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/Write | Gravar hostpools/sessionhosts |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/Delete | Excluir hostpools/sessionhosts |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Read | Ler hostpools/sessionhosts/usersessions |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Write | Gravar hostpools/sessionhosts/usersessions |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/Delete | Excluir hostpools/sessionhosts/usersessions |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/desconexão/ação | Desconecta o host da sessão do formulário de sessão do usuário |
+> | Microsoft. DesktopVirtualization/hostpools/sessionhosts/usersessions/sendMessage/ação | Enviar mensagem para a sessão do usuário |
+> | Microsoft. DesktopVirtualization/Workspaces/Read | Ler espaços de trabalho |
+> | Microsoft. DesktopVirtualization/Workspaces/Write | Espaços de trabalho de gravação |
+> | Microsoft. DesktopVirtualization/espaços de trabalho/excluir | Excluir espaços de trabalho |
+> | Microsoft. DesktopVirtualization/Workspaces/Providers/Microsoft. insights/diagnosticSettings/Read | Obter a configuração de diagnóstico |
+> | Microsoft. DesktopVirtualization/Workspaces/Providers/Microsoft. insights/diagnosticSettings/Write | Criar ou atualizar a configuração de diagnóstico |
+> | Microsoft. DesktopVirtualization/Workspaces/Providers/Microsoft. insights/logDefinitions/Read | Obter os logs disponíveis |
+> | **DataAction** | **Descrição** |
+> | Microsoft. DesktopVirtualization/applicationgroups/useapplications/Action | Usar o fileapplication |
 
 ### <a name="microsoftdigitaltwins"></a>Microsoft.DigitalTwins
 
@@ -10316,6 +10363,20 @@ Serviço do Azure: [gêmeos digital do Azure](../digital-twins/index.yml)
 > | Microsoft. DigitalTwins/Models/Read | Ler qualquer modelo |
 > | Microsoft. DigitalTwins/Models/Write | Criar ou atualizar qualquer modelo |
 > | Microsoft. DigitalTwins/Models/Delete | Excluir qualquer modelo |
+
+### <a name="microsoftserviceshub"></a>Microsoft. ServicesHub
+
+Serviço do Azure: [Hub de serviços](/services-hub/)
+
+> [!div class="mx-tableFixed"]
+> | Ação | Descrição |
+> | --- | --- |
+> | Microsoft. ServicesHub/Connectors/Write | Criar ou atualizar um conector de Hub de serviços |
+> | Microsoft. ServicesHub/Connectors/Read | Exibir ou listar conectores de Hub de serviços |
+> | Microsoft. ServicesHub/Connectors/Delete | Excluir conectores do hub de serviços |
+> | Microsoft. ServicesHub/Connectors/checkAssessmentEntitlement/Action | Lista os direitos de avaliação para um determinado espaço de trabalho do hub de serviços |
+> | Microsoft. ServicesHub/supportOfferingEntitlement/Read | Exibir os direitos de oferta de suporte para um determinado espaço de trabalho do hub de serviços |
+> | Microsoft. ServicesHub/Workspaces/Read | Listar os espaços de trabalho do hub de serviços para um determinado usuário |
 
 ## <a name="next-steps"></a>Próximas etapas
 
