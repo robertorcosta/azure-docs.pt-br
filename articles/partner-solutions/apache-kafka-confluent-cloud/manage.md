@@ -3,23 +3,23 @@ title: Gerenciar uma nuvem confluente-soluções de parceiros do Azure
 description: Este artigo descreve o gerenciamento de uma nuvem confluente no portal do Azure. Como configurar o logon único, excluir uma organização confluente e obter suporte.
 ms.service: partner-services
 ms.topic: conceptual
-ms.date: 01/15/2021
+ms.date: 02/08/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 2d13c183f0b3891fa92b5e2a6534acbf8102e032
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.openlocfilehash: f8a54096ecda4729f7070120a02be3055f933cea
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98253316"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989119"
 ---
-# <a name="manage-the-confluent-cloud-resource"></a>Gerenciar o recurso de nuvem confluente
+# <a name="manage-the-confluent-cloud-resource"></a>Gerenciar o recurso da Confluent Cloud
 
 Este artigo descreve como gerenciar sua instância do Apache Kafka para nuvem confluente no Azure. Ele mostra como configurar o SSO (logon único), excluir uma organização confluente e criar uma solicitação de suporte.
 
 ## <a name="single-sign-on"></a>Logon único
 
-Para implementar o SSO para sua organização, o administrador de locatários pode importar o aplicativo da galeria. Esta etapa é opcional. Para obter informações sobre como importar um aplicativo, consulte [início rápido: adicionar um aplicativo ao seu locatário do Azure Active Directory (Azure AD)](../../active-directory/manage-apps/add-application-portal.md). Quando o administrador de locatários importa o aplicativo, os usuários não precisam consentir explicitamente para permitir o acesso ao portal de nuvem confluente.
+Para implementar o SSO para sua organização, o administrador de locatários pode importar o aplicativo da galeria. Essa etapa é opcional. Para obter informações sobre como importar um aplicativo, consulte [início rápido: adicionar um aplicativo ao seu locatário do Azure Active Directory (Azure AD)](../../active-directory/manage-apps/add-application-portal.md). Quando o administrador de locatários importa o aplicativo, os usuários não precisam consentir explicitamente para permitir o acesso ao portal de nuvem confluente.
 
 Para habilitar o SSO, siga estas etapas:
 
@@ -66,13 +66,23 @@ Para enviar uma solicitação de suporte para o de forma fluente, entre em conta
 > [!NOTE]
 > Para os usuários da primeira vez, redefina sua senha antes de entrar no portal de suporte do Fluent. Se você não tiver uma conta com nuvem confluente, envie um email para `cloud-support@confluent.io` para obter assistência adicional.
 
+No portal, você pode enviar uma solicitação por meio da ajuda e do suporte do Azure ou diretamente da instância do Apache Kafka para nuvem confluente no Azure.
+
+Para enviar uma solicitação por meio da ajuda e do suporte do Azure:
+
+1. Selecione **Ajuda + suporte**.
+1. Selecione **criar uma solicitação de suporte**.
+1. No formulário, selecione **técnico** para o **tipo de problema**. Selecione sua assinatura. Na lista de serviços, selecione **confluente no Azure**.
+
+    :::image type="content" source="media/support-request-help.png" alt-text="Crie uma solicitação de suporte da ajuda.":::
+
 Para enviar uma solicitação de seu recurso, siga estas etapas:
 
 1. Na portal do Azure, selecione sua organização confluente.
 1. No menu do lado esquerdo da tela, selecione **nova solicitação de suporte**.
 1. Para criar uma solicitação de suporte, selecione o link para o **portal do Fluent**.
 
-    :::image type="content" source="media/support-request.png" alt-text="Crie uma solicitação de suporte.":::
+    :::image type="content" source="media/support-request.png" alt-text="Crie uma solicitação de suporte da instância.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.date: 12/14/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 3ce00c5182246513aaf3178118058826528619d2
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: f2a04a341239b62290eecac8c0e1ce70b7c927c1
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584257"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988912"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Publicar seu aplicativo na Galeria de aplicativos do Azure AD
 
@@ -186,7 +186,7 @@ Você precisará de um locatário do Azure AD para testar seu aplicativo. Para c
 
 Como alternativa, um locatário do Azure AD vem com cada assinatura Microsoft 365. Para configurar um ambiente de desenvolvimento de Microsoft 365 gratuito, consulte [ingressar no Microsoft 365 programa de desenvolvedor](/office/developer-program/microsoft-365-developer-program).
 
-Quando você tiver um locatário, teste o logon único e o [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client). 
+Quando você tiver um locatário, teste o logon único e o [provisionamento](../app-provisioning/use-scim-to-provision-users-and-groups.md#integrate-your-scim-endpoint-with-the-aad-scim-client). 
 
 **Para aplicativos OIDC ou Oath**, [Registre seu aplicativo](quickstart-register-app.md) como um aplicativo multilocatário. Selecione a opção contas em qualquer diretório organizacional e contas pessoais da Microsoft em tipos de conta com suporte.
 

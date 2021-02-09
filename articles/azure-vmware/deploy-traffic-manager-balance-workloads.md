@@ -2,13 +2,13 @@
 title: Implantar o Gerenciador de tráfego para balancear as cargas de trabalho da solução Azure VMware
 description: Saiba como integrar o Gerenciador de tráfego à solução do Azure VMware para balancear cargas de trabalho de aplicativos em vários pontos de extremidade em regiões diferentes.
 ms.topic: how-to
-ms.date: 12/29/2020
-ms.openlocfilehash: 6dbd58f17e29b045bd654bee90b6390f608803ab
-ms.sourcegitcommit: 31d242b611a2887e0af1fc501a7d808c933a6bf6
+ms.date: 02/08/2021
+ms.openlocfilehash: 46570c5a61fc0a641d83126fd0f8ef35b3dc42cc
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97809727"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988601"
 ---
 # <a name="deploy-traffic-manager-to-balance-azure-vmware-solution-workloads"></a>Implantar o Gerenciador de tráfego para balancear as cargas de trabalho da solução Azure VMware
 
@@ -97,7 +97,7 @@ As etapas a seguir verificam a configuração do segmento NSX-T no ambiente da s
 
    - Nome do perfil
    - Método de roteamento (uso [ponderado](../traffic-manager/traffic-manager-routing-methods.md)
-   - Assinatura
+   - Subscription
    - Grupo de recursos
 
 ## <a name="add-external-endpoints-into-the-traffic-manager-profile"></a>Adicionar pontos de extremidade externos ao perfil do Gerenciador de tráfego
@@ -105,7 +105,7 @@ As etapas a seguir verificam a configuração do segmento NSX-T no ambiente da s
 1. Selecione o perfil do Gerenciador de tráfego no painel de resultados da pesquisa, selecione **pontos de extremidade** e **+ Adicionar**.
 
 1. Para cada um dos pontos de extremidade externos nas regiões diferentes, insira os detalhes necessários e, em seguida, selecione **Adicionar**: 
-   - Tipo
+   - Type
    - Nome
    - FQDN (nome de domínio totalmente qualificado) ou IP
    - Peso (atribua um peso de 1 a cada ponto de extremidade). 
@@ -130,9 +130,9 @@ As etapas a seguir verificam a configuração do segmento NSX-T no ambiente da s
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre:
+Agora que você já abordou a integração do Gerenciador de tráfego do Azure com a solução VMware do Azure, talvez queira saber mais sobre:
 
-- [Usando Aplicativo Azure gateway na solução VMware do Azure](protect-azure-vmware-solution-with-application-gateway.md)
-- [Métodos de roteamento do Gerenciador de Tráfego](../traffic-manager/traffic-manager-routing-methods.md)
-- [Combinando serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md)
-- [Medindo o desempenho do Gerenciador de tráfego](../traffic-manager/traffic-manager-performance-considerations.md)
+- [Usando aplicativo Azure gateway na solução VMware do Azure](protect-azure-vmware-solution-with-application-gateway.md).
+- [Métodos de roteamento do Traffic Manager](../traffic-manager/traffic-manager-routing-methods.md).
+- [Combinando serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
+- [Medindo o desempenho do Gerenciador de tráfego](../traffic-manager/traffic-manager-performance-considerations.md).

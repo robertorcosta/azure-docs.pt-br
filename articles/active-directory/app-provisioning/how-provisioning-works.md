@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 1f4466dea35fe3d52f86386f0bf0cc0c3b6a658f
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 048adee21d5c2e49ef02f518002a1dc6025c1ecd
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256332"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988973"
 ---
 # <a name="how-provisioning-works"></a>Como funciona o provisionamento
 
@@ -43,7 +43,7 @@ Para solicitar um conector de provisionamento automático do Azure Active Direct
 
 ## <a name="authorization"></a>Autorização
 
-As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para aplicativos da galeria, você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. Para aplicativos que não são da galeria, você pode consultar a documentação do [scim](./use-scim-to-provision-users-and-groups.md#authorization-for-provisioning-connectors-in-the-application-gallery) para entender os tipos de credenciais e os requisitos. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
+As credenciais são necessárias para que o Azure Active Directory se conecte à API de gerenciamento de usuários do aplicativo. Enquanto estiver configurando o provisionamento automático de usuário para um aplicativo, você precisará inserir credenciais válidas. Para aplicativos da galeria, você pode encontrar os requisitos e tipos de credenciais para o aplicativo consultando o tutorial do aplicativo. Para aplicativos que não são da galeria, você pode consultar a documentação do [scim](./use-scim-to-provision-users-and-groups.md#authorization-to-provisioning-connectors-in-the-application-gallery) para entender os tipos de credenciais e os requisitos. No portal do Azure, para testar as credenciais, faça com que o Azure Active Directory tente se conectar ao aplicativo de provisionamento de aplicativo com as credenciais fornecidas.
 
 ## <a name="mapping-attributes"></a>Atributos de mapeamento
 

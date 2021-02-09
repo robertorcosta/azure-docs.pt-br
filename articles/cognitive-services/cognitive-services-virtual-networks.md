@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8fa10164ae2d697f68156777f224b92f0562475f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: eaffa535b51b786a53f1e6cc35233c55dd837233
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98940040"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99989068"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurar redes virtuais de Serviços Cognitivos do Azure
 
@@ -53,13 +53,13 @@ As redes virtuais (VNETs) têm suporte em [regiões em que os serviços cognitiv
 > * Reconhecimento Vocal (LUIS)
 > * Personalizador
 > * Serviços de Fala
-> * Análise de texto
+> * Análise de Texto
 > * QnA Maker
 > * Tradução de Texto
 
 
 > [!NOTE]
-> Se você estiver usando LUIS, a marca **CognitiveServicesManagement** só permitirá que você use o serviço usando o SDK ou a API REST. Para acessar e usar o portal do LUIS de uma rede virtual, você precisará usar as seguintes marcas:  
+> Se você estiver usando o LUIS ou os serviços de fala, a marca **CognitiveServicesManagement** só permitirá que você use o serviço usando o SDK ou a API REST. Para acessar e usar o portal do LUIS e/ou o Speech Studio de uma rede virtual, você precisará usar as seguintes marcas:  
 > * **AzureActiveDirectory**
 > * **AzureFrontDoor.Frontend**
 > * **AzureResourceManager** 
@@ -78,7 +78,7 @@ Por padrão, os recursos de serviços cognitivas aceitam conexões de clientes e
 
 Você pode gerenciar regras de acesso de rede padrão para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -157,7 +157,7 @@ Você pode gerenciar regras de acesso de rede padrão para recursos de serviços
         --default-action Allow
     ```
 
-**_
+***
 
 ## <a name="grant-access-from-a-virtual-network"></a>Conceder acesso de uma rede virtual
 
@@ -169,7 +169,7 @@ Cada recurso de serviços cognitivas dá suporte a até 100 regras de rede virtu
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-Para aplicar uma regra de rede virtual a um recurso de serviços cognitivas, o usuário deve ter as permissões apropriadas para as sub-redes que estão sendo adicionadas. A permissão necessária é a função padrão _Contributor * ou a função de *colaborador de serviços cognitivas* . As permissões necessárias também podem ser adicionadas às definições de função personalizadas.
+Para aplicar uma regra de rede virtual a um recurso de serviços cognitivas, o usuário deve ter as permissões apropriadas para as sub-redes que estão sendo adicionadas. A permissão necessária é a função *colaborador* padrão ou a função *colaborador de serviços cognitivas* . As permissões necessárias também podem ser adicionadas às definições de função personalizadas.
 
 O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem estar em assinaturas diferentes, incluindo assinaturas que fazem parte de um locatário diferente do Azure AD.
 
@@ -180,7 +180,7 @@ O recurso de serviços cognitivas e as redes virtuais com acesso concedido podem
 
 Você pode gerenciar regras de rede virtual para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -325,10 +325,10 @@ Você pode gerenciar regras de rede virtual para recursos de serviços cognitiva
         --subnet $subnetid
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Certifique-se de [definir a regra padrão](#change-the-default-network-access-rule) para _ * Deny * *, ou as regras de rede não têm nenhum efeito.
+> Não se esqueça de [definir a regra padrão](#change-the-default-network-access-rule) para **negar** ou as regras de rede não terão efeito.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso de um intervalo de IP de Internet
 
@@ -353,7 +353,7 @@ Se você estiver usando o [ExpressRoute](../expressroute/expressroute-introducti
 
 Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por meio do portal do Azure, do PowerShell ou do CLI do Azure.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 1. Vá para o recurso de serviços cognitivas que você deseja proteger.
 
@@ -472,10 +472,10 @@ Você pode gerenciar regras de rede IP para recursos de serviços cognitivas por
         --ip-address "16.17.18.0/24"
     ```
 
-**_
+***
 
 > [!IMPORTANT]
-> Certifique-se de [definir a regra padrão](#change-the-default-network-access-rule) para _ * Deny * *, ou as regras de rede não têm nenhum efeito.
+> Não se esqueça de [definir a regra padrão](#change-the-default-network-access-rule) para **negar** ou as regras de rede não terão efeito.
 
 ## <a name="use-private-endpoints"></a>Usar pontos de extremidade privados
 
