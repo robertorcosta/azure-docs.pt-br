@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 12/18/2020
+ms.date: 02/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 627196c0a76f1de23f7e5421c47a33356a73967f
-ms.sourcegitcommit: d488a97dc11038d9cef77a0235d034677212c8b3
+ms.openlocfilehash: cc24839396116a5b581758b29b087c237a6f902b
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2020
-ms.locfileid: "97709428"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981333"
 ---
 # <a name="azure-stack-edge-pro-r-safety-instructions"></a>Instruções de segurança do Azure Stack Edge pro R
 
@@ -37,7 +37,7 @@ Os seguintes ícones de risco devem ser observados ao configurar e executar o di
 | ícone | Descrição |
 |:--- |:--- |
 | ![Leia antes todas as instruções](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Leia antes todas as instruções |
-| ![Símbolo de perigo](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Símbolo de perigo |
+| ![Ícone de observação](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **OBSERVAÇÃO:** | Indica informações consideradas importantes, mas não são relacionadas a riscos. || ![Símbolo de perigo](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Símbolo de perigo |
 | ![Ícone de assistente de dica](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Assistente de dica|
 | ![Ícone de peso](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Risco de peso pesado|
 | ![Ícone de choque elétrico](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Risco de choque elétrico |
@@ -88,6 +88,7 @@ Os seguintes ícones de risco devem ser observados ao configurar e executar o di
   * Fornecido com espaço adequado para acessar os cabos de fonte de alimentação, porque eles funcionam como a principal desconexão de energia do produto.
 * Os cabos Ethernet não são fornecidos com o produto. Para reduzir a interferência eletromagnética, é recomendável que o cabo de STP (par trançado) Cat 6 blindado seja usado.
 * Configurar o equipamento em uma área de trabalho que permite a circulação de ar adequada em todo o equipamento; Verifique se as tampas frontal e traseira estão completamente removidas enquanto o dispositivo está em execução.
+* Os cabos Ethernet não são fornecidos com o produto. Para reduzir a interferência eletromagnética, é recomendável que o cabo CAT 6 blindado (STP) seja usado.
 * Instale o equipamento na área controlada por temperatura sem contaminants de conduta e permita a circulação de ar adequada em todo o equipamento.
 * Mantenha o equipamento longe de fontes de ambientes líquidos e Humid excessivamente.
 * Não permita que nenhum Liquid ou qualquer objeto estrangeiro entre no sistema. Não coloque bebidas ou outros contêineres líquidos no sistema ou perto dele.
@@ -207,7 +208,7 @@ A device that has a UPS installed is designed to operate in the following enviro
 > Maximum corrosive contaminant levels measured at &lt;/= 50% relative humidity. --> 
 
 
-> ![Aviso de aviso ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **:** &nbsp; alterações ou modificações feitas no equipamento não expressamente aprovado pela Microsoft podem anular a autoridade do usuário para operar o equipamento.
+> ![Ícone de aviso-2 ](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **AVISO:** &nbsp; alterações ou modificações feitas no equipamento não expressamente aprovado pela Microsoft podem anular a autoridade do usuário para operar o equipamento.
 
 CANADÁ e EUA:
 

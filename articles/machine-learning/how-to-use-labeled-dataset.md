@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, data4ml
 ms.date: 05/14/2020
-ms.openlocfilehash: b7eaf374e72997013f09b1c94ce16c67d115a818
-ms.sourcegitcommit: 9889a3983b88222c30275fd0cfe60807976fd65b
+ms.openlocfilehash: a4f15a1a0911e5a33da8b5f9445709cb42e7e10e
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94987364"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981503"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Criar e explorar conjunto de dados do Azure Machine Learning com rótulos
 
@@ -39,6 +39,9 @@ Ao concluir um projeto de rotulagem de dados, você pode exportar os dados do r�
 ### <a name="coco"></a>COCO 
 
  O arquivo COCO é criado no armazenamento de blobs padrão do Workspace do Azure Machine Learning em uma pasta dentro de *export/coco*. 
+ 
+>[!NOTE]
+>Em projetos de detecção de objetos, os valores exportados "bbox": [x, y, Width e Height] "no arquivo COCO são normalizados. Eles são dimensionados para 1. Exemplo: uma caixa delimitadora em (10, 10) local, com largura de 30 pixels, 60 pixels de altura, em uma imagem de 640x480 pixel será anotada como (0, 15625. 0, 2083, 0, 46875, 0,125). Como as coordintes são normalizadas, elas serão mostradas como ' 0,0 ' como "width" e "Height" para todas as imagens. A largura e a altura reais podem ser obtidas usando a biblioteca do Python como OpenCV ou Pillow (PIL).
 
 ### <a name="azure-machine-learning-dataset"></a>Conjunto de dados do Azure Machine Learning
 

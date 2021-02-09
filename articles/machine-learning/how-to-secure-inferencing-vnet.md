@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 4dfe2130d8274e2b3463c0fb42587b50fef77f18
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98953726"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981299"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -257,7 +257,7 @@ As Instâncias de Contêiner do Azure são criadas dinamicamente durante a impla
 > * No mesmo grupo de recursos que seu espaço de trabalho Azure Machine Learning.
 > * Se o seu espaço de trabalho tiver um __ponto de extremidade privado__, a rede virtual usada para instâncias de contêiner do Azure deverá ser a mesma usada pelo ponto de extremidade privado do espaço de trabalho.
 >
-> Ao usar as instâncias de contêiner do Azure dentro da rede virtual, o ACR (registro de contêiner do Azure) para seu espaço de trabalho também não pode estar na rede virtual.
+> Ao usar as instâncias de contêiner do Azure dentro da rede virtual, o ACR (registro de contêiner do Azure) para seu espaço de trabalho não pode estar na rede virtual.
 
 Para usar a ACI em uma rede virtual no seu workspace, siga as seguintes etapas:
 

@@ -6,12 +6,12 @@ ms.author: alkemper
 ms.service: azure-app-configuration
 ms.topic: reference
 ms.date: 08/17/2020
-ms.openlocfilehash: f761d86bd7dbe54b687e8db75ecb3df2dbba3384
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: 4b5a073459fad734a11d3a75718240d0ebbb486a
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932703"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981384"
 ---
 # <a name="hmac-authentication---rest-api-reference"></a>Autenticação HMAC – referência da API REST
 
@@ -22,7 +22,7 @@ Você pode autenticar solicitações HTTP usando o esquema de autenticação HMA
 - **Provedores** - \<Access Key ID\>
 - **Secret** -valor da chave de acesso decodificado em base64. ``base64_decode(<Access Key Value>)``
 
-Os valores de Credential (também chamado `id` ) e Secret (também chamado `value` ) devem ser obtidos na instância do Azure app configuração. Você pode fazer isso usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](/cli/azure/?preserve-view=true&view=azure-cli-latest).
+Os valores de Credential (também chamado `id` ) e Secret (também chamado `value` ) devem ser obtidos na instância do Azure app configuração. Você pode fazer isso usando o [portal do Azure](https://portal.azure.com) ou o [CLI do Azure](/cli/azure/).
 
 Forneça cada solicitação com todos os cabeçalhos HTTP necessários para autenticação. O mínimo necessário são:
 
@@ -45,7 +45,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 
 ## <a name="authorization-header"></a>Cabeçalho de autorização
 
-### <a name="syntax"></a>Syntax
+### <a name="syntax"></a>Sintaxe
 
 ``Authorization``: **HMAC-SHA256**```Credential```=\<value\>&```SignedHeaders```=\<value\>&```Signature```=\<value\>
 
@@ -54,7 +54,7 @@ Authorization: HMAC-SHA256 Credential={Access Key ID}&SignedHeaders=x-ms-date;ho
 | **HMAC-SHA256** | Esquema de autorização. _necessária_ |
 | **Credencial** | A ID da chave de acesso usada para computar a assinatura. _necessária_ |
 | **SignedHeaders** | Cabeçalhos de solicitação HTTP adicionados à assinatura. _necessária_ |
-| **Assinatura** | HMACSHA256 codificado na base64 da cadeia de caracteres a assinar. _necessária_|
+| **Signature** | HMACSHA256 codificado na base64 da cadeia de caracteres a assinar. _necessária_|
 
 ### <a name="credential"></a>Credencial
 
