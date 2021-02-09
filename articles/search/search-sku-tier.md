@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2021
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 320f02f6ece106b4d0e14293f95533aa5b4e0743
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.openlocfilehash: df218c2a4c066343ef571c6f24554ecaa806b639
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98693444"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987877"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Escolha um tipo de preço para o Azure Pesquisa Cognitiva
 
@@ -60,7 +60,8 @@ A maioria dos recursos está disponível em todas as camadas, incluindo a camada
 | [Identidades gerenciadas ou confiáveis para acesso de saída (indexador)](search-howto-managed-identities-data-sources.md) | Não disponível na camada gratuita.|
 | [Chaves de criptografia gerenciadas pelo cliente](search-security-manage-encryption-keys.md) | Não disponível na camada gratuita. |
 | [Acesso de firewall IP](service-configure-firewall.md) | Não disponível na camada gratuita. |
-| [Ponto de extremidade privado (integração com o link privado do Azure)](service-create-private-endpoint.md) | Para conexões de entrada para um serviço de pesquisa, não disponível na camada gratuita. Para conexões de saída por indexadores para outros recursos do Azure, não disponível em alta ou S3 HD. Para indexadores que usam habilidades, não disponível em gratuito, básico, S1 ou S3 HD.|
+| [Ponto de extremidade privado (integração com o link privado do Azure)](service-create-private-endpoint.md) | Para conexões de entrada para um serviço de pesquisa, não disponível na camada gratuita. Para conexões de saída por indexadores para outros recursos do Azure, não disponível em alta ou S3 HD. Para indexadores que usam habilidades, não disponível em gratuito, básico, S1 ou S3 HD.| 
+| [Zonas de Disponibilidade](search-performance-optimization.md) | Não disponível na camada gratuita e na camada básica. |
 
 Recursos com uso intensivo de recursos podem não funcionar bem, a menos que você forneça capacidade suficiente. Por exemplo, o [enriquecimento de ia](cognitive-search-concept-intro.md) tem habilidades de longa execução que atingirão o tempo limite em um serviço gratuito, a menos que o conjunto de informações seja pequeno.
 

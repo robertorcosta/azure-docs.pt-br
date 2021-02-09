@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
-ms.date: 01/08/2020
-ms.openlocfilehash: 4f3b201d35781d6d33eead0b0a21d38fbb897097
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.date: 02/03/2021
+ms.openlocfilehash: 1ba6a45062f4018c59f5b41ab616f7a04f87140a
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966812"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575544"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-offline-using-dms"></a>Tutorial: Migração offline do MongoDB para a API do Azure Cosmos DB para MongoDB usando o DMS
 
@@ -53,6 +53,18 @@ Para concluir este tutorial, você precisará:
 * Verifique se as regras do NSG (grupo de segurança de rede) da rede virtual não bloqueiam as seguintes portas de comunicação: 53, 443, 445, 9354 e 10000-20000. Para obter mais detalhes sobre a filtragem de tráfego do NSG da rede virtual, confira o artigo [Filtrar o tráfego de rede com grupos de segurança de rede](../virtual-network/virtual-network-vnet-plan-design-arm.md).
 * Abra o Firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o servidor de origem do MongoDB, que, por padrão, é a porta TCP 27017.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
+
+## <a name="configure-azure-cosmos-db-server-side-retries-for-efficient-migration"></a>Configurar Repetições do Lado do Servidor do Azure Cosmos DB Server para uma migração eficiente
+
+Os clientes que migram do MongoDB para o Azure Cosmos DB se beneficiam de funcionalidades de governança de recursos, que garantem a capacidade de utilizar completamente as RU/s de taxa de transferência provisionadas. O Azure Cosmos DB poderá restringir uma determinada solicitação do Serviço de Migração de Dados no decorrer da migração se essa solicitação exceder as RU/s provisionadas do contêiner; em seguida, essa solicitação precisará ser repetida. O Serviço de Migração de Dados é capaz de executar repetições. No entanto, o tempo de ida e volta envolvido no salto de rede entre o Serviço de Migração de Dados e o Azure Cosmos DB afeta o tempo de resposta geral dessa solicitação. Aprimorar o tempo de resposta para solicitações limitadas pode reduzir o tempo total necessário para a migração. O recurso *Repetição do Lado do Servidor* do Azure Cosmos DB permite que o serviço intercepte os códigos de erro de restrição e tente novamente com um tempo de ida e volta muito menor, aprimorando drasticamente os tempos de resposta da solicitação.
+
+Você pode encontrar a funcionalidade Repetição do Lado do Servidor na folha *Recursos* do portal do Azure Cosmos DB
+
+![Recurso SSR do MongoDB](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-feature.png)
+
+Se ele estiver *Desabilitado*, recomendamos habilitá-lo, conforme mostrado abaixo
+
+![Habilitar SSR do MongoDB](media/tutorial-mongodb-to-cosmosdb/mongo-server-side-retry-enable.png)
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrar o provedor de recursos Microsoft.DataMigration
 

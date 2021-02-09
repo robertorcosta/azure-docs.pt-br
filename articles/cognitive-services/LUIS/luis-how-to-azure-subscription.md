@@ -7,12 +7,12 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d8944c9e49bde8c452a10a1886cae316a0f7a33f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 168833ea0a451913f4ed019cba832a16207e0d9c
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945074"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988153"
 ---
 # <a name="create-luis-resources"></a>Criar recursos do LUIS
 
@@ -115,7 +115,7 @@ O proprietário e todos os colaboradores têm acesso para criar o aplicativo.
 |Importa versão||
 |Tornar um aplicativo público|Quando um aplicativo é público, qualquer pessoa que tenha uma chave de criação ou de ponto de extremidade pode consultar o aplicativo.|
 |Modificar modelo|
-|Publicar|
+|Publicação|
 |Examinar declarações de ponto de extremidade para [aprendizado ativo](luis-how-to-review-endpoint-utterances.md)|
 |Treinar|
 
@@ -211,7 +211,7 @@ Você pode atribuir um recurso de criação para um único aplicativo ou para to
 
 1. Entre no portal do [LUIS](https://www.luis.ai).
 1. No canto superior direito, selecione sua conta de usuário e, em seguida, selecione **configurações**.
-1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Selecione **Salvar**.
+1. Na página **configurações do usuário** , selecione **Adicionar recurso de criação** e, em seguida, selecione um recurso de criação existente. Clique em **Salvar**.
 
 ## <a name="assign-a-resource-to-an-app"></a>Atribuir um recurso a um aplicativo
 
@@ -236,6 +236,10 @@ Para processos automatizados, como pipelines de CI/CD, talvez você queira autom
 
 1. Obtenha um Azure Resource Manager token deste [site](https://resources.azure.com/api/token?plaintext=true). Esse token expira, portanto, use-o imediatamente. A solicitação retorna um token do Azure Resource Manager.
 
+    ```azurecli
+    az account get-access-token --resource=https://management.core.windows.net/ --query accessToken --output tsv
+    ```
+    
     ![Captura de tela que mostra o site para solicitar um token de Azure Resource Manager.](./media/luis-manage-keys/get-arm-token.png)
 
 1. Use o token para solicitar os recursos de tempo de execução LUIS entre assinaturas. Use a [API Get Luis Azure accounts](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5be313cec181ae720aa2b26c), à qual sua conta de usuário tem acesso.
@@ -253,11 +257,11 @@ Para processos automatizados, como pipelines de CI/CD, talvez você queira autom
 
     Essa API POST requer os seguintes valores:
 
-    |Tipo|Configuração|Valor|
+    |Type|Configuração|Valor|
     |--|--|--|
-    |Cabeçalho|`Authorization`|O valor de `Authorization` é `Bearer {token}`. O valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
-    |Cabeçalho|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
-    |Cabeçalho|`Content-type`|`application/json`|
+    |parâmetro|`Authorization`|O valor de `Authorization` é `Bearer {token}`. O valor do token deve ser precedido pela palavra `Bearer` e um espaço.|
+    |parâmetro|`Ocp-Apim-Subscription-Key`|Sua chave de criação.|
+    |parâmetro|`Content-type`|`application/json`|
     |Querystring|`appid`|A ID do aplicativo de LUIS.
     |Corpo||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 

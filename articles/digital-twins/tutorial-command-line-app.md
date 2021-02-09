@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: db85bf19c1b040fea1ed2f5d6dcf904288366c7f
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 5658bfcf0bf877db1dd001c2af58a40f3b027bd9
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98050231"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99576237"
 ---
 # <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Tutorial: Explorar os Gêmeos Digitais do Azure com um aplicativo cliente de exemplo
 
@@ -274,12 +274,15 @@ Um dos principais recursos dos Gêmeos Digitais do Azure é a capacidade de [con
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-O projeto deste tutorial forma a base para o próximo tutorial, [*Tutorial: Conectar uma solução de ponta a ponta*](tutorial-end-to-end.md). Caso planeje prosseguir para o próximo tutorial, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado.
-* Nesse caso, você pode usar os comandos `DeleteAllTwins` e `DeleteAllModels` do aplicativo de exemplo para limpar os gêmeos e os modelos em sua instância, respectivamente. Isso lhe dará uma imagem fixa em branco para o próximo tutorial.
+Após concluir este tutorial, você poderá escolher quais recursos gostaria de remover, dependendo do que você gostaria de fazer em seguida.
+
+* **Caso planeje prosseguir para o próximo tutorial**, você pode manter os recursos configurados aqui para continuar usando essa instância dos Gêmeos Digitais do Azure e o aplicativo de exemplo configurado para o próximo tutorial
+
+* **Caso deseje continuar usando a instância dos Gêmeos Digitais do Azure, mas limpar todos os seus modelos, gêmeos e relações**, poderá usar os comandos `DeleteAllTwins` e `DeleteAllModels` do aplicativo de exemplo para limpar o gêmeos e os modelos em sua instância, respectivamente. Isso lhe dará uma imagem fixa em branco para o próximo tutorial.
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Por fim, exclua a pasta de exemplo do projeto que você baixou para o computador local.
+Talvez seja interessante excluir a pasta do projeto do computador local.
 
 ## <a name="next-steps"></a>Próximas etapas 
 

@@ -63,6 +63,8 @@
       href: azure-netapp-files-faqs.md
     - name: O que é a Ferramenta Instantânea Consistente do Aplicativo Azure?
       href: azacsnap-introduction.md
+    - name: O que significa alterar a cota fixa do volume
+      href: volume-hard-quota-guidelines.md
 - name: Guias de instruções
   items:
     - name: Registro no Azure NetApp Files

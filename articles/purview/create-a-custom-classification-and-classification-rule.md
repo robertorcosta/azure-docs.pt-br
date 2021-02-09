@@ -6,13 +6,13 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 11/1/2020
-ms.openlocfilehash: 53c71eec4c913c606669b7d36ca9a71ac8f3e2f1
-ms.sourcegitcommit: b6267bc931ef1a4bd33d67ba76895e14b9d0c661
+ms.date: 2/5/2021
+ms.openlocfilehash: 3cc29e0bd806ab76c4980128df5a89761e465fe7
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2020
-ms.locfileid: "97693467"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988381"
 ---
 # <a name="custom-classifications-in-azure-purview"></a>Classificações personalizadas no Azure alcance 
 
@@ -39,7 +39,7 @@ Para criar uma classificação personalizada, faça o seguinte:
     :::image type="content" source="media/create-a-custom-classification-and-classification-rule/new-classification.png" alt-text="Nova classificação" border="true":::
 
 O painel **Adicionar nova classificação** é aberto, onde você pode dar um nome e uma descrição à sua classificação. É uma boa prática usar uma Convenção de espaçamento de nome, como `your company name.classification name` .
-As classificações de sistema da Microsoft são agrupadas sob o `MS.` namespace reservado. Um exemplo é **MS. Instituições. Digamos. \_ \_ número** do seguro social.
+As classificações de sistema da Microsoft são agrupadas sob o `MICROSOFT.` namespace reservado. Um exemplo é **Microsoft. Instituições. Digamos. \_ \_ número** do seguro social.
 
 O nome da sua classificação deve começar com uma letra seguida por uma sequência de letras, números e pontos (.) ou caracteres de sublinhado.
 Nenhum espaço é permitido. Conforme você digita, a UX gera automaticamente um nome amigável. Esse nome amigável é o que os usuários veem quando você os aplica a um ativo no catálogo.
@@ -99,8 +99,8 @@ Para criar uma regra de classificação personalizada:
 |---------|---------|
 |Nome   |    Obrigatórios. O máximo é de 100 caracteres.    |
 |Descrição      |Opcional. O máximo é de 256 caracteres.    |
-|Nome da classificação    | Obrigatórios. Selecione o nome da classificação na lista suspensa para instruir o verificador a aplicá-lo se uma correspondência for encontrada.        |
-|Estado   |  Obrigatórios. As opções estão habilitadas ou desabilitadas. Habilitado é o padrão.    |
+|Nome da classificação    | Obrigatório. Selecione o nome da classificação na lista suspensa para instruir o verificador a aplicá-lo se uma correspondência for encontrada.        |
+|Estado   |  Obrigatório. As opções estão habilitadas ou desabilitadas. Habilitado é o padrão.    |
 |Padrão de dados    |Opcional. Uma expressão regular que representa os dados armazenados no campo de dados. O limite é muito grande. No exemplo anterior, os padrões de dados são testados para uma ID de funcionário que é literalmente a palavra `Employee{GUID}` .  |
 |Padrão de coluna    |Opcional. Uma expressão regular que representa os nomes de coluna que você deseja corresponder. O limite é muito grande.          |
 

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: e523b35afca33213a40060819a1293e94d413b00
-ms.sourcegitcommit: 8c8c71a38b6ab2e8622698d4df60cb8a77aa9685
+ms.openlocfilehash: bf5582016f74e67926c38111a3d8d2f468f3ac79
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99222858"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987982"
 ---
 # <a name="plan-your-qna-maker-app"></a>Planejar seu aplicativo QnA Maker
 
@@ -124,17 +124,17 @@ Você deve projetar seu fluxo de conversação com um loop em mente para que um 
 
 Os colaboradores podem ser outros desenvolvedores que compartilham a pilha de desenvolvimento completa do aplicativo da base de dados de conhecimento ou podem estar limitados a apenas criar a base de dados de conhecimento.
 
-A criação da base de dados de conhecimento dá suporte a várias [permissões de acesso baseadas em função](../reference-role-based-access-control.md) que você aplica no portal do Azure para limitar o escopo das habilidades de um colaborador.
+A criação da base de dados de conhecimento dá suporte a várias permissões de acesso baseadas em função que você aplica no portal do Azure para limitar o escopo das habilidades de um colaborador.
 
 ## <a name="integration-with-client-applications"></a>Integração com aplicativos cliente
 
-A integração com [aplicativos cliente](../index.yml) é realizada enviando uma consulta para o ponto de extremidade de tempo de execução de previsão. Uma consulta é enviada para sua base de dados de conhecimento específica com um SDK ou uma solicitação baseada em REST para o ponto de extremidade do aplicativo Web do QnA Maker.
+A integração com aplicativos cliente é realizada enviando uma consulta para o ponto de extremidade de tempo de execução de previsão. Uma consulta é enviada para sua base de dados de conhecimento específica com um SDK ou uma solicitação baseada em REST para o ponto de extremidade do aplicativo Web do QnA Maker.
 
 Para autenticar uma solicitação de cliente corretamente, o aplicativo cliente deve enviar as credenciais corretas e a ID da base de dados de conhecimento. Se você estiver usando um serviço de bot do Azure, defina essas configurações como parte da configuração do bot no portal do Azure.
 
 ### <a name="conversation-flow-in-a-client-application"></a>Fluxo de conversa em um aplicativo cliente
 
-O fluxo de conversa em um [aplicativo cliente](../index.yml), como um bot do Azure, pode exigir funcionalidade antes e depois de interagir com a base de dados de conhecimento.
+O fluxo de conversa em um aplicativo cliente, como um bot do Azure, pode exigir funcionalidade antes e depois de interagir com a base de dados de conhecimento.
 
 O aplicativo cliente dá suporte ao fluxo de conversa, seja fornecendo meios alternativos para lidar com avisos de acompanhamento ou incluindo Chit-Chit? Nesse caso, projete esses primeiros e verifique se a consulta do aplicativo cliente é tratada corretamente por outro serviço ou quando enviada à sua base de dados de conhecimento.
 
@@ -148,7 +148,7 @@ Nesse cenário de [arquitetura compartilhada](../choose-natural-language-process
 
 ### <a name="active-learning-from-a-client-application"></a>Aprendizado ativo de um aplicativo cliente
 
-O QnA Maker usa o _aprendizado ativo_ para melhorar sua base de dados de conhecimento sugerindo perguntas alternativas para uma resposta. O aplicativo cliente é responsável por uma parte deste [aprendizado ativo](active-learning-suggestions.md). Por meio de prompts de conversação, o aplicativo cliente pode determinar se a base de dados de conhecimento retornou uma resposta que não é útil para o usuário e pode determinar uma resposta melhor. O aplicativo cliente precisa [enviar essas informações de volta para a base de dados de conhecimento](active-learning-suggestions.md#how-you-give-explicit-feedback-with-the-train-api) para melhorar a qualidade da previsão.
+O QnA Maker usa o _aprendizado ativo_ para melhorar sua base de dados de conhecimento sugerindo perguntas alternativas para uma resposta. O aplicativo cliente é responsável por uma parte deste [aprendizado ativo](../How-To/use-active-learning.md). Por meio de prompts de conversação, o aplicativo cliente pode determinar se a base de dados de conhecimento retornou uma resposta que não é útil para o usuário e pode determinar uma resposta melhor. O aplicativo cliente precisa enviar essas informações de volta para a base de dados de conhecimento para melhorar a qualidade da previsão.
 
 ### <a name="providing-a-default-answer"></a>Fornecendo uma resposta padrão
 
@@ -208,16 +208,16 @@ O [ciclo de vida de desenvolvimento](development-lifecycle-knowledge-base.md) de
 
 ### <a name="knowledge-base-development-of-qna-maker-pairs"></a>Desenvolvimento da base de dados de conhecimento de pares de QnA Maker
 
-Seus [pares de QnA](question-answer-set.md) devem ser projetados e desenvolvidos com base no uso do aplicativo cliente.
+Seus pares de QnA devem ser projetados e desenvolvidos com base no uso do aplicativo cliente.
 
 Cada par pode conter:
 * Metadados-filtráveis ao consultar para permitir que você marque seus pares de QnA com informações adicionais sobre a origem, o conteúdo, o formato e a finalidade de seus dados.
 * Prompts de acompanhamento – ajuda a determinar um caminho por meio de sua base de dados de conhecimento para que o usuário chegue à resposta correta.
-* Perguntas alternativas – importante para permitir que a pesquisa corresponda à sua resposta de diferentes formas da pergunta. As [sugestões de aprendizado ativo são transformadas](active-learning-suggestions.md) em perguntas alternativas.
+* Perguntas alternativas – importante para permitir que a pesquisa corresponda à sua resposta de diferentes formas da pergunta. As [sugestões de aprendizado ativo são transformadas](../How-To/use-active-learning.md) em perguntas alternativas.
 
 ### <a name="devops-development"></a>Desenvolvimento de DevOps
 
-Desenvolver uma base de dados de conhecimento para inserir em um pipeline do DevOps requer que a base de dados de conhecimento seja isolada durante o [teste do lote](../index.yml).
+Desenvolver uma base de dados de conhecimento para inserir em um pipeline do DevOps requer que a base de dados de conhecimento seja isolada durante o teste do lote.
 
 Uma base de dados de conhecimento compartilha o índice de Pesquisa Cognitiva com todas as outras bases de dados de conhecimento no recurso de QnA Maker. Embora a base de dados de conhecimento seja isolada por partição, o compartilhamento do índice pode causar uma diferença na pontuação quando comparado à base de dados de conhecimento publicada.
 

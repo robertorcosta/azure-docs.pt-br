@@ -7,14 +7,14 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/02/2020
 ms.author: allensu
-ms.openlocfilehash: 7add424c23e430a8ca5059d45acd037fff8836ad
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: 68a4703cc2dc1b2898057e138fda7de9eff146e7
+ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368654"
+ms.lasthandoff: 02/07/2021
+ms.locfileid: "99807455"
 ---
-# <a name="quickstart-create-a-private-endpoint-using-azure-powershell"></a>Início Rápido: Criar um ponto de extremidade privado usando o Azure PowerShell
+# <a name="use-powershell-to-create-a-private-endpoint"></a>Usar o PowerShell para criar um ponto de extremidade privado
 
 Introdução ao Link Privado do Azure usando um Ponto de Extremidade Privado para se conectar com segurança a um aplicativo Web do Azure.
 
@@ -240,7 +240,7 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
 4. Selecione **myVM**.
 
-5. Na página de visão geral de **myVM** , escolha **Conectar** e **Bastion**.
+5. Na página de visão geral de **myVM**, escolha **Conectar** e **Bastion**.
 
 6. Selecione o botão azul **Usar Bastion**.
 
@@ -262,7 +262,7 @@ Nesta seção, você usará a máquina virtual criada na etapa anterior para se 
 
     O endereço IP privado **10.0.0.5** é retornado para o nome do aplicativo Web.  Esse endereço está na sub-rede da rede virtual criada anteriormente.
 
-10. Na conexão do bastion com **myVM** , abra o Internet Explorer.
+10. Na conexão do bastion com **myVM**, abra o Internet Explorer.
 
 11. Insira a URL do aplicativo Web, **https://\<your-webapp-name>.azurewebsites.net**.
 

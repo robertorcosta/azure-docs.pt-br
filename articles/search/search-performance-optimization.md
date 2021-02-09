@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: 6ca489dc0c5c7ba8ba67f3456d04be953544a8fb
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "93420590"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99987824"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Escala para desempenho no Azure Pesquisa Cognitiva
 
@@ -86,6 +86,27 @@ As réplicas não apenas ajudam a reduzir a latência de consulta, mas também p
 Para obter mais detalhes sobre isso, visite o [contrato de nível de serviço de pesquisa cognitiva do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 Como as réplicas são cópias de seus dados, ter várias réplicas permite que o Azure Pesquisa Cognitiva faça reinicializações e manutenção do computador em uma réplica, enquanto a execução da consulta continua em outras réplicas. Por outro lado, se você tirar as réplicas de longe, incorrerá em degradação do desempenho da consulta, supondo que essas réplicas fossem um recurso subutilizado.
+
+### <a name="availability-zones"></a>Zonas de Disponibilidades
+
+[Zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview) dividir os data centers de uma região em grupos de locais físicos distintos para fornecer alta disponibilidade e região. O serviço de pesquisa é executado dentro de uma região; as réplicas são executadas em diferentes zonas.
+
+Você pode utilizar Zonas de Disponibilidade com o Pesquisa Cognitiva do Azure adicionando duas ou mais réplicas ao serviço de pesquisa. Cada réplica será colocada em uma zona de disponibilidade diferente dentro da região. Se você tiver mais réplicas do que Zonas de Disponibilidade, as réplicas serão distribuídas entre Zonas de Disponibilidade o mais uniforme possível.
+
+Atualmente, o Azure Pesquisa Cognitiva dá suporte a Zonas de Disponibilidade para serviços de camada Standard ou de pesquisa mais alta que foram criados em uma das seguintes regiões:
++ Leste da Austrália (criado em 30 de janeiro de 2021 ou posterior)
++ Centro do Canadá (criado em 30 de janeiro de 2021 ou posterior)
++ EUA Central (criado em 4 de dezembro de 2020 ou mais recente)
++ Leste dos EUA 2 (criado em 30 de janeiro de 2021 ou posterior)
++ França central (criado em 23 de outubro de 2020 ou posterior)
++ Leste do Japão (criado em 30 de janeiro de 2021 ou posterior)
++ Europa Setentrional (criado em 28 de janeiro de 2021 ou posterior)
++ Ásia Oriental do Sul (criado em 31 de janeiro de 2021 ou mais recente)
++ Sul do Reino Unido (criado em 30 de janeiro de 2021 ou posterior)
++ Europa Ocidental (criado em 29 de janeiro de 2021 ou posterior)
++ Oeste dos EUA 2 (criado em 30 de janeiro de 2021 ou posterior)
+
+Zonas de Disponibilidade não têm impacto sobre o [contrato de nível de serviço de pesquisa cognitiva do Azure](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="scale-for-geo-distributed-workloads-and-geo-redundancy"></a>Dimensionar para cargas de trabalho distribuídas geograficamente e redundância geográfica
 

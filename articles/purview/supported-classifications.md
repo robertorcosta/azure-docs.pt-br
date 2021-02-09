@@ -6,17 +6,23 @@ ms.author: anmuk
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: reference
-ms.date: 11/20/2020
-ms.openlocfilehash: 7458b027add8be86d9491c674c2f1a0bc9fbc68c
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.date: 2/5/2021
+ms.openlocfilehash: d98f2f80bf22627eb34855234e22e314c241c852
+ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551489"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99988310"
 ---
 # <a name="supported-classifications-in-azure-purview"></a>Classificações com suporte no Azure alcance
 
 Este artigo lista as classificações de sistema com e com suporte no Azure alcance (versão prévia).
+
+
+- **Limite de correspondência distinta**: o número total de valores de dados distintos que precisam ser encontrados em uma coluna antes que o verificador execute o padrão de dados nele. Nossas regras de classificação do sistema exigem que haja pelo menos 8 valores distintos em cada coluna para serem sujeitos à classificação. O sistema requer esse valor para garantir que a coluna contenha dados suficientes para que o verificador classifique com precisão. Por exemplo, uma coluna que contém várias linhas que contêm o valor 1 não será classificada. As colunas que contêm uma linha com um valor e o restante das linhas têm valores nulos também não serão classificadas. Se você especificar vários padrões, esse valor se aplicará a cada um deles.
+
+- **Limite mínimo de correspondência**: é o percentual mínimo de correspondências de valor de dados em uma coluna que deve ser encontrada pelo verificador para que a classificação seja aplicada. O valor de classificação do sistema é definido em 60%.
+
 
 ## <a name="defined-system-classifications"></a>Classificações de sistema definidas
 
@@ -274,7 +280,7 @@ Driver's License#
 Driver's Licenses#
 ```
 
-## <a name="australia-medical-account-number"></a>Número da conta médica da Austrália
+## <a name="australian-medicare-number"></a>Número de Medicare australiano
 
 ### <a name="format"></a>Formatar
 
@@ -291,7 +297,7 @@ Driver's Licenses#
 
 ### <a name="keywords"></a>Palavras-chave
 
-#### <a name="keyword_australia_medical_account_number"></a>Keyword_Australia_Medical_Account_Number
+#### <a name="keyword_australia_medicare_number"></a>Keyword_Australia_Medicare_Number
 
 ```
 bank account details
@@ -2964,7 +2970,7 @@ ad, ae, al, at, az, ba, be, bg, bh, ch, cr, cy, cz, de, dk, do, ee, es, fi, fo, 
 
 ### <a name="keywords"></a>Palavras-chave
 
-Nenhum
+Nenhuma
 
 ## <a name="ireland-personal-public-service-pps-number"></a>Número do PPS (serviço público pessoal) da Irlanda
 
@@ -3953,7 +3959,7 @@ Essa entidade de tipo de informações confidenciais está incluída no número 
 
 ### <a name="keywords"></a>Palavras-chave
 
-Nenhum
+Nenhuma
 
 ## <a name="sweden-national-id"></a>ID nacional da Suécia
 

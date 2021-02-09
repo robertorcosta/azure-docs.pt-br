@@ -51,6 +51,8 @@
   items:
     - name: Criar um serviço de autenticação confiável usando o Azure Functions
       href: tutorials/trusted-service-tutorial.md
+    - name: Assinar uma solicitação HTTP com uma assinatura HMAC usando C#
+      href: tutorials/hmac-header-tutorial.md
     - name: Preparar um aplicativo Web para Serviços de Comunicação (Node.js)
       href: tutorials/building-app-start.md
 - name: Conceitos
@@ -88,6 +90,8 @@
       href: concepts/client-and-server-architecture.md
     - name: Fluxos de chamadas
       href: concepts/call-flows.md
+    - name: Topologias de fluxo de chamadas
+      href: concepts/detailed-call-flows.md
     - name: Bibliotecas de cliente e APIs REST
       href: concepts/sdk-options.md
     - name: Modelo de preços
@@ -108,6 +112,8 @@
       href: concepts/metrics.md
     - name: Solução de problemas
       href: concepts/troubleshooting-info.md
+    - name: Problemas conhecidos
+      href: concepts/known-issues.md
 - name: Exemplos
   items:
     - name: Exemplo de destaque de chamada de grupo

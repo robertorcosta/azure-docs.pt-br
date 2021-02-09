@@ -62,7 +62,7 @@
       items:
         - name: Transformações
           href: how-to-transformation.md
-        - name: Sincronização de entrada com a API do MS Graph
+        - name: Configurar programaticamente a sincronização de nuvem usando a API do MS Graph
           href: how-to-inbound-synch-ms-graph.md
         - name: API de sincronização do Azure AD
           href: /graph/api/resources/synchronization-overview

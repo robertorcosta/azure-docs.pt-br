@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 9c79a1ab46513da54d61f1da5c1ba3a6dd480a95
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 23bc476c0d4fd90e19428d52b1468d090ffe2a1b
+ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98785356"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99820782"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar SQL Server para Banco de Dados SQL do Azure offline usando DMS
 
@@ -237,6 +237,9 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 1. Na tela **Selecionar destino**, especifique os detalhes da conexão para o Banco de Dados SQL do Azure de destino, que é o Banco de Dados SQL do Azure provisionado previamente para o qual o esquema **Adventureworks2016** foi implantado usando o Assistente de Migração de Dados.
 
     ![Selecionar o destino](media/tutorial-sql-server-to-azure-sql/dms-select-target2.png)
+    
+    > [!NOTE]
+    > As conexões de ponto de extremidade privado com o Banco de Dados SQL do Azure de destino têm suporte do Serviço de Migração de Banco de Dados do Azure, exceto ao usar um nome DNS personalizado. 
 
 2. Selecione **Avançar: Mapear para bancos de dados de destino** e mapeie o banco de dados de origem e de destino para migração.
 
