@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 984b85ff831146060f1642b9eeec7079ff966db3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: a5f0a7d8221e970c8c1aa3c1ddffbfc56f2d5715
+ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98937822"
+ms.lasthandoff: 02/01/2021
+ms.locfileid: "99226179"
 ---
 # <a name="tutorial-build-a-multi-tenant-daemon-that-uses-the-microsoft-identity-platform"></a>Tutorial: Criar um daemon multilocatário que usa a plataforma de identidade da Microsoft
 
@@ -45,7 +45,7 @@ O aplicativo é criado como um aplicativo MVC ASP.NET. Ele usa o middleware OWIN
 
 O componente "daemon" neste exemplo é um controlador de API, `SyncController.cs`. Quando o controlador é chamado, ele efetua pull em uma lista de usuários no Microsoft Graph no locatário do Azure AD (Azure Active Directory) do cliente. O `SyncController.cs` é disparado por uma chamada AJAX no aplicativo Web. Ele usa a [MSAL (biblioteca de autenticação da Microsoft) para .NET](msal-overview.md) para adquirir um token de acesso para o Microsoft Graph.
 
-Como o aplicativo é multilocatário para clientes empresariais da Microsoft, ele precisa permitir que os clientes "inscrevam" ou "conectem" o aplicativo aos dados da empresa. Durante o fluxo de conexão, um administrador da empresa primeiro concede *permissões de aplicativo* diretamente ao aplicativo para que ele possa acessar os dados da empresa de maneira não interativa, sem a presença de um usuário conectado. A maior parte da lógica neste exemplo mostra como alcançar esse fluxo de conexão usando a plataforma de identidade de ponto de extremidade de [consentimento do administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
+Como o aplicativo é multilocatário para clientes empresariais da Microsoft, ele precisa permitir que os clientes "inscrevam" ou "conectem" o aplicativo aos dados da empresa. Durante o fluxo de conexão, um Administrador global primeiro concede *permissões de aplicativo* diretamente ao aplicativo para que ele possa acessar os dados da empresa de maneira não interativa, sem a presença de um usuário conectado. A maior parte da lógica neste exemplo mostra como alcançar esse fluxo de conexão usando a plataforma de identidade de ponto de extremidade de [consentimento do administrador](v2-permissions-and-consent.md#using-the-admin-consent-endpoint).
 
 ![O diagrama mostra o Aplicativo UserSync com três itens locais que se conectam ao Azure. O Start dot Auth adquire um token interativamente para se conectar ao Azure AD, o AccountController obtém o consentimento do administrador para se conectar ao Azure AD e o SyncController lê o usuário para se conectar ao Microsoft Graph.](./media/tutorial-v2-aspnet-daemon-webapp/topology.png)
 
@@ -110,7 +110,7 @@ Se você não quiser usar a automação, use as etapas nas seções a seguir.
 1. Na página **Visão geral** do aplicativo, localize o valor de **ID do Aplicativo (cliente)** e registre-o para uso posterior. Você precisará dele para definir o arquivo de configuração do Visual Studio para este projeto.
 1. Em **Gerenciar**, selecione **Autenticação**.
 1. Defina **URL de logoff de front-channel** para `https://localhost:44316/Account/EndSession`.
-1. Na seção **Concessão implícita**, selecione **Tokens de acesso** e **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário e chamar uma API.
+1. Na seção **Concessão implícita e fluxos híbridos**, selecione **Tokens de acesso** e **Tokens de ID**. Este exemplo requer que o [fluxo de concessão implícita](v2-oauth2-implicit-grant-flow.md) seja habilitado para conectar o usuário e chamar uma API.
 1. Clique em **Salvar**.
 1. Em **Gerenciar**, selecione **Certificados e Segredos**.
 1. Na seção **Segredos do Cliente**, escolha **Novo Segredo do Cliente**. 
@@ -237,9 +237,9 @@ Quando não for mais necessário, exclua o objeto de aplicativo criado na etapa 
 
 ## <a name="get-help"></a>Obter ajuda
 
-Use o [Stack Overflow](http://stackoverflow.com/questions/tagged/msal) para obter suporte da comunidade.
-Faça suas perguntas primeiro no Stack Overflow e navegue pelos problemas existentes para ver se alguém já fez sua pergunta antes.
-Verifique se suas perguntas ou comentários estão marcados com "adal," "msal" e "dotnet".
+Use o [Microsoft Q&A](https://docs.microsoft.com/answers/products/) para obter suporte da comunidade.
+Faça suas perguntas primeiro no [Microsoft Q&A](https://docs.microsoft.com/answers/products/) e navegue pelos problemas existentes para ver se alguém já fez sua pergunta antes.
+Verifique se suas perguntas ou comentários estão marcados com "azure-ad-adal-deprecation", "azure-ad-msal" e "dotnet-standard".
 
 Se você encontrar um bug no exemplo, crie um registro do problema em [Problemas do GitHub](https://github.com/Azure-Samples/ms-identity-aspnet-daemon-webapp/issues).
 

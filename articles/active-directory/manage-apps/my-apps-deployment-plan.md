@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 02/29/2020
 ms.author: kenwith
 ms.reviewer: baselden
-ms.openlocfilehash: 13fe9c52312ba6053a6093ec51d42f05a44627e0
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 10e548eb87b7ac4254fa916f804a6710252be7fc
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258279"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830712"
 ---
 # <a name="plan-azure-active-directory-my-apps-configuration"></a>Planejar a configuração do Azure Active Directory meus aplicativos
 
 > [!NOTE]
-> Este artigo foi projetado para profissionais de ti que precisam planejar a configuração do portal meus aplicativos de sua organização. Para obter informações para o usuário final sobre como usar meus aplicativos e coleções, consulte [entrar e iniciar aplicativos no portal meus aplicativos](../user-help/my-apps-portal-end-user-access.md).
+> Este artigo foi projetado para profissionais de ti que precisam planejar a configuração do portal meus aplicativos de sua organização. 
 >
 > **Para obter a documentação do usuário final, consulte [entrar e iniciar aplicativos no portal meus aplicativos](../user-help/my-apps-portal-end-user-access.md)**.
 

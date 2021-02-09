@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 11/16/2020
+ms.date: 02/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 75eb847bd85f52e8fe168b0ee7270af4bdea20ed
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 6836777c761fa2cce482cb000b6c86919e6b5613
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96465995"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834061"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisitos de sistema do Azure Stack Edge de borda
 
@@ -82,7 +82,7 @@ Use a tabela a seguir para a configuração de porta dos servidores que hospedam
 
 | Nº da porta | Entrada ou saída | Escopo da porta | Obrigatório | Diretrizes |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Saída       | WAN        | Yes      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
+| TCP 443 (HTTPS)| Saída       | WAN        | Sim      | Saída aberta para o provisionamento do IoT Edge. Essa configuração é necessária ao usar scripts manuais ou o DPS (serviço de provisionamento de dispositivos) do Azure IoT.|
 
 Para todas as informações, acesse [Regras de configuração de firewall e de porta para implantação do IoT Edge](../iot-edge/troubleshoot.md).
 

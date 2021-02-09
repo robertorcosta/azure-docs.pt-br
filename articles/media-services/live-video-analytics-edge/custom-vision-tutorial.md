@@ -4,12 +4,12 @@ description: Saiba como usar a Visão Personalizada do Azure para criar um model
 ms.topic: tutorial
 ms.date: 09/08/2020
 zone_pivot_groups: ams-lva-edge-programming-languages
-ms.openlocfilehash: de788c337ce8030b73538565e4f374ffc7db55b8
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 0b5d011ac7832436edf1f5c898b1fe1e239d0aea
+ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060481"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99055358"
 ---
 # <a name="tutorial-analyze-live-video-with-live-video-analytics-on-iot-edge-and-azure-custom-vision"></a>Tutorial: Analisar vídeos ao vivo com Análise Dinâmica de Vídeo no IoT Edge e na Visão Personalizada do Azure
 
@@ -51,7 +51,6 @@ Leia os seguintes artigos antes de começar:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/csharp/prerequisites.md)]
 ::: zone-end
@@ -59,6 +58,10 @@ Leia os seguintes artigos antes de começar:
 ::: zone pivot="programming-language-python"
 [!INCLUDE [prerequisites](includes/custom-vision-tutorial/python/prerequisites.md)]
 ::: zone-end
+
+> [!IMPORTANT]
+> O módulo de Visão Personalizada só dá suporte a **arquiteturas Intel x86 e amd64**. Verifique a arquitetura do seu dispositivo de borda antes de continuar.
+
 ## <a name="review-the-sample-video"></a>Examinar o vídeo de exemplo
 
 Este tutorial usa um arquivo de [vídeo de inferência de carros de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para simular uma transmissão ao vivo. Você pode examinar o vídeo por meio de um aplicativo, como [player de mídia do VLC](https://www.videolan.org/vlc/). Selecione **Ctrl+N** e cole um link para o [vídeo de inferência de carros de brinquedo](https://lvamedia.blob.core.windows.net/public/t2.mkv) para iniciar a reprodução. Ao assistir ao vídeo, observe que, no marcador de 36 segundos, um caminhão de brinquedo aparece no vídeo. O modelo personalizado foi treinado para detectar esse caminhão de brinquedo específico. 
@@ -81,6 +84,9 @@ O nó de extensão HTTP desempenha a função de um proxy.  Ele faz uma amostrag
 Como o nome Visão Personalizada sugere, você pode usá-la para criar seu detector de objetos ou classificador personalizado na nuvem. Ela fornece uma interface simples, fácil de usar e intuitiva para criação de modelos de Visão Personalizada que podem ser implantados na nuvem ou na borda por meio de contêineres.
 
 Para criar um detector de caminhões de brinquedo, siga as etapas do [Guia de Início Rápido: Criar um detector de objeto com o site da Visão Personalizada](../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+
+> [!IMPORTANT]
+> Esse módulo de Visão Personalizada dá suporte apenas a arquiteturas **Intel x86 e amd64**. Verifique a arquitetura do seu dispositivo de borda antes de continuar.
 
 Observações adicionais:
  

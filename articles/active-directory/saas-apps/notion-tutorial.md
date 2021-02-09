@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 512436c9d72e0318ec14bf7551a2fde76c6ef3d8
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 520eb25bcb138c96b24166816d3374255fb7c3b2
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735896"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493982"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-notion"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Notion
 
@@ -40,7 +40,7 @@ Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente d
 * O Notion é compatível com o SSO iniciado por **SP e IDP**
 * O Notion é compatível com o provisionamento de usuário **Just-In-Time**
 > [!NOTE]
-> O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
+> O identificador desse aplicativo é um valor de cadeia de caracteres fixo, de modo que um workspace do Notion pode ser configurado em um locatário.
 
 
 ## <a name="adding-notion-from-the-gallery"></a>Como adicionar o Notion da galeria
@@ -80,14 +80,14 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
 1. Na seção **Configuração Básica do SAML**, caso deseje configurar o aplicativo no modo iniciado por **IDP**, digite os valores dos seguintes campos:
 
-    Na caixa de texto **URL de Resposta**, digite uma URL usando o seguinte padrão: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    Na caixa de texto **URL de Resposta**, insira a URL com o seguinte padrão, que você pode obter no workspace do Notion **Configurações & Membros** > **Segurança & identidade** > **URL de Logon Único**: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
 
 1. Clique em **Definir URLs adicionais** e execute o passo seguinte se quiser configurar a aplicação no modo **SP** iniciado:
 
-    Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://www.notion.so/sso/saml/<CUSTOM_ID>`
+    Na caixa de texto **URL de Logon**, insira a seguinte URL: `https://www.notion.so/login`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Entre em contato com a [equipe de suporte ao cliente do Notion](mailto:team@makenotion.com) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. O aplicativo Notion espera as declarações SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à configuração dos atributos do token SAML. A captura de tela a seguir mostra a lista de atributos padrão.
 
@@ -102,7 +102,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     | lastName | user.surname |
 
 
-1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo** e salve-a no computador.
+1. Na página **Configurar o logon único com o SAML**, na seção **Certificado de Autenticação SAML**, clique no botão Copiar para copiar a **URL de Metadados de Federação do Aplicativo**. Acesse **Configurações & Membros** > **Segurança & identidade** em seu workspace do **Notion** e copie o valor copiado no campo **URL de metadados do IDP**.
 
     ![O link de download do Certificado](common/copy-metadataurl.png)
 
@@ -132,7 +132,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 
 ## <a name="configure-notion-sso"></a>Configurar o SSO do Notion
 
-Para configurar o logon único no lado do **Notion**, é necessário enviar a **URL de Metadados de Federação do Aplicativo** para a [equipe de suporte do Notion](mailto:team@makenotion.com). Eles definem essa configuração para ter a conexão de SSO de SAML definida corretamente em ambos os lados.
+Acesse **Configurações & Membros** > **Segurança & identidade** em seu workspace do **Notion** e copie o valor copiado de **URL de Metadados de Federação do Aplicativo** no campo **URL de metadados do IDP**.
+
+Na mesma página de configurações, em **Domínios de email**, clique em **Contatar o suporte** para adicionar os domínios de email de sua organização.
+
+Depois que seus domínios de email forem aprovados e adicionados, habilite o SSO do SAML usando a alternância **Habilitar SAML**.
+
+Após o teste bem-sucedido, você poderá impor o SSO do SAML usando a alternância **Impor SAML**. Observe que os administradores de seu workspace do Notion mantêm a capacidade de fazer logon com email, mas todos os outros membros terão que usar o SSO do SAML para fazer logon no Notion.
 
 ### <a name="create-notion-test-user"></a>Criar usuário de teste do Notion
 

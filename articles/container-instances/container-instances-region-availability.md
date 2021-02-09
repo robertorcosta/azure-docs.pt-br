@@ -4,12 +4,12 @@ description: Disponibilidade de recursos de computação e de memória para o se
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 63ec7c9027f957714108263dcbb4300a3cc68388
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: a415a739cd9c1e2ca39ebeaef1d8903ab72cf0c4
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661367"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831273"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilidade de recursos para Instâncias de Contêiner do Azure nas regiões do Azure
 
@@ -34,7 +34,7 @@ As seguintes regiões e recursos máximos estão disponíveis para grupos de con
 | Leste da Austrália | 4 | 16 | 4 | 16 | 50 | N/D |
 | Brazil South | 4 | 16 | 2 | 8 | 50 | N/D |
 | Canadá Central | 4 | 16 | 4 | 16 | 50 | N/D |
-| Índia Central | 4 | 16 | N/D | N/D | 50 | V100 |
+| Índia Central | 4 | 16 | 4 | 4 | 50 | V100 |
 | Centro dos EUA | 4 | 16 | 4 | 16 | 50 | N/D |
 | Leste da Ásia | 4 | 16 | 4 | 16 | 50 | N/D |
 | Leste dos EUA | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |

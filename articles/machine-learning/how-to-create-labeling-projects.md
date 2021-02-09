@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: 854504347409efb4f0eafff0d776db23ca9fda07
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 4b2777bfd9905a1caa8b69b78ff892b661e4dc4b
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98059833"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99097533"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Criar um projeto de rotulagem de dados e exportar rótulos 
 
@@ -24,7 +24,7 @@ Saiba como criar e executar a rotulagem de dados de projetos para marcar dados n
 ## <a name="data-labeling-capabilities"></a>Funcionalidades de rotulagem de dados
 
 > [!Important]
-> Somente projetos de rotulagem de classificação de imagens e identificação de objetos são compatíveis no momento. Além disso, as imagens de dados devem estar disponíveis em um armazenamento de blobs do Azure. (Se você não tiver um armazenamento de dados existente, poderá carregar imagens durante a criação do projeto).
+> As imagens de dados devem estar disponíveis em um armazenamento de dados de blobs do Azure. (Se você não tiver um armazenamento de dados existente, poderá carregar imagens durante a criação do projeto).
 
 A rotulagem de dados do Azure Machine Learning é um lugar central para criar, gerenciar e monitorar projetos de rotulagem:
  - Coordene dados, rótulos e membros da equipe para gerenciar tarefas de rotulagem com eficiência. 
@@ -53,6 +53,11 @@ Para criar um projeto, selecione **Adicionar projeto**. Dê ao projeto um nome a
 * Escolha **Classificação de Imagem Multiclasse** para os projetos quando só desejar aplicar *um rótulo* de um conjunto de rótulos a uma imagem.
 * Escolha **Classificação de Imagem de Vários Rótulos** para os projetos quando desejar aplicar *um ou mais* rótulos de um conjunto de rótulos a uma imagem. Por exemplo, uma foto de um cachorro pode ser rotulada com *cachorro* e *dia*.
 * Escolha **Identificação do Objeto (Caixa Delimitadora)** para os projetos quando desejar atribuir um rótulo e uma caixa delimitadora a cada objeto dentro de uma imagem.
+* Escolha **Segmentação de Instância (polígono) (versão prévia)** para projetos quando quiser atribuir um rótulo e desenhar um polígono em volta de cada objeto dentro de uma imagem.
+
+> [!IMPORTANT]
+> A segmentação de instância (polígono) está em versão prévia pública.
+> A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Selecione **Avançar** quando estiver pronto para continuar.
 
@@ -141,6 +146,7 @@ Com relação às caixas delimitadoras, entre as perguntas importantes se inclue
 
 A página **Rotulagem assistida por ML** permite que você dispare modelos de machine learning automáticos para acelerar a tarefa de rotulagem. No início do projeto de rotulagem, as imagens são embaralhadas em ordem aleatória para reduzir o desvio potencial. No entanto, qualquer desvio presente no conjunto de dados será refletido no modelo treinado. Por exemplo, se 80% das imagens forem de uma só classe, aproximadamente 80% dos dados usados para treinar o modelo serão dessa classe. Este treinamento não inclui o aprendizado ativo.
 
+
 Selecione *Habilitar a rotulagem assistida por ML* e especifique uma GPU para habilitar a rotulagem assistida, que consiste em duas fases:
 * Clustering
 * Pré-rotulagem
@@ -150,7 +156,7 @@ O número exato de imagens rotuladas necessárias para iniciar a rotulagem assis
 Como os rótulos finais ainda dependem da entrada do rotulador, essa tecnologia, às vezes, é chamada de rotulagem *humanos no loop*.
 
 > [!NOTE]
-> A rotulagem de dados assistida da ML não é compatível com contas de armazenamento padrão protegidas uma [rede virtual](how-to-network-security-overview.md). Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. A conta de armazenamento não padrão pode ser protegida pela rede virtual. 
+> A rotulagem de dados assistida da ML não é compatível com contas de armazenamento padrão protegidas uma [rede virtual](how-to-network-security-overview.md). Você deve usar uma conta de armazenamento não padrão para rotular dados assistidos por ML. A conta de armazenamento não padrão pode ser protegida pela rede virtual.
 
 ### <a name="clustering"></a>Clustering
 

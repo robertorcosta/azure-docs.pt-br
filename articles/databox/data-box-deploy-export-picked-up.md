@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 12/18/2020
+ms.date: 02/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 4b5bbe19ddeda7c6b313186b7e24532a294f7253
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 6c2eed9aac614b0765582d5cf373caf50323ef7a
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97680848"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537350"
 ---
 # <a name="tutorial-return-azure-data-box"></a>Tutorial: Devolução do Azure Data Box
 
@@ -172,9 +172,27 @@ Se necessário, você poderá contatar o Suporte da Quantium Solutions (em japon
 
 Se tiver problemas, envie um email para a equipe de Operações do Data Box na Ásia [adbo@microsoft.com](mailto:adbo@microsoft.com) fornecendo o nome do trabalho no cabeçalho de assunto e o problema encontrado.
 
+## <a name="united-arab-emirates"></a>[Emirados Árabes Unidos](#tab/in-uae)
+
+1. Mantenha a caixa original usada para enviar o dispositivo para a remessa de devolução.
+2. Verifique se a cópia de dados para o dispositivo foi concluída e se a etapa **Preparação para o envio** foi concluída com êxito.
+3. Anote o número de referência na página **Preparação para o envio** da IU da Web local do dispositivo.
+4. Desligue o dispositivo e remova os cabos. Enrole e coloque o cabo de alimentação fornecido com o dispositivo com segurança na parte traseira do dispositivo.
+6. Empacote o dispositivo para a remessa de devolução na caixa original.
+7. Envie um email para [Operações do Azure Data Box](mailto:adbops@microsoft.com) para obter uma ID que será usada para identificar o pacote quando ele chegar ao datacenter.
+8. Anote essa ID no rótulo de envio impresso, ao lado do endereço de retorno, de modo que fique claramente visível.  
+9. Agende uma retirada online acessando [DHL Express UAE](https://mydhl.express.dhl/ae/en/home.html#/schedulePickupTab) > **Agendar uma retirada**.
+   - Insira o número de referência da página **Preparação para o envio** da IU da Web local do dispositivo no campo de número do conhecimento de embarque.
+   - Reservas são aceitas das 9h às 14h, seis dias por semana (exceto às sextas-feiras e feriados públicos).
+   - As solicitações de retirada devem ser feitas pelo menos 90 minutos antes do horário de encerramento do atendimento a clientes.
+10. Se tiver algum problema com a ferramenta de reservas da DHL, entre em contato com a DHL por meio de um destes métodos:
+    - Telefone para 04-2924545.
+    - Envie um email para [ecom.ae@dhl.com](mailto:ecom.ae@dhl.com) com detalhes dos problemas e coloque o número da nota de entrega na linha Assunto:.
+    - Entre em contato com o atendimento ao cliente da DHL pelo número 600 567567.
+
 ## <a name="self-managed"></a>[Autogerenciado](#tab/in-selfmanaged)
 
-Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul ou no Oeste da Europa e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
+Se estiver usando o Data Box no Japão, em Singapura, na Coreia do Sul, na Índia, na África do Sul, no Reino Unido, no Oeste da Europa ou na Austrália e tiver selecionado a opção de remessa autogerenciada durante a criação do pedido, siga estas instruções.
 
 1. Após a conclusão dessa etapa, anote o código de Autorização mostrado na página Preparar para o Envio da IU da Web local do Data Box.
 2. Desligue o dispositivo e remova os cabos. Enrole o cabo de alimentação fornecido com o dispositivo e coloque-o com segurança na parte traseira do dispositivo.
@@ -209,5 +227,3 @@ Avance para o próximo artigo para saber como gerenciar seu Data Box.
 
 > [!div class="nextstepaction"]
 > [Gerenciar Data Box via portal do Azure](./data-box-portal-admin.md)
-
-

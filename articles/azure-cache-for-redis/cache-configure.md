@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 2ff97dd30d9b993385f52ea531653a89197f8756
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: c13821544ff9725a387534370fc716c70072bb85
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734616"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831766"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Como configurar o Cache do Azure para Redis
 Este tópico descreve as configurações disponíveis para suas instâncias de Cache do Azure para Redis. Este tópico também aborda a configuração padrão do servidor Redis para instâncias do Cache do Azure para Redis.
@@ -39,7 +39,7 @@ Você pode exibir e definir as seguintes configurações usando o **Menu recurso
     * [Chaves de acesso](#access-keys)
     * [Configurações avançadas](#advanced-settings)
     * [Assistente do Cache do Azure para Redis](#azure-cache-for-redis-advisor)
-    * [Dimensionar](#scale)
+    * [Escala](#scale)
     * [Tamanho do cluster](#cluster-size)
     * [Persistência de dados](#redis-data-persistence)
     * [Agende atualizações](#schedule-updates)
@@ -85,13 +85,13 @@ Clique em **Diagnosticar e solucionar problemas** para ver problemas comuns e es
 
 
 
-## <a name="settings"></a>Configurações
+## <a name="settings"></a>Settings
 A seção **Configurações** permite acessar e definir as seguintes configurações para seu cache.
 
 * [Chaves de acesso](#access-keys)
 * [Configurações avançadas](#advanced-settings)
 * [Assistente do Cache do Azure para Redis](#azure-cache-for-redis-advisor)
-* [Dimensionar](#scale)
+* [Escala](#scale)
 * [Tamanho do cluster](#cluster-size)
 * [Persistência de dados](#redis-data-persistence)
 * [Agende atualizações](#schedule-updates)
@@ -236,10 +236,7 @@ A folha **Agendar atualizações** permite designar uma janela de manutenção p
 
 Para especificar uma janela de manutenção, marque os dias desejados, especifique a hora de início da janela de manutenção para cada dia e clique em **OK**. O horário da janela de manutenção é em UTC.
 
-> [!IMPORTANT]
-> A funcionalidade **Agendar atualizações** está disponível somente para caches do nível Premium. Para obter mais informações e instruções, confira [Administração do Cache do Azure para Redis – Agendar atualizações](cache-administration.md#schedule-updates).
->
->
+Para obter mais informações e instruções, consulte [cache do Azure para administração de Redis – agendar atualizações](cache-administration.md#schedule-updates)
 
 ### <a name="geo-replication"></a>Replicação geográfica
 
@@ -307,10 +304,10 @@ A exportação permite exportar os dados armazenados no Cache do Azure para Redi
 >
 >
 
-### <a name="reboot"></a>Reinicialização
+### <a name="reboot"></a>Reboot
 A folha **Reinicializar** permite a reinicialização dos nós do cache. Essa funcionalidade de reinicialização permite que você teste seu aplicativo para garantir a resiliência caso ocorra uma falha de um nó de cache.
 
-![Reinicialização](./media/cache-configure/redis-cache-reboot.png)
+![Reboot](./media/cache-configure/redis-cache-reboot.png)
 
 Se tiver um cache premium com clustering habilitado, você poderá selecionar quais fragmentos do cache serão reinicializados.
 

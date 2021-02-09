@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
 ms.custom: data4ml
-ms.openlocfilehash: eb8c69a6bf009543e104a472469c243638726f60
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 5ba399418d8f93204b168c1058be20ffc775ef70
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060360"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99096959"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Marcar imagens em um projeto de rotulagem 
 
@@ -63,11 +63,7 @@ O Azure habilitará o botão **Enviar** quando você tiver marcado todas as imag
 
 Depois que você enviar marcas para os dados à disposição, o Azure atualizará a página com um novo conjunto de imagens da fila de trabalho.
 
-### <a name="assisted-machine-learning-preview"></a>Machine learning assistido (versão prévia) 
-
-> [!IMPORTANT]
-> O machine learning assistido está em versão prévia pública.
-> A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+### <a name="assisted-machine-learning"></a>Aprendizado de máquina assistido
 
 Os algoritmos de machine learning poderão ser disparados. Se esses algoritmos estiverem habilitados no seu projeto, você poderá ver o seguinte:
 
@@ -75,7 +71,14 @@ Os algoritmos de machine learning poderão ser disparados. Se esses algoritmos e
 
 * Em um momento posterior, você poderá ver **Tarefas pré-rotuladas** ao lado do nome do projeto.  As imagens serão então exibidas com um rótulo sugerido proveniente de um modelo de classificação de aprendizado de máquina. Nenhum modelo de machine learning tem precisão de 100%. Embora só utilizemos imagens para as quais o modelo esteja confiante, essas imagens ainda poderão ser pré-rotuladas incorretamente.  Quando você vir esses rótulos, corrija os rótulos incorretos antes de enviar a página.  
 
-* Para modelos de detecção de objetos, você poderá ver caixas delimitadoras e rótulos já presentes.  Corrija os que estiverem incorretos antes de enviar a página.
+* Para modelos de identificação de objetos, você poderá ver caixas delimitadoras e rótulos já presentes.  Corrija os que estiverem incorretos antes de enviar a página.
+
+* Para modelos de segmentação, você pode ver polígonos e rótulos que já estão presentes.  Corrija os que estiverem incorretos antes de enviar a página. 
+
+    > [!IMPORTANT]
+    > Os recursos listados com (versão prévia) estão em versão prévia pública.   
+    > A versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
 
 Especialmente no início de um projeto de rotulagem, o modelo de machine learning poderá ser preciso apenas o suficiente para pré-rotular um pequeno subconjunto de imagens. Depois que essas imagens forem rotuladas, o projeto de rotulagem voltará à rotulagem manual para coletar mais dados para a próxima rodada de treinamento do modelo. Ao longo do tempo, o modelo se tornará mais confiante em relação a uma proporção mais alta de imagens, resultando em mais tarefas de pré-rotulo posteriormente no projeto.
 

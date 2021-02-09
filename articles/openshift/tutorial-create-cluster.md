@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 10/26/2020
-ms.openlocfilehash: 7b0aead6ada87ca259c838f3f56e68f1030302a2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: e6be2b659223fb110d7e13b14d732561df9ad408
+ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675709"
+ms.lasthandoff: 01/29/2021
+ms.locfileid: "99072229"
 ---
 # <a name="tutorial-create-an-azure-red-hat-openshift-4-cluster"></a>Tutorial: Criar um cluster do Red Hat OpenShift 4 no Azure
 
@@ -88,11 +88,11 @@ Se você fornecer um domínio personalizado para o seu cluster, observe os segui
 
 * O console do OpenShift estará disponível em uma URL, como `https://console-openshift-console.apps.example.com`, em vez de no domínio interno `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* Por padrão, o OpenShift usa certificados autoassinados para todas as rotas criadas em domínios personalizados `*.apps.example.com`.  Se você optar por usar o DNS personalizado após a conexão com o cluster, será necessário seguir a documentação do OpenShift para [configurar uma AC personalizada para o controlador de entrada](https://docs.openshift.com/aro/4/authentication/certificates/replacing-default-ingress-certificate.html) e uma [AC personalizada para o servidor de API](https://docs.openshift.com/aro/4/authentication/certificates/api-server.html).
+* Por padrão, o OpenShift usa certificados autoassinados para todas as rotas criadas em domínios personalizados `*.apps.example.com`.  Se você optar por usar o DNS personalizado após a conexão com o cluster, será necessário seguir a documentação do OpenShift para [configurar uma AC personalizada para o controlador de entrada](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) e uma [AC personalizada para o servidor de API](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
 
 ### <a name="create-a-virtual-network-containing-two-empty-subnets"></a>Criar uma rede virtual contendo duas sub-redes vazias
 
-Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
+Em seguida, você criará uma rede virtual contendo duas sub-redes vazias. Se você tiver uma rede virtual existente que atenda às suas necessidades, poderá ignorar esta etapa.
 
 1. **Defina as variáveis a seguir no ambiente de shell no qual você executará os comandos `az`.**
 
@@ -131,7 +131,7 @@ Em seguida, você criará uma rede virtual contendo duas sub-redes vazias.
 
 2. **Crie uma rede virtual.**
 
-   Os clusters do Red Hat OpenShift no Azure que executam o OpenShift 4 exigem uma rede virtual com duas sub-redes vazias para os nós mestre e de trabalho.
+   Os clusters do Red Hat OpenShift no Azure que executam o OpenShift 4 exigem uma rede virtual com duas sub-redes vazias para os nós mestre e de trabalho. Você pode criar uma rede virtual para isso ou usar uma existente.
 
    Crie uma rede virtual no mesmo grupo de recursos que você criou anteriormente:
 

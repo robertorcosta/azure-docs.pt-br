@@ -7,12 +7,12 @@ ms.service: cache
 ms.custom: devx-track-csharp
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: 9343bc424a0a38da173a56701528c4fd7549aabd
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 908254fec0d9e92b0e30c2e4968c3c505bbbdbf8
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734650"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833823"
 ---
 # <a name="configure-virtual-network-support-for-a-premium-tier-azure-cache-for-redis-instance"></a>Configurar o suporte de rede virtual para um cache do Azure de camada Premium para instância Redis
 
@@ -178,7 +178,7 @@ Há requisitos de conectividade de rede para o cache do Azure para Redis que pod
 * Conectividade de rede de saída para pontos de extremidade do Armazenamento do Azure em todo o mundo. Os pontos de extremidade localizados na mesma região que o cache do Azure para a instância Redis e os pontos de extremidade de armazenamento localizados em *outras* regiões do Azure são incluídos. Os pontos de extremidade do armazenamento do Azure são resolvidos nos seguintes domínios DNS: *Table.Core.Windows.net*, *BLOB.Core.Windows.net*, *Queue.Core.Windows.net* e *File.Core.Windows.net*.
 * Conectividade de rede de saída para *OCSP.DigiCert.com*, *crl4.DigiCert.com*, *OCSP.msocsp.com*, *mscrl.Microsoft.com*, *crl3.DigiCert.com*, *cacerts.DigiCert.com*, *oneocsp.Microsoft.com* e *CRL.Microsoft.com*. Essa conectividade é necessária para dar suporte à funcionalidade TLS/SSL.
 * A configuração DNS para a rede virtual deve ser capaz de resolver todos os pontos de extremidade e domínios mencionados nos pontos anteriores. Esses requisitos de DNS podem ser atendidos, garantindo que uma infraestrutura de DNS válida seja configurada e mantida para a rede virtual.
-* Conectividade de rede de saída para os seguintes Azure Monitor pontos de extremidade, que são resolvidos nos seguintes domínios DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.net*, *North-prod2.prod2.Metrics.nsatc.net*, *azglobal-Black.azglobal.Metrics.nsatc.net*, *shoebox2-Red.shoebox2.Metrics.nsatc.net*, *East-prod2.prod2.Metrics.nsatc.net* e *azglobal-Red.azglobal.Metrics.nsatc.net*.
+* Conectividade de rede de saída para os seguintes Azure Monitor pontos de extremidade, que são resolvidos nos seguintes domínios DNS: *shoebox2-Black.shoebox2.Metrics.nsatc.net*, *North-prod2.prod2.Metrics.nsatc.net*, *azglobal-Black.azglobal.Metrics.nsatc.net*, *shoebox2-Red.shoebox2.Metrics.nsatc.net*, *East-prod2.prod2.Metrics.nsatc.net*, *azglobal-Red.azglobal.Metrics.nsatc.net*, *shoebox3.Prod.microsoftmetrics.com*, *shoebox3-Red.Prod.microsoftmetrics.com* e *shoebox3-Black.Prod.microsoftmetrics.com*.
 
 ### <a name="how-can-i-verify-that-my-cache-is-working-in-a-virtual-network"></a>Como posso verificar se o cache está funcionando em uma rede virtual?
 

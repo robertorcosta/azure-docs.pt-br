@@ -7,15 +7,15 @@ author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: tutorial
-ms.date: 11/06/2020
+ms.date: 02/04/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 03ed47ee97f52aca708118f202fad583753549bf
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: b0e8f2b14d506eb408660b939a7c925a33215cca
+ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331186"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99537739"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-endpoint"></a>Tutorial: Adicionar um domínio personalizado ao ponto de extremidade
 
@@ -163,6 +163,10 @@ Para criar um registro CNAME para seu domínio personalizado:
 
 Depois de registrar seu domínio personalizado, adicione-o ao ponto de extremidade da CDN. 
 
+
+---
+# <a name="azure-portal"></a>[**Portal do Azure**](#tab/azure-portal)
+
 1. Entre no [portal do Azure](https://portal.azure.com/) e navegue até o perfil CDN contendo o ponto de extremidade que você deseja mapear para um domínio personalizado.
     
 2. Na página **Perfil CDN**, selecione o ponto de extremidade da CDN a ser associado ao domínio personalizado.
@@ -189,7 +193,43 @@ Depois de registrar seu domínio personalizado, adicione-o ao ponto de extremida
     - Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
     - Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos.   
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell)
 
+1. Entre no Azure PowerShell:
+
+```azurepowershell-interactive
+    Connect-AzAccount
+
+```
+2. Use [New-AzCdnCustomDomain](/powershell/module/az.cdn/new-azcdncustomdomain) para mapear o domínio personalizado para o ponto de extremidade da CDN. 
+
+    * Substitua **myendpoint8675.azureedge.net** pela URL do ponto de extremidade.
+    * Substitua **myendpoint8675** pelo nome do ponto de extremidade da CDN.
+    * Substitua **www.contoso.com** pelo nome de domínio personalizado.
+    * Substitua **myCDN** pelo nome do perfil da CDN.
+    * Substitua **myResourceGroupCDN** pelo nome do grupo de recursos.
+
+```azurepowershell-interactive
+    $parameters = @{
+        Hostname = 'myendpoint8675.azureedge.net'
+        EndPointName = 'myendpoint8675'
+        CustomDomainName = 'www.contoso.com'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    New-AzCdnCustomDomain @parameters
+```
+
+O Azure verifica se o registro CNAME existe para o nome de domínio personalizado digitado. Se o CNAME estiver correto, seu domínio personalizado será validado. 
+
+   Pode levar algum tempo para que as novas configurações de domínio personalizado sejam propagadas para todos os nós de borda da CDN: 
+
+- Para perfis da **CDN Standard do Azure da Microsoft**, a propagação geralmente é concluída em dez minutos. 
+- Para perfis da **CDN Standard do Azure da Akamai**, a propagação normalmente é concluída em um minuto. 
+- Para perfis da **CDN Standard do Azure da Verizon** e da **CDN Premium do Azure da Verizon**, a propagação geralmente é concluída em 10 minutos.   
+
+
+---
 ## <a name="verify-the-custom-domain"></a>Verificar o domínio personalizado
 
 Verifique se o domínio personalizado faz referência ao ponto de extremidade CDN após concluir o registro dele.
@@ -200,6 +240,9 @@ Verifique se o domínio personalizado faz referência ao ponto de extremidade CD
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
+---
+# <a name="azure-portal"></a>[**Portal do Azure**](#tab/azure-portal-cleanup)
+
 Remova o domínio personalizado, caso não queira mais associá-lo ao ponto de extremidade, executando as seguintes etapas:
  
 1. No seu perfil CDN, selecione o ponto de extremidade com o domínio personalizado que você deseja remover.
@@ -208,6 +251,29 @@ Remova o domínio personalizado, caso não queira mais associá-lo ao ponto de e
 
    O domínio personalizado é desassociado do ponto de extremidade.
 
+# <a name="powershell"></a>[**PowerShell**](#tab/azure-powershell-cleanup)
+
+Remova o domínio personalizado, caso não queira mais associá-lo ao ponto de extremidade, executando as seguintes etapas:
+
+1. Use [remove-AzCdnCustomDomain](/powershell/module/az.cdn/remove-azcdncustomdomain) para remover o domínio personalizado do ponto de extremidade:
+
+    * Substitua **myendpoint8675** pelo nome do ponto de extremidade da CDN.
+    * Substitua **www.contoso.com** pelo nome de domínio personalizado.
+    * Substitua **myCDN** pelo nome do perfil da CDN.
+    * Substitua **myResourceGroupCDN** pelo nome do grupo de recursos.
+
+
+```azurepowershell-interactive
+    $parameters = @{
+        CustomDomainName = 'www.contoso.com'
+        EndPointName = 'myendpoint8675'
+        ProfileName = 'myCDN'
+        ResourceGroupName = 'myResourceGroupCDN'
+    }
+    Remove-AzCdnCustomDomain @parameters
+```
+
+---
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu a:

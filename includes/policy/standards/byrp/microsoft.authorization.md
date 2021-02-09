@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 01/29/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 0ee2b820d8b471729c34a01a60a43ef068797bd4
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: c8c62ec675bf7578ab4b88a6180dd0af86d5cbe0
+ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98860035"
+ms.lasthandoff: 01/30/2021
+ms.locfileid: "99095916"
 ---
 ## <a name="azure-security-benchmark"></a>Azure Security Benchmark
 
@@ -62,6 +62,15 @@ Para obter mais informações sobre esse padrão de conformidade, confira [HIPAA
 |Diferenciação de tarefas |1230.09c2Organizational.1 – 09.c |Nenhuma pessoa pode acessar, modificar ou usar sistemas de informações sem autorização ou detecção. |[Auditar o uso de regras personalizadas do RBAC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 |Diferenciação de tarefas |1276.09c2Organizational.2 – 09.c |As atividades de auditoria de segurança são independentes. |[Não devem existir funções personalizadas de proprietário de assinatura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
 |Diferenciação de tarefas |1278.09c2Organizational.56 – 09.c |A organização identifica os direitos que exigem separação e define as autorizações de acesso do sistema de informações para dar suporte à separação de tarefas; as tarefas incompatíveis são separadas por vários usuários para minimizar a oportunidade de uso indevido ou fraude. |[Não devem existir funções personalizadas de proprietário de assinatura](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F10ee2ea2-fb4d-45b8-a7e9-a2e770044cd9) |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/CustomSubscription_OwnerRole_Audit.json) |
+
+## <a name="iso-270012013"></a>ISO 27001:2013
+
+Para examinar como as iniciativas internas disponíveis do Azure Policy de todos os serviços do Azure são mapeadas para esse padrão de conformidade, confira [Conformidade regulatória do Azure Policy – ISO 27001:2013](../../../../articles/governance/policy/samples/iso-27001.md).
+Para obter mais informações sobre esse padrão de conformidade, confira [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html).
+
+|Domínio |ID do controle |Título do controle |Política<br /><sub>(Portal do Azure)</sub> |Versão da política<br /><sub>(GitHub)</sub>  |
+|---|---|---|---|---|
+|Controle de acesso |9.2.3 |Gerenciamento de direitos de acesso privilegiado |[Auditar o uso de regras personalizadas do RBAC](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa451c1ef-c6ca-483d-87ed-f49761e3ffb5) |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/General/Subscription_AuditCustomRBACRoles_Audit.json) |
 
 ## <a name="nist-sp-800-53-r4"></a>NIST SP 800-53 R4
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f635a4c4c6e0b1dcb4d4842d3cddb337d2b26407
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 74009c7e7f2ad28655c9c5322a063a17da96e0c5
+ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735145"
+ms.lasthandoff: 02/03/2021
+ms.locfileid: "99493898"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-meraki-dashboard"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o Meraki Dashboard
 
@@ -103,7 +103,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Editar o Certificado de Autenticação SAML](common/edit-certificate.png)
 
-1. Na seção **Certificado de Autenticação SAML**, copie o **Valor da Impressão Digital** e salve-o em seu computador.
+1. Na seção **Certificado de Autenticação SAML**, copie o **Valor da Impressão Digital** e salve-o em seu computador. Esse valor precisa ser convertido para incluir dois pontos para que o painel do Meraki o entenda. Por exemplo, se a impressão digital do Azure for `C2569F50A4AAEDBB8E`, será necessário alterá-la para `C2:56:9F:50:A4:AA:ED:BB:8E` para usá-la posteriormente no painel do Meraki.
 
     ![Copiar o valor da Impressão Digital](common/copy-thumbprint.png)
 
@@ -165,7 +165,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     ![Adicionar um IdP do SAML no Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-3.png)
 
-1. Cole o valor da **Impressão digital** copiado do portal do Azure na caixa de texto **Impressão digital de certificado SHA1 X.590**. Em seguida, clique em **Salvar**. Depois de salvar, a URL do consumidor será exibida. Copie o valor da URL do Consumidor e cole-o na caixa de texto **URL de Resposta** da **Seção de Configuração Básica do SAML** no portal do Azure.
+1. Cole o valor da **Impressão digital** convertido, que você copiou do portal do Azure e converteu no formato especificado, conforme mencionado na etapa 9 da seção anterior, na caixa de texto **Impressão digital SHA1 do certificado X.590**. Em seguida, clique em **Salvar**. Depois de salvar, a URL do consumidor será exibida. Copie o valor da URL do Consumidor e cole-o na caixa de texto **URL de Resposta** da **Seção de Configuração Básica do SAML** no portal do Azure.
 
     ![Configuração do Meraki Dashboard](./media/meraki-dashboard-tutorial/configure-4.png)
 

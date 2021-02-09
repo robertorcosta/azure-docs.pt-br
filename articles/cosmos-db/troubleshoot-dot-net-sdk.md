@@ -3,18 +3,18 @@ title: Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos
 description: Use recursos como registro em log do lado do cliente e outras ferramentas de terceiros para identificar, diagnosticar e solucionar problemas de Azure Cosmos DB ao usar o SDK do .NET.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 09/12/2020
+ms.date: 02/05/2021
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 6a78b38bd71a2822d94e58834ab17824c9ef6ec6
-ms.sourcegitcommit: e0ec3c06206ebd79195d12009fd21349de4a995d
+ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97683106"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99831239"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -55,7 +55,7 @@ Verifique a [seção de problemas do GitHub](https://github.com/Azure/azure-cosm
 Verificar as [métricas do portal](./monitor-cosmos-db.md) ajudará a determinar se é um problema do lado do cliente ou se há um problema com o serviço. Por exemplo, se as métricas contiverem uma alta taxa de solicitações limitadas por taxa (código de status HTTP 429), o que significa que a solicitação está sendo limitada e, em seguida, verifique a seção [taxa de solicitação muito grande](troubleshoot-request-rate-too-large.md) . 
 
 ## <a name="retry-logic"></a>Lógica de repetição <a id="retry-logics"></a>
-Cosmos DB SDK em qualquer falha de e/s tentará repetir a operação com falha se tentar novamente no SDK for viável. Ter uma nova tentativa em vigor para qualquer falha é uma boa prática, mas o tratamento e a repetição de falhas de gravação é necessário. É recomendável usar o SDK mais recente, pois a lógica de repetição está sendo continuamente aprimorada.
+O SDL do Cosmos DB em qualquer falha de E/S tentará repetir a operação com falha se a nova tentativa no SDK for viável. Ter uma nova tentativa em vigor para qualquer falha é uma boa prática, mas o tratamento e a repetição de falhas de gravação é necessário. É recomendável usar o SDK mais recente, pois a lógica de repetição está sendo continuamente aprimorada.
 
 1. As falhas de leitura e consulta de e/s serão repetidas pelo SDK sem identificando-las ao usuário final.
 2. As gravações (criar, Upsert, substituir, excluir) são "não" idempotentes e, portanto, o SDK nem sempre pode repetir as operações de gravação com falha. É necessário que a lógica do aplicativo do usuário manipule a falha e tente novamente.
@@ -67,6 +67,7 @@ Cosmos DB SDK em qualquer falha de e/s tentará repetir a operação com falha s
 |----------|-------------|
 | 400 | Solicitação inadequada (depende da mensagem de erro)| 
 | 401 | [Não autorizado](troubleshoot-unauthorized.md) | 
+| 403 | [Proibido](troubleshoot-forbidden.md) |
 | 404 | [Recurso não encontrado](troubleshoot-not-found.md) |
 | 408 | [Tempo limite da solicitação expirado](troubleshoot-dot-net-sdk-request-timeout.md) |
 | 409 | Falha de conflito é quando a ID fornecida para um recurso em uma operação de gravação foi realizada por um recurso existente. Use outra ID para o recurso para resolver esse problema, pois a ID deve ser exclusiva dentro de todos os documentos com o mesmo valor de chave de partição. |

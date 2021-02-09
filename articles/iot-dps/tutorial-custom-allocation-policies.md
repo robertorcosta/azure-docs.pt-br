@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 4cab1765a387bbae61c9c242a8e7a1ca881ea1f5
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 42098786bb92e98b89b1dbfba01a2e071398f460
+ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966625"
+ms.lasthandoff: 02/02/2021
+ms.locfileid: "99258534"
 ---
 # <a name="tutorial-use-custom-allocation-policies-with-device-provisioning-service-dps"></a>Tutorial: Usar as políticas de alocação personalizadas com o DPS (Serviço de Provisionamento de Dispositivos)
 
@@ -347,7 +347,7 @@ Esse código de exemplo simula uma sequência de inicialização do dispositivo 
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-6. Na função `main()`, localize a chamada para `Prov_Device_Register_Device()`. Logo antes dessa chamada, adicione as linhas de código a seguir que usam [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para passar um conteúdo JSON personalizado durante o provisionamento. Isso pode ser usado para fornecer mais informações às suas funções de alocação personalizadas. Isso também pode ser usado para passar o tipo de dispositivo em vez de examinar a ID de registro.
+6. Na função `main()`, localize a chamada para `Prov_Device_Register_Device()`. Logo antes dessa chamada, adicione as linhas de código a seguir que usam [`Prov_Device_Set_Provisioning_Payload()`](/azure/iot-hub/iot-c-sdk-ref/prov-device-client-h/prov-device-set-provisioning-payload) para passar um conteúdo JSON personalizado durante o provisionamento. Isso pode ser usado para fornecer mais informações às suas funções de alocação personalizadas. Isso também pode ser usado para passar o tipo de dispositivo em vez de examinar a ID de registro. Para obter mais informações sobre como enviar e receber cargas de dados personalizadas com o DPS, confira [Como transferir cargas entre dispositivos e DPS](how-to-send-additional-data.md).
 
     ```c
     // An example custom payload
