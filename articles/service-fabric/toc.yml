@@ -713,8 +713,6 @@
                   href: service-fabric-cluster-security-update-certs-azure.md
                 - name: Conexão remota para a VM do nó de cluster
                   href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md
-                - name: Atualizar nós de cluster para usar discos gerenciados
-                  href: upgrade-managed-disks.md
         - name: Clusters independentes
           items:
             - name: Criar

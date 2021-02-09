@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 518df665db0ba3770bee757f45d02b6ccd303a00
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 1df2f12d6947734314609dc50787a59a2fa88731
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803860"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980500"
 ---
 # <a name="point-in-time-restore-for-block-blobs"></a>Restauração pontual para BLOBs de blocos
 
@@ -32,6 +32,10 @@ Para habilitar a restauração pontual, você cria uma política de gerenciament
 Para iniciar uma restauração pontual, chame a operação [restaurar intervalos de blob](/rest/api/storagerp/storageaccounts/restoreblobranges) e especifique um ponto de restauração em hora UTC. Você pode especificar intervalos lexicográfica de contêineres e nomes de blob a serem restaurados ou omitir o intervalo para restaurar todos os contêineres na conta de armazenamento. Há suporte para até 10 intervalos lexicográfica por operação de restauração.
 
 O armazenamento do Azure analisa todas as alterações feitas nos BLOBs especificados entre o ponto de restauração solicitado, especificado em hora UTC e o momento atual. A operação de restauração é atômica, portanto, ela é bem-sucedida completamente na restauração de todas as alterações ou falha. Se houver BLOBs que não podem ser restaurados, a operação falhará e as operações de leitura e gravação para os contêineres afetados serão retomadas.
+
+O diagrama a seguir mostra como funciona a restauração pontual. Um ou mais contêineres ou intervalos de BLOBs são restaurados para seu estado de *n* dias atrás, em que *n* é menor ou igual ao período de retenção definido para a restauração pontual. O efeito é reverter as operações de gravação e exclusão que ocorreram durante o período de retenção.
+
+:::image type="content" source="media/point-in-time-restore-overview/point-in-time-restore-diagram.png" alt-text="Diagrama mostrando como o ponto no tempo restaura os contêineres para um estado anterior":::
 
 Somente uma operação de restauração pode ser executada em uma conta de armazenamento por vez. Uma operação de restauração não pode ser cancelada quando está em andamento, mas uma segunda operação de restauração pode ser executada para desfazer a primeira operação.
 

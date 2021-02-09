@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/15/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: a2c26c3e41f64a1593a2d3386c76427c0b9682e9
-ms.sourcegitcommit: 02b1179dff399c1aa3210b5b73bf805791d45ca2
+ms.openlocfilehash: d380b9d6a20cbe28a8fc4b64179437cd31fd2937
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98127474"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979277"
 ---
 # <a name="soft-delete-for-blobs"></a>Exclusão reversível para blobs
 
@@ -27,6 +27,10 @@ Se houver uma possibilidade de que seus dados sejam acidentalmente modificados o
 ## <a name="about-soft-delete-for-blobs"></a>Sobre exclusão reversível para BLOBs
 
 Quando a exclusão reversível de BLOBs está habilitada em uma conta de armazenamento, você pode recuperar objetos depois que eles tiverem sido excluídos, dentro do período de retenção de dados especificado. Essa proteção se estende a qualquer BLOB (BLOBs de blocos, blobs de acréscimo ou BLOBs de páginas) que são apagados como resultado de uma substituição.
+
+O diagrama a seguir mostra como um blob excluído pode ser restaurado quando a exclusão reversível de blob está habilitada:
+
+:::image type="content" source="media/soft-delete-blob-overview/blob-soft-delete-diagram.png" alt-text="Diagrama mostrando como um blob excluído por software pode ser restaurado":::
 
 Se os dados em um BLOB ou instantâneo existente forem excluídos enquanto a exclusão reversível de blob estiver habilitada, mas o controle de versão do BLOB não estiver habilitado, um instantâneo com exclusão reversível será gerado para salvar o estado dos dados substituídos. Depois que o período de retenção especificado tiver expirado, o objeto será excluído permanentemente.
 
@@ -83,9 +87,9 @@ A exclusão reversível não salva seus dados em casos de exclusão de contêine
 
 A tabela a seguir detalha o comportamento esperado quando a exclusão reversível é ativada:
 
-| Operação de API REST | Tipo de recurso | Descrição | Alteração no comportamento |
+| Operação de API REST | Tipo de recurso | Description | Alteração no comportamento |
 |--------------------|---------------|-------------|--------------------|
-| [Excluir](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Nenhuma alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
+| [Delete (excluir)](/rest/api/storagerp/StorageAccounts/Delete) | Conta | Exclui a conta de armazenamento, incluindo todos os contêineres e blobs que ela contém.                           | Nenhuma alteração. Contêineres e blobs na conta excluída não são recuperáveis. |
 | [Delete Container](/rest/api/storageservices/delete-container) | Contêiner | Exclui o contêiner, incluindo todos os blobs que ele contém. | Nenhuma alteração. Os blobs no contêiner excluído não são recuperáveis. |
 | [Put Blob](/rest/api/storageservices/put-blob) | Blobs de bloco, acréscimo e página | Cria um novo blob ou substitui um blob existente dentro de um contêiner | Se usado para substituir um blob existente, um instantâneo do estado do blob anterior à chamada é gerado automaticamente. Isso também se aplica a um blob com exclusão reversível anteriormente se e somente se ele for substituído por um blob do mesmo tipo (bloco, acréscimo ou página). Se ele for substituído por um blob de um tipo diferente, todos os dados com exclusão reversível existentes expirarão permanentemente. |
 | [Excluir blob](/rest/api/storageservices/delete-blob) | Blobs de bloco, acréscimo e página | Marca um blob ou instantâneo de blob para exclusão. O blob ou o instantâneo é excluído depois durante a coleta de lixo | Se usado para excluir que um instantâneo de blob, esse instantâneo será marcado como com exclusão reversível. Se usado para excluir um blob, esse blob será marcado como com exclusão reversível. |

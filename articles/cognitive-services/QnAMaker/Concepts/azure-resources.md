@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0864db8a653ff1d6f89ed0b1c857e51053ff50ff
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: f46a0938ebb8d9fe7e032162120056dca96b9567
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592596"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979755"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -244,74 +244,6 @@ Depois que os recursos são criados, eles têm o mesmo nome, exceto para o recur
 > [!TIP]
 > Use uma Convenção de nomenclatura para indicar os tipos de preço dentro do nome do recurso ou do grupo de recursos. Quando você recebe erros da criação de uma nova base de dados de conhecimento ou da adição de novos documentos, o limite de Pesquisa Cognitiva tipo de preço é um problema comum.
 
-### <a name="resource-purposes"></a>Fins de recurso
-
-Cada recurso do Azure criado com QnA Maker tem uma finalidade específica:
-
-* Recurso do QnA Maker
-* Pesquisa Cognitiva recurso
-* Serviço de Aplicativo
-* Serviço de plano de aplicativo
-* Serviço de Application Insights
-
-
-### <a name="cognitive-search-resource"></a>Pesquisa Cognitiva recurso
-
-O recurso [pesquisa cognitiva](../../../search/index.yml) é usado para:
-
-* Armazenar os pares de QnA
-* Forneça a classificação inicial (Rank #1) dos pares de QnA em tempo de execução
-
-#### <a name="index-usage"></a>Uso do índice
-
-O recurso mantém um índice para atuar como o índice de teste e os índices restantes se correlacionam a uma base de dados de conhecimento publicada cada.
-
-Um recurso com preço para conter 15 índices, manterá 14 bases de dados de conhecimento publicadas e um índice é usado para testar todas as bases de dados de conhecimento. Esse índice de teste é particionado pela base de dados de conhecimento para que uma consulta usando o painel de teste interativo use o índice de teste, mas apenas retorne os resultados da partição específica associada à base de dados de conhecimento específica.
-
-#### <a name="language-usage"></a>Uso do idioma
-
-A primeira base de dados de conhecimento criada no recurso QnA Maker é usada para determinar o conjunto de idiomas _único_ para o recurso pesquisa cognitiva e todos os seus índices. Você só pode ter _um conjunto de idiomas_ para um serviço de QnA Maker.
-
-### <a name="qna-maker-resource"></a>Recurso do QnA Maker
-
-O recurso de QnA Maker fornece acesso às APIs de criação e publicação, bem como à segunda camada de classificação baseada em NLP (processamento de idioma natural) (Rank #2) dos pares de QnA em tempo de execução.
-
-A segunda classificação aplica filtros inteligentes que podem incluir metadados e avisos de acompanhamento.
-
-#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker definições de configuração de recurso
-
-Quando você cria uma nova base de dados de conhecimento no [portal de QnA Maker](https://qnamaker.ai), a configuração de **idioma** é a única que é aplicada no nível de recurso. Você seleciona o idioma ao criar a primeira base de dados de conhecimento para o recurso.
-
-### <a name="app-service-and-app-service-plan"></a>Serviço de aplicativo e plano do serviço de aplicativo
-
-O [serviço de aplicativo](../../../app-service/index.yml) é usado pelo aplicativo cliente para acessar as bases de dados de conhecimento publicadas por meio do ponto de extremidade de tempo de execução.
-
-Para consultar a base de dados de conhecimento publicada, todas as bases de conhecimento publicadas usam o mesmo ponto de extremidade de URL, mas especificam a **ID da base de dados de conhecimento** dentro da rota
-
-`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
-
-### <a name="application-insights"></a>Application Insights
-
-[Application insights](../../../azure-monitor/app/app-insights-overview.md) é usado para coletar logs de chat e telemetria. Examine as consultas comuns do [Kusto](../how-to/get-analytics-knowledge-base.md) para obter informações sobre seu serviço.
-
-## <a name="share-services-with-qna-maker"></a>Compartilhar serviços com o QnA Maker
-
-QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e beneficiar-se do compartilhamento de custos, use a tabela a seguir para entender o que você pode e não consegue compartilhar:
-
-|Serviço|Compartilhar|Motivo|
-|--|--|--|
-|Serviços Cognitivos|X|Não é possível por design|
-|Plano do Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|
-|Serviço de Aplicativo|X|Não é possível por design|
-|Application Insights|✔|Pode ser compartilhada|
-|Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; ele não pode ser usado por outros.<br>2. o mapa de sinônimos pelo nome `synonym-map` é reservado para o serviço QnAMaker.<br>3. o número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
-
-### <a name="using-a-single-cognitive-search-service"></a>Usando um único serviço de Pesquisa Cognitiva
-
-Se você criar um serviço QnA e suas dependências (como pesquisa) por meio do portal, um serviço de pesquisa será criado para você e vinculado ao serviço de QnA Maker. Depois que esses recursos forem criados, você poderá atualizar a configuração do serviço de aplicativo para usar um serviço de pesquisa existente anteriormente e remover o que você acabou de criar.
-
-Saiba [como configurar](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker para usar um recurso de serviço cognitiva diferente daquele criado como parte do processo de criação de recursos QnA Maker.
-
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 O nome do recurso para o recurso QnA Maker gerenciado (versão prévia), como `qna-westus-f0-b` , também é usado para nomear os outros recursos.
@@ -330,12 +262,87 @@ O portal do Azure criar janela permite que você crie um recurso de QnA Maker ge
 > [!TIP]
 > Use uma Convenção de nomenclatura para indicar os tipos de preço dentro do nome do recurso ou do grupo de recursos. Quando você recebe erros da criação de uma nova base de dados de conhecimento ou da adição de novos documentos, o limite de Pesquisa Cognitiva tipo de preço é um problema comum.
 
-### <a name="resource-purposes"></a>Fins de recurso
+---
+
+## <a name="resource-purposes"></a>Fins de recurso
+
+# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
+
+Cada recurso do Azure criado com QnA Maker tem uma finalidade específica:
+
+* Recurso do QnA Maker
+* Pesquisa Cognitiva recurso
+* Serviço de Aplicativo
+* Serviço de plano de aplicativo
+* Serviço de Application Insights
+
+### <a name="qna-maker-resource"></a>Recurso do QnA Maker
+
+O recurso de QnA Maker fornece acesso às APIs de criação e publicação, bem como à segunda camada de classificação baseada em NLP (processamento de idioma natural) (Rank #2) dos pares de QnA em tempo de execução.
+
+A segunda classificação aplica filtros inteligentes que podem incluir metadados e avisos de acompanhamento.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker definições de configuração de recurso
+
+Quando você cria uma nova base de dados de conhecimento no [portal de QnA Maker](https://qnamaker.ai), a configuração de **idioma** é a única que é aplicada no nível de recurso. Você seleciona o idioma ao criar a primeira base de dados de conhecimento para o recurso.
+
+### <a name="cognitive-search-resource"></a>Pesquisa Cognitiva recurso
+
+O recurso [pesquisa cognitiva](../../../search/index.yml) é usado para:
+
+* Armazenar os pares de QnA
+* Forneça a classificação inicial (Rank #1) dos pares de QnA em tempo de execução
+
+#### <a name="index-usage"></a>Uso do índice
+
+O recurso mantém um índice para atuar como o índice de teste e os índices restantes se correlacionam a uma base de dados de conhecimento publicada cada.
+
+Um recurso com preço para conter 15 índices, manterá 14 bases de dados de conhecimento publicadas e um índice é usado para testar todas as bases de dados de conhecimento. Esse índice de teste é particionado pela base de dados de conhecimento para que uma consulta usando o painel de teste interativo use o índice de teste, mas apenas retorne os resultados da partição específica associada à base de dados de conhecimento específica.
+
+#### <a name="language-usage"></a>Uso do idioma
+
+A primeira base de dados de conhecimento criada no recurso QnA Maker é usada para determinar o conjunto de idiomas _único_ para o recurso pesquisa cognitiva e todos os seus índices. Você só pode ter _um conjunto de idiomas_ para um serviço de QnA Maker.
+
+#### <a name="using-a-single-cognitive-search-service"></a>Usando um único serviço de Pesquisa Cognitiva
+
+Se você criar um serviço QnA e suas dependências (como pesquisa) por meio do portal, um serviço de pesquisa será criado para você e vinculado ao serviço de QnA Maker. Depois que esses recursos forem criados, você poderá atualizar a configuração do serviço de aplicativo para usar um serviço de pesquisa existente anteriormente e remover o que você acabou de criar.
+
+Saiba [como configurar](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker para usar um recurso de serviço cognitiva diferente daquele criado como parte do processo de criação de recursos QnA Maker.
+
+### <a name="app-service-and-app-service-plan"></a>Serviço de aplicativo e plano do serviço de aplicativo
+
+O [serviço de aplicativo](../../../app-service/index.yml) é usado pelo aplicativo cliente para acessar as bases de dados de conhecimento publicadas por meio do ponto de extremidade de tempo de execução.
+
+Para consultar a base de dados de conhecimento publicada, todas as bases de conhecimento publicadas usam o mesmo ponto de extremidade de URL, mas especificam a **ID da base de dados de conhecimento** dentro da rota
+
+`{RuntimeEndpoint}/qnamaker/knowledgebases/{kbId}/generateAnswer`
+
+### <a name="application-insights"></a>Application Insights
+
+[Application insights](../../../azure-monitor/app/app-insights-overview.md) é usado para coletar logs de chat e telemetria. Examine as consultas comuns do [Kusto](../how-to/get-analytics-knowledge-base.md) para obter informações sobre seu serviço.
+
+### <a name="share-services-with-qna-maker"></a>Compartilhar serviços com o QnA Maker
+
+QnA Maker cria vários recursos do Azure. Para reduzir o gerenciamento e beneficiar-se do compartilhamento de custos, use a tabela a seguir para entender o que você pode e não consegue compartilhar:
+
+|Serviço|Compartilhar|Motivo|
+|--|--|--|
+|Serviços Cognitivos|X|Não é possível por design|
+|Plano do Serviço de Aplicativo|✔|Espaço em disco fixo alocado para um plano do serviço de aplicativo. Se outros aplicativos que compartilham o mesmo plano do serviço de aplicativo usarem um espaço em disco significativo, a instância do serviço de aplicativo do QnAMaker encontrará problemas.|
+|Serviço de Aplicativo|X|Não é possível por design|
+|Application Insights|✔|Pode ser compartilhada|
+|Serviço Search|✔|1. `testkb` é um nome reservado para o serviço QnAMaker; ele não pode ser usado por outros.<br>2. o mapa de sinônimos pelo nome `synonym-map` é reservado para o serviço QnAMaker.<br>3. o número de bases de dados de conhecimento publicadas é limitado pela camada de serviço de pesquisa. Se houver índices livres disponíveis, outros serviços poderão usá-los.|
+
+# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
 Cada recurso do Azure criado com QnA Maker gerenciado (versão prévia) tem uma finalidade específica:
 
 * Recurso do QnA Maker
 * Pesquisa Cognitiva recurso
+
+### <a name="qna-maker-resource"></a>Recurso do QnA Maker
+
+O recurso gerenciado QnA Maker (versão prévia) fornece acesso às APIs de criação e publicação, hospeda o tempo de execução de classificação, bem como fornece telemetria.
 
 ### <a name="azure-cognitive-search-resource"></a>Recurso de Pesquisa Cognitiva do Azure
 
@@ -353,10 +360,6 @@ Por exemplo, se sua camada tiver 15 índices permitidos, você poderá publicar 
 #### <a name="language-usage"></a>Uso do idioma
 
 Com o QnA Maker gerenciado (versão prévia), você tem a opção de configurar seu serviço de QnA Maker para bases de dados de conhecimento em uma única linguagem ou em vários idiomas. Você faz essa escolha durante a criação da primeira base de dados de conhecimento em seu serviço de QnA Maker. Veja [aqui](#pricing-tier-considerations) como habilitar a configuração de idioma por base de dados de conhecimento.
-
-### <a name="qna-maker-resource"></a>Recurso do QnA Maker
-
-O recurso gerenciado QnA Maker (versão prévia) fornece acesso às APIs de criação e publicação, hospeda o tempo de execução de classificação, bem como fornece telemetria.
 
 ---
 

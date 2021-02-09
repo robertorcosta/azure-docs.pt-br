@@ -1,6 +1,6 @@
 ---
 title: Dimensionar automaticamente um serviço de nuvem (clássico) no portal | Microsoft Docs
-description: Saiba como usar o portal para configurar regras de dimensionamento automático para uma função web ou função de trabalho do serviço de nuvem no Azure.
+description: Saiba como usar o portal para configurar regras de dimensionamento automático para funções de serviço de nuvem (clássicas) no Azure.
 ms.topic: article
 ms.service: cloud-services
 ms.date: 10/14/2020
@@ -8,12 +8,12 @@ ms.author: tagore
 author: tanmaygore
 ms.reviewer: mimckitt
 ms.custom: ''
-ms.openlocfilehash: a3e7f72dbe16c51280b922da2b5fc6550dee1d34
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: ba7b2279969acab93ac96c42e0033e76e9d0542d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98743348"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980823"
 ---
 # <a name="how-to-configure-auto-scaling-for-a-cloud-service-classic-in-the-portal"></a>Como configurar o dimensionamento automático para um serviço de nuvem (clássico) no portal
 
@@ -23,7 +23,7 @@ ms.locfileid: "98743348"
 As condições podem ser definidas para uma função de trabalho de serviço de nuvem que dispara uma operação para reduzir ou escalar horizontalmente. As condições para a função podem ser baseadas na CPU, no disco ou na carga de rede da função. Você também pode definir uma condição com base em uma fila de mensagens ou a métrica de algum outro recurso do Azure associado à sua assinatura.
 
 > [!NOTE]
-> Este artigo se concentra nas funções Web e de trabalho do Serviço de Nuvem. Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligá-los ou desligá-los manualmente.
+> Este artigo se concentra no serviço de nuvem (clássico). Ao criar uma máquina virtual (modelo clássico) diretamente, ela será hospedada em um serviço de nuvem. Você pode dimensionar uma máquina virtual padrão ao associá-la a um [conjunto de disponibilidade](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic) e ligá-los ou desligá-los manualmente.
 
 ## <a name="considerations"></a>Considerações
 Você deve considerar as seguintes informações antes de configurar a colocação em escala do seu aplicativo:

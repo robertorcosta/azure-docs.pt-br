@@ -15,14 +15,17 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 57228c6b7da04b139c7075c83e313b207907e214
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97898004"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833092"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você também não poderá adicionar novos monitores de conexão no monitor de conexão (clássico). Você pode continuar a usar os testes e os monitores de conexão criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede ](migrate-to-connection-monitor-from-network-performance-monitor.md) ou  [migre do monitor de conexão (clássico)](migrate-to-connection-monitor-from-connection-monitor-classic.md) para o novo monitor de conexão no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 O monitor de conexão fornece monitoramento de conexão de ponta a ponta unificado no observador de rede do Azure. O recurso de monitor de conexão dá suporte a implantações de nuvem híbridas e do Azure. O observador de rede fornece ferramentas para monitorar, diagnosticar e exibir métricas relacionadas à conectividade para suas implantações do Azure.
 
@@ -111,7 +114,7 @@ O monitor de conexão inclui as seguintes entidades:
 
  ![Diagrama mostrando um monitor de conexão, definindo a relação entre os grupos de teste e os testes](./media/connection-monitor-2-preview/cm-tg-2.png)
 
-Você pode criar um monitor de conexão usando [portal do Azure](./connection-monitor-create-using-portal.md) ou [ARMClient](./connection-monitor-create-using-template.md)
+Você pode criar um monitor de conexão usando [portal do Azure](./connection-monitor-create-using-portal.md), [ARMClient](./connection-monitor-create-using-template.md) ou [PowerShell](connection-monitor-create-using-powershell.md)
 
 Todas as fontes, destinos e configurações de teste que você adiciona a um grupo de teste são divididos em testes individuais. Veja um exemplo de como as origens e os destinos são divididos:
 
@@ -271,12 +274,13 @@ Nos monitores de conexão que foram criados antes da experiência do monitor de 
 
 Ao usar as métricas, defina o tipo de recurso como Microsoft. Network/networkWatchers/connectionMonitors
 
-| Metric | Nome para exibição | Unit | Tipo de agregação | Descrição | Dimensões |
+| Métrica | Nome de exibição | Unidade | Tipo de agregação | Descrição | Dimensões |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | Porcentagem de investigações com falha | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
-| AverageRoundtripMs | Média Tempo de ida e volta (ms) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
-| ChecksFailedPercent (visualização) | % De verificações com falha (versão prévia) | Porcentagem | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
-| RoundTripTimeMs (visualização) | Tempo de ida e volta (MS) (visualização) | Milissegundos | Média | RTT para cheques enviados entre a origem e o destino. Esse valor não é médio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| ProbesFailedPercent (clássico) | % De investigações com falha (clássico) | Porcentagem | Média | Falha na porcentagem de investigações de monitoramento de conectividade. | Sem dimensões |
+| AverageRoundtripMs (clássico) | Média de tempo de ida e volta (MS) (clássico) | Milissegundos | Média | RTT de rede médio para investigações de monitoramento de conectividade enviadas entre a origem e o destino. |             Sem dimensões |
+| ChecksFailedPercent | % De verificações com falha | Porcentagem | Média | Percentual de verificações com falha para um teste. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| RoundTripTimeMs | Tempo de ida e volta (ms) | Milissegundos | Média | RTT para cheques enviados entre a origem e o destino. Esse valor não é médio. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Região |
+| Result | Resultado do teste | Contagem | Média | Resultado do teste do monitor de conexão | SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocolo <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 
 #### <a name="metric-based-alerts-for-connection-monitor"></a>Alertas baseados em métrica para o monitor de conexão
 

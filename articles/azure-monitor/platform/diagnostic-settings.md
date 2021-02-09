@@ -5,14 +5,14 @@ author: bwren
 ms.author: bwren
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 04/27/2020
+ms.date: 02/08/2021
 ms.subservice: logs
-ms.openlocfilehash: a6f8e681f68fb53d7cf88582b4bf4416efc11c86
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: 5e1a1c62cafd982d44be3e06b98fc8c30461021c
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820544"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979973"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
 Os [logs de plataforma](platform-logs-overview.md) no Azure, incluindo logs de recursos e log de atividades do Azure, apresentam informações detalhadas de diagnóstico e auditoria para recursos do Azure e para a plataforma do Azure da qual eles dependem. As [métricas da plataforma](data-platform-metrics.md) são coletadas por padrão e normalmente armazenadas no banco de dados de métricas do Azure Monitor. Este artigo fornece detalhes sobre como criar e definir configurações de diagnóstico para enviar métricas de plataforma e logs de plataforma para diferentes destinos.
@@ -130,7 +130,7 @@ Você pode definir as configurações de diagnóstico no portal do Azure no menu
         >
         > Por exemplo, se você definir a política de retenção para *WorkflowRuntime* como 180 dias e, em seguida, 24 horas depois defini-la como 365 dias, os logs armazenados durante essas primeiras 24 horas serão excluídos automaticamente após 180 dias, enquanto todos os logs subsequentes desse tipo serão excluídos automaticamente após 365 dias. A alteração da política de retenção mais tarde não faz com que as primeiras 24 horas de logs permaneçam por cerca de 365 dias.
 
-6. Clique em **Salvar**.
+6. Clique em **Save** (Salvar).
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações desse recurso e os logs serão transmitidos para os destinos especificados à medida que novos dados de evento forem gerados. Pode levar até 15 minutos entre o momento em que um evento é emitido e quando ele [aparece em um espaço de trabalho log Analytics](data-ingestion-time.md).
 
@@ -189,7 +189,7 @@ onde anteriormente sua implantação foi bem-sucedida.
 
 O problema ocorre ao usar um modelo do Resource Manager, a API REST de configurações de diagnóstico, CLI do Azure ou Azure PowerShell. As configurações de diagnóstico criadas por meio do portal do Azure não são afetadas, pois apenas os nomes de categoria com suporte são apresentados.
 
-O problema é causado por uma alteração recente na API subjacente. Não há suporte para categorias de métrica diferentes de ' biometria ' e nunca foram feitas, exceto em cenários de lista de permissões de IP muito específicos. No passado, outros nomes de categoria foram ignorados durante a implantação de uma configuração de diagnóstico. O back-end de Azure Monitor simplesmente redirecionava essas categorias para ' Biometrics '.  A partir de fevereiro de 2021, o back-end foi atualizado para confirmar especificamente que a categoria de métrica fornecida é precisa. Essa alteração causou a falha de algumas implantações.
+O problema é causado por uma alteração recente na API subjacente. Não há suporte para categorias de métrica diferentes de ' biometria ' e nunca foram feitas, exceto, por alguns serviços do Azure muito específicos. No passado, outros nomes de categoria foram ignorados durante a implantação de uma configuração de diagnóstico. O back-end de Azure Monitor simplesmente redirecionava essas categorias para ' Biometrics '.  A partir de fevereiro de 2021, o back-end foi atualizado para confirmar especificamente que a categoria de métrica fornecida é precisa. Essa alteração causou a falha de algumas implantações.
 
 Se você receber esse erro, atualize suas implantações para substituir quaisquer nomes de categoria de métricas por ' Biometrics ' para corrigir o problema. Se a implantação tiver sido adicionada anteriormente a várias categorias, somente uma com a referência ' Biometrics ' deverá ser mantida. Se você continuar tendo o problema, entre em contato com o suporte do Azure por meio do portal do Azure. 
 

@@ -7,12 +7,12 @@ ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 07/27/2020
 ms.author: alkemper
-ms.openlocfilehash: fd3f7dbfd824360dcba9f8a166c579e3b55527ba
-ms.sourcegitcommit: 1756a8a1485c290c46cc40bc869702b8c8454016
+ms.openlocfilehash: c5e0cc3eb29fb612460b16d8de9dee62949b5bd2
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96932108"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979599"
 ---
 # <a name="push-settings-to-app-configuration-with-azure-pipelines"></a>Configurações de push para configuração de aplicativo com Azure Pipelines
 
@@ -56,7 +56,7 @@ Atribua as atribuições de função de configuração de aplicativo adequadas �
 
 Esta seção abordará como usar a tarefa push de configuração de Azure App em um pipeline de compilação DevOps do Azure.
 
-1. Navegue até a página Criar pipeline **clicando em pipelines pipelines**  >  **Pipelines**. A documentação para pipelines de compilação pode ser encontrada [aqui](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2&view=azure-devops).
+1. Navegue até a página Criar pipeline **clicando em pipelines pipelines**  >  . A documentação para pipelines de compilação pode ser encontrada [aqui](/azure/devops/pipelines/create-first-pipeline?tabs=tfs-2018-2).
       - Se você estiver criando um novo pipeline de compilação, selecione **Mostrar assistente** no lado direito do pipeline e procure a tarefa de **configuração de envio por push do Azure app** .
       - Se você estiver usando um pipeline de Build existente, navegue até a guia **tarefas** ao editar o pipeline e procure a tarefa **configuração de envio por push do Azure app** .
 2. Configure os parâmetros necessários para a tarefa Enviar por push os valores de chave do arquivo de configuração para o repositório de configurações de aplicativo. O parâmetro de **caminho do arquivo de configuração** começa na raiz do repositório de arquivos.
@@ -66,10 +66,10 @@ Esta seção abordará como usar a tarefa push de configuração de Azure App em
 
 Esta seção abordará como usar a tarefa de push de configuração de Azure App em um pipeline de versão do Azure DevOps.
 
-1. Navegue até a página de pipeline de liberação selecionando versões de **pipelines**  >  **Releases**. A documentação para pipelines de versão pode ser encontrada [aqui](/azure/devops/pipelines/release?view=azure-devops).
+1. Navegue até a página de pipeline de liberação selecionando versões de **pipelines**  >  . A documentação para pipelines de versão pode ser encontrada [aqui](/azure/devops/pipelines/release).
 1. Escolha um pipeline de lançamento existente. Se você não tiver um, selecione **+ novo** para criar um novo.
 1. Selecione o botão **Editar** no canto superior direito para editar o pipeline de liberação.
-1. Escolha o **estágio** para adicionar a tarefa. Mais informações sobre os estágios podem ser encontradas [aqui](/azure/devops/pipelines/release/environments?view=azure-devops).
+1. Escolha o **estágio** para adicionar a tarefa. Mais informações sobre os estágios podem ser encontradas [aqui](/azure/devops/pipelines/release/environments).
 1. Selecione **+** para esse trabalho e, em seguida, adicione a tarefa **push de configuração de Azure app** na guia **implantar** .
 1. Configure os parâmetros necessários na tarefa para enviar por push seus valores de chave do arquivo de configuração para o repositório de configurações do aplicativo. As explicações dos parâmetros estão disponíveis na seção **parâmetros** abaixo e nas dicas de ferramentas ao lado de cada parâmetro.
 1. Salve e enfileirar uma versão. O log de liberação exibirá todas as falhas encontradas durante a execução da tarefa.

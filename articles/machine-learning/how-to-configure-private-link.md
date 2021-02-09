@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/30/2020
-ms.openlocfilehash: 2953f85a5c21cdd670d6e133d09ffacf06f178ef
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94842695"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979174"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning
 
@@ -35,7 +35,8 @@ Se você planeja usar um espaço de trabalho habilitado para link privado com um
 
 ## <a name="limitations"></a>Limitações
 
-O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
+* O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
+* Se você habilitar o acesso público para um espaço de trabalho protegido com o link privado e usar o Azure Machine Learning Studio pela Internet pública, alguns recursos, como o designer, poderão falhar ao acessar seus dados. Esse problema ocorre quando os dados são armazenados em um serviço protegido por trás da VNet. Por exemplo, uma conta de armazenamento do Azure.
 
 ## <a name="create-a-workspace-that-uses-a-private-endpoint"></a>Criar um espaço de trabalho que usa um ponto de extremidade privado
 
@@ -158,6 +159,31 @@ Como a comunicação com o espaço de trabalho só é permitida a partir da rede
 > Para evitar a interrupção temporária da conectividade, a Microsoft recomenda liberar o cache DNS em computadores que se conectam ao espaço de trabalho depois de habilitar o link privado. 
 
 Para obter informações sobre máquinas virtuais do Azure, consulte a [documentação sobre máquinas virtuais](../virtual-machines/index.yml).
+
+## <a name="enable-public-access"></a>Habilitar acesso público
+
+Depois de configurar um espaço de trabalho com um ponto de extremidade privado, você pode opcionalmente habilitar o acesso público ao espaço de trabalho. Isso não remove o ponto de extremidade privado. Ele habilita o acesso público além do acesso privado. Para habilitar o acesso público a um espaço de trabalho habilitado para vínculo privado, use as seguintes etapas:
+
+# <a name="python"></a>[Python](#tab/python)
+
+Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
+
+```python
+from azureml.core import Workspace
+
+ws = Workspace.from_config()
+ws.update(allow_public_access_when_behind_vnet=True)
+```
+
+# <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-learning-cli.md) fornece o comando [AZ ml Workspace Update](/cli/azure/ext/azure-cli-ml/ml/workspace?view=azure-cli-latest#ext_azure_cli_ml_az_ml_workspace_update) . Para habilitar o acesso público ao espaço de trabalho, adicione o parâmetro `--allow-public-access true` .
+
+# <a name="portal"></a>[Portal](#tab/azure-portal)
+
+Atualmente, não há nenhuma maneira de habilitar essa funcionalidade usando o Portal.
+
+---
 
 
 ## <a name="next-steps"></a>Próximas etapas

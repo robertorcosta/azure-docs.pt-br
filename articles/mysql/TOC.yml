@@ -1,6 +1,7 @@
 - name: Banco de Dados do Azure para obter a documentação do MySQL
   href: index.yml
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é o Banco de Dados do Azure para MySQL?
       href: overview.md
@@ -12,7 +13,6 @@
       href: concepts-version-policy.md
       displayName: version policy
 - name: Servidor único
-  expanded: true
   items:
     - name: Documentação do servidor único
       href: single-server/index.yml

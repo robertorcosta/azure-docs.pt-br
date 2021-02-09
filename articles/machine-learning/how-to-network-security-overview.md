@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 664264f2cd810f232b967f5af78ba3d522f0a41f
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98060003"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980568"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -31,10 +31,10 @@ Estes são os outros artigos desta série:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
-+ [Redes virtuais do Azure](../virtual-network/virtual-networks-overview.md)
++ [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
 + [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
-+ [Grupos de segurança de rede (NSG)](../virtual-network/network-security-groups-overview.md)
++ [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Cenário de exemplo
@@ -137,6 +137,15 @@ O diagrama de rede a seguir mostra um espaço de trabalho Azure Machine Learning
 ### <a name="limitations"></a>Limitações
 - Os clusters AKS devem pertencer à mesma VNet que o espaço de trabalho e seus recursos associados. 
 
+## <a name="optional-enable-public-access"></a>Opcional: habilitar acesso público
+
+Você pode proteger o espaço de trabalho por trás de uma VNet usando um ponto de extremidade privado e ainda permitir o acesso pela Internet pública. A configuração inicial é a mesma que [proteger o espaço de trabalho e os recursos associados](#secure-the-workspace-and-associated-resources). 
+
+Depois de proteger o espaço de trabalho com um link privado, você [habilitará o acesso público](how-to-configure-private-link.md#enable-public-access). Depois disso, você pode acessar o espaço de trabalho da Internet pública e da VNet.
+
+### <a name="limitations"></a>Limitações
+
+- Se você usar o Azure Machine Learning Studio pela Internet pública, alguns recursos, como o designer, poderão falhar ao acessar seus dados. Esse problema ocorre quando os dados são armazenados em um serviço protegido por trás da VNet. Por exemplo, uma conta de armazenamento do Azure.
 ## <a name="optional-enable-studio-functionality"></a>Opcional: habilitar a funcionalidade do estúdio
 
 [Proteger o espaço de trabalho](#secure-the-workspace-and-associated-resources)  >  [Proteger o ambiente](#secure-the-training-environment)  >  de treinamento [Proteger o ambiente inferência](#secure-the-inferencing-environment)  >  **Habilitar a funcionalidade**  >  do estúdio [Definir configurações de firewall](#configure-firewall-settings)

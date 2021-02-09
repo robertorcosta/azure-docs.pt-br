@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: acb2ebb0d7ce70c6b5963a8a6c3e392091e4bb1e
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96010054"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979123"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob comercialmente críticos com armazenamento imutável
 
@@ -30,7 +30,7 @@ O armazenamento imutável ajuda a organização de saúde, instituições financ
 
 Os aplicativos típicos incluem:
 
-- **Conformidade regulatória**: armazenamento imutável para armazenamento de Blobs do Azure ajuda as organizações a atender às regulamentações SEC 17a-4 (f), CFTC 1.31 (d), FINRA e outras. Um White paper técnico da Cohasset Associates fornece detalhes sobre como o armazenamento imutável resolve esses requisitos regulatórios é baixável por meio do [portal de confiança do serviço da Microsoft](https://aka.ms/AzureWormStorage). O [central de confiabilidade do Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contém informações detalhadas sobre nossas certificações de conformidade.
+- **Conformidade regulatória**: o armazenamento imutável para o armazenamento de BLOBs do Azure ajuda as organizações a lidar com SEC 17a-4 (f), CFTC 1.31 (d), FINRA e outras regulamentações. Um White paper técnico da Cohasset Associates fornece detalhes sobre como o armazenamento imutável resolve esses requisitos regulatórios é baixável por meio do [portal de confiança do serviço da Microsoft](https://aka.ms/AzureWormStorage). O [central de confiabilidade do Azure](https://www.microsoft.com/trustcenter/compliance/compliance-overview) contém informações detalhadas sobre nossas certificações de conformidade.
 
 - **Retenção segura de documentos**: o armazenamento imutável para o armazenamento de BLOBs do Azure garante que os dados não possam ser modificados ou excluídos por qualquer usuário, incluindo usuários com privilégios administrativos de conta.
 
@@ -53,6 +53,10 @@ O armazenamento imutável oferece suporte aos seguintes recursos:
 O armazenamento imutável para Armazenamento de Blobs do Azure é compatível com dois tipos de políticas WORM ou imutáveis: retenção baseada em tempo e retenções legais. Quando uma política de retenção baseada em tempo ou uma retenção legal é aplicada em um contêiner, todos os BLOBs existentes são movidos para um estado de WORM imutável em menos de 30 segundos. Todos os novos BLOBs que são carregados nesse contêiner de política protegida também serão movidos para um estado imutável. Depois que todos os BLOBs estiverem em um estado imutável, a política imutável será confirmada e quaisquer operações de substituição ou exclusão no contêiner imutável não serão permitidas.
 
 A exclusão da conta de armazenamento e de contêiner também não será permitida se houver BLOBs em um contêiner protegido por uma retenção legal ou uma política baseada em tempo bloqueada. Uma política de retenção legal se protegerá contra exclusão de BLOB, contêiner e conta de armazenamento. As políticas baseadas em tempo desbloqueadas e bloqueadas se protegerão contra a exclusão de BLOBs durante o tempo especificado. As políticas baseadas em tempo desbloqueadas e bloqueadas serão protegidas contra exclusão de contêiner somente se pelo menos um blob existir no contêiner. Somente um contêiner com política baseada em tempo *bloqueada* se protegerá contra exclusões da conta de armazenamento; contêineres com políticas baseadas em tempo desbloqueadas não oferecem proteção de exclusão de conta de armazenamento nem conformidade.
+
+O diagrama a seguir mostra como as políticas de retenção baseadas em tempo e as ações legais impedem operações de gravação e exclusão enquanto elas estão em vigor.
+
+:::image type="content" source="media/storage-blob-immutable-storage/worm-diagram.png" alt-text="Diagrama mostrando como as políticas de retenção e os controles legais impedem operações de gravação e exclusão":::
 
 Para obter mais informações sobre como definir e bloquear políticas de retenção baseadas em tempo, consulte [definir e gerenciar políticas de imutabilidade para o armazenamento de BLOBs](storage-blob-immutability-policies-manage.md).
 

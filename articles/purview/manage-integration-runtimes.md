@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/03/2021
-ms.openlocfilehash: 72efcacf20b0d67c9d6a8255426a09f9813f17b4
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 9276f845c95b5e736180159b282ddedc33523c17
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550491"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980738"
 ---
 # <a name="create-and-manage-a-self-hosted-integration-runtime"></a>Criar e gerenciar um tempo de execução de integração auto-hospedado
 
@@ -41,7 +41,7 @@ Este artigo descreve como criar e gerenciar um SHIR (Integration Runtime) auto-h
 
    - Copie e cole a chave de autenticação.
 
-   - Baixe o tempo de execução de integração auto-hospedado de [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) em uma máquina local do Windows. Execute o instalador.
+   - Baixe o tempo de execução de integração auto-hospedado de [Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) em um computador Windows local. Execute o instalador.
 
    - Na página **registrar Integration Runtime (auto-hospedado)** , Cole uma das duas chaves salvas anteriormente e selecione **registrar**.
 

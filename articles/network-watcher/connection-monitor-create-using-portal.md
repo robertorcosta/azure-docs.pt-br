@@ -12,14 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: a6ba9c02b384c1b30977d962659983d600c7b2ac
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95545713"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833160"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no monitor de conexão usando o portal do Azure
+
+> [!IMPORTANT]
+> A partir de 1 de julho de 2021, você não poderá adicionar novos testes em um espaço de trabalho existente ou habilitar um novo espaço de trabalho no Monitor de Desempenho de Rede. Você também não poderá adicionar novos monitores de conexão no monitor de conexão (clássico). Você pode continuar a usar os testes e os monitores de conexão criados antes de 1 de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre seus testes de monitor de desempenho de rede ](migrate-to-connection-monitor-from-network-performance-monitor.md) ou  [migre do monitor de conexão (clássico)](migrate-to-connection-monitor-from-connection-monitor-classic.md) para o novo monitor de conexão no observador de rede do Azure antes de 29 de fevereiro de 2024.
 
 Saiba como usar o monitor de conexão para monitorar a comunicação entre seus recursos. Este artigo descreve como criar um monitor usando o portal do Azure. O monitor de conexão dá suporte a implantações de nuvem híbridas e do Azure.
 
@@ -110,7 +113,7 @@ No portal do Azure, para criar um grupo de teste em um monitor de conexão, espe
 
       **Assinatura**  >  do **Grupo**  >  de recursos **VNET**  >  **Sub-rede**  >  **VMs com agentes**
 
-      Você também pode alterar o seletor **Agrupar por** para iniciar a árvore de qualquer outro nível. Por exemplo, se você agrupar por rede virtual, verá as VMs que têm agentes nas VMs de sub-rede de **VNET** de hierarquia  >  **Subnet**  >  **com agentes**.
+      Você também pode alterar o seletor **Agrupar por** para iniciar a árvore de qualquer outro nível. Por exemplo, se você agrupar por rede virtual, verá as VMs que têm agentes nas VMs de sub-rede de **VNET** de hierarquia  >    >  **com agentes**.
 
        Quando você seleciona uma VNET, uma sub-rede ou uma única VM, a ID de recurso correspondente é definida como o ponto de extremidade. Por padrão, todas as VMs na VNET ou sub-rede selecionada que têm a extensão do observador de rede do Azure participam do monitoramento. Para reduzir o escopo, selecione sub-redes ou agentes específicos ou altere o valor da propriedade escopo. 
 

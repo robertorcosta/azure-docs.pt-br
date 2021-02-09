@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 02/02/2021
+ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 41047a35328d4eac370d98a6d660f20e5006a2bb
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b76723c9ea94581561f5bdb04ea1fd8335da77b7
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805167"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99981078"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -165,6 +165,7 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 Solicitações de suporte:
 
 - [Abrir solicitações de suporte de **ajuda + suporte**](../../azure-portal/supportability/how-to-create-azure-support-request.md#getting-started) no portal do Azure para recursos delegados (selecionando o plano de suporte disponível para o escopo delegado)
+- Usar a [API de cota do Azure](/rest/api/reserved-vm-instances/quotaapi) para exibir e gerenciar cotas de serviço do Azure para recursos de cliente delegados
 
 ## <a name="current-limitations"></a>Limitações atuais
 

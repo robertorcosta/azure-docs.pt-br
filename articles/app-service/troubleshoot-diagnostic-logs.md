@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 3b7f8f5a0f48bf0cdca7f72e5fb364ea0a5d1315
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576592"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99980602"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -62,7 +62,7 @@ Selecione o **nível** ou o nível de detalhes para o log. A tabela a seguir mos
 
 | Level | Categorias incluídas |
 |-|-|
-|**Desabilitado** | Nenhuma |
+|**Desabilitado** | Nenhum |
 |**Erro** | Erro, Crítico |
 |**Aviso** | Aviso, Erro, Crítico|
 |**Informações** | Informações, Aviso, Erro, Crítico|
@@ -185,16 +185,17 @@ Com a nova [integração de Azure monitor](https://aka.ms/appsvcblog-azmon), voc
 
 A tabela a seguir mostra os tipos de log e as descrições com suporte: 
 
-| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Descrição |
+| Tipo de log | Windows | Contêiner do Windows | Linux | Contêiner do Linux | Description |
 |-|-|-|-|-|-|
 | AppServiceConsoleLogs | Java SE & Tomcat | Sim | Sim | Sim | Saída padrão e erro padrão |
 | AppServiceHTTPLogs | Sim | Sim | Sim | Sim | Logs do Web Server |
 | AppServiceEnvironmentPlatformLogs | Sim | N/D | Sim | Sim | Ambiente do Serviço de Aplicativo: dimensionamento, alterações de configuração e logs de status|
 | AppServiceAuditLogs | Sim | Sim | Sim | Sim | Atividade de logon via FTP e kudu |
-| AppServiceFileAuditLogs | Sim | Sim | TBA | TBA | Alterações de arquivo feitas no conteúdo do site; disponível somente para a camada Premium e acima |
+| AppServiceFileAuditLogs | Sim | Sim | TBA | TBA | Alterações de arquivo feitas no conteúdo do site; **disponível somente para a camada Premium e acima** |
 | AppServiceAppLogs | ASP .NET | ASP .NET | Java SE & as imagens privilegiado Tomcat <sup>1</sup> | Java SE & as imagens privilegiado Tomcat <sup>1</sup> | Logs de aplicativo |
 | AppServiceIPSecAuditLogs  | Sim | Sim | Sim | Sim | Solicitações de regras de IP |
 | AppServicePlatformLogs  | TBA | Sim | Sim | Sim | Logs de operação do contêiner |
+| AppServiceAntivirusScanAuditLogs | Sim | Sim | Sim | Sim | [Logs de varredura antivírus](https://azure.github.io/AppService/2020/12/09/AzMon-AppServiceAntivirusScanAuditLogs.html) usando o Microsoft defender; **disponível somente para a camada Premium** | 
 
 <sup>1</sup> para aplicativos Java se, adicione "$website _AZMON_PREVIEW_ENABLED" às configurações do aplicativo e defina-o como 1 ou como true.
 
