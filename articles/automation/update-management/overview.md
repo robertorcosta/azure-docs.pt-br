@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 718e812a8193797ad350fa61444bb05fe5a4b724
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 6e312d354a25113a764bca5e9492909d22af9873
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896894"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007730"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -74,7 +74,7 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 
 |Sistema operacional  |Observações  |
 |---------|---------|
-|Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br>Windows Server 2012 R2(Datacenter/Standard)<br>Windows Server 2012 |
+|Windows Server 2019 (datacenter/Standard, incluindo Server Core)<br><br>Windows Server 2016 (datacenter/padrão, exceto Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM e SP1 Standard)| O Gerenciamento de Atualizações dá suporte a avaliações e aplicação de patches para este sistema operacional. O [Hybrid runbook Worker](../automation-windows-hrw-install.md) tem suporte para o Windows Server 2008 R2. |
 |CentOS 6 e 7 (x64)      | Os agentes do Linux requerem acesso a um repositório de atualização. O patch baseado em classificação requer que `yum` retorne dados de segurança que as versões RTM do CentOS não têm. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, confira [Classificações de atualização no Linux](view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 e 7 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |

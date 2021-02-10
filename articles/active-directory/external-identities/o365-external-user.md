@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/04/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35ffae55e749c7493b9cd8af13dfd5216abf5822
-ms.sourcegitcommit: 5831eebdecaa68c3e006069b3a00f724bea0875a
+ms.openlocfilehash: d003008ea5b0d2591574f6f488b0145ee6f08a5e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94515499"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008121"
 ---
 # <a name="microsoft-365-external-sharing-and-azure-active-directory-azure-ad-b2b-collaboration"></a>Microsoft 365 compartilhamento externo e colaboração B2B do Azure Active Directory (Azure AD)
 
@@ -32,8 +32,7 @@ O OneDrive/SharePoint Online tem um gerenciador de convite separado. Suporte par
 
 - A colaboração B2B do Azure AD convidou usuários que possam ser escolhidos das caixas de diálogo de compartilhamento do OneDrive/SharePoint Online. Os usuários convidados do OneDrive/SharePoint Online também aparecem no Azure AD após o resgate do convite.
 
-- Os requisitos de licenciamento são diferentes. Para saber mais sobre licenciamento, consulte [Licenciamento do Azure AD B2B](./external-identities-pricing.md) e ["O que é um usuário externo?" na visão geral de compartilhamento externo do SharePoint Online](/sharepoint/external-sharing-overview#what-happens-when-users-share).
-
+- Os requisitos de licenciamento são diferentes. Para saber mais sobre licenciamento, confira [Licenciamento de identidades externas do Azure ad](./external-identities-pricing.md) e [visão geral do compartilhamento externo do SharePoint Online](/sharepoint/external-sharing-overview).
 Para gerenciar o compartilhamento externo no OneDrive / SharePoint Online com a colaboração do Azure AD B2B, defina a configuração de compartilhamento externo do OneDrive / SharePoint Online como **Permitir compartilhamento apenas com os usuários externos que já existem no diretório da sua organização**. Os usuários podem acessar sites compartilhados externamente e escolher colaboradores externos adicionados pelo administrador. O administrador pode adicionar os colaboradores externos por meio de APIs de convite de colaboração B2B.
 
 

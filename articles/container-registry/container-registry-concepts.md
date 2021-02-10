@@ -3,12 +3,12 @@ title: Sobre repositórios & imagens
 description: Introdução aos principais conceitos de registros de contêiner do Azure, repositórios e imagens de contêiner.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: 0cc7df22236c60bd473385d92c8db563be68f688
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94335887"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008512"
 ---
 # <a name="about-registries-repositories-and-images"></a>Sobre registros, repositórios e imagens
 
@@ -73,7 +73,7 @@ Para regras de nomenclatura de marca, consulte a [documentação do Docker](http
 
 ### <a name="layer"></a>Camada
 
-As imagens de contêiner são constituídas de uma ou mais *camadas* , cada uma correspondendo a uma linha no Dockerfile que define a imagem. As imagens em um registro compartilham camadas comuns, aumentando a eficiência do armazenamento. Por exemplo, várias imagens em repositórios diferentes podem compartilhar a mesma camada base de Linux Alpine, mas apenas uma cópia dessa camada é armazenada no registro.
+As imagens de contêiner são constituídas de uma ou mais *camadas*, cada uma correspondendo a uma linha no Dockerfile que define a imagem. As imagens em um registro compartilham camadas comuns, aumentando a eficiência do armazenamento. Por exemplo, várias imagens em repositórios diferentes podem compartilhar a mesma camada base de Linux Alpine, mas apenas uma cópia dessa camada é armazenada no registro.
 
 Também é o compartilhamento de camada otimiza a distribuição de camada para nós com várias camadas comuns de compartilhamento de imagens. Por exemplo, se uma imagem já está em um nó inclui a camada de Linux Alpine como sua base, o pull subsequentes de uma imagem diferente referenciando a mesma camada não transfere a camada para o nó. Em vez disso, ele faz referência à camada já existente no nó.
 
@@ -81,7 +81,30 @@ Para fornecer isolamento seguro e proteção contra possíveis manipulações de
 
 ### <a name="manifest"></a>Manifest
 
-Cada imagem de contêiner ou artefato enviado por push para um registro de contêiner é associado a um *manifesto*. O manifesto, gerado pelo registro quando a imagem é enviada, identifica de forma exclusiva a imagem e especifica suas camadas. Você pode listar os manifestos de um repositório com o comando da CLI do Azure [az acr repository show-manifests ][az-acr-repository-show-manifests]:
+Cada imagem de contêiner ou artefato enviado por push para um registro de contêiner é associado a um *manifesto*. O manifesto, gerado pelo registro quando a imagem é enviada, identifica de forma exclusiva a imagem e especifica suas camadas. 
+
+Um manifesto básico para uma imagem do Linux `hello-world` é semelhante ao seguinte:
+
+  ```json
+  {
+    "schemaVersion": 2,
+    "mediaType": "application/vnd.docker.distribution.manifest.v2+json",
+    "config": {
+        "mediaType": "application/vnd.docker.container.image.v1+json",
+        "size": 1510,
+        "digest": "sha256:fbf289e99eb9bca977dae136fbe2a82b6b7d4c372474c9235adc1741675f587e"
+      },
+    "layers": [
+        {
+          "mediaType": "application/vnd.docker.image.rootfs.diff.tar.gzip",
+          "size": 977,
+          "digest": "sha256:2c930d010525941c1d56ec53b97bd057a67ae1865eebf042686d2a2d18271ced"
+        }
+      ]
+  }
+  ```
+
+Você pode listar os manifestos de um repositório com o comando da CLI do Azure [az acr repository show-manifests ][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>

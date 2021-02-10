@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: ff7de678e40a02b364451e7c88d661d2e38ed9d4
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 50ab66a1f98d06d79a46d61f683d56822b619721
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918916"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007033"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
 Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
@@ -374,8 +374,8 @@ O nodeType Service Fabric deve ser habilitado para dar suporte a várias zonas d
 * O primeiro valor é **multipleAvailabilityZones** que deve ser definido como true para o NodeType.
 * O segundo valor é **sfZonalUpgradeMode** e é opcional. Essa propriedade não poderá ser modificada se um NodeType com vários AZ já estiver presente no cluster.
       A propriedade controla o agrupamento lógico de VMs em domínios de atualização.
-          Se value for definido como false (modo plano): as VMs no tipo de nó serão agrupadas em UD ignorando as informações de zona em 5 UDs.
-          Se value for omitido ou definido como true (modo hierárquico): as VMs serão agrupadas para refletir a distribuição zonal em até 15 UDs. Cada uma das três zonas terá 5 UDs.
+          Se value for definido como "Parallel": as VMs sob o NodeType serão agrupadas em UDs, ignorando as informações de zona em 5 UDs.
+          Se value for omitido ou definido como "Hierarchical": as VMs serão agrupadas para refletir a distribuição zonal em até 15 UDs. Cada uma das três zonas terá 5 UDs.
           Essa propriedade define apenas o comportamento de atualização para atualizações de aplicativo e código do infabric. As atualizações do conjunto de dimensionamento de máquinas virtuais subjacentes ainda serão paralelas em todos os AZ.
       Essa propriedade não terá nenhum impacto na distribuição UD para os tipos de nó que não têm várias zonas habilitadas.
 * O terceiro valor é **vmssZonalUpgradeMode = Parallel**. Essa é uma propriedade *obrigatória* a ser configurada no cluster, se um NodeType com vários AZs for adicionado. Essa propriedade define o modo de atualização para as atualizações do conjunto de dimensionamento de máquinas virtuais que ocorrerão em paralelo em todos os AZ de uma só vez.

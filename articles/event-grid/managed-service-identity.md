@@ -3,12 +3,12 @@ title: Entrega de eventos, identidade de serviço gerenciada e link privado
 description: Este artigo descreve como habilitar a identidade do serviço gerenciado para um tópico da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte.
 ms.topic: how-to
 ms.date: 01/28/2021
-ms.openlocfilehash: ca154c252976911627184a63386cba1544ed21e0
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99054410"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007764"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
 Este artigo descreve como habilitar uma [identidade de serviço gerenciada](../active-directory/managed-identities-azure-resources/overview.md) para domínios ou tópicos personalizados da grade de eventos do Azure. Use-o para encaminhar eventos para destinos com suporte, como filas e tópicos de Barramento de Serviço, hubs de eventos e contas de armazenamento.
@@ -74,7 +74,7 @@ Atualmente, a grade de eventos do Azure dá suporte a tópicos personalizados ou
 | Destino | Função do Azure | 
 | ----------- | --------- | 
 | Filas e tópicos do Barramento de Serviço | [Remetente de dados do Barramento de Serviço do Azure](../service-bus-messaging/authenticate-application.md#azure-built-in-roles-for-azure-service-bus) |
-| Hubs de Eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
+| Hubs de eventos do Azure | [Remetente de dados dos Hubs de Eventos do Azure](../event-hubs/authorize-access-azure-active-directory.md#azure-built-in-roles-for-azure-event-hubs) | 
 | Armazenamento de Blobs do Azure | [Colaborador de dados de blob de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) |
 | Armazenamento de Filas do Azure |[Remetente da mensagem de dados da fila de armazenamento](../storage/common/storage-auth-aad-rbac-portal.md#azure-roles-for-blobs-and-queues) | 
 
@@ -237,7 +237,7 @@ az eventgrid event-subscription create
 ```
 
 ### <a name="use-the-azure-cli---azure-storage-queue"></a>Usar o CLI do Azure-fila de armazenamento do Azure 
-Nesta seção, você aprenderá a usar o CLI do Azure para habilitar o uso de uma identidade atribuída pelo sistema para entregar eventos a uma fila de armazenamento do Azure. A identidade deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento.
+Nesta seção, você aprenderá a usar o CLI do Azure para habilitar o uso de uma identidade atribuída pelo sistema para entregar eventos a uma fila de armazenamento do Azure. A identidade deve ser um membro da função de **remetente da mensagem de dados da fila de armazenamento** na conta de armazenamento. Ela também deve ser membro da função **Colaborador de dados de blobs de armazenamento** na conta de armazenamento usada para mensagens mortas.
 
 #### <a name="define-variables"></a>Definir variáveis  
 

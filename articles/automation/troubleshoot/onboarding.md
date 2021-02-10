@@ -5,12 +5,12 @@ services: automation
 ms.subservice: ''
 ms.date: 06/30/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 6668fe3c30bd5187016ac2e0c766e7e78d5b3e8c
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 41388e46f5204acaa53f376bc05cebf975361dad
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896504"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008155"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solucionar problemas de implantação de recurso
 
@@ -148,7 +148,7 @@ Remova os recursos dos seguintes recursos do seu espaço de trabalho se você os
 Depois de remover os recursos, você poderá desvincular seu espaço de trabalho. É importante limpar todos os artefatos existentes desses recursos do seu espaço de trabalho e sua conta de automação:
 
 * Para Gerenciamento de Atualizações, remova **Atualizar implantações (agendas)** da sua conta de automação.
-* Para Iniciar/Parar VMs fora do horário comercial, remova os bloqueios nos componentes de recurso em sua conta de automação em **Configurações** > **Bloqueios**. Para saber mais, confira [Remover o recurso](../automation-solution-vm-management.md#remove-the-feature).
+* Para Iniciar/Parar VMs fora do horário comercial, remova os bloqueios nos componentes de recurso em sua conta de automação em **Configurações** > **Bloqueios**. Para saber mais, confira [Remover o recurso](../automation-solution-vm-management-remove.md).
 
 ## <a name="log-analytics-for-windows-extension-failures"></a><a name="mma-extension-failures"></a>Log Analytics para falhas de extensão do Windows
 

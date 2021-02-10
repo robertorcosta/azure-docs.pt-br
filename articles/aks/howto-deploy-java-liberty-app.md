@@ -7,16 +7,23 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 keywords: Java, Jacarta, Java, microprofile, Open-Liberty, WebSphere-Liberty, AKs, kubernetes
-ms.openlocfilehash: 2e025c706512b6ab3945118da996b11a5a8a9585
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: d0e6f2fea6894378da736ba83a90ee28402ec7f9
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526883"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007118"
 ---
 # <a name="deploy-a-java-application-with-open-liberty-or-websphere-liberty-on-an-azure-kubernetes-service-aks-cluster"></a>Implantar um aplicativo Java com o Liberty aberto ou o WebSphere Liberty em um cluster do AKS (serviço kubernetes do Azure)
 
-Este guia demonstra como executar seu aplicativo Java, Java EE, [Jacarta EE](https://jakarta.ee/)ou [microprofile](https://microprofile.io/) no tempo de execução aberto do Liberty ou do WebSphere Liberty e, em seguida, implantar o aplicativo em contêineres em um cluster AKs usando o operador Open Liberty. O operador Open Liberty simplifica a implantação e o gerenciamento de aplicativos executados em clusters do Open Liberty kubernetes. Você também pode executar operações mais avançadas, como a coleta de rastreamentos e despejos usando o operador. Este artigo o orientará na preparação de um aplicativo do Liberty, na criação da imagem do Docker do aplicativo e na execução do aplicativo em contêineres em um cluster AKS.  Para obter mais detalhes sobre o Liberty aberto, consulte [a página Abrir projeto do Liberty](https://openliberty.io/). Para obter mais detalhes sobre o IBM WebSphere Liberty, consulte [a página do produto WebSphere Liberty](https://www.ibm.com/cloud/websphere-liberty).
+Este artigo demonstra como:  
+* Execute seu aplicativo Java, Java EE, Jacarta EE ou microprofile no tempo de execução do Liberty ou do WebSphere Liberty aberto.
+* Crie a imagem do Docker de aplicativo usando imagens de contêiner do Liberty abertas.
+* Implante o aplicativo em contêineres em um cluster AKS usando o operador Open Liberty.   
+
+O operador Open Liberty simplifica a implantação e o gerenciamento de aplicativos executados em clusters kubernetes. Com o operador Open Liberty, você também pode executar operações mais avançadas, como a coleta de rastreamentos e despejos. 
+
+Para obter mais detalhes sobre o Liberty aberto, consulte [a página Abrir projeto do Liberty](https://openliberty.io/). Para obter mais detalhes sobre o IBM WebSphere Liberty, consulte [a página do produto WebSphere Liberty](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -24,17 +31,20 @@ Este guia demonstra como executar seu aplicativo Java, Java EE, [Jacarta EE](htt
 
 * Este artigo exige a versão mais recente da CLI do Azure. Se você está usando o Azure Cloud Shell, a versão mais recente já está instalada.
 * Se estiver executando os comandos neste guia localmente (em vez de Azure Cloud Shell):
-  * Prepare um computador local com o sistema operacional semelhante ao Unix instalado (por exemplo, Ubuntu, macOS).
+  * Prepare um computador local com o sistema operacional semelhante ao Unix instalado (por exemplo, Ubuntu, macOS, subsistema do Windows para Linux).
   * Instale uma implementação Java SE (por exemplo, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Instale o [Maven](https://maven.apache.org/download.cgi) 3.5.0 ou superior.
   * Instale o [Docker](https://docs.docker.com/get-docker/) para o seu sistema operacional.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados. Crie um grupo de recursos, *Java-Liberty-Project* usando o comando [AZ Group Create](/cli/azure/group#az_group_create) no local *eastus* . Ele será usado para criar a instância do ACR (registro de contêiner do Azure) e o cluster AKS mais tarde. 
+Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.  
+
+Crie um grupo de recursos chamado *Java-Liberty-Project* usando o comando [AZ Group Create](/cli/azure/group#az_group_create) no local *eastus* . Esse grupo de recursos será usado posteriormente para criar a instância do ACR (registro de contêiner do Azure) e o cluster AKS. 
 
 ```azurecli-interactive
-az group create --name java-liberty-project --location eastus
+RESOURCE_GROUP_NAME=java-liberty-project
+az group create --name $RESOURCE_GROUP_NAME --location eastus
 ```
 
 ## <a name="create-an-acr-instance"></a>Criar uma instância de ACR
@@ -42,7 +52,8 @@ az group create --name java-liberty-project --location eastus
 Use o comando [AZ ACR Create](/cli/azure/acr#az_acr_create) para criar a instância do ACR. O exemplo a seguir cria uma instância de ACR chamada *youruniqueacrname*. Certifique-se de que *youruniqueacrname* seja exclusivo no Azure.
 
 ```azurecli-interactive
-az acr create --resource-group java-liberty-project --name youruniqueacrname --sku Basic --admin-enabled
+REGISTRY_NAME=youruniqueacrname
+az acr create --resource-group $RESOURCE_GROUP_NAME --name $REGISTRY_NAME --sku Basic --admin-enabled
 ```
 
 Após um curto período, você deverá ver uma saída JSON que contém:
@@ -55,10 +66,9 @@ Após um curto período, você deverá ver uma saída JSON que contém:
 
 ### <a name="connect-to-the-acr-instance"></a>Conectar-se à instância do ACR
 
-Para enviar uma imagem por push para a instância do ACR, você precisa fazer logon nela primeiro. Execute os seguintes comandos para verificar a conexão:
+Você precisará entrar na instância do ACR antes de poder enviar uma imagem por push a ela. Execute os seguintes comandos para verificar a conexão:
 
 ```azurecli-interactive
-REGISTRY_NAME=youruniqueacrname
 LOGIN_SERVER=$(az acr show -n $REGISTRY_NAME --query 'loginServer' -o tsv)
 USER_NAME=$(az acr credential show -n $REGISTRY_NAME --query 'username' -o tsv)
 PASSWORD=$(az acr credential show -n $REGISTRY_NAME --query 'passwords[0].value' -o tsv)
@@ -73,7 +83,8 @@ Você deverá ver `Login Succeeded` no final da saída do comando se tiver feito
 Use o comando [az aks create](/cli/azure/aks#az_aks_create) para criar um cluster do AKS. O exemplo a seguir cria um cluster chamado *myAKSCluster* com um nó. Isso levará vários minutos.
 
 ```azurecli-interactive
-az aks create --resource-group java-liberty-project --name myAKSCluster --node-count 1 --generate-ssh-keys --enable-managed-identity
+CLUSTER_NAME=myAKSCluster
+az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
 
 Após alguns minutos, o comando é concluído e retorna informações formatadas em JSON sobre o cluster, incluindo o seguinte:
@@ -96,7 +107,7 @@ az aks install-cli
 Para configurar o `kubectl` para se conectar ao cluster do Kubernetes, use o comando [az aks get-credentials](/cli/azure/aks#az_aks_get_credentials). Este comando baixa as credenciais e configura a CLI do Kubernetes para usá-las.
 
 ```azurecli-interactive
-az aks get-credentials --resource-group java-liberty-project --name myAKSCluster --overwrite-existing
+az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --overwrite-existing
 ```
 
 > [!NOTE]
@@ -144,6 +155,7 @@ Para implantar e executar seu aplicativo do Liberty no cluster AKS, use o contê
 1. Clone o código de exemplo deste guia. O exemplo está no [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
 1. Altere o diretório para `javaee-app-simple-cluster` de seu clone local.
 1. Execute `mvn clean package` para empacotar o aplicativo.
+1. Execute `mvn liberty:dev` para testar o aplicativo. Você deverá ver `The defaultServer server is ready to run a smarter planet.` na saída do comando se tiver êxito. Use `CTRL-C` para interromper o aplicativo.
 1. Execute um dos comandos a seguir para criar a imagem do aplicativo e enviá-la por push para a instância do ACR.
    * Crie com a imagem de base do Liberty aberta se preferir usar o Liberty aberto como um tempo de execução simples de™ de código aberto Java:
 
@@ -206,12 +218,12 @@ Para monitorar o andamento, use o comando [kubectl get service](https://kubernet
 kubectl get service javaee-app-simple-cluster --watch
 
 NAME                        TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)          AGE
-javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   9080:31732/TCP   68s
+javaee-app-simple-cluster   LoadBalancer   10.0.251.169   52.152.189.57   80:31732/TCP     68s
 ```
 
-Aguarde até que o endereço *IP externo* seja alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o `kubectl` processo de inspeção.
+Depois que o endereço *IP externo* for alterado de *pendente* para um endereço IP público real, use `CTRL-C` para interromper o `kubectl` processo de inspeção.
 
-Abra um navegador da Web para o endereço IP externo e a porta do seu serviço ( `52.152.189.57:9080` para o exemplo acima) para ver o home page do aplicativo. Você deve ver o nome do pod de suas réplicas de aplicativo exibidas na parte superior esquerda da página. Aguarde alguns minutos e atualize a página, você provavelmente verá um nome de Pod diferente exibido devido ao balanceamento de carga fornecido pelo cluster AKS.
+Abra um navegador da Web para o endereço IP externo do seu serviço ( `52.152.189.57` para o exemplo acima) para ver o home page do aplicativo. Você deve ver o nome do pod de suas réplicas de aplicativo exibidas na parte superior esquerda da página. Aguarde alguns minutos e atualize a página para ver um nome de Pod diferente exibido devido ao balanceamento de carga fornecido pelo cluster AKS.
 
 :::image type="content" source="./media/howto-deploy-java-liberty-app/deploy-succeeded.png" alt-text="Aplicativo de Liberty Java implantado com êxito em AKS":::
 
@@ -220,10 +232,10 @@ Abra um navegador da Web para o endereço IP externo e a porta do seu serviço (
 
 ## <a name="clean-up-the-resources"></a>Limpar os recursos
 
-Para evitar cobranças do Azure, limpe recursos desnecessários.  Quando o cluster não for mais necessário, use o comando [AZ Group Delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contêiner, o registro de contêiner e todos os recursos relacionados.
+Para evitar cobranças do Azure, você deve limpar recursos desnecessários.  Quando o cluster não for mais necessário, use o comando [AZ Group Delete](/cli/azure/group#az_group_delete) para remover o grupo de recursos, o serviço de contêiner, o registro de contêiner e todos os recursos relacionados.
 
 ```azurecli-interactive
-az group delete --name java-liberty-project --yes --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --yes --no-wait
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

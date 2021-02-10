@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
-ms.openlocfilehash: 2298c7b931a5bb51d5067a9f789135ecf86ef3e5
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576813"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008580"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
@@ -92,7 +92,7 @@ As imagens de contêiner para leitura estão disponíveis.
 | Contêiner | Registro de contêiner/repositório/nome da imagem |
 |-----------|------------|
 | Leia 2,0-visualização | `mcr.microsoft.com/azure-cognitive-services/vision/read:2.0-preview` |
-| 3\.2-preview da Leitura | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1` |
+| 3\.2-preview da Leitura | `mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2` |
 
 Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando para baixar uma imagem de contêiner.
 
@@ -101,7 +101,7 @@ Use o [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/
 # <a name="version-32-preview"></a>[Versão 3,2-visualização](#tab/version-3-2)
 
 ```bash
-docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1
+docker pull mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2
 ```
 
 # <a name="version-20-preview"></a>[Versão 2,0-visualização](#tab/version-2)
@@ -131,7 +131,7 @@ Use o comando [docker run](https://docs.docker.com/engine/reference/commandline/
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 18g --cpus 8 \
-mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.1 \
+mcr.microsoft.com/azure-cognitive-services/vision/read:3.2-preview.2 \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY}

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: be807c7654123962f93820d9a3d54f3c7c070d97
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 049c24beb6bb1573458779bf0796357fa634898f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99526951"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008563"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e provisionar Azure IoT Edge para Linux em um dispositivo Windows (versão prévia)
 
@@ -27,6 +27,8 @@ Este artigo lista as etapas para configurar o IoT Edge em um dispositivo Windows
 
 >[!NOTE]
 >O IoT Edge para Linux no Windows está em [versão prévia pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>
+>Embora IoT Edge para Linux no Windows seja a experiência recomendada para usar Azure IoT Edge em um ambiente do Windows, os contêineres do Windows ainda estão disponíveis. Se você preferir usar contêineres do Windows, consulte o guia de instruções sobre como [instalar e gerenciar o Azure IOT Edge para Windows](how-to-install-iot-edge-windows-on-windows.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

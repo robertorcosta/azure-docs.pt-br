@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 73fc13cf2a49d7cacd7540d06c6d0afd9cea68e5
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: a24ece3c0b75d0d0d22e13c6e5367c27fbaeab66
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729596"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006778"
 ---
 # <a name="connect-cherwell-with-it-service-management-connector"></a>Conectar o Cherwell com o Conector de Gerenciamento de Serviços de TI
 
 Este artigo fornece informações sobre como configurar a conexão entre sua instância do Cherwell e o Conector de Gerenciamento de Serviços de TI (ITSMC) no Log Analytics para gerenciar centralmente seus itens de trabalho.
 
 > [!NOTE]
-> Sugerimos que nossos clientes Cherwell e Provance usem a [ação de webhook](./action-groups.md#webhook) para o ponto de extremidade Cherwell e Provance como outra solução para a integração.
+> A partir de 1-out-2020 Cherwell, a integração de ITSM com o alerta do Azure não será mais habilitada para novos clientes. Não haverá suporte para novas conexões de ITSM.
+> Haverá suporte para conexões de ITSM existentes.
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto Cherwell ao ITSMC no Azure.
 
@@ -80,6 +81,6 @@ Para gerar o chave/ID do cliente para Cherwell, use o procedimento a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral de Conector ITSM](itsmc-overview.md)
+* [Visão geral do Conector ITSM](itsmc-overview.md)
 * [Criar itens de trabalho de ITSM desde alertas do Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Solução de problemas no Conector ITSM](./itsmc-resync-servicenow.md)

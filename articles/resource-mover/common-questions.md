@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: raynew
-ms.openlocfilehash: c586832386f3bf6419d8af94ad23662c6801b1ae
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: a75cd3c5dbf205f49aa606bfe96623a61bce39db
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820867"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007049"
 ---
 # <a name="common-questions"></a>Perguntas comuns
 
@@ -42,6 +42,10 @@ Usando o Resource Mover, no momento, você pode mover os seguintes recursos entr
 
 Não é possível selecionar discos como recursos para mover entre regiões. No entanto, os discos são movidos como parte de uma movimentação de VM.
 
+### <a name="what-does-it-mean-to-move-a-resource-group"></a>O que significa mover um grupo de recursos?
+
+Quando um recurso é selecionado para movimentação, o grupo de recursos correspondente é adicionado automaticamente para movimentação. Isso é necessário, pois o recurso de destino precisará ser colocado em um grupo de recursos como estava no destino. Você pode optar por personalizar e fornecer um grupo de recursos dos, depois que ele for adicionado para movimentação. Observe que, mover um grupo de recursos **não** significa que todos os recursos no grupo de recursos de origem serão movidos.
+
 ### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>Posso mover recursos entre assinaturas quando movê-los entre regiões?
 
 Você pode alterar a assinatura depois de mover os recursos para a região de destino. [Saiba mais](../azure-resource-manager/management/move-resource-group-and-subscription.md) sobre como mover recursos para uma assinatura diferente. 
@@ -69,7 +73,7 @@ A [identidade gerenciada](../active-directory/managed-identities-azure-resources
 - Se você mover recursos entre regiões no portal, esse processo ocorrerá automaticamente.
 - Se você mover recursos usando o PowerShell, execute os cmdlets para atribuir uma identidade atribuída pelo sistema à coleção e, em seguida, atribua uma função com as permissões de assinatura corretas para a entidade de identidade. 
 
-### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Para quais permissões de identidade gerenciada o movimentador de recursos precisa?
+### <a name="what-managed-identity-permissions-does-resource-mover-need"></a>Para quais permissões de identidade gerenciada o movimentador de recursos precisa? 
 
 A identidade gerenciada do Azure Resource Mover precisa de pelo menos estas permissões: 
 

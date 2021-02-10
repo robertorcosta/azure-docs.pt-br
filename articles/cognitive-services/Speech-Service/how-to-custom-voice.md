@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: trbye
-ms.openlocfilehash: 4e487a3eab70e7d561468a8fac2103e177d2abc5
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: eff51c8568ce82c9d8d21bff7a2ba079c291679c
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524968"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007288"
 ---
 # <a name="get-started-with-custom-voice"></a>Introdução à Voz Personalizada
 
@@ -60,12 +60,24 @@ Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você p
 
 ## <a name="how-to-create-a-project"></a>Como criar um projeto
 
-Conteúdo como dados, modelos, testes e pontos de extremidade são organizados em **projetos** no portal de voz personalizado. Cada projeto é específico de um país/idioma e do sexo da voz que você deseja criar. Por exemplo, você pode criar um projeto para uma voz fêmea para os bots de bate-papo do seu Call Center que usam o inglês no Estados Unidos (en-US).
+Conteúdo como dados, modelos, testes e pontos de extremidade são organizados em **projetos** no portal de voz personalizado. Cada projeto é específico de um país/idioma e do sexo da voz que você deseja criar. Por exemplo, você pode criar um projeto para uma voz fêmea para os bots de bate-papo do seu Call Center que usam o inglês na Estados Unidos (' en-US ').
 
 Para criar seu primeiro projeto, selecione a guia **conversão de texto em fala/voz personalizada** e clique em **novo projeto**. Siga as instruções fornecidas pelo Assistente para criar seu projeto. Depois de criar um projeto, você verá quatro guias: **dados**, **treinamento**, **teste** e **implantação**. Use os links fornecidos nas [próximas etapas](#next-steps) para aprender a usar cada guia.
 
 > [!IMPORTANT]
 > O [portal de voz personalizado](https://aka.ms/custom-voice) foi atualizado recentemente! Se você criou dados, modelos, testes e pontos de extremidade publicados anteriores no portal do CRIS.ai ou com APIs, você precisa criar um novo projeto no novo portal para se conectar a essas entidades antigas.
+
+## <a name="how-to-migrate-to-custom-neural-voice"></a>Como migrar para uma voz neural personalizada
+
+Se você estiver usando a voz personalizada não neural (ou padrão), considere migrar para a voz neural personalizada imediatamente seguindo as etapas abaixo. A mudança para a voz neural personalizada ajudará você a desenvolver vozes mais realísticas para interfaces de conversação ainda mais naturais e permitir que seus clientes e usuários finais se beneficiem da mais recente tecnologia de conversão de texto em fala, de uma maneira responsável. 
+
+1. Saiba mais sobre nossa [política sobre o limite de acesso](https://aka.ms/gating-overview) e aplique-a [aqui](https://aka.ms/customneural). Observe que o acesso ao serviço de voz neural personalizado está sujeito à exclusiva critério da Microsoft com base em nossos critérios de qualificação. Os clientes podem obter acesso à tecnologia somente depois que seu aplicativo é revisado e eles confirmam usá-la em alinhamento com nossos [princípios de ia responsáveis](https://microsoft.com/ai/responsible-ai) e o [código de conduta](https://aka.ms/custom-neural-code-of-conduct). 
+2. Depois que seu aplicativo for aprovado, você receberá o acesso ao recurso de treinamento "neural". Certifique-se de fazer logon no [portal de voz personalizado](https://speech.microsoft.com/customvoice) usando a mesma assinatura do Azure que você fornece em seu aplicativo. 
+    > [!IMPORTANT]
+    > Para proteger o talento de voz e impedir o treinamento de modelos de voz com gravação não autorizada ou sem a confirmação do talento de voz, exigimos que o cliente carregue uma declaração registrada dos talentos de voz dando seu consentimento. Ao preparar o script de gravação, certifique-se de incluir esta sentença. "I [declare seu nome e sobrenome] estou ciente de que as gravações da minha voz serão usadas por [estado o nome da empresa] para criar e usar uma versão sintética da minha voz".
+    > Essa sentença deve ser carregada para a guia de **talento de voz** como um arquivo de consentimento verbal. Ele será usado para verificar se as gravações em seus conjuntos de seus de treinamento são feitas pela mesma pessoa que faz o consentimento.
+3. Depois que o modelo de voz neural personalizado for criado, implante o modelo de voz em um novo ponto de extremidade. Para criar um novo ponto de extremidade de voz personalizado com seu modelo de voz neural, acesse **conversão de texto em fala > de voz personalizada > implantação**. Selecione **implantar modelo** e insira um **nome** e uma **Descrição** para o ponto de extremidade personalizado. Em seguida, selecione o modelo de voz neural personalizado que você deseja associar a esse ponto de extremidade e confirme a implantação.  
+4. Atualize seu código em seus aplicativos se você tiver criado um novo ponto de extremidade com um novo modelo. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

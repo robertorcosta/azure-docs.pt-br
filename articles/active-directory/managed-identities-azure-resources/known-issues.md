@@ -13,16 +13,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 12/01/2020
+ms.date: 02/04/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 2be66904898ecdf2006952f5e80c17dc78b81c06
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 3f1be2e64435cb0bcdb369a398a9a65fc3714fb2
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825811"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008529"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Perguntas frequentes e problemas conhecidos com identidades gerenciadas para recursos do Azure
 
@@ -48,6 +48,10 @@ Não. As identidades gerenciadas e os registros de Aplicativo Azure AD não são
 Registros de aplicativo tem dois componentes: um objeto de aplicativo + um objeto de entidade de serviço. Identidades gerenciadas para recursos do Azure têm apenas um desses componentes: um objeto de entidade de serviço. 
 
 Identidades gerenciadas não têm um objeto de aplicativo no diretório, que é comumente usado para conceder permissões de aplicativo para o MS Graph. Em vez disso, as permissões do MS Graph para identidades gerenciadas precisam ser concedidas diretamente à entidade de serviço.  
+
+### <a name="can-the-same-managed-identity-be-used-across-multiple-regions"></a>A mesma identidade gerenciada pode ser usada em várias regiões?
+
+Em suma, sim, você pode usar identidades gerenciadas atribuídas pelo usuário em mais de uma região do Azure. A resposta mais longa é que, enquanto as identidades gerenciadas atribuídas pelo usuário são criadas como recursos regionais, a [entidade de serviço](../develop/app-objects-and-service-principals.md#service-principal-object) associada (SPN) criada no Azure ad está disponível globalmente. A entidade de serviço pode ser usada em qualquer região do Azure e sua disponibilidade depende da disponibilidade do Azure AD. Por exemplo, se você criou uma identidade gerenciada atribuída pelo usuário na região South-Central e essa região ficar indisponível, esse problema afetará apenas as atividades do [plano de controle](../../azure-resource-manager/management/control-plane-and-data-plane.md) na própria identidade gerenciada.  As atividades executadas por todos os recursos já configurados para usar as identidades gerenciadas não seriam afetadas.
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>As identidades gerenciadas dos recursos do Azure funcionam com os serviços de nuvem do Azure?
 

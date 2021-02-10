@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 11/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: e77a90617d79dab8c71cdf0c7a6a4fb21e052fbd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 09c86e23379cf9ccecf77d88a99ad6b3a7019a87
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96182777"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006982"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Implantar um Windows híbrido Runbook Worker
 
@@ -24,7 +24,7 @@ Depois de implantar com êxito um trabalhador de runbook, revise [Executar runbo
 
 Antes de começar, verifique se você tem o seguinte.
 
-### <a name="a-log-analytics-workspace"></a>Um espaço de trabalho Log Analytics
+### <a name="a-log-analytics-workspace"></a>Um workspace do Log Analytics
 
 A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analytics de Azure Monitor para instalar e configurar a função. Você pode criá-lo por meio de [Azure Resource Manager](../azure-monitor/samples/resource-manager-workspace.md#create-a-log-analytics-workspace), por meio do [PowerShell](../azure-monitor/scripts/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), ou no [portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
 
@@ -38,8 +38,8 @@ A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-mon
 
 O recurso Hybrid Runbook Worker dá suporte aos seguintes sistemas operacionais:
 
-* Windows Server 2019
-* Windows Server 2016, versão 1709 e 1803
+* Windows Server 2019 (incluindo Server Core)
+* Windows Server 2016, versão 1709 e 1803 (exceto Server Core)
 * Windows Server 2012, 2012 R2
 * Windows Server 2008 SP2 (x64), 2008 R2
 * Windows 10 Enterprise (incluindo multissessão) e Pro

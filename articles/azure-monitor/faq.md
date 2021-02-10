@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 2ca8a814fbaf2d8c257d094f81d17a5c871793b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: a8d3ded1d11a350ff53ffda71348b2cc707760b8
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878928"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100008410"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -81,10 +81,12 @@ O Azure Data Explorer é um serviço de exploração de dados rápido e altament
 
 ### <a name="how-do-i-retrieve-log-data"></a>Como faço para recuperar dados de log?
 Todos os dados são recuperados de um workspace do Log Analytics usando uma consulta de log escrita em KQL (Linguagem de Consulta Kusto). Você pode escrever suas consultas ou usar soluções e insights que incluem consultas de log para um determinado aplicativo ou serviço. Confira [Visão geral sobre consultas de log no Azure Monitor](log-query/log-query-overview.md).
-p
+
 ### <a name="can-i-delete-data-from-a-log-analytics-workspace"></a>Posso excluir dados de um espaço de trabalho Log Analytics?
 Os dados são removidos de um espaço de trabalho de acordo com seu [período de retenção](platform/manage-cost-storage.md#change-the-data-retention-period). Você pode excluir dados específicos por motivos de privacidade ou conformidade. Consulte [como exportar e excluir dados privados](platform/personal-data-mgmt.md#how-to-export-and-delete-private-data) para obter mais informações.
 
+### <a name="is-log-analytics-storage-immutable"></a>Log Analytics armazenamento é imutável?
+Não é possível alterar os dados no armazenamento de banco de dado após a ingestão, mas podem ser excluídos por meio [do caminho de API de *limpeza* para excluir dados privados](platform/personal-data-mgmt.md#delete). Embora os dados não possam ser alterados, algumas certificações exigem que os dados sejam mantidos imutáveis e não possam ser alterados ou excluídos no armazenamento. A imutabilidade dos dados pode ser obtida usando a [exportação de dados](platform/logs-data-export.md) para uma conta de armazenamento configurada como [armazenamento imutável](../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ### <a name="what-is-a-log-analytics-workspace"></a>O que é um workspace do Log Analytics?
 Todos os dados de log coletados pelo Azure Monitor são armazenados em um workspace do Log Analytics. Um workspace é essencialmente um contêiner em que os dados de log são coletados de uma variedade de fontes. Você pode ter um workspace do Log Analytics para todos os seus dados de monitoramento ou pode ter requisitos para vários workspaces. Confira [Projeto da implantação de logs do Azure Monitor](platform/design-logs-deployment.md).
@@ -563,7 +565,7 @@ Nesse cenário, uma resposta 502 ou 503 poderia ser retornada a um cliente devid
 
 ### <a name="what-is-opentelemetry"></a>O que é OpenTelemetry
 
-Um novo padrão de código aberto para a observação. Saiba mais em [https://opentelemetry.io/](https://opentelemetry.io/) .
+Um novo padrão de código aberto para a observação. Saiba mais em [https://opentelemetry.io/](https://opentelemetry.io/).
 
 ### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Por que a Microsoft/Azure Monitor investindo em OpenTelemetry?
 

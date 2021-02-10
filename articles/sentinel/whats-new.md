@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 02/04/2021
-ms.openlocfilehash: 37a9294b156bd41b72e777696f10a1c4ac2bb354
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832752"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007356"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>O que há de novo no Azure Sentinel
 
@@ -41,7 +41,7 @@ Os recursos indicados estão atualmente em versão prévia. Os [termos suplement
 - [Aprimoramento do ajuste de regras com os gráficos de visualização de regra de análise](#improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview)
 
 
-## <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Assistente de regra de análise: experiência de edição de consulta aprimorada (visualização pública)
+### <a name="analytics-rule-wizard-improved-query-editing-experience-public-preview"></a>Assistente de regra de análise: experiência de edição de consulta aprimorada (visualização pública)
 
 O assistente de regra de análise agendada do Azure Sentinel agora fornece os seguintes aprimoramentos para escrever e editar consultas:
 

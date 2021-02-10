@@ -6,19 +6,20 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 12/21/2020
-ms.openlocfilehash: 19d2ef1d4d711738d60938aac502dfd490e021a1
-ms.sourcegitcommit: a4533b9d3d4cd6bb6faf92dd91c2c3e1f98ab86a
+ms.openlocfilehash: 0cdbcf0a895a2fc9b81df464f364e04aa79abf99
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97729593"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100006761"
 ---
 # <a name="connect-provance-with-it-service-management-connector"></a>Conectar o Provance com o Conector de Gerenciamento de Serviços de TI
 
 Este artigo fornece informações sobre como configurar a conexão entre sua instância do Provance e o Conector de Gerenciamento de Serviços de TI (ITSMC) no Log Analytics para gerenciar centralmente seus itens de trabalho.
 
 > [!NOTE]
-> Sugerimos que nossos clientes Cherwell e Provance usem a [ação de webhook](./action-groups.md#webhook) para o ponto de extremidade Cherwell e Provance como outra solução para a integração.
+> A partir de 1-out-2020 Provance, a integração de ITSM com o alerta do Azure não será mais habilitada para novos clientes. Não haverá suporte para novas conexões de ITSM.
+> Haverá suporte para conexões de ITSM existentes.
 
 As seções a seguir fornecem detalhes sobre como conectar seu produto Provance ao ITSMC no Azure.
 
@@ -69,6 +70,6 @@ Use o procedimento a seguir para criar uma conexão do Provance:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral de Conector ITSM](itsmc-overview.md)
+* [Visão geral do Conector ITSM](itsmc-overview.md)
 * [Criar itens de trabalho de ITSM desde alertas do Azure](./itsmc-definition.md#create-itsm-work-items-from-azure-alerts)
 * [Solução de problemas no Conector ITSM](./itsmc-resync-servicenow.md)

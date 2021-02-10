@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/11/2020
-ms.openlocfilehash: a618a5d94513f7d648d118ae3bebdb34e4f5b1c4
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: b1e0dbd23fa14c1bd79275d3f9ff6a164293ac19
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98728852"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007339"
 ---
 # <a name="log-analytics-data-security"></a>Segurança de dados do Log Analytics
 Este documento destina-se a fornecer informações específicas do Log Analytics, que é um recurso do Azure Monitor, para complementar as informações na [Central de Confiabilidade do Azure](https://www.microsoft.com/en-us/trust-center?rtc=1).  
@@ -173,6 +173,8 @@ Conforme descrito acima, os dados do servidor de gerenciamento ou dos agentes co
 O serviço Log Analytics garante que os dados de entrada sejam de uma fonte confiável ao validar certificados e a integridade dos dados com a autenticação do Azure. Os dados brutos não processados são armazenados em um Hub de Eventos do Azure na região em que eventualmente serão armazenados os dados em repouso. Os tipos de dados armazenados dependem dos tipos de soluções importados e usados para coletar dados. Em seguida, o serviço Log Analytics processa os dados brutos e os consome no banco de dados.
 
 O período de retenção dos dados coletados armazenados no banco de dados depende do plano de preços selecionado. Para a camada *Livre*, os dados coletados estão disponíveis por sete dias. Para a camada *Paga*, os dados coletados ficam disponíveis durante 31 dias por padrão, mas podem ser estendidos para 730 dias. Os dados são armazenados criptografados em repouso no armazenamento do Azure, para garantir a confidencialidade, e os dados são replicados na região local usando o LRS (armazenamento com redundância local). As duas últimas semanas de dados também são armazenadas em cache baseado em SSD e esse cache é criptografado.
+
+Não é possível alterar os dados no armazenamento de banco de dado após a ingestão, mas podem ser excluídos por meio do caminho de API de [ *limpeza*](personal-data-mgmt.md#delete). Embora os dados não possam ser alterados, algumas certificações exigem que os dados sejam mantidos imutáveis e não possam ser alterados ou excluídos no armazenamento. A imutabilidade dos dados pode ser obtida usando a [exportação de dados](logs-data-export.md) para uma conta de armazenamento configurada como [armazenamento imutável](../../storage/blobs/storage-blob-immutability-policies-manage.md).
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. usar Log Analytics para acessar os dados
 Para acessar seu espaço de trabalho do Log Analytics, entre no portal do Azure usando a conta organizacional ou uma conta da Microsoft configurada anteriormente. Todo o tráfego entre o portal e o Log Analytics no serviço é enviado por um canal HTTPS seguro. Ao usar o portal, uma ID de sessão é gerada no cliente do usuário (navegador da Web) e dados são armazenados em um cache local até que a sessão seja encerrada. Após o encerramento, o cache é excluído. Os cookies do lado do cliente, que não contêm informações de identificação pessoal, não são removidos automaticamente. Os cookies de sessão são marcados como HTTPOnly e são protegidos. Após um período ocioso predeterminado, a sessão do portal do Azure é encerrada.
