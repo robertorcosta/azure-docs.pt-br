@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: abeae674cef8f13a092b53bde6040ad853bd0cca
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f7f1952ab8c98553a447c3ed1955fb556ba48124
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820357"
+ms.locfileid: "99831936"
 ---
 # <a name="tutorial-how-to-deploy-an-iot-central-application-using-the-video-analytics---object-and-motion-detection-application-template"></a>Tutorial: Como implantar um aplicativo do IoT Central usando o modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo
 
@@ -22,6 +22,10 @@ Para obter uma visão geral dos principais componentes do aplicativo de *detecç
 O seguinte vídeo fornece uma explicação sobre como usar o _modelo de aplicativo de detecção de objetos e movimentos e análise de vídeo_ para implantar uma solução do IoT Central:
 
 > [!VIDEO https://www.youtube.com/embed/Bo3FziU9bSA]
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Uma assinatura do Azure é recomendada. Como alternativa, você pode usar uma avaliação gratuita de sete dias. Se você não tiver uma assinatura do Azure, poderá criar uma na [página de entrada do Azure](https://aka.ms/createazuresubscription).
 
 ## <a name="deploy-the-application"></a>Implantar o aplicativo
 
@@ -42,6 +46,14 @@ Conclua as seguintes etapas para implantar um aplicativo do IoT Central usando o
     - Instalar um player de mídia local para exibir o vídeo capturado no AMS.
     - Exibir o vídeo capturado que mostra objetos detectados.
     - Organizar.
+
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+Quando você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
+
+1. No aplicativo do IoT Central, procure a página **Seu aplicativo** na seção **Administração**. Em seguida, selecione **Excluir**.
+1. No portal do Azure, exclua o grupo de recursos **lva-rg**.
+1. No computador local, pare o contêiner **amp-viewer** do Docker.
 
 ## <a name="next-steps"></a>Próximas etapas
 

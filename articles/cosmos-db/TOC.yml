@@ -766,6 +766,8 @@
                   href: troubleshoot-not-found.md
                 - name: Solução de problemas não autorizada
                   href: troubleshoot-unauthorized.md
+                - name: Solucionar problemas do tipo proibido
+                  href: troubleshoot-forbidden.md
                 - name: Problemas de disponibilidade em ambientes multirregionais
                   href: troubleshoot-sdk-availability.md
             - name: .NET

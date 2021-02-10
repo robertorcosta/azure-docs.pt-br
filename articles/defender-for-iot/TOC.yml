@@ -24,7 +24,7 @@
           href: quickstart-azure-rtos-security-module.md
         - name: Integrar à solução baseada em agente do Defender para IoT
           href: quickstart-onboard-iot-hub.md
-        - name: Criar um módulo gêmeo do microagente do Defender para IoT (versão prévia)
+        - name: Criar um módulo gêmeo do microagente de IoT do Defender (versão prévia)
           href: quickstart-create-micro-agent-module-twin.md
         - name: Instalar o microagente do Defender para IoT (versão prévia)
           href: quickstart-standalone-agent-binary-installation.md

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/08/2021
 ms.author: memildin
-ms.openlocfilehash: 04dfd731f1dcf0e9e7c045e0f7ef335c8db5b359
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e827178d8ccb0f7de8d32433d03502a7412d1139
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805620"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834036"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -54,7 +54,7 @@ As duas guias abaixo mostram os recursos da Central de Segurança do Azure dispo
 
 |**Recurso**|**Máquinas Virtuais do Azure**|**Conjuntos de dimensionamento de máquina virtual do Azure**|**Computadores habilitados para o Azure Arc**|**Azure Defender necessário**
 |----|:----:|:----:|:----:|:----:|
-|[Integração do Microsoft Defender para Ponto de Extremidade](security-center-wdatp.md)|-|-|-|Sim|
+|[Integração do Microsoft Defender para Ponto de Extremidade](security-center-wdatp.md)|-|-|-|-|
 |[Análise comportamental de máquina virtual (e alertas de segurança)](./azure-defender.md)|✔</br>(em versões compatíveis)|✔</br>(em versões compatíveis)|✔|Sim|
 |[Alertas de segurança sem arquivo](alerts-reference.md#alerts-windows)|-|-|-|Sim|
 |[Alertas de segurança baseados em rede](other-threat-protections.md#network-layer)|✔|✔|-|Sim|
@@ -96,10 +96,10 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – Deep Security | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Sim * *\** _ |
-| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim _*\**_  |
+| McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
+| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim **\***  |
 
- _*\**_ O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
+ **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
 
 > [!NOTE]
 > A detecção do SCEP (System Center Endpoint Protection) em uma máquina virtual do Windows Server 2008 R2 exige a instalação do SCEP após o PowerShell (v3.0 ou mais recente).
@@ -136,7 +136,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|-|-|
 |||
 
-(1) Requer _ *Azure Defender para servidores**
+(1) Exige o **Azure Defender para servidores**
 
 (2) Parcial
 

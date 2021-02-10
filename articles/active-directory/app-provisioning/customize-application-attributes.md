@@ -8,18 +8,22 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 1/25/2021
+ms.date: 02/08/2021
 ms.author: kenwith
-ms.openlocfilehash: 89b40ac68143c2af0d94434ddedec489a2208839
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 03eacf4405217ee883689a088499d86d6f2262b5
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99256400"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99830695"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
 O Microsoft Azure AD dá suporte ao provisionamento de usuário para aplicativos SaaS de terceiros, como o Salesforce e o G Suite, entre outros. Se você habilitar o provisionamento de usuário para um aplicativo SaaS de terceiros, o portal do Azure controlará os valores de seus atributos por meio do mapeamento de atributos.
+
+Antes de começar, verifique se você está familiarizado com os conceitos de gerenciamento de aplicativo e de **SSO (Logon único)** , confira os seguintes links:
+- [Série de guias de início rápido sobre gerenciamento de aplicativo no Azure AD](../manage-apps/view-applications-portal.md)
+- [O que é SSO (logon único)?](../manage-apps/what-is-single-sign-on.md)
 
 Há um conjunto pré-configurado de atributos e mapeamentos de atributos entre objetos de usuário do Azure AD e objetos de usuário de cada aplicativo SaaS. Alguns aplicativos gerenciam outros tipos de objetos em conjunto com os Usuários, como Grupos.
 
