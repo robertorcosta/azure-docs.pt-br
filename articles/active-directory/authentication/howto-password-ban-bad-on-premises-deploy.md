@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a082149d85736000b5bb6a91e2fc7132205a88
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 6f17f6eb913d1ea54e8db6acd369d165553e16ec
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98220279"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100091033"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Planejar e implantar a proteção de senha do Azure Active Directory local
 
@@ -85,7 +85,8 @@ Os seguintes requisitos básicos se aplicam:
 * Todas as máquinas, incluindo controladores de domínio, que têm os componentes de proteção de senha do Azure AD instalados, devem ter o tempo de execução universal C instalado.
     * Você pode obter o tempo de execução, certificando-se de que você tenha todas as atualizações de Windows Update. Ou você pode obtê-lo em um pacote de atualização específico do sistema operacional. Para obter mais informações, consulte [atualizar para tempo de execução C universal no Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Você precisa de uma conta que tenha Active Directory privilégios de administrador de domínio no domínio raiz da floresta para registrar a floresta do Windows Server Active Directory com o Azure AD.
-* O serviço de distribuição de chaves deve ser habilitado em todos os controladores de domínio no domínio que executam o Windows Server 2012. Por padrão, esse serviço é habilitado por meio do início do gatilho manual.
+* O serviço de distribuição de chaves deve ser habilitado em todos os controladores de domínio no domínio que executam o Windows Server 2012 e versões posteriores. Por padrão, esse serviço é habilitado por meio do início do gatilho manual.
+
 * A conectividade de rede deve existir entre pelo menos um controlador de domínio em cada domínio e pelo menos um servidor que hospede o serviço de proxy para a proteção de senha do Azure AD. Essa conectividade deve permitir que o controlador de domínio acesse a porta 135 do mapeador de ponto de extremidade RPC e a porta do servidor RPC no serviço de proxy.
     * Por padrão, a porta do servidor RPC é uma porta RPC dinâmica, mas pode ser configurada para [usar uma porta estática](#static).
 * Todas as máquinas em que o serviço proxy de proteção de senha do Azure AD será instalado devem ter acesso à rede para os seguintes pontos de extremidade:

@@ -1,18 +1,18 @@
 ---
 title: Definições de política internas para o Kubernetes habilitado para o Azure Arc
 description: Lista as definições de políticas internas do Azure Policy para o Kubernetes habilitado para Azure Arc. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.service: azure-arc
 author: mlearned
 ms.author: mlearned
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 5fde165edfdda8529c6ade2c9913ede7a09f50c7
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: d4a411a2e1c2fcb7383e5582b8d857b88022315c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99557709"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090455"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-kubernetes"></a>Definições internas do Azure Policy para Kubernetes habilitado para o Azure Arc
 

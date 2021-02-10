@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10fe3b895ea5084247822f1c35275e68d80b73fa
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: c9e0a645bc580ab3a0794ca6ded1e60159df7d92
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762986"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100090591"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -83,10 +83,6 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
     - *Não há suporte* para grupos dinâmicos na distribuição em etapas.
     - Os objetos de contato dentro do grupo não permitirão que o grupo seja adicionado.
 
-- Você ainda precisa fazer a transferência final de federado para a autenticação na nuvem usando o Azure AD Connect ou PowerShell. A distribuição em etapas não altera domínios de federados para gerenciados.  Para obter mais informações sobre a transferência de domínio, consulte [migrar da Federação para a sincronização de hash de senha](plan-migrate-adfs-password-hash-sync.md) e [migrar da Federação para a autenticação de passagem](plan-migrate-adfs-pass-through-authentication.md)
-
-
-
 - Ao adicionar um grupo de segurança pela primeira vez para a distribuição em etapas, você tem um limite de 200 usuários para evitar um tempo limite de UX (experiência do usuário). Depois de adicionar o grupo, você poderá adicionar mais usuários diretamente a ele conforme necessário.
 
 - Enquanto os usuários estiverem em distribuição em etapas, quando EnforceCloudPasswordPolicyForPasswordSyncedUsers estiver habilitado, a política de expiração de senha será definida como 90 dias sem a opção de personalizá-la. 
@@ -95,7 +91,9 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 
 - Aquisição híbrida do Windows 10 ou ingresso no token de atualização principal do Azure AD para todas as versões, quando o UPN local do usuário não é roteável. Esse cenário voltará ao ponto de extremidade WS-Trust enquanto estiver no modo de distribuição em etapas, mas deixará de funcionar quando a migração preparada for concluída e o logon do usuário não depender mais do servidor de Federação.
 
-
+  >[!NOTE]
+  >Você ainda precisa fazer a transferência final de federado para a autenticação na nuvem usando o Azure AD Connect ou PowerShell. A distribuição em etapas não alterna domínios de federados para gerenciado.  Para obter mais informações sobre a transferência de domínio, consulte [migrar da Federação para a sincronização de hash de senha](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso) e [migrar da Federação para a autenticação de passagem](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+  
 ## <a name="get-started-with-staged-rollout"></a>Introdução à distribuição em etapas
 
 Para testar a *sincronização de hash de senha*, entre usando a distribuição em etapas e siga as instruções de preparação da próxima seção.
@@ -257,3 +255,5 @@ A: Sim. Para saber como usar o PowerShell para executar a distribuição em etap
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Alterar o método de entrada para a sincronização de hash de senha](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
+- [Alterar o método de entrada para autenticação de passagem](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
