@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22ac3b9ac5f7a10226e8dc7197fdf60dc0a84e3b
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: ffddcc45975648be39117c3f2d174fe58ca957fc
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627609"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102913"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -89,6 +89,10 @@ Os usuários nessa função podem criar cargas de ataque, mas não são iniciada
 ### <a name="attack-simulation-administrator"></a>[Administrador de simulação de ataque](#attack-simulation-administrator-permissions)
 
 Os usuários nessa função podem criar e gerenciar todos os aspectos da criação da simulação de ataque, inicialização/agendamento de uma simulação e a revisão dos resultados da simulação. Os membros dessa função têm esse acesso para todas as simulações no locatário.
+
+### <a name="azure-ad-joined-device-local-administratordevice-administrators"></a>[Administrador local do dispositivo ingressado no Azure ad](#azure-ad-joined-device-local-administrator-permissions)/Device administradores
+
+Essa função está disponível para atribuição apenas como um administrador local adicional em [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
 
 ### <a name="azure-devops-administrator"></a>[Administrador do Azure DevOps](#azure-devops-administrator-permissions)
 
@@ -164,12 +168,7 @@ gerencia [solicitações do Sistema de Proteção de Dados do Cliente](/office36
 
 ### <a name="desktop-analytics-administrator"></a>[Administrador de Análise de Área de Trabalho](#desktop-analytics-administrator-permissions)
 
-
 Os usuários com essa função podem gerenciar a Análise de Área de Trabalho e os serviços de Personalização e Política do Office. Para a Análise de Área de Trabalho, isso inclui a capacidade de exibir o inventário de ativos, criar planos de implantação, exibir o status de integridade e de implantação. Para o serviço de Personalização e Política do Office, essa função permite que os usuários gerenciem as políticas do Office.
-
-### <a name="device-administrators"></a>[Administradores de Dispositivos](#device-administrators-permissions)
-
-Essa função está disponível para atribuição apenas como um administrador local adicional em [Configurações do dispositivo](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/DeviceSettings/menuId/). Os usuários com essa função se tornam administradores de computador local em todos os dispositivos Windows 10 associados ao Azure Active Directory. Eles não têm a capacidade de gerenciar objetos de dispositivos no Azure Active Directory.
 
 ### <a name="directory-readers"></a>[Leitores de Diretório](#directory-readers-permissions)
 
@@ -209,7 +208,7 @@ Os usuários com essa função podem criar e gerenciar fluxos de usuário (tamb�
 
 Os usuários com essa função adicionam ou excluem atributos personalizados que estão disponíveis para todos os fluxos dos usuários na organização do Azure AD.  Assim, eles podem alterar ou adicionar novos elementos ao esquema do usuário final e afetar o comportamento de todos os fluxos dos usuários, podendo resultar indiretamente em alterações nos dados que podem ser solicitados aos usuários finais e, por fim, enviados como declarações aos aplicativos.  Essa função não pode editar os fluxos dos usuários.
 
-### <a name="external-identity-provider-administrator"></a>[Administrador do provedor de identidade externo](#external-identity-provider-administrator-permissions)
+### <a name="external-identity-provider-administrator"></a>[Administrador do provedor de identidade externa](#external-identity-provider-administrator-permissions)
 
 Esse administrador gerencia a federação entre as organizações do Azure AD e os provedores de identidade externos.  Com essa função, os usuários podem adicionar novos provedores de identidade e definir todas as configurações disponíveis (por exemplo, caminho de autenticação, ID de serviço e contêineres de chave atribuídos).  Esse usuário pode habilitar a organização do Azure AD a confiar em autenticações de provedores de identidade externos.  O impacto sobre experiências do usuário final depende do tipo de organização:
 
@@ -449,6 +448,10 @@ Usuários com essa função têm permissões globais no Microsoft Skype for Busi
 > [!NOTE]
 > Na API do Microsoft Graph e no PowerShell do Azure AD, essa função é identificada como “Administrador de Serviços do Lync”. É "Administrador do Skype for Business" no [portal do Azure](https://portal.azure.com/).
 
+### <a name="teams-administrator"></a>[Administrador de equipes](#teams-administrator-permissions)
+
+Usuários nessa função podem gerenciar todos os aspectos da carga de trabalho do Microsoft Teams pelo centro de administração do Microsoft Teams e Skype for Business e respectivos módulos do PowerShell. Isso inclui, entre outras áreas, todas as ferramentas de gerenciamento relacionadas a telefonia, mensagens, reuniões e às próprias equipes. Essa função adicionalmente concede a capacidade de criar e gerenciar todos os grupos de Microsoft 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço.
+
 ### <a name="teams-communications-administrator"></a>[Administrador de Comunicações do Teams](#teams-communications-administrator-permissions)
 
 Usuários nessa função podem gerenciar aspectos da carga de trabalho do Microsoft Teams relacionados a voz e telefonia. Isso inclui as ferramentas de gerenciamento para atribuição de número de telefone, políticas de reuniões e voz e acesso completo ao conjunto de ferramentas de análise de chamada.
@@ -464,10 +467,6 @@ Usuários nessa função podem solucionar problemas de comunicação no Microsof
 ### <a name="teams-devices-administrator"></a>[Administrador de dispositivos do Teams](#teams-devices-administrator-permissions)
 
 Os usuários com essa função podem gerenciar [dispositivos certificados pela equipe](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) no centro de administração do teams. Essa função permite exibir todos os dispositivos com uma visão simples, com a capacidade de Pesquisar e filtrar dispositivos. O usuário pode verificar os detalhes de cada dispositivo, incluindo conta conectada, marca e modelo do dispositivo. O usuário pode alterar as configurações no dispositivo e atualizar as versões do software. Essa função não concede permissões para verificar a atividade de equipes e chamar a qualidade do dispositivo. 
-
-### <a name="teams-service-administrator"></a>[Administrador de Serviços do Teams](#teams-service-administrator-permissions)
-
-Usuários nessa função podem gerenciar todos os aspectos da carga de trabalho do Microsoft Teams pelo centro de administração do Microsoft Teams e Skype for Business e respectivos módulos do PowerShell. Isso inclui, entre outras áreas, todas as ferramentas de gerenciamento relacionadas a telefonia, mensagens, reuniões e às próprias equipes. Essa função adicionalmente concede a capacidade de criar e gerenciar todos os grupos de Microsoft 365, gerenciar tíquetes de suporte e monitorar a integridade do serviço.
 
 ### <a name="usage-summary-reports-reader"></a>[Leitor de relatórios de Resumo de uso](#usage-summary-reports-reader-permissions)
 
@@ -602,6 +601,16 @@ Pode criar e gerenciar todos os aspectos das campanhas de simulação de ataque.
 > | Microsoft. office365. protectionCenter/attackSimulator/Payload/myproperties/minhas tarefas | Crie e gerencie cargas de ataque no simulador de ataque. |
 > | Microsoft. office365. protectionCenter/attackSimulator/Reports/myproperties/Read | Leia relatórios de simulação de ataque, respostas e treinamento associado. |
 > | Microsoft. office365. protectionCenter/attackSimulator/Simulation/myproperties/minhas tarefas | Crie e gerencie modelos de simulação de ataque no simulador de ataque. |
+
+### <a name="azure-ad-joined-device-local-administrator-permissions"></a>Permissões de administrador local do dispositivo ingressado no Azure AD
+
+Os usuários atribuídos a essa função são adicionados ao grupo Administradores local em dispositivos que ingressaram no Azure AD.
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | microsoft.directory/groupSettings/basic/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
+> | microsoft.directory/groupSettingTemplates/basic/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Permissões de Administrador do Azure DevOps
 
@@ -911,16 +920,6 @@ Pode gerenciar a Análise de Área de Trabalho e os serviços de Personalizaçã
 > | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gerenciar todos os aspectos da Análise de Área de Trabalho. |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-
-### <a name="device-administrators-permissions"></a>Permissões dos Administradores de dispositivo
-
-Os usuários atribuídos a essa função são adicionados ao grupo Administradores local em dispositivos que ingressaram no Azure AD.
-
-> [!div class="mx-tableFixed"]
-> | Ações | Descrição |
-> | --- | --- |
-> | microsoft.directory/groupSettings/basic/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
-> | microsoft.directory/groupSettingTemplates/basic/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
 
 ### <a name="directory-readers-permissions"></a>Permissões de Leitores de diretório
 Pode ler informações básicas do diretório. Para conceder acesso a aplicativos, não destinado a usuários.
@@ -1847,6 +1846,36 @@ Pode gerenciar todos os aspectos do serviço SharePoint.
 > | Microsoft. office365. usageReports/myentities/myproperties/Read | Leia os relatórios de uso do Office 365. |
 > | microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
+### <a name="teams-administrator-permissions"></a>Permissões de administrador de equipes
+
+Pode gerenciar o serviço do Microsoft Teams.
+
+> [!NOTE]
+> Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
+
+
+> [!div class="mx-tableFixed"]
+> | Ações | Descrição |
+> | --- | --- |
+> | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
+> | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
+> | microsoft.directory/groups/hiddenMembers/read | Ler a propriedade hiddenmembers no Azure Active Directory. |
+> | microsoft.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
+> | Microsoft. Directory/groups. Unified/Basic/Update | Atualize as propriedades básicas de grupos de Microsoft 365. |
+> | Microsoft. Directory/groups. Unified/Create | Criar grupos de Microsoft 365. |
+> | Microsoft. Directory/groups. Unified/Delete | Excluir grupos de Microsoft 365. |
+> | Microsoft. Directory/groups. Unified/Members/Update | Atualize a associação de grupos de Microsoft 365. |
+> | Microsoft. Directory/groups. Unified/Owners/Update | Atualizar a propriedade de grupos de Microsoft 365. |
+> | Microsoft. Directory/groups. Unified/Restore | Restaurar grupos de Microsoft 365 |
+> | Microsoft. Directory/servicePrincipalName/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Conceder consentimento para permissões delegadas em nome de um grupo |
+> | microsoft.office365.network/performance/allProperties/read | Ler as páginas de desempenho de rede no Centro de administração do M365. |
+> | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
+> | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerenciar todos os aspectos do Skype for Business Online |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
+> | Microsoft. office365. usageReports/myentities/myproperties/Read | Leia os relatórios de uso do Office 365. |
+> | microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
+> | Microsoft. Teams/myentities/myproperties/mytasks | Gerencie todos os recursos em equipes. |
+
 ### <a name="teams-communications-administrator-permissions"></a>Permissões do Administrador de Comunicações do Teams
 
 Pode gerenciar recursos de reuniões e chamadas no serviço do Microsoft Teams.
@@ -1913,36 +1942,6 @@ Pode executar tarefas relacionadas ao gerenciamento em dispositivos certificados
 > | --- | --- |
 > | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 > | Microsoft. Teams/dispositivos/básico/leitura | Gerencie todos os aspectos de dispositivos certificados para equipes, incluindo políticas de configuração. |
-
-### <a name="teams-service-administrator-permissions"></a>Permissões do Administrador de serviços do Teams
-
-Pode gerenciar o serviço do Microsoft Teams.
-
-> [!NOTE]
-> Essa função tem permissões adicionais fora do Azure Active Directory. Para obter mais informações, consulte a descrição da função acima.
-
-
-> [!div class="mx-tableFixed"]
-> | Ações | Descrição |
-> | --- | --- |
-> | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
-> | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
-> | microsoft.directory/groups/hiddenMembers/read | Ler a propriedade hiddenmembers no Azure Active Directory. |
-> | microsoft.directory/groups/unified/appRoleAssignments/update | Atualize a propriedade groups.unified no Active Directory do Azure. |
-> | Microsoft. Directory/groups. Unified/Basic/Update | Atualize as propriedades básicas de grupos de Microsoft 365. |
-> | Microsoft. Directory/groups. Unified/Create | Criar grupos de Microsoft 365. |
-> | Microsoft. Directory/groups. Unified/Delete | Excluir grupos de Microsoft 365. |
-> | Microsoft. Directory/groups. Unified/Members/Update | Atualize a associação de grupos de Microsoft 365. |
-> | Microsoft. Directory/groups. Unified/Owners/Update | Atualizar a propriedade de grupos de Microsoft 365. |
-> | Microsoft. Directory/groups. Unified/Restore | Restaurar grupos de Microsoft 365 |
-> | Microsoft. Directory/servicePrincipalName/managePermissionGrantsForGroup. Microsoft-All-Application-Permissions | Conceder consentimento para permissões delegadas em nome de um grupo |
-> | microsoft.office365.network/performance/allProperties/read | Ler as páginas de desempenho de rede no Centro de administração do M365. |
-> | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
-> | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerenciar todos os aspectos do Skype for Business Online |
-> | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-> | Microsoft. office365. usageReports/myentities/myproperties/Read | Leia os relatórios de uso do Office 365. |
-> | microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
-> | Microsoft. Teams/myentities/myproperties/mytasks | Gerencie todos os recursos em equipes. |
 
 ### <a name="usage-summary-reports-reader-permissions"></a>Relatórios de Resumo de uso permissões de leitor
 Pode ver apenas agregações de nível de locatário na análise de uso M365 e pontuação de produtividade.
@@ -2027,7 +2026,7 @@ Administrador do Exchange | Administrador do Exchange | 29232cdf-9323-42fd-ade2-
 Administrador de Fluxo do Usuário de ID Externa | Administrador de Fluxo do Usuário de ID Externa | 6e591065-9bad-43ed-90f3-e9424366d2f0
 Administrador de Atributo de fluxo do usuário de ID Externa | Administrador de Atributo de fluxo do usuário de ID Externa | 0f971eea-41eb-4569-a71e-57bb8a3eff1e
 Administrador do Provedor de Identidade Externa | Administrador do Provedor de Identidade Externa | be2f45a1-457d-42af-a067-6ec1fa63bc45
-Administrador global | Administrador global | 62e90394-69f5-4237-9190-012177145e10
+Administrador Global | Administrador global | 62e90394-69f5-4237-9190-012177145e10
 Leitor Global | Leitor global | f2ef992c-3afb-46b9-b7cf-a126ee74c451
 Administrador de Grupos | Administrador de grupos | fdd7a751-b60b-444a-984c-02652fe8fa1c 
 Emissor do Convite ao Convidado | Emissor do convite ao convidado | 95e79109-95c0-4d8e-aee3-d01accf2d47b
@@ -2061,11 +2060,11 @@ Leitor de segurança | Leitor de segurança | 5d6b6bb7-de71-4623-b4af-96380a3525
 Administrador de suporte a serviço | Administrador de suporte a serviço | f023fd81-a637-4b56-95fd-791ac0226033
 Administrador do SharePoint | Administrador do SharePoint | f28a1f50-f6e7-4571-818b-6a12f2af6b6c
 Administrador do Skype for Business | Administrador do Skype for Business | 75941009-915a-4869-abe7-691bff18279e
+Administrador de equipes | Administrador de equipes | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Administrador de Comunicações do Teams | Administrador de Comunicações do Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Engenheiro de Suporte de Comunicações do Teams | Engenheiro de Suporte de Comunicações do Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Especialista em Suporte de Comunicações do Teams | Especialista em Suporte de Comunicações do Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
 Administrador de dispositivos do Teams | Administrador de dispositivos do Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
-Administrador de Serviços do Teams | Administrador de Serviços do Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Leitor de relatórios de Resumo de uso | Leitor de relatórios de Resumo de uso | 75934031-6c7e-415a-99d7-48dbd49e875e
 Usuário | Não exibido porque não pode ser usado | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Administrador de usuários | Administrador de usuários | fe930be7-5e62-47db-91af-98c3a49a38b1
@@ -2110,7 +2109,6 @@ Administrador de autenticação | &nbsp; | &nbsp; | :heavy_check_mark: | &nbsp; 
 Leitores de Diretório | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Administrador global | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:\*
 Administrador de grupos | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Convidado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Emissor do Convite ao Convidado | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Administrador de assistência técnica | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Leitor do Centro de Mensagens | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
@@ -2118,7 +2116,6 @@ Administrador de senha | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_
 Administrador de autenticação privilegiada | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Administrador de função com privilégios | &nbsp; | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark:
 Leitor de Relatórios | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
-Convidado restrito | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Usuário (sem função de administrador) | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Usuário Administrador | &nbsp; | &nbsp; | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:
 Leitor de relatórios de Resumo de uso | &nbsp; | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:

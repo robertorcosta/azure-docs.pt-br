@@ -3,12 +3,12 @@ title: Fazer backup e recuperar VMs do Azure com o PowerShell
 description: Descreve como fazer backup e recuperar VMs do Azure usando o backup do Azure com o PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 90bb6f60712fc59aec05ff2e85364fccf00ff1df
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 66b8fe0109a4dd2e054106b67f893def2ee596b0
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98804787"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095076"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Fazer backup e restaurar VMs do Azure com o PowerShell
 
@@ -526,6 +526,53 @@ Um usuário pode restaurar seletivamente alguns discos em vez do conjunto de bac
 > Uma delas tem que fazer backup de discos seletivamente para restaurar discos seletivamente. Mais detalhes são fornecidos [aqui](selective-disk-backup-restore.md#selective-disk-restore).
 
 Depois de restaurar os discos, vá para a próxima seção para criar a VM.
+
+#### <a name="restore-disks-to-a-secondary-region"></a>Restaurar discos para uma região secundária
+
+Se a restauração entre regiões estiver habilitada no cofre com o qual você protegeu suas VMs, os dados de backup serão replicados para a região secundária. Você pode usar os dados de backup para executar uma restauração. Execute as seguintes etapas para disparar uma restauração na região secundária:
+
+1. [Busque a ID do cofre](#fetch-the-vault-id) com a qual suas VMs estão protegidas.
+1. Selecione o [item de backup correto a ser restaurado](#select-the-vm-when-restoring-files).
+1. Selecione o ponto de recuperação apropriado na região secundária que você deseja usar para executar a restauração.
+
+    Para concluir esta etapa, execute este comando:
+
+    ```powershell
+    $rp=Get-AzRecoveryServicesBackupRecoveryPoint -UseSecondaryRegion -Item $backupitem -VaultId $targetVault.ID
+    $rp=$rp[0]
+    ```
+
+1. Execute o cmdlet [Restore-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem) com o `-RestoreToSecondaryRegion` parâmetro para disparar uma restauração na região secundária.
+
+    Para concluir esta etapa, execute este comando:
+
+    ```powershell
+    $restorejob = Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks" -VaultId $targetVault.ID -VaultLocation $targetVault.Location -RestoreToSecondaryRegion -RestoreOnlyOSDisk
+    ```
+
+    A saída será semelhante ao exemplo seguinte:
+
+    ```output
+    WorkloadName     Operation             Status              StartTime                 EndTime          JobID
+    ------------     ---------             ------              ---------                 -------          ----------
+    V2VM             CrossRegionRestore   InProgress           4/23/2016 5:00:30 PM                       cf4b3ef5-2fac-4c8e-a215-d2eba4124f27
+    ```
+
+1. Execute o cmdlet [Get-AzRecoveryServicesBackupJob](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob) com o `-UseSecondaryRegion` parâmetro para monitorar o trabalho de restauração.
+
+    Para concluir esta etapa, execute este comando:
+
+    ```powershell
+    Get-AzRecoveryServicesBackupJob -From (Get-Date).AddDays(-7).ToUniversalTime() -To (Get-Date).ToUniversalTime() -UseSecondaryRegion -VaultId $targetVault.ID
+    ```
+
+    A saída será semelhante ao exemplo seguinte:
+
+    ```output
+    WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+    ------------     ---------            ------               ---------                 -------                   -----
+    V2VM             CrossRegionRestore   InProgress           2/8/2021 4:24:57 PM                                 2d071b07-8f7c-4368-bc39-98c7fb2983f7
+    ```
 
 ## <a name="replace-disks-in-azure-vm"></a>Substituir discos na VM do Azure
 

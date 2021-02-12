@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 31ca126c75d5c2e3fa7fd91f3398202fad418183
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 969ca74d628da2bf91e0a7c091c9792f2676fb71
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555608"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095674"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -98,7 +98,7 @@ Veja a lista a seguir para usar uma identidade gerenciada com o [Azure Blueprint
 - [API REST – atribuição de blueprint](../../governance/blueprints/create-blueprint-rest-api.md#assign-a-blueprint)
 
 
-### <a name="azure-cognitive-search"></a>Azure Cognitive Search
+### <a name="azure-cognitive-search"></a>Pesquisa Cognitiva do Azure
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
@@ -221,7 +221,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Fa
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Atribuído pelo sistema | Disponível na região em que o serviço de exportação de importação do Azure está disponível | Versão Prévia | Disponível | Disponível |
+| Atribuído pelo sistema | Disponível na região em que o serviço de exportação de importação do Azure está disponível | Visualizar | Disponível | Disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 ### <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
@@ -252,7 +252,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Aplicativos L
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Versão Prévia | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo sistema | Visualizar | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Visualização | Não disponível | Não disponível | Não disponível |
 
 Para obter mais informações, consulte [usar identidades gerenciadas com Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).
@@ -355,6 +355,17 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 Consulte a lista a seguir para configurar a identidade gerenciada para o serviço de Signaler do Azure (em regiões onde estiver disponível):
 
 - [Modelo do Azure Resource Manager](../../azure-signalr/howto-use-managed-identity.md)
+
+### <a name="azure-resource-mover"></a>Azure Resource Mover
+
+Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
+| --- | :-: | :-: | :-: | :-: |
+| Atribuído pelo sistema | Disponível nas regiões em que o serviço do Azure Resource mover está disponível | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
+
+Consulte o documento a seguir para usar o Azure Resource mover:
+
+- [Azure Resource Mover](../../resource-mover/overview.md)
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Serviços do Azure que suportam a autenticação do Azure AD
 
