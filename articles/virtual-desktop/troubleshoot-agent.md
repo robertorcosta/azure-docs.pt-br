@@ -6,19 +6,19 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 8e3c372cb186d3043e89b0b084a86b7be128146d
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475245"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099941"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solucionar problemas comuns do agente de área de trabalho virtual do Windows
 
 O agente de área de trabalho virtual do Windows pode causar problemas de conexão devido a vários fatores:
    - Um erro no agente que faz o agente parar o serviço.
    - Problemas com atualizações.
-   - Problemas com a instalação do durante a instalação do agente, o que interrompe a conexão com o host da sessão.
+   - Problemas de instalação durante a instalação do agente, o que interrompe a conexão com o host da sessão.
 
 Este artigo guiará você pelas soluções para esses cenários comuns e como abordar problemas de conexão.
 
@@ -125,7 +125,7 @@ Para desabilitar uma política:
 3. Na janela **conjunto de políticas resultante** que aparece, vá para o caminho da categoria.
 4. Selecione a política.
 5. Selecione **Desabilitado**.
-6. Escolha **Aplicar**.   
+6. Selecione **Aplicar**.   
 
    > [!div class="mx-imgBorder"]
    > ![Captura de tela da política de Windows Installer no conjunto de políticas resultante](media/gpo-policy.png)
@@ -147,7 +147,7 @@ Para desabilitar uma política:
 3. Na janela **conjunto de políticas resultante** que aparece, vá para o caminho da categoria.
 4. Selecione a política.
 5. Selecione **Desabilitado**.
-6. Escolha **Aplicar**.   
+6. Selecione **Aplicar**.   
 
 ## <a name="error-stack-listener-isnt-working-on-windows-10-2004-vm"></a>Erro: o ouvinte de pilha não está funcionando na VM do Windows 10 2004
 
@@ -184,7 +184,7 @@ Para resolver esse problema, altere o limite de pulsação:
 1. Abra o prompt de comando como administrador.
 2. Insira o comando **Qwinsta** e execute-o.
 3. Deve haver dois componentes de pilha exibidos: **RDP-TCP** e **RDP-SxS**. 
-   - Dependendo da versão do sistema operacional que você está usando, o **RDP-SxS** pode ser seguido pelo número da versão, conforme mostrado na captura de tela a seguir. Se for, certifique-se de gravar esse número para mais tarde.
+   - Dependendo da versão do sistema operacional que você está usando, o **RDP-SxS** pode ser seguido pelo número da compilação. Se for, certifique-se de gravar esse número para mais tarde.
 4. Abra o Editor do Registro.
 5. Vá para **HKEY_LOCAL_MACHINE**  >  controle CurrentControlSet do **sistema**  >    >    >  **Terminal Server**  >  **WinStations**.
 6. Em **WinStations** , você pode ver várias pastas para diferentes versões de pilha. Selecione a pasta que corresponde ao número de versão da etapa 3.
@@ -207,7 +207,7 @@ Para resolver esse problema, libere espaço em seu disco:
 Abra uma janela do PowerShell como administrador e execute o seguinte cmdlet:
 
 ```powershell
-Get-AzWvdSessionHost -TenantName <tenantname> -HostPoolName <hostpoolname>|Select-Object *
+Get-AzWvdSessionHost -ResourceGroupName <resourcegroupname> -HostPoolName <hostpoolname> | Select-Object *
 ```
 
 Se o status listado para o host de sessão ou hosts em seu pool de hosts sempre diz não **disponível** ou **atualizando**, a instalação do agente ou da pilha pode ter falhado
