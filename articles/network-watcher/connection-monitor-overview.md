@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: 0fa5e09dbe7c0a8cd45557d535353ea4a0a00b16
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: ccc2b6baba0e97320a5352013dbecfc121188457
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833092"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361019"
 ---
 # <a name="network-connectivity-monitoring-with-connection-monitor"></a>Monitoramento de conectividade de rede com o monitor de conexão
 
@@ -74,11 +74,24 @@ As regras para um grupo de segurança de rede (NSG) ou firewall podem bloquear a
 
 ### <a name="agents-for-on-premises-machines"></a>Agentes para computadores locais
 
-Para fazer com que o monitor de conexão reconheça seus computadores locais como fontes de monitoramento, instale o agente de Log Analytics nos computadores. Em seguida, habilite a solução Monitor de Desempenho de Rede. Esses agentes são vinculados a espaços de trabalho do Log Analytics, portanto, você precisa configurar a ID do espaço de trabalho e a chave primária antes que os agentes possam iniciar o monitoramento.
+Para fazer com que o monitor de conexão reconheça seus computadores locais como fontes de monitoramento, instale o agente de Log Analytics nos computadores.  Em seguida, habilite a solução Monitor de Desempenho de Rede. Esses agentes são vinculados a espaços de trabalho do Log Analytics, portanto, você precisa configurar a ID do espaço de trabalho e a chave primária antes que os agentes possam iniciar o monitoramento.
 
 Para instalar o agente de Log Analytics para computadores Windows, consulte [Azure monitor extensão de máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md).
 
 Se o caminho incluir firewalls ou NVAs (soluções de virtualização de rede), verifique se o destino está acessível.
+
+Para computadores Windows, para abrir a porta, execute o script [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell sem parâmetros em uma janela do PowerShell com privilégios administrativos.
+
+Para computadores Linux, as portNumbers a serem usadas precisam ser alteradas manualmente. 
+* Navegue até o caminho:/var/opt/Microsoft/omsagent/npm_state. 
+* Abrir arquivo: npmdregistry
+* Alterar o valor do número da porta ```“PortNumber:<port of your choice>”```
+
+ Observe que os números de porta que estão sendo usados devem ser iguais em todos os agentes usados em um espaço de trabalho. 
+
+O script cria chaves do registro necessárias pela solução. Ele também cria regras de Firewall do Windows para permitir que os agentes criem conexões TCP entre si. As chaves do Registro criadas pelo script especificam se é preciso registrar os logs de depuração e o caminho para o arquivo de logs. O script também define a porta TCP de agente usada para comunicação. Os valores para essas chaves são definidos automaticamente pelo script. Não altere manualmente essas chaves. A porta aberta por padrão é 8084. Você pode usar uma porta personalizada fornecendo o parâmetro portNumber para o script. Use a mesma em todos os computadores em que o script é executado. [Leia mais](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#network-requirements) sobre os requisitos de rede para agentes de log Analytics
+
+O script configura apenas o firewall do windows localmente. Se tiver um firewall de rede, certifique-se que ele permite o tráfego destinado à porta TCP usada pelo Monitor de Desempenho de Rede.
 
 ## <a name="enable-network-watcher-on-your-subscription"></a>Habilitar o observador de rede em sua assinatura
 

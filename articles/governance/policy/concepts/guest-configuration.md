@@ -3,12 +3,12 @@ title: Aprenda a auditar o conteúdo de máquinas virtuais
 description: Saiba como Azure Policy usa o cliente de configuração de convidado para auditar as configurações nas máquinas virtuais.
 ms.date: 01/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: c141169545379f1ac0dd18a97e85652f97b90e6f
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 5d1503680ea2ca7d0ff7c8adae19c05abfe441c0
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98210113"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104800"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Entender a Configuração de Convidado do Azure Policy
 
@@ -142,11 +142,15 @@ Ao atribuir definições que começam com _Configurar_, você também deve atrib
 
 As definições de política de auditoria disponíveis para a configuração de convidado incluem o tipo de recurso **Microsoft. HybridCompute/Machines** . Todos os computadores integrados ao [Azure Arc para servidores](../../../azure-arc/servers/overview.md) que estão no escopo da atribuição de política são incluídos automaticamente.
 
+## <a name="troubleshooting-guest-configuration"></a>Solucionando problemas de configuração de convidado
+
+Para obter mais informações sobre como solucionar problemas de configuração de convidado, consulte [Azure Policy solução de problemas](../troubleshoot/general.md).
+
 ### <a name="multiple-assignments"></a>Atribuições múltiplas
 
 Atualmente, as definições de política de configuração de convidado só dão suporte à atribuição de atribuições de convidado uma vez por máquina, mesmo que a atribuição de política use parâmetros diferentes.
 
-## <a name="client-log-files"></a>Arquivos de log do cliente
+### <a name="client-log-files"></a>Arquivos de log do cliente
 
 A extensão de Configuração de Convidado grava arquivos de log nos seguintes locais:
 
@@ -180,6 +184,15 @@ linesToIncludeAfterMatch=10
 logPath=/var/lib/GuestConfig/gc_agent_logs/gc_agent.log
 egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCManagedEngine' $logPath | tail
 ```
+
+### <a name="client-files"></a>Arquivos do cliente
+
+O cliente de configuração de convidado baixa pacotes de conteúdo em um computador e extrai o conteúdo.
+Para verificar qual conteúdo foi baixado e armazenado, exiba os locais de pasta fornecidos abaixo.
+
+Windows: `c:\programdata\guestconfig\configurations`
+
+Linux: `/var/lib/guestconfig/configurations`
 
 ## <a name="guest-configuration-samples"></a>Exemplos de Configuração de Convidado
 
