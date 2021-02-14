@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: ca60c44d1e167367e2c138af1e7bfd4ba1a69417
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a3c8c8b2316a206ba837c0b32fd699dc0ed1eeea
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710066"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519381"
 ---
 # <a name="compute-and-storage-options-in-azure-database-for-postgresql---flexible-server"></a>Opções de computação e armazenamento no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -89,7 +89,7 @@ Observe que o IOPS também é restrito por seu tipo de VM. Embora você possa se
 Você pode adicionar mais capacidade de armazenamento durante e após a criação do servidor.
 
 >[!NOTE]
-> O armazenamento só pode ser escalado verticalmente, não inativo.
+> O armazenamento só pode ser escalado verticalmente, não horizontalmente.
 
 Você pode monitorar o consumo de E/S no Portal do Azure ou usando os comandos da CLI do Azure. As métricas relevantes para monitorar são o [limite de armazenamento, a porcentagem de armazenamento, o armazenamento usado e a porcentagem de e/s](concepts-monitoring.md).
 
@@ -151,7 +151,10 @@ Quando marcado com uma \* , a largura de banda de e/s é limitada pelo tipo de V
 
 Quando você atingir o limite de armazenamento, o servidor começará a retornar erros e evitará outras modificações. Isso também pode causar problemas com outras atividades operacionais, como backups e WAL Archiving.
 
+Para evitar essa situação, quando a utilização de armazenamento atingir 95% ou se a capacidade disponível for inferior a 5 GiB, o servidor será alternado automaticamente para o **modo somente leitura**.
+
 É recomendável monitorar ativamente o espaço em disco que está em uso e aumentar o tamanho do disco antes de qualquer situação de armazenamento insuficiente. Você pode configurar um alerta para notificá-lo quando o armazenamento do servidor estiver se aproximando do disco para que você possa evitar problemas com a execução de disco insuficiente. Para mais informações, consulte a documentação em [como configurar um alerta](howto-alert-on-metrics.md).
+
 
 ### <a name="storage-auto-grow"></a>Crescimento automático do armazenamento
 

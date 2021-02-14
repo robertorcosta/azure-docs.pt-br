@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: e4d25b5ec50346c7a2ecabff835209218d1a3b63
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100093396"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100518684"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurar destinos de computação para treinamento e implantação do modelo
 
@@ -225,7 +225,7 @@ Para anexar o Azure Databricks como um destino de computação, forneça as segu
 
 * __Nome de computação do databricks__: o nome que você deseja atribuir a esse recurso de computação.
 * __Nome do espaço de trabalho do databricks__: o nome do espaço de trabalho Azure Databricks.
-* __Token de acesso do databricks__: o token de acesso usado para autenticar para Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](https://docs.azuredatabricks.net/dev-tools/api/latest/authentication.html).
+* __Token de acesso do databricks__: o token de acesso usado para autenticar para Azure Databricks. Para gerar um token de acesso, consulte o documento [Autenticação](/azure/databricks/dev-tools/api/latest/authentication).
 
 O código a seguir demonstra como anexar Azure Databricks como um destino de computação com o SDK do Azure Machine Learning (__o espaço de trabalho do databricks precisa estar presente na mesma assinatura que o seu espaço de trabalho AML__):
 

@@ -1,24 +1,20 @@
 ---
 title: Rede virtual gerenciada & pontos de extremidade privados gerenciados
 description: Saiba mais sobre a rede virtual gerenciada e pontos de extremidade privados gerenciados em Azure Data Factory.
-services: data-factory
 ms.author: abnarain
 author: nabhishek
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 81d82bccd6b6bd97b84df5269dd59ffac4903370
-ms.sourcegitcommit: f311f112c9ca711d88a096bed43040fcdad24433
+ms.openlocfilehash: d950b05dd34788c2c5ef0b34b8ec8ac0b20ad4b6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94980347"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379566"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Azure Data Factory rede virtual gerenciada (versão prévia)
 
@@ -51,7 +47,7 @@ Pontos de extremidade privados gerenciados são pontos de extremidade privados c
 
 ![Novo ponto de extremidade privado gerenciado](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics (anteriormente SQL Data Warehouse)).
+Azure Data Factory dá suporte a links privados. O link privado permite que você acesse os serviços do Azure (PaaS) (como o armazenamento do Azure, Azure Cosmos DB, Azure Synapse Analytics).
 
 Quando você usa um link privado, o tráfego entre os armazenamentos de dados e a rede virtual gerenciada atravessa totalmente a rede de backbone da Microsoft. O Link Privado protege contra riscos de exfiltração dos dados. Você estabelece um link privado para um recurso criando um ponto de extremidade privado.
 
@@ -86,7 +82,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - Arquivos do Azure
 - Azure Data Lake Gen2
 - Banco de dados SQL do Azure (sem incluir o Azure SQL Instância Gerenciada)
-- Azure Synapse Analytics (antigo SQL Data Warehouse)
+- Azure Synapse Analytics
 - SQL CosmosDB do Azure
 - Cofre de Chave do Azure
 - Serviço de vínculo privado do Azure
@@ -115,7 +111,7 @@ As fontes de dados a seguir têm suporte para se conectar por meio do link priva
 - O armazenamento do Azure e o Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada por ADF.
 
 ### <a name="linked-service-creation-of-azure-key-vault"></a>Criação de serviço vinculado de Azure Key Vault 
-- Quando você cria um serviço vinculado para Azure Key Vault, não há nenhuma referência de Azure Integration Runtime. Portanto, você não pode criar um ponto de extremidade privado durante a criação de serviço vinculado do Azure Key Vault. Mas quando você cria um serviço vinculado para armazenamentos de dados que referencia Azure Key Vault serviço vinculado e esse serviço vinculado faz Azure Integration Runtime com a rede virtual gerenciada habilitada, você pode criar um ponto de extremidade privado para o serviço vinculado Azure Key Vault durante a criação. 
+- Quando você cria um Serviço Vinculado para Azure Key Vault, não há referências do Azure Integration Runtime. Portanto, você não pode criar um ponto de extremidade privado durante a criação de serviço vinculado do Azure Key Vault. Mas quando você cria um serviço vinculado para armazenamentos de dados que referencia Azure Key Vault serviço vinculado e esse serviço vinculado faz Azure Integration Runtime com a rede virtual gerenciada habilitada, você pode criar um ponto de extremidade privado para o serviço vinculado Azure Key Vault durante a criação. 
 - **Testar** a operação de conexão para o serviço vinculado do Azure Key Vault valida apenas o formato da URL, mas não faz nenhuma operação de rede.
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/13/2020
-ms.openlocfilehash: 651e0635f0b556cd47adfccdbac59ef587570128
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2caa09d41abb1842100ed8259e82ec411390ccb
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91535722"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520622"
 ---
 # <a name="ranking-algorithm-in-azure-cognitive-search"></a>Algoritmo de classificação no Azure Pesquisa Cognitiva
 
@@ -32,7 +32,7 @@ Embora seja conceitualmente semelhante ao algoritmo de similaridade clássico ma
 
 Ao criar um novo índice, você pode definir uma propriedade de **similaridade** para especificar o algoritmo. Você pode usar o `api-version=2019-05-06-Preview` , conforme mostrado abaixo, ou `api-version=2020-06-30` .
 
-```
+```http
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=2019-05-06-Preview
 ```
 
@@ -103,9 +103,9 @@ O algoritmo de similaridade só pode ser definido no momento da criação do ín
 PUT https://[search service name].search.windows.net/indexes/[index name]?api-version=[api-version]&allowIndexDowntime=true
 ```
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Consulte também  
 
-+ [Referência da API REST](/rest/api/searchservice/)
++ [referência da API REST](/rest/api/searchservice/)
 + [Adicionar perfis de pontuação ao índice](index-add-scoring-profiles.md)
 + [Criar API de índice](/rest/api/searchservice/create-index)
 + [SDK do .NET do Azure Cognitive Search](/dotnet/api/overview/azure/search)

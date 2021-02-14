@@ -4,19 +4,18 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Estruturas e ferramentas de aprendizado profundo disponíveis no Azure Máquina Virtual de Ciência de Dados.
 keywords: ferramentas de ciência de dados, máquina virtual de ciência de dados, ferramentas para ciência de dados, ciência de dados do linux
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 ms.custom: devx-track-python
 author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 3c720e2b033d07397f3b13c37e1b4e15251b0a17
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309028"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519483"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Estruturas de aprendizado profundo e de ia para o Azure VM de Ciência de Dados
 Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
@@ -110,7 +109,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Edições DSVM com suporte      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | Para que ele serve? | Ferramenta NVIDIA para consultar a atividade da GPU |
 | Como é configurado/instalado no DSVM?  | `nvidia-smi` está no caminho do sistema. |
-| Como executá-lo      | Em uma máquina virtual **com GPU** , abra um prompt de comando (no Windows) ou um terminal (no Linux) e, em seguida, execute `nvidia-smi` . |
+| Como executá-lo      | Em uma máquina virtual **com GPU**, abra um prompt de comando (no Windows) ou um terminal (no Linux) e, em seguida, execute `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +145,5 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | ------------- | ------------- |
 | Versão (ões) com suporte | 1.0.3 |
 | Edições DSVM com suporte      | Ubuntu 16.04 |
-| Como é configurado/instalado no DSVM?  |O Theano é instalado no Python 2,7 ( _raiz_ ) e no ambiente Python 3,5 ( _py35_ ). |
+| Como é configurado/instalado no DSVM?  |O Theano é instalado no Python 2,7 (_raiz_) e no ambiente Python 3,5 (_py35_). |
 | Como executá-lo      |  Terminal: Ative a versão do Python que você deseja (raiz ou py35), execute o Python e, em seguida, importe o Theano.<br/>* Jupyter: selecione o kernel Python 2,7 ou 3,5 e importe Theano.  <br/>Para contornar um bug recente da MKL (biblioteca de kernel matemática), primeiro você precisa definir a camada de Threading do MKL da seguinte maneira:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

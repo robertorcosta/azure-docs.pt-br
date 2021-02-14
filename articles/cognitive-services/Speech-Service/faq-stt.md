@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 61768991fc4e72b44568bd92278427e6af398d52
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 21924ad5da8833ca5cf8373270ed1bfd3facfdc9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226549"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388610"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -140,7 +140,7 @@ Consulte [cotas e limites de serviços de fala](speech-services-quotas-and-limit
 
 Para obter resultados mais rápidos, use uma das [regiões](custom-speech-overview.md#set-up-your-azure-account) em que o hardware dedicado está disponível para treinamento. Em geral, o serviço processa aproximadamente 10 horas de dados de áudio por dia em regiões com tal hardware. Ele só pode processar cerca de 1 hora de dados de áudio por dia em outras regiões. Você pode copiar o modelo totalmente treinado para outra região usando a [API REST](https://centralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CopyModelToSubscription). O treinamento com apenas texto é muito mais rápido e geralmente termina em minutos.
 
-Alguns modelos de base não podem ser personalizados com dados de áudio. Para eles, o serviço usará apenas o texto da transcrição para treinamento e ignorará os dados de áudio. O treinamento será concluído com muito mais rapidez e os resultados serão os mesmos que o treinamento com apenas texto.
+Alguns modelos de base não podem ser personalizados com dados de áudio. Para eles, o serviço usará apenas o texto da transcrição para treinamento e ignorará os dados de áudio. O treinamento será concluído com muito mais rapidez e os resultados serão os mesmos que o treinamento com apenas texto. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio.
 
 ## <a name="accuracy-testing"></a>Teste de precisão
 
