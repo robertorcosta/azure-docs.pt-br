@@ -2,13 +2,13 @@
 title: Métricas do Barramento de Serviço no Azure Monitor | Microsoft Docs
 description: Este artigo explica como usar o Azure Monitor para monitorar entidades do barramento de Serviço (filas, tópicos e assinaturas).
 ms.topic: article
-ms.date: 11/18/2020
-ms.openlocfilehash: 1f8bd9484bf2a2106818da1d6e4ef21e937d2ac3
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.date: 02/12/2021
+ms.openlocfilehash: fa242b4d8c8a6ce83801667e686864f858f8a000
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916875"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100519092"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Métricas do Barramento de Serviço do Azure no Azure Monitor
 
@@ -74,7 +74,7 @@ Os dois tipos de erros a seguir são classificados como erros do usuário:
 
 | Nome da métrica | Descrição |
 | ------------------- | ----------------- |
-|Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
+|Mensagens de entrada|O número de eventos ou mensagens enviadas para o Barramento de Serviço durante um período específico. Essa métrica não inclui mensagens que são encaminhadas automaticamente.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 |Mensagens de saída|O número de eventos ou mensagens recebidas do Barramento de Serviço durante um período específico.<br/><br/> Unidade: Contagem <br/> Tipo de agregação: Total <br/> Dimensão: nome da entidade|
 | Mensagens| Contagem de mensagens em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: nome da entidade |
 | Mensagens ativas| Contagem de mensagens ativas em uma fila/tópico. <br/><br/> Unidade: Contagem <br/> Tipo de agregação: Média <br/> Dimensão: nome da entidade |

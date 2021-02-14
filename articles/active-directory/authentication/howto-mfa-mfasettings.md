@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 209125a5cc8d86c1af07966d52681aa91ea7dc19
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 584266a8f6aa82d8a47b5e3faff044acf0ef298c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97026992"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100361614"
 ---
 # <a name="configure-azure-ad-multi-factor-authentication-settings"></a>Definir as configurações de autenticação multifator do Azure AD
 
@@ -65,9 +65,7 @@ Para bloquear um usuário, conclua as seguintes etapas:
 
 1. Navegue até **Azure Active Directory** > **Segurança** > **MFA** > **Bloquear/desbloquear usuários**.
 1. Selecione **Adicionar** para bloquear um usuário.
-1. Selecione o **grupo de replicação** e escolha *padrão do Azure*.
-
-    Insira o nome de usuário como `username\@domain.com` , em seguida, forneça um comentário no campo *motivo* .
+1. Insira o nome de usuário como `username@domain.com` , em seguida, forneça um comentário no campo *motivo* .
 1. Quando estiver pronto, selecione **OK** para bloquear o usuário.
 
 ### <a name="unblock-a-user"></a>Desbloquear um usuário
@@ -244,7 +242,7 @@ Se sua organização implantar a extensão NPS para fornecer MFA a aplicativos l
 
 | Tipo de locatário do Azure AD | Opções de recurso de IP confiável |
 |:--- |:--- |
-| Gerenciado |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
+| Gerenciados |**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. Podem ser configurados no máximo 50 intervalos de IP confiáveis.|
 | Federado |**Todos os usuários federados**: todos os usuários federados que entram de dentro da organização podem ignorar a autenticação multifator. Os usuários ignoram a verificação usando uma declaração que é emitida pelos Serviços de Federação do Active Directory (AD FS).<br/>**Intervalo específico de endereços IP**: os administradores especificam um intervalo de endereços IP que podem ignorar a autenticação multifator para usuários que entram na intranet da empresa. |
 
 O bypass de IP confiável funciona somente de dentro da intranet da empresa. Se você selecionar a opção **todos os usuários federados** e um usuário entrar de fora da intranet da empresa, o usuário precisará se autenticar usando a autenticação multifator. O processo será o mesmo, ainda que o usuário apresente uma declaração do AD FS.

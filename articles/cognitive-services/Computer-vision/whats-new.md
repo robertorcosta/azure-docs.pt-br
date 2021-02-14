@@ -10,16 +10,32 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: f10319de67a105b4b5e4641c4171ccd0a6e63440
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
+ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99490870"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "100007390"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
 Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para se manter atualizado quanto ao serviço.
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versão Prévia Pública da API de Leitura v3.2 com suporte de OCR para 73 idiomas
+A versão prévia pública da API de Leitura v3.2 da Pesquisa Visual Computacional, disponível como serviço de nuvem e contêiner do Docker, inclui estas atualizações:
+* [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) incluindo idiomas latinos, chinês simplificado e tradicional, japonês e coreano.
+* Ordem de leitura natural para a saída da linha de texto.
+* Classificação de estilo manuscrito para linhas de texto juntamente com uma pontuação de confiança (somente em idiomas latinos).
+* Extraia o texto somente das páginas selecionadas de um documento de várias páginas.
+* Disponível como um [contêiner distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para implantação local.
+
+[Saiba mais](concept-recognizing-text.md) sobre a API de Leitura.
+
+> [!div class="nextstepaction"]
+> [Use a Versão Prévia Pública da API de Leitura v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

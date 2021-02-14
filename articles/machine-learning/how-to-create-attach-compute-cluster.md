@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 0d1cbb8efe0882f48a345d44a650eb711a44d570
-ms.sourcegitcommit: 44844a49afe8ed824a6812346f5bad8bc5455030
+ms.openlocfilehash: f9b970f498db7530b35c57a75edeae55dec3f22d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97739178"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098836"
 ---
 # <a name="create-an-azure-machine-learning-compute-cluster"></a>Criar um cluster de computação do Azure Machine Learning
 
@@ -100,7 +100,7 @@ Para obter informações sobre como criar um cluster de computação no estúdio
 
  ## <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Reduzir o custo do cluster de computação
 
-Você também pode optar por usar [VMs de baixa prioridade](concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Essas VMs não têm disponibilidade garantida e podem ser substituídas enquanto estiverem em uso. Um trabalho admitido é reiniciado, não retomado. 
+Você também pode optar por usar [VMs de baixa prioridade](concept-plan-manage-cost.md#low-pri-vm) para executar algumas ou todas as suas cargas de trabalho. Essas VMs não têm disponibilidade garantida e podem ser substituídas enquanto estiverem em uso. Você precisará reiniciar um trabalho admitido. 
 
 Use qualquer uma dessas maneiras para especificar uma VM de baixa prioridade:
     
@@ -177,7 +177,7 @@ No estúdio, escolha **baixa prioridade** ao criar uma VM.
 
 * Criar um novo cluster de computação gerenciado com identidade gerenciada
 
-  * Identidade gerenciada atribuída ao usuário
+  * Identidade gerenciada atribuída pelo usuário
 
     ```azurecli
     az ml computetarget create amlcompute --name cpu-cluster --vm-size Standard_NC6 --max-nodes 5 --assign-identity '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
@@ -190,7 +190,7 @@ No estúdio, escolha **baixa prioridade** ao criar uma VM.
     ```
 * Adicione uma identidade gerenciada a um cluster existente:
 
-    * Identidade gerenciada atribuída ao usuário
+    * Identidade gerenciada atribuída pelo usuário
         ```azurecli
         az ml computetarget amlcompute identity assign --name cpu-cluster '/subscriptions/<subcription_id>/resourcegroups/<resource_group>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<user_assigned_identity>'
         ```

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, devx-track-js
-ms.openlocfilehash: e6bbebafab45080a2076f33d66dd96296a761e4f
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: fc5d9cbd02490748c17a9f40a1440c5ad0c46278
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98754947"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104103"
 ---
 # <a name="migrate-a-javascript-single-page-app-from-implicit-grant-to-auth-code-flow"></a>Migrar um aplicativo de página única do JavaScript da concessão implícita para o fluxo do código de autorização
 
@@ -41,7 +41,7 @@ Se você quiser continuar usando o registro de aplicativo existente para seus ap
 
 Siga estas etapas para os registros de aplicativo que estão configurados atualmente com URIs de redirecionamento da plataforma **Web**:
 
-1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a> e selecione seu locatário do **Azure Active Directory** .
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a> e selecione o locatário do **Azure Active Directory**.
 1. Em **Registros de aplicativo**, selecione seu aplicativo e, em seguida, **Autenticação**.
 1. No bloco da plataforma **Web**, em **URIs de redirecionamento**, selecione a faixa de aviso indicando que você deve migrar seus URIs.
 
