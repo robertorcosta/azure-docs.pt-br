@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: c25f3965775c6518629c92ccc371855d9178e648
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: e4d25b5ec50346c7a2ecabff835209218d1a3b63
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97033707"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093396"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurar destinos de computação para treinamento e implantação do modelo
 
@@ -66,7 +66,7 @@ Ao usar seu computador local para **inferência**, você deve ter o Docker insta
 
 O Azure Machine Learning também dá suporte para que você traga seu próprio recurso de computação e anexe-o ao workspace. Um desses tipos de recursos é uma VM remota arbitrária, desde que seja acessível pelo Azure Machine Learning. O recurso pode ser uma VM do Azure ou um servidor remoto na organização ou no local. Especificamente, fornecido o endereço IP e as credenciais (nome de usuário e senha ou chave SSH), é possível usar qualquer VM acessível para execuções remotas.
 
-Você pode usar um ambiente do Conda interno do sistema, um ambiente do Python já existente ou um contêiner do Docker. Para executar em um contêiner do Docker, você deve ter um mecanismo do Docker em execução na VM. Essa funcionalidade é especialmente útil quando você quer um ambiente de experimentação/desenvolvimento baseado em nuvem mais flexível que seu computador local.
+Você pode usar um [ambiente Conda criado pelo sistema](how-to-use-environments.md), um ambiente de [Python](how-to-configure-environment.md#local)já existente ou um [contêiner do Docker](https://docs.docker.com/engine/install/ubuntu/). Para executar em um contêiner do Docker, você deve ter um mecanismo do Docker em execução na VM. Essa funcionalidade é especialmente útil quando você quer um ambiente de experimentação/desenvolvimento baseado em nuvem mais flexível que seu computador local.
 
 Use o Máquina Virtual de Ciência de Dados do Azure (DSVM) como a VM do Azure escolhida para esse cenário. Essa VM é uma ciência de dados pré-configuradas e o ambiente de desenvolvimento de inteligência artificial do Azure. A VM oferece uma opção selecionada de ferramentas e estruturas para desenvolvimento do aprendizado de máquina de todo o ciclo de vida. Para saber mais sobre como usar a DSVM com o Azure Machine Learning, consulte [Configurar um ambiente de desenvolvimentopara o Azure Machine Learning](./how-to-configure-environment.md#dsvm).
 
@@ -327,7 +327,7 @@ Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotaçõ
 > [!TIP]
 > Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) para copiar os dados antes do treinamento.
 
-## <a name="azure-container-instance"></a><a id="aci"></a>Azure Container Instance
+## <a name="azure-container-instance"></a><a id="aci"></a>Instância de contêiner do Azure
 
 As ACI (instâncias de contêiner do Azure) são criadas dinamicamente quando você implanta um modelo. Não é possível criar ou anexar ACI ao seu espaço de trabalho de nenhuma outra maneira. Para obter mais informações, consulte [implantar um modelo para instâncias de contêiner do Azure](how-to-deploy-azure-container-instance.md).
 

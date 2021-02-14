@@ -7,12 +7,12 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 655a146ccde9c75629d0a991a6a3aafa91f40764
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 18be0f7d1bd8622735f24bf20161d652846112f7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98233960"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373412"
 ---
 # <a name="enable-azure-monitor-for-vms-overview"></a>Visão geral de Habilitar o Azure Monitor para VMs
 
@@ -66,7 +66,7 @@ Consulte a seguinte lista de considerações sobre o suporte do Linux do agente 
 ## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
 Azure Monitor para VMs requer um espaço de trabalho Log Analytics. Consulte [Configurar espaço de trabalho log Analytics para Azure monitor para VMs](vminsights-configure-workspace.md) para obter detalhes e requisitos deste espaço de trabalho.
 ## <a name="agents"></a>Agentes
-Azure Monitor para VMs requer que os dois agentes a seguir sejam instalados em cada máquina virtual ou conjunto de dimensionamento de máquinas virtuais a ser monitorado. Para carregar o recurso, instale esses agentes e conecte-os ao espaço de trabalho.  Consulte [requisitos de rede](../platform/log-analytics-agent.md#network-requirements) para os requisitos de rede para esses agentes.
+Azure Monitor para VMs requer que os dois agentes a seguir sejam instalados em cada máquina virtual ou conjunto de dimensionamento de máquinas virtuais a ser monitorado. Para carregar o recurso, instale esses agentes e conecte-os ao espaço de trabalho.  
 
 - [Agente de log Analytics](../platform/log-analytics-agent.md). Coleta eventos e dados de desempenho da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais e os entrega ao espaço de trabalho do Log Analytics. Os métodos de implantação para o agente de Log Analytics nos recursos do Azure usam a extensão de VM para [Windows](../../virtual-machines/extensions/oms-windows.md) e [Linux](../../virtual-machines/extensions/oms-linux.md).
 - Agente de dependência. Coleta dados descobertos sobre processos em execução na máquina virtual e dependências de processo externo, que são usados pelo [recurso de mapa no Azure monitor para VMs](vminsights-maps.md). O agente de dependência depende do agente de Log Analytics para entregar seus dados para Azure Monitor. Os métodos de implantação para o Dependency Agent nos recursos do Azure usam a extensão de VM para [Windows](../../virtual-machines/extensions/agent-dependency-windows.md) e [Linux](../../virtual-machines/extensions/agent-dependency-linux.md).
@@ -79,11 +79,15 @@ A seguir estão vários métodos para implantar esses agentes.
 | Método | Descrição |
 |:---|:---|
 | [Azure portal](./vminsights-enable-portal.md) | Instale os dois agentes em uma única máquina virtual, conjunto de dimensionamento de máquinas virtuais ou máquinas virtuais híbridas conectadas com o arco do Azure. |
-| [Modelos do Gerenciador de Recursos](vminsights-enable-resource-manager.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
+| [Modelos do Resource Manager](vminsights-enable-resource-manager.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
 | [Azure Policy](./vminsights-enable-policy.md) | Atribua Azure Policy Initiative para instalar automaticamente os agentes quando uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais for criado. |
 | [Instalação manual](./vminsights-enable-hybrid.md) | Instale os agentes no sistema operacional convidado em computadores hospedados fora do Azure, incluindo em seu datacenter ou em outros ambientes de nuvem. |
 
 
+## <a name="network-requirements"></a>Requisitos de rede
+
+- Consulte [requisitos de rede](../platform/log-analytics-agent.md#network-requirements) para os requisitos de rede para o agente de log Analytics.
+- O agente de dependência requer uma conexão da máquina virtual com o endereço 169.254.169.254. Este é o ponto de extremidade do serviço de metadados do Azure. Verifique se as configurações de firewall permitem conexões com este ponto de extremidade.
 
 
 ## <a name="management-packs"></a>Pacotes de gerenciamento

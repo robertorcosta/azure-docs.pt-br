@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: conceptual
 ms.date: 01/29/2021
-ms.openlocfilehash: 0de0c5d53bd3195a24f75f4a2e65c19602e2a2b3
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 103855748c4b5d998dfc81eeb4044f5f53dae9e5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99088914"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372001"
 ---
 # <a name="pricing-and-billing-models-for-azure-logic-apps"></a>Modelos de preços e cobrança para aplicativos lógicos do Azure
 
@@ -72,8 +72,8 @@ Um modelo de preço fixo se aplica a aplicativos lógicos executados em um [ *am
 
 | SKU do ISE | Descrição |
 |---------|-------------|
-| **Premium** | A unidade base tem capacidade fixa e é [cobrada a uma taxa por hora para o SKU Premium](https://azure.microsoft.com/pricing/details/logic-apps). Se precisar de mais taxa de transferência, você poderá [adicionar mais unidades de escala](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) ao criar o ISE ou posteriormente. Cada unidade de escala é cobrada a uma [taxa por hora que é aproximadamente metade da taxa de unidade base](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Para obter informações sobre limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). |
-| **Desenvolvedor** | A unidade base tem capacidade fixa e é [cobrada a uma taxa por hora para a SKU do desenvolvedor](https://azure.microsoft.com/pricing/details/logic-apps). Essa SKU não tem capacidade de escala vertical, um SLA (contrato de nível de serviço) ou limites publicados. Use esta SKU somente para exploração, experimentos, desenvolvimento e testes, não para produção ou teste de desempenho. |
+| **Premium** | A unidade base tem [capacidade fixa](logic-apps-limits-and-config.md#integration-service-environment-ise) e é [cobrada a uma taxa por hora para o SKU Premium](https://azure.microsoft.com/pricing/details/logic-apps). Se precisar de mais taxa de transferência, você poderá [adicionar mais unidades de escala](../logic-apps/ise-manage-integration-service-environment.md#add-capacity) ao criar o ISE ou posteriormente. Cada unidade de escala é cobrada a uma [taxa por hora que é aproximadamente metade da taxa de unidade base](https://azure.microsoft.com/pricing/details/logic-apps). <p><p>Para obter informações sobre capacidade e limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). |
+| **Desenvolvedor** | A unidade base tem [capacidade fixa](logic-apps-limits-and-config.md#integration-service-environment-ise) e é [cobrada a uma taxa por hora para a SKU do desenvolvedor](https://azure.microsoft.com/pricing/details/logic-apps). No entanto, essa SKU não tem nenhum SLA (contrato de nível de serviço), capacidade de expansão ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade. As atualizações de back-end podem interromper o serviço intermitentemente. <p><p>**Importante**: Certifique-se de usar essa SKU somente para exploração, experimentos, desenvolvimento e teste-não para teste de produção ou de desempenho. <p><p>Para obter informações sobre capacidade e limites, consulte [limites do ISE em aplicativos lógicos do Azure](logic-apps-limits-and-config.md#integration-service-environment-ise). |
 |||
 
 ### <a name="included-at-no-extra-cost"></a>Incluído sem custo extra

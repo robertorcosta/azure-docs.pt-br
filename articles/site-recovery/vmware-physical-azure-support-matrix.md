@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: 0b829955d931bd26b7d38c8cb282f55a6043562e
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550837"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102250"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -180,7 +180,7 @@ Redimensionar o disco na VM replicada | Com suporte na VM de origem antes do fai
 Adicionar disco na VM replicada | Não há suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
 
 > [!NOTE]
-> Não há suporte para alterações na identidade do disco. Por exemplo, se o particionamento de disco tiver sido alterado de GPT para MBR ou vice-versa, isso irá alterar a identidade do disco. Nesse cenário, a replicação será interrompida e uma nova configuração será necessária. 
+> Não há suporte para alterações na identidade do disco. Por exemplo, se o particionamento de disco tiver sido alterado de GPT para MBR ou vice-versa, isso irá alterar a identidade do disco. Nesse cenário, a replicação será interrompida e uma nova configuração será necessária. Para computadores Linux, não há suporte para alteração de nome de dispositivo, pois ele tem um impacto na identidade do disco.
 
 ## <a name="network"></a>Rede
 

@@ -4,12 +4,12 @@ description: Saiba como usar o dimensionador automático de cluster para dimensi
 services: container-service
 ms.topic: article
 ms.date: 07/18/2019
-ms.openlocfilehash: 5f0754638be1aa29672b6a59218a6c9d695261a5
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c0564dc3b394b4a65e70a487b6f6989cb306bdda
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98223135"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373242"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>Dimensionar automaticamente um cluster para atender às demandas de aplicativo no AKS (Serviço de Kubernetes do Azure)
 
@@ -273,6 +273,9 @@ az aks nodepool update \
 ```
 
 Se desejar reabilitar o dimensionador automática do cluster em um cluster existente, você poderá habilitá-lo novamente usando o comando [AZ AKs nodepool Update][az-aks-nodepool-update] , especificando os `--enable-cluster-autoscaler` parâmetros, `--min-count` e `--max-count` .
+
+> [!NOTE]
+> Se você estiver planejando usar o dimensionamento de clusters com nodepools que abrangem várias zonas e aproveitar os recursos de agendamento relacionados a zonas como agendamento de topológica de volume, a recomendação é ter um nodepool por zona e habilitar o `--balance-similar-node-groups` por meio do perfil de dimensionamento de autoescala. Isso garantirá que o dimensionador automático será dimensionado com êxito e tente manter os tamanhos do nodepools equilibrado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

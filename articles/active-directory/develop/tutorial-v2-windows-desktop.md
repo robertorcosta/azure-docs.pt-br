@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 5bfdf90ddbd500fd9d1c504bd37ed4ac35d8bf70
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: d9db845bfa4a7c0c117220b8932b370eb230f6dc
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98752755"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102981"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Tutorial: Chamar a API do Microsoft Graph em um aplicativo da Área de Trabalho do Windows
 
@@ -97,14 +97,14 @@ Você pode registrar seu aplicativo de duas maneiras.
 ### <a name="option-1-express-mode"></a>Opção 1: Modo Expresso
 
 Registre rapidamente seu aplicativo fazendo o seguinte:
-1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Acesse a experiência de início rápido do <a href="https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/WinDesktopQuickstartPage/sourceType/docs" target="_blank">portal do Azure – Registros de aplicativo</a>.
 1. Insira um nome para seu aplicativo e selecione **Registrar**.
 1. Siga as instruções para baixar e configurar automaticamente o novo aplicativo com apenas um clique.
 
 ### <a name="option-2-advanced-mode"></a>Opção 2: Modo Avançado
 
 Para registrar seu aplicativo e adicionar suas informações de registro de aplicativo à sua solução, faça o seguinte:
-1. Entre no <a href="https://portal.azure.com/" target="_blank">Portal do Azure<span class="docon docon-navigate-external x-hidden-focus"></span></a>.
+1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.

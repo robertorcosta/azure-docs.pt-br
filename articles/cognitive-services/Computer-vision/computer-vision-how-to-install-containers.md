@@ -12,12 +12,12 @@ ms.date: 11/23/2020
 ms.author: aahi
 ms.custom: seodec18, cog-serv-seo-aug-2020
 keywords: local, OCR, Docker, contêiner
-ms.openlocfilehash: fc5d281a6c0c9dd9620109de9d8deea27462ad0e
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 843000963bc05cab5415c9bb1db32b3272c8dc9f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008580"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391756"
 ---
 # <a name="install-read-ocr-docker-containers-preview"></a>Instalar contêineres de Docker do OCR de leitura (versão prévia) 
 
@@ -41,7 +41,7 @@ O contêiner de OCR Read 3,2-Preview fornece:
 * Pontuações de confiança.
 * Suporte para documentos com texto impresso e manuscrito.
 * Capacidade de extrair texto apenas das páginas selecionadas em um documento.
-* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural.
+* Escolha a ordem de saída da linha de texto do padrão para uma ordem de leitura mais natural somente para idiomas latinos.
 * Classificação de linha de texto como estilo manuscrito ou não somente para idiomas latinos.
 
 Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de migração](read-container-migration-guide.md) para saber mais sobre as alterações nas novas versões.
@@ -50,7 +50,7 @@ Se você estiver usando contêineres de leitura 2,0 hoje, consulte o [Guia de mi
 
 Você deve atender aos seguintes pré-requisitos antes de usar os contêineres:
 
-|Obrigatório|Finalidade|
+|Necessária|Finalidade|
 |--|--|
 |Mecanismo do Docker| É necessário ter o Mecanismo Docker instalado em um [computador host](#the-host-computer). O Docker fornece pacotes que configuram o ambiente do Docker no [macOS](https://docs.docker.com/docker-for-mac/), no [Windows](https://docs.docker.com/docker-for-windows/) e no [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para instruções sobre conceitos básicos do Docker e de contêiner, consulte a [visão geral do Docker](https://docs.docker.com/engine/docker-overview/).<br><br> O Docker deve ser configurado para permitir que os contêineres conectem-se e enviem dados de cobrança para o Azure. <br><br> **No Windows**, o Docker também deve ser configurado para dar suporte a contêineres do Linux.<br><br>|
 |Familiaridade com o Docker | É necessário ter uma compreensão básica de conceitos do Docker, como registros, repositórios, contêineres e imagens de contêiner, bem como conhecimento dos comandos básicos do `docker`.| 
