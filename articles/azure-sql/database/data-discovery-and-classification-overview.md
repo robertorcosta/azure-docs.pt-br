@@ -11,21 +11,21 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/01/2020
+ms.date: 02/11/2021
 tags: azure-synapse
-ms.openlocfilehash: 41ad711de81f075727e4c177c318054677cb0ece
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 254d69c723a97d9007a1f6c0f0eb7b34bcfe3c4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98185344"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392758"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 A descoberta de dados & classificação é incorporada ao banco de dado SQL do Azure, SQL Instância Gerenciada do Azure e Azure Synapse Analytics. Ele fornece recursos básicos para descobrir, classificar, rotular e relatar os dados confidenciais em seus bancos de dado.
 
-Seus dados mais confidenciais podem incluir informações comerciais, financeiras, de saúde ou pessoais. Descobrir e classificar esses dados pode desempenhar uma função dinâmica na abordagem de proteção de informações da sua organização. Isso pode servir como infraestrutura para:
+Seus dados mais confidenciais podem incluir informações comerciais, financeiras, de saúde ou pessoais. Descobrir e classificar esses dados pode desempenhar uma função dinâmica na abordagem de proteção de informações da sua organização. Esse recurso pode funcionar como a infraestrutura para:
 
 - Ajudando a atender aos padrões de privacidade de dados e requisitos de conformidade regulatória.
 - Vários cenários de segurança, como o monitoramento (auditoria) de acesso a dados confidenciais.
@@ -75,7 +75,7 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 > [!NOTE]
 > O exemplo a seguir usa o banco de dados SQL do Azure, mas você deve selecionar o produto apropriado que deseja configurar a descoberta & data Discovery.
 
-1. Vá para o [Portal do Azure](https://portal.azure.com).
+1. Acesse o [portal do Azure](https://portal.azure.com).
 
 1. Vá para **descoberta de dados & classificação** no título **segurança** em seu painel de banco de dados SQL do Azure. A guia Visão geral inclui um resumo do estado de classificação atual do banco de dados. O resumo inclui uma lista detalhada de todas as colunas classificadas, que você também pode filtrar para mostrar apenas partes de esquema, tipos de informações e rótulos específicos. Se você ainda não classificou nenhuma coluna, [pule para a etapa 4](#step-4).
 
@@ -112,7 +112,7 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados confidenciais
 
-Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Veja um exemplo:
+Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Aqui está um exemplo:
 
 ![Log de auditoria](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -183,6 +183,13 @@ Você pode usar a API REST para gerenciar programaticamente as classificações 
 - [Get](/rest/api/sql/sensitivitylabels/get): Obtém o rótulo de sensibilidade da coluna especificada.
 - [Listar atual pelo banco de dados](/rest/api/sql/sensitivitylabels/listcurrentbydatabase): Obtém os rótulos de sensibilidade atuais do banco de dados especificado.
 - [Lista recomendada pelo banco de dados](/rest/api/sql/sensitivitylabels/listrecommendedbydatabase): Obtém os rótulos de sensibilidade recomendados do banco de dados especificado.
+
+
+## <a name="faq---advanced-classification-capabilities"></a>Perguntas frequentes-recursos de classificação avançada
+
+**Pergunta**: o [Azure alcance](https://docs.microsoft.com/azure/purview/overview) substituirá a descoberta de dados do SQL & classificação ou o SQL Data Discovery & classificação será desativada em breve?
+**Resposta**: continuamos a oferecer suporte à classificação de & do SQL Data Discovery e incentivamos você a adotar o [Azure alcance](https://docs.microsoft.com/azure/purview/overview) , que tem recursos mais avançados para impulsionar os recursos de classificação avançada e a governança de dados. Se decidirmos desativar qualquer serviço, recurso, API ou SKU, você receberá uma notificação antecipada, incluindo um caminho de migração ou de transição. Saiba mais sobre as políticas de ciclo de vida da Microsoft aqui.
+
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Próximas etapas
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/12/2021
 ms.author: erhopf
-ms.openlocfilehash: 85f239afd1b9263440abff1f924c12cdb7eeadaa
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: db3d8f4424f59d8432221753af776a5b55859882
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560277"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388848"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>Como criar transcrições com rótulo humano
 
@@ -24,7 +24,12 @@ Se você estiver procurando melhorar a precisão do reconhecimento, especialment
 Um exemplo grande de dados de transcrição é necessário para melhorar o reconhecimento, sugerimos fornecer entre 10 e 20 horas de dados de transcrição. Nesta página, examinaremos as diretrizes criadas para ajudá-lo a criar transcrições de alta qualidade. Este guia é dividido por localidade, com seções para inglês americano, mandarim chinês e alemão.
 
 > [!NOTE]
-> Nem todos os modelos de base dão suporte à personalização com arquivos de áudio. Se um modelo base não oferecer suporte a ele, o treinamento usará apenas o texto das transcrições da mesma maneira como o texto relacionado é usado.
+> Nem todos os modelos de base dão suporte à personalização com arquivos de áudio. Se um modelo base não oferecer suporte a ele, o treinamento usará apenas o texto das transcrições da mesma maneira como o texto relacionado é usado. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio.
+
+> [!NOTE]
+> Em casos em que você altera o modelo de base usado para treinamento e tem áudio no conjunto de dados de treinamento, *sempre* Verifique se o novo modelo de base selecionado [dá suporte ao treinamento com o áudio](language-support.md#speech-to-text). Se o modelo base usado anteriormente não tivesse suporte para treinamento com dados de áudio, e o DataSet de treinamento contiver áudio, o tempo de treinamento com o novo modelo base aumentará **drasticamente** e poderá facilmente passar de várias horas para vários dias e muito mais. Isso será especialmente verdadeiro se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+>
+> Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
 ## <a name="us-english-en-us"></a>Inglês dos EUA (en-US)
 
@@ -32,7 +37,7 @@ As transcrições com rótulo humano para áudio em inglês devem ser fornecidas
 
 Veja alguns exemplos:
 
-| Caracteres a evitar | Substituição | Observações |
+| Caracteres a evitar | Substituição | Anotações |
 | ------------------- | ------------ | ----- |
 | "Olá, mundo" | "Olá, Mundo" | As marcas de aspas de abertura e fechamento foram substituídas por caracteres ASCII apropriados. |
 | Dia de João | Dia de João | O apóstrofo foi substituído pelo caractere ASCII apropriado. |
@@ -89,7 +94,7 @@ As transcrições rotuladas pelo homem para áudio mandarim chinês devem ser co
 
 Veja alguns exemplos:
 
-| Caracteres a evitar | Substituição   | Observações |
+| Caracteres a evitar | Substituição   | Anotações |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | As marcas de aspas de abertura e fechamento foram substituídas pelos caracteres apropriados. |
 | 需要什么帮助? | 需要什么帮助？| O ponto de interrogação foi substituído pelo caractere apropriado. |

@@ -4,19 +4,19 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: c0ee68659f4729ed8f63b9ea990343adf51513bd
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96186364"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365218"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
 Habilitar o monitoramento em seus ASP.NET e ASP.NET Core aplicativos Web com base em execução em [serviços de Azure app](../../app-service/index.yml) agora está mais fácil do que nunca. Enquanto anteriormente você precisava instalar manualmente uma extensão de site, a extensão/agente mais recente agora é compilado na imagem do serviço de aplicativo por padrão. Este artigo o orientará na habilitação do monitoramento de Application Insights, bem como no fornecimento de diretrizes preliminares para automatizar o processo para implantações em larga escala.
 
 > [!NOTE]
-> A adição manual de uma extensão de site Application insights por meio de extensões de **ferramentas de desenvolvimento**  >  **Extensions** foi preterida. Esse método de instalação de extensão foi dependente de atualizações manuais para cada nova versão. A versão estável mais recente da extensão agora é  [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicativo. Os arquivos estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizados automaticamente com cada versão estável. Se você seguir as instruções baseadas em agente para habilitar o monitoramento abaixo, ela removerá automaticamente a extensão preterida para você.
+> A adição manual de uma extensão de site Application insights por meio de extensões de **ferramentas de desenvolvimento**  >   foi preterida. Esse método de instalação de extensão foi dependente de atualizações manuais para cada nova versão. A versão estável mais recente da extensão agora é  [pré-instalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte da imagem do serviço de aplicativo. Os arquivos estão localizados no `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e são atualizados automaticamente com cada versão estável. Se você seguir as instruções baseadas em agente para habilitar o monitoramento abaixo, ela removerá automaticamente a extensão preterida para você.
 
 ## <a name="enable-application-insights"></a>Habilitar o Application Insights
 
@@ -75,7 +75,8 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
-Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1, ASP.NET Core 2,2, ASP.NET Core 3,0, ASP.NET Core 3,1
+> [!IMPORTANT]
+> Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1, 3,1 e 5,0. As versões 2,0, 2,2 e 3,0 foram desativadas e não têm mais suporte. Atualize para uma [versão com suporte](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) do .NET Core para que a instrumentação automática funcione.
 
 O direcionamento para a estrutura completa de ASP.NET Core, implantação independente e aplicativos baseados em Linux **não têm suporte** no momento com o monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
 
@@ -90,7 +91,7 @@ O direcionamento para a estrutura completa de ASP.NET Core, implantação indepe
 
      ![Instrumentar seu aplicativo Web](./media/azure-web-apps/create-resource-01.png)
 
-2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. ASP.NET Core oferece uma **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1, 2,2, 3,0 e 3,1.
+2. Depois de especificar qual recurso usar, você pode escolher como deseja que Application Insights colete dados por plataforma para seu aplicativo. ASP.NET Core oferece a **coleção recomendada** ou **desabilitada** para ASP.NET Core 2,1 e 3,1.
 
     ![Escolha as opções por plataforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
@@ -346,7 +347,7 @@ A partir da versão 2.8.9, a extensão de site pré-instalada é usada. Se você
 
 Se a atualização for feita a partir de uma versão anterior à 2.5.1, verifique se as DLLs ApplicationInsigths são removidas da pasta bin do aplicativo [consulte as etapas de solução de problemas](#troubleshooting).
 
-## <a name="troubleshooting"></a>Solução de Problemas
+## <a name="troubleshooting"></a>Solução de problemas
 
 Abaixo está nosso guia de solução de problemas passo a passo para o monitoramento baseado em extensão/agente para aplicativos baseados em ASP.NET e ASP.NET Core em execução em serviços Azure App.
 
@@ -419,6 +420,12 @@ Se você quiser testar o monitoramento do lado do cliente e do servidor sem cód
 ### <a name="connection-string-and-instrumentation-key"></a>Cadeia de conexão e chave de instrumentação
 
 Quando o monitoramento sem código está sendo usado, somente a cadeia de conexão é necessária. No entanto, ainda recomendamos definir a chave de instrumentação para preservar a compatibilidade com versões anteriores do SDK quando a instrumentação manual está sendo executada.
+
+### <a name="difference-between-standard-metrics-from-application-insights-vs-azure-app-service-metrics"></a>Diferença entre as métricas padrão das métricas do serviço Application Insights vs Azure App?
+
+Application Insights coleta a telemetria para as solicitações que a fizeram para o aplicativo. Se a falha ocorreu no webapps/IIS e a solicitação não alcançou o aplicativo de usuário, Application Insights não terá nenhuma telemetria sobre ele.
+
+A duração da `serverresponsetime` calculada pelo Application insights não corresponde necessariamente ao tempo de resposta do servidor observado pelos aplicativos Web. Isso ocorre porque Application Insights só conta a duração quando a solicitação real atinge o aplicativo do usuário. Se a solicitação estiver presa/enfileirada no IIS, esse tempo de espera será incluído nas métricas do aplicativo Web, mas não no Application Insights métricas.
 
 ## <a name="release-notes"></a>Notas de versão
 

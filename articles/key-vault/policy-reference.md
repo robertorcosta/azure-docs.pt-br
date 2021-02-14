@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Key Vault
 description: Lista as definições de políticas internas do Azure Policy para o Key Vault. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/04/2021
+ms.date: 02/09/2021
 ms.topic: reference
 author: msmbaldwin
 ms.author: mbaldwin
 ms.service: key-vault
 ms.custom: subject-policy-reference
-ms.openlocfilehash: f100386b7051dca555a3e898cbdbafb557d16c51
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 073f38ce5da17c8e303073c3863505371976120e
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555547"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098021"
 ---
 # <a name="azure-policy-built-in-definitions-for-key-vault"></a>Definições internas do Azure Policy para o Key Vault
 

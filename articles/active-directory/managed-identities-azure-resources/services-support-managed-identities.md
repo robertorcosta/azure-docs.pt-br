@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 969ca74d628da2bf91e0a7c091c9792f2676fb71
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100095674"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373667"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -213,9 +213,9 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 | Atribuído pelo sistema | ![Disponível][check] | ![Disponível][check] | Não disponível | ![Disponível][check] |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
-Veja a lista a seguir para configurar a identidade gerenciada para Azure Data Factory V2 (em regiões em que estiver disponível):
+Consulte a lista a seguir para configurar a identidade gerenciada para o Hub IoT do Azure (em regiões onde disponível):
 
-- [Azure portal](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
+- [Portal do Azure](../../iot-hub/virtual-network-support.md#turn-on-managed-identity-for-iot-hub)
 
 ### <a name="azure-importexport"></a>Importação/Exportação do Azure
 

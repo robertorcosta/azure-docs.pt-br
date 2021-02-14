@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: 1222108694ff7274e5d8fd063635b70a76ffc59c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bcd89274b1f2ba7b31a10a481e3d73901eac2c60
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954742"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375180"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 
@@ -84,7 +84,7 @@ Depois de criar o recurso de *cluster* , você pode editar propriedades adiciona
 Você pode ter até 2 clusters ativos por assinatura por região. Se o cluster for excluído, ele ainda estará reservado por 14 dias. Você pode ter até 4 clusters reservados por assinatura por região (ativa ou excluída recentemente).
 
 > [!WARNING]
-> A criação do cluster dispara a alocação de recursos e o provisionamento. Esta operação pode levar até uma hora para ser concluída. É recomendável executá-lo de forma assíncrona.
+> A criação do cluster dispara a alocação de recursos e o provisionamento. Esta operação pode levar algumas horas para ser concluída. É recomendável executá-lo de forma assíncrona.
 
 A conta de usuário que cria os clusters deve ter a permissão de criação de recurso do Azure padrão: `Microsoft.Resources/deployments/*` e a permissão `Microsoft.OperationalInsights/clusters/write` de gravação de cluster ao ter em suas atribuições de função essa ação específica ou `Microsoft.OperationalInsights/*` `*/write` .
 

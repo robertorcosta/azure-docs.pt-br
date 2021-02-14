@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 7c5544ec5f89cfbf2451c19430a99b64825f90bc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872597"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516916"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento com Azure Databricks e AutoML no Azure Machine Learning 
 
@@ -50,7 +50,7 @@ Crie um [cluster do databricks](/azure/databricks/scenarios/quickstart-create-da
 
 Use estas configurações:
 
-| Configuração |Aplica-se a| Valor |
+| Setting |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
 | Versão do Databricks Runtime |always| Tempo de execução 7,1 (escala de 2,21, Spark 3.0.0) – não ML|
@@ -131,7 +131,7 @@ Experimente:
     psutil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
     ```
 
-    Como alternativa, você pode usar scripts de inicialização se continuar enfrentando problemas de instalação com bibliotecas do Python. Essa abordagem não tem suporte oficial. Para obter mais informações, consulte [scripts de inicialização no escopo do cluster](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+    Como alternativa, você pode usar scripts de inicialização se continuar enfrentando problemas de instalação com bibliotecas do Python. Essa abordagem não tem suporte oficial. Para obter mais informações, consulte [scripts de inicialização no escopo do cluster](/azure/databricks/clusters/init-scripts#cluster-scoped-init-scripts).
 
 * **Erro de importação: não é possível importar o nome `Timedelta` de `pandas._libs.tslibs`**: se você vir esse erro ao usar o Machine Learning automatizado, execute as duas linhas a seguir no bloco de anotações:
     ```
