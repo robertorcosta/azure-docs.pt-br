@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: pafarley
-ms.openlocfilehash: a8eecabe71cb439949f7e0638c7339eb31b08500
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: c7b6586f02d14d4e49ce9a5024b19ea15c8d2267
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581254"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364674"
 ---
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
 
@@ -148,7 +148,7 @@ o **v 2.0** inclui a seguinte atualização:
   A imagem a seguir é um exemplo de como as tabelas são reconhecidas e extraídas:
 
   > [!div class="mx-imgBorder"]
-  > ![Visualização de tabela usando a ferramenta de rótulo de exemplo](./media/whats-new/formre-table-viz.png)
+  > ![Visualização de tabela usando a ferramenta de rótulo de exemplo](./media/whats-new/table-viz.png)
 
     As tabelas extraídas estão disponíveis na saída JSON em `"pageResults"` .
 
@@ -209,7 +209,7 @@ As respostas JSON para todas as chamadas de API têm novos formatos. Algumas cha
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um guia de [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o reconhecedor de formulário na linguagem de desenvolvimento de sua escolha.
+Conclua um [guia de início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários na linguagem de desenvolvimento de sua escolha.
 
 ## <a name="see-also"></a>Confira também
 
