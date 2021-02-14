@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 11/30/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a249102de6a5bff7354e339e604b7d2efebd4fb
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546141"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365541"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a Colaboração B2B externa e gerenciar quem pode enviar convites
 
@@ -45,8 +45,6 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
 
 4. Em **restrições de acesso do usuário convidado (versão prévia)**, escolha o nível de acesso que você deseja que os usuários convidados tenham:
   
-    ![Configurações de restrições de acesso do usuário convidado](./media/delegate-invitations/guest-user-access.png)
-
    - **Os usuários convidados têm o mesmo acesso que os membros (mais inclusivo)**: essa opção fornece aos convidados o mesmo acesso aos recursos do AD do Azure e aos dados de diretório como usuários membros.
 
    - **Os usuários convidados têm acesso limitado a propriedades e associações de objetos de diretório**: (padrão) essa configuração bloqueia convidados de determinadas tarefas de diretório, como a enumeração de usuários, grupos ou outros recursos de diretório. Os convidados podem ver a associação de todos os grupos não ocultos.
@@ -69,13 +67,11 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
 
 6. Em **senha de uso único de email para convidados**, escolha as configurações apropriadas (para obter mais informações, consulte [autenticação de senha de uso único de email](one-time-passcode.md)):
 
-   ![Configurações de senha de uso único de email](./media/delegate-invitations/email-otp-settings.png)
-
-   - **Habilite automaticamente a senha de uso único de email para convidados em março de 2021**. Os Se o recurso de senha de email de uso único já não estiver habilitado para seu locatário, ele será automaticamente ativado em março de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
+   - **Habilite automaticamente a senha de um único email para convidados em outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado em outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
 
    - **Habilite o email de senha de uso único para convidados em vigor agora**. Ativa o recurso de senha de uso único de email para seu locatário.
 
-   - **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em março de 2021.
+   - **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em outubro de 2021.
 
    > [!NOTE]
    > Em vez das opções acima, você verá a seguinte alternância se tiver habilitado ou desabilitado esse recurso ou se tiver optado anteriormente pela versão prévia:

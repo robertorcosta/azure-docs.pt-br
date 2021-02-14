@@ -11,18 +11,18 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 9f81d059c1a71bf6349d0ef9b4aae8f7a47c161f
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9ecb1c50fe99cc93417a37e892049e03585945a5
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96938776"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370420"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para agir como gateway transparente
 
 Este artigo fornece instruções detalhadas para configurar um IoT Edge dispositivo para funcionar como um gateway transparente para outros dispositivos se comunicarem com o Hub IoT. Este artigo usa o termo *IOT Edge gateway* para se referir a um dispositivo de IOT Edge configurado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo de IOT Edge pode ser usado como um gateway](./iot-edge-as-gateway.md).
 
-<!-- 1.0.10 -->
+<!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
 >[!NOTE]
@@ -153,7 +153,7 @@ Para implantar o módulo Hub de IoT Edge e configurá-lo com rotas para lidar co
 
 7. Depois que a rota ou as rotas forem criadas, selecione **revisar + criar**.
 
-8. Na página **revisar + criar** , selecione **criar**.
+8. Na página **Examinar + criar** escolha **Criar**.
 
 ## <a name="open-ports-on-gateway-device"></a>Abrir portas no dispositivo de gateway
 

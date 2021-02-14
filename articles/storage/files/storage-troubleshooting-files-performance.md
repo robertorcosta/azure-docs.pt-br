@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: c3dbd76e76ad6e7bed0808278d4516992bc328f0
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574424"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100393846"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -22,7 +22,7 @@ Este artigo lista alguns problemas comuns relacionados aos compartilhamentos de 
 
 ### <a name="cause-1-share-was-throttled"></a>Causa 1: o compartilhamento foi limitado
 
-As solicitações são limitadas quando os limites de IOPS (operações de e/s por segundo), de entrada ou de saída de um compartilhamento de arquivos são atingidos. Para entender os limites dos compartilhamentos de arquivos Standard e Premium, consulte [compartilhamento de arquivos e destinos de escala de arquivos](./storage-files-scale-targets.md#file-share-and-file-scale-targets).
+As solicitações são limitadas quando os limites de IOPS (operações de e/s por segundo), de entrada ou de saída de um compartilhamento de arquivos são atingidos. Para entender os limites dos compartilhamentos de arquivos Standard e Premium, consulte [compartilhamento de arquivos e destinos de escala de arquivos](./storage-files-scale-targets.md#azure-file-share-scale-targets).
 
 Para confirmar se o compartilhamento está sendo limitado, você pode acessar e usar as métricas do Azure no Portal.
 

@@ -4,12 +4,12 @@ description: Aprenda a criar uma conta do Lote do Azure no portal do Azure para 
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 943fd145dbd4964e0d43d91f726ea5a79fda59de
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bd9dd9b6d6d3a8d6938427b83528746ae5d09318
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895979"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368499"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -67,6 +67,9 @@ Para exibir as [cotas de recursos](batch-quota-limit.md) que se aplicam à conta
 ## <a name="additional-configuration-for-user-subscription-mode"></a>Configuração adicional para o modo de assinatura do usuário
 
 Se optar por criar uma conta do Lote no modo de assinatura do usuário, execute as etapas adicionais a seguir antes de criá-la.
+
+> [!IMPORTANT]
+> O usuário que cria a conta do lote no modo de assinatura do usuário precisa ter a atribuição de função de colaborador ou proprietário para a assinatura na qual a conta do lote será criada.
 
 ### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Permitir que o Lote do Azure acesse a assinatura (operação única)
 

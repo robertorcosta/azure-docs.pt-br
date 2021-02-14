@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: df82e76fa2e5a9ea70c447411beafb8a2df9b036
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: 16e7f04c62f25e787c3cab44b85a075e1c7d7277
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601595"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100386740"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Comunidade do Azure Maps – projetos de código aberto
 
@@ -66,11 +66,14 @@ Veja a seguir uma lista de projetos de software livre que ampliam os recursos do
 | [Implementar análise espacial de IoT usando o Azure Mapas](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing) | Acompanhar e capturar eventos relevantes que ocorrem em espaço e no tempo é um cenário comum de IoT. |
 
 **Plug-ins de controle de mapa de terceiros**
+<a name="third-part-map-control-plugins"></a>
 
 | Nome do projeto | Descrição |
 |-|-|
+| [Plug-in Cesium do Azure Maps](https://github.com/azure-samples/azure-maps-cesium) | Um plug-in [CESIUM js](https://cesium.com/cesiumjs/) que facilita a integração dos serviços do Azure Maps, como [camadas de bloco](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview) e [serviços de geocodificação](https://docs.microsoft.com/rest/api/maps/search). |
 | [Plug-in Leaflet do Azure Maps](https://github.com/azure-samples/azure-maps-leaflet) | Um plug-in [Leaflet](https://leafletjs.com/) JavaScript que facilita a sobreposição de camadas de bloco dos [serviços de blocos do Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
- 
+ | [Plug-in OpenLayers do Azure Maps](https://github.com/azure-samples/azure-maps-openlayers) | Um plug-in [OpenLayers](https://www.openlayers.org/) JavaScript que facilita a sobreposição de camadas de bloco dos [serviços de blocos do Azure Maps](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview). |
+
 **Ferramentas e recursos**
 
 | Nome do projeto | Descrição |

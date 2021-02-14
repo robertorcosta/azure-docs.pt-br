@@ -2,13 +2,13 @@
 title: Use Aplicativo Azure gateway para proteger seus aplicativos Web na solução VMware do Azure
 description: Configure Aplicativo Azure gateway para expor com segurança seus aplicativos Web em execução na solução VMware do Azure.
 ms.topic: how-to
-ms.date: 02/08/2021
-ms.openlocfilehash: fdef37bd76b08a8778db8401a1e8a0406c2ed652
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.date: 02/10/2021
+ms.openlocfilehash: 9b10c206114ca922cc11bd8cb0321941b8ba672c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988632"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384190"
 ---
 # <a name="use-azure-application-gateway-to-protect-your-web-apps-on-azure-vmware-solution"></a>Use Aplicativo Azure gateway para proteger seus aplicativos Web na solução VMware do Azure
 
@@ -35,7 +35,7 @@ O diagrama mostra o cenário de teste usado para validar o gateway de aplicativo
 
 :::image type="content" source="media/hub-spoke/azure-vmware-solution-second-level-traffic-segmentation.png" alt-text="Diagrama que mostra o cenário de teste usado para validar o gateway de aplicativo com aplicativos Web da solução Azure VMware." border="false":::
 
-A instância do gateway de aplicativo é implantada no Hub em uma sub-rede dedicada. Ele tem um endereço IP público do Azure. É recomendável ativar a proteção contra DDoS padrão para a rede virtual. O servidor Web é hospedado em uma nuvem privada da solução Azure VMware por trás dos roteadores do NSX T0 e T1. A solução Azure VMware usa o [ExpressRoute alcance global](../expressroute/expressroute-global-reach.md) para habilitar a comunicação com o Hub e os sistemas locais.
+A instância do gateway de aplicativo é implantada no Hub em uma sub-rede dedicada. Ele tem um endereço IP público do Azure. É recomendável ativar a proteção contra DDoS padrão para a rede virtual. O servidor Web é hospedado em uma nuvem privada da solução Azure VMware por trás dos gateways do NSX T0 e T1. A solução Azure VMware usa o [ExpressRoute alcance global](../expressroute/expressroute-global-reach.md) para habilitar a comunicação com o Hub e os sistemas locais.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -57,7 +57,7 @@ A instância do gateway de aplicativo é implantada no Hub em uma sub-rede dedic
 
 4. Adicione um pool de back-end das VMs que são executadas na infraestrutura da solução VMware do Azure. Forneça os detalhes dos servidores Web que são executados na nuvem privada da solução Azure VMware e selecione **Adicionar**.  Em seguida, selecione **Avançar: configuração>**.
 
-1. Na guia **configuração** , selecione **Adicionar uma regra de roteamento**.
+5. Na guia **configuração** , selecione **Adicionar uma regra de roteamento**.
 
 6. Na guia **ouvinte** , forneça os detalhes para o ouvinte. Se a opção HTTPS estiver selecionada, você deverá fornecer um certificado de um arquivo PFX ou de um certificado de Azure Key Vault existente. 
 
@@ -77,7 +77,7 @@ A instância do gateway de aplicativo é implantada no Hub em uma sub-rede dedic
 
 ## <a name="configuration-examples"></a>Exemplos de configuração
 
-Nesta seção, você aprenderá a configurar o gateway de aplicativo com as VMs de solução do Azure VMware como os pools de back-end para esses casos de uso: 
+Agora, configuraremos o gateway de aplicativo com as VMs de solução do Azure VMware como pools de back-end para os seguintes casos de uso: 
 
 - [Hospedando vários sites](#hosting-multiple-sites)
 - [Roteamento por URL](#routing-by-url)
@@ -94,7 +94,7 @@ Este procedimento mostra como definir pools de endereços de back-end usando VMs
 
     :::image type="content" source="media/protect-azure-vmware-solution-with-application-gateway/app-gateway-multi-backend-pool.png" alt-text="Captura de tela mostrando o resumo dos detalhes de um servidor Web no cliente VSphere.":::
 
-    Usamos o Windows Server 2016 com a função Serviços de Informações da Internet (IIS) instalada para ilustrar este tutorial. Depois que as VMs forem instaladas, execute os seguintes comandos do PowerShell para configurar o IIS em cada uma das VMs. 
+    Usamos o Windows Server 2016 com a função Serviços de Informações da Internet (IIS) instalada. Depois que as VMs forem instaladas, execute os seguintes comandos do PowerShell para configurar o IIS em cada uma das VMs. 
 
     ```powershell
     Install-WindowsFeature -Name Web-Server
@@ -121,7 +121,7 @@ Este procedimento mostra como definir pools de endereços de back-end usando VMs
 
 ### <a name="routing-by-url"></a>Roteamento por URL
 
-Este procedimento mostra como definir pools de endereços de back-end usando VMs em execução em uma nuvem privada da solução Azure VMware em um gateway de aplicativo existente. Em seguida, você criará regras de roteamento para certificar-se de que o tráfego da Web chega aos servidores apropriados nos pools.
+As etapas a seguir definem pools de endereços de back-end usando VMs em execução em uma nuvem privada da solução Azure VMware. A nuvem privada está em um gateway de aplicativo existente. Em seguida, você criará regras de roteamento para certificar-se de que o tráfego da Web chega aos servidores apropriados nos pools.
 
 1. Em sua nuvem privada, crie um pool de máquinas virtuais para representar o web farm. 
 

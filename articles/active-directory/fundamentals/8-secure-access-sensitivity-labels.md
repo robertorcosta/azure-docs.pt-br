@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dcb6d24eacbe594a907f084874e76fea963c561
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0ac3141823eb72b17754a771cd63264fe851949d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725121"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365354"
 ---
 # <a name="control-access-with-sensitivity-labels"></a>Controlar o acesso com rótulos de sensibilidade 
 
@@ -66,7 +66,7 @@ Como você imagina ao controlar o acesso externo ao seu conteúdo, determine o s
 
 * Quais padrões devem estar em vigor para dados ICA, sites ou grupos de Microsoft 365?
 
-* Onde você usará rótulos de sensibilidade para [rotular e monitorar](/microsoft-365/compliance/label-analytics?view=o365-worldwide), em vez de [impor a criptografia](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou [impor restrições de acesso de contêiner](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
+* Onde você usará rótulos de sensibilidade para [rotular e monitorar](/microsoft-365/compliance/sensitivity-labels?view=o365-worldwide), em vez de [impor a criptografia](/microsoft-365/compliance/encryption-sensitivity-labels?view=o365-worldwide) ou [impor restrições de acesso de contêiner](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide)?
 
 **Para email e conteúdo**
 

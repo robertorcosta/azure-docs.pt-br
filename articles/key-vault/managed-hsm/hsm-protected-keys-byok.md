@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: ambapat
-ms.openlocfilehash: 1a15ed6b92ade96dd2ed9ef6ffbbe17e2b1452ef
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 71cc36541b8809d93c84225edf771400d2878b4f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99581390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100376047"
 ---
 # <a name="import-hsm-protected-keys-to-managed-hsm-byok"></a>Importar chaves protegidas por HSM para HSM gerenciado (BYOK)
 
@@ -46,7 +46,7 @@ Para usar comandos da CLI do Azure neste artigo, você deve ter os seguintes ite
 
 * Uma assinatura do Microsoft Azure. Se você não tiver uma, pode se inscrever e fazer uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial).
 * A CLI do Azure versão 2.12.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
-* Um HSM gerenciado a [lista de HSMs com suporte](#supported-hsms) na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM gerenciado.
+* Um HSM gerenciado a [lista de HSMs com suporte](#supported-hsms) na sua assinatura. Confira [Início Rápido: Provisione e ative um HSM Gerenciado usando a CLI do Azure](quick-create-cli.md) para provisionar e ativar um HSM Gerenciado.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -70,6 +70,7 @@ Para saber mais sobre as opções de logon por meio da CLI, veja [Entrar com a C
 |Securosys SA|Fabricante, HSM como serviço|Família HSM Primus, Securosys Clouds HSM|[Ferramenta e documentação do Primus BYOK](https://www.securosys.com/primus-azure-byok)|
 |StorMagic|ISV (Sistema de Gerenciamento de Chaves Empresariais)|Várias marcas e modelos de HSM, incluindo<ul><li>Utimaco</li><li>Thales</li><li>nCipher</li></ul>Confira o [site da StorMagic para obter detalhes](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|[SvKMS e Azure Key Vault BYOK](https://stormagic.com/doc/svkms/Content/Integrations/Azure_KeyVault_BYOK.htm)|
 |IBM|Fabricante|IBM 476x, CryptoExpress|[IBM Enterprise Key Management Foundation](https://www.ibm.com/security/key-management/ekmf-bring-your-own-key-azure)|
+|Utimaco|Fabricante,<br/>HSM como serviço|s. âncora de confiança, CryptoServer|[Guia de integração e ferramenta do Utimaco BYOK](https://support.hsm.utimaco.com/support/downloads/byok)|
 ||||
 
 

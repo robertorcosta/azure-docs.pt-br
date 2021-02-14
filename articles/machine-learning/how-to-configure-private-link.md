@@ -10,13 +10,13 @@ ms.custom: how-to, devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/30/2020
-ms.openlocfilehash: 5ba1b9d53255406a73b1b74dbc59fe39e3f9a0d7
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.date: 02/09/2021
+ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979174"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368006"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning
 
@@ -31,8 +31,9 @@ O link privado do Azure permite que você se conecte ao seu espaço de trabalho 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você planeja usar um espaço de trabalho habilitado para link privado com uma chave gerenciada pelo cliente, você deve solicitar esse recurso usando um tíquete de suporte. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Se você planeja usar um espaço de trabalho habilitado para link privado com uma chave gerenciada pelo cliente, você deve solicitar esse recurso usando um tíquete de suporte. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
+* Você deve ter uma rede virtual existente para criar o ponto de extremidade privado no. Você também deve [desabilitar as políticas de rede para pontos de extremidade privados](../private-link/disable-private-endpoint-network-policy.md) antes de adicionar o ponto final privado.
 ## <a name="limitations"></a>Limitações
 
 * O uso de um espaço de trabalho Azure Machine Learning com o link privado não está disponível nas regiões do Azure governamental ou na 21Vianet do Azure na China.
@@ -73,6 +74,19 @@ A [extensão de CLI do Azure para Machine Learning](reference-azure-machine-lear
 * `--pe-vnet-name`: A rede virtual existente na qual criar o ponto de extremidade privado.
 * `--pe-subnet-name`: O nome da sub-rede para a qual criar o ponto de extremidade privado. O valor padrão é `default`.
 
+Esses parâmetros são além de outros parâmetros necessários para o comando Create. Por exemplo, o comando a seguir cria um novo espaço de trabalho na região oeste dos EUA, usando um grupo de recursos existente e VNet:
+
+```azurecli
+az ml workspace create -r myresourcegroup \
+    -l westus \
+    -n myworkspace \
+    --pe-name myprivateendpoint \
+    --pe-auto-approval \
+    --pe-resource-group myresourcegroup \
+    --pe-vnet-name myvnet \
+    --pe-subnet-name mysubnet
+```
+
 # <a name="portal"></a>[Portal](#tab/azure-portal)
 
 A guia __rede__ no Azure Machine Learning Studio permite que você configure um ponto de extremidade privado. No entanto, ele requer uma rede virtual existente. Para obter mais informações, consulte [criar espaços de trabalho no portal](how-to-manage-workspace.md).
@@ -82,10 +96,6 @@ A guia __rede__ no Azure Machine Learning Studio permite que você configure um 
 ## <a name="add-a-private-endpoint-to-a-workspace"></a>Adicionar um ponto de extremidade privado a um espaço de trabalho
 
 Use um dos métodos a seguir para adicionar um ponto de extremidade privado a um espaço de trabalho existente:
-
-> [!IMPORTANT]
->
-> Você deve ter uma rede virtual existente para criar o ponto de extremidade privado no. Você também deve [desabilitar as políticas de rede para pontos de extremidade privados](../private-link/disable-private-endpoint-network-policy.md) antes de adicionar o ponto final privado.
 
 > [!WARNING]
 >
