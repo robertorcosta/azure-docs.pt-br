@@ -1,15 +1,15 @@
 ---
 title: Controles de conformidade regulatória do Azure Policy para a Grade de Eventos do Azure
 description: Lista os controles de conformidade regulatória do Azure Policy disponíveis para a Grade de Eventos do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: c9be86b13174fa94d97609bcad8fcdc283edbe20
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 9548e08f02c078e45c3a92ed8f60de2b49b2adb8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99179347"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098105"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-event-grid"></a>Controles de conformidade regulatória do Azure Policy para a Grade de Eventos do Azure
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q1, automl
 ms.date: 08/20/2020
-ms.openlocfilehash: 2b24b6480e4331f3a9470dcbb49e7ad221809187
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 6e686c7b22eb834a096cdd7a67beb6d8d291ef20
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132075"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392316"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Treinar automaticamente um modelo de previsão de série temporal
 
@@ -194,6 +194,14 @@ automl_config = AutoMLConfig(task='forecasting',
                              **forecasting_parameters)
 ```
 
+A quantidade de dados necessária para treinar com êxito um modelo de previsão com ML automatizado é influenciada `forecast_horizon` pelos `n_cross_validations` valores, e `target_lags` ou `target_rolling_window_size` especificados quando você configura o `AutoMLConfig` . 
+
+A fórmula a seguir calcula a quantidade de dados históricos que seriam necessários para construir recursos de série temporal.
+
+Dados históricos mínimos necessários: (2x `forecast_horizon` ) + # `n_cross_validations` + Max (Max ( `target_lags` ), `target_rolling_window_size` )
+
+Uma exceção de erro será gerada para qualquer série no conjunto de dados que não atenda à quantidade necessária de dado históricos para as configurações relevantes especificadas. 
+
 ### <a name="featurization-steps"></a>Etapas de personalização
 
 Em cada experimento automatizado de aprendizado de máquina, técnicas de dimensionamento automático e de normalização são aplicadas aos seus dados por padrão. Essas técnicas são tipos de **personalização** que ajudam *certos* algoritmos que são sensíveis a recursos em escalas diferentes. Saiba mais sobre as etapas de personalização padrão no [personalização no AutoML](how-to-configure-auto-features.md#automatic-featurization)
@@ -307,7 +315,7 @@ forecast_parameters = ForecastingParameters(time_column_name='day_datetime',
 ```
 A tabela a seguir resume as configurações disponíveis para o `short_series_handling_config` .
  
-|Configuração|Descrição
+|Setting|Descrição
 |---|---
 |`auto`| Este é o comportamento padrão para manipulação de série curta <li> *Se todas as séries forem curtas*, preencha os dados. <br> <li> *Se nem todas as séries forem curtas*, descarte a série curta. 
 |`pad`| Se `short_series_handling_config = pad` , o ml automatizado adiciona valores aleatórios a cada série curta encontrada. O seguinte lista os tipos de coluna e com que eles são preenchidos: <li>Colunas de objeto com NaNs <li> Colunas numéricas com 0 <li> Colunas boolianas/lógicas com false <li> A coluna de destino é preenchida com valores aleatórios com média de zero e desvio padrão de 1. 
@@ -368,7 +376,7 @@ day_datetime,store,week_of_year
 Repita as etapas necessárias para carregar esses dados futuros em um dataframe e, em seguida, execute `best_run.predict(test_data)` para prever valores futuros.
 
 > [!NOTE]
-> Não é possível prever valores para o número de períodos maiores que `forecast_horizon`. Você precisa treinar de novo o modelo com um horizonte maior se quiser prever valores futuros além do horizonte atual.
+> As previsões em amostra não têm suporte para previsão com ML automatizado quando `target_lags` e/ou `target_rolling_window_size` estão habilitados.
 
 
 ## <a name="example-notebooks"></a>Blocos de anotações de exemplo

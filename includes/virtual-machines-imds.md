@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: 0121ea65b190f254f032085133f12f6eb0f374ca
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808466"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373293"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -42,7 +42,7 @@ Aqui está o código de exemplo para recuperar todos os metadados de uma instân
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -319,7 +319,7 @@ GET /metadata/instance
 
 | Nome | Obrigatório/Opcional | Descrição |
 |------|-------------------|-------------|
-| `api-version` | Obrigatório | A versão usada para atender à solicitação.
+| `api-version` | Necessária | A versão usada para atender à solicitação.
 | `format` | Adicional | O formato ( `json` ou `text` ) da resposta. * Observação: pode ser necessário ao usar parâmetros de solicitação
 
 Esse ponto de extremidade dá suporte à filtragem de resposta via [parâmetros de rota](#route-parameters).
@@ -494,7 +494,7 @@ Como provedor de serviços, você poderá receber uma chamada de suporte na qual
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -653,7 +653,7 @@ A nuvem e os valores do ambiente do Azure são listados aqui.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -723,7 +723,7 @@ GET /metadata/attested/document
 
 | Nome | Obrigatório/Opcional | Descrição |
 |------|-------------------|-------------|
-| `api-version` | Obrigatório | A versão usada para atender à solicitação.
+| `api-version` | Necessária | A versão usada para atender à solicitação.
 | `nonce` | Opcional | Uma cadeia de caracteres de 10 dígitos que serve como um nonce criptográfico. Se nenhum valor for fornecido, IMDS usará o carimbo de data/hora UTC atual.
 
 #### <a name="response"></a>Resposta
