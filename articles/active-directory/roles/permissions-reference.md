@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb8533f4ca714402482c666c520c1d0bd745e8cf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363263"
+ms.locfileid: "100518820"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -83,11 +83,11 @@ A função de [administrador de autenticação privilegiada](#privileged-authent
 
 A função de [administrador da política de autenticação](#authentication-policy-administrator) tem permissões para definir a política de método de autenticação do locatário que determina quais métodos cada usuário pode registrar e usar.
 
-| Função | Gerenciar métodos de autenticação do usuário | Gerenciar MFA por usuário | Gerenciar configurações de MFA | Gerenciar política de método de autenticação | Gerenciar política de proteção de senha |  
+| Função | Gerenciar métodos de autenticação do usuário | Gerenciar MFA por usuário | Gerenciar configurações de MFA | Gerenciar política de método de autenticação | Gerenciar política de proteção de senha |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrador de autenticação | Sim para alguns usuários (veja acima) | Sim para alguns usuários (veja acima) | Não | Não | Não | 
-| Administrador de autenticação privilegiada| Sim para todos os usuários | Sim para todos os usuários  |Não | Não  |Não | 
-| Administrador da política de autenticação | Não  |Não | Sim | Sim | Sim | 
+| Administrador de autenticação privilegiada| Sim para todos os usuários | Sim para todos os usuários | Não | Não | Não | 
+| Administrador da política de autenticação | Não |Não | Sim | Sim | Sim | 
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar credenciais de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração das credenciais de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -107,11 +107,11 @@ Os usuários com essa função podem configurar a política de métodos de auten
 
 As funções [administrador de autenticação](#authentication-administrator) e administrador de [autenticação privilegiada](#privileged-authentication-administrator) têm permissão para gerenciar métodos de autenticação registrados em usuários e podem forçar o novo registro e a autenticação multifator para todos os usuários. 
 
-| Função | Gerenciar métodos de autenticação do usuário | Gerenciar MFA por usuário | Gerenciar configurações de MFA | Gerenciar política de método de autenticação | Gerenciar política de proteção de senha |  
+| Função | Gerenciar métodos de autenticação do usuário | Gerenciar MFA por usuário | Gerenciar configurações de MFA | Gerenciar política de método de autenticação | Gerenciar política de proteção de senha |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrador de autenticação | Sim para alguns usuários (veja acima) | Sim para alguns usuários (veja acima) | Não | Não | Não | 
-| Administrador de autenticação privilegiada| Sim para todos os usuários | Sim para todos os usuários  |Não | Não  |Não | 
-| Administrador da política de autenticação | Não  |Não | Sim | Sim | Sim | 
+| Administrador de autenticação privilegiada| Sim para todos os usuários | Sim para todos os usuários | Não | Não | Não | 
+| Administrador da política de autenticação | Não | Não | Sim | Sim | Sim | 
 
 > [!IMPORTANT]
 > Atualmente, essa função não é capaz de gerenciar configurações de MFA no portal de gerenciamento herdado do MFA.
@@ -242,7 +242,7 @@ Os usuários com essa função adicionam ou excluem atributos personalizados que
 
 Esse administrador gerencia a federação entre as organizações do Azure AD e os provedores de identidade externos.  Com essa função, os usuários podem adicionar novos provedores de identidade e definir todas as configurações disponíveis (por exemplo, caminho de autenticação, ID de serviço e contêineres de chave atribuídos).  Esse usuário pode habilitar a organização do Azure AD a confiar em autenticações de provedores de identidade externos.  O impacto sobre experiências do usuário final depende do tipo de organização:
 
-* Organizações do Azure AD para funcionários e parceiros: a adição de uma federação (por exemplo, com o Gmail) afetará imediatamente todos os convites de convidados que ainda não tenham sido resgatados. Consulte [Adicionar o Google como provedor de identidade para usuários convidados B2B](../external-identities/google-federation.md).
+* Organizações do Azure AD para funcionários e parceiros: a adição de uma federação (por exemplo, com o Gmail) afetará imediatamente todos os convites de convidados que ainda não foram resgatados. Consulte [Adicionar o Google como provedor de identidade para usuários convidados B2B](../external-identities/google-federation.md).
 * Organizações do Azure Active Directory B2C: a adição de uma federação (por exemplo, com o Facebook ou outra organização do Azure AD) não afeta imediatamente os fluxos dos usuários finais até que o provedor de identidade seja adicionado como uma opção em um fluxo dos usuários (também chamada de política interna). Consulte [Configurar uma conta da Microsoft como um provedor de identidade](../../active-directory-b2c/identity-provider-microsoft-account.md) para ver um exemplo.  Para alterar os fluxos dos usuários, é preciso ter a função limitada de “Administrador de Fluxos dos Usuários B2C”.
 
 ### <a name="global-administrator"></a>[Administrador Global](#global-administrator-permissions)
@@ -293,7 +293,7 @@ Essa função era anteriormente chamada de “Administrador de senha” no [port
 
 ### <a name="hybrid-identity-administrator"></a>[Administrador de Identidade Híbrida](#hybrid-identity-administrator-permissions)
 
-Os usuários nessa função podem criar, gerenciar e implantar a configuração de provisionamento do AD para o Azure AD usando o provisionamento de nuvem, bem como gerenciar configurações de Federação. Os usuários também podem solucionar problemas e monitorar logs usando essa função.  
+Os usuários nessa função podem criar, gerenciar e implantar a configuração de provisionamento do AD para o Azure AD usando o provisionamento de nuvem, bem como gerenciar configurações de Federação. Os usuários também podem solucionar problemas e monitorar logs usando essa função.
 
 ### <a name="insights-administrator"></a>[Administrador do Insights](#insights-administrator-permissions)
 Os usuários nessa função podem acessar o conjunto completo de recursos administrativos no [aplicativo M365 insights](https://go.microsoft.com/fwlink/?linkid=2129521). Essa função tem a capacidade de ler as informações do diretório, monitorar a integridade do serviço, tíquetes de suporte de arquivo e acessar os aspectos das configurações de administrador do insights.
@@ -336,10 +336,10 @@ Os usuários com a função de usuário de comércio moderno normalmente têm pe
 
 **Quando a função de usuário do comércio moderno é atribuída?**
 
-* **Compra por autoatendimento no Centro de administração do Microsoft 365** – a compra por autoatendimento dá aos usuários a oportunidade de experimentar novos produtos comprando-os ou inscrevendo-se neles por conta própria. Esses produtos são gerenciados no centro de administração. Os usuários que fazem uma compra de autoatendimento recebem uma função no sistema de comércio e a função de usuário do comércio moderno para que possam gerenciar suas compras no centro de administração. Os administradores podem bloquear compras por autoatendimento (para Power BI, Power Apps e Power Automate) por meio do [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, consulte [Perguntas frequentes da compra por autoatendimento](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).  
-* **Compras do Marketplace comercial da Microsoft**  – semelhante à compra de autoatendimento, quando um usuário adquire um produto ou serviço do Microsoft AppSource ou do Azure Marketplace, a função de usuário do comércio moderno é atribuída se elas não tiverem a função administrador global ou administrador de cobrança. Em alguns casos, os usuários podem ser impedidos de fazer essas compras. Para obter mais informações, consulte [Marketplace comercial da Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
-* **Propostas da Microsoft** – uma proposta é uma oferta formal enviada pela Microsoft para a sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está aceitando a proposta não tem uma função de administrador global ou de administrador de cobrança no Azure AD, ela recebe uma função específica de comércio para concluir a proposta e a função de usuário de comércio moderna para acessar o centro de administração. Ao acessar o centro de administração, essa pessoa só poderá usar recursos que sejam autorizados por sua função específica de comércio.
-* **Funções específicas de comércio** – alguns usuários recebem esse tipo de função. Se um usuário não for um administrador global ou de cobrança, ele obterá a função de usuário de comércio moderna para que possa acessar o centro de administração.  
+* **Compra por autoatendimento no Centro de administração do Microsoft 365** – a compra por autoatendimento dá aos usuários a oportunidade de experimentar novos produtos comprando-os ou inscrevendo-se neles por conta própria. Esses produtos são gerenciados no centro de administração. Os usuários que fazem uma compra de autoatendimento recebem uma função no sistema de comércio e a função de usuário do comércio moderno para que possam gerenciar suas compras no centro de administração. Os administradores podem bloquear compras por autoatendimento (para Power BI, Power Apps e Power Automate) por meio do [PowerShell](/microsoft-365/commerce/subscriptions/allowselfservicepurchase-powershell). Para obter mais informações, consulte [Perguntas frequentes da compra por autoatendimento](/microsoft-365/commerce/subscriptions/self-service-purchase-faq).
+* **Compras do Marketplace comercial da Microsoft** – semelhante à compra de autoatendimento, quando um usuário adquire um produto ou serviço do Microsoft AppSource ou do Azure Marketplace, a função de usuário do comércio moderno é atribuída se elas não tiverem a função administrador global ou administrador de cobrança. Em alguns casos, os usuários podem ser impedidos de fazer essas compras. Para obter mais informações, consulte [Marketplace comercial da Microsoft](../../marketplace/marketplace-faq-publisher-guide.md#what-could-block-a-customer-from-completing-a-purchase).
+* **Propostas da Microsoft** – uma proposta é uma oferta formal da Microsoft para sua organização comprar produtos e serviços da Microsoft. Quando a pessoa que está aceitando a proposta não tem uma função de administrador global ou de administrador de cobrança no Azure AD, ela recebe uma função específica de comércio para concluir a proposta e a função de usuário de comércio moderna para acessar o centro de administração. Ao acessar o centro de administração, essa pessoa só poderá usar recursos que sejam autorizados por sua função específica de comércio.
+* **Funções específicas de comércio** – alguns usuários recebem esse tipo de função. Se um usuário não for um administrador global ou de cobrança, ele obterá a função de usuário de comércio moderna para que possa acessar o centro de administração.
 
 Se a função de usuário do comércio moderno não for atribuída a partir de um usuário, ela perderá o acesso ao centro de administração Microsoft 365. Caso ele estivesse gerenciando produtos, seja para si próprio ou para a sua organização, ele não poderá mais fazê-lo. Isso pode incluir a atribuição de licenças, a alteração de métodos de pagamento, a cobrança de contas ou mesmo outras tarefas de gerenciamento de assinaturas.
 
@@ -389,11 +389,11 @@ A função de [administrador de autenticação](#authentication-administrator) t
 
 A função de [administrador da política de autenticação](#authentication-policy-administrator) tem permissões para definir a política de método de autenticação do locatário que determina quais métodos cada usuário pode registrar e usar.
 
-| Função | Gerenciar métodos de autenticação do usuário | Gerenciar MFA por usuário | Gerenciar configurações de MFA | Gerenciar política de método de autenticação | Gerenciar política de proteção de senha |  
+| Função | Gerenciar métodos de autenticação do usuário | Gerenciar MFA por usuário | Gerenciar configurações de MFA | Gerenciar política de método de autenticação | Gerenciar política de proteção de senha |
 | ---- | ---- | ---- | ---- | ---- | ---- | 
 | Administrador de autenticação | Sim para alguns usuários (veja acima) | Sim para alguns usuários (veja acima) | Não | Não | Não | 
-| Administrador de autenticação privilegiada| Sim para todos os usuários | Sim para todos os usuários  |Não | Não  |Não | 
-| Administrador da política de autenticação | Não  |Não | Sim | Sim | Sim | 
+| Administrador de autenticação privilegiada| Sim para todos os usuários | Sim para todos os usuários | Não | Não | Não | 
+| Administrador da política de autenticação | Não | Não | Sim | Sim | Sim | 
 
 > [!IMPORTANT]
 > Usuários com essa função podem alterar credenciais de pessoas que podem ter acesso a informações confidenciais ou particulares ou a configurações críticas dentro e fora do Azure Active Directory. A alteração das credenciais de um usuário pode significar a capacidade de assumir a identidade e as permissões do usuário. Por exemplo:
@@ -718,7 +718,7 @@ Gerencie segredos para federação e criptografia no Identity Experience Framewo
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | microsoft.aad.b2c/trustFramework/keySets/allTasks | Ler e configurar conjuntos de chaves no Azure Active Directory B2C. |
+> | microsoft.aad.b2c/trustFramework/keySets/allTasks | Ler e configurar conjuntos de chaves em Azure Active Directory B2C. |
 
 ### <a name="b2c-ief-policy-administrator-permissions"></a>Permissões do Administrador de Políticas do IEF B2C
 
@@ -992,7 +992,7 @@ Pode ler e gravar informações básicas do diretório. Para conceder acesso a a
 > | --- | --- |
 > | microsoft.directory/groups/appRoleAssignments/update | Atualize a propriedade approleassignments no Azure Active Directory. |
 > | Microsoft. Directory/groups/assignLicense | Gerenciar licenças em grupos no Azure Active Directory. |
-> | microsoft.directory/groups/basic/update | Atualize as propriedades básicas nos grupos do Active Directory do Azure.  |
+> | microsoft.directory/groups/basic/update | Atualize as propriedades básicas nos grupos do Active Directory do Azure. |
 > | Microsoft. Directory/groups/Classification/Update | Atualize a propriedade de classificação do grupo em Azure Active Directory. |
 > | microsoft.directory/groups/create | Crie grupos no Active Directory do Azure. |
 > | Microsoft. Directory/groups/GroupType/Update | Atualize a Propriedade GroupType de um grupo em Azure Active Directory. |
@@ -1081,7 +1081,7 @@ Crie e gerencie todos os aspectos de fluxos dos usuários.
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | microsoft.aad.b2c/userFlows/allTasks | Ler e configurar fluxos dos usuários no Azure Active Directory B2C. |
+> | microsoft.aad.b2c/userFlows/allTasks | Ler e configurar fluxos de usuário no Azure Active Directory B2C. |
 
 ### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Permissões de administrador do atributo de fluxo de usuário de ID externa
 
@@ -1183,69 +1183,69 @@ Pode ler tudo o que um Administrador global pode, mas não pode editar nada.
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | microsoft.commerce.billing/allEntities/read    | Ler todos os aspectos de cobrança. |
-> | microsoft.directory/administrativeUnits/basic/read    | Ler as propriedades básicas em administrativeUnits no Azure Active Directory. |
-> | microsoft.directory/administrativeUnits/members/read    | Ler a propriedade Administrativeunits no Azure Active Directory. |
-> | microsoft.directory/applications/basic/read    | Ler as propriedades básicas em aplicativos do Azure Active Directory. |
-> | microsoft.directory/applications/owners/read    | Ler a propriedade Owners no Azure Active Directory. |
-> | microsoft.directory/applications/policies/read    | Leia a propriedade applications.policies no Active Directory do Azure. |
+> | microsoft.commerce.billing/allEntities/read | Ler todos os aspectos de cobrança. |
+> | microsoft.directory/administrativeUnits/basic/read | Ler as propriedades básicas em administrativeUnits no Azure Active Directory. |
+> | microsoft.directory/administrativeUnits/members/read | Ler a propriedade Administrativeunits no Azure Active Directory. |
+> | microsoft.directory/applications/basic/read | Ler as propriedades básicas em aplicativos do Azure Active Directory. |
+> | microsoft.directory/applications/owners/read | Ler a propriedade Owners no Azure Active Directory. |
+> | microsoft.directory/applications/policies/read | Leia a propriedade applications.policies no Active Directory do Azure. |
 > | Microsoft. Directory/bitlockerKeys/Key/Read | Ler propriedades e objetos de chave do BitLocker (incluindo a chave de recuperação) em Azure Active Directory. |
-> | microsoft.directory/contacts/basic/read    | Ler as propriedades básicas em contatos no Azure Active Directory. |
-> | microsoft.directory/contacts/memberOf/read    | Ler a propriedade Contacts no Azure Active Directory. |
-> | microsoft.directory/contracts/basic/read    | Ler as propriedades básicas sobre os contratos no Azure Active Directory. |
-> | microsoft.directory/devices/basic/read    | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
-> | microsoft.directory/devices/memberOf/read    | Ler a propriedade de memberOf no Azure Active Directory. |
-> | microsoft.directory/devices/registeredOwners/read    | Ler a propriedade registeredowners no Azure Active Directory. |
-> | microsoft.directory/devices/registeredUsers/read    | Ler a propriedade registeredusers no Azure Active Directory. |
-> | microsoft.directory/directoryRoles/basic/read    | Ler as propriedades básicas no directoryRoles no Azure Active Directory. |
-> | microsoft.directory/directoryRoles/eligibleMembers/read    | Ler a propriedade Eligiblemembers no Azure Active Directory. |
-> | microsoft.directory/directoryRoles/members/read    | Ler a propriedade Directoryroles no Azure Active Directory. |
-> | microsoft.directory/domains/basic/read    | Leia as propriedades básicas em domínios no Active Directory do Azure. |
+> | microsoft.directory/contacts/basic/read | Ler as propriedades básicas em contatos no Azure Active Directory. |
+> | microsoft.directory/contacts/memberOf/read | Ler a propriedade Contacts no Azure Active Directory. |
+> | microsoft.directory/contracts/basic/read | Ler as propriedades básicas sobre os contratos no Azure Active Directory. |
+> | microsoft.directory/devices/basic/read | Ler as propriedades básicas em dispositivos no Azure Active Directory. |
+> | microsoft.directory/devices/memberOf/read | Ler a propriedade de memberOf no Azure Active Directory. |
+> | microsoft.directory/devices/registeredOwners/read | Ler a propriedade registeredowners no Azure Active Directory. |
+> | microsoft.directory/devices/registeredUsers/read | Ler a propriedade registeredusers no Azure Active Directory. |
+> | microsoft.directory/directoryRoles/basic/read | Ler as propriedades básicas no directoryRoles no Azure Active Directory. |
+> | microsoft.directory/directoryRoles/eligibleMembers/read | Ler a propriedade Eligiblemembers no Azure Active Directory. |
+> | microsoft.directory/directoryRoles/members/read | Ler a propriedade Directoryroles no Azure Active Directory. |
+> | microsoft.directory/domains/basic/read | Leia as propriedades básicas em domínios no Active Directory do Azure. |
 > | Microsoft. Directory/entitlementManagement/myproperties/Read | Leia todas as propriedades no gerenciamento de direitos do Azure AD. |
-> | microsoft.directory/groups/appRoleAssignments/read    | Leia a propriedade groups.appRoleAssignments no Active Directory do Azure. |
-> | microsoft.directory/groups/basic/read    | Leia as propriedades básicas em grupos no Active Directory do Azure. |
-> | microsoft.directory/groups/hiddenMembers/read    | Ler a propriedade hiddenmembers no Azure Active Directory. |
-> | microsoft.directory/groups/memberOf/read    | Leia a propriedade groups.memberOf no Active Directory do Azure. |
-> | microsoft.directory/groups/members/read    | Leia a propriedade groups.members no Azure Active Directory. |
-> | microsoft.directory/groups/owners/read    | Leia a propriedade groups.owners no Active Directory do Azure. |
-> | microsoft.directory/groups/settings/read    | Leia a propriedade groups.settings no Active Directory do Azure. |
-> | microsoft.directory/groupSettings/basic/read    | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
-> | microsoft.directory/groupSettingTemplates/basic/read    | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
-> | microsoft.directory/oAuth2PermissionGrants/basic/read    | Leia as propriedades básicas em oAuth2PermissionGrants no Active Directory do Azure. |
-> | microsoft.directory/organization/basic/read    | Leia as propriedades básicas da organização no Active Directory do Azure. |
-> | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read    | Leia a propriedade organization.trustedCAsForPasswordlessAuth no Active Directory do Azure. |
-> | microsoft.directory/policies/standard/read    | Ler políticas padrão no Azure Active Directory. |
+> | microsoft.directory/groups/appRoleAssignments/read | Leia a propriedade groups.appRoleAssignments no Active Directory do Azure. |
+> | microsoft.directory/groups/basic/read | Leia as propriedades básicas em grupos no Active Directory do Azure. |
+> | microsoft.directory/groups/hiddenMembers/read | Ler a propriedade hiddenmembers no Azure Active Directory. |
+> | microsoft.directory/groups/memberOf/read | Leia a propriedade groups.memberOf no Active Directory do Azure. |
+> | microsoft.directory/groups/members/read | Leia a propriedade groups.members no Azure Active Directory. |
+> | microsoft.directory/groups/owners/read | Leia a propriedade groups.owners no Active Directory do Azure. |
+> | microsoft.directory/groups/settings/read | Leia a propriedade groups.settings no Active Directory do Azure. |
+> | microsoft.directory/groupSettings/basic/read | Ler as propriedades básicas no groupSettings no Azure Active Directory. |
+> | microsoft.directory/groupSettingTemplates/basic/read | Ler as propriedades básicas no groupSettingTemplates no Azure Active Directory. |
+> | microsoft.directory/oAuth2PermissionGrants/basic/read | Leia as propriedades básicas em oAuth2PermissionGrants no Active Directory do Azure. |
+> | microsoft.directory/organization/basic/read | Leia as propriedades básicas da organização no Active Directory do Azure. |
+> | microsoft.directory/organization/trustedCAsForPasswordlessAuth/read | Leia a propriedade organization.trustedCAsForPasswordlessAuth no Active Directory do Azure. |
+> | microsoft.directory/policies/standard/read | Ler políticas padrão no Azure Active Directory. |
 > | microsoft.directory/provisioningLogs/allProperties/read | Leia todas as propriedades de logs de provisionamento. |
-> | microsoft.directory/roleAssignments/basic/read    | Leia as propriedades básicas em roleAssignments no Azure Active Directory. |
-> | microsoft.directory/roleDefinitions/basic/read    | Leia as propriedades básicas em roleDefinitions no Active Directory do Azure. |
-> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read    | Ler a propriedade Approleassignedto no Ler a propriedade Approleassignedto no Azure Active Directory.Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/appRoleAssignments/read    | Ler a propriedade ServicePrincipals.AppRoleAssignments no Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/basic/read    | Ler as propriedades básicas em entidades de serviço no Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/memberOf/read    | Ler a propriedade Serviceprincipals no Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read    | Ler a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/ownedObjects/read    | Ler a propriedade Serviceprincipals no Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/owners/read    | Ler a propriedade Serviceprincipals no Azure Active Directory. |
-> | microsoft.directory/servicePrincipals/policies/read    | Ler a propriedade servicePrincipals.policies no Azure Active Directory. |
-> | microsoft.directory/signInReports/allProperties/read    | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
-> | microsoft.directory/subscribedSkus/basic/read    | Ler as propriedades básicas no subscribedSkus no Azure Active Directory. |
-> | microsoft.directory/users/appRoleAssignments/read    | Leia a propriedade users.appRoleAssignments no Active Directory do Azure. |
-> | microsoft.directory/users/basic/read    | Leia as propriedades básicas dos usuários no Azure Active Directory. |
-> | microsoft.directory/users/directReports/read    | Leia a propriedade users.directReports no Active Directory do Azure. |
-> | microsoft.directory/users/manager/read    | Leia a propriedade users.manager no Active Directory do Azure. |
-> | microsoft.directory/users/memberOf/read    | Leia a propriedade users.memberOf no Active Directory do Azure. |
-> | microsoft.directory/users/oAuth2PermissionGrants/basic/read    | Leia a propriedade users.oAuth2PermissionGrants no Active Directory do Azure. |
-> | microsoft.directory/users/ownedDevices/read    | Leia a propriedade users.ownedDevices no Active Directory do Azure. |
-> | microsoft.directory/users/ownedObjects/read    | Leia a propriedade users.ownedObjects no Active Directory do Azure. |
-> | microsoft.directory/users/registeredDevices/read    | Leia a propriedade users.registeredDevices no Active Directory do Azure. |
-> | microsoft.directory/users/strongAuthentication/read    | Ler propriedades de autenticação forte, como informações de credencial MFA. |
-> | microsoft.office365.exchange/allEntities/read    | Ler todos os aspectos do Exchange Online. |
-> | microsoft.office365.messageCenter/messages/read    | Ler mensagens em microsoft.office365.messageCenter. |
-> | microsoft.office365.messageCenter/securityMessages/read    | Ler securityMessages em microsoft.office365.messageCenter. |
+> | microsoft.directory/roleAssignments/basic/read | Leia as propriedades básicas em roleAssignments no Azure Active Directory. |
+> | microsoft.directory/roleDefinitions/basic/read | Leia as propriedades básicas em roleDefinitions no Active Directory do Azure. |
+> | microsoft.directory/servicePrincipals/appRoleAssignedTo/read | Ler a propriedade Approleassignedto no Ler a propriedade Approleassignedto no Azure Active Directory.Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/appRoleAssignments/read | Ler a propriedade ServicePrincipals.AppRoleAssignments no Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/basic/read | Ler as propriedades básicas em entidades de serviço no Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/memberOf/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/oAuth2PermissionGrants/basic/read | Ler a propriedade servicePrincipals.oAuth2PermissionGrants no Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/ownedObjects/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/owners/read | Ler a propriedade Serviceprincipals no Azure Active Directory. |
+> | microsoft.directory/servicePrincipals/policies/read | Ler a propriedade servicePrincipals.policies no Azure Active Directory. |
+> | microsoft.directory/signInReports/allProperties/read | Ler todas as propriedades (incluindo as propriedades privilegiadas) em signInReports no Azure Active Directory. |
+> | microsoft.directory/subscribedSkus/basic/read | Ler as propriedades básicas no subscribedSkus no Azure Active Directory. |
+> | microsoft.directory/users/appRoleAssignments/read | Leia a propriedade users.appRoleAssignments no Active Directory do Azure. |
+> | microsoft.directory/users/basic/read | Leia as propriedades básicas dos usuários no Azure Active Directory. |
+> | microsoft.directory/users/directReports/read | Leia a propriedade users.directReports no Active Directory do Azure. |
+> | microsoft.directory/users/manager/read | Leia a propriedade users.manager no Active Directory do Azure. |
+> | microsoft.directory/users/memberOf/read | Leia a propriedade users.memberOf no Active Directory do Azure. |
+> | microsoft.directory/users/oAuth2PermissionGrants/basic/read | Leia a propriedade users.oAuth2PermissionGrants no Active Directory do Azure. |
+> | microsoft.directory/users/ownedDevices/read | Leia a propriedade users.ownedDevices no Active Directory do Azure. |
+> | microsoft.directory/users/ownedObjects/read | Leia a propriedade users.ownedObjects no Active Directory do Azure. |
+> | microsoft.directory/users/registeredDevices/read | Leia a propriedade users.registeredDevices no Active Directory do Azure. |
+> | microsoft.directory/users/strongAuthentication/read | Ler propriedades de autenticação forte, como informações de credencial MFA. |
+> | microsoft.office365.exchange/allEntities/read | Ler todos os aspectos do Exchange Online. |
+> | microsoft.office365.messageCenter/messages/read | Ler mensagens em microsoft.office365.messageCenter. |
+> | microsoft.office365.messageCenter/securityMessages/read | Ler securityMessages em microsoft.office365.messageCenter. |
 > | microsoft.office365.network/performance/allProperties/read | Ler páginas de desempenho de rede no centro de administração Microsoft 365. |
-> | Microsoft.office365.protectionCenter/allEntities/Read    | Ler todos os aspectos do Centro de Proteção do Office 365. |
-> | microsoft.office365.securityComplianceCenter/allEntities/read    | Ler as todas as propriedades padrão em microsoft.office365.securityComplianceCenter. |
-> | Microsoft.office365.usageReports/allEntities/Read    | Leia os relatórios de uso do Office 365. |
-> | microsoft.office365.webPortal/allEntities/standard/read    | Ler as propriedades padrão em todos os recursos em microsoft.office365.webPortal. |
+> | Microsoft.office365.protectionCenter/allEntities/Read | Ler todos os aspectos do Centro de Proteção do Office 365. |
+> | microsoft.office365.securityComplianceCenter/allEntities/read | Ler as todas as propriedades padrão em microsoft.office365.securityComplianceCenter. |
+> | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
+> | microsoft.office365.webPortal/allEntities/standard/read | Ler as propriedades padrão em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="groups-administrator-permissions"></a>Permissões do Administrador de grupos
 
@@ -1313,8 +1313,8 @@ Pode gerenciar o AD para o provisionamento de nuvem do Azure AD e configuraçõe
 > | --- | --- |
 > | microsoft.azure.serviceHealth/allEntities/allTasks | Ler e configurar a Integridade do Serviço do Azure. |
 > | microsoftmicrosoft.azure.supportTickets/allEntities/allTasks.azure.supportTickets/allEntities/allTasks | Crie e gerencie tíquetes de suporte do Azure para serviços de nível de diretório. |
-> | microsoft.directory/applications/audience/update  | Atualize a propriedade applications.audience no Azure Active Directory. |
-> | microsoft.directory/applications/authentication/update | Atualize a propriedade applications.authentication no Azure Active Directory.  |
+> | microsoft.directory/applications/audience/update | Atualize a propriedade applications.audience no Azure Active Directory. |
+> | microsoft.directory/applications/authentication/update | Atualize a propriedade applications.authentication no Azure Active Directory. |
 > | microsoft.directory/applications/basic/update | Atualize as propriedades básicas dos aplicativos no Active Directory do Azure. |
 > | microsoft.directory/applications/create | Crie aplicativos no Active Directory do Azure. |
 > | microsoft.directory/applications/credentials/update | Atualize a propriedade applications.credentials no Azure Active Directory. |
@@ -1491,7 +1491,7 @@ Pode gerenciar os locais de rede e examinar insights sobre o design da rede empr
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
 > | --- | --- |
-> | microsoft.office365.network/performance/allProperties/read | Ler as páginas de desempenho de rede no Centro de administração do M365.  |
+> | microsoft.office365.network/performance/allProperties/read | Ler as páginas de desempenho de rede no Centro de administração do M365. |
 > | microsoft.office365.network/locations/allProperties/allTasks | Ler e configurar as propriedades dos locais de rede para cada local. |
 
 ### <a name="office-apps-administrator-permissions"></a>Permissões do Administrador de aplicativos do Office
@@ -1896,7 +1896,7 @@ Pode gerenciar todos os aspectos do produto Skype for Business.
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Ler e configurar a integridade do serviço Microsoft 365. |
 > | Microsoft.office365.skypeForBusiness/allEntities/allTasks | Gerencie todos os aspectos do Skype for Business Online. |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Criar e gerenciar tíquetes de suporte do Office 365. |
-> | Microsoft.office365.usageReports/allEntities/Read    | Leia os relatórios de uso do Office 365. |
+> | Microsoft.office365.usageReports/allEntities/Read | Leia os relatórios de uso do Office 365. |
 > | microsoft.office365.webPortal/allEntities/basic/read | Ler as propriedades básicas em todos os recursos em microsoft.office365.webPortal. |
 
 ### <a name="teams-administrator-permissions"></a>Permissões de administrador de equipes
@@ -2144,7 +2144,7 @@ Ingresso de Dispositivo | Preterido | [Documentação de funções preteridas](p
 Gerenciadores de Dispositivo | Preterido | [Documentação de funções preteridas](permissions-reference.md#deprecated-roles)
 Usuários de Dispositivo | Preterido | [Documentação de funções preteridas](permissions-reference.md#deprecated-roles)
 Contas de sincronização de diretório | Não exibido porque não deve ser usado | [Documentação de Contas de sincronização de diretório](permissions-reference.md#directory-synchronization-accounts)
-Usuário Convidado | Não exibido porque não pode ser usado  | NA
+Usuário Convidado | Não exibido porque não pode ser usado | NA
 Suporte ao parceiro de Nível 1 | Não exibido porque não deve ser usado | [Documentação do Suporte de nível 1 ao parceiro](permissions-reference.md#partner-tier1-support)
 Suporte ao parceiro de Nível 2 | Não exibido porque não deve ser usado | [Documentação do Suporte de nível 2 ao parceiro](permissions-reference.md#partner-tier2-support)
 Usuário convidado restrito | Não exibido porque não pode ser usado | NA

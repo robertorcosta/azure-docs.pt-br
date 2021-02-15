@@ -1,19 +1,19 @@
 ---
-title: Como monitorar o Cache Redis do Azure
+title: Monitorar o cache do Azure para Redis
 description: Saiba como monitorar a integridade e o desempenho das instâncias do Cache Redis do Azure
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
-ms.date: 07/13/2017
-ms.openlocfilehash: 3d19d8f1b6a44f32e92f82e861471ca9b5c8fa41
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.date: 02/08/2021
+ms.openlocfilehash: ea99c34f03cd74185840767605c17ee6c65eb701
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327331"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389698"
 ---
-# <a name="how-to-monitor-azure-cache-for-redis"></a>Como monitorar o Cache Redis do Azure
+# <a name="monitor-azure-cache-for-redis"></a>Monitorar o cache do Azure para Redis
 
 O Cache Redis do Azure usa o [Azure Monitor](../azure-monitor/index.yml) para fornecer várias opções para monitorar suas instâncias de cache. Você pode exibir métricas, fixar gráficos de métricas ao quadro inicial, personalizar o intervalo de data e hora de gráficos de monitoramento, adicionar/remover as métricas de gráficos e definir alertas quando determinadas condições forem atendidas. Essas ferramentas permitem monitorar a integridade de suas instâncias do Cache do Azure para Redis e ajudá-lo a gerenciar seus aplicativos de cache.
 
@@ -68,7 +68,7 @@ Para configurar uma conta de armazenamento para suas métricas de cache:
 4. Marque **Arquivar em uma conta de armazenamento**. Você pagará taxas de dados normais por armazenamento e transações ao enviar diagnóstico para uma conta de armazenamento.
 4. Selecione **Configurar** para escolher a conta de armazenamento na qual armazenar as métricas de cache.
 5. Na **métrica** título da tabela, marque a caixa de seleção ao lado dos itens de linha que você deseja armazenar, como **biométricas**. Especifique uma política de **retenção (dias)** . A retenção máxima de dias que você pode especificar é de **365 dias**. No entanto, se você quiser manter os dados de métricas para sempre, defina a **retenção (dias)** como **0**.
-6. Clique em **Save** (Salvar).
+6. Clique em **Salvar**.
 
 
 ![Diagnóstico do Redis](./media/cache-how-to-monitor/redis-cache-diagnostics.png)
@@ -94,7 +94,7 @@ Cada métrica inclui duas versões. Uma métrica mede o desempenho de todo o cac
 > 
 > 
 
-| Metric | Descrição |
+| Métrica | Descrição |
 | --- | --- |
 | Acertos do Cache |O número de pesquisas de chave com êxito durante o intervalo de relatório especificado. Esse número é mapeado para `keyspace_hits` do comando Redis [info](https://redis.io/commands/info) . |
 | Latência do cache (versão prévia) | A latência do cache calculada com base na latência de entre nós do cache. Essa métrica é medida em microssegundos e tem três dimensões: `Avg` , `Min` e `Max` , que representam a latência média, mínima e máxima do cache, respectivamente durante o intervalo de relatório especificado. |

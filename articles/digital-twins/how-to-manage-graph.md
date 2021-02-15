@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 037e7fd13f55a0f5de939197f71324221392bd55
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: bc548d4cc728611387b36451d563be6ca0e21530
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601071"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388185"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -116,6 +116,21 @@ Agora você pode chamar essa função em seu método principal como este:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
+## <a name="update-relationships"></a>Atualizar relações
+
+As relações são atualizadas usando o `UpdateRelationship` método. 
+
+>[!NOTE]
+>Esse método é para atualizar as **Propriedades** de uma relação. Se você precisar alterar o conjunto de fontes de gêmeos ou de destino da relação, será necessário [excluir a relação](#delete-relationships) e [recriá-](#create-relationships) la usando o novo.
+
+Os parâmetros necessários para a chamada do cliente são a ID da fonte de armazenamento (o d "d", onde a relação se origina), a ID da relação a ser atualizada e um documento de [patch JSON](http://jsonpatch.com/) que contém as propriedades e os novos valores que você gostaria de atualizar.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+
+Aqui está um exemplo de uma chamada para esse método, passando um documento de patch JSON com as informações para atualizar uma propriedade.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseUpdateRelationship":::
+
 ## <a name="delete-relationships"></a>Excluir relações
 
 O primeiro parâmetro especifica a fonte de los (o nome do entrelaçado no qual a relação se origina). O outro parâmetro é a ID da relação. Você precisa da ID de FileUp e da ID de relação, pois as IDs de relação são exclusivas apenas no escopo de um entrelaçamento.
@@ -137,7 +152,7 @@ O trecho de código usa o [*Room.js*](https://github.com/Azure-Samples/digital-t
 Antes de executar o exemplo, faça o seguinte:
 1. Baixe os arquivos de modelo, coloque-os em seu projeto e substitua os `<path-to>` espaços reservados no código abaixo para informar o programa onde encontrá-los.
 2. Substitua o espaço reservado `<your-instance-hostname>` pelo nome de host da instância do gêmeos digital do Azure.
-3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. O primeiro é o pacote para o [SDK do gêmeos digital do Azure para .net](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), o segundo fornece ferramentas para ajudar com a autenticação no Azure.
+3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. A primeira é o pacote do [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), e a segunda fornece ferramentas para ajudar com a autenticação no Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -168,8 +183,8 @@ Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e rela�
 
 |  ID do Modelo    | ID de entrelaça (deve ser exclusivo) | Nome da Relação  | ID do entrelaçado de destino  | Dados de inicialização de entrelaçamento |
 | --- | --- | --- | --- | --- |
-| dtmi: exemplo: Floor; 1    | Floor1 | contains | Room1 | |
-| dtmi: exemplo: Floor; 1    | Floor0 | contains | Room0 | |
+| dtmi: exemplo: Floor; 1    | Floor1 | contém | Room1 | |
+| dtmi: exemplo: Floor; 1    | Floor0 | contém | Room0 | |
 | dtmi: exemplo: sala; 1    | Room1 | | | {"Temperatura": 80} |
 | dtmi: exemplo: sala; 1    | Room0 | | | {"Temperatura": 70} |
 
