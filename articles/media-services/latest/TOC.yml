@@ -13,6 +13,8 @@
   items:
     - name: Configure seu ambiente
       items:
+        - name: Localizar sua ID de locatário
+          href: how-to-set-azure-tenant.md
         - name: Encontrar sua assinatura do Azure
           href: how-to-set-azure-subscription.md
         - name: Criar uma conta de Serviços de Mídia
@@ -70,6 +72,8 @@
           displayName: 'AAD, Active Directory'
     - name: REST
       items:
+        - name: Habilitar um armazenamento confiável
+          href: tutorial-trusted-storage-rest.md
         - name: Codificar e transmitir um REST de arquivo remoto
           href: stream-files-tutorial-with-rest.md
         - name: Chaves gerenciadas pelo cliente com o API REST
@@ -305,6 +309,12 @@
           displayName: 'migration, samples'
 - name: Guias de instruções
   items:
+    - name: Localizar seu locatário e sua assinatura
+      items:
+        - name: Localizar sua ID de locatário
+          href: how-to-set-azure-tenant.md
+        - name: Localizar a ID de sua assinatura
+          href: how-to-set-azure-subscription.md
     - name: Criar ativos e carregar mídia
       items:
         - name: Criar um ativo

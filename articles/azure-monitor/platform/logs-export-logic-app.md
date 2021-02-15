@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: 04f1eb0d9db00a2be1a4619cafe38aa18145fc78
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: 21b9d73da0df5ada626500a706a19d1025de1dcc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185990"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391959"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arquivar dados de Log Analytics espaço de trabalho para o armazenamento do Azure usando o aplicativo lógico
 Este artigo descreve um método para usar os [aplicativos lógicos do Azure](../../logic-apps/index.yml) para consultar dados de um espaço de trabalho Log Analytics no Azure monitor e enviar para o armazenamento do Azure. Use esse processo quando precisar exportar seus dados de log do Azure Monitor para cenários de auditoria e conformidade ou para permitir que outro serviço recupere esses dados.  
@@ -69,7 +69,7 @@ Vá para **aplicativos lógicos** no portal do Azure e clique em **Adicionar**. 
 Clique em **examinar + criar** e em **criar**. Quando a implantação for concluída, clique em **ir para o recurso** para abrir o **Designer de aplicativos lógicos**.
 
 ## <a name="create-a-trigger-for-the-logic-app"></a>Criar um gatilho para o aplicativo lógico
-Em **Iniciar com um gatilho comum**, selecione **recorrência**. Isso cria um aplicativo lógico que é executado automaticamente em intervalos regulares. Na caixa **frequência** da ação, selecione **hora** e, na caixa **intervalo** , digite **1** para executar o fluxo de trabalho uma vez por dia.
+Em **Iniciar com um gatilho comum**, selecione **recorrência**. Isso cria um aplicativo lógico que é executado automaticamente em intervalos regulares. Na caixa **frequência** da ação, selecione **dia** e, na caixa **intervalo** , digite **1** para executar o fluxo de trabalho uma vez por dia.
 
 ![Ação de recorrência](media/logs-export-logicapp/recurrence-action.png)
 

@@ -6,12 +6,12 @@ ms.date: 03/29/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 249afa361946e85a8c8ff241f07d7aae608949ae
-ms.sourcegitcommit: 4d48a54d0a3f772c01171719a9b80ee9c41c0c5d
+ms.openlocfilehash: 811827c1053349d4fa80a25e5cf362331e5d87bc
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/24/2021
-ms.locfileid: "98745693"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383170"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Azure Monitor de monitoramento de aplicativos com código Java Application Insights
 
@@ -25,7 +25,7 @@ Você ainda pode enviar telemetria personalizada do seu aplicativo. O agente 3,0
 
 O agente 3,0 dá suporte a Java 8 e superior.
 
-## <a name="quickstart"></a>Guia de Início Rápido
+## <a name="quickstart"></a>Início Rápido
 
 **1. baixar o agente**
 
@@ -121,7 +121,7 @@ Consulte [Opções de configuração](./java-standalone-config.md) para obter de
 
 ### <a name="logs"></a>Logs
 
-* Java. util. Logging
+* java.util.logging
 * Log4J (incluindo propriedades MDC)
 * SLF4J/Logback (incluindo propriedades MDC)
 
@@ -230,6 +230,7 @@ try {
 } finally {
     long endTime = System.currentTimeMillis();
     RemoteDependencyTelemetry telemetry = new RemoteDependencyTelemetry();
+    telemetry.setSuccess(success);
     telemetry.setTimestamp(new Date(startTime));
     telemetry.setDuration(new Duration(endTime - startTime));
     telemetryClient.trackDependency(telemetry);

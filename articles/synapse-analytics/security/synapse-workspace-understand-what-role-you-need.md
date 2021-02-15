@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/1/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ba00e6f4fe97b0614483fd04ddee9fc768558db5
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 950a786b29a8144c4bb192fa6078e8c88d67481d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102097"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384445"
 ---
 # <a name="understand-the-roles-required-to-perform-common-tasks-in-synapse"></a>Entender as funções necessárias para executar tarefas comuns no Synapse
 
@@ -87,7 +87,7 @@ Exibir os logs para execução de bloco de anotações e trabalho |Operador de c
 Cancelar qualquer trabalho de notebook ou Spark em execução em um pool de Apache Spark|Synapse o operador de computação no pool de Apache Spark.|bigDataPools/useCompute
 Criar um bloco de anotações ou uma definição de trabalho|Usuário Synapse ou </br>Proprietário, colaborador ou leitor do Azure no espaço de trabalho</br> *Permissões adicionais são necessárias para executar, publicar ou confirmar alterações*|ler</br></br></br></br></br> 
 Listar e abrir um bloco de anotações ou uma definição de trabalho publicados, incluindo revisão de saídas salvas|Usuário do artefato Synapse, Publicador de artefatos do Synapse, colaborador do Synapse no espaço de trabalho|artefatos/leitura
-Executar um bloco de anotações e examinar sua saída|Synapse Apache Spark administrador, Synapse Compute Operator no pool de Apache Spark selecionado|bigDataPools/useCompute 
+Executar um bloco de anotações e examinar sua saída ou enviar um trabalho do Spark|Synapse Apache Spark administrador, Synapse Compute Operator no pool de Apache Spark selecionado|bigDataPools/useCompute 
 Publicar ou excluir um bloco de anotações ou uma definição de trabalho (incluindo saída) para o serviço|Publicador de artefatos no espaço de trabalho, Synapse Apache Spark administrador|blocos de anotações/gravação, excluir
 Confirmar alterações em um bloco de anotações ou definição de trabalho para o repositório git|Permissões do Git|nenhum
 PIPELINES, TEMPOS DE EXECUÇÃO DE INTEGRAÇÃO, FLUXOS DE DATA, CONJUNTOS DE & GATILHOS|
