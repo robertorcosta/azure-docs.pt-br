@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: f52e308199ddb8bc21809009ad71918d077ac5b2
-ms.sourcegitcommit: 8be279f92d5c07a37adfe766dc40648c673d8aa8
+ms.openlocfilehash: ebd5a0c14b6f9e3a57e3a7df888b5f9d24f9a2df
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
-ms.locfileid: "97837842"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523610"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Trabalhar com alertas no console de gerenciamento local 
 
@@ -119,13 +119,34 @@ Para exibir os dispositivos em um mapa de zona:
 
 ## <a name="manage-alert-events"></a>Gerenciar eventos de alerta
 
-Você pode gerenciar eventos de alerta detectados por sensores organizacionais da seguinte maneira:
+Várias opções estão disponíveis para o gerenciamento de eventos de alerta do console de gerenciamento local.
 
 - Aprenda ou confirme eventos de alerta. Selecione **saiba & reconhecer** para aprender todos os eventos de alerta que podem ser autorizados e para reconhecer todos os eventos de alerta que não são confirmados no momento.
 
   :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/learn-and-acknowledge.png" alt-text="Selecione saiba & reconhecer para aprender tudo.":::
 
 - Eventos de alerta sem áudio e mudo.
+
+Para saber mais sobre aprendizado, reconhecimento e mudo de eventos de alerta, consulte o artigo sensor [gerenciar eventos de alerta](how-to-manage-the-alert-event.md) .
+
+## <a name="export-alert-information"></a>Exportar informações de alerta
+
+Exportar informações de alerta para um arquivo. csv. Você pode exportar informações de todos os alertas detectados ou exportar informações com base na exibição filtrada. As seguintes informações são exportadas:
+
+- Endereço de origem
+- Endereço de destino
+- Título do alerta
+- Severidade do alerta
+- Mensagem de alerta
+- Informações adicionais
+- Status confirmado
+- Disponibilidade do PCAP
+
+Para exportar:
+
+1. Selecione alertas no menu lateral.
+1. Selecione Exportar.
+1. Selecione exportar alertas estendidos para exportar informações de alerta em linhas separadas para cada alerta que abrange vários dispositivos. Quando exportar alertas estendidos estiver selecionado, o arquivo. csv criará uma linha duplicada do alerta com os itens exclusivos em cada linha. Usar essa opção torna mais fácil investigar eventos de alerta exportados.  
 
 ## <a name="create-alert-exclusion-rules"></a>Criar regras de exclusão de alerta
 
@@ -225,6 +246,6 @@ As regras que você cria usando a API aparecem na janela de **regra de exclusão
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Captura de tela da exibição Editar regra de exclusão.":::
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [Trabalhar com alertas em seu sensor](how-to-work-with-alerts-on-your-sensor.md)

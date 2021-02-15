@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 01/03/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a71ea75eb603b141c4b28cff5f2b4aa957583bcd
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 3d5a29ed26d58f0cbaa57768d4b8ad236283deb9
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98621305"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523848"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre a configuração de rede do Azure Defender para IoT
 
@@ -365,7 +365,7 @@ Os agregadores TAP também podem ser usados para o monitoramento de porta. Esses
 
 Esses modelos foram testados quanto à compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
-| Imagem | Modelo |
+| Imagem | Modelar |
 |--|--|
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de tela de Garland P1GCCAS."::: | Garland P1GCCAS |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de tela de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
@@ -534,24 +534,23 @@ Examine esta lista antes da implantação do site:
 
 | **#** | **Tarefa ou atividade** | **Status** | **Comentários** |
 |--|--|--|--|
-| 1 | Forneça global. | ☐ |  |
-| 3 | Solicitar dispositivos. | ☐ |  |
-| 4 | Prepare uma lista de sub-redes na rede. | ☐ |  |
-| 5 | Forneça uma lista de VLANs das redes de produção. | ☐ |  |
-| 6 | Forneça uma lista de modelos de comutador na rede. | ☐ |  |
-| 7 | Forneça uma lista de fornecedores e protocolos do equipamento industrial. | ☐ |  |
-| 8 | Forneça detalhes da rede para sensores (endereço IP, sub-rede, D-GW, DNS). | ☐ |  |
-| 9 | Crie as regras de firewall necessárias e a lista de acesso. | ☐ |  |
-| 10 | Crie portas de abrangência em switches para monitoramento de porta ou configure toques de rede conforme desejado. | ☐ |  |
-| 11 | Prepare o espaço do rack para dispositivos de sensor. | ☐ |  |
-| 12 | Prepare uma estação de trabalho para a equipe. | ☐ |  |
-| 13 | Forneça um teclado, monitor e mouse para os dispositivos de rack do defender para IoT. | ☐ |  |
-| 14 | Rack e cabeamento dos dispositivos. | ☐ |  |
-| 15 | Aloque recursos do site para dar suporte à implantação. | ☐ |  |
-| 16 | Crie grupos de Active Directory ou usuários locais. | ☐ |  |
-| 17 | Treinamento de configuração (auto-learning). | ☐ |  |
-| 18 | Ir ou não ir. | ☐ |  |
-| 19 | Agendar a data de implantação. | ☐ |  |
+| 1 | Solicitar dispositivos. | ☐ |  |
+| 2 | Prepare uma lista de sub-redes na rede. | ☐ |  |
+| 3 | Forneça uma lista de VLANs das redes de produção. | ☐ |  |
+| 4 | Forneça uma lista de modelos de comutador na rede. | ☐ |  |
+| 5 | Forneça uma lista de fornecedores e protocolos do equipamento industrial. | ☐ |  |
+| 6 | Forneça detalhes da rede para sensores (endereço IP, sub-rede, D-GW, DNS). | ☐ |  |
+| 7 | Crie as regras de firewall necessárias e a lista de acesso. | ☐ |  |
+| 8 | Crie portas de abrangência em switches para monitoramento de porta ou configure toques de rede conforme desejado. | ☐ |  |
+| 9 | Prepare o espaço do rack para dispositivos de sensor. | ☐ |  |
+| 10 | Prepare uma estação de trabalho para a equipe. | ☐ |  |
+| 11 | Forneça um teclado, monitor e mouse para os dispositivos de rack do defender para IoT. | ☐ |  |
+| 12 | Rack e cabeamento dos dispositivos. | ☐ |  |
+| 13 | Aloque recursos do site para dar suporte à implantação. | ☐ |  |
+| 14 | Crie grupos de Active Directory ou usuários locais. | ☐ |  |
+| 15 | Treinamento de configuração (auto-learning). | ☐ |  |
+| 16 | Ir ou não ir. | ☐ |  |
+| 17 | Agendar a data de implantação. | ☐ |  |
 
 
 | **Data** | **Observação** | **Data de implantação** | **Observação** |
@@ -696,6 +695,6 @@ Contate um administrador de Active Directory para criar um grupo de usuários de
 | Câmera | |
 | Computador com Ray X | |
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Próximas etapas
 
 [Sobre a instalação do defender para IoT](how-to-install-software.md)

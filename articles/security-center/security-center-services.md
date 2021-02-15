@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/08/2021
 ms.author: memildin
-ms.openlocfilehash: e827178d8ccb0f7de8d32433d03502a7412d1139
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 7034d1b5f06fcbcead79d85df10042eee3581b0b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834036"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369349"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -96,10 +96,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 | Trend Micro – Deep Security | Família Windows Server  | Não | Sim |
 | Symantec v12.1.1100+| Família Windows Server  | Não | Sim |
 | McAfee v10+ | Família Windows Server  | Não | Sim |
-| McAfee v10+ | Família de servidores Linux  | Não | Sim **\*** |
-| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim **\***  |
-
- **\*** O estado de cobertura e os dados de suporte estão atualmente disponíveis apenas no workspace do Log Analytics associado às assinaturas protegidas. Ele não é refletido no portal da Central de Segurança do Azure.
+| McAfee v10+ | Família de servidores Linux  | Não | Sim |
+| Sophos V9 e posterior| Família de servidores Linux  | Não | Sim |
 
 > [!NOTE]
 > A detecção do SCEP (System Center Endpoint Protection) em uma máquina virtual do Windows Server 2008 R2 exige a instalação do SCEP após o PowerShell (v3.0 ou mais recente).
@@ -120,7 +118,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
 |[Exportação contínua](continuous-export.md)|✔|✔ (2)|
-|[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
+|[Automação do fluxo de trabalho](workflow-automation.md)|✔ (2)|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
 |[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
@@ -132,7 +130,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
-|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
 |[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|-|-|
 |||
 

@@ -781,6 +781,8 @@
             - name: Alertas de disponibilidade
               displayname: 'alerts, global, alerting'
               href: app/availability-alerts.md
+            - name: Relatório de SLA
+              href: app/sla-report.md
             - name: Solução de problemas
               displayname: 'availability, troubleshoot, troubleshoot availability'
               href: app/troubleshoot-availability.md
@@ -794,6 +796,8 @@
         - name: Live Metrics Stream
           displayname: 'live, quickpulse, quick pulse, live metrics'
           href: app/live-stream.md
+        - name: Integração do item de trabalho
+          href: app/work-item-integration.md
         - name: Métricas
           items:
             - name: Métricas pré-agregadas e baseadas em log
@@ -1022,7 +1026,7 @@
               href: insights/vminsights-health-troubleshoot.md
         - name: Analisar dados com consultas de log
           href: insights/vminsights-log-search.md
-        - name: Monitorar desempenho
+        - name: Alertas
           href: insights/vminsights-alerts.md
         - name: Monitorar alterações
           href: insights/vminsights-change-analysis.md
