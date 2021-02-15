@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ae3865c1ee5e656fc4feda48de9ab67995619593
-ms.sourcegitcommit: dea56e0dd919ad4250dde03c11d5406530c21c28
+ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96936362"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526231"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -111,7 +111,7 @@ Em seguida, exponha a API adicionando um escopo:
 Em seguida, especifique que o aplicativo deve ser tratado como um cliente público:
 
 1. No menu à esquerda, em **Gerenciar**, selecione **Autenticação**.
-1. Em **Configurações avançadas**, habilite **Tratar aplicativo como um cliente público** (selecione **Sim**). Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
+1. Em **Configurações avançadas**, na seção **permitir fluxos de cliente público** , defina **habilitar os seguintes fluxos móveis e de área de trabalho** para **Sim**. Verifique se **"allowPublicClient": true** está definido no manifesto do aplicativo. 
 1. Clique em **Salvar**.
 
 Agora conceda permissões ao escopo da API que você expôs anteriormente no registro de *IdentityExperienceFramework*:

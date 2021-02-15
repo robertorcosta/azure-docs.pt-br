@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: db3954b0368392d63680a8d92f13d6a0423e8ef5
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391585"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526845"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Solucionar problemas de conexões no Azure alcance
 
@@ -53,7 +53,10 @@ Verifique se as permissões corretas foram configuradas para a identidade gerenc
 Para verificar isso, execute as seguintes etapas:
 
 1. Navegue até o cofre de chaves e para a seção **políticas de acesso**
-1. Verifique se a identidade gerenciada do alcance é mostrada na seção *políticas de acesso atuais* com as permissões **Get** e **list** em segredos pelo menos
+
+1. Verifique se a identidade gerenciada do alcance é mostrada na seção *políticas de acesso atuais* com pelo menos permissões de **obtenção** e **lista** de segredos
+
+   :::image type="content" source="./media/troubleshoot-connections/verify-minimum-permissions.png" alt-text="Imagem mostrando a seleção de lista suspensa das opções de permissão Get e List":::
 
 Se você não vir sua identidade gerenciada do alcance listada, siga as etapas em [criar e gerenciar credenciais para verificações](manage-credentials.md) para adicioná-la. 
 

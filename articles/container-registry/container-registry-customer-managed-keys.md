@@ -4,12 +4,12 @@ description: Saiba mais sobre a criptografia em repouso do registro de contêine
 ms.topic: article
 ms.date: 12/03/2020
 ms.custom: ''
-ms.openlocfilehash: fb30610457e539250c33d7d9726fe10f9c0f8c5a
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: bc692dc8df133aa5fae352a7667062f81ceed350
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062721"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526435"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Criptografar o Registro usando uma chave gerenciada pelo cliente
 
@@ -127,11 +127,11 @@ az keyvault set-policy \
   --key-permissions get unwrapKey wrapKey
 ```
 
-Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac-guide.md) (versão prévia) para atribuir permissões à identidade para acessar o cofre de chaves. Por exemplo, atribua a função de criptografia do serviço de criptografia Key Vault à identidade usando o comando [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create) :
+Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac-guide.md) para atribuir permissões à identidade para acessar o cofre de chaves. Por exemplo, atribua a função de criptografia do serviço de criptografia Key Vault à identidade usando o comando [AZ role Assignment Create](/cli/azure/role/assignment#az-role-assignment-create) :
 
 ```azurecli 
 az role assignment create --assignee $identityPrincipalID \
-  --role "Key Vault Crypto Service Encryption (preview)" \
+  --role "Key Vault Crypto Service Encryption User" \
   --scope $keyvaultID
 ```
 
@@ -247,7 +247,7 @@ Você usará o nome da identidade nas etapas posteriores.
 
 :::image type="content" source="media/container-registry-customer-managed-keys/create-managed-identity.png" alt-text="Criar identidade atribuída ao usuário no portal do Azure":::
 
-### <a name="create-a-key-vault"></a>Criar um cofre de chave
+### <a name="create-a-key-vault"></a>Criar um cofre de chaves
 
 Para obter as etapas para criar um cofre de chaves, consulte [início rápido: criar um cofre de chaves usando o portal do Azure](../key-vault/general/quick-create-portal.md).
 
@@ -267,12 +267,12 @@ Configure uma política para o cofre de chaves, de modo que a identidade possa a
 
 :::image type="content" source="media/container-registry-customer-managed-keys/add-key-vault-access-policy.png" alt-text="Criar uma política de acesso ao cofre de chaves":::
 
-Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac-guide.md) (versão prévia) para atribuir permissões à identidade para acessar o cofre de chaves. Por exemplo, atribua a função de criptografia do serviço de criptografia Key Vault à identidade.
+Como alternativa, use o [RBAC do Azure para Key Vault](../key-vault/general/rbac-guide.md) para atribuir permissões à identidade para acessar o cofre de chaves. Por exemplo, atribua a função de criptografia do serviço de criptografia Key Vault à identidade.
 
 1. Navegue até o cofre de chaves.
 1. Selecione **controle de acesso (iam)**  >  **+ Adicionar**  >  **Adicionar atribuição de função**.
 1. Na janela **Adicionar atribuição de função** :
-    1. Selecione **Key Vault função criptografia do serviço de criptografia (versão prévia)** . 
+    1. Selecione **Key Vault** função de usuário de criptografia do serviço de criptografia. 
     1. Atribuir acesso à **identidade gerenciada atribuída pelo usuário**.
     1. Selecione o nome do recurso de sua identidade gerenciada atribuída pelo usuário e selecione **salvar**.
 

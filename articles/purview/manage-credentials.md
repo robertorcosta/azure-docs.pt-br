@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 091f4d7a4acdcc5d1a2b89a5121ee0cff3ee1f55
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381181"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526674"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem no Azure alcance
 
@@ -67,7 +67,7 @@ Antes de criar uma credencial, primeiro associe uma ou mais das instâncias de A
 
 4. Na lista suspensa **permissões de segredos** , selecione as permissões **obter** e **listar** .
 
-5. Para **selecionar entidade de segurança**, escolha a identidade gerenciada alcance.
+5. Para **selecionar entidade de segurança**, escolha a identidade gerenciada alcance. Você pode pesquisar o MSI do alcance usando o nome da instância do alcance **ou** a ID do aplicativo de identidade gerenciada. No momento, não há suporte para identidades compostas (nome da identidade gerenciada + ID do aplicativo).
 
    :::image type="content" source="media/manage-credentials/add-access-policy.png" alt-text="Adicionar política de acesso":::
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: ba98eb7e87ba277dcd5279ecf17373a8276b1cb1
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523967"
+ms.locfileid: "100526911"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -570,7 +570,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Consulte também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

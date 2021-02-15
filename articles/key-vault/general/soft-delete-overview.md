@@ -7,17 +7,20 @@ ms.topic: conceptual
 author: ShaneBala-keyvault
 ms.author: sudbalas
 ms.date: 12/15/2020
-ms.openlocfilehash: 68c690b9cbd2028f73492550adbe86111f9ec3a7
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: e06a388f2391f4ed94370dd072a66a162ba5240f
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99257939"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100526656"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
 > [!IMPORTANT]
 > Você deve habilitar a exclusão reversível em seus cofres de chaves imediatamente. A capacidade de recusar a exclusão reversível será preterida em breve. Veja os detalhes completos [aqui](soft-delete-change.md)
+
+> [!IMPORTANT]
+> O cofre excluído reversível dispara as configurações de exclusão para integração com os serviços Key Vault, ou seja, atribuições de funções do RBAC do Azure, assinaturas da grade de eventos Azure Monitor configurações de diagnóstico. Após a recuperação das configurações de Key Vault excluídas de forma reversível para serviços integrados precisarão ser recriadas manualmente. 
 
 O recurso de exclusão reversível do Key Vault permite a recuperação dos cofres excluídos e dos objetos do cofre de chaves excluídos (por exemplo, chaves, segredos, certificados), conhecidos como exclusão reversível. Especificamente, abordamos os seguintes cenários: essa proteção oferece as seguintes proteções:
 
@@ -27,7 +30,7 @@ O recurso de exclusão reversível do Key Vault permite a recuperação dos cofr
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-O recurso de exclusão reversível está disponível por meio da [API REST](/rest/api/keyvault/), as interfaces [CLI do Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet) , bem como [modelos de ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
+O recurso de exclusão reversível está disponível por meio da [API REST](/rest/api/keyvault/), as interfaces [CLI do Azure](./key-vault-recovery.md), [Azure PowerShell](./key-vault-recovery.md)e [.NET/C#](/dotnet/api/microsoft.azure.keyvault?view=azure-dotnet&preserve-view=true) , bem como [modelos de ARM](/azure/templates/microsoft.keyvault/2019-09-01/vaults).
 
 ## <a name="scenarios"></a>Cenários
 
