@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: ac35f09e1a7274019a8ca504fc697ca81de000f7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d003392eeeca56bbfb0033db22e6bde4ae5e136
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100370082"
+ms.locfileid: "100520674"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -170,7 +170,7 @@ Os valores mais recentes para Azure Machine Learning cotas de computação podem
 
 ### <a name="application-insights"></a>Application Insights
 
-[!INCLUDE [monitoring-limits](../../../includes/azure-monitor-limits-app-insights.md)]
+[!INCLUDE [monitoring-limits](../../../includes/application-insights-limits.md)]
 
 ## <a name="azure-policy-limits"></a>Limites do Azure Policy
 

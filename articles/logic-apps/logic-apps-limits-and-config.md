@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 02/05/2021
-ms.openlocfilehash: 6c064acc44e180d3e99bdcf68d2e1e129d52fd5d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 19c7d37d62ec54e57127f5993e8bae4d4e9a2908
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805927"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388525"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -193,19 +193,20 @@ Para obter mais informações sobre a definição de recurso de aplicativo lógi
 
 ### <a name="integration-service-environment-ise"></a>Ambiente do serviço de integração (ISE)
 
-Estes são os limites da taxa de transferência para o [SKU do ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level):
+* [SKU do ISE do desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): fornece até 500 execuções por minuto, mas observe estas considerações:
 
-| Nome | Limite | Observações |
-|------|-------|-------|
-| Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês | |
-| Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês | |
-| Unidades de escala máximas que você pode adicionar | 10 | |
-||||
+  * Certifique-se de usar essa SKU somente para exploração, experimentos, desenvolvimento ou teste-não para teste de produção ou de desempenho. Essa SKU não tem SLA (contrato de nível de serviço), capacidade de expansão ou redundância durante a reciclagem, o que significa que você pode enfrentar atrasos ou tempo de inatividade.
 
-Para ultrapassar esses limites no processamento normal ou executar um teste de carga que possa ultrapassar esses limites, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para que possam ajudá-lo com suas necessidades.
+  * As atualizações de back-end podem interromper o serviço intermitentemente.
 
-> [!NOTE]
-> O [SKU do ISE do Desenvolvedor](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level) não tem limites publicados, nenhum recurso para escalar verticalmente, nem SLA (contrato de nível de serviço). Use esse SKU somente para experimentar, desenvolver e testar, não para produção ou teste de desempenho.
+* [SKU do ISE Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level): a tabela a seguir descreve os limites de taxa de transferência do SKU, mas para exceder esses limites no processamento normal ou executar testes de carga que podem ultrapassar esses limites, [entre em contato com a equipe dos aplicativos lógicos](mailto://logicappsemail@microsoft.com) para obter ajuda com seus requisitos.
+
+  | Nome | Limite | Observações |
+  |------|-------|-------|
+  | Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês | |
+  | Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês | |
+  | Unidades de escala máximas que você pode adicionar | 10 | |
+  ||||
 
 <a name="gateway-limits"></a>
 
@@ -388,7 +389,7 @@ Quando seu aplicativo lógico precisa se comunicar por meio de um firewall que l
 
 Por exemplo, para dar suporte a chamadas que os aplicativos lógicos na região oeste dos EUA enviam ou recebem por meio de gatilhos e ações internas, como o [gatilho http ou a ação](../connectors/connectors-native-http.md), o firewall precisa permitir o acesso a *todos* os endereços IP de entrada *e* endereços IP de saída do serviço de aplicativos lógicos que existem na região oeste dos EUA.
 
-Se seu aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector do Outlook do Office 365 ou o conector do SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](#outbound) na região do Azure do aplicativo lógico. Além disso, se você usar conectores personalizados que acessam recursos locais por meio do [recurso de gateway de dados local no Azure](logic-apps-gateway-connection.md), será necessário configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](#outbound)dos conectores gerenciados* correspondentes.
+Se o seu aplicativo lógico também usar [conectores gerenciados](../connectors/apis-list.md#managed-api-connectors), como o conector Outlook do Office 365 ou SQL, ou usar [conectores personalizados](/connectors/custom-connectors/), o firewall também precisará permitir o acesso para *todos* os [endereços IP de saída do conector gerenciado](#outbound) na região do Azure do seu aplicativo lógico. Além disso, se você usar conectores personalizados que acessam recursos locais por meio do [recurso de gateway de dados local no Azure](logic-apps-gateway-connection.md), será necessário configurar a instalação do gateway para permitir o acesso aos *[endereços IP de saída](#outbound)dos conectores gerenciados* correspondentes.
 
 Para obter mais informações sobre como definir as configurações de comunicação no gateway, consulte estes tópicos:
 

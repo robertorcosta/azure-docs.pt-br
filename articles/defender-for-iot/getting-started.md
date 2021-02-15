@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/26/2020
 ms.author: shhazam
-ms.openlocfilehash: 82fcf7f129d5caba471d6d72da83a317b26c638c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98807885"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522556"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Introdução ao defender para IoT
 
@@ -126,9 +126,8 @@ Para obter mais informações, consulte [conectar sensores ao console de gerenci
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. popular o Azure Sentinel com informações de alerta (opcional)
 
 Enviar informações de alerta para o Azure Sentinel Configurando o Azure Sentinel. Consulte [conectar seus dados do defender para IOT ao Azure Sentinel](how-to-configure-with-sentinel.md).
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="see-also"></a>Confira também
+[Bem-vindo ao Azure defender para IoT](overview.md)
 
-- [Bem-vindo ao Azure defender para IoT](overview.md)
-
-- [Arquitetura do Azure defender para IoT](architecture.md)
+[Arquitetura do Azure defender para IoT](architecture.md)

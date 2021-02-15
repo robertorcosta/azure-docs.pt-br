@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 12/03/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 513d23de3d7f823ec934af32e5f3776e876f02d8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102165"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368992"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controle de acesso para seu espaço de trabalho Synapse 
 
@@ -132,7 +132,7 @@ Para criar pools de SQL, pools de Apache Spark e tempos de execução de integra
 
 ## <a name="step-6-assign-sql-active-directory-admin-role"></a>ETAPA 6: atribuir função de administrador do SQL Active Directory
 
-O criador da estação de trabalho é configurado automaticamente como o administrador de Active Directory do SQL para o Workspace.  Apenas um único usuário ou grupo pode receber essa função. Nesta etapa, você atribui o administrador do SQL Active Directory no espaço de trabalho ao `workspace1_SQLAdmins` grupo de segurança.  Atribuir essa função dá a esse grupo acesso de administrador altamente privilegiado a todos os pools e bancos de dados do SQL no espaço de trabalho.   
+O criador do espaço de trabalho é configurado automaticamente como o administrador do SQL Active Directory para o espaço de trabalho.  Apenas um único usuário ou grupo pode receber essa função. Nesta etapa, você atribui o administrador do SQL Active Directory no espaço de trabalho ao `workspace1_SQLAdmins` grupo de segurança.  Atribuir essa função dá a esse grupo acesso de administrador altamente privilegiado a todos os pools e bancos de dados do SQL no espaço de trabalho.   
 
 - Abrir o portal do Azure
 - Navegue até `workspace1`
