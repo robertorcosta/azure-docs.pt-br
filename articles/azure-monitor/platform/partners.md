@@ -4,12 +4,12 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 6e707e77f4618d71cb2fa3f32b05895b97658f76
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: bfec05935b4cbe5c3c4495f7c261bd34bc0a0032
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96500233"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522149"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor
 
@@ -274,6 +274,24 @@ SignalFx é líder em inteligência operacional em tempo real para DevOps contro
 SIGNL4 - o aplicativo de alerta móvel para as equipes de operações - é a maneira mais rápida para rotear alertas críticos do Azure Monitor para as pessoas certas no momento certo – em qualquer lugar por chamadas de voz, texto e push. SIGNL4 gerencia serviços de permanência e turnos da sua equipe, monitora entregas e propriedade de alertas e escala, se necessário. É fornecida transparência total em sua equipe. Usando o superfácil REST web-hook do SIGNL4 qualquer serviço do Azure pode ser conectado facilmente. Com SIGNL4, você verá uma resposta até 10x mais rápida em notificações por email e alertas manuais.
 
 [Documentação do SIGNL4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
+
+## <a name="site24x7"></a>Site24x7
+
+![Logotipo do Site24x7](./media/partners/site24-7.png)
+
+O Site24x7 fornece solução de monitoramento do Azure avançada e completa, fornecendo visibilidade e insights sobre seus aplicativos, permitindo que os proprietários do aplicativo detectem gargalos de desempenho rapidamente, automatizem a resolução de falhas e otimizem seu desempenho.
+Com o monitoramento do Azure Site24x7, você poderá:
+
+* Monitore mais de 100 serviços de IaaS e PaaS do Azure.
+* Obtenha monitoramento aprofundado para VMs Windows e Linux com extensões exclusivas do Azure, diretamente do Azure Marketplace.
+* Solucionar problemas de aplicativos com informações sobre logs do Azure. Envie logs para Site24x7, Salve consultas de pesquisa, defina alertas baseados em consulta e gerencie logs do Azure de um único painel.
+* Detectar qualquer problema de integridade do serviço e garantir implantações confiáveis por meio da verificação de integridade do ADM (Azure Gerenciador de Implantação).
+* Automatize a resolução de falhas com um conjunto de ferramentas de automação de ti.
+* Monitore suas todo completas da Microsoft, incluindo SQL, Exchange, Active Directory, Office 365, IIS e aplicativos Hyper-V.
+* Integre-se perfeitamente a serviços de terceiros, como o Microsoft Teams, PagerDuty, Zapier e muito mais.
+
+[Documentação do site 24X7](https://www.site24x7.com/)
+
 
 ## <a name="solarwinds"></a>SolarWinds
 

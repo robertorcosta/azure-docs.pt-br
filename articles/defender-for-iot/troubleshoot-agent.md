@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
-ms.openlocfilehash: e9904e9157a560e2a4853a1a9cd37977defe73ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9367cf4324d577e4dd44cb9294a8b82b1bceaf74
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90932893"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522944"
 ---
 # <a name="security-agent-troubleshoot-guide-linux"></a>Guia de solução de problemas do agente de segurança (Linux)
 
@@ -91,7 +91,7 @@ A maioria dos erros do agente de segurança são exibidos no seguinte formato:
 Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Error sub code}, extra details: {error specific details}
 ```
 
-| Código do Erro | Subcódigo de erro | Detalhes do erro | Corrigir C | Corrigir C # |
+| Código de erro | Subcódigo de erro | Detalhes do erro | Corrigir C | Corrigir C # |
 |:-----------|:---------------|:--------|:------------|:------------|
 | Configuração local | Configuração ausente | Uma configuração está ausente no arquivo de configuração local. A mensagem de erro deve indicar qual chave está faltando. | Adicione a chave ausente ao LocalConfiguration.js/var/no arquivo, consulte [cs-localconfig-Reference](azure-iot-security-local-configuration-c.md) para obter detalhes.| Adicione a chave ausente ao arquivo de General.config, consulte [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) para obter detalhes. |
 | Configuração local | Não é possível analisar a configuração | Um valor de configuração não pode ser analisado. A mensagem de erro deve indicar qual chave não pode ser analisada. Um valor de configuração não pode ser analisado porque o valor não está no tipo esperado ou o valor está fora do intervalo. | Corrija o valor da chave em/var/LocalConfiguration.jsno arquivo para que ele corresponda ao esquema LocalConfiguration, consulte o [c#-localconfig-Reference](azure-iot-security-local-configuration-csharp.md) para obter detalhes. |  Corrija o valor da chave no arquivo General.config para que ele corresponda ao esquema, consulte [cs-localconfig-Reference](azure-iot-security-local-configuration-c.md) para obter detalhes.|
@@ -108,10 +108,4 @@ Defender for IoT agent encountered an error! Error in: {Error Code}, reason: {Er
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia a [visão geral](overview.md) do serviço defender para IOT
-- Saiba mais sobre a [arquitetura](architecture.md) do defender para IOT
-- Habilitar o [serviço](quickstart-onboard-iot-hub.md) defender para IOT
-- Leia as [perguntas frequentes](resources-frequently-asked-questions.md) do serviço defender para IOT
-- Aprenda a acessar [dados brutos de segurança](how-to-security-data-access.md)
-- Entenda as [recomendações](concept-recommendations.md)
-- Entender os [alertas](concept-security-alerts.md) de segurança
+Leia a [visão geral](overview.md) do serviço defender para IOT saiba mais sobre o defender para a [arquitetura](architecture.md) de IOT habilitar o [serviço](quickstart-onboard-iot-hub.md) defender para IOT Leia as [perguntas frequentes](resources-frequently-asked-questions.md) sobre o serviço defender para IOT saiba como acessar [dados brutos de segurança](how-to-security-data-access.md) entender [recomendações](concept-recommendations.md) entender [alertas](concept-security-alerts.md) de segurança

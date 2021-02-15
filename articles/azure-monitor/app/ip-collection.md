@@ -4,12 +4,12 @@ description: Compreendendo como os endereços IP e a localização geográfica s
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 6131105ef78a8559b0fb95043a87e562e887ebfd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a8969d5d0df2fdacf78815c6f47c7c6bfa73a37
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333300"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100521910"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>Geolocalização e manipulação de endereço IP
 
@@ -62,9 +62,9 @@ Para habilitar a coleta e o armazenamento de IP, a `DisableIpMasking` Propriedad
 
 Se você só precisa modificar o comportamento de um único recurso de Application Insights, use o portal do Azure. 
 
-1. Acesse o recurso de **Automation**Application insights >  >  **modelo de exportação** de automação 
+1. Acesse o recurso de Application insights >  >  **modelo de exportação** de automação 
 
-2. Selecionar **implantar**
+2. Escolha **Implantar**
 
     ![Botão com a palavra "implantar" realçada em vermelho](media/ip-collection/deploy.png)
 
@@ -77,7 +77,7 @@ Se você só precisa modificar o comportamento de um único recurso de Applicati
     ![A captura de tela adiciona uma vírgula após "IbizaAIExtension" e adiciona uma nova linha abaixo com "DisableIpMasking": true](media/ip-collection/save.png)
 
     > [!WARNING]
-    > Se você tiver um erro que diz: ** _o grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
+    > Se você tiver um erro que diz: **_o grupo de recursos está em um local que não tem suporte de um ou mais recursos no modelo. Escolha um grupo de recursos diferente._** Selecione temporariamente um grupo de recursos diferente na lista suspensa e, em seguida, selecione novamente o grupo de recursos original para resolver o erro.
 
 5. Selecione **concordo**  >  **compra**. 
 
@@ -241,7 +241,7 @@ requests
 
 Os endereços IP recentemente coletados aparecerão na `customDimensions_client-ip` coluna. A `client-ip` coluna padrão ainda terá todos os quatro octetos zerados. 
 
-Se o teste for de localhost e o valor para `customDimensions_client-ip` for `::1` , esse valor será um comportamento esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.01` no IPv4.
+Se o teste for de localhost e o valor para `customDimensions_client-ip` for `::1` , esse valor será um comportamento esperado. `::1` representa o endereço de loopback no IPv6. É equivalente a `127.0.0.1` no IPv4.
 
 ## <a name="next-steps"></a>Próximas etapas
 

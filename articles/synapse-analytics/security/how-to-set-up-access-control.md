@@ -2,19 +2,19 @@
 title: Como configurar o controle de acesso para seu espaço de trabalho Synapse
 description: Este artigo ensinará como controlar o acesso a um espaço de trabalho do Synapse usando funções do Azure, funções do Synapse, permissões do SQL e permissões de git.
 services: synapse-analytics
-author: billgib
+author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: security
 ms.date: 12/03/2020
-ms.author: billgib
+ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7dbbe3afb2a5eb19b5c4893bd73eddbf11e788d4
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: c6ec84d41d113a38e78ab13404ef19faf625530b
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218069"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100102165"
 ---
 # <a name="how-to-set-up-access-control-for-your-synapse-workspace"></a>Como configurar o controle de acesso para seu espaço de trabalho Synapse 
 
@@ -43,7 +43,7 @@ Para proteger um espaço de trabalho do Synapse, você seguirá um padrão de co
 
 Este documento usa nomes padrão para simplificar as instruções. Substitua-os por nomes de sua escolha.
 
-|Configuração | Nome padrão | Descrição |
+|Setting | Nome padrão | Descrição |
 | :------ | :-------------- | :---------- |
 | **Workspace do Synapse** | `workspace1` |  O nome que o workspace do Synapse terá. |
 | **Conta do ADLSGEN2** | `storage1` | A conta do ADLS a ser usada com seu workspace. |

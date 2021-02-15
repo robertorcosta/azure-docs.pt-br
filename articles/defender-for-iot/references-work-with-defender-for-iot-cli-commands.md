@@ -1,5 +1,5 @@
 ---
-title: Trabalhar com o defender para comandos da CLI do IoT
+title: Trabalhar com o Defender para comandos CLI de IoT
 description: Este artigo descreve os comandos do defender for IoT CLI para sensores e consoles de gerenciamento local.
 author: shhazam-ms
 manager: rkarlin
@@ -7,14 +7,14 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 48c525004b095c1e0f498f86a5395d0002be26f1
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.openlocfilehash: 2ec682bf76e35b54f58acc1956972c57128edd75
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
-ms.locfileid: "97845252"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523134"
 ---
-# <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com o defender para comandos da CLI do IoT
+# <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com o Defender para comandos CLI de IoT
 
 Este artigo descreve os comandos da CLI para sensores e consoles de gerenciamento local. Os comandos são acessíveis para administradores, usuários CyberX e usuários de suporte.
 
@@ -290,6 +290,6 @@ Quando você estiver usando a ferramenta:
 
 - Confirme com ele o domínio do dispositivo (como ele aparece no certificado) com o servidor DNS e o endereço IP correspondente. 
     
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 [APIs do defender for IoT API e do console de gerenciamento](references-work-with-defender-for-iot-apis.md)

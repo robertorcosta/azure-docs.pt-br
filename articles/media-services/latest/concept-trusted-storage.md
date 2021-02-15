@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: conceptual
 ms.date: 1/29/2020
 ms.author: inhenkel
-ms.openlocfilehash: e8d21e57f9a844b3cc0538f4805780829a1350f4
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 96031642efb1248fb3b1acabeb9d7381177a2c70
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428581"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098071"
 ---
 # <a name="trusted-storage-for-media-services"></a>Armazenamento confiável para os serviços de mídia
 
@@ -22,7 +22,11 @@ Ao criar uma conta de serviços de mídia, você deve associá-la a uma conta de
 
 ## <a name="trusted-storage-with-a-firewall"></a>Armazenamento confiável com um firewall
 
-No entanto, se você quiser usar um firewall para proteger sua conta de armazenamento e habilitar o armazenamento confiável, a autenticação de [identidades gerenciadas](concept-managed-identities.md) será a opção preferida. Ele permite que os serviços de mídia acessem a conta de armazenamento que foi configurada com um firewall ou uma restrição de VNet por meio de acesso de armazenamento confiável. Ele permite que os serviços de mídia acessem a conta de armazenamento que foi configurada com um firewall ou uma restrição de VNet por meio de acesso de armazenamento confiável.
+No entanto, se você quiser usar um firewall para proteger sua conta de armazenamento e habilitar o armazenamento confiável, a autenticação de [identidades gerenciadas](concept-managed-identities.md) será a opção preferida. Ele permite que os serviços de mídia acessem a conta de armazenamento que foi configurada com um firewall ou uma restrição de VNet por meio de acesso de armazenamento confiável.
+
+## <a name="tutorial"></a>Tutorial
+
+Você pode saber mais sobre como habilitar o armazenamento confiável com o tutorial de [armazenamento confiável dos serviços de mídia](tutorial-trusted-storage-rest.md) .
 
 > [!NOTE]
 > Você precisa conceder o acesso de colaborador de dados de blob de armazenamento de identidade gerenciada do AMS para que os serviços de mídia possam ler e gravar na conta de armazenamento.  A concessão da função de colaborador genérico não funcionará, pois não habilita as permissões corretas no plano de dados.

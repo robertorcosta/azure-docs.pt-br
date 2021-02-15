@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/27/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 427ea3884a3db6ba33405014435cf1f962670064
-ms.sourcegitcommit: 61d2b2211f3cc18f1be203c1bc12068fc678b584
+ms.openlocfilehash: 459bac2ef01e69b9316af7e8374e7416ab51d915
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98562702"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100523899"
 ---
 # <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Carregar e gerenciar sensores no portal do defender para IoT
 
@@ -52,12 +52,10 @@ Para baixar um arquivo de ativação:
 
 ## <a name="view-onboarded-sensors"></a>Exibir sensores integrados
 
-No [portal do defender para IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), você pode exibir informações básicas sobre sensores integrados. 
+No [portal do defender para IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), você pode exibir informações básicas sobre sensores integrados.
 
 1. Selecione **sites e sensores**.
-1. Na página **sites e sensores** , use as ferramentas de filtro e pesquisa para encontrar informações de sensor de que você precisa.
-
-As informações disponíveis incluem:
+1. Use as ferramentas de filtro e pesquisa para encontrar informações de inteligência de sensor e ameaça que você precisa.
 
 - Quantos sensores foram integrados
 - O número de sensores que são conectados à nuvem e gerenciados localmente
@@ -68,32 +66,40 @@ As informações disponíveis incluem:
 
 Use o [defender para o portal de IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) para tarefas de gerenciamento relacionadas a sensores.
 
-### <a name="export"></a>Exportação
+Sensores integrados podem ser exibidos na página **sites e sensores** . Você também pode editar informações de sensor nesta página.
+
+### <a name="export-sensor-details"></a>Detalhes do sensor de exportação
 
 Para exportar informações de sensor integrado, selecione o ícone **Exportar** na parte superior da página **sites e sensores** .
 
-### <a name="edit"></a>Editar
+### <a name="edit-sensor-zone-details"></a>Editar detalhes da zona do sensor
 
-Use as ferramentas de edição de **sites e sensores** para adicionar e editar o nome, a zona e as marcas do site.
+Use as opções de edição **sites e sensores** para editar o nome do sensor e a zona.
 
-### <a name="delete"></a>Excluir
+Para editar:
+
+1. Clique com o botão direito do mouse nas reticências (**...**) do sensor que você deseja editar.
+1. Selecione Editar.
+1. Atualize a zona do sensor ou crie uma nova zona.
+
+### <a name="delete-a-sensor"></a>Excluir um sensor
 
 Se você excluir um sensor conectado à nuvem, as informações não serão enviadas para o Hub IoT. Exclua os sensores conectados localmente quando você não estiver mais trabalhando com eles.
 
 Para excluir um sensor:
 
-1. Selecione as reticências (**...**) para o sensor que você deseja excluir. 
+1. Selecione as reticências (**...**) para o sensor que você deseja excluir.
 1. Confirme a exclusão.
 
-### <a name="reactivate"></a>Reativar
+### <a name="reactivate-a-sensor"></a>Reativar um sensor 
 
-Talvez você queira atualizar o modo no qual o sensor é gerenciado. Por exemplo:
+Talvez seja necessário reativar o sensor porque você deseja:
 
-- **Trabalhar no modo conectado à nuvem em vez de no modo gerenciado localmente**: para fazer isso, atualize o arquivo de ativação para o sensor conectado localmente com um arquivo de ativação para um sensor conectado à nuvem. Após a reativação, as detecções do sensor são exibidas no sensor e no [defender para o portal de IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started). Depois que o arquivo de reativação for carregado com êxito, as informações de alerta recém detectadas serão enviadas para o Azure.
+- **Trabalhar no modo conectado à nuvem em vez de no modo gerenciado localmente**: após a reativação, as detecções de sensor são exibidas no sensor e as informações de alerta recém detectadas são entregues por meio do Hub IOT. Essas informações podem ser compartilhadas com outros serviços do Azure, como o Azure Sentinel.
 
-- **Trabalhar no modo conectado localmente em vez do modo conectado à nuvem**: para fazer isso, atualize o arquivo de ativação para um sensor conectado à nuvem com um arquivo de ativação para um sensor gerenciado localmente. Após a reativação, as informações de detecção de sensor são exibidas apenas no sensor.
+- **Trabalhar no modo gerenciado localmente em vez de no modo conectado à nuvem**: após a reativação, as informações de detecção de sensor são exibidas apenas no sensor.
 
-- **Associar o sensor a um novo hub IOT**: para fazer isso, registre novamente o sensor e carregue um novo arquivo de ativação.
+- **Associar o sensor a um novo hub IOT**: para fazer isso, registre novamente o sensor com um novo hub e, em seguida, baixe um novo arquivo de ativação.
 
 Para reativar um sensor:
 
@@ -103,20 +109,20 @@ Para reativar um sensor:
 
 3. Exclua o sensor.
 
-4. Integre o sensor novamente da página de **integração** no modo novo ou com um novo hub IOT.
+4. Integre o sensor novamente no novo modo ou com um novo hub IoT selecionando **um sensor** na página Introdução.
 
-5. Baixe o arquivo de ativação na página **baixar arquivo de ativação** .
+5. Baixe o arquivo de ativação.
 
-6. Entre no console do sensor do defender para IoT.
+1. Entre no console do sensor do defender para IoT.
 
 7. No console do sensor, selecione **configurações do sistema** e, em seguida, selecione **reativação**.
 
    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/reactivate.png" alt-text="Carregue o arquivo de ativação para reativar o sensor.":::
 
-8. Selecione **carregar** e selecione o arquivo que você salvou.
+8. Selecione **carregar** e selecione o arquivo que você salvou na página sensor integrado.
 
-9. Selecione **Ativar**. 
+9. Selecione **Ativar**.
 
-## <a name="see-also"></a>Confira também
+## <a name="next-steps"></a>Próximas etapas
 
 [Ativar e configurar seu sensor](how-to-activate-and-set-up-your-sensor.md)

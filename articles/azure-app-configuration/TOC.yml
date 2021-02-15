@@ -7,7 +7,7 @@
     - name: Práticas recomendadas
       href: howto-best-practices.md
     - name: Perguntas frequentes
-      href: faq.md
+      href: faq.yml
 - name: Inícios rápidos
   expanded: true
   items:
