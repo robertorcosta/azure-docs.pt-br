@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/18/2020
+ms.date: 02/10/2021
 ms.author: b-juche
-ms.openlocfilehash: 35fce3723e92a3a7c68aaa62b28b756432182a8c
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97629656"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379107"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -100,7 +100,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Save** (Salvar).  
+4.  Clique em **Salvar**.  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.
@@ -187,7 +187,9 @@ Se você não quiser [restaurar o instantâneo inteiro para um volume](#restore-
 
 O volume montado contém um diretório de instantâneos chamado  `.snapshot` (em clientes NFS) ou `~snapshot` (em clientes SMB) que é acessível ao cliente. O diretório de instantâneo contém subdiretórios correspondentes aos instantâneos do volume. Cada subdiretório contém os arquivos do instantâneo. Se você excluir ou substituir um arquivo acidentalmente, poderá restaurá-lo para o diretório de leitura-gravação pai copiando o arquivo de um subdiretório de instantâneo para o diretório de leitura/gravação. 
 
-Se você não vir o diretório de instantâneo, ele poderá estar oculto porque a opção ocultar caminho de instantâneo está habilitada no momento. Você pode [Editar a opção ocultar caminho do instantâneo](#edit-the-hide-snapshot-path-option) para desabilitá-la.  
+Você pode controlar o acesso aos diretórios de instantâneos usando a [opção ocultar caminho do instantâneo](#edit-the-hide-snapshot-path-option). Esta opção controla se o diretório deve ser ocultado dos clientes. Portanto, ele também controla o acesso a arquivos e pastas nos instantâneos.  
+
+O NFSv 4.1 não mostra o `.snapshot` diretório ( `ls -la` ). No entanto, quando a opção ocultar caminho do instantâneo não está definida, você ainda pode acessar o `.snapshot` diretório por meio do nfsv 4.1 usando o `cd <snapshot-path>` comando da linha de comando do cliente. 
 
 ### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Restaurar um arquivo usando um cliente NFS do Linux 
 
@@ -269,4 +271,4 @@ Você pode excluir os instantâneos que você não precisa mais manter.
 * [Solucionar problemas de políticas de instantâneo](troubleshoot-snapshot-policies.md)
 * [Limites de recursos do Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Vídeo de instantâneos de Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)
-* [O que é Aplicativo Azure ferramenta de instantâneo consistente](azacsnap-introduction.md)
+* [O que é a Ferramenta Instantânea Consistente do Aplicativo Azure?](azacsnap-introduction.md)

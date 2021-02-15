@@ -1,22 +1,18 @@
 ---
 title: Monitorar data factories usando o Azure Monitor
 description: Saiba como usar Azure Monitor para monitorar pipelines de Data Factory do/Azure habilitando logs de diagnóstico com informações de Data Factory.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: d1325ac1afbca8b30cc640f1f22cb598506a5c91
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 389c0b1fd5a2fde33c2bf19ac2807cca45691523
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555705"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373140"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -199,7 +195,7 @@ Entre no portal do Azure e selecione **monitorar**  >  **alertas** para criar al
 
 ## <a name="set-up-diagnostic-logs-via-the-azure-monitor-rest-api"></a>Configurar logs de diagnóstico por meio da API REST do Azure Monitor
 
-### <a name="diagnostic-settings"></a>Configurações de diagnóstico
+### <a name="diagnostic-settings"></a>Configurações de Diagnóstico
 
 Use as configurações de diagnóstico para configurar os logs de diagnóstico para recursos que não são de computação. As configurações de um controle de recurso têm os seguintes recursos:
 
@@ -829,7 +825,7 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
 * Não há nenhuma coluna de "nível".
 * A coluna dinâmica "Propriedades" é preservada como o tipo de blob JSON dinâmico a seguir.
 
-    | Azure Monitor coluna | Log Analytics coluna | Tipo |
+    | Azure Monitor coluna | Log Analytics coluna | Digite |
     | --- | --- | --- |
     | $. Properties. UserProperties | UserProperties | Dinâmico |
     | $. Properties. Anotações | Anotações | Dinâmico |
@@ -841,7 +837,7 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Predecessores | Predecessores | Dinâmico |
     | $. Properties. Parâmetro | Parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |
-    | $. Properties. Sinalizadores | Marcações | Dinâmico |
+    | $. Properties. Sinalizadores | Marcas | Dinâmico |
 
 ## <a name="monitor-ssis-operations-with-azure-monitor"></a>Monitorar operações do SSIS com o Azure Monitor
 

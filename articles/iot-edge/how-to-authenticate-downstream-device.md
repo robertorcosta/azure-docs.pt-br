@@ -8,12 +8,12 @@ ms.date: 10/15/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3876b44bc6bb1ddbc5398126421fb9651003838f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 13ac18abd0a557d02435c3805e1ab86bcbf1ff84
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98678816"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391976"
 ---
 # <a name="authenticate-a-downstream-device-to-azure-iot-hub"></a>Autenticar um dispositivo downstream no Hub IoT do Azure
 
@@ -68,6 +68,11 @@ Ao criar a nova identidade do dispositivo, forneça as seguintes informações:
 * Selecione **definir um dispositivo pai** e selecione o IOT Edge dispositivo de gateway ao qual esse dispositivo downstream se conectará. Você sempre pode alterar o pai mais tarde.
 
    ![Criar ID do dispositivo com autenticação de chave simétrica no portal](./media/how-to-authenticate-downstream-device/symmetric-key-portal.png)
+
+   >[!NOTE]
+   >Definir o dispositivo pai usado como uma etapa opcional para dispositivos downstream que usam a autenticação de chave simétrica. No entanto, a partir do IoT Edge versão 1.1.0, cada dispositivo downstream deve ser atribuído a um dispositivo pai.
+   >
+   >Você pode configurar o Hub de IoT Edge para voltar ao comportamento anterior, definindo a variável de ambiente **AuthenticationMode** como o valor **CloudAndScope**.
 
 Você também pode usar a [extensão de IOT para CLI do Azure](https://github.com/Azure/azure-iot-cli-extension) para concluir a mesma operação. O exemplo a seguir usa o comando [AZ IOT Hub Device-Identity](/cli/azure/ext/azure-iot/iot/hub/device-identity) para criar um novo dispositivo IOT com autenticação de chave simétrica e atribuir um dispositivo pai:
 

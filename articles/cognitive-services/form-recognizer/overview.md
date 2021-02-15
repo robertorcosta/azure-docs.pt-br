@@ -11,12 +11,12 @@ ms.date: 11/23/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento automatizado de dados, processamento de documentos, entrada automatizada de dados, processamento de formulários
-ms.openlocfilehash: e1e5a4abf8eab96af62b160e28f98d95cf527eaf
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 2d3a37165994a8c7ff9d46ac24e63b7f58404ce3
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044757"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584559"
 ---
 # <a name="what-is-form-recognizer"></a>O que é o Reconhecimento de Formulários?
 
@@ -87,13 +87,13 @@ O Reconhecimento de Formulários usa a [API de layout](#layout-api) para aprende
 O Reconhecimento de Formulários também inclui modelos predefinidos para o processamento automático de dados de tipos de formulário exclusivos.
 
 ### <a name="prebuilt-invoice-model"></a>Modelo de fatura predefinido
-O modelo de fatura predefinido extrai dados de faturas em uma variedade de formatos e retorna dados estruturados. Esse modelo extrai informações importantes, como ID da fatura, detalhes do cliente, detalhes do fornecedor, endereço para entrega, endereço para cobrança, total, imposto, subtotal, entre outros. Além disso, o modelo de fatura predefinido é treinado para reconhecer e retornar todo o texto e as tabelas da fatura. Confira o guia conceitual [Faturas](./concept-invoices.md) para obter mais informações.
+O modelo de fatura predefinido extrai dados de faturas em uma variedade de formatos e retorna dados estruturados. Esse modelo extrai informações importantes, como ID da fatura, detalhes do cliente, detalhes do fornecedor, endereço para entrega, endereço para cobrança, total, imposto, subtotal, entre outros. Além disso, o modelo de fatura predefinido é treinado para analisar e retornar todo o texto e as tabelas da fatura. Confira o guia conceitual [Faturas](./concept-invoices.md) para obter mais informações.
 
 :::image type="content" source="./media/overview-invoices.jpg" alt-text="exemplo de fatura" lightbox="./media/overview-invoices.jpg":::
 
 ### <a name="prebuilt-receipt-model"></a>Modelo de Recibo Predefinido
 
-O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, do Reino Unido, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para reconhecer e retornar todo o texto de um recibo. Confira o guia conceitual [Recibos](./concept-receipts.md) para obter mais informações.
+O modelo de Recibo Predefinido é usado para a leitura de recibos de vendas em inglês da Austrália, do Canadá, do Reino Unido, da Índia e dos Estados Unidos: o tipo usado por restaurantes, postos de gasolina, varejo etc. Esse modelo extrai informações essenciais, como data e hora da transação, informações do comerciante, valores de impostos, itens de linha, totais, entre outros. Além disso, o modelo de recibo predefinido é treinado para analisar e retornar todo o texto de um recibo. Confira o guia conceitual [Recibos](./concept-receipts.md) para obter mais informações.
 
 :::image type="content" source="./media/overview-receipt.jpg" alt-text="exemplo de recibo" lightbox="./media/overview-receipt.jpg":::
 
@@ -171,4 +171,4 @@ Assim como ocorre com todos os serviços cognitivos, os desenvolvedores que usam
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Conclua um [início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários no idioma de sua escolha.
+Conclua um [guia de início rápido](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de formulários com o Reconhecimento de Formulários na linguagem de desenvolvimento de sua escolha.

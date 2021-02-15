@@ -93,8 +93,6 @@
           href: storage-how-to-create-file-share.md
         - name: Implantar a Sincronização de Arquivos do Azure
           href: storage-sync-files-deployment-guide.md
-        - name: Criar um compartilhamento de arquivo premium
-          href: storage-how-to-create-premium-fileshare.md
         - name: Criar um compartilhamento NFS
           href: storage-files-how-to-create-nfs-shares.md
         - name: FCI do SQL Server com compartilhamentos de arquivos Premium

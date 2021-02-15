@@ -3,12 +3,12 @@ title: Tutorial de gravação contínua de vídeo na nuvem e reprodução com or
 description: Neste tutorial, você aprenderá a usar a Análise Dinâmica de Vídeo do Azure no Azure IoT Edge para gravar vídeo continuamente na nuvem e para transmitir qualquer parte desse vídeo usando os Serviços de Mídia do Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 6956539595c5997569dc92b5c62e2396cb5fdd9c
-ms.sourcegitcommit: ea822acf5b7141d26a3776d7ed59630bf7ac9532
+ms.openlocfilehash: 8659bd2e029da13870b50dd6535e959bc90c81a7
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99524390"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99551053"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação contínua de vídeo baseada na nuvem e reprodução com origem na nuvem
 
@@ -140,6 +140,12 @@ O manifesto de implantação define quais módulos são implantados em um dispos
 1. Defina a cadeia de conexão do Hub IoT selecionando o ícone **Mais ações** ao lado do painel **HUB IOT DO AZURE** no canto inferior esquerdo. Copie a cadeia de caracteres do arquivo src/cloud-to-device-console-app/appsettings.json. 
 
     ![Definir cadeia de conexão do Hub IoT](./media/quickstarts/set-iotconnection-string.png)
+    > [!NOTE]
+    > Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
+
 1. Clique com o botão direito do mouse no arquivo src/edge/deployment.template.json e selecione **Gerar o Manifesto de Implantação do IoT Edge**. O Visual Studio Code usa os valores do arquivo .env para substituir as variáveis encontradas no arquivo do modelo de implantação. Essa ação deve criar um arquivo de manifesto na pasta src/edge/config chamado **deployment.amd64.json**.
 
    ![Gerar um manifesto de implantação do IoT Edge](./media/quickstarts/generate-iot-edge-deployment-manifest.png)
@@ -163,11 +169,11 @@ Quando você usa o módulo da Análise Dinâmica de Vídeo no IoT Edge para grav
 
     ![Iniciar Monitoramento de Ponto de Extremidade de Evento Interno](./media/quickstarts/start-monitoring-iothub-events.png)
 
-> [!NOTE]
-> Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 ## <a name="run-the-program"></a>Execute o programa 
 

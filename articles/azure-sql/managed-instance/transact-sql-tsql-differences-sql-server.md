@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 11/10/2020
+ms.date: 1/12/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: cc31ad851441c980365841b1131405339a1092fa
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: d43f794d6d73e26d791c5a11961470d2131b8951
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99626267"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378614"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -284,6 +284,7 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - No momento, a habilitação e a desabilitação do SQL Server Agent não é compatível com a Instância Gerenciada de SQL. O SQL Agent sempre está em execução.
+- Não há suporte para o gatilho de agenda de trabalho com base em uma CPU ociosa.
 - As configurações do SQL Server Agent são somente leitura. O procedimento `sp_set_agent_properties` não tem suporte no SQL instância gerenciada. 
 - Trabalhos
   - As etapas de trabalho T-SQL têm suporte.
@@ -306,13 +307,7 @@ Para saber mais, confira [ALTERAR BANCO DE DADOS](/sql/t-sql/statements/alter-da
   - Não há suporte para proxies.
 - Não há suporte para o EventLog.
 - O usuário deve ser mapeado diretamente para a entidade de segurança do servidor do Azure AD (logon) para criar, modificar ou executar trabalhos do SQL Agent. Os usuários que não são mapeados diretamente, por exemplo, os usuários que pertencem a um grupo do Azure AD que tem os direitos de criar, modificar ou executar trabalhos do SQL Agent, não poderão executar essas ações efetivamente. Isso ocorre devido à Instância Gerenciada representação e [às limitações de executar como](#logins-and-users).
-
-Os seguintes recursos do SQL Agent atualmente não têm suporte:
-
-- Proxies
-- Agendamento de trabalhos em CPU ociosa
-- Habilitação ou desabilitação de um agente
-- Alertas
+- Não há suporte para o recurso de administração multisservidor para trabalhos mestre/de destino (MSX/TSX).
 
 Para obter informações sobre o SQL Server Agent, consulte [SQL Server Agent](/sql/ssms/agent/sql-server-agent).
 

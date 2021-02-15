@@ -1,22 +1,17 @@
 ---
 title: Carregar dados do Office 365 usando o Azure Data Factory
 description: Usar o Azure Data Factory para copiar dados do Office 365
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 05f336af62bc0869249d5b32700ea3515ac5994f
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 8b98344dcb2321d5d91c9974dc833a735164d428
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96459700"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100370647"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Carregar dados do Office 365 usando o Azure Data Factory
 
@@ -79,7 +74,7 @@ Este artigo mostra como usar o Data Factory para _carregar dados do Office 365 n
 
     ![Configurar conjunto de dados do Office 365 – Tabela](./media/load-office-365-data/edit-dataset.png)
 
-8. Agora, volte para a **pipeline**  >  **guia origem** do pipeline para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](./connector-office-365.md#dataset-properties) para saber como definir essas configurações.
+8. Agora, volte para a   >  **guia origem** do pipeline para continuar Configurando propriedades adicionais para extração de dados do Office 365.  O escopo do usuário e o filtro de escopo do usuário são predicados opcionais que você pode definir para restringir os dados que deseja extrair do Office 365. Consulte a seção [Propriedades do conjunto de banco de 365 do Office](./connector-office-365.md#dataset-properties) para saber como definir essas configurações.
 
 9. É necessário escolher um dos filtros de data e fornecer os valores de hora de início e hora de término.
 
