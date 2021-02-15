@@ -16,12 +16,12 @@ ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73376994e01ed89891726a8f6e1b727f89dab2fb
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201715"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368958"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -73,6 +73,7 @@ Para saber mais sobre como proteger seu ambiente de Active Directory, consulte [
     - Você deve configurar certificados TLS/SSL. Para obter mais informações, consulte [Gerenciando protocolos SSL/TLS e conjuntos de codificação para AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) e [gerenciar certificados SSL no AD FS](/windows-server/identity/ad-fs/operations/manage-ssl-certificates-ad-fs-wap).
     - Você deve configurar a resolução de nome. 
 - Se os seus administradores globais tiverem a MFA habilitada, a URL https://secure.aadcdn.microsoftonline-p.com *deverá* estar na lista de sites confiáveis. Você será solicitado a adicionar esse site à lista de sites confiáveis quando for solicitado um desafio de MFA e ele não tiver sido adicionado antes. Você pode usar o Internet Explorer para adicioná-la aos seus sites confiáveis.
+- Se você planeja usar Azure AD Connect Health para sincronização, verifique se os pré-requisitos de Azure AD Connect Health também são atendidos. Para obter mais informações, consulte [Azure ad Connect Health instalação do agente](how-to-connect-health-agent-install.md).
 
 #### <a name="harden-your-azure-ad-connect-server"></a>Proteger seu servidor de Azure AD Connect 
 Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a superfície de ataque de segurança para esse componente crítico de seu ambiente de ti. Seguir essas recomendações ajudará a reduzir alguns riscos de segurança para sua organização.
@@ -140,7 +141,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 Para obter mais informações, consulte o MSDN sobre o [elemento proxy padrão](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando você tiver problemas de conectividade, consulte [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outro
+### <a name="other"></a>Outras
 Opcional: Use uma conta de usuário de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos do componente

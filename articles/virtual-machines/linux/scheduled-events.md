@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3bda1e2076e29fc1365bfc236adc9071db2564a1
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792796"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104732"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados para VMs do Linux
 
@@ -71,7 +71,7 @@ Para VMs habilitadas para VNET, o serviço de metadados está disponível de um 
 Se a VM não for criada em uma Rede Virtual, os casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o endereço IP a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="version-and-region-availability"></a>Disponibilidade de Versão e Região
-O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2019-01-01`.
+O serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias; a versão atual é `2019-08-01`.
 
 | Versão | Tipo de Versão | Regiões | Notas de versão | 
 | - | - | - | - | 

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 12/18/2020
+ms.date: 02/12/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a0668b3ea651d129dc076e5f2247e38f5ab7d0
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98725488"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100365524"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único de email
 
@@ -26,7 +26,7 @@ Este artigo descreve como habilitar a autenticação de senha de uso único de e
 ![Diagrama de visão geral de senha de email de uso único](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> A **partir de março de 2021**, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Se não quiser permitir que esse recurso seja ativado automaticamente, você poderá desabilitá-lo. Consulte [Desabilitar senha de uso único de email](#disable-email-one-time-passcode) abaixo.
+> A **partir de outubro de 2021**, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Se não quiser permitir que esse recurso seja ativado automaticamente, você poderá desabilitá-lo. Consulte [Desabilitar senha de uso único de email](#disable-email-one-time-passcode) abaixo.
 
 > [!NOTE]
 > Os usuários de senha descartável devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, usando `https://myapps.microsoft.com` , `https://portal.azure.com` resultará em um erro.
@@ -71,7 +71,7 @@ O usuário convidado teri@gmail.com é convidado para a Fabrikam, que não tem a
 
 ## <a name="disable-email-one-time-passcode"></a>Desabilitar senha de uso único de email
 
-A partir de março de 2021, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Nesse momento, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários não gerenciados ("viral" ou "Just-in-time") do Azure AD para cenários de colaboração B2B. Estamos habilitando o recurso de senha de uso único de email porque ele fornece um método de autenticação de fallback contínuo para seus usuários convidados. No entanto, você tem a opção de desabilitar esse recurso se optar por não usá-lo.
+A partir de outubro de 2021, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Nesse momento, a Microsoft não dará mais suporte ao resgate de convites criando contas e locatários não gerenciados ("viral" ou "Just-in-time") do Azure AD para cenários de colaboração B2B. Estamos habilitando o recurso de senha de uso único de email porque ele fornece um método de autenticação de fallback contínuo para seus usuários convidados. No entanto, você tem a opção de desabilitar esse recurso se optar por não usá-lo.
 
 > [!NOTE]
 >
@@ -87,25 +87,23 @@ A partir de março de 2021, o recurso de senha de uso único de email será ativ
 
 4. Em **senha de uso único de email para convidados**, selecione **desabilitar a senha de uso único de email para convidados**.
 
-    ![Configurações de senha de uso único de email](media/one-time-passcode/otp-admin-settings.png)
-
    > [!NOTE]
-   > Se você vir a seguinte alternância em vez das opções mostradas acima, isso significa que você já habilitou, desabilitou ou aceitou a visualização do recurso. Selecione **não** para desabilitar o recurso.
+   > Se você vir a seguinte alternância em vez das opções de senha de uso único de email, isso significa que você já habilitou, desabilitou ou aceitou a versão prévia do recurso. Selecione **não** para desabilitar o recurso.
    >
    >![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 ## <a name="note-for-public-preview-customers"></a>Observação para clientes de visualização pública
 
-Se você tiver optado anteriormente pela visualização pública de senha de uso único de email, a data de março de 2021 para a habilitação automática de recursos não se aplicará a você, de modo que seus processos comerciais relacionados não serão afetados. Além disso, na portal do Azure, sob a **senha do email de uso único para as propriedades de convidados** , você não verá a opção de **habilitar automaticamente o email de senha de uso único para convidados em março de 2021**. Em vez disso, você verá a seguinte opção **Sim** ou **não** alternar:
+Se você tiver optado anteriormente pela visualização pública de senha de uso único de email, a data de outubro de 2021 para a habilitação automática de recursos não se aplicará a você, de modo que seus processos comerciais relacionados não serão afetados. Além disso, na portal do Azure, sob a **senha de uso único de email para as propriedades de convidados** , você não verá a opção de **habilitar automaticamente o email de senha de uso único para convidados em outubro de 2021**. Em vez disso, você verá a seguinte opção **Sim** ou **não** alternar:
 
 ![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em março de 2021, você poderá reverter para as configurações padrão usando o tipo de recurso de [configuração do método de autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Depois de reverter para as configurações padrão, as opções a seguir estarão disponíveis em **senha de uso único de email para convidados**:
+No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em outubro de 2021, você poderá reverter para as configurações padrão usando o tipo de recurso de [configuração do método de autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Depois de reverter para as configurações padrão, as opções a seguir estarão disponíveis em **senha de uso único de email para convidados**:
 
-- **Habilite automaticamente a senha de uso único de email para convidados em março de 2021**. Os Se o recurso de senha de email de uso único já não estiver habilitado para seu locatário, ele será automaticamente ativado em março de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
+- **Habilite automaticamente a senha de um único email para convidados em outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado em outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
 
 - **Habilite o email de senha de uso único para convidados em vigor agora**. Ativa o recurso de senha de uso único de email para seu locatário.
 
-- **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em março de 2021.
+- **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em outubro de 2021.

@@ -7,18 +7,45 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 12/09/2020
+ms.date: 02/11/2021
 ms.topic: conceptual
-ms.openlocfilehash: 2c9b239269aa00255aa08d6c233cd7978b253d94
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: f303ddb4d32da4c4cb6609f3ceec34e5c83529a8
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97653564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391449"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Notas de versão – serviços de dados habilitados para o Azure Arc (versão prévia)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="january-2021"></a>Janeiro de 2021
+
+### <a name="new-capabilities-and-features"></a>Novos recursos e recursos
+
+Número de versão da CLI de dados do Azure ( `azdata` ): 20.3.0. Baixe em [https://aka.ms/azdata](https://aka.ms/azdata) . Você pode instalar o `azdata` de [instalar a CLI de dados do Azure ( `azdata` )](/sql/azdata/install/deploy-install-azdata).
+
+
+As atualizações adicionais incluem:
+- Portal localizado disponível para 17 novos idiomas
+- Alterações secundárias em arquivos Kube-Native. YAML
+- Novas versões do Grafana e do Kibana
+- Problemas com ambientes do Python ao usar o azdata em blocos de anotações no Azure Data Studio resolvido
+- A extensão pg_audit agora está disponível para a hiperescala PostgreSQL
+- Uma ID de backup não é mais necessária ao fazer uma restauração completa de um banco de dados de hiperescala PostgreSQL
+- O status (estado de integridade) é relatado para cada uma das instâncias do PostgreSQL que constituem um grupo de servidores
+
+   Em versões anteriores, o status era agregado no nível do grupo de servidores e não é discriminado no nível do nó PostgreSQL.
+
+- As implantações do PostgreSQL agora respeitam os parâmetros de tamanho do volume indicados em criar comandos
+- Os parâmetros de versão do mecanismo agora são respeitados ao editar um grupo de servidores
+- A Convenção de nomenclatura do pods para a hiperescala PostgreSQL habilitada para Arc do Azure foi alterada
+
+    Agora ele está no formato: `ServergroupName{c, w}-n` . Por exemplo, um grupo de servidores com três nós, um nó de coordenador e dois nós de trabalho são representados como:
+   - `Postgres01c-0` (nó de coordenador)
+   - `Postgres01w-0` (nó de trabalho)
+   - `Postgres01w-1` (nó de trabalho)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 
@@ -37,18 +64,18 @@ A Convenção de nomenclatura do pods para a hiperescala PostgreSQL habilitada p
 - `postgres02s-0` (nó de trabalho)
 - `postgres02s-1` (nó de trabalho)
 
-### <a name="breaking-change"></a>Alteração significativa
+### <a name="breaking-change"></a>Alteração interruptiva
 
 #### <a name="new-resource-provider"></a>Novo provedor de recursos
 
-Esta versão introduz um [provedor de recursos](../../azure-resource-manager/management/azure-services-resource-providers.md) atualizado chamado `Microsoft.AzureArcData` . Para poder usar esse recurso, você precisa registrar este provedor de recursos. 
+Esta versão apresenta um [provedor de recursos](../../azure-resource-manager/management/azure-services-resource-providers.md) atualizado chamado `Microsoft.AzureArcData`. Para poder usar esse recurso, você precisa registrar este provedor de recursos. 
 
 Para registrar este provedor de recursos: 
 
 1. No portal do Azure, selecione **assinaturas** 
 2. Escolha sua assinatura
-3. Em **configurações**, selecione **provedores de recursos** 
-4. Pesquisar `Microsoft.AzureArcData` e selecionar **registrar** 
+3. Em **Configurações**, selecione **Provedores de recursos** 
+4. Procure `Microsoft.AzureArcData` e selecione **Registrar** 
 
 Você pode examinar etapas detalhadas em [provedores de recursos e tipos do Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Essa alteração também remove todos os recursos existentes do Azure que você carregou para o portal do Azure. Para usar o provedor de recursos, você precisa atualizar o controlador de dados e usar a CLI mais recente `azdata` .  
 

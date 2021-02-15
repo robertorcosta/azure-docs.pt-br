@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 8a6189a613c9a6768428a13e35e0e009894b8b3f
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 77d4a1cad4843578419be54465a06e87834dd186
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99988038"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104511"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -147,7 +147,7 @@ O QnA Maker permite que os usuários colaborem em uma base de dados de conhecime
 
 ## <a name="active-learning"></a>Aprendizado ativo
 
-O [aprendizado ativo](../How-to/use-active-learning.md) faz o melhor trabalho de sugerir perguntas alternativas quando ele tem diversas consultas baseadas no usuário de qualidade e quantidade variadas. É importante permitir que as consultas do usuário dos aplicativos cliente participem do loop de comentários do aprendizado ativo sem censura. Quando as perguntas são sugeridas no portal de QnA Maker, você pode **[Filtrar por sugestões](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** e, em seguida, revisar e aceitar ou rejeitar essas sugestões.
+O [aprendizado ativo](../How-to/use-active-learning.md) faz o melhor trabalho de sugerir perguntas alternativas quando ele tem diversas consultas baseadas no usuário de qualidade e quantidade variadas. É importante permitir que as consultas do usuário dos aplicativos cliente participem do loop de comentários do aprendizado ativo sem censura. Quando as perguntas são sugeridas no portal de QnA Maker, você pode **[Filtrar por sugestões](../How-To/improve-knowledge-base.md)** e, em seguida, revisar e aceitar ou rejeitar essas sugestões.
 
 ## <a name="next-steps"></a>Próximas etapas
 

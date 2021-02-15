@@ -2,13 +2,13 @@
 title: Pontos de extremidade de serviço de Rede Virtual - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece informações sobre como adicionar um ponto de extremidade de serviço do Microsoft. EventHub a uma rede virtual.
 ms.topic: article
-ms.date: 07/29/2020
-ms.openlocfilehash: 029338e3835d03b1a66ff6629e872c84113b0ff2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.date: 02/12/2021
+ms.openlocfilehash: f725c4f4d94cbf7d0463ce49c1d2809444ef6f7a
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96015564"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100516666"
 ---
 # <a name="allow-access-to-azure-event-hubs-namespaces-from-specific-virtual-networks"></a>Permitir acesso aos namespaces dos hubs de eventos do Azure de redes virtuais específicas 
 
@@ -46,8 +46,8 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 1. Navegue até o seu **namespace dos Hubs de Eventos** no [portal do Azure](https://portal.azure.com).
 4. Selecione **rede** em **configurações** no menu à esquerda. Você vê a guia **rede** somente para namespaces **padrão** ou **dedicados** . 
 
-    > [!NOTE]
-    > Por padrão, a opção **redes selecionadas** é selecionada conforme mostrado na imagem a seguir. Se você não especificar uma regra de firewall IP ou adicionar uma rede virtual nessa página, o namespace poderá ser acessado via **Internet pública** (usando a chave de acesso). 
+    > [!WARNING]
+    > Se você selecionar a opção **redes selecionadas** e não adicionar pelo menos uma regra de firewall IP ou uma rede virtual nessa página, o namespace poderá ser acessado via **Internet pública** (usando a tecla de acesso). 
 
     :::image type="content" source="./media/event-hubs-firewall/selected-networks.png" alt-text="Guia redes – opção redes selecionadas" lightbox="./media/event-hubs-firewall/selected-networks.png":::    
 
@@ -79,28 +79,12 @@ Esta seção mostra como usar portal do Azure para adicionar um ponto de extremi
 [!INCLUDE [event-hubs-trusted-services](../../includes/event-hubs-trusted-services.md)]
 
 ## <a name="use-resource-manager-template"></a>Usar modelo do Resource Manager
+O modelo do Gerenciador de recursos de exemplo a seguir adiciona uma regra de rede virtual a um namespace existente de hubs de eventos. Para a regra de rede, ele especifica a ID de uma sub-rede em uma rede virtual. 
 
-O modelo do Resource Manager a seguir permite incluir uma regra da rede virtual em um namespace de Hubs de Eventos existente.
+A ID é um caminho totalmente qualificado do Resource Manager para a sub-rede da rede virtual. Por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
 
-Parâmetros de modelo:
+Ao adicionar regras de rede virtual ou firewalls, defina o valor de `defaultAction` como `Deny` .
 
-* `namespaceName`: Namespace de hubs de eventos.
-* `vnetRuleName`: Nome da regra de rede virtual a ser criada.
-* `virtualNetworkingSubnetId`: Caminho do Gerenciador de recursos totalmente qualificado para a sub-rede da rede virtual; por exemplo, `/subscriptions/{id}/resourceGroups/{rg}/providers/Microsoft.Network/virtualNetworks/{vnet}/subnets/default` para a sub-rede padrão de uma rede virtual.
-
-> [!NOTE]
-> Embora não haja nenhuma regra de negação possível, o modelo do Azure Resource Manager tem a ação padrão definida como **"Allow"** , que não restringe as conexões.
-> Ao tornar as regras de rede virtual ou firewalls, devemos alterar o **_"DefaultAction"_**
-> 
-> de
-> ```json
-> "defaultAction": "Allow"
-> ```
-> para
-> ```json
-> "defaultAction": "Deny"
-> ```
->
 
 ```json
 {
@@ -202,6 +186,9 @@ Parâmetros de modelo:
 ```
 
 Para implantar o modelo, siga as instruções para o [Azure Resource Manager][lnk-deploy].
+
+> [!IMPORTANT]
+> Se não houver nenhuma regra de rede virtual e IP, todo o tráfego fluirá para o namespace mesmo se você definir `defaultAction` como `deny` .  O namespace pode ser acessado pela Internet pública (usando a chave de acesso). Especifique pelo menos uma regra de IP ou regra de rede virtual para o namespace para permitir o tráfego somente dos endereços IP ou da sub-rede de uma rede virtual especificada.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
