@@ -4,15 +4,15 @@ description: A linha de base de segurança de bastiões do Azure fornece diretri
 author: msmbaldwin
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/20/2020
+ms.date: 02/12/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 92c57c863cf09fee500b3ea7392757a4f729e4a5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: d20a646eb7675efdab4cbdc5f13e929544dceaa3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98723924"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100392367"
 ---
 # <a name="azure-security-baseline-for-azure-bastion"></a>Linha de base de segurança do Azure para bastiões do Azure
 
@@ -69,7 +69,11 @@ A conectividade com o Gerenciador de gateway e a marca de serviço do Azure é p
 
 **Diretrizes**: a bastiões do Azure é integrada ao Azure Active Directory (Azure AD), que é o serviço de gerenciamento de identidade e acesso padrão do Azure. Os usuários podem acessar o portal do Azure usando a autenticação do Azure AD para gerenciar o serviço de bastiões do Azure (criar, atualizar e excluir recursos de bastiões).
 
-Conectar-se a máquinas virtuais usando a bastiões do Azure depende de uma chave SSH ou nome de usuário/senha e atualmente não dá suporte ao uso de credenciais do Azure AD.
+Conectar-se a máquinas virtuais usando a bastiões do Azure depende de uma chave SSH ou nome de usuário/senha e atualmente não dá suporte ao uso de credenciais do Azure AD. 
+
+Você pode armazenar suas chaves SSH como Azure Key Vault segredos e usar esses segredos para se conectar às suas máquinas virtuais usando a bastiões do Azure. Você pode controlar o acesso do usuário a esses segredos atribuindo [políticas de acesso de Key Vault](../key-vault/general/assign-access-policy-portal.md) a usuários individuais ou a grupos do Azure AD. Os usuários precisarão das seguintes permissões para usar esse método para se conectar a uma máquina virtual:
+- **Obter** acesso aos segredos armazenados no Azure Key Vault escolhido
+- **Listar** o acesso aos segredos armazenados no Azure Key Vault escolhido
 
 Além de uma chave SSH ou nome de usuário/senha, ao se conectar a máquinas virtuais usando a bastiões do Azure, seu usuário precisará das seguintes atribuições de função:
 - Função de leitor na máquina virtual de destino
@@ -106,7 +110,8 @@ Para saber mais, consulte as referências a seguir:
 
 ### <a name="im-4-use-strong-authentication-controls-for-all-azure-active-directory-based-access"></a>IM-4: usar controles de autenticação forte para todo o acesso baseado no Azure Active Directory
 
-**Diretrizes**: a bastiões do Azure é integrada ao Azure Active Directory (Azure AD) para acesso e gerenciamento do serviço. Configure a autenticação multifator do Azure para seu locatário do Azure AD. O Azure AD dá suporte a controles de autenticação fortes por meio da MFA (autenticação multifator) e de métodos fortes de senha.  
+**Diretrizes**: a bastiões do Azure é integrada ao Azure Active Directory (Azure AD) para acesso e gerenciamento do serviço. Configure Azure Active Directory autenticação multifator para seu locatário do Azure AD. O Azure AD dá suporte a controles de autenticação fortes por meio da MFA (autenticação multifator) e de métodos fortes de senha.
+  
 - Autenticação multifator: habilite o Azure AD MFA e siga as recomendações de gerenciamento de acesso e identidade da central de segurança do Azure para sua configuração de MFA. A MFA pode ser imposta em todos os usuários, Selecionar usuários ou no nível por usuário com base nas condições de entrada e nos fatores de risco. 
 
 - Autenticação com senha: três opções de autenticação com senha estão disponíveis: Windows Hello para empresas, Microsoft Authenticator app e métodos de autenticação locais, como cartões inteligentes. 
@@ -375,7 +380,7 @@ Habilite e colete logs de recursos do NSG (grupo de segurança de rede) e logs d
 
 - [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
 
-- [Habilitar logs de recursos do Azure para bastiões do Azure ](diagnostic-logs.md)
+- [Habilitar logs de recursos do Azure para bastiões do Azure](diagnostic-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

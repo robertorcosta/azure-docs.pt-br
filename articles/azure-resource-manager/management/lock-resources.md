@@ -4,12 +4,12 @@ description: Impedir que os usuários atualizem ou excluam recursos do Azure apl
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 912c7e86d253aa18b9a6c60717ceaa70e32fcf0e
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: 6df6aec06fadaacc6b1d08ed9ee33b72c5971359
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99428310"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369468"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloquear recursos para evitar alterações inesperadas
 
@@ -32,7 +32,7 @@ Bloqueios do Resource Manager se aplicam apenas às operações que ocorrem no p
 
 A aplicação de bloqueios pode gerar resultados inesperados porque algumas operações que não parecem modificar o recurso, na verdade, exigem ações impedidas pelo bloqueio. Os bloqueios impedirão qualquer operação que exija uma solicitação POST para a API Azure Resource Manager. Alguns exemplos comuns de operações que são impedidas por bloqueios são:
 
-* Um bloqueio do tipo somente leitura em uma **conta de armazenamento** impede que todos os usuários listem as chaves. A operação de lista de chaves é tratada por meio de uma solicitação POST, pois as chaves retornadas estão disponíveis para operações de gravação.
+* Um bloqueio somente leitura em uma **conta de armazenamento** impede que os usuários listem as chaves de conta. A operação de [chaves de lista](/rest/api/storagerp/storageaccounts/listkeys) de armazenamento do Azure é tratada por meio de uma solicitação post para proteger o acesso às chaves de conta, que fornecem acesso completo aos dados na conta de armazenamento. Quando um bloqueio somente leitura é configurado para uma conta de armazenamento, os usuários que não possuem as chaves de conta devem usar as credenciais do Azure AD para acessar dados de BLOB ou de fila. Um bloqueio somente leitura também impede a atribuição de funções RBAC do Azure que estão no escopo da conta de armazenamento ou de um contêiner de dados (contêiner de BLOB ou fila).
 
 * Um bloqueio do tipo somente leitura em um recurso do **Serviço de Aplicativo** impedirá o Gerenciador de Servidores do Visual Studio de exibir os arquivos para o recurso, pois essa interação exige acesso de gravação.
 

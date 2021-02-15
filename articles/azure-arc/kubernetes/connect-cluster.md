@@ -1,22 +1,22 @@
 ---
-title: Conectar um cluster do Kubernetes habilitado para o Azure Arc (versão prévia)
+title: Conectar um cluster kubernetes habilitado para o Azure Arc (versão prévia)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 05/19/2020
+ms.date: 02/09/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Conectar um cluster do Kubernetes habilitado para o Azure Arc com o Azure Arc
+description: Conectar um cluster kubernetes habilitado para o Azure Arc com o Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, containers
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: b4ab84153eaaf81c668d8589fec7516853aca5f9
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: e68eccf998592aa7d1ebfea51e4ca66d577b3c7f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008104"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390548"
 ---
-# <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conectar um cluster do Kubernetes habilitado para o Azure Arc (versão prévia)
+# <a name="connect-an-azure-arc-enabled-kubernetes-cluster-preview"></a>Conectar um cluster kubernetes habilitado para o Azure Arc (versão prévia)
 
 Este artigo aborda o processo de conexão de qualquer cluster kubernetes certificado de CNCF (nuvem Native Computing Foundation), como o AKS-Engine no Azure, o mecanismo de AKS em Azure Stack Hub, GKE, EKS e VMware vSphere cluster para o Azure Arc.
 
@@ -30,7 +30,7 @@ Verifique se você preparou os seguintes pré-requisitos:
 * Um arquivo kubeconfig para acessar o cluster e a função de administrador de cluster no cluster para implantação de agentes kubernetes habilitados para Arc.
 * O usuário ou a entidade de serviço usada com os comandos `az login` e `az connectedk8s connect` deve ter as permissões 'Ler' e 'Gravar' no tipo de recurso 'Microsoft.Kubernetes/connectedclusters'. A função "cluster kubernetes-integração de arco do Azure" tem essas permissões e pode ser usada para atribuições de função no usuário ou na entidade de serviço.
 * Helm 3 para a integração do cluster usando uma extensão connectedk8s. [Instale a versão mais recente do Helm 3](https://helm.sh/docs/intro/install) para atender a esse requisito.
-* CLI do Azure versão 2.15 + para instalar as extensões da CLI do kubernetes habilitadas para Arc do Azure. [Instale o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) ou atualize para a versão mais recente.
+* CLI do Azure versão 2.15 + para instalar as extensões da CLI do kubernetes habilitadas para o Arc do Azure. [Instale o CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) ou atualize para a versão mais recente.
 * Instale as extensões da CLI do kubernetes habilitadas para Arc:
   
   * Instale a extensão `connectedk8s`, que ajuda a conectar clusters do Kubernetes ao Azure:
@@ -72,7 +72,7 @@ Os agentes do Azure Arc exigem que os seguintes protocolos/portas/URLs de saída
 | `https://mcr.microsoft.com`                                                                            | Necessário para efetuar pull de imagens de contêiner para agentes de arco do Azure.                                                                  |
 | `https://eus.his.arc.azure.com`, `https://weu.his.arc.azure.com`                                                                            |  Necessário para efetuar pull de certificados de identidade gerenciados atribuídos pelo sistema.                                                                  |
 
-## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registre os dois provedores para kubernetes habilitados para Arc do Azure:
+## <a name="register-the-two-providers-for-azure-arc-enabled-kubernetes"></a>Registre os dois provedores de Kubernetes habilitados para o Azure Arc:
 
 ```console
 az provider register --namespace Microsoft.Kubernetes
@@ -113,14 +113,14 @@ eastus      AzureArcTest
 Em seguida, conectaremos nosso cluster kubernetes ao Azure usando `az connectedk8s connect` :
 
 1. Verifique a conectividade com o cluster kubernetes por meio de um dos seguintes:
-   1. `KUBECONFIG`
-   1. `~/.kube/config`
-   1. `--kube-config`
+   * `KUBECONFIG`
+   * `~/.kube/config`
+   * `--kube-config`
 1. Implante agentes Arc do Azure para kubernetes usando o Helm 3 no `azure-arc` namespace:
 
-```console
-az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
-```
+    ```console
+    az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
+    ```
 
 **Saída:**
 
@@ -169,10 +169,9 @@ Name           Location    ResourceGroup
 AzureArcTest1  eastus      AzureArcTest
 ```
 
-Você também pode exibir esse recurso no [portal do Azure](https://portal.azure.com/). Abra o portal no navegador e navegue até o grupo de recursos e o recurso kubernetes habilitado para arco do Azure, com base nas entradas de nome do recurso e do grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.
-
+Você também pode exibir esse recurso no [portal do Azure](https://portal.azure.com/). Abra o portal no seu navegador e navegue até o grupo de recursos e o recurso de kubernetes habilitado para Arc do Azure, com base nas entradas de nome do recurso e do grupo de recursos usadas anteriormente no `az connectedk8s connect` comando.  
 > [!NOTE]
-> Depois de integrar o cluster, ele leva cerca de 5 a 10 minutos para os metadados do cluster (versão do cluster, versão do agente, número de nós, etc.) para a superfície na página Visão geral do recurso kubernetes habilitado para arco do Azure no portal do Azure.
+> Depois de integrar o cluster, ele leva cerca de 5 a 10 minutos para os metadados do cluster (versão do cluster, versão do agente, número de nós, etc.) para a superfície na página Visão geral do recurso kubernetes habilitado para Arc do Azure no portal do Azure.
 
 ## <a name="connect-using-an-outbound-proxy-server"></a>Conectar-se usando um servidor proxy de saída
 
@@ -211,13 +210,13 @@ Se o cluster estiver protegido por um servidor proxy de saída, CLI do Azure e o
     ```
 
 > [!NOTE]
-> 1. Especificar `excludedCIDR` em `--proxy-skip-range` é importante para garantir que a comunicação no cluster não seja interrompida para os agentes.
-> 2. Enquanto `--proxy-http` , `--proxy-https` e `--proxy-skip-range` são esperados para a maioria dos ambientes de proxy de saída, `--proxy-cert` só é necessário se os certificados confiáveis do proxy precisarem ser injetados no repositório de certificados confiáveis do pods do agente.
-> 3. A especificação de proxy acima é atualmente aplicada somente para agentes Arc e não para o pods de fluxo usado em sourceControlConfiguration. A equipe de kubernetes habilitada para Arc está trabalhando ativamente nesse recurso e estará disponível em breve.
+> * Especificar `excludedCIDR` em `--proxy-skip-range` é importante para garantir que a comunicação no cluster não seja interrompida para os agentes.
+> * Enquanto `--proxy-http` , `--proxy-https` e `--proxy-skip-range` são esperados para a maioria dos ambientes de proxy de saída, `--proxy-cert` só é necessário se os certificados confiáveis do proxy precisarem ser injetados no repositório de certificados confiáveis do pods do agente.
+> * A especificação de proxy acima é atualmente aplicada somente para agentes Arc e não para o pods de fluxo usado em sourceControlConfiguration. A equipe de kubernetes habilitada para Arc está trabalhando ativamente nesse recurso e estará disponível em breve.
 
 ## <a name="azure-arc-agents-for-kubernetes"></a>Agentes do Azure Arc para Kubernetes
 
-O kubernetes habilitado para arco do Azure implanta alguns operadores no `azure-arc` namespace. Você pode exibir essas implantações e pods usando:
+O Kubernetes habilitado para Azure Arc implanta alguns operadores no namespace `azure-arc`. Você pode exibir essas implantações e pods usando:
 
 ```console
 kubectl -n azure-arc get deployments,pods
@@ -245,7 +244,7 @@ pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
 pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
 ```
 
-O kubernetes habilitado para arco do Azure consiste em alguns agentes (operadores) executados no cluster implantados no `azure-arc` namespace.
+O Kubernetes habilitado para Azure Arc consiste em alguns agentes (operadores) que são executados no cluster implantado no namespace `azure-arc`.
 
 | Agentes (operadores)                                                                                               | Descrição                                                                                                                 |
 | ------------------------------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------- |
@@ -254,7 +253,7 @@ O kubernetes habilitado para arco do Azure consiste em alguns agentes (operadore
 | `deployment.apps/metrics-agent`                                                                            | Coleta métricas de desempenho de outros agentes Arc.                                                                                    |
 | `deployment.apps/cluster-metadata-operator`                                                                            | Coleta metadados do cluster, como a versão do cluster, a contagem de nós e a versão do agente Arc do Azure.                                                                  |
 | `deployment.apps/resource-sync-agent`                                                                            |  Sincroniza os metadados de cluster mencionados acima para o Azure.                                                                  |
-| `deployment.apps/clusteridentityoperator`                                                                            |  O kubernetes habilitado para arco do Azure atualmente dá suporte à identidade atribuída pelo sistema. `clusteridentityoperator` mantém o certificado MSI (identidade de serviço gerenciado) usado por outros agentes para comunicação com o Azure.                                                                  |
+| `deployment.apps/clusteridentityoperator`                                                                            |  O kubernetes habilitado para Arc do Azure atualmente dá suporte à identidade atribuída pelo sistema. `clusteridentityoperator` mantém o certificado MSI (identidade de serviço gerenciado) usado por outros agentes para comunicação com o Azure.                                                                  |
 | `deployment.apps/flux-logs-agent`                                                                            |  Coleta logs dos operadores de fluxo implantados como parte da configuração de controle do código-fonte.                                                                  |
 
 ## <a name="delete-a-connected-cluster"></a>Excluir um cluster conectado
@@ -268,7 +267,7 @@ Você pode excluir um recurso do `Microsoft.Kubernetes/connectedcluster` usando 
   ```
   Este comando Remove o `Microsoft.Kubernetes/connectedCluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure. O CLI do Azure `helm uninstall` também usa para remover os agentes em execução no cluster.
 
-* **Exclusão no portal do Azure**: a exclusão do recurso kubernetes habilitado para arco do azure em portal do Azure exclui o `Microsoft.Kubernetes/connectedcluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure, mas *não* remove os agentes em execução no cluster. 
+* **Exclusão no portal do Azure**: a exclusão do recurso kubernetes habilitado para Arc do azure em portal do Azure exclui o `Microsoft.Kubernetes/connectedcluster` recurso e todos os `sourcecontrolconfiguration` recursos associados no Azure, mas *não* remove os agentes em execução no cluster. 
 
   Para remover os agentes em execução no cluster, execute o seguinte comando:
 

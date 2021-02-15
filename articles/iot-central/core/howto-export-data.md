@@ -4,16 +4,16 @@ description: Como usar a nova exportação de dados para exportar seus dados de 
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 11/05/2020
+ms.date: 01/27/2021
 ms.topic: how-to
 ms.service: iot-central
 ms.custom: contperf-fy21q1, contperf-fy21q3
-ms.openlocfilehash: 350cd7c14a4f1ee5058a60ccf60c1205ce97916a
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: d31673b8d789cff5de3ddce63b67a98854b7aabc
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226050"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515896"
 ---
 # <a name="export-iot-data-to-cloud-destinations-using-data-export"></a>Exportar dados de IoT para destinos de nuvem usando a exportação de dados
 
@@ -166,6 +166,17 @@ Agora que você tem um destino para exportar seus dados, configure a exportaçã
 
 1. Quando você terminar de configurar sua exportação, selecione **salvar**. Após alguns minutos, seus dados aparecerão em seus destinos.
 
+## <a name="monitor-your-export"></a>Monitorar sua exportação
+
+Além de ver o status de suas exportações no IoT Central, você pode monitorar a quantidade de dados fluindo pelas exportações e observar erros de exportação na plataforma de dados do Azure Monitor. Você pode acessar as métricas sobre suas exportações e integridade do dispositivo em gráficos no portal do Azure, uma API REST ou consultas no PowerShell ou no CLI do Azure. No momento, você pode monitorar essas métricas de exportação de dados no Azure Monitor:
+
+1. Número de mensagens de entrada para exportar antes que os filtros sejam aplicados
+2. Número de mensagens que passam por filtros
+3. Número de mensagens exportadas com êxito para destinos
+4. Número de erros encontrados
+ 
+[Saiba mais sobre como acessar as métricas de IoT Central.](howto-monitor-application-health.md)
+
 ## <a name="destinations"></a>Destinos
 
 ### <a name="azure-blob-storage-destination"></a>Destino do armazenamento de BLOBs do Azure
@@ -233,7 +244,6 @@ O exemplo a seguir mostra uma mensagem de telemetria exportada:
     }
 }
 ```
-
 ### <a name="message-properties"></a>Propriedades da mensagem
 
 As mensagens de telemetria têm propriedades para metadados além da carga de telemetria. O trecho anterior mostra exemplos de mensagens do sistema, como `deviceId` e `enqueuedTime` . Para saber mais sobre as propriedades de mensagem do sistema, consulte [Propriedades do sistema de mensagens do Hub IOT do D2C](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).

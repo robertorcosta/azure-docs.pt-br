@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: f76a05757f86308785d4ca678675b87b3fa9d63e
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 8be5def6d4780fd8b2ab65c5c9e1104a869f6d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96551515"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391585"
 ---
 # <a name="troubleshoot-your-connections-in-azure-purview"></a>Solucionar problemas de conexões no Azure alcance
 
@@ -53,11 +53,11 @@ Verifique se as permissões corretas foram configuradas para a identidade gerenc
 Para verificar isso, execute as seguintes etapas:
 
 1. Navegue até o cofre de chaves e para a seção **políticas de acesso**
-1. Verifique se a identidade gerenciada do alcance é mostrada na seção *políticas de acesso atuais* , com permissões **Get** em segredos pelo menos
+1. Verifique se a identidade gerenciada do alcance é mostrada na seção *políticas de acesso atuais* com as permissões **Get** e **list** em segredos pelo menos
 
 Se você não vir sua identidade gerenciada do alcance listada, siga as etapas em [criar e gerenciar credenciais para verificações](manage-credentials.md) para adicioná-la. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no catálogo de dados do Azure alcance](how-to-search-catalog.md)
+- [Navegar pelo Catálogo de Dados do Azure Purview](how-to-browse-catalog.md)
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

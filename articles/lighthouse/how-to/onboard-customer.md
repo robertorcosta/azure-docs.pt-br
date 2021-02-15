@@ -1,14 +1,14 @@
 ---
 title: Integrar um cliente ao Azure Lighthouse
 description: Saiba como integrar um cliente ao Azure Lighthouse, permitindo que seus recursos sejam acessados e gerenciados por meio de seu próprio locatário usando o gerenciamento de recursos delegado do Azure.
-ms.date: 01/14/2021
+ms.date: 02/08/2021
 ms.topic: how-to
-ms.openlocfilehash: 1a7c8fc85819b2c34b5c64dc83cb908b7bee3c41
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: c0a886b692b99156cbd53e5f0f5953047560c5b9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98232668"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100372137"
 ---
 # <a name="onboard-a-customer-to-azure-lighthouse"></a>Integrar um cliente ao Azure Lighthouse
 
@@ -311,12 +311,13 @@ Se você precisar fazer alterações depois que o cliente tiver sido integrado, 
 Se não for possível integrar o cliente com êxito ou se os usuários tiverem problemas para acessar os recursos delegados, verifique as seguintes dicas e requisitos e tente novamente.
 
 - O `managedbyTenantId` valor não deve ser o mesmo que a ID de locatário para a assinatura que está sendo integrada.
-- Você não pode ter várias atribuições no mesmo escopo com a mesma `mspOfferName` . 
+- Você não pode ter várias atribuições no mesmo escopo com a mesma `mspOfferName` .
 - O provedor de recursos **Microsoft. managedservices** deve ser registrado para a assinatura delegada. Isso deve ocorrer automaticamente durante a implantação, mas se não estiver, você poderá [registrá-lo manualmente](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - As autorizações não devem incluir nenhum usuário com a função interna de [proprietário](../../role-based-access-control/built-in-roles.md#owner) ou com funções internas com [dataactions](../../role-based-access-control/role-definitions.md#dataactions).
 - Os grupos devem ser criados com o [**tipo de grupo**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) definido como **segurança** e não **Microsoft 365**.
 - Pode haver um atraso adicional antes que o acesso seja habilitado para [grupos aninhados](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - Os usuários que precisam exibir recursos no portal do Azure devem ter a função [leitor](../../role-based-access-control/built-in-roles.md#reader) (ou outra função interna que inclua acesso de leitor).
+- As [funções internas do Azure](../../role-based-access-control/built-in-roles.md) que você inclui em autorizações não devem incluir funções preteridas. Se uma função interna do Azure for substituída, todos os usuários que foram integrados com essa função perderão o acesso e você não poderá integrar delegações adicionais. Para corrigir isso, atualize seu modelo para usar apenas funções internas com suporte e, em seguida, execute uma nova implantação.
 
 ## <a name="next-steps"></a>Próximas etapas
 

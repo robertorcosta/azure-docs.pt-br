@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: bd31152c6742271658cf4fd7ac2a5e2957651c84
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96477692"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100515026"
 ---
 A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente. Os tamanhos isolados residem e operam em uma geração de hardware específica e serão preteridos quando a geração de hardware for desativada.
 
@@ -23,14 +23,14 @@ Os tamanhos de máquinas virtuais isoladas são mais adequados para cargas de tr
 Além disso, como as VMs de tamanho isolado são grandes, os clientes podem optar por subdividir os recursos dessas VMs usando o [suporte do Azure para máquinas virtuais aninhadas](https://azure.microsoft.com/blog/nested-virtualization-in-azure/).
 
 As ofertas atuais da máquina virtual isolada incluem:
-* Standard_E64is_v3
-* Standard_E64i_v3
 * Standard_E80ids_v4
 * Standard_E80is_v4
+* Standard_F72s_v2
+* Standard_E64is_v3
+* Standard_E64i_v3
 * Standard_M128ms
 * Standard_GS5
 * Standard_G5
-* Standard_F72s_v2
 
 
 > [!NOTE]
@@ -38,7 +38,7 @@ As ofertas atuais da máquina virtual isolada incluem:
 
 ## <a name="deprecation-of-isolated-vm-sizes"></a>Substituição de tamanhos de VM isoladas
 
-Como os tamanhos de VM isoladas são os tamanhos de hardware associados, o Azure fornecerá lembretes 12 meses antes da reprovação oficial dos tamanhos.  O Azure também oferecerá um tamanho isolado atualizado em nossa próxima versão de hardware que o cliente poderia considerar ao mover sua carga de trabalho.
+Os tamanhos de VM isolados têm um ciclo de vida limitado por hardware. O Azure emitirá lembretes 12 meses antes da data oficial de substituição dos tamanhos e fornecerá uma oferta de isolamento atualizada para sua consideração.
 
 | Tamanho | Data de retirada do isolamento | 
 | --- | --- |
@@ -49,7 +49,7 @@ Como os tamanhos de VM isoladas são os tamanhos de hardware associados, o Azure
 
 
 ## <a name="faq"></a>Perguntas frequentes
-### <a name="q-is-the-size-going-to-get-retired-or-only-isolation-feature-is"></a>P: o tamanho será desativado ou apenas o recurso "isolamento" será?
+### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: o tamanho será desativado ou apenas seu recurso de "isolamento"?
 **R**: se o tamanho da máquina virtual não tiver o subscript "i", somente o recurso "isolamento" será desativado. Se o isolamento não for necessário, não haverá nenhuma ação a ser tomada e a VM continuará funcionando conforme o esperado. Os exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscript "i", o tamanho será desativado.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: há um tempo de inatividade quando minha VM chega em um hardware não isolado?
