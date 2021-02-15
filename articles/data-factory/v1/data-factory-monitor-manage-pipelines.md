@@ -1,22 +1,18 @@
 ---
 title: Monitorar e gerenciar pipelines usando o portal do Azure e o PowerShell
 description: Saiba como usar o Portal do Azure e o Azure PowerShell para monitorar e gerenciar as data factories e os pipelines do Azure que você criou.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 2a30c755bc19849ad3a821cbbc75b787a3b0bb98
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 486f12c29c473d46e3aff73abe747f8aa5a2ef8d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96495830"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380399"
 ---
 # <a name="monitor-and-manage-azure-data-factory-pipelines-by-using-the-azure-portal-and-powershell"></a>Monitorar e gerenciar os pipelines do Azure Data Factory usando o Portal do Azure e o PowerShell
 > [!div class="op_single_selector"]
@@ -121,7 +117,7 @@ As fatias do conjunto de dados no data factory podem ter um dos seguintes status
 <td>A fatia está sendo processada.</td>
 </tr>
 <tr>
-<td rowspan="4">Com falha</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
+<td rowspan="4">Failed (Falha)</td><td>TimedOut</td><td>A execução demorou mais do que o permitido pela atividade.</td>
 </tr>
 <tr>
 <td>Canceled</td><td>A fatia foi cancelada por ação do usuário.</td>
@@ -278,7 +274,7 @@ Se a execução da atividade falhar em um pipeline, o conjunto de dados produzid
 > [!IMPORTANT]
 > É mais fácil resolver erros e executar novamente as fatias com falha usando o Aplicativo de Monitoramento e Gerenciamento. Para obter detalhes sobre como usar o aplicativo, consulte [Monitorar e gerenciar os pipelines do Data Factory usando o aplicativo de Monitoramento e Gerenciamento](data-factory-monitor-manage-app.md). 
 
-### <a name="use-the-azure-portal"></a>Usar o portal do Azure
+### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 Depois de solucionar problemas e depurar falhas em um pipeline, você pode executar as falhas novamente navegando até a fatia com erro e clicando no botão **Executar** na barra de comandos.
 
 ![Executar novamente uma fatia com falha](./media/data-factory-monitor-manage-pipelines/rerun-slice.png)
@@ -287,7 +283,7 @@ Em caso de falha na validação da fatia devido a uma falha de política (por ex
 
 ![Corrigir os erros e validar](./media/data-factory-monitor-manage-pipelines/fix-error-and-validate.png)
 
-### <a name="use-azure-powershell"></a>Usar o Azure PowerShell
+### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
 Você pode executar novamente as falhas usando o cmdlet **set-AzDataFactorySliceStatus** . Consulte o tópico [set-AzDataFactorySliceStatus](/powershell/module/az.datafactory/set-azdatafactoryslicestatus) para obter a sintaxe e outros detalhes sobre o cmdlet.
 
 **Exemplo:**

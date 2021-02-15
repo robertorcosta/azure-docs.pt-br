@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e5ce9597802f88bacbe03cffac77fdfbee3a9357
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: b72bc5ab22d096420471d097f615e6fdbc14b3e7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99097599"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100379753"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
@@ -27,7 +27,7 @@ As séries Dav4 e Dasv4 são novos tamanhos que utilizam o processador 2.35 GHz 
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
-[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar uma frequência máxima aumentada de 3.35 GHz. Os tamanhos da série Dav4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção. O armazenamento do disco de dados é faturado separadamente das máquinas virtuais. Para usar o SSD Premium, use os tamanhos de Dasv4. Os medidores de cobrança e preço para os tamanhos de Dasv4 são os mesmos que os da série Dav4.
@@ -52,7 +52,7 @@ Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 74
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
-[Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
+[Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
 Os tamanhos da série Dasv4 são baseados no processador AMD EPYC<sup>TM</sup> 7452 de 2.35 GHz que pode alcançar uma frequência máxima aumentada de 3.35 GHz e usar SSD Premium. Os tamanhos da série Dasv4 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.

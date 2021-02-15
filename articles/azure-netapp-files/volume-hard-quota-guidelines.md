@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: b-juche
-ms.openlocfilehash: 69a970b7b088795602dfb842b20ad6457d5f27c4
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b173342c1c384213e88f216334b5e03cd8b7bea7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99808081"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374483"
 ---
 # <a name="what-changing-to-volume-hard-quota-means-for-your-azure-netapp-files-service"></a>O que mudar para a cota de volume rígido significa para seu serviço de Azure NetApp Files
 
 Desde o início do serviço, Azure NetApp Files tem usado um provisionamento de pool de capacidade e um mecanismo de aumento automático. Os volumes de Azure NetApp Files são provisionados de thin em um pool de capacidade provisionada, de uma camada e tamanho selecionados. Os tamanhos de volume (cotas) são usados para fornecer desempenho e capacidade, e as cotas podem ser ajustadas imediatamente a qualquer momento. Esse comportamento significa que, atualmente, a cota de volume é uma alavanca de desempenho usada para controlar a largura de banda para o volume. Atualmente, a subposição de pools de capacidade aumenta automaticamente quando a capacidade é preenchida.   
 
 > [!IMPORTANT] 
-> O comportamento de Azure NetApp Files de provisionamento de pool de volume e capacidade será alterado para um mecanismo *controlável* e *manual* . **A partir de 15 de março de 2021, os tamanhos de volume (cota) gerenciarão o desempenho da largura de banda, bem como a capacidade provisionada, e os pools de capacidade subjacentes não serão mais ampliados automaticamente.** 
+> O comportamento de Azure NetApp Files de provisionamento de pool de volume e capacidade será alterado para um mecanismo *controlável* e *manual* . **A partir de 1º de abril de 2021, os tamanhos de volume (cota) gerenciarão o desempenho da largura de banda, bem como a capacidade provisionada, e os pools de capacidade subjacentes não serão mais ampliados automaticamente.** 
 
 ## <a name="reasons-for-the-change-to-volume-hard-quota"></a>Motivos para a alteração da cota de volume rígido
 

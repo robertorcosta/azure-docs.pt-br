@@ -1,19 +1,19 @@
 ---
 title: Usar VMs do Azure Spot
 description: Saiba como usar as VMs pontuais do Azure para economizar nos custos.
-author: cynthn
+author: JagVeerappan
+ms.author: jagaveer
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 10/05/2020
-ms.author: cynthn
-ms.reviewer: jagaveer
-ms.openlocfilehash: 1e3934a8ff91d764a5148b3d490b44f30983a284
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.reviewer: cynthn
+ms.openlocfilehash: 1e82da3bc45bc8fb88b3955bd59091372f56d292
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202123"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375452"
 ---
 # <a name="use-spot-vms-in-azure"></a>Usar VMs pontuais no Azure
 
@@ -58,7 +58,7 @@ As VMs pontuais podem ser implantadas em qualquer região, exceto Microsoft Azur
 Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) :
 
 -   Contrato Enterprise
--   Pago conforme o uso
+-   Código de oferta pago conforme o uso 003P
 -   Patrocinado
 - Para provedor de serviços de nuvem (CSP), entre em contato com seu parceiro
 

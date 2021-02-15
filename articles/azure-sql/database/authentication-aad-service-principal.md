@@ -8,19 +8,19 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 10/21/2020
-ms.openlocfilehash: 6e397242bd699adcba4737014ebbce72aadc8ec2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 02/11/2021
+ms.openlocfilehash: 4012cd83cf2e6fe438792a503731729b57a1425c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669818"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380586"
 ---
 # <a name="azure-active-directory-service-principal-with-azure-sql"></a>Entidade de serviço do Azure Active Directory com o SQL do Azure
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-O suporte para a criação de usuário do Azure Active Directory (Azure AD) no banco de dados SQL do Azure (BD SQL) e no [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em nome de aplicativos do Azure AD (entidades de serviço) estão atualmente em **Visualização pública** .
+O suporte para a criação de usuário do Azure Active Directory (Azure AD) no banco de dados SQL do Azure (BD SQL) e no [Azure Synapse Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) em nome de aplicativos do Azure AD (entidades de serviço) estão atualmente em **Visualização pública**.
 
 > [!NOTE]
 > Essa funcionalidade já tem suporte para o SQL Instância Gerenciada.
@@ -52,7 +52,7 @@ O suporte a essa funcionalidade é útil nos processos de automação de aplicat
 
 Para habilitar uma criação de objeto do Azure AD no banco de dados SQL e no Azure Synapse em nome de um aplicativo do Azure AD, as seguintes configurações são necessárias:
 
-1. Atribuir a identidade do servidor
+1. Atribua a identidade do servidor. A identidade do servidor atribuído representa a identidade do sistema gerenciada (MSI). Atualmente, a identidade do servidor para o SQL do Azure não oferece suporte a UMI (identidade gerenciada pelo usuário).
     - Para um novo servidor lógico do Azure SQL, execute o seguinte comando do PowerShell:
     
     ```powershell
@@ -83,7 +83,7 @@ Para habilitar uma criação de objeto do Azure AD no banco de dados SQL e no Az
 >
 > Se você estiver usando a entidade de serviço para definir ou remover o administrador do Azure AD, o aplicativo também deverá ter a permissão [Directory. Read. All](/graph/permissions-reference#application-permissions-18) Application API no Azure AD. Para obter mais informações sobre [as permissões necessárias para definir um administrador do Azure ad](authentication-aad-service-principal-tutorial.md#permissions-required-to-set-or-unset-the-azure-ad-admin)e instruções passo a passo para criar um usuário do Azure AD em nome de um aplicativo do Azure AD, consulte [tutorial: criar usuários do Azure ad usando aplicativos do Azure ad](authentication-aad-service-principal-tutorial.md).
 >
-> Em **Visualização pública** , você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que pode ignorar a necessidade de um administrador **global** ou de **funções com privilégios Administrator** para conceder a função de **leitores de diretório** . Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
+> Em **Visualização pública**, você pode atribuir a função de **leitores de diretório** a um grupo no Azure AD. Os proprietários do grupo podem então adicionar a identidade gerenciada como um membro desse grupo, o que pode ignorar a necessidade de um administrador **global** ou de **funções com privilégios Administrator** para conceder a função de **leitores de diretório** . Para obter mais informações sobre esse recurso, confira [Função Leitores de Diretório no Azure Active Directory para o SQL do Azure](authentication-aad-directory-readers-role.md).
 
 ## <a name="troubleshooting-and-limitations-for-public-preview"></a>Solução de problemas e limitações para visualização pública
 

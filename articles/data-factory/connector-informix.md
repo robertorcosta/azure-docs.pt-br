@@ -1,22 +1,17 @@
 ---
 title: Copiar dados do e para o IBM Informix usando o Azure Data Factory
 description: Saiba como copiar dados do e para o IBM Informix usando uma atividade de cópia em um pipeline de Azure Data Factory.
-services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 93f484bd30de1ba0ca0f7aa5db263243bebc5b09
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95ecb44f154ab84a60a1ee673826d83fc51305b3
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85508802"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100383493"
 ---
 # <a name="copy-data-from-and-to-ibm-informix-using-azure-data-factory"></a>Copiar dados do e para o IBM Informix usando o Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -52,7 +47,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Informix:
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type deve ser definida como: **Informix** | Sim |
-| connectionString | A cadeia de conexão ODBC excluindo a parte da credencial. Você pode especificar a cadeia de conexão ou usar o DSN do sistema (nome da fonte de dados) que você configurou no computador Integration Runtime (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente). <br> Você também pode colocar uma senha em Azure Key Vault e extrair a  `password`   configuração da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md)   com mais detalhes.| Sim |
+| connectionString | A cadeia de conexão ODBC excluindo a parte da credencial. Você pode especificar a cadeia de conexão ou usar o DSN do sistema (nome da fonte de dados) que você configurou no computador Integration Runtime (você ainda precisa especificar a parte da credencial no serviço vinculado adequadamente). <br> Você também pode colocar uma senha em Azure Key Vault e extrair a `password` configuração da cadeia de conexão. Consulte [armazenar credenciais em Azure Key Vault](store-credentials-in-key-vault.md) com mais detalhes.| Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados Informix.<br/>Os valores permitidos são: **Básica** e **Anônima**. | Sim |
 | userName | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não |
 | password | Especifique a senha da conta de usuário que você especificou para userName. Marque este campo como uma SecureString para armazená-la com segurança no Data Factory ou [faça referência a um segredo armazenado no Azure Key Vault](store-credentials-in-key-vault.md). | Não |
@@ -164,7 +159,7 @@ Para copiar dados para a Informix, há suporte para as seguintes propriedades na
 | Propriedade | Descrição | Obrigatório |
 |:--- |:--- |:--- |
 | type | A propriedade Type do coletor da atividade de cópia deve ser definida como: **InformixSink** | Sim |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período.  Exemplo: "00:30:00" (30 minutos). |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0 – detectado automaticamente) |
 | preCopyScript |Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no armazenamento de dados em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
 

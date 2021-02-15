@@ -1,22 +1,17 @@
 ---
 title: Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 description: Aprenda a criar um runtime de integração do Azure-SSIS no Azure Data Factory para poder implantar e executar pacotes do SSIS no Azure.
-services: data-factory
-documentationcenter: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/13/2020
 author: swinarko
 ms.author: sawinark
-ms.reviewer: douglasl
-manager: mflasko
-ms.openlocfilehash: 62b1575e2ab379e6b4e61926e00dfad85ffeb6c0
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: 4e3137b08c558c8e9dfadda07f0b8bb66433ee83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98556351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389409"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
 
@@ -85,7 +80,7 @@ A tabela a seguir compara determinados recursos de um servidor de banco de dados
 | **Autenticação** | Você pode criar uma instância SSISDB com um usuário de banco de dados independente que representa qualquer grupo do Azure AD com a identidade gerenciada do seu data factory como um membro na função **db_owner** .<br/><br/>Consulte [habilitar a autenticação do Azure ad para criar um SSISDB no servidor do banco de dados SQL do Azure](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Você pode criar uma instância SSISDB com um usuário de banco de dados independente que representa a identidade gerenciada do seu data factory. <br/><br/>Consulte [habilitar a autenticação do Azure ad para criar um SSISDB no Azure SQL instância gerenciada](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-sql-managed-instance). |
 | **Camada de serviço** | Ao criar um Azure-SSIS IR com o servidor de banco de dados SQL do Azure, você pode selecionar a camada de serviço para SSISDB. Há várias camadas de serviço. | Quando você cria um Azure-SSIS IR com sua instância gerenciada, não é possível selecionar a camada de serviço para SSISDB. Todos os bancos de dados em sua instância gerenciada compartilham o mesmo recurso alocado para essa instância. |
 | **Rede virtual** | Seu Azure-SSIS IR poderá ingressar em uma rede virtual Azure Resource Manager se você usar um servidor de banco de dados SQL do Azure com regras de firewall de IP/pontos de extremidade de serviço de rede virtual. | Seu Azure-SSIS IR poderá ingressar em uma rede virtual Azure Resource Manager se você usar uma instância gerenciada com um ponto de extremidade privado. A rede virtual é necessária quando você não habilita um ponto de extremidade público para sua instância gerenciada.<br/><br/>Se você ingressar seu Azure-SSIS IR para a mesma rede virtual que sua instância gerenciada, verifique se o Azure-SSIS IR está em uma sub-rede diferente da instância gerenciada. Se você ingressar seu Azure-SSIS IR em uma rede virtual diferente de sua instância gerenciada, recomendamos um emparelhamento de rede virtual ou uma conexão de rede para rede. Consulte [conectar seu aplicativo a um instância gerenciada do banco de dados SQL do Azure](../azure-sql/managed-instance/connect-application-instance.md). |
-| **Transações distribuídas** | Esse recurso é suportado por meio de transações elásticas. As transações do Microsoft Distributed Transaction Coordinator (MSDTC) não possuem suporte. Se seus pacotes SSIS usam o MSDTC para coordenar transações distribuídas, considere migrar para transações elásticas para o banco de dados SQL do Azure. Para obter mais informações, consulte [transações distribuídas entre bancos de dados de nuvem](../azure-sql/database/elastic-transactions-overview.md). | Sem suporte. |
+| **Transações distribuídas** | Esse recurso é suportado por meio de transações elásticas. As transações do Microsoft Distributed Transaction Coordinator (MSDTC) não possuem suporte. Se seus pacotes SSIS usam o MSDTC para coordenar transações distribuídas, considere migrar para transações elásticas para o banco de dados SQL do Azure. Para obter mais informações, consulte [transações distribuídas entre bancos de dados de nuvem](../azure-sql/database/elastic-transactions-overview.md). | Não há suporte. |
 | | | |
 
 ## <a name="use-the-azure-portal-to-create-an-integration-runtime"></a>Usar o portal do Azure para criar um Integration Runtime

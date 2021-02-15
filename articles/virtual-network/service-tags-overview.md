@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 506e568f44d8dd5354ed7bd3ec20d0c71d484b85
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475177"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100389732"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -153,6 +153,7 @@ Os intervalos de endereços IP nesses arquivos estão na notação CIDR.
 ### <a name="tips"></a>Dicas 
 - Você pode detectar as atualizações de uma publicação em comparação com a próxima observando os valores *changeNumber* no arquivo JSON. Cada subseção (por exemplo, **Storage.WestUS**) tem seu *changeNumber*, que aumenta conforme ocorrem as alterações. O nível superior do *changeNumber* do arquivo aumenta quando qualquer uma das subseções é alterada.
 - Para obter exemplos de como analisar as informações de marcas de serviço (por exemplo, para obter todos os intervalos de endereços para Armazenamento no Oeste dos EUA), confira a documentação [API de Descoberta de Marca de Serviço do PowerShell](/powershell/module/az.network/Get-AzNetworkServiceTag?viewFallbackFrom=azps-2.3.2).
+- Quando novos endereços IP forem adicionados às marcas de serviço, eles não serão usados no Azure por pelo menos uma semana. Isso dá tempo para atualizar todos os sistemas que talvez precisem controlar os endereços IP associados às marcas de serviço.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [criar um grupo de segurança de rede](tutorial-filter-network-traffic.md).

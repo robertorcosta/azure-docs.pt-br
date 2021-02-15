@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
-ms.date: 01/15/2021
-ms.openlocfilehash: 9ac8a23569d9a85787768419a0377967026e9bd9
-ms.sourcegitcommit: 25d1d5eb0329c14367621924e1da19af0a99acf1
+ms.date: 02/12/2021
+ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/16/2021
-ms.locfileid: "98251551"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100520656"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -31,11 +31,14 @@ Atualmente, somente [gatilhos e ações internas específicas](../logic-apps/log
 * HTTP
 * HTTP + webhook
 
+> [!NOTE]
+> Embora o gatilho e a ação HTTP possam autenticar conexões com contas de armazenamento do Azure por trás de firewalls do Azure usando a identidade gerenciada atribuída pelo sistema, eles não podem usar a identidade gerenciada atribuída pelo usuário para autenticar as mesmas conexões.
+
 **Conectores gerenciados**
 
 * Automação do Azure
 * Grade de Eventos do Azure
-* Azure Key Vault
+* Cofre de Chave do Azure
 * Logs do Azure Monitor
 * Azure Resource Manager
 * HTTP com o Azure AD

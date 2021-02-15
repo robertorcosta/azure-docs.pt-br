@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d14c9330977296630ee58bc2b508f4304472044c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c4c654f70af2188264465d97abded9cae95e9275
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92366353"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364572"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso condicional: usuários e grupos
 
@@ -41,6 +41,9 @@ As opções a seguir estão disponíveis para inclusão ao criar uma política d
       - Permite que os administradores selecionem funções de diretório específicas do Azure AD usadas para determinar a atribuição. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída.
    - Usuários e grupos
       - Permite direcionar conjuntos específicos de usuários. Por exemplo, as organizações podem selecionar um grupo que contém todos os membros do departamento de RH quando um aplicativo de RH é selecionado como o aplicativo de nuvem. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e distribuição dinâmicos ou atribuídos. A política será aplicada a usuários e grupos aninhados.
+
+> [!IMPORTANT]
+> Ao selecionar quais usuários e grupos estão incluídos em uma política de acesso condicional, há um limite para o número de usuários individuais que podem ser adicionados diretamente a uma política de acesso condicional. Se houver uma grande quantidade de usuários individuais que precisam ser adicionados diretamente a uma política de acesso condicional, recomendamos colocar os usuários em um grupo e atribuir o grupo à política de acesso condicional em vez disso.
 
 > [!WARNING]
 > Se os usuários ou grupos forem membros de mais de 2048 grupos, seu acesso poderá ser bloqueado. Esse limite se aplica à associação de grupo direta e aninhada.

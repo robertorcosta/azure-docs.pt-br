@@ -10,12 +10,12 @@ ms.date: 02/08/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 0c15be86c282451440f9b81d57f17e835559b5ae
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 674a336e79f118d543590fb7514b6bebef72cf47
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979089"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390174"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Exclusão reversível para contêineres (visualização)
 
@@ -28,7 +28,7 @@ Para proteção de ponta a ponta para seus dados de BLOB, a Microsoft recomenda 
 - Exclusão reversível de BLOB, para restaurar um BLOB ou uma versão que foi excluída. Para saber como habilitar a exclusão reversível de BLOB, consulte [habilitar e gerenciar a exclusão reversível para BLOBs](soft-delete-blob-enable.md).
 
 > [!WARNING]
-> Não é possível desfazer a exclusão de uma conta de armazenamento. A exclusão reversível não protege contra a exclusão de uma conta de armazenamento, mas somente contra a exclusão de objetos de dados nessa conta. Para proteger uma conta de armazenamento da exclusão, configure um bloqueio de **CannotDelete** no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear Azure Resource Manager recursos, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
+> Não é possível desfazer a exclusão de uma conta de armazenamento. A exclusão reversível de contêiner não protege contra a exclusão de uma conta de armazenamento, mas somente contra a exclusão de contêineres nessa conta. Para proteger uma conta de armazenamento da exclusão, configure um bloqueio no recurso de conta de armazenamento. Para obter mais informações sobre como bloquear Azure Resource Manager recursos, consulte [Bloquear recursos para evitar alterações inesperadas](../../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-container-soft-delete-works"></a>Como funciona a exclusão reversível de contêiner
 

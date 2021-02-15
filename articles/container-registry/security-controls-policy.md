@@ -1,18 +1,18 @@
 ---
 title: Controles de conformidade regulatória do Azure Policy para o Registro de Contêiner do Azure
 description: Lista os controles de conformidade regulatória do Azure Policy disponíveis para o Registro de Contêiner do Azure. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 01/29/2021
+ms.date: 02/09/2021
 ms.topic: sample
 author: dlepow
 ms.author: danlep
 ms.service: container-registry
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 52de1f99d37d0709d7e9f66d591a980b3c80aee1
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: f5091d877fc7fe2d690776b57d702d14ccd9cb3d
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99095517"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092223"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-container-registry"></a>Controles de conformidade regulatória do Azure Policy para o Registro de Contêiner do Azure
 

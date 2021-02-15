@@ -9,12 +9,12 @@ ms.date: 01/27/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 8172abb5e220f28061c7826af24a5d9a2043f4ad
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 5e08af509487188245b0fad9ba2d0f490944868f
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219886"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100371780"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -371,10 +371,12 @@ Em alguns casos, um aplicativo pode depender de recursos do Azure que não podem
 
 Os tipos de operações que uma instância de recurso pode executar nos dados da conta de armazenamento são determinados pelas [atribuições de função do Azure](storage-auth-aad.md#assign-azure-roles-for-access-rights) da instância de recurso. As instâncias de recurso devem ser do mesmo locatário como sua conta de armazenamento, mas podem pertencer a qualquer assinatura no locatário.
 
-A lista de serviços do Azure com suporte aparece na seção [acesso confiável com base em identidade gerenciada atribuída pelo sistema](#trusted-access-system-assigned-managed-identity) deste artigo.
+> [!NOTE]
+> Esse recurso está em visualização pública e está disponível em todas as regiões de nuvem pública.
 
 > [!NOTE]
-> Esse recurso está em visualização pública e está disponível em todas as regiões de nuvem pública. 
+> Atualmente, há suporte para regras de instância de recurso apenas para Synapse do Azure. O suporte para outros serviços do Azure listados na seção [acesso confiável baseado em identidade gerenciada atribuída pelo sistema](#trusted-access-system-assigned-managed-identity) deste artigo estará disponível nas próximas semanas.
+
 
 ### <a name="portal"></a>[Portal](#tab/azure-portal)
 
