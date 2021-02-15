@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4a35bafd2c5dc78f0d9d1debbf21babb6279545
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: a204db8453ec8126e1aa9033e10f739a6f8a0d43
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98740084"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100095130"
 ---
 # <a name="use-cloud-groups-to-manage-role-assignments-in-azure-active-directory-preview"></a>Usar grupos de nuvem para gerenciar atribuições de função no Azure Active Directory (versão prévia)
 
@@ -28,7 +28,7 @@ Considere este exemplo: a contoso contratou pessoas entre geografias para gerenc
 
 ## <a name="how-this-feature-works"></a>Como esse recurso funciona
 
-Crie um novo Microsoft 365 ou grupo de segurança com a propriedade ' isAssignableToRole ' definida como ' true '. Você também pode habilitar essa propriedade ao criar um grupo no portal do Azure ativando **as funções do Azure AD que podem ser atribuídas ao grupo**. De qualquer forma, você pode atribuir o grupo a uma ou mais funções do Azure AD da mesma maneira que atribui funções aos usuários. Um máximo de 200 grupos de atribuição de função pode ser criado em uma única organização do AD do Azure (locatário).
+Crie um novo Microsoft 365 ou grupo de segurança com a propriedade ' isAssignableToRole ' definida como ' true '. Você também pode habilitar essa propriedade ao criar um grupo no portal do Azure ativando **as funções do Azure AD que podem ser atribuídas ao grupo**. De qualquer forma, você pode atribuir o grupo a uma ou mais funções do Azure AD da mesma maneira que atribui funções aos usuários. Um máximo de 250 grupos de atribuição de função pode ser criado em uma única organização do AD do Azure (locatário).
 
 Se você não quiser que os membros do grupo tenham acesso à função, você poderá usar Azure AD Privileged Identity Management. Atribua um grupo como um membro qualificado de uma função do Azure AD. Em seguida, cada membro do grupo é elegível para que sua atribuição seja ativada para a função à qual o grupo está atribuído. Em seguida, eles podem ativar sua atribuição de função por uma duração fixa.
 

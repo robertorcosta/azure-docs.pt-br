@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 57fda08a996b7d46da74c0ce35bff0df20821b31
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654822"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100092121"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -34,6 +34,16 @@ Antes de usar o API de Análise de Texto, você precisará criar um recurso do A
 2.  Selecione a região que você deseja usar para o ponto de extremidade.  Observe que os `/analyze` `/health` pontos de extremidade e estão disponíveis apenas nas seguintes regiões: oeste dos EUA 2, leste dos EUA 2, EUA Central, Europa Setentrional e Europa Ocidental.
 
 3.  Crie o recurso Análise de Texto e vá para a "chaves e folha de ponto de extremidade" à esquerda da página. Copie a chave a ser usada posteriormente quando você chamar as APIs. Você o adicionará posteriormente como um valor para o `Ocp-Apim-Subscription-Key` cabeçalho.
+
+## <a name="change-your-pricing-tier"></a>Alterar o tipo de preço 
+
+Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, poderá atualizá-lo para usar o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+
+1. Navegue até o recurso de Análise de Texto no [portal do Azure](https://portal.azure.com/).
+2. Selecione **tipo de preço** no menu de navegação à esquerda. Ele estará abaixo do **Gerenciamento de recursos**. 
+3. Escolha o tipo de preço Standard (S). Em seguida, clique em **Selecionar**.
+
+Você também pode criar um novo recurso de Análise de Texto com o tipo de preço Standard (S) e migrar seus aplicativos para usar as credenciais para o novo recurso. 
 
 ## <a name="using-the-api-synchronously"></a>Usando a API de forma síncrona
 
@@ -113,16 +123,16 @@ O `/analyze` ponto de extremidade permite que você escolha qual dos recursos de
 
 | Elemento | Valores válidos | Necessário? | Uso |
 |---------|--------------|-----------|-------|
-|`displayName` | Cadeia de caracteres | Opcional | Usado como o nome de exibição para o identificador exclusivo para o trabalho.|
+|`displayName` | String | Opcional | Usado como o nome de exibição para o identificador exclusivo para o trabalho.|
 |`analysisInput` | Inclui o `documents` campo abaixo | Obrigatório | Contém as informações para os documentos que você deseja enviar. |
 |`documents` | Inclui os `id` `text` campos e abaixo | Obrigatório | Contém informações para cada documento que está sendo enviado e o texto bruto do documento. |
-|`id` | Cadeia de caracteres | Obrigatório | As IDs que você fornece são usadas para estruturar a saída. |
+|`id` | String | Obrigatório | As IDs que você fornece são usadas para estruturar a saída. |
 |`text` | Texto bruto não estruturado, até 125.000 caracteres. | Obrigatório | Deve estar no idioma inglês, que é o único idioma com suporte no momento. |
 |`tasks` | Inclui os seguintes recursos de Análise de Texto `entityRecognitionTasks` : `keyPhraseExtractionTasks` ou `entityRecognitionPiiTasks` . | Obrigatório | Um ou mais dos Análise de Texto recursos que você deseja usar. Observe que `entityRecognitionPiiTasks` tem um `domain` parâmetro opcional que pode ser definido como `pii` ou `phi` . Se não for especificado, o sistema padrão será `pii` . |
 |`parameters` | Inclui os `model-version` `stringIndexType` campos e abaixo | Obrigatório | Esse campo está incluído nas tarefas de recurso acima que você escolher. Eles contêm informações sobre a versão do modelo que você deseja usar e o tipo de índice. |
-|`model-version` | Cadeia de caracteres | Obrigatório | Especifique qual versão do modelo está sendo chamada que você deseja usar.  |
-|`stringIndexType` | Cadeia de caracteres | Obrigatório | Especifique o decodificador de texto que corresponde ao seu ambiente de programação.  Tipos com suporte são `textElement_v8` (padrão), `unicodeCodePoint` , `utf16CodeUnit` . Consulte o [artigo deslocamentos de texto](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
-|`domain` | Cadeia de caracteres | Opcional | Aplica-se apenas como um parâmetro à `entityRecognitionPiiTasks` tarefa e pode ser definido como `pii` ou `phi` . O padrão é `pii` se não especificado.  |
+|`model-version` | String | Obrigatório | Especifique qual versão do modelo está sendo chamada que você deseja usar.  |
+|`stringIndexType` | String | Obrigatório | Especifique o decodificador de texto que corresponde ao seu ambiente de programação.  Tipos com suporte são `textElement_v8` (padrão), `unicodeCodePoint` , `utf16CodeUnit` . Consulte o [artigo deslocamentos de texto](../concepts/text-offsets.md#offsets-in-api-version-31-preview) para obter mais informações.  |
+|`domain` | String | Opcional | Aplica-se apenas como um parâmetro à `entityRecognitionPiiTasks` tarefa e pode ser definido como `pii` ou `phi` . O padrão é `pii` se não especificado.  |
 
 ```json
 {
@@ -230,7 +240,7 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 |--|--|--|
 | Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | Delete (excluir) | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
 
 --- 
 

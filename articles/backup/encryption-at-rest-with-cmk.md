@@ -3,12 +3,12 @@ title: Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 description: Saiba como o backup do Azure permite que você criptografe seus dados de backup usando chaves gerenciadas pelo cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: d5daa88475e3becde6e513391c555471f80396c5
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 230669e0a3543a0709dda3f7fee35a0cae300d5a
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735853"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369451"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Criptografia de dados de backup usando chaves gerenciadas pelo cliente
 
@@ -36,6 +36,7 @@ Este artigo discute o seguinte:
 - O cofre dos serviços de recuperação pode ser criptografado somente com chaves armazenadas em um Azure Key Vault, localizado na **mesma região**. Além disso, as chaves devem ser apenas **chaves RSA 2048** e devem estar no estado **habilitado** .
 
 - A movimentação do cofre dos serviços de recuperação criptografada CMK entre grupos de recursos e assinaturas não tem suporte no momento.
+- Ao mover um cofre dos serviços de recuperação já criptografado com chaves gerenciadas pelo cliente para um novo locatário, você precisará atualizar o cofre dos serviços de recuperação para recriar e reconfigurar a identidade gerenciada do cofre e o CMK (que deve estar no novo locatário). Se isso não for feito, as operações de backup e restauração começarão a falhar. Além disso, qualquer permissão de RBAC (controle de acesso baseado em função) configurada na assinatura precisará ser reconfigurada.
 
 - Esse recurso pode ser configurado por meio do portal do Azure e do PowerShell.
 
@@ -119,32 +120,6 @@ Agora você precisa permitir que o cofre dos serviços de recuperação acesse o
 
 1. Selecione **salvar** para salvar as alterações feitas na política de acesso do Azure Key Vault.
 
-**Com o PowerShell**:
-
-Use o comando [set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar a criptografia usando chaves gerenciadas pelo cliente e para atribuir ou atualizar a chave de criptografia a ser usada.
-
-Exemplo:
-
-```azurepowershell
-$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
-$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
-Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
-
-
-$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
-$enc.encryptionProperties | fl
-```
-
-Saída:
-
-```output
-EncryptionAtRestType          : CustomerManaged
-KeyUri                        : testkey
-SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
-LastUpdateStatus              : Succeeded
-InfrastructureEncryptionState : Disabled
-```
-
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Habilitar a proteção de exclusão e limpeza reversível no Azure Key Vault
 
 Você precisa **habilitar a exclusão reversível e limpar a proteção** no Azure Key Vault que armazena sua chave de criptografia. Você pode fazer isso na interface do usuário do Azure Key Vault, conforme mostrado abaixo. (Como alternativa, essas propriedades podem ser definidas ao criar o Key Vault). Leia mais sobre essas propriedades de Key Vault [aqui](../key-vault/general/soft-delete-overview.md).
@@ -197,7 +172,7 @@ Você também pode habilitar a exclusão reversível e limpar a proteção por m
 
 Depois que as versões acima tiverem sido verificadas, Continue selecionando a chave de criptografia para seu cofre.
 
-Para atribuir a chave:
+#### <a name="to-assign-the-key-in-the-portal"></a>Para atribuir a chave no portal
 
 1. Vá para o cofre dos serviços de recuperação-> **Propriedades**
 
@@ -221,7 +196,7 @@ Para atribuir a chave:
 
         ![Selecionar chave do Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. **Acompanhamento do progresso e do status da atualização da chave de criptografia**: você pode acompanhar o progresso e o status da atribuição de chave de criptografia usando a exibição **trabalhos de backup** na barra de navegação à esquerda. O status deve ser alterado em breve para **concluído**. Agora, seu cofre criptografará todos os dados com a chave especificada como KEK.
 
@@ -230,6 +205,32 @@ Para atribuir a chave:
     As atualizações da chave de criptografia também são registradas no log de atividades do cofre.
 
     ![Log de atividades](./media/encryption-at-rest-with-cmk/activity-log.png)
+
+#### <a name="to-assign-the-key-with-powershell"></a>Para atribuir a chave com o PowerShell
+
+Use o comando [set-AzRecoveryServicesVaultProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultproperty) para habilitar a criptografia usando chaves gerenciadas pelo cliente e para atribuir ou atualizar a chave de criptografia a ser usada.
+
+Exemplo:
+
+```azurepowershell
+$keyVault = Get-AzKeyVault -VaultName "testkeyvault" -ResourceGroupName "testrg" 
+$key = Get-AzKeyVaultKey -VaultName $keyVault -Name "testkey" 
+Set-AzRecoveryServicesVaultProperty -EncryptionKeyId $key.ID -KeyVaultSubscriptionId "xxxx-yyyy-zzzz"  -VaultId $vault.ID
+
+
+$enc=Get-AzRecoveryServicesVaultProperty -VaultId $vault.ID
+$enc.encryptionProperties | fl
+```
+
+Saída:
+
+```output
+EncryptionAtRestType          : CustomerManaged
+KeyUri                        : testkey
+SubscriptionId                : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx 
+LastUpdateStatus              : Succeeded
+InfrastructureEncryptionState : Disabled
+```
 
 >[!NOTE]
 > Esse processo permanece o mesmo quando você deseja atualizar ou alterar a chave de criptografia. Se você quiser atualizar e usar uma chave de outra Key Vault (diferente da que está sendo usada no momento), verifique se:

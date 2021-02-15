@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/29/2018
-ms.openlocfilehash: 49929cfe0abc634dc4b704aba1c7b11a5d7dd777
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 427b471158e89b2b3ae4ea6477133f1e69247078
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383578"
+ms.locfileid: "100518837"
 ---
 # <a name="replicate-azure-vms-to-another-azure-region"></a>Replicar VMs do Azure para outra região do Azure
 
@@ -54,7 +54,7 @@ Habilitar a replicação. Este procedimento pressupõe que a região do Azure pr
    - **Contas de armazenamento de destino (a VM de origem não usa discos gerenciados)**: por padrão, site Recovery cria uma nova conta de armazenamento de destino imitando sua configuração de armazenamento de VM de origem. Caso a conta de armazenamento já exista, ela é reutilizada.
    - **Discos gerenciados por réplica (a VM de origem usa discos gerenciados)**: Site Recovery cria novos discos gerenciados por réplica na região de destino para espelhar os discos gerenciados da VM de origem com o mesmo tipo de armazenamento (Standard ou Premium) que o disco gerenciado da VM de origem.
    - **Contas de armazenamento em cache**: o Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações que ocorrem nas VMs de origem são rastreadas e enviadas à conta de armazenamento em cache antes de serem replicadas para o local de destino. Essa conta de armazenamento deve ser padrão.
-   - **Conjuntos de disponibilidade de destino**: por padrão, site Recovery cria um novo conjunto de disponibilidade na região de destino com o sufixo "Azure site Recovery" no nome, para VMs que fazem parte de um conjunto de disponibilidade na região de origem. Se o conjunto de disponibilidade criado pelo Site Recovery já existir, ele será reutilizado.
+   - **Conjuntos de disponibilidade de destino**: por padrão, site Recovery cria um novo conjunto de disponibilidade na região de destino com o sufixo "ASR" no nome, para VMs que fazem parte de um conjunto de disponibilidade na região de origem. Se o conjunto de disponibilidade criado pelo Site Recovery já existir, ele será reutilizado.
      >[!NOTE]
      >Ao configurar os conjuntos de disponibilidade de destino, configure diferentes conjuntos de disponibilidade para VMs de tamanho diferente. 
      >

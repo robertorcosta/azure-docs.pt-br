@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d668775e8d11faa0b2913cebc41e5217b49c278
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97357305"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100368040"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para o banco de dados SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -166,7 +166,7 @@ A configuração manual de SQL Server recursos de alta disponibilidade como Alwa
 Além da arquitetura de alta disponibilidade incluída no banco de dados SQL, também há o recurso [grupos de failover automático](../../database/auto-failover-group-overview.md) que permite gerenciar a replicação e o failover de bancos de dados em uma instância gerenciada para outra região. 
 
 #### <a name="sql-agent-jobs"></a>Trabalhos do SQL Agent
-Os trabalhos do SQL Agent não têm suporte direto no banco de dados SQL do Azure e precisarão ser implantados em [trabalhos de banco de dados elástico (versão prévia)](../../database/job-automation-overview.md#elastic-database-jobs-preview).
+Os trabalhos do SQL Agent não têm suporte direto no banco de dados SQL do Azure e precisarão ser implantados em [trabalhos de banco de dados elástico (versão prévia)](../../database/job-automation-overview.md).
 
 #### <a name="logins-and-groups"></a>Logons e grupos
 Mova logons do SQL do SQL Server de origem para o banco de dados SQL do Azure usando o serviço de migração de banco de dados (DMS) no modo offline.  Use a folha de **logons selecionados** no **Assistente de migração** para migrar logons para o banco de dados SQL de destino. 
