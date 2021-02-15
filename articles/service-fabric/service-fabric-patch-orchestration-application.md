@@ -14,24 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: d64c6383b9a83b759dd8368a4e3e0f1847b5ee16
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791216"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390633"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
-> 
 > [!IMPORTANT]
-> A partir de 30 de abril de 2019, o aplicativo de orquestração de patch versão 1,2. * não é mais suportado. Certifique-se de atualizar para a versão mais recente.
+> A partir de 30 de abril de 2019, o aplicativo de orquestração de patch versão 1,2. * não é mais suportado. Certifique-se de atualizar para a versão mais recente. Atualizações de VM em que "Windows Update" aplica patches de sistema operacional sem substituir o disco do sistema operacional não têm suporte. 
 
 > [!NOTE]
-> Obter [atualizações automáticas de imagem do sistema operacional em seu conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter seu sistema operacional corrigido no Azure. O conjunto de dimensionamento de máquinas virtuais baseado em atualizações automáticas de imagem de so exigirá uma durabilidade prateada ou maior em uma escala.
->
+> Obter [atualizações automáticas de imagem do sistema operacional em seu conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter seu sistema operacional corrigido no Azure. O conjunto de dimensionamento de máquinas virtuais baseado em atualizações automáticas de imagem de so exigirá uma durabilidade prateada ou maior em uma escala. Em tipos de nó com nível de durabilidade bronze, isso não tem suporte, nesse caso, use o aplicativo de orquestração de patch.
 
- O POA (aplicativo de orquestração de patch) é um wrapper em todo o serviço de Gerenciador de Reparos Service Fabric do Azure, que permite o agendamento de patches de so baseado em configuração para clusters não hospedados no Azure. O POA não é necessário para clusters não hospedados no Azure, mas o agendamento de instalação de patch por domínio de atualização é necessário para patches Service Fabric hosts de cluster sem incorrer em tempo de inatividade.
+O POA (aplicativo de orquestração de patch) é um wrapper em todo o serviço de Gerenciador de Reparos Service Fabric do Azure, que permite o agendamento de patches de so baseado em configuração para clusters não hospedados no Azure. O POA não é necessário para clusters não hospedados no Azure, mas o agendamento de instalação de patch por domínio de atualização é necessário para patches Service Fabric hosts de cluster sem incorrer em tempo de inatividade.
 
 O POA é um aplicativo Service Fabric que automatiza a aplicação de patches do sistema operacional em um Cluster Service Fabric sem incorrer em tempo de inatividade.
 
@@ -161,7 +159,7 @@ Você pode configurar o comportamento do POA para atender às suas necessidades.
 |TaskApprovalPolicy   |Enumeração <br> { NodeWise, UpgradeDomainWise }                          |A TaskApprovalPolicy indica a política a ser usada pelo Serviço do Coordinator para instalar atualizações do Windows em todos os nós de cluster do Service Fabric.<br><br>Os valores permitidos são: <br>*NodeWise*: as atualizações do Windows são instaladas em um nó por vez. <br> *UpgradeDomainWise*: as atualizações do Windows são instaladas em um domínio de atualização por vez. (No máximo, todos os nós que pertencem a um domínio de atualização podem ir para um Windows Update.)<br><br> Para ajudar a decidir qual política é mais adequada para seu cluster, consulte a seção [perguntas frequentes](#frequently-asked-questions) .
 |LogsDiskQuotaInMB   |long  <br> (Padrão: *1024*)               | O tamanho máximo dos logs do aplicativo de orquestração de patch em MB, que pode ser persistido localmente em nós.
 | WUQuery               | string<br>(Padrão: *IsInstalled = 0*)                | Consulta para obter atualizações do Windows. Para obter mais informações, consulte [WuQuery.](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search)
-| InstallWindowsOSOnlyUpdates | *Booliano* <br> (padrão: false)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
+| InstallWindowsOSOnlyUpdates | *Boolean* <br> (padrão: false)                 | Use esse sinalizador para controlar quais atualizações devem ser baixadas e instaladas. Os seguintes valores são permitidos <br>true – instala somente as atualizações do sistema operacional Windows.<br>false – instala todas as atualizações disponíveis no computador.          |
 | WUOperationTimeOutInMinutes | int <br>(Padrão: *90*)                   | Especifica o tempo limite para qualquer operação do Windows Update (pesquisar, baixar ou instalar). Se a operação não for concluída dentro do tempo limite especificado, ela será anulada.       |
 | WURescheduleCount     | int <br> (Padrão: *5*)                  | O número máximo de vezes que o serviço reagendará o Windows Update se uma operação falhar de forma persistente.          |
 | WURescheduleTimeInMinutes | int <br>(Padrão: *30*) | O intervalo no qual o serviço reagendará as atualizações do Windows se a falha persistir. |

@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: allensu
-ms.openlocfilehash: dcc9f71404e5a7c6509e4a8e821d66831ba02382
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0d7d08eb5e77e744fb6ce0abefc550bc79de4c8c
+ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417006"
+ms.locfileid: "100519075"
 ---
 # <a name="retrieve-load-balancer-information-by-using-the-azure-instance-metadata-service"></a>Recuperar informações do balanceador de carga usando o serviço de metadados de instância do Azure
 
@@ -29,7 +29,7 @@ Os metadados incluem as seguintes informações para as máquinas virtuais ou co
 
 ## <a name="access-the-load-balancer-metadata-using-the-imds"></a>Acessar os metadados do balanceador de carga usando o IMDS
 
-Para obter mais informações sobre como acessar os metadados do balanceador de carga, consulte [usar o serviço de metadados da instância do Azure para acessar informações do balanceador de carga.](howto-load-balancer-imds.md) para acessar informações do balanceador de carga.
+Para obter mais informações sobre como acessar os metadados do balanceador de carga, consulte [usar o serviço de metadados da instância do Azure para acessar informações do balanceador de carga](howto-load-balancer-imds.md).
 
 ## <a name="troubleshoot-common-error-codes"></a>Solucionar problemas de códigos de erro comuns
 
@@ -40,7 +40,7 @@ Para obter mais informações sobre códigos de erro comuns e seus métodos de m
 Se não for possível recuperar uma resposta de metadados após várias tentativas, crie um problema de suporte no portal do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre o [serviço de metadados de instância do Azure](/virtual-machines/windows/instance-metadata-service)
+Saiba mais sobre o [serviço de metadados de instância do Azure](../virtual-machines/windows/instance-metadata-service.md)
 
 [Implantar um balanceador de carga padrão](quickstart-load-balancer-standard-public-portal.md)
 

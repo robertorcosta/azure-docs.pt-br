@@ -299,6 +299,8 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Painel de classificações e opiniões
       href: partner-center-portal/ratings-reviews.md
+    - name: Detecção de anomalias para obter uma cobrança limitada
+      href: anomaly-detection.md
     - name: Perguntas comuns sobre a análise
       href: analytics-faq.md
 - name: Políticas e termos

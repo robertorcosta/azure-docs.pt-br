@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: 7013a4ab1becd6108d30d8369f1f72bcb3e55c37
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: d48d72a0ccbec67c6700af9120e0dd914db11f32
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611059"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374908"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de coleta de dados no Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de coleta de dados, incluindo seu conteúdo e estrutura, e como você pode criar e trabalhar com elas.
@@ -119,7 +119,7 @@ A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o ag
           {
             "name": "cloudSecurityTeamEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT1M",
             "xPathQueries": [
@@ -129,7 +129,7 @@ A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o ag
           {
             "name": "appTeam1AppEvents",
             "streams": [
-              "Microsoft-WindowsEvent"
+              "Microsoft-Event"
             ],
             "scheduledTransferPeriod": "PT5M",
             "xPathQueries": [
@@ -182,7 +182,7 @@ A regra de coleta de dados de exemplo abaixo é para máquinas virtuais com o ag
           "streams": [
             "Microsoft-Perf",
             "Microsoft-Syslog",
-            "Microsoft-WindowsEvent"
+            "Microsoft-Event"
           ],
           "destinations": [
             "centralWorkspace"

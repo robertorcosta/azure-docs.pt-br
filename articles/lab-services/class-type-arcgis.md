@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: dbe4191b64773b71bc1ae04842d824fbfead8e55
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99628133"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373701"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Configurar um laboratório para o ArcMap\ArcGIS desktop
 
@@ -55,7 +55,7 @@ As etapas nesta seção mostram como configurar a VM do modelo:
 1.  Inicie a VM de modelo e conecte-se ao computador usando o RDP.
 
 2.  Baixe e instale os componentes da área de trabalho do ArcGIS usando instruções do ESRI.  Essas etapas incluem a atribuição do License Manager para licenciamento de uso simultâneo: 
-    - [Introdução à instalação e configuração do ArcGIS Desktop](https://desktop.arcgis.com/arcmap/latest/get-started/installation-guide/introduction.htm)
+    - [Introdução à instalação e configuração do ArcGIS Desktop](https://desktop.arcgis.com/en/arcmap/latest/get-started/installation-guide/introduction.htm)
 
 3.  Configure o armazenamento de backup externo para alunos.  Os alunos podem salvar os arquivos diretamente em sua VM atribuída, pois todas as alterações que eles fazem são salvas entre as sessões.  No entanto, recomendamos que os alunos cometam seu trabalho no armazenamento externo de sua VM por alguns motivos:
     - Para permitir que os alunos acessem seu trabalho após o fim da aula e do laboratório.  
@@ -81,7 +81,7 @@ Para ArcGIS, recomendamos os seguintes valores para essas configurações:
 - Desligar as máquinas virtuais quando os usuários se desconectarem
     - 15 minutos após a desconexão do usuário
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Custo
 
 Vamos abordar uma possível estimativa de custo para essa classe. Essa estimativa não inclui o custo da execução do servidor de licença. Usaremos uma classe de 25 alunos. Há 20 horas de tempo de classe agendada. Além disso, cada aluno recebe uma cota de 10 horas de casa ou atribuições fora do tempo de classe agendado. O tamanho da máquina virtual que escolhemos era **médio**, que é 42 unidades de laboratório.
 
