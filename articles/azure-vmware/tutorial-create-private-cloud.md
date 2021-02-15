@@ -3,12 +3,12 @@ title: Tutorial – Implantar o Cluster de vSphere no Azure
 description: Saiba como implantar um Cluster de vSphere no Azure usando a Solução VMware no Azure
 ms.topic: tutorial
 ms.date: 11/19/2020
-ms.openlocfilehash: 93937f8ca0918494810885f5cb45de571a6e1529
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 3c8ae3673ad049153c2b9700bd7efae6c4c286ed
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966302"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100093940"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Tutorial: Implantar uma nuvem privada da Solução VMware no Azure
 
@@ -74,25 +74,6 @@ Forneça um nome para o grupo de recursos e para a nuvem privada, uma localizaç
 ```azurecli-interactive
 az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --location eastus --cluster-size 3 --network-block xx.xx.xx.xx/22 --sku AV36
 ```
-
-## <a name="delete-an-azure-vmware-solution-private-cloud"></a>Excluir uma nuvem privada da Solução VMware no Azure
-
-Se tiver uma nuvem privada da Solução VMware no Azure que não é mais necessária, você poderá excluí-la. Uma nuvem privada da Solução VMware no Azure inclui um domínio de rede isolado, um ou mais clusters do vSphere provisionados em hosts de servidor dedicados e várias máquinas virtuais. Quando uma nuvem privada é excluída, todas as máquinas virtuais, os dados delas e os clusters são excluídos. Os hosts bare-metal dedicados são apagados com segurança e retornados ao pool gratuito. O domínio de rede provisionado o cliente é excluído.  
-
-> [!CAUTION]
-> A exclusão da nuvem privada é uma operação irreversível. Após a nuvem privada ser excluída, os dados não poderão ser recuperados, pois todos os componentes e as cargas de trabalho em execução serão terminados e todos os dados e configurações da nuvem privada serão destruídos, incluindo os endereços IP públicos.
-
-### <a name="prerequisites"></a>Pré-requisitos
-
-Depois que uma nuvem privada for excluída, não será possível recuperar as máquinas virtuais e os dados delas. Se os dados da máquina virtual forem necessários mais tarde, o administrador precisará primeiro fazer backup de todos os dados antes de excluir a nuvem privada.
-
-### <a name="steps-to-delete-an-azure-vmware-solution-private-cloud"></a>Etapas para excluir uma nuvem privada da Solução VMware no Azure
-
-1. Acesse a página Soluções VMware no Azure no portal do Azure.
-
-2. Selecione a nuvem privada a ser excluída.
- 
-3. Insira o nome da nuvem privada e selecione **Sim**. Em algumas horas, o processo de exclusão é concluído.  
 
 ## <a name="azure-vmware-commands"></a>Comandos da VMware no Azure
 

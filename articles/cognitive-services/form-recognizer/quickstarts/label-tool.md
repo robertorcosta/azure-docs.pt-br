@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 813f5a06915ca7f5dfc0f4cc9a3f9b3e232ca31a
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99221084"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584712"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -176,7 +176,7 @@ Ela também mostrará quais tabelas foram extraídas automaticamente. Clique no 
 
 ### <a name="apply-labels-to-text"></a>Aplicar rótulos ao texto
 
-Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo reconheça.
+Em seguida, você criará marcas (rótulos) e as aplicará aos elementos de texto que você deseja que o modelo analise.
 
 # <a name="v20"></a>[v2.0](#tab/v2-0)  
 1. Primeiro, use o painel editor de marcas para criar as marcas que você deseja identificar.

@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a4d29dfb2a57dde2bb21244b2e5335f1a8ea1fcf
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: e5a131753829edddbb4f385766a2d8697ebd0106
+ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948046"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99584580"
 ---
 > [!IMPORTANT]
 > * O código neste artigo usa métodos síncronos e armazenamento de credenciais não seguras por motivos de simplicidade. Confira a documentação de referência abaixo. 
@@ -81,15 +81,15 @@ Com o Reconhecimento de Formulários, você pode criar dois tipos diferentes de 
 ### <a name="formrecognizerclient"></a>FormRecognizerClient
 `FormRecognizerClient` fornece operações para:
 
- * Reconhecer campos e conteúdo do formulário usando modelos personalizados treinados para reconhecer seus formulários personalizados. Esses valores são retornados em uma coleção de objetos `RecognizedForm`.
+ * Reconhecer campos e conteúdo do formulário usando modelos personalizados treinados para analisar seus formulários personalizados. Esses valores são retornados em uma coleção de objetos `RecognizedForm`.
  * Reconhecer o conteúdo do formulário, incluindo tabelas, linhas e palavras, sem a necessidade de treinar um modelo. O conteúdo do formulário é retornado em uma coleção de objetos `FormPage`.
  * Reconhecer campos comuns de recibos, usando um modelo de recibo pré-treinado no serviço do Reconhecimento de Formulários. Esses campos e metadados são retornados em uma coleção de `RecognizedReceipt`.
 
 ### <a name="formtrainingclient"></a>FormTrainingClient
 `FormTrainingClient` fornece operações para:
 
-* Treinar modelos personalizados para reconhecer todos os campos e valores encontrados em seus formulários personalizados. Um `CustomFormModel` é retornado indicando os tipos de formulário que o modelo reconhecerá e os campos que serão extraídos para cada tipo de formulário. Confira a [documento de serviço sobre o treinamento de módulo sem rótulo](#train-a-model-without-labels) para obter uma explicação mais detalhada da criação de um conjunto de dados de treinamento.
-* Treinar modelos personalizados para reconhecer campos e valores específicos que você determina rotulando seus formulários personalizados. Um `CustomFormModel` é retornado indicando os campos que o modelo extrairá, bem como a precisão estimada de cada campo. Confira a [documento de serviço sobre o treinamento de módulo com rótulo](#train-a-model-with-labels) para obter uma explicação mais detalhada da aplicação de rótulos a um conjunto de dados de treinamento.
+* Treinar modelos personalizados para analisar todos os campos e valores encontrados nos seus formulários personalizados. Um `CustomFormModel` é retornado indicando os tipos de formulário que o modelo analisará e os campos que serão extraídos para cada tipo de formulário. Confira a [documento de serviço sobre o treinamento de módulo sem rótulo](#train-a-model-without-labels) para obter uma explicação mais detalhada da criação de um conjunto de dados de treinamento.
+* Treinar modelos personalizados para analisar campos e valores específicos que você determina rotulando seus formulários personalizados. Um `CustomFormModel` é retornado indicando os campos que o modelo extrairá, bem como a precisão estimada de cada campo. Confira a [documento de serviço sobre o treinamento de módulo com rótulo](#train-a-model-with-labels) para obter uma explicação mais detalhada da aplicação de rótulos a um conjunto de dados de treinamento.
 * Gerenciar modelos criados em sua conta.
 * Copiar um modelo personalizado de um recurso de Reconhecimento de Formulários para outro.
 
@@ -128,7 +128,7 @@ Você também precisará adicionar referências às URLs para os dados de treina
 
 ## <a name="analyze-layout"></a>Analisar layout
 
-Use o Reconhecimento de Formulários para reconhecer tabelas, linhas e palavras em documentos, sem a necessidade de treinar um modelo. Para reconhecer o conteúdo de um arquivo em um URI especificado, use o método `beginRecognizeContentFromUrl`.
+Use o Reconhecimento de Formulários para analisar tabelas, linhas e palavras em documentos, sem a necessidade de treinar um modelo. Para obter mais informações sobre a extração de layout, confira o [Guia conceitual de layout](../../concept-layout.md). Para analisar o conteúdo de um arquivo em um determinado URI, use o método `beginRecognizeContentFromUrl`.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_getcontent)]
 
@@ -152,31 +152,7 @@ cell [1,3] has text $56,651.49
 cell [1,5] has text PT
 ```
 
-## <a name="analyze-receipts"></a>Analisar recibos
 
-Esta seção demonstra como reconhecer e extrair campos comuns de recibos dos EUA usando um modelo de recibo pré-treinado.
-
-Para reconhecer recibos de um URI, use o método `beginRecognizeReceiptsFromUrl`. O código a seguir processa um recibo no URI fornecido e imprime os valores e os campos principais no console.
-
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
-
-> [!TIP]
-> Você também pode reconhecer imagens de recebimento local. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient), como **beginRecognizeReceipts**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
-
-### <a name="output"></a>Saída
-
-```console
-status: notStarted
-status: running
-status: succeeded
-First receipt:
-  Receipt Type: 'Itemized', with confidence of 0.659
-  Merchant Name: 'Contoso Contoso', with confidence of 0.516
-  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
-    Item Name: '8GB RAM (Black)', with confidence of 0.916
-    Item Name: 'SurfacePen', with confidence of 0.858
-  Total: '1203.39', with confidence of 0.774
-```
 
 ## <a name="train-a-custom-model"></a>Treinar um modelo personalizado
 
@@ -187,7 +163,7 @@ Esta seção demonstra como treinar um modelo com os próprios dados. Um modelo 
 
 ### <a name="train-a-model-without-labels"></a>Treinar um modelo sem rótulos
 
-Treine modelos personalizados para reconhecer todos os campos e valores encontrados nos formulários personalizados sem rotular manualmente os documentos de treinamento.
+Treine modelos personalizados para analisar todos os campos e valores encontrados nos formulários personalizados sem rotular manualmente os documentos de treinamento.
 
 A função a seguir treina um modelo em um conjunto especificado de documentos e imprime o status do modelo no console. 
 
@@ -320,6 +296,32 @@ Field Signature has value 'undefined' with a confidence score of undefined
 Field Subtotal has value 'undefined' with a confidence score of undefined
 Field Tax has value 'undefined' with a confidence score of undefined
 Field Total has value 'undefined' with a confidence score of undefined
+```
+
+## <a name="analyze-receipts"></a>Analisar recibos
+
+Esta seção demonstra como analisar e extrair campos comuns de recibos dos EUA usando um modelo de recibo pré-treinado. Para obter mais informações sobre a análise de recibos, confira o [Guia conceitual de recibos](../../concept-receipts.md).
+
+Para analisar os recibos de um URI, use o método `beginRecognizeReceiptsFromUrl`. O código a seguir processa um recibo no URI fornecido e imprime os valores e os campos principais no console.
+
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/FormRecognizer/FormRecognizerQuickstart.js?name=snippet_receipts)]
+
+> [!TIP]
+> Você também pode analisar imagens de recibos locais. Confira os métodos de [FormRecognizerClient](/javascript/api/@azure/ai-form-recognizer/formrecognizerclient?view=azure-node-latest), como **beginRecognizeReceipts**. Ou veja o código de exemplo no [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/formrecognizer/ai-form-recognizer/samples) para obter cenários que envolvam imagens locais.
+
+### <a name="output"></a>Saída
+
+```console
+status: notStarted
+status: running
+status: succeeded
+First receipt:
+  Receipt Type: 'Itemized', with confidence of 0.659
+  Merchant Name: 'Contoso Contoso', with confidence of 0.516
+  Transaction Date: 'Sun Jun 09 2019 17:00:00 GMT-0700 (Pacific Daylight Time)', with confidence of 0.985
+    Item Name: '8GB RAM (Black)', with confidence of 0.916
+    Item Name: 'SurfacePen', with confidence of 0.858
+  Total: '1203.39', with confidence of 0.774
 ```
 
 ## <a name="manage-your-custom-models"></a>Gerenciar seus modelos personalizados

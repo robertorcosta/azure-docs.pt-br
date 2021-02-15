@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 12/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 076054b7240712fec57d0908615ce7abbfb62013
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 38673df29dd50e77acc4b4d106d69a82cad9c040
+ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99582223"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100104341"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -34,7 +34,7 @@ Use esse recurso se seu aplicativo espera funções personalizadas na resposta S
 
 ## <a name="create-roles-for-an-application"></a>Criar funções para um aplicativo
 
-1. No <a href="https://portal.azure.com/" target="_blank">portal do Azure <span class="docon docon-navigate-external x-hidden-focus"></span></a>, no painel esquerdo, selecione o ícone de **Azure Active Directory** .
+1. No <a href="https://portal.azure.com/" target="_blank">Portal do Azure</a>, no painel esquerdo, selecione o ícone do **Azure Active Directory**.
 
     ![Ícone do Azure Active Directory][1]
 
@@ -167,7 +167,7 @@ Use esse recurso se seu aplicativo espera funções personalizadas na resposta S
 
     1. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
 10. Para testar seu aplicativo em um logon único iniciado por um provedor de identidade, entre no [Painel de Acesso](https://myapps.microsoft.com) e selecione o bloco do aplicativo. No token SAML, você deve ver todas as funções atribuídas ao usuário com o nome da declaração fornecido.
 

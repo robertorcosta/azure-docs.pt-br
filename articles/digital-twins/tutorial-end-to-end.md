@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8933dd6655223db092597aedf839fd800119864a
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
+ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683998"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99575798"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -401,18 +401,15 @@ Aqui, temos uma revisão do cenário que você criou neste tutorial.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisa mais dos recursos criados neste tutorial, siga estas etapas para excluí-los. 
+Após concluir este tutorial, você poderá escolher quais recursos gostaria de remover, dependendo do que você gostaria de fazer em seguida.
 
-Usando o [Azure Cloud Shell](https://shell.azure.com), exclua todos os recursos do Azure em um grupo de recursos com o comando [az group delete](/cli/azure/group?preserve-view=true&view=azure-cli-latest#az-group-delete). Isso remove o grupo de recursos, a instância dos Gêmeos Digitais do Azure, o hub IoT e o registro do dispositivo de hub, os aplicativos do Azure Functions, o tópico da Grade de Eventos e as assinaturas associadas, incluindo ambas as funções e os recursos associados, como o armazenamento.
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-> [!IMPORTANT]
-> A exclusão de um grupo de recursos é irreversível. O grupo de recursos e todos os recursos contidos nele são excluídos permanentemente. Não exclua acidentalmente o grupo de recursos ou os recursos incorretos. 
+* **Se você quiser continuar usando a instância dos Gêmeos Digitais do Azure configurada neste artigo, mas limpar alguns ou todos os modelos, gêmeos e relações dela**, poderá usar os comandos da CLI [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) em uma janela do [Azure Cloud Shell](https://shell.azure.com) para excluir os elementos que deseja remover.
 
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
+    Essa opção não removerá nenhum dos outros recursos do Azure criados neste tutorial (Hub IoT, aplicativo do Azure Functions etc.). Você pode exclui-los individualmente usando os [comandos dt](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) apropriados para cada tipo de recurso.
 
-Por fim, exclua a pasta de exemplo do projeto que você baixou para o computador local.
+Talvez seja interessante excluir a pasta do projeto do computador local.
 
 ## <a name="next-steps"></a>Próximas etapas
 
