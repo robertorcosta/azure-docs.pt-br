@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/11/2020
+ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 54a54dccd82e4f6cfd72a1cc8a71b51f9fd4ed95
-ms.sourcegitcommit: 697638c20ceaf51ec4ebd8f929c719c1e630f06f
+ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97857351"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100388933"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e aprimorar a precisão da Fala Personalizada
 
@@ -33,7 +33,7 @@ Palavras incorretamente identificadas se enquadram em três categorias:
 * Exclusão (D): palavras que não são detectadas na transcrição da hipótese
 * Substituição (ões): palavras que foram substituídas entre referência e hipótese
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 ![Exemplo de palavras identificadas incorretamente](./media/custom-speech/custom-speech-dis-words.png)
 
@@ -115,10 +115,15 @@ Considere estes detalhes:
 * Quando a qualidade das transcrições varia, você pode duplicar frases válidas com exceção (como as excelentes transcrições que incluem frases-chave) para aumentar seu peso.
 * O serviço de fala usará automaticamente as transcrições para melhorar o reconhecimento de palavras e frases específicas de domínio, como se elas fossem adicionadas como texto relacionado.
 * O treinamento com áudio levará mais benefícios se o áudio também for difícil de entender para os seres humanos. Na maioria dos casos, você deve iniciar o treinamento usando apenas o texto relacionado.
-* Pode levar vários dias para que uma operação de treinamento seja concluída. Para melhorar a velocidade de treinamento, certifique-se de criar sua assinatura de serviço de fala em uma [região com hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+* Pode levar vários dias para que uma operação de treinamento seja concluída. Para melhorar a velocidade de treinamento, certifique-se de criar sua assinatura do serviço de fala em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
 > [!NOTE]
-> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio.
+> Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio.
+
+> [!NOTE]
+> Em casos em que você altera o modelo de base usado para treinamento e tem áudio no conjunto de dados de treinamento, *sempre* Verifique se o novo modelo de base selecionado [dá suporte ao treinamento com o áudio](language-support.md#speech-to-text). Se o modelo base usado anteriormente não tivesse suporte para treinamento com dados de áudio, e o DataSet de treinamento contiver áudio, o tempo de treinamento com o novo modelo base aumentará **drasticamente** e poderá facilmente passar de várias horas para vários dias e muito mais. Isso será especialmente verdadeiro se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+>
+> Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
 ### <a name="add-new-words-with-pronunciation"></a>Adicionar novas palavras com pronúncia
 

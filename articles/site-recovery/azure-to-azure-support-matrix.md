@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 856d8961cbdf77fc848df41502678cb438773dbe
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 78c27292a92152946ba33258d27940e3c1aea47d
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99550110"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391568"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -35,6 +35,7 @@ Este artigo resume o suporte e os pré-requisitos para a recuperação de desast
 **Replicar VMs do Azure de uma assinatura para outra para recuperação de desastres** | Com suporte no mesmo locatário do Azure Active Directory.
 **Migre as VMs pelas regiões dos clusters geográficos suportados (dentro e entre assinaturas)** | Com suporte no mesmo locatário do Azure Active Directory.
 **Migrar máquinas virtuais na mesma região** | Sem suporte.
+**Hosts dedicados do Azure** | Sem suporte.
 
 ## <a name="region-support"></a>Suporte de regiões
 
@@ -75,7 +76,7 @@ Firewalls de Armazenamento do Azure para redes virtuais  | Com suporte | Caso es
 
 ## <a name="replicated-machine-operating-systems"></a>Sistemas Operacionais Replicados de Máquinas
 
-O Site Recovery oferece suporte à replicação de VMs do Azure que executam os sistemas operacionais listados nesta seção. Observe que, se um computador que já está replicando for atualizado posteriormente (ou sofrer downgrade) para um kernel principal diferente, você precisará desabilitar a replicação e reabilitar a replicação após a atualização ou downgrade.
+O Site Recovery oferece suporte à replicação de VMs do Azure que executam os sistemas operacionais listados nesta seção. Observe que, se um computador que já está sendo replicado for atualizado posteriormente (ou regredido) para um kernel principal diferente, você precisará desabilitar a replicação e reabilitar a replicação após a atualização.
 
 ### <a name="windows"></a>Windows
 
@@ -205,7 +206,7 @@ VMs migradas com o Site Recovery | Com suporte | Se uma VM VMware ou uma máquin
 Políticas de RBAC do Azure | Sem suporte | As políticas do Azure RBAC (controle de acesso baseado em função) do Azure em VMs não são replicadas para a VM de failover na região de destino.
 Extensões | Sem suporte | As extensões não são replicadas para a VM de failover na região de destino. Ele precisa ser instalado manualmente após o failover.
 Grupos de posicionamento de proximidade | Com suporte | As máquinas virtuais localizadas dentro de um grupo de posicionamento de proximidade podem ser protegidas usando Site Recovery.
-Marcações  | Com suporte | As marcas geradas pelo usuário aplicadas nas máquinas virtuais de origem são transferidas para failover ou failover pós-teste de máquinas virtuais de destino.
+Marcas  | Com suporte | As marcas geradas pelo usuário aplicadas nas máquinas virtuais de origem são transferidas para failover ou failover pós-teste de máquinas virtuais de destino. As marcas nas VMs são replicadas uma vez a cada 24 horas durante a duração das VMs/estão presentes na região de destino.
 
 
 ## <a name="replicated-machines---disk-actions"></a>As máquinas - ações de disco replicadas
@@ -265,7 +266,7 @@ Discos NVMe | Sem suporte
 Discos compartilhados do Azure | Sem suporte
 Opção de transferência segura | Com suporte
 Discos habilitados para acelerador de gravação | Sem suporte
-Marcações  | As marcas geradas pelo usuário são replicadas a cada 24 horas.
+Marcas  | Com suporte | As marcas geradas pelo usuário são replicadas a cada 24 horas.
 
 >[!IMPORTANT]
 > Para evitar problemas de desempenho, certifique-se de seguir a escalabilidade de disco de VM e metas de desempenho para [discos gerenciados](../virtual-machines/disks-scalability-targets.md). Se você usar as configurações padrão, o Site Recovery criará as contas de armazenamento e discos necessários com base na configuração de origem. Se você personalizar e selecionar suas configurações, siga as metas de desempenho e escalabilidade de discos para suas VMs de origem.
@@ -312,7 +313,7 @@ Redes aceleradas | Com suporte | A rede acelerada deve estar ativada na VM de or
 Dispositivo de Rede da Palo Alto | Sem suporte | Com dispositivos de terceiros, geralmente há restrições impostas pelo provedor dentro da máquina virtual. O Azure Site Recovery precisa que o agente, as extensões e a conectividade de saída estejam disponíveis. Mas o dispositivo não permite que nenhuma atividade de saída seja configurada dentro da máquina virtual.
 IPv6  | Sem suporte | Também não há suporte para configurações mistas que incluem IPv4 e IPv6. Libere a sub-rede do intervalo de IPv6 antes de realizar operações do Site Recovery.
 Acesso de link privado ao serviço de Site Recovery | Com suporte | [Saiba mais](azure-to-azure-how-to-enable-replication-private-endpoints.md)
-Marcações  | Com suporte | As marcas geradas pelo usuário em NICs são replicadas a cada 24 horas.
+Marcas  | Com suporte | As marcas geradas pelo usuário em NICs são replicadas a cada 24 horas.
 
 
 

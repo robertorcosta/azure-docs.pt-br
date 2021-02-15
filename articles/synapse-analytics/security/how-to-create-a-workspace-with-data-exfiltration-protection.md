@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: f8ebbdf70836f3f2613183268f03dc43da1f0671
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97590553"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100384479"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com o data vazamento Protection habilitado
 Este artigo descreve como criar um espaço de trabalho com a proteção de vazamento de dados habilitada e como gerenciar os locatários do Azure AD aprovados para este espaço de trabalho.
@@ -49,6 +49,9 @@ Você pode criar pontos de extremidade privados gerenciados para se conectar aos
 >[!IMPORTANT]
 >Os recursos em locatários diferentes do locatário do espaço de trabalho não devem bloquear as regras de firewall em vigor para que os pools do SQL se conectem a eles. Os recursos dentro da rede virtual gerenciada do espaço de trabalho, como clusters do Spark, podem se conectar por meio de links privados gerenciados para recursos protegidos por firewall.
 
+## <a name="known-limitations"></a>Limitações conhecidas
+Os usuários podem fornecer um arquivo de configuração de ambiente para instalar pacotes python de repositórios públicos, como PyPI. Em espaços de trabalho protegidos por data vazamento, as conexões com repositórios de saída são bloqueadas. Como resultado, a biblioteca do Python instalada a partir de repositórios públicos, como PyPI, não é suportada. 
+  
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [proteção de vazamento de dados em espaços de trabalho do Synapse](./workspace-data-exfiltration-protection.md)
