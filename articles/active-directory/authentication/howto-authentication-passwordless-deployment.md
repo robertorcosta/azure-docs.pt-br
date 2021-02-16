@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a786907c5c954aa45de266b6d92dd47867a8445d
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96743608"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530341"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -78,11 +78,11 @@ As organizações devem atender aos seguintes pré-requisitos antes de iniciar u
 
 Os pré-requisitos para o Windows Hello são altamente dependentes se você estiver implantando em uma configuração local, híbrida ou somente na nuvem. Para obter mais informações, consulte a [lista completa de pré-requisitos para o Windows Hello para empresas](/windows/security/identity-protection/hello-for-business/hello-identity-verification).
 
-### <a name="azure-ad-multi-factor-authentication"></a>Autenticação multifator do Azure AD
+### <a name="azure-ad-multi-factor-authentication"></a>Autenticação Multifator do Azure AD
 
 Os usuários registram seu método com senha como parte do fluxo de registro da autenticação multifator do Azure AD. A autenticação multifator com um nome de usuário e senha junto com outro método registrado pode ser usada como um fallback, caso eles não possam usar seu telefone ou chave de segurança em alguns cenários.
 
-### <a name="licensing"></a>Licenciamento 
+### <a name="licensing"></a>Licenças 
 Não há nenhum custo adicional para autenticação sem senha, embora alguns pré-requisitos possam exigir uma assinatura premium. Para obter informações detalhadas sobre recursos e licenciamento na [página de licenciamento do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Desenvolver um plano
@@ -150,7 +150,7 @@ Há três tipos de implantações de entrada sem senha disponíveis com chaves d
 -    Azure Active Directory aplicativos Web em um navegador com suporte
 -    Azure Active Directory dispositivos Windows 10 associados
 -    Dispositivos Windows 10 ingressados Azure Active Directory híbridos (visualização)
-     -    Fornece acesso a recursos baseados em nuvem e locais. Para obter mais informações sobre o acesso a recursos locais, consulte [SSO para recursos locais usando chaves FIDOP2](./howto-authentication-passwordless-security-key-on-premises.md)
+     -    Fornece acesso a recursos baseados em nuvem e locais. Para obter mais informações sobre o acesso a recursos locais, consulte [SSO para recursos locais usando chaves FIDO2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Você deve habilitar **as chaves de segurança FIDO2 compatíveis**. A Microsoft anunciou as [principais parcerias com os principais fornecedores de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
 
@@ -294,7 +294,7 @@ Siga as etapas alinhadas ao método escolhido abaixo.
 
 | Função do Azure AD | Descrição |
 | --- | --- |
-| Administrador global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
+| Administrador Global|Função menos privilegiada capaz de implementar a experiência de registro combinada. |
 | Administrador de Autenticação | Função menos privilegiada capaz de implementar e gerenciar métodos de autenticação. |
 | Usuário | Função com privilégios mínimos para configurar o aplicativo autenticador no dispositivo ou para registrar o dispositivo de chave de segurança para entrada na Web ou no Windows 10. |
 

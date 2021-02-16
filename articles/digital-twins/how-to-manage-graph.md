@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e5009e59477e6862c4441090a6480075c9e22385
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: b713a19cbe572998bb6e5050ab2d7721a844f07a
+ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526776"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100530443"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
@@ -49,11 +49,11 @@ Para criar uma relação, você precisa especificar:
 A ID da relação deve ser exclusiva dentro da fonte fornecida. Ele não precisa ser globalmente exclusivo.
 Por exemplo, para o *filefoo*, cada ID de relação específica deve ser exclusiva. No entanto, outra *barra* de entrelaçamento pode ter uma relação de saída que corresponde à mesma ID de uma relação *foo* .
 
-O exemplo de código a seguir ilustra como criar uma relação em sua instância de gêmeos digital do Azure.
+O exemplo de código a seguir ilustra como criar uma relação em sua instância de gêmeos digital do Azure. Ele usa a chamada do SDK (realçado) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="CreateRelationshipMethod" highlight="13":::
 
-Em seu método principal, agora você pode chamar a função personalizada para criar uma relação _Contains_ como esta: 
+Essa função personalizada agora pode ser chamada para criar uma relação _Contains_ como esta: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseCreateRelationship":::
 
@@ -82,9 +82,9 @@ Para acessar a lista de relações de **saída** para um determinado tenda no gr
 
 Isso retorna um `Azure.Pageable<T>` ou `Azure.AsyncPageable<T>` , dependendo se você usa a versão síncrona ou assíncrona da chamada.
 
-Aqui está um exemplo que recupera uma lista de relações:
+Aqui está um exemplo que recupera uma lista de relações. Ele usa a chamada do SDK (realçado) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindOutgoingRelationshipsMethod" highlight="8":::
 
 Agora você pode chamar esse método personalizado para ver as relações de saída do gêmeos como esta:
 
@@ -96,11 +96,12 @@ Você pode usar as relações recuperadas para navegar para outros gêmeos em se
 
 O gêmeos digital do Azure também tem uma API para localizar todas as relações de **entrada** para um determinado. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
 
-O exemplo de código anterior se concentrou na localização de relações de saída de um ".". O exemplo a seguir é estruturado da mesma forma, mas localiza as relações de *entrada* para a.
+>[!NOTE]
+> `IncomingRelationship` as chamadas não retornam o corpo completo da relação. Para obter mais informações sobre a `IncomingRelationship` classe, consulte a [documentação de referência](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
 
-Observe que as `IncomingRelationship` chamadas não retornam o corpo completo da relação.
+O exemplo de código na seção anterior concentrou-se na localização de relações de saída de um tenda. O exemplo a seguir é estruturado da mesma forma, mas localiza as relações de *entrada* para a. Este exemplo também usa a chamada do SDK (realçada) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod":::
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FindIncomingRelationshipsMethod" highlight="8":::
 
 Agora você pode chamar esse método personalizado para ver as relações de entrada do gêmeos assim:
 
@@ -108,11 +109,11 @@ Agora você pode chamar esse método personalizado para ver as relações de ent
 
 ### <a name="list-all-twin-properties-and-relationships"></a>Listar todas as propriedades e relações de entrelaçamento
 
-Usando os métodos acima para listar as relações de saída e de entrada para um tipo de dados, você pode criar um método que imprima as informações de cópias completas, incluindo as propriedades de ' s ' e os dois tipos de suas relações. Aqui está um exemplo de método personalizado que mostra como fazer isso.
+Usando os métodos acima para listar as relações de saída e de entrada para um tipo de dados, você pode criar um método que imprima as informações de cópias completas, incluindo as propriedades de ' s ' e os dois tipos de suas relações. Este é um exemplo de método personalizado que mostra como combinar os métodos personalizados acima para essa finalidade.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="FetchAndPrintMethod":::
 
-Agora você pode chamar essa função personalizada em seu método principal como este: 
+Agora você pode chamar essa função personalizada como esta: 
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UseFetchAndPrint":::
 
@@ -125,7 +126,9 @@ As relações são atualizadas usando o `UpdateRelationship` método.
 
 Os parâmetros necessários para a chamada do cliente são a ID da fonte de armazenamento (o d "d", onde a relação se origina), a ID da relação a ser atualizada e um documento de [patch JSON](http://jsonpatch.com/) que contém as propriedades e os novos valores que você gostaria de atualizar.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod":::
+Este é um código de exemplo que mostra como usar esse método. Este exemplo usa a chamada do SDK (realçada) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="UpdateRelationshipMethod" highlight="6":::
 
 Aqui está um exemplo de uma chamada para esse método personalizado, passando um documento de patch JSON com as informações para atualizar uma propriedade.
 
@@ -135,7 +138,9 @@ Aqui está um exemplo de uma chamada para esse método personalizado, passando u
 
 O primeiro parâmetro especifica a fonte de los (o nome do entrelaçado no qual a relação se origina). O outro parâmetro é a ID da relação. Você precisa da ID de FileUp e da ID de relação, pois as IDs de relação são exclusivas apenas no escopo de um entrelaçamento.
 
-:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod":::
+Este é um código de exemplo que mostra como usar esse método. Este exemplo usa a chamada do SDK (realçada) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
+
+:::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/graph_operations_sample.cs" id="DeleteRelationshipMethod" highlight="5":::
 
 Agora você pode chamar esse método personalizado para excluir uma relação como esta:
 
