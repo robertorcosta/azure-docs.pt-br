@@ -4,7 +4,7 @@
   items:
     - name: O que é o Tradutor?
       href: translator-info-overview.md
-    - name: Guia de Início Rápido
+    - name: Início Rápido
       href: quickstart-translator.md
     - name: Suporte ao idioma
       href: language-support.md
@@ -149,4 +149,4 @@
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
         - name: Criptografia
-          href: translator-encryption-of-data-at-rest.md
+          href: encrypt-data-at-rest.md
