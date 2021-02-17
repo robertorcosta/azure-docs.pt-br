@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 7034d1b5f06fcbcead79d85df10042eee3581b0b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369349"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100544809"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -118,7 +118,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
 |[Exportação contínua](continuous-export.md)|✔|✔ (2)|
-|[Automação do fluxo de trabalho](workflow-automation.md)|✔ (2)|✔|
+|[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|
 |[Notificações por email para alertas de segurança](security-center-provide-security-contact-details.md)|✔|✔|
@@ -130,8 +130,8 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Azure Defender para Resource Manager](defender-for-resource-manager-introduction.md)|-|-|
 |[Azure Defender para DNS](defender-for-dns-introduction.md)|-|-|
 |[Azure Defender para registros de contêiner](defender-for-container-registries-introduction.md)|✔ (2)|✔ (2)|
-|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔ (2)|✔|
-|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|-|-|
+|[Azure Defender para Kubernetes](defender-for-kubernetes-introduction.md)|✔|✔|
+|[Proteção de cargas de trabalho do Kubernetes](kubernetes-workload-protections.md)|✔|✔|
 |||
 
 (1) Exige o **Azure Defender para servidores**

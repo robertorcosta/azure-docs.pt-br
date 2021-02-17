@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/12/2021
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: 9d476b1db645ed1f91b62fcf11464f7077a8fb3c
-ms.sourcegitcommit: b4880683d23f5c91e9901eac22ea31f50a0f116f
+ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2020
-ms.locfileid: "94491419"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546441"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 
@@ -34,16 +34,16 @@ Os Hubs de Notificação do Azure têm dois níveis de recursos: hubs e namespac
 
 Os detalhes de preços mais recentes podem ser encontrados na página [Preços dos Hubs de Notificação]. Os Hubs de Notificação são cobrados no nível de namespace. (Para a definição de um namespace, veja "Qual é a estrutura de recursos dos Hubs de Notificação?") Os Hubs de Notificação oferecem três camadas:
 
-* **Livre** : esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
-* **Básico** : essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base.
-* **Padrão** :essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Inclui telemetria avançada (dados adicionais sobre status de push fornecido).
+* **Livre**: esta camada é um bom ponto de partida para explorar os recursos de envio. Não é recomendável para aplicativos de produção. Obter 500 dispositivos e 1 milhão envia incluído por namespace por mês, com nenhuma garantia (SLA) contrato de nível de serviço.
+* **Básico**: essa camada (ou a Standard) é recomendável para aplicativos de produção menores. Obter 200.000 dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base.
+* **Padrão**:essa camada é recomendada para aplicativos de produção médios a grandes. Obter 10 milhões de dispositivos e 10 milhões envia incluído por namespace por mês como uma linha de base. Inclui telemetria avançada (dados adicionais sobre status de push fornecido).
 
 Recursos de camada padrão:
 
-* **Telemetria avançada** : você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
-* **Multilocação** : você pode trabalhar com sistema de notificação de plataforma credenciais em um nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
-* **Push agendado** : você pode agendar que notificações sejam enviadas a qualquer momento.
-* **Operações em massa** : habilita a funcionalidade de exportação/importação de registros conforme descrito no documento de [exportação/importação de registros] .
+* **Telemetria avançada**: você pode usar os Hubs de Notificação por Telemetria de Mensagem para rastrear quaisquer solicitações de envio por push e Comentários do Sistema de Notificação de Plataforma para depuração.
+* **Multilocação**: você pode trabalhar com sistema de notificação de plataforma credenciais em um nível de namespace. Esta opção permite que você dividida locatários facilmente em hubs no mesmo namespace.
+* **Push agendado**: você pode agendar que notificações sejam enviadas a qualquer momento.
+* **Operações em massa**: habilita a funcionalidade de exportação/importação de registros conforme descrito no documento de [exportação/importação de registros] .
 
 ### <a name="what-is-the-notification-hubs-sla"></a>O que é o SLA dos Hubs de Notificação?
 
@@ -103,6 +103,10 @@ O PNS não garante qualquer SLA para entregar notificações. No entanto, a maio
 
 Devido à natureza das notificações por push (entregues por uma plataforma PNS externa específica), não há nenhuma garantia de latência. Normalmente, a maioria das notificações por push é entregue em alguns minutos.
 
+### <a name="where-does-azure-notification-hubs-store-data"></a>Onde os hubs de notificação do Azure armazenam dados?
+
+Os hubs de notificação do Azure armazenam dados de registro do cliente na região selecionada pelo cliente. Os hubs de notificação fornecem cobertura de recuperação de desastre de metadados (o nome dos hubs de notificação, a cadeia de conexão e outras informações importantes). Para todas as regiões, exceto sul do Brasil e sudeste asiático, o backup de metadados é hospedado em uma região diferente (geralmente a região emparelhada do Azure). Para as regiões do Sul do Brasil e do Sudeste Asiático, os backups são armazenados na mesma região para acomodar os requisitos de residência de dados para essas regiões.
+
 ### <a name="what-do-i-need-to-consider-when-designing-a-solution-with-namespaces-and-notification-hubs"></a>O que é necessário considerar ao criar uma solução com hubs de notificação e namespaces?
 
 #### <a name="mobile-appenvironment"></a>Ambiente/aplicativo móvel
@@ -151,7 +155,7 @@ Todas as conexões do remetente para os Hubs de Notificações do Azure e para o
 
 Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. O remetente fornece uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página [tutorial de Push Seguro de Hubs de Notificação].
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operações
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
 

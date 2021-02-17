@@ -11,12 +11,12 @@ ms.date: 01/29/2021
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: processamento de documentos
-ms.openlocfilehash: 0405ea116a1867ec75beff21637f18fb37565627
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 9642f9ce51cd3eb90344f96bc099da7adea93022
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584712"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364777"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo
 
@@ -228,7 +228,7 @@ Siga as etapas acima para rotular pelo menos cinco de seus formulários.
 Opcionalmente, você pode definir o tipo de dados esperado para cada marca. Abra o menu de contexto à direita de uma determinada marca e selecione um tipo no menu. Esse recurso permite que o algoritmo de detecção faça determinadas suposições que melhorarão a precisão da detecção de texto. Ele também garante que os valores detectados serão retornados em um formato padronizado na saída JSON final. As informações de tipo de valor são salvas no arquivo *fields.json* no mesmo caminho que o dos arquivos de rótulo.
 
 > [!div class="mx-imgBorder"]
-> ![Seleção de tipo de valor com a ferramenta de rotulagem de exemplo](../media/whats-new/formre-value-type.png)
+> ![Seleção de tipo de valor com a ferramenta de rotulagem de exemplo](../media/whats-new/value-type.png)
 
 Os tipos de valor e as variações a seguir são compatíveis no momento:
 * `string`

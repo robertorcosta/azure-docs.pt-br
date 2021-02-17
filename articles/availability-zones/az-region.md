@@ -8,12 +8,12 @@ ms.date: 01/26/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 3916cd43a42ef273a45a9992b45d8b9f043c9364
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 16bb173bdbe390da46f2dc105baa9bc73d25a3dc
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226617"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557023"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
@@ -55,7 +55,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Leste dos EUA            | Norte da Europa         |                     | Leste da Austrália |
 | Leste dos EUA 2          | Sul do Reino Unido             |                     |                |
 | EUA Central do Sul | Europa Ocidental          |                     |                |
-| US Gov-Virgínia * |                      |                     |                |
+| Gov. dos EUA – Virgínia    |                      |                     |                |
 | Oeste dos EUA 2        |                      |                     |                |
 
 
@@ -88,7 +88,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     IP público do Azure                                           | : large_blue_diamond:  |
 |     Banco de dados SQL do Azure (Uso Geral camada)                 | : large_blue_diamond:  |
 |     Banco de dados SQL do Azure (Premium & camada de Comercialmente Crítico)     | : large_blue_diamond:  |
-|     Armazenamento em disco                                                | : large_blue_diamond:  |
+|     Armazenamento em Disco                                                | : large_blue_diamond:  |
 |     Hubs de Eventos                                                  | : large_blue_diamond:  |
 |     Key Vault                                                   | : large_blue_diamond:  |
 |     Load Balancer                                               | : large_blue_diamond:  |
@@ -162,7 +162,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     Mapas do Azure                                |     : globe_with_meridians:             |
 |     Azure Policy                              |     : globe_with_meridians:             |
 |     Grafo de recursos do Azure                    |     : globe_with_meridians:             |
-|     Azure Stack Hub                               |     : globe_with_meridians:             |
+|     Azure Stack                               |     : globe_with_meridians:             |
 |     Borda do Azure Stack                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
 |     Sistema de Proteção de Dados do Cliente para Microsoft Azure    |     : globe_with_meridians:             |
