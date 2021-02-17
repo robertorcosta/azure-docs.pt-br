@@ -1,24 +1,29 @@
 ---
-title: Use o Azure Time Series Insights para armazenar e analisar a telemetria de seu dispositivo IoT Plug and Play do Azure
-description: Configure um ambiente do Time Series Insights e conecte o hub IoT para exibir e analisar a telemetria por meio dos seus dispositivos IoT Plug and Play.
+title: Tutorial – Usar o Azure Time Series Insights para armazenar e analisar a telemetria de seu dispositivo IoT Plug and Play do Azure
+description: Tutorial – Configurar um ambiente do Time Series Insights e conectar o hub IoT para exibir e analisar a telemetria por meio de seus dispositivos IoT Plug and Play.
 author: lyrana
 ms.author: lyhughes
 ms.date: 10/14/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 5491df61a1198e8eee4ba4701ccfc56154ec75eb
-ms.sourcegitcommit: 80c1056113a9d65b6db69c06ca79fa531b9e3a00
+ms.openlocfilehash: 08ae21c2cd0859b7c361756a4f0380d3ab322a28
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96905071"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834350"
 ---
-# <a name="preview-tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Versão prévia do tutorial: Criar e configurar um ambiente do Time Series Insights Gen2
+# <a name="tutorial-create-and-configure-a-time-series-insights-gen2-environment"></a>Tutorial: Criar e configurar um ambiente do Time Series Insights Gen2
 
 Neste tutorial, você aprende a criar e configurar um ambiente do [Azure Time Series Insights Gen2](../time-series-insights/overview-what-is-tsi.md) para integração à sua solução de IoT Plug and Play. Use o Time Series Insights para coletar, processar, armazenar, consultar e visualizar dados de série temporal na escala da IoT (Internet das Coisas).
 
-Primeiro, você provisiona um ambiente do Time Series Insights e conecta o hub IoT como uma origem do evento de streaming. Em seguida, você trabalha com a sincronização do modelo para criar seu [Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md). Use os arquivos do modelo de exemplo de [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl) que você usou para os dispositivos de controlador de temperatura e termostato.
+Neste tutorial, você
+
+> [!div class="checklist"]
+> * Provisiona um ambiente do Time Series Insights e conecta o hub IoT como uma origem do evento de streaming.
+> * Trabalha com a sincronização do modelo para criar seu [Modelo de Série Temporal](../time-series-insights/concepts-model-overview.md).
+> * Usa os arquivos do modelo de exemplo de [DTDL (Linguagem de Definição de Gêmeos Digitais)](https://github.com/Azure/opendigitaltwins-dtdl) que você usou para os dispositivos de controlador de temperatura e termostato.
 
 > [!NOTE]
 > Essa integração entre o Time Series Insights e o IoT Plug and Play está em versão prévia. A maneira como os modelos do dispositivo DTDL são mapeados para o Modelo de Série Temporal do Time Series Insights pode mudar. 
@@ -222,10 +227,11 @@ Volte ao painel de gráficos e expanda **Frota de Dispositivos** > seu dispositi
 
 ![Captura de tela mostrando como alterar o tipo de instância de thermostat2.](./media/tutorial-configure-tsi/charting-values.png)
 
+## <a name="clean-up-resources"></a>Limpar os recursos
+
+[!INCLUDE [iot-pnp-clean-resources](../../includes/iot-pnp-clean-resources.md)]
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre as várias opções de gráficos, incluindo o dimensionamento de intervalos e os controles do eixo y, confira [Gerenciador do Azure Time Series Insights](../time-series-insights/concepts-ux-panels.md).
-
-* Para ter uma visão geral detalhada do Modelo de Série Temporal do seu ambiente, confira [Modelo de Série Temporal no Azure Time Series Insights Gen2](../time-series-insights/concepts-model-overview.md).
-
-* Para saber mais sobre as APIs de consulta e a sintaxe da Expressão de Série Temporal, confira [APIs de consulta do Azure Time Series Insights Gen2](/rest/api/time-series-insights/reference-query-apis).
+> [!div class="nextstepaction"]
+> Para saber mais sobre as várias opções de gráficos, incluindo o dimensionamento de intervalos e os controles do eixo y, confira [Gerenciador do Azure Time Series Insights](../time-series-insights/concepts-ux-panels.md).

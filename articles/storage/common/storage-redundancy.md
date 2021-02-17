@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/19/2021
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 598673bca5b893236cfd38a7fa220ff25ee9dd7e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 78958dc0f95d2bc7a9e393ac2e769a97f7e92efa
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388508"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556442"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
 
@@ -200,7 +200,7 @@ A tabela a seguir mostra quais opções de redundância têm suporte em cada tip
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blobs de blocos<br /> Armazenamento de blob<br /> Armazenamento de arquivos | Uso geral v2<br /> Armazenamento de blobs de blocos<br /> Armazenamento de arquivos | Uso geral v2<br /> Uso geral v1<br /> Armazenamento de blob | Uso geral v2 |
+| Uso geral v2<br /> Uso geral v1<br /> BlockBlobStorage<br /> BlobStorage<br /> FileStorage | Uso geral v2<br /> BlockBlobStorage<br /> FileStorage | Uso geral v2<br /> Uso geral v1<br /> BlobStorage | Uso geral v2 |
 
 Todos os dados de todas as contas de armazenamento são copiados de acordo com a opção de redundância para a conta de armazenamento. Os objetos, incluindo blobs de blocos, blobs de acréscimo, blobs de páginas, filas, tabelas e arquivos são copiados. Os dados em todas as camadas, incluindo a camada de arquivamento, são copiados. Para saber mais sobre as camadas de blobs, confira [Armazenamento de Blobs do Azure: camadas de acesso quente, frio e de arquivamento](../blobs/storage-blob-storage-tiers.md).
 

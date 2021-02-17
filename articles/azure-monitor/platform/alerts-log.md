@@ -4,14 +4,14 @@ description: Usar Azure Monitor para criar, exibir e gerenciar regras de alerta 
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 950482a96604165a8f1ff20cab9e3eafe1224c90
-ms.sourcegitcommit: e46f9981626751f129926a2dae327a729228216e
+ms.openlocfilehash: 9f50a08930ba2556c27c79a90261497dc00dcca3
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98028991"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548328"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
 

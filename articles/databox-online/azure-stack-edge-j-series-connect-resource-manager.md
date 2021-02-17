@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 54aad90cf86f1a20d76f04f3a829f29c47023558
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805791"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546798"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager fornece uma camada de gerenciamento consistente para cham
 
 A tabela a seguir resume os vários pontos de extremidade expostos em seu dispositivo, os protocolos com suporte e as portas para acessar esses pontos de extremidade. Ao longo do artigo, você encontrará referências a esses pontos de extremidade.
 
-| # | Ponto de Extremidade | Protocolos com suporte | Porta usada | Usada para |
+| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usada para |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | HTTPS | 443 | Para se conectar ao Azure Resource Manager para automação |
 | 2. | Serviço de token de segurança | HTTPS | 443 | Para autenticar por meio de tokens de acesso e de atualização |
@@ -93,38 +93,38 @@ Para se conectar ao Azure Resource Manager, você precisará criar ou obter a ca
 
 Para uso somente de teste e desenvolvimento, você pode usar o Windows PowerShell para criar certificados no sistema local. Ao criar os certificados para o cliente, siga estas diretrizes:
 
-1. Primeiro, você precisa criar um certificado raiz para a cadeia de assinatura. Para obter mais informações, consulte as etapas para [criar certificados de cadeia de assinatura](azure-stack-edge-j-series-manage-certificates.md#create-signing-chain-certificate).
+1. Primeiro, você precisa criar um certificado raiz para a cadeia de assinatura. Para obter mais informações, consulte as etapas para [criar certificados de cadeia de assinatura](azure-stack-edge-gpu-manage-certificates.md#create-signing-chain-certificate).
 
-2. Em seguida, você pode criar os certificados de ponto de extremidade para o blob e Azure Resource Manager. Você pode obter esses pontos de extremidade na página do **dispositivo** na interface do usuário da Web local. Consulte as etapas para [criar certificados de ponto de extremidade](azure-stack-edge-j-series-manage-certificates.md#create-signed-endpoint-certificates).
+2. Em seguida, você pode criar os certificados de ponto de extremidade para o blob e Azure Resource Manager. Você pode obter esses pontos de extremidade na página do **dispositivo** na interface do usuário da Web local. Consulte as etapas para [criar certificados de ponto de extremidade](azure-stack-edge-gpu-manage-certificates.md#create-signed-endpoint-certificates).
 
 3. Para todos esses certificados, verifique se o nome da entidade e o nome alternativo da entidade estão em conformidade com as seguintes diretrizes:
 
-    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
     |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
-Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-j-series-manage-certificates.md).
+Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-gpu-manage-certificates.md).
 
 ### <a name="upload-certificates-on-the-device"></a>Carregar certificados no dispositivo
 
 Os certificados que você criou na etapa anterior estarão no repositório pessoal do cliente. Esses certificados precisam ser exportados em seu cliente em arquivos de formato apropriados que possam ser carregados em seu dispositivo.
 
-1. O certificado raiz deve ser exportado como um arquivo de formato DER com a extensão de arquivo *. cer* . Para obter etapas detalhadas, consulte [Exportar certificados como um arquivo de formato. cer](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-der-format).
+1. O certificado raiz deve ser exportado como um arquivo de formato DER com a extensão de arquivo *. cer* . Para obter etapas detalhadas, consulte [Exportar certificados como um arquivo de formato. cer](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-der-format).
 
-2. Os certificados de ponto de extremidade devem ser exportados como arquivos *. pfx* com chaves privadas. Para obter etapas detalhadas, consulte [Exportar certificados como arquivo. pfx com chaves privadas](azure-stack-edge-j-series-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
+2. Os certificados de ponto de extremidade devem ser exportados como arquivos *. pfx* com chaves privadas. Para obter etapas detalhadas, consulte [Exportar certificados como arquivo. pfx com chaves privadas](azure-stack-edge-gpu-manage-certificates.md#export-certificates-as-pfx-format-with-private-key).
 
-3. Os certificados raiz e de ponto de extremidade são carregados no dispositivo usando a opção **+ Adicionar certificado** na página **certificados** na interface do usuário da Web local. Para carregar os certificados, siga as etapas em [carregar certificados](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
+3. Os certificados raiz e de ponto de extremidade são carregados no dispositivo usando a opção **+ Adicionar certificado** na página **certificados** na interface do usuário da Web local. Para carregar os certificados, siga as etapas em [carregar certificados](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
 
 
 ### <a name="import-certificates-on-the-client-running-azure-powershell"></a>Importar certificados no cliente que executa o Azure PowerShell
 
 O cliente do Windows no qual você invocará o Azure Resource Manager APIs precisa estabelecer confiança com o dispositivo. Para esse fim, os certificados que você criou na etapa anterior devem ser importados em seu cliente Windows para o repositório de certificados apropriado.
 
-1. O certificado raiz que você exportou como o formato DER com a extensão *. cer* agora deve ser importado nas autoridades de certificação raiz confiáveis no seu sistema cliente. Para obter etapas detalhadas, consulte [importar certificados para o repositório de autoridades de certificação raiz confiáveis.](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format)
+1. O certificado raiz que você exportou como o formato DER com a extensão *. cer* agora deve ser importado nas autoridades de certificação raiz confiáveis no seu sistema cliente. Para obter etapas detalhadas, consulte [importar certificados para o repositório de autoridades de certificação raiz confiáveis.](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format)
 
-2. Os certificados de ponto de extremidade que você exportou como *. pfx* devem ser exportados como *. cer*. Esse *. cer* é então importado no repositório de certificados **pessoal** do seu sistema. Para obter etapas detalhadas, consulte [importar certificados para o repositório pessoal](azure-stack-edge-j-series-manage-certificates.md#import-certificates-as-der-format).
+2. Os certificados de ponto de extremidade que você exportou como *. pfx* devem ser exportados como *. cer*. Esse *. cer* é então importado no repositório de certificados **pessoal** do seu sistema. Para obter etapas detalhadas, consulte [importar certificados para o repositório pessoal](azure-stack-edge-gpu-manage-certificates.md#import-certificates-as-der-format).
 
 ## <a name="step-3-install-powershell-on-the-client"></a>Etapa 3: instalar o PowerShell no cliente 
 

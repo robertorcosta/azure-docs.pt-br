@@ -4,13 +4,13 @@ description: Este artigo descreve como configurar o monitoramento com Azure Moni
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994460"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100561302"
 ---
-# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitar o monitoramento do cluster kubernetes habilitado para Arc do Azure
+# <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitar o monitoramento do cluster do Kubernetes habilitado para Azure Arc
 
 Azure Monitor para contêineres fornece experiência de monitoramento avançada para os clusters do AKS (serviço kubernetes do Azure) e do mecanismo do AKS. Este artigo descreve como habilitar o monitoramento de seus clusters kubernetes hospedados fora do Azure que são habilitados com o Arc do Azure para obter uma experiência de monitoramento semelhante.
 
@@ -97,7 +97,7 @@ Para habilitar o monitoramento do cluster usando o script do PowerShell ou bash 
     az resource list --resource-type Microsoft.OperationalInsights/workspaces -o json
     ```
 
-    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID**do campo.
+    Na saída, localize o nome do espaço de trabalho e copie a ID de recurso completo do espaço de trabalho Log Analytics sob a **ID** do campo.
 
 ## <a name="enable-monitoring-using-powershell"></a>Habilitar o monitoramento usando o PowerShell
 
@@ -119,7 +119,7 @@ Para habilitar o monitoramento do cluster usando o script do PowerShell ou bash 
     $kubeContext = "<kubeContext name of your k8s cluster>"
     ```
 
-4. Se você quiser usar o Azure Monitor Log Analytics espaço de trabalho existente, configure a variável `$logAnalyticsWorkspaceResourceId` com o valor correspondente que representa a ID do recurso do espaço de trabalho. Caso contrário, defina a variável como `""` e o script criará um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, caso ainda não exista uma na região. O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<SubscriptionID> - \<Region> *.
+4. Se você quiser usar o Azure Monitor Log Analytics espaço de trabalho existente, configure a variável `$logAnalyticsWorkspaceResourceId` com o valor correspondente que representa a ID do recurso do espaço de trabalho. Caso contrário, defina a variável como `""` e o script criará um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, caso ainda não exista uma na região. O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<SubscriptionID> - \<Region>*.
 
     ```powershell
     $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
@@ -184,7 +184,7 @@ Execute as etapas a seguir para habilitar o monitoramento usando o script bash f
     export kubeContext="<kubeContext name of your k8s cluster>"
     ```
 
-4. Se você quiser usar o Azure Monitor Log Analytics espaço de trabalho existente, configure a variável `logAnalyticsWorkspaceResourceId` com o valor correspondente que representa a ID do recurso do espaço de trabalho. Caso contrário, defina a variável como `""` e o script criará um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, caso ainda não exista uma na região. O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<SubscriptionID> - \<Region> *.
+4. Se você quiser usar o Azure Monitor Log Analytics espaço de trabalho existente, configure a variável `logAnalyticsWorkspaceResourceId` com o valor correspondente que representa a ID do recurso do espaço de trabalho. Caso contrário, defina a variável como `""` e o script criará um espaço de trabalho padrão no grupo de recursos padrão da assinatura do cluster, caso ainda não exista uma na região. O espaço de trabalho padrão criado é semelhante ao formato de *defaultworkspace- \<SubscriptionID> - \<Region>*.
 
     ```bash
     export logAnalyticsWorkspaceResourceId="/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
