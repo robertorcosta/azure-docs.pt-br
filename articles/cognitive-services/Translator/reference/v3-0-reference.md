@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 8/11/2020
 ms.author: lajanuar
-ms.openlocfilehash: 021a65ba69b9d1909df4a86d92b660c0c1033a3b
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: bdfb1ac03ea6f896725d5c86cefe41021204359c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98895451"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582199"
 ---
 # <a name="translator-v30"></a>Tradutor v 3.0
 
@@ -230,7 +230,7 @@ O código de erro é um número de 6 dígitos que combina o código de status HT
 | 503000| O serviço está temporariamente indisponível. Tente novamente. Se o erro persistir, informe-o com data / hora do erro, solicite o identificador do cabeçalho de resposta X-RequestId e o identificador de cliente do cabeçalho de solicitação X-ClientTraceId.|
 
 ## <a name="metrics"></a>Métricas 
-As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](../../../azure-monitor/platform/data-platform-metrics.md).
+As métricas permitem que você exiba as informações de uso e disponibilidade do tradutor em portal do Azure, na seção métricas, conforme mostrado na captura de tela abaixo. Para obter mais informações, consulte [métricas de dados e plataforma](../../../azure-monitor/essentials/data-platform-metrics.md).
 
 ![Métricas do Tradutor](../media/translatormetrics.png)
 

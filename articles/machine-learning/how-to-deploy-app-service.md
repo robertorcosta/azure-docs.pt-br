@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
-ms.openlocfilehash: 5f3861d43715ed68116d25206efe4347ea96805c
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: cd3e2e552376a03d98673447a1b7b29f7ae3441e
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96452142"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100579209"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-app-service-preview"></a>Implantar um modelo de aprendizado de máquina no serviço Azure App (versão prévia)
 
@@ -29,7 +29,7 @@ Saiba como implantar um modelo de Azure Machine Learning como um aplicativo Web 
 Com Azure Machine Learning, você pode criar imagens do Docker de modelos de aprendizado de máquina treinados. Essa imagem contém um serviço Web que recebe dados, envia-os para o modelo e, em seguida, retorna a resposta. Azure App serviço pode ser usado para implantar a imagem e fornece os seguintes recursos:
 
 * [Autenticação](../app-service/configure-authentication-provider-aad.md) avançada para segurança aprimorada. Os métodos de autenticação incluem Azure Active Directory e autenticação multifator.
-* [Dimensionamento automático](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
+* [Dimensionamento automático](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json) sem precisar reimplantar.
 * [Suporte a TLS](../app-service/configure-ssl-certificate-in-code.md) para comunicações seguras entre clientes e o serviço.
 
 Para obter mais informações sobre os recursos fornecidos pelo serviço Azure App, consulte [visão geral do serviço de aplicativo](../app-service/overview.md).
@@ -271,7 +271,7 @@ print(response.json())
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba como configurar seu aplicativo Web na documentação do [serviço de aplicativo no Linux](/azure/app-service/containers/) .
-* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
+* Saiba mais sobre o dimensionamento em introdução [ao dimensionamento automático no Azure](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json).
 * [Use um certificado TLS/SSL em seu serviço de Azure app](../app-service/configure-ssl-certificate-in-code.md).
 * [Configure seu aplicativo do serviço de aplicativo para usar Azure Active Directory entrar](../app-service/configure-authentication-provider-aad.md).
 * [Consumir um modelo de ML implantado como um serviço Web](how-to-consume-web-service.md)

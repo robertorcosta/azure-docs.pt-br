@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 205f92d4282f0cad00c1dd136636da319e107f3f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391058"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590373"
 ---
 # <a name="azure-defender-for-sql-servers-on-machines"></a>Azure defender para SQL Servers em computadores 
 
@@ -55,7 +55,7 @@ Ambos são descritos abaixo.
     
     - **Implantar o arco do Azure** -você pode conectar qualquer computador Windows à central de segurança. No entanto, o Arc do Azure fornece uma integração mais profunda em *todo* o seu ambiente do Azure. Se você configurar o arco do Azure, verá a página **SQL Server – arco do Azure** no portal e seus alertas de segurança aparecerão em uma guia **segurança** dedicada nessa página. Portanto, a primeira e recomendada opção é [Configurar o arco do Azure no host](../azure-arc/servers/onboard-portal.md#install-and-validate-the-agent-on-windows) e seguir as instruções para **SQL Server no arco do Azure**, acima.
         
-    - **Conectar o computador Windows sem o arco do Azure** – se você optar por conectar um SQL Server em execução em um computador Windows sem usar o Arc do Azure, siga as instruções em [conectar computadores Windows ao Azure monitor](../azure-monitor/platform/agent-windows.md).
+    - **Conectar o computador Windows sem o arco do Azure** – se você optar por conectar um SQL Server em execução em um computador Windows sem usar o Arc do Azure, siga as instruções em [conectar computadores Windows ao Azure monitor](../azure-monitor/agents/agent-windows.md).
 
 
 ### <a name="step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page"></a>Etapa 2. Habilite o plano opcional na página de preços e configurações da central de segurança:
@@ -75,7 +75,7 @@ Ambos são descritos abaixo.
     O plano será habilitado em todos os SQL Servers conectados ao espaço de trabalho selecionado. A proteção estará totalmente ativa após a primeira reinicialização da instância de SQL Server.
 
     >[!TIP] 
-    > Para criar um novo espaço de trabalho, siga as instruções em [criar um log Analytics espaço de trabalho](../azure-monitor/learn/quick-create-workspace.md).
+    > Para criar um novo espaço de trabalho, siga as instruções em [criar um log Analytics espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md).
 
 
 1. Opcionalmente, configure a notificação por email para alertas de segurança. 

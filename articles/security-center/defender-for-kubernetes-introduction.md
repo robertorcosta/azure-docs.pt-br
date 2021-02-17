@@ -7,12 +7,12 @@ ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 1f013f22b482c1e1d093f106bd786be870103f3d
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: 0878686e203960a0b7f33c19cc64e82319997684
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100008495"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590451"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -71,7 +71,7 @@ Para que o Azure Defender monitore seus nós do AKS, eles devem estar executando
 
 Se os clusters já estiverem executando o agente do Azure Monitor para contêineres, você também poderá instalar o agente do Log Analytics e os dois agentes poderão trabalhar juntos sem nenhum problema.
 
-[Saiba mais sobre o agente do Azure Monitor para contêineres](../azure-monitor/insights/container-insights-manage-agent.md).
+[Saiba mais sobre o agente do Azure Monitor para contêineres](../azure-monitor/containers/container-insights-manage-agent.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas

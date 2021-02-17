@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 02/02/2021
-ms.openlocfilehash: e8f18f56c746f0d12f43cc2fb6ce9088a9b82b45
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: aa18baf9739663c7132a49d3d07434b9d187f02b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492375"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588741"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limites de recursos para servidores do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -106,11 +106,11 @@ Ao encontrar erros de memória insuficiente, as opções de mitigação incluem:
 
 ## <a name="resource-consumption-by-user-workloads-and-internal-processes"></a>Consumo de recursos por cargas de trabalho do usuário e processos internos
 
-O consumo de CPU e de memória por cargas de trabalho de usuário em cada banco de dados é relatado nas exibições de [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_cpu_percent` `avg_memory_usage_percent` colunas e. Para pools elásticos, o consumo de recursos no nível do pool é relatado na exibição [Sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . O consumo de CPU da carga de trabalho do usuário também é relatado por meio da `cpu_percent` métrica de Azure monitor, para [bancos de dados individuais](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
+O consumo de CPU e de memória por cargas de trabalho de usuário em cada banco de dados é relatado nas exibições de [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_cpu_percent` `avg_memory_usage_percent` colunas e. Para pools elásticos, o consumo de recursos no nível do pool é relatado na exibição [Sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) . O consumo de CPU da carga de trabalho do usuário também é relatado por meio da `cpu_percent` métrica de Azure monitor, para [bancos de dados individuais](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
 
 O banco de dados SQL do Azure requer recursos de computação para implementar recursos de serviço principais, como alta disponibilidade e recuperação de desastre, backup e restauração de banco de dados, monitoramento, Repositório de Consultas, ajuste automático, etc. O sistema separa uma determinada parte limitada dos recursos gerais para esses processos internos usando mecanismos de [governança de recursos](#resource-governance) , tornando os demais recursos disponíveis para cargas de trabalho do usuário. Às vezes, quando os processos internos não estão usando recursos de computação, o sistema os torna disponíveis para cargas de trabalho do usuário.
 
-O consumo total de CPU e memória por cargas de trabalho do usuário e processos internos é relatado nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_instance_cpu_percent` `avg_instance_memory_percent` colunas e. Esses dados também são relatados por meio das `sqlserver_process_core_percent` `sqlserver_process_memory_percent` métricas e Azure monitor, para [bancos de dados individuais](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
+O consumo total de CPU e memória por cargas de trabalho do usuário e processos internos é relatado nas exibições [Sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [Sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) , nas `avg_instance_cpu_percent` `avg_instance_memory_percent` colunas e. Esses dados também são relatados por meio das `sqlserver_process_core_percent` `sqlserver_process_memory_percent` métricas e Azure monitor, para [bancos de dados individuais](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) e [pools elásticos](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) no nível do pool.
 
 Uma análise mais detalhada do consumo de recursos recente por cargas de trabalho do usuário e processos internos é relatada nas exibições [Sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database) e [Sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database) . Para obter detalhes sobre pools de recursos e grupos de carga de trabalho referenciados nessas exibições, consulte [governança de recursos](#resource-governance). Essas exibições relatam sobre a utilização de recursos por cargas de trabalho do usuário e processos internos específicos nos pools de recursos e grupos de carga de trabalho associados.
 
