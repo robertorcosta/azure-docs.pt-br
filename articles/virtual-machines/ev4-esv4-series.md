@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 7d0e3f8c55a2c8eff40c196719213390e96efb0a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 08df5e92f7dfd86aedd1c5fbf17f8bda1cfb8508
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99089301"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558772"
 ---
 # <a name="ev4-and-esv4-series"></a>Séries Ev4 e Esv4
 
@@ -35,7 +35,7 @@ O armazenamento em disco de dados remotos é cobrado separadamente das máquinas
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 
@@ -61,7 +61,7 @@ Os tamanhos da série Esv4 são executados no Intel &reg; Xeon &reg; Platinum 82
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
 <br>
 

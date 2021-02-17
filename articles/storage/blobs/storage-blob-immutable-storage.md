@@ -9,12 +9,12 @@ ms.date: 02/01/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 9654ff6eab53acfe3e656afdcacd758c548232ba
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: ad660ee69bb568e1a76d59344cf31fbf044aaae9
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979123"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581422"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob comercialmente críticos com armazenamento imutável
 
@@ -46,7 +46,7 @@ O armazenamento imutável oferece suporte aos seguintes recursos:
 
 - **Configuração no nível do contêiner**: os usuários podem configurar políticas de retenção com base no tempo e marcas de retenção legal no nível do contêiner. Ao usar configurações simples no nível do contêiner, os usuários podem criar e bloquear políticas de retenção baseadas em tempo, estender intervalos de retenção, definir e limpar retenção legal, entre outros. Essas políticas se aplicam a todos os blobs no contêiner, existentes e novos.
 
-- **Suporte ao log de auditoria**: cada contêiner inclui um log de auditoria de política. Ele mostra até sete comandos de retenção baseados em tempo para políticas de retenção baseadas em tempo bloqueadas e contém a ID de usuário, o tipo de comando, os carimbos de data/hora e o intervalo de retenção. Para retenções legais, o log contém as marcações de ID de usuário, tipo de comando, carimbos de data/hora e retenção legal. Esse log é retido durante o tempo de vida da política, de acordo com as diretrizes regulatórias da SEC 17a-4 (f). O [log de atividades do Azure](../../azure-monitor/platform/platform-logs-overview.md) mostra um log mais abrangente de todas as atividades do plano de controle; Embora a habilitação dos [logs de recursos do Azure](../../azure-monitor/platform/platform-logs-overview.md) retenha e mostre operações de plano de dados. É responsabilidade do usuário armazenar esses logs de forma persistente, conforme o necessário para regulamentações ou outros fins.
+- **Suporte ao log de auditoria**: cada contêiner inclui um log de auditoria de política. Ele mostra até sete comandos de retenção baseados em tempo para políticas de retenção baseadas em tempo bloqueadas e contém a ID de usuário, o tipo de comando, os carimbos de data/hora e o intervalo de retenção. Para retenções legais, o log contém as marcações de ID de usuário, tipo de comando, carimbos de data/hora e retenção legal. Esse log é retido durante o tempo de vida da política, de acordo com as diretrizes regulatórias da SEC 17a-4 (f). O [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md) mostra um log mais abrangente de todas as atividades do plano de controle; Embora a habilitação dos [logs de recursos do Azure](../../azure-monitor/essentials/platform-logs-overview.md) retenha e mostre operações de plano de dados. É responsabilidade do usuário armazenar esses logs de forma persistente, conforme o necessário para regulamentações ou outros fins.
 
 ## <a name="how-it-works"></a>Como ele funciona
 

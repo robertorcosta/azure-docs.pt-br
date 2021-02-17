@@ -5,12 +5,12 @@ description: Consulte as perguntas frequentes ao executar pools de nós do Windo
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: 00e749a8b066f72518b38685dd7a7779e406cf74
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013960"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574742"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Perguntas frequentes sobre pools de nós do Windows Server no AKS
 
@@ -42,7 +42,7 @@ Os discos do Azure e os arquivos do Azure são os tipos de volume com suporte. E
 
 Os nós mestres (o plano de controle) em um cluster AKS são hospedados pelo AKS do serviço, você não será exposto ao sistema operacional dos nós que hospedam os componentes mestres. Todos os clusters AKS são criados com um pool de primeiro nó padrão, que é baseado em Linux. Esse pool de nós contém serviços do sistema, que são necessários para que o cluster funcione. É recomendável executar pelo menos dois nós no primeiro pool de nós para garantir a confiabilidade do cluster e a capacidade de realizar operações de cluster. O primeiro pool de nós baseado em Linux não pode ser excluído, a menos que o próprio cluster AKS seja excluído.
 
-## <a name="how-do-i-patch-my-windows-nodes"></a>Como fazer patches de meus nós do Windows?
+## <a name="how-do-i-patch-my-windows-nodes"></a>Como fazer para aplicar patch aos nós do Windows?
 
 Para obter os patches mais recentes para os nós do Windows, você pode [atualizar o pool de nós][nodepool-upgrade] ou [atualizar a imagem do nó][upgrade-node-image]. As atualizações do Windows não estão habilitadas em nós no AKS. O AKS lança novas imagens de pool de nós assim que os patches estão disponíveis, e é responsabilidade do usuário atualizar pools de nós para manter-se atualizado sobre patches e hotfixes. Isso também é verdadeiro para a versão kubernetes que está sendo usada. [Notas de versão do AKS][aks-release-notes] indicam quando novas versões estão disponíveis. Para obter mais informações sobre como atualizar todo o pool de nós do Windows Server, consulte [atualizar um pool de nós no AKs][nodepool-upgrade]. Se você estiver interessado apenas em atualizar a imagem do nó, consulte [AKs node Image upgrades][upgrade-node-image].
 
@@ -101,7 +101,7 @@ Sim, um controlador de entrada que dá suporte a contêineres do Windows Server 
 
 Atualmente, o Azure Dev Spaces está disponível apenas para pools de nós baseados em Linux.
 
-## <a name="can-my-windows-server-containers-use-gmsa"></a>Meus contêineres do Windows Server podem usar o gMSA?
+## <a name="can-my-windows-server-containers-use-gmsa"></a>Meus contêineres do Windows Server podem usar a gMSA?
 
 O suporte ao grupo de contas de serviço gerenciado (gMSA) não está disponível no momento no AKS.
 
@@ -189,7 +189,7 @@ Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nó
 [nodepool-limitations]: use-multiple-node-pools.md#limitations
 [windows-container-compat]: /virtualization/windowscontainers/deploy-containers/version-compatibility?tabs=windows-server-2019%2Cwindows-10-1909
 [maximum-number-of-pods]: configure-azure-cni.md#maximum-pods-per-node
-[azure-monitor]: ../azure-monitor/insights/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
+[azure-monitor]: ../azure-monitor/containers/container-insights-overview.md#what-does-azure-monitor-for-containers-provide
 [client-source-ip]: concepts-network.md#ingress-controllers
 [kubernetes-dashboard]: kubernetes-dashboard.md
 [windows-rdp]: rdp.md

@@ -3,12 +3,12 @@ title: Criar um novo recurso do Azure Application Insights | Microsoft Docs
 description: Configure manualmente o monitoramento do Application Insights para um novo aplicativo em tempo real.
 ms.topic: conceptual
 ms.date: 02/10/2021
-ms.openlocfilehash: 3233aed895eac269bd34a961728b3302581ff360
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 1ec5e929f591c0b7ada36f345d86c6de591892c8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104579"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575618"
 ---
 # <a name="create-an-application-insights-resource"></a>Criar um recurso do Application Insights
 
@@ -35,7 +35,7 @@ Entre no [portal do Azure](https://portal.azure.com) e crie um recurso do Applic
    | **Modo de Recurso** | `Classic` ou `Workspace-based` | Os recursos baseados em workspace estão atualmente em versão prévia pública e permitem que você envie sua telemetria do Application Insights para um workspace comum do Log Analytics. Para obter mais informações, confira o [artigo sobre recursos baseados em workspace](create-workspace-resource.md).
 
 > [!NOTE]
-> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos diferentes](../log-query/cross-workspace-query.md#identifying-an-application), pois simplifica a sintaxe necessária.
+> Embora você possa usar o mesmo nome de recurso em grupos de recursos diferentes, pode ser benéfico usar um nome globalmente exclusivo. Isso pode ser útil se você planeja [executar consultas entre recursos diferentes](../logs/cross-workspace-query.md#identifying-an-application), pois simplifica a sintaxe necessária.
 
 Insira os valores apropriados nos campos obrigatórios e selecione **Examinar + criar**.
 
@@ -159,13 +159,13 @@ Para obter a documentação completa da CLI do Azure para esse comando e saber c
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquisa de Diagnóstico](./diagnostic-search.md)
-* [Explorar métricas](../platform/metrics-charts.md)
-* [Escrever consultas do Analytics](../log-query/log-query-overview.md)
+* [Explorar métricas](../essentials/metrics-charts.md)
+* [Escrever consultas do Analytics](../logs/log-query-overview.md)
 
 <!--Link references-->
 
 [api]: ./api-custom-events-metrics.md
 [diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
+[metrics]: ../essentials/metrics-charts.md
 [start]: ./app-insights-overview.md
 

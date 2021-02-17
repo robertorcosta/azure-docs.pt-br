@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e8915e1c15972341befd176b412925f4e87c94f6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: fadbed5607c7ebdd61a42ae054f431840c529d69
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98201443"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573076"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Linha de base de segurança do Azure Policy para o benchmark de segurança do Azure
 
@@ -31,9 +31,9 @@ Azure Policy usa a _Propriedade_ do termo no local de _responsabilidade_. Para o
 
 **Diretrizes**: Azure Policy usa logs de atividade, que são habilitados automaticamente, para incluir origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
-* [Como coletar logs e métricas de plataforma com Azure Monitor](../../../azure-monitor/platform/diagnostic-settings.md)
+* [Como coletar logs e métricas de plataforma com Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Entender o registro em log e diferentes tipos de log no Azure](../../../azure-monitor/platform/platform-logs-overview.md)
+* [Entender o registro em log e diferentes tipos de log no Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
@@ -89,7 +89,7 @@ Você também pode habilitar uma solução de acesso just-in-time/apenas o sufic
 
 **Diretrizes**: Use Azure monitor com logs de atividade para criar alertas para quando as alterações ocorrerem no Azure Policy.
 
-* [Como criar alertas para eventos do log de atividades do Azure](../../../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento

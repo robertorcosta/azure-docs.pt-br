@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8a572221ca8899c5e4f4cf76e4b89c995952a2f3
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6f82114874c9e85e44df6684d0b0cf624903a50f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258550"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100582519"
 ---
 # <a name="azure-security-baseline-for-api-management"></a>Linha de base de segurança do Azure para Gerenciamento de API
 
@@ -210,9 +210,9 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretriz**: Use o log de atividades do Azure para monitorar configurações de recursos de rede e detectar alterações para recursos de rede associados às suas implantações do Gerenciamento de API do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -238,7 +238,7 @@ Além do Azure Monitor, o Gerenciamento de API do Azure pode ser integrado a um 
 
 Como opção, habilite e integre dados ao Azure Sentinel ou a um SIEM (gerenciamento de eventos e informações de segurança) de terceiros.
 
-* [Como definir as configurações de diagnóstico](../azure-monitor/platform/diagnostic-settings.md#create-in-azure-portal)
+* [Como definir as configurações de diagnóstico](../azure-monitor/essentials/diagnostic-settings.md#create-in-azure-portal)
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -258,7 +258,7 @@ Como opção, habilite e integre dados ao Azure Sentinel ou a um SIEM (gerenciam
 
 Para log de auditoria do plano de dados, logs de diagnóstico fornecem informações avançadas sobre operações e erros importantes para auditoria, bem como para fins de solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades. Os logs de atividades fornecem informações sobre as operações realizadas em seus recursos do Azure. Os Logs de Diagnóstico fornecem informações em operações que o recurso realizou.
 
-* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Como habilitar as configurações de diagnóstico do Gerenciamento de API do Azure](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -278,9 +278,9 @@ Para log de auditoria do plano de dados, logs de diagnóstico fornecem informaç
 
 **Diretriz**: No Azure Monitor, defina o período de retenção do workspace do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Use contas do Armazenamento do Microsoft Azure para armazenamento de longo prazo/arquivamento.
 
-* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-* [Como arquivar os logs para uma conta de Armazenamento do Microsoft Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+* [Como arquivar os logs para uma conta de Armazenamento do Microsoft Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -294,9 +294,9 @@ Como opção, você pode integrar o Gerenciamento de API com o Application Insig
 
 * [Como monitorar e revisar os logs do Gerenciamento de API do Azure](./api-management-howto-use-azure-monitor.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
-* [Compreender o workspace do Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Compreender o workspace do Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
 * [Como integrar com o Azure Application Insights](./api-management-howto-app-insights.md)
 
@@ -314,7 +314,7 @@ Como opção, você pode integrar o Gerenciamento de API com o Application Insig
 
 Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+* [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Como habilitar as configurações de diagnóstico do Gerenciamento de API do Azure](./api-management-howto-use-azure-monitor.md#activity-logs)
 
@@ -669,7 +669,7 @@ A Microsoft gerencia a infraestrutura subjacente para o Gerenciamento de API do 
 
 **Diretriz**: Use o Azure Monitor com o log de atividades do Azure para criar alertas para a ocorrência de alterações em aplicativos de Azure Functions de produção, bem como em outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 * [Como usar o Azure Monitor e o log de atividades do Azure no Gerenciamento de API do Azure](./api-management-howto-use-azure-monitor.md)
 

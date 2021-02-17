@@ -5,12 +5,12 @@ ms.assetid: 94af2caf-a2ec-4415-a097-f60694b860b3
 ms.topic: overview
 ms.date: 07/06/2020
 ms.custom: devx-track-dotnet, mvc, seodec18
-ms.openlocfilehash: d59dfe5b0fe3268dcda20fbc83aa31bba8a8713b
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 0bfacc4169de6b30272229283e9aef9a9d69fad5
+ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97936202"
+ms.lasthandoff: 02/05/2021
+ms.locfileid: "99592323"
 ---
 # <a name="app-service-overview"></a>Visão geral do Serviço de Aplicativo
 
@@ -50,13 +50,13 @@ Os runtimes desatualizados são removidos periodicamente das folhas de criação
 
 Quando um runtime desatualizado estiver oculto no Portal, qualquer um dos sites existentes que usam essa versão continuará a ser executado. Se um runtime for totalmente removido da plataforma do Serviço de Aplicativo, seus proprietários de assinatura do Azure receberão um aviso por email antes da remoção.
 
-Se você precisar criar outro aplicativo Web com uma versão de runtime desatualizada que não é mais mostrada no Portal, confira os guias de configuração de idioma para obter instruções sobre como obter a versão de runtime do seu site. Você pode usar a CLI do Azure para criar outro site com o mesmo runtime. Como alternativa, use o botão **Exportar Modelo** na folha do aplicativo Web no Portal para exportar um modelo do ARM do site. Você pode usar novamente este modelo para implantar um novo site com o mesmo runtime a mesma configuração.
+Se você precisar criar outro aplicativo Web com uma versão de runtime desatualizada que não é mais mostrada no Portal, confira os guias de configuração de idioma para obter instruções sobre como obter a versão de runtime do seu site. Você pode usar a CLI do Azure para criar outro site com o mesmo runtime. Como alternativa, use o botão **Exportar Modelo** na folha do aplicativo Web no Portal para exportar um modelo do ARM do site. Você pode reutilizar este modelo para implantar um novo site com o mesmo runtime e a mesma configuração.
 
 ### <a name="limitations"></a>Limitações
 
 - Não há suporte para o Serviço de Aplicativo no Linux no tipo de preço [Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). 
 - Não é possível combinar aplicativos do Windows e do Linux no mesmo Plano do Serviço de Aplicativo.  
-- No mesmo grupo de recursos, não é possível combinar aplicativos do Windows e do Linux na mesma região.
+- Historicamente, você não pode combinar aplicativos Windows e Linux no mesmo grupo de recursos. No entanto, todos os grupos de recursos criados em 21 de janeiro de 2021 ou após essa data dão suporte a esse cenário. Para os grupos de recursos criados antes de 21 de janeiro de 2021, a capacidade de adicionar implantações de plataforma mista será distribuída nas regiões do Azure (incluindo regiões de nuvem nacional) em breve.
 - O portal do Azure só mostra os recursos que atualmente funcionam em aplicativos do Linux. À medida que os recursos são habilitados, eles são ativados no portal.
 - Quando implantados nas imagens internas, o código e o conteúdo recebem um volume de armazenamento para o conteúdo da Web, com suporte do Armazenamento do Azure. A latência do disco desse volume é maior e mais variável do que a latência do sistema de arquivos do contêiner. Os aplicativos que exigem acesso intenso somente leitura a arquivos de conteúdo podem se beneficiar da opção de contêiner personalizado, que coloca os arquivos no sistema de arquivos do contêiner em vez de no volume de conteúdo.
 

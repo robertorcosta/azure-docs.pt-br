@@ -11,12 +11,12 @@ ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 12/21/2020
 ms.custom: automl
-ms.openlocfilehash: ff9bd328dd98fbd614a3bb63a1edddc2027d97b2
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: f0bb354bce0c4696f60e2be5c6186760518c7431
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879774"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99549179"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Tutorial: Criar um modelo de classificação com o ML automatizado no Azure Machine Learning
 
@@ -102,8 +102,8 @@ Antes de configurar seu experimento, carregue o arquivo de dados no workspace na
         Cabeçalhos da coluna| Indica como os cabeçalhos do conjunto de dados, se houver, serão tratados.| Todos os arquivos têm os mesmos cabeçalhos
         Ignorar linhas | Indica quantas linhas, se houver, serão ignoradas no conjunto de registros.| Nenhum
 
-    1. O formulário **Esquema** permite configurar ainda mais os dados do experimento. Neste exemplo, não fazemos nenhuma seleção. Selecione **Avançar**.
-
+    1. O formulário **Esquema** permite configurar ainda mais os dados do experimento. Neste exemplo, selecione o botão de alternância **day_of_week** para que ele não seja incluído. Selecione **Avançar**.
+         ![Formulário de esquema](./media/tutorial-first-experiment-automated-ml/schema-tab-config.gif)
     1. No formulário **Confirmar detalhes**, verifique se as informações correspondem ao que foi previamente preenchido nos formulários **Informações básicas, Seleção de armazenamento de dados e arquivo** e **Configurações e visualização**.
     
     1. Selecione **Criar** para concluir a criação do conjunto de dados.
@@ -170,12 +170,6 @@ Depois de carregar e configurar seus dados, você poderá configurar seu experim
         
         Clique em **Salvar**.
     
-    1. Selecione **Exibir configurações de definição de recursos**. Neste exemplo, selecione o botão de alternância do recurso **day_of_week** para não o incluir na definição de recursos neste experimento.
-
-        ![Seleção da definição de recursos](./media/tutorial-first-experiment-automated-ml/featurization-setting-config.gif)   
- 
-        Clique em **Salvar**.
-
 1. Selecione **Concluir** para executar o experimento. A tela **Detalhes da Execução** é aberta com o **Status da execução** na parte superior à medida que a preparação do experimento é iniciada. Esse status é atualizado conforme o progresso do experimento. Também aparecem notificações no canto superior direito do estúdio para informar você sobre o status do experimento.
 
 >[!IMPORTANT]
