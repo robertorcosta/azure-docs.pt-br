@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 5ef06f2db487a3e6d897e26758da840f37c3ecaf
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575798"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545931"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -124,8 +124,6 @@ De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está ab
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
 
 Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir a ele uma identidade do Azure AD gerenciada pelo sistema e dar a essa identidade a função *Proprietário de Dados dos Gêmeos Digitais do Azure* na instância dos Gêmeos Digitais do Azure. Essa função é necessária para qualquer usuário ou função que queira executar muitas atividades de plano de dados na instância. Você pode ler mais sobre atribuições de função e segurança em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md).
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância de Gêmeos Digitais do Azure. Preencha os espaços reservados com os detalhes de seus recursos (lembre-se de que a URL da instância dos Gêmeos Digitais do Azure é o nome do host precedido por *https://* ).
 

@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de serviço gerenciado no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerenciado que integra os clientes ao Azure Lighthouse.
-ms.date: 02/10/2021
+ms.date: 02/16/2021
 ms.topic: how-to
-ms.openlocfilehash: 9abac28d982e5b33bc4952f73336810abcb44e45
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3af460f17533d70b24f76ab40460a5fa920cdece
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372053"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555800"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviço gerenciado no Azure Marketplace
 
@@ -56,7 +56,7 @@ Você pode [publicar uma versão atualizada de sua oferta](../..//marketplace/pa
 Depois que um cliente adiciona sua oferta, ele poderá [delegar uma ou mais assinaturas ou grupos de recursos específicos](view-manage-service-providers.md#delegate-resources), que serão integrados ao Azure Lighthouse. Se um cliente tiver aceitado uma oferta, mas ainda não tiver delegado nenhum recurso, ele verá uma observação na parte superior da seção **Ofertas de provedores** da página [**Provedores de serviço**](view-manage-service-providers.md) no portal do Azure.
 
 > [!IMPORTANT]
-> A delegação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem a [função interna de proprietário](../../role-based-access-control/built-in-roles.md#owner) para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para ver todos os usuários que podem delegar a assinatura, um usuário do locatário do cliente poderá selecionar a assinatura no portal do Azure, abrir o **IAM (Controle de acesso)** e [exibir todos os usuários com a função Proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
+> A delegação deve ser feita por uma conta que não seja de convidado no locatário do cliente que tem uma função com a `Microsoft.Authorization/roleAssignments/write` permissão, como [proprietário](../../role-based-access-control/built-in-roles.md#owner), para a assinatura que está sendo integrada (ou que contém os grupos de recursos que estão sendo integrados). Para localizar os usuários que podem delegar a assinatura, um usuário no locatário do cliente pode selecionar a assinatura no portal do Azure, o **iam (Open Access Control)** e [Exibir todos os usuários com a função proprietário](../../role-based-access-control/role-assignments-list-portal.md#list-owners-of-a-subscription).
 
 Depois que o cliente delega uma assinatura (ou um ou mais grupos de recursos em uma assinatura), o provedor de recursos **Microsoft. managedservices** será registrado para essa assinatura e os usuários em seu locatário poderão acessar os recursos delegados de acordo com as autorizações em sua oferta.
 

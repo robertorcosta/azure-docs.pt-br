@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: 08be42f4f0801fc700b3e0fc645c1bbc1b747e91
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c6bbb389902c11239f665c6d0db787f61955a953
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98944098"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555809"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -79,7 +79,7 @@ As seguintes APIs de substituição foram adicionadas:</span>
 
 Se você estiver usando a versão 1.1.1 ou inferior, atualize para a [versão mais recente das ferramentas do Azure HDInsight para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=mshdinsight.azure-hdinsight&ssr=false) para evitar interrupções.
 
-### <a name="azure-toolkit-for-intellij"></a>Azure Toolkit for IntelliJ
+### <a name="azure-toolkit-for-intellij"></a>Kit de Ferramentas do Azure para IntelliJ
 
 Se você estiver usando a versão 3.20.0 ou inferior, atualize para a [versão mais recente do plug-in Azure Toolkit for IntelliJ](https://plugins.jetbrains.com/plugin/8053-azure-toolkit-for-intellij) para evitar interrupções.
 
@@ -87,7 +87,7 @@ Se você estiver usando a versão 3.20.0 ou inferior, atualize para a [versão m
 
 Atualize para a versão 2.3.9000.1 ou posterior das [ferramentas Azure data Lake e Stream Analytics para Visual Studio](https://marketplace.visualstudio.com/items?itemName=ADLTools.AzureDataLakeandStreamAnalyticsTools&ssr=false#overview) para evitar interrupções.  Para obter ajuda com a atualização, consulte nossa documentação, [Update data Lake Tools for Visual Studio](./hadoop/apache-hadoop-visual-studio-tools-get-started.md#update-data-lake-tools-for-visual-studio).
 
-### <a name="azure-toolkit-for-eclipse"></a>Azure Toolkit for Eclipse
+### <a name="azure-toolkit-for-eclipse"></a>Kit de ferramentas do Azure para Eclipse
 
 Se você estiver usando a versão 3.15.0 ou inferior, atualize para a [versão mais recente do Azure Toolkit for Eclipse](https://marketplace.eclipse.org/content/azure-toolkit-eclipse) para evitar interrupções.
 
@@ -182,7 +182,7 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-Como alternativa, você pode usar o portal do Azure para adicionar a atribuição de função de operador de cluster HDInsight a um usuário. Consulte a documentação, [Adicionar ou remover atribuições de função do Azure usando a Portal do Azure-adicionar uma atribuição de função](../role-based-access-control/role-assignments-portal.md#add-a-role-assignment).
+Como alternativa, você pode usar o portal do Azure para adicionar a atribuição de função de operador de cluster HDInsight a um usuário. Consulte a documentação, [atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="faq"></a>Perguntas frequentes
 

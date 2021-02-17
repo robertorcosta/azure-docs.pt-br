@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b376883ab7d8ef0ffd57a271e74862b684788ebd
-ms.sourcegitcommit: 484f510bbb093e9cfca694b56622b5860ca317f7
+ms.openlocfilehash: 70aaa528fc86c9e543267b68b5b4cf157ec2dc65
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98630269"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100535256"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -41,17 +41,17 @@ Os rótulos de sensibilidade no Azure alcance podem ser usados para aplicar rót
 Para obter mais informações, consulte:
 
 - [Saiba mais sobre rótulos de sensibilidade](/microsoft-365/compliance/sensitivity-labels) na documentação do Microsoft 365
-- [O que são regras de rotulação de nome?](#what-are-autolabeling-rules)
+- [O que são regras de rotulação automática?](#what-are-auto-labeling-rules)
 - [Tipos de dados com suporte para rótulos de sensibilidade no Azure alcance](#supported-data-types-for-sensitivity-labels-in-azure-purview)
 - [Rotulação de colunas do banco de dados SQL](#labeling-for-sql-database-columns)
 
-#### <a name="what-are-autolabeling-rules"></a>O que são regras de rotulação de nome?
+#### <a name="what-are-auto-labeling-rules"></a>O que são regras de rotulação automática?
 
 Seus dados estão constantemente crescendo e mudando. Controlar os dados que não estão rotulados no momento e tomar medidas para aplicar rótulos manualmente não é apenas um incômodo, mas também é uma dor de cabeça desnecessária. 
 
-As regras de rotulação de rótulo são condições que você especifica, informando quando um determinado rótulo deve ser aplicado. Quando essas condições são atendidas, o rótulo é atribuído automaticamente aos dados, retendo rótulos de sensibilidade consistentes em seus dados, em escala.
+As regras de rotulação automática são condições que você especifica, informando quando um determinado rótulo deve ser aplicado. Quando essas condições são atendidas, o rótulo é atribuído automaticamente aos dados, retendo rótulos de sensibilidade consistentes em seus dados, em escala.
 
-Ao criar seus rótulos, certifique-se de definir regras de rotulação automática para [arquivos](#define-autolabeling-rules-for-files) e [colunas de banco de dados](#define-autolabeling-rules-for-database-columns) para aplicar os rótulos automaticamente a cada verificação de dados. 
+Ao criar seus rótulos, certifique-se de definir as regras de rotulagem automática para [arquivos](#define-auto-labeling-rules-for-files) e [colunas de banco de dados](#define-auto-labeling-rules-for-database-columns) para aplicar os rótulos automaticamente a cada verificação de dados. 
 
 Depois de verificar os dados no alcance, você pode exibir os rótulos aplicados automaticamente no catálogo do alcance e nos relatórios de insights.
 #### <a name="supported-data-types-for-sensitivity-labels-in-azure-purview"></a>Tipos de dados com suporte para rótulos de sensibilidade no Azure alcance
@@ -123,10 +123,10 @@ Depois de estender o rótulo para ativos no Azure alcance, você pode selecionar
 
 1. Siga o restante dos prompts no Assistente para as configurações de rótulo. 
 
-    Especificamente, defina regras de rotulamento para arquivos e colunas de banco de dados:
+    Especificamente, defina regras de rotulamento automático para arquivos e colunas de banco de dados:
 
-    - [Definir regras de rotulamento para arquivos](#define-autolabeling-rules-for-files)
-    - [Definir regras de rotulação de nome para colunas de banco de dados](#define-autolabeling-rules-for-database-columns)
+    - [Definir regras de rotulamento automático para arquivos](#define-auto-labeling-rules-for-files)
+    - [Definir regras de rotulamento automático para colunas de banco de dados](#define-auto-labeling-rules-for-database-columns)
 
     Para obter mais informações sobre as opções do assistente, consulte [o que os rótulos de sensibilidade podem fazer](/microsoft-365/compliance/sensitivity-labels#what-sensitivity-labels-can-do) na documentação do Microsoft 365.
 
@@ -156,21 +156,21 @@ Continue [examinando os dados para aplicar os rótulos automaticamente](#scan-yo
 - [Exibir rótulos em ativos](#view-labels-on-assets)
 - [Exibir relatórios de insights para as classificações e rótulos de sensibilidade](#view-insight-reports-for-the-classifications-and-sensitivity-labels)
 
-#### <a name="define-autolabeling-rules-for-files"></a>Definir regras de rotulamento para arquivos
+#### <a name="define-auto-labeling-rules-for-files"></a>Definir regras de rotulamento automático para arquivos
 
-Defina as regras de rotulagem para arquivos no assistente quando você criar ou editar seu rótulo. 
+Defina regras de rotulamento automático para arquivos no assistente quando você criar ou editar seu rótulo. 
 
 Na página **rotulação automática para aplicativos do Office** , habilite a **rotulagem automática para aplicativos do Office** e defina as condições em que você deseja que seu rótulo seja aplicado automaticamente aos seus dados.
 
 Por exemplo:
 
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Definir regras de rotulação de nomes para arquivos no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Definir regras de rotulação automática para arquivos no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
 Para obter mais informações, consulte [aplicar um rótulo de sensibilidade aos dados automaticamente](/microsoft-365/compliance/apply-sensitivity-label-automatically#how-to-configure-auto-labeling-for-office-apps) na documentação do Microsoft 365. 
 
-#### <a name="define-autolabeling-rules-for-database-columns"></a>Definir regras de rotulação de nome para colunas de banco de dados
+#### <a name="define-auto-labeling-rules-for-database-columns"></a>Definir regras de rotulamento automático para colunas de banco de dados
 
-Defina as regras de rotulagem para colunas de banco de dados no assistente quando você criar ou editar seu rótulo. 
+Defina regras de rotulamento automático para colunas de banco de dados no assistente quando você criar ou editar seu rótulo. 
 
 Na opção **ativos do alcance do Azure (versão prévia)** :
 
@@ -180,11 +180,11 @@ Na opção **ativos do alcance do Azure (versão prévia)** :
 
 Por exemplo:
         
-:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definir regras de rotulamento de linhas para colunas SQL no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
+:::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definir regras de rotulamento automático para colunas SQL no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
 ## <a name="scan-your-data-to-apply-labels-automatically"></a>Examinar seus dados para aplicar rótulos automaticamente
 
-Digitalize seus dados no Azure alcance para aplicar automaticamente os rótulos que você criou, com base nas regras de rotulação automática que você definiu. 
+Digitalize seus dados no Azure alcance para aplicar automaticamente os rótulos que você criou, com base nas regras de rotulagem automática que você definiu. 
 
 Para obter mais informações sobre como configurar verificações em vários ativos no Azure alcance, consulte:
 
@@ -197,7 +197,7 @@ Para obter mais informações sobre como configurar verificações em vários at
 
 ## <a name="view-labels-on-assets"></a>Exibir rótulos em ativos
 
-Depois de definir as regras de rotulação automática para seus rótulos no Microsoft 365 e verificar seus dados no Azure alcance, os rótulos serão aplicados automaticamente aos seus ativos. 
+Depois de definir as regras de rotulagem automática para seus rótulos no Microsoft 365 e examinar seus dados no Azure alcance, os rótulos serão aplicados automaticamente aos seus ativos. 
 
 **Para exibir os rótulos aplicados aos seus ativos no catálogo alcance do Azure:**
 

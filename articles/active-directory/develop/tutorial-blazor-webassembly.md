@@ -8,12 +8,12 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 30b7f1054f7bfee8dc58638791f0b8a424de92a4
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 7118ff589e580fd3aa1f693e72152f1ad4c18e10
+ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226415"
+ms.lasthandoff: 02/09/2021
+ms.locfileid: "99979871"
 ---
 # <a name="tutorial-sign-in-users-and-call-a-protected-api-from-a-blazor-webassembly-app"></a>Tutorial: Conectar usuários e chamar uma API protegida de um aplicativo Blazor WebAssembly
 
@@ -102,7 +102,7 @@ Em seguida, adicione os itens a seguir ao arquivo *.csproj* do seu projeto em **
 
 Em seguida, modifique o código conforme especificado nas próximas etapas. Essas alterações adicionarão [tokens de acesso](access-tokens.md) às solicitações de saída enviadas para a API do Microsoft Graph. Esse padrão é abordado mais detalhadamente nos [cenários de segurança adicionais do Blazor WebAssembly do ASP.NET Core](/aspnet/core/blazor/security/webassembly/additional-scenarios).
 
-Primeiro, crie um arquivo chamado *GraphAuthorizationMessageHandler.cs* com o código a seguir. Esse manipulador será o usuário para adicionar um token de acesso para os escopos `User.Read` e `Mail.Read` a solicitações de saída para a API do Microsoft Graph.
+Primeiro, crie um arquivo chamado *GraphAPIAuthorizationMessageHandler.cs* com o código a seguir. Esse manipulador será o usuário para adicionar um token de acesso para os escopos `User.Read` e `Mail.Read` a solicitações de saída para a API do Microsoft Graph.
 
 ```csharp
 using Microsoft.AspNetCore.Components;

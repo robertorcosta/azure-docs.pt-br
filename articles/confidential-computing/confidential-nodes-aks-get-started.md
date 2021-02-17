@@ -4,14 +4,14 @@ description: Saiba como criar um cluster do AKS com nós confidenciais e implant
 author: agowdamsft
 ms.service: container-service
 ms.topic: quickstart
-ms.date: 12/11/2020
+ms.date: 2/5/2020
 ms.author: amgowda
-ms.openlocfilehash: 92b4cd58b496602b479a24bab81a1d9322e732b0
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: b6fe8f4fe34799a71d59b7487d96217b4ac6a429
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760632"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99833196"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-dcsv2-using-azure-cli-preview"></a>Início Rápido: implantar um cluster do AKS (Serviço de Kubernetes do Azure) com nós de computação confidencial (DCsv2) usando a CLI do Azure (versão prévia)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 ```
 
 ### <a name="azure-confidential-computing-feature-registration-on-azure-optional-but-recommended"></a>Registro de recurso de Computação Confidencial do Azure no Azure (opcional, porém recomendado)
-Como registrar o AKS-ConfidentialComputinAddon na assinatura do Azure. Esse recurso adicionará dois DaemonSets, conforme discutido em detalhes [aqui](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
+Como registrar o AKS-ConfidentialComputingAddon na assinatura do Azure. Esse recurso adicionará dois DaemonSets, conforme discutido em detalhes [aqui](./confidential-nodes-aks-overview.md#aks-provided-daemon-sets-addon):
 1. Plug-in do driver do dispositivo SGX
 2. Auxiliar de cotação do atestado SGX
 
@@ -85,7 +85,7 @@ az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.
 Pode levar vários minutos para que o status seja exibido como Registrado. É possível verificar o status do registro usando o comando 'az feature list'. Esse registro de recurso será feito somente uma vez por assinatura. Caso o recurso tenha sido registrado anteriormente, será possível ignorar a etapa acima:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 Quando o status aparecer como registrado, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando 'az provider register':
 
@@ -143,12 +143,12 @@ Esta seção pressupõe que você já tenha um cluster do AKS em execução que 
 Primeiro, vamos adicionar o recurso à uma assinatura do Azure
 
 ```azurecli-interactive
-az feature register --name AKS-ConfidentialComputinAddon --namespace Microsoft.ContainerService
+az feature register --name AKS-ConfidentialComputingAddon --namespace Microsoft.ContainerService
 ```
 Pode levar vários minutos para que o status seja exibido como Registrado. É possível verificar o status do registro usando o comando 'az feature list'. Esse registro de recurso será feito somente uma vez por assinatura. Caso o recurso tenha sido registrado anteriormente, será possível ignorar a etapa acima:
 
 ```azurecli-interactive
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputinAddon')].{Name:name,State:properties.state}"
+az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-ConfidentialComputingAddon')].{Name:name,State:properties.state}"
 ```
 Quando o status aparecer como registrado, atualize o registro do provedor de recursos Microsoft.ContainerService usando o comando 'az provider register':
 
