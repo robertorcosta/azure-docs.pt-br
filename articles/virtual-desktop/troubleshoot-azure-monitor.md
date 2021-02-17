@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1818dc558ba45e318b71e1443556cc48feaede8b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367666"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571354"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Solucionar problemas de Azure Monitor para área de trabalho virtual do Windows (versão prévia)
 
@@ -26,9 +26,9 @@ Se a pasta de trabalho de configuração não estiver funcionando corretamente p
 
 - Para habilitar o diagnóstico manualmente ou acessar o espaço de trabalho Log Analytics, consulte [Enviar diagnóstico de área de trabalho virtual do Windows para log Analytics](diagnostics-log-analytics.md).
 - Para instalar a extensão de Log Analytics em um host manualmente, consulte [log Analytics extensão de máquina virtual para Windows](../virtual-machines/extensions/oms-windows.md).
-- Para configurar um novo espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
-- Para adicionar ou remover contadores de desempenho, consulte [Configurando contadores de desempenho](../azure-monitor/platform/data-sources-performance-counters.md).
-- Para configurar eventos para um espaço de trabalho Log Analytics, consulte [coletar fontes de dados de log de eventos do Windows com o agente de log Analytics](../azure-monitor/platform/data-sources-windows-events.md).
+- Para configurar um novo espaço de trabalho Log Analytics, consulte [criar um espaço de trabalho log Analytics no portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
+- Para adicionar ou remover contadores de desempenho, consulte [Configurando contadores de desempenho](../azure-monitor/agents/data-sources-performance-counters.md).
+- Para configurar eventos para um espaço de trabalho Log Analytics, consulte [coletar fontes de dados de log de eventos do Windows com o agente de log Analytics](../azure-monitor/agents/data-sources-windows-events.md).
 
 ## <a name="my-data-isnt-displaying-properly"></a>Meus dados não estão sendo exibidos corretamente
 
@@ -44,7 +44,7 @@ Se os dados não estiverem sendo exibidos corretamente, verifique sua configura�
 
 - Talvez seja necessário abrir portas de saída no firewall do servidor para permitir que Azure Monitor enviem dados para o portal, consulte [portas de saída](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
 
-- Não está vendo dados da atividade recente? Talvez você queira aguardar 15 minutos e atualizar o feed. Azure Monitor tem um período de latência de 15 minutos para popular dados de log. Para saber mais, confira [tempo de ingestão de dados de log em Azure monitor](../azure-monitor/platform/data-ingestion-time.md).
+- Não está vendo dados da atividade recente? Talvez você queira aguardar 15 minutos e atualizar o feed. Azure Monitor tem um período de latência de 15 minutos para popular dados de log. Para saber mais, confira [tempo de ingestão de dados de log em Azure monitor](../azure-monitor/logs/data-ingestion-time.md).
 
 Se você não estiver perdendo nenhuma informação, mas seus dados ainda não estiverem sendo exibidos corretamente, pode haver um problema na consulta ou nas fontes de dados. Examine nossos problemas e limitações conhecidos. 
 
@@ -52,7 +52,7 @@ Se você não estiver perdendo nenhuma informação, mas seus dados ainda não e
 
 Azure Monitor para área de trabalho virtual do Windows usa Azure Monitor pastas de trabalho. As pastas de trabalho permitem que você salve uma cópia do modelo de pasta de trabalho de desktop virtual do Windows e faça suas próprias personalizações.
 
-Por design, os modelos de pasta de trabalho personalizada não adotarão automaticamente as atualizações do grupo de produtos. Para obter mais informações, consulte [Solucionando problemas de insights baseados em pasta de trabalho](../azure-monitor/insights/troubleshoot-workbooks.md) e a [visão geral das pastas de trabalho](../azure-monitor/platform/workbooks-overview.md).
+Por design, os modelos de pasta de trabalho personalizada não adotarão automaticamente as atualizações do grupo de produtos. Para obter mais informações, consulte [Solucionando problemas de insights baseados em pasta de trabalho](../azure-monitor/insights/troubleshoot-workbooks.md) e a [visão geral das pastas de trabalho](../azure-monitor/visualize/workbooks-overview.md).
 
 ## <a name="i-cant-interpret-the-data"></a>Não consigo interpretar os dados
 

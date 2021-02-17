@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 82edc70befb7fce95869b238d26c9154ec999c7b
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 0151e7b3a30cd4b00dba75b7490563923cd5b8ff
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966829"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580287"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Extensão de máquina virtual de dependência Azure Monitor para Windows
 
@@ -28,7 +28,7 @@ O recurso Mapa do Azure Monitor para VMs obtém seus dados do Microsoft Dependen
 
 ## <a name="operating-system"></a>Sistema operacional
 
-A extensão do agente de dependência de VM do Azure para Windows pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
+A extensão do agente de dependência de VM do Azure para Windows pode ser executada nos sistemas operacionais com suporte listados na seção [sistemas operacionais com suporte](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) no artigo Azure monitor para VMs implantação.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

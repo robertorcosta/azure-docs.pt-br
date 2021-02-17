@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3e123ab6d5b9d801908112239cf3e9cb72b4abbb
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 4716679de08bbae137e42f91db5b6f93c0c96e22
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593365"
 ---
 # <a name="azure-security-baseline-for-azure-signalr-service"></a>Linha de base de segurança do Azure para serviço de Signaler do Azure
 
@@ -481,9 +481,9 @@ No entanto, o serviço do Azure Signalr registra o tráfego de rede que ele proc
 
 Habilite os logs de recursos do Azure para o serviço de sinalizador do Azure. Você pode usar a central de segurança do Azure e Azure Policy para habilitar logs de recursos e coleta de dados de log. Esses logs podem ser essenciais para investigar posteriormente os incidentes de segurança e executar exercícios forenses.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Logs de recursos do serviço de Signaler do Azure](signalr-howto-diagnostic-logs.md)
 
@@ -503,7 +503,7 @@ Além disso, habilite e integre dados ao Azure Sentinel ou a um sistema de geren
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 

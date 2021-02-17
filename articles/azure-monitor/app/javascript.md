@@ -4,12 +4,12 @@ description: Obter a exibição de página e contagens de sessão, dados de clie
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 60b3e9229adb93ce32c97c2822a465f7f629d47d
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.openlocfilehash: 317050abd0aa77649800493c36b03b298f256096
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
-ms.locfileid: "98234351"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573804"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights para páginas da Web
 
@@ -172,16 +172,16 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 | Nome | Padrão | Descrição |
 |------|---------|-------------|
-| instrumentationKey | null | **Necessária**<br>Chave de instrumentação que você obteve do portal do Azure. |
-| accountId | null | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
+| instrumentationKey | nulo | **Necessária**<br>Chave de instrumentação que você obteve do portal do Azure. |
+| accountId | nulo | Uma ID de conta opcional, se seu aplicativo agrupar usuários em contas. Sem espaços, vírgulas, pontos-e-vírgulas, Equals ou barras verticais |
 | sessionRenewalMs | 1,8 milhões | Uma sessão será registrada se o usuário estiver inativo por esse período de tempo em milissegundos. O padrão é 30 minutos |
 | sessionExpirationMs | 86,4 milhões | Uma sessão será registrada se continuar por esse período de tempo em milissegundos. O padrão é 24 horas |
 | maxBatchSizeInBytes | 10000 | Tamanho máximo do lote de telemetria. Se um lote exceder esse limite, ele será imediatamente enviado e um novo lote será iniciado |
 | maxBatchInterval | 15000 | Quanto tempo para a telemetria do lote antes de enviar (milissegundos) |
 | disableExceptionTracking | false | Se for true, as exceções não serão coletadas. O padrão é false. |
 | disableTelemetry | false | Se for true, a telemetria não será coletada ou enviada. O padrão é false. |
-| enableDebug | false | Se for true, os dados de depuração **internos** serão lançados como uma exceção **em vez** de serem registrados, independentemente das configurações de log do SDK. O padrão é false. <br>**_Observação:_* a habilitação dessa configuração resultará em uma telemetria descartada sempre que ocorrer um erro interno. Isso pode ser útil para identificar rapidamente problemas com sua configuração ou uso do SDK. Se você não quiser perder a telemetria durante a depuração, considere usar `consoleLoggingLevel` ou `telemetryLoggingLevel` em vez de `enableDebug` . |
-| loggingLevelConsole | 0 | Logs _ * Application Insights erros *internos* para o console. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
+| enableDebug | false | Se for true, os dados de depuração **internos** serão lançados como uma exceção **em vez** de serem registrados, independentemente das configurações de log do SDK. O padrão é false. <br>**_Observação:_** A habilitação dessa configuração resultará em uma telemetria descartada sempre que ocorrer um erro interno. Isso pode ser útil para identificar rapidamente problemas com sua configuração ou uso do SDK. Se você não quiser perder a telemetria durante a depuração, considere usar `consoleLoggingLevel` ou `telemetryLoggingLevel` em vez de `enableDebug` . |
+| loggingLevelConsole | 0 | Registra erros **internos** de Application insights no console do. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
 | loggingLevelTelemetry | 1 | Envia erros **internos** de Application insights como telemetria. <br>0: desativado, <br>1: somente erros críticos, <br>2: tudo (erros & avisos) |
 | diagnosticLogInterval | 10000 | interno Intervalo de sondagem (em MS) para fila de log interno |
 | samplingPercentage | 100 | Porcentagem de eventos que serão enviados. O padrão é 100, o que significa que todos os eventos são enviados. Defina isso se desejar preservar o limite de dados para aplicativos de grande escala. |
@@ -197,14 +197,14 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 | disableFlushOnBeforeUnload | false | Padrão false. Se for true, o método Flush não será chamado quando o evento onBeforeUnload for disparado |
 | enableSessionStorageBuffer | true | Padrão verdadeiro. Se for true, o buffer com todas as telemetrias não enviadas será armazenado no armazenamento de sessão. O buffer é restaurado no carregamento da página |
 | isCookieUseDisabled | false | Padrão false. Se for true, o SDK não armazenará nem lerá nenhum dado de cookies. Observe que isso desabilita os cookies de usuário e de sessão e renderiza as folhas de uso e as experiências inúteis. |
-| cookieDomain | null | Domínio de cookie personalizado. Isso será útil se você quiser compartilhar Application Insights cookies entre subdomínios. |
+| cookieDomain | nulo | Domínio de cookie personalizado. Isso será útil se você quiser compartilhar Application Insights cookies entre subdomínios. |
 | isRetryDisabled | false | Padrão false. Se for false, tente novamente 206 (êxito parcial), 408 (timeout), 429 (número excessivo de solicitações), 500 (erro interno do servidor), 503 (Serviço indisponível) e 0 (offline, somente se detectado) |
 | isStorageUseDisabled | false | Se for true, o SDK não armazenará nem lerá nenhum dado do armazenamento local e de sessão. O padrão é false. |
 | isBeaconApiDisabled | true | Se for false, o SDK enviará toda a telemetria usando a [API de Beacon](https://www.w3.org/TR/beacon) |
 | onunloadDisableBeacon | false | Padrão false. Quando a guia for fechada, o SDK enviará toda a telemetria restante usando a [API de Beacon](https://www.w3.org/TR/beacon) |
-| sdkExtension | null | Define o nome da extensão do SDK. Somente caracteres alfabéticos são permitidos. O nome da extensão é adicionado como um prefixo à marca ' ia. Internal. sdkVersion ' (por exemplo, ' ext_javascript: 2.0.0 '). O padrão é nulo. |
+| sdkExtension | nulo | Define o nome da extensão do SDK. Somente caracteres alfabéticos são permitidos. O nome da extensão é adicionado como um prefixo à marca ' ia. Internal. sdkVersion ' (por exemplo, ' ext_javascript: 2.0.0 '). O padrão é nulo. |
 | isBrowserLinkTrackingEnabled | false | O padrão é false. Se for true, o SDK rastreará todas as solicitações de [link do navegador](/aspnet/core/client-side/using-browserlink) . |
-| appId | null | AppId é usado para a correlação entre dependências AJAX acontecendo no lado do cliente com as solicitações do lado do servidor. Quando a API de Beacon está habilitada, ela não pode ser usada automaticamente, mas pode ser definida manualmente na configuração. O padrão é NULL |
+| appId | nulo | AppId é usado para a correlação entre dependências AJAX acontecendo no lado do cliente com as solicitações do lado do servidor. Quando a API de Beacon está habilitada, ela não pode ser usada automaticamente, mas pode ser definida manualmente na configuração. O padrão é NULL |
 | enableCorsCorrelation | false | Se for true, o SDK adicionará dois cabeçalhos (' solicitação-ID ' e ' solicitação-contexto ') a todas as solicitações de CORS para correlacionar as dependências do AJAX de saída com as solicitações correspondentes no lado do servidor. O padrão é falso |
 | namePrefix | não definido | Um valor opcional que será usado como sufixo de nome para localStorage e o nome do cookie.
 | enableAutoRouteTracking | false | Rastreie automaticamente as alterações de rota em SPA (aplicativos de página única). Se for true, cada alteração de rota enviará um novo Pageview para Application Insights. As alterações de rota de hash ( `example.com/foo#bar` ) também são registradas como novas exibições de página.
@@ -219,7 +219,7 @@ A maioria dos campos de configuração são nomeados de modo que eles podem ser 
 
 ## <a name="enable-time-on-page-tracking"></a>Habilitar rastreamento de tempo na página
 
-Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](../platform/metrics-custom-overview.md) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](../platform/metrics-getting-started.md) como uma "métrica baseada em log".
+Por configuração `autoTrackPageVisitTime: true` , o tempo que um usuário gasta em cada página é acompanhado. Em cada novo PageView, a duração que o usuário gastou na página *anterior* é enviada como uma [métrica personalizada](../essentials/metrics-custom-overview.md) chamada `PageVisitTime` . Essa métrica personalizada é visível na [Metrics Explorer](../essentials/metrics-getting-started.md) como uma "métrica baseada em log".
 
 ## <a name="enable-correlation"></a>Habilitar correlação
 

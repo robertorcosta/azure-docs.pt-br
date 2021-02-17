@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: duau
-ms.openlocfilehash: f24a4a0d982ff78ca4d6726e950825ed2c784e67
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.openlocfilehash: 0c1273f4a2025658520118ed843d90b3378a129f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98184533"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577873"
 ---
 # <a name="enable-resource-logging-in-azure-traffic-manager"></a>Habilitar o log de recursos no Gerenciador de tráfego do Azure
 
@@ -64,14 +64,14 @@ Os logs de recursos do Gerenciador de tráfego do Azure podem fornecer informaç
 
 ## <a name="traffic-manager-log-schema"></a>Esquema de log do Gerenciador de Tráfego
 
-Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/platform/resource-logs-schema.md).
+Todos os logs de recursos disponíveis por meio de Azure Monitor compartilham um esquema comum de nível superior, com flexibilidade para cada serviço para emitir propriedades exclusivas para seus próprios eventos. Para o esquema de logs de recursos de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../azure-monitor/essentials/resource-logs-schema.md).
 
 A tabela a seguir inclui o esquema de logs específico para o recurso de perfil do Gerenciador de Tráfego do Azure.
 
 |Nome do campo|Tipo de campo|Definição|Exemplo|
 |----|----|---|---|
-|EndpointName|Cadeia de caracteres|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
-|Status|Cadeia de caracteres|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
+|EndpointName|String|O nome do ponto de extremidade do Gerenciador de Tráfego cujo status de integridade está sendo registrado.|*myPrimaryEndpoint*|
+|Status|String|O status de integridade do ponto de extremidade do Gerenciador de Tráfego que foi investigado. O status pode ser **Operante** ou **Inoperante**.|**Operante**|
 |||||
 
 ## <a name="next-steps"></a>Próximas etapas

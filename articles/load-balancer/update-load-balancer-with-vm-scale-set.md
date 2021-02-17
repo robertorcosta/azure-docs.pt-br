@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/30/2020
+ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 0c491275f793ce2cd5e830ca6a3014dc45d6d509
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 1228462dc6437ecce7718c4747d2acb9ae7332cb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594528"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593038"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou excluir um balanceador de carga usado por conjuntos de dimensionamento de máquinas virtuais
 
@@ -83,14 +83,15 @@ az network lb inbound-nat-pool update
 
 ## <a name="delete-inbound-nat-rules"></a>Excluir regras de NAT de entrada
 
-As regras de NAT de entrada individuais não podem ser excluídas, mas você pode excluir o conjunto inteiro de regras de NAT de entrada.
+As regras de NAT de entrada individuais não podem ser excluídas, mas você pode excluir o conjunto inteiro de regras de NAT de entrada excluindo o pool de NAT de entrada.
 
-Para excluir o conjunto inteiro de regras de NAT de entrada usadas pelo conjunto de dimensionamento, primeiro remova o pool de NAT do conjunto de dimensionamento. Um exemplo completo usando a CLI é mostrado aqui:
-    
+Para excluir o pool de NAT, primeiro remova-o do conjunto de dimensionamento. Um exemplo completo usando a CLI é mostrado aqui:
+
 ```azurecli-interactive
     az vmss update
        --resource-group MyResourceGroup
        --name MyVMSS
+       --remove virtualMachineProfile.networkProfile.networkInterfaceConfigurations[0].ipConfigurations[0].loadBalancerInboundNatPools
      az vmss update-instances 
        --instance-ids "*" 
        --resource-group MyResourceGroup

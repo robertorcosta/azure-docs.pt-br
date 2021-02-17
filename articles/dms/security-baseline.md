@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3d1386ea3d7096e0926825c9b53cf62466c09cc3
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 002c6762c71d5ffb45e56f3bc74d911570bca8bd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98789829"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571940"
 ---
 # <a name="azure-security-baseline-for-azure-database-migration-service"></a>Linha de base de segurança do Azure para serviço de migração de banco de dados
 
@@ -422,7 +422,7 @@ Além disso, habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiro
 
 Muitas organizações optam por usar o Azure Sentinel para dados "quentes" que são usados com frequência e o armazenamento do Azure para dados "frios" que são usados com menos frequência.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 

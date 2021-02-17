@@ -3,12 +3,12 @@ title: Endereços IP usados pelo Azure Monitor
 description: Exceções de firewall de servidor exigidas pelo Application Insights
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 0e7028c59b4588ac23424a63f4e3ce240391dfb8
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: 72f825630ec94b5c32a949a4395c431318afa87f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220795"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584093"
 ---
 # <a name="ip-addresses-used-by-azure-monitor"></a>Endereços IP usados pelo Azure Monitor
 [Azure monitor](../overview.md) usa um número de endereços IP. O Azure Monitor é composto de métricas de plataforma principal e log, além de Log Analytics e Application Insights. Talvez você precise saber esses endereços se o aplicativo ou a infraestrutura que você está monitorando estiver hospedado atrás de um firewall.
@@ -254,21 +254,21 @@ O gerenciamento de alterações nos endereços IP de origem pode ser muito demor
    1. Adicione o nome do grupo de recursos e insira os *detalhes da instância*.
    1. Clique em **revisão + criar** e, em seguida, clique em *criar*.
    
-   :::image type="content" source="../platform/media/action-groups/action-group-create-security-group.png" alt-text="Exemplo de como criar um grupo de segurança de rede."border="true":::
+   :::image type="content" source="../alerts/media/action-groups/action-group-create-security-group.png" alt-text="Exemplo de como criar um grupo de segurança de rede."border="true":::
 
 3. Vá para o grupo de recursos e clique em *grupo de segurança de rede* que você criou.
 
     1. Selecione *regras de segurança de entrada*.
     1. Clique em **Adicionar**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo de como adicionar uma marca de serviço."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-add-service-tag.png" alt-text="Exemplo de como adicionar uma marca de serviço."border="true":::
 
 4. Uma nova janela será aberta no painel direito.
     1.  Selecionar origem: **marca de serviço**
     1.  Marca de serviço de **origem: resourcegroup**
     1.  Clique em **Adicionar**.
     
-    :::image type="content" source="../platform/media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
+    :::image type="content" source="../alerts/media/action-groups/action-group-service-tag.png" alt-text="Exemplo de como adicionar a marca de serviço."border="true":::
 
 
 ## <a name="profiler"></a>Criador de perfil

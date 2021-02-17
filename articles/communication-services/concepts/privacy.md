@@ -8,12 +8,12 @@ ms.author: chpalm
 ms.date: 10/03/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 7c522abd04f4a3e480bb5c3e14e78cc03dbd5d86
-ms.sourcegitcommit: 230d5656b525a2c6a6717525b68a10135c568d67
+ms.openlocfilehash: a047761669920d6460c3d6fb6d74b970effa7846
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94888633"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572031"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência de dados
 
@@ -73,7 +73,7 @@ A comunicação de áudio e vídeo é processada rapidamente pelo serviço e nen
 
 ## <a name="azure-monitor-and-log-analytics"></a>Azure Monitor e Log Analytics
 
-Os Serviços de Comunicação do Azure alimentarão o Azure Monitor dados de log para compreender a integridade operacional e a utilização do serviço. Alguns desses logs incluem identidades e números de telefone do Serviço de Comunicação como dados de campo. Para excluir dados potencialmente pessoais, [use estes procedimentos para o Azure Monitor](../../azure-monitor/platform/personal-data-mgmt.md). Talvez seja interessante configurar [o período de retenção padrão para o Azure Monitor](../../azure-monitor/platform/manage-cost-storage.md).
+Os Serviços de Comunicação do Azure alimentarão o Azure Monitor dados de log para compreender a integridade operacional e a utilização do serviço. Alguns desses logs incluem identidades e números de telefone do Serviço de Comunicação como dados de campo. Para excluir dados potencialmente pessoais, [use estes procedimentos para o Azure Monitor](../../azure-monitor/logs/personal-data-mgmt.md). Talvez seja interessante configurar [o período de retenção padrão para o Azure Monitor](../../azure-monitor/logs/manage-cost-storage.md).
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

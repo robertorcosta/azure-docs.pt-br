@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 62b0b0ebea463276c1ac1197ca0f405c7027711c
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 5487275b7bb99bae16dbef80842819647bccb08c
+ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98956222"
+ms.lasthandoff: 02/04/2021
+ms.locfileid: "99569453"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
 
@@ -87,21 +87,15 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
     ![Cadeia de conexão do Hub IoT](../../../media/quickstarts/iot-hub-connection-string-grpc.png)
 
-> [!NOTE]
-> Talvez você precise fornecer informações do ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será algo parecido com isto:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
+    > [!NOTE]
+    > Talvez você precise fornecer informações do ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será algo parecido com isto:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 
 1. Clique com o botão direito do mouse em *src/edge/config/* *deployment.grpcyolov3icpu.amd64.json* e selecione **Criar Implantação para Dispositivo Único**.
 
     ![criar implantação para dispositivo único](../../../media/quickstarts/create-deployment-single-device-grpc.png)
-
-> [!NOTE]
-> Talvez você precise fornecer informações do ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será algo parecido com isto:  
-    ```
-    Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
-    ```
 
 1. Quando receber um prompt para selecionar um dispositivo do Hub IoT, selecione **lva-sample-device**.
 1. Após cerca de 30 segundos, no canto inferior esquerdo da janela, atualize o Hub IoT do Azure. Agora, o dispositivo de borda mostra os seguintes módulos implantados:
@@ -137,6 +131,11 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 
    ![Começar a monitorar](../../../media/quickstarts/start-monitoring-built-event-endpoint-grpc.png)
 
+    > [!NOTE]
+    > Talvez você precise fornecer informações sobre o ponto de extremidade interno para o Hub IoT. Para obter essas informações, no portal do Azure, navegue até o Hub IoT e procure a opção **Pontos de extremidade internos** no painel de navegação à esquerda. Clique nele e procure o **Ponto de extremidade compatível com hub de eventos** na seção **Ponto de extremidade compatível com hub de eventos**. Copie e use o texto na caixa. O ponto de extremidade será parecido com este:  
+        ```
+        Endpoint=sb://iothub-ns-xxx.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX;EntityPath=<IoT Hub name>
+        ```
 ### <a name="run-the-sample-program"></a>Executar o programa de exemplo
 
 1. Para iniciar uma sessão de depuração, pressione F5. Você verá mensagens impressas na janela TERMINAL.

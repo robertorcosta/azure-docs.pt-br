@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af9921510ba11ab1bd7d0664b2c4c19e042864d3
-ms.sourcegitcommit: 6e2d37afd50ec5ee148f98f2325943bafb2f4993
+ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97746636"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577871"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arquivar logs e relatórios no gerenciamento de direitos do Azure Active Directory no Azure Monitor
 
@@ -59,7 +59,7 @@ O arquivamento de logs de auditoria do Azure AD exige que você tenha o Azure Mo
 
 ## <a name="view-events-for-an-access-package"></a>Exibir eventos para um pacote de acesso  
 
-Para exibir eventos de um pacote de acesso, você deve ter acesso ao workspace do Azure monitor subjacente (consulte [Gerenciar o acesso a dados de log e workspaces no Azure Monitor](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) para obter informações) em uma das seguintes funções: 
+Para exibir eventos de um pacote de acesso, você deve ter acesso ao workspace do Azure monitor subjacente (consulte [Gerenciar o acesso a dados de log e workspaces no Azure Monitor](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) para obter informações) em uma das seguintes funções: 
 
 - Administrador global  
 - Administrador de segurança  
@@ -189,4 +189,4 @@ $bResponse.Results |ft
 ```
 
 ## <a name="next-steps"></a>Próximas etapas:
-- [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../../azure-monitor/platform/workbooks-overview.md)
+- [Criar relatórios interativos com as pastas de trabalho do Azure Monitor](../../azure-monitor/visualize/workbooks-overview.md)
