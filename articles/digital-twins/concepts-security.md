@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: bf92765431ea6b0f80b96ab7d61e8e830220dc82
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934539"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547155"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -51,13 +51,8 @@ O Azure fornece **duas funções internas do Azure** para autorizar o acesso às
 
 | Função interna | Descrição | ID | 
 | --- | --- | --- |
-| Proprietário de dados do gêmeos digital do Azure | Fornece acesso completo nos recursos de gêmeos digitais do Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
+| Proprietário de Dados dos Gêmeos Digitais do Azure | Fornece acesso completo nos recursos de gêmeos digitais do Azure | bcd981a7-7f74-457b-83e1-cceb9e632ffe |
 | Leitor de dados do Azure digital gêmeos | Fornece acesso somente leitura aos recursos de gêmeos digitais do Azure | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
-
->[!NOTE]
-> Essas funções foram renomeadas recentemente de seus nomes anteriores na versão prévia:
-> * O *Proprietário de Dados dos Gêmeos Digitais do Azure* anteriormente era o *Proprietário dos Gêmeos Digitais do Azure (Versão Prévia)* .
-> * O *leitor de dados do gêmeos digital do Azure* era anteriormente o *leitor de gêmeos digital do Azure (versão prévia)*.
 
 Você pode atribuir funções de duas maneiras:
 * por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))

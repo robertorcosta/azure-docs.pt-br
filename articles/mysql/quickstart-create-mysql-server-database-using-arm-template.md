@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 05/19/2020
-ms.openlocfilehash: 0e7fcf51d9c663ca4a289f54972f00ef037cb323
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: 983bda94af9b8595bfb3ce24b7437a35db70efe8
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542262"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100098547"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql-server"></a>Início Rápido: Usar um modelo do ARM para criar um servidor de Banco de Dados do Azure para MySQL
 
@@ -180,6 +180,23 @@ az resource show --resource-group $resourcegroupName --name $serverName --resour
 ```
 
 ---
+
+## <a name="exporting-arm-template-from-the-portal"></a>Como exportar um modelo do ARM por meio do portal
+Você pode [exportar um modelo do ARM](../azure-resource-manager/templates/export-template-portal.md) pelo portal do Azure. Há duas maneiras de exportar um modelo:
+
+- [Exportação do grupo de recursos ou do recurso](../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Essa opção gera um novo modelo com base nos recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Você pode exportar um grupo de recursos inteiro ou recursos específicos dentro desse grupo de recursos.
+- [Exportação antes da implantação ou do histórico](../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Essa opção recupera uma cópia exata de um modelo usado para implantação.
+
+Ao exportar o modelo, na seção ```"parameters":{ }``` do modelo, você observará que ```administratorLogin``` e ```administratorLoginPassword``` não serão incluídos por motivos de segurança. Você **PRECISARÁ** adicionar esses parâmetros ao modelo antes de implantá-lo ou ele falhará.
+
+```json
+"administratorLogin": {
+      "type": "String"
+    },
+"administratorLoginPassword": {
+      "type": "SecureString"
+    },  
+```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

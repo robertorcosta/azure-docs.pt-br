@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1178b0ab5af3642026fe78c7de788f354691b13a
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: ecbf07c1a85c708d4117c83bca546cd8bd6ccd2b
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98701146"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546067"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conectar aplicativos de funções no Azure para processamento de dados
 
@@ -121,8 +121,6 @@ Você pode configurar o acesso de segurança para o aplicativo de funções usan
 O esqueleto de função dos exemplos anteriores requer que um token de portador seja passado para ele, a fim de ser capaz de autenticar com o gêmeos digital do Azure. Para garantir que esse token de portador seja passado, você precisará configurar [identidade de serviço gerenciada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para o aplicativo de funções. Isso só precisa ser feito uma vez para cada aplicativo de funções.
 
 Você pode criar uma identidade gerenciada pelo sistema e atribuir a identidade do aplicativo de funções à função de _**proprietário de dados do gêmeos digital do Azure**_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
-
-[!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
 Use [Azure cloud Shell](https://shell.azure.com) para executar os comandos.
 
