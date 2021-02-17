@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 11/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 3e99b156d220b4c24a368886b1c0ca0813ffdc51
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 58e31cfa42faabbfab217a451e14d33f2cf45863
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674126"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554810"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -20,7 +20,7 @@ Como um Express.js, Node.js ou desenvolvedor de JavaScript, se você for novo no
 
 | Introdução | Conceitos| Aprendizagem orientada |
 | -- | -- | -- | 
-| <ul><li>[Node.js função usando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./create-first-function-cli-node.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js função usando Visual Studio Code](./create-first-function-vs-code-node.md)</li><li>[ FunçãoNode.js com terminal/prompt de comando](./create-first-function-cli-node.md)</li><li>[Node.js função usando o portal do Azure](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[Funções do TypeScript](#typescript)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Refatorar Node.js e APIs expressas para APIs sem servidor](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Noções básicas da função JavaScript
 
@@ -507,7 +507,7 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
 | 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
 | 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
 

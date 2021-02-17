@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: f4640bbd445b27942d757cc4e09aa7e673550ebc
-ms.sourcegitcommit: 2dd0932ba9925b6d8e3be34822cc389cade21b0d
+ms.openlocfilehash: 84dde96276414e98cbde05d6e046dce03227f60d
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/01/2021
-ms.locfileid: "99226515"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547852"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
 
@@ -94,6 +94,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 ### <a name="device-registration"></a>Registro de dispositivos
 
 **P**: o que é o registro de dispositivo?
+
 **R**: sua organização pode exigir que você registre o dispositivo para controlar o acesso a recursos protegidos, como arquivos e aplicativos. Ela também pode ativar o acesso condicional para reduzir o risco de acesso indesejado a esses recursos. Você pode cancelar o registro do seu dispositivo em **Configurações**, mas poderá perder o acesso a e-mails no Outlook, arquivos no OneDrive e perderá a capacidade de usar o login por telefone.
 
 ### <a name="verification-codes-when-connected"></a>Códigos de verificação quando conectados

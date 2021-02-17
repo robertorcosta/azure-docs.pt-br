@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/01/2021
 ms.author: juliako
-ms.openlocfilehash: c0d332c00635444ab4d694e46486a498b43137f2
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99427644"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560503"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -67,7 +67,7 @@ Você poderá se inscrever e entrar usando um destes provedores: Azure AD, Micro
 > [!NOTE]
 > As contas de Video Indexer conectadas ao LinkedIn e ao Facebook não estarão acessíveis após 1º de março de 2021. 
 > 
-> Você deve [convidar](invite-users.md) um email do Azure AD, Microsoft ou Google para a conta de video indexer para que você ainda terá acesso.<br/>
+> Você deve [convidar](invite-users.md) um email do Azure AD, Microsoft ou Google para a conta de video indexer para que você ainda terá acesso. Você pode adicionar um proprietário adicional dos provedores com suporte, conforme descrito em [convidar](invite-users.md). <br/>
 > Como alternativa, você pode criar uma conta paga e migrar os dados.
 
 ## <a name="august-2020"></a>Agosto de 2020

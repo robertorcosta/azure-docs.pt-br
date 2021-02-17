@@ -2,52 +2,32 @@
 title: Implantar configurações usando o GitOps no cluster do Kubernetes habilitado para Arc (versão prévia)
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/09/2021
+ms.date: 02/15/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
 description: Usar o GitOps para configurar um cluster kubernetes habilitado para Arc do Azure (versão prévia)
 keywords: GitOps, kubernetes, K8s, Azure, Arc, serviço do Azure kubernetes, AKS, contêineres
-ms.openlocfilehash: 072bfc8c243eb9b69e06366961019b88b67e0941
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3cadcdf80abd997ec10aeb9521680944d455898f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392231"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100560164"
 ---
-# <a name="deploy-configurations-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps no cluster do Kubernetes habilitado para Arc (versão prévia)
+# <a name="deploy-configurations-using-gitops-on-an-arc-enabled-kubernetes-cluster-preview"></a>Implantar configurações usando o GitOps em um cluster kubernetes habilitado para Arc (versão prévia)
 
-Em relação a kubernetes, o GitOps é a prática de declarar o estado desejado de configurações de cluster kubernetes (implantações, namespaces, etc.) em um repositório git. Essa declaração é seguida por uma implantação baseada em sondagem e pull dessas configurações de cluster usando um operador. 
-
-Este artigo aborda a configuração de fluxos de trabalho do GitOps em clusters kubernetes habilitados para Arc do Azure.
-
-A conexão entre o cluster e um repositório Git é criada como um `Microsoft.KubernetesConfiguration/sourceControlConfigurations` recurso de extensão no Azure Resource Manager. As propriedades de recurso de `sourceControlConfiguration` representam onde e como os recursos de Kubernetes devem fluir do Git para o cluster. Os `sourceControlConfiguration` dados são armazenados criptografados, em repouso, em um Azure Cosmos DB banco de dados, para garantir a confidencialidade do dado.
-
-A `config-agent` execução no seu cluster é responsável por:
-* Acompanhando recursos de extensão novos ou atualizados `sourceControlConfiguration` no recurso kubernetes habilitado para Arc do Azure.
-* Implantando um operador de fluxo para observar o repositório Git para cada um `sourceControlConfiguration` .
-* Aplicando qualquer atualização feita a qualquer `sourceControlConfiguration` . 
-
-Você pode criar vários `sourceControlConfiguration` recursos no mesmo cluster de kubernetes habilitado para Arc do Azure para obter multilocação. Limite as implantações para dentro dos respectivos namespaces criando cada `sourceControlConfiguration` uma com um `namespace` escopo diferente.
-
-O repositório git pode conter:
-* Manifestos de formato YAML que descrevem quaisquer recursos de kubernetes válidos, incluindo namespaces, ConfigMaps, implantações, DaemonSets, etc. 
-* Gráficos do Helm para implantação de aplicativos. 
-
-Um conjunto comum de cenários inclui a definição de uma configuração de linha de base para sua organização, como funções e associações comuns do Azure, agentes de monitoramento ou registro em log ou serviços de todo o cluster.
-
-O mesmo padrão pode ser usado para gerenciar uma coleção maior de clusters, que podem ser implantados em ambientes heterogêneos. Por exemplo, você tem um repositório que define a configuração de linha de base para sua organização, que se aplica a vários clusters kubernetes de uma só vez. [Azure Policy pode automatizar](use-azure-policy.md) a criação de um `sourceControlConfiguration` com um conjunto específico de parâmetros em todos os recursos de kubernetes habilitados para o Azure Arc dentro de um escopo (assinatura ou grupo de recursos).
-
-Percorra as etapas a seguir para saber como aplicar um conjunto de configurações com `cluster-admin` escopo.
+Este artigo demonstra como aplicar configurações em um cluster kubernetes habilitado para o Azure Arc. Uma visão geral conceitual do mesmo pode ser encontrada [aqui](./conceptual-configurations.md).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se você tem um cluster conectado do Azure kubernetes habilitado para Arc existente. Se você precisar de um cluster conectado, consulte o guia de [início rápido conectar um cluster do kubernetes habilitado para o Azure Arc](./connect-cluster.md).
+* Verifique se você tem um cluster conectado do Azure kubernetes habilitado para Arc existente. Se você precisar de um cluster conectado, consulte o guia de [início rápido conectar um cluster do kubernetes habilitado para o Azure Arc](./connect-cluster.md).
+
+* Examine o [artigo configurações e GitOps com o Arc para kubernetes](./conceptual-configurations.md) para entender os benefícios e a arquitetura desse recurso.
 
 ## <a name="create-a-configuration"></a>Criar uma configuração
 
 O [repositório de exemplo](https://github.com/Azure/arc-k8s-demo) usado neste artigo é estruturado em todo o persona de um operador de cluster que gostaria de provisionar alguns namespaces, implantar uma carga de trabalho comum e fornecer uma configuração específica da equipe. O uso desse repositório cria os seguintes recursos no cluster:
-
 
 * **Namespaces:** `cluster-config` , `team-a` , `team-b`
 * **Implantação:**`cluster-config/azure-vote`
@@ -113,7 +93,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-ssh-and-flux-created-keys"></a>Usar um repositório git privado com SSH e chaves criadas pelo fluxo
 
-| Parâmetro | Formatar | Anotações
+| Parâmetro | Formatar | Observações
 | ------------- | ------------- | ------------- |
 | `--repository-url` | ssh://user@server/repo[. git] ou user@server:repo [. git] | `git@` pode substituir `user@`
 
@@ -122,7 +102,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-ssh-and-user-provided-keys"></a>Usar um repositório git privado com SSH e chaves fornecidas pelo usuário
 
-| Parâmetro | Formatar | Anotações |
+| Parâmetro | Formatar | Observações |
 | ------------- | ------------- | ------------- |
 | `--repository-url`  | ssh://user@server/repo[. git] ou user@server:repo [. git] | `git@` pode substituir `user@` |
 | `--ssh-private-key` | chave codificada em base64 no [formato PEM](https://aka.ms/PEMformat) | Fornecer a chave diretamente |
@@ -133,7 +113,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-host-with-ssh-and-user-provided-known-hosts"></a>Usar um host git privado com SSH e hosts conhecidos fornecidos pelo usuário
 
-| Parâmetro | Formatar | Anotações |
+| Parâmetro | Formatar | Observações |
 | ------------- | ------------- | ------------- |
 | `--repository-url`  | ssh://user@server/repo[. git] ou user@server:repo [. git] | `git@` pode substituir `user@` |
 | `--ssh-known-hosts` | codificado em base64 | Fornecer conteúdo de hosts conhecidos diretamente |
@@ -144,7 +124,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 
 #### <a name="use-a-private-git-repo-with-https"></a>Usar um repositório git privado com HTTPS
 
-| Parâmetro | Formatar | Anotações |
+| Parâmetro | Formatar | Observações |
 | ------------- | ------------- | ------------- |
 | `--repository-url` | https://server/repo[. git] | HTTPS com autenticação básica |
 | `--https-user` | brutos ou codificados em base64 | Nome de usuário HTTPS |

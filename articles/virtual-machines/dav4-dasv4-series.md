@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: b72bc5ab22d096420471d097f615e6fdbc14b3e7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: c78bcfe316f543cd6408c24a9ed140b60daad22d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379753"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558070"
 ---
 # <a name="dav4-and-dasv4-series"></a>Séries Dav4 e Dasv4
 
@@ -26,7 +26,7 @@ As séries Dav4 e Dasv4 são novos tamanhos que utilizam o processador 2.35 GHz 
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
@@ -51,7 +51,7 @@ Os tamanhos da série Dav4 são baseados no processador AMD EPYC<sup>TM</sup> 74
 [Migração ao vivo](maintenance-and-updates.md): com suporte<br>
 [Atualizações de preservação de memória](maintenance-and-updates.md): com suporte<br>
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
-[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte<br>
+[Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): com suporte (*requer um mínimo de 4 vCPU*)<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): com suporte <br>
 <br>
 
