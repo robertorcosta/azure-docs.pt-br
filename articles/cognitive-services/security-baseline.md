@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 97bcf0bedb3ed175f8fdb5d4dc361c069ae0327d
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: c0b773a728fed456a34d0db3a00b353147432012
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99805202"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589257"
 ---
 # <a name="azure-security-baseline-for-cognitive-services"></a>Linha de base de segurança do Azure para serviços cognitivas
 
@@ -175,9 +175,9 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretrizes**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados ao seu contêiner de serviços cognitivas do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -199,7 +199,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretrizes**: Habilite as configurações de diagnóstico do Log de Atividades do Azure e envie os logs para um workspace do Log Analytics, um hub de eventos do Azure ou uma conta de armazenamento do Azure para arquivar. Os logs de atividade fornecem informações sobre as operações que foram realizadas no contêiner de serviços cognitivas do Azure no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para o cache do Azure para instâncias Redis.
 
-* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -211,7 +211,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 Além disso, os serviços cognitivas do Azure enviam eventos de diagnóstico que podem ser coletados e usados para fins de análise, alertas e relatórios. Você pode definir configurações de diagnóstico para um contêiner de serviços cognitivas por meio do portal do Azure. Você pode enviar um ou mais eventos de diagnóstico para uma conta de armazenamento, Hub de eventos ou um espaço de trabalho Log Analytics.
 
-* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 * [Usando configurações de diagnóstico para os serviços cognitivas do Azure](./diagnostic-logging.md)
 
@@ -231,7 +231,7 @@ Além disso, os serviços cognitivas do Azure enviam eventos de diagnóstico que
 
 **Diretriz**: No Azure Monitor, defina o período de retenção do workspace do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Use contas do Armazenamento do Microsoft Azure para armazenamento de longo prazo/arquivamento.
 
-* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -241,9 +241,9 @@ Além disso, os serviços cognitivas do Azure enviam eventos de diagnóstico que
 
 **Diretrizes**: habilitar as configurações de diagnóstico do log de atividades do Azure e enviar os logs para um espaço de trabalho log Analytics. Esses logs fornecem dados avançados e frequentes sobre a operação de um recurso que são usados para identificação e depuração de problemas. Execute consultas em Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitas outras informações com base nos dados do log de atividades que podem ter sido coletados para os serviços cognitivas do Azure.
 
-* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+* [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
-* [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../azure-monitor/platform/activity-log.md)
+* [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -257,7 +257,7 @@ Defina as configurações de diagnóstico para seu contêiner de serviços cogni
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../azure-monitor/platform/alerts-log.md)
+* [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -570,7 +570,7 @@ Você também pode usar Azure Key Vault para armazenar as chaves gerenciadas pel
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para as instâncias de produção dos serviços cognitivas do Azure e outros recursos críticos ou relacionados.
 
-* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
 ms.date: 05/08/2019
-ms.openlocfilehash: 7dae067b5d8648f1441047c26f8792e55591b64d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 95d35b3496248db9acb69181191acde58ede7b44
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368516"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100589236"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 
@@ -323,6 +323,9 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 * cmdlet [New-AzBatchAccount](/powershell/module/az.batch/New-azBatchAccount) para criar uma conta do Lote do Azure (ou) o [portal do Azure](../batch/batch-account-create-portal.md) para criar a conta do Lote do Azure usando o portal do Azure. Consulte o artigo [Usando o PowerShell para gerenciar a conta do Lote do Azure](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account) para obter instruções detalhadas sobre como usar este cmdlet.
 * Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar um pool do Lote do Azure.
 
+> [!IMPORTANT]
+> Ao criar um novo pool do lote do Azure, ' VirtualMachineConfiguration ' deve ser usado e não ' CloudServiceConfiguration '. Para obter mais detalhes, consulte as [diretrizes de migração do pool do lote do Azure](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
+
 ### <a name="example"></a>Exemplo
 
 ```json
@@ -543,8 +546,8 @@ Você cria um serviço vinculado do **Azure Data Lake Analytics** para vincular 
 | name                 | Nome do serviço vinculado               | Sim   |
 | type                 | A propriedade de tipo deve ser configurada como: **Azure Databricks**. | Sim                                      |
 | domínio               | Especifique a Região do Azure de acordo com a região do workspace do Databricks. Exemplo: https://eastus.azuredatabricks.net | Sim                                 |
-| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | Não                                       |
-| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | Não                                       |
+| accessToken          | O token de acesso é necessário para que o Data Factory autentique-se no Azure Databricks. O token de acesso precisa ser gerado a partir do workspace do Databricks. Etapas mais detalhadas para encontrar o token de acesso podem ser encontradas [aqui](/azure/databricks/dev-tools/api/latest/authentication#generate-token)  | No                                       |
+| MSI          | Use a identidade gerenciada do Data Factory (atribuída pelo sistema) para autenticar no Azure Databricks. Você não precisa de token de acesso ao usar a autenticação ' MSI '  | No                                       |
 | existingClusterId    | ID do cluster de um cluster existente para executar todos os trabalhos. Esse deve ser um cluster interativo já criado. Talvez seja necessário reiniciar manualmente o cluster se ele parar de responder. O Databricks sugerem a execução de trabalhos em novos clusters para maior confiabilidade. Você pode encontrar a ID do cluster de um cluster interativo no workspace do Databricks -&gt; Clusters -&gt; Nome do Cluster Interativo -&gt; Configuração -&gt; Marcas. [Mais detalhes](https://docs.databricks.com/user-guide/clusters/tags.html) | Não 
 | instancePoolId    | ID do pool de instâncias de um pool existente no espaço de trabalho do Databricks.  | Não  |
 | newClusterVersion    | A versão do Spark do cluster. Ele cria um cluster de trabalho no Databricks. | Não  |

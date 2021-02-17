@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: yuajia
-ms.openlocfilehash: cd99be40700ab1c34176f2bf7497e4debf5cd424
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: d1f3e59cc88ea9cb30e7eacbd26591e08d71be61
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96483790"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575243"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoramento de métricas e logs na porta frontal do Azure
 
@@ -59,7 +59,7 @@ Acesse os logs de atividade em sua porta de front-end ou todos os logs dos recur
 ## <a name="diagnostic-logs"></a><a name="diagnostic-logging"></a>Logs de diagnóstico
 Os logs de diagnóstico fornecem informações avançadas sobre operações e erros que são importantes para auditoria e solução de problemas. Os logs de diagnóstico são diferentes dos logs de atividades.
 
-Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações que o recurso fez. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md).
+Os logs de atividades fornecem informações sobre as operações realizadas nos recursos do Azure. Os logs de diagnóstico fornecem informações sobre as operações que o recurso fez. Para obter mais informações, consulte [Azure monitor logs de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md).
 
 :::image type="content" source="./media/front-door-diagnostics/diagnostic-log.png" alt-text="Logs de diagnóstico":::
 

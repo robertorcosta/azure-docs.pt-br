@@ -6,14 +6,14 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 02/12/2021
 ms.author: banders
-ms.openlocfilehash: debe02a89e10712ad8a0b8d61b0fdc3f8a4bd7b2
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: c599c64ce4b22bbf7bece77602b22fef6629d07c
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577380"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100369723"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-premium-v3-instances-and-isolated-stamps"></a>Como os descontos de reserva se aplicam às instâncias do Serviço de Aplicativo do Azure Premium v3 e aos Selos Isolados
 
@@ -40,10 +40,6 @@ O desconto de reserva do Azure é aplicado às instâncias Premium v3 em execuç
 4.  Na hora 4, a instância 1 é executada por 0,5 hora e a instância 2, por 1 hora. A instância 1 está totalmente coberta pela reserva, e também 0,5 hora da instância 2. São cobradas as taxas de pagamento pelo uso da 0,5 hora restante.
 
 Para entender e exibir o aplicativo das Reservas do Azure nos relatórios de uso de cobrança, consulte [Entender o uso de reserva](understand-reserved-instance-usage-ea.md).
-
-### <a name="discount-can-apply-to-different-sizes"></a>O desconto pode se aplicar a diferentes tamanhos
-
-Quando você compra uma Instância Premium v3 Reservada e selecionar **Otimizado para flexibilidade de tamanho da instância**, a cobertura do desconto se aplica ao tamanho da instância Premium v3 selecionado. Ela também pode se aplicar a outros tamanhos de instâncias que estejam no mesmo grupo de flexibilidade de tamanho da instância da série.
 
 ## <a name="how-reservation-discounts-apply-to-isolated-stamps"></a>Como os descontos de reserva se aplicam aos Selos Isolados
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 13515f2428b1fc95c31b04c984dd77dd316a4315
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: bc121b3f5aadad1e68315acac5daade5337b701b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202191"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580361"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Linha de base de segurança do Azure para o Gerenciador de tráfego do Azure
 
@@ -32,7 +32,7 @@ Os logs de ingestão por meio de Azure Monitor para agregar dados de segurança 
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -48,9 +48,9 @@ Habilite as configurações de diagnóstico dentro de Azure Monitor para acesso 
 
 - [Alertas e métricas do Gerenciador de Tráfego](traffic-manager-metrics-alerts.md)
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -60,7 +60,7 @@ Habilite as configurações de diagnóstico dentro de Azure Monitor para acesso 
 
 **Diretrizes**: em Azure monitor, defina seu período de retenção de espaço de trabalho de log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de armazenamento do Azure para armazenamento de longo prazo e arquivamento.
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 - [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -76,9 +76,9 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introdução às consultas de Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+- [Introdução às consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -96,7 +96,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -288,7 +288,7 @@ O Gerenciador de tráfego do Azure tem uma função predefinida do Azure chamada
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem no Gerenciador de tráfego do Azure, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

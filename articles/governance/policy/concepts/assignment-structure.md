@@ -3,12 +3,12 @@ title: Detalhes da estrutura de atribuição de política
 description: Descreve a definição de atribuição de política usada por Azure Policy para relacionar definições de política e parâmetros a recursos para avaliação.
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1151c931863e1139b76c34ced12c4e2842f83cc6
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 625314a8b83a4d0cc76eae51eae8d357e39d2a6a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558458"
+ms.locfileid: "100581958"
 ---
 # <a name="azure-policy-assignment-structure"></a>Estrutura de atribuição do Azure Policy
 
@@ -63,11 +63,11 @@ Use **DisplayName** e **Description** para identificar a atribuição de políti
 
 ## <a name="enforcement-mode"></a>Modo de imposição
 
-A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/platform/platform-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
+A **Propriedade** impolicymode fornece aos clientes a capacidade de testar o resultado de uma política em recursos existentes sem iniciar o efeito da política ou disparar entradas no [log de atividades do Azure](../../../azure-monitor/essentials/platform-logs-overview.md). Esse cenário é conhecido como "What If" e alinha-se às práticas de implantação seguras. **imposiçãomode** é diferente do efeito [desabilitado](./effects.md#disabled) , pois esse efeito impede que a avaliação de recursos aconteça.
 
 Essa propriedade tem os seguintes valores:
 
-|Modo |Valor JSON |Type |Corrigir manualmente |Entrada do log de atividades |Descrição |
+|Modo |Valor JSON |Tipo |Corrigir manualmente |Entrada do log de atividades |Descrição |
 |-|-|-|-|-|-|
 |habilitado |Padrão |string |Sim |Sim |O efeito de política é imposto durante a criação ou atualização de recursos. |
 |Desabilitado |DoNotEnforce |string |Sim |Não | O efeito de política não é imposto durante a criação ou atualização de recursos. |
