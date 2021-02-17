@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: eba3958ae5dd307b80b04371d3659a129d5acf89
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 5a7cfec6acb4cd8735c039f5eab30bac4ccf55b0
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98797861"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100556141"
 ---
 # <a name="write-client-app-authentication-code"></a>Gravar o código de autenticação do aplicativo cliente
 
@@ -104,7 +104,7 @@ Aqui está um exemplo do código para criar um cliente SDK autenticado usando o 
 Consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md) para obter um exemplo mais completo que explica algumas das opções de configuração importantes no contexto de funções.
 
 Além disso, para usar a autenticação em uma função, lembre-se de:
-* [Habilitar a identidade gerenciada](../app-service/overview-managed-identity.md?tabs=dotnet)
+* [Habilitar identidade gerenciada](../app-service/overview-managed-identity.md?tabs=dotnet)
 * Usar [variáveis de ambiente](/sandbox/functions-recipes/environment-variables?tabs=csharp) conforme apropriado
 * Atribua permissões ao aplicativo de funções que permite que ele acesse as APIs de gêmeos digital. Para obter mais informações sobre processos de Azure Functions, consulte [*como: configurar uma função do Azure para processar dados*](how-to-create-azure-function.md).
 
@@ -117,5 +117,5 @@ Se os cenários de autenticação destacados acima não atenderem às necessidad
 Leia mais sobre como funciona a segurança no Azure digital gêmeos:
 * [*Conceitos: segurança para soluções de gêmeos digitais do Azure*](concepts-security.md)
 
-Ou, agora que a autenticação está configurada, vá para a criação de modelos na sua instância:
-* [*Como gerenciar modelos personalizados*](how-to-manage-model.md)
+Ou, agora que a autenticação está configurada, vá para a criação e gerenciamento de modelos em sua instância:
+* [*Como: gerenciar modelos de DTDL*](how-to-manage-model.md)

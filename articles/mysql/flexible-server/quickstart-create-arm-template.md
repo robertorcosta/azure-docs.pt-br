@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: sumuth
 ms.date: 10/23/2020
-ms.openlocfilehash: a7dc6a6b11d3bfacf0aac5472a872ffaa7acc92b
-ms.sourcegitcommit: 003ac3b45abcdb05dc4406661aca067ece84389f
+ms.openlocfilehash: 5be0bf21514dd92c2f980081bb57d873895bbb91
+ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96748698"
+ms.lasthandoff: 02/10/2021
+ms.locfileid: "100099924"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-mysql---flexible-server-preview"></a>Início Rápido: Usar um modelo do ARM para criar um Servidor Flexível do Banco de Dados do Azure para MySQL (versão prévia)
 
@@ -97,7 +97,7 @@ Crie um arquivo _mysql-flexible-server-template.json_ e copie script JSON a segu
       "location": "[parameters('location')]",
       "sku": {
         "name": "Standard_D4ds_v4",
-        "tier": "[parameters('serverEdition')]"        
+        "tier": "[parameters('serverEdition')]"
       },
       "tags": "[parameters('tags')]",
       "properties": {
@@ -204,6 +204,22 @@ read serverName &&
 echo "Enter the resource group where the Azure Database for MySQL server exists:" &&
 read resourcegroupName &&
 az resource show --resource-group $resourcegroupName --name $serverName --resource-type "Microsoft.DbForMySQL/flexibleServers"
+```
+## <a name="exporting-arm-template-from-the-portal"></a>Como exportar um modelo do ARM por meio do portal
+Você pode [exportar um modelo do ARM](../../azure-resource-manager/templates/export-template-portal.md) pelo portal do Azure. Há duas maneiras de exportar um modelo:
+
+- [Exportação do grupo de recursos ou do recurso](../../azure-resource-manager/templates/export-template-portal.md#export-template-from-a-resource). Essa opção gera um novo modelo com base nos recursos existentes. O modelo exportado é um "instantâneo" do estado atual do grupo de recursos. Você pode exportar um grupo de recursos inteiro ou recursos específicos dentro desse grupo de recursos.
+- [Exportação antes da implantação ou do histórico](../../azure-resource-manager/templates/export-template-portal.md#export-template-before-deployment). Essa opção recupera uma cópia exata de um modelo usado para implantação.
+
+Ao exportar o modelo, na seção ```"parameters":{ }``` do modelo, você observará que ```administratorLogin``` e ```administratorLoginPassword``` não serão incluídos por motivos de segurança. Você **PRECISARÁ** adicionar esses parâmetros ao modelo antes de implantá-lo ou ele falhará.
+
+```
+"administratorLogin": {
+      "type": "String"
+    },
+"administratorLoginPassword": {
+      "type": "SecureString"
+    },
 ```
 
 ## <a name="clean-up-resources"></a>Limpar os recursos

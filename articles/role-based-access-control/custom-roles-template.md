@@ -10,12 +10,12 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
-ms.openlocfilehash: beea0c5cecd7bb99973a4692a4cce17e7a69d708
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.openlocfilehash: 96915fe5cc7bc7b2f88e0cbd8619c10a6433dd71
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97631305"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557482"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Criar ou atualizar funções personalizadas do Azure usando um modelo ARM
 
@@ -207,5 +207,5 @@ Para remover a função personalizada, siga estas etapas.
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Entender as definições de função do Azure](role-definitions.md)
-- [Início Rápido: Adicione uma atribuição de função do Azure usando um modelo do Azure Resource Manager](quickstart-role-assignments-template.md)
+- [Início rápido: atribuir uma função do Azure usando um modelo de Azure Resource Manager](quickstart-role-assignments-template.md)
 - [Documentação do modelo ARM](../azure-resource-manager/templates/index.yml)

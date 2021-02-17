@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/09/2021
 ms.author: dech
 ms.custom: references_regions
-ms.openlocfilehash: b8ce745a0a0db96e7f6b9e3a0140d46364246e4a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: fd7f663ee5b6ceb49e6f1a393fc30919d5b245e9
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379600"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547801"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -97,7 +97,7 @@ Os blocos de anotações internos para Azure Cosmos DB estão disponíveis no mo
 - Sul da Coreia
 - Centro-Norte dos EUA
 - Norte da Europa
-- Centro-Sul dos EUA
+- Centro-Sul dos Estados Unidos
 - Sudeste Asiático
 - Norte da Suíça
 - EAU Central

@@ -1,7 +1,7 @@
 ---
 title: Configurar o atestado do Azure para seu servidor lógico do SQL Azure
 description: Configure o atestado do Azure para Always Encrypted com o Secure enclaves no banco de dados SQL do Azure.
-keywords: criptografar dados, criptografia do SQL, criptografia de banco de dados, informações confidenciais, Always Encrypted, enclaves seguro, SGX, atestado
+keywords: criptografar dados, criptografia do SQL, criptografia de banco de dados, informações confidenciais, Always Encrypted, enclaves seguros, SGX, atestado
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,19 +11,19 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviwer: vanto
 ms.date: 01/15/2021
-ms.openlocfilehash: 51431bf0da9145e1b61da708942b675e4c3eea78
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 664733f3d4c4e4bf17440db0323580c5d2c8c2ce
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98733803"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100555671"
 ---
 # <a name="configure-azure-attestation-for-your-azure-sql-logical-server"></a>Configurar o atestado do Azure para seu servidor lógico do SQL Azure
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> O Always Encrypted com Secure enclaves para o banco de dados SQL do Azure está atualmente em **Visualização pública**.
+> Atualmente, o Always Encrypted com enclaves seguros para o Banco de Dados SQL do Azure está em **versão prévia pública**.
 
 [Microsoft Azure atestado](../../attestation/overview.md) é uma solução para atestar TEEs (ambientes de execução confiáveis), incluindo o ENCLAVES Intel SGX (Intel® software Guard Extensions). 
 
@@ -31,7 +31,7 @@ Para usar o atestado do Azure para atestado do Intel SGX enclaves usado para [Al
 
 1. Crie um [provedor de atestado](../../attestation/basic-concepts.md#attestation-provider) e configure-o com a política de atestado recomendada.
 
-2. Conceda acesso ao seu servidor lógico do Azure SQL ao seu provedor de atestado.
+2. Permita o acesso do provedor de atestado ao servidor lógico do SQL do Azure.
 
 > [!NOTE]
 > Configurar o atestado é responsabilidade do administrador de atestado. Consulte [funções e responsabilidades ao configurar o enclaves e o atestado de SGX](always-encrypted-enclaves-plan.md#roles-and-responsibilities-when-configuring-sgx-enclaves-and-attestation).
@@ -76,7 +76,7 @@ A política acima verifica:
 
 Para obter instruções sobre como criar um provedor de atestado e configurar com uma política de atestado usando:
 
-- [Início rápido: configurar o atestado do Azure com o portal do Azure](../../attestation/quickstart-portal.md)
+- [Início rápido: Configurar Atestado do Azure com o portal do Azure](../../attestation/quickstart-portal.md)
     > [!IMPORTANT]
     > Ao configurar sua política de atestado com portal do Azure, defina tipo de atestado como `SGX-IntelSDK` .
 - [Início Rápido: Configurar o Atestado do Azure com o Azure PowerShell](../../attestation/quickstart-powershell.md)
@@ -114,7 +114,7 @@ Durante o fluxo de trabalho de atestado, o servidor lógico do SQL do Azure que 
 
 ### <a name="use-azure-portal-to-assign-permission"></a>Usar portal do Azure para atribuir permissão
 
-Para atribuir a identidade de um SQL Server do Azure à função de leitor de atestado para um provedor de atestado, siga as instruções gerais em [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md). Quando você estiver no painel **Adicionar atribuição de função** :
+Para atribuir a identidade de um SQL Server do Azure à função de leitor de atestado para um provedor de atestado, siga as instruções gerais em [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md). Quando você estiver no painel **Adicionar atribuição de função** :
 
 1. Na lista suspensa **função** , selecione a função **leitor de atestado** .
 1. No campo **selecionar** , insira o nome do seu servidor SQL do Azure para pesquisá-lo.
@@ -143,7 +143,7 @@ $attestationResourceGroupName = "<attestation provider resource group name>"
 New-AzRoleAssignment -ObjectId $server.Identity.PrincipalId -RoleDefinitionName "Attestation Reader" -ResourceGroupName $attestationResourceGroupName
 ```
 
-Para obter mais informações, consulte [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#add-role-assignment-examples).
+Para obter mais informações, consulte [atribuir funções do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md#assign-role-examples).
 
 ## <a name="next-steps"></a>Próximas etapas
 
