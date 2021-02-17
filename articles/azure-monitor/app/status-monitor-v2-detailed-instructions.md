@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: a8a27a782d5e05b5febda659009284c22d3608c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a955273c01d8c0d865aabd91bb1bfcce70fd373
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87318973"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587369"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Agente de Application Insights (anteriormente denominado Status Monitor v2): instruções detalhadas
 
@@ -158,7 +158,7 @@ Se por algum motivo você não puder se conectar ao módulo do PowerShell, poder
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>Baixar manualmente o arquivo nupkg mais recente
 
-1. Acesse https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+1. Ir para https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 2. Selecione a versão mais recente do arquivo na tabela de **histórico de versão** .
 3. Em **Opções de instalação**, selecione **download manual**.
 
@@ -231,9 +231,9 @@ Consulte a [referência da API](./status-monitor-v2-api-reference.md#enable-appl
 
  Exiba sua telemetria:
 
-- [Explore as métricas](../platform/metrics-charts.md) para monitorar o desempenho e o uso.
+- [Explore as métricas](../essentials/metrics-charts.md) para monitorar o desempenho e o uso.
 - [Pesquise eventos e logs](./diagnostic-search.md) para diagnosticar problemas.
-- [Use a análise](../log-query/log-query-overview.md) para consultas mais avançadas.
+- [Use a análise](../logs/log-query-overview.md) para consultas mais avançadas.
 - [Crie painéis](./overview-dashboard.md).
 
  Adicione mais telemetria:

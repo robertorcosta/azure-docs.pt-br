@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: banders
 ms.custom: references_regions
-ms.openlocfilehash: 89e0c62b580c0c354fc7277e61b452005a86e3d9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 92a315121ad8ae6fadcadbf6d531eb3e99ae69a9
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99577382"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374534"
 ---
 # <a name="save-costs-with-azure-app-service-reserved-instances"></a>Reduza os custos com as instâncias reservadas do Serviço de Aplicativo do Azure
 
@@ -37,24 +37,12 @@ Use as recomendações de reserva para ajudar a determinar as reservas que devem
 - Use as APIs para obter recomendações de compra para o escopo compartilhado e o escopo de assinatura única. Para obter mais informações, confira [APIs de recomendação de compra de instância reservada para clientes empresariais](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation).
 - Para os clientes do EA (Contrato Enterprise) e do MCA (Contrato de Cliente da Microsoft), as recomendações de compra para os escopos de assinatura compartilhada e única estão disponíveis no [pacote de conteúdo do Azure Consumption Insights para Power BI](/power-bi/service-connect-to-azure-consumption-insights).
 
-#### <a name="instance-size-flexibility-setting"></a>Configuração de flexibilidade de tamanho da instância
-
-A configuração de flexibilidade de tamanho da instância determina quais serviços têm os descontos de instância reservada.
-
-Se a configuração estiver ativada ou desativada, os descontos de reserva serão aplicados automaticamente a qualquer Uso da Instância Reservada Premium v3 correspondente.
-
 ### <a name="analyze-your-usage-information"></a>Analisar suas informações de uso
 
 Analise suas informações de uso para ajudar a determinar quais reservas devem ser compradas. Os dados de uso estão disponíveis no arquivo de uso e nas APIs. Use-os juntos para determinar qual reserva deve ser comprada. Verifique as instâncias Premium v3 que têm alto uso diariamente para determinar a quantidade de reservas a serem compradas.
 
 Seu arquivo de uso mostra os preços por período de cobrança e uso diário. Para obter informações sobre como baixar o arquivo de uso, confira [Ver e baixar o uso e os preços do Azure](../understand/download-azure-daily-usage.md). Em seguida, usando as informações do arquivo de uso, [determine a reserva a ser comprada](determine-reservation-purchase.md).
 
-### <a name="purchase-restriction-considerations"></a>Considerações sobre a restrição de compra
-
-Os descontos de reserva não se aplicam às seguintes instâncias Premium v3:
-
-- **Instâncias de versão prévia ou promocionais**: qualquer série ou tamanho de instância reservada Premium v3 que esteja em versão prévia ou use o medidor promocional.
-- **Nuvens**: as reservas não estão disponíveis para compra nas regiões da Alemanha ou da China.
 
 ## <a name="buy-a-premium-v3-reserved-instance"></a>Comprar uma instância reservada Premium v3
 
@@ -79,7 +67,6 @@ Se você tiver um contrato EA, poderá usar a opção **Adicionar mais** para ad
 | Escopo | O escopo da reserva pode abranger uma ou várias assinaturas (escopo compartilhado). Se você selecionar: <ul><li>**Escopo de grupo de recursos único** — aplica o desconto de reserva apenas aos recursos correspondentes no grupo de recursos selecionado. </li><li>**Escopo de assinatura única** — aplica o desconto de reserva apenas aos recursos correspondentes na assinatura selecionada.</li><li>**Escopo compartilhado** — aplica o desconto de reserva aos recursos correspondentes em assinaturas qualificadas que estão no contexto de cobrança. Para clientes do EA, o contexto de cobrança é o registro. Para assinaturas individuais com tarifas pagas conforme o uso, o escopo do orçamento são todas as assinaturas qualificadas criadas pelo administrador da conta.</li></ul> |
 | Região | A região do Azure que é coberta pela reserva. |
 | Tamanho da instância reservada Premium v3 | O tamanho das instâncias reservadas Premium v3. |
-| Otimizar para | A flexibilidade de tamanho da instância reservada Premium v3 é selecionada por padrão. Clique em **Configurações avançadas** para alterar o valor da flexibilidade de tamanho da instância a fim de aplicar o desconto de reserva a outras instâncias reservadas Premium v3 no mesmo [grupo de tamanho de Instância Reservada Premium v3](../../virtual-machines/reserved-vm-instance-size-flexibility.md). A prioridade da capacidade prioriza a capacidade de data center para suas implantações. Isso oferecerá mais confiança na sua capacidade de iniciar as instâncias reservadas Premium v3 quando você precisar delas. A prioridade de capacidade está disponível apenas quando o escopo de reserva é uma assinatura única. |
 | Termo | Um ano ou três anos. Há também um termo de cinco anos disponível somente para instâncias reservadas HBv2 Premium v3. |
 | Quantidade | O número de instâncias sendo compradas na reserva. A quantidade é o número de instâncias reservadas Premium v3 em execução que podem receber o desconto de cobrança. Por exemplo, se você estiver executando dez instâncias reservadas Standard\_D2 Premium v3 no Leste dos EUA, especifique a quantidade como dez para maximizar o benefício para todas as instâncias reservadas Premium v3 em execução. |
 

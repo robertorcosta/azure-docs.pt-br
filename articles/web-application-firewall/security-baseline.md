@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b50ab8cae91aab56be287f517fa6e6a0b25db8e1
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807862"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581245"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de base de segurança do Azure para o Firewall do aplicativo Web do Azure
 
@@ -111,9 +111,9 @@ Escolha Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em r
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de configurações de rede e recursos relacionados às implantações do WAF (firewall do aplicativo Web) do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em configurações de rede ou recursos críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -153,9 +153,9 @@ O Azure Sentinel tem uma pasta de trabalho interna do Azure WAF, que fornece uma
 
 - [Visão geral do log](ag/ag-overview.md#logging)
 
-- [Visão geral da consulta de log de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+- [Visão geral da consulta de log de Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 
-- [Visão geral dos logs da plataforma Azure](../azure-monitor/platform/platform-logs-overview.md)
+- [Visão geral dos logs da plataforma Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -192,9 +192,9 @@ O Azure Sentinel tem uma pasta de trabalho interna de eventos WAF-firewall, que 
 
 **Orientação**: habilitar as configurações de diagnóstico do log de atividades do Azure, bem como as configurações de diagnóstico para o WAF do Azure, e enviar os logs para um espaço de trabalho log Analytics. Faça consultas no Log Analytics para pesquisar termos, identificar tendências, analisar padrões e fornecer muitos outros insights com base nos dados coletados. Crie alertas para atividade anômala com base em métricas de WAF. Por exemplo, se o número bloqueado de solicitações exceder ' X ', faça ' Y '.
 
-- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como criar alertas no Azure](../azure-monitor/learn/tutorial-response.md)
+- [Como criar alertas no Azure](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

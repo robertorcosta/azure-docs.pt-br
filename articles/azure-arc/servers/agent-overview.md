@@ -3,12 +3,12 @@ title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
 ms.date: 02/16/2021
 ms.topic: conceptual
-ms.openlocfilehash: 82562bf3b1f8392e56a53ba0f968a76b050e7b13
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 8c06989d726a30e95f0b9c4dcc15a967d498f92a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558499"
+ms.locfileid: "100580879"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -110,7 +110,7 @@ Para garantir a segurança de dados em trânsito para o Azure, incentivamos voc�
 O agente do Connected Machine para Linux e Windows comunica a saída com segurança ao Azure Arc pela porta TCP 443. Se o computador se conectar por meio de um firewall ou servidor proxy para se comunicar pela Internet, examine o seguinte para entender os requisitos de configuração de rede.
 
 > [!NOTE]
-> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/platform/gateway.md) como proxy para o agente de computador conectado.
+> Os servidores habilitados para ARC não dão suporte ao uso de um [Gateway de log Analytics](../../azure-monitor/agents/gateway.md) como proxy para o agente de computador conectado.
 >
 
 Se a conectividade de saída estiver restrita por seu firewall ou servidor proxy, verifique se as URLs listadas abaixo não estão bloqueadas. Quando você permite apenas os intervalos IP ou nomes de domínio necessários para que o agente se comunique com o serviço, é necessário permitir o acesso às seguintes marcas de serviço e URLs.

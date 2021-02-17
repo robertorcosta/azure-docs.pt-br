@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: cba362004e764ffbbc734fb06c8898f380ffdf88
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: b26a020b9b4b1641d67a4f5ca55908b8d37f31e4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99806911"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596499"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Linha de base de segurança do Azure para o IP público do Azure
 
@@ -52,7 +52,7 @@ O IP público fornece ferramentas para monitorar, diagnosticar, exibir métricas
 
 Em vez disso, você pode habilitar o e os dados integrados para o Azure Sentinel ou um SIEM de terceiros.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -64,7 +64,7 @@ Em vez disso, você pode habilitar o e os dados integrados para o Azure Sentinel
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações e detectar alterações para suas instâncias de IP público. Além do plano de controle (por exemplo, portal do Azure), o próprio IP público não gera logs de auditoria. O IP público fornece ferramentas para monitorar, diagnosticar, exibir métricas e habilitar ou desabilitar logs de recursos em uma rede virtual do Azure.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -74,7 +74,7 @@ Em vez disso, você pode habilitar o e os dados integrados para o Azure Sentinel
 
 **Diretrizes**: Use Azure monitor para definir o período de retenção de log para os espaços de trabalho de log Analytics associados a instâncias de IP público de acordo com as obrigações de conformidade de sua organização.
 
-- [Como definir parâmetros de retenção de log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -88,7 +88,7 @@ Use o log de atividades do Azure para monitorar as configurações e detectar al
 
 O IP público em si não gera logs relacionados ao tráfego de rede que não seja no plano de controle (por exemplo, portal do Azure).
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

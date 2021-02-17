@@ -16,12 +16,12 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: e3c64155053517205ab006673bb8f400325ad3c4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4c1c247d8fb248c5e6d548dd04af1c3d08a4e76
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86219956"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588318"
 ---
 # <a name="notification-hubs-templates"></a>Modelos de hubs de notificação
 
@@ -108,7 +108,6 @@ O modelo para a previsão de um dia com temperaturas em graus Celsius é como se
 
 A mensagem enviada ao Hub de Notificação contém as seguintes propriedades:
 
-```html
 <table border="1">
 
 <tr><td>day1_image</td><td>day2_image</td><td>day3_image</td><td>day4_image</td><td>day5_image</td></tr>
@@ -117,7 +116,6 @@ A mensagem enviada ao Hub de Notificação contém as seguintes propriedades:
 
 <tr><td>day1_tempF</td><td>day2_tempF</td><td>day3_tempF</td><td>day4_tempF</td><td>day5_tempF</td></tr>
 </table><br/>
-```
 
 Ao usar esse padrão, o back-end envia apenas uma única mensagem sem ter que armazenar opções de personalização específicas para os usuários do aplicativo. A figura a seguir ilustra esse cenário:
 
