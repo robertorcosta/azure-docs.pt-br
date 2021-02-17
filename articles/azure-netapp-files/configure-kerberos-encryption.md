@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/09/2020
 ms.author: b-juche
-ms.openlocfilehash: 69168060cbce4a904c53d7f79895e909c8c42e01
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: b7e40eb936a6151f0f31c34c5a8030153a87f08c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935216"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571097"
 ---
-# <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar a criptografia Kerberos do NFSv 4.1 para Azure NetApp Files
+# <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar criptografia do Kerberos do NFSv 4.1 para Azure NetApp Files
 
 O Azure NetApp Files dá suporte à criptografia de cliente NFS nos modos Kerberos (krb5, krb5i e krb5p) com a criptografia AES-256. Este artigo descreve as configurações necessárias para usar um volume NFSv 4.1 com criptografia Kerberos.
 
@@ -57,7 +57,7 @@ Os seguintes requisitos se aplicam à criptografia de cliente do NFSv 4.1:
 
 ## <a name="configure-the-azure-portal"></a>Configurar o portal do Azure 
 
-1.  Siga as instruções em [criar uma conexão de Active Directory](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection).  
+1.  Siga as instruções em [criar uma conexão de Active Directory](create-active-directory-connections.md).  
 
     O Kerberos requer que você crie pelo menos uma conta de computador no Active Directory. As informações de conta que você fornece são usadas para criar as contas para volumes de Kerberos SMB *e* nfsv 4.1. Esta máquina é criada automaticamente durante a criação do volume.
 
@@ -89,7 +89,7 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
 
 2. Selecione **instruções de montagem** do volume para exibir as instruções.
 
-    Por exemplo: 
+    Por exemplo:  
 
     ![Instruções de montagem para volumes Kerberos](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
@@ -175,5 +175,5 @@ Impacto no desempenho do krb5p:
 * [Solucionar problemas de volume do NFSv 4.1 Kerberos](troubleshoot-nfsv41-kerberos-volumes.md)
 * [Perguntas frequentes sobre Azure NetApp Files](azure-netapp-files-faqs.md)
 * [Criar um volume NFS para o Azure NetApp Files](azure-netapp-files-create-volumes.md)
-* [Criar uma conexão do Active Directory](azure-netapp-files-create-volumes-smb.md#create-an-active-directory-connection)
+* [Criar uma conexão do Active Directory](create-active-directory-connections.md)
 * [Configurar um cliente NFS para o Azure NetApp Files](configure-nfs-clients.md) 

@@ -6,12 +6,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: 46b7479df6d087915cfe81895a786a528da6b9bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 021c76bcd03bbe35eabec5611fe0cc1e2c7c4427
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327898"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583342"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 
@@ -22,7 +22,7 @@ O Application Insights permite monitorar e acompanhar seus usuários por meio de
 - [Usuários, Sessões, Eventos](./usage-segmentation.md)
 - [Funis](./usage-funnels.md)
 - [Retenção](./usage-retention.md) Coortes
-- [Pastas de trabalho](../platform/workbooks-overview.md)
+- [Pastas de trabalho](../visualize/workbooks-overview.md)
 
 Para acompanhar o que um usuário faz ao longo do tempo, o Application Insights precisa de uma ID para cada usuário ou sessão. Inclua estas IDs em cada exibição de página ou evento personalizado.
 
@@ -134,5 +134,5 @@ namespace MvcWebRole.Telemetry
     - [Usuários, Sessões e Eventos](usage-segmentation.md)
     - [Funis](usage-funnels.md)
     - [Retenção](usage-retention.md)
-    - [Pastas de trabalho](../platform/workbooks-overview.md)
+    - [Pastas de trabalho](../visualize/workbooks-overview.md)
 

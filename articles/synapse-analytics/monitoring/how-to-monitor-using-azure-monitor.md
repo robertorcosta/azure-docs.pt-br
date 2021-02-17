@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: eb74137e515bff7a432367e75b4208490b1243c0
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 33cd19f7bb1881b17f1ca9080a9634162014808a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98681380"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574300"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use Azure Monitor com seu espaço de trabalho do Azure Synapse Analytics
 
@@ -28,7 +28,7 @@ Para saber mais, confira [Visão geral do Azure Monitor](../../azure-monitor/ove
 
 Com o monitor, você pode obter visibilidade do desempenho e da integridade de suas cargas de trabalho do Azure. O tipo de dados de monitor mais importante é a métrica, que também é chamada de contador de desempenho. As métricas são emitidas pela maioria dos recursos do Azure. O monitor fornece várias maneiras de configurar e consumir essas métricas para monitoramento e solução de problemas.
 
-Para acessar essas métricas, conclua as instruções em [Azure monitor plataforma de dados](../../azure-monitor/platform/data-platform.md).
+Para acessar essas métricas, conclua as instruções em [Azure monitor plataforma de dados](../../azure-monitor/data-platform.md).
 
 ### <a name="workspace-level-metrics"></a>Métricas no nível do espaço de trabalho
 
@@ -103,7 +103,7 @@ Entre no portal do Azure e selecione **monitorar**  >  **alertas** para criar al
 
 Estes são os logs emitidos pelos espaços de trabalho do Azure Synapse Analytics:
 
-| Nome da tabela de Log Analytics | Nome da categoria de log                 | Descrição |
+| Nome da tabela de Log Analytics | Nome da categoria de log                 | Description |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | GatewayApiRequests             | Solicitações da API do gateway Synapse do Azure. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Operações de SRBAC (controle de acesso baseado em função) do Azure Synapse. |
@@ -112,7 +112,7 @@ Estes são os logs emitidos pelos espaços de trabalho do Azure Synapse Analytic
 
 Estes são os logs emitidos por pools SQL dedicados:
 
-| Nome da tabela de Log Analytics        | Nome da categoria de log             | Descrição |
+| Nome da tabela de Log Analytics        | Nome da categoria de log             | Description |
 |----------------------|--------------------------------------|-------------|
 | SynapseSqlPoolExecRequests  | ExecRequests | Informações sobre solicitações/consultas SQL em um pool SQL dedicado do Azure Synapse.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Informações sobre trabalhadores concluindo as etapas de DMS em um pool SQL dedicado do Azure Synapse.
@@ -131,7 +131,7 @@ Para obter mais informações sobre esses logs, consulte as seguintes informaç�
 
 Este é o log emitido por pools de Apache Spark:
 
-| Nome da tabela de Log Analytics               | Nome da categoria de log              | Descrição                 |
+| Nome da tabela de Log Analytics               | Nome da categoria de log              | Description                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SynapseBigDataPoolApplicationsEnded | BigDataPoolAppsEnded | Informações sobre os aplicativos Apache Spark finalizados |
 
@@ -171,7 +171,7 @@ Crie ou adicione configurações de diagnóstico para seu espaço de trabalho, p
 1. Dê um nome à sua configuração, selecione **Enviar para log Analytics** e, em seguida, selecione um espaço de trabalho no **espaço de trabalho log Analytics**.
 
     > [!NOTE]
-    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../../azure-monitor/platform/resource-logs.md#column-limit-in-azurediagnostics).
+    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
 1. Selecione **Salvar**.
 
