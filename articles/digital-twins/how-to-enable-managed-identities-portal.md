@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1d54ecdac739bbc5a072426f5bf73f71ab394159
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416958"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100545897"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Habilitar uma identidade gerenciada para roteamento de eventos de gêmeos digital do Azure (versão prévia): portal do Azure
 
@@ -101,9 +101,10 @@ Para atribuir uma função à identidade, comece abrindo o [portal do Azure](htt
     :::image type="content" source="media/how-to-enable-managed-identities/add-role-assignment-1.png" alt-text="Captura de tela da portal do Azure mostrando a página de controle de acesso (IAM) para um hub de eventos. O botão + Adicionar é realçado." lightbox="media/how-to-enable-managed-identities/add-role-assignment-1.png":::
 
 1. Na página **Adicionar atribuição de função** a seguir, preencha os valores:
-    * **Função**: selecione a função desejada no menu suspenso
-    * **Atribuir acesso a**: escolha **usuário, grupo ou entidade de serviço**
-    * **Selecione**: aqui, você selecionará a identidade gerenciada de sua instância do gêmeos digital do Azure que está sendo atribuída à função. O nome da identidade gerenciada corresponde ao nome da instância, portanto, pesquise o nome da instância de gêmeos digital do Azure. Quando você seleciona o resultado, a identidade da instância será exibida na seção **Membros selecionados** .
+    * **Função**: selecione a função desejada no menu suspenso.
+    * **Atribuir acesso a**: em **identidade gerenciada atribuída pelo sistema**, selecione **digital gêmeos**.
+    * **Assinatura**: Selecione sua assinatura. Isso exibirá todas as identidades gerenciadas do gêmeos digital do Azure na assinatura selecionada.
+    * **Selecione**: aqui, você selecionará a identidade gerenciada de sua instância do gêmeos digital do Azure que está sendo atribuída à função. O nome da identidade gerenciada corresponde ao nome da instância, portanto, escolha o nome da instância de gêmeos digital do Azure. Ao selecioná-lo, a identidade da instância será exibida na seção **Membros selecionados** na parte inferior do painel.
 
     :::row:::
         :::column:::

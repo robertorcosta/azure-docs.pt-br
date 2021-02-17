@@ -15,17 +15,20 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 24b1549b2e460bc0e72fb76f5437b15838604949
-ms.sourcegitcommit: d7d5f0da1dda786bda0260cf43bd4716e5bda08b
+ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
+ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97896355"
+ms.lasthandoff: 02/08/2021
+ms.locfileid: "99834078"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
 
 > [!NOTE]
 > Este tutorial aborda o Monitor da Conexão (clássico). Teste o novo e aprimorado [Monitor da Conexão](connection-monitor-overview.md) para experimentar um monitoramento avançado da conectividade
+
+> [!IMPORTANT]
+> A partir de 1º de julho de 2021, você não poderá adicionar monitores de conexão no Monitor da Conexão (clássico), mas poderá continuar usando os monitores de conexão existentes criados antes de 1º de julho de 2021. Para minimizar a interrupção do serviço para suas cargas de trabalho atuais, [migre do Monitor da Conexão (clássico) para o novo Monitor da Conexão](migrate-to-connection-monitor-from-connection-monitor-classic.md) no Observador de Rede do Azure antes de 29 de fevereiro de 2024.
 
 Comunicação bem-sucedida entre uma máquina virtual (VM) e um ponto de extremidade como outra VM, pode ser importante para sua organização. Às vezes, as alterações de configuração são introduzidas o que pode interromper a comunicação. Neste tutorial, você aprenderá como:
 

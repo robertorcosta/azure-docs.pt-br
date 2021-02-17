@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: f684f57ed1acb5c48694196b4e19de809c98dc9f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102250"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534662"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -328,6 +328,17 @@ Variação máxima de dados por dia com suporte de um Servidor de Processo | 2 T
 - Esses são números médios, pressupondo uma sobreposição de E/S de 30%.
 - O Site Recovery pode lidar com uma maior taxa de transferência com base na taxa de sobreposição, em tamanhos maiores de gravação e em comportamento de E/S de carga de trabalho real.
 - Esses números pressupõem uma pendência típica de aproximadamente cinco minutos. Ou seja, depois que os dados são carregados, eles são processados, e um ponto de recuperação é criado dentro de cinco minutos.
+
+## <a name="storage-account-limits"></a>Limites da conta de armazenamento
+
+À medida que a variação média nos discos aumenta, o número de discos que uma conta de armazenamento pode dar suporte diminui. A tabela abaixo pode ser usada como um guia para tomar decisões sobre o número de contas de armazenamento que precisam ser provisionadas.
+ 
+**Tipo de conta de armazenamento**    |    **Rotatividade = 4 MBps por disco**    |    **Rotatividade = 8 MBps por disco**
+---    |    ---    |    ---
+Conta de armazenamento v1    |    600 discos    |    300 discos
+Conta de armazenamento v2    |    1500 discos    |    750 discos
+
+Observe que os limites acima são aplicáveis apenas a cenários de DR híbridos.
 
 ## <a name="vault-tasks"></a>Tarefas do Vault
 

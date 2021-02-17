@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: cd203c64695a9a61a93409a96f6a92b9acf9fe70
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365218"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100547223"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -76,7 +76,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 # <a name="aspnet-core"></a>[ASP.NET Core](#tab/netcore)
 
 > [!IMPORTANT]
-> Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1, 3,1 e 5,0. As versões 2,0, 2,2 e 3,0 foram desativadas e não têm mais suporte. Atualize para uma [versão com suporte](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) do .NET Core para que a instrumentação automática funcione.
+> Há suporte para as seguintes versões do ASP.NET Core: ASP.NET Core 2,1 e 3,1. As versões 2,0, 2,2 e 3,0 foram desativadas e não têm mais suporte. Atualize para uma [versão com suporte](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) do .NET Core para que a instrumentação automática funcione.
 
 O direcionamento para a estrutura completa de ASP.NET Core, implantação independente e aplicativos baseados em Linux **não têm suporte** no momento com o monitoramento baseado em agente/extensão. (A[Instrumentação manual](./asp-net-core.md) por meio de código funcionará em todos os cenários anteriores.)
 

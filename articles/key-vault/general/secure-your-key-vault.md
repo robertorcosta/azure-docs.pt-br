@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: f82c7060f703aff6c19f0082454779b8fea1ba76
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
+ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526248"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100534695"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -182,13 +182,13 @@ Há outra função que está fora do escopo do nosso aplicativo: o administrador
 
 A tabela a seguir resume as permissões de acesso para as funções e o aplicativo.
 
-| Função | Permissões do plano de gerenciamento | Permissões do plano de dados-políticas de acesso do cofre | Permissões de plano de dados-RBAC do Azure (versão prévia)  |
+| Função | Permissões do plano de gerenciamento | Permissões do plano de dados-políticas de acesso do cofre | Permissões de plano de dados-RBAC do Azure  |
 | --- | --- | --- | --- |
-| Equipe de segurança | [Colaborador do Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Key Vault administrador (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) |
+| Equipe de segurança | [Colaborador do Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-contributor) | Certificados: todas as operações <br> Chaves: todas as operações <br> Segredos: todas as operações | [Administrador de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-administrator) |
 | Desenvolvedores e&nbsp;operadores | Permissão para implantar o Key Vault<br><br> **Observação**: essa permissão possibilita que as VMs implantadas busquem segredos do cofre de chaves. | Nenhum | Nenhum |
-| Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Leitor de Key Vault (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview) |
-| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Key Vault usuário de criptografia do serviço de criptografia](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user-preview) |
-| Aplicativo | Nenhum | Segredos: obter, listar <br> Certificados: obter, listar | [Leitor de Key Vault (visualização)](../../role-based-access-control/built-in-roles.md#key-vault-reader-preview), [Key Vault usuário de segredo (versão prévia)](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user-preview) |
+| Auditores | Nenhum | Certificados: lista <br> Chaves: lista<br>Segredos: lista<br><br> **Observação**: essa permissão possibilita que os auditores inspecionem os atributos (marcas, datas de ativação, datas de validade) de chaves e segredos que não são emitidos nos logs. | [Leitor de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader) |
+| Conta de Armazenamento do Azure | Nenhum | Chaves: obter, lista, wrapKey, unwrapKey <br> | [Key Vault usuário de criptografia do serviço de criptografia](../../role-based-access-control/built-in-roles.md#key-vault-crypto-service-encryption-user) |
+| Aplicativo | Nenhum | Segredos: obter, listar <br> Certificados: obter, listar | [Leitor de Key Vault](../../role-based-access-control/built-in-roles.md#key-vault-reader), [Key Vault usuário de segredo](../../role-based-access-control/built-in-roles.md#key-vault-secrets-user) |
 
 As três funções da equipe precisam ter acesso a outros recursos e a permissões do Key Vault. Para implantar VMs (ou o recurso aplicativos Web do serviço Azure App), os desenvolvedores e operadores precisam de acesso de implantação. Os auditores precisam de acesso de leitura para a Conta de armazenamento em que os logs do Key Vault estão armazenados.
 

@@ -2,13 +2,13 @@
 title: Migrar a configuração do pool do lote dos serviços de nuvem para máquinas virtuais
 description: Saiba como atualizar sua configuração de pool para a configuração mais recente e recomendada
 ms.topic: how-to
-ms.date: 1/6/2021
-ms.openlocfilehash: 417738be2c69101129079b8ff3a3d80634f9f99c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.date: 2/16/2021
+ms.openlocfilehash: 9cbcf3864526bd8f8132f3b0f729e2d728e07bb8
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98731492"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546033"
 ---
 # <a name="migrate-batch-pool-configuration-from-cloud-services-to-virtual-machines"></a>Migrar a configuração do pool do lote dos serviços de nuvem para máquinas virtuais
 
@@ -36,6 +36,19 @@ O seguinte deve ser considerado ao atualizar a configuração do pool:
    > Assim como ocorre com máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais, o disco gerenciado do sistema operacional usado para cada nó provoca um custo, que é adicional ao custo das VMs. Não há custo de disco do sistema operacional para os nós ' cloudServiceConfiguration ', pois o disco do sistema operacional é criado no SSD local dos nós.
 
 - Os tempos de exclusão e de inicialização do pool e do nó podem diferir ligeiramente entre os pools ' cloudServiceConfiguration ' e os pools ' virtualMachineConfiguration '.
+
+## <a name="azure-data-factory-custom-activity-pools"></a>Azure Data Factory pools de atividades personalizadas
+
+Os pools do lote do Azure podem ser usados para executar Data Factory atividades personalizadas. Todos os pools ' cloudServiceConfiguration ' usados para executar atividades personalizadas precisarão ser excluídos e novos pools ' virtualMachineConfiguration ' criados.
+
+- Os pipelines devem ser pausados antes de excluir/recriar para garantir que nenhuma execução será interrompida.
+- A mesma ID de pool pode ser usada para evitar alterações de configuração de serviço vinculado.
+- Retome os pipelines quando novos pools forem criados.
+
+Para obter mais informações sobre como usar o lote do Azure para executar Data Factory atividades personalizadas:
+
+- [Serviço vinculado do Lote do Azure](../data-factory/compute-linked-services.md#azure-batch-linked-service)
+- [Atividades personalizadas em um pipeline Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md)
 
 ## <a name="next-steps"></a>Próximas etapas
 
