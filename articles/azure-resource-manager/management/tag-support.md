@@ -3,12 +3,12 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 12a57577241e3b2206aab9c3badb29502e7b0301
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 73f58dbda0e7c073cf4a8d2e846132a102192e93
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656964"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635907"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -1565,6 +1565,9 @@ Pule para um namespace de provedor de recursos:
 > | espaços de trabalho/modelos/versões | Não | Não |
 > | espaços de trabalho/onlineEndpoints | Sim | Sim |
 > | espaços de trabalho/onlineEndpoints/implantações | Sim | Sim |
+ 
+> [!NOTE]
+> As marcas do espaço de trabalho não se propagam para clusters de computação e instâncias de computação. 
 
 ## <a name="microsoftmaintenance"></a>Microsoft.Maintenance
 
@@ -1764,9 +1767,9 @@ Pule para um namespace de provedor de recursos:
 > | expressRoutePorts | Sim | Sim |
 > | expressRouteServiceProviders | Não | Não |
 > | firewallPolicies | Sim | Sim |
-> | frontdoors | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Yes |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | No |
-> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Yes |
+> | frontdoors | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
+> | frontdoorWebApplicationFirewallManagedRuleSets | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Não |
+> | frontdoorWebApplicationFirewallPolicies | Sim, mas limitado (veja a [Observação abaixo](#frontdoor)) | Sim |
 > | getDnsResourceReference | Não | Não |
 > | internalNotify | Não | Não |
 > | ipGroups | Sim | Sim |
@@ -2265,7 +2268,7 @@ Pule para um namespace de provedor de recursos:
 > | servers | Sim | Sim |
 > | servers/administrators | Não | Não |
 > | servidores/communicationLinks | Não | Não |
-> | servers/databases | Sim (veja a [Observação abaixo](#sqlnote)) | Yes |
+> | servers/databases | Sim (veja a [Observação abaixo](#sqlnote)) | Sim |
 > | servidores/encryptionProtector | Não | Não |
 > | servers / firewallRules | Não | Não |
 > | servers/keys | Não | Não |
@@ -2369,7 +2372,7 @@ Pule para um namespace de provedor de recursos:
 > | ------------- | ----------- | ----------- |
 > | clusters | Sim | Sim |
 > | clusters/privateEndpoints | Não | Não |
-> | streamingjobs | Sim (veja a observação a seguir) | Yes |
+> | streamingjobs | Sim (veja a observação a seguir) | Sim |
 
 > [!NOTE]
 > Você não pode adicionar uma marca quando streamingjobs estiver em execução. Pare o recurso para adicionar uma marca.

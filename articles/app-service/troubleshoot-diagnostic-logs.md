@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8f3fb0be08bb806d74c689a7656c1c55019eb105
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 5fa729ae68d091d9810430bdc0ea55ce1c876b25
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980602"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100586259"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -60,7 +60,7 @@ A opção **FileSystem** é para fins de depuração temporária e fica desativa
 
 Selecione o **nível** ou o nível de detalhes para o log. A tabela a seguir mostra as categorias de log incluídas em cada nível:
 
-| Level | Categorias incluídas |
+| Nível | Categorias incluídas |
 |-|-|
 |**Desabilitado** | Nenhum |
 |**Erro** | Erro, Crítico |
@@ -108,9 +108,9 @@ Os dois tipos de logs são armazenados no sistema de arquivos do serviço de apl
 
 ## <a name="add-log-messages-in-code"></a>Adicionar mensagens de log no código
 
-No código do aplicativo, você usa os recursos de log usuais para enviar mensagens de log aos logs do aplicativo. Por exemplo:
+No código do aplicativo, você usa os recursos de log usuais para enviar mensagens de log aos logs do aplicativo. Por exemplo: 
 
-- Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](/dotnet/api/system.diagnostics.trace) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
+- Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](/dotnet/api/system.diagnostics.trace) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -138,12 +138,12 @@ Para transmitir logs ao vivo em [Cloud Shell](../cloud-shell/overview.md), use o
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo:
+Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo: 
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo:
+Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -200,7 +200,7 @@ A tabela a seguir mostra os tipos de log e as descrições com suporte:
 <sup>1</sup> para aplicativos Java se, adicione "$website _AZMON_PREVIEW_ENABLED" às configurações do aplicativo e defina-o como 1 ou como true.
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Próximas etapas
-* [Consultar logs com o Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Consultar logs com o Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Como monitorar aplicativos no Serviço de Aplicativo do Azure](web-sites-monitor.md)
 * [Solucionar problemas de Serviço de Aplicativo do Azure no Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analisar logs de aplicativos no HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

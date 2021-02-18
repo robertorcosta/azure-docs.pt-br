@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9b842b94d66cf91ad836b8ae61df1b3d3f34293
-ms.sourcegitcommit: 5e5a0abe60803704cf8afd407784a1c9469e545f
+ms.openlocfilehash: e38b3c617ded9c0001b01e481d4d3c1120be62ef
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96435936"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634746"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge-devices-classic-editor"></a>Integração contínua e implantação contínua em dispositivos Azure IoT Edge (editor clássico)
 
@@ -160,7 +160,7 @@ Agora esse pipeline está configurado para ser executado automaticamente quando 
 >[!NOTE]
 >Se você quiser usar **implantações em camadas** em seu pipeline, as implantações em camadas ainda não têm suporte em Azure IOT Edge tarefas no Azure DevOps.
 >
->No entanto, você pode usar uma [tarefa CLI do Azure no Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para criar sua implantação como uma implantação em camadas. Para o valor de **script embutido** , você pode usar o [comando AZ IOT Edge Deployment Create](/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>No entanto, você pode usar uma [tarefa CLI do Azure no Azure DevOps](/azure/devops/pipelines/tasks/deploy/azure-cli) para criar sua implantação como uma implantação em camadas. Para o valor de **script embutido** , você pode usar o [comando AZ IOT Edge Deployment Create](/cli/azure/ext/azure-iot/iot/edge/deployment):
 >
 >   ```azurecli-interactive
 >   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
