@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4cf623ed960fd2efe6fdf506751858796008cef4
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 8e86679e7531bb70d6d4f1a27718c2fc8f0e8a9c
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202021"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578539"
 ---
 # <a name="azure-security-baseline-for-azure-kubernetes-service"></a>Linha de base de segurança do Azure para o serviço kubernetes do Azure
 
@@ -196,9 +196,9 @@ Crie alertas no Azure Monitor que serão disparados quando ocorrerem alteraçõe
 
 Use logs de Azure Monitor para habilitar e consultar os logs de AKS os componentes mestres, Kube-apiserver e Kube-Controller-Manager. Crie e gerencie os nós que executam o kubelet com tempo de execução de contêiner e implante seus aplicativos por meio do servidor de API kubernetes gerenciado. 
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Habilitar e examinar os logs do nó mestre do Kubernetes no AKS (Serviço de Kubernetes do Azure)](view-master-logs.md)
 
@@ -240,9 +240,9 @@ Habilite e integre esses dados ao Azure Sentinel ou a um SIEM de terceiros com b
 
 - [Examine o esquema de log, incluindo funções de log aqui](view-master-logs.md)
 
-- [Entender Azure Monitor para contêineres](../azure-monitor/insights/container-insights-overview.md)
+- [Entender Azure Monitor para contêineres](../azure-monitor/containers/container-insights-overview.md)
 
-- [Como habilitar o Azure Monitor para contêineres](../azure-monitor/insights/container-insights-onboard.md)
+- [Como habilitar o Azure Monitor para contêineres](../azure-monitor/containers/container-insights-onboard.md)
 
 - [Habilitar e examinar os logs do nó mestre do Kubernetes no AKS (Serviço de Kubernetes do Azure)](view-master-logs.md)
 
@@ -294,7 +294,7 @@ A coleta de dados é necessária para fornecer visibilidade de atualizações au
 
 **Orientação**: integrar suas instâncias do AKS (serviço kubernetes do Azure) para Azure monitor e definir o período de retenção do espaço de trabalho do Azure log Analytics correspondente de acordo com os requisitos de conformidade da sua organização. 
 
-- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -312,7 +312,7 @@ Exiba os logs gerados por AKS Master Components (Kube-apiserver e Kube-controlle
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -422,7 +422,7 @@ Crie políticas e procedimentos em relação ao uso de contas administrativas de
 
 **Orientação**: usar o logon único para o serviço kubernetes do Azure (AKs) com autenticação integrada do Azure Active Directory (AD do Azure) para um cluster AKs.
 
-- [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real](../azure-monitor/insights/container-insights-livedata-overview.md)
+- [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real](../azure-monitor/containers/container-insights-livedata-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -518,7 +518,7 @@ Lembre-se das funções usadas para fins de suporte ou solução de problemas. P
 **Orientação**: integrar a autenticação de usuário para o serviço kubernetes do Azure (AKs) com o Azure Active Directory (Azure AD). Crie configurações de diagnóstico para o Azure AD, enviando os logs de auditoria e de entrada para um espaço de trabalho do Azure Log Analytics. Configure os alertas desejados (por exemplo, quando uma conta desativada tenta fazer logon) em um espaço de trabalho do Azure Log Analytics.
 - [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Como criar, exibir e gerenciar alertas de log usando Azure Monitor](../azure-monitor/platform/alerts-log.md)
+- [Como criar, exibir e gerenciar alertas de log usando Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -673,11 +673,11 @@ Configure alertas para notificação proativa ou criação de log quando a utili
 
 Use o log de atividades do Azure para monitorar seus clusters AKS e recursos relacionados em um alto nível. Integre com o Prometheus para exibir as métricas de aplicativo e carga de trabalho coletadas de nós e kubernetes usando consultas para criar alertas personalizados, painéis e executar análise detalhada.
 
-- [Entender Azure Monitor para contêineres](../azure-monitor/insights/container-insights-overview.md)
+- [Entender Azure Monitor para contêineres](../azure-monitor/containers/container-insights-overview.md)
 
-- [Como habilitar o Azure Monitor para contêineres](../azure-monitor/insights/container-insights-onboard.md)
+- [Como habilitar o Azure Monitor para contêineres](../azure-monitor/containers/container-insights-onboard.md)
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -1235,7 +1235,7 @@ Remova o estado de seus aplicativos antes do backup. Nos casos em que isso não 
 
 Execute backups automatizados regulares de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
 
-Por exemplo:
+Por exemplo: 
 
 Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorageAccount Backup-AzKeyVaultSecret
 
@@ -1259,7 +1259,7 @@ Backup-AzKeyVaultCertificate Backup-AzKeyVaultKey Backup-AzKeyVaultManagedStorag
 
 Execute periodicamente a restauração de dados de Key Vault certificados, chaves, contas de armazenamento gerenciadas e segredos, com comandos do PowerShell. 
 
-Por exemplo:
+Por exemplo: 
 
 Restore-AzKeyVaultCertificate Restore-AzKeyVaultKey Restore-AzKeyVaultManagedStorageAccount Restore-AzKeyVaultSecret
 

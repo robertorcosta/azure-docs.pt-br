@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 4ae0a85c8608ff96777bc6b952554f1ccd917306
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: 92326ea4d3de896a67b2953fb612b79948044d08
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530596"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573430"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solução do Monitor de Desempenho de Rede no Azure
 
@@ -76,7 +76,7 @@ A lista de regiões de suporte para Monitor do ExpressRoute está disponível na
 
 ### <a name="install-and-configure-agents"></a>Instalar e configurar agentes 
 
-Use os processos básicos para instalar agentes em [conectar computadores Windows ao Azure monitor](../platform/agent-windows.md), [conectar computadores Linux ao Azure monitor (versão prévia)](../../virtual-machines/extensions/oms-linux.md) e [conectar Operations Manager ao Azure monitor](../platform/om-agents.md).
+Use os processos básicos para instalar agentes em [conectar computadores Windows ao Azure monitor](../agents/agent-windows.md), [conectar computadores Linux ao Azure monitor (versão prévia)](../../virtual-machines/extensions/oms-linux.md) e [conectar Operations Manager ao Azure monitor](../agents/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Onde instalar os agentes 
 
@@ -266,13 +266,13 @@ A topologia mostrada no mapa é a topologia de camada 3 e não contém conexões
 
 ## <a name="log-queries-in-azure-monitor"></a>Consultas de log no Azure Monitor
 
-Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../log-query/log-query-overview.md). Você pode executar análises interativas de dados no repositório e correlacionar dados de origens diferentes. Você também pode criar alertas personalizados e exibições e exportar os dados para Excer, Power BI ou um link compartilhável. A área **consultas comuns** no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
+Todos os dados expostos graficamente por meio do painel de Monitor de Desempenho de Rede e das páginas de busca detalhada também estão disponíveis nativamente em [consultas de log](../logs/log-query-overview.md). Você pode executar análises interativas de dados no repositório e correlacionar dados de origens diferentes. Você também pode criar alertas personalizados e exibições e exportar os dados para Excer, Power BI ou um link compartilhável. A área **consultas comuns** no painel tem algumas consultas úteis que você pode usar como ponto de partida para criar suas próprias consultas e relatórios. 
 
 ## <a name="alerts"></a>Alertas
 
-O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](../platform/alerts-overview.md).
+O Monitor de Desempenho de Rede usa os recursos de alertas do [Azure Monitor](../alerts/alerts-overview.md).
 
-Isso significa que todas as notificações são gerenciadas usando [grupos de ação](../platform/action-groups.md).  
+Isso significa que todas as notificações são gerenciadas usando [grupos de ação](../alerts/action-groups.md).  
 
 Se você é um usuário do NPM criando um alerta por meio do Log Analytics: 
 1. Você verá um link que o redirecionará para portal do Azure. Clique nele para acessar o portal.
@@ -282,8 +282,8 @@ Se você é um usuário do NPM criando um alerta por meio do Log Analytics:
 
 Se você for um usuário do NPM criando um alerta por meio do portal do Azure:  
 1. Você pode optar por inserir seu email diretamente ou criar alertas por meio de grupos de ação.
-2. Se você optar por inserir seu email diretamente, um grupo de ações com o nome **NPM email** Group será criado e a ID de email será adicionada a esse grupo de ações.
-3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](../platform/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
+2. Se você optar por inserir seu email diretamente, um grupo de ação com o nome **ActionGroup de Email NPM** é criado e a ID de email é adicionada a esse grupo de ação.
+3. Se optar por usar grupos de ação, você precisará selecionar um grupo criado anteriormente. Você pode aprender a criar um grupo de ação [aqui.](../alerts/action-groups.md#create-an-action-group-by-using-the-azure-portal) 
 4. Quando o alerta for criado com êxito, você poderá usar o link Gerenciar Alertas para gerenciar seus alertas. 
 
 Cada vez que você cria um alerta, o NPM cria uma regra de alerta de log de consulta com base no Azure Monitor. Essa consulta é disparada a cada 5 minutos por padrão. O monitor do Azure não cobra pelas primeiras 250 regras de alerta criadas de log e quaisquer regras de alerta acima limitam de 250 regras de alerta de log serão cobradas de acordo com os [alertas de preços na página de preços do Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/).

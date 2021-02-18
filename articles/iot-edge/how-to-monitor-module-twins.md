@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a11d3a9a972188af4cf8f054349da98d69691a3
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876151"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633171"
 ---
 # <a name="monitor-module-twins"></a>Monitorar módulos gêmeos
 
@@ -200,7 +200,7 @@ Se você vir a mensagem "não existe uma identidade de módulo para este módulo
 Para revisar e editar um módulo:
 
 1. Se ainda não estiver instalado, instale a [extensão de ferramentas de IOT do Azure](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) para Visual Studio Code.
-1. No **Gerenciador**, expanda o **Hub IOT do Azure**e expanda o dispositivo com o módulo que você deseja monitorar.
+1. No **Gerenciador**, expanda o **Hub IOT do Azure** e expanda o dispositivo com o módulo que você deseja monitorar.
 1. Clique com o botão direito do mouse no módulo e selecione **Editar módulo**. Um arquivo temporário do módulo "r" é baixado para o computador e exibido no Visual Studio Code.
 
   ![Obter um módulo para editar no Visual Studio Code](./media/how-to-monitor-module-twins/edit-module-twin-vscode.png)
@@ -213,7 +213,7 @@ Se você fizer alterações, selecione **Atualizar módulo** ... acima do códig
 
 Para ver se IoT Edge está em execução, use o [método AZ IOT Hub Invoke-Module-Method](how-to-edgeagent-direct-method.md#ping) para executar ping no agente de IOT Edge.
 
-A estrutura [AZ IOT Hub Module-bidimensional](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-twin) fornece estes comandos:
+A estrutura [AZ IOT Hub Module-bidimensional](/cli/azure/ext/azure-iot/iot/hub/module-twin) fornece estes comandos:
 
 * **módulo AZ IOT Hub-alto mostrar** -mostrar uma definição de módulo.
 * **módulo AZ IOT Hub-atualização** de maiúsculas-atualização de uma definição de módulo.
