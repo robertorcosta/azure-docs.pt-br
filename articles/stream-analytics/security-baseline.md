@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: c1e61e9434d96148fbce840f4bad7f6a3b2ecb6b
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202718"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591430"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de base de segurança do Azure para Stream Analytics
 
@@ -114,9 +114,9 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos e detectar alterações para seus recursos de Stream Analytics. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -138,7 +138,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 **Orientação**: os logs de ingestão via Azure monitor para agregar dados de segurança, como eventos de auditoria e solicitações. Em Azure Monitor, use espaços de trabalho do Log Analytics para consultar e executar análises e usar o armazenamento do Azure accountyfor de longo prazo/armazenamento de arquivamento, opcionalmente com recursos de segurança como armazenamento imutável e retenção imposta.
 
-* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -170,7 +170,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 * [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
-* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -182,9 +182,9 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Para obter mais informações sobre o espaço de trabalho Log Analytics](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Para obter mais informações sobre o espaço de trabalho Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -196,7 +196,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 * [Azure Stream Analytics fornece logs de diagnóstico e dados de atividade para análise](./stream-analytics-job-diagnostic-logs.md)
 
@@ -474,7 +474,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para as instâncias de produção de recursos de Azure Stream Analytics.
 
-* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

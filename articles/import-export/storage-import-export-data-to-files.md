@@ -5,16 +5,16 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/14/2021
+ms.date: 02/16/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: e038cdcb50c7ee15960c904c8e234d6917d02f3b
-ms.sourcegitcommit: 75041f1bce98b1d20cd93945a7b3bd875e6999d0
+ms.openlocfilehash: 44473efbfb1c07c628c939fd05805ed92e691736
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98706208"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651775"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Usar o serviço de importação/exportação do Microsoft Azure para importar dados para Arquivos do Azure
 
@@ -119,13 +119,13 @@ Para exemplos adicionais, vá para [Exemplos de arquivos de diário](#samples-fo
 
 Execute as etapas a seguir para criar um trabalho de importação no portal do Azure.
 1. Faça logon em https://portal.azure.com/.
-2. Vá para **Todos os serviços > Armazenamento > Trabalhos de importação/exportação**.
+2. Pesquise **trabalhos de importação/exportação**.
 
-    ![Ir para Importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob1.png)
+    ![Pesquisar em trabalhos de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
 
-3. Clique em **criar trabalho de importação/exportação**.
+3. Selecione **+ Novo**.
 
-    ![Clique em Trabalho de importação/exportação](./media/storage-import-export-data-to-blobs/import-to-blob2.png)
+    ![Selecione novo para criar um novo ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
 
 4. Em **Noções básicas**:
 
@@ -136,7 +136,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Selecione uma assinatura.
     - Selecione um grupo de recursos.
 
-        ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+        ![Criar o trabalho de importação - Etapa 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
 
 3. Em **Detalhes do trabalho**:
 
@@ -144,7 +144,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Selecione a conta de armazenamento na qual os dados serão importados.
     - O local final da corrida é preenchido automaticamente com base na região da conta de armazenamento selecionada.
 
-       ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
+       ![Criar trabalho de importação - Etapa 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
 
 4. Em **Informações sobre a remessa de devolução**:
 
@@ -155,7 +155,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
         > [!TIP]
         > Em vez de especificar um endereço de email para um usuário único, forneça um email de grupo. Isso garante que você receba notificações mesmo que um administrador saia.
 
-       ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+       ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
 
 
 5. No **Resumo**:
@@ -163,7 +163,7 @@ Execute as etapas a seguir para criar um trabalho de importação no portal do A
     - Forneça o endereço de envio do datacenter do Azure para envio de discos de volta ao Azure. Certifique-se de que o nome do trabalho e o endereço completo são mencionados no rótulo de envio.
     - Clique em **OK** para concluir a criação do trabalho de importação.
 
-        ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+        ![Criar o trabalho de importação - Etapa 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -243,7 +243,7 @@ Use as etapas a seguir para criar um trabalho de importação no CLI do Azure.
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
 
 Use as etapas a seguir para criar um trabalho de importação no Azure PowerShell.
 
