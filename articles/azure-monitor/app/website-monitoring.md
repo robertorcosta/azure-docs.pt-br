@@ -4,12 +4,12 @@ description: Neste início rápido, saiba como configurar o monitoramento do sit
 ms.topic: quickstart
 ms.date: 08/19/2020
 ms.custom: mvc
-ms.openlocfilehash: 959beeac004c71fb4593740d3c1685771638e40c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0a30fb12e93058690fbd7611ae64fc0a7dd96f64
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88611323"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583442"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>Início Rápido: Iniciar o monitoramento do seu site com o Application Insights do Azure Monitor
 
@@ -137,5 +137,5 @@ Se planejar continuar trabalhando em outros inícios rápidos ou tutoriais, não
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Localizar e diagnosticar problemas de desempenho](../log-query/log-query-overview.md)
+> [Localizar e diagnosticar problemas de desempenho](../logs/log-query-overview.md)
 

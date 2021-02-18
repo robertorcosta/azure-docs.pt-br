@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 681e4efc8a9edda896249fdc939d19b4f644f246
-ms.sourcegitcommit: 04297f0706b200af15d6d97bc6fc47788785950f
+ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98986472"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100577027"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -70,7 +70,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 | Automação do Azure  | Todas as regiões públicas<br/> Todas as regiões do Governo |  | Visualização </br> [Saiba como criar um ponto de extremidade privado para a Automação do Azure.](../automation/how-to/private-link-security.md)| |
 | Hub IoT do Azure | Todas as regiões públicas    |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Hub IoT do Azure.](../iot-hub/virtual-network-support.md) |
 | Azure SignalR | LESTE DOS EUA, CENTRO-SUL DOS EUA,<br/>OESTE DOS EUA 2, Todas as regiões da China      |  | Visualizar   <br/> [Saiba como criar um ponto de extremidade privado para o Azure SignalR.](../azure-signalr/howto-private-endpoints.md)   |
-| Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Monitor.](../azure-monitor/platform/private-link-security.md)   | 
+| Azure Monitor <br/>(Log Analytics e Application Insights) | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Monitor.](../azure-monitor/logs/private-link-security.md)   | 
 | Lote do Azure | Todas as regiões públicas, exceto: Alemanha CENTRAL, Nordeste da ALEMANHA <br/> Todas as regiões do Governo  | | GA <br/> [Saiba como criar um ponto de extremidade privado para o Lote do Azure.](../batch/private-connectivity.md) |
 |Fábrica de dados do Azure | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | As credenciais devem ser armazenadas no Azure Key Vault| GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Data Factory.](../data-factory/data-factory-private-link.md)   |
 |Azure Managed Disks | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China    | [Clique aqui para ver as limitações conhecidas](../virtual-machines/disks-enable-private-links-for-import-export-portal.md#limitations) | GA   <br/> [Saiba como criar um ponto de extremidade privado para os Azure Managed Disks.](../virtual-machines/disks-enable-private-links-for-import-export-portal.md)   |

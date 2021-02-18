@@ -3,12 +3,12 @@ title: Aplicativos de renderização
 description: É possível usar qualquer aplicativo de renderização com o Lote do Azure. No entanto, as imagens de VM do Azure Marketplace estão disponíveis com aplicativos pré-instalados comuns.
 ms.date: 02/12/2021
 ms.topic: how-to
-ms.openlocfilehash: e296ab09498b6bb7ee21e3d88c9c416c66368d69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 18fc142d2fa9c819b9872c64ef7aae4c73cc2428
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100362226"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635329"
 ---
 # <a name="pre-installed-applications-on-batch-rendering-vm-images"></a>Aplicativos pré-instalados no processamento em lote de imagens de VM
 
@@ -20,7 +20,7 @@ Alguns aplicativos dão suporte apenas para Windows, mas a maioria tem suporte n
 
 ## <a name="applications-on-latest-centos-7-rendering-image"></a>Aplicativos na imagem de renderização mais recente do CentOS 7
 
-A lista a seguir aplica-se à imagem de renderização CentOS, versão 1.1.7.
+A lista a seguir aplica-se à imagem de renderização CentOS, versão 1.2.0.
 
 * Autodesk Maya atualização de e/s 2020 4,6
 * Autodesk Arnold para Maya 2020 (Arnold versão 6.2.0.0) MtoA-4.2.0-2020

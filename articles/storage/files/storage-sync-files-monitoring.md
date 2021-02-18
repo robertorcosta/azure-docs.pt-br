@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 1cc2cd1a7c5c16b1f9d1542e3f2d14dc030bb090
-ms.sourcegitcommit: d2d1c90ec5218b93abb80b8f3ed49dcf4327f7f4
+ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97586543"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576778"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -42,7 +42,7 @@ As métricas para a Sincronização de Arquivos do Azure são habilitadas por pa
 
 As métricas a seguir para a Sincronização de Arquivos do Azure estão disponíveis no Azure Monitor:
 
-| Nome da métrica | Descrição |
+| Nome da métrica | Description |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (upload e download).<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recall da camada de nuvem | Tamanho dos dados em recall.<br><br>**Observação**: essa métrica será removida no futuro. Use a métrica de tamanho de recuperação de camadas de nuvem para monitorar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor |
@@ -56,7 +56,7 @@ As métricas a seguir para a Sincronização de Arquivos do Azure estão dispon�
 
 ### <a name="alerts"></a>Alertas
 
-Os alertas trabalham de forma proativa, mandando notificações quando encontram condições importante em seus dados de monitoramento. Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../../azure-monitor/platform/alerts-overview.md).
+Os alertas trabalham de forma proativa, mandando notificações quando encontram condições importante em seus dados de monitoramento. Para saber mais sobre como configurar alertas no Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 **Como criar alertas para Sincronização de Arquivos do Azure**
 
@@ -118,7 +118,7 @@ Para exibir a integridade de um **ponto de extremidade do servidor** no portal, 
 
 - Os gráficos de métrica a seguir são visíveis no portal do serviço de sincronização de armazenamento:
 
-  | Nome da métrica | Descrição | Nome da folha |
+  | Nome da métrica | Description | Nome da folha |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo de sincronização, ponto de extremidade do servidor |
   | Recall da camada de nuvem | Tamanho dos dados em recall | Servidores registrados |
@@ -178,7 +178,7 @@ Para exibir Sincronização de Arquivos do Azure contadores de desempenho no ser
 
 Os seguintes contadores de desempenho para a Sincronização de Arquivos do Azure estão disponíveis no Monitor de Desempenho:
 
-| Objeto de Desempenho\Nome do Contador | Descrição |
+| Objeto de Desempenho\Nome do Contador | Description |
 |-|-|
 | Bytes de AFS Transferidos\Bytes Baixados/s | Número de bytes baixados por segundo. |
 | Bytes de AFS Transferidos\Bytes Carregados/s | Número de bytes carregados por segundo. |

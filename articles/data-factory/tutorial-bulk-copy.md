@@ -1,22 +1,18 @@
 ---
 title: Copiar dados em massa com o PowerShell
 description: Use o Azure Data Factory com a atividade de cópia para copiar dados em massa de um armazenamento de dados de origem para um armazenamento de dados de destino.
-services: data-factory
 author: linda33wj
 ms.author: jingwang
-manager: shwang
-ms.reviewer: douglasl
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/22/2018
-ms.openlocfilehash: bf40353a8f29200ab2a33859473dbc504c29bf7d
-ms.sourcegitcommit: 63d0621404375d4ac64055f1df4177dfad3d6de6
+ms.openlocfilehash: bbd0a98ad14aeef31232aa2557860989e39273aa
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97510427"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100375112"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory-using-powershell"></a>Copiar várias tabelas em massa usando o Azure Data Factory usando o PowerShell
 

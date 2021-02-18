@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/19/2020
 ms.reviewer: sdash
-ms.openlocfilehash: 368c45433247c441631bdf79bfc9caa28a41f1b4
-ms.sourcegitcommit: 65db02799b1f685e7eaa7e0ecf38f03866c33ad1
+ms.openlocfilehash: 849701caf73a4fb289773c67bccaab2e0f39dbd1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
-ms.locfileid: "96546736"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100583727"
 ---
 # <a name="troubleshooting"></a>Solução de problemas
 
@@ -62,7 +62,7 @@ Verifique a configuração de alertas clássicos para confirmar que seu e-mail e
 
 ### <a name="i-did-not-receive-the-webhook-notification"></a>Não recebi a notificação de webhook?
 
-Verifique se o aplicativo recebe a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](../platform/alerts-log-webhook.md) para obter mais informações.
+Verifique se o aplicativo recebe a notificação de webhook está disponível e processa com êxito as solicitações de webhook. Consulte [isso](../alerts/alerts-log-webhook.md) para obter mais informações.
 
 ### <a name="i-am-getting--403-forbidden-errors-what-does-this-mean"></a>Estou recebendo erros de 403 proibidos, o que isso significa?
 
@@ -113,7 +113,7 @@ Não há suporte para esse recurso no momento.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Quem recebe as notificações de alerta (clássicas)?
 
-Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../platform/alerts-classic.overview.md) e a nova experiência de alertas, confira o [artigo sobre visão geral de alertas](../platform/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../platform/action-groups.md).
+Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar suas notificações de alerta para fazer com que somente os destinatários desejados recebam notificações. Para saber mais sobre a diferença entre [alertas clássicos](../alerts/alerts-classic.overview.md) e a nova experiência de alertas, confira o [artigo sobre visão geral de alertas](../alerts/alerts-overview.md). Para controlar a notificação de alerta na nova experiência de alertas, use [grupos de ação](../alerts/action-groups.md).
 
 * Recomendamos o uso de destinatários específicos para notificações de alertas clássicos.
 
@@ -124,7 +124,7 @@ Esta seção só se aplica aos alertas clássicos e ajudará você a otimizar su
 > [!NOTE]
 > Se você estiver usando a opção de caixa de seleção **em massa/grupo** e desabilitá-la, não poderá reverter a alteração.
 
-Use a nova experiência de alerta/alertas quase em tempo real caso precise notificar usuários com base em suas funções. Com os [grupos de ação](../platform/action-groups.md), você pode configurar notificações por email para os usuários que tenham qualquer uma das funções de proprietário/colaborador/leitor (não combinadas como uma única opção).
+Use a nova experiência de alerta/alertas quase em tempo real caso precise notificar usuários com base em suas funções. Com os [grupos de ação](../alerts/action-groups.md), você pode configurar notificações por email para os usuários que tenham qualquer uma das funções de proprietário/colaborador/leitor (não combinadas como uma única opção).
 
 ## <a name="next-steps"></a>Próximas etapas
 

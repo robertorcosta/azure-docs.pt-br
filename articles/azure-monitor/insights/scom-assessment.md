@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2018
-ms.openlocfilehash: 97d7d21374062462248e1b86f2bde2fef2d25331
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 685bf35bfb6d6e85d70bd1f1b446370d66a320f2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96004901"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573385"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
@@ -229,7 +229,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../log-query/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../logs/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -254,7 +254,7 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
     ```
 
     >[!NOTE]
-    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../log-query/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
+    > Se o seu workspace fosse atualizado para a [nova linguagem de consulta do Log Analytics](../logs/log-query-overview.md), a consulta acima seria alterada para o demonstrado a seguir.
     >
     > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -295,5 +295,5 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pesquisar logs](../log-query/log-query-overview.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
+- [Pesquisar logs](../logs/log-query-overview.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
 

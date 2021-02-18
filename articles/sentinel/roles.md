@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 9c100ca82b751a050e74cce85e1794701a789288
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: f9b50c831b435a6189a9b9e4d79a934a2661b033
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
-ms.locfileid: "95498462"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570400"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -91,7 +91,7 @@ A tabela a seguir resume as funções e as ações permitidas no Azure Sentinel.
 
 - Além de, ou em vez de usar funções internas do Azure, você pode criar funções personalizadas do Azure para o Azure Sentinel. As funções personalizadas do Azure para o Azure Sentinel são criadas da mesma maneira que você cria outras [funções personalizadas do Azure](../role-based-access-control/custom-roles-rest.md#create-a-custom-role), com base em [permissões específicas para o Azure Sentinel](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) e para [recursos de log Analytics do Azure](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights).
 
-- Você pode usar o Log Analytics controle de acesso baseado em função do Azure avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o RBAC do Azure baseado em tipo de dados e o RBAC do Azure centrado em recursos. Para obter mais informações sobre Log Analytics funções, consulte [gerenciar dados de log e espaços de trabalho no Azure monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+- Você pode usar o Log Analytics controle de acesso baseado em função do Azure avançado nos dados em seu espaço de trabalho do Azure Sentinel. Isso inclui o RBAC do Azure baseado no tipo de dados e o RBAC do Azure centrado em recursos. Para obter mais informações sobre as funções do Log Analytics, confira [Gerenciar dados de log e workspaces no Azure Monitor](../azure-monitor/logs/manage-access.md#manage-access-using-workspace-permissions).
 
 ## <a name="next-steps"></a>Próximas etapas
 
