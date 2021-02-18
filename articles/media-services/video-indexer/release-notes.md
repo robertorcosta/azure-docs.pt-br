@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 02/01/2021
+ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: a6b1fc5adba166aa15a786d3440be1eca7f0a260
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560503"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653289"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -29,6 +29,33 @@ Para se manter atualizado com os desenvolvimentos mais recentes, este artigo for
 * Problemas conhecidos
 * Correções de bug
 * Funcionalidades preteridas
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+### <a name="multiple-account-owners"></a>Proprietários de contas múltiplas 
+
+A função de proprietário da conta foi adicionada ao Video Indexer. Você pode adicionar, alterar e remover usuários; Altere sua função. Para obter detalhes sobre como compartilhar uma conta, consulte [convidar usuários](invite-users.md).
+
+### <a name="audio-event-detection-public-preview"></a>Detecção de eventos de áudio (visualização pública)
+
+> [!NOTE]
+> Esse recurso só está disponível em contas de avaliação. 
+
+O Video Indexer agora detecta os seguintes efeitos de áudio nos segmentos de não fala do conteúdo: gunshot, cortar de vidro, alarme, Siren, explosão, cachorro latido, incontestável, risadas, reações de alta (paz, Clapping e booing) e silêncio. 
+
+O recurso de áudio recém-adicionado afeta a disponibilidade de recursos ao indexar o arquivo escolhendo a **opção avançada**  ->  predefinição de **áudio avançado** (em vídeo + indexação de áudio). A indexação padrão incluirá apenas a **reação** de **silêncio** e de forma de torcida. 
+
+O tipo de evento **Clapping** que foi incluído no modelo de efeitos de áudio anterior agora é extraído de uma parte do tipo de evento de **reação de torcida** .
+
+Quando você opta por ver os **insites** do seu vídeo no site [Video indexer](https://www.videoindexer.ai/) , os efeitos de áudio aparecem na página.
+
+:::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Detecção de eventos de áudio":::
+
+### <a name="named-entities-enhancement"></a>Aprimoramento de entidades nomeadas  
+
+A lista extraída de pessoas e local foi estendida e atualizada em geral. 
+
+Além disso, o modelo agora inclui pessoas e locais no contexto que não são famosos, como um ' Sam ' ou ' Home ' no vídeo. 
 
 ## <a name="january-2021"></a>Janeiro de 2021
 

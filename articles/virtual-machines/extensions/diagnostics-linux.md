@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: ebc4867f0ce16657c550b3d33d76fccdb41cef54
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980636"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580272"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux 4,0 para monitorar as métricas e os logs
 
@@ -827,6 +827,6 @@ Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-about.md) c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/platform/alerts-classic-portal.md) para as métricas que você coletar.
-* Criar [gráficos de monitoramento](../../azure-monitor/platform/data-platform.md) para suas métricas.
+* Criar alertas de métricas no [Azure Monitor](../../azure-monitor/alerts/alerts-classic-portal.md) para as métricas que você coletar.
+* Criar [gráficos de monitoramento](../../azure-monitor/data-platform.md) para suas métricas.
 * Aprenda a [criar um conjunto de dimensionamento de máquinas virtuais](../linux/tutorial-create-vmss.md) usando suas métricas para controlar o dimensionamento automático.

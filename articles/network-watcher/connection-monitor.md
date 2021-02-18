@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/04/2021
 ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: a4f3e0bbd282fb1253e206e71c2eb1667773248e
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b734c4cdec022f2bf43ee7123b06331f67c10390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834078"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570849"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutorial: Monitorar a comunicação de rede entre as duas máquinas virtuais usando o portal do Azure
 
@@ -137,7 +137,7 @@ Alertas são criados por regras de alerta no Azure Monitor e podem executar auto
 2. Clique em **Selecionar destino** e selecione os recursos aos quais você deseja direcionar. Selecione a **Assinatura** e defina o **Tipo de recurso** para filtrar pelo Monitor de Conexão que você deseja usar.
 
     ![tela de alerta com o destino selecionado](./media/connection-monitor/set-alert-rule.png)
-1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
+1. Depois de selecionar um recurso para direcionamento, selecione **Adicionar critérios**. O Observador de Rede tem [métrica que pode servir de base para alertas](../azure-monitor/alerts/alerts-metric-near-real-time.md#metrics-and-dimensions-supported). Defina **Sinais disponíveis** para as métricas ProbesFailedPercent e AverageRoundtripMs:
 
     ![página de alerta com sinais selecionados](./media/connection-monitor/set-alert-signals.png)
 1. Preencha os detalhes do alerta, como nome da regra de alerta, descrição e gravidade. Você também pode adicionar um grupo de ação ao alerta para automatizar e personalizar a resposta de alerta.

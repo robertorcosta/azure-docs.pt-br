@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: alkemper
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: bf0df4cc6e686b553baf8c2439c807d2f07ef440
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 701fe4ffc6147086dde740bfdb2dc7db92508e28
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807472"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100380229"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Tutorial: Usar sinalizadores de recursos em um aplicativo ASP.NET Core
 
@@ -218,7 +218,7 @@ Por convenção, a seção `FeatureManagement` deste documento JSON é usada par
 
 ## <a name="use-dependency-injection-to-access-ifeaturemanager"></a>Usar injeção de dependência para acessar o IFeatureManager 
 
-Para algumas operações, como verificar manualmente os valores dos sinalizadores de recursos, você precisa obter uma instância do [IFeatureManager](/dotnet/api/microsoft.featuremanagement.ifeaturemanage). No ASP.NET Core MVC, você pode acessar o gerenciador de recursos `IFeatureManager` por meio da injeção de dependência. No exemplo a seguir, um argumento do tipo `IFeatureManager` é adicionado à assinatura do construtor para um controlador. O runtime resolve automaticamente a referência e fornece a interface ao chamar o construtor. Se você estiver usando um modelo de aplicativo no qual o controlador já tem um ou mais argumentos de injeção de dependência no construtor, como `ILogger`, poderá simplesmente adicionar `IFeatureManager` como um argumento adicional:
+Para algumas operações, como verificar manualmente os valores dos sinalizadores de recursos, você precisa obter uma instância do [IFeatureManager](https://docs.microsoft.com/dotnet/api/microsoft.featuremanagement.ifeaturemanager?view=azure-dotnet-preview). No ASP.NET Core MVC, você pode acessar o gerenciador de recursos `IFeatureManager` por meio da injeção de dependência. No exemplo a seguir, um argumento do tipo `IFeatureManager` é adicionado à assinatura do construtor para um controlador. O runtime resolve automaticamente a referência e fornece a interface ao chamar o construtor. Se você estiver usando um modelo de aplicativo no qual o controlador já tem um ou mais argumentos de injeção de dependência no construtor, como `ILogger`, poderá simplesmente adicionar `IFeatureManager` como um argumento adicional:
 
 ### <a name="net-5x"></a>[.NET 5.x](#tab/core5x)
     

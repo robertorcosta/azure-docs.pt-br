@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8ea668ab2266a1deae108542687c89f3a221568e
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: a6827f8629423b9ed3adc362d3d05fd740e25a65
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99220966"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633301"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Executar runbooks em um Hybrid Runbook Worker
 
@@ -96,7 +96,7 @@ Use o seguinte procedimento para especificar uma conta Executar como para um gru
 Como parte do processo de build automatizado para a implantação de recursos no Azure, você pode precisar de acesso aos sistemas locais para dar suporte a uma tarefa ou um conjunto de etapas na sequência de implantação. Para fornecer autenticação no Azure usando a conta Executar como, você deve instalar o certificado da conta Executar como.
 
 >[!NOTE]
->Esse runbook do PowerShell atualmente não é executado em computadores LInux. Ele é executado somente em computadores Windows.
+>Esse runbook do PowerShell atualmente não é executado em computadores Linux. Ele é executado somente em computadores Windows.
 >
 
 O runbook do PowerShell a seguir, chamado **Export-RunAsCertificateToHybridWorker**, exporta o certificado Executar como da sua conta da Automação do Azure. O runbook baixa e importa o certificado para o repositório de certificados do computador local em um Hybrid Runbook Worker que esteja conectado à mesma conta. Quando concluir essa etapa, o runbook verificará se o trabalho pode se autenticar com êxito no Azure usando a conta Executar como.
@@ -319,7 +319,7 @@ Ao iniciar um runbook usando o PowerShell, use o parâmetro `RunOn` com o cmdlet
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 Para ajudar a solucionar problemas com seus runbooks em execução em um runbook Worker híbrido, os logs são armazenados localmente no seguinte local:
 
