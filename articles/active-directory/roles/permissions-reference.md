@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509eae7acf0dd9f6b8ae80befb7423422f778710
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518820"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095869"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -529,7 +529,7 @@ Os usuários com essa função podem acessar dados agregados no nível do locat�
 
 Os usuários com essa função podem criar usuários e gerenciar todos os aspectos de usuários com algumas restrições (consulte a tabela) e podem atualizar as políticas de expiração de senha. Além disso, os usuários com essa função podem criar e gerenciar todos os grupos. Essa função também inclui a capacidade de criar e gerenciar exibições de usuários, gerenciar tickets de suporte e monitorar a integridade do serviço. Os administradores de usuários não têm permissão para gerenciar algumas propriedades de usuários na maioria das funções de administrador. O usuário com essa função não tem permissões para gerenciar a MFA. As funções que são exceções a essa restrição estão listadas na tabela a seguir.
 
-| Permissão de administrador de usuário | Anotações |
+| Permissão de administrador de usuário | Observações |
 | --- | --- |
 | Criar usuários e grupos<br/>Criar e gerenciar modos de exibição do usuário<br/>Gerenciar tíquetes de suporte do Office<br/>Atualizar políticas de expiração de senha |  |
 | Gerenciar licenças<br/>Gerenciar todas as propriedades de usuário, exceto o nome Principal do usuário | Aplica-se a todos os usuários, incluindo todos os administradores |
@@ -2176,6 +2176,6 @@ Leitor de relatórios de Resumo de uso | &nbsp; | :heavy_check_mark: | :heavy_ch
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como atribuir um usuário como administrador de uma assinatura do Azure, consulte [Adicionar ou remover atribuições de função do Azure (RBAC do Azure)](../../role-based-access-control/role-assignments-portal.md)
+* Para saber mais sobre como atribuir um usuário como administrador de uma assinatura do Azure, consulte [atribuir um usuário como administrador de uma assinatura do Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
 * Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre funções diferentes](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD, ou para obter instruções para associar ou adicionar uma assinatura, consulte [associar ou adicionar uma assinatura do Azure ao seu locatário de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)

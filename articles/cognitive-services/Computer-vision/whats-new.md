@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 31ca65099d645b7fdfee70275515f0a864cd905f
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100390395"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
@@ -26,7 +26,7 @@ Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a vers
 ### <a name="read-api-v32-public-preview-with-ocr-support-for-73-languages"></a>Versão Prévia Pública da API de Leitura v3.2 com suporte de OCR para 73 idiomas
 A versão prévia pública da API de Leitura v3.2 da Pesquisa Visual Computacional, disponível como serviço de nuvem e contêiner do Docker, inclui estas atualizações:
 * [OCR para 73 idiomas](./language-support.md#optical-character-recognition-ocr) incluindo idiomas latinos, chinês simplificado e tradicional, japonês e coreano.
-* Ordem de leitura natural para a saída da linha de texto.
+* Ordem natural de leitura da saída da linha de texto (somente para idiomas latinos)
 * Classificação de estilo manuscrito para linhas de texto juntamente com uma pontuação de confiança (somente em idiomas latinos).
 * Extraia o texto somente das páginas selecionadas de um documento de várias páginas.
 * Disponível como um [contêiner distroless](./computer-vision-how-to-install-containers.md?tabs=version-3-2) para implantação local.

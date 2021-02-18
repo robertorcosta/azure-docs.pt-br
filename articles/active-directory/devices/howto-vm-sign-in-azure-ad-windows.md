@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions, devx-track-azurecli
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e22e5fc4bc7211d905dbe8775b0ef6e893bd2cc
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 66958e275a6dee13244f0f283b1ee1dbb5d40470
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98761006"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093461"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Entrar na máquina virtual do Windows no Azure usando a autenticação Azure Active Directory (versão prévia)
 
@@ -32,7 +32,7 @@ Há muitos benefícios em usar a autenticação do Azure AD para fazer logon em 
 - Não precisa mais gerenciar contas de administrador local.
 - O RBAC do Azure permite conceder o acesso apropriado às VMs com base na necessidade e removê-la quando não for mais necessária.
 - Antes de permitir o acesso a uma VM, o acesso condicional do Azure AD pode impor requisitos adicionais, como: 
-   - Autenticação multifator
+   - Autenticação Multifator
    - Verificação de risco de entrada
 - Automatize e dimensione o ingresso no Azure AD de VMs do Windows do Azure que fazem parte para suas implantações de VDI.
 
@@ -194,9 +194,9 @@ az role assignment create \
 
 Para obter mais informações sobre como usar o RBAC do Azure para gerenciar o acesso aos recursos de sua assinatura do Azure, consulte os seguintes artigos:
 
-- [Adicionar ou remover atribuições de função do Azure usando a CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
-- [Adicionar ou remover atribuições de função do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+- [Atribuir funções do Azure usando CLI do Azure](../../role-based-access-control/role-assignments-cli.md)
+- [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Atribua funções do Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Usando o acesso condicional
 

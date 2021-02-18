@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: 46be3349490f04660d4fc8b69e4cdc295d8ecc1c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d85aa1b66170acb25bd88435b83b1d28cda954f0
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98945801"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093591"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalização de clusters do HDInsight através de ações de script
 
@@ -68,7 +68,7 @@ Alguém com pelo menos acesso de colaborador à assinatura do Azure deve ter reg
 Saiba mais sobre como trabalhar com o gerenciamento de acesso:
 
 - [Introdução ao gerenciamento de acesso no portal do Azure](../role-based-access-control/overview.md)
-- [Usar as atribuições de função para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções do Azure para gerenciar o acesso aos recursos de assinatura do Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="methods-for-using-script-actions"></a>Métodos para usar ações de script
 
@@ -125,7 +125,7 @@ Scripts de ação de script podem ser usados por meio dos utilitários a seguir:
 
 O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
 
-| Nome | script |
+| Nome | Script |
 | --- | --- |
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Confira [Instalar e usar o Hue em clusters Hadoop do HDInsight](hdinsight-hadoop-hue-linux.md). |

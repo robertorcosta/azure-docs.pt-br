@@ -1,20 +1,20 @@
 ---
-title: Detecção de anomalias para cobrança limitada | Azure Marketplace
-description: Saiba como a detecção automática de anomalias para cobrança limitada ajuda a garantir que seus clientes sejam cobrados corretamente para uso limitado da sua oferta de Marketplace comercial.
+title: Gerenciar anomalias de cobrança limitadas no Partner Center | Azure Marketplace
+description: Saiba como a detecção automática de anomalias para cobrança limitada ajuda a garantir que seus clientes sejam cobrados corretamente para uso limitado de suas ofertas de mercado comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 2/17/2021
+ms.date: 2/18/2021
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 7f1bcac49ccb12ea1e0517aed5a139e549451ec0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 1ff6262a75261c575082f3fc48d588c868ad0b51
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652999"
+ms.locfileid: "101092515"
 ---
-# <a name="anomaly-detection-for-metered-billing"></a>Detecção de anomalias para obter uma cobrança limitada
+# <a name="manage-metered-billing-anomalies-in-partner-center"></a>Gerenciar anomalias de cobrança limitadas no Partner Center
 
 A opção de cobrança limitada personalizada está disponível atualmente para ofertas de [software como serviço](plan-saas-offer.md) (SaaS) e [aplicativos do Azure](plan-azure-application-offer.md#types-of-plans) com um plano de aplicativo gerenciado.
 
@@ -80,3 +80,4 @@ Depois de marcar um uso excedente como uma anomalia ou reconhecer um modelo que 
 ## <a name="see-also"></a>Confira também
 - [Cobrança limitada para SaaS usando o serviço de medição do Marketplace comercial](./partner-center-portal/saas-metered-billing.md)
 - [Cobrança limitada do aplicativo gerenciado](./partner-center-portal/azure-app-metered-billing.md)
+- [Serviço de detecção de anomalias para cobrança limitada](./partner-center-portal/anomaly-detection-service-for-metered-billing.md)

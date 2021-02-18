@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: bc121b3f5aadad1e68315acac5daade5337b701b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f8f9da1b9c0b2df4e353b90538d52d9cb9b9e241
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580361"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093914"
 ---
 # <a name="azure-security-baseline-for-azure-traffic-manager"></a>Linha de base de segurança do Azure para o Gerenciador de tráfego do Azure
 
@@ -114,7 +114,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura podem ser adicionados ao Gerenciador de Tráfego, desde que a pessoa que configura o perfil do Gerenciador de Tráfego tenha o acesso de leitura ao ponto de extremidade.
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
 
@@ -272,7 +272,7 @@ No Gerenciador de Recursos, os pontos de extremidade de qualquer assinatura pode
 
 O Gerenciador de tráfego do Azure tem uma função predefinida do Azure chamada "colaborador do Gerenciador de tráfego", que pode ser atribuída aos usuários.
 
-- [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
+- [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Função colaborador do Traffic Manager](../role-based-access-control/built-in-roles.md#traffic-manager-contributor)
 

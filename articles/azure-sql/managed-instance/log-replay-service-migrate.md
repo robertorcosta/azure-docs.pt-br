@@ -10,21 +10,21 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 02/17/2021
-ms.openlocfilehash: 7892b1fe0fcad77d1fde8b44f4a8745b5c7dd334
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 07da1d5dbfd6384751e01f5becccd7b7b4c97e99
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100654013"
+ms.locfileid: "101095223"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service"></a>Migrar bancos de dados do SQL Server para o SQL Instância Gerenciada usando o serviço de reprodução de log
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-Este artigo explica como configurar manualmente a migração de banco de dados do SQL Server 2008-2019 para o SQL Instância Gerenciada usando o serviço de reprodução de log (LRS). Este é um serviço de nuvem habilitado para a instância gerenciada com base no SQL Server tecnologia de envio de logs no modo sem recuperação. LRS deve ser usado em casos em que o serviço de migração de dados (DMS) não pode ser usado, quando mais controle é necessário ou quando existe pouca tolerância para tempo de inatividade.
+Este artigo explica como configurar manualmente a migração de banco de dados do SQL Server 2008-2019 para o SQL Instância Gerenciada usando o serviço de reprodução de log (LRS). Esse é um serviço de nuvem habilitado para Instância Gerenciada com base na tecnologia de envio de logs do SQL Server. LRS deve ser usado nos casos em que o serviço de migração de dados do Azure (DMS) não pode ser usado, quando mais controle é necessário ou quando existe pouca tolerância para tempo de inatividade.
 
 ## <a name="when-to-use-log-replay-service"></a>Quando usar o serviço de reprodução de log
 
-Nos casos em que o [Azure DMS](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance) não pode ser usado para migração, o serviço de nuvem LRS pode ser usado diretamente com o PowerShell, cmdlets da CLI ou API para criar e orquestrar manualmente as migrações de banco de dados para a instância gerenciada do SQL. 
+Nos casos em que o [Azure DMS](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-managed-instance) não pode ser usado para migração, o serviço de nuvem LRS pode ser usado diretamente com o PowerShell, cmdlets da CLI ou API para criar e orquestrar manualmente as migrações de banco de dados para o SQL instância gerenciada. 
 
 Talvez você queira considerar o uso do serviço de nuvem LRS em alguns dos seguintes casos:
 - Mais controle é necessário para seu projeto de migração de banco de dados
@@ -34,15 +34,15 @@ Talvez você queira considerar o uso do serviço de nuvem LRS em alguns dos segu
 - Nenhum acesso ao sistema operacional do host está disponível ou nenhum privilégio de administrador
 
 > [!NOTE]
-> A maneira automatizada recomendada de migrar bancos de dados do SQL Server para o SQL Instância Gerenciada está usando o Azure DMS. Este serviço está usando o mesmo serviço de nuvem LRS no back-end com envio de logs no modo sem recuperação. Você deve considerar manualmente o uso de LRS para orquestrar as migrações em casos em que o Azure DMS não dá suporte completo aos seus cenários.
+> A maneira automatizada recomendada de migrar bancos de dados do SQL Server para o SQL Instância Gerenciada está usando o Azure DMS. Este serviço está usando o mesmo serviço de nuvem LRS no back-end com o envio de logs no modo NORECOVERY. Você deve considerar manualmente o uso de LRS para orquestrar as migrações em casos em que o Azure DMS não dá suporte completo aos seus cenários.
 
 ## <a name="how-does-it-work"></a>Como ele funciona
 
 Criar uma solução personalizada usando o LRS para migrar um banco de dados para a nuvem requer várias etapas de orquestração mostradas no diagrama e descritas na tabela a seguir.
 
-A migração envolve fazer backups de banco de dados completos em SQL Server e copiar arquivos de backup para o armazenamento de BLOBs do Azure. LRS é usado para restaurar arquivos de backup do armazenamento de BLOBs do Azure para a instância gerenciada do SQL. O armazenamento de BLOBs do Azure é usado como um armazenamento intermediário entre SQL Server e Instância Gerenciada do SQL.
+A migração envolve fazer backups de banco de dados completos em SQL Server e copiar arquivos de backup para o armazenamento de BLOBs do Azure. LRS é usado para restaurar arquivos de backup do armazenamento de BLOBs do Azure para o SQL Instância Gerenciada. O armazenamento de BLOBs do Azure é usado como um armazenamento intermediário entre SQL Server e Instância Gerenciada do SQL.
 
-O LRS monitorará o armazenamento de BLOBs do Azure para qualquer novo diferencial ou backups de log adicionados após a restauração do backup completo e irá restaurar automaticamente os novos arquivos adicionados. O progresso dos arquivos de backup que estão sendo restaurados na instância gerenciada do SQL pode ser monitorado usando o serviço, e o processo também pode ser anulado, se necessário. Os bancos de dados que estão sendo restaurados durante o processo de migração estarão em um modo de restauração e não poderão ser usados para leitura ou gravação até que o processo seja concluído.
+O LRS monitorará o armazenamento de BLOBs do Azure para qualquer novo diferencial ou backups de log adicionados após a restauração do backup completo e irá restaurar automaticamente os novos arquivos adicionados. O progresso dos arquivos de backup que estão sendo restaurados no SQL Instância Gerenciada pode ser monitorado usando o serviço, e o processo também pode ser anulado, se necessário. Os bancos de dados que estão sendo restaurados durante o processo de migração estarão em um modo de restauração e não poderão ser usados para leitura ou gravação até que o processo seja concluído.
 
 LRS pode ser iniciado em modo de preenchimento automático ou contínuo. Quando iniciado no modo de preenchimento automático, a migração será concluída automaticamente quando o último arquivo de backup especificado tiver sido restaurado. Quando iniciado no modo contínuo, o serviço irá restaurar continuamente todos os novos arquivos de backup adicionados e a migração será concluída apenas na transferência manual. A etapa final de transferência tornará os bancos de dados disponíveis para uso de leitura e gravação no SQL Instância Gerenciada. 
 
@@ -50,11 +50,11 @@ LRS pode ser iniciado em modo de preenchimento automático ou contínuo. Quando 
 
 | Operação | Detalhes |
 | :----------------------------- | :------------------------- |
-| **1. copiar backups de banco de dados de SQL Server para o armazenamento de BLOBs do Azure**. | -Copie backups completos, diferenciais e de log de SQL Server para o armazenamento de BLOBs do Azure usando [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). <br />-Em migrar vários bancos de dados, é necessária uma pasta separada para cada banco de dados. |
-| **2. Inicie o serviço LRS na nuvem**. | -O serviço pode ser iniciado com uma opção de cmdlets: <br /> PowerShell [Start-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) <br /> [Cmdlets az_sql_midb_log_replay_start](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)da CLI. <br /><br />-Depois de iniciado, o serviço fará backups do armazenamento de BLOBs do Azure e começará a restaurá-los no SQL Instância Gerenciada. <br /> -Depois que todos os backups inicialmente carregados forem restaurados, o serviço observará os novos arquivos carregados na pasta e aplicará continuamente os logs com base na cadeia LSN, até que o serviço seja interrompido. |
+| **1. copiar backups de banco de dados de SQL Server para o armazenamento de BLOBs do Azure**. | -Copie backups completos, diferenciais e de log de SQL Server para o contêiner de armazenamento de BLOBs do Azure usando [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). <br />-Em migrar vários bancos de dados, é necessária uma pasta separada para cada banco de dados. |
+| **2. Inicie o serviço LRS na nuvem**. | -O serviço pode ser iniciado com uma opção de cmdlets: <br /> PowerShell [Start-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay) <br /> [Cmdlets az_sql_midb_log_replay_start](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)da CLI. <br /><br />-Depois de iniciado, o serviço fará backups do contêiner de armazenamento de BLOBs do Azure e começará a restaurá-los na instância sqlmanaged. <br /> -Depois que todos os backups inicialmente carregados forem restaurados, o serviço observará os novos arquivos carregados na pasta e aplicará continuamente os logs com base na cadeia LSN, até que o serviço seja interrompido. |
 | **2,1. Monitore o progresso da operação**. | -O progresso da operação de restauração pode ser monitorado com uma opção ou cmdlets: <br /> [Get-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay) do PowerShell <br /> [Cmdlets az_sql_midb_log_replay_show](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)da CLI. |
 | **2,2. Stop\abort a operação, se necessário**. | -No caso de o processo de migração precisar ser anulado, a operação poderá ser interrompida com uma opção de cmdlets: <br /> PowerShell [Stop-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay) <br /> Cmdlets [az_sql_midb_log_replay_stop](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop) da CLI. <br /><br />-Isso fará com que a exclusão do banco de dados seja restaurada no SQL Instância Gerenciada. <br />-Depois de interrompido, LRS não pode ser continuado para um banco de dados. O processo de migração precisa ser reiniciado do zero. |
-| **3. transferência para a nuvem quando estiver pronto**. | -Depois que todos os backups tiverem sido restaurados para o SQL Instância Gerenciada, conclua a transferência iniciando a operação de conclusão LRS com uma opção de chamada à API ou cmdlets: <br />PowerShell [concluído-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> Cmdlets [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) da CLI. <br /><br />-Isso fará com que o serviço LRS seja interrompido e o banco de dados em Instância Gerenciada será recuperado. <br />-Redirecionar a cadeia de conexão do aplicativo do SQL Server para o SQL Instância Gerenciada. <br />-No banco de dados de conclusão de operação está disponível para operações de R/W na nuvem. |
+| **3. transferência para a nuvem quando estiver pronto**. | -Depois que todos os backups tiverem sido restaurados para a instância do SQL mnaged, conclua a transferência iniciando a operação de conclusão LRS com uma opção de chamada à API ou cmdlets: <br />PowerShell [concluído-azsqlinstancedatabaselogreplay](https://docs.microsoft.com/powershell/module/az.sql/complete-azsqlinstancedatabaselogreplay) <br /> Cmdlets [az_sql_midb_log_replay_complete](https://docs.microsoft.com/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_complete) da CLI. <br /><br />-Isso fará com que o serviço LRS seja interrompido e o banco de dados na instância gerenciada será recuperado. <br />-Redirecionar a cadeia de conexão do aplicativo do SQL Server para o SQL Instância Gerenciada. <br />-No banco de dados de conclusão de operação está disponível para operações de R/W na nuvem. |
 
 ## <a name="requirements-for-getting-started"></a>Requisitos para introdução
 
@@ -63,15 +63,15 @@ LRS pode ser iniciado em modo de preenchimento automático ou contínuo. Quando 
 - Backup completo de bancos de dados (um ou vários arquivos)
 - Backup diferencial (um ou vários arquivos)
 - Backup de log (não dividido para o arquivo de log de transações)
-- A **soma de verificação deve ser habilitada** como obrigatória
+- A **soma de verificação deve ser habilitada** para backups (obrigatório)
 
 ### <a name="azure-side"></a>Lado do Azure
--   Módulo AZ. SQL do PowerShell versão 2.16.0 ou superior ([instalar](https://www.powershellgallery.com/packages/Az.Sql/)ou usar o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/)do Azure)
--   CLI versão 2.19.0 ou superior ([instalar](https://docs.microsoft.com/cli/azure/install-azure-cli))
--   Armazenamento de BLOBs do Azure provisionado
--   Token de segurança SAS com permissões somente **leitura** e **lista** geradas para o armazenamento de BLOBs
+- Módulo AZ. SQL do PowerShell versão 2.16.0 ou superior ([instalar](https://www.powershellgallery.com/packages/Az.Sql/)ou usar o [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/)do Azure)
+- CLI versão 2.19.0 ou superior ([instalar](https://docs.microsoft.com/cli/azure/install-azure-cli))
+- Contêiner de armazenamento de BLOBs do Azure provisionado
+- Token de segurança SAS com permissões somente **leitura** e **lista** geradas para o contêiner de armazenamento de BLOBs
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Melhores práticas
 
 Os itens a seguir são altamente recomendados como práticas recomendadas:
 - Executar [Assistente de migração de dados](https://docs.microsoft.com/sql/dma/dma-overview) para validar seus bancos de dados não terá nenhum problema migrado para o SQL instância gerenciada. 
@@ -81,14 +81,14 @@ Os itens a seguir são altamente recomendados como práticas recomendadas:
 - Planeje concluir a migração dentro de 47 horas desde que o serviço LRS foi iniciado.
 
 > [!IMPORTANT]
-> - O banco de dados que está sendo restaurado usando LRS não pode ser usado até que o processo de migração tenha sido concluído. Isso ocorre porque a tecnologia subjacente é o envio de logs no modo sem recuperação.
+> - O banco de dados que está sendo restaurado usando LRS não pode ser usado até que o processo de migração tenha sido concluído. Isso ocorre porque a tecnologia subjacente é o envio de logs no modo NORECOVERY.
 > - O modo de espera para envio de logs não é suportado pelo LRS devido às diferenças de versão entre o SQL Instância Gerenciada e a versão mais recente do SQL Server no mercado.
 
 ## <a name="steps-to-execute"></a>Etapas para executar
 
 ## <a name="copy-backups-from-sql-server-to-azure-blob-storage"></a>Copiar backups de SQL Server para o armazenamento de BLOBs do Azure
 
-As duas abordagens a seguir podem ser utilizadas para copiar backups para o armazenamento de BLOBs na migração de bancos de dados para Instância Gerenciada usando o LRS:
+As duas abordagens a seguir podem ser utilizadas para copiar backups para o armazenamento de BLOBs na migração de bancos de dados para a instância gerenciada usando o LRS:
 - Usando SQL Server o [backup nativo para a funcionalidade de URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url) .
 - Copiar os backups para o contêiner de BLOB usando [Azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10)ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer). 
 
@@ -197,7 +197,7 @@ az sql midb log-replay show -g mygroup --mi myinstance -n mymanageddb
 
 ## <a name="stop-the-migration"></a>Parar a migração
 
-Caso você precise interromper a migração, use os cmdlets a seguir. Parar a migração excluirá o banco de dados de restauração na instância gerenciada do SQL, devido ao qual não será possível retomar a migração.
+Caso você precise interromper a migração, use os cmdlets a seguir. Parar a migração excluirá o banco de dados de restauração no SQL Instância Gerenciada devido a qual não será possível retomar a migração.
 
 Para stop\abort o processo de migração, use o seguinte comando do PowerShell:
 
@@ -222,7 +222,8 @@ Para concluir o processo de migração no modo contínuo do LRS, use o seguinte 
 ```powershell
 Complete-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 -InstanceName "ManagedInstance01" `
--Name "ManagedDatabaseName" -LastBackupName "last_backup.bak"
+-Name "ManagedDatabaseName" `
+-LastBackupName "last_backup.bak"
 ```
 
 Para concluir o processo de migração no modo contínuo do LRS, use o seguinte comando da CLI:

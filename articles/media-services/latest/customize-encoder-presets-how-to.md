@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c8c9f1deb1b776a818269909b3feb19f00a2c356
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: ba17346d5f064b57f98e7ad8745d9f80bdde5116
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98954269"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092294"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada-.NET
 
@@ -32,7 +32,7 @@ Ao criar predefinições personalizadas, as seguintes considerações se aplicam
 * Todos os valores para altura e largura em conteúdo AVC devem ser um múltiplo de 4.
 * Nos serviços de mídia do Azure v3, todas as taxas de bits de codificação estão em bits por segundo. Isso é diferente das predefinições com nossas APIs v2, que usavam kilobits/segundo como a unidade. Por exemplo, se a taxa de bits em v2 tiver sido especificada como 128 (kilobits/segundo), em v3, ela seria definida como 128000 (bits/segundo).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
 [Criar uma conta dos Serviços de Mídia](./create-account-howto.md)
 
@@ -46,7 +46,7 @@ Clone um repositório do GitHub que contém o exemplo de .NET Core completo em s
  
 O exemplo de predefinição personalizado está localizado na pasta [EncodeCustomTransform](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/EncodeCustomTransform/).
 
-## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada 
+## <a name="create-a-transform-with-a-custom-preset"></a>Criar uma transformação com uma predefinição personalizada
 
 Ao criar uma nova [Transformação](/rest/api/media/transforms), você precisará especificar o que deseja produzir como uma saída. O parâmetro necessário é um objeto [TransformOutput](/rest/api/media/transforms/createorupdate#transformoutput), como mostrado no código a seguir. Cada **TransformOutput** contém um **Predefinição**. A **predefinição** descreve as instruções detalhadas de operações de processamento de vídeo e/ou áudio que devem ser usadas para gerar o **TransformOutput** desejado. O seguinte **TransformOutput** cria configurações personalizadas de saída de codec e camada.
 

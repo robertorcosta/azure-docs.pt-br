@@ -10,12 +10,12 @@ ms.custom: devx-track-dotnet, devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/27/2020
 ms.author: avgupta
-ms.openlocfilehash: 04edf2eeb231ff1444c732840def2b78b1373e79
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: 39c50f539c04a6c49316f4541c759859be861f9d
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94565918"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095511"
 ---
 # <a name="back-up-app-configuration-stores-automatically"></a>Fazer backup de repositórios de configuração de aplicativo automaticamente
 
@@ -177,7 +177,7 @@ az functionapp identity assign --name $functionAppName --resource-group $resourc
 ```
 
 > [!NOTE]
-> Para executar a criação de recursos e o gerenciamento de função necessários, sua conta precisa de `Owner` permissões no escopo apropriado (sua assinatura ou grupo de recursos). Se você precisar de assistência com a atribuição de função, saiba [como adicionar ou remover atribuições de função do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+> Para executar a criação de recursos e o gerenciamento de função necessários, sua conta precisa de `Owner` permissões no escopo apropriado (sua assinatura ou grupo de recursos). Se você precisar de assistência com a atribuição de função, saiba [como atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 Use os comandos a seguir ou o [portal do Azure](./howto-integrate-azure-managed-service-identity.md#grant-access-to-app-configuration) para conceder a identidade gerenciada do acesso do aplicativo de funções aos seus repositórios de configuração de aplicativo. Use estas funções:
 - Atribua a `App Configuration Data Reader` função no repositório de configuração do aplicativo primário.
@@ -216,7 +216,7 @@ Para testar se tudo funciona, você pode criar, atualizar ou excluir um valor de
 az appconfig kv set --name $primaryAppConfigName --key Foo --value Bar --yes
 ```
 
-Você disparou o evento. Em alguns instantes, a grade de eventos enviará a notificação de eventos para sua fila. *Após a próxima execução agendada de sua função* , exiba as definições de configuração em seu armazenamento secundário para ver se ela contém o valor de chave atualizado do repositório primário.
+Você disparou o evento. Em alguns instantes, a grade de eventos enviará a notificação de eventos para sua fila. *Após a próxima execução agendada de sua função*, exiba as definições de configuração em seu armazenamento secundário para ver se ela contém o valor de chave atualizado do repositório primário.
 
 > [!NOTE]
 > Você pode [disparar a função manualmente](../azure-functions/functions-manually-run-non-http.md) durante os testes e a solução de problemas sem esperar pelo gatilho de temporizador agendado.

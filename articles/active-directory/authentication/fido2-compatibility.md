@@ -11,12 +11,12 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e324ae0fc80bb5990f9cf15901080684086a549
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: a8ed99338a10eb226823c4bd4857d812038ff632
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652234"
+ms.locfileid: "101094507"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Suporte ao navegador de autenticação FIDO2 sem senha
 
@@ -32,6 +32,17 @@ Esta tabela mostra o suporte para autenticar Azure Active Directory (Azure AD) e
 | **Windows**  | ![O Chrome dá suporte a USB no Windows para contas do AAD.][y] | ![O Chrome dá suporte a NFC no Windows para contas do AAD.][y] | ![O Chrome dá suporte a BLE no Windows para contas do AAD.][y] | ![O Edge dá suporte a USB no Windows para contas do AAD.][y] | ![O Edge dá suporte a NFC no Windows para contas do AAD.][y] | ![O Edge dá suporte a BLE no Windows para contas do AAD.][y] | ![O Firefox dá suporte a USB no Windows para contas do AAD.][y] | ![O Firefox oferece suporte a NFC no Windows para contas do AAD.][y] | ![O Firefox dá suporte a BLE no Windows para contas do AAD.][y] |
 | **macOS**  | ![O Chrome dá suporte a USB no macOS para contas do AAD.][y] | ![O Chrome não oferece suporte a NFC no macOS para contas do AAD.][n] | ![O Chrome não oferece suporte a BLE no macOS para contas do AAD.][n] | ![O Edge dá suporte a USB no macOS para contas do AAD.][y] | ![O Edge não dá suporte a NFC no macOS para contas do AAD.][n] | ![O Edge não dá suporte a BLE no macOS para contas do AAD.][n] | ![O Firefox não dá suporte a USB no macOS para contas do AAD.][n] | ![O Firefox não oferece suporte a NFC no macOS para contas do AAD.][n] | ![O Firefox não oferece suporte a BLE no macOS para contas do AAD.][n] |
 | **Linux**  | ![O Chrome dá suporte a USB no Linux para contas do AAD.][y] | ![O Chrome não oferece suporte a NFC no Linux para contas do AAD.][n] | ![O Chrome não oferece suporte a BLE no Linux para contas do AAD.][n] | ![O Edge não dá suporte a USB no Linux para contas do AAD.][n] | ![O Edge não dá suporte a NFC no Linux para contas do AAD.][n] | ![O Edge não dá suporte a BLE no Linux para contas do AAD.][n] | ![O Firefox não dá suporte a USB no Linux para contas do AAD.][n] | ![O Firefox não oferece suporte a NFC no Linux para contas do AAD.][n] | ![O Firefox não oferece suporte a BLE no Linux para contas do AAD.][n] |
+
+## <a name="unsupported-browsers"></a>Navegadores sem suporte
+
+As seguintes combinações de sistema operacional e navegador não têm suporte, mas o suporte e o teste futuros estão sendo investigados. Se você quiser ver o suporte adicional do navegador e do sistema operacional, deixe comentários usando a ferramenta de comentários do produto na parte inferior da página.
+
+| Sistema operacional | Navegador |
+| ---- | ---- |
+| iOS | Safari, corajoso |
+| macOS | Safari |
+| Android | Chrome |
+| ChromeOS | Chrome |
 
 ## <a name="operating-system-versions-tested"></a>Versões do sistema operacional testadas
 

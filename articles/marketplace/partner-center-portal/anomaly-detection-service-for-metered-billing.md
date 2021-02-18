@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: mingshen
 author: mingshen-ms
 ms.date: 06/10/2020
-ms.openlocfilehash: 5ab57bcccb6f681f5c9282ef461181952ed5a679
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: ac3e07c67ca82c2960de1c4341a714b33751bfc1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653067"
+ms.locfileid: "101092399"
 ---
 # <a name="anomaly-detection-service-for-metered-billing"></a>Serviço de detecção de anomalias para cobrança limitada
 
@@ -50,7 +50,7 @@ O modelo funciona gerando intervalos de confiança retrospectiva. A previsão de
 
 ## <a name="anomaly-detection-notification"></a>Notificação de detecção de anomalias
 
-Você pode avaliar, gerenciar e reconhecer anomalias no Partner Center. Para saber como, consulte [detecção de anomalias para cobrança limitada](../anomaly-detection.md).
+Você pode avaliar, gerenciar e reconhecer anomalias no Partner Center. Para saber como, consulte [gerenciar anomalias de cobrança limitada no Partner Center](../anomaly-detection.md).
 
 Para garantir que seus clientes não sejam sobrecarregados para uso medido, você deve investigar se as anomalias detectadas são problemas reais. Nesse caso, você pode reconhecer o uso incorreto no Partner Center.
 
@@ -83,4 +83,4 @@ Para obter mais opções de suporte do Publicador, consulte [suporte para o prog
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre a [API do serviço de medição do Marketplace](marketplace-metering-service-apis.md).
-- [Detecção de anomalias para obter uma cobrança limitada](../anomaly-detection.md)
+- [Gerenciar anomalias de cobrança limitadas no Partner Center](../anomaly-detection.md)

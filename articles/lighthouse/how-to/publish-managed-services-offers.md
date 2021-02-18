@@ -1,14 +1,14 @@
 ---
 title: Publicar uma oferta de serviço gerenciado no Azure Marketplace
 description: Saiba como publicar uma oferta de serviço gerenciado que integra os clientes ao Azure Lighthouse.
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.topic: how-to
-ms.openlocfilehash: 3af460f17533d70b24f76ab40460a5fa920cdece
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b906ba9961ae4f77ca16890fd0a9036123343111
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555800"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092153"
 ---
 # <a name="publish-a-managed-service-offer-to-azure-marketplace"></a>Publicar uma oferta de serviço gerenciado no Azure Marketplace
 
@@ -33,6 +33,9 @@ A tabela a seguir pode ajudar a determinar se os clientes devem ser integrados p
 |Requer a aceitação do cliente no portal do Azure     |Sim     |Não   |
 |Pode usar a automação para carregar várias assinaturas, grupos de recursos ou clientes |Não     |Sim    |
 |Acesso imediato a novas funções internas e recursos do Azure Lighthouse     |Nem sempre (geralmente disponível após algum atraso)         |Sim         |
+
+> [!NOTE]
+> As ofertas de serviço gerenciado podem não estar disponíveis no Azure governamental e em outras nuvens nacionais.
 
 ## <a name="create-your-offer"></a>Criar sua oferta
 

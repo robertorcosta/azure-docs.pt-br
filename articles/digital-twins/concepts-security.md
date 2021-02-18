@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b589f98ee78d0709b2a74ba4e364cec0e486e968
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547155"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094567"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -55,7 +55,7 @@ O Azure fornece **duas funções internas do Azure** para autorizar o acesso às
 | Leitor de dados do Azure digital gêmeos | Fornece acesso somente leitura aos recursos de gêmeos digitais do Azure | d57506d4-4c8d-48b1-8587-93c323f6a5a3 |
 
 Você pode atribuir funções de duas maneiras:
-* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*Adicionar ou remover atribuições de função do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
+* por meio do painel controle de acesso (IAM) para o gêmeos digital do Azure no portal do Azure (consulte [*atribuir funções do Azure usando o portal do Azure*](../role-based-access-control/role-assignments-portal.md))
 * por meio de comandos da CLI para adicionar ou remover uma função
 
 Para obter etapas mais detalhadas sobre como fazer isso, experimente no tutorial do gêmeos digital do Azure [*: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md).

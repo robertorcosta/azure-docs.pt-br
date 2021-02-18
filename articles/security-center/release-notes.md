@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/04/2021
+ms.date: 02/10/2021
 ms.author: memildin
-ms.openlocfilehash: fe031fa6de86b8059ba175fc4e1df6385ca7e796
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99551018"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100378990"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -39,6 +39,7 @@ As atualizações de fevereiro incluem:
 - [Link direto para a política na página de detalhes da recomendação](#direct-link-to-policy-from-recommendation-details-page)
 - [A recomendação de classificação de dados SQL não afeta mais a sua classificação de segurança](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [As automações de fluxo de trabalho podem ser disparadas por alterações nas avaliações de conformidade regulatória (versão prévia)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
+- [Aprimoramentos de página de inventário de ativos](#asset-inventory-page-enhancements)
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Lançamento das recomendações de proteção de cargas de trabalho do Kubernetes em GA (disponibilidade geral)
 
@@ -70,16 +71,32 @@ Se você estiver examinando a lista de recomendações no nosso [Guia de referê
 
 
 ### <a name="sql-data-classification-recommendation-no-longer-affects-your-secure-score"></a>A recomendação de classificação de dados SQL não afeta mais a sua classificação de segurança
-
 A recomendação **Os dados confidenciais nos seus bancos de dados SQL devem ser classificados** não afetará mais sua classificação de segurança. Essa é a única recomendação no controle de segurança **Aplicar classificação de dados**, para que o controle agora tenha um valor de classificação de segurança igual a 0.
 
 
 ### <a name="workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview"></a>As automações de fluxo de trabalho podem ser disparadas por alterações nas avaliações de conformidade regulatória (versão prévia)
-
 Adicionamos um terceiro tipo de dados às opções de gatilho para suas automações de fluxo de trabalho: alterações nas avaliações de conformidade regulatória.
 
 :::image type="content" source="media/release-notes/regulatory-compliance-triggers-workflow-automation.png" alt-text="Como usar as avaliações de conformidade regulatória para disparar uma automação de fluxo de trabalho" lightbox="media/release-notes/regulatory-compliance-triggers-workflow-automation.png":::
 
+
+### <a name="asset-inventory-page-enhancements"></a>Aprimoramentos de página de inventário de ativos
+A página de inventário de ativos da Central de Segurança foi aprimorada das seguintes maneiras:
+
+- Os resumos na parte superior da página agora incluem **Assinaturas não registradas**, mostrando o número de assinaturas sem a Central de Segurança habilitada.
+
+    :::image type="content" source="media/release-notes/unregistered-subscriptions.png" alt-text="Contagem de assinaturas não registradas nos resumos na parte superior da página de inventário de ativos":::
+
+- Os filtros foram expandidos e aprimorados para incluir:
+    - **Contagens** – Cada filtro apresenta o número de recursos que atendem aos critérios de cada categoria
+
+        :::image type="content" source="media/release-notes/counts-in-inventory-filters.png" alt-text="Contagens nos filtros na página de inventário de ativos da Central de Segurança do Azure":::
+
+    - **Contém filtro de isenções** (opcional) – Restrinja os resultados a recursos que têm/não têm isenções. Esse filtro não é mostrado por padrão, mas pode ser acessado no botão **Adicionar filtro**.
+
+        :::image type="content" source="media/release-notes/adding-contains-exemption-filter.gif" alt-text="Foi adicionado o filtro 'contém isenção' na página de inventário de ativos da Central de Segurança do Azure":::
+
+Saiba mais sobre como [Explorar e gerenciar seus recursos com o inventário de ativos](asset-inventory.md).
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -630,7 +647,7 @@ O painel de conformidade regulatória da Central de Segurança fornece informaç
 
 O painel inclui um conjunto padrão de padrões regulatórios. Se um dos padrões fornecidos não é relevante para sua organização, removê-los da interface do usuário de uma assinatura passou a ser um processo simples. Os padrões podem ser removidos somente no nível da *assinatura* não no escopo do grupo de gerenciamento.
 
-Saiba mais em [Remover um padrão de seu painel](update-regulatory-compliance-packages.md#removing-a-standard-from-your-dashboard).
+Saiba mais em [Remover um padrão de seu painel](update-regulatory-compliance-packages.md#remove-a-standard-from-your-dashboard).
 
 
 ### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Tabela Microsoft.Security/securityStatuses removida do ARG (Azure Resource Graph)

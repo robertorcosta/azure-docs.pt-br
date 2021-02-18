@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 1500a635d5177ed8899cdc3f1364e57a8525892c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b71c5426b6fba6f232b5a7aa42347f6b25d46299
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099941"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101094949"
 ---
 # <a name="troubleshoot-common-windows-virtual-desktop-agent-issues"></a>Solucionar problemas comuns do agente de área de trabalho virtual do Windows
 
@@ -269,6 +269,7 @@ Se você não encontrar o problema neste artigo ou se as instruções não ajuda
 - Você não está vendo suas VMs aparecem na lista de hosts de sessão
 - Você não vê o **carregador do agente de área de trabalho remota** na janela Serviços
 - Você não vê o componente **RdAgentBootLoader** no Gerenciador de tarefas
+- Você está recebendo um **agente de conexão não foi possível validar o** erro de configurações em VMs de imagem personalizada
 - As instruções neste artigo não resolveram o problema
 
 ### <a name="step-1-uninstall-all-agent-boot-loader-and-stack-component-programs"></a>Etapa 1: desinstalar todos os programas do agente, do carregador de inicialização e do componente de pilha

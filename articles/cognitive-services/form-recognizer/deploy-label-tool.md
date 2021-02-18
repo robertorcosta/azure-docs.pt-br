@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
-ms.openlocfilehash: 9535c1aa044fdce529d83c2e46a1b585e8e5f056
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100369995"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093394"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
 
@@ -69,19 +69,8 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
    > ![Selecionar Docker](./media/quickstarts/select-docker.png)
 
 6. Agora, vamos configurar o contêiner do Docker. Todos os campos são necessários, a menos que indicado de outra forma:
-
-    # <a name="v20"></a>[v2.0](#tab/v2-0)
-
-* Opções-selecione **um único contêiner**
-* Origem da imagem – selecionar **registro privado** 
-* URL do servidor-defina como `https://mcr.microsoft.com`
-* Nome de usuário (opcional)-criar um nome de usuário. 
-* Senha (opcional) – crie uma senha segura que você vai lembrar.
-* Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
-* Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
-* Comando de inicialização – defina como `./run.sh eula=accept`
-
-    # <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1) 
+<!-- markdownlint-disable MD025 -->
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)
 
 * Opções-selecione **um único contêiner**
 * Origem da imagem – selecionar **registro privado** 
@@ -92,19 +81,30 @@ Siga estas etapas para criar um novo recurso usando o portal do Azure:
 * Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
 * Comando de inicialização – defina como `./run.sh eula=accept`
 
-    ---
+# <a name="v20"></a>[v2.0](#tab/v2-0)  
+
+* Opções-selecione **um único contêiner**
+* Origem da imagem – selecionar **registro privado** 
+* URL do servidor-defina como `https://mcr.microsoft.com`
+* Nome de usuário (opcional)-criar um nome de usuário. 
+* Senha (opcional) – crie uma senha segura que você vai lembrar.
+* Imagem e marca-defina isso como `mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest`
+* Implantação contínua – defina como **ativado** se você quiser receber atualizações automáticas quando a equipe de desenvolvimento fizer alterações na ferramenta de rotulagem de exemplo.
+* Comando de inicialização – defina como `./run.sh eula=accept`
+
+ ---
 
    > [!div class="mx-imgBorder"]
    > ![Configurar o Docker](./media/quickstarts/configure-docker.png)
 
-7. Isso é tudo. Em seguida, selecione **revisar + criar** e **criar** para implantar seu aplicativo Web. Ao concluir, você pode acessar seu aplicativo Web na URL fornecida na **visão geral** do seu recurso.
+7. É isso. Em seguida, selecione **revisar + criar** e **criar** para implantar seu aplicativo Web. Ao concluir, você pode acessar seu aplicativo Web na URL fornecida na **visão geral** do seu recurso.
 
 > [!NOTE]
 > Ao criar seu aplicativo Web, você também pode configurar a autorização/autenticação. Isso não é necessário para começar.
 
 > [!IMPORTANT]
 > Talvez seja necessário habilitar o TLS para seu aplicativo Web a fim de exibi-lo em seu `https` endereço. Siga as instruções em [habilitar um ponto de extremidade TLS](../../container-instances/container-instances-container-group-ssl.md) para configurar um contêiner sidecar do que permite o TLS/SSL para seu aplicativo Web.
-
+<!-- markdownlint-disable MD001 -->
 ### <a name="azure-cli"></a>CLI do Azure
 
 Como alternativa ao uso do portal do Azure, você pode criar um recurso usando o CLI do Azure. Antes de continuar, você precisará instalar o [CLI do Azure](/cli/azure/install-azure-cli). Você pode ignorar esta etapa se já estiver trabalhando com o CLI do Azure. 
@@ -113,12 +113,32 @@ Há algumas coisas que você precisa saber sobre este comando:
 
 * `DNS_NAME_LABEL=aci-demo-$RANDOM` gera um nome DNS aleatório. 
 * Este exemplo pressupõe que você tenha um grupo de recursos que você pode usar para criar um recurso. Substituir `<resource_group_name>` por um grupo de recursos válido associado à sua assinatura. 
-* Você precisará especificar onde deseja criar o recurso. Substitua `<region name>` pela região desejada para o aplicativo Web. 
+* Você precisará especificar onde deseja criar o recurso. Substitua `<region name>` pela região desejada para o aplicativo Web.
 * Esse comando aceita automaticamente o EULA.
 
 No CLI do Azure, execute este comando para criar um recurso de aplicativo Web para a ferramenta de rotulagem de exemplo:
 
+<!-- markdownlint-disable MD024 -->
+# <a name="v21-preview"></a>[Versão prévia v2.1](#tab/v2-1)
+
+```azurecli
+DNS_NAME_LABEL=aci-demo-$RANDOM
+
+az container create \
+  --resource-group <resource_group_name> \
+  --name <name> \
+  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
+  --ports 3000 \
+  --dns-name-label $DNS_NAME_LABEL \
+  --location <region name> \
+  --cpu 2 \
+  --memory 8 \
+  --command-line "./run.sh eula=accept"
+
+```
+
 # <a name="v20"></a>[v2.0](#tab/v2-0)
+
 
 ```azurecli
 DNS_NAME_LABEL=aci-demo-$RANDOM
@@ -133,24 +153,8 @@ az container create \
   --cpu 2 \
   --memory 8 \
   --command-line "./run.sh eula=accept"
-`
+``` 
 
-# [v2.1 preview](#tab/v2-1) 
-   
-```azurecli
-DNS_NAME_LABEL=aci-demo-$RANDOM
-
-az container create \
-  --resource-group <resource_group_name> \
-  --name <name> \
-  --image mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool:latest-preview \
-  --ports 3000 \
-  --dns-name-label $DNS_NAME_LABEL \
-  --location <region name> \
-  --cpu 2 \
-  --memory 8 \
-  --command-line "./run.sh eula=accept"
-```
 
 ---
 

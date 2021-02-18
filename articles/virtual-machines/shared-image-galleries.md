@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: 3022e9c694d70359a90e71ecd1232e9274f92f10
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730315"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091893"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagens Compartilhadas
 
@@ -24,7 +24,7 @@ A Galeria de Imagens Compartilhadas é um serviço que ajuda você a criar a est
 - Agrupamento e controle de versão de imagens para facilitar o gerenciamento.
 - Imagens altamente disponíveis com contas de ZRS (Armazenamento com Redundância de Zona) em regiões que dão suporte a Zonas de Disponibilidade. O ZRS oferece maior resiliência contra falhas em zonas.
 - Suporte a armazenamento premium (Premium_LRS).
-- Compartilhamento entre assinaturas e até mesmo entre locatários do AD (Active Directory), usando o RBAC.
+- Compartilhamento entre assinaturas e até mesmo entre locatários do AD (Active Directory) usando o Azure RBAC.
 - Dimensionamento das suas implantações com réplicas de imagem em cada região.
 
 Usando uma Galeria de Imagens Compartilhadas, é possível compartilhar suas imagens com diferentes usuários, entidades de serviço ou grupos do AD dentro de sua organização. As imagens compartilhadas podem ser replicadas para várias regiões para dimensionar suas implantações mais rápido.
@@ -146,14 +146,14 @@ As regiões para as quais uma versão de Imagem compartilhada é replicada podem
 
 ## <a name="access"></a>Acesso
 
-Como a Galeria de Imagens Compartilhadas, a Definição de Imagem e a Versão da Imagem são recursos, eles podem ser compartilhados usando os controles nativos internos do Azure RBAC. Usando o RBAC, você pode compartilhar esses recursos com outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso para pessoas fora do locatário no qual elas foram criadas. Quando um usuário tem acesso à versão da Imagem Compartilhada, ele pode implantar uma VM ou um Conjunto de Dimensionamento de Máquinas Virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender ao que o usuário obtém acesso:
+Como a Galeria de Imagens Compartilhadas, a Definição de Imagem e a Versão da Imagem são recursos, eles podem ser compartilhados usando os controles nativos internos do Azure RBAC. Usando o RBAC do Azure, você pode compartilhar esses recursos para outros usuários, entidades de serviço e grupos. Você pode até compartilhar o acesso para pessoas fora do locatário no qual elas foram criadas. Quando um usuário tem acesso à versão da Imagem Compartilhada, ele pode implantar uma VM ou um Conjunto de Dimensionamento de Máquinas Virtuais.  Aqui está a matriz de compartilhamento que ajuda a entender ao que o usuário obtém acesso:
 
 | Compartilhado com o usuário     | Galeria de imagens compartilhadas | Definição de imagem | Versão da imagem |
 |----------------------|----------------------|--------------|----------------------|
 | Galeria de imagens compartilhadas | Sim                  | Sim          | Sim                  |
 | Definição de imagem     | Não                   | Sim          | Sim                  |
 
-É recomendável compartilhar no nível da Galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC, confira [Gerenciar o acesso aos recursos do Azure usando o RBAC](../role-based-access-control/role-assignments-portal.md).
+É recomendável compartilhar no nível da Galeria para obter a melhor experiência. Não recomendamos o compartilhamento de versões de imagem individuais. Para obter mais informações sobre o RBAC do Azure, consulte [atribuir funções do Azure](../role-based-access-control/role-assignments-portal.md).
 
 As imagens também podem ser compartilhadas, em escala, mesmo entre locatários usando um registro de aplicativo multilocatário. Para obter mais informações sobre como compartilhar imagens entre locatários, consulte "compartilhar imagens de VM de galeria em locatários do Azure" usando o [CLI do Azure](./linux/share-images-across-tenants.md) ou o [PowerShell](./windows/share-images-across-tenants.md).
 

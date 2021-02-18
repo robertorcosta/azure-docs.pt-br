@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: d94b83dd658193069f24202b978d32389eb82ac1
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 1eae40437e06bfb150e202db1f3bb4125baeaa97
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99580390"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100514934"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -39,6 +39,16 @@ Se você produzir a saída em um arquivo, um editor de texto como o Bloco de not
 
 #### <a name="linux-install"></a>[Instalação do Linux](#tab/linuxinstall)
 
+As seguintes distribuições do Linux têm suporte para arquiteturas x64 usando a CLI de Fala:
+
+* CentOS 7/8
+* Debian 9/10 
+* Red Hat Enterprise Linux (RHEL) 7/8
+* Ubuntu 16.04/18.04/20.04
+
+> [!NOTE]
+> Há suporte para arquiteturas adicionais pelo SDK de Fala (não pela CLI de Fala). Para obter mais informações, confira [Sobre o SDK de Fala](../speech-sdk.md).
+
 Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 
 1. Instale o [.NET Core 3.1](/dotnet/core/install/linux).
@@ -49,7 +59,7 @@ Siga estas etapas para instalar a CLI de Fala no Linux em uma CPU x64:
 Digite `spx` para ver a ajuda da CLI de Fala.
 
 > [!NOTE]
-> Como alternativa ao NuGet, você pode baixar os binários no [arquivo .zip](https://aka.ms/speech/spx-zips.zip), extrair `spx-netcore-30-linux-x64` para um novo diretório `~/spx`, digitar `sudo chmod +r+x spx` no binário e adicionar o caminho `~/spx` à variável de sistema PATH.
+> Como alternativa ao NuGet, você pode baixar os binários no [arquivo .zip](https://aka.ms/speech/spx-zips.zip), extrair `spx-netcore-30-linux-x64.zip` para um novo diretório `~/spx`, digitar `sudo chmod +r+x spx` no binário e adicionar o caminho `~/spx` à variável de sistema PATH.
 
 
 #### <a name="docker-install-windows-linux-macos"></a>[Instalação do Docker (Windows, Linux, macOS)](#tab/dockerinstall)
@@ -107,7 +117,7 @@ Para usar o comando `spx` instalado em um contêiner, sempre insira o comando co
 Por exemplo, no Windows, este comando define a chave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
 ```
 
 Para obter uma interação mais estendida com a ferramenta de linha de comando, inicie um contêiner com um shell do Bash interativo adicionando um parâmetro de ponto de entrada.
@@ -160,8 +170,8 @@ Para começar a usar a CLI de Fala, você precisa inserir a chave de assinatura 
 Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
 
 ```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
+spx config --set @key SUBSCRIPTION-KEY
+spx config --set @region REGION
 ```
 
 Sua autenticação de assinatura agora está armazenada para futuras solicitações de SPX. Se você precisar remover qualquer um desses valores armazenados, execute `spx config @region --clear` ou `spx config @key --clear`.

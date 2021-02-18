@@ -13,12 +13,12 @@ ms.date: 01/04/2021
 ms.author: damendo
 ms.reviewer: vinigam
 ms.custom: references_regions
-ms.openlocfilehash: 42536480a72e8d2160064a82eee7bac11c17746c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 87dacd28223fd88866edb90266aa76fd3cdf86cf
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585523"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101095354"
 ---
 # <a name="traffic-analytics"></a>Análise de Tráfego
 
@@ -71,33 +71,34 @@ Você pode usar a análise de tráfego para NSGs em qualquer uma das seguintes r
       Centro dos EUA  
       Leste da China 2  
       Norte da China 2  
+      Leste da Ásia       
    :::column-end:::
    :::column span="":::
-      Leste da Ásia  
       Leste dos EUA  
       Leste dos EUA 2  
       Leste dos EUA 2 EUAP  
       França Central  
-      Leste do Japão  
+      Centro-oeste da Alemanha leste do Japão  
       Oeste do Japão  
       Coreia Central  
       Sul da Coreia  
       Centro-Norte dos EUA  
+      Norte da Europa    
    :::column-end:::
    :::column span="":::
-      Norte da Europa  
       Norte da África do Sul  
       Centro-Sul dos Estados Unidos  
       Sul da Índia  
       Sudeste Asiático  
       Norte da Suíça  
       Oeste da Suíça  
+      Norte dos EAU  
       Sul do Reino Unido  
-      Oeste do Reino Unido  
+      Oeste do Reino Unido   
       Gov. EUA – Arizona  
+      Gov. EUA – Texas
    :::column-end:::
    :::column span="":::
-      Gov. EUA – Texas  
       Gov. EUA – Virgínia  
       Leste USNat  
       Oeste do USNat  
@@ -143,14 +144,15 @@ O espaço de trabalho do Log Analytics deve existir nas seguintes regiões:
       Norte da Suíça  
       Oeste da Suíça  
       EAU Central  
+      Norte dos EAU  
       Sul do Reino Unido  
-      Oeste do Reino Unido  
+      Oeste do Reino Unido   
       Gov. EUA – Arizona  
       Gov. EUA – Virgínia  
-      Leste USNat  
-      Oeste do USNat  
+      Leste USNat   
    :::column-end:::
    :::column span="":::
+      Oeste do USNat   
       Leste USSec  
       Oeste do USSec  
       Centro-Oeste dos EUA  
