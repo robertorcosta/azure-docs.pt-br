@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 01/15/2021
-ms.openlocfilehash: 35cdfdbdc04d0c88bc49c024ea7465537583e0d7
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c55e2d2d9eaeae441e8a7505d0f391ed0860cedf
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735504"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634185"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Visão geral do modelo vCore-banco de dados SQL do Azure e Azure SQL Instância Gerenciada 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ A [camada de computação sem servidor](serverless-tier-overview.md) dimensiona 
 
 ## <a name="hardware-generations"></a>Gerações de hardware
 
-As opções de geração de hardware no modelo vCore incluem Gen 4/5, série M, Fsv2 e série DC. A geração de hardware geralmente define os limites de computação e de memória e outras características que afetam o desempenho da carga de trabalho.
+As opções de geração de hardware no modelo vCore incluem Gen 4/5, série M, Fsv2 e série DC. A geração do hardware define de modo geral os limites de computação e de memória e outras características que afetam o desempenho da carga de trabalho.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
@@ -204,7 +204,7 @@ Para obter mais detalhes, marque o comando [AZ SQL Mi Update](/cli/azure/sql/mi#
 
 O hardware Gen4 está [sendo](https://azure.microsoft.com/updates/gen-4-hardware-on-azure-sql-database-approaching-end-of-life-in-2020/) descontinuado e não está mais disponível para novas implantações. Todos os novos bancos de dados devem ser implantados em hardware Gen5.
 
-O Gen5 está disponível na maioria das regiões em todo o mundo.
+O Gen5 está disponível em todas as regiões públicas em todo o mundo.
 
 #### <a name="fsv2-series"></a>Série Fsv2
 
