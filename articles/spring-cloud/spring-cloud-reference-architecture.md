@@ -1,17 +1,17 @@
 ---
-ms.date: 01/19/2021
+ms.date: 02/16/2021
 ms.topic: reference-architecture
 author: kriation
 title: Arquitetura de referência do Azure Spring Cloud
 ms.author: akaleshian
 ms.service: spring-cloud
 description: Essa arquitetura de referência é uma base que usa um design típico de Hub corporativo e spoke para o uso do Azure Spring Cloud.
-ms.openlocfilehash: 8376cbb2a0f1a7c082b9fdb1c6d606236e162600
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7d069e67e5161135b309aee3dc9c6ac921105623
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417020"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634355"
 ---
 # <a name="azure-spring-cloud-reference-architecture"></a>Arquitetura de referência do Azure Spring Cloud
 
@@ -152,7 +152,7 @@ Aplicativos em execução no Azure Spring Cloud podem se comunicar com vários r
 
 O [Azure Well-Architected Framework][16] é um conjunto de filosofias de orientação a ser seguido no estabelecimento de uma base de infra-estrutura forte. A estrutura contém as seguintes categorias: otimização de custos, excelência operacional, eficiência de desempenho, confiabilidade e segurança.
 
-### <a name="cost-optimization"></a>Otimização de custos
+### <a name="cost-optimization"></a>Otimização de custo
 
 Devido à natureza do design do sistema distribuído, a expansão da infraestrutura é uma realidade. Essa realidade resulta em custos inesperados e não controláveis. O Azure Spring Cloud é criado usando componentes que dimensionam para que ele possa atender à demanda e otimizar o custo. O núcleo dessa arquitetura é o serviço de kubernetes do Azure (AKS). O serviço foi projetado para reduzir a complexidade e a sobrecarga operacional do gerenciamento de kubernetes, que inclui eficiências no custo operacional do cluster.
 

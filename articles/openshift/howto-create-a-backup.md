@@ -1,19 +1,19 @@
 ---
 title: Criar um backup de aplicativo de cluster do Azure Red Hat OpenShift 4 usando o Velero
 description: Saiba como criar um backup de seus aplicativos de cluster do Red Hat OpenShift do Azure usando o Velero
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
 author: troy0820
 ms.author: b-trconn
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 264778d2d6d1ee0119ad8622043b7cd3a1088ec1
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: a05003bfeceb46059ad0301f99befcdceb456e89
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280134"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633284"
 ---
 # <a name="create-an-azure-red-hat-openshift-4-cluster-application-backup"></a>Criar um backup de aplicativo de cluster do Azure Red Hat OpenShift 4
 
