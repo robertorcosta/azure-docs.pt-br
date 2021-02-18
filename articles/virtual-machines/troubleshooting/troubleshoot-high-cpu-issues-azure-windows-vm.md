@@ -1,5 +1,5 @@
 ---
-title: Solucionar problemas de alta utilização de CPU para máquinas virtuais do Windows do Azure
+title: Solucionar problemas de alta utilização de CPU para a Máquina Virtual do Windows do Azure
 description: .
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/24/2020
 ms.author: mnanda
-ms.openlocfilehash: ffac5ac4d1a8143590e1d72aaafc8a02d6ab04ca
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 124650f4570608efabba3d8002c14ad06c4782ad
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91977248"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571510"
 ---
-# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Solucionar problemas de alta utilização de CPU para máquinas virtuais do Windows do Azure
+# <a name="troubleshoot-high-cpu-issues-for-azure-windows-virtual-machines"></a>Solucionar problemas de alta utilização de CPU para a Máquina Virtual do Windows do Azure
 
 ## <a name="summary"></a>Resumo
 
@@ -237,7 +237,7 @@ Depois que os contadores forem carregados, você verá gráficos de tendência d
 
   ![Configurações do monitor de desempenho](./media/troubleshoot-high-cpu-issues-azure-windows-vm/12-performance-monitor-1.png)
 
-Cada contador terá os valores **médio**, **mínimo**e **máximo** . Concentre-se nos valores **médio** e **máximo** , pois o valor médio pode variar dependendo da duração da coleta de dados. Se a atividade de alta CPU tiver sido vista por 10 minutos enquanto a coleção geral tiver 40 minutos, os valores médios serão muito menores.
+Cada contador terá os valores **médio**, **mínimo** e **máximo** . Concentre-se nos valores **médio** e **máximo** , pois o valor médio pode variar dependendo da duração da coleta de dados. Se a atividade de alta CPU tiver sido vista por 10 minutos enquanto a coleção geral tiver 40 minutos, os valores médios serão muito menores.
 
 O grafo de tendência anterior mostra que o **processador total** estava chegando perto de 80% por aproximadamente 15 minutos.
 
@@ -289,7 +289,7 @@ Depois que as configurações estiverem habilitadas, você poderá exibir esses 
 
   ![Namespace de métricas](./media/troubleshoot-high-cpu-issues-azure-windows-vm/19-metrics-namespace.png)
 
-Para obter mais informações sobre como usar o Azure monitor para gerenciar VMs do Azure, consulte [monitorando máquinas virtuais do Azure com Azure monitor](../../azure-monitor/insights/monitor-vm-azure.md).
+Para obter mais informações sobre como usar o Azure monitor para gerenciar VMs do Azure, consulte [monitorando máquinas virtuais do Azure com Azure monitor](../../azure-monitor/vm/monitor-vm-azure.md).
 
 ### <a name="reactive-troubleshooting"></a>Solução de problemas reativa
 
@@ -303,7 +303,7 @@ PerfInsights ainda não tem um recurso de **execução agendado** . No entanto, 
 
 ### <a name="logman-command"></a>Comando logman
 
-O comando do **contador Create do logman** é usado para executar a coleta Perfmon por meio da linha de comando, para agendá-lo por meio do **Gerenciador de tarefas**ou para executá-lo remotamente.
+O comando do **contador Create do logman** é usado para executar a coleta Perfmon por meio da linha de comando, para agendá-lo por meio do **Gerenciador de tarefas** ou para executá-lo remotamente.
 
 **Exemplo** (inclui o modo de coleta remota)
 

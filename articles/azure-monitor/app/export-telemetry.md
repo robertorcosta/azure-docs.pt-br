@@ -3,12 +3,12 @@ title: Exportação contínua de telemetria do Application Insights | Microsoft 
 description: Exportar dados de uso e diagnóstico para armazenamento no Microsoft Azure e baixá-los de lá.
 ms.topic: conceptual
 ms.date: 05/26/2020
-ms.openlocfilehash: a6f636ce9fe30c666f08935d5830eb0c12e6cb5e
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 23405faeb7d2151ce0f6492c0d522e0a7f9b84a8
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97674130"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100584239"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exportar telemetria do Application Insights
 Deseja manter a telemetria por mais tempo que o período de retenção padrão? Ou processá-la de alguma forma especializada? Exportação contínua é ideal para isso. Os eventos que você vê no portal do Application Insights podem ser exportados para armazenamento no Microsoft Azure no formato JSON. A partir daí, você pode baixar os dados e gravar qualquer código que precisar para processá-los.  
@@ -21,7 +21,7 @@ Antes de configurar a exportação contínua, há algumas alternativas que você
 
 * O botão Exportar na parte superior de uma métrica ou da guia de pesquisa permite transferir tabelas e gráficos para uma planilha do Excel.
 
-* O [Analytics](../log-query/log-query-overview.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
+* O [Analytics](../logs/log-query-overview.md) fornece uma linguagem de consulta eficiente para telemetria. Ele também pode exportar os resultados.
 * Se desejar [explorar seus dados no Power BI](./export-power-bi.md), é possível fazer isso sem usar a Exportação Contínua.
 * A [API REST de acesso a dados](https://dev.applicationinsights.io/) permite que você acesse a telemetria programaticamente.
 * Você também pode acessar a configuração de [exportação contínua por meio do PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
