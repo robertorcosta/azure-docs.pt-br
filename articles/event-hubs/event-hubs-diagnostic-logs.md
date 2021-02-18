@@ -3,21 +3,21 @@ title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft D
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 015814b9a56ec963f5209f971f096ac6c173d7e1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98131977"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573164"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
 É possível exibir dois tipos de logs para os Hubs de Eventos do Azure:
 
-* **[Logs de atividade](../azure-monitor/platform/platform-logs-overview.md)** : Esses logs contém informações sobre as operações feitas em um trabalho. Os logs estão sempre habilitados. Você pode ver as entradas do log de atividades selecionando **Log de atividades** no painel esquerdo do seu namespace do hub de eventos no portal do Azure. Por exemplo:  "Criar ou atualizar o namespace", "Criar ou atualizar hub de eventos".
+* **[Logs de atividade](../azure-monitor/essentials/platform-logs-overview.md)** : Esses logs contém informações sobre as operações feitas em um trabalho. Os logs estão sempre habilitados. Você pode ver as entradas do log de atividades selecionando **Log de atividades** no painel esquerdo do seu namespace do hub de eventos no portal do Azure. Por exemplo:  "Criar ou atualizar o namespace", "Criar ou atualizar hub de eventos".
 
     ![Log de atividades para um namespace de Hubs de Eventos](./media/event-hubs-diagnostic-logs/activity-log.png)
-* **[Logs de diagnóstico](../azure-monitor/platform/platform-logs-overview.md)** : Os logs de diagnóstico fornecem informações mais detalhadas sobre operações e ações que são conduzidas no seu namespace usando a API, ou através de clientes de gerenciamento no SDK de linguagem. 
+* **[Logs de diagnóstico](../azure-monitor/essentials/platform-logs-overview.md)** : Os logs de diagnóstico fornecem informações mais detalhadas sobre operações e ações que são conduzidas no seu namespace usando a API, ou através de clientes de gerenciamento no SDK de linguagem. 
     
     A seção a seguir mostra como habilitar os logs de diagnóstico para um namespace de Hubs de Eventos.
 
@@ -36,7 +36,7 @@ Os logs de diagnóstico estão desabilitados por padrão. Para habilitar logs de
 
     As novas configurações terão efeito em aproximadamente 10 minutos. Depois disso, os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 
-    Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/platform/platform-logs-overview.md).
+    Para saber mais sobre como configurar um diagnóstico, confira a [visão geral dos logs de diagnóstico do Azure](../azure-monitor/essentials/platform-logs-overview.md).
 
 ## <a name="diagnostic-logs-categories"></a>Categorias dos logs de diagnóstico
 

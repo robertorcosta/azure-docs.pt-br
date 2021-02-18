@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/27/2020
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 28c92004fe67de35e5776cd7dc24cf534ec6f8f3
-ms.sourcegitcommit: 31cfd3782a448068c0ff1105abe06035ee7b672a
+ms.openlocfilehash: 801f0f03b49d20c84a4531bd0daad7630a0ed01d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/10/2021
-ms.locfileid: "98061216"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100585083"
 ---
 ## <a name="common-scenarios"></a>Cenários comuns
 Os cenários a seguir podem se beneficiar muito da intermitência:
@@ -37,7 +37,8 @@ Há três Estados em que o recurso pode estar com a intermitência ativada:
 - **Constante** – o tráfego do recurso está exatamente no destino de desempenho.
 
 ## <a name="examples-of-bursting"></a>Exemplos de intermitência
-Os exemplos a seguir mostram como a intermitência funciona com várias combinações de máquina virtual e disco. Para facilitar o acompanhamento dos exemplos, vamos nos concentrar em MB/s, mas a mesma lógica é aplicada de forma independente ao IOPS.
+
+Os exemplos a seguir mostram como a intermitência funciona com várias combinações de VM e disco. Para facilitar o acompanhamento dos exemplos, vamos nos concentrar em MB/s, mas a mesma lógica é aplicada de forma independente ao IOPS.
 
 ### <a name="non-burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual não expansível com discos com intermitência
 **Combinação de VM e disco:** 
@@ -50,17 +51,17 @@ Os exemplos a seguir mostram como a intermitência funciona com várias combina�
     - MB/s provisionados: 100
     - Máximo de MB/s de intermitência: 170
 
- Quando a VM for inicializada, ela recuperará os dados do disco do sistema operacional. Como o disco do sistema operacional faz parte de uma VM que está sendo iniciada, o disco do sistema operacional estará cheio de créditos de intermitência. Esses créditos permitirão que o disco do so estoure sua inicialização em 170 MB/s segundo, conforme mostrado abaixo:
+ Quando a VM é inicializada, ela recupera dados do disco do sistema operacional. Como o disco do sistema operacional faz parte de uma VM que está sendo inicializada, o disco do sistema operacional estará cheio de créditos de intermitência. Esses créditos permitirão que o disco do so estoure sua inicialização em 170 MB/s segundo.
 
-![Inicialização de disco de intermitência de VM sem intermitência](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
+![A VM envia uma solicitação de 192 MB/s de taxa de transferência para o disco do sistema operacional, o disco do sistema operacional responde com dados de 170 MB/s.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-startup.jpg)
 
-Após a conclusão da inicialização, um aplicativo é executado na VM e tem uma carga de trabalho não crítica. Essa carga de trabalho requer 15 MB/S que se espalham uniformemente em todos os discos:
+Após a conclusão da inicialização, um aplicativo é executado na VM e tem uma carga de trabalho não crítica. Essa carga de trabalho requer 15 MB/S que se espalham uniformemente em todos os discos.
 
-![Ociosidade de disco de intermitência de VM sem intermitência](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
+![O aplicativo envia a solicitação de 15 MB/s de taxa de transferência para a VM, a VM recebe solicitação e envia a cada um de seus discos uma solicitação de 5 MB/s, cada disco retorna 5 MB/s, a VM retorna 15 MB/s para o aplicativo.](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-idling.jpg)
 
-Em seguida, o aplicativo precisa processar um trabalho em lote que requer 192 MB/s. 2 MB/s são usados pelo disco do sistema operacional e o restante são divididos uniformemente entre os discos de dados:
+Em seguida, o aplicativo precisa processar um trabalho em lote que requer 192 MB/s. 2 MB/s são usados pelo disco do sistema operacional e o restante são divididos uniformemente entre os discos de dados.
 
-![Intermitência de disco de intermitência de VM sem intermitência](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
+![O aplicativo envia a solicitação de 192 MB/s de taxa de transferência para a VM, a VM recebe a solicitação e envia a massa de sua solicitação aos discos de dados (95 MB/s cada) e 2 MB/s para o disco do sistema operacional, os discos de dados são rompidos para atender à demanda e todos os discos retornam a taxa de transferência solicitada para a VM,](media/managed-disks-bursting/nonbursting-vm-busting-disk/nonbusting-vm-bursting-disk-bursting.jpg)
 
 ### <a name="burstable-virtual-machine-with-non-burstable-disks"></a>Máquina virtual expansível com discos não intermitentes
 **Combinação de VM e disco:** 
@@ -72,11 +73,12 @@ Em seguida, o aplicativo precisa processar um trabalho em lote que requer 192 MB
 - 2 discos de dados P10 
     - MB/s provisionados: 250
 
- Após a inicialização inicial, um aplicativo é executado na VM e tem uma carga de trabalho não crítica. Essa carga de trabalho requer 30 MB/s que se espalham uniformemente em todos os discos: ![ intermitência de disco sem intermitência de VM ocioso](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
+ Após a inicialização inicial, um aplicativo é executado na VM e tem uma carga de trabalho não crítica. Essa carga de trabalho requer 30 MB/s que se espalham uniformemente em todos os discos.
+![O aplicativo envia a solicitação de 30 MB/s de taxa de transferência para a VM, a VM recebe solicitação e envia a cada um de seus discos uma solicitação de 10 MB/s, cada disco retorna 10 MB/s, a VM retorna 30 MB/s para o aplicativo.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-normal.jpg)
 
-Em seguida, o aplicativo precisa processar um trabalho em lote que requer 600 MB/s. O Standard_L8s_v2 intermitência para atender a essa demanda e, em seguida, as solicitações para os discos são distribuídas uniformemente para os discos P50:
+Em seguida, o aplicativo precisa processar um trabalho em lote que requer 600 MB/s. O Standard_L8s_v2 intermitência para atender a essa demanda e, em seguida, as solicitações para os discos são distribuídas uniformemente para os discos P50.
 
-![Intermitência de disco sem intermitência de VM intermitente](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
+![O aplicativo envia a solicitação de 600 MB/s de taxa de transferência para a VM, e a VM usa picos para tomar a solicitação e envia a cada um de seus discos uma solicitação de 200 MB/s, cada disco retorna 200 MB/s, as intermitências de VM para retornarem de 600 MB/s para o aplicativo.](media/managed-disks-bursting/bursting-vm-nonbursting-disk/burst-vm-nonbursting-disk-bursting.jpg)
 ### <a name="burstable-virtual-machine-with-burstable-disks"></a>Máquina virtual expansível com discos expansível
 **Combinação de VM e disco:** 
 - Standard_L8s_v2 
@@ -89,14 +91,14 @@ Em seguida, o aplicativo precisa processar um trabalho em lote que requer 600 MB
     - MB/s provisionados: 25
     - Máximo de MB/s de intermitência: 170 
 
-Quando a VM for inicializada, ela será intermitente para solicitar seu limite de intermitência de 1.280 MB/s do disco do sistema operacional e o disco do sistema operacional responderá com seu desempenho de intermitência de 170 MB/s:
+Quando a VM for iniciada, ela será intermitente para solicitar seu limite de intermitência de 1.280 MB/s do disco do sistema operacional e o disco do sistema operacional responderá com seu desempenho de intermitência de 170 MB/s.
 
-![Inicialização de disco de intermitência de VM intermitente](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
+![Na inicialização, a VM é intermitente para enviar uma solicitação de 1.280 MB/s para o disco do sistema operacional, o disco do sistema operacional é estouros para retornar os 1.280 MB/s.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-startup.jpg)
 
-Depois que a inicialização for concluída, um aplicativo será executado na VM. O aplicativo tem uma carga de trabalho não crítica que requer 15 MB/s que se espalham uniformemente em todos os discos:
+Após a inicialização, você inicia um aplicativo que tem uma carga de trabalho não crítica. Esse aplicativo requer 15 MB/s que é distribuído uniformemente em todos os discos.
 
-![Intermitência de disco de intermitência de VM ocioso](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![O aplicativo envia a solicitação de 15 MB/s de taxa de transferência para a VM, a VM recebe solicitação e envia a cada um de seus discos uma solicitação de 5 MB/s, cada disco retorna 5 MB/s, a VM retorna 15 MB/s para o aplicativo.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
-Em seguida, o aplicativo precisa processar um trabalho em lote que requer 360 MB/s. O Standard_L8s_v2 é intermitente para atender a essa demanda e, em seguida, solicitações. Apenas 20 MB/s são necessários para o disco do sistema operacional. Os 340 MB/s restantes são tratados pelos discos de dados de intermitência P4:  
+Em seguida, o aplicativo precisa processar um trabalho em lote que requer 360 MB/s. O Standard_L8s_v2 é intermitente para atender a essa demanda e, em seguida, solicitações. Apenas 20 MB/s são necessários para o disco do sistema operacional. Os 340 MB/s restantes são tratados pelos discos de dados de intermitência P4.
 
-![Intermitência de disco intermitente de intermitência de VM](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)
+![O aplicativo envia a solicitação de 360 MB/s de taxa de transferência para a VM, a VM usa picos para tomar a solicitação e envia a cada um de seus discos de dados uma solicitação de 170 MB/s e 20 MB/s do disco do sistema operacional, cada disco retorna os MB/s necessários, as intermitências de VM para retornar 360 MB/s para o aplicativo.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-bursting.jpg)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to add and connect to storage accounts on Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: c24970b30e522d593a491194dbbabb0421ad7f4b
-ms.sourcegitcommit: d22a86a1329be8fd1913ce4d1bfbd2a125b2bcae
+ms.openlocfilehash: b346cf37a8275b1783e94e0f51859b8c87eb9b67
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/26/2020
-ms.locfileid: "96185516"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100546815"
 ---
 # <a name="tutorial-transfer-data-via-storage-accounts-with-azure-stack-edge-pro-gpu"></a>Tutorial: Transferir dados por meio de contas de armazenamento com uma GPU do Azure Stack Edge Pro 
 
@@ -137,9 +137,9 @@ Cada uma dessas etapas é descrita nas seções a seguir.
 
 Acessar o Armazenamento de Blobs via HTTPS requer um certificado SSL para o dispositivo. Você também carregará esse certificado no dispositivo do Azure Stack Edge Pro como um arquivo *.pfx* com uma chave privada anexada a ele. Para obter mais informações sobre como criar (apenas para fins de teste e desenvolvimento) e carregar esses certificados em seu dispositivo do Azure Stack Edge Pro, acesse:
 
-- [Criar o certificado do ponto de extremidade do blob](azure-stack-edge-j-series-manage-certificates.md#create-certificates-optional).
-- [Carregar o certificado do ponto de extremidade do blob](azure-stack-edge-j-series-manage-certificates.md#upload-certificates).
-- [Importar certificados no cliente que está acessando o dispositivo](azure-stack-edge-j-series-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- [Criar o certificado do ponto de extremidade do blob](azure-stack-edge-gpu-manage-certificates.md#create-certificates-optional).
+- [Carregar o certificado do ponto de extremidade do blob](azure-stack-edge-gpu-manage-certificates.md#upload-certificates).
+- [Importar certificados no cliente que está acessando o dispositivo](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
 ### <a name="import-certificate"></a>Importar certificado
 
