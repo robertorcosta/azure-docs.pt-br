@@ -8,12 +8,12 @@ ms.date: 08/14/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c24fd42f866cd15f84688318050bc07d5ad235e9
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 53d1504b03e3dbe99cbdeac23df2623a5390b3d9
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384649"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635414"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Fornecer acesso de módulos ao armazenamento local de um dispositivo
 
@@ -85,7 +85,7 @@ Você pode encontrar mais detalhes sobre como criar opções de [documentos do D
 
 ## <a name="encrypted-data-in-module-storage"></a>Dados criptografados no armazenamento de módulo
 
-Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](/cli/azure/ext/azure-cli-iot-ext/iot/hub/module-identity#ext-azure-cli-iot-ext-az-iot-hub-module-identity-show).
+Quando os módulos invocam a API de carga de trabalho do IoT Edge daemon para criptografar dados, a chave de criptografia é derivada usando a ID de módulo e a ID de geração do módulo. Uma ID de geração é usada para proteger os segredos se um módulo for removido da implantação e outro módulo com a mesma ID de módulo for implantado posteriormente no mesmo dispositivo. Você pode exibir a ID de geração de um módulo usando o comando CLI do Azure [AZ IOT Hub Module-identidade show](/cli/azure/ext/azure-iot/iot/hub/module-identity).
 
 Se você quiser compartilhar arquivos entre os módulos entre gerações, eles não deverão conter segredos ou não serão descriptografados.
 

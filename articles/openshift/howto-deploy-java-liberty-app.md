@@ -3,16 +3,16 @@ title: Implantar um aplicativo Java com o Liberty/WebSphere Liberty aberto em um
 description: Implante um aplicativo Java com o Liberty/WebSphere Liberty aberto em um cluster do Azure Red Hat OpenShift 4.
 author: jiangma
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/30/2020
 keywords: Java, Jacarta, Java, microperfil, Open-Liberty, WebSphere-Liberty, aro, openshift, Red Hat
-ms.openlocfilehash: 0c17c911d1eefe646785314a26b6a9b1e964ca67
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: acb448a9662daa58b5d2ff42861e238e23586b33
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96493927"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100633879"
 ---
 # <a name="deploy-a-java-application-with-open-libertywebsphere-liberty-on-an-azure-red-hat-openshift-4-cluster"></a>Implantar um aplicativo Java com o Liberty/WebSphere Liberty aberto em um cluster do Azure Red Hat OpenShift 4
 
@@ -38,7 +38,7 @@ Conclua os seguintes pré-requisitos para percorrer com êxito este guia.
 
    Embora a etapa "obter um segredo de pull do Red Hat" seja rotulada como opcional, **ela é necessária para este artigo**.  O segredo de pull permite que o cluster do Azure Red Hat OpenShift encontre o operador Open Liberty.
 
-   Se você planeja executar aplicativos com uso intensivo de memória no cluster, especifique o tamanho adequado da máquina virtual para os nós de trabalho usando o `--worker-vm-size` parâmetro. Por exemplo, `Standard_E4s_v3` é o tamanho mínimo da máquina virtual para instalar o operador Elasticsearch em um cluster. Para obter mais informações, confira:
+   Se você planeja executar aplicativos com uso intensivo de memória no cluster, especifique o tamanho adequado da máquina virtual para os nós de trabalho usando o `--worker-vm-size` parâmetro. Por exemplo, `Standard_E4s_v3` é o tamanho mínimo da máquina virtual para instalar o operador Elasticsearch em um cluster. Para obter mais informações, consulte:
 
    * [CLI do Azure criar um cluster](/cli/azure/aro?preserve-view=true&view=azure-cli-latest#az-aro-create)
    * [Tamanhos de máquina virtual com suporte para memória otimizada](./support-policies-v4.md#memory-optimized)
@@ -312,7 +312,7 @@ Exclua o aplicativo da CLI executando este comando.
 oc delete -f openlibertyapplication.yaml
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Exclua o cluster toa seguindo as etapas em [tutorial: excluir um cluster do Azure Red Hat OpenShift 4](./tutorial-delete-cluster.md)
 
