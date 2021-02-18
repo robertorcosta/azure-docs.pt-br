@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
-ms.openlocfilehash: f249a95551916311fab51ebef72b55d9a4343c0b
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: d35a97b0008a7ce3069185dd557a60221776b0ba
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530511"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595459"
 ---
 # <a name="collect-data-from-linux-based-sources-using-syslog"></a>Coletar dados de fontes baseadas em Linux usando syslog
 
@@ -30,11 +30,11 @@ Você pode transmitir eventos de computadores com suporte do syslog, baseados em
 >
 > - Log Analytics dá suporte à coleta de mensagens enviadas pelos daemons **rsyslog** ou **syslog-ng** , em que rsyslog é o padrão. O daemon de syslog padrão na versão 5 de Red Hat Enterprise Linux (RHEL), CentOS e versão de Oracle Linux (**sysklog**) não tem suporte para a coleta de eventos de syslog. Para coletar dados de syslog nessa versão das distribuições, o daemon rsyslog deverá ser instalado e configurado para substituir sysklog.
 
-## <a name="how-it-works"></a>Como isso funciona
+## <a name="how-it-works"></a>Como ele funciona
 
 O **syslog** é um protocolo de log de eventos comum ao Linux. Quando o **agente de log Analytics para Linux** é instalado em sua VM ou dispositivo, a rotina de instalação configura o daemon do syslog local para encaminhar mensagens para o agente na porta TCP 25224. Em seguida, o agente envia a mensagem para seu espaço de trabalho Log Analytics por HTTPS, onde é analisado em uma entrada de log de eventos na tabela syslog no **Azure Sentinel > logs**.
 
-Para obter mais informações, consulte [syslog Data Sources in Azure monitor](../azure-monitor/platform/data-sources-syslog.md).
+Para obter mais informações, consulte [syslog Data Sources in Azure monitor](../azure-monitor/agents/data-sources-syslog.md).
 
 ## <a name="configure-syslog-collection"></a>Configurar coleção de syslog
 
@@ -83,7 +83,7 @@ Para obter mais informações, consulte [syslog Data Sources in Azure monitor](.
 
 1. Para consultar os dados de log do syslog em **logs**, digite `Syslog` na janela de consulta.
 
-1. Você pode usar os parâmetros de consulta descritos em [usando funções no Azure monitor consultas de log](../azure-monitor/log-query/functions.md) para analisar suas mensagens de syslog. Em seguida, você pode salvar a consulta como uma nova função Log Analytics e usá-la como um novo tipo de dados.
+1. Você pode usar os parâmetros de consulta descritos em [usando funções no Azure monitor consultas de log](../azure-monitor/logs/functions.md) para analisar suas mensagens de syslog. Em seguida, você pode salvar a consulta como uma nova função Log Analytics e usá-la como um novo tipo de dados.
 
 > [!NOTE]
 > **Usando o mesmo computador para encaminhar mensagens de syslog *e* CEF simples**
@@ -92,7 +92,7 @@ Para obter mais informações, consulte [syslog Data Sources in Azure monitor](.
 >
 >    Já configurou a [coleta de dados de suas fontes CEF](connect-common-event-format.md)e configurou o agente de log Analytics como acima:
 >
-> 1. Em cada computador que envia logs no formato CEF, você deve editar o arquivo de configuração do syslog para remover as instalações que estão sendo usadas para enviar mensagens CEF. Dessa forma, os recursos enviados no CEF também não serão enviados no syslog. Consulte [Configurar syslog no agente do Linux](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-on-linux-agent) para obter instruções detalhadas sobre como fazer isso.
+> 1. Em cada computador que envia logs no formato CEF, você deve editar o arquivo de configuração do syslog para remover as instalações que estão sendo usadas para enviar mensagens CEF. Dessa forma, os recursos enviados no CEF também não serão enviados no syslog. Consulte [Configurar syslog no agente do Linux](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) para obter instruções detalhadas sobre como fazer isso.
 >
 > 1. Você deve executar o comando a seguir nessas máquinas para desabilitar a sincronização do agente com a configuração de syslog no Azure Sentinel. Isso garante que a alteração de configuração feita na etapa anterior não seja substituída.<br>
 > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

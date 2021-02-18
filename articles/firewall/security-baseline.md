@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 4fccb0b2e382e56e83fbbe54c0f0afa50a5c9590
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: d63150fc1d929b899281cdd0ed7abae5e728b115
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202463"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595272"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Linha de base de segurança do Azure para o Firewall do Azure
 
@@ -92,9 +92,9 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 - [Monitorar os logs e as métricas do Firewall do Azure](./firewall-diagnostics.md)
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md) 
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -132,7 +132,7 @@ Observação: ambos os logs podem ser salvos em uma conta de armazenamento, tran
 
 Lista de ações de recursos em logs de atividades: Azure Resource Manager operações do provedor de recursos
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor ](../azure-monitor/platform/diagnostic-settings.md)
+- [Como coletar logs e métricas de plataforma com Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -174,7 +174,7 @@ Os logs do Azure Monitor são mais adequados para o monitoramento geral em tempo
 
 - [Logs e métricas do Firewall do Azure](logs-and-metrics.md)
 
-- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 - [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
 
@@ -216,7 +216,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -442,7 +442,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem no firewall do Azure.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

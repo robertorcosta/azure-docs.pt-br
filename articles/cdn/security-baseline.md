@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 184f42b6da0133068e0a0218353e49c37e3c8c47
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 0d98edb820e3a6d27f0a57bfde801f064a905a5b
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98730248"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100575391"
 ---
 # <a name="azure-security-baseline-for-content-delivery-network"></a>Linha de base de segurança do Azure para rede de distribuição de conteúdo
 
@@ -182,9 +182,9 @@ A rede de distribuição de conteúdo registra todo o tráfego de rede que ele p
 
 Habilitar os logs de recursos do Azure para CDN, você pode usar a central de segurança do Azure e Azure Policy para habilitar logs de recursos e coleta de dados de log. Esses logs podem ser essenciais para investigar posteriormente os incidentes de segurança e executar exercícios forenses.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 - [Entender a coleta de dados da central de segurança do Azure](../security-center/security-center-enable-data-collection.md)
 

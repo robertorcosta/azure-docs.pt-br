@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: eb8332bda2105c3f83c0c1cc28fb7db4b1ca0102
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99549910"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590343"
 ---
 # <a name="azure-threat-protection"></a>Proteção contra ameaças do Azure
 
@@ -89,7 +89,7 @@ A [central de segurança do Azure](../../security-center/security-center-introdu
 Os logs do Azure Monitor ajudam a entender com rapidez e facilidade a situação geral de segurança de qualquer ambiente, tudo isso dentro do contexto das operações de TI, inclusive com avaliação de atualização de software, avaliação de antimalware e linhas de base de configuração. Os dados de log de segurança ficam prontamente acessíveis para simplificar os processos de auditoria de segurança e conformidade.
 
 ### <a name="insight-and-analytics"></a>Insight e análise
-No centro dos [logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) está o repositório que é hospedado pelo Azure.
+No centro dos [logs do Azure Monitor](../../azure-monitor/logs/log-query-overview.md) está o repositório que é hospedado pelo Azure.
 
 ![Diagrama de insight e análise](./media/threat-detection/azure-threat-detection-fig4.png)
 
@@ -98,8 +98,8 @@ Colete dados no repositório de fontes conectadas configurando fontes de dados e
 As fontes de dados e as soluções criam tipos de registro separados com seus próprios conjuntos de propriedades, mas também é possível analisá-los juntos fazendo consultas ao repositório. Você pode usar as mesmas ferramentas e métodos para trabalhar com uma variedade de dados que são coletados por várias fontes.
 
 Grande parte da sua interação com os logs do Azure Monitor se dará por meio do portal do Azure, que é executado em qualquer navegador e dá acesso às definições de configuração e a várias ferramentas para a análise e tomada de medidas sobre os dados coletados. No portal, você pode usar:
-* [Pesquisas de logs](../../azure-monitor/log-query/log-query-overview.md) nas quais é possível construir consultas para analisar os dados coletados.
-* [Painéis](../../azure-monitor/learn/tutorial-logs-dashboards.md), que você pode personalizar com exibições gráficas das pesquisas mais valiosas.
+* [Pesquisas de logs](../../azure-monitor/logs/log-query-overview.md) nas quais é possível construir consultas para analisar os dados coletados.
+* [Painéis](../../azure-monitor/visualize/tutorial-logs-dashboards.md), que você pode personalizar com exibições gráficas das pesquisas mais valiosas.
 * [Soluções](../../azure-monitor/insights/solutions.md), que fornecem ferramentas de análise e funcionalidade adicionais.
 
 As soluções acrescentam funcionalidades aos logs do Azure Monitor. Elas são executadas principalmente na nuvem e fornecem a análise dos dados que são coletados no repositório de análise de logs. As soluções também podem definir novos tipos de registro a serem coletados que podem ser analisados com pesquisas de logs ou por meio de uma interface de usuário adicional que a solução fornece no painel do Log Analytics.

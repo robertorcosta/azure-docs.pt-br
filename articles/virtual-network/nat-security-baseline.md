@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9276ce07c68afa6f229dbc32198bc624d8887ace
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 887648526c8da5fc829abe48911fd6785c3d856f
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98217814"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576606"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Linha de base de segurança do Azure para NAT de rede virtual
 
@@ -74,9 +74,9 @@ Use a central de segurança do Azure e siga as recomendações de proteção de 
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos e detectar alterações nos recursos de gateway de NAT e recursos de rede virtual. Crie alertas no Azure Monitor para notificá-lo quando os recursos críticos forem alterados.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -94,7 +94,7 @@ Como alternativa, você pode habilitar e integrar esses dados ao Azure Sentinel 
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md) 
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
 - [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -106,9 +106,9 @@ Como alternativa, você pode habilitar e integrar esses dados ao Azure Sentinel 
 
 **Diretrizes**: logs de atividade, que estão disponíveis automaticamente, contêm todas as operações de gravação (put, post, Delete) para seus recursos de gateway de NAT, exceto operações de leitura (Get). Os logs de atividades podem ser usados para encontrar um erro ao solucionar problemas ou para monitorar como um usuário em sua organização modificou um recurso.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/platform/platform-logs-overview.md) 
+- [Entender o registro em log e diferentes tipos de log no Azure](../azure-monitor/essentials/platform-logs-overview.md) 
 
 O NAT de rede virtual atualmente não produz nenhum log de diagnóstico adicional que seja configurável pelos clientes.
 
@@ -124,7 +124,7 @@ O NAT de rede virtual atualmente não produz nenhum log de diagnóstico adiciona
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Como alertar sobre dados de log do log Analytics](../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
