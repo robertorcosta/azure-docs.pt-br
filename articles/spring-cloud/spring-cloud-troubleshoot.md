@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 9350b5dbcedd2773e94ef9d35cfe26f97fbd97bc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c4dbeae0cfb76063fdca70b3ad1d264b59f9ace
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571613"
+ms.locfileid: "100634236"
 ---
 # <a name="troubleshoot-common-azure-spring-cloud-issues"></a>Solucionar problemas comuns do Azure Spring Cloud
 
@@ -212,7 +212,7 @@ Procure o nó filho denominado `systemEnvironment` .  Esse nó contém as variá
 
 Vá para **Gerenciamento de aplicativo** para garantir que os status do aplicativo estejam _em execução e em_ funcionamento. 
 
-Verifique para ver o clima _JMX_ está habilitado em seu pacote de aplicativos. Esse recurso pode ser habilitado com a propriedade de configuração `spring.jmx.enabled=true` .  
+Verifique se o _JMX_ está habilitado no pacote de aplicativos. Esse recurso pode ser habilitado com a propriedade de configuração `spring.jmx.enabled=true` .  
 
 Verifique se a `spring-boot-actuator` dependência está habilitada no pacote do aplicativo e se ela foi inicializada com êxito.
 

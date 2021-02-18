@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 078118ec793530720a49a19046854e5ea4b7f5c4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3f0d191157fbabeab2b6f08a9d0a9b3bf1a35250
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388933"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591898"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e aprimorar a precisão da Fala Personalizada
 
@@ -33,7 +33,7 @@ Palavras incorretamente identificadas se enquadram em três categorias:
 * Exclusão (D): palavras que não são detectadas na transcrição da hipótese
 * Substituição (ões): palavras que foram substituídas entre referência e hipótese
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ![Exemplo de palavras identificadas incorretamente](./media/custom-speech/custom-speech-dis-words.png)
 
@@ -109,12 +109,13 @@ O áudio com transcrições com rótulo humano oferecerá as maiores melhorias d
 
 Considere estes detalhes:
 
-* Fala Personalizada só pode capturar o contexto do Word para reduzir erros de substituição, não erros de inserção ou exclusão.
+* O treinamento com áudio levará mais benefícios se o áudio também for difícil de entender para os seres humanos. Na maioria dos casos, você deve iniciar o treinamento usando apenas o texto relacionado.
+* Se você usar uma das linguagens mais intensamente usadas como o inglês americano, há uma boa chance de que não haja necessidade de treinar com dados de áudio. Para esses idiomas, os modelos de base oferecem resultados de reconhecimento muito bons na maioria dos cenários; Provavelmente é suficiente treinar com texto relacionado.
+* Fala Personalizada só pode capturar o contexto do Word para reduzir erros de substituição, não inserção ou erros de exclusão.
 * Evite exemplos que incluam erros de transcrição, mas inclua uma diversidade de qualidade de áudio.
 * Evite frases que não estejam relacionadas ao seu domínio problemático. Frases não relacionadas podem danificar seu modelo.
 * Quando a qualidade das transcrições varia, você pode duplicar frases válidas com exceção (como as excelentes transcrições que incluem frases-chave) para aumentar seu peso.
 * O serviço de fala usará automaticamente as transcrições para melhorar o reconhecimento de palavras e frases específicas de domínio, como se elas fossem adicionadas como texto relacionado.
-* O treinamento com áudio levará mais benefícios se o áudio também for difícil de entender para os seres humanos. Na maioria dos casos, você deve iniciar o treinamento usando apenas o texto relacionado.
 * Pode levar vários dias para que uma operação de treinamento seja concluída. Para melhorar a velocidade de treinamento, certifique-se de criar sua assinatura do serviço de fala em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
 > [!NOTE]

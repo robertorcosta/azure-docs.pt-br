@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a881dee50195fe4995c77d793b4f4b75091d20b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d912707a1f41a0c3063d6f3fb67aa6914bd2d390
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231105"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592301"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
 
@@ -164,10 +164,10 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | CorrelationId | GUID opcional passado pelo cliente. Esse valor pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
 | Identidade | A identidade do token que foi apresentada ao fazer a solicitação. Pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
 | Nível | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
-| Localização | Fornece o local da atividade de entrada. |
+| Location | Fornece o local da atividade de entrada. |
 | Propriedades | Lista todas as propriedades que estão associadas a entradas. Para obter mais informações, consulte [Microsoft Graph referência de API](/graph/api/resources/signin?view=graph-rest-beta). Esse esquema usa os mesmos nomes de atributos como no recurso de entrada, para legibilidade.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Interpretar o esquema de logs de auditoria no Azure Monitor](reference-azure-monitor-audit-log-schema.md)
-* [Leia mais sobre os logs da plataforma Azure](../../azure-monitor/platform/platform-logs-overview.md)
+* [Leia mais sobre os logs da plataforma Azure](../../azure-monitor/essentials/platform-logs-overview.md)

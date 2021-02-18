@@ -4,12 +4,12 @@ description: Monitoramento do desempenho de aplicativos para serviços de aplica
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: 55682215a990643111d5813db437b1f1e4612868
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 74b39219b3b18c8de0214367d141085f6dc5f674
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100547223"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100574006"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorar o desempenho do Serviço de Aplicativo do Azure
 
@@ -65,7 +65,7 @@ Há duas maneiras de habilitar o monitoramento de aplicativos para aplicativos h
 | Coleta as tendências de uso e permite a correlação entre resultados de disponibilidade e transações | Sim |Sim |
 | Coleta as exceções não tratadas pelo processo de host | Sim |Sim |
 | Aumenta a precisão de métricas de APM com carga quando a amostragem é usada | Sim |Sim |
-| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Sim |
+| Correlaciona microsserviços entre limites de solicitação/dependência | Não (somente recursos APM de instância única) |Yes |
 
 3. Para definir configurações como amostragem, que você poderia controlar anteriormente por meio do arquivo de applicationinsights.config, agora você pode interagir com essas mesmas configurações por meio de configurações de aplicativo com um prefixo correspondente. 
 
@@ -434,8 +434,8 @@ Para obter as atualizações mais recentes e as correções de bugs, [consulte a
 ## <a name="next-steps"></a>Próximas etapas
 * [Executar o criador de perfil em seu aplicativo ativo](./profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) – monitorar o Azure Functions com o Application Insights
-* [Permita que o diagnóstico do Azure](../platform/diagnostics-extension-to-application-insights.md) seja enviado ao Application Insights.
-* [Monitore as métricas de integridade do serviço](../platform/data-platform.md) para se certificar de que o serviço esteja disponível e responsivo.
-* [Receba notificações de alerta](../platform/alerts-overview.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
+* [Permita que o diagnóstico do Azure](../agents/diagnostics-extension-to-application-insights.md) seja enviado ao Application Insights.
+* [Monitore as métricas de integridade do serviço](../data-platform.md) para se certificar de que o serviço esteja disponível e responsivo.
+* [Receba notificações de alerta](../alerts/alerts-overview.md) sempre que ocorrerem eventos operacionais ou métricas ultrapassarem um limite.
 * Use o [Application Insights para aplicativos JavaScript e páginas Web](javascript.md) para obter a telemetria do cliente dos navegadores que visitam uma página da Web.
 * [Configure testes de disponibilidade da Web](monitor-web-app-availability.md) para ser alertado se o seu site for desativado.
