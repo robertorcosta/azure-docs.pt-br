@@ -3,12 +3,12 @@ title: Habilitar extensão de VM usando o modelo de Azure Resource Manager
 description: Este artigo descreve como implantar extensões de máquina virtual para servidores habilitados para Arc do Azure em execução em ambientes de nuvem híbrida usando um modelo de Azure Resource Manager.
 ms.date: 02/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0115bda614133891275daff96c94dc4b1a680ccf
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: b84f9d4d13de3ce2d661e254528e1f0a304001f4
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100555095"
+ms.locfileid: "100580930"
 ---
 # <a name="enable-azure-vm-extensions-by-using-arm-template"></a>Habilitar extensões de VM do Azure usando o modelo ARM
 
@@ -545,7 +545,7 @@ Para usar a extensão de DSC do PowerShell, o exemplo a seguir é fornecido para
 
 ## <a name="deploy-the-dependency-agent-extension"></a>Implantar a extensão do agente de dependência
 
-Para usar a extensão do agente de dependência Azure Monitor, o exemplo a seguir é fornecido para execução no Windows e no Linux. Se você não estiver familiarizado com o Dependency Agent, consulte [visão geral dos agentes de Azure monitor](../../azure-monitor/platform/agents-overview.md#dependency-agent).
+Para usar a extensão do agente de dependência Azure Monitor, o exemplo a seguir é fornecido para execução no Windows e no Linux. Se você não estiver familiarizado com o Dependency Agent, consulte [visão geral dos agentes de Azure monitor](../../azure-monitor/agents/agents-overview.md#dependency-agent).
 
 ### <a name="template-file-for-linux"></a>Arquivo de modelo para Linux
 

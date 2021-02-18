@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: 22c69288479e0247e499a33c2e818c19f7edb2ae
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879941"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588334"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas do Azure alcance no Azure Monitor
 
@@ -24,7 +24,7 @@ Os administradores de alcance do Azure podem usar Azure Monitor para acompanhar 
 
 ## <a name="aggregated-metrics"></a>Métricas agregadas
 
-As métricas podem ser acessadas no portal do Azure para uma conta do alcance. O acesso às métricas é controlado pela atribuição de função da conta alcance. Os usuários precisam fazer parte da função de "leitor de monitoramento" no Azure alcance para ver as métricas. Confira [as permissões da função leitor de monitoramento](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles) para saber mais sobre os níveis de acesso de funções.
+As métricas podem ser acessadas no portal do Azure para uma conta do alcance. O acesso às métricas é controlado pela atribuição de função da conta alcance. Os usuários precisam fazer parte da função de "leitor de monitoramento" no Azure alcance para ver as métricas. Confira [as permissões da função leitor de monitoramento](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles) para saber mais sobre os níveis de acesso de funções.
 
 A pessoa que criou a conta alcance automaticamente Obtém permissões para exibir as métricas. Se qualquer outra pessoa quiser ver as métricas, adicione-as à função **leitor de monitoramento** , seguindo estas etapas:
 
@@ -58,11 +58,11 @@ Os usuários do Azure alcance também podem acessar a página de métricas diret
 
 ### <a name="available-metrics"></a>Métricas disponíveis
 
-Para se familiarizar com como usar a seção métrica no portal do Azure antes, leia os dois documentos a seguir. [Introdução ao Gerenciador de métricas](../azure-monitor/platform/metrics-getting-started.md) e [recursos avançados do Metrics Explorer](../azure-monitor/platform/metrics-charts.md).
+Para se familiarizar com como usar a seção métrica no portal do Azure antes, leia os dois documentos a seguir. [Introdução ao Gerenciador de métricas](../azure-monitor/essentials/metrics-getting-started.md) e [recursos avançados do Metrics Explorer](../azure-monitor/essentials/metrics-charts.md).
 
 A tabela a seguir contém a lista de métricas disponíveis para explorar no portal do Azure:
 
-| Nome da métrica | Namespace da métrica | Tipo de agregação | Descrição |
+| Nome da métrica | Namespace da métrica | Tipo de agregação | Description |
 | ------------------- | ------------------- | ------------------- | ----------------- |
 | Verificação cancelada | Verificação automatizada | Somar <br> Contagem | Agregar as verificações da fonte de dados cancelada com o período de tempo |
 | Verificação concluída | Verificação automatizada | Somar <br> Contagem | Agregar as verificações de fonte de dados concluídas ao longo do período de tempo |
@@ -75,7 +75,7 @@ Os eventos de telemetria brutos são emitidos para Azure Monitor. Os eventos pod
 
 Siga as etapas para criar uma configuração de diagnóstico para sua conta do Azure alcance.
 
-1. Crie uma nova configuração de diagnóstico para coletar logs e métricas de plataforma seguindo este artigo: [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../azure-monitor/platform/diagnostic-settings.md). Selecione o destino somente como conta de armazenamento do Azure.
+1. Crie uma nova configuração de diagnóstico para coletar logs e métricas de plataforma seguindo este artigo: [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../azure-monitor/essentials/diagnostic-settings.md). Selecione o destino somente como conta de armazenamento do Azure.
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png" alt-text="Captura de tela mostrando a criação do log de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-one-diagnostic-setting.png":::
 

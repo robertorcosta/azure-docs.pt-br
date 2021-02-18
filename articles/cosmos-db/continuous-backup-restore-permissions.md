@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 02/01/2021
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 82af70547d20509c48f1e07bbc7610fc666a6da1
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8b3ce2c195dc2fa3dd703306e731aa5b807b78b1
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393047"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100648596"
 ---
 # <a name="manage-permissions-to-restore-an-azure-cosmos-db-account"></a>Gerenciar permissões para restaurar uma conta de Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -48,8 +48,8 @@ Para executar uma restauração, um usuário ou uma entidade de segurança preci
 
 |Escopo  |Exemplo  |
 |---------|---------|
-|Assinatura | /subscriptions/00000000-0000-0000-0000-000000000000 |
-|Grupo de recursos | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
+|Subscription | /subscriptions/00000000-0000-0000-0000-000000000000 |
+|Resource group | /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Example-cosmosdb-rg |
 |Recurso de conta restaurável CosmosDB | /subscriptions/00000000-0000-0000-0000-000000000000/Providers/Microsoft.DocumentDB/Locations/oeste dos EUA/restorableDatabaseAccounts/23e99a35-CD36-4df4-9614-f767a03b9995|
 
 O recurso de conta restaurável pode ser extraído da saída do `az cosmosdb restorable-database-account list --name <accountname>` comando na CLI ou `Get-AzCosmosDBRestorableDatabaseAccount -DatabaseAccountName <accountname>` no cmdlet no PowerShell. O atributo Name na saída representa o `instanceID` da conta restaurável. Para saber mais, confira o artigo sobre o [PowerShell](continuous-backup-restore-powershell.md) ou a [CLI](continuous-backup-restore-command-line.md) .
@@ -61,7 +61,7 @@ As permissões a seguir são necessárias para executar as diferentes atividades
 |Permissão  |Impacto  |Escopo mínimo  |Escopo máximo  |
 |---------|---------|---------|---------|
 |`Microsoft.Resources/deployments/validate/action`, `Microsoft.Resources/deployments/write` | Essas permissões são necessárias para a implantação do modelo ARM para criar a conta restaurada. Consulte a permissão de exemplo [RestorableAction](#custom-restorable-action) abaixo para saber como definir essa função. | Não aplicável | Não aplicável  |
-|Microsoft.DocumentDB/databaseAccounts/write | Essa permissão é necessária para restaurar uma conta em um grupo de recursos | Grupo de recursos sob o qual a conta restaurada é criada. | Assinatura sob a qual a conta restaurada é criada |
+|`Microsoft.DocumentDB/databaseAccounts/write` | Essa permissão é necessária para restaurar uma conta em um grupo de recursos | Grupo de recursos sob o qual a conta restaurada é criada. | Assinatura sob a qual a conta restaurada é criada |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/restore/action` |Essa permissão é necessária no escopo da conta de banco de dados restaurável de origem para permitir que as ações de restauração sejam executadas nela.  | O recurso *RestorableDatabaseAccount* que pertence à conta de origem que está sendo restaurada. Esse valor também é fornecido pela `ID` Propriedade do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>* | A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/read` |Essa permissão é necessária no escopo da conta de banco de dados restaurável de origem para listar as contas de banco de dados que podem ser restauradas.  | O recurso *RestorableDatabaseAccount* que pertence à conta de origem que está sendo restaurada. Esse valor também é fornecido pela `ID` Propriedade do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo.  |
 |`Microsoft.DocumentDB/locations/restorableDatabaseAccounts/*/read` | Essa permissão é necessária no escopo da conta restaurável de origem para permitir a leitura de recursos restauráveis, como a lista de bancos de dados e contêineres para uma conta restaurável.  | O recurso *RestorableDatabaseAccount* que pertence à conta de origem que está sendo restaurada. Esse valor também é fornecido pela `ID` Propriedade do recurso de conta de banco de dados restaurável. Um exemplo de conta restaurável é */subscriptions/subscriptionId/providers/Microsoft.DocumentDB/Locations/RegionName/restorableDatabaseAccounts/<GUID-instanceid>*| A assinatura que contém a conta de banco de dados restaurável. O grupo de recursos não pode ser escolhido como escopo. |

@@ -7,12 +7,12 @@ author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: bf8ea45f37e421d70a68c4a6e138f5203e92d78f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 620dadbaba049d6baea54b3b64c9e248fc48004a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87045780"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100573438"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Monitorar grupos de recursos com Azure Monitor (versão prévia)
 
@@ -46,9 +46,9 @@ A página de informações do grupo de recursos fornece várias outras ferrament
 
    |         |          |
    | ---------------- |:-----|
-   | [**Alertas**](../platform/alerts-overview.md)      |  Exiba, crie e gerencie os alertas. |
-   | [**Métrica**](../platform/data-platform.md) | Visualize e explore os dados baseados em métricas.    |
-   | [**Log de atividades**](../platform/platform-logs-overview.md) | Eventos de nível de assinatura que ocorreram no Azure.  |
+   | [**Alertas**](../alerts/alerts-overview.md)      |  Exiba, crie e gerencie os alertas. |
+   | [**Métrica**](../data-platform.md) | Visualize e explore os dados baseados em métricas.    |
+   | [**Log de atividades**](../essentials/platform-logs-overview.md) | Eventos de nível de assinatura que ocorreram no Azure.  |
    | [**Mapa do aplicativo**](../app/app-map.md) | Navegue pela topologia do aplicativo distribuído para identificar gargalos de desempenho ou pontos de acesso. |
 
 ## <a name="failures-and-performance"></a>Falhas e desempenho
@@ -117,6 +117,6 @@ O Monitor do Azure para grupos de recursos depende do sistema Gerenciamento de a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pastas de trabalho do Azure Monitor](../platform/workbooks-overview.md)
+- [Pastas de trabalho do Azure Monitor](../visualize/workbooks-overview.md)
 - [Azure Resource Health](../../service-health/resource-health-overview.md)
-- [Alertas do Azure Monitor](../platform/alerts-overview.md)
+- [Alertas do Azure Monitor](../alerts/alerts-overview.md)

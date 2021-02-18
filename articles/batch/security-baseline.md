@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3678ead9f3e1ba2556fde3c2fbe30df4e7dc2225
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98737228"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100593307"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança do Azure para lote
 
@@ -142,7 +142,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 - [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -200,7 +200,7 @@ Se necessário, você pode se conectar a seus nós de pool individuais via SSH (
 
 - [Como configurar o log e o monitoramento do lote do Azure](monitoring-overview.md)
 
-- [Como configurar o período de retenção do espaço de trabalho do Azure Log Analytics](../azure-monitor/platform/manage-cost-storage.md)
+- [Como configurar o período de retenção do espaço de trabalho do Azure Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -514,7 +514,7 @@ O Azure Disk Encryption pode ser usado para ajudar a proteger e proteger seus da
 
 Defina as configurações de diagnóstico para contas de armazenamento associadas ao pool do lote do Azure para monitorar e registrar todas as operações CRUD em relação aos dados do pool.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 - [Como habilitar o registro em log/auditoria adicional para uma conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md)
 
