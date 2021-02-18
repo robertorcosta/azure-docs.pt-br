@@ -5,16 +5,16 @@ tags: billing
 ms.assetid: 86697fdf-3499-4cab-ab3f-10d40d3c1f70
 ms.topic: how-to
 ms.date: 12/14/2020
-ms.openlocfilehash: 8110f87401da1352309fb55615093d49981c754d
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: d6c68dd341e0794a690b41b73ecc4be954db7359
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97504807"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100653842"
 ---
 # <a name="manage-an-azure-support-request"></a>Gerenciar uma solicitação de suporte do Azure
 
-Depois de [criar uma solicitação de suporte do Azure](how-to-create-azure-support-request.md), você pode gerenciá-la no [portal do Azure](https://portal.azure.com), que é abordado neste artigo. Você também pode criar e gerenciar solicitações programaticamente, usando a [API REST do tíquete de suporte do Azure](/rest/api/support).
+Depois de [criar uma solicitação de suporte do Azure](how-to-create-azure-support-request.md), você pode gerenciá-la no [portal do Azure](https://portal.azure.com), que é abordado neste artigo. Você também pode criar e gerenciar solicitações programaticamente, usando a [API REST do tíquete de suporte do Azure](/rest/api/support)ou usando [CLI do Azure](/cli/azure/azure-cli-support-request).
 
 ## <a name="view-support-requests"></a>Exibir todas as solicitações de suporte
 

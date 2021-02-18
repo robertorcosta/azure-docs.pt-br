@@ -2,18 +2,18 @@
 title: Perguntas frequentes de kubernetes habilitadas para o Azure Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 02/17/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Este artigo contém uma lista de perguntas frequentes relacionadas ao kubernetes habilitado para Arc do Azure
 keywords: Kubernetes, Arc, Azure, contêineres, configuração, GitOps, perguntas frequentes
-ms.openlocfilehash: 237b2629b833a63552b172636f46a1ac92e321c0
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: e0d7501dc1a82940571d0168222c396f61a70bce
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561310"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100652489"
 ---
 # <a name="frequently-asked-questions---azure-arc-enabled-kubernetes"></a>Perguntas frequentes-kubernetes habilitado para o Azure Arc
 
@@ -31,26 +31,26 @@ Não. Todos os recursos de kubernetes habilitados para o Azure Arc, incluindo Az
     
 ## <a name="should-i-connect-my-aks-hci-cluster-and-kubernetes-clusters-on-azure-stack-hub-and-azure-stack-edge-to-azure-arc"></a>Devo conectar meu cluster AKS-HCI e clusters kubernetes no Hub Azure Stack e Azure Stack borda ao Azure Arc?
 
-Sim, conectar seu cluster AKS-HCI ou clusters kubernetes no Azure Stack Edge ou Azure Stack Hub ao Arc do Azure fornece clusters com representação de recursos no Azure Resource Manager. Essa representação de recursos estende os recursos como configuração de cluster, Azure Monitor e Azure Policy (gatekeeper) para os clusters kubernetes que você se conecta.
+Sim, conectar seu cluster AKS-HCI ou clusters kubernetes no Azure Stack Edge ou Azure Stack Hub ao Arc do Azure fornece clusters com representação de recursos no Azure Resource Manager. Essa representação de recursos estende os recursos como configuração de cluster, Azure Monitor e Azure Policy (gatekeeper) para clusters kubernetes conectados.
 
 ## <a name="how-to-address-expired-azure-arc-enabled-kubernetes-resources"></a>Como lidar com os recursos de kubernetes habilitados para o Arc do Azure com vencimento?
 
-O certificado MSI (identidade de serviço gerenciado) associado à sua Kuberenetes habilitada para o Arc do Azure tem uma janela de expiração de 90 dias. Quando esse certificado expira, o recurso é considerado `Expired` e todos os recursos, como configuração, monitoramento e política, param de funcionar nesse cluster. Siga estas etapas para fazer com que seu cluster kubernetes funcione com o arco do Azure novamente:
+O certificado de Identidade de Serviço Gerenciada (MSI) associado à sua kubernetes habilitada para o Arc do Azure tem uma janela de expiração de 90 dias. Depois que esse certificado expirar, o recurso será considerado `Expired` e todos os recursos (como configuração, monitoramento e política) deixarão de funcionar nesse cluster. Para fazer com que o cluster kubernetes trabalhe com o arco do Azure novamente:
 
-1. Excluir recurso kubernetes e agentes habilitados para o Azure Arc no cluster 
+1. Exclua recursos e agentes kubernetes habilitados para o Azure Arc no cluster. 
 
     ```console
     az connectedk8s delete -n <name> -g <resource-group>
     ```
 
-1. Recrie o recurso kubernetes habilitado para arco do Azure implantando agentes no cluster novamente.
+1. Recrie o recurso kubernetes habilitado para Arc do Azure implantando agentes no cluster.
     
     ```console
     az connectedk8s connect -n <name> -g <resource-group>
     ```
 
 > [!NOTE]
-> `az connectedk8s delete` também excluirá as configurações na parte superior do cluster. Depois de executar `az connectedk8s connect` o, crie as configurações no cluster novamente, manualmente ou usando o Azure Policy.
+> `az connectedk8s delete` também excluirá as configurações na parte superior do cluster. Após a execução `az connectedk8s connect` , recrie as configurações no cluster, seja manualmente ou usando Azure Policy.
 
 ## <a name="if-i-am-already-using-cicd-pipelines-can-i-still-use-azure-arc-enabled-kubernetes-and-configurations"></a>Se já estiver usando pipelines de CI/CD, ainda poderei usar as configurações e kubernetes habilitadas para o Arc do Azure?
 
@@ -62,9 +62,11 @@ O pipeline de CI/CD aplica as alterações apenas uma vez durante a execução d
 
 **Aplicar GitOps em escala**
 
-Pipelines de CI/CD são bons para implantações controladas por eventos em seu cluster kubernetes, em que o evento pode ser um envio por push para um repositório git. No entanto, a implantação da mesma configuração em todos os seus clusters kubernetes requer que o pipeline de CI/CD seja configurado com credenciais de cada um desses clusters kubernetes manualmente. Por outro lado, no caso do Azure Arc habilitado kubernetes, como Azure Resource Manager gerencia suas configurações, você pode usar Azure Policy para automatizar a aplicação da configuração desejada em todos os clusters do kubernetes em um escopo de assinatura ou grupo de recursos em um só lugar. Esse recurso é ainda aplicável aos recursos de kubernetes habilitados para Arc do Azure criados após a atribuição de política.
+Pipelines de CI/CD são úteis para implantações controladas por eventos em seu cluster kubernetes (por exemplo, um envio por push para um repositório git). No entanto, se você quiser implantar a mesma configuração em todos os seus clusters do kubernetes, precisará configurar manualmente cada credencial do cluster do kubernetes para o pipeline de CI/CD. 
 
-O recurso de configurações é usado para aplicar configurações de linha de base como diretivas de rede, associações de função e políticas de segurança de pod em todo o inventário de clusters kubernetes para requisitos de conformidade e governança.
+Para kubernetes habilitados para o Azure Arc, como o Azure Resource Manager gerencia suas configurações, você pode automatizar a criação da mesma configuração em todos os recursos de kubernetes habilitados para o Azure ARC usando Azure Policy, dentro do escopo de uma assinatura ou de um grupo de recursos. Esse recurso é ainda aplicável aos recursos de kubernetes habilitados para Arc do Azure criados após a atribuição de política.
+
+Esse recurso aplica configurações de linha de base (como diretivas de rede, associações de função e políticas de segurança de Pod) em todo o inventário de cluster kubernetes para atender aos requisitos de conformidade e governança.
 
 ## <a name="next-steps"></a>Próximas etapas
 
