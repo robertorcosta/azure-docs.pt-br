@@ -10,16 +10,24 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 2b953fd040b9ba76eacddb91a89ac65d51e340a0
-ms.sourcegitcommit: 3af12dc5b0b3833acb5d591d0d5a398c926919c8
+ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2021
-ms.locfileid: "98071656"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651673"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
 Saiba como solucionar problemas e resolver, ou contornar, erros comuns que você pode encontrar ao implantar um modelo em ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
+
+> [!NOTE]
+> Se você estiver implantando um modelo no AKS (serviço kubernetes do Azure), aconselharemos a habilitar [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) para esse cluster. Isso ajudará você a entender a integridade geral do cluster e o uso de recursos. Você também pode encontrar os seguintes recursos úteis:
+>
+> * [Verificar Resource Health eventos que afetam o cluster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
+> * [Diagnóstico do serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+>
+> Se você estiver tentando implantar um modelo em um cluster não íntegro ou sobrecarregado, espera-se que eles tenham problemas. Se precisar de ajuda para solucionar problemas de cluster AKS, entre em contato com o suporte do AKS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -181,7 +189,7 @@ Você pode aumentar o tempo limite ou tentar acelerar o serviço, modificando o 
 
 Execute estas ações para os seguintes erros:
 
-|Error  | Resolução  |
+|Erro  | Resolução  |
 |---------|---------|
 |Falha na criação da imagem ao implantar o serviço Web     |  Adicionar "pynacl = = 1.2.1" como uma dependência Pip ao arquivo Conda para configuração de imagem       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Altere a SKU para VMs usadas em sua implantação para uma que tenha mais memória. |

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2020
 ms.author: aahi
 ms.custom: references_regions
-ms.openlocfilehash: 708c70a5144e4e38dd5de9524711c80ef28cd839
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 9302bde13a303dda2107900dc0c10cc180669a18
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100092121"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650721"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Como chamar a API REST de Análise de Texto
 
@@ -37,7 +37,7 @@ Antes de usar o API de Análise de Texto, você precisará criar um recurso do A
 
 ## <a name="change-your-pricing-tier"></a>Alterar o tipo de preço 
 
-Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, poderá atualizá-lo para usar o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S):
+Se você tiver um recurso de Análise de Texto existente usando o tipo de preço S0 a S4, deverá atualizá-lo para usar o [tipo de preço](https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics/)Standard (S). Os tipos de preço S0 a S4 serão desativados. Para atualizar o preço do recurso:
 
 1. Navegue até o recurso de Análise de Texto no [portal do Azure](https://portal.azure.com/).
 2. Selecione **tipo de preço** no menu de navegação à esquerda. Ele estará abaixo do **Gerenciamento de recursos**. 
@@ -240,7 +240,7 @@ No postmaster (ou outra ferramenta de teste de API Web), adicione o ponto de ext
 |--|--|--|
 | Enviar Análise de Texto para trabalho de integridade  | POST | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs` |
 | Obter resultados e status do trabalho | GET | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
-| Cancelar trabalho | DELETE | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
+| Cancelar trabalho | Delete (excluir) | `https://<your-text-analytics-resource>/text/analytics/v3.1-preview.3/entities/health/jobs/<Operation-Location>` |
 
 --- 
 

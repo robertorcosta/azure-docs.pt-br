@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: 61ca4dc8cd7048df69c827e7ca657b9882900819
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218896"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100596643"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
 
@@ -87,7 +87,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
    - **Propriedades:** Exibe configurações sobre a rede virtual, incluindo a ID do recurso da rede virtual e a assinatura em que ela está.
    - **Diagrama:** O diagrama apresenta uma representação visual de todos os dispositivos que estão conectados à rede virtual. O diagrama tem algumas informações importantes sobre os dispositivos. Para gerenciar um dispositivo nesta exibição, no diagrama, selecione o dispositivo.
    - **Configurações comuns do Azure**: Para saber mais sobre configurações comuns do Azure, consulte as seguintes informações:
-     - [Log de atividades](../azure-monitor/platform/platform-logs-overview.md)
+     - [Log de atividades](../azure-monitor/essentials/platform-logs-overview.md)
      - [Controle de acesso (IAM)](../role-based-access-control/overview.md)
      - [Marcas](../azure-resource-manager/management/tag-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
      - [Bloqueios](../azure-resource-manager/management/lock-resources.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -122,7 +122,7 @@ Para adicionar ou remover um intervalo de endereços:
 4. Preencha uma das seguintes opções:
     - **Adicionar um intervalo de endereços:** digite o novo intervalo de endereços. O intervalo de endereços não pode se sobrepor a um intervalo de endereços existente definido para a rede virtual.
     - **Remover um intervalo de endereços**: à direita do intervalo de endereços que deseja remover, selecione **...** e, em seguida, selecione **Remover**. Se existir uma sub-rede no intervalo de endereços, você não poderá removê-lo. Para remover um intervalo de endereços, você deve primeiro excluir todas as sub-redes (e outros recursos nas sub-redes) existentes no intervalo de endereços.
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 **Comandos**
 
@@ -143,7 +143,7 @@ Todas as VMs que estão conectadas ao registro da rede virtual com os servidores
    - **Remover um endereço:** Ao lado do servidor que deseja remover, selecione **...** e, em seguida, **Remover**. Excluir o servidor remove o servidor somente dessa lista de rede virtual. O servidor DNS permanece registrado no Azure para que suas outras redes virtuais possam usá-lo.
    - **Reordenar endereços do servidor DNS**: é importante verificar se os servidores DNS estão listados na ordem correta para seu ambiente. As listas de servidores DNS são usadas na ordem em que foram especificadas. Eles não funcionam como uma configuração de round-robin. Se o primeiro servidor DNS na lista puder ser alcançado, o cliente usará esse servidor DNS, não importa se ele está funcionando corretamente. Remova todos os servidores DNS listados e, em seguida, adicione-os de volta na ordem que desejar.
    - **Alterar um endereço**: destaque o servidor DNS na lista, e em seguida digite o novo endereço.
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 6. Reinicie as VMs que estão conectadas à rede virtual, para que as novas configurações do servidor DNS sejam atribuídas a elas. As VMs continuam a usar suas configurações de DNS atuais até que elas sejam reiniciadas.
 
 **Comandos**

@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: f6b68ea756253a30f006983c214e287c75637278
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642305"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650772"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introdução à tradução do documento (visualização)
 
@@ -98,7 +98,7 @@ Os `sourceUrl` `targetUrl` opcionais, e `glossaryUrl`  devem incluir um token de
 
 * Crie um novo projeto Node.js.
 * Instale a biblioteca axios com `npm i axios` .
-* Copie o código a seguir no seu projeto.
+* Copiar Cole o código abaixo em seu projeto.
 * Defina os valores de ponto de extremidade, chave de assinatura e URL do contêiner.
 * executar o programa.
 
@@ -108,7 +108,7 @@ Os `sourceUrl` `targetUrl` opcionais, e `glossaryUrl`  devem incluir um token de
 * Copie e cole o código de um dos exemplos em seu projeto.
 * Defina os valores de ponto de extremidade, chave de assinatura e URL do contêiner.
 * Execute o programa. Por exemplo: `python translate.py`.
-  
+
 ### <a name="java"></a>[Java](#tab/java)
 
 * Crie um diretório de trabalho para seu projeto. Por exemplo:
@@ -127,7 +127,7 @@ mkdir sample-project
 mkdir -p src/main/java/
 ```
 
-* Os arquivos de origem Java (por exemplo, _Sample. java_) residem em src/main/**Java**.
+**Observação**: os arquivos de origem Java (por exemplo, _Sample. java_) residem em src/main/**Java**.
 
 * No diretório raiz (por exemplo, *projeto de exemplo*), inicialize o projeto com gradle:
 
@@ -136,6 +136,7 @@ gradle init --type basic
 ```
 
 * Quando solicitado a escolher uma **DSL**, escolha **Kotlin**.
+
 * Atualize o `build.gradle.kts`  arquivo. Tenha em mente que você precisará atualizar seu `mainClassName` dependendo do exemplo:
 
   ```java
@@ -155,7 +156,8 @@ gradle init --type basic
   ```
 
 * Crie um arquivo Java no diretório **Java** e copie/cole o código do exemplo fornecido. Não se esqueça de adicionar a chave de assinatura e o ponto de extremidade.
-**Compile e execute o exemplo do diretório raiz**:
+
+* **Compile e execute o exemplo do diretório raiz**:
 
 ```powershell
 gradle build
@@ -172,7 +174,7 @@ gradle run
 * Compile o arquivo, por exemplo: 'go build example-code.go'.
 * Execute o arquivo, por exemplo: 'example-code'.
 
----
+ ---
 
 ## <a name="make-document-translation-requests"></a>Fazer solicitações de tradução de documentos
 
