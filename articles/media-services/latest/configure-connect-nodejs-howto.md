@@ -11,31 +11,40 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: c6ea238edd68413646dda59b22d1c0dc2557d57e
-ms.sourcegitcommit: f6236e0fa28343cf0e478ab630d43e3fd78b9596
+ms.openlocfilehash: 9628e46281e267bd1c1fd8277a3a975bc338c6dc
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/19/2020
-ms.locfileid: "94916824"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096063"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-Node.js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Este artigo mostra como se conectar ao SDK de node.js de serviços de mídia do Azure v3 usando o método de entrada da entidade de serviço.
+Este artigo mostra como se conectar ao SDK de node.js do Azure Media Services V3 usando o método de entrada da entidade de serviço.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Instale o [Node.js](https://nodejs.org/en/download/).
+- Instale o [typescript](https://www.typescriptlang.org/download).
 - [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se do nome do grupo de recursos e da conta dos Serviços de Mídia.
 
 > [!IMPORTANT]
-> Examine [Convenções de nomenclatura](media-services-apis-overview.md#naming-conventions).
+> Examine as [convenções de nomenclatura](media-services-apis-overview.md#naming-conventions) dos serviços de mídia do Azure para entender as principais restrições de nomenclatura em entidades. 
 
-## <a name="create-packagejson"></a>Criar package.jsem
+## <a name="reference-documentation-for-azurearm-mediaservices"></a>Documentação de referência para @Azure/arm-mediaservices
+- [Documentação de referência para os módulos dos serviços de mídia do Azure para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
+
+## <a name="more-developer-documentation-for-nodejs-on-azure"></a>Mais documentação para desenvolvedores para Node.js no Azure
+- [Azure para JavaScript & Node.js desenvolvedores](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Código-fonte dos serviços de mídia no @azure/azure-sdk-for-js repositório do Hub git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Documentação do pacote do Azure para desenvolvedores de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+
+## <a name="install-the-packages"></a>Instalar os pacotes
 
 1. Crie um package.jsno arquivo usando seu editor favorito.
 1. Abra o arquivo e cole o seguinte código:
@@ -47,12 +56,12 @@ Este artigo mostra como se conectar ao SDK de node.js de serviços de mídia do 
   "name": "media-services-node-sample",
   "version": "0.1.0",
   "description": "",
-  "main": "./index.js",
+  "main": "./index.ts",
   "dependencies": {
-    "azure-arm-mediaservices": "^8.0.0",
-    "azure-storage": "^2.8.0",
-    "ms-rest": "^2.3.3",
-    "ms-rest-azure": "^2.5.5"
+    "@azure/arm-mediaservices": "^8.0.0",
+    "@azure/abort-controller": "^1.0.2",
+    "@azure/ms-rest-nodeauth": "^3.0.6",
+    "@azure/storage-blob": "^12.4.0",
   }
 }
 ```
@@ -61,77 +70,159 @@ Os seguintes pacotes devem ser especificados:
 
 |Pacote|Descrição|
 |---|---|
-|`azure-arm-mediaservices`|SDK dos serviços de mídia do Azure. <br/>Para verificar se você está usando o pacote mais recente dos serviços de mídia do Azure, marque [NPM instalar Azure-ARM-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/).|
-|`azure-storage`|SDK de armazenamento. Usado ao carregar arquivos em ativos.|
-|`ms-rest-azure`| Usado para entrar.|
+|`@azure/arm-mediaservices`|SDK dos serviços de mídia do Azure. <br/>Para verificar se você está usando o pacote mais recente dos serviços de mídia do Azure, verifique [NPM instalar @azure/arm-mediaservices ](https://www.npmjs.com/package/@azure/arm-mediaservices).|
+|`@azure/ms-rest-nodeauth` | Necessário para autenticação do AAD usando entidade de serviço ou identidade gerenciada|
+|`@azure/storage-blob`|SDK de armazenamento. Usado ao carregar arquivos em ativos.|
+|`@azure/ms-rest-js`| Usado para entrar.|
+|`@azure/storage-blob` | Usado para carregar e baixar arquivos em ativos nos serviços de mídia do Azure para codificação.|
+|`@azure/abort-controller`| Usado junto com o cliente de armazenamento para atingir o tempo limite de operações de download de longa execução|
+
 
 Você pode executar o seguinte comando para verificar se está usando o pacote mais recente:
 
+### <a name="install-azurearm-mediaservices"></a>Instalar @azure/arm-mediaservices
 ```
-npm install azure-arm-mediaservices
+npm install @azure/arm-mediaservices
 ```
 
-## <a name="connect-to-nodejs-client"></a>Conectar-se ao Node.js cliente
+### <a name="install-azurems-rest-nodeauth"></a>Instalar @azure/ms-rest-nodeauth
 
-1. Crie um arquivo. js usando seu editor favorito.
+Instale a versão mínima de " @azure/ms-rest-nodeauth ": "^ 3.0.0".
+
+```
+npm install @azure/ms-rest-nodeauth@"^3.0.0"
+```
+
+## <a name="connect-to-nodejs-client-using-typescript"></a>Conectar-se a Node.js cliente usando o TypeScript
+
+1. Crie um arquivo TypeScript. TS usando seu editor favorito.
 1. Abra o arquivo e cole o seguinte código.
-1. Defina os valores na seção "configuração do ponto de extremidade" para os valores obtidos das [APIs de acesso](./access-api-howto.md).
+1. Crie um arquivo. env e preencha os detalhes do portal do Azure. Consulte [APIs de acesso](./access-api-howto.md).
 
-```js
-'use strict';
+### <a name="sample-env-file"></a>Arquivo. env de exemplo
+```
+# copy the content of this file to a file named ".env". It should be stored at the root of the repo.
+# The values can be obtained from the API Access page for your Media Services account in the portal.
+AZURE_CLIENT_ID=""
+AZURE_CLIENT_SECRET= ""
+AZURE_TENANT_ID= ""
 
-const MediaServices = require('azure-arm-mediaservices');
-const msRestAzure = require('ms-rest-azure');
-const msRest = require('ms-rest');
-const azureStorage = require('azure-storage');
+# Change this to match your AAD Tenant domain name. 
+AAD_TENANT_DOMAIN = "microsoft.onmicrosoft.com"
 
-// endpoint config
-// make sure your URL values end with '/'
-const armAadAudience = "";
-const aadEndpoint = "";
-const armEndpoint = "";
-const subscriptionId = "";
-const accountName = "";
-const region = "";
-const aadClientId = "";
-const aadSecret = "";
-const aadTenantId = "";
-const resourceGroup = "";
+# Set this to your Media Services Account name, resource group it is contained in, and location
+AZURE_MEDIA_ACCOUNT_NAME = ""
+AZURE_LOCATION= ""
+AZURE_RESOURCE_GROUP= ""
 
-let azureMediaServicesClient;
+# Set this to your Azure Subscription ID
+AZURE_SUBSCRIPTION_ID= ""
 
-///////////////////////////////////////////
-//     Entrypoint for sample script      //
-///////////////////////////////////////////
+# You must change these if you are using Gov Cloud, China, or other non standard cloud regions
+AZURE_ARM_AUDIENCE= "https://management.core.windows.net"
+AZURE_ARM_ENDPOINT="https://management.azure.com"
 
-msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId, {
-  environment: {
-    activeDirectoryResourceId: armAadAudience,
-    resourceManagerEndpointUrl: armEndpoint,
-    activeDirectoryEndpointUrl: aadEndpoint
+# DRM Testing
+DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
+```
+
+## <a name="typescript---hello-world---list-assets"></a>Ativos do typescript-Olá, Mundo-List
+Este exemplo mostra como se conectar ao cliente dos serviços de mídia com uma entidade de serviço e listar os ativos na conta. Se você estiver usando uma conta nova, a lista voltará a ficar vazia. Você pode carregar alguns ativos no portal para ver os resultados.
+
+```ts
+import * as msRestNodeAuth from "@azure/ms-rest-nodeauth";
+import { AzureMediaServices } from '@azure/arm-mediaservices';
+import { AzureMediaServicesOptions } from "@azure/arm-mediaservices/esm/models";
+// Load the .env file if it exists
+import * as dotenv from "dotenv";
+dotenv.config();
+
+export async function main() {
+  // Copy the samples.env file and rename it to .env first, then populate it's values with the values obtained 
+  // from your Media Services account's API Access page in the Azure portal.
+  const clientId = process.env.AZURE_CLIENT_ID as string;
+  const secret = process.env.AZURE_CLIENT_SECRET as string;
+  const tenantDomain = process.env.AAD_TENANT_DOMAIN as string;
+  const subscriptionId = process.env.AZURE_SUBSCRIPTION_ID as string;
+  const resourceGroup = process.env.AZURE_RESOURCE_GROUP as string;
+  const accountName = process.env.AZURE_MEDIA_ACCOUNT_NAME as string;
+
+  let clientOptions: AzureMediaServicesOptions = {
+    longRunningOperationRetryTimeout: 5, // set the time out for retries to 5 seconds
+    noRetryPolicy: false // use the default retry policy.
   }
-}, async function(err, credentials, subscriptions) {
-    if (err) return console.log(err);
-    azureMediaServicesClient = new MediaServices(credentials, subscriptionId, armEndpoint, { noRetryPolicy: true });
-    
-    console.log("connected");
 
+  const creds = await msRestNodeAuth.loginWithServicePrincipalSecret(clientId, secret, tenantDomain);
+  const mediaClient = new AzureMediaServices(creds, subscriptionId, clientOptions);
+
+  // List Assets in Account
+  console.log("Listing Assets Names in account:")
+  var assets = await mediaClient.assets.list(resourceGroup, accountName);
+
+  assets.forEach(asset => {
+    console.log(asset.name);
+  });
+
+  if (assets.odatanextLink) {
+    console.log("There are more than 1000 assets in this account, use the assets.listNext() method to continue listing more assets if needed")
+    console.log("For example:  assets = await mediaClient.assets.listNext(assets.odatanextLink)");
+  }
+}
+
+main().catch((err) => {
+  console.error("Error running sample:", err.message);
 });
 ```
 
-## <a name="run-your-app"></a>Executar o aplicativo
+## <a name="run-the-sample-application-helloworld-listassets"></a>Executar o aplicativo de exemplo HelloWorld-ListAssets
 
-Abra um prompt de comando. Navegue até o diretório do exemplo e execute os seguintes comandos:
+Clonar o repositório para os exemplos de Node.js
 
+```git
+git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
+```
+
+Altere o diretório para a pasta AMSv3Samples
+```bash
+cd AMSv3Samples
+```
+
+Instale os pacotes usados no packages.jsem
 ```
 npm install 
-node index.js
 ```
+
+Altere o diretório para a pasta HelloWorld-ListAssets
+```bash
+cd HelloWorld-ListAssets
+```
+
+Inicie o Visual Studio Code na pasta AMSv3Samples Isso é necessário para iniciar na pasta em que a pasta ". vscode" e tsconfig.jsnos arquivos estão localizados
+```dotnetcli
+cd ..
+code .
+```
+
+Abra a pasta para HelloWorld-ListAssets e abra o arquivo index. TS no editor de Visual Studio Code.
+No arquivo index. TS, pressione F5 para iniciar o depurador. Você deverá ver uma lista de ativos exibidos se já tiver ativos na conta. Se a conta estiver vazia, você verá uma lista vazia.  Carregue alguns ativos no portal para ver os resultados.
+
+## <a name="more-samples"></a>Mais exemplos
+
+Os exemplos a seguir estão disponíveis no [repositório](https://github.com/Azure-Samples/media-services-v3-node-tutorials)
+
+|Nome do projeto|Caso de uso|
+|---|---|
+|Live/index. TS| Exemplo básico de transmissão ao vivo. **Aviso**, certifique-se de verificar se todos os recursos foram limpos e não há mais cobrança no portal ao usar o Live|
+|StreamFilesSample/index. TS| Exemplo básico para carregar um arquivo local ou uma codificação de uma URL de origem. Exemplo mostra como usar o SDK de armazenamento para baixar conteúdo e mostra como transmitir para um player |
+|StreamFilesWithDRMSample/index. TS| Demonstra como codificar e transmitir usando o Widevine e o DRM do PlayReady |
+|VideoIndexerSample/index. TS| Exemplo de como usar o analisador de vídeo e áudio predefinições para gerar metadados e informações de um arquivo de vídeo ou áudio |
 
 ## <a name="see-also"></a>Confira também
 
 - [Conceitos dos Serviços de Mídia](concepts-overview.md)
-- [NPM install azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)
+- [NPM instalar @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Azure para JavaScript & Node.js desenvolvedores](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Código-fonte dos serviços de mídia no @azure/azure-sdk-for-js repositório](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Próximas etapas
 

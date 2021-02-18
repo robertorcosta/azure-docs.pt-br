@@ -3,12 +3,12 @@ title: Mensagens do barramento de serviço do Azure – filas, tópicos e assina
 description: Este artigo fornece uma visão geral das entidades de mensagens do barramento de serviço do Azure (fila, tópicos e assinaturas).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: f647164ba18cb83e35b5bd174f09e07a4a9f9aa7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652812"
+ms.locfileid: "101096331"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
 O Barramento de Serviço do Azure oferece suporte a um conjunto de tecnologias middleware orientado a mensagens, baseado em nuvem, incluindo o serviço de enfileiramento de mensagens confiável e o sistema de mensagens de publicação/assinatura durável. Esses recursos de mensagens orientadas podem ser considerados como recursos de mensagens dissociados que dão suporte a cenários de publicação-assinatura, desacoplamento temporal e balanceamento de carga usando a carga de trabalho de mensagens do barramento de serviço. A comunicação dissociada tem muitas vantagens. Por exemplo, clientes e servidores podem se conectar conforme necessário e realizar suas operações de maneira assíncrona.
@@ -36,6 +36,9 @@ Você pode especificar dois modos diferentes em que o barramento de serviço rec
         Se o aplicativo não puder processar a mensagem por algum motivo, ele poderá solicitar que o serviço do barramento de serviço **abandone** a mensagem. O barramento de serviço **desbloqueia** a mensagem e a disponibiliza para ser recebida novamente, seja pelo mesmo consumidor ou por outro consumidor concorrente. Em segundo lugar, há um **tempo limite** associado ao bloqueio. Se o aplicativo não processar a mensagem antes de expirar o tempo limite de bloqueio, o barramento de serviço desbloqueará a mensagem e a disponibilizará para ser recebida novamente.
 
         Se o aplicativo falhar depois de processar a mensagem, mas antes de solicitar que o serviço do barramento de serviço conclua a mensagem, o barramento de serviço reentregará a mensagem ao aplicativo quando ele for reiniciado. Esse processo é geralmente chamado de processamento **pelo menos uma vez** . Ou seja, cada mensagem é processada pelo menos uma vez. No entanto, em determinadas situações a mesma mensagem poderá ser entregue novamente. Se seu cenário não puder tolerar o processamento duplicado, adicione lógica adicional em seu aplicativo para detectar duplicatas. Para saber mais, confira [Detecção de duplicatas](duplicate-detection.md). Esse recurso é conhecido como processamento **exatamente uma vez** .
+
+        > [!NOTE]
+        > Para obter mais informações sobre esses dois modos, consulte [liquidar operações de recebimento](message-transfers-locks-settlement.md#settling-receive-operations).
 
 ## <a name="topics-and-subscriptions"></a>Tópicos e assinaturas
 Uma fila permite o processamento de uma mensagem por um único consumidor. Em contraste com as filas, os tópicos e as assinaturas fornecem uma forma de comunicação de um para muitos em um padrão de **publicação e assinatura** . É útil para dimensionar para um grande número de destinatários. Cada mensagem publicada é disponibilizada para cada assinatura registrada com o tópico. O Publicador envia uma mensagem para um tópico e um ou mais assinantes recebem uma cópia da mensagem, dependendo das regras de filtro definidas nessas assinaturas. As assinaturas podem usar filtros adicionais para restringir as mensagens que desejam receber. Os editores enviam mensagens para um tópico da mesma forma que enviam mensagens para uma fila. No entanto, os consumidores não recebem mensagens diretamente do tópico. Em vez disso, os consumidores recebem mensagens de assinaturas do tópico. Uma assinatura de tópico é semelhante a uma fila virtual que recebe cópias das mensagens enviadas para o tópico. Os consumidores recebem mensagens de uma assinatura de forma idêntica à maneira como recebem mensagens de uma fila.

@@ -14,33 +14,31 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 75df01ff65a0910dab140942b520978cd7728775
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: f75b8055757557eadeb98a45196a116e56c5aa35
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98897570"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093443"
 ---
 # <a name="creating-filters-with-cli"></a>Criando filtros com a CLI
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
-Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo. 
+Ao fornecer conteúdo aos clientes (eventos de transmissão ao vivo ou vídeo sob demanda), seu cliente pode precisar de mais flexibilidade que o que é descrito no arquivo de manifesto do ativo padrão. Os Serviços de Mídia do Azure permitem definir filtros de conta e filtros de recursos para o seu conteúdo.
 
 Para obter uma descrição detalhada desse recurso e dos cenários em que ele é usado, consulte manifestos e [filtros](filters-concept.md) [dinâmicos](filters-dynamic-manifest-overview.md) .
 
-Este tópico mostra como configurar um filtro para um ativo de vídeo sob demanda e usar a CLI para os Serviços de Mídia do Microsoft Azure v3 criem [filtros de conta](/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativo](/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+Este tópico mostra como configurar um filtro para um ativo de vídeo sob demanda e usar a CLI para os Serviços de Mídia do Microsoft Azure v3 criem [filtros de conta](/cli/azure/ams/account-filter?view=azure-cli-latest) e [filtros de ativo](/cli/azure/ams/asset-filter?view=azure-cli-latest).
 
 > [!NOTE]
 > Certifique-se de examinar [presentationTimeRange](filters-concept.md#presentationtimerange).
 
-## <a name="prerequisites"></a>Pré-requisitos 
+## <a name="prerequisites"></a>Pré-requisitos
 
-- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services. 
+- [Crie uma conta de Serviços de Mídia](./create-account-howto.md). Lembre-se de lembrar o nome do grupo de recursos e o nome da conta do Media Services.
 
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
-
-## <a name="define-a-filter"></a>Definir um filtro 
+## <a name="define-a-filter"></a>Definir um filtro
 
 O exemplo a seguir define as condições de seleção de faixas adicionadas ao manifesto final. Esse filtro inclui quaisquer faixas de áudio que sejam EC-3 e quaisquer faixas de vídeo com taxa de bits na faixa de 0 a 1000000.
 
@@ -82,7 +80,7 @@ O exemplo a seguir define as condições de seleção de faixas adicionadas ao m
 
 ## <a name="create-account-filters"></a>Crie filtros de conta
 
-O comando [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) a seguir cria um filtro de conta com seleções de trilha de filtro que foram [definidas anteriormente](#define-a-filter). 
+O comando [az ams account-filter](/cli/azure/ams/account-filter?view=azure-cli-latest) a seguir cria um filtro de conta com seleções de trilha de filtro que foram [definidas anteriormente](#define-a-filter).
 
 O comando permite que passar um parâmetro opcional `--tracks` que contém o JSON que representa as seleções de faixa.  Use @{file} para carregar o JSON de um arquivo. Se estiver usando a CLI do Azure localmente, especifique o caminho do arquivo inteiro:
 
@@ -130,7 +128,7 @@ A tabela a seguir mostra alguns exemplos de URLs com filtros:
 
 ## <a name="next-step"></a>Próxima etapa
 
-[Vídeos do Stream](stream-files-tutorial-with-api.md) 
+[Vídeos do Stream](stream-files-tutorial-with-api.md)
 
 ## <a name="see-also"></a>Confira também
 

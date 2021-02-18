@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: beb45d0d650b07f6106a3307d2d3a955095ee8b1
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 0f03cd536d329a94ec80ef884c380c79b5687289
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592255"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096612"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -111,6 +111,8 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
       * Baixe [intervalos de IP para todas as marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519).
       * Selecione os IPs de "CognitiveServicesManagement".
       * Navegue até a seção rede do recurso do serviço de aplicativo e clique na opção "configurar restrição de acesso" para adicionar os IPs a uma permissão.
+
+    ![exceções de porta de entrada](../media/inbound-ports.png)    
 
     Também temos um script automatizado para fazer o mesmo para seu serviço de aplicativo. Você pode encontrar o [script do PowerShell para configurar umalist de permissão](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) no github. Você precisa inserir a ID da assinatura, o grupo de recursos e o nome real do serviço de aplicativo como parâmetros de script. A execução do script adicionará automaticamente os IPs àlist de permissão do serviço de aplicativo.
 

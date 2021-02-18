@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/22/2020
-  ms.openlocfilehash: b1c22d790246be8f2a7adb6176ea436f760c15fb
-  ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+  ms.openlocfilehash: de1668d62b283185c08e5c839da0ec8a815e5c99
+  ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 02/14/2021
-  ms.locfileid: "100518106"
+  ms.lasthandoff: 02/17/2021
+  ms.locfileid: "100634593"
 landingContent:
 - title: Sobre a Pesquisa Visual Computacional
   linkLists:
@@ -112,6 +112,8 @@ landingContent:
   linkLists:
   - linkListType: get-started
     links:
+    - text: Visão geral da Análise espacial
+      url: intro-to-spatial-analysis-public-preview.md
     - text: Instalar e executar o contêiner
       url: spatial-analysis-container.md
     - text: Configurar operações
@@ -146,12 +148,28 @@ landingContent:
       url: quickstarts-sdk/client-library.md?pivots=programming-language-javascript
     - text: Como usar o SDK do Go
       url: quickstarts-sdk/client-library.md?pivots=programming-language-go
+- title: Uso responsável da IA
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Nota de transparência da Análise Espacial
+      url: /legal/cognitive-services/computer-vision/transparency-note-spatial-analysis?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+  - linkListType: concept
+    links:
+    - text: Uso responsável na implantação de IA
+      url: /legal/cognitive-services/computer-vision/responsible-use-deployment?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
+    - text: Dados, privacidade e segurança
+      url: /legal/cognitive-services/computer-vision/compliance-privacy-security-2?context=%2fazure%2fcognitive-services%2fComputer-vision%2fcontext%2fcontext
 - title: Referência
   linkLists:
   - linkListType: reference
     links:
-    - text: API REST
-      url: https://docs.microsoft.com/rest/api/computer-vision/
+    - text: Versão prévia da API da Pesquisa Visual Computacional v3.2
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005
+    - text: API da Pesquisa Visual Computacional v3.1
+      url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/5d986960601faab4bf452005
+    - text: API da Pesquisa Visual Computacional v2.1
+      url: https://westus.dev.cognitive.microsoft.com/docs/services/5cd27ec07268f6c679a3e641/operations/56f91f2e778daf14a499f21b
     - text: SDK .NET
       url: /dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet
     - text: SDK do Python

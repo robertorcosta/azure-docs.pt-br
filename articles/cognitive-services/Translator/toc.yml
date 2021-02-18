@@ -4,7 +4,7 @@
   items:
     - name: O que é o Tradutor?
       href: translator-info-overview.md
-    - name: Guia de Início Rápido
+    - name: Início Rápido
       href: quickstart-translator.md
     - name: Suporte ao idioma
       href: language-support.md
@@ -86,6 +86,22 @@
           href: 'https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services'
         - name: Conformidade
           href: 'https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/'
+- name: Tradução de Documento
+  items:
+    - name: Visão geral
+      items:
+        - name: O que é a Tradução de Documento?
+          href: document-translation/overview.md
+    - name: Guias de instruções
+      items:
+        - name: Introdução à Tradução de Documento
+          href: document-translation/get-started-with-document-translation.md
+        - name: Criar tokens SAS
+          href: document-translation/create-sas-tokens.md
+    - name: Referência
+      items:
+        - name: Referência da API de Tradução de Documento
+          href: 'https://docs.microsoft.com/rest/api/cognitiveservices/translator/translation'
 - name: Tradutor personalizado
   items:
     - name: Visão geral

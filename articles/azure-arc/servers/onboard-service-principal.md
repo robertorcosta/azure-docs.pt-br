@@ -3,12 +3,12 @@ title: Conectar computadores híbridos ao Azure em escala
 description: Neste artigo, você aprende a conectar computadores ao Azure usando os servidores habilitados para Arc do Azure usando uma entidade de serviço.
 ms.date: 09/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 50c6789044f76b3eb9d8b65b62ef4d8c26006af0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9e0d3bd2bd5ea59e39ba2ebe33418b7d43b2de9b
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584875"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096492"
 ---
 # <a name="connect-hybrid-machines-to-azure-at-scale"></a>Conectar computadores híbridos ao Azure em escala
 
@@ -67,7 +67,7 @@ Os valores das propriedades a seguir são usados com os parâmetros passados par
 > Use a propriedade **ApplicationId** da entidade de serviço, não a propriedade **Id**.
 >
 
-A função **Integração do Azure Connected Machine** contém apenas as permissões necessárias para carregar um computador. Você pode atribuir a permissão da entidade de serviço para possibilitar que o escopo inclua um grupo de recursos ou uma assinatura. Para adicionar a atribuição de função, consulte [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou [Adicionar ou remover atribuições de função do Azure usando CLI do Azure](../../role-based-access-control/role-assignments-cli.md).
+A função **Integração do Azure Connected Machine** contém apenas as permissões necessárias para carregar um computador. Você pode atribuir a permissão da entidade de serviço para possibilitar que o escopo inclua um grupo de recursos ou uma assinatura. Para adicionar a atribuição de função, consulte [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md) ou [atribuir funções do Azure usando CLI do Azure](../../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="install-the-agent-and-connect-to-azure"></a>Instalar o agente e conectar-se ao Azure
 

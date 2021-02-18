@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/26/2021
+ms.date: 02/14/2021
 ms.author: memildin
-ms.openlocfilehash: 9e537bfa782569fb8fa2a7957c6874bda69d8c06
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: 845697b9d2fd8d43caa3a9992fea8a780b7d9b7c
+ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98805362"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100522862"
 ---
 # <a name="pricing-of-azure-security-center"></a>Preços da Central de Segurança do Azure
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudar você a acompanhar o ritmo veloz da evolução dos riscos cibernéticos.
@@ -118,10 +118,18 @@ Se você já tem uma licença para o Microsoft Defender para ponto de extremidad
 Para confirmar o desconto, entre em contato com a equipe de suporte da Central de Segurança e forneça a ID, a região e as informações de licença relevantes do workspace para cada licença relevante.
 
 ### <a name="my-subscription-has-azure-defender-for-servers-enabled-do-i-pay-for-not-running-servers"></a>Minha assinatura tem o Azure Defender para servidores habilitado. Os servidores que não estão em execução são cobrados? 
-Não. Quando você habilita o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, você é cobrado por hora somente pelos servidores em execução. Você não será cobrado por nenhum servidor desativado durante o tempo em que ele permanecer desativado. 
+Não. Ao habilitar o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, você não será cobrado por nenhum computador que esteja no estado de energia desalocado enquanto ele estiver nesse estado. Os computadores são cobrados de acordo com o estado de energia, conforme mostrado na seguinte tabela:
 
-> [!TIP]
-> Isso também se aplica aos outros tipos de recursos protegidos pela Central de Segurança. 
+| Estado        | Descrição                                                                                                                                      | Uso de instância cobrado |
+|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------|
+| Iniciando     | A VM está iniciando.                                                                                                                               | Não é cobrado            |
+| Executando      | Estado de funcionamento normal para uma VM                                                                                                                    | Cobrado                |
+| Parando     | Esse é um estado de transição. Quando concluído, ele será exibido como Parado.                                                                           | Cobrado                |
+| Parado      | A VM foi desligada de dentro do sistema operacional convidado ou usando as APIs PowerOff. O hardware ainda estará alocado para a VM e permanecerá no host. | Cobrado                |
+| Desalocando | Estado de transição. Quando concluído, a VM será mostrada como Desalocada.                                                                             | Não é cobrado            |
+| Desalocada  | A VM foi parada com êxito e removida do host.                                                                                  | Não é cobrado            |
+
+:::image type="content" source="media/security-center-pricing/deallocated-virtual-machines.png" alt-text="Máquinas virtuais do Azure mostrando um computador desalocado":::
 
 ### <a name="will-i-be-charged-for-machines-without-the-log-analytics-agent-installed"></a>Serei cobrado pelos computadores sem o agente do Log Analytics instalado?
 Sim. Quando você habilita o [Azure Defender para servidores](defender-for-servers-introduction.md) em uma assinatura, os computadores dessa assinatura obtêm uma gama de proteções, mesmo que você não tenha instalado o agente do Log Analytics.

@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.custom: mvc
-ms.openlocfilehash: 4fda6c51121838bfa1f3624759b1230d8554d573
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.openlocfilehash: 719fcca74d2cd048bf170940eff7da6a25425469
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96753936"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100373276"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Trabalhar com a versão anterior das Migrações para Azure
 
@@ -22,7 +22,7 @@ Este artigo fornece informações sobre como trabalhar com a versão anterior da
 Há duas versões do serviço de Migrações para Azure:
 
 - **Versão atual**: use esta versão para criar projetos de Migrações para Azure, descobrir computadores locais e orquestrar avaliações e migrações. [Saiba mais](whats-new.md) sobre as novidades desta versão.
-- **Versão anterior**: se você estava usando a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Os projetos de versões anteriores são chamados de projetos clássicos neste artigo. Se você ainda precisa usar projetos das Migrações para Azure criados na versão anterior, isto é o que você pode e não pode fazer:
+- **Versão anterior**: se você estava usando a versão anterior das Migrações para Azure (havia suporte apenas a avaliação de VMs do VMware locais), agora deve usar a versão atual. Os projetos de versões anteriores são chamados de projetos clássicos neste artigo. As Migrações para Azure (versão clássica) serão desativadas em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica das Migrações para Azure não terá mais suporte, e os metadados de inventário em projetos clássicos serão excluídos. Se você ainda precisa usar projetos clássicos das Migrações para Azure, veja o que você pode e não pode fazer:
     - Você não pode mais criar projetos de migração.
     - Recomendamos que você não execute novas descobertas.
     - Você ainda pode acessar os projetos existentes.

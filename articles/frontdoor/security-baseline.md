@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 59eef7654e677ccfef79445f4a9cab26800bdfc5
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d2a5dddc8a6d654703ad5da34d775df0d3e4110f
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589132"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101093153"
 ---
 # <a name="azure-security-baseline-for-azure-front-door"></a>Linha de base de segurança do Azure para a porta frontal do Azure
 
@@ -104,7 +104,7 @@ Use funções internas para alocar permissão e apenas para criar funções pers
 
 - [O que é o controle de acesso baseado em função do Azure (RBAC do Azure)](../role-based-access-control/overview.md) 
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
 - [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 

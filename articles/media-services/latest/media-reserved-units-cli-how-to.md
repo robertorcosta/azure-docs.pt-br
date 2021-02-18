@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: b1c98bfa6b2cf45a59b70126001442ed80659668
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: 98e87cf9d1f46ddb8ee1d433bd0b0ba8806fac89
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955878"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101091920"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Como dimensionar unidades reservadas de mídia
 
@@ -31,8 +31,6 @@ Este artigo mostra como dimensionar MRSs (unidades reservadas de mídia) para um
 [Crie uma conta de Serviços de Mídia](./create-account-howto.md).
 
 Entenda as [unidades reservadas de mídia](concept-media-reserved-units.md).
-
-[!INCLUDE [media-services-cli-instructions](../../../includes/media-services-cli-instructions.md)]
 
 ## <a name="scale-media-reserved-units-with-cli"></a>Unidades com a CLI reservadas de mídia de escala
 
@@ -52,6 +50,6 @@ Você é cobrado com base em quantos minutos as unidades reservadas de mídia s�
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Cotas e limites](limits-quotas-constraints.md)

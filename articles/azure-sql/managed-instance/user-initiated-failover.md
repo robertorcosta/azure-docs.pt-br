@@ -9,15 +9,16 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 01/26/2021
-ms.openlocfilehash: 7588ce055ce0df89a7dca87a75a38c8acccf6d46
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.date: 02/17/2021
+ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806081"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096512"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário na Instância Gerenciada de SQL
+[!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica como fazer failover manual de um nó primário nas camadas de serviço GP (SQL Instância Gerenciada Uso Geral) e Comercialmente Crítico (BC) e como fazer failover manualmente de um nó de réplica somente leitura secundário na camada de serviço BC.
 
@@ -46,7 +47,7 @@ O usuário que estiver iniciando um failover precisará ter uma das seguintes fu
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Usar o PowerShell
+### <a name="using-powershell"></a>Usando o PowerShell
 
 A versão mínima do AZ. SQL precisa ser [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Considere o uso de [Azure cloud Shell](../../cloud-shell/overview.md) do portal do Azure que sempre tenha a versão mais recente do PowerShell disponível. 
 

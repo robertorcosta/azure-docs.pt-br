@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/17/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 58aabd52b8c5493671e0a76d0032a6d7c3081f40
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f28020ba431d3dfdc79c2d4a98b6e6138f563aeb
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582041"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096477"
 ---
 # <a name="azure-security-baseline-for-azure-data-share"></a>Linha de base de segurança do Azure para compartilhamento de dados do Azure
 
@@ -199,7 +199,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Orientação**: Use o Azure RBAC (controle de acesso baseado em função) para gerenciar o acesso a dados e recursos relacionados aos recursos de compartilhamento de dados do Azure, caso contrário, use métodos de controle de acesso específicos de serviço.
 
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8c32d06247516611fc79bd6f77b60fec6b73044d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591808"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101096573"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Linha de base de segurança do Azure para Azure Pesquisa Cognitiva
 
@@ -495,7 +495,7 @@ A Microsoft gerencia a plataforma subjacente e trata todo o conteúdo do cliente
 ### <a name="46-use-azure-rbac-to-manage-access-to-resources"></a>4,6: usar o RBAC do Azure para gerenciar o acesso aos recursos
 
 **Diretrizes**: para administração de serviços, use o Azure RBAC (controle de acesso baseado em função) para gerenciar o acesso a chaves e configurações. Para operações de conteúdo, como indexação e consultas, Pesquisa Cognitiva usa chaves em vez de um modelo de controle de acesso baseado em identidade. Use o RBAC do Azure para controlar o acesso às chaves.
-- [Como configurar o RBAC no Azure](../role-based-access-control/role-assignments-portal.md) 
+- [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md) 
 
  
 - [Como usar funções para acesso administrativo a Pesquisa Cognitiva](./search-security-rbac.md)
