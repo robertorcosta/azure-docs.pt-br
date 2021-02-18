@@ -14,22 +14,21 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 6bb787084d4396737d3002bb98fe50e283c5764a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 91f4f90658281282cdcb01b091bd9c9647d8d702
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582893"
+ms.locfileid: "100635478"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Criar um volume SMB para o Azure NetApp Files
 
 O Azure NetApp Files dá suporte à criação de volumes usando NFS (NFSv3 e NFSv 4.1), SMB3 ou protocolo duplo (NFSv3 e SMB). O consumo de capacidade de um volume conta contra a capacidade provisionada do pool desse volume. Este artigo mostra como criar um volume SMB3.
 
 ## <a name="before-you-begin"></a>Antes de começar 
-Você deve já configurou um pool de capacidade.   
-[Configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md)   
-Uma sub-rede deve ser delegada ao Azure NetApp Files.  
-[Delegar uma sub-rede ao Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
+
+* Você deve já configurou um pool de capacidade. Consulte [configurar um pool de capacidade](azure-netapp-files-set-up-capacity-pool.md).     
+* Uma sub-rede deve ser delegada ao Azure NetApp Files. Consulte [delegar uma sub-rede a Azure NetApp files](azure-netapp-files-delegate-subnet.md).
 
 ## <a name="configure-active-directory-connections"></a>Configurar conexões de Active Directory 
 

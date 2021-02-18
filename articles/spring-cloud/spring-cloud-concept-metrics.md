@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 119b00e67cf8337123028840ec6a7ecd29e97a05
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 5506d2da0ccf09de7db7aff744984ae93c59fd32
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99051593"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571717"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Entender as métricas para o Azure Spring Cloud
 
@@ -87,7 +87,7 @@ Você também pode usar a opção **aplicar divisão** , que irá desenhar vári
 
 As tabelas a seguir mostram as métricas e os detalhes disponíveis.
 
-### <a name="error"></a>Erro
+### <a name="error"></a>Erro do
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
@@ -158,7 +158,7 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 
 Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnostics/dotnet-counters).
 
-### <a name="session"></a>Session
+### <a name="session"></a>Sessão
 >[!div class="mx-tdCol2BreakAll"]
 >| Nome | Nome da métrica do atuador Spring | Unidade | Detalhes |
 >|----|----|----|------------|
@@ -169,11 +169,11 @@ Para obter mais informações, consulte [dotnet Counters](/dotnet/core/diagnosti
 >| Tomcat. Sessions. Rejected | Tomcat. Sessions. Rejected | Contagem | Número de sessões que não foram criadas porque o número máximo de sessões ativas foi atingido. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Contagem | Contagem ativa da sessão Tomcat |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Início Rápido: Monitoramento de aplicativos do Azure Spring Cloud com logs, métricas e rastreamento](spring-cloud-quickstart-logs-metrics-tracing.md)
 
-* [Introdução ao Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md)
+* [Introdução ao Azure Metrics Explorer](../azure-monitor/essentials/metrics-getting-started.md)
 
 * [Analisar logs e métricas com configurações de diagnóstico](./diagnostic-services.md)
 
