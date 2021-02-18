@@ -5,12 +5,12 @@ author: srrengar
 ms.topic: conceptual
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: bcb9ca9e73c0898dc778202eca036a5ae92bebf8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87fc8e30274f0a11b7ddfc5eeb184f1a45a5351d
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87076134"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100588375"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -346,7 +346,7 @@ No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as d
 
 Nos dois snippets de código anteriores, o nome "applicationInsights" era usado para descrever o coletor. Isso não é um requisito e, enquanto o nome do coletor estiver incluído em "coletores", você poderá definir o nome para qualquer cadeia de caracteres.
 
-Atualmente, os logs do cluster aparecem como **rastreios** no visualizador de log do Application Insights. Como a maioria dos rastreamentos provenientes da plataforma são do nível "informativo", você também pode considerar alterar a configuração do coletor para enviar somente logs do tipo "aviso" ou "erro". Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../azure-monitor/platform/diagnostics-extension-to-application-insights.md).
+Atualmente, os logs do cluster aparecem como **rastreios** no visualizador de log do Application Insights. Como a maioria dos rastreamentos provenientes da plataforma são do nível "informativo", você também pode considerar alterar a configuração do coletor para enviar somente logs do tipo "aviso" ou "erro". Isso pode ser feito adicionando "Canais" ao seu coletor, conforme demonstrado [neste artigo](../azure-monitor/agents/diagnostics-extension-to-application-insights.md).
 
 >[!NOTE]
 >Se você usar uma chave do Application Insights incorreta no portal ou no modelo do Resource Manager, será necessário alterar manualmente a chave e atualizá-la / reimplementá-la.
