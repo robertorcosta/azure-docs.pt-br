@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 12/16/2020
-ms.openlocfilehash: a0653f24eeb0a96c28714d00f1d943dfc7d336db
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 983fc2cd7e9863361776d5a9d5bc02359fccd510
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979684"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580829"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gerenciar a retenção de backup de longo prazo do Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -183,7 +183,7 @@ Remove-AzSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
 
 > [!IMPORTANT]
-> A exclusão do backup LTR é irreversível. Para excluir um backup EPD após a exclusão do servidor ou do grupo de recursos, você deve ter a permissão de escopo da assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) para obter instruções detalhadas.
+> A exclusão do backup LTR é irreversível. Para excluir um backup de LTR depois que o servidor tiver sido excluído, você deverá ter a permissão de escopo de Assinatura. Você pode configurar notificações sobre cada exclusão no Azure Monitor filtrando a operação "Exclui um backup de retenção de longo prazo". O log de atividades contém informações sobre quem fez a solicitação e quando. Confira [Criar alertas do log de atividades](../../azure-monitor/alerts/alerts-activity-log.md) para obter instruções detalhadas.
 
 ### <a name="restore-from-ltr-backups"></a>Restaurar a partir de backups LTR
 

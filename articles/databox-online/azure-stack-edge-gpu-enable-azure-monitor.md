@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/02/2021
 ms.author: alkohli
-ms.openlocfilehash: 171b4dbfb2a5852e270c483a28cad31f97dcb42b
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 199ec8e2f1e8eb74d971286a4fc6180eb8b72f2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99493905"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100595972"
 ---
 # <a name="enable-azure-monitor-on-your-azure-stack-edge-pro-gpu-device"></a>Habilitar Azure Monitor em seu dispositivo de GPU pro Azure Stack Edge
 
@@ -49,7 +49,7 @@ Execute as etapas a seguir para criar um espaço de trabalho do log Analytics. U
 
         ![Examinar + criar para Log Analytics espaço de trabalho](media/azure-stack-edge-gpu-enable-azure-monitor/create-log-analytics-workspace-review-create-1.png)
 
-Para obter mais informações, consulte as etapas detalhadas em [criar um log Analytics espaço de trabalho via portal do Azure](../azure-monitor/learn/quick-create-workspace.md).
+Para obter mais informações, consulte as etapas detalhadas em [criar um log Analytics espaço de trabalho via portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
 
 
@@ -57,7 +57,7 @@ Para obter mais informações, consulte as etapas detalhadas em [criar um log An
 
 Execute as etapas a seguir para habilitar o insights de contêiner em seu espaço de trabalho. 
 
-1. Siga as etapas detalhadas na [solução como adicionar os contêineres de Azure monitor](../azure-monitor/insights/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use o seguinte arquivo de modelo `containerSolution.json` :
+1. Siga as etapas detalhadas na [solução como adicionar os contêineres de Azure monitor](../azure-monitor/containers/container-insights-hybrid-setup.md#how-to-add-the-azure-monitor-containers-solution). Use o seguinte arquivo de modelo `containerSolution.json` :
 
     ```yml
     {

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: c8427e92f89804f64741ab86aa9903b0de23b3ec
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.openlocfilehash: 9e75b159f994a869a2bbd4498332a1e160bf5462
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
-ms.locfileid: "94966846"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100580309"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-linux"></a>Extensão de máquina virtual de dependência do Azure Monitor para Linux
 
@@ -30,7 +30,7 @@ O recurso Mapa do Azure Monitor para VMs obtém seus dados do Microsoft Dependen
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A extensão do agente de dependência da VM do Azure para Linux pode ser executada nos sistemas operacionais com suporte listados na seção [Sistemas operacionais com suporte](../../azure-monitor/insights/vminsights-enable-overview.md#supported-operating-systems) do artigo de implantação do Azure Monitor para VMs.
+A extensão do agente de dependência da VM do Azure para Linux pode ser executada nos sistemas operacionais com suporte listados na seção [Sistemas operacionais com suporte](../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) do artigo de implantação do Azure Monitor para VMs.
 
 ## <a name="extension-schema"></a>Esquema de extensão
 

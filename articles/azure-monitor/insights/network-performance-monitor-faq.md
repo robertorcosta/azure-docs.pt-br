@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 10/12/2018
-ms.openlocfilehash: 1faeb047783b9db24348425e5a6453754e550d4d
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: c58f94bcdb659eed67ebf023af473545d8cee1a7
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833007"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587275"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Perguntas da Solução do Monitor de Desempenho de Rede
 
@@ -43,7 +43,7 @@ A capacidade de monitorar redes usando nós baseados em Linux agora está dispon
 Para executar a solução NPM nas VMs para monitorar redes do nó, os nós devem ter pelo menos de 500 MB de memória e um núcleo. Você não precisa usar nós separados para executar o NPM. A solução pode ser executada em nós que têm outras cargas de trabalho em execução nele. A solução tem a capacidade de interromper o processo de monitoramento se usar mais de 5% da CPU.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Para usar o NPM, devo conectar Meus nós como o agente direto ou por meio do Operations Manager do Centro do Sistema?
-O monitor de desempenho e os recursos do monitor de conectividade de serviço dão suporte a nós [conectados como agentes diretos](../platform/agent-windows.md) e [conectados por meio de Operations Manager](../platform/om-agents.md).
+O monitor de desempenho e os recursos do monitor de conectividade de serviço dão suporte a nós [conectados como agentes diretos](../agents/agent-windows.md) e [conectados por meio de Operations Manager](../agents/om-agents.md).
 
 Para o recurso de Monitor do ExpressRoute, os nós do Azure devem estar conectados como agentes diretos somente. Não há suporte para os nós do Azure, que são conectados por meio do Operations Manager. Para nós locais, os nós conectados como agentes diretos e por meio de Operations Manager têm suporte para monitorar um circuito de ExpressRoute.
 
@@ -98,7 +98,7 @@ Se for um salto vermelho, significa que ele faz parte de pelo menos um caminho n
 NPM usa um mecanismo probabilístico para atribuir as probabilidades de falha para cada caminho de rede, o segmento de rede, e os saltos de rede constituintes com base no número de caminhos não íntegros fazem parte. Conforme os segmentos de rede e saltos se tornam parte do maior número de caminhos não íntegros, aumenta a probabilidade de falhas associada a eles. Esse algoritmo funciona melhor quando você tiver vários nós com o agente NPM conectado um ao outro, como isso aumenta os pontos de dados para calcular as probabilidades de falha.
 
 ### <a name="how-can-i-create-alerts-in-npm"></a>Como criar alertas no NPM?
-No momento, a criação de alertas da interface do usuário do NPM está falhando devido a um problema conhecido. [Crie alertas manualmente](../platform/alerts-log.md).
+No momento, a criação de alertas da interface do usuário do NPM está falhando devido a um problema conhecido. [Crie alertas manualmente](../alerts/alerts-log.md).
 
 ### <a name="what-are-the-default-log-analytics-queries-for-alerts"></a>Quais são as consultas de Log Analytics padrão para alertas
 Consulta do monitor de desempenho

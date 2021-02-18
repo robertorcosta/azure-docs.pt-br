@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: e96aa32c6b67290fc4b4ee62ae98c4e72399fd4b
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99509580"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572292"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -139,7 +139,7 @@ Para configurar a gravação de logs de auditoria em um espaço de trabalho do L
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
-Para obter mais detalhes sobre Azure Monitor Log Analytics espaço de trabalho, consulte [projetando sua implantação de logs de Azure monitor](../../azure-monitor/platform/design-logs-deployment.md)
+Para obter mais detalhes sobre Azure Monitor Log Analytics espaço de trabalho, consulte [projetando sua implantação de logs de Azure monitor](../../azure-monitor/logs/design-logs-deployment.md)
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria para destino do hub de eventos
 
@@ -170,7 +170,7 @@ Se você tiver escolhido gravar logs de auditoria nos logs do Azure Monitor:
     ![Insights de segurança do Log Analytics](media/auditing-overview/auditing-log-analytics-dashboard-data.png)
 
 - Como alternativa, você também pode acessar os logs de auditoria na folha Log Analytics. Abra seu espaço de trabalho do Log Analytics e, na seção **Geral**, clique em **Logs**. Você pode começar com uma consulta simples, como: *pesquisar "SQLSecurityAuditEvents"* para exibir logs de auditoria.
-    A partir desse ponto, você também pode usar os [logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para executar pesquisas avançadas em seus dados de log de auditoria. Os logs do Azure Monitor fornecem insights operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para ver informações úteis adicionais sobre o idioma e os comandos da pesquisa de logs do Azure Monitor, consulte [Referência de pesquisa dos logs do Azure Monitor](../../azure-monitor/log-query/log-query-overview.md).
+    A partir desse ponto, você também pode usar os [logs do Azure Monitor](../../azure-monitor/logs/log-query-overview.md) para executar pesquisas avançadas em seus dados de log de auditoria. Os logs do Azure Monitor fornecem insights operacionais em tempo real usando pesquisa integrada e painéis personalizados para analisar prontamente milhões de registros em todas as suas cargas de trabalho e servidores. Para ver informações úteis adicionais sobre o idioma e os comandos da pesquisa de logs do Azure Monitor, consulte [Referência de pesquisa dos logs do Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
 Se você tiver escolhido gravar logs de auditoria no Hub de Eventos:
 

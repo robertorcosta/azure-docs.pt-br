@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: bd13712d137ec5a1fdfa6dec8e6f6d1e0a7432cb
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833160"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100570904"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no monitor de conexão usando o portal do Azure
 
@@ -186,7 +186,7 @@ No portal do Azure, para criar alertas para um monitor de conexão, especifique 
 
 - **Nome da condição**: o alerta é criado na `Test Result(preview)` métrica. Quando o resultado do teste do monitor de conexão for um resultado com falha, a regra de alerta será acionada. 
 
-- **Nome do grupo de ações**: você pode inserir seu email diretamente ou pode criar alertas por meio de grupos de ação. Se você inserir seu email diretamente, será criado um grupo de ação com o nome **NPM email** Group. A ID de email é adicionada a esse grupo de ações. Se você optar por usar grupos de ações, será necessário selecionar um grupo de ações criado anteriormente. Para saber como criar um grupo de ações, consulte [criar grupos de ações na portal do Azure](../azure-monitor/platform/action-groups.md). Depois que o alerta for criado, você poderá [gerenciar seus alertas](../azure-monitor/platform/alerts-metric.md#view-and-manage-with-azure-portal). 
+- **Nome do grupo de ações**: você pode inserir seu email diretamente ou pode criar alertas por meio de grupos de ação. Se você inserir seu email diretamente, será criado um grupo de ação com o nome **NPM email** Group. A ID de email é adicionada a esse grupo de ações. Se você optar por usar grupos de ações, será necessário selecionar um grupo de ações criado anteriormente. Para saber como criar um grupo de ações, consulte [criar grupos de ações na portal do Azure](../azure-monitor/alerts/action-groups.md). Depois que o alerta for criado, você poderá [gerenciar seus alertas](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
 
 - **Nome da regra de alerta**: o nome do monitor de conexão.
 

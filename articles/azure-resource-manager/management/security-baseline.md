@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b4f0c64abf150165e3239e78e8cf9b824b34eed6
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: 5e44515c8ca71d115ced65c9123e2b1ae3bdf23a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202361"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100578245"
 ---
 # <a name="azure-security-baseline-for-azure-resource-manager"></a>Linha de base de segurança do Azure para Azure Resource Manager
 
@@ -31,9 +31,9 @@ O conteúdo é agrupado pelos **controles de segurança** definidos pelo benchma
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Como coletar logs de host interno da máquina virtual do Azure com Azure Monitor](../../azure-monitor/learn/quick-collect-azurevm.md) 
+- [Como coletar logs de host interno da máquina virtual do Azure com Azure Monitor](../../azure-monitor/vm/quick-collect-azurevm.md) 
 
 - [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -45,9 +45,9 @@ O conteúdo é agrupado pelos **controles de segurança** definidos pelo benchma
 
 **Diretrizes**: Azure Resource Manager usa logs de atividade, que são habilitados automaticamente, para incluir origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/platform/diagnostic-settings.md) 
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md) 
 
-- [Entender o registro em log e diferentes tipos de log no Azure](../../azure-monitor/platform/platform-logs-overview.md)
+- [Entender o registro em log e diferentes tipos de log no Azure](../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -61,9 +61,9 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../../sentinel/quickstart-onboard.md) 
 
-- [Introdução às consultas de Log Analytics](../../azure-monitor/log-query/log-analytics-tutorial.md) 
+- [Introdução às consultas de Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md) 
 
-- [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/log-query/get-started-queries.md)
+- [Como realizar consultas personalizadas no Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -77,7 +77,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como gerenciar alertas na central de segurança do Azure](../../security-center/security-center-managing-and-responding-alerts.md) 
 
-- [Como alertar sobre Log Analytics dados de log](../../azure-monitor/learn/tutorial-response.md)
+- [Como alertar sobre Log Analytics dados de log](../../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -261,7 +261,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas quando as alterações ocorrerem para recursos críticos do Azure.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

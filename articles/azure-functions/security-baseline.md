@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5b38da5539cb80110b2a769a219213a5c74e1506
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.openlocfilehash: b57de23bf59f1b9c84674fe95495f980c4594e2a
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98198548"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100587610"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Linha de base de segurança do Azure para Azure Functions
 
@@ -207,9 +207,9 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de configurações de rede e recursos relacionados às implantações do Azure functions. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em configurações de rede ou recursos críticos. 
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -237,7 +237,7 @@ Se você tiver registro em log de segurança/auditoria personalizado interno em 
 
 Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como configurar Azure Functions com o Aplicativo Azure insights](./functions-monitoring.md)
 
@@ -255,7 +255,7 @@ Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um S
 
 Se você tiver registro em log de segurança/auditoria personalizado interno em seu aplicativo de funções, habilite a configuração de diagnóstico "FunctionAppLogs" e envie os logs para um espaço de trabalho Log Analytics, Hub de eventos do Azure ou conta de armazenamento do Azure para arquivamento. 
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como habilitar as configurações de diagnóstico (logs gerados pelo usuário) para Azure Functions](./functions-monitor-log-analytics.md)
 
@@ -275,7 +275,7 @@ Se você tiver registro em log de segurança/auditoria personalizado interno em 
 
 **Diretrizes**: em Azure monitor, defina o período de retenção de log para log Analytics espaços de trabalho associados aos seus aplicativos de funções de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de log](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -291,7 +291,7 @@ Se você tiver registro em log de segurança/auditoria personalizado interno em 
 
 Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como habilitar as configurações de diagnóstico para Azure Functions](./functions-monitor-log-analytics.md)
 
@@ -311,13 +311,13 @@ Habilite Application Insights para seus aplicativos de funções para coletar da
 
 Opcionalmente, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros. 
 
-- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/platform/activity-log.md)
+- [Como habilitar as configurações de diagnóstico para o log de atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 - [Como habilitar as configurações de diagnóstico para Azure Functions](./functions-monitor-log-analytics.md)
 
 - [Como habilitar Application Insights para Azure Functions](./configure-monitoring.md#enable-application-insights-integration)
 
-- [Como criar alertas no Azure](../azure-monitor/learn/tutorial-response.md)
+- [Como criar alertas no Azure](../azure-monitor/alerts/tutorial-response.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -631,7 +631,7 @@ A Microsoft gerencia a infraestrutura subjacente para Azure Functions e implemen
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem em aplicativos de função de produção, bem como outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

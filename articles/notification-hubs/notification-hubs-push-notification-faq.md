@@ -15,12 +15,12 @@ ms.date: 02/12/2021
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 11/13/2019
-ms.openlocfilehash: e34fbdca51e7680a80c768e49bae891cb56dfa9d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0f79402956148c566bc34faa88e10895657883c2
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546441"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591738"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 
@@ -155,7 +155,7 @@ Todas as conexões do remetente para os Hubs de Notificações do Azure e para o
 
 Para enviar cargas confidenciais, é recomendável usar um padrão Push seguro. O remetente fornece uma notificação de ping com um identificador de mensagem para o dispositivo sem a carga confidencial. Quando o aplicativo no dispositivo recebe a carga, o aplicativo chama uma API segura diretamente para buscar os detalhes da mensagem. Para obter um guia sobre como implementar esse padrão, vá para a página [tutorial de Push Seguro de Hubs de Notificação].
 
-## <a name="operations"></a>Operações
+## <a name="operations"></a>Operations
 
 ### <a name="what-support-is-provided-for-disaster-recovery"></a>Qual suporte é fornecido para a recuperação de desastre?
 
@@ -196,7 +196,7 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 
 - [Recuperar métricas de Azure monitor com .net](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/). Este exemplo usa o nome de usuário e a senha. Para usar um certificado, sobrecarregar o método FromServicePrincipal para fornecer um certificado, conforme mostrado neste [exemplo](https://github.com/Azure/azure-libraries-for-net/blob/master/src/ResourceManagement/ResourceManager/Authentication/AzureCredentialsFactory.cs). 
 - [Obtendo métricas e logs de atividade para um recurso](https://azure.microsoft.com/resources/samples/monitor-dotnet-query-metrics-activitylogs/)
-- [Passo a passo da API REST de Monitoramento do Azure](../azure-monitor/platform/rest-api-walkthrough.md)
+- [Passo a passo da API REST de Monitoramento do Azure](../azure-monitor/essentials/rest-api-walkthrough.md)
 
 > [!NOTE]
 > Notificações com êxito significam simplesmente que as notificações por push foram entregues ao PNS externo (por exemplo, APNs para iOS e macOS ou FCM para dispositivos Android). É responsabilidade do PNS para entregar as notificações para dispositivos de destino. Normalmente, o PNS não expõe as métricas de entrega para terceiros.  
@@ -211,7 +211,7 @@ Você também pode acessar métricas programaticamente. Para obter mais informa�
 [Modelo de segurança dos Hubs de Notificação]: /previous-versions/azure/azure-services/dn495373(v=azure.100)
 [Tutorial de Push Seguro dos Hubs de Notificação]: ./notification-hubs-aspnet-backend-ios-push-apple-apns-secure-notification.md
 [Solução de problemas de Hubs de Notificação]: ./notification-hubs-push-notification-fixer.md
-[Métricas de Hubs de Notificação]: ../azure-monitor/platform/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
+[Métricas de Hubs de Notificação]: ../azure-monitor/essentials/metrics-supported.md#microsoftnotificationhubsnamespacesnotificationhubs
 [Importação/Exportação de Registros]: ./export-modify-registrations-bulk.md
 [Azure portal]: https://portal.azure.com
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples

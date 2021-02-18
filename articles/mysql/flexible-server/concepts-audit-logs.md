@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: 5aab78ad99b80ff1d7be92bd36847b01dbc0e33b
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94542211"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100591752"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhar atividade do banco de dados com logs de auditoria no banco de dados do Azure para MySQL servidor flexível
 
@@ -50,7 +50,7 @@ Outros parâmetros que você pode ajustar para controlar o comportamento do log 
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
 
-Os logs de auditoria são integrados às configurações de diagnóstico Azure Monitor. Depois de habilitar os logs de auditoria no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/platform/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
+Os logs de auditoria são integrados às configurações de diagnóstico Azure Monitor. Depois de habilitar os logs de auditoria no servidor flexível do MySQL, você pode emiti-los para Azure Monitor logs, hubs de eventos ou armazenamento do Azure. Para saber mais sobre as configurações de diagnóstico, consulte a [documentação dos logs de diagnóstico](../../azure-monitor/essentials/platform-logs-overview.md). Para saber mais sobre como habilitar as configurações de diagnóstico no portal do Azure, consulte o [artigo portal de log de auditoria](how-to-configure-audit-logs-portal.md#set-up-diagnostics).
 
 As seções a seguir descrevem a saída dos logs de auditoria do MySQL com base no tipo de evento. Dependendo do método de saída, os campos incluídos e a ordem em que aparecem podem variar.
 

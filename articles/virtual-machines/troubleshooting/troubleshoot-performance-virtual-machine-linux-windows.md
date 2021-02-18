@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 09/18/2019
 ms.author: v-miegge
-ms.openlocfilehash: ec605fd30252b9a0cfb80d0bc3ff145ed3b5a1d4
-ms.sourcegitcommit: 65cef6e5d7c2827cf1194451c8f26a3458bc310a
+ms.openlocfilehash: cde84a018d307bada6a6b6f3b5467b8addd007b1
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98573302"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100571432"
 ---
 # <a name="troubleshoot-azure-virtual-machine-performance-on-linux-or-windows"></a>Solucionar problemas de desempenho de máquina virtual do Azure no Linux ou Windows
 
@@ -30,7 +30,7 @@ Este artigo abordará o uso do monitoramento para diagnosticar gargalos de desem
 
 ### <a name="azure-iaas-virtual-machine-monitoring"></a>Monitoramento de máquinas virtuais IAAS do Azure
 
-Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](../../azure-monitor/learn/tutorial-resource-logs.md). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
+Para monitorar a VM convidada, use o monitoramento de VM do Azure, que irá alertá-lo para determinadas condições de recursos de alto nível. Para verificar se você tem o diagnóstico de VM habilitado, consulte [visão geral dos logs de recursos do Azure](../../azure-monitor/essentials/tutorial-resource-logs.md). Se você vir o seguinte, provavelmente não terá o diagnóstico habilitado:
 
 ![O monitoramento não está habilitado](media/troubleshoot-performance-virtual-machine-linux-windows/1-virtual-machines-monitoring-not-enabled.png)
  
@@ -101,7 +101,7 @@ Para identificar se há gargalos de recursos, examine os dados. Se você descobr
 
 ### <a name="cpu-observe-trends"></a>Tendências de observar a CPU
 
-Ao examinar problemas de desempenho, esteja atento às tendências e entenda se elas afetam você. Nas próximas seções, usaremos os gráficos de monitoramento do portal para mostrar as tendências. Eles também podem ser úteis para comportamentos de recursos de diferença de referência cruzada no mesmo período de tempo. Para personalizar os grafos, clique em [Azure monitor plataforma de dados](../../azure-monitor/platform/data-platform.md).
+Ao examinar problemas de desempenho, esteja atento às tendências e entenda se elas afetam você. Nas próximas seções, usaremos os gráficos de monitoramento do portal para mostrar as tendências. Eles também podem ser úteis para comportamentos de recursos de diferença de referência cruzada no mesmo período de tempo. Para personalizar os grafos, clique em [Azure monitor plataforma de dados](../../azure-monitor/data-platform.md).
 
 Travado – travado pode estar relacionado a uma tarefa agendada/evento conhecido. Se você puder identificar a tarefa, determine se a tarefa é executada no nível de desempenho necessário. Se o desempenho for aceitável, talvez não seja necessário aumentar os recursos.
 

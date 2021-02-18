@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/25/2021
 ms.author: allensu
-ms.openlocfilehash: 43d83d994c9a4ee3cf89b584f6c3835a62fa2cfe
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: fbde2b95b7aca205f164dc45c1f0170cc4da74fb
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806006"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581902"
 ---
 # <a name="standard-load-balancer-diagnostics-with-metrics-alerts-and-resource-health"></a>Diagnóstico do Standard Load Balancer com métricas, alertas e integridade de recursos
 
@@ -34,7 +34,7 @@ O Azure Load Balancer fornece métricas multidimensionais por meio das métricas
 
 As várias configurações do Load Balancer Standard oferecem as seguintes métricas:
 
-| Métrica | Tipo de recurso | Descrição | Agregação recomendada |
+| Métrica | Tipo de recurso | Description | Agregação recomendada |
 | --- | --- | --- | --- |
 | Disponibilidade do caminho de dados | Balanceador de carga público e interno | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do balanceador de carga e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados que seus clientes usam também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.| Média |
 | Status de investigação de integridade | Balanceador de carga público e interno | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância no pool do balanceador de carga. É possível ver como o Load Balancer exibe a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade. |  Média |
@@ -72,7 +72,7 @@ Para exibir as métricas de seus recursos do Load Balancer Standard:
 
 ### <a name="retrieve-multi-dimensional-metrics-programmatically-via-apis"></a>Recuperar as métricas multidimensionais programaticamente por meio de APIs
 
-Para obter diretrizes sobre API para recuperar valores e definições de métricas multidimensionais, consulte o [passo a passo da API REST de Monitoramento do Azure](../azure-monitor/platform/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Essas métricas podem ser gravadas em uma conta de armazenamento adicionando uma [configuração de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria ' todas as métricas '. 
+Para obter diretrizes sobre API para recuperar valores e definições de métricas multidimensionais, consulte o [passo a passo da API REST de Monitoramento do Azure](../azure-monitor/essentials/rest-api-walkthrough.md#retrieve-metric-definitions-multi-dimensional-api). Essas métricas podem ser gravadas em uma conta de armazenamento adicionando uma [configuração de diagnóstico](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para a categoria ' todas as métricas '. 
 
 ### <a name="configure-alerts-for-multi-dimensional-metrics"></a>Configurar alertas para métricas multidimensionais ###
 
@@ -232,7 +232,7 @@ O gráfico permite que os clientes resolvam problemas da implantação sozinhos 
 
 O status de integridade para os recursos do Load Balancer Standard é exposto por meio do **Recursos de integridade** existente em **Monitor > Integridade do Serviço**. Ela é avaliada a cada **dois minutos** medindo a disponibilidade do caminho de dados que determina se os pontos de extremidade de balanceamento de carga de front-end estão disponíveis.
 
-| Status de integridade de recurso | Descrição |
+| Status de integridade de recurso | Description |
 | --- | --- |
 | Disponível | O recurso padrão do Load Balancer está íntegro e disponível. |
 | Degradado | O balanceador de carga padrão tem eventos iniciados pela plataforma ou pelo usuário que afetam o desempenho. A métrica de disponibilidade do Datapath relatou menos de 90%, mas mais de 25% de integridade por pelo menos dois minutos. Você passará por um impacto de desempenho moderado a severo. [Siga o guia de solução de problemas do RHC](https://docs.microsoft.com/azure/load-balancer/troubleshoot-rhc) para determinar se há eventos iniciados pelo usuário causando impacto na disponibilidade.

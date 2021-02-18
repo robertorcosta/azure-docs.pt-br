@@ -10,12 +10,12 @@ ms.subservice: core
 ms.date: 08/11/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: e451e55a9a73022f9c90ba4adae91b520840481e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 58e604eccaca4630a235f4ae83724df20d6b1e26
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880752"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100592521"
 ---
 # <a name="collect-machine-learning-pipeline-log-files-in-application-insights-for-alerts-and-debugging"></a>Coletar arquivos de log do pipeline do Machine Learning no Application Insights para alertas e depuração
 
@@ -164,6 +164,6 @@ Algumas das consultas abaixo usam ' customDimensions. Level '. Esses níveis de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois que você tiver logs em sua instância de Application Insights, eles poderão ser usados para definir [Azure monitor alertas](../azure-monitor/platform/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
+Depois que você tiver logs em sua instância de Application Insights, eles poderão ser usados para definir [Azure monitor alertas](../azure-monitor/alerts/alerts-overview.md#what-you-can-alert-on) com base nos resultados da consulta.
 
-Você também pode adicionar resultados de consultas a um [painel do Azure](../azure-monitor/learn/tutorial-app-dashboards.md#add-logs-query) para obter informações adicionais.
+Você também pode adicionar resultados de consultas a um [painel do Azure](../azure-monitor/app/tutorial-app-dashboards.md#add-logs-query) para obter informações adicionais.

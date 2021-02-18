@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 730d12558e413d96909914d06187d0d5f89ec661
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: d9624fd899649f4e54c5bd509ed5961b862632dd
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98567521"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100581578"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
 
@@ -117,7 +117,7 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 * [Azure Resource Health](../service-health/resource-health-overview.md): um banco de dados inacessível que perdeu o acesso à chave do cliente aparecerá como "Inacessível" após a negação da primeira conexão com o banco de dados.
 * [Log de atividades](../service-health/alerts-activity-log-service-notifications-portal.md): quando o acesso à chave do cliente falha no Key Vault gerenciado pelo cliente, as entradas são adicionadas ao log de atividades. Você poderá restabelecer o acesso assim que possível se criar alertas para esses eventos.
 
-* [Grupos de ação](../azure-monitor/platform/action-groups.md): defina esses grupos para enviar notificações e alertas com base em suas preferências.
+* [Grupos de ação](../azure-monitor/alerts/action-groups.md): defina esses grupos para enviar notificações e alertas com base em suas preferências.
 
 ## <a name="restore-and-replicate-with-a-customers-managed-key-in-key-vault"></a>Restaurar e replicar com uma chave gerenciada do cliente no Key Vault
 
