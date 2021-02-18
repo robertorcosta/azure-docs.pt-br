@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/15/2021
 ms.custom: generated
-ms.openlocfilehash: d9a2667907108cfb4c8d7a2a2c9b1558e02a9110
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535120"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100576994"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Todos
+## <a name="all"></a>Tudo
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -196,9 +196,9 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | **Monitorar** |  |  |
 > | [Colaborador de componente do Application Insights](#application-insights-component-contributor) | Pode gerenciar os componentes do Application Insights | ae349356-3a1b-4a5e-921d-050484c6347e |
 > | [Depurador de Instantâneos do Application Insights](#application-insights-snapshot-debugger) | Concede permissão ao usuário para exibir e baixar os instantâneos de depuração coletados com o Depurador de Instantâneos do Application Insights. Observe que essas permissões não estão incluídas nas funções [Proprietário](#owner) ou [Colaborador](#contributor). Quando você concede aos usuários a função de Depurador de Instantâneos do Application Insights, deve conceder a função diretamente ao usuário. A função não é reconhecida quando adicionada a uma função personalizada. | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
-> | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
+> | [Colaborador de monitoramento](#monitoring-contributor) | Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 749f88d5-cbae-40b8-bcfc-e573ddc772fa |
 > | [Publicador de Métricas de Monitoramento](#monitoring-metrics-publisher) | Habilita a publicação de métricas com base nos recursos do Azure | 3913510d-42f4-4e42-8a64-420c390055eb |
-> | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
+> | [Leitor de monitoramento](#monitoring-reader) | Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). | 43d0d8ad-25c7-4714-9337-8ba259a9fe05 |
 > | [Colaborador da pasta de trabalho](#workbook-contributor) | Pode salvar as pastas de trabalho compartilhadas. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
 > | [Leitor de pasta de trabalho](#workbook-reader) | Pode ler as pastas de trabalho. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 > | **Gerenciamento + governança** |  |  |
@@ -4774,7 +4774,7 @@ Cria e gerencia data factories, assim como os recursos filhos neles. [Saiba mais
 
 ### <a name="data-purger"></a>Limpador de Dados
 
-Pode limpar dados de análise [saiba mais](../azure-monitor/platform/personal-data-mgmt.md)
+Pode limpar dados de análise [saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4917,7 +4917,7 @@ Pode ler, criar, modificar e excluir as operações relacionadas ao serviço de 
 
 ### <a name="log-analytics-contributor"></a>Colaborador do Log Analytics
 
-O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
+O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -4982,7 +4982,7 @@ O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar
 
 ### <a name="log-analytics-reader"></a>Leitor do Log Analytics
 
-Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/platform/manage-access.md)
+Um Leitor do Log Analytics pode exibir e pesquisar todos os dados de monitoramento além de exibir as configurações de monitoramento, incluindo a exibição da configuração do diagnóstico do Azure em todos os recursos do Azure. [Saiba mais](../azure-monitor/logs/manage-access.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8596,7 +8596,7 @@ Concede permissão ao usuário para exibir e baixar os instantâneos de depuraç
 
 ### <a name="monitoring-contributor"></a>Colaborador de monitoramento
 
-Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitoramento e editar configurações de monitoramento. Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -8742,7 +8742,7 @@ Permite a publicação de métricas em relação aos recursos do Azure [saiba ma
 
 ### <a name="monitoring-reader"></a>Leitor de monitoramento
 
-Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/platform/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/platform/roles-permissions-security.md)
+Pode ler todos os dados de monitoramento (métricas, logs, etc). Consulte também [Introdução às funções, permissões e segurança com o Azure Monitor](../azure-monitor/roles-permissions-security.md#built-in-monitoring-roles). [Saiba mais](../azure-monitor/roles-permissions-security.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

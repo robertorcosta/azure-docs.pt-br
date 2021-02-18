@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 79282e99894bccad4f3c265cdffe4bee2e465950
-ms.sourcegitcommit: d1e56036f3ecb79bfbdb2d6a84e6932ee6a0830e
+ms.openlocfilehash: 4be9b802f5284663c2834f9d9c59fb709269bd53
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99052746"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100572596"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -180,9 +180,9 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos e detectar alterações nos recursos de rede. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos críticos.
 
-* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-* [Como criar alertas no Azure Monitor](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -210,7 +210,7 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
 * [Introdução à integração do Azure Monitor e ao SIEM de terceiros](https://azure.microsoft.com/blog/use-azure-monitor-to-integrate-with-siem-tools/)
 
@@ -230,9 +230,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 **Orientação**: habilite o Azure monitor para acesso aos logs de auditoria e de atividades, que incluem origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
-* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/platform/diagnostic-settings.md)
+* [Como coletar logs e métricas de plataforma com Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md)
 
-* [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log)
+* [Exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -254,7 +254,7 @@ Ao usar o recurso Hybrid Runbook Worker, a central de segurança do Azure fornec
 
 **Diretrizes**: em Azure monitor, defina seu período de retenção de espaço de trabalho de log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
 
-* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/platform/manage-cost-storage.md#change-the-data-retention-period)
+* [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 * [Detalhes de retenção de dados para contas de automação](./automation-managing-data.md#data-retention)
 
@@ -270,9 +270,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 * [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-* [Entender as consultas de log no Azure Monitor](../azure-monitor/log-query/log-analytics-tutorial.md)
+* [Entender as consultas de log no Azure Monitor](../azure-monitor/logs/log-analytics-tutorial.md)
 
-* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/log-query/get-started-queries.md)
+* [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -288,7 +288,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 * [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-* [Como alertar sobre Azure Monitor dados de log](../azure-monitor/learn/tutorial-response.md)
+* [Como alertar sobre Azure Monitor dados de log](../azure-monitor/alerts/tutorial-response.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -418,7 +418,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 * [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
-* [Como configurar grupos de ação para alertas e notificações personalizados](../azure-monitor/platform/action-groups.md)
+* [Como configurar grupos de ação para alertas e notificações personalizados](../azure-monitor/alerts/action-groups.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
@@ -618,7 +618,7 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 * [Log de diagnóstico para um grupo de segurança de rede](../private-link/private-link-overview.md#logging-and-monitoring)
 
-* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/platform/alerts-activity-log.md)
+* [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

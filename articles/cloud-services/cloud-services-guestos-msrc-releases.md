@@ -3,21 +3,21 @@ title: Lista de atualizações aplicadas ao SO convidado do Azure | Microsoft Do
 description: Este artigo lista as atualizações do Microsoft Security Response Center aplicadas a diferentes sistemas operacionais convidados do Azure. Veja se uma atualização se aplica ao sistema operacional convidado que você está usando.
 services: cloud-services
 documentationcenter: na
-author: yohaddad
+author: gunnarcms
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 2/9/2021
+ms.date: 2/17/2021
 ms.author: gunnarcms
-ms.openlocfilehash: 63aa13c178acd0b560c2bbd9cbc8873464062488
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a77ab15bc4d1095f47d9d411b5a0fd64bb568de
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580646"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650789"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.

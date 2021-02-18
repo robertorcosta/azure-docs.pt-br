@@ -5,14 +5,14 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/10/2020
+ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: 65d1ef76ffae113a4b526eec75301abbfea751e7
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96017705"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650381"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controle de acesso no Azure Data Lake Storage Gen2
 
@@ -35,7 +35,7 @@ Este artigo se concentra no RBAC do Azure e nas ACLs, e como o sistema os avalia
 
 O RBAC do Azure usa atribuições de função para aplicar conjuntos de permissões a [entidades de segurança](../../role-based-access-control/overview.md#security-principal). Uma entidade de segurança é um objeto que representa um usuário, grupo, entidade de serviço ou identidade gerenciada que é definida no Azure Active Directory (AD). Um conjunto de permissões pode dar a uma entidade de segurança um nível de acesso "de alta granularidade", como acesso de leitura ou gravação a **todos** os dados em uma conta de armazenamento ou a **todos** os dados em um contêiner. 
 
-As funções a seguir permitem que uma entidade de segurança acesse dados em uma conta de armazenamento. 
+As funções a seguir permitem que uma entidade de segurança acesse dados em uma conta de armazenamento.
 
 |Função|Descrição|
 |--|--|

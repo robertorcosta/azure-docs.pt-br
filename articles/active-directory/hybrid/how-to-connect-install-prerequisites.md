@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/05/2020
+ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1957adc0effd5b37d7aff3f813267da6ca065e0a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 15e5aba2bad4cd7ae63ceb9c9f67f7e653a82a91
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368958"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650143"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -141,7 +141,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 Para obter mais informações, consulte o MSDN sobre o [elemento proxy padrão](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando você tiver problemas de conectividade, consulte [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outras
+### <a name="other"></a>Outros
 Opcional: Use uma conta de usuário de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos do componente
@@ -167,6 +167,17 @@ Antes da versão 1.1.614.0, o Azure AD Connect usa TLS 1.0 por padrão para crip
     "SchUseStrongCrypto"=dword:00000001
     ```
 1. Se você também quiser habilitar o TLS 1,2 entre o servidor do mecanismo de sincronização e um SQL Server remoto, verifique se você tem as versões necessárias instaladas para o [suporte a TLS 1,2 para Microsoft SQL Server](https://support.microsoft.com/kb/3135244).
+
+### <a name="dcom-prerequisites-on-the-synchronization-server"></a>Pré-requisitos do DCOM no servidor de sincronização
+Durante a instalação do serviço de sincronização, o Azure AD Connect verifica a presença da seguinte chave do registro:
+
+- HKEY_LOCAL_MACHINE: Software\Microsoft\Ole
+
+Nessa chave do registro, Azure AD Connect verificará se os seguintes valores estão presentes e não corrompedos: 
+
+- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para a configuração e instalação de federação
 ### <a name="windows-remote-management"></a>Gerenciamento Remoto do Windows
