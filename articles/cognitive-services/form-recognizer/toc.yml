@@ -55,8 +55,10 @@
       href: disaster-recovery.md
 - name: Referência
   items:
-    - name: API REST
-      href: 'https://docs.microsoft.com/rest/api/formrecognizer/'
+    - name: Versão prévia da API de Reconhecimento de Formulários v2.1
+      href: 'https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync'
+    - name: API de Reconhecimento de Formulários v2.0
+      href: 'https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm'
     - name: SDKs
       items:
         - name: .NET
