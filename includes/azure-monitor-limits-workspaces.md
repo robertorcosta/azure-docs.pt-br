@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 86c5c6fff06f43bf66427ba1935852fcf97a71c6
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
+ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96356203"
+ms.lasthandoff: 02/15/2021
+ms.locfileid: "100529677"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -56,13 +56,19 @@ ms.locfileid: "96356203"
 | Tempo máximo de execução da consulta | 10 minutos | Confira os [tempos limites](https://dev.loganalytics.io/documentation/Using-the-API/Timeouts) para obter detalhes.  |
 | Taxa máxima de solicitação | 200 solicitações por 30 segundos por usuário do Azure AD ou por endereço IP do cliente | Consulte os [Limites de taxa](https://dev.loganalytics.io/documentation/Using-the-API/Limits) para obter detalhes. |
 
+**Conector de logs do Azure Monitor**
+| Categoria | Limite | Comentários |
+|:---|:---|:---|
+| Número máximo de registros | 500.000 | |
+| Tempo limite máximo de consulta | 110 segundos | |
+| Gráficos | | A visualização em página de logs e o conector estão usando bibliotecas de gráficos diferentes, e algumas funcionalidades não estão disponíveis no conector atualmente. |
+
 **Limites gerais do workspace**
 
 | Categoria | Limite | Comentários |
 |:---|:---|:---|
 | Máximo de colunas em uma tabela         | 500 | |
 | Máximo de caracteres para o nome da coluna | 500 | |
-| Exportação de dados | Não disponível no momento | Use a Função do Azure ou o Aplicativo Lógico para agregar e exportar dados. | 
 
 **<a name="data-ingestion-volume-rate">Taxa do volume de ingestão de dados</a>**
 

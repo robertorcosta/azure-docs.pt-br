@@ -206,6 +206,8 @@
                   href: azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md
                 - name: Implantar o aplicativo sem estado por meio do GitOps
                   href: azure-stack-edge-gpu-deploy-stateless-application-git-ops-guestbook.md
+                - name: Implantar o Controlador de Dados do Azure Arc
+                  href: azure-stack-edge-gpu-deploy-arc-data-controller.md
         - name: Configurar o Azure Resource Manager (versão prévia)
           items:
             - name: Conectar-se por meio do Azure PowerShell
@@ -383,6 +385,8 @@
           href: azure-stack-edge-return-device.md
         - name: Substituir dispositivo
           href: azure-stack-edge-replace-device.md
+        - name: Migrar para o dispositivo GPU
+          href: azure-stack-edge-migrate-fpga-gpu.md
     - name: Notas de versão
       items:
         - name: 2101 – Atual

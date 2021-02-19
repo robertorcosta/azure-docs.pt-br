@@ -212,6 +212,8 @@
       items:
         - name: Criar um indexador
           href: search-howto-create-indexers.md
+        - name: Executar ou reiniciar indexadores
+          href: search-howto-run-reset-indexers.md
         - name: Agendar um indexador
           href: search-howto-schedule-indexers.md
         - name: Definir mapeamentos de campo
@@ -530,6 +532,8 @@
   items:
     - name: Suporte da Comunidade do Azure
       href: 'https://azure.microsoft.com/support/community/?product=search'
+    - name: Destaques do parceiro
+      href: resource-partners-knowledge-mining.md
     - name: Atualizações do Azure
       href: 'https://azure.microsoft.com/updates/?product=search'
     - name: Fórum de comentários (UserVoice)
@@ -554,8 +558,6 @@
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Curso de desenvolvedor (Pluralsight)
           href: 'https://www.pluralsight.com/courses/microsoft-azure-textual-content-search-enabling'
-    - name: Soluções de parceiros
-      href: resource-partners-knowledge-mining.md
     - name: Perguntas frequentes
       href: search-faq-frequently-asked-questions.md
     - name: Preços
