@@ -497,10 +497,10 @@
           href: /microsoft-iot-central/
         - name: IoT Edge
           href: ../iot-edge/index.yml
-        - name: Aceleradores de solução do IoT
-          href: ../iot-accelerators/index.yml
         - name: IoT Plug and Play
           href: ../iot-pnp/index.yml
+        - name: Aceleradores de solução do IoT
+          href: ../iot-accelerators/index.yml
         - name: Mapas do Azure
           href: ../azure-maps/index.yml
         - name: Time Series Insights
