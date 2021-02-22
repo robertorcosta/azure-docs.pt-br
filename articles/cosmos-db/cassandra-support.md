@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 3b2d1bbe2de0ae72087fdf3debeaf42f8745fed9
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: f48935edd5746b0f3f3440e249024cbe2901317b
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576474"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100374364"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Recursos do Apache Cassandra compatíveis com a API do Cassandra do Azure Cosmos DB 
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -238,7 +238,7 @@ A API do Cassandra do Azure Cosmos DB é uma plataforma de serviço gerenciado. 
 
 ## <a name="hosted-cql-shell-preview"></a>Shell CQL hospedado (versão prévia)
 
-Abra um shell nativo hospedado do Cassandra (CQLSH v5.0.1) diretamente por meio do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Marque a nota destacada em [Habilitar notebooks para as contas Azure Cosmos DB](enable-notebooks.md) para as Regiões do Azure.
+Abra um shell nativo hospedado do Cassandra (CQLSH v5.0.1) diretamente por meio do Data Explorer no [portal do Azure](data-explorer.md) ou no [Azure Cosmos DB Explorer](https://cosmos.azure.com/). Antes de habilitar o shell CQL, você deve [habilitar o recurso](enable-notebooks.md) Notebooks em sua conta (se ainda não estiver habilitado, será solicitado ao clicar em `Open Cassandra Shell`). Confira o artigo [Habilitar notebooks para as contas do Azure Cosmos DB](enable-notebooks.md#supported-regions) para as regiões do Azure com suporte.
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Abrir CQLSH":::
 

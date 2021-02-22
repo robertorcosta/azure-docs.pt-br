@@ -15,12 +15,12 @@ ms.date: 01/04/2021
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 0b43f30c25767a135b98b756d61ed2535e1fbd22
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: daab07a72f61cfdf4f39cae03a1c61bd18f37a8f
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99092193"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100557424"
 ---
 # <a name="classic-subscription-administrator-roles-azure-roles-and-azure-ad-roles"></a>Funções de administrador da assinatura clássica, funções do Azure e funções do Azure AD
 
@@ -91,7 +91,7 @@ Quando você clicar na guia **Funções**, verá a lista de funções internas e
 
 ![Funções internas no portal do Azure](./media/rbac-and-directory-admin-roles/roles-list.png)
 
-Para obter mais informações, confira [Adicionar ou remover atribuições de função do Azure usando o portal do Azure](role-assignments-portal.md).
+Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](role-assignments-portal.md).
 
 ## <a name="azure-ad-roles"></a>Funções do Azure AD
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/10/2021
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: d40d6107d3eee4b45f2184a61b1cdfc99559e9c7
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 837ba5a0fd5ff94cc4f55cd4b01b8cb8a27425fd
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100378990"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100634253"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -35,11 +35,29 @@ Para saber mais sobre as alterações *planejadas* chegando em breve à Central 
 
 As atualizações de fevereiro incluem:
 
+- [Nova página de alertas de segurança no portal do Azure liberada para GA (disponibilidade geral)](#new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga)
 - [Lançamento das recomendações de proteção de cargas de trabalho do Kubernetes em GA (disponibilidade geral)](#kubernetes-workload-protection-recommendations-released-for-general-availability-ga)
 - [Link direto para a política na página de detalhes da recomendação](#direct-link-to-policy-from-recommendation-details-page)
 - [A recomendação de classificação de dados SQL não afeta mais a sua classificação de segurança](#sql-data-classification-recommendation-no-longer-affects-your-secure-score)
 - [As automações de fluxo de trabalho podem ser disparadas por alterações nas avaliações de conformidade regulatória (versão prévia)](#workflow-automations-can-be-triggered-by-changes-to-regulatory-compliance-assessments-preview)
 - [Aprimoramentos de página de inventário de ativos](#asset-inventory-page-enhancements)
+
+
+### <a name="new-security-alerts-page-in-the-azure-portal-released-for-general-availability-ga"></a>Nova página de alertas de segurança no portal do Azure liberada para GA (disponibilidade geral)
+
+A página de alertas de segurança da Central de Segurança do Azure foi reprojetada para oferecer:
+
+- **Experiência de triagem aprimorada para alertas** – ajudando a reduzir os alertas exaustivos e concentrar-se nas ameaças mais relevantes com mais facilidade, a lista inclui filtros personalizáveis e opções de agrupamento.
+- **Mais informações na lista de alertas** – como táticas MITRE ATT&ACK.
+- **Botão para criação de alertas de exemplo** – para avaliar as funcionalidades do Azure Defender e testar a sua configuração de alertas (para integração do SIEM, notificações por email e automação de fluxo de trabalho), você pode criar alertas de exemplo em todos os planos do Azure Defender.
+- **Alinhamento com a experiência de incidentes do Azure Sentinel** – para clientes que usam os dois produtos, a troca entre eles agora é uma experiência mais simples, além de ser fácil aprender a usar deles com base no conhecimento adquirido com o outro.
+- **Melhor desempenho** para listas grandes de alertas.
+- **Navegação por teclado** na lista de alertas.
+- **Alertas do Azure Resource Graph** – você pode consultar alertas no Azure Resource Graph, a API semelhante ao Kusto para todos os seus recursos. Isso também será útil se você estiver criando os próprios painéis de alertas. [Saiba mais sobre Azure Resource Graph](../governance/resource-graph/index.yml).
+- [Recurso de criação de alertas de exemplo](security-center-alert-validation.md#generate-sample-azure-defender-alerts) – para criar alertas de exemplo por meio da nova experiência de alertas, confira **Gerar alertas de exemplo do Azure Defender**.
+
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da Central de Segurança do Azure":::
+
 
 ### <a name="kubernetes-workload-protection-recommendations-released-for-general-availability-ga"></a>Lançamento das recomendações de proteção de cargas de trabalho do Kubernetes em GA (disponibilidade geral)
 

@@ -105,6 +105,8 @@
       items:
         - name: Transformar dados com os fluxos de dados de mapeamento
           items:
+            - name: Transformar dados no lake com o Delta Lake
+              href: tutorial-data-flow-delta-lake.md
             - name: Transformar dados com os fluxos de dados de mapeamento
               href: tutorial-data-flow.md
             - name: Mapeamento de tutoriais em vídeo de fluxo de dados
@@ -556,6 +558,8 @@
           href: data-flow-lookup.md
         - name: Novo branch
           href: data-flow-new-branch.md
+        - name: Analisar
+          href: data-flow-parse.md
         - name: Dinâmico
           href: data-flow-pivot.md
         - name: Rank
@@ -732,6 +736,8 @@
               href: how-to-sqldb-to-cosmosdb.md
             - name: Eliminação de duplicados e verificação nula com trechos de código
               href: how-to-data-flow-dedupe-nulls-snippets.md
+            - name: Processar dados de modelos do AML usando o fluxo de dados
+              href: scenario-dataflow-process-data-aml-models.md
         - name: Migração do SSIS do local
           items:
             - name: Visão geral de migração do SSIS
@@ -806,6 +812,8 @@
       href: /azure/templates/microsoft.datafactory/allversions
     - name: Python
       href: /python/api/overview/azure/datafactory
+    - name: Itens internos do Azure Policy
+      href: policy-reference.md
 - name: Recursos
   items:
     - name: White papers

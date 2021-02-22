@@ -59,6 +59,8 @@
           href: managed-identity-authentication.md
         - name: Gerenciar agente
           href: manage-agent.md
+        - name: Migrar um computador entre regiões
+          href: manage-howto-migrate.md
     - name: Cenários
       items:
         - name: Fazer a integração ao Azure Sentinel

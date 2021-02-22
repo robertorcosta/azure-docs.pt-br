@@ -210,6 +210,12 @@
                   href: ./windows/n-series-driver-setup.md
             - name: Configurar drivers de GPU AMD
               href: ./windows/n-series-amd-driver-setup.md
+        - name: FPGA – computação acelerada
+          items:
+            - name: Visão geral
+              href: sizes-field-programmable-gate-arrays.md?context=/azure/virtual-machines/context/context
+            - name: Série NP
+              href: np-series.md
         - name: Computação de alto desempenho
           displayName: H-series
           items:
@@ -321,7 +327,8 @@
           href: ./linux/tutorial-build-deploy-azure-pipelines.md
         - name: Criar pilha LAMP
           href: ./linux/tutorial-lamp-stack.md
-        - name: Proteger servidor Web com SSL
+        - name: Servidor Web seguro com TLS\SSL
+          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
@@ -983,7 +990,7 @@
       href: ephemeral-os-disks.md
     - name: Migração e conversão
       items:
-        - name: Como converter disco entre Standard e Premium
+        - name: Converter disco em outro tipo de disco
           items:
             - name: CLI
               href: ./linux/convert-disk-storage.md
@@ -1221,6 +1228,8 @@
       href: maintenance-and-updates.md
     - name: Aplicação de patch automática de convidado de VM (versão prévia)
       href: ./windows/automatic-vm-guest-patching.md
+    - name: Atualização automática de extensão (versão prévia)
+      href: ./automatic-extension-upgrade.md
     - name: Controle de manutenção
       items:
         - name: Notificações de manutenção

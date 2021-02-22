@@ -143,8 +143,10 @@
       items:
         - name: Solicitar aumentos de cota
           href: database/quota-increase-request.md
-        - name: Automação de trabalho
+        - name: Automação de trabalho com trabalhos elásticos
           href: database/job-automation-overview.md
+        - name: Automação de trabalho com SQL Agent
+          href: database/job-automation-managed-instances.md
         - name: Continuidade de negócios
           items:
             - name: Configurar um grupo de failover

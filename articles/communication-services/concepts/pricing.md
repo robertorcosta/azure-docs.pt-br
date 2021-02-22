@@ -9,19 +9,19 @@ ms.author: mikben
 ms.date: 09/29/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 779fa577b25bd4f2aa92aa8b8cc1244a58bdf1ae
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 883be25716d94130984baef5e7a1eab80888a2b9
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126183"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100558476"
 ---
 # <a name="pricing-scenarios"></a>Cenários de preços
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-No geral, os preços dos Serviços de Comunicação do Azure são baseados em um modelo pago conforme o uso.
+No geral, os preços dos Serviços de Comunicação do Azure são baseados em um modelo pago conforme o uso. Os preços nos exemplos a seguir são para fins ilustrativos e podem não refletir os preços mais recentes do Azure.
 
 ## <a name="voicevideo-calling-and-screen-sharing"></a>Chamada de voz/vídeo e compartilhamento de tela
 
@@ -46,7 +46,30 @@ Alice fez uma chamada em grupo com seus colegas, Bob e Charlie. Alice e Bob usar
 - 2 participantes x 60 minutos x US$ 0,004 por participante por minuto = US$ 0,48 [vídeo e áudio são cobrados à mesma taxa]
 - 1 participante x 43 minutos x US$ 0,004 por participante por minuto = US$ 0,172 [vídeo e áudio são cobrados à mesma taxa]
 
-**Custo total para a chamada em grupo** : US$ 0,48 + US$ 0,172 = US$ 0,652
+**Custo total para a chamada em grupo**: US$ 0,48 + US$ 0,172 = US$ 0,652
+
+### <a name="pricing-example-a-user-of-the-communication-services-js-client-library-joins-a-scheduled-microsoft-teams-meeting"></a>Exemplo de preço: Um usuário da biblioteca de clientes JS dos Serviços de Comunicação entra em uma reunião agendada do Microsoft Teams
+
+Alice é uma médica que está se reunindo com o paciente dela, Bob. A Alice vai entrar na visita do aplicativo da área de trabalho Teams. Bob receberá um link para entrar usando o site do prestador de serviços de saúde, que se conecta à reunião usando a biblioteca de clientes JS dos Serviços de Comunicação. Bob usará o celular dele para entrar na reunião usando um navegador da Web (iPhone com Safari). O chat estará disponível durante a visita virtual. 
+
+- A chamada dura 30 minutos no total.
+- Alice e Bob participaram de toda a chamada. Alice ativa o vídeo dela cinco minutos depois que a chamada é iniciada e compartilha a tela por 13 minutos. Bob fica com o vídeo ativado em toda a chamada.
+- Alice envia cinco mensagens, Bob responde com três.
+
+
+**Cálculos de custo**
+
+- 1 participante (Bob) x 30 minutos x US$ 0,004 por participante por minuto = US$ 0,12 [vídeo e áudio são cobrados na mesma taxa]
+- 1 participante (Alice) x 30 minutos x $0 por participante por minuto = $0*. 
+- 1 participante (Bob) x 3 mensagens de chat x US$ 0,0008 = US$ 0,0024.
+- 1 participante (Alice) x 5 mensagens de chat x US$ 0 = US$ 0*. 
+
+*A participação de Alice é coberta pela licença do Teams dela. Sua fatura do Azure mostrará os minutos e as mensagens de chat que os usuários da equipe trocaram com os usuários dos Serviços de Comunicação para sua conveniência, mas esses minutos e mensagens provenientes do cliente do Teams não terão custo.
+
+**Custo total para a visita**: 
+- entrada do usuário usando a biblioteca de clientes JS dos Serviços de Comunicação: US$ 0,12 + US$ 0,0024 = US$ 0,1224
+- Entrada do usuário no aplicativo da área de trabalho Teams: US$ 0 (coberto pela licença do Teams) 
+
 
 ## <a name="chat"></a>Chat
 
@@ -58,7 +81,7 @@ Você será cobrado US$ 0,0008 para cada mensagem de chat enviada.
 
 ### <a name="pricing-example-chat-between-two-users"></a>Exemplo de preço: chat entre dois usuários 
 
-Geeta inicia uma conversa de chat com Emily para compartilhar uma atualização e envia cinco mensagens. O chat dura 10 minutos, em que Geeta e Emily enviam outras 15 mensagens cada.
+Geeta inicia uma conversa de chat com Emily para compartilhar uma atualização e envia cinco mensagens. O chat dura 10 minutos. Geeta e Emily enviam mais 15 mensagens cada uma.
 
 **Cálculos de custo** 
 - Número de mensagens enviadas (5 + 15 + 15) x US$ 0,0008 = US$ 0,028

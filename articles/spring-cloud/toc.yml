@@ -147,7 +147,7 @@
       items:
         - name: Autodiagnosticar e resolver problemas
           href: spring-cloud-howto-self-diagnose-solve.md
-        - name: Guia de solução de problemas
+        - name: Guia de Solução de Problemas
           href: spring-cloud-troubleshoot.md
     - name: Migrações
       items:
@@ -157,7 +157,11 @@
           href: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud
         - name: Tomcat
           href: /azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud
-- name: Implantação do DevOps
+- name: Arquitetura
+  items:
+    - name: Arquitetura de referência
+      href: spring-cloud-reference-architecture.md
+- name: Implantação de DevOps
   items:
     - name: CI/CD com o Azure DevOps
       href: spring-cloud-howto-cicd.md
@@ -167,7 +171,7 @@
       href: spring-cloud-github-actions-key-vault.md
 - name: Solucionar problemas
   items:
-    - name: Guia de solução de problemas
+    - name: Guia de Solução de Problemas
       href: spring-cloud-troubleshoot.md
 - name: Referência
   items:

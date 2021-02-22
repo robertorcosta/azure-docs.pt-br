@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: f949747649e351947ba65666fdb57c0beac3aa23
-ms.sourcegitcommit: 740698a63c485390ebdd5e58bc41929ec0e4ed2d
+ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99492103"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100554735"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -96,9 +96,10 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 compartilhamento de tela | 1 vídeo |
-|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
+|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 áudio/vídeo ou 1 áudio/compartilhamento de tela | 1 áudio/vídeo | 
+|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 áudio/vídeo ou 1 áudio/compartilhamento de tela| 6 áudios/vídeos ou 1 compartilhamento de tela |
 
+Observe que, em cenários de grupo, um fluxo de áudio misto é usado para dar suporte a todos os participantes de áudio.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -106,6 +107,6 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 > [Introdução a chamadas](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
 Para obter mais informações, consulte os seguintes artigos:
-- Familiarize-se com [fluxos de chamada](../call-flows.md) gerais
+- Familiarize-se com [fluxos de chamada](../call-flows.md) gerais 
 - Saiba mais sobre [tipos de chamada](../voice-video-calling/about-call-types.md)
 - [Planeje sua solução PSTN](../telephony-sms/plan-solution.md)

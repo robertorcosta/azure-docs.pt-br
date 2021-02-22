@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: dcd8222b46262f6ec70459ec670789ae4a433c1d
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99625257"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100364827"
 ---
 # <a name="chat-client-library-overview"></a>Visão geral da biblioteca de clientes de chat
 
@@ -44,7 +44,7 @@ A lista a seguir apresenta o conjunto de recursos que estão atualmente disponí
 |                   | Enviar e receber notificações de digitação quando um membro estiver digitando ativamente uma mensagem em uma conversa de chat <br/> *Não disponível quando há mais de 20 membros em uma conversa de chat*      | ✔️   | ✔️   | ✔️    | ✔️    |
 |                   | Obter todas as mensagens de uma conversa de chat <br/> *Emojis Unicode com suporte*                                                  | ✔️   | ✔️  | ✔️    | ✔️  |
 |                   | Enviar emojis como parte do conteúdo da mensagem                                                                              | ✔️   | ✔️  | ✔️    | ✔️  |
-|Sinalização em tempo real (habilitada pelo pacote de sinalização proprietário)| Ser notificado quando um usuário receber uma nova mensagem em uma conversa de chat do qual ele é membro                                     | ✔️   | ❌    | ❌  | ❌  |
+|Sinalização em tempo real (habilitada pelo pacote de sinalização proprietário**)| Ser notificado quando um usuário receber uma nova mensagem em uma conversa de chat do qual ele é membro                                     | ✔️   | ❌    | ❌  | ❌  |
 |                    | Ser notificado quando uma mensagem for editada por outro membro em uma conversa de chat do qual ele é membro                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Ser notificado quando uma mensagem for excluída por outro membro em uma conversa de chat do qual ele é membro                | ✔️   | ❌    | ❌    | ❌  |
 |                    | Ser notificado quando outro membro da conversa de chat estiver digitando                                                             | ✔️   | ❌    | ❌    | ❌  |
@@ -53,6 +53,8 @@ A lista a seguir apresenta o conjunto de recursos que estão atualmente disponí
 | Monitoramento        | Monitorar o uso em termos de mensagens enviadas                                                                               | ✔️   | ✔️  | ✔️    | ✔️  |
 |                    | Monitorar a qualidade e o status das solicitações de API feitas pelo aplicativo e configurar alertas por meio do portal                                                          | ✔️   | ✔️  | ✔️    | ✔️  |
 |Recursos adicionais | Usar a [API de Serviços Cognitivos](../../../cognitive-services/index.yml) junto com a biblioteca de clientes de chat para habilitar recursos inteligentes: *tradução de idioma e análise de sentimento da mensagem de entrada em um cliente, conversão de fala em texto para compor uma mensagem enquanto o membro fala etc.*                                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |
+
+**O pacote de sinalização proprietário é implementado usando soquetes Web. Ele fará o fallback para a sondagem longa se não houver suporte para soquetes Web.
 
 ## <a name="javascript-chat-client-library-support-by-os-and-browser"></a>Suporte para bibliotecas de clientes de chat JavaScript por sistema operacional e navegador
 

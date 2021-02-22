@@ -19,8 +19,18 @@
       href: tutorial-end-to-end.md
 - name: Conceitos
   items:
-    - name: Modelos personalizados
+    - name: Modelos de DTDL
       href: concepts-models.md
+    - name: Ontologias
+      items:
+        - name: O que é uma ontologia?
+          href: concepts-ontologies.md
+        - name: Adoção de ontologias padrão do setor
+          href: concepts-ontologies-adopt.md
+        - name: Conversão de ontologias
+          href: concepts-ontologies-convert.md
+        - name: Extensão de ontologias
+          href: concepts-ontologies-extend.md
     - name: Gêmeos digitais e o grafo de gêmeos
       href: concepts-twins-graph.md
     - name: Idioma de consulta
@@ -65,10 +75,8 @@
           href: how-to-move-regions.md
     - name: Modelos de design
       items:
-        - name: Gerenciar modelos personalizados
+        - name: Gerenciar modelos de DTDL
           href: how-to-manage-model.md
-        - name: Integrar modelos padrão do setor
-          href: how-to-integrate-models.md
         - name: Analisar e validar modelos
           href: how-to-parse-models.md
         - name: Adicionar marcas
@@ -249,6 +257,12 @@
           href: /samples/azure-samples/digital-twins-explorer/digital-twins-explorer/
         - name: Validador DTDL (exemplo)
           href: /samples/azure-samples/dtdl-validator/dtdl-validator/
+        - name: Carregador de Modelos (exemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/ModelUploader'
+        - name: Visualizador de Modelos (exemplo)
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer'
+        - name: Conversor OWL2DTDL
+          href: 'https://github.com/Azure/opendigitaltwins-building-tools/tree/master/OWL2DTDL'
         - name: Exemplo de integração do DPS e do Hub IoT
           href: /samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/
         - name: Exemplo de integração do SignalR

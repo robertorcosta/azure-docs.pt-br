@@ -96,10 +96,12 @@
               href: assign-access-policy-powershell.md
             - name: Portal
               href: assign-access-policy-portal.md
-        - name: 'Usar um RBAC do Azure para gerenciar o acesso a chaves, segredos e certificados (versão prévia)'
-          href: rbac-guide.md
-        - name: Guia de migração de políticas de acesso do cofre para o RBAC do Azure
-          href: rbac-migration.md
+        - name: Modelo de permissão do RBAC do Azure
+          items:
+            - name: 'Usar um RBAC do Azure para gerenciar o acesso a chaves, segredos e certificados'
+              href: rbac-guide.md
+            - name: Guia de migração de políticas de acesso do cofre para o RBAC do Azure
+              href: rbac-migration.md
         - name: Solucionar problemas de acesso
           href: troubleshooting-access-issues.md
     - name: Desenvolver

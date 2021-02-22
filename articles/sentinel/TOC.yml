@@ -210,6 +210,8 @@
                       href: connect-zscaler.md
                 - name: 'ETAPA 3: validar a conectividade'
                   href: connect-cef-verify.md
+        - name: Criar conectores personalizados
+          href: create-custom-connector.md
         - name: Conectar inteligência contra ameaças
           href: connect-threat-intelligence.md
         - name: Conectar VMs do Azure Stack
@@ -255,8 +257,6 @@
           href: hunting-with-rest-api.md
         - name: Gerenciar watchlists com API REST
           href: watchlist-with-rest-api.md
-    - name: Referência de dados do Azure Monitor
-      href: /azure/azure-monitor/reference/
     - name: Conector dos Aplicativos Lógicos do Azure Sentinel
       href: /connectors/azuresentinel/
     - name: Esquema de normalização de rede
@@ -275,8 +275,6 @@
   items:
     - name: Recursos úteis
       href: resources.md
-    - name: Roteiro do Azure
-      href: 'https://azure.microsoft.com/updates/?updateType=security&category=security&query=sentinel'
     - name: 'Blog Segurança, Privacidade e Conformidade do Azure'
       href: /archive/blogs/azuresecurity/
     - name: Disponibilidade regional

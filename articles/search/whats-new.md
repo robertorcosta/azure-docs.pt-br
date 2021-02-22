@@ -8,12 +8,12 @@ ms.service: cognitive-search
 ms.topic: overview
 ms.date: 02/09/2021
 ms.custom: references_regions
-ms.openlocfilehash: 13cb22c178be29af71b57d0f50fdbd0e95718069
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104596"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590553"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
@@ -24,7 +24,8 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 |Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
 |------------------------------|---------------|---------------|
 | [Redefinir Documentos (versão prévia)](search-howto-run-reset-indexers.md) |  Reprocessa os documentos de pesquisa selecionados individualmente nas cargas de trabalho do indexador. | [API REST de Pesquisa 2020-06-30-Versão prévia](/rest/api/searchservice/index-preview) |
-| [Zonas de Disponibilidade](search-performance-optimization.md#availability-zones)| Pesquise serviços com duas ou mais réplicas em determinadas regiões, conforme listado [neste artigo](search-performance-optimization.md#availability-zones) e obtenha resiliência tendo réplicas em duas ou mais localizações físicas distintas.  | A região e a data da criação do serviço de pesquisa determinam a disponibilidade. Confira o documento de ajuste de desempenho para obter detalhes. |
+| [Zonas de Disponibilidade](search-performance-optimization.md#availability-zones)| Pesquise serviços com duas ou mais réplicas em determinadas regiões, conforme listado em [Escala para desempenho](search-performance-optimization.md#availability-zones) e obtenha resiliência tendo réplicas em duas ou mais localizações físicas distintas.  | A região e a data da criação do serviço de pesquisa determinam a disponibilidade. Confira o artigo Escala para desempenho para obter detalhes. |
+| [CLI do Azure](/cli/azure/search) </br>[PowerShell do Azure](/powershell/module/az.search/) | Novas revisões agora fornecem a gama completa de operações na API REST de gerenciamento 2020-08-01, incluindo suporte para regras de firewall de IP e ponto de extremidade privado. | Em disponibilidade geral. |
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -77,7 +78,7 @@ Conheça o que há de novo no serviço. Marque esta página para manter-se atual
 |Novembro | [Habilidade de Tradução de Texto](cognitive-search-skill-text-translation.md) | Uma habilidade cognitiva usada durante a indexação que avalia e traduz um texto. Em disponibilidade geral.|
 |Novembro | [Modelos do Power BI](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) | Modelo usado para visualizar o conteúdo do repositório de conhecimento |
 |Novembro | [Azure Data Lake Storage Gen2 (versão prévia)](search-howto-index-azure-data-lake-storage.md), [API do Gremlin do Cosmos DB (versão prévia)](search-howto-index-cosmosdb.md) e [API do Cassandra do Cosmos DB (versão prévia)](search-howto-index-cosmosdb.md) | Novas fontes de dados do indexador em versão prévia pública. |
-|Julho | [Suporte da nuvem do Azure Government](../azure-government/compare-azure-government-global-azure.md#azure-cognitive-search) | Em disponibilidade geral.|
+|Julho | [Suporte da nuvem do Azure Government](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&products=search) | Em disponibilidade geral.|
 
 <a name="new-service-name"></a>
 

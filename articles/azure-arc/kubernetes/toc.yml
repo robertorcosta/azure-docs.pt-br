@@ -4,6 +4,14 @@
   items:
     - name: Sobre Kubernetes habilitado para o Azure Arc
       href: overview.md
+- name: Conceitos
+  items:
+    - name: Arquitetura de agente
+      href: conceptual-agent-architecture.md
+    - name: Configurações e GitOps
+      href: conceptual-configurations.md
+    - name: Perguntas frequentes
+      href: faq.md
 - name: Guias de instruções
   items:
     - name: Conecte-se ao Azure Arc
@@ -12,7 +20,7 @@
           href: connect-cluster.md
         - name: Integrar a entidade de serviço
           href: create-onboarding-service-principal.md
-    - name: Gerenciar
+    - name: Cenários
       items:
         - name: Implantar configurações usando GitOps
           href: use-gitops-connected-cluster.md

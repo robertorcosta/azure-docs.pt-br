@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 7a3c4bc2a0445a2821e212986b495993695652a6
-ms.sourcegitcommit: 16887168729120399e6ffb6f53a92fde17889451
+ms.openlocfilehash: 45edf57ed41f8cf7be839edade5038a0787424a4
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/13/2021
-ms.locfileid: "98165919"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367275"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Início Rápido: Criar um perfil e um ponto de extremidade da CDN do Azure
 
@@ -81,7 +81,7 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Tutorial: Usar a CDN para o conteúdo estático do servidor de um aplicativo Web](cdn-add-to-web-app.md)
+> [Tutorial: usar a CDN para o conteúdo estático do servidor de um aplicativo Web](cdn-add-to-web-app.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Adicionar um domínio personalizado ao seu ponto de extremidade da CDN do Azure](cdn-map-content-to-custom-domain.md)

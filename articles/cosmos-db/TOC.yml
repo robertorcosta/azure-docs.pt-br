@@ -932,7 +932,7 @@
         - name: REST (plano de gerenciamento)
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/sqlresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
@@ -1050,7 +1050,7 @@
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/cassandraresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API do MongoDB
@@ -1117,6 +1117,8 @@
           items:
             - name: Guia pré-migração
               href: mongodb-pre-migration.md
+            - name: Ferramentas nativas do MongoDB (offline)
+              href: tutorial-mongotools-cosmos-db.md
             - name: Serviço de Migração de Banco de Dados (online)
               href: ../dms/tutorial-mongodb-cosmos-db-online.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Serviço de Migração de Banco de Dados (offline)
@@ -1175,7 +1177,7 @@
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/mongodbresources
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Modelo do Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
 - name: API do Gremlin
@@ -1253,7 +1255,7 @@
         - name: Cabeçalhos de resposta
           href: gremlin-headers.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: Provedor de recursos REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modelo do Resource Manager
@@ -1339,7 +1341,7 @@
         - name: Python
           href: table-sdk-python.md
         - name: PowerShell
-          href: /powershell/module/az.cosmosdb/?view=azps-5.1.0#cosmos-db&preserve-view=true
+          href: /powershell/module/az.cosmosdb/?view=azps-5.5.0#cosmos-db&preserve-view=true
         - name: APIs REST de armazenamento de tabelas
           href: /rest/api/storageservices/table-service-rest-api
 - name: Guias de instruções
@@ -1419,7 +1421,7 @@
           href: monitor-cosmos-db.md
         - name: Usar métricas de monitoramento do Azure
           items:
-            - name: Azure Monitor para Cosmos (versão prévia)
+            - name: Azure Monitor para Cosmos DB
               href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: Cenários a serem monitorados
               href: use-metrics.md

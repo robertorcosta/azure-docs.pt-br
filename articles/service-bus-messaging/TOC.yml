@@ -144,6 +144,10 @@
           href: ./security-controls-policy.md
         - name: Segurança de rede
           href: network-security.md
+    - name: Integração com outros serviços
+      items:
+        - name: Integração do Barramento de Serviço do Azure com a Grade de Eventos do Azure
+          href: service-bus-to-event-grid-integration-concept.md
 - name: Guias de instruções
   items:
     - name: Mover entre regiões
@@ -168,8 +172,6 @@
               href: message-sequencing.md
             - name: Expiração da mensagem (vida útil)
               href: message-expiration.md
-            - name: Lidar com mensagens usando a Grade de Eventos do Azure
-              href: service-bus-to-event-grid-integration-concept.md
         - name: Ações e filtros de tópico
           href: topic-filters.md
         - name: Migrar de namespaces Standard para Premium

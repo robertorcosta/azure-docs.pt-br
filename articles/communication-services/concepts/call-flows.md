@@ -9,14 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 410f8ab4de0d93262647cbc07e0792cd39f7a844
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
+ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593630"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100559460"
 ---
-# <a name="call-flows"></a>Fluxos de chamadas
+# <a name="call-flow-basics"></a>Noções básicas do fluxo de chamadas
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
@@ -76,6 +76,14 @@ Se a biblioteca de clientes não puder usar o UDP para mídia devido a restriç�
 
 :::image type="content" source="./media/call-flows/about-voice-group-calls-2.png" alt-text="Diagrama que mostra o fluxo do processo de mídia de TCP nos Serviços de Comunicação.":::
 
+### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: biblioteca de cliente dos Serviços de Comunicação e do Microsoft Teams em uma reunião agendada do Teams
+
+A sinalização flui pelo controlador de sinalização. A mídia flui pelo processador de mídia. O controlador de sinalização e o processador de mídia são compartilhados entre os Serviços de Comunicação e o Microsoft Teams. 
+
+:::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama mostrando a biblioteca de cliente dos Serviços de Comunicação e o cliente do Teams em uma reunião agendada do Teams.":::
+
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
@@ -85,3 +93,4 @@ Os seguintes documentos podem ser do seu interesse:
 
 - Saiba mais sobre os [tipos de chamada](../concepts/voice-video-calling/about-call-types.md)
 - Saiba mais sobre a [Arquitetura de cliente/servidor](./client-and-server-architecture.md)
+- Saiba mais sobre [Topologias do fluxo de chamadas](./detailed-call-flows.md)

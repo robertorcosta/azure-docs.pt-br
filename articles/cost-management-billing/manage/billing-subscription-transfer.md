@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/05/2021
 ms.author: banders
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 87f29395e716ad3f06a99d6243b080acf86e4310
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 2fb1a8c3e583a4bdc88f2b61844e9bcb16dc7cdf
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99979412"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100367190"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Transferir a propriedade de cobrança de uma assinatura do Azure para outra conta
 
@@ -91,9 +91,12 @@ Use as informações de solução de problemas a seguir se tiver problemas com a
 
 ### <a name="original-azure-subscription-billing-owner-leaves-your-organization"></a>O proprietário original da cobrança da assinatura do Azure sai da sua organização
 
-É possível que o proprietário original da cobrança que criou uma conta do Azure e uma assinatura do Azure saia da sua organização. Se essa situação ocorrer, a identidade do usuário não estará mais no Azure Active Directory da organização. Então, a assinatura do Azure não tem um proprietário de cobrança. Essa situação impede que qualquer pessoa execute operações de cobrança na conta, incluindo exibição e pagamento de faturas. A assinatura poderá entrar em um estado de atraso. A assinatura poderá acabar sendo desabilitada devido ao não pagamento. Por fim, a assinatura poderá ser excluída, o que afetará todos os serviços executados na assinatura.
+> [!Note]
+> Esta seção aplica-se especificamente a uma conta de cobrança para um Contrato de Cliente da Microsoft. Verifique se você tem acesso a um [Contrato de Cliente da Microsoft](mca-request-billing-ownership.md#check-for-access).
 
-Quando uma assinatura não tiver mais um proprietário de cobrança válido, o Azure enviará um email para outros proprietários de Cobrança, Administradores de Serviços, Coadministradores e Proprietários de Assinatura informando-os da situação e fornecerá um link para que eles aceitem a propriedade da cobrança da assinatura. Qualquer um dos usuários pode selecionar o link para aceitar a propriedade da cobrança. Para obter mais informações sobre as funções de cobrança, confira [Funções de cobrança](understand-mca-roles.md) e [Funções clássicas e funções RBAC do Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
+É possível que o proprietário da conta original da cobrança que criou uma conta do Azure e uma assinatura do Azure saia da sua organização. Se essa situação ocorrer, a identidade do usuário não estará mais no Azure Active Directory da organização. Então, a assinatura do Azure não tem um proprietário de cobrança. Essa situação impede que qualquer pessoa execute operações de cobrança na conta, incluindo exibição e pagamento de faturas. A assinatura poderá entrar em um estado de atraso. A assinatura poderá acabar sendo desabilitada devido ao não pagamento. Por fim, a assinatura poderá ser excluída, o que afetará todos os serviços executados na assinatura.
+
+Quando uma assinatura não tiver mais um proprietário da conta de cobrança válido, o Azure enviará um email para outros Proprietários da conta de cobrança, Administradores de Serviços (se houver), Coadministradores (se houver) e Proprietários de Assinatura informando-os da situação e fornecerá um link para que eles aceitem a propriedade da cobrança da assinatura. Qualquer um dos usuários pode selecionar o link para aceitar a propriedade da cobrança. Para obter mais informações sobre as funções de cobrança, confira [Funções de cobrança](understand-mca-roles.md) e [Funções clássicas e funções RBAC do Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 
 Veja um exemplo de como é o email.
 
