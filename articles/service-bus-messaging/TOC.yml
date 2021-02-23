@@ -7,7 +7,7 @@
     - name: Comparar serviços de mensagem
       href: ../event-grid/compare-messaging-services.md
       maintainContext: true
-    - name: Usar o Barramento de Serviço com o JMS (Serviço de Mensagens Java) 2.0 (versão prévia)
+    - name: Usar o Barramento de Serviço com o JMS (Serviço de Mensagens Java) 2.0
       href: how-to-use-java-message-service-20.md
 - name: Inícios rápidos
   items:
@@ -90,6 +90,10 @@
       href: service-bus-samples.md
 - name: Conceitos
   items:
+    - name: 'Filas, tópicos e assinaturas'
+      href: service-bus-queues-topics-subscriptions.md
+    - name: Ações e filtros de tópico
+      href: topic-filters.md
     - name: Mensagens premium
       href: service-bus-premium-messaging.md
     - name: Comparar Filas do Azure e Filas do Barramento de Serviço
@@ -158,12 +162,16 @@
       href: service-bus-create-namespace-portal.md
     - name: Desenvolver
       items:
+        - name: Definir ações e filtros de assinatura
+          href: service-bus-filter-examples.md
         - name: Manipulação de mensagens
           items:
             - name: 'Filas, tópicos e assinaturas'
               href: service-bus-queues-topics-subscriptions.md
-            - name: Entidades do JMS (Serviço de Mensagens Java) 2.0 (versão prévia)
+            - name: Entidades do JMS (Serviço de Mensagens Java) 2.0
               href: java-message-service-20-entities.md
+            - name: Guide.md do desenvolvedor do JMS (Serviço de Mensagens Java)
+              href: jms-developer-guide.md
             - name: 'Mensagens, payloads e serialização'
               href: service-bus-messages-payloads.md
             - name: 'Transferências de mensagem, bloqueios e liquidação'
@@ -172,8 +180,6 @@
               href: message-sequencing.md
             - name: Expiração da mensagem (vida útil)
               href: message-expiration.md
-        - name: Ações e filtros de tópico
-          href: topic-filters.md
         - name: Migrar de namespaces Standard para Premium
           href: service-bus-migrate-standard-premium.md
         - name: Filas e tópicos particionados

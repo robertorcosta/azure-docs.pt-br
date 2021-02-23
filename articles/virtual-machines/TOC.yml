@@ -262,7 +262,7 @@
           href: dedicated-hosts-portal.md
         - name: PowerShell
           href: ./windows/dedicated-hosts-powershell.md
-    - name: Máquinas virtuais spot
+    - name: Máquinas Virtuais Spot do Azure
       displayName: 'pre-empt, preempt, spot'
       items:
         - name: Visão geral
@@ -328,12 +328,12 @@
         - name: Criar pilha LAMP
           href: ./linux/tutorial-lamp-stack.md
         - name: Servidor Web seguro com TLS\SSL
-          displayname: SSL TLS
           items:
             - name: Linux
               href: ./linux/tutorial-secure-web-server.md
             - name: Windows
               href: ./windows/tutorial-secure-web-server.md
+          displayname: SSL TLS
     - name: Conectar-se a VMs do Linux
       items:
         - name: SSH para VMs do Linux
@@ -362,8 +362,8 @@
           href: /azure/developer/chef/windows-vm-configure
         - name: Usar Java
           href: ./windows/java.md
-        - name: Como usar o Python
-          href: ./windows/python.md
+        - name: Python
+          href: 'https://docs.microsoft.com/samples/azure-samples/virtual-machines-python-manage/azure-virtual-machines-management-samples---python/?context=/azure/virtual-machines/context/context'
         - name: Usar modelo ARM
           displayName: Azure Resource Manager template
           href: ./windows/ps-template.md
@@ -445,7 +445,7 @@
         - name: Azure Monitor
           items:
             - name: Agente do Azure Monitor
-              href: ../azure-monitor/platform/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/azure-monitor-agent-install.md?context=/azure/virtual-machines/context/context
             - name: Extensão de diagnóstico
               href: ../azure-monitor/platform/diagnostics-extension-overview.md?context=/azure/virtual-machines/context/context
             - name: Log Analytics
@@ -950,6 +950,8 @@
           href: disks-reserved-capacity.md
         - name: Design para alto desempenho
           href: premium-storage-performance.md
+        - name: Métricas relacionadas ao disco
+          href: disks-metrics.md
         - name: Intermitência de disco
           href: disk-bursting.md
         - name: Níveis de desempenho de disco
@@ -1143,6 +1145,8 @@
       href: ./linux/static-dns-name-resolution-for-linux-on-azure.md
 - name: Segurança
   items:
+    - name: Visão geral
+      href: ../security/fundamentals/virtual-machines-overview.md?context=/azure/virtual-machines/context/context
     - name: Central de Segurança do Azure
       href: ../security-center/security-center-introduction.md
     - name: Linhas de base de segurança
@@ -1285,7 +1289,7 @@
     - name: Agentes
       items:
         - name: Visão geral dos agentes
-          href: ../azure-monitor/platform/agents-overview.md?context=/azure/virtual-machines/context/context
+          href: ../azure-monitor/agents/agents-overview.md?context=/azure/virtual-machines/context/context
         - name: Perguntas frequentes
           href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context#agents
         - name: Extensão de Diagnóstico do Azure
@@ -1306,29 +1310,29 @@
             - name: Visão geral
               href: ../azure-monitor/platform/log-analytics-agent.md?context=/azure/virtual-machines/context/context
             - name: Agentes do Linux
-              href: ../azure-monitor/platform/agent-linux.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux.md?context=/azure/virtual-machines/context/context
             - name: Gateway do Log Analytics
               href: ../azure-monitor/platform/gateway.md?context=/azure/virtual-machines/context/context
             - name: Gerenciamento de agentes
-              href: ../azure-monitor/platform/agent-manage.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-manage.md?context=/azure/virtual-machines/context/context
             - name: Integridade do agente
               href: ../azure-monitor/insights/solution-agenthealth.md?context=/azure/virtual-machines/context/context
             - name: Fontes de dados
               items:
                 - name: Visão geral
-                  href: ../azure-monitor/platform/agent-data-sources.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/agent-data-sources.md?context=/azure/virtual-machines/context/context
                 - name: Dados JSON personalizados
-                  href: ../azure-monitor/platform/data-sources-json.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-json.md?context=/azure/virtual-machines/context/context
                 - name: Dados de desempenho do CollectD
-                  href: ../azure-monitor/platform/data-sources-collectd.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-collectd.md?context=/azure/virtual-machines/context/context
                 - name: syslog
-                  href: ../azure-monitor/platform/data-sources-syslog.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-syslog.md?context=/azure/virtual-machines/context/context
                 - name: Contadores de desempenho
-                  href: ../azure-monitor/platform/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-performance-counters.md?context=/azure/virtual-machines/context/context
                 - name: Desempenho de aplicativo Linux
-                  href: ../azure-monitor/platform/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-linux-applications.md?context=/azure/virtual-machines/context/context
                 - name: Logs personalizados
-                  href: ../azure-monitor/platform/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
+                  href: ../azure-monitor/agents/data-sources-custom-logs.md?context=/azure/virtual-machines/context/context
                 - name: Campos Personalizados
                   href: ../azure-monitor/platform/custom-fields.md?context=/azure/virtual-machines/context/context
         - name: Solucionar problemas
@@ -1337,7 +1341,7 @@
               href: ../azure-monitor/platform/vmext-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
             - name: Agente do Linux do Log Analytics
-              href: ../azure-monitor/platform/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
+              href: ../azure-monitor/agents/agent-linux-troubleshoot.md?context=/azure/virtual-machines/context/context
               displayname: 'troubleshoot, troubleshooting'
         - name: Azure Monitor para VMs
           items:

@@ -991,6 +991,8 @@
           href: managed-instance/alerts-create.md
         - name: Iniciar manualmente um failover na instância gerenciada
           href: managed-instance/user-initiated-failover.md
+        - name: Migrar o banco de dados usando o Serviço de Reprodução de Log
+          href: managed-instance/log-replay-service-migrate.md
     - name: Exemplos
       items:
         - name: CLI do Azure

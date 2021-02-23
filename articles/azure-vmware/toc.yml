@@ -52,7 +52,7 @@
       href: concepts-upgrades.md
 - name: Guias de instruções
   items:
-    - name: Habilitar a Solução VMware no Azure
+    - name: Solicitar a cota de host e habilitar a Solução VMware no Azure
       href: enable-azure-vmware-solution.md
     - name: Economize custos com uma instância reservada
       href: reserved-instance.md
