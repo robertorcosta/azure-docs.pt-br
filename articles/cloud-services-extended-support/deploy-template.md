@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: f86b2a50040704aac2827c463a362a04f78ba34f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
+ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881815"
+ms.lasthandoff: 02/16/2021
+ms.locfileid: "100548770"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implantar um Serviço de Nuvem (suporte estendido) usando modelos do ARM
 
@@ -134,7 +134,7 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
     ```
  
 
-4. Adicione a referência do cofre de chaves na seção `OsProfile` do modelo do ARM. O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados ao Key Vault e referencie as impressões digitais do certificado no arquivo de Configuração do Serviço (.cscfg). Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. Para obter mais informações, confira [Usando certificados com os Serviços de Nuvem (suporte estendido)](certificates-and-key-vault.md).
+4. Adicione a referência do cofre de chaves na seção `OsProfile` do modelo do ARM. O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados ao Key Vault e referencie as impressões digitais do certificado no arquivo de Configuração do Serviço (.cscfg). Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. O Key Vault precisa estar localizado na mesma região e assinatura que o Serviço de Nuvem e ter um nome exclusivo. Para obter mais informações, confira [Usando certificados com os Serviços de Nuvem (suporte estendido)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -441,14 +441,15 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
             ]
           }
         }
-      }
+       }
+      ]
     }
     ```
  
-8. Implante o modelo e crie a implantação do Serviço de Nuvem (suporte estendido). 
+8. Implante o modelo e o arquivo de parâmetro (definindo parâmetros no arquivo de modelo) para criar a implantação do serviço de nuvem (suporte estendido). Veja estes [modelos de exemplo](https://github.com/Azure-Samples/cloud-services-extended-support), conforme necessário.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg -TemplateFile "file path to your template file”  
+    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
     ```
  
 ## <a name="next-steps"></a>Próximas etapas 

@@ -6,12 +6,12 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: tutorial
 ms.date: 2/8/2021
-ms.openlocfilehash: b20da64c135f7e54a7f6bc74beea073140a1e0a9
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18cb4e3ada94822c2f4cb1ca7675310a37e44e84
+ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100100873"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100590659"
 ---
 # <a name="tutorial-media-services-trusted-storage"></a>Tutorial: Armazenamento confiável dos Serviços de Mídia
 
@@ -23,6 +23,9 @@ Neste tutorial, você aprenderá:
 > - Como conceder aos Serviços do Azure acesso a uma conta de armazenamento ao usar um controle de acesso à rede, como um firewall ou uma VPN
 
 Com a API 2020-05-01, você pode habilitar o armazenamento confiável associando uma Identidade Gerenciada a uma conta de Serviços de Mídia.
+
+>[!NOTE]
+>O armazenamento confiável só está disponível na API e, no momento, não está habilitado no portal do Azure.
 
 Os Serviços de Mídia podem acessar automaticamente a sua conta de armazenamento usando a autenticação do sistema. Os Serviços de Mídia validam que a conta de Serviços de Mídia e a conta de armazenamento estão na mesma assinatura. Eles também validam que o usuário que está adicionando a associação tenha acesso à conta de armazenamento com o RBAC do Azure Resource Manager.
 

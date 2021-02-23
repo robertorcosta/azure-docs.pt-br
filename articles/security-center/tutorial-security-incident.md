@@ -12,14 +12,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2020
+ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aeabfb42d378f22ff660214517fea031d678b208
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787152"
+ms.lasthandoff: 02/17/2021
+ms.locfileid: "100635567"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Tutorial: Fazer a triagem, investigar e responder a alertas de segurança
 A Central de Segurança analisa continuamente as cargas de trabalho de nuvem híbrida usando a análise avançada e a inteligência contra ameaças para alertar você quanto à presença de atividades potencialmente mal-intencionadas em seus recursos de rede. Você também pode integrar alertas de outros produtos e serviços de segurança à Central de Segurança. Após um alerta ser gerado, é necessária uma ação rápida para investigação e correção do possível problema de segurança. 
@@ -40,9 +40,9 @@ Para acompanhar os recursos abordados neste tutorial, você deve ter o Azure Def
 ## <a name="triage-security-alerts"></a>Classificação de alertas de segurança
 A Central de Segurança fornece uma visualização unificada de todos os alertas de segurança. Os alertas de segurança são classificados com base na severidade da atividade detectada. 
 
-Faça a triagem dos alertas na página **Alertas de segurança** :
+Faça a triagem dos alertas na página **Alertas de segurança**:
 
-:::image type="content" source="./media/tutorial-security-incident/alerts-list.png" alt-text="Página de lista de alertas de segurança" lightbox="./media/tutorial-security-incident/alerts-list.png":::
+:::image type="content" source="media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da Central de Segurança do Azure":::
 
 Use esta página para examinar os alertas de segurança ativos em seu ambiente a fim de decidir qual alerta investigar primeiro.
 

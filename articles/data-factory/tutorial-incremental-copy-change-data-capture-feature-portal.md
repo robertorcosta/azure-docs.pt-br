@@ -1,22 +1,17 @@
 ---
 title: Copiar dados incrementalmente usando Captura de Dados de Alterações
 description: Neste tutorial, você cria um pipeline de Azure Data Factory que copia os dados delta de modo incremental de uma tabela no banco de dados de Instância Gerenciada de SQL do Azure para o Armazenamento do Azure.
-services: data-factory
 ms.author: nihurt
 author: hurtn
-manager: ''
-ms.reviewer: ''
 ms.service: data-factory
-ms.workload: data-services
 ms.topic: tutorial
-ms.custom: ''
 ms.date: 05/04/2020
-ms.openlocfilehash: 754f58fe7ee9bc8d10ba1fa973615781ce4d6dce
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.openlocfilehash: ba4e5c3998c7c6218d2f0232e3c05930ca82e378
+ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
-ms.locfileid: "98555909"
+ms.lasthandoff: 02/14/2021
+ms.locfileid: "100391262"
 ---
 # <a name="incrementally-load-data-from-azure-sql-managed-instance-to-azure-storage-using-change-data-capture-cdc"></a>Carregar incrementalmente dados da Instância Gerenciada de SQL do Azure para o Armazenamento do Azure usando CDA (captura de dados de alterações)
 
@@ -90,10 +85,10 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
     ```sql
      insert into customers 
-        (customer_id, first_name, last_name, email, city) 
+         (customer_id, first_name, last_name, email, city) 
      values 
-        (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
-        (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
+         (1, 'Chevy', 'Leward', 'cleward0@mapy.cz', 'Reading'),
+         (2, 'Sayre', 'Ateggart', 'sateggart1@nih.gov', 'Portsmouth'),
         (3, 'Nathalia', 'Seckom', 'nseckom2@blogger.com', 'Portsmouth');
     ```
 
@@ -113,7 +108,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
    O nome do Azure Data Factory deve ser **globalmente exclusivo**. Se você receber o seguinte erro, altere o nome de data factory (por exemplo, yournameADFTutorialDataFactory) e tente criar novamente. Confira o artigo [Data Factory - regras de nomenclatura](naming-rules.md) para ver as regras de nomenclatura para artefatos do Data Factory.
 
-    *O nome do data factory “ADFTutorialDataFactory” não está disponível.*
+    *O nome de data factory "ADFTutorialDataFactory" não está disponível.*
 3. Selecione **V2** para a **versão**.
 4. Selecione a **assinatura** do Azure na qual você deseja criar o data factory.
 5. Para o **Grupo de Recursos**, execute uma das seguintes etapas:
