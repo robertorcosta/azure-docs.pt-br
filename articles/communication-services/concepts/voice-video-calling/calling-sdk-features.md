@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 07ad53191c8212ccde5633a4068f31aa00ab69b1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 666474b7c7b823114b6dee2925ed5f81973e212d
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554735"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100650925"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -64,7 +64,7 @@ A tabela a seguir representa o conjunto de navegadores e versões com suporte di
 
 |                                  | Windows          | macOS          | Ubuntu | Linux  | Android | iOS    | Sistema operacional do iPad|
 | -------------------------------- | ---------------- | -------------- | ------- | ------ | ------ | ------ | -------|
-| **Biblioteca de clientes de chamada** | Chrome*, novo Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
+| **Biblioteca de clientes de chamada** | Chrome*, novo Microsoft Edge | Chrome *, Safari** | Chrome*  | Chrome* | Chrome* | Safari** | Safari** |
 
 
 *Observe há suporte para a versão mais recente do Chrome, além das duas versões anteriores.<br/>
@@ -109,4 +109,4 @@ Observe que, em cenários de grupo, um fluxo de áudio misto é usado para dar s
 Para obter mais informações, consulte os seguintes artigos:
 - Familiarize-se com [fluxos de chamada](../call-flows.md) gerais 
 - Saiba mais sobre [tipos de chamada](../voice-video-calling/about-call-types.md)
-- [Planeje sua solução PSTN](../telephony-sms/plan-solution.md)
+- Saiba mais sobre [tipos de número de telefone](../telephony-sms/plan-solution.md)
