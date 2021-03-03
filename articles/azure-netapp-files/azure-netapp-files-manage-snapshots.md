@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 02/10/2021
+ms.date: 02/20/2021
 ms.author: b-juche
-ms.openlocfilehash: 4d992bcc202dc8bdacdda6426371df1adb1ec3e6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 2da2ae01e92ae2751f9f26e005579bad9911330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379107"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738728"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gerenciar instantâneos por meio do Azure NetApp Files
 
@@ -100,7 +100,7 @@ Uma política de instantâneo permite que você especifique a frequência de cri
 
     ![Política de instantâneo mensal](../media/azure-netapp-files/snapshot-policy-monthly.png) 
 
-4.  Clique em **Salvar**.  
+4.  Clique em **Save** (Salvar).  
 
 Se você precisar criar políticas de instantâneo adicionais, repita a etapa 3.
 As políticas que você criou aparecem na página política de instantâneo.
@@ -195,7 +195,7 @@ O NFSv 4.1 não mostra o `.snapshot` diretório ( `ls -la` ). No entanto, quando
 
 1. Use o `ls` comando do Linux para listar o arquivo que você deseja restaurar do `.snapshot` diretório. 
 
-    Por exemplo:
+    Por exemplo: 
 
     `$ ls my.txt`   
     `ls: my.txt: No such file or directory`   
@@ -210,7 +210,7 @@ O NFSv 4.1 não mostra o `.snapshot` diretório ( `ls -la` ). No entanto, quando
 
 2. Use o `cp` comando para copiar o arquivo para o diretório pai.  
 
-    Por exemplo: 
+    Por exemplo:  
 
     `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
 
@@ -257,6 +257,9 @@ Você pode encontrar a opção reverter volume no menu instantâneos de um volum
 ## <a name="delete-snapshots"></a>Excluir instantâneos  
 
 Você pode excluir os instantâneos que você não precisa mais manter. 
+
+> [!IMPORTANT]
+> A operação de exclusão de instantâneo não pode ser desfeita. Um instantâneo excluído não pode ser recuperado. 
 
 1. Vá para o menu **instantâneos** de um volume. Clique com o botão direito do mouse no instantâneo que você deseja excluir. Selecione **Excluir**.
 

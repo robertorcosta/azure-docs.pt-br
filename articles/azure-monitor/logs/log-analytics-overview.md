@@ -6,24 +6,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/04/2020
-ms.openlocfilehash: 485c2cc6c95f5922025fe887f7c25131e849a01d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ef8be3d1fd815362971d5ae2beb27edf47766c94
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606820"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723156"
 ---
 # <a name="overview-of-log-analytics-in-azure-monitor"></a>Visão geral do Log Analytics no Azure Monitor
 Log Analytics é uma ferramenta no portal do Azure usada para editar e executar consultas de log com dados em logs de Azure Monitor. Você pode escrever uma consulta simples que retorna um conjunto de registros e, em seguida, usar recursos de Log Analytics para classificá-los, filtrá-los e analisá-los. Ou você pode escrever uma consulta mais avançada para executar a análise estatística e visualizar os resultados em um gráfico para identificar uma tendência específica. Independentemente de você trabalhar com os resultados de suas consultas interativamente ou usá-las com outros recursos de Azure Monitor, como alertas de consulta de log ou pastas de trabalho, Log Analytics é a ferramenta que você pretende usar para escrever e testá-las. 
 
 
 > [!TIP]
-> Este artigo fornece uma descrição de Log Analytics e cada um de seus recursos. Se você quiser ir diretamente para um tutorial, consulte [log Analytics tutorial](../log-query/log-analytics-tutorial.md).
+> Este artigo fornece uma descrição de Log Analytics e cada um de seus recursos. Se você quiser ir diretamente para um tutorial, consulte [log Analytics tutorial](./log-analytics-tutorial.md).
 
 
 
 ## <a name="starting-log-analytics"></a>Iniciando Log Analytics
-Inicie Log Analytics nos **logs** no menu **Azure monitor** na portal do Azure. Você também verá essa opção no menu para a maioria dos recursos do Azure. Independentemente de onde você o inicia, será a mesma ferramenta de Log Analytics. O menu usado para iniciar Log Analytics determina os dados que estarão disponíveis no entanto. Se você iniciá-lo no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** , terá acesso a todos os registros em um espaço de trabalho. Se você selecionar **logs** de outro tipo de recurso, seus dados serão limitados aos dados de log para esse recurso. Confira [Escopo da consulta de log e intervalo de tempo no Log Analytics do Azure Monitor](../log-query/scope.md) para obter detalhes.
+Inicie Log Analytics nos **logs** no menu **Azure monitor** na portal do Azure. Você também verá essa opção no menu para a maioria dos recursos do Azure. Independentemente de onde você o inicia, será a mesma ferramenta de Log Analytics. O menu usado para iniciar Log Analytics determina os dados que estarão disponíveis no entanto. Se você iniciá-lo no menu **Azure monitor** ou no menu **log Analytics espaços de trabalho** , terá acesso a todos os registros em um espaço de trabalho. Se você selecionar **logs** de outro tipo de recurso, seus dados serão limitados aos dados de log para esse recurso. Confira [Escopo da consulta de log e intervalo de tempo no Log Analytics do Azure Monitor](./scope.md) para obter detalhes.
 
 [![Iniciar Log Analytics](media/log-analytics-overview/start-log-analytics.png)](media/log-analytics-overview/start-log-analytics.png#lightbox)
 
@@ -39,9 +39,9 @@ Controles para trabalhar com a consulta na janela de consulta.
 
 | Opção | Descrição |
 |:---|:---|
-| Escopo | Especifica o escopo dos dados usados para a consulta. Isso pode ser todos os dados em um espaço de trabalho Log Analytics ou dados para um recurso específico em vários espaços de trabalho. Consulte [escopo da consulta](../log-query/scope.md). |
+| Escopo | Especifica o escopo dos dados usados para a consulta. Isso pode ser todos os dados em um espaço de trabalho Log Analytics ou dados para um recurso específico em vários espaços de trabalho. Consulte [escopo da consulta](./scope.md). |
 | Botão Executar | Clique para executar a consulta selecionada na janela de consulta. Você também pode pressionar Shift + Enter para executar uma consulta. |
-| Seletor de hora | Selecione o intervalo de tempo para os dados disponíveis para a consulta. Isso será substituído se você incluir um filtro de tempo na consulta. Consulte o [escopo de consulta de log e o intervalo de tempo em Log Analytics Azure monitor](../log-query/scope.md). |
+| Seletor de hora | Selecione o intervalo de tempo para os dados disponíveis para a consulta. Isso será substituído se você incluir um filtro de tempo na consulta. Consulte o [escopo de consulta de log e o intervalo de tempo em Log Analytics Azure monitor](./scope.md). |
 | Botão Salvar | Salve a consulta no Gerenciador de consultas para o espaço de trabalho. |
  botão Copiar | Copie um link para a consulta, o texto da consulta ou os resultados da consulta para a área de transferência. |
 | Botão nova regra de alerta | Crie uma nova guia com uma consulta vazia. |
@@ -91,5 +91,5 @@ Exibe os resultados como um dos vários tipos de gráfico disponíveis. Você po
 Se você já estiver familiarizado com a interface do usuário da Web do Azure Data Explorer, Log Analytics deverá parecer familiar. Isso ocorre porque ele é criado sobre o Azure Data Explorer e usa a mesma linguagem de consulta Kusto (KQL). Log Analytics adiciona recursos específicos a Azure Monitor como filtragem por intervalo de tempo e a capacidade de criar uma regra de alerta a partir de uma consulta. Ambas as ferramentas incluíram um Gerenciador que permite que você examine a estrutura de tabelas disponíveis, mas a interface do usuário da Web do Azure Data Explorer trabalha principalmente com tabelas em bancos de dados do Azure Data Explorer enquanto Log Analytics trabalha com tabelas em um espaço de trabalho Log Analytics. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Percorra um [tutorial sobre como usar log Analytics no portal do Azure](../log-query/log-analytics-tutorial.md).
-- Percorra um [tutorial sobre como escrever consultas](../log-query/get-started-queries.md).
+- Percorra um [tutorial sobre como usar log Analytics no portal do Azure](./log-analytics-tutorial.md).
+- Percorra um [tutorial sobre como escrever consultas](./get-started-queries.md).

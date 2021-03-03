@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b915445b74e202f010c5505cc240b6f36e9da77c
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108500"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720266"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -23,7 +23,7 @@ Se você quiser criar pools de hosts e outros objetos, deverá ser atribuída a 
 
 Você deve ser atribuído à função de administrador de acesso do usuário em um grupo de aplicativos para publicar grupos de aplicativos para usuários ou grupos de usuários.
 
-Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo:
+Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo: 
 
 ```powershell
 "actions": [
@@ -56,7 +56,7 @@ Os espaços de trabalho também devem estar no mesmo local que seus grupos de ap
 
 Ao executar um cmdlet do PowerShell, você verá apenas o nome do recurso e o local.
 
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -68,7 +68,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Para ver todas as propriedades de um recurso, adicione um `format-list` ou `fl` ao final do cmdlet.
 
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -76,7 +76,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Para ver propriedades específicas, adicione os nomes de propriedade específicos após `format-list` ou `fl` .
 
-Por exemplo:
+Por exemplo: 
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -125,7 +125,7 @@ Esses fatores podem afetar o limite de escala para pools de hosts:
 
 - O modelo do Azure é limitado a 800 objetos. Para saber mais, confira [assinatura e limites de serviço, cotas e restrições do Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#template-limits). Cada VM também cria cerca de seis objetos, de modo que isso significa que você pode criar em torno de 132 VMs sempre que executar o modelo.
 
-- Há restrições quanto à quantidade de núcleos que você pode criar por região e por assinatura. Por exemplo, se você tiver uma assinatura Enterprise Agreement, poderá criar núcleos de 350. Você precisará dividir 350 pelo número padrão de núcleos por VM ou seu próprio limite de núcleos para determinar quantas VMs você pode criar cada vez que executar o modelo. Saiba mais em [limites de máquinas virtuais-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
+- Há restrições quanto à quantidade de núcleos que você pode criar por região e por assinatura. Por exemplo, se você tiver uma assinatura Contrato Enterprise, poderá criar núcleos de 350. Você precisará dividir 350 pelo número padrão de núcleos por VM ou seu próprio limite de núcleos para determinar quantas VMs você pode criar cada vez que executar o modelo. Saiba mais em [limites de máquinas virtuais-Azure Resource Manager](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-machines-limits---azure-resource-manager).
 
 - O nome do prefixo da VM e o número de VMs têm menos de 15 caracteres. Para saber mais, consulte [regras e restrições de nomenclatura para recursos do Azure](../azure-resource-manager/management/resource-name-rules.md#microsoftcompute).
 
@@ -136,3 +136,7 @@ O Azure Lighthouse não dá suporte completo ao gerenciamento de ambientes de á
 Você também não pode usar as assinaturas do CSP sandbox com o serviço de área de trabalho virtual do Windows. Para saber mais, consulte [conta da área restrita da integração](/partner-center/develop/set-up-api-access-in-partner-center#integration-sandbox-account).
 
 Por fim, se você habilitou o provedor de recursos da conta do proprietário do CSP, as contas de cliente do CSP não poderão modificar o provedor de recursos.
+
+## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Com que frequência devo ativar minhas VMs para evitar problemas de registro?
+
+Depois de registrar uma VM em um pool de hosts no serviço de área de trabalho virtual do Windows, o agente atualiza regularmente o token da VM sempre que a VM está ativa. O certificado para o token de registro é válido por 90 dias. Por causa desse limite de 90 dias, recomendamos que você inicie suas VMs a cada 90 dias. Ativar sua VM dentro desse limite de tempo impedirá que seu token de registro expire ou se torne inválido. Se você tiver iniciado sua VM após 90 dias e estiver enfrentando problemas de registro, siga as instruções no [Guia de solução de problemas do agente de área de trabalho virtual do Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para remover a VM do pool de hosts, reinstalar o agente e registrá-lo novamente no pool.

@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/09/2019
-ms.openlocfilehash: 51cf396fb6f1fcc86a0187e9f3be6b81487b86c2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 615fb1b9f5a9d87a8d69778930b7359823e1ec39
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100383392"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738014"
 ---
 # <a name="azure-function-activity-in-azure-data-factory"></a>Atividade de função do Azure no Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,7 +38,7 @@ O tipo de retorno da função do Azure deve ser um `JObject` válido. (Lembre-se
 | **Propriedade**  | **Descrição** | **Valores permitidos** | **Necessária** |
 | --- | --- | --- | --- |
 | name  | Nome da atividade no pipeline  | String | sim |
-| tipo  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
+| type  | O tipo de atividade é 'AzureFunctionActivity' | String | sim |
 | serviço vinculado | O serviço de função do Azure vinculado para o Aplicativo de funções correspondente do Azure  | Referência de serviço vinculado | sim |
 | nome da função  | Nome da função no Aplicativo de funções do Azure que essa atividade chama | String | sim |
 | method  | Método da API REST para a chamada de função | Tipos de cadeia de caracteres com suporte: "GET", "POST", "PUT"   | sim |

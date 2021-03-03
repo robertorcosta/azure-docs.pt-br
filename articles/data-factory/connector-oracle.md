@@ -4,14 +4,14 @@ description: Saiba como copiar dados de armazenamentos de origem com suporte par
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 02/20/2021
 ms.author: jingwang
-ms.openlocfilehash: bba1ae991f2a4702a0d55a8dc3f6c7a44b9e7b65
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ebafac024593767e884be908acbf0efb9ead50e9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381334"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703296"
 ---
 # <a name="copy-data-from-and-to-oracle-by-using-azure-data-factory"></a>Copiar dados de e para o Oracle usando o Azure Data Factory
 
@@ -363,7 +363,8 @@ Quando você copia dados do e para o Oracle, os mapeamentos a seguir se aplicam.
 | LONG RAW |Byte[] |
 | NCHAR |String |
 | NCLOB |String |
-| NUMBER |Decimal, cadeia de caracteres (se precisão > 28) |
+| NUMBER (p,s) |Decimal, Cadeia de caracteres (se p > 28) |
+| NÚMERO sem precisão e escala |Double |
 | NVARCHAR2 |String |
 | RAW |Byte[] |
 | ROWID |String |

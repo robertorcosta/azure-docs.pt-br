@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5c216661e45e5ed34a95e8a56002f3ad175b089a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1211cd306f10fb349bd42568697443ff103a171c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545897"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703075"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-portal"></a>Habilitar uma identidade gerenciada para roteamento de eventos de gêmeos digital do Azure (versão prévia): portal do Azure
 
@@ -89,8 +89,7 @@ Para obter mais informações sobre pontos de extremidade, rotas e os tipos de d
 
 ### <a name="assign-the-role"></a>Atribuir a função
 
->[!NOTE]
-> Esta seção deve ser concluída por um usuário do Azure com permissões para gerenciar o acesso do usuário aos recursos do Azure (incluindo concessão e delegação de permissões). Funções comuns que atendem a esse requisito são *proprietário*, *administrador da conta* ou a combinação de administrador e *colaborador* de *acesso do usuário* . Para obter mais informações sobre requisitos de permissão para funções de gêmeos digitais do Azure, consulte [*como: configurar a instância e a autenticação*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Para atribuir uma função à identidade, comece abrindo o [portal do Azure](https://portal.azure.com).
 
@@ -116,7 +115,7 @@ Para atribuir uma função à identidade, comece abrindo o [portal do Azure](htt
 
 Quando tiver terminado de inserir os detalhes, selecione **salvar**.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Criar um ponto de extremidade com autorização baseada em identidade
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto de extremidade com autenticação baseada em identidade
 
 Depois de configurar uma identidade gerenciada pelo sistema para sua instância do gêmeos digital do Azure e atribuir a ela as funções apropriadas, você pode criar [pontos de extremidade](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) gêmeos do Azure digital que são capazes de usar a identidade para autenticação. Essa opção só está disponível para os pontos de extremidade do hub de eventos e do tipo de barramento de serviço (não há suporte para a grade de eventos).
 

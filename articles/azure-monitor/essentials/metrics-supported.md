@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 3f9ec395e8ccf6d5162717b2e38b0650ccc84812
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6e4a776bd9aaf3900d05a6191b8ff4dcbb11fd52
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091797"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731656"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 
@@ -123,7 +123,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |---|---|---|---|---|---|---|
 |BackendDuration|Sim|Duração de Solicitações de Back-end|Milissegundos|Média|Duração de solicitações de back-end em milissegundos|Local, Nome do host|
 |Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Local|
-|Duração|Sim|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Local, Nome do host|
+|Duration|Sim|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Local, Nome do host|
 |EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Local|
 |EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Local|
 |EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Local|
@@ -156,7 +156,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |---|---|---|---|---|---|---|
 |active-timer-Count|Sim|active-timer-Count|Contagem|Média|Número de timers atualmente ativos|Implantação, AppName, Pod|
 |taxa de alocação|Sim|taxa de alocação|Bytes|Média|Número de bytes alocados no heap gerenciado|Implantação, AppName, Pod|
-|AppCpuUsage|Sim|Uso de CPU do aplicativo (versão prévia)|Porcentagem|Média|O uso recente da CPU para o aplicativo|Implantação, AppName, Pod|
+|AppCpuUsage|Sim|Uso da CPU do aplicativo |Porcentagem|Média|O uso recente da CPU para o aplicativo|Implantação, AppName, Pod|
 |assembly-contagem|Sim|assembly-contagem|Contagem|Média|Número de assemblies carregados|Implantação, AppName, Pod|
 |uso da CPU|Sim|uso da CPU|Porcentagem|Média|% de tempo que o processo utilizou a CPU|Implantação, AppName, Pod|
 |solicitações atuais|Sim|solicitações atuais|Contagem|Média|Número total de solicitações no processamento no tempo de vida do processo|Implantação, AppName, Pod|
@@ -2167,9 +2167,9 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 
 |Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
-|QueryVolume|Sim|Volume de consulta|Contagem|Total|Número de consultas atendidas para uma zona DNS|Sem dimensões|
+|QueryVolume|Não|Volume de consulta|Contagem|Total|Número de consultas atendidas para uma zona DNS|Sem dimensões|
 |RecordSetCapacityUtilization|Não|Utilização de capacidade de Conjuntos de Registros|Porcentagem|Máximo|Porcentagem de capacidade de Conjuntos de Registros utilizada por uma zona DNS|Sem dimensões|
-|RecordSetCount|Sim|Contagem de Conjuntos de Registros|Contagem|Máximo|Número de Conjuntos de Registros em uma zona DNS|Sem dimensões|
+|RecordSetCount|Não|Contagem de Conjuntos de Registros|Contagem|Máximo|Número de Conjuntos de Registros em uma zona DNS|Sem dimensões|
 
 
 ## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.Network/expressRouteCircuits
@@ -2799,7 +2799,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |SuccessE2ELatency|Sim|Latência de E2E com Sucesso|Milissegundos|Média|A latência média de ponta a ponta das solicitações bem-sucedidas feitas a um serviço de armazenamento ou à operação de API especificada, em milissegundos. Esse valor inclui o tempo de processamento necessário no Armazenamento do Azure para ler a solicitação, enviar a resposta e receber a confirmação da resposta.|GeoType, ApiName, Authentication|
 |SuccessServerLatency|Sim|Latência de Servidor Com Sucesso|Milissegundos|Média|O tempo médio usado para processar uma solicitação bem-sucedida pelo Armazenamento do Azure. Esse valor não inclui a latência de rede especificada em SuccessE2ELatency.|GeoType, ApiName, Authentication|
 |Transactions|Sim|Transactions|Contagem|Total|O número de solicitações feitas a um serviço de armazenamento ou à operação de API especificada. Esse número inclui solicitações bem-sucedidas e com falha, bem como solicitações que produziram erros. Use a dimensão ResponseType para obter o número de tipo diferente de resposta.|ResponseType, GeoType, ApiName, Authentication|
-|UsedCapacity|Não|Capacidade utilizada|Bytes|Média|A quantidade de armazenamento utilizada pela conta de armazenamento. Para contas de armazenamento Standard, é a soma da capacidade usada por blob, tabela, arquivo e fila. Para contas de armazenamento Premium e contas de armazenamento de BLOBs, ele é o mesmo que capacidade ou filecapacity.|Sem dimensões|
+|UsedCapacity|Sim|Capacidade utilizada|Bytes|Média|A quantidade de armazenamento utilizada pela conta de armazenamento. Para contas de armazenamento Standard, é a soma da capacidade usada por blob, tabela, arquivo e fila. Para contas de armazenamento Premium e contas de armazenamento de BLOBs, ele é o mesmo que capacidade ou filecapacity.|Sem dimensões|
 
 
 ## <a name="microsoftstoragestorageaccountsblobservices"></a>Microsoft.Storage/storageAccounts/blobServices
@@ -3137,11 +3137,11 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |AverageResponseTime|Sim|Tempo médio de resposta (preterido)|Segundos|Média|O tempo médio necessário para o aplicativo atender solicitações, em segundos.|Instância|
 |BytesReceived|Sim|Entrada de Dados|Bytes|Total|A quantidade de largura de banda de entrada consumida pelo aplicativo em MiB.|Instância|
 |BytesSent|Sim|Saída de dados|Bytes|Total|A quantidade de largura de banda de saída consumida pelo aplicativo em MiB.|Instância|
-|CpuTime|Sim|Tempo de CPU|Segundos|Total|A quantidade de CPU consumida pelo aplicativo em segundos. Para obter mais informações sobre essa métrica. Consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo de CPU versus percentual de CPU).|Instância|
+|CpuTime|Sim|Tempo de CPU|Segundos|Total|A quantidade de CPU consumida pelo aplicativo em segundos. Para obter mais informações sobre essa métrica. Consulte https://docs.microsoft.com/azure/app-service/web-sites-monitor#cpu-time-vs-cpu-percentage (tempo de CPU versus percentual de CPU). Não aplicável a Azure Functions.|Instância|
 |CurrentAssemblies|Sim|Assemblies Atuais|Contagem|Média|O número atual de Assemblies carregados em todos os AppDomains nesse aplicativo.|Instância|
 |FileSystemUsage|Sim|Uso do sistema de arquivos|Bytes|Média|Porcentagem da cota do sistema de arquivos consumida pelo aplicativo.|Sem dimensões|
-|FunctionExecutionCount|Sim|Contagem de Execução de Função|Contagem|Total|Contagem de Execução de Função|Instância|
-|FunctionExecutionUnits|Sim|Unidades de Execução de Função|Contagem|Total|Unidades de Execução de Função|Instância|
+|FunctionExecutionCount|Sim|Contagem de Execução de Função|Contagem|Total|Contagem de execução de função. Presente apenas para Azure Functions.|Instância|
+|FunctionExecutionUnits|Sim|Unidades de Execução de Função|Contagem|Total|Unidades de execução de função. Presente apenas para Azure Functions.|Instância|
 |Gen0Collections|Sim|Coletas de lixo da Ger 0|Contagem|Total|O número de vezes que os objetos da geração 0 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|Instância|
 |Gen1Collections|Sim|Coletas de lixo da Ger 1|Contagem|Total|O número de vezes que os objetos da geração 1 são coletados como lixo desde o início do processo do aplicativo. As coletas de lixo de geração superior incluem todas as coletas da geração inferior.|Instância|
 |Gen2Collections|Sim|Coletas de lixo da Ger 2|Contagem|Total|O número de vezes que os objetos da geração 2 são coletados como lixo desde o início do processo do aplicativo.|Instância|

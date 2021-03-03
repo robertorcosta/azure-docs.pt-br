@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 54b92c24b5a50ef1674dcb47df555b27259a350b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393846"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737623"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -50,7 +50,7 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
     - ClientShareIngressThrottlingError
     - ClientShareIopsThrottlingError
 
-    Para saber mais sobre cada tipo de resposta, consulte [dimensões de métrica](https://docs.microsoft.com/azure/storage/files/storage-files-monitoring-reference#metrics-dimensions).
+    Para saber mais sobre cada tipo de resposta, consulte [dimensões de métrica](./storage-files-monitoring-reference.md#metrics-dimensions).
 
     ![Captura de tela das opções de métricas para compartilhamentos de arquivos premium, mostrando um filtro de propriedade "tipo de resposta".](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
@@ -258,13 +258,12 @@ Para confirmar, você pode usar as métricas do Azure no portal-
    > [!NOTE]
    > Se os tipos de resposta não estiverem listados na lista suspensa **valores de dimensão** , isso significa que o recurso não foi limitado. Para adicionar os valores de dimensão, ao lado da lista suspensa **valores de dimensão** , selecione **adicionar valor personalizado**, insira o tipo resposta (por exemplo, **SuccessWithThrottling**), selecione **OK** e repita essas etapas para adicionar todos os tipos de resposta aplicáveis ao compartilhamento de arquivos.
 
-8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
-9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
-
+8. Para **compartilhamentos de arquivos Premium**, clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**. Para **compartilhamentos de arquivos padrão**, pule para a **etapa #10**.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a dimensão de **compartilhamento de arquivos** não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
+9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 10. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 
     > [!TIP]

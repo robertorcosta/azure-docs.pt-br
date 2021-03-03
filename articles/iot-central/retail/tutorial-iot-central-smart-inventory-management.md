@@ -7,12 +7,12 @@ ms.service: iot-central
 ms.subservice: iot-central-retail
 ms.topic: tutorial
 ms.date: 10/20/2019
-ms.openlocfilehash: 4bade4cfe5bf82aefcc967d86362e27605a005f3
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 3dbb6ca64451cb60d5a8ec67ecdc528865a4438c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719076"
 ---
 # <a name="tutorial-deploy-and-walk-through-a-smart-inventory-management-application-template"></a>Tutorial: Implantar e usar um modelo de aplicativo de gerenciamento de estoque inteligente
 
@@ -21,7 +21,8 @@ Este tutorial mostra como iniciar a implantação de um modelo de aplicativo de 
 Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
-> criar um aplicativo de gerenciamento de estoque inteligente e explorá-lo 
+> * Criar um aplicativo de gerenciamento de estoque inteligente 
+> * Explorar o aplicativo 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

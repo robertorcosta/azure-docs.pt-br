@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 1333bd08f8a79969817bcb21aa4580d1994d09ce
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99594617"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659300"
 ---
 # <a name="call-flow-topologies"></a>Topologias de fluxo de chamadas
 Este artigo descreve as topologias de fluxo de chamadas dos Serviços de Comunicação do Azure. Este é um ótimo artigo a ser examinado se você é um cliente empresarial que integra os Serviços de Comunicação em uma rede gerenciada por você. Para obter uma introdução aos fluxos de chamadas dos Serviços de Comunicação, acesse a [documentação conceitual dos fluxos de chamadas](./call-flows.md).
@@ -26,7 +26,7 @@ Antes de examinar as topologias de fluxo de chamadas, definiremos alguns termos 
 
 Uma **rede do cliente** contém os segmentos de rede gerenciados por você. Isso pode incluir redes com e sem fio no seu escritório ou entre escritórios, data centers e provedores de serviços de Internet.
 
-Uma rede do cliente geralmente tem vários perímetros de rede com firewalls e/ou servidores proxy que impõem as políticas de segurança da sua organização. Recomendamos fazer uma [avaliação de rede abrangente](https://docs.microsoft.com/microsoftteams/3-envision-evaluate-my-environment) para garantir o desempenho ideal e a qualidade da sua solução de comunicação.
+Uma rede do cliente geralmente tem vários perímetros de rede com firewalls e/ou servidores proxy que impõem as políticas de segurança da sua organização. Recomendamos fazer uma [avaliação de rede abrangente](/microsoftteams/3-envision-evaluate-my-environment) para garantir o desempenho ideal e a qualidade da sua solução de comunicação.
 
 A **rede dos Serviços de Comunicação** é o segmento de rede que dá suporte aos Serviços de Comunicação do Azure. Essa rede é gerenciada pela Microsoft e é distribuída em todo o mundo com bordas próximas à maioria das redes dos clientes. Essa rede é responsável pela retransmissão de transporte, pelo processamento de mídia para chamadas em grupo e por outros componentes que dão suporte à comunicação de mídia avançada em tempo real.
 
@@ -199,4 +199,3 @@ Os seguintes documentos podem ser do seu interesse:
 
 - Saiba mais sobre os [tipos de chamada](../concepts/voice-video-calling/about-call-types.md)
 - Saiba mais sobre a [Arquitetura de cliente/servidor](./client-and-server-architecture.md)
-

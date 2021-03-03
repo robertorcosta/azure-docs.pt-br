@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d62c4b79fcb86080649c542e34b81d3213978604
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2a3bf022d178fbd0de3ca800e0a560235c3f33b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605557"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731486"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Solução de problemas nos gráficos de métrica
 
@@ -62,7 +62,7 @@ A coleta de métricas do **Sistema Operacional Convidado** requer a configuraç�
 
 Esse problema pode ocorrer quando o painel foi criado com uma métrica que foi descontinuada e removida do Azure. Para verificar se é o caso, abra a guia **métricas** do recurso e verifique as métricas disponíveis no seletor de métrica. Se a métrica não for exibida, é porque ela foi removida do Azure. Geralmente, uma métrica é descontinuada em detrimento de outra melhor que fornece uma perspectiva semelhante sobre a integridade do recurso.
 
-**Solução:** Atualize o bloco com falha selecionando uma métrica alternativa para seu gráfico no painel. Você pode [revisar uma lista das métricas disponíveis para os serviços do Azure](../platform/metrics-supported.md).
+**Solução:** Atualize o bloco com falha selecionando uma métrica alternativa para seu gráfico no painel. Você pode [revisar uma lista das métricas disponíveis para os serviços do Azure](./metrics-supported.md).
 
 ## <a name="chart-shows-dashed-line"></a>O gráfico mostra a linha tracejada
 
@@ -104,5 +104,5 @@ Por padrão, as métricas de sistema operacional convidado são armazenadas na c
 
 * [Saiba mais sobre como começar a usar o Gerenciador de métricas](metrics-getting-started.md)
 * [Saiba mais sobre os recursos avançados do Gerenciador de métricas](../essentials/metrics-charts.md)
-* [Veja uma lista das métricas disponíveis para os serviços do Azure](../platform/metrics-supported.md)
+* [Veja uma lista das métricas disponíveis para os serviços do Azure](./metrics-supported.md)
 * [Veja exemplos de gráficos configurados](../essentials/metric-chart-samples.md)

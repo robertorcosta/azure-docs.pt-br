@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 09/24/2020
 ms.reviewer: mbullwin
 ms.custom: devx-track-python
-ms.openlocfilehash: f50628395526783face11fcb1438e2716135b640
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d22174b269ba9cea3b2c9cb9de2b5521df2786fa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584040"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704405"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application"></a>Configurar Azure Monitor para seu aplicativo Python
 
@@ -221,6 +221,15 @@ Para obter detalhes sobre como modificar a telemetria acompanhada antes de ser e
 
 ### <a name="metrics"></a>Métricas
 
+OpenCensus. stats dá suporte a quatro métodos de agregação, mas fornece suporte parcial para Azure Monitor:
+
+- **Contagem:** A contagem do número de pontos de medida. O valor é cumulativo, só pode aumentar e redefinir como 0 na reinicialização. 
+- **Soma:** Uma soma dos pontos de medida. O valor é cumulativo, só pode aumentar e redefinir como 0 na reinicialização. 
+- **Últimovalue:** Mantém o último valor gravado, descarta todo o resto.
+- **Distribuição:** Distribuição de histograma dos pontos de medida. Esse método **não é suportado pelo exportador do Azure**.
+
+### <a name="count-aggregation-example"></a>Exemplo de agregação de contagem
+
 1. Primeiro vamos gerar alguns dados métricos locais. Criaremos uma métrica simples para acompanhar o número de vezes que o usuário seleciona a tecla **Enter** .
 
     ```python
@@ -320,7 +329,7 @@ Para obter detalhes sobre como modificar a telemetria acompanhada antes de ser e
         main()
     ```
 
-1. O exportador envia dados de métrica para Azure Monitor em um intervalo fixo. O padrão é a cada 15 segundos. Estamos acompanhando uma única métrica, portanto, esses dados de métrica, com qualquer valor e carimbo de data/hora que ele contém, são enviados a cada intervalo. Você pode encontrar os dados em `customMetrics`.
+1. O exportador envia dados de métrica para Azure Monitor em um intervalo fixo. O padrão é a cada 15 segundos. Estamos acompanhando uma única métrica, portanto, esses dados de métrica, com qualquer valor e carimbo de data/hora que ele contém, são enviados a cada intervalo. O valor é cumulativo, só pode aumentar e redefinir como 0 na reinicialização. Você pode encontrar os dados em `customMetrics` , mas `customMetrics` as propriedades ValueCount, valueal, ValueMin, ValueMax e valueStdDev não são usadas com eficiência.
 
 #### <a name="performance-counters"></a>Contadores de desempenho
 

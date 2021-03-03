@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
-ms.openlocfilehash: b73fa9702a95897afbca53e2de70dcabc04a4665
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: abcd95a0c433b59df6e7a564e5db948ea2a9eaf5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605021"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717206"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para exibir blocos do designer no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para os blocos que estão disponíveis em modos de exibição personalizados.
@@ -36,7 +36,7 @@ Os blocos do Designer de Modos de Exibição disponíveis são descritos na tabe
 As próximas seções descrevem os tipos de bloco e suas propriedades em detalhes.
 
 > [!NOTE]
-> Blocos em exibições são baseados em [consultas de log](../log-query/log-query-overview.md) em seu espaço de trabalho log Analytics. Atualmente, eles não dão suporte a [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar dados de Application insights.
+> Blocos em exibições são baseados em [consultas de log](../logs/log-query-overview.md) em seu espaço de trabalho log Analytics. Atualmente, eles não dão suporte a [consultas entre recursos](../logs/cross-workspace-query.md) para recuperar dados de Application insights.
 
 ## <a name="number-tile"></a>Bloco Número
 O bloco **Número** exibe a contagem de registros de uma consulta de log e um rótulo.
@@ -46,7 +46,7 @@ O bloco **Número** exibe a contagem de registros de uma consulta de log e um r�
 | Configuração | Descrição |
 |:--- |:--- |
 | Name |O texto que é exibido na parte superior do bloco. |
-| Description |O texto que é exibido sob o nome do bloco. |
+| Descrição |O texto que é exibido sob o nome do bloco. |
 | **Tile** | |
 | Legenda |O texto que é exibido sob o valor. |
 | Consulta |A consulta que é executada. A contagem de registros que são retornados pela consulta é exibida. |
@@ -64,7 +64,7 @@ Este bloco exibe a contagem de registros de duas consultas de log diferentes e u
 | Configuração | Descrição |
 |:--- |:--- |
 | Name |O texto que é exibido na parte superior do bloco. |
-| Description |O texto que é exibido sob o nome do bloco. |
+| Descrição |O texto que é exibido sob o nome do bloco. |
 | **Primeiro Bloco** | |
 | Legenda |O texto que é exibido sob o valor. |
 | Consulta |A consulta que é executada. A contagem de registros que são retornados pela consulta é exibida. |
@@ -85,7 +85,7 @@ O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma 
 | Configuração | Descrição |
 |:--- |:--- |
 | Name |O texto que é exibido na parte superior do bloco. |
-| Description |O texto que é exibido sob o nome do bloco. |
+| Descrição |O texto que é exibido sob o nome do bloco. |
 | **Donut** | |
 | Consulta |A consulta que é executada para a rosca. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. |
 | **Donut** |**> Centro** |
@@ -109,7 +109,7 @@ Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de
 | Configuração | Descrição |
 |:--- |:--- |
 | Name |O texto que é exibido na parte superior do bloco. |
-| Description |O texto que é exibido sob o nome do bloco. |
+| Descrição |O texto que é exibido sob o nome do bloco. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | **Gráfico de linhas** |**> Eixo Y** |
@@ -130,7 +130,7 @@ Este bloco tem um gráfico de linhas que exibe várias séries de uma consulta d
 | Configuração | Descrição |
 |:--- |:--- |
 | Name |O texto que é exibido na parte superior do bloco. |
-| Description |O texto que é exibido sob o nome do bloco. |
+| Descrição |O texto que é exibido sob o nome do bloco. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
 | **Gráfico de linhas** |**> Balão** |
@@ -155,7 +155,7 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 | Configuração | Descrição |
 |:--- |:--- |
 | Name |O texto que é exibido na parte superior do bloco. |
-| Description |O texto que é exibido sob o nome do bloco. |
+| Descrição |O texto que é exibido sob o nome do bloco. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob o balão para a primeira série. |
 | Cor |A cor que é usada para as colunas na primeira série. |
@@ -173,5 +173,5 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para dar suporte às consultas em blocos.
+* Saiba mais sobre [consultas de log](../logs/log-query-overview.md) para dar suporte às consultas em blocos.
 * Adicione [partes de visualização](view-designer-parts.md) à sua exibição personalizada.

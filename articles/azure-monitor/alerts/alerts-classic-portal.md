@@ -1,24 +1,24 @@
 ---
 title: Criar e gerenciar alertas de métrica clássicos usando o Azure Monitor
-description: Saiba como usar o portal do Azure, a CLI ou o Powershell para criar, exibir e gerenciar regras de alerta de métrica clássicos.
+description: Saiba como usar portal do Azure, CLI ou PowerShell para criar, exibir e gerenciar regras de alerta de métricas clássicas.
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 09/18/2018
-ms.openlocfilehash: 015a84ab6f81875407f460c4a45423f3f5e22b7f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: 854867bb6f40bdd8f0fac28e69d936a4027760b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606856"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714367"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de métrica clássicos usando o Azure Monitor
 
 > [!WARNING]
-> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](../platform/alerts-overview.md). Os alertas clássicos são [desativados](../platform/monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas.
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](./alerts-overview.md). Os alertas clássicos são [desativados](./monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Azure governamental e o Azure China 21Vianet serão desativados em **29 de fevereiro de 2024**.
 >
 
-Os alertas de métrica clássicos no Azure Monitor fornecem uma maneira para notificação quando uma das suas métricas ultrapassarem um limite. Os alertas de métrica clássicos são uma funcionalidade mais antiga que permite alertas somente em métricas não dimensionais. Há uma funcionalidade mais recente, chamada alertas de métrica, que tem funcionalidade aprimorada sobre alertas de métrica clássicos. Você pode aprender mais sobre a nova funcionalidade de alertas de métrica na [visão geral de alertas de métrica](../platform/alerts-metric-overview.md). Neste artigo, descreveremos como criar, exibir e gerenciar regras de alertas de métrica clássicos por meio do portal do Azure, da CLI do Azure e do Powershell.
+Os alertas de métrica clássicos no Azure Monitor fornecem uma maneira para notificação quando uma das suas métricas ultrapassarem um limite. Os alertas de métrica clássicos são uma funcionalidade mais antiga que permite alertas somente em métricas não dimensionais. Há uma funcionalidade mais recente, chamada alertas de métrica, que tem funcionalidade aprimorada sobre alertas de métrica clássicos. Você pode aprender mais sobre a nova funcionalidade de alertas de métrica na [visão geral de alertas de métrica](./alerts-metric-overview.md). Neste artigo, descreveremos como criar, exibir e gerenciar regras de alerta de métricas clássicas por meio de portal do Azure, CLI do Azure e PowerShell.
 
 ## <a name="with-azure-portal"></a>Com o portal do Azure
 
@@ -134,6 +134,5 @@ Esta seção mostra como usar os comandos do PowerShell para criar, exibir e ger
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Criar um alerta de métrica clássico com um modelo do Resource Manager](../platform/alerts-enable-template.md).
-- [Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook](../platform/alerts-webhooks.md).
-
+- [Criar um alerta de métrica clássico com um modelo do Resource Manager](./alerts-enable-template.md).
+- [Fazer um alerta de métrica clássico notificar um sistema diferente do Azure usando um webhook](./alerts-webhooks.md).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/13/2020
-ms.openlocfilehash: fdd3886dda794ff9a91e2c2be6a3d810086d0ed2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9d93e3ec08ff16a1fcca0c914b9e817d4ca89d60
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605401"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707941"
 ---
 # <a name="azure-monitor-logs-connector-for-logic-apps-and-power-automate"></a>Conector de logs de Azure Monitor para aplicativos lógicos e automatização de energia
 Os [aplicativos lógicos do Azure](../../logic-apps/index.yml) e a [automatização de energia](https://flow.microsoft.com) permitem que você crie fluxos de trabalho automatizados usando centenas de ações para uma variedade de serviços. O conector de logs de Azure Monitor permite que você crie fluxos de trabalho que recuperam dados de um espaço de Log Analytics ou de um aplicativo Application Insights no Azure Monitor. Este artigo descreve as ações incluídas com o conector e fornece uma explicação para criar um fluxo de trabalho usando esses dados.
@@ -125,6 +125,6 @@ Quando o aplicativo lógico for concluído, verifique o email do destinatário q
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [consultas de log no Azure Monitor](../log-query/log-query-overview.md).
+- Saiba mais sobre [consultas de log no Azure Monitor](./log-query-overview.md).
 - Saiba mais sobre os [aplicativos lógicos](../../logic-apps/index.yml)
 - Saiba mais sobre a [automatização de energia](https://flow.microsoft.com).

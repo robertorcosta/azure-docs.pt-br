@@ -5,12 +5,12 @@ author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 31a034a7f52efd915b7a07e1abb953a14839892e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605183"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718056"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
 
@@ -22,7 +22,7 @@ Adoraríamos receber seus comentários; envie-os para <azurealertsfeedback@micro
 
 ## <a name="why-and-when-is-using-dynamic-condition-type-recommended"></a>Por que e quando é recomendado usar o tipo de condição dinâmica?
 
-1. **Alertas escalonáveis** – as regras de alerta de limite dinâmico podem criar limites personalizados para centenas de séries métricas de cada vez, ainda fornecendo a mesma facilidade de definir uma regra de alerta em uma única métrica. Eles oferecem a você menos alertas para criar e gerenciar. Você pode usar portal do Azure ou a API Azure Resource Manager para criá-los. A abordagem escalonável é especialmente útil ao lidar com dimensões métricas ou ao se aplicar a vários recursos, como a todos os recursos de assinatura.  [Saiba mais sobre como configurar Alertas de Métrica com Limites Dinâmicos usando modelos](../platform/alerts-metric-create-templates.md).
+1. **Alertas escalonáveis** – as regras de alerta de limite dinâmico podem criar limites personalizados para centenas de séries métricas de cada vez, ainda fornecendo a mesma facilidade de definir uma regra de alerta em uma única métrica. Eles oferecem a você menos alertas para criar e gerenciar. Você pode usar portal do Azure ou a API Azure Resource Manager para criá-los. A abordagem escalonável é especialmente útil ao lidar com dimensões métricas ou ao se aplicar a vários recursos, como a todos os recursos de assinatura.  [Saiba mais sobre como configurar Alertas de Métrica com Limites Dinâmicos usando modelos](./alerts-metric-create-templates.md).
 
 1. **Reconhecimento de padrão de métrica inteligente** – usando nossa tecnologia ml, podemos detectar automaticamente padrões de métricas e adaptar-se às alterações de métrica ao longo do tempo, o que pode incluir sazonalidade (por hora/dia/semana). Adaptar-se ao comportamento de métricas ao longo do tempo e o alerta com base em desvios de seu padrão alivia a carga de saber o limite "certo" para cada métrica. O algoritmo de ML usado em limites dinâmicos foi projetado para evitar ruído (baixa precisão) ou limites amplos (baixo recall) que não têm um padrão esperado.
 
@@ -75,7 +75,7 @@ Para disparar um alerta quando houver uma violação de um Limite Dinâmico em 2
 
 ## <a name="how-do-you-find-out-why-a-dynamic-thresholds-alert-was-triggered"></a>Como descobrir por que um alerta de limites dinâmicos foi disparado?
 
-Você pode explorar as instâncias de alerta disparadas no modo de exibição de alertas clicando no link no email ou na mensagem de texto ou no navegador para ver a exibição de alertas no portal do Azure. [Saiba mais sobre a exibição de alertas](../platform/alerts-overview.md#alerts-experience).
+Você pode explorar as instâncias de alerta disparadas no modo de exibição de alertas clicando no link no email ou na mensagem de texto ou no navegador para ver a exibição de alertas no portal do Azure. [Saiba mais sobre a exibição de alertas](./alerts-overview.md#alerts-experience).
 
 A exibição de alerta exibe:
 
@@ -188,4 +188,4 @@ Use as informações a seguir para interpretar o gráfico anterior.
 - **Ponto vermelho com um círculo preto** – mostra o primeiro valor de métrica fora do intervalo permitido. Esse é o valor que dispara um alerta de métrica e o coloca em um estado ativo.
 - **Pontos vermelhos**-indicam valores mediis adicionais fora do intervalo permitido. Eles não irão disparar alertas de métrica adicionais, mas o alerta permanece no modo ativo.
 - **Área vermelha** – mostra a hora em que o valor da métrica estava fora do intervalo permitido. O alerta permanece no estado ativo, desde que os valores medidos subsequentes estejam fora do intervalo permitido, mas nenhum alerta novo será acionado.
-- **Fim da área vermelha** – quando a linha azul está de volta dentro dos valores permitidos, a área vermelha é interrompida e a linha de valor medido fica azul. O status do alerta de métrica acionado no momento do ponto vermelho com contorno preto é definido como resolvido. 
+- **Fim da área vermelha** – quando a linha azul está de volta dentro dos valores permitidos, a área vermelha é interrompida e a linha de valor medido fica azul. O status do alerta de métrica acionado no momento do ponto vermelho com contorno preto é definido como resolvido.

@@ -8,16 +8,17 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5f7c2b0168c914c836aca7b551a9c22d4718c7b6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 06029590a2fbca66cd3a672af3f93d6a842ba0b2
+ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100419384"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "100651010"
 ---
 # <a name="telephony-concepts"></a>Conceitos de telefonia
 
 [!INCLUDE [Private Preview Notice](../../includes/private-preview-include.md)]
+[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
 As bibliotecas de clientes de Chamada dos Serviços de Comunicação do Azure podem ser usadas para adicionar telefonia e PSTN aos seus aplicativos. Esta página resume os principais conceitos e funcionalidades de telefonia. Confira a [biblioteca de chamada](../../quickstarts/voice-video-calling/calling-client-samples.md) para saber mais sobre as funcionalidades e as linguagens específicas da biblioteca de clientes.
 

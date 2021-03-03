@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: bccd1f001cca67a5be3d14c50e6a6db96cb6584c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7356b9bb814f8bca5465fe74d48409b9dbca6d3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605298"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731690"
 ---
 # <a name="azure-monitor-data-platform"></a>Plataforma de dados do Azure Monitor
 
@@ -28,7 +28,7 @@ O [Azure Monitor](overview.md) coleta e agrega dados de uma variedade de fontes 
 ## <a name="observability-data-in-azure-monitor"></a>Dados de observabilidade no Azure Monitor
 Métricas, logs e rastreamentos distribuídos são conhecidos como os três pilares da observabilidade. Esses são os diferentes tipos de dados que uma ferramenta de monitoramento precisa coletar e analisar para proporcionar uma observabilidade suficiente de um sistema monitorado. A observabilidade pode ser obtida correlacionando os dados de vários pilares e agregando-os em todo o conjunto de recursos que estão sendo monitorados. Como o Azure Monitor armazena dados de várias fontes juntas, os dados podem ser correlacionados e analisados usando um conjunto comum de ferramentas. Ele também correlaciona dados em várias assinaturas e locatários do Azure, além de hospedar dados para outros serviços.
 
-Os recursos do Azure geram um volume significativo de dados de monitoramento. O Azure Monitor consolida esses dados junto com os dados de monitoramento de outras fontes em uma plataforma de Métricas ou Logs. Cada uma delas é otimizada para cenários de monitoramento específicos e dá suporte a diferentes recursos no Azure Monitor. Recursos como análise de dados, visualizações ou alertas exigem a compreensão das diferenças para implementar o cenário necessário da maneira mais eficiente e econômica. Os insights do Azure Monitor como o [Application Insights](app/app-insights-overview.md) ou o [Azure Monitor para VMs](vm/vminsights-overview.md) têm ferramentas de análise que permitem que você se concentre no cenário de monitoramento específico sem precisar entender as diferenças entre os dois tipos de dados. 
+Os recursos do Azure geram um volume significativo de dados de monitoramento. O Azure Monitor consolida esses dados junto com os dados de monitoramento de outras fontes em uma plataforma de Métricas ou Logs. Cada uma delas é otimizada para cenários de monitoramento específicos e dá suporte a diferentes recursos no Azure Monitor. Recursos como análise de dados, visualizações ou alertas exigem a compreensão das diferenças para implementar o cenário necessário da maneira mais eficiente e econômica. As informações em Azure Monitor como o [Application insights](app/app-insights-overview.md) ou o [Revisions de VM](vm/vminsights-overview.md) têm ferramentas de análise que permitem que você se concentre no cenário de monitoramento específico sem ter que entender as diferenças entre os dois tipos de dados. 
 
 
 ### <a name="metrics"></a>Métricas

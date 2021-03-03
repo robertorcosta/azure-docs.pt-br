@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 9a38a14033fe295c36cf8ac17239b0b8e53f75dc
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 093e069fa7a3eab06c61f796421a3253d9b92cb1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831171"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727491"
 ---
 # <a name="continuous-patient-monitoring-architecture"></a>Arquitetura do monitoramento contínuo do paciente
 
@@ -45,7 +45,7 @@ Use modelos de machine learning com os dados do FHIR para gerar insights e dar s
 
 ### <a name="provider-dashboard"></a>Dashboard do provedor
 
-Use os dados da API do Azure para FHIR para criar um dashboard de informações de pacientes ou integrá-lo diretamente a um registro médico eletrônico usado por equipes de cuidados. As equipes de cuidados podem usar o dashboard para dar assistência aos pacientes e identificar os sinais antecipados de aviso de deterioração. Para saber mais, confira o tutorial [Criar um dashboard de provedor do Power BI](howto-health-data-triage.md).
+Use os dados da API do Azure para FHIR para criar um dashboard de informações de pacientes ou integrá-lo diretamente a um registro médico eletrônico usado por equipes de cuidados. As equipes de cuidados podem usar o dashboard para dar assistência aos pacientes e identificar os sinais antecipados de aviso de deterioração. Para saber mais, confira o tutorial [Criar um dashboard de provedor do Power BI](tutorial-health-data-triage.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

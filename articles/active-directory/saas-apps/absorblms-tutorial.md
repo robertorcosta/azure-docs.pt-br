@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 5e962592779494e1d60d03e9e8a167d53ac8bda2
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 268943463002ddd1dbdbf67df9587758f81f537f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364068"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646513"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
 
@@ -219,8 +219,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em Testar este aplicativo no portal do Azure e você deverá ser conectado automaticamente ao Absorb LMS para o qual o SSO foi configurado.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Absorb LMS em Meus Aplicativos, você deverá ser conectado automaticamente ao Absorb LMS no qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Absorb LMS em Meus Aplicativos, você deverá ser conectado automaticamente ao Absorb LMS no qual você configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Absorb LMS, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o Absorb LMS, você poderá impor um controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

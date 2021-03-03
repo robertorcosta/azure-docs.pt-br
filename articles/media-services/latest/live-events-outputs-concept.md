@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0b223fcedfdead991f7ce374f7f7814749388f90
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: fac823cc43ed4606db3e7f86bc5c1e36ee50fadb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955946"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730296"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos e saídas ao vivo nos Serviços de Mídia
 
@@ -53,7 +53,7 @@ Você pode enviar a contribuição em resoluções de até 4K e em uma taxa de q
 > Usar um método de passagem é a maneira mais econômica de realizar a transmissão ao vivo quando você está fazendo vários eventos por um longo período de tempo e já investiu em codificadores locais. Consulte os detalhes de [preços](https://azure.microsoft.com/pricing/details/media-services/) .
 >
 
-Veja um exemplo de código do .NET no [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+Consulte o exemplo de código .NET para criar um evento de passagem ao vivo em [evento ao vivo com DVR](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/4a436376e77bad57d6cbfdc02d7df6c615334574/Live/LiveEventWithDVR/Program.cs#L214).
 
 ### <a name="live-encoding"></a>Codificação ativa  
 
@@ -96,7 +96,7 @@ Para obter mais informações, consulte [Live Event States e Billing](live-event
 
 * Restrições de IP sobre a ingestão e versão prévia. Você pode definir os endereços IP que têm permissão para ingerir um vídeo para esse evento ao vivo. Os endereços IP permitidos podem ser especificados como um endereço IP único (por exemplo, '10.0.0.1'), um intervalo IP usando um endereço IP e uma máscara de sub-rede CIDR (por exemplo, '10.0.0.1/22) ou um intervalo IP usando um endereço IP e uma máscara de sub-rede com notação decimal com ponto (por exemplo, '10.0.0.1(255.255.252.0)').
 <br/><br/>
-Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos seguintes formatos: endereço IpV4 com quatro números ou intervalo de endereços CIDR.
+Se nenhum endereço IP for especificado e não houver definição de regra, nenhum endereço IP será permitido. Para permitir qualquer endereço IP, crie uma regra e defina 0.0.0.0/0.<br/>Os endereços IP devem estar em um dos formatos a seguir: endereço IPv4 com quatro números e intervalo de endereços CIDR.
 <br/><br/>
 Se você quiser habilitar determinados IPs em seus próprios firewalls ou se quiser restringir as entradas aos seus eventos ao vivo para os endereços IP do Azure, baixe um arquivo JSON dos [intervalos de endereços IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Para obter detalhes sobre esse arquivo, selecione a seção **detalhes** na página.
 

@@ -6,25 +6,25 @@ ms.author: harelbr
 ms.topic: troubleshooting
 ms.date: 01/21/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1908232184218316a1a887f17f2fc8104529a0e7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79cc7e1e4b574533fcad4592134109c52897e9ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605147"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737249"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica do Azure Monitor 
 
 Este artigo aborda problemas comuns em Azure Monitor [alertas de métrica](alerts-metric-overview.md) e como solucioná-los.
 
-Os alertas do Azure Monitor notificam você proativamente quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. Para obter mais informações sobre alertas, consulte [visão geral de alertas no Microsoft Azure](../platform/alerts-overview.md).
+Os alertas do Azure Monitor notificam você proativamente quando condições importantes são encontradas nos dados de monitoramento. Eles permitem que você identifique e resolva problemas antes que os usuários do seu sistema os percebam. Para obter mais informações sobre alertas, consulte [visão geral de alertas no Microsoft Azure](./alerts-overview.md).
 
 ## <a name="metric-alert-should-have-fired-but-didnt"></a>O alerta de métrica deve ter sido acionado, mas não 
 
 Se você acredita que um alerta de métrica deve ter sido acionado, mas não foi acionado e não foi encontrado no portal do Azure, tente as seguintes etapas:
 
 1. **Configuração** -examine a configuração da regra de alerta de métrica para certificar-se de que ela está configurada corretamente:
-    - Verifique se o **tipo de agregação** e a **granularidade de agregação (período)** estão configurados como esperado. O **tipo de agregação** determina como os valores de métrica são agregados (Saiba mais [aqui](../platform/metrics-aggregation-explained.md#aggregation-types)), e a **granularidade de agregação (período)** controla o quanto a avaliação agrega os valores de métrica cada vez que a regra de alerta é executada.
+    - Verifique se o **tipo de agregação** e a **granularidade de agregação (período)** estão configurados como esperado. O **tipo de agregação** determina como os valores de métrica são agregados (Saiba mais [aqui](../essentials/metrics-aggregation-explained.md#aggregation-types)), e a **granularidade de agregação (período)** controla o quanto a avaliação agrega os valores de métrica cada vez que a regra de alerta é executada.
     -  Verifique se o **valor** ou a **Sensibilidade** do limite estão configurados conforme o esperado.
     - Para uma regra de alerta que usa limites dinâmicos, verifique se as configurações avançadas estão definidas, uma vez que o **número de violações** pode filtrar alertas e **ignorar dados antes que** o possa afetar a forma como os limites são calculados.
 
@@ -69,10 +69,10 @@ Se você acredita que seu alerta de métrica não deveria ter sido acionado, mas
 ## <a name="cant-find-the-metric-to-alert-on---virtual-machines-guest-metrics"></a>Não é possível encontrar a métrica para alertar sobre as métricas de convidado de máquinas virtuais
 
 Para alertar sobre as métricas do sistema operacional convidado de máquinas virtuais (por exemplo: memória, espaço em disco), verifique se você instalou o agente necessário para coletar esses dados para Azure Monitor métricas:
-- [Para VMs do Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Para VMs do Linux](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Para VMs do Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md)
+- [Para VMs do Linux](../essentials/collect-custom-metrics-linux-telegraf.md)
 
-Para obter mais informações sobre como coletar dados do sistema operacional convidado de uma máquina virtual, consulte [aqui](../insights/monitor-vm-azure.md#guest-operating-system).
+Para obter mais informações sobre como coletar dados do sistema operacional convidado de uma máquina virtual, consulte [aqui](../vm/monitor-vm-azure.md#guest-operating-system).
 
 > [!NOTE] 
 > Se você configurou as métricas de convidado a serem enviadas para um espaço de trabalho Log Analytics, as métricas serão exibidas no recurso de espaço de trabalho Log Analytics e começarão a mostrar dados **somente** após a criação de uma regra de alerta que as monitore. Para isso, siga as etapas para [configurar um alerta de métrica para os logs](./alerts-metric-logs.md#configuring-metric-alert-for-logs).
@@ -84,8 +84,8 @@ Para obter mais informações sobre como coletar dados do sistema operacional co
 
 Se você quiser criar um alerta em uma métrica específica, mas não puder vê-la ao criar uma regra de alerta, verifique o seguinte:
 - Se você não conseguir ver nenhuma métrica para o recurso, [verifique se o tipo de recurso é compatível com alertas de métrica](./alerts-metric-near-real-time.md).
-- Se você conseguir ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [verifique se essa métrica está disponível](../platform/metrics-supported.md)e, em caso afirmativo, veja a descrição da métrica para verificar se ela está disponível apenas em versões ou edições específicas do recurso.
-- Se a métrica não estiver disponível para o recurso, ela poderá estar disponível nos logs de recursos e poderá ser monitorada usando alertas de log. Veja aqui para obter mais informações sobre como [coletar e analisar logs de recursos de um recurso do Azure](../learn/tutorial-resource-logs.md).
+- Se você conseguir ver algumas métricas para o recurso, mas não conseguir encontrar uma métrica específica, [verifique se essa métrica está disponível](../essentials/metrics-supported.md)e, em caso afirmativo, veja a descrição da métrica para verificar se ela está disponível apenas em versões ou edições específicas do recurso.
+- Se a métrica não estiver disponível para o recurso, ela poderá estar disponível nos logs de recursos e poderá ser monitorada usando alertas de log. Veja aqui para obter mais informações sobre como [coletar e analisar logs de recursos de um recurso do Azure](../essentials/tutorial-resource-logs.md).
 
 ## <a name="cant-find-the-metric-dimension-to-alert-on"></a>Não é possível localizar a dimensão métrica para alertar
 
@@ -211,7 +211,7 @@ Verifique se você está usando os comandos da CLI corretos para alertas de mét
 
 - Se você estiver recebendo um `Metric not found` erro:
 
-   - Para uma métrica de plataforma: Verifique se você está usando o nome da **métrica** na [página Azure monitor métricas com suporte](../platform/metrics-supported.md)e não o **nome de exibição da métrica**
+   - Para uma métrica de plataforma: Verifique se você está usando o nome da **métrica** na [página Azure monitor métricas com suporte](../essentials/metrics-supported.md)e não o **nome de exibição da métrica**
 
    - Para uma métrica personalizada: Verifique se a métrica já está sendo emitida (não é possível criar uma regra de alerta em uma métrica personalizada que ainda não exista) e que você está fornecendo o namespace da métrica personalizada (consulte um exemplo de modelo do Resource Manager [aqui](./alerts-metric-create-templates.md#template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric))
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 26c99beb95d60b476fff255321d85c0db8aa7363
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678962"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692191"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurar pontos de extremidade privados para o repositório analítico do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -22,7 +22,7 @@ Neste artigo, você aprenderá a configurar pontos de extremidade privados geren
 
 ### <a name="set-up-an-azure-synapse-analytics-workspace-with-a-managed-virtual-network"></a>Configurar um espaço de trabalho do Azure Synapse Analytics com uma rede virtual gerenciada
 
-[Crie um espaço de trabalho no Azure Synapse Analytics com o data-vazamento habilitado.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md). Com a [proteção vazamento de dados](../synapse-analytics/security/workspace-data-exfiltration-protection.md), você pode garantir que os usuários mal-intencionados não possam copiar ou transferir dados dos recursos do Azure para locais fora do escopo da sua organização.
+[Crie um espaço de trabalho no Azure Synapse Analytics com o data-vazamento habilitado.](../synapse-analytics/security/how-to-create-a-workspace-with-data-exfiltration-protection.md) Com a [proteção vazamento de dados](../synapse-analytics/security/workspace-data-exfiltration-protection.md), você pode garantir que os usuários mal-intencionados não possam copiar ou transferir dados dos recursos do Azure para locais fora do escopo da sua organização.
 
 As seguintes restrições de acesso são aplicáveis quando a proteção de dados-vazamento está ativada para um espaço de trabalho do Azure Synapse Analytics:
 

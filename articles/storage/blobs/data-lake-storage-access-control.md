@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: c1e2b6abe378df1450967ee0e1df6021ca0d5744
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650364"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701800"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2
 
@@ -206,7 +206,7 @@ Para um novo contêiner Data Lake Storage Gen2, a máscara para a ACL de acesso 
 |--|--|--|
 |Usuário proprietário|`rwx`|`r-w`|
 |Grupo proprietário|`r-x`|`r--`|
-|Outros|`---`|`---`|
+|Outro|`---`|`---`|
 
 Arquivos não recebem o bit X uma vez que é irrelevante para arquivos em um sistema de armazenamento somente. 
 
@@ -285,7 +285,7 @@ As atribuições de função do Azure herdam. As atribuições fluem de assinatu
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Azure Data Lake Storage Gen2 dá suporte à herança de ACLs?
 
-As ACLs padrão podem ser usadas para definir ACLs para novos subdiretórios filho e arquivos criados no diretório pai. Para atualizar ACLs para itens filho existentes, você precisará adicionar, atualizar ou remover ACLs recursivamente para a hierarquia de diretório desejada. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](recursive-access-control-lists.md). 
+As ACLs padrão podem ser usadas para definir ACLs para novos subdiretórios filho e arquivos criados no diretório pai. Para atualizar ACLs para itens filho existentes, você precisará adicionar, atualizar ou remover ACLs recursivamente para a hierarquia de diretório desejada. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](#set-access-control-lists). 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente um diretório e seu conteúdo?
 

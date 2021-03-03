@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/23/2020
 ms.author: vinigam
-ms.openlocfilehash: 61cb37e727808566db1bc9b1161960926e03cb91
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edf671c8005fa67f6161f383c503ca278dba3105
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100570904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702157"
 ---
 # <a name="create-a-monitor-in-connection-monitor-by-using-the-azure-portal"></a>Criar um monitor no monitor de conexão usando o portal do Azure
 
@@ -121,7 +121,7 @@ No portal do Azure, para criar um grupo de teste em um monitor de conexão, espe
 
    * Para escolher os agentes locais, selecione a guia **não-pontos de extremidade do Azure** . Por padrão, os agentes são agrupados em espaços de trabalho por região. Todos esses espaços de trabalho têm o Monitor de Desempenho de Rede configurado. 
    
-       Se você precisar adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [Monitoring Solutions in Azure monitor](../azure-monitor/insights/solutions.md). 
+       Se você precisar adicionar Monitor de Desempenho de Rede ao seu espaço de trabalho, obtenha-o no [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/solarwinds.solarwinds-orion-network-performance-monitor?tab=Overview). Para obter informações sobre como adicionar Monitor de Desempenho de Rede, consulte [Monitoring Solutions in Azure monitor](../azure-monitor/insights/solutions.md). 
    
        Em **criar monitor de conexão**, na guia **noções básicas** , a região padrão é selecionada. Se você alterar a região, poderá escolher agentes de espaços de trabalho na nova região. Você pode selecionar um ou mais agentes ou sub-redes. Na exibição de **sub-rede** , você pode selecionar IPS específicos para monitoramento. Se você adicionar várias sub-redes, uma rede local personalizada chamada **OnPremises_Network_1** será criada. Você também pode alterar o seletor **Group by** para agrupar por agentes.
 

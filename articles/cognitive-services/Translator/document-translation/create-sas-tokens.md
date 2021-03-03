@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 1425be4fc4e462185f9fee573dc87b04a68bfea4
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 104329928c507c288537704fbbef4e35b65cb445
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650738"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739429"
 ---
 # <a name="create-sas-tokens-for-document-translation"></a>Criar tokens SAS para tradução de documentos
 
@@ -21,8 +21,8 @@ Neste artigo, você aprenderá a criar tokens de SAS (assinatura de acesso compa
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Você precisará de um aplicativo [**Gerenciador de armazenamento do Azure**](/azure/vs-azure-tools-storage-manage-with-storage-explorer) instalado em seu ambiente de desenvolvimento do Windows, MacOS ou Linux. Gerenciador de Armazenamento do Azure é uma ferramenta gratuita que permite que você gerencie facilmente seus recursos de armazenamento em nuvem do Azure.
-* Depois que o aplicativo Gerenciador de Armazenamento do Azure for instalado, [Conecte-o à conta de armazenamento](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#connect-to-a-storage-account-or-service) que você está usando para a tradução de documentos.
+* Você precisará de um aplicativo [**Gerenciador de armazenamento do Azure**](../../../vs-azure-tools-storage-manage-with-storage-explorer.md) instalado em seu ambiente de desenvolvimento do Windows, MacOS ou Linux. Gerenciador de Armazenamento do Azure é uma ferramenta gratuita que permite que você gerencie facilmente seus recursos de armazenamento em nuvem do Azure.
+* Depois que o aplicativo Gerenciador de Armazenamento do Azure for instalado, [Conecte-o à conta de armazenamento](../../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#connect-to-a-storage-account-or-service) que você está usando para a tradução de documentos.
 
 ### <a name="create-your-tokens"></a>Criar seus tokens
 
@@ -65,7 +65,7 @@ Neste artigo, você aprenderá a criar tokens de SAS (assinatura de acesso compa
 ## <a name="create-sas-tokens-for-blobs-in-the-azure-portal"></a>Criar tokens SAS para BLOBs no portal do Azure
 
 > [!NOTE]
-> No momento, não há suporte para a criação de tokens SAS para contêineres diretamente no portal do Azure. No entanto, você pode criar um token SAS com [**Gerenciador de armazenamento do Azure**](#create-sas-tokens-with-azure-storage-explorer) ou concluir a tarefa [programaticamente](/azure/storage/blobs/sas-service-create).
+> No momento, não há suporte para a criação de tokens SAS para contêineres diretamente no portal do Azure. No entanto, você pode criar um token SAS com [**Gerenciador de armazenamento do Azure**](#create-sas-tokens-with-azure-storage-explorer) ou concluir a tarefa [programaticamente](../../../storage/blobs/sas-service-create.md).
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="prerequisites"></a>Pré-requisitos
@@ -104,7 +104,7 @@ Vá para a [portal do Azure](https://ms.portal.azure.com/#home) e navegue da seg
 
 ## <a name="learn-more"></a>Saiba mais
 
-* [Criar tokens SAS para BLOBs ou contêineres programaticamente](/azure/storage/blobs/sas-service-create)
+* [Criar tokens SAS para BLOBs ou contêineres programaticamente](../../../storage/blobs/sas-service-create.md)
 * [Permissões para um diretório, contêiner ou BLOB](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob)
 
 ## <a name="next-steps"></a>Próximas etapas

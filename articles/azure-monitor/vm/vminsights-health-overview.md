@@ -1,26 +1,26 @@
 ---
-title: Integridade de convidado do Azure Monitor para VMs (versão prévia)
-description: Visão geral do recurso de integridade no Azure Monitor para VMs, incluindo como você pode exibir a integridade de suas máquinas virtuais e receber alertas quando uma máquina virtual se tornar não íntegra.
+title: Integridade de convidado do insights de VM (versão prévia)
+description: Visão geral do recurso de integridade no insights da VM, incluindo como você pode exibir a integridade de suas máquinas virtuais e receber alertas quando uma máquina virtual se tornar não íntegra.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 96bed9f3b04e54e2e9a5234d78f9a2660126742e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605220"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707448"
 ---
-# <a name="azure-monitor-for-vms-guest-health-preview"></a>Integridade de convidado do Azure Monitor para VMs (versão prévia)
-Azure Monitor para VMs integridade de convidado permite que você exiba a integridade das máquinas virtuais com base em um conjunto de medidas de desempenho que são amostradas em intervalos regulares do sistema operacional convidado. Você pode verificar rapidamente a integridade de todas as máquinas virtuais em uma assinatura ou grupo de recursos, fazer uma busca detalhada sobre a integridade detalhada de uma determinada máquina virtual ou ser notificado proativamente quando uma máquina virtual se tornar não íntegra. 
+# <a name="vm-insights-guest-health-preview"></a>Integridade de convidado do insights de VM (versão prévia)
+A integridade de convidado do insights de VM permite que você exiba a integridade das máquinas virtuais com base em um conjunto de medidas de desempenho que são amostradas em intervalos regulares do sistema operacional convidado. Você pode verificar rapidamente a integridade de todas as máquinas virtuais em uma assinatura ou grupo de recursos, fazer uma busca detalhada sobre a integridade detalhada de uma determinada máquina virtual ou ser notificado proativamente quando uma máquina virtual se tornar não íntegra. 
 
 ## <a name="enable-virtual-machine-health"></a>Habilitar integridade da máquina virtual
-Consulte [habilitar Azure monitor para VMs integridade de convidado (versão prévia)](vminsights-health-enable.md) para obter detalhes sobre como habilitar o recurso de integridade de convidado e integrar máquinas virtuais.
+Consulte [habilitar integridade do convidado do virtual insights (versão prévia)](vminsights-health-enable.md) para obter detalhes sobre como habilitar o recurso de integridade do convidado e integrar máquinas virtuais.
 
 ## <a name="pricing"></a>Preços
-Não há custo direto para o recurso de integridade de convidado, mas há um custo de ingestão e armazenamento de dados de estado de integridade no espaço de trabalho Log Analytics. Todos os dados são armazenados na tabela *HealthStateChangeEvent* . Consulte [gerenciar o uso e os custos com os logs de Azure monitor](../platform/manage-cost-storage.md) para obter detalhes sobre os preços e os custos.
+Não há custo direto para o recurso de integridade de convidado, mas há um custo de ingestão e armazenamento de dados de estado de integridade no espaço de trabalho Log Analytics. Todos os dados são armazenados na tabela *HealthStateChangeEvent* . Consulte [gerenciar o uso e os custos com os logs de Azure monitor](../logs/manage-cost-storage.md) para obter detalhes sobre os preços e os custos.
 
 ## <a name="view-virtual-machine-health"></a>Exibir integridade da máquina virtual
 A coluna de **integridade da VM convidada** **na página Introdução** fornece uma exibição rápida da integridade de cada máquina virtual em uma determinada assinatura ou grupo de recursos. A integridade atual de cada máquina virtual é exibida enquanto os ícones de cada grupo mostram o número de máquinas virtuais atualmente em cada estado nesse grupo.
@@ -35,7 +35,7 @@ Clique no status de integridade de uma máquina virtual para exibir o status det
 
 A tabela a seguir lista os monitores de unidade e agregação disponíveis atualmente para cada máquina virtual. 
 
-| Monitor | Tipo | Description |
+| Monitoramento | Tipo | Descrição |
 |:---|:---|:---|
 | Utilização da CPU | Unidade | Percentual de utilização do processador. |
 | Sistemas de arquivos | Agregado | Agregar integridade de todos os sistemas de arquivos na VM do Linux. |
@@ -53,7 +53,7 @@ Cada monitor tem uma janela lookback e analisa quaisquer exemplos coletados ness
 
 Os monitores têm cada um com os Estados de integridade em potencial na tabela a seguir e estarão em um e somente um em um determinado momento. Quando um monitor é inicializado, ele é iniciado em um estado íntegro.
 
-| Estado de Integridade | Description |
+| Estado de Integridade | Descrição |
 |:---|:---|
 | Íntegros  | O monitor não excede o limite crítico ou de aviso no momento. |
 | Aviso  | O monitor excedeu o limite de aviso (se definido). |
@@ -66,7 +66,7 @@ Os monitores têm cada um com os Estados de integridade em potencial na tabela a
 
 Há dois tipos de monitores, conforme mostrado na tabela a seguir.
 
-| Monitor | Description |
+| Monitoramento | Descrição |
 |:---|:---|
 | Monitor de unidade | Mede alguns aspectos de um recurso ou aplicativo. Talvez esteja verificando um contador de desempenho para determinar o desempenho do recurso ou sua disponibilidade. |
 | Monitor agregado | Agrupa vários monitores para fornecer um único estado de integridade agregado. Um monitor agregado pode conter um ou mais monitores de unidade e outros monitores agregados. |
@@ -95,7 +95,7 @@ A **visão geral** fornece uma descrição do monitor, a última vez que ele foi
 [![Histórico de detalhes do monitor](media/vminsights-health-overview/monitor-details-history.png)](media/vminsights-health-overview/monitor-details-history.png#lightbox)
 
 ### <a name="configuration"></a>Configuração
-Exiba e modifique a configuração do monitor para a VM selecionada. Consulte [Configurar o monitoramento em Azure monitor para VMs integridade de convidado (versão prévia)](vminsights-health-enable.md) para obter detalhes.
+Exiba e modifique a configuração do monitor para a VM selecionada. Consulte [Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)](vminsights-health-enable.md) para obter detalhes.
 
 [![Configuração de detalhes do monitor](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 
@@ -104,6 +104,6 @@ Exiba e modifique a configuração do monitor para a VM selecionada. Consulte [C
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilite a integridade do convidado em agentes de Azure Monitor para VMs e integrados.](vminsights-health-enable.md)
+- [Habilite a integridade do convidado nos insights de VM e agentes integrados.](vminsights-health-enable.md)
 - [Configure monitores usando o portal do Azure.](vminsights-health-configure.md)
 - [Configure monitores usando regras de coleta de dados.](vminsights-health-configure-dcr.md)

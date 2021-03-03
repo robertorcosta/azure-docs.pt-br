@@ -3,12 +3,12 @@ title: Suporte a marcas para recursos
 description: Mostra quais tipos de recursos do Azure suportam tags. Fornece detalhes para todos os serviços do Azure.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 73f58dbda0e7c073cf4a8d2e846132a102192e93
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: b1f9e61b409c395a13cc6a18d21d17530f38ac7e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100635907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722884"
 ---
 # <a name="tag-support-for-azure-resources"></a>Suporte a marcas para recursos do Azure
 Este artigo descreve se um tipo de recurso dá suporte a [marcas](tag-resources.md). A coluna rotulada **dá suporte a marcas** indica se o tipo de recurso tem uma propriedade para a marca. A coluna rotulada como **marca no relatório de custo** indica se esse tipo de recurso passa a marca para o relatório de custo. Você pode exibir os custos por marcas na [análise de custo de gerenciamento de custos](../../cost-management-billing/costs/group-filter.md) e na [fatura de cobrança do Azure e nos dados de uso diário](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md).
@@ -2265,6 +2265,7 @@ Pule para um namespace de provedor de recursos:
 > | managedInstances/chaves | Não | Não |
 > | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | Não | Não |
 > | managedInstances / vulnerabilityAssessments | Não | Não |
+> | longtermRetentionManagedInstance/longtermRetentionDatabase/longtermRetentionBackup | Não | Não |
 > | servers | Sim | Sim |
 > | servers/administrators | Não | Não |
 > | servidores/communicationLinks | Não | Não |
@@ -2275,6 +2276,7 @@ Pule para um namespace de provedor de recursos:
 > | servidores/restorableDroppedDatabases | Não | Não |
 > | servers/serviceobjectives | Não | Não |
 > | servidores/tdeCertificates | Não | Não |
+> | longtermRetentionServer/longtermRetentionDatabase/longtermRetentionBackup | Não | Não |
 > | virtualClusters | Não | Não |
 
 <a id="sqlnote"></a>

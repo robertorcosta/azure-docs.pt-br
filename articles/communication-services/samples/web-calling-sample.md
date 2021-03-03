@@ -9,22 +9,20 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fbd5d3c4489d124014e0d956359f64a8ec9c568a
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99592782"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101658090"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introdução ao exemplo de chamada da Web
 
-O exemplo de chamada da Web é um aplicativo da Web que serve como uma explicação passo a passo dos vários recursos fornecidos pela biblioteca cliente de chamada da Web dos Serviços de Comunicação. 
+O exemplo de chamada da Web é um aplicativo da Web que serve como uma explicação passo a passo dos vários recursos fornecidos pela biblioteca cliente de chamada da Web dos Serviços de Comunicação.
 
 Este exemplo foi criado para desenvolvedores e facilita o início do uso dos Serviços de Comunicação. Sua interface do usuário é dividida em várias seções, cada uma apresentando um botão "mostrar código" que permite copiar o código diretamente do navegador para seu próprio aplicativo de Serviços de Comunicação.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Introdução ao exemplo de chamada da Web
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
 > [Este exemplo está disponível em Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).
@@ -36,7 +34,7 @@ Quando o [exemplo de chamada da Web](https://github.com/Azure-Samples/communicat
 
 :::image type="content" source="./media/web-calling-tutorial-page-2.png" alt-text="Tutorial de chamada da Web 2" lightbox="./media/web-calling-tutorial-page-2.png":::
 
-## <a name="user-provisioning-and-sdk-initialization"></a>Provisionamento do usuário e inicialização de SDK 
+## <a name="user-provisioning-and-sdk-initialization"></a>Provisionamento do usuário e inicialização de SDK
 
 Clique em "Provisionamento de usuário e inicializar SDK" para inicializar o SDK usando um token provisionado pelo serviço de provisionamento de token de back-end. Este serviço de back-end está em `/project/webpack.config.js`.
 
@@ -52,7 +50,7 @@ Agora você está pronto para começar a colocar chamadas usando seu recurso de 
 
 O SDK de chamada Web dos Serviços de Comunicação permite chamada **1:1**, **1: N** e **grupo**.
 
-Para chamadas de saída 1:1 ou 1:N, você pode especificar várias identidades de usuário de Serviços de Comunicação para chamar usando valores separados por vírgulas. Você também pode especificar números de telefone tradicionais (PSTN) para chamar usando valores separados por vírgulas. 
+Para chamadas de saída 1:1 ou 1:N, você pode especificar várias identidades de usuário de Serviços de Comunicação para chamar usando valores separados por vírgulas. Você também pode especificar números de telefone tradicionais (PSTN) para chamar usando valores separados por vírgulas.
 
 Ao chamar números de telefone PSTN, especifique a ID de chamador alternativa. Clique no botão "Fazer chamada" para fazer uma chamada de saída:
 
@@ -80,7 +78,7 @@ Este exemplo também fornece snippets de código para os seguintes recursos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/)
 
 Para obter mais informações, consulte os seguintes artigos:

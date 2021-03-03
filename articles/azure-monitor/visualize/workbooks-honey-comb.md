@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/18/2020
 ms.author: lagayhar
-ms.openlocfilehash: 0c657d84144ee7bd69a6de1d5d2e1e769dc59f4d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c91912f711b912c54c1673f2f92e998b4d9ea9db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604997"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736926"
 ---
 # <a name="honey-comb-visualizations"></a>Visualizações do Honey Comb
 
@@ -95,4 +95,4 @@ Os autores do Honey Comb podem especificar qual conteúdo vai para as diferentes
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba como criar um [renderizador de barra de composição em pastas de trabalho](workbooks-composite-bar.md).
-- Saiba como [importar Azure monitor dados de log](../platform/powerbi.md)para o Power bi.
+- Saiba como [importar Azure monitor dados de log](./powerbi.md)para o Power bi.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2019
 ms.author: TomSh
-ms.openlocfilehash: 56965310c818f8d9089ab244641bdc562428a337
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f1e56c38353b43faf600fdd8e6405eced7f1b8a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580464"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720555"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 ## <a name="overview"></a>Visão geral
@@ -53,7 +53,7 @@ Os recursos a seguir são recursos que você pode examinar para fornecer a garan
 | [Treinamento de segurança obrigatório, verificações em segundo plano](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controlar o local dos dados](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located) |  [Hub de Controles Comuns](https://www.microsoft.com/trustcenter/Common-Controls-Hub) |[Como a Microsoft gerencia o local de dados nos serviços do Azure](https://azuredatacentermap.azurewebsites.net/)|
 | [Testes de penetração](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [Detecção de intrusão, DDoS](https://www.microsoft.com/trustcenter/Security/ThreatManagement), [Auditorias e registro em log](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging) | [Fornecer acesso a dados em seus próprios termos](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Lista de verificação de inspeção dos Serviços de Nuvem ](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist) |[Quem na Microsoft pode acessar seus dados e em quais termos](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Centro de dados de última geração](https://www.microsoft.com/cloud-platform/global-datacenters), a segurança física, [rede segura](network-overview.md) | [Respondendo às autoridades competentes](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformidade por serviço, local e setor](https://www.microsoft.com/trustcenter/Compliance/default.aspx) |[Como a Microsoft protege os dados do cliente nos serviços do Azure](https://www.microsoft.com/trustcenter/Transparency/default.aspx)|
-|  [Resposta ao incidente de segurança](https://aka.ms/SecurityResponsepaper), [Responsabilidade compartilhada](./shared-responsibility.md) |[Padrões de privacidade rigorosos](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Revisar a certificação para serviços do Azure, Hub de transparência](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
+|  [Resposta ao incidente de segurança](/samples/browse/?redirectedfrom=TechNet-Gallery), [Responsabilidade compartilhada](./shared-responsibility.md) |[Padrões de privacidade rigorosos](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Revisar a certificação para serviços do Azure, Hub de transparência](https://www.microsoft.com/trustcenter/Compliance/default.aspx)|
 
 ### <a name="features-to-secure-data-and-application"></a>Recursos para proteger dados e aplicativos
 Dependendo do modelo de serviço de nuvem, a responsabilidade de quem gerencia a segurança do aplicativo ou serviço varia. Há recursos disponíveis na Plataforma Azure para ajudar você a cumprir essas responsabilidades por meio de recursos internos, e soluções de parceiros que podem ser implantadas em uma assinatura do Azure.

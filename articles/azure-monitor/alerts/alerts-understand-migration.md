@@ -2,43 +2,43 @@
 title: Entender a migração para alertas de Azure Monitor
 description: Entenda como funciona a migração de alertas e solucione problemas.
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 02/14/2021
 ms.author: yalavi
 author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 0c4c36c61b73e5c5625d02ae581d186e7dc2c9de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fdac8015cf87ffa0a25a8558668329a8cd82327f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605134"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737181"
 ---
 # <a name="understand-migration-options-to-newer-alerts"></a>Entender as opções de migração para alertas mais recentes
 
-Os alertas clássicos são [desativados](../platform/monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. Uma nova data será anunciada em breve para a migração de alertas restantes, a [nuvem do Azure governamental](../../azure-government/documentation-government-welcome.md)e o [Azure China 21vianet](https://docs.azure.cn/).
+Os alertas clássicos são [desativados](./monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Azure governamental e o Azure China 21Vianet serão desativados em **29 de fevereiro de 2024**.
 
-Este artigo explica como a migração manual e a ferramenta de migração voluntária funcionam, que serão usadas para migrar as regras de alerta restantes. Ele também descreve as soluções para alguns problemas comuns.
+Este artigo explica como a migração manual e a ferramenta de migração voluntária funcionam, que serão usadas para migrar as regras de alerta restantes. Ele também descreve soluções para alguns problemas comuns.
 
 > [!IMPORTANT]
-> Alertas do log de atividades (incluindo alertas de integridade do serviço) e alertas de log não são afetados pela migração. A migração se aplica somente às regras de alerta clássicas descritas [aqui](../platform/monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
+> Alertas do log de atividades (incluindo alertas de integridade do serviço) e alertas de log não são afetados pela migração. A migração se aplica somente às regras de alerta clássicas descritas [aqui](./monitoring-classic-retirement.md#retirement-of-classic-monitoring-and-alerting-platform).
 
 > [!NOTE]
 > Se suas regras de alerta clássicas forem inválidas, ou seja, se estiverem em [métricas preteridas](#classic-alert-rules-on-deprecated-metrics) ou recursos que foram excluídos, elas não serão migradas e não estarão disponíveis depois que o serviço for desativado.
 
 ## <a name="manually-migrating-classic-alerts-to-newer-alerts"></a>Migrar alertas clássicos manualmente para alertas mais recentes
 
-Os clientes que estão interessados em migrar manualmente seus alertas restantes já podem fazer isso usando as seções a seguir. Essas seções também definem as métricas que são desativadas pelo provedor de recursos e, no momento, não podem ser migradas diretamente.
+Os clientes que estão interessados em migrar manualmente seus alertas restantes já podem fazer isso usando as seções a seguir. Ele também inclui métricas que são desativadas e, portanto, não podem ser migradas diretamente.
 
 ### <a name="guest-metrics-on-virtual-machines"></a>Métricas de convidado em máquinas virtuais
 
-Antes de criar novos alertas de métrica em métricas de convidado, as métricas de convidado devem ser enviadas para o Azure Monitor repositório de métricas personalizado. Siga estas instruções para habilitar o coletor de Azure Monitor nas configurações de diagnóstico:
+Antes de criar novos alertas de métrica em métricas de convidado, as métricas de convidado devem ser enviadas para o repositório de logs de Azure Monitor. Siga estas instruções para criar alertas:
 
-- [Habilitando métricas de convidado para VMs do Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md)
-- [Habilitando métricas de convidado para VMs Linux](../platform/collect-custom-metrics-linux-telegraf.md)
+- [Habilitando a coleta de métricas de convidado para o log Analytics](../agents/agent-data-sources.md)
+- [Criando alertas de log no Azure Monitor](./alerts-log.md)
 
-Depois que essas etapas forem concluídas, você poderá criar novos alertas de métricas em métricas de convidado. E, depois de criar novos alertas de métrica, você pode excluir alertas clássicos.
+Há mais opções para coletar métricas de convidado e alertar sobre elas, [saiba mais](../agents/agents-overview.md).
 
-### <a name="storage-account-metrics"></a>Métricas da conta de armazenamento
+### <a name="storage-and-classic-storage-account-metrics"></a>Métricas de conta de armazenamento e armazenamento clássico
 
 Todos os alertas clássicos em contas de armazenamento podem ser migrados, exceto alertas nessas métricas:
 
@@ -65,39 +65,22 @@ Todos os alertas clássicos em métricas de Cosmos DB podem ser migrados, exceto
 - Nível de coerência
 - Http 2xx
 - Http 3xx
-- Http 400
-- Http 401
-- Erro interno do servidor
 - Máximo de RUPM consumidos por minuto
 - Máximo de RUs por segundo
-- Solicitações de falha na contagem de Mongo
-- Solicitações de exclusão com falha do Mongo
-- Solicitações de inserção com falha do Mongo
-- Mongo outras solicitações com falha
 - Mongo outro encargo de solicitação
 - Mongo de outra taxa de solicitação
-- Solicitações de consulta Mongo com falha
-- Solicitações de falha na atualização do Mongo
 - Latência de leitura observada
 - Latência de gravação observada
 - Disponibilidade do serviço
 - Capacidade de Armazenamento
-- Solicitações Limitadas
-- Total de Solicitações
 
-Média de solicitações por segundo, nível de consistência, máximo de RUPM consumidas por minuto, máximo de RUs por segundo, latência de leitura observada, latência de gravação observada, a capacidade de armazenamento não está disponível no momento no [novo sistema](../platform/metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
+Média de solicitações por segundo, nível de consistência, máximo de RUPM consumidas por minuto, máximo de RUs por segundo, latência de leitura observada, latência de gravação observada, e a capacidade de armazenamento não está disponível no momento no [novo sistema](../essentials/metrics-supported.md#microsoftdocumentdbdatabaseaccounts).
 
-Alertas sobre métricas de solicitação como http 2xx, http 3xx, http 400, http 401, erro interno do servidor, disponibilidade do serviço, solicitações limitadas e total de solicitações não são migrados porque a maneira como as solicitações são contadas é diferente entre métricas clássicas e novas métricas. Os alertas sobre eles deverão ser recriados manualmente com limites ajustados.
-
-Alertas em Mongo as métricas de solicitações com falha devem ser divididos em vários alertas porque não há métricas combinadas que forneçam a mesma funcionalidade. Os limites precisarão ser adaptados adequadamente.
-
-### <a name="classic-compute-metrics"></a>Métricas de computação clássicas
-
-Quaisquer alertas sobre métricas de computação clássicas não serão migrados usando a ferramenta de migração, já que os recursos de computação clássicos ainda não têm suporte com novos alertas. O suporte para novos alertas nesses tipos de recursos está atualmente em visualização pública e os clientes podem recriar novas regras de alerta equivalentes com base em suas regras de alerta clássicas.
+Alertas sobre métricas de solicitação como http 2xx, http 3xx e disponibilidade do serviço não são migrados porque a maneira como as solicitações são contadas é diferente entre métricas clássicas e novas métricas. Alertas sobre essas métricas deverão ser recriados manualmente com limites ajustados.
 
 ### <a name="classic-alert-rules-on-deprecated-metrics"></a>Regras de alerta clássicas sobre métricas preteridas
 
-Essas são regras de alerta clássicas sobre métricas que eram anteriormente suportadas, mas que foram eventualmente preteridas. Uma pequena porcentagem do cliente pode ter regras de alerta clássicas inválidas nessas métricas. Como essas regras de alerta são inválidas, elas não serão migradas.
+Veja a seguir as regras de alerta clássicas sobre métricas com suporte anteriormente, mas que foram eventualmente preteridas. Uma pequena porcentagem do cliente pode ter regras de alerta clássicas inválidas nessas métricas. Como essas regras de alerta são inválidas, elas não serão migradas.
 
 | Tipo de recurso| Métrica (s) preteridas |
 |-------------|----------------- |
@@ -112,14 +95,14 @@ Essas são regras de alerta clássicas sobre métricas que eram anteriormente su
 
 A ferramenta de migração converte suas regras de alerta clássicas para novas regras de alerta e grupos de ação equivalentes. Para as regras de alerta mais clássicas, as novas regras de alerta equivalentes estão na mesma métrica com as mesmas propriedades, como `windowSize` e `aggregationType` . No entanto, há algumas regras de alerta clássicas em métricas que têm uma métrica diferente e equivalente no novo sistema. Os princípios a seguir se aplicam à migração de alertas clássicos, a menos que especificado na seção abaixo:
 
-- **Frequência**: define com que frequência uma regra de alerta clássica ou nova verifica a condição. As `frequency` regras de alerta clássicas não eram configuráveis pelo usuário e foram sempre 5 minutos para todos os tipos de recursos, exceto Application insights componentes para os quais era 1 minuto. Portanto, a frequência das regras equivalentes também é definida como 5 min e 1 min, respectivamente.
+- **Frequência**: define com que frequência uma regra de alerta clássica ou nova verifica a condição. As `frequency` regras de alerta clássicas não eram configuráveis pelo usuário e eram sempre 5 minutos para todos os tipos de recursos. A frequência das regras equivalentes também é definida como 5 min.
 - **Tipo de agregação**: define como a métrica é agregada na janela de interesse. O `aggregationType` também é o mesmo entre alertas clássicos e novos alertas para a maioria das métricas. Em alguns casos, como a métrica é diferente entre alertas clássicos e novos alertas, `aggregationType` o equivalente ou o `primary Aggregation Type` definido para a métrica é usado.
 - **Unidades**: a propriedade da métrica na qual o alerta é criado. Algumas métricas equivalentes têm unidades diferentes. O limite é ajustado adequadamente conforme necessário. Por exemplo, se a métrica original tiver segundos como unidades, mas a nova métrica equivalente tiver milissegundos como unidades, o limite original será multiplicado por 1000 para garantir o mesmo comportamento.
-- **Tamanho da janela**: define a janela sobre a qual os dados de métrica são agregados para comparar com o limite. Para `windowSize` valores padrão como 5mins, 15mins, 30mins, 1hour, 3Hours, 6 horas, 12 horas, 1 dia, não há nenhuma alteração feita para a nova regra de alerta equivalente. Para outros valores, o mais próximo `windowSize` é escolhido para ser usado. Para a maioria dos clientes, não há nenhum impacto com essa alteração. Para um pequeno percentual de clientes, pode haver a necessidade de ajustar o limite para obter exatamente o mesmo comportamento.
+- **Tamanho da janela**: define a janela sobre a qual os dados de métrica são agregados para comparar com o limite. Para `windowSize` valores padrão como 5 min, 15 min, 30 min, 1 hora, 3 horas, 6 horas, 12 horas, 1 dia, não há nenhuma alteração feita para a nova regra de alerta equivalente. Para outros valores, o mais próximo `windowSize` é usado. Para a maioria dos clientes, não há nenhum efeito com essa alteração. Para um pequeno percentual de clientes, pode haver a necessidade de ajustar o limite para obter exatamente o mesmo comportamento.
 
-Nas seções a seguir, detalharemos as métricas que têm uma métrica diferente e equivalente no novo sistema. Qualquer métrica que permanece a mesma para as regras de alerta clássicas e novas não está listada. Você pode encontrar uma lista de métricas com suporte no novo sistema [aqui](../platform/metrics-supported.md).
+Nas seções a seguir, detalharemos as métricas que têm uma métrica diferente e equivalente no novo sistema. Qualquer métrica que permanece a mesma para regras de alerta clássicas e novas não está listada. Você pode encontrar uma lista de métricas com suporte no novo sistema [aqui](../essentials/metrics-supported.md).
 
-### <a name="microsoftstorageaccountsservices"></a>Microsoft. StorageAccounts/serviços
+### <a name="microsoftstoragestorageaccounts-and-microsoftclassicstoragestorageaccounts"></a>Microsoft. Storage/storageAccounts e Microsoft. ClassicStorage/storageAccounts
 
 Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as métricas a seguir são mapeadas para métricas equivalentes, conforme mostrado abaixo:
 
@@ -156,46 +139,23 @@ Para serviços de conta de armazenamento como BLOB, tabela, arquivo e fila, as m
 | TotalIngress | Entrada | |
 | TotalRequests | Transactions | |
 
-### <a name="microsoftinsightscomponents"></a>Microsoft. insights/Components
-
-Por Application Insights, as métricas equivalentes são mostradas abaixo:
-
-| Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
-|--------------------------|---------------------------------|---------|
-| disponibilidade. availabilityMetric. Value | availabilityResults/availabilityPercentage|   |
-| disponibilidade. durationMetric. Value | availabilityResults/duration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| contagem de basicExceptionBrowser. | exceptions/browser|  Use `aggregationType` ' count ' em vez de ' Sum '. |
-| contagem de basicExceptionServer. | exceptions/server| Use `aggregationType` ' count ' em vez de ' Sum '.  |
-| clientPerformance. clientProcess. Value | browserTimings/processingDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| clientPerformance. networkConnection. Value | browserTimings/networkDuration|  Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos. |
-| clientPerformance. receiveRequest. Value | browserTimings/receiveDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| clientPerformance. sendRequest. Value | browserTimings/sendDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| clientPerformance. total. Value | browserTimings/totalDuration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| performanceCounter.available_bytes. Value | performanceCounters/memoryAvailableBytes|   |
-| performanceCounter.io_data_bytes_per_sec. Value | performanceCounters/processIOBytesPerSecond|   |
-| performanceCounter.number_of_exceps_thrown_per_sec. Value | performanceCounters/exceptionsPerSecond|   |
-| performanceCounter.percentage_processor_time_normalized. Value | performanceCounters/processCpuPercentage|   |
-| performanceCounter.percentage_processor_time. Value | performanceCounters/processCpuPercentage| O limite precisará ser modificado adequadamente, pois a métrica original foi feita em todos os núcleos e a nova métrica é normalizada para um núcleo. A ferramenta de migração não altera os limites.  |
-| performanceCounter.percentage_processor_total. Value | performanceCounters/processorCpuPercentage|   |
-| performanceCounter.process_private_bytes. Value | performanceCounters/processPrivateBytes|   |
-| performanceCounter.request_execution_time. Value | performanceCounters/requestExecutionTime|   |
-| performanceCounter.requests_in_application_queue. Value | performanceCounters/requestsInQueue|   |
-| performanceCounter.requests_per_sec. Value | performanceCounters/requestsPerSecond|   |
-| duração da solicitação | requests/duration| Multiplique o limite original por 1000, pois as unidades para métrica clássica estão em segundos e para uma nova em milissegundos.  |
-| solicitação. taxa | solicitações/taxa|   |
-| contagem de requestFailed. | requests/failed| Use `aggregationType` ' count ' em vez de ' Sum '.   |
-| Exibir. contagem | pageViews/count| Use `aggregationType` ' count ' em vez de ' Sum '.   |
-
 ### <a name="microsoftdocumentdbdatabaseaccounts"></a>Microsoft.DocumentDB/databaseAccounts
 
 Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 
 | Métrica em alertas clássicos | Métrica equivalente em novos alertas | Comentários|
 |--------------------------|---------------------------------|---------|
-| AvailableStorage     |AvailableStorage|   |
+| AvailableStorage | AvailableStorage||
 | Tamanho dos dados | DataUsage| |
 | Contagem de documentos | DocumentCount||
 | Tamanho do Índice | IndexUsage||
+| Serviço indisponível | ServiceAvailability||
+| TotalRequestUnits | TotalRequestUnits||
+| Solicitações Limitadas | TotalRequests com dimensão "StatusCode" = "429"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Erros internos do servidor | TotalRequests com dimensão "StatusCode" = "500"}| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Http 401 | TotalRequests com dimensão "StatusCode" = "401"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Http 400 | TotalRequests com dimensão "StatusCode" = "400"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Total de Solicitações | TotalRequests| O tipo de agregação ' Max ' é corrigido para ' count '|
 | Encargo de solicitação de contagem de Mongo| MongoRequestCharge com a dimensão "CommandName" = "Count"||
 | Taxa de solicitação de contagem de Mongo | MongoRequestsCount com a dimensão "CommandName" = "Count"||
 | Mongo o encargo da solicitação de exclusão | MongoRequestCharge com a dimensão "CommandName" = "Delete"||
@@ -205,8 +165,12 @@ Por Cosmos DB, as métricas equivalentes são mostradas abaixo:
 | Encargo de solicitação de consulta do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Find"||
 | Taxa de Solicitação de Consulta do Mongo | MongoRequestsCount com a dimensão "CommandName" = "Find"||
 | Encargo de solicitação de atualização do Mongo | MongoRequestCharge com a dimensão "CommandName" = "Update"||
-| Serviço indisponível| ServiceAvailability||
-| TotalRequestUnits | TotalRequestUnits||
+| Solicitações de inserção com falha do Mongo | MongoRequestCount com dimensões "CommandName" = "Insert" e "status" = "failed"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Solicitações de consulta Mongo com falha | MongoRequestCount com dimensões "CommandName" = "Query" e "status" = "failed"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Solicitações de falha na contagem de Mongo | MongoRequestCount com dimensões "CommandName" = "Count" e "status" = "failed"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Solicitações de falha na atualização do Mongo | MongoRequestCount com dimensões "CommandName" = "Update" e "status" = "failed"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Mongo outras solicitações com falha | MongoRequestCount com dimensões "CommandName" = "other" e "status" = "failed"| O tipo de agregação ' Average ' é corrigido para ' count '|
+| Solicitações de exclusão com falha do Mongo | MongoRequestCount com dimensões "CommandName" = "Delete" e "status" = "failed"| O tipo de agregação ' Average ' é corrigido para ' count '|
 
 ### <a name="how-equivalent-action-groups-are-created"></a>Como os grupos de ação equivalentes são criados
 

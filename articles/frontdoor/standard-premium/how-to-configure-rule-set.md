@@ -7,24 +7,19 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: e2fe475b171a99ec27ed162511db289891066e00
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6863c492059ccee152ecf3d03a09e61793576bcb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715591"
 ---
-# <a name="configure-a-rule-set"></a>Configurar um conjunto de regras
+# <a name="configure-a-rule-set-with-azure-front-door-standardpremium-preview"></a>Configurar um conjunto de regras com o Azure front door Standard/Premium (visualização)
 
 > [!Note]
 > Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
 
-Este tutorial mostra como criar um conjunto de regras e seu primeiro conjunto de regras no portal do Azure. 
-
-Neste tutorial, você aprenderá como:
-> [!div class="checklist"]
-> - Configure o conjunto de regras usando o Portal.
-> - Excluir conjunto de regras do seu perfil de AFD usando o portal
+Este artigo mostra como criar um conjunto de regras e seu primeiro conjunto de regras no portal do Azure. Em seguida, você aprenderá como associar o conjunto de regras a uma rota da página de conjunto de regras ou do Gerenciador de pontos de extremidade.
 
 > [!IMPORTANT]
 > O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
@@ -33,7 +28,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes de concluir as etapas deste tutorial, você deve primeiro criar um padrão do Azure front door/Premium. Para obter mais informações, consulte [início rápido: criar um perfil padrão/Premium da porta do Azure](create-front-door-portal.md).
+* Antes de configurar um conjunto de regras, você deve primeiro criar uma porta de front-end do Azure Standard/Premium. Para obter mais informações, consulte [início rápido: criar um perfil padrão/Premium da porta do Azure](create-front-door-portal.md).
 
 ## <a name="configure-rule-set-in-azure-portal"></a>Configurar conjunto de regras no portal do Azure
 
@@ -65,11 +60,11 @@ Neste tutorial, você aprenderá como:
     1. Selecione o link não *associado* .
      
 
-    1. Em seguida, na folha **associar uma rota** , selecione o ponto de extremidade e a rota que você deseja associar ao conjunto de regras. 
+    1. Em seguida, na página **associar uma rota** , selecione o ponto de extremidade e a rota que você deseja associar ao conjunto de regras. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set.png" alt-text="Captura de tela da página criar uma rota.":::    
         
-    1. Clique em *Avançar* para alterar as ordens do conjunto de regras se houver vários conjuntos de regras na rota selecionada. O conjunto de regras será executado de cima para baixo. Você pode alterar os pedidos selecionando o conjunto de regras e movê-lo para cima ou para baixo. Em seguida, selecione *associar*.
+    1. Selecione *Avançar* para alterar as ordens do conjunto de regras se houver vários conjuntos de regras na rota selecionada. O conjunto de regras será executado de cima para baixo. Você pode alterar os pedidos selecionando o conjunto de regras e movê-lo para cima ou para baixo. Em seguida, selecione *associar*.
     
         > [!Note]
         > Você só pode associar um conjunto de regras a uma única rota nesta página. Para associar um conjunto de regras a várias rotas, use o Gerenciador de pontos de extremidade.
@@ -86,15 +81,15 @@ Neste tutorial, você aprenderá como:
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1.png" alt-text="Captura de tela da seleção de ponto de extremidade no Gerenciador de pontos de extremidade" lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-1-expanded.png":::
 
-    1. Clique em *Editar ponto de extremidade*  
+    1. Selecione *Editar ponto de extremidade*.  
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2.png" alt-text="Captura de tela de selecionar Editar ponto de extremidade no Gerenciador de pontos de extremidade." lightbox="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-2-expanded.png":::
 
-    1. Clique na rota. 
+    1. Selecione a rota. 
     
          :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-3.png" alt-text="Captura de tela de seleção de uma rota.":::
     
-    1. Na folha *Atualizar roteiro* , em *regras*, selecione os conjuntos de regras que você deseja associar à rota da lista suspensa. Em seguida, você pode alterar os pedidos movendo a regra configurar para cima e para baixo. 
+    1. Na página *Atualizar rota* , em *regras*, selecione os conjuntos de regras que você deseja associar à rota da lista suspensa. Em seguida, você pode alterar os pedidos movendo a regra configurar para cima e para baixo. 
     
         :::image type="content" source="../media/how-to-configure-rule-set/front-door-associate-rule-set-endpoint-manager-4.png" alt-text="Captura de tela da página atualizar uma rota.":::
     
@@ -106,7 +101,7 @@ Nas etapas anteriores, você configurou e associou um conjunto de regras à sua 
 
 1. Vá para a **página conjunto de regras** em **configurações** para desassociar o conjunto de regras de todas as rotas associadas.
 
-1. Expanda para a rota, clique nos três pontos selecione *Editar a rota*.
+1. Expanda a rota, selecione os três pontos. Em seguida, selecione *Editar a rota*.
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-disassociate-rule-set-1.png" alt-text="Captura de tela da rota expandida no conjunto de regras.":::
 
@@ -126,13 +121,4 @@ Nas etapas anteriores, você configurou e associou um conjunto de regras à sua 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a:
-
-* Criar um conjunto de regras
-* Associe um conjunto de regras à sua rota de AFD.
-* Excluir um conjunto de regras do seu perfil de AFD
-
-Para saber como adicionar cabeçalhos de segurança com o conjunto de regras, prossiga para o próximo tutorial.
-
-> [!div class="nextstepaction"]
-> [Cabeçalhos de segurança com regras definidas]()
+Saiba como adicionar [cabeçalhos de segurança com regras definidas](how-to-add-security-headers.md).

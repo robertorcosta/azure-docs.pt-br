@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 0fc57b87e5ec1d7f47d9f9d74698af56172246ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab7d4bf0b8d8ca32dafe6f19b46047eca89a7734
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605740"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733968"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portal do OMS migrando para o Azure
 
@@ -64,7 +64,7 @@ Em ambos os casos, o administrador precisa atribuir manualmente a função aprop
  
 
 ## <a name="new-workspaces"></a>Novos workspaces
-Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orientações [criar um espaço de trabalho do Log Analytics no portal do Azure](../learn/quick-create-workspace.md) para criar um novo espaço de trabalho no portal do Azure.
+Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orientações [criar um espaço de trabalho do Log Analytics no portal do Azure](./quick-create-workspace.md) para criar um novo espaço de trabalho no portal do Azure.
 
 ## <a name="changes-to-alerts"></a>Alterações a alertas
 
@@ -73,9 +73,9 @@ Você não pode mais criar novos workspaces usando o portal do OMS. Siga as orie
 Os alertas foram [estendidos para o portal do Azure](../alerts/alerts-unified-log.md) alertas existentes continuarão a ser listados no portal do OMS, mas você só pode gerenciá-los no portal do Azure. Se você acessar os alertas de forma programática usando a API REST de Alerta do Log Analytics ou o Modelo de Recurso de Alerta do Log Analytics, use grupos de ação em vez de ações nas chamadas à API, modelos do Azure Resource Manager e comandos do PowerShell.
 
 ### <a name="alert-management-solution"></a>solução de Gerenciamento de Alertas
-Como uma alteração de um aviso anterior, a [Solução de gerenciamento de alertas](../platform/alert-management-solution.md) continuará disponível e com suporte total no portal do Azure. Você pode continuar a instalar a solução do Azure Marketplace.
+Como uma alteração de um aviso anterior, a [Solução de gerenciamento de alertas](../insights/alert-management-solution.md) continuará disponível e com suporte total no portal do Azure. Você pode continuar a instalar a solução do Azure Marketplace.
 
-Embora a solução de Gerenciamento de alertas continue disponível, recomendamos que você use a [Interface de alertas unificada do Azure Monitor](../platform/alerts-overview.md) para visualizar e gerenciar todos os alertas no Azure. Essa nova experiência agrega nativamente alertas de várias fontes no Azure, incluindo alertas de log do Log Analytics. Se você estiver usando a interface unificada de alertas do Azure Monitor, a solução de Gerenciamento de alertas só será necessária para habilitar a integração de alertas do System Center Operation Manager para o Azure. Na interface de alerta unificada do Azure Monitor, você pode ver as distribuições de seus alertas, aproveitar o agrupamento automatizado de alertas relacionados por meio de grupos inteligentes e exibir alertas entre várias assinaturas enquanto aplica filtros avançados. Os futuros avanços no gerenciamento de alertas estarão disponíveis principalmente com essa nova experiência. 
+Embora a solução de Gerenciamento de alertas continue disponível, recomendamos que você use a [Interface de alertas unificada do Azure Monitor](../alerts/alerts-overview.md) para visualizar e gerenciar todos os alertas no Azure. Essa nova experiência agrega nativamente alertas de várias fontes no Azure, incluindo alertas de log do Log Analytics. Se você estiver usando a interface unificada de alertas do Azure Monitor, a solução de Gerenciamento de alertas só será necessária para habilitar a integração de alertas do System Center Operation Manager para o Azure. Na interface de alerta unificada do Azure Monitor, você pode ver as distribuições de seus alertas, aproveitar o agrupamento automatizado de alertas relacionados por meio de grupos inteligentes e exibir alertas entre várias assinaturas enquanto aplica filtros avançados. Os futuros avanços no gerenciamento de alertas estarão disponíveis principalmente com essa nova experiência. 
 
 Os dados coletados pela solução de Gerenciamento de alertas (registros com um tipo de alerta) continuarão no Log Analytics enquanto a solução estiver instalada para o workspace. 
 
@@ -83,7 +83,7 @@ Os dados coletados pela solução de Gerenciamento de alertas (registros com um 
 O aplicativo móvel do OMS será desativado juntamente com o portal do OMS. Em lugar do aplicativo móvel do OMS, para acessar informações sobre sua infraestrutura de IT, painéis e consultas salvas, você pode acessar o portal do Azure diretamente do navegador em seu dispositivo móvel. Para obter alertas, você deve configurar [Grupos de Ação do Azure](../alerts/action-groups.md) para receber notificações na forma de SMS ou uma chamada de voz
 
 ## <a name="application-insights-connector-and-solution"></a>Conector do Application Insights e solução
-O [Conector do Application Insights](../logs/app-insights-connector.md) fornece uma maneira de incluir os dados do Application Insights em um espaço de trabalho do Log Analytics. Essa duplicação de dados era necessária para permitir a visibilidade entre dados de aplicativos e de infraestrutura. Com p suporte para retenção de dados estendido do Application Insights em março de 2019 e a capacidade de realizar [consultas entre recursos](../logs/cross-workspace-query.md) além de poder [exibir vários recursos do Azure Monitor Application Insights](../log-query/unify-app-resource-data.md), não é necessário duplicar os dados dos recursos do Application Insights e enviá-lo para o Log Analytics. Além disso, o Conector envia um subconjunto das propriedades de aplicativos para o Log Analytics, enquanto as consultas entre recursos dão flexibilidade aprimorada.  
+O [Conector do Application Insights](../logs/app-insights-connector.md) fornece uma maneira de incluir os dados do Application Insights em um espaço de trabalho do Log Analytics. Essa duplicação de dados era necessária para permitir a visibilidade entre dados de aplicativos e de infraestrutura. Com p suporte para retenção de dados estendido do Application Insights em março de 2019 e a capacidade de realizar [consultas entre recursos](../logs/cross-workspace-query.md) além de poder [exibir vários recursos do Azure Monitor Application Insights](./unify-app-resource-data.md), não é necessário duplicar os dados dos recursos do Application Insights e enviá-lo para o Log Analytics. Além disso, o Conector envia um subconjunto das propriedades de aplicativos para o Log Analytics, enquanto as consultas entre recursos dão flexibilidade aprimorada.  
 
 Dessa forma, Conector do Application Insights foi preterida e removida do Azure Marketplace junto com a substituição do portal do OMS em 30 de março de 2019. As conexões existentes continuarão a funcionar até 30 de junho de 2019. Com o preterimento do portal OMS, não há como configurar nem remover conexões do portal. Isso terá suporte usando a API REST que será disponibilizada em janeiro de 2019 e uma notificação será publicada nas [atualizações do Azure](https://azure.microsoft.com/updates/). 
 

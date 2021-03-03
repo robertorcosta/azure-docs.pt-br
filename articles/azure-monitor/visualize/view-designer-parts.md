@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
-ms.openlocfilehash: 7b670cafa4d643e37fae068a4c0033fc97a96ccd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 074c5dda8ff8d5f837e8ea2a85c183c69421bedb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605030"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710865"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para exibir partes de visualização do designer no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo é um guia de referência das configurações para as partes de visualização que estão disponíveis em modos de exibição personalizados.
@@ -24,7 +24,7 @@ Para obter mais informações sobre o Designer de Exibição, consulte:
 
 Os tipos de blocos do Designer de Modos de Exibição disponíveis são descritos na tabela a seguir:
 
-| Tipo de exibição | Description |
+| Tipo de exibição | Descrição |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. |
 | [Número e lista](#number-and-list-part) |O cabeçalho exibe um único número que mostra uma contagem de registros de uma consulta de log. A lista exibe os dez primeiros resultados de uma consulta com um grafo que indica o valor relativo de uma coluna numérica ou sua alteração ao longo do tempo. |
@@ -39,7 +39,7 @@ Os tipos de blocos do Designer de Modos de Exibição disponíveis são descrito
 As próximas seções descrevem os tipos de bloco e suas propriedades em detalhes.
 
 > [!NOTE]
-> As partes em exibições são baseadas em [consultas de log](../log-query/log-query-overview.md) em seu espaço de trabalho log Analytics. Atualmente, eles não dão suporte a [consultas entre recursos](../log-query/cross-workspace-query.md) para recuperar dados de Application insights.
+> As partes em exibições são baseadas em [consultas de log](../logs/log-query-overview.md) em seu espaço de trabalho log Analytics. Atualmente, eles não dão suporte a [consultas entre recursos](../logs/cross-workspace-query.md) para recuperar dados de Application insights.
 
 ## <a name="list-of-queries-part"></a>Lista da parte de consultas
 A parte da lista de consultas exibe uma lista de consultas de log. Você pode selecionar cada consulta para exibir seus resultados. O modo de exibição inclui uma única consulta por padrão e você pode selecionar **+ Consulta** para incluir consultas adicionais.
@@ -203,9 +203,9 @@ O cabeçalho exibe texto estático e um link opcional. A lista exibe um ou mais 
 | Cor |A cor da tela de fundo do cabeçalho. |
 | **Cabeçalho** | |
 | Imagem |O arquivo de imagem que é exibido no cabeçalho. |
-| Rótulo |O texto que é exibido no cabeçalho. |
+| Label |O texto que é exibido no cabeçalho. |
 | **Cabeçalho** |**> Link** |
-| Rótulo |O texto do link. |
+| Label |O texto do link. |
 | Url |A URL para o link. |
 | **Itens de informações** | |
 | Título |O texto que é exibido para o título de cada item. |
@@ -318,7 +318,7 @@ O separador de valor e nome é o delimitador de caractere único a ser usado par
 Por exemplo, considere uma propriedade chamada *Localização* que incluía valores como *Redmond-Building 41* e *Bellevue-Building12*. Você poderia especificar um traço (-) para o separador de valor e nome e *City-Building* para o nome. Essa abordagem analisa cada valor em duas propriedades chamadas *Cidade* e *Edifício*.
 
 ### <a name="click-through-navigation"></a><a name="click-through-navigation"></a>Navegação clickthrough
-A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [log Analytics](../log-query/log-query-overview.md) ou iniciará outra exibição.
+A navegação clickthrough define qual ação será tomada quando você clicar em um cabeçalho ou item de lista em uma exibição.  Isso abrirá uma consulta no [log Analytics](../logs/log-query-overview.md) ou iniciará outra exibição.
 
 A tabela a seguir descreve as configurações de navegação clickthrough.
 
@@ -357,4 +357,4 @@ A tabela a seguir descreve as configurações de limites:
 | Cor |A cor que indica o valor limite. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md) para dar suporte às consultas em partes de visualização.
+* Saiba mais sobre [consultas de log](../logs/log-query-overview.md) para dar suporte às consultas em partes de visualização.

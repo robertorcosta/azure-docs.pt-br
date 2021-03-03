@@ -1,17 +1,17 @@
 ---
-title: Introdução à tradução do documento
+title: Introdução à Tradução de Documento
 description: Como criar um serviço de tradução de documentos usando linguagens e plataformas de programação C#, go, Java, Node.js ou Python
 ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: 5508ffc758b08642b05b1f77b66c9f29be1c85a2
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 886889ef9a42e358fca22a9d86955a23c5419dfa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650772"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738150"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introdução à tradução do documento (visualização)
 
@@ -26,6 +26,8 @@ Para começar, você precisará de:
 * Um recurso de serviço do [**Tradutor**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) (**não** um recurso de serviços cognitivas). 
 
 * Uma [**conta de armazenamento de BLOBs do Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Todo o acesso ao Armazenamento do Azure ocorre por meio de uma conta de armazenamento.
+
+* Um [**formulário de tradução de documento concluído (versão prévia)**](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-riVR3Xj0tOnIRdZOALbM9UOEE4UVdFQVBRQVBWWDBRQUM3WjYxUEpUTC4u) para habilitar sua assinatura do Azure para usar o novo recurso de tradução de documentos.
 
 > [!NOTE]
 > Atualmente, a tradução de documentos só tem suporte no recurso de Tradutor (serviço único), **não** no recurso de serviços cognitivas (multiatendimento).
@@ -64,7 +66,7 @@ As solicitações para o serviço do tradutor exigem uma chave somente leitura p
 
 ## <a name="create-your-azure-blob-storage-containers"></a>Criar seus contêineres de armazenamento de BLOBs do Azure
 
-Você precisará  [**criar contêineres**](/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container) em sua [**conta de armazenamento de BLOBs do Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para arquivos de origem, destino e Glossário opcionais.
+Você precisará  [**criar contêineres**](../../../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container) em sua [**conta de armazenamento de BLOBs do Azure**](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) para arquivos de origem, destino e Glossário opcionais.
 
 * **Contêiner de origem**. Esse contêiner é onde você carrega os arquivos para tradução (obrigatório).
 * **Contêiner de destino**. Esse contêiner é onde os arquivos traduzidos serão armazenados (obrigatório).  
@@ -111,7 +113,7 @@ Os `sourceUrl` `targetUrl` opcionais, e `glossaryUrl`  devem incluir um token de
 
 ### <a name="java"></a>[Java](#tab/java)
 
-* Crie um diretório de trabalho para seu projeto. Por exemplo:
+* Crie um diretório de trabalho para seu projeto. Por exemplo: 
 
 ```powershell
 mkdir sample-project
@@ -201,26 +203,7 @@ Os seguintes cabeçalhos estão incluídos em cada solicitação de API do tradu
 >[!NOTE]
 > Se já existir um arquivo com o mesmo nome no destino, ele será substituído.
 
-### <a name="post-a-translation-request"></a>POSTAR uma solicitação de tradução
-
-> [!IMPORTANT]
->
-> * Para obter os exemplos de código abaixo, talvez seja necessário atualizar os seguintes campos, dependendo da operação:
-
->> [!div class="checklist"]
->>
->> * `endpoint`
->> * `subscriptionKey`
->> * `sourceURL`
->> * `targetURL`
->> * `glossaryURL`
->> * `id`  (ID do trabalho)
->>
-> * Você pode encontrar o trabalho `id`  no valor da URL do cabeçalho de resposta do método post `Operation-Location`  . O último parâmetro da URL é o trabalho da operação **`id`** .  
-> * Você também pode usar uma solicitação para obter trabalhos para recuperar o trabalho `id`  para uma operação de tradução de documentos.
-> * Para os exemplos abaixo, você codificará sua chave e seu ponto de extremidade, quando indicado; Lembre-se de remover a chave do seu código quando terminar e nunca publicá-la publicamente.  
->
-> Consulte [segurança de serviços cognitivas do Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter maneiras de armazenar e acessar com segurança suas credenciais.
+## <a name="post-a-translation-request"></a>POSTAR uma solicitação de tradução
 
 <!-- markdownlint-disable MD024 -->
 ### <a name="post-request-body-without-optional-glossaryurl"></a>Corpo da solicitação POST sem glossaryURL opcional
@@ -286,7 +269,26 @@ Os seguintes cabeçalhos estão incluídos em cada solicitação de API do tradu
 }
 ```
 
-## <a name="_post-document-translation_-request-code-samples"></a>Exemplos de código de solicitação de _tradução post Document_
+> [!IMPORTANT]
+>
+> Para obter os exemplos de código abaixo, talvez seja necessário atualizar os seguintes campos, dependendo da operação:
+>>>
+>> * `endpoint`
+>> * `subscriptionKey`
+>> * `sourceURL`
+>> * `targetURL`
+>> * `glossaryURL`
+>> * `id`  (ID do trabalho)
+>>
+> Onde encontrar o `id` valor:
+> * Você pode encontrar o trabalho `id`  no valor da URL do cabeçalho de resposta do método post `Operation-Location`  . O último parâmetro da URL é o trabalho da operação **`id`** .  
+> * Você também pode usar uma solicitação para obter trabalhos para recuperar o trabalho `id`  para uma operação de tradução de documentos.
+>
+> Para obter os exemplos de código abaixo, você codificará sua chave e o ponto de extremidade, quando indicado; Lembre-se de remover a chave do seu código quando terminar e nunca publicá-la publicamente.  
+>
+> Consulte [segurança de serviços cognitivas do Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter maneiras de armazenar e acessar com segurança suas credenciais.
+
+## <a name="_post-document-translation_-request"></a>_Postar_ solicitação de tradução do documento
 
 Envie uma solicitação de tradução de documento em lote para o serviço de tradução.
 
@@ -519,7 +521,7 @@ if err != nil {
 
 ---
 
-## <a name="_get-file-formats_-code-samples"></a>_Obter_ exemplos de código de formatos de arquivo
+## <a name="_get-file-formats_"></a>_OBTER formatos de arquivo_ 
 
 Recupere uma lista de formatos de arquivo com suporte. Se for bem-sucedido, esse método retornará um `200 OK` código de resposta.
 
@@ -696,7 +698,7 @@ func main() {
 
 ---
 
-## <a name="_get-job-status_-code-samples"></a>_Obter_ exemplos de código de status do trabalho
+## <a name="_get-job-status_"></a>_OBTER status do trabalho_ 
 
 Obtenha o status atual de um único trabalho e um resumo de todos os trabalhos em uma solicitação de tradução de documento. Se for bem-sucedido, esse método retornará um `200 OK` código de resposta.
 <!-- markdownlint-disable MD024 -->
@@ -875,7 +877,7 @@ func main() {
 
 ---
 
-## <a name="_get-document-status_-code-samples"></a>_Obter_ exemplos de código de status do documento
+## <a name="_get-document-status_"></a>_OBTER status do documento_
 
 ### <a name="brief-overview"></a>Visão geral resumida
 
@@ -1055,7 +1057,7 @@ func main() {
 
 ---
 
-## <a name="_delete-job_-code-samples"></a>_Excluir_ exemplos de código do trabalho
+## <a name="_delete-job_"></a>_EXCLUIR trabalho_ 
 
 ### <a name="brief-overview"></a>Visão geral resumida
 
@@ -1254,7 +1256,7 @@ A tabela a seguir lista os limites para os dados que você envia para a traduç�
 
 * [Referência da API de Tradução v3](../reference/v3-0-reference.md)
 * [Suporte ao idioma](../language-support.md)
-* [Assinaturas no gerenciamento de API do Azure](/azure/api-management/api-management-subscriptions).
+* [Assinaturas no gerenciamento de API do Azure](../../../api-management/api-management-subscriptions.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

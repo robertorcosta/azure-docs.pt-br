@@ -6,19 +6,19 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: cfe6aa489bcc771213ec04ca9cddd1267ccf1338
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cda3af012a83342d5650c542fafdcd6bc36bd8e3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605498"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717971"
 ---
 # <a name="optimizing-log-alert-queries"></a>Otimizando consultas de alerta de log
-Este artigo descreve como gravar e converter consultas de [alerta de log](../platform/alerts-unified-log.md) para obter o desempenho ideal. Consultas otimizadas reduzem a latência e a carga de alertas, que são executados com frequência.
+Este artigo descreve como gravar e converter consultas de [alerta de log](./alerts-unified-log.md) para obter o desempenho ideal. Consultas otimizadas reduzem a latência e a carga de alertas, que são executados com frequência.
 
 ## <a name="how-to-start-writing-an-alert-log-query"></a>Como iniciar a gravação de uma consulta de log de alertas
 
-As consultas de alerta começam com [a consulta dos dados de log em log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) que indica o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) para entender o que você pode descobrir. Você também pode começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md). 
+As consultas de alerta começam com [a consulta dos dados de log em log Analytics](alerts-log.md#create-a-log-alert-rule-with-the-azure-portal) que indica o problema. Você pode usar o [tópico Exemplos de consulta de alerta](../logs/example-queries.md) para entender o que você pode descobrir. Você também pode começar [a escrever sua própria consulta](../logs/log-analytics-tutorial.md). 
 
 ### <a name="queries-that-indicate-the-issue-and-not-the-alert"></a>Consultas que indicam o problema e não o alerta
 
@@ -44,7 +44,7 @@ Não há necessidade de adicionar lógica de alerta à consulta e fazer isso pod
 O uso de `limit` e `take` em consultas pode aumentar a latência e a carga de alertas, pois os resultados não são consistentes ao longo do tempo. É preferível usá-lo somente se necessário.
 
 ## <a name="log-query-constraints"></a>Restrições de consulta de log
-As [consultas de log no Azure monitor](../log-query/log-query-overview.md) começam com uma tabela, [`search`](/azure/kusto/query/searchoperator) ou [`union`](/azure/kusto/query/unionoperator) operador.
+As [consultas de log no Azure monitor](../logs/log-query-overview.md) começam com uma tabela, [`search`](/azure/kusto/query/searchoperator) ou [`union`](/azure/kusto/query/unionoperator) operador.
 
 As consultas de regras de alerta de log sempre devem começar com uma tabela para definir um escopo claro, o que melhora o desempenho da consulta e a relevância dos resultados. As consultas em regras de alerta são executadas com frequência, portanto usar `search` e `union` pode resultar na sobrecarga excessiva de adição de latência ao alerta, pois ele requer a verificação em várias tabelas. Esses operadores também reduzem a capacidade do serviço de alerta de otimizar a consulta.
 
@@ -57,7 +57,7 @@ SecurityEvent
 | where EventID == 4624
 ```
 
-As regras de alerta de log usando [consultas entre recursos](../log-query/cross-workspace-query.md) não são afetadas por essa alteração, pois as consultas entre recursos usam um tipo de `union` , que limita o escopo da consulta a recursos específicos. O exemplo a seguir seria uma consulta de alerta de log válida:
+As regras de alerta de log usando [consultas entre recursos](../logs/cross-workspace-query.md) não são afetadas por essa alteração, pois as consultas entre recursos usam um tipo de `union` , que limita o escopo da consulta a recursos específicos. O exemplo a seguir seria uma consulta de alerta de log válida:
 
 ```Kusto
 union
@@ -67,7 +67,7 @@ workspace('Contoso-workspace1').Perf
 ```
 
 >[!NOTE]
-> Há suporte para [consultas entre recursos](../log-query/cross-workspace-query.md) na nova [API do scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Se você ainda usa a [API de alerta log Analytics herdada](../platform/api-alerts.md) para criar alertas de log, você pode aprender a alternar [aqui](../alerts/alerts-log-api-switch.md).
+> Há suporte para [consultas entre recursos](../logs/cross-workspace-query.md) na nova [API do scheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Se você ainda usa a [API de alerta log Analytics herdada](./api-alerts.md) para criar alertas de log, você pode aprender a alternar [aqui](../alerts/alerts-log-api-switch.md).
 
 ## <a name="examples"></a>Exemplos
 Os exemplos a seguir incluem consultas de log que usam `search` e `union` fornecem etapas que você pode usar para modificar essas consultas para uso em regras de alerta.
@@ -217,4 +217,4 @@ SecurityEvent
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre os [alertas de log](alerts-log.md) no Azure Monitor.
-- Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
+- Saiba mais sobre [consultas de log](../logs/log-query-overview.md).

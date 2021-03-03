@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 502f93df8d9948a6d6682b14ea13b59e324833cb
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4e626cb5cac29a0e5133eb77cbaff3f4131b8456
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091466"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722340"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -62,25 +62,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Holandês (Países Baixos)                | `nl-NL` | Áudio (20201015)<br>Texto                                   |    Sim                       |
 | Inglês (Austrália)                | `en-AU` | Áudio (20201019)<br>Texto                 | Sim                          |
 | Inglês (Canadá)                   | `en-CA` | Áudio (20201019)<br>Texto                 | Sim                          |
+| Inglês (Gana)                    | `en-GH` | Texto                                   |                           |
 | Inglês (Hong Kong)                | `en-HK` | Texto                                   |                           |
 | Inglês (Índia)                    | `en-IN` | Áudio (20200923)<br>Texto                 | Sim                          |
 | Inglês (Irlanda)                  | `en-IE` | Texto                                   |                           |
+| Inglês (Quênia)                    | `en-KE` | Texto                                   |                           |
 | Inglês (Nova Zelândia)              | `en-NZ` | Áudio (20201019)<br>Texto                 |  Sim                         |
 | Inglês (Nigéria)                  | `en-NG` | Texto                                   |                           |
 | Inglês (Filipinas)              | `en-PH` | Texto                                   |                           |
 | Inglês (Singapura)                | `en-SG` | Texto                                   |                           |
 | Inglês (África do Sul)             | `en-ZA` | Texto                                   |                           |
+| Inglês (Tanzânia)                 | `en-TZ` | Texto                                   |                           |
 | Inglês (Reino Unido)           | `en-GB` | Áudio (20201019)<br>Texto<br>Pronúncia| Sim                          |
 | Inglês (Estados Unidos)            | `en-US` | Áudio (20201019)<br>Texto<br>Pronúncia| Sim                          |
 | Estoniano (Estônia)                  | `et-EE` | Texto                                   |                           |
+| Filipino (Filipinas)             | `fil-PH`| Texto                                   |                           |
 | Finlandês (Finlândia)                  | `fi-FI` | Texto                                   |     Sim                      |
 | Francês (Canadá)                    | `fr-CA` | Áudio (20201015)<br>Texto                 |     Sim                      |
 | Francês (França)                    | `fr-FR` | Áudio (20201015)<br>Texto<br>Pronúncia|      Sim                     |
+| Francês (Suíça)               | `fr-CH` | Texto                                   |                           |
+| Alemão (Áustria)                   | `de-AT` | Texto                                   |                           |
 | Alemão (Alemanha)                   | `de-DE` | Áudio (20190701, 20200619, 20201127)<br>Texto<br>Pronúncia|  Sim                         |
 | Grego (Grécia)                     | `el-GR` | Texto                                   |                           |
 | Guzerate (Índia)                  | `gu-IN` | Texto                                   |                           |
 | Híndi (Índia)                      | `hi-IN` | Áudio (20200701)<br>Texto                 |     Sim                      |
 | Húngaro (Hungria)                | `hu-HU` | Texto                                   |                           |
+| Indonésio (Indonésia)             | `id-ID` | Texto                                   |                           |
 | Irlandês (Irlanda)                     | `ga-IE` | Texto                                   |                           |
 | Italiano (Itália)                    | `it-IT` | Áudio (20201016)<br>Texto<br>Pronúncia|      Sim                     |
 | Japonês (Japão)                   | `ja-JP` | Texto                                   |      Sim                     |
@@ -124,6 +131,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Télugo (Índia)                     | `te-IN` | Texto                                   |                           |
 | Tailandês (Tailândia)                    | `th-TH` | Texto                                   |      Sim                     |
 | Turco (Turquia)                   | `tr-TR` | Texto                                   |                           |
+| Vietnamita (Vietnã)               | `vi-VN` | Texto                                   |                           |
 
 ## <a name="text-to-speech"></a>Conversão de texto em fala
 

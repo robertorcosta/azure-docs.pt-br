@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 3701d9dde569432d8bf1910f04395df0b916b75a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e20ed632ee5b100098f7f35bcca16d157668cad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575153"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721354"
 ---
 # <a name="azure-security-baseline-for-azure-load-balancer"></a>Linha de base de segurança do Azure para Azure Load Balancer
 
@@ -296,7 +296,7 @@ Habilite e integre dados ao Azure Sentinel ou a um SIEM de terceiros com base em
 
 - [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

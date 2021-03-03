@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 5cec5eda7cf398949865bf6d3d3e8be5b2d5e840
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 06d3ebae80b34d6b3c7f4a23694fd9fba34e4b76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549534"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733492"
 ---
 # <a name="use-certificates-with-azure-stack-edge-pro-gpu-device"></a>Usar certificados com Azure Stack dispositivo de GPU pro Edge
 
@@ -77,7 +77,7 @@ Esses certificados podem ser certificados raiz ou certificados intermediários. 
 - Um certificado de nó deve ser alterado se o domínio DNS for alterado, mas o nome do dispositivo não for alterado. Se você estiver trazendo seu próprio certificado de nó, não poderá alterar o número de série do dispositivo. você só pode alterar o nome de domínio.
 - Use a tabela a seguir para orientá-lo durante a criação de um certificado de nó.
    
-    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Nó|`<NodeSerialNo>.<DnsDomain>`|`*.<DnsDomain>`<br><br>`<NodeSerialNo>.<DnsDomain>`|`mydevice1.microsoftdatabox.com` |
    
@@ -98,10 +98,10 @@ Quando você coloca um certificado assinado por conta própria, também precisa 
 - As propriedades dos certificados de ponto de extremidade são semelhantes às de um certificado SSL típico. 
 - Use a tabela a seguir ao criar um certificado de ponto de extremidade:
 
-    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 
@@ -114,7 +114,7 @@ Você pode acessar a interface do usuário da Web local do seu dispositivo por m
 - O certificado de interface do usuário local também é carregado em um `.pfx` formato com uma chave privada que pode ser exportada.
 - Depois de carregar o certificado de interface do usuário local, será necessário reiniciar o navegador e limpar o cache. Consulte as instruções específicas para seu navegador.
 
-    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Interface do usuário local| `<Device name>.<DnsDomain>`|`<Device name>.<DnsDomain>`| `mydevice1.microsoftdatabox.com` |
    
@@ -413,7 +413,7 @@ Se você colocar seus próprios certificados, os certificados expirarão normalm
 
 Rotation of certificates is not implemented in this release. You are also not notified of the pending expiration date on your certificate. 
 
-View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates](azure-stack-edge-j-series-manage-certificates.md).-->
+View the certificate expiration date on the **Certificates** page in the local web UI of your device. Once the certificate expiration is approaching, create and upload new certificates as per the detailed instructions in [Create and upload certificates]().-->
 
 ## <a name="next-steps"></a>Próximas etapas
 

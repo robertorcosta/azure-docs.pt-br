@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9a4453c29c52f8821643e93584666c3a6a8e6b4c
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379821"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737640"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e failover da conta de armazenamento
 
@@ -55,7 +55,7 @@ Além disso, tenha em mente essas práticas recomendadas a fim de manter a alta 
 
 - **Discos:** Use o [backup do Azure](https://azure.microsoft.com/services/backup/) para fazer backup dos discos de VM usados por suas máquinas virtuais do Azure. Considere também usar o [Azure Site Recovery](https://azure.microsoft.com/services/site-recovery/) para proteger suas VMs em caso de desastre regional.
 - **Blobs de blocos:** Ative a [exclusão reversível](../blobs/soft-delete-blob-overview.md) para proteger contra exclusões em nível de objeto e substituições ou copie blobs de blocos para outra conta de armazenamento em uma região diferente usando [AzCopy](./storage-use-azcopy-v10.md), [Azure PowerShell](/powershell/module/az.storage/)ou a [biblioteca de movimentação de dados do Azure](storage-use-data-movement-library.md).
-- **Arquivos:** Use o [backup do Azure](https://docs.microsoft.com/azure/backup/azure-file-share-backup-overview) para fazer backup de seus compartilhamentos de arquivos. Habilite também a [exclusão reversível](https://docs.microsoft.com/azure/storage/files/storage-files-prevent-file-share-deletion) para proteger contra exclusões de compartilhamento de arquivos acidentais. Para redundância geográfica quando GRS não estiver disponível, use [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
+- **Arquivos:** Use o [backup do Azure](../../backup/azure-file-share-backup-overview.md) para fazer backup de seus compartilhamentos de arquivos. Habilite também a [exclusão reversível](../files/storage-files-prevent-file-share-deletion.md) para proteger contra exclusões de compartilhamento de arquivos acidentais. Para redundância geográfica quando GRS não estiver disponível, use [AzCopy](./storage-use-azcopy-v10.md) ou [Azure PowerShell](/powershell/module/az.storage/) para copiar os arquivos para outra conta de armazenamento em uma região diferente.
 - **Tabelas:** use o [AzCopy](./storage-use-azcopy-v10.md) para exportar os dados de tabela para outra conta de armazenamento em uma região diferente.
 
 ## <a name="track-outages"></a>Acompanhar interrupções
@@ -171,7 +171,7 @@ Se sua conta de armazenamento estiver configurada para acesso de leitura para o 
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 - [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
 - [Iniciar um failover da conta](storage-initiate-account-failover.md)

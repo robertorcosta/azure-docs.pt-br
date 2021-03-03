@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: 2e6f79643493457a587f907f2649c7ab50b963f4
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634729"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710491"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -64,6 +64,8 @@ Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como 
 > Em casos em que você altera o modelo de base usado para treinamento e tem áudio no conjunto de dados de treinamento, *sempre* Verifique se o novo modelo de base selecionado [dá suporte ao treinamento com o áudio](language-support.md#speech-to-text). Se o modelo base usado anteriormente não tivesse suporte para treinamento com dados de áudio, e o DataSet de treinamento contiver áudio, o tempo de treinamento com o novo modelo base aumentará **drasticamente** e poderá facilmente passar de várias horas para vários dias e muito mais. Isso será especialmente verdadeiro se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 >
 > Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
+>
+> Em regiões com hardware dedicado para treinamento, o serviço de fala usará até 20 horas de áudio para treinamento. Em outras regiões, ele só usará até 8 horas de áudio.
 
 ## <a name="upload-data"></a>Carregar dados
 
@@ -127,9 +129,9 @@ Os arquivos de áudio podem ter silêncio no início e no final da gravação. S
 > [!NOTE]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Você só pode testar a partir de um *único* conjunto de um, certifique-se de mantê-lo dentro do tamanho apropriado do arquivo. Além disso, cada arquivo de treinamento não pode exceder 60 segundos, caso contrário, ocorrerá um erro.
 
-Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavra por palavra por aproximadamente de 10 a 20 horas de áudio. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
+Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavras por palavra de 1 a 20 horas de áudio. No entanto, até 30 minutos podem ajudar a melhorar os resultados de reconhecimento. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
-Por exemplo:
+Por exemplo: 
 
 <!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
 

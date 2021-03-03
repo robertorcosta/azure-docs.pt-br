@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101669620"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693519"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -102,7 +102,10 @@ Ao estender os rótulos de sensibilidade de MIP com o Azure alcance, as organiza
 
 **Para estender os rótulos de sensibilidade para alcance:**
 
-Em Microsoft 365, navegue até a página **proteção de informações** . Em **estender o rótulo para ativos no Azure alcance**, selecione o botão **Ativar** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação que aparece.
+As etapas a seguir permitem que seus rótulos de sensibilidade estejam disponíveis para uso no Azure alcance, onde você pode aplicar seus rótulos de sensibilidade a ativos como colunas SQL, arquivos no armazenamento de BLOBs do Azure e muito mais.
+
+1. Em Microsoft 365, navegue até a página **proteção de informações** . 
+1. Em **estender o rótulo para ativos no Azure alcance**, selecione o botão **Ativar** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação que aparece.
 
 Por exemplo: 
 

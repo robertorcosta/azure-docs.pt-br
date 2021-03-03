@@ -1,18 +1,18 @@
 ---
-title: Configurar Azure Monitor para coleta de dados de agente de contêineres | Microsoft Docs
-description: Este artigo descreve como você pode configurar o Azure Monitor para agente de contêineres para controlar stdout/stderr e a coleção de logs de variáveis de ambiente.
+title: Configurar coleta de dados do agente do insights de contêiner | Microsoft Docs
+description: Este artigo descreve como você pode configurar o agente de informações de contêiner para controlar stdout/stderr e a coleta de logs de variáveis de ambiente.
 ms.topic: conceptual
 ms.date: 10/09/2020
-ms.openlocfilehash: f21b841bc129012b684d2a1c59eb72989fe9e0e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d866fec2013daf9b8edfdbfd703c7b1098ae91bd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708383"
 ---
-# <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Configurar a coleta de dados do agente para Azure Monitor para contêineres
+# <a name="configure-agent-data-collection-for-container-insights"></a>Configurar a coleta de dados do agente para informações de contêiner
 
-Azure Monitor para contêineres coleta variáveis stdout, stderr e ambientais de cargas de trabalho de contêiner implantadas em clusters kubernetes gerenciados do agente em contêineres. Você pode definir as configurações de coleta de dados do agente criando um ConfigMaps kubernetes personalizado para controlar essa experiência. 
+As informações de contêiner coletam variáveis stdout, stderr e ambientais de cargas de trabalho de contêiner implantadas em clusters kubernetes gerenciados do agente em contêineres. Você pode definir as configurações de coleta de dados do agente criando um ConfigMaps kubernetes personalizado para controlar essa experiência. 
 
 Este artigo demonstra como criar ConfigMap e configurar a coleta de dados com base em seus requisitos.
 
@@ -142,8 +142,8 @@ A saída será exibida de forma semelhante à seguinte com a anotação Schema-V
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Azure Monitor para contêineres não inclui um conjunto predefinido de alertas. Examine [criar alertas de desempenho com Azure monitor para contêineres](./container-insights-log-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps.
+- As informações de contêiner não incluem um conjunto predefinido de alertas. Examine [criar alertas de desempenho com o contêiner insights](./container-insights-log-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps.
 
-- Com o monitoramento habilitado para coletar a integridade e a utilização de recursos de seu cluster AKS ou híbrido e cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.
+- Com o monitoramento habilitado para coletar a integridade e a utilização de recursos de seu cluster AKS ou híbrido e cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) o contêiner insights.
 
 - Exiba [exemplos de consulta de log](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas e exemplos para avaliar ou personalizar para alertar, Visualizar ou analisar seus clusters.

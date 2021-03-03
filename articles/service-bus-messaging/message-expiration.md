@@ -3,12 +3,12 @@ title: Barramento de serviço do Azure-expiração de mensagem
 description: Este artigo explica a expiração e a vida útil das mensagens do barramento de serviço do Azure. Após esse prazo, a mensagem não é mais entregue.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: a2a568f04c2607832a1fa2a8e32bc6ce8331da4d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 505a041d2f6129b159166e9f99ce7fef779e1e66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698358"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 O conteúdo de uma mensagem ou um comando ou consulta que uma mensagem transmite para um destinatário, está quase sempre sujeito a alguma forma de prazo de expiração de nível de aplicativo. Após o prazo, o conteúdo não é mais entregue ou a operação solicitada não é mais executada.
@@ -20,6 +20,8 @@ A expiração de qualquer mensagem individual pode ser controlada definindo a pr
 Após o instante **expirado em UTC** , as mensagens se tornam inqualificadas para recuperação. A expiração não afeta as mensagens que estão bloqueadas para entrega no momento. Essas mensagens ainda são tratadas normalmente. Se o bloqueio expirar ou se a mensagem for abandonada, a expiração entrará em vigor imediatamente.
 
 Enquanto a mensagem está em um bloqueio, o aplicativo pode estar em posse de uma mensagem que expirou. Se o aplicativo está disposto a prosseguir com o processamento ou opta por abandonar a mensagem cabe ao implementador.
+
+Recomendamos que você defina o valor de **vida** útil em uma mensagem para ser em horas ou dias. Se você defini-lo como um valor baixo em segundos ou milissegundos, a mensagem poderá expirar antes que os consumidores tenham a oportunidade de consumi-lo. 
 
 ## <a name="entity-level-expiration"></a>Expiração de nível de entidade
 Todas as mensagens enviadas para uma fila ou tópico estão sujeitas a uma expiração padrão definida no nível de entidade. Ele também pode ser definido no portal durante a criação e ajustado posteriormente. A expiração padrão é usada para todas as mensagens enviadas para a entidade em que a vida útil não está definida explicitamente. A expiração padrão também funciona como um teto para o valor de vida útil. As mensagens que têm uma expiração de tempo de vida maior do que o valor padrão são silenciosamente ajustadas para o valor de vida útil da mensagem padrão antes de serem enfileiradas.

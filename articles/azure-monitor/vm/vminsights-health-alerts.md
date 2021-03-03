@@ -1,25 +1,25 @@
 ---
-title: Alertas de integridade de convidado do Azure Monitor para VMs (versão prévia)
-description: Descreve os alertas criados por Azure Monitor para VMs integridade de convidado, incluindo como habilitá-los e configurar notificações.
+title: Alertas de integridade de convidado do insights de VM (versão prévia)
+description: Descreve os alertas criados pela integridade de convidado de informações de VM, incluindo como habilitá-los e configurar notificações.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 30025f387768aaf1e4d642292c21d5b15ccc7451
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a32ba9f1c4cf5d6bb9de69e1a6860c858e3ee2a6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606787"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707499"
 ---
-# <a name="azure-monitor-for-vms-guest-health-alerts-preview"></a>Alertas de integridade de convidado do Azure Monitor para VMs (versão prévia)
-Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor é alterado para um estado não íntegro. Você pode exibir e gerenciar esses alertas com [aqueles criados por regras de alerta no Azure monitor](../platform/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
+# <a name="vm-insights-guest-health-alerts-preview"></a>Alertas de integridade de convidado do insights de VM (versão prévia)
+A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor é alterado para um estado não íntegro. Você pode exibir e gerenciar esses alertas com [aqueles criados por regras de alerta no Azure monitor](../alerts/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
 
 ## <a name="configure-alerts"></a>Configurar alertas
-Você não pode criar uma regra de alerta explícita para Azure Monitor para VMs integridade de convidado enquanto esse recurso está em versão prévia. Por padrão, os alertas serão criados para cada máquina virtual, mas não para cada monitor.  Isso significa que, se um monitor mudar para um estado que não afete o estado atual da máquina virtual, nenhum alerta será criado porque o estado da máquina virtual não foi alterado. 
+Você não pode criar uma regra de alerta explícita para a integridade de convidado do insights de VM enquanto esse recurso estiver em visualização. Por padrão, os alertas serão criados para cada máquina virtual, mas não para cada monitor.  Isso significa que, se um monitor mudar para um estado que não afete o estado atual da máquina virtual, nenhum alerta será criado porque o estado da máquina virtual não foi alterado. 
 
-Você pode Desabilitar alertas para uma máquina virtual específica ou para um monitor específico em uma máquina virtual da configuração **status do alerta** na configuração da máquina virtual na portal do Azure. Consulte [Configurar o monitoramento em Azure monitor para VMs integridade de convidado (versão prévia)](vminsights-health-configure.md) para obter detalhes sobre como configurar monitores no portal do Azure. Consulte [Configurar o monitoramento em Azure monitor para VMs integridade de convidado usando regras de coleta de dados (versão prévia)](vminsights-health-configure-dcr.md) para obter detalhes sobre como configurar monitores em um conjunto de máquinas virtuais.
+Você pode Desabilitar alertas para uma máquina virtual específica ou para um monitor específico em uma máquina virtual da configuração **status do alerta** na configuração da máquina virtual na portal do Azure. Consulte [Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)](vminsights-health-configure.md) para obter detalhes sobre como configurar monitores no portal do Azure. Consulte [Configurar monitoramento na integridade do convidado do insights de VM usando regras de coleta de dados (versão prévia)](vminsights-health-configure-dcr.md) para obter detalhes sobre como configurar monitores em um conjunto de máquinas virtuais.
 
 ## <a name="alert-severity"></a>Severidade do alerta
 A severidade do alerta criado pela integridade do convidado é mapeada diretamente para a severidade da máquina virtual ou do monitor que dispara o alerta.
@@ -31,12 +31,12 @@ A severidade do alerta criado pela integridade do convidado é mapeada diretamen
 | Íntegros  | Sev4 |
 
 ## <a name="alert-lifecycle"></a>Ciclo de vida do alerta
-Um [alerta do Azure](../platform/alerts-overview.md) será criado para cada máquina virtual a qualquer momento que for alterado para um estado de **aviso** ou **crítico** . Exiba o alerta de **alertas** no menu **Azure monitor** ou no menu da máquina virtual na portal do Azure.
+Um [alerta do Azure](../alerts/alerts-overview.md) será criado para cada máquina virtual a qualquer momento que for alterado para um estado de **aviso** ou **crítico** . Exiba o alerta de **alertas** no menu **Azure monitor** ou no menu da máquina virtual na portal do Azure.
 
 Se um alerta já estiver no estado **acionado** quando o estado da máquina virtual for alterado, um segundo alerta não será criado, mas a severidade do mesmo alerta será alterada para corresponder ao estado da máquina virtual. Por exemplo, se a máquina virtual mudar para o estado **crítico** quando um alerta de **aviso** já estava no estado **acionado** , a severidade desse alerta será alterada para **Sev1**. Se a máquina virtual for alterada para um estado de **aviso** quando um alerta **Sev1** já estava no estado **acionado** , a severidade desse alerta será alterada para **Sev2**. Se a máquina virtual voltar a um estado **íntegro** , o alerta será resolvido com a gravidade alterada para **Sev4**.
 
 ## <a name="viewing-alerts"></a>Exibindo alertas
-Exiba alertas criados por Azure Monitor para VMs integridade de convidado com outros [alertas no portal do Azure](../platform/alerts-overview.md#alerts-experience). Você pode selecionar **alertas** no menu **Azure monitor** para exibir alertas de todos os recursos monitorados ou selecionar **alertas** no menu de uma máquina virtual para exibir alertas apenas para essa máquina virtual.
+Exibir alertas criados pela integridade de convidado do insights de VM com outros [alertas no portal do Azure](../platform/alerts-overview.md#alerts-experience). Você pode selecionar **alertas** no menu **Azure monitor** para exibir alertas de todos os recursos monitorados ou selecionar **alertas** no menu de uma máquina virtual para exibir alertas apenas para essa máquina virtual.
 
 ## <a name="alert-properties"></a>Propriedades do Alerta
 
@@ -106,6 +106,6 @@ Em **definir nesse escopo**, selecione **grupo de ações** e, em seguida, selec
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Habilite a integridade do convidado em agentes de Azure Monitor para VMs e integrados.](vminsights-health-enable.md)
+- [Habilite a integridade do convidado nos insights de VM e agentes integrados.](vminsights-health-enable.md)
 - [Configure monitores usando o portal do Azure.](vminsights-health-configure.md)
 - [Configure monitores usando regras de coleta de dados.](vminsights-health-configure-dcr.md)

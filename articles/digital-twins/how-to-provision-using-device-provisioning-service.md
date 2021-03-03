@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e783e5dd3b0f1952928d1c36c682c5be1cba2599
-ms.sourcegitcommit: 8dd8d2caeb38236f79fe5bfc6909cb1a8b609f4a
+ms.openlocfilehash: 924397c9c81d2a38ae74b95a8f7133ced8bde0d4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98044383"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101736535"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -89,7 +89,7 @@ No arquivo de código de função recém-criado, Cole o código a seguir.
 
 Salve o arquivo e, em seguida, publique novamente seu aplicativo de funções. Para obter instruções sobre como publicar o aplicativo de funções, consulte a seção [*publicar o aplicativo*](tutorial-end-to-end.md#publish-the-app) do tutorial de ponta a ponta.
 
-### <a name="configure-your-function"></a>Configurar sua função
+### <a name="configure-your-function"></a>Configurar a função
 
 Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)), a configuração já estará configurada.
 
@@ -164,7 +164,7 @@ Aqui está uma descrição do fluxo do processo:
 
 As seções a seguir percorrem as etapas para configurar esse fluxo de dispositivo de desativação automática.
 
-### <a name="create-an-event-hub"></a>Criar um Hub de Evento
+### <a name="create-an-event-hub"></a>Criar um hub de eventos
 
 Agora você precisa criar um hub de [eventos](../event-hubs/event-hubs-about.md)do Azure, que será usado para receber os eventos do ciclo de vida do Hub IOT. 
 
@@ -174,7 +174,7 @@ Percorra as etapas descritas no início rápido [*criar um hub de eventos*](../e
 
 ### <a name="create-an-azure-function"></a>Criar uma função do Azure
 
-Em seguida, você criará uma função disparada por hubs de eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio. 
+Em seguida, você criará uma função disparada pelos Hubs de Eventos dentro de um aplicativo de funções. Você pode usar o aplicativo de funções criado no tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](tutorial-end-to-end.md)) ou seu próprio. 
 
 Dê um nome ao seu hub de eventos disparado *lifecycleevents* e conecte o gatilho do hub de eventos ao Hub de eventos criado na etapa anterior. Se você usou um nome de Hub de eventos diferente, altere-o para corresponder ao nome do gatilho abaixo.
 
@@ -186,7 +186,7 @@ Dentro de seu aplicativo de funções publicado, adicione uma nova classe de fun
 
 Salve o projeto e, em seguida, publique o aplicativo de funções novamente. Para obter instruções sobre como publicar o aplicativo de funções, consulte a seção [*publicar o aplicativo*](tutorial-end-to-end.md#publish-the-app) do tutorial de ponta a ponta.
 
-### <a name="configure-your-function"></a>Configurar sua função
+### <a name="configure-your-function"></a>Configurar a função
 
 Em seguida, você precisará definir variáveis de ambiente em seu aplicativo de funções anteriormente, contendo a referência à instância de gêmeos digital do Azure que você criou e o Hub de eventos. Se você usou o tutorial de ponta a ponta ([*tutorial: conectar uma solução de ponta a ponta*](./tutorial-end-to-end.md)), a primeira configuração já estará configurada.
 
@@ -223,7 +223,7 @@ Para disparar o processo de desativação, você precisa excluir manualmente o d
 
 Na [primeira metade deste artigo](#auto-provision-device-using-device-provisioning-service), você criou um dispositivo no Hub IOT e um teledigital correspondente. 
 
-Agora, vá para o Hub IoT e exclua esse dispositivo (você pode fazer isso com um [comando CLI do Azure](/cli/azure/ext/azure-cli-iot-ext/iot/hub/device-identity?view=azure-cli-latest&preserve-view=true#ext-azure-cli-iot-ext-az-iot-hub-device-identity-delete) ou na [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
+Agora, vá para o Hub IoT e exclua esse dispositivo (você pode fazer isso com um [comando CLI do Azure](/cli/azure/ext/azure-iot/iot/hub/module-identity?view=azure-cli-latest#ext_azure_iot_az_iot_hub_module_identity_delete) ou na [portal do Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Devices%2FIotHubs)). 
 
 O dispositivo será removido automaticamente do Azure digital gêmeos. 
 

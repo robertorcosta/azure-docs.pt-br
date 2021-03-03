@@ -1,33 +1,33 @@
 ---
-title: Habilitar o Azure Monitor para VMs usando o PowerShell
-description: Descreve como habilitar Azure Monitor para VMs para máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando Azure PowerShell.
+title: Habilitar o Revisions de VM usando o PowerShell
+description: Descreve como habilitar o Revisions de VM para máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando Azure PowerShell.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 83b17e021ce8003b5dbd279886edfdc199f58ce3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 47ac71797684f82dfd94acff2d18bca11b2f50d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606619"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717070"
 ---
-# <a name="enable-azure-monitor-for-vms-using-powershell"></a>Habilitar o Azure Monitor para VMs usando o PowerShell
-Este artigo descreve como habilitar Azure Monitor para VMs em máquinas virtuais do Azure usando o PowerShell. Esse procedimento pode ser usado para o seguinte:
+# <a name="enable-vm-insights-using-powershell"></a>Habilitar o Revisions de VM usando o PowerShell
+Este artigo descreve como habilitar as informações de VM em máquinas virtuais do Azure usando o PowerShell. Esse procedimento pode ser usado para o seguinte:
 
 - Máquina virtual do Azure
 - Conjunto de dimensionamento de máquinas virtuais do Azure
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- [Criar e configurar um espaço de trabalho log Analytics](../insights/vminsights-configure-workspace.md).
-- Consulte [sistemas operacionais com suporte](../insights/vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operacional da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais que você está habilitando tem suporte. 
+- [Criar e configurar um espaço de trabalho log Analytics](./vminsights-configure-workspace.md).
+- Consulte [sistemas operacionais com suporte](./vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operacional da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais que você está habilitando tem suporte. 
 
 
 ## <a name="powershell-script"></a>Script do PowerShell
 
-Para habilitar Azure Monitor para VMs para várias VMs ou conjuntos de dimensionamento de máquinas virtuais, use o script do PowerShell [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights), que está disponível na galeria de Azure PowerShell. Este script itera por meio de:
+Para habilitar as informações de VM para várias VMs ou conjuntos de dimensionamento de máquinas virtuais, use o [Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights)de script do PowerShell, que está disponível na galeria de Azure PowerShell. Este script itera por meio de:
 
 - Cada máquina virtual e conjunto de dimensionamento de máquinas virtuais em sua assinatura.
 - O grupo de recursos com escopo especificado pelo *resourcegroup*.
@@ -139,7 +139,7 @@ PARAMETERS
     Specify to use a PolicyAssignmentName for source and to reinstall (move to a new workspace)
 ```
 
-O exemplo a seguir demonstra como usar os comandos do PowerShell na pasta para habilitar o Azure Monitor para VMs e entender o resultado esperado:
+O exemplo a seguir demonstra como usar os comandos do PowerShell na pasta para habilitar o Revisions de VM e entender a saída esperada:
 
 ```powershell
 $WorkspaceId = "<GUID>"
@@ -190,5 +190,5 @@ Failed: (0)
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Consulte [usar o mapa de Azure monitor para VMs](vminsights-maps.md) para exibir dependências de aplicativo descobertas. 
+* Consulte [usar o mapa do virtual insights](vminsights-maps.md) para exibir dependências de aplicativo descobertas. 
 * Consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md) para identificar afunilamentos, utilização geral e desempenho da VM.

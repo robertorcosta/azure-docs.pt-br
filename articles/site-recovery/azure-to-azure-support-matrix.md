@@ -4,12 +4,12 @@ description: Resume o suporte para a recuperação de desastre de VMs do Azure e
 ms.topic: article
 ms.date: 11/29/2020
 ms.author: raynew
-ms.openlocfilehash: 522af9738cac098dcc9e8cb73183c0bd6b3b4902
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 7e9cb2397017c428c3a5251ed0d0c4f9a076c72f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534661"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735532"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matriz de suporte para recuperação de desastre de VM do Azure entre regiões do Azure
 
@@ -258,6 +258,7 @@ Criptografia dupla em repouso | Com suporte | Saiba mais sobre as regiões com s
 Habilitar o ADE (Azure Disk Encryption) para o sistema operacional Windows | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. |
 ADE (Azure Disk Encryption) para sistema operacional Linux | Compatível com VMs com discos gerenciados. | VMs usando discos não gerenciados não são compatíveis. <br/><br/> Chaves protegidas por HSM não são compatíveis. <br/><br/> A criptografia de volumes individuais em apenas um disco não é um procedimento compatível. <br><br> Problema conhecido com a habilitação da replicação. [Saiba mais.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
 Rotação de chave SAS | Sem suporte | Se a chave SAS para contas de armazenamento for girada, o cliente precisará desabilitar e reabilitar a replicação. |
+Cache de host | Com suporte
 Adição a quente    | Com suporte | A habilitação da replicação para um disco de dados que você adiciona a uma VM do Azure replicada é compatível com VMs que usam discos gerenciados. <br/><br/> É possível adicionar a quente somente um disco por vez a uma VM do Azure. A adição paralela de vários discos não é um procedimento compatível. |
 Remoção de disco a quente    | Sem suporte | Se você remover um disco de dados da VM, precisará desabilitar a replicação e habilitá-la novamente na VM.
 Exclusão de disco | Suporte. Você precisa usar o [PowerShell](azure-to-azure-exclude-disks.md) para configurar. |    Os discos temporários são excluídos por padrão.

@@ -4,14 +4,14 @@ description: Altere para os destinatários de notificação padrão da detecçã
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
-ms.date: 03/13/2019
+ms.date: 02/14/2021
 ms.reviewer: mbullwin
-ms.openlocfilehash: 0bf3a95814aadf687efcc27294b760e14f7d45d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa14f0dd40a30a4750d9bb102d8e67608f958135
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585645"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734495"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>Alteração de notificações por email de detecção inteligente
 
@@ -27,7 +27,7 @@ Essa alteração afetará todas as regras de detecção inteligente, exceto as s
 
 * Regras de detecção inteligente marcadas como versão prévia. Essas regras de detecção inteligente não dão suporte a notificações por email no momento.
 
-* Regra de anomalias de falha. Essa regra passará a focar nas novas funções padrão depois da migração de um alerta clássico para a plataforma unificada de alertas (mais informações estão disponíveis [aqui](../alerts/monitoring-classic-retirement.md)).
+* Regra de anomalias de falha.
 
 ## <a name="how-to-prepare-for-this-change"></a>Como se preparar para essa alteração?
 

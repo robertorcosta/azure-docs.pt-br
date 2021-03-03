@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 02dd9aa74da42f0a5d70de4513b88756a97bea1e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679055"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695797"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Solucionando problemas do servidor de rota do Azure
 
@@ -21,11 +21,15 @@ ms.locfileid: "101679055"
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="bgp-connectivity-issues"></a>Problemas de conectividade BGP
+## <a name="connectivity-issues"></a>Problemas de conectividade
 
-### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Por que o emparelhamento via protocolo BGP entre meu NVA e o servidor de rota do Azure vai para cima e para baixo ("oscilando")?
+### <a name="why-does-my-nva-lose-internet-connectivity-after-it-advertises-the-default-route-00000-to-azure-route-server"></a>Por que minhas NVA perdem a conectividade com a Internet depois de anunciar a rota padrão (0.0.0.0/0) para o servidor de rota do Azure?
+Quando o NVA anuncia a rota padrão, o servidor de rota do Azure o programa para todas as VMs na rede virtual, incluindo o próprio NVA. Essa rota padrão define o NVA como o próximo salto para todo o tráfego associado à Internet. Se seu NVA precisar de conectividade com a Internet, você precisará configurar uma [rota definida pelo usuário](../virtual-network/virtual-networks-udr-overview.md) para substituir essa rota padrão do NVA e anexar o UDR à sub-rede onde o NVA está hospedado (consulte o exemplo abaixo). Caso contrário, o computador host NVA continuará enviando o tráfego de entrada na Internet, incluindo aquele enviado pelo NVA de volta para o NVA em si.
 
-A causa da oscilação pode ser devido à configuração do temporizador BGP. Por padrão, o temporizador Keep-Alive no servidor de rota do Azure é definido como 60 segundos e o temporizador suspenso é de 180 segundos.
+| Rota | Próximo salto |
+|-------|----------|
+| 0.0.0.0/0 | Internet |
+
 
 ### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Por que posso executar ping do meu NVA para o IP do par de BGP no servidor de rota do Azure, mas depois de configurar o emparelhamento via protocolo BGP entre eles, não é mais possível executar ping no mesmo IP? Por que o emparelhamento via protocolo BGP fica inativo?
 
@@ -37,11 +41,18 @@ Em algumas NVA, você precisa adicionar uma rota estática para a sub-rede do se
 
 10.0.1.1 é o IP de gateway padrão na sub-rede em que seu NVA (ou mais precisamente, uma das NICs) está hospedado.
 
-## <a name="bgp-route-issues"></a>Problemas de rota BGP
+### <a name="why-do-i-lose-connectivity-to-my-on-premises-network-over-expressroute-andor-azure-vpn-when-im-deploying-azure-route-server-to-a-virtual-network-that-already-has-expressroute-gateway-andor-azure-vpn-gateway"></a>Por que eu perco a conectividade com minha rede local por meio do ExpressRoute e/ou da VPN do Azure quando estou implantando o servidor de rota do Azure em uma rede virtual que já tem o gateway de ExpressRoute e/ou o gateway de VPN do Azure?
+Quando você implanta o servidor de rota do Azure em uma rede virtual, precisamos atualizar o plano de controle entre os gateways e a rede virtual. Durante essa atualização, há um período de tempo em que as VMs na rede virtual perderão a conectividade com a rede local. É altamente recomendável que você agende uma manutenção para implantar o servidor de rota do Azure em seu ambiente de produção.  
+
+## <a name="control-plane-issues"></a>Problemas de plano de controle
+
+### <a name="why-is-the-bgp-peering-between-my-nva-and-the-azure-route-server-going-up-and-down-flapping"></a>Por que o emparelhamento via protocolo BGP entre meu NVA e o servidor de rota do Azure vai para cima e para baixo ("oscilando")?
+
+A causa da oscilação pode ser devido à configuração do temporizador BGP. Por padrão, o temporizador Keep-Alive no servidor de rota do Azure é definido como 60 segundos e o temporizador suspenso é de 180 segundos.
 
 ### <a name="why-does-my-nva-not-receive-routes-from-azure-route-server-even-though-the-bgp-peering-is-up"></a>Por que meu NVA não recebe rotas do servidor de rota do Azure, embora o emparelhamento via protocolo BGP esteja ativo?
 
-O ASN que o servidor de rota do Azure usa é 65515. Certifique-se de configurar um ASN diferente para seu NVA para que uma sessão "eBGP" possa ser estabelecida entre seu NVA e o servidor de rota do Azure para que a propagação de rota possa ocorrer automaticamente.
+O ASN que o servidor de rota do Azure usa é 65515. Certifique-se de configurar um ASN diferente para seu NVA para que uma sessão "eBGP" possa ser estabelecida entre seu NVA e o servidor de rota do Azure para que a propagação de rota possa ocorrer automaticamente. Certifique-se de habilitar o "multi-hop" na configuração de BGP porque o NVA e o servidor de rota do Azure estão em sub-redes diferentes na rede virtual.
 
 ### <a name="the-bgp-peering-between-my-nva-and-azure-route-server-is-up-i-can-see-routes-exchanged-correctly-between-them-why-arent-the-nva-routes-in-the-effective-routing-table-of-my-vm"></a>O emparelhamento via protocolo BGP entre meu NVA e o servidor de rota do Azure está ativo. Posso ver as rotas trocadas corretamente entre elas. Por que as rotas NVA não estão na tabela de roteamento efetiva da minha VM? 
 

@@ -1,25 +1,25 @@
 ---
-title: Como consultar logs do Azure Monitor para VMs
-description: Azure Monitor para VMs solução coleta dados de log e métricas para o e este artigo descreve os registros e inclui exemplos de consultas.
+title: Como consultar logs de informações da VM
+description: A solução de informações de VM coleta dados de log e métricas para o e este artigo descreve os registros e inclui exemplos de consultas.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: ae0bc6ea35d5c6e3ebe0cd7f232e5c8b1e637d9d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bbecb15173c929aee46e7d1eeb5e83aab86430f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713517"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Como consultar logs do Azure Monitor para VMs
+# <a name="how-to-query-logs-from-vm-insights"></a>Como consultar logs de informações da VM
 
-Azure Monitor para VMs coleta métricas de desempenho e conexão, dados de inventário de computador e processo e informações de estado de integridade e as encaminha para o espaço de trabalho Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../log-query/log-query-overview.md) no Azure monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+O Revisions de VM coleta métricas de desempenho e conexão, dados de inventário de computador e processo e informações de estado de integridade e os encaminha para o espaço de trabalho Log Analytics no Azure Monitor.  Esses dados estão disponíveis para [consulta](../logs/log-query-overview.md) no Azure monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 ## <a name="map-records"></a>Registros do mapa
 
-Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador inicia ou é integrado ao Azure Monitor para o recurso de Mapeamento de VMs. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
+Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador é iniciado ou é integrado ao recurso de mapa de informações de VM. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
 
 Há propriedades geradas internamente que você pode usar para identificar computadores e processos exclusivos:
 
@@ -51,7 +51,7 @@ Para gerenciar o custo e a complexidade, os registros de conexão não represent
 |:--|:--|
 |Direção |Direção da conexão, o valor é *entrada* ou *saída* |
 |Computador |O FQDN do computador |
-|Processar |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
+|Processo |Identidade do processo ou grupos de processos, iniciando/aceitando a conexão |
 |SourceIp |Endereço IP da origem |
 |DestinationIp |Endereço IP do destino |
 |DestinationPort |Número da porta de destino |
@@ -112,7 +112,7 @@ Todas as propriedades RemoteIp na tabela *VMConnection* são verificadas em um c
 |:--|:--|
 |MaliciousIP |Endereço de RemoteIp |
 |IndicatorThreadType |O indicador de ameaça detectado é um dos seguintes valores, *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|Description |Descrição da ameaça observada. |
+|Descrição |Descrição da ameaça observada. |
 |TLPLevel |O TLP (Traffic Light Protocol) é um dos valores definidos, *Branco*, *Verde*, *Âmbar*, *Vermelho*. |
 |Confiança |Os valores são *0 – 100*. |
 |Severidade |Os valores são *0 – 5*, onde *5* é o mais grave e *0* não é grave. O valor padrão é *3*.  |
@@ -130,7 +130,7 @@ Cada registro em VMBoundPort é identificado pelos seguintes campos:
 
 | Propriedade | Descrição |
 |:--|:--|
-|Processar | Identidade do processo (ou grupos de processos) com os quais a porta está associada.|
+|Processo | Identidade do processo (ou grupos de processos) com os quais a porta está associada.|
 |IP | Endereço IP da porta (pode ser IP de curinga, *0.0.0.0*) |
 |Porta |O número da porta |
 |Protocolo | O protocolo.  Exemplo, *TCP* ou *UDP* (somente *TCP* tem suporte no momento).|
@@ -226,14 +226,14 @@ Os registros com um tipo de *VMProcess* têm dados de inventário para processos
 |Computador | O FQDN do computador | 
 |AgentId | A ID exclusiva do agente de Log Analytics |
 |Computador | Nome do recurso de Azure Resource Manager para o computador exposto por ServiceMap. Ele está no formato *m-{GUID}*, em que *GUID* é o mesmo GUID que agentID. | 
-|Processar | O identificador exclusivo do processo de Mapa do Serviço. Ele está no formato *p-{GUID}*. 
+|Processo | O identificador exclusivo do processo de Mapa do Serviço. Ele está no formato *p-{GUID}*. 
 |Executávelname | O nome do processo executável | 
 |DisplayName | Nome de exibição do processo |
 |Função | Função de processo: *WebServer*, *appServer*, *databaseServer*, *ldapServer*, *smbServer* |
-|Grupo | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
+|Agrupar | Nome do grupo de processos. Os processos no mesmo grupo estão logicamente relacionados, por exemplo, parte do mesmo produto ou componente do sistema. |
 |StartTime | O tempo de início do pool de processos |
 |FirstPid | O primeiro PID no pool de processos |
-|Description | A descrição do processo |
+|Descrição | A descrição do processo |
 |CompanyName | O nome da empresa |
 |InternalName | O nome interno |
 |ProductName | O nome do produto |
@@ -444,14 +444,14 @@ Os registros com um tipo de *InsightsMetrics* têm dados de desempenho do sistem
 |Namespace | Categoria do contador de desempenho | 
 |Name | Nome do contador de desempenho |
 |Val | Valor coletado | 
-|Marcações | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
+|Marcas | Detalhes relacionados sobre o registro. Consulte a tabela abaixo para ver as marcas usadas com diferentes tipos de registro.  |
 |AgentId | Identificador exclusivo para o agente de cada computador |
 |Tipo | *InsightsMetrics* |
 |_ResourceId_ | ID de recurso da máquina virtual |
 
 Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* são listados na tabela a seguir:
 
-| Namespace | Name | Descrição | Unidade | Marcações |
+| Namespace | Name | Descrição | Unidade | Marcas |
 |:---|:---|:---|:---|:---|
 | Computador    | Pulsação             | Pulsação do computador                        | | |
 | Memória      | AvailableMB           | Memória-bytes disponíveis                    | Megabytes      | memorySizeMB-tamanho total da memória|
@@ -473,6 +473,6 @@ Os contadores de desempenho atualmente coletados na tabela *InsightsMetrics* sã
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Se você for novo na gravação de consultas de log em Azure Monitor, examine [como usar log Analytics](../log-query/log-analytics-tutorial.md) no portal do Azure para gravar consultas de log.
+* Se você for novo na gravação de consultas de log em Azure Monitor, examine [como usar log Analytics](../logs/log-analytics-tutorial.md) no portal do Azure para gravar consultas de log.
 
-* Saiba mais sobre como [escrever consultas de pesquisa](../log-query/get-started-queries.md).
+* Saiba mais sobre como [escrever consultas de pesquisa](../logs/get-started-queries.md).

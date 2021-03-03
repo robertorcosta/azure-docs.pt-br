@@ -1,19 +1,19 @@
 ---
-title: Como atualizar Azure Monitor para contêineres para métricas | Microsoft Docs
-description: Este artigo descreve como você atualiza Azure Monitor para contêineres para habilitar o recurso de métricas personalizadas que dá suporte à exploração e aos alertas em métricas agregadas.
+title: Como atualizar informações de contêiner para métricas | Microsoft Docs
+description: Este artigo descreve como atualizar as informações de contêiner para habilitar o recurso de métricas personalizadas que dá suporte à exploração e aos alertas em métricas agregadas.
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 37c19cd074e9ce1985d5d0e82137d8603913d4bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: edca7e4e8f6a9ea8dd9efdaafab8c906efd671b6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708264"
 ---
-# <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>Como atualizar o Azure Monitor para contêineres para habilitar as métricas
+# <a name="how-to-update-container-insights-to-enable-metrics"></a>Como atualizar informações de contêiner para habilitar métricas
 
-Azure Monitor para contêineres está introduzindo o suporte para coletar métricas dos AKS (serviços Kubernetess do Azure) e dos nós de clusters e pods do Azure habilitados para o Arc e gravá-los no repositório de métricas de Azure Monitor. Essa alteração destina-se a fornecer uma linha de tempo aprimorada ao apresentar cálculos agregados (AVG, Count, Max, min, Sum) em gráficos de desempenho, dar suporte à fixação de gráficos de desempenho em painéis de portal do Azure e dar suporte a alertas de métricas.
+O insights de contêiner está introduzindo o suporte para coletar métricas dos AKS (serviços Kubernetess do Azure) e dos nós de clusters do kubernetes do Azure habilitados e do Arc e os pods e gravá-los no repositório de métricas Azure Monitor. Essa alteração destina-se a fornecer uma linha de tempo aprimorada ao apresentar cálculos agregados (AVG, Count, Max, min, Sum) em gráficos de desempenho, dar suporte à fixação de gráficos de desempenho em painéis de portal do Azure e dar suporte a alertas de métricas.
 
 >[!NOTE]
 >Atualmente, esse recurso não dá suporte a clusters do Azure Red Hat OpenShift.
@@ -47,7 +47,7 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 ## <a name="upgrade-a-cluster-from-the-azure-portal"></a>Atualizar um cluster do portal do Azure
 
-Para clusters AKS existentes monitorados por Azure Monitor para contêineres, depois de selecionar o cluster para exibir sua integridade do modo de exibição de vários clusters no Azure Monitor ou diretamente do cluster, selecionando **insights** no painel esquerdo, você verá uma faixa na parte superior do Portal.
+Para clusters AKS existentes monitorados por informações de contêiner, depois de selecionar o cluster para exibir sua integridade do modo de exibição de vários clusters no Azure Monitor ou diretamente do cluster, selecionando **insights** no painel esquerdo, você verá uma faixa na parte superior do Portal.
 
 ![Atualizar a faixa do cluster AKS no portal do Azure](./media/container-insights-update-metrics/portal-banner-enable-01.png)
 

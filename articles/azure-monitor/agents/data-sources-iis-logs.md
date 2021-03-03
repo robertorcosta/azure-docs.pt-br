@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2020
-ms.openlocfilehash: 089c0739ff091d49734cad048c2bfb10d857617c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605621"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732047"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Coletar logs do IIS com Log Analytics Agent no Azure Monitor
-O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo agente de Log Analytics e armazenados em [logs de Azure monitor](../platform/data-platform.md).
+O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo agente de Log Analytics e armazenados em [logs de Azure monitor](../data-platform.md).
 
 > [!IMPORTANT]
-> Este artigo aborda a coleta de logs do IIS com o [agente de log Analytics](../platform/log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
+> Este artigo aborda a coleta de logs do IIS com o [agente de log Analytics](./log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Logs IIS](media/data-sources-iis-logs/overview.png)
 
@@ -75,4 +75,4 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configure o Azure Monitor para coletar outras [fontes de dados](../agents/agent-data-sources.md) para análise.
-* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.
+* Saiba mais sobre [registrar consultas](../logs/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

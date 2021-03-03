@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 2d83b114487f882b7ee38d3d71c84b6abec04a2b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96f0c4d4ea7c32e2b58807204ef45b75feae7132
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727321"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
 
@@ -29,7 +29,7 @@ ms.locfileid: "89266911"
 > * [Versão 2](media-services-dynamic-manifest-overview.md)
 > * [Versão 3](../latest/filters-dynamic-manifest-overview.md)
 
-A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
+A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é obtida por meio de **Manifestos Dinâmicos** criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
 
 Este tópico analisa cenários comuns nos quais o uso dos filtros será muito útil para seus clientes e links para tópicos que demonstram como criar filtros de forma programática.
 
@@ -77,22 +77,22 @@ Aqui está um exemplo desse arquivo de manifesto:
 ```
 
 ### <a name="dynamic-manifests"></a>Manifestos dinâmicos
-Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o que é descrito no arquivo de manifesto do ativo padrão. Por exemplo:
+Há [cenários](media-services-dynamic-manifest-overview.md#scenarios) em que o cliente precisa de mais flexibilidade do que o que é descrito no arquivo de manifesto do ativo padrão. Por exemplo: 
 
 * Dispositivo específico: entregar apenas as representações especificadas e/ou faixas de idioma especificadas com suporte pelo dispositivo que é usado para reproduzir o conteúdo ("filtragem da representação"). 
 * Redução do manifesto para mostrar um subclipe de um evento ao vivo ("filtragem de subclipe").
 * Corte do início de um vídeo ("corte de um vídeo").
 * Ajuste a Janela de Apresentação (DVR) para fornecer uma duração limitada da janela do DVR no leitor ("ajustar a janela de apresentação").
 
-Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo:
+Para atingir esta flexibilidade, os serviços de mídia oferecem os **manifestos dinâmico** com base em [filtros](media-services-dynamic-manifest-overview.md#filters)predefinidos.  Depois de definir os filtros, os clientes podem usá-los para transmitir uma representação específica ou subclipes do vídeo. Eles podem especificar filtros na URL de transmissão. Os filtros podem ser aplicados a protocolos de streaming de taxa de bits adaptável com suporte do [Empacotamento dinâmico](media-services-dynamic-packaging-overview.md): HLS, MPEG-DASH e Smooth Streaming. Por exemplo: 
 
 URL de MPEG DASH com filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`
 
 URL de Smooth Streaming com filtro
 
-`http:\//testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
+`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`
 
 
 Para obter mais informações sobre como fornecer seu conteúdo e criar URLs de streaming, consulte [Visão geral do fornecimento de conteúdo](media-services-deliver-content-overview.md).
@@ -102,7 +102,7 @@ Para obter mais informações sobre como fornecer seu conteúdo e criar URLs de 
 > 
 > 
 
-### <a name="filters"></a><a id="filters"></a>Filter
+### <a name="filters"></a><a id="filters"></a>Filtros
 Há dois tipos de filtros de ativo: 
 
 * Filtros globais (podem ser aplicados a qualquer ativo na conta de Serviços de Mídia do Azure, têm a vida útil da conta) e 

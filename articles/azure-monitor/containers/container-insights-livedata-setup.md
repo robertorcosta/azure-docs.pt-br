@@ -1,19 +1,19 @@
 ---
-title: Configurar Azure Monitor para dados dinâmicos de contêineres (visualização) | Microsoft Docs
-description: Este artigo descreve como configurar a exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar o kubectl com Azure Monitor para contêineres.
+title: Configurar dados dinâmicos do contêiner insights (visualização) | Microsoft Docs
+description: Este artigo descreve como configurar o modo de exibição em tempo real de logs de contêiner (stdout/stderr) e eventos sem usar kubectl com informações de contêiner.
 ms.topic: conceptual
 ms.date: 01/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c176b2db659577d585ac077eebe0484203eb9cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4302bdbb3d71c890f7fb0cfb82ab5f8d5aecbd43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605105"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713772"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>Como configurar o recurso de dados dinâmicos (versão prévia)
 
-Para exibir dados dinâmicos (versão prévia) com Azure Monitor para contêineres de clusters do AKS (serviço kubernetes do Azure), você precisa configurar a autenticação para conceder permissão para acesso aos seus dados do kubernetes. Essa configuração de segurança permite o acesso em tempo real aos seus dados por meio da API kubernetes diretamente no portal do Azure.
+Para exibir dados dinâmicos (versão prévia) com informações de contêiner de clusters do AKS (serviço kubernetes do Azure), você precisa configurar a autenticação para conceder permissão para acesso aos seus dados do kubernetes. Essa configuração de segurança permite o acesso em tempo real aos seus dados por meio da API kubernetes diretamente no portal do Azure.
 
 Esse recurso dá suporte aos seguintes métodos para controlar o acesso aos logs, eventos e métricas:
 
@@ -46,7 +46,7 @@ O portal do Azure solicita que você valide suas credenciais de logon para um cl
 
 Para eliminar a necessidade de aplicar alterações de configuração adicionais para permitir que a associação de função de usuário kubernetes **clusterUser** o acesso ao recurso de dados dinâmicos (versão prévia) depois de habilitar a autorização de [RBAC de kubernetes](#configure-kubernetes-rbac-authorization) , AKs adicionou uma nova associação de função de cluster kubernetes chamada **clusterMonitoringUser**. Essa associação de função de cluster tem todas as permissões necessárias prontas para acessar a API kubernetes e os pontos de extremidade para utilizar o recurso de dados dinâmicos (versão prévia).
 
-Para utilizar o recurso de dados dinâmicos (versão prévia) com esse novo usuário, você precisa ser um membro da função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou [usuário de cluster do serviço kubernetes do Azure](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) no recurso de cluster AKs. Azure Monitor para contêineres, quando habilitado, é configurado para autenticar usando o clusterMonitoringUser por padrão. Se a associação de função clusterMonitoringUser não existir em um cluster, o **clusterUser** será usado para autenticação em vez disso. O colaborador fornece acesso ao clusterMonitoringUser (se existir) e o usuário do cluster do serviço Kuberenetes do Azure fornece acesso ao clusterUser. Qualquer uma dessas duas funções fornece acesso suficiente para usar esse recurso.
+Para utilizar o recurso de dados dinâmicos (versão prévia) com esse novo usuário, você precisa ser um membro da função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou [usuário de cluster do serviço kubernetes do Azure](../../role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role) no recurso de cluster AKs. As informações de contêiner, quando habilitadas, são configuradas para autenticar usando o clusterMonitoringUser por padrão. Se a associação de função clusterMonitoringUser não existir em um cluster, o **clusterUser** será usado para autenticação em vez disso. O colaborador fornece acesso ao clusterMonitoringUser (se existir) e o usuário do cluster do serviço Kuberenetes do Azure fornece acesso ao clusterUser. Qualquer uma dessas duas funções fornece acesso suficiente para usar esse recurso.
 
 AKS liberou essa nova associação de função em janeiro de 2020, portanto, os clusters criados antes de janeiro de 2020 não o têm. Se você tiver um cluster que foi criado antes de janeiro de 2020, o novo **clusterMonitoringUser** poderá ser adicionado a um cluster existente executando uma operação Put no cluster ou executando qualquer outra operação no cluster que executa uma operação Put no cluster, como atualizar a versão do cluster.
 
@@ -106,7 +106,7 @@ O registro de cliente do Azure AD deve ser reconfigurado para permitir que o por
 Para obter mais informações sobre a configuração de segurança avançada no kubernetes, consulte a [documentação do kubernetes](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 >[!NOTE]
->Se você estiver criando um novo cluster habilitado para RBAC kubernetes, consulte [integrar Azure Active Directory com o serviço kubernetes do Azure](../../aks/azure-ad-integration-cli.md) e siga as etapas para configurar a autenticação do Azure AD. Durante as etapas para criar o aplicativo cliente, uma observação nessa seção realça as duas URLs de redirecionamento que você precisa criar para Azure Monitor para contêineres correspondentes às especificadas na etapa 3 abaixo.
+>Se você estiver criando um novo cluster habilitado para RBAC kubernetes, consulte [integrar Azure Active Directory com o serviço kubernetes do Azure](../../aks/azure-ad-integration-cli.md) e siga as etapas para configurar a autenticação do Azure AD. Durante as etapas para criar o aplicativo cliente, uma observação nessa seção realça as duas URLs de redirecionamento que você precisa criar para as informações de contêiner correspondentes às especificadas na etapa 3 abaixo.
 
 ### <a name="client-registration-reconfiguration"></a>Reconfiguração de registro de cliente
 

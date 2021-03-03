@@ -4,12 +4,12 @@ description: Saiba como solucionar problemas do agente Java para Azure Monitor A
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 90e0ceb6ba9d696eb446d607ed2f2f134733618e
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98881105"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737050"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de solução de problemas: Azure Monitor Application Insights para Java
 
@@ -45,15 +45,23 @@ O registro em log só será capturado se ele atender primeiro ao limite configur
 
 A melhor maneira de saber se uma determinada instrução de log atende ao limite configurado da estrutura de registro em log é confirmar que ela está aparecendo no log normal do aplicativo (por exemplo, arquivo ou console).
 
+Observe também que, se uma exceção for passada para o agente, a mensagem de log (e exceção) aparecerá na portal do Azure na `exceptions` tabela em vez da `traces` tabela.
+
 Consulte a [configuração de log coletada automaticamente](./java-standalone-config.md#auto-collected-logging) para obter mais detalhes.
 
 ## <a name="import-ssl-certificates"></a>Importar certificados SSL
 
 Esta seção ajuda você a solucionar problemas e possivelmente corrigir as exceções relacionadas a certificados SSL ao usar o agente Java.
 
-Há dois caminhos diferentes para solucionar esse problema.
+Há dois caminhos diferentes abaixo para resolver esse problema:
+* Se estiver usando um repositório de chaves Java padrão
+* Se estiver usando um repositório de chaves Java personalizado
 
-### <a name="if-using-a-default-java-keystore"></a>Se estiver usando um repositório de chaves Java padrão:
+Se você não tiver certeza sobre qual caminho deve ser seguido, verifique se você tem um ARG JVM `-Djavax.net.ssl.trustStore=...` .
+Se você _não_ tiver esse ARG de JVM, provavelmente estará usando o keystore padrão do Java.
+Se você _tiver um_ ARG de JVM, você provavelmente está usando um keystore personalizado e a ARG JVM apontará para seu keystore personalizado.
+
+### <a name="if-using-the-default-java-keystore"></a>Se estiver usando o repositório de chaves Java padrão:
 
 Normalmente, o repositório de chaves Java padrão já terá todos os certificados raiz da autoridade de certificação. No entanto, pode haver algumas exceções, como o certificado de ponto de extremidade de ingestão pode ser assinado por um certificado raiz diferente. Portanto, recomendamos as três etapas a seguir para resolver esse problema:
 

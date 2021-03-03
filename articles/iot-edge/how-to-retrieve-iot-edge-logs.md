@@ -10,12 +10,12 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 69f7ec5114ad650f33eae740a54a3821b76ef2ac
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475532"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719008"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
 
@@ -33,7 +33,18 @@ Embora não seja necessário, para obter a melhor compatibilidade com esse recur
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` deve seguir o [formato de nível de severidade do syslog](https://wikipedia.org/wiki/Syslog#Severity_level) e `{Timestamp}` deve ser formatado como `yyyy-MM-dd hh:mm:ss.fff zzz` .
+`{Timestamp}` deve ser formatado como `yyyy-MM-dd hh:mm:ss.fff zzz` e `{Log Level}` deve seguir a tabela abaixo, que deriva seus níveis de severidade do código de [severidade no padrão de syslog](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Valor | Severidade |
+|-|-|
+| 0 | Emergência |
+| 1 | Alerta |
+| 2 | Crítico |
+| 3 | Erro |
+| 4 | Aviso |
+| 5 | Informativo |
+| 6 | Informativo |
+| 7 | Depurar |
 
 A [classe de agente no IOT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serve como uma implementação canônica.
 
@@ -69,10 +80,10 @@ Esse método aceita uma carga JSON com o esquema a seguir:
 | itens | Matriz JSON | Uma matriz com `id` e `filter` tuplas. |
 | ID | string | Uma expressão regular que fornece o nome do módulo. Ele pode corresponder a vários módulos em um dispositivo de borda. O formato de [expressões regulares do .net](/dotnet/standard/base-types/regular-expressions) é esperado. |
 | filter | Seção JSON | Filtros de log a serem aplicados aos módulos que correspondem à `id` expressão regular na tupla. |
-| engloba | Número inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
+| engloba | inteiro | Número de linhas de log no passado para recuperar a partir da versão mais recente. OPCIONAL. |
 | since | string | Apenas retorne logs desde o momento, como uma duração (1 d, 90 m, 2 dias 3 horas 2 minutos), carimbo de data/hora do rfc3339 ou carimbo de data/hora do UNIX.  Se ambos `tail` e `since` forem especificados, os logs serão recuperados usando o `since` valor primeiro. Em seguida, o `tail` valor é aplicado ao resultado e o resultado final é retornado. OPCIONAL. |
 | until | string | Só retorna logs antes da hora especificada, como um carimbo de data/hora rfc3339, um carimbo de data/hora do UNIX ou duração (1 d, 90 m, 2 dias 3 horas 2 minutos). OPCIONAL. |
-| nível de log | Número inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
+| nível de log | inteiro | Filtrar linhas de log menores ou iguais ao nível de log especificado. As linhas de log devem seguir o formato de log recomendado e usar o padrão de [nível de severidade de syslog](https://en.wikipedia.org/wiki/Syslog#Severity_level) . OPCIONAL. |
 | regex | string | Filtre as linhas de log que têm conteúdo que corresponde à expressão regular especificada usando o formato de [expressões regulares .net](/dotnet/standard/base-types/regular-expressions) . OPCIONAL. |
 | codificando | string | `gzip` ou `none`. O padrão é `none`. |
 | contentType | string | `json` ou `text`. O padrão é `text`. |
@@ -82,7 +93,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
 
 Uma recuperação bem-sucedida de logs retorna um **"status": 200** seguido por uma carga que contém os logs recuperados do módulo, filtrados pelas configurações que você especificar em sua solicitação.
 
-Por exemplo:
+Por exemplo: 
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -123,7 +134,7 @@ Na portal do Azure, invoque o método com o nome do método `GetModuleLogs` e o 
 
 ![Invocar o método direto ' GetModuleLogs ' no portal do Azure](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-Você também pode canalizar a saída da CLI para utilitários do Linux, como [gzip](https://en.wikipedia.org/wiki/Gzip), para processar uma resposta compactada. Por exemplo:
+Você também pode canalizar a saída da CLI para utilitários do Linux, como [gzip](https://en.wikipedia.org/wiki/Gzip), para processar uma resposta compactada. Por exemplo: 
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -192,7 +203,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
 | correlationId | string   | ID para consultar o status da solicitação de upload. |
 
-Por exemplo:
+Por exemplo: 
 
 A seguinte invocação carrega as últimas 100 linhas de log de todos os módulos, em formato JSON compactado:
 
@@ -316,7 +327,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
 | correlationId | string   | ID para consultar o status da solicitação de upload. |
 
-Por exemplo:
+Por exemplo: 
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -374,7 +385,7 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
 | correlationId | string   | ID para consultar o status da solicitação de upload. |
 
-Por exemplo:
+Por exemplo: 
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \

@@ -1,26 +1,26 @@
 ---
-title: Exibir dados dinâmicos (versão prévia) com Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve a exibição em tempo real de logs de kubernetes, eventos e métricas de Pod sem usar kubectl em Azure Monitor para contêineres.
+title: Exibir dados dinâmicos (versão prévia) com informações de contêiner | Microsoft Docs
+description: Este artigo descreve a exibição em tempo real de logs de kubernetes, eventos e métricas de Pod sem usar o kubectl em informações de contêiner.
 ms.topic: conceptual
 ms.date: 12/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3655ff8e5879aa4113753b5529c1e484fb079401
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7e644680916097bc453c30be63a7db324df5f8f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605106"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711222"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
 
-Azure Monitor para contêineres inclui o recurso de dados dinâmicos (versão prévia), que é um recurso de diagnóstico avançado que permite o acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas Pod. Ele expõe acesso direto a `kubectl logs -c` , `kubectl get` eventos e `kubectl top pods` . Um painel de console mostra os logs, eventos e métricas gerados pelo mecanismo de contêiner para auxiliar ainda mais na solução de problemas em tempo real.
+As informações de contêiner incluem o recurso de dados dinâmicos (versão prévia), que é um recurso de diagnóstico avançado que permite o acesso direto aos logs de contêiner do AKS (serviço de kubernetes do Azure) (stdout/stderr), eventos e métricas Pod. Ele expõe acesso direto a `kubectl logs -c` , `kubectl get` eventos e `kubectl top pods` . Um painel de console mostra os logs, eventos e métricas gerados pelo mecanismo de contêiner para auxiliar ainda mais na solução de problemas em tempo real.
 
 Este artigo fornece uma visão geral detalhada e ajuda você a entender como usar esse recurso.
 
 Para obter ajuda sobre como configurar ou solucionar problemas do recurso de dados dinâmicos (versão prévia), examine nosso [Guia de instalação](container-insights-livedata-setup.md). Esse recurso acessa diretamente a API do kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
 ## <a name="view-deployment-live-logs-preview"></a>Exibir logs ao vivo da implantação (versão prévia)
-Use o procedimento a seguir para exibir os logs ao vivo para implantações que fazem parte dos clusters AKS que não são monitorados pelo Azure Monitor para contêineres. Se o cluster usar Azure Monitor para contêineres, use o processo abaixo para exibir os dados dinâmicos de nós, controladores, contêineres e implantações.
+Use o procedimento a seguir para exibir os logs ao vivo para implantações que fazem parte de clusters AKS que não são monitorados pelo contêiner insights. Se o cluster usar informações de contêiner, use o processo abaixo para exibir os dados dinâmicos de nós, controladores, contêineres e implantações.
 
 1. Na portal do Azure, navegue até o grupo de recursos de cluster AKS e selecione o recurso AKS.
 

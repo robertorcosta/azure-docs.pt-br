@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 643645eb3b361cd68def1177ba7e8af89f1963bc
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520876"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734614"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizações para análise de alterações de aplicativo (versão prévia)
 
@@ -80,13 +80,13 @@ Acesse a ferramenta diagnosticar e solucionar problemas para uma máquina virtua
 
 ## <a name="activity-log-change-history"></a>Histórico de alterações do log de atividades
 
-O recurso [Exibir histórico de alterações](../platform/activity-log.md#view-change-history) no log de atividades chama o back-end do serviço de análise de alterações do aplicativo para obter alterações associadas a uma operação. **O histórico de alterações** usado para chamar o grafo de [recursos do Azure](../../governance/resource-graph/overview.md) diretamente, mas permutau o back-end para chamar a análise de alterações de aplicativo para que as alterações retornadas incluam alterações no nível de recurso do [grafo de recursos do Azure](../../governance/resource-graph/overview.md), propriedades de recurso de [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e alterações no convidado de serviços de PaaS, como aplicativo Web de serviços de aplicativos. Para que o serviço de análise de alterações do aplicativo possa verificar se há alterações nas assinaturas dos usuários, um provedor de recursos precisa ser registrado. Na primeira vez que você inserir a guia **histórico de alterações** , a ferramenta começará automaticamente a registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Após o registro, as alterações do **grafo de recursos do Azure** estarão disponíveis imediatamente e cobrirá os últimos 14 dias. As alterações de outras fontes estarão disponíveis após cerca de 4 horas após a integração da assinatura.
+O recurso [Exibir histórico de alterações](../essentials/activity-log.md#view-change-history) no log de atividades chama o back-end do serviço de análise de alterações do aplicativo para obter alterações associadas a uma operação. **O histórico de alterações** usado para chamar o grafo de [recursos do Azure](../../governance/resource-graph/overview.md) diretamente, mas permutau o back-end para chamar a análise de alterações de aplicativo para que as alterações retornadas incluam alterações no nível de recurso do [grafo de recursos do Azure](../../governance/resource-graph/overview.md), propriedades de recurso de [Azure Resource Manager](../../azure-resource-manager/management/overview.md)e alterações no convidado de serviços de PaaS, como aplicativo Web de serviços de aplicativos. Para que o serviço de análise de alterações do aplicativo possa verificar se há alterações nas assinaturas dos usuários, um provedor de recursos precisa ser registrado. Na primeira vez que você inserir a guia **histórico de alterações** , a ferramenta começará automaticamente a registrar o provedor de recursos **Microsoft. ChangeAnalysis** . Após o registro, as alterações do **grafo de recursos do Azure** estarão disponíveis imediatamente e cobrirá os últimos 14 dias. As alterações de outras fontes estarão disponíveis após cerca de 4 horas após a integração da assinatura.
 
 ![Integração do histórico de alterações do log de atividades](./media/change-analysis/activity-log-change-history.png)
 
 ## <a name="vm-insights-integration"></a>Integração de informações de VM
 
-Os usuários que têm o [VM insights](../insights/vminsights-overview.md) habilitado podem exibir o que mudou em suas máquinas virtuais que podem causar qualquer pico em um gráfico de métricas, como CPU ou memória. Os dados de alteração são integrados na barra de navegação do lado do insights da VM. O usuário pode exibir se alguma alteração ocorreu na VM e selecionar **investigar alterações** para exibir os detalhes da alteração na interface do usuário autônoma da análise de alterações do aplicativo.
+Os usuários que têm o [VM insights](../vm/vminsights-overview.md) habilitado podem exibir o que mudou em suas máquinas virtuais que podem causar qualquer pico em um gráfico de métricas, como CPU ou memória. Os dados de alteração são integrados na barra de navegação do lado do insights da VM. O usuário pode exibir se alguma alteração ocorreu na VM e selecionar **investigar alterações** para exibir os detalhes da alteração na interface do usuário autônoma da análise de alterações do aplicativo.
 
 [![Integração de informações de VM](./media/change-analysis/vm-insights.png)](./media/change-analysis/vm-insights.png#lightbox)
 

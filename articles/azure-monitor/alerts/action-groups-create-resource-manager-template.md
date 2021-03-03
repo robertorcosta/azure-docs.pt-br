@@ -4,15 +4,15 @@ description: Saiba como criar um grupo de ações usando um modelo do Azure Reso
 author: dkamstra
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 02/16/2018
+ms.date: 02/19/2021
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 2275ea059b762e81330d3e6150c563e18a64b554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 978372481513f3d68fdc587ccc1148976640bc80
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605208"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729123"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Criar um grupo de ações com um modelo do Resource Manager
 Este artigo mostra como você pode usar um [modelo do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar grupos de ações. Usando modelos, você pode configurar automaticamente os grupos de ações que podem ser reutilizados em determinados tipos de alertas. Esses grupos de ações garantem que todas as partes corretas serão notificadas quando um alerta for disparado.
@@ -50,7 +50,7 @@ Primeiro modelo, descreve como criar um modelo do Resource Manager para um grupo
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -71,21 +71,26 @@ Primeiro modelo, descreve como criar um modelo do Resource Manager para um grupo
         "emailReceivers": [
           {
             "name": "contosoEmail",
-            "emailAddress": "devops@contoso.com"
+            "emailAddress": "devops@contoso.com",
+            "useCommonAlertSchema": true
+
           },
           {
             "name": "contosoEmail2",
-            "emailAddress": "devops2@contoso.com"
+            "emailAddress": "devops2@contoso.com",
+            "useCommonAlertSchema": true
           }
         ],
         "webhookReceivers": [
           {
             "name": "contosoHook",
-            "serviceUri": "http://requestb.in/1bq62iu1"
+            "serviceUri": "http://requestb.in/1bq62iu1",
+            "useCommonAlertSchema": true
           },
           {
             "name": "contosoHook2",
-            "serviceUri": "http://requestb.in/1bq62iu2"
+            "serviceUri": "http://requestb.in/1bq62iu2",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -133,7 +138,7 @@ Primeiro modelo, descreve como criar um modelo do Resource Manager para um grupo
   "resources": [
     {
       "type": "Microsoft.Insights/actionGroups",
-      "apiVersion": "2018-03-01",
+      "apiVersion": "2019-03-01",
       "name": "[parameters('actionGroupName')]",
       "location": "Global",
       "properties": {
@@ -146,7 +151,8 @@ Primeiro modelo, descreve como criar um modelo do Resource Manager para um grupo
         "webhookReceivers": [
           {
             "name": "[parameters('webhookReceiverName')]",
-            "serviceUri": "[parameters('webhookServiceUri')]"
+            "serviceUri": "[parameters('webhookServiceUri')]",
+            "useCommonAlertSchema": true
           }
         ]
       }
@@ -163,7 +169,6 @@ Primeiro modelo, descreve como criar um modelo do Resource Manager para um grupo
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [grupos de ação](../platform/action-groups.md).
-* Saiba mais sobre [alertas](../platform/alerts-overview.md).
-* Saiba como adicionar [Alertas usando um modelo do Resource Manager](../platform/alerts-activity-log.md).
-
+* Saiba mais sobre [grupos de ação](./action-groups.md).
+* Saiba mais sobre [alertas](./alerts-overview.md).
+* Saiba como adicionar [Alertas usando um modelo do Resource Manager](./alerts-activity-log.md).

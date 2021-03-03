@@ -4,12 +4,12 @@ description: Crie alertas do log de atividades usando o portal do Azure, um mode
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 83023cca6b034ee0e9acddfa081f09eb47b9fb1e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bb4c1410d046389ae9e82986c6b0ed3d133fcf2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704456"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Criar, exibir e gerenciar alertas do log de atividades usando o Azure Monitor  
 
@@ -26,7 +26,9 @@ Ao criar as regras de alerta, assegure o seguinte:
 
 - A assinatura no escopo não é diferente da assinatura em que o alerta foi criado.
 - Os critérios devem ser nível, status, chamador, grupo de recursos, ID do recurso ou categoria de eventos do tipo de recurso no qual o alerta é configurado.
-- Não há nenhuma condição "anyOf" ou condições aninhadas no JSON de configuração de alerta. Basicamente, apenas uma condição "allOf" é permitida sem mais condições "allOf" ou "anyOf".
+- Somente uma condição "allOf" é permitida.
+- ' AnyOf ' pode ser usado para permitir várias condições em vários campos (por exemplo, se os campos "status" ou "substatus" forem iguais a um determinado valor). Observe que o uso de ' AnyOf ' está limitado atualmente à criação da regra de alerta usando uma implantação de modelo ARM.
+- ' ContainsAny ' pode ser usado para permitir vários valores do mesmo campo (por exemplo, se "Operation" for igual a ' Delete ' ou ' Modify '). Observe que o uso de ' ContainsAny ' está limitado atualmente à criação da regra de alerta usando uma implantação de modelo ARM.
 - Quando a categoria for "administrativa", você deverá especificar pelo menos um dos critérios anteriores no seu alerta. Você não pode criar um alerta que seja ativado sempre que um evento for criado nos logs de atividades.
 - Não é possível criar alertas para eventos na categoria de alerta do log de atividades.
 
@@ -92,7 +94,7 @@ Use o procedimento a seguir.
     - **Descrição**: a descrição para a nova regra de alerta.
     - **Salvar o alerta para o grupo de recursos**: selecione o grupo de recursos no qual deseja salvar essa nova regra.
 
-5. Em **Grupo de ações**, no menu suspenso, especifique o grupo de ações que deseja atribuir à nova regra de alerta. Ou [crie um grupo de ações](../platform/action-groups.md) e atribua à nova regra. Para criar um grupo, selecione **+ Novo grupo**.
+5. Em **Grupo de ações**, no menu suspenso, especifique o grupo de ações que deseja atribuir à nova regra de alerta. Ou [crie um grupo de ações](./action-groups.md) e atribua à nova regra. Para criar um grupo, selecione **+ Novo grupo**.
 
 6. Para habilitar as regras após criá-lo, selecione **Sim** da opção **Habilitar regra após a criação**.
 7. Selecione **Criar regra de alerta**.
@@ -287,6 +289,5 @@ Os recursos da regra de alerta do log de atividades podem ser movidos usando o c
 
 - Saiba mais sobre o [esquema de webhook para os logs de atividades](./activity-log-alerts-webhook.md).
 - Leia uma [visão geral dos logs de atividades](./activity-log-alerts.md).
-- Saiba mais sobre [grupos de ação](../platform/action-groups.md).  
+- Saiba mais sobre [grupos de ação](./action-groups.md).  
 - Saiba mais sobre as [notificações de integridade do serviço](../../service-health/service-notifications.md).
-

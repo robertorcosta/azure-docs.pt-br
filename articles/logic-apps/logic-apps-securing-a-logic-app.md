@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/12/2021
-ms.openlocfilehash: d7ed3fb268920d6f4d015886c560b2d9fcbdc632
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.date: 02/18/2021
+ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104494"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702548"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -349,9 +349,9 @@ No [portal do Azure](https://portal.azure.com), esse filtro afeta os gatilhos *e
 
 No modelo do ARM, especifique os intervalos de endereços IP de entrada permitidos na definição de recurso do aplicativo lógico usando a `accessControl` seção. Nesta seção, use as `triggers` seções, `actions` e opcionais, `contents` conforme apropriado, incluindo a `allowedCallerIpAddresses` seção com a `addressRange` propriedade e defina o valor da propriedade para o intervalo de IP permitido no formato *x.* x. x. x/x ou *x.x.x. x-x. x* . x. x.
 
-* Se seu aplicativo lógico aninhado usar a **única opção outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação aplicativos lógicos do Azure, defina a `addressRange` propriedade como uma matriz vazia (**[]**).
+* Se seu aplicativo lógico aninhado usar a única opção de **outros aplicativos lógicos** , que permite chamadas de entrada somente de outros aplicativos lógicos que usam a ação interna de aplicativos lógicos do Azure, defina a `allowedCallerIpAddresses` propriedade como uma matriz vazia (**[]**) e *omita* a `addressRange` propriedade.
 
-* Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, defina a `addressRange` propriedade como o intervalo de IP permitido.
+* Se seu aplicativo lógico aninhado usar a opção **intervalos de IP específicos** para outras chamadas de entrada, como outros aplicativos lógicos que usam a ação http, inclua a `allowedCallerIpAddresses` seção e defina a `addressRange` propriedade como o intervalo de IP permitido.
 
 Este exemplo mostra uma definição de recurso para um aplicativo lógico aninhado que permite chamadas de entrada somente de aplicativos lógicos que usam a ação interna de aplicativos lógicos do Azure:
 
@@ -378,18 +378,14 @@ Este exemplo mostra uma definição de recurso para um aplicativo lógico aninha
             },
             "accessControl": {
                "triggers": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
                },
                "actions": {
-                  "allowedCallerIpAddresses": [
-                     {
-                        "addressRange": []
-                     }
-                  ]
+                  "allowedCallerIpAddresses": []
+               },
+               // Optional
+               "contents": {
+                  "allowedCallerIpAddresses": []
                }
             },
             "endpointsConfiguration": {}

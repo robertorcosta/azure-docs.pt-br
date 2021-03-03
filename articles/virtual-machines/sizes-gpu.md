@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: 58987523d86b0e3acb63d3dc220f68753501830e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b88cc2d70d38d84436beaff41b5b40b9c06debca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666018"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695542"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
@@ -43,7 +43,7 @@ Para aproveitar os recursos de GPU das VMs da série N do Azure, os drivers NVID
 
 - As VMs da Série N só podem ser implantadas no modelo de implantação do Resource Manager.
 
-- As VMs da série N diferem no tipo de Armazenamento do Microsoft Azure que dão suporte aos discos. As VMs NC e NV dão suporte somente a discos de VM que executam backup em HDD (Armazenamento em Disco Standard). As NCv2, NCv3, ND, NDv2, e’ NVv2são compatíveis apenas com discos de VM que executam backup em SSD (Armazenamento em Disco Premium).
+- As VMs da série N diferem no tipo de Armazenamento do Microsoft Azure que dão suporte aos discos. As VMs NC e NV dão suporte somente a discos de VM que executam backup em HDD (Armazenamento em Disco Standard). Todas as outras VMs de GPU dão suporte a discos de VM que são apoiados por Standard Armazenamento em Disco e Armazenamento em Disco Premium (SSD).
 
 - Se você quiser implantar mais do que algumas VMs da Série N, considere uma assinatura pré-paga ou outras opções de compra. Se estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), você poderá usar apenas um número limitado de núcleos de computação do Azure.
 

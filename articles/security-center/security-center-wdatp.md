@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: 5a0fefd91e0aa60f6a3813513aa82a75b3557c7c
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: b9095d78d902bf5e44bffaba5db19bf2c26e0845
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526962"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726998"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -42,8 +42,8 @@ O Microsoft defender for Endpoint é uma solução de segurança de ponto de ext
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado da versão:                  | GA (em disponibilidade geral)                                                                                                                                                                                                                                                                                      |
 | Preço:                        | Requer [Azure Defender para Servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
-| Plataformas compatíveis:            | Máquinas do Azure executando o Windows<br>Computadores do Arc do Azure executando o Windows|
-| Versões do Windows com suporte:  |  • A central de segurança dá suporte à detecção no Windows Server 2019, 2016, 2012 R2 e 2008 R2 SP1<br> • O monitoramento do ponto de extremidade do servidor usando essa integração foi desabilitado para clientes do Office 365 GCC<br> • [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para áreas de trabalho virtuais (EVD)<br> •  [Área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)|
+| Plataformas compatíveis:            |  • Máquinas do Azure executando o Windows<br> • Computadores do Arc do Azure executando o Windows|
+| Versões do Windows com suporte:  |   • **GA (disponibilidade geral)-** detecção no Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • Detecção **de visualização** no windows Server 2019, [área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)e [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para desktops virtuais (EVD)<br>O monitoramento do ponto de extremidade do servidor usando essas integrações foi desabilitado para clientes do Office 365 GCC|
 | Sistemas operacionais sem suporte:  |  • Windows 10 (diferente de EVD ou WVD)<br> • Linux|
 | Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura** ou colaborador da **assinatura**|
 | Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens globais do Azure                                                        |
@@ -76,10 +76,15 @@ Depois de configurar o local, você não poderá alterá-lo. Se você tiver sua 
 
 ## <a name="enabling-the-microsoft-defender-for-endpoint-integration"></a>Habilitando a integração do Microsoft defender para ponto de extremidade
 
+1. Confirme se seu computador atende aos requisitos necessários para o defender for Endpoint:
+
+    - Para **todas as versões do Windows**:
+        - Definir as configurações de rede descritas em [definir o proxy do dispositivo e as configurações de conectividade da Internet](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+        - Se você estiver implantando o defender no ponto de extremidade em computadores locais, conecte-o ao arco do Azure conforme explicado em [conectar computadores híbridos com os servidores habilitados para Arc do Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
+    - Além disso, para **computadores com Windows Server 2019**, confirme se eles estão executando um agente válido e têm a extensão extensão microsoftmonitoringagent
+
 1. Habilitar o **Azure defender para servidores**. Consulte os [preços da central de segurança do Azure](security-center-pricing.md#enable-azure-defender).
 
-    > [!NOTE]
-    > Para proteger suas máquinas habilitadas para o Arc do Azure, use as instruções em [início rápido: conectar máquina híbrida com servidores habilitados para Arc do Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md).
 
 1. Se você já tiver licenciado e implantado o Microsoft defender para pontos de extremidade em seus servidores, remova-o usando o procedimento descrito em [transferir Windows Servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. No menu da Central de Segurança, selecione **Preço e configurações**.
@@ -94,7 +99,7 @@ Depois de configurar o local, você não poderá alterá-lo. Se você tiver sua 
 
 ## <a name="access-the-microsoft-defender-for-endpoint-portal"></a>Acessar o Microsoft defender para o portal de ponto de extremidade
 
-1. Verifique se a conta de usuário tem as permissões necessárias. [Saiba mais](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
+1. Verifique se a conta de usuário tem as permissões necessárias. Saiba mais em [atribuir acesso de usuário à central de segurança do Microsoft defender](/windows/security/threat-protection/microsoft-defender-atp/assign-portal-access).
 
 1. Verifique se você tem um proxy ou firewall que está bloqueando o tráfego anônimo. O sensor do defender for Endpoint conecta-se do contexto do sistema; portanto, o tráfego anônimo deve ser permitido. Para garantir o acesso sem impedimento ao defender para o portal de ponto de extremidade, siga as instruções em [habilitar o acesso a URLs de serviço no servidor proxy](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet#enable-access-to-microsoft-defender-atp-service-urls-in-the-proxy-server).
 

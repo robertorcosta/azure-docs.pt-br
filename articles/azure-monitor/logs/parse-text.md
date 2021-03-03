@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/04/2018
-ms.openlocfilehash: 29393126f94d77dbced0ef896616b945443184fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8f6c35fd1bb6b46f512f9245d8e3d41df428692b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606663"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733934"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analisar dados de texto nos logs do Azure Monitor
 Alguns dados de log coletados pelo Azure Monitor incluirão várias informações em uma única propriedade. A análise desses dados em várias propriedades facilita seu uso em consultas. Um exemplo comum é um [log personalizado](../agents/data-sources-custom-logs.md) que coleta uma entrada de log inteira com vários valores em uma única propriedade. Criando propriedades separadas para os diferentes valores, você pode fazer pesquisas e agregações em cada uma delas.
@@ -188,4 +188,4 @@ MyCustomCSVLog
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.
+* Saiba mais sobre [registrar consultas](./log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

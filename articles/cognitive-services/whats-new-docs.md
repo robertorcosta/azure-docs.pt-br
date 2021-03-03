@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 02/08/2021
-ms.openlocfilehash: 92d75289fd4459db8c469a4cb562fe28e8aab779
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1cea159e6939463352102d7d3ff3dafbdea71b5a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989005"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710305"
 ---
 # <a name="cognitive-services-docs-whats-new-for-january-1-2021---january-31-2021"></a>Documentos de serviços cognitivas: novidades para 1º de janeiro de 2021 a 31 de janeiro de 2021
 
@@ -29,31 +29,31 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas, de 1º de j
 
 **Novos artigos**
 
-- [Tutorial: Extrair dados de formulário em massa usando o Azure Data Factory](/azure/cognitive-services/form-recognizer/tutorial-bulk-processing.md)
+- [Tutorial: Extrair dados de formulário em massa usando o Azure Data Factory](./form-recognizer/tutorial-bulk-processing.md)
 
 **Artigos atualizados**
 
-- [O que é o Reconhecimento de Formulários?](/azure/cognitive-services/form-recognizer/overview.md)
+- [O que é o Reconhecimento de Formulários?](./form-recognizer/overview.md)
 
 ## <a name="immersive-reader"></a>Leitura Avançada
 
 **Artigos atualizados**
 
-- [Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory](/azure/cognitive-services/immersive-reader/how-to-create-immersive-reader.md)
+- [Criar um recurso de leitor de imersão e configurar a autenticação Azure Active Directory](./immersive-reader/how-to-create-immersive-reader.md)
 
 ## <a name="personalizer"></a>Personalizador
 
 **Artigos atualizados**
 
-- [Recursos são informações sobre ações e contexto](/azure/cognitive-services/personalizer/concepts-features.md)
+- [Recursos são informações sobre ações e contexto](./personalizer/concepts-features.md)
 
 ## <a name="text-analytics"></a>Análise de Texto
 
 **Artigos atualizados**
 
-- [Suporte à linguagem API de Análise de Texto v3](/azure/cognitive-services/text-analytics/language-support.md)
-- [Migrar para a versão 3. x do API de Análise de Texto](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [O que há de novo na API de Análise de Texto?](/azure/cognitive-services/text-analytics/whats-new.md)
+- [Suporte à linguagem API de Análise de Texto v3](./text-analytics/language-support.md)
+- [Migrar para a versão 3. x do API de Análise de Texto](./text-analytics/migration-guide.md)
+- [O que há de novo na API de Análise de Texto?](./text-analytics/whats-new.md)
 
 ## <a name="community-contributors"></a>Colaboradores da Comunidade
 

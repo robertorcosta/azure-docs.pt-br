@@ -13,13 +13,13 @@ ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
-ms.date: 1/14/2020
-ms.openlocfilehash: 1341d0e64a01ff428fe42735d198c5e6b74b0ce8
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 2/24/2021
+ms.openlocfilehash: b829d7045ac520cfe908c3c8809ae17702d6175d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093301"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691426"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Entender e resolver problemas de bloqueio do banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -31,7 +31,7 @@ O artigo descreve o bloqueio em bancos de dados SQL do Azure e demonstra como so
 Neste artigo, o termo conexão refere-se a uma única sessão conectada do banco de dados. Cada conexão aparece como uma ID de sessão (SPID) ou session_id em muitos DMVs. Cada um desses SPIDs é geralmente conhecido como um processo, embora não seja um contexto de processo separado no sentido normal. Em vez disso, cada SPID consiste nos recursos do servidor e nas estruturas de dados necessárias para atender às solicitações de uma única conexão de um determinado cliente. Um único aplicativo cliente pode ter uma ou mais conexões. Da perspectiva do banco de dados SQL do Azure, não há nenhuma diferença entre várias conexões de um único aplicativo cliente em um único computador cliente e várias conexões de vários aplicativos cliente ou vários computadores cliente; Eles são atômicos. Uma conexão pode bloquear outra conexão, independentemente do cliente de origem.
 
 > [!NOTE]
-> **Esse conteúdo é específico do banco de dados SQL do Azure.** O banco de dados SQL do Azure é baseado na versão estável mais recente do mecanismo de banco de dados Microsoft SQL Server, portanto, grande parte do conteúdo é semelhante, embora as opções e as ferramentas de solução de problemas possam ser diferentes. Para obter mais informações sobre o bloqueio no SQL Server, consulte [entender e resolver problemas de bloqueio de SQL Server](/troubleshoot/sql/performance/understand-resolve-blocking).
+> **Este conteúdo está concentrado no banco de dados SQL do Azure.** O banco de dados SQL do Azure é baseado na versão estável mais recente do mecanismo de banco de dados Microsoft SQL Server, portanto, grande parte do conteúdo é semelhante, embora as opções e as ferramentas de solução de problemas possam ser diferentes. Para obter mais informações sobre o bloqueio no SQL Server, consulte [entender e resolver problemas de bloqueio de SQL Server](/troubleshoot/sql/performance/understand-resolve-blocking).
 
 ## <a name="understand-blocking"></a>Entender o bloqueio 
  
@@ -105,7 +105,7 @@ SELECT * FROM sys.dm_exec_input_buffer (66,0);
 
 * Consulte a sys.dm_exec_requests e referencie a coluna blocking_session_id. Quando blocking_session_id = 0, uma sessão não está sendo bloqueada. Embora sys.dm_exec_requests liste somente as solicitações em execução no momento, qualquer conexão (ativa ou não) será listada em sys.dm_exec_sessions. Crie nessa junção comum entre sys.dm_exec_requests e sys.dm_exec_sessions na próxima consulta.
 
-* Execute esta consulta de exemplo para localizar as consultas em execução ativamente e o texto do lote SQL atual ou o texto do buffer de entrada, usando as DMVs [Sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) ou [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) . Se os dados retornados pelo `text` campo de sys.dm_exec_sql_text forem nulos, a consulta não estará em execução no momento. Nesse caso, o `event_info` campo de sys.dm_exec_input_buffer conterá a última cadeia de caracteres de comando passada para o mecanismo do SQL. 
+* Execute esta consulta de exemplo para localizar as consultas em execução ativamente e o texto do lote SQL atual ou o texto do buffer de entrada, usando as DMVs [Sys.dm_exec_sql_text](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-sql-text-transact-sql) ou [Sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) . Se os dados retornados pelo `text` campo de sys.dm_exec_sql_text forem nulos, a consulta não estará em execução no momento. Nesse caso, o `event_info` campo de sys.dm_exec_input_buffer conterá a última cadeia de caracteres de comando passada para o mecanismo do SQL. Essa consulta também pode ser usada para identificar sessões que bloqueiam outras sessões, incluindo uma lista de session_ids bloqueadas por session_id. 
 
 ```sql
 WITH cteBL (session_id, blocking_these) AS 
@@ -125,6 +125,49 @@ OUTER APPLY sys.dm_exec_sql_text (r.sql_handle) t
 OUTER APPLY sys.dm_exec_input_buffer(s.session_id, NULL) AS ib
 WHERE blocking_these is not null or r.blocking_session_id > 0
 ORDER BY len(bl.blocking_these) desc, r.blocking_session_id desc, r.session_id;
+```
+
+* Execute esta consulta de exemplo elaborada, fornecida pelo Suporte da Microsoft, para identificar o cabeçalho de uma cadeia de bloqueio de sessão múltipla, incluindo o texto de consulta das sessões envolvidas em uma cadeia de bloqueio.
+
+```sql
+WITH cteHead ( session_id,request_id,wait_type,wait_resource,last_wait_type,is_user_process,request_cpu_time
+,request_logical_reads,request_reads,request_writes,wait_time,blocking_session_id,memory_usage
+,session_cpu_time,session_reads,session_writes,session_logical_reads
+,percent_complete,est_completion_time,request_start_time,request_status,command
+,plan_handle,sql_handle,statement_start_offset,statement_end_offset,most_recent_sql_handle
+,session_status,group_id,query_hash,query_plan_hash) 
+AS ( SELECT sess.session_id, req.request_id, LEFT (ISNULL (req.wait_type, ''), 50) AS 'wait_type'
+    , LEFT (ISNULL (req.wait_resource, ''), 40) AS 'wait_resource', LEFT (req.last_wait_type, 50) AS 'last_wait_type'
+    , sess.is_user_process, req.cpu_time AS 'request_cpu_time', req.logical_reads AS 'request_logical_reads'
+    , req.reads AS 'request_reads', req.writes AS 'request_writes', req.wait_time, req.blocking_session_id,sess.memory_usage
+    , sess.cpu_time AS 'session_cpu_time', sess.reads AS 'session_reads', sess.writes AS 'session_writes', sess.logical_reads AS 'session_logical_reads'
+    , CONVERT (decimal(5,2), req.percent_complete) AS 'percent_complete', req.estimated_completion_time AS 'est_completion_time'
+    , req.start_time AS 'request_start_time', LEFT (req.status, 15) AS 'request_status', req.command
+    , req.plan_handle, req.[sql_handle], req.statement_start_offset, req.statement_end_offset, conn.most_recent_sql_handle
+    , LEFT (sess.status, 15) AS 'session_status', sess.group_id, req.query_hash, req.query_plan_hash
+    FROM sys.dm_exec_sessions AS sess
+    LEFT OUTER JOIN sys.dm_exec_requests AS req ON sess.session_id = req.session_id
+    LEFT OUTER JOIN sys.dm_exec_connections AS conn on conn.session_id = sess.session_id 
+    )
+, cteBlockingHierarchy (head_blocker_session_id, session_id, blocking_session_id, wait_type, wait_duration_ms,
+wait_resource, statement_start_offset, statement_end_offset, plan_handle, sql_handle, most_recent_sql_handle, [Level])
+AS ( SELECT head.session_id AS head_blocker_session_id, head.session_id AS session_id, head.blocking_session_id
+    , head.wait_type, head.wait_time, head.wait_resource, head.statement_start_offset, head.statement_end_offset
+    , head.plan_handle, head.sql_handle, head.most_recent_sql_handle, 0 AS [Level]
+    FROM cteHead AS head
+    WHERE (head.blocking_session_id IS NULL OR head.blocking_session_id = 0)
+    AND head.session_id IN (SELECT DISTINCT blocking_session_id FROM cteHead WHERE blocking_session_id != 0)
+    UNION ALL
+    SELECT h.head_blocker_session_id, blocked.session_id, blocked.blocking_session_id, blocked.wait_type,
+    blocked.wait_time, blocked.wait_resource, h.statement_start_offset, h.statement_end_offset,
+    h.plan_handle, h.sql_handle, h.most_recent_sql_handle, [Level] + 1
+    FROM cteHead AS blocked
+    INNER JOIN cteBlockingHierarchy AS h ON h.session_id = blocked.blocking_session_id and h.session_id!=blocked.session_id --avoid infinite recursion for latch type of blocking
+    WHERE h.wait_type COLLATE Latin1_General_BIN NOT IN ('EXCHANGE', 'CXPACKET') or h.wait_type is null
+    )
+SELECT bh.*, txt.text AS blocker_query_or_most_recent_query 
+FROM cteBlockingHierarchy AS bh 
+OUTER APPLY sys.dm_exec_sql_text (ISNULL ([sql_handle], most_recent_sql_handle)) AS txt;
 ```
 
 * Para capturar transações de execução longa ou não confirmadas, use outro conjunto de DMVs para exibir as transações abertas atuais, incluindo [Sys.dm_tran_database_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-database-transactions-transact-sql), [Sys.dm_tran_session_transactions](/sql/relational-databases/system-dynamic-management-views/sys-dm-tran-session-transactions-transact-sql), [Sys.dm_exec_connections](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-connections-transact-sql)e sys.dm_exec_sql_text. Há vários DMVs associados a transações de rastreamento, consulte mais [DMVs em transações](/sql/relational-databases/system-dynamic-management-views/transaction-related-dynamic-management-views-and-functions-transact-sql) aqui. 
@@ -185,7 +228,7 @@ Consulte o documento que explica como usar o assistente para [nova sessão de ev
     -   Sql_batch_completed
     -   Sql_batch_starting
 
--   Bloqueio
+-   Bloquear
     -   Lock_deadlock
 
 -   Session
@@ -208,7 +251,7 @@ Ao examinar as informações acima, você pode determinar a causa da maioria dos
 
     | Status | Significado |
     |:-|:-|
-    | Tela de fundo | O SPID está executando uma tarefa em segundo plano, como detecção de deadlock, gravador de log ou ponto de verificação. |
+    | Segundo plano | O SPID está executando uma tarefa em segundo plano, como detecção de deadlock, gravador de log ou ponto de verificação. |
     | Hibernando | O SPID não está em execução no momento. Isso geralmente indica que o SPID está aguardando um comando do aplicativo. |
     | Executando | O SPID está sendo executado no momento em um Agendador. |
     | Executável | O SPID está na fila executável de um Agendador e aguardando para obter o tempo do Agendador. |
@@ -371,7 +414,7 @@ Os cenários a seguir se expandirão nesses cenários.
 
 ## <a name="see-also"></a>Confira também
 
-* [Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure](/azure/azure-sql/database/monitor-tune-overview)
+* [Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure](./monitor-tune-overview.md)
 * [Monitorando o desempenho usando o Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)
 * [Guia de Controle de Versão de Linha e Bloqueio de Transações](/sql/relational-databases/sql-server-transaction-locking-and-row-versioning-guide)
 * [SET TRANSACTION ISOLATION LEVEL](/sql/t-sql/statements/set-transaction-isolation-level-transact-sql)

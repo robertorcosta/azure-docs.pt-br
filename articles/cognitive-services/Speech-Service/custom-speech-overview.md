@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: f2dca513b4413f1761ea1b21bf71f90bb27d3053
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388644"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716560"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Fala Personalizada?
 
@@ -45,7 +45,9 @@ Este diagrama realça as partes que compõem a [área de fala personalizada do S
 Você precisa ter uma assinatura do serviço de fala e conta do Azure antes de poder usar o [Speech Studio](https://speech.microsoft.com/customspeech) para criar um modelo personalizado. Se você não tiver uma conta e uma assinatura, [experimente o serviço de Fala gratuitamente](overview.md#try-the-speech-service-for-free).
 
 > [!NOTE]
-> Se você planeja treinar um modelo personalizado com **dados de áudio**, escolha uma das seguintes regiões que têm hardware dedicado disponível para treinamento. Isso reduzirá o tempo necessário para treinar um modelo.
+> Certifique-se de criar uma assinatura padrão (S0). Não há suporte para assinaturas gratuitas (F0).
+
+Se você planeja treinar um modelo personalizado com **dados de áudio**, escolha uma das seguintes regiões que têm hardware dedicado disponível para treinamento. Isso reduzirá o tempo necessário para treinar um modelo e permitirá que você use mais áudio para treinamento. Nessas regiões, o serviço de fala usará até 20 horas de áudio para treinamento; em outras regiões, ele só usará até 8 horas.
 
 * Leste da Austrália
 * Canadá Central
@@ -61,9 +63,6 @@ Você precisa ter uma assinatura do serviço de fala e conta do Azure antes de p
 * Gov. dos EUA – Virgínia
 * Europa Ocidental
 * Oeste dos EUA 2
-
-> [!NOTE]
-> Certifique-se de criar uma assinatura padrão (S0). Não há suporte para assinaturas gratuitas (F0).
 
 Depois de criar uma conta do Azure e uma assinatura do serviço de fala, você precisará entrar no [Speech Studio](https://speech.microsoft.com/customspeech) e conectar sua assinatura.
 

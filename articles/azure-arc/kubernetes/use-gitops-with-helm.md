@@ -8,12 +8,12 @@ author: mlearned
 ms.author: mlearned
 description: Usar GitOps com Helm para uma configuração de cluster habilitada para o Azure Arc
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 117fc8dabdce2fdf23cbc2b9fe78137db1c656a5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0176d614a6bf44e2bf20cc7935521a6387a3b574
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687271"
 ---
 # <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Implantar gráficos do Helm usando o GitOps em um cluster do kubernetes habilitado para Arc
 
@@ -81,7 +81,7 @@ Você pode saber mais sobre o HelmRelease na documentação do [operador Helm](h
 Usando a extensão de CLI do Azure para `k8s-configuration` , vincule o cluster conectado ao repositório git de exemplo. Dê a essa configuração o nome `azure-arc-sample` e implante o operador de fluxo no `arc-k8s-demo` namespace.
 
 ```console
-az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-chart-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>Parâmetros de configuração

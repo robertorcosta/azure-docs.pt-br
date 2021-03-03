@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 32cbe31f95c03f9b0b5eb1a31a28033dce18b112
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100417024"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101716118"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Habilitar uma identidade gerenciada para roteamento de eventos de gêmeos digital do Azure (versão prévia): CLI do Azure
 
@@ -87,8 +87,7 @@ Para obter mais informações sobre pontos de extremidade, rotas e os tipos de d
 
 ### <a name="assign-the-role"></a>Atribuir a função
 
->[!NOTE]
-> Esta seção deve ser concluída por um usuário do Azure com permissões para gerenciar o acesso do usuário aos recursos do Azure (incluindo concessão e delegação de permissões). Funções comuns que atendem a esse requisito são *proprietário*, *administrador da conta* ou a combinação de administrador e *colaborador* de *acesso do usuário* . Para obter mais informações sobre requisitos de permissão para funções de gêmeos digitais do Azure, consulte [*como: configurar a instância e a autenticação*](how-to-set-up-instance-portal.md#prerequisites-permission-requirements).
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Você pode adicionar o `--scopes` parâmetro `az dt create` no comando para atribuir a identidade a um ou mais escopos com uma função especificada. Isso pode ser usado ao criar pela primeira vez a instância, ou posteriormente, passando o nome de uma instância que já existe.
 
@@ -102,7 +101,7 @@ Para obter mais exemplos de atribuições de função com esse comando, consulte
 
 Como alternativa, você também pode usar o grupo de comandos [**AZ role Assignment**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) para criar e gerenciar funções. Isso pode ser usado para dar suporte a cenários adicionais em que você não deseja agrupar a atribuição de função com o comando criar.
 
-## <a name="create-an-endpoint-with-identity-based-authorization"></a>Criar um ponto de extremidade com autorização baseada em identidade
+## <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto de extremidade com autenticação baseada em identidade
 
 Depois de configurar uma identidade gerenciada pelo sistema para sua instância do gêmeos digital do Azure e atribuir a ela as funções apropriadas, você pode criar [pontos de extremidade](how-to-manage-routes-portal.md#create-an-endpoint-for-azure-digital-twins) gêmeos do Azure digital que são capazes de usar a identidade para autenticação. Essa opção só está disponível para os pontos de extremidade do hub de eventos e do tipo de barramento de serviço (não há suporte para a grade de eventos).
 

@@ -2,13 +2,13 @@
 title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft Docs
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
-ms.date: 10/27/2020
-ms.openlocfilehash: dc5cbea31583a4e8126897b2dcda63b216438e1b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/25/2021
+ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573164"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742527"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -207,7 +207,7 @@ O evento JSON de conexão de VNet (rede virtual) dos Hubs de Eventos inclui elem
 | `Count` | Número de ocorrências para a ação especificada |
 | `ResourceId` | ID do Recurso do Azure Resource Manager. |
 
-Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda desejar obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. Habilite a filtragem de IP e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). Os hubs de eventos não dão suporte a intervalos de IPv6. 
+Os logs de rede virtual serão gerados somente se o namespace permitir o acesso de **redes selecionadas** ou de **endereços IP específicos** (regras de filtro IP). Se você não quiser restringir o acesso ao seu namespace usando esses recursos e ainda desejar obter logs de rede virtual para rastrear endereços IP de clientes que se conectam ao namespace de hubs de eventos, você pode usar a seguinte solução alternativa. [Habilite a filtragem de IP](event-hubs-ip-filtering.md)e adicione o intervalo de IPv4 endereçável total (1.0.0.0/1-255.0.0.0/1). A filtragem de IP dos hubs de eventos não dá suporte a intervalos de IPv6. Observe que você pode ver endereços de ponto de extremidade privados no formato IPv6 no log. 
 
 ### <a name="example"></a>Exemplo
 

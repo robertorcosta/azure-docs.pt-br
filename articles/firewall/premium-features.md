@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 02/25/2021
 ms.author: victorh
-ms.openlocfilehash: e823e1efc66592e9f48b7ff5e53a176a4e8cb514
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549550"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715557"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Recursos do Azure firewall Premium Preview
 
@@ -23,7 +23,7 @@ Logotipo da:::image type="content" source="media/premium-features/pci-logo.png" 
 > O firewall Premium do Azure está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- O Azure firewall Premium Preview é um firewall de última geração com recursos que são necessários para ambientes altamente sensíveis e regulamentados.
+ O Firewall do Azure Premium Versão Prévia é um firewall de última geração com funcionalidades necessárias para ambientes altamente sensíveis e regulamentados.
 
 :::image type="content" source="media/premium-features/premium-overview.png" alt-text="Diagrama de visão geral do firewall do Azure Premium":::
 
@@ -80,7 +80,20 @@ As categorias são organizadas com base na gravidade sob **responsabilidade**, *
 
 #### <a name="category-exceptions"></a>Exceções de categoria
 
-Você pode criar exceções para suas regras de categoria da Web. Crie uma coleção de regras Allow ou Deny separada com prioridade mais alta dentro do grupo de coleta de regras. Por exemplo, você pode configurar uma coleção de regras que permita `www.linkedin.com` com prioridade 100, com uma coleção de regras que nega a **rede social** com prioridade 200. Isso cria a exceção para a categoria da Web de **rede social** predefinida. 
+Você pode criar exceções para suas regras de categoria da Web. Crie uma coleção de regras Allow ou Deny separada com prioridade mais alta dentro do grupo de coleta de regras. Por exemplo, você pode configurar uma coleção de regras que permita `www.linkedin.com` com prioridade 100, com uma coleção de regras que nega a **rede social** com prioridade 200. Isso cria a exceção para a categoria da Web de **rede social** predefinida.
+
+#### <a name="categorization-change"></a>Alteração de categorização
+
+Você pode solicitar uma alteração de categorização se:
+
+ - Imagine que um FQDN ou uma URL estejam em uma categoria diferente 
+ 
+ou 
+
+- ter uma categoria sugerida para um FQDN ou uma URL não categorizada
+
+Você é bem-vindo a enviar uma solicitação em [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
+ 
 
 ## <a name="known-issues"></a>Problemas conhecidos
 
@@ -98,6 +111,7 @@ Certificados assinados de cliente não confiáveis|Os certificados assinados pel
 |Endereço IP de origem errado em alertas com IDPS para HTTP (sem a inspeção TLS).|Quando o tráfego HTTP de texto sem formatação está em uso e IDPS emite um novo alerta e o destino é público como um endereço IP, o endereço IP de origem exibido está errado (o endereço IP interno é exibido em vez do endereço IP original).|Correção agendada para GA.|
 |Propagação de Certificado|Depois que um certificado de autoridade de certificação é aplicado no firewall, pode levar entre 5-10 minutos para que o certificado entre em vigor.|Correção agendada para GA.|
 |Bypass de IDPS|O bypass de IDPS não funciona para tráfego de protocolo TLS finalizado, e não há suporte para endereços IP de origem e grupos de IPS de origem.|Correção agendada para GA.|
+|Suporte a TLS 1,3|O TLS 1,3 tem suporte parcial. O túnel TLS do cliente para o firewall baseia-se no TLS 1,2 e o firewall para o servidor Web externo é baseado no TLS 1,3.|As atualizações estão sendo investigadas.|
 
 
 

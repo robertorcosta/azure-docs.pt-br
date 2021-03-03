@@ -1,21 +1,21 @@
 ---
-title: Como atualizar o Azure Monitor para VMs agente de dependência
-description: Este artigo descreve como atualizar o Azure Monitor para VMs agente de dependência usando a linha de comando, o assistente de configuração e outros métodos.
+title: Como atualizar o agente de dependência do Revisions da VM
+description: Este artigo descreve como atualizar o agente de dependência do VM insights usando a linha de comando, o assistente de instalação e outros métodos.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/16/2020
-ms.openlocfilehash: 05358c560c70396d4e165abd174178378aad517b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 14ca614c1e108ce43f05f98520cff6ff215ec5cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606635"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722901"
 ---
-# <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>Como atualizar o Azure Monitor para VMs agente de dependência
+# <a name="how-to-upgrade-the-vm-insights-dependency-agent"></a>Como atualizar o agente de dependência do Revisions da VM
 
-Após a implantação inicial do Azure Monitor para VMs agente de dependência, são lançadas atualizações que incluem correções de bugs ou suporte a novos recursos ou funcionalidades.  Este artigo ajuda você a entender os métodos disponíveis e como executar a atualização manualmente ou por meio da automação.
+Após a implantação inicial do agente de dependência do insights de VM, são lançadas atualizações que incluem correções de bugs ou suporte a novos recursos ou funcionalidades.  Este artigo ajuda você a entender os métodos disponíveis e como executar a atualização manualmente ou por meio da automação.
 
 ## <a name="upgrade-options"></a>Opções de atualização 
 
@@ -42,7 +42,7 @@ Você pode baixar a versão mais recente do agente do Windows [aqui](https://aka
 3. Siga o assistente de **instalação do Dependency Agent** para desinstalar a versão anterior do agente de dependência e, em seguida, instale a versão mais recente.
 
 
-### <a name="from-the-command-line"></a>Na linha de comando
+### <a name="from-the-command-line"></a>Da linha de comando
 
 1. Faça logon no computador com uma conta que tenha direitos administrativos.
 
@@ -70,4 +70,4 @@ Se o Agente de Dependência não for iniciado, verifique os logs para obter info
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você quiser interromper o monitoramento de suas VMs por um período de tempo ou remover totalmente Azure Monitor para VMs, consulte [desabilitar o monitoramento de suas VMs no Azure monitor para VMs](../vm/vminsights-optout.md).
+Se você quiser interromper o monitoramento de suas VMs por um período de tempo ou remover totalmente as informações de VM, consulte [desabilitar o monitoramento de suas VMs no insights de VM](../vm/vminsights-optout.md).

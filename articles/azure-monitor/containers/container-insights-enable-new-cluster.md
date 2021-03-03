@@ -1,19 +1,19 @@
 ---
 title: Monitorar um novo cluster do AKS (serviço kubernetes do Azure) | Microsoft Docs
-description: Saiba como habilitar o monitoramento para um novo cluster do AKS (serviço kubernetes do Azure) com Azure Monitor para assinatura de contêineres.
+description: Saiba como habilitar o monitoramento para um novo cluster do AKS (serviço kubernetes do Azure) com a assinatura do contêiner insights.
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.custom: devx-track-terraform, devx-track-azurecli
-ms.openlocfilehash: 19c4a88cee8776136593b041e94dd14c7c9c28d6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b6c4f8a05b8e7a350ebd5afd677e8bb2ee6e9b4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606672"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717563"
 ---
 # <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Habilitar o monitoramento de um novo cluster do AKS (serviço kubernetes do Azure)
 
-Este artigo descreve como configurar Azure Monitor para contêineres para monitorar o cluster kubernetes gerenciado hospedado no [serviço kubernetes do Azure](../../aks/index.yml) que você está preparando para implantar em sua assinatura.
+Este artigo descreve como configurar informações de contêiner para monitorar o cluster kubernetes gerenciado hospedado no [serviço kubernetes do Azure](../../aks/index.yml) que você está preparando para implantar em sua assinatura.
 
 Você pode habilitar o monitoramento de um cluster AKS usando um dos métodos com suporte:
 
@@ -34,14 +34,14 @@ Se estiver [implantando um novo cluster do AKS usando o Terraform](/azure/develo
 >[!NOTE]
 >Se optar por usar o Terraform, você deverá estar executando o Provedor de RM do Terraform do Azure versão 1.17.0 ou superior.
 
-Para adicionar o Azure Monitor para contêineres ao workspace, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e preencha o perfil incluindo o [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
+Para adicionar informações de contêiner ao espaço de trabalho, consulte [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) e conclua o perfil, incluindo o [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) e especifique **oms_agent**. 
 
 Depois de habilitar o monitoramento e todas as tarefas de configuração terem sido concluídas com sucesso, você poderá monitorar o desempenho do cluster de uma destas duas maneiras:
 
 * Diretamente no cluster do AKS selecionando **Integridade** no painel esquerdo.
 * Ao selecionar o bloco **Monitorar insights do contêiner** na página de cluster do AKS do cluster selecionado. No Azure Monitor, no painel esquerdo, selecione **Integridade**. 
 
-  ![Opções para selecionar o Azure Monitor para contêineres no AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
+  ![Opções para selecionar informações de contêiner no AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster. 
 
@@ -117,5 +117,5 @@ Após alguns minutos, o comando concluirá e retornará informações no formato
 
 * Se enfrentar problemas ao tentar carregar a solução, examine o [guia de solução de problemas](container-insights-troubleshoot.md)
 
-* Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do cluster AKS e das cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.
+* Com o monitoramento habilitado para coletar a integridade e a utilização de recursos do seu cluster AKS e cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) o contêiner insights.
 

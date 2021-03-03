@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2f68452bed69e4e174f126d259e8df6d2283e6cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585220"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724244"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -789,7 +789,7 @@ Você pode encontrar mais informações em [O que é o Application Insights](../
 
 Para obter mais informações sobre análise no Armazenamento do Azure, consulte estes recursos:
 
-* [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
+* [Monitorar uma conta de armazenamento no portal do Azure](./manage-storage-analytics-logs.md)
 * [Análise de armazenamento](storage-analytics.md)
 * [Métricas da análise de armazenamento](storage-analytics-metrics.md)
 * [Esquema da tabela de métricas da análise de armazenamento](/rest/api/storageservices/storage-analytics-metrics-table-schema)

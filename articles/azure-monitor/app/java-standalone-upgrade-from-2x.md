@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: d815c919c2b2d63b093c4290a661cbf508c56012
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96601060"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704422"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Atualizando do SDK do Application Insights Java 2. x
 
@@ -220,3 +220,16 @@ Novamente, para alguns aplicativos, você ainda pode preferir a exibição agreg
 Anteriormente no SDK 2. x, o nome da operação da telemetria de solicitação também foi definido na telemetria de dependência.
 Application Insights Java 3,0 não popula mais o nome da operação na telemetria de dependência.
 Se você quiser ver o nome da operação para a solicitação que é o pai da telemetria de dependência, você pode gravar uma consulta de logs (Kusto) para unir da tabela de dependência à tabela de solicitação.
+
+## <a name="2x-sdk-logging-appenders"></a>2. x anexadores de log do SDK
+
+O agente 3,0 [coleta automaticamente o log](./java-standalone-config#auto-collected-logging) sem a necessidade de configurar os anexadores de log.
+Se você estiver usando anexadores de log do SDK do 2. x, eles poderão ser removidos, pois eles serão suprimidos pelo agente 3,0 mesmo assim.
+
+## <a name="2x-sdk-spring-boot-starter"></a>2. x SDK Spring boot inicial
+
+Não há nenhum iniciador do Spring boot 3,0.
+A instalação e configuração do agente 3,0 segue as mesmas [etapas simples](./java-in-process-agent.md#quickstart) se você estiver usando o Spring boot ou não.
+
+Ao atualizar do iniciador do SDK do 2. x, observe que o nome da função de nuvem não usará mais como padrão `spring.application.name` .
+Consulte os [documentos de configuração do 3,0](./java-standalone-config.md#cloud-role-name) para definir o nome da função de nuvem em 3,0 por meio da configuração JSON ou da variável de ambiente.

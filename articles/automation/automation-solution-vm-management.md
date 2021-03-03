@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: a521ca80039b68f93bf7c9d98e51d9846e96e985
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593837"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732268"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
@@ -39,7 +39,7 @@ A seguir estão as limitações do recurso atual:
 
 - Os runbooks para o recurso Iniciar/Parar VMs fora do horário comercial funcionam com uma [conta Executar como do Azure](./automation-security-overview.md#run-as-accounts). A conta Executar como é o método de autenticação preferencial, pois ela usa a autenticação de certificado em vez de uma senha que poderá expirar ou ser alterada com frequência.
 
-- Um [Azure monitor espaço de trabalho log Analytics](../azure-monitor/platform/design-logs-deployment.md) que armazena os logs de trabalho do runbook e os resultados do fluxo de trabalho em um espaço de trabalho para consultar e analisar. A conta de automação pode ser vinculada a um espaço de trabalho Log Analytics novo ou existente e os dois recursos precisam estar no mesmo grupo de recursos.
+- Um [Azure monitor espaço de trabalho log Analytics](../azure-monitor/logs/design-logs-deployment.md) que armazena os logs de trabalho do runbook e os resultados do fluxo de trabalho em um espaço de trabalho para consultar e analisar. A conta de automação pode ser vinculada a um espaço de trabalho Log Analytics novo ou existente e os dois recursos precisam estar no mesmo grupo de recursos.
 
 Recomendamos que você use uma conta de Automação separada para trabalhar com VMs habilitadas para o recurso Iniciar/Parar VMs fora do horário comercial. As versões de módulo do Azure são atualizadas com frequência, e seus parâmetros podem ser alterados. O recurso não é atualizado na mesma cadência e pode não funcionar com as versões mais recentes dos cmdlets que ele usa. Antes de importar os módulos atualizados para suas contas de automação de produção, recomendamos que você os importe em uma conta de automação de teste para verificar se não há nenhum problema de compatibilidade.
 

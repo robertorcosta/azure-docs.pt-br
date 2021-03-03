@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/05/2021
 ms.author: jeedes
-ms.openlocfilehash: 0be2e2f6ce22525cb4c3a7e0656ce9ce75fb7f77
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d6a686b38c9b67ed8b1a7801c2a6ba95ef29558c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100363418"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101652973"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Tutorial: integração do Active Directory do Azure ao Coupa
 
@@ -187,8 +187,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Coupa e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Coupa em Meus Aplicativos, você será conectado automaticamente ao Coupa, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Coupa em Meus Aplicativos, você será conectado automaticamente ao Coupa, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Coupa, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app)
+Depois de configurar o Coupa, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app)

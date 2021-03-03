@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 01/27/2021
 ms.author: alkohli
-ms.openlocfilehash: 4c4fbef807d31e03a79f80db7fd29580074fb8bd
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98955404"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733407"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gerenciar a computação em sua GPU do Azure Stack Edge pro
 
@@ -21,11 +21,6 @@ ms.locfileid: "98955404"
 
 Este artigo descreve como gerenciar a computação por meio do serviço de IoT Edge em seu dispositivo Azure Stack Edge pro GPU. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e IoT Edge configuração e a interface do usuário da Web local para gerenciar as configurações de rede de computação.
 
-Neste artigo, você aprenderá como:
-
-> [!div class="checklist"]
-> * Gerenciar disparadores
-> * Gerenciar configuração de IoT Edge
 
 
 ## <a name="manage-triggers"></a>Gerenciar disparadores
@@ -130,6 +125,22 @@ Siga estas etapas no portal do Azure para sincronizar as chaves de acesso para s
     ![Selecione Sim quando solicitado](media/azure-stack-edge-j-series-manage-compute/refresh-configuration-2.png)
 
 3. Saia da caixa de diálogo depois que a sincronização tiver sido concluída.
+
+## <a name="change-external-service-ips-for-containers"></a>Alterar IPs de serviço externo para contêineres
+
+Os IPs de serviço externo kubernetes são usados para acessar os serviços que são expostos fora do cluster kubernetes. Depois que o dispositivo for ativado, você poderá definir ou modificar os IPs de serviço externo para cargas de trabalho em contêineres para seu dispositivo acessando a interface do usuário local.
+
+
+1. Na interface do usuário local do dispositivo, vá para **computação**.
+1. Selecione a porta cuja rede está configurada para computação. Na folha que é aberta, especifique (novo) ou modifique (se houver) os IPs de serviço externo kubernetes. Esses IPs são usados para todos os serviços que precisam ser expostos fora do cluster kubernetes. 
+    - Você precisa de um mínimo de 1 IP de serviço para o `edgehub` serviço que é executado em seu dispositivo e é usado pelos módulos do IOT Edge. 
+    - Você precisará de um IP para cada módulo IoT Edge ou contêiner adicional que pretende implantar. 
+    - Esses são IPs estáticos e contíguos.
+
+    ![Alterar IPs do serviço kubernetes](media/azure-stack-edge-j-series-manage-compute/change-service-ips-1.png)
+
+1. Escolha **Aplicar**. Depois que os IPs forem aplicados, o dispositivo não precisará de uma reinicialização ou reinicialização. Os novos IPs entram em vigor imediatamente.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

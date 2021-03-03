@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: aecc7ccb6e633fc9c27b254f98931d682fa3d21b
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 5eab1a1c8d085ab48dd54012908d40eec99ca4c7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534662"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705068"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -29,7 +29,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**Servidor** | **Requirements** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 vCenter Server | A versão 7,0 & atualizações subsequentes nesta versão, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 Hosts vSphere | A versão 7,0 & atualizações subsequentes nesta versão, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
@@ -41,7 +41,7 @@ O servidor de configuração é um computador local que executa componentes do S
 - Para VMs VMware, você define o servidor de configuração baixando um modelo OVF para criar uma VM VMware.
 - Para servidores físicos, você configura manualmente o computador do servidor de configuração.
 
-**Componente** | **Requirements**
+**Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -93,7 +93,7 @@ Linux: CentOS | 5,2 a 5,11</b><br/> 6,1 a 6,10</b><br/> </br> 7,0, 7,1, 7,2, 7,3
 Ubuntu | Ubuntu 14, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions)<br/>Ubuntu 16, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 18, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> Ubuntu 20, 4 * LTS Server [(examinar as versões de kernel com suporte)](#ubuntu-kernel-versions) </br> (*inclui suporte para todos os 14, 4.* x *, 16, 4.* x *, 18, 4.* x *, 20, 4.* x * versões)
 Debian | Debian 7/Debian 8 (inclui suporte para todos os 7. *x*, 8. *x* versões); Debian 9 (inclui suporte para 9,1 a 9,13. Não há suporte para Debian 9,0.), Debian 10 [(examinar as versões de kernel com suporte)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4, [SP5](https://support.microsoft.com/help/4570609) [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-12-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 15, 15 SP1 [(examine as versões de kernel com suporte)](#suse-linux-enterprise-server-15-supported-kernel-versions) <br/> SUSE Linux Enterprise Server 11 SP3. [Certifique-se de baixar o instalador do agente de mobilidade mais recente no servidor de configuração](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server). </br> SUSE Linux Enterprise Server 11 SP4 </br> **Observação**: não há suporte para a atualização de máquinas replicadas do SUSE Linux Enterprise Server 11 SP3 para o SP4. Para atualizar, desabilite a replicação e habilite novamente após a atualização. <br/>|
-Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, [7,4, 7,5](https://support.microsoft.com/help/4573888/), 7,6, [7,7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), 8,2, [8,3](https://support.microsoft.com/help/4597409/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6, [7,7](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery), [7,8](https://support.microsoft.com/help/4573888/), [7,9](https://support.microsoft.com/help/4597409/), [8,0](https://support.microsoft.com/help/4573888/), [8,1](https://support.microsoft.com/help/4573888/), [8,3](https://support.microsoft.com/help/4597409/)  <br/> Executando o kernel compatível com Red Hat ou o Unbreakable Enterprise Kernel Release 3, 4 e 5 (UEK3, UEK4 e UEK5)<br/><br/>8.1<br/>Em execução em todos os kernels UEK e RedHat kernel <= 3.10.0-1062. * têm suporte no suporte [9,35](https://support.microsoft.com/help/4573888/) para o restante dos kernels do redhat disponíveis em [9,36](https://support.microsoft.com/help/4578241/)
 
 > [!Note]
 >- Para cada uma das versões do Windows, Azure Site Recovery dá suporte apenas a compilações de [LTSC (canal de manutenção em longo prazo)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) .  Versões de [canal semianuais](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) atualmente não têm suporte no momento.
@@ -163,8 +163,8 @@ Sistemas de arquivos | ext3, ext4, XFS, BTRFS (condições aplicáveis de acordo
 Provisionamento LVM (gerenciamento de volume lógico)| Provisão espessa-Sim <br></br> Provisionamento dinâmico-não
 Gerenciador de volumes | -O LVM tem suporte.<br/> -/boot no LVM tem suporte do [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/) (versão 9,20 do serviço de mobilidade) em diante. Ele não tem suporte em versões anteriores do serviço de mobilidade.<br/> -Não há suporte para vários discos de sistema operacional.
 Dispositivos de armazenamento paravirtualizados | Não há suporte para dispositivos exportados por drivers paravirtualizados.
-Dispositivos de E/S de bloqueio de várias filas | Não há suporte.
-Servidores físicos com o controlador de armazenamento CCISS da HP | Não há suporte.
+Dispositivos de E/S de bloqueio de várias filas | Sem suporte.
+Servidores físicos com o controlador de armazenamento CCISS da HP | Sem suporte.
 Convenção de nomenclatura de ponto de montagem/dispositivo | O nome do dispositivo ou o nome do ponto de montagem deve ser exclusivo.<br/> Verifique se não há dois dispositivos/pontos de montagem com nomes que diferenciam maiúsculas de minúsculas. Por exemplo, não há suporte para nomear dispositivos para a mesma VM que *Device1* e *Device1* .
 Diretórios | Se você estiver executando uma versão do serviço de mobilidade anterior à versão 9,20 (lançada no [pacote cumulativo de atualizações 31](https://support.microsoft.com/help/4478871/)), essas restrições se aplicarão:<br/><br/> -Esses diretórios (se configurados como partições/sistemas de arquivos separados) devem estar no mesmo disco do sistema operacional no servidor de origem:/(raiz),/boot,/usr,/usr/local,/var,/etc.</br> -O diretório/boot deve estar em uma partição de disco e não ser um volume LVM.<br/><br/> Da versão 9,20 em diante, essas restrições não se aplicam. 
 Diretório de inicialização | -Discos de inicialização não deve estar no formato de partição GPT. Essa é uma limitação da arquitetura do Azure. Os discos GPT têm suporte como discos de dados.<br/><br/> Não há suporte para vários discos de inicialização em uma VM<br/><br/> -/boot em um volume LVM em mais de um disco não tem suporte.<br/> -Um computador sem um disco de inicialização não pode ser replicado.
@@ -177,7 +177,7 @@ BTRFS | O BTRFS tem suporte do [pacote cumulativo de atualizações 34](https://
 **Ação** | **Detalhes**
 --- | ---
 Redimensionar o disco na VM replicada | Com suporte na VM de origem antes do failover, diretamente nas propriedades da VM. Não é necessário desabilitar/reabilitar a replicação.<br/><br/> Se você alterar a VM de origem após o failover, as alterações não serão capturadas.<br/><br/> Se você alterar o tamanho do disco na VM do Azure após o failover, ao fazer failback, Site Recovery criará uma nova VM com as atualizações.
-Adicionar disco na VM replicada | Não há suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
+Adicionar disco na VM replicada | Sem suporte.<br/> Desabilite a replicação da VM, adicione o disco e, em seguida, habilite novamente a replicação.
 
 > [!NOTE]
 > Não há suporte para alterações na identidade do disco. Por exemplo, se o particionamento de disco tiver sido alterado de GPT para MBR ou vice-versa, isso irá alterar a identidade do disco. Nesse cenário, a replicação será interrompida e uma nova configuração será necessária. Para computadores Linux, não há suporte para alteração de nome de dispositivo, pois ele tem um impacto na identidade do disco.
@@ -243,7 +243,7 @@ Convidado/servidor - excluir disco | Sim
 MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
-Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [SOS de UEFI do Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [sistemas operacionais UEFI do Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
 
 ## <a name="replication-channels"></a>Canais de replicação
 
@@ -285,7 +285,7 @@ Discos gerenciados | Sim
 
 As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.
@@ -294,9 +294,9 @@ Contagem do disco do sistema operacional | 1 </br> Não há suporte para a parti
 Contagem de disco de dados | 64 ou menos. | A verificação falha se não tiver suporte.
 Tamanho do disco de dados | Até 8.192 GB ao replicar para o disco gerenciado (versão 9,26 em diante)<br></br>Até 4.095 GB ao replicar para a conta de armazenamento| A verificação falha se não tiver suporte.
 Adaptadores de rede | Há suporte para vários adaptadores. |
-VHD compartilhado | Não há suporte. | A verificação falha se não tiver suporte.
-Disco FC | Não há suporte. | A verificação falha se não tiver suporte.
-BitLocker | Não há suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
+VHD compartilhado | Sem suporte. | A verificação falha se não tiver suporte.
+Disco FC | Sem suporte. | A verificação falha se não tiver suporte.
+BitLocker | Sem suporte. | O BitLocker precisa ser desabilitado antes de habilitar a replicação em um computador. |
 Nome da VM | De 1 a 63 caracteres.<br/><br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. |  Atualize o valor nas propriedades do computador no Site Recovery.
 
 ## <a name="resource-group-limits"></a>Limites de grupo de recursos

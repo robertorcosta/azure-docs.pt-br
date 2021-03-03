@@ -6,19 +6,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 9ce9957d348fc9d57ff688408d6aaade67e95465
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34b1f850b262a0027d3a9cb2e926bcb2c8a49665
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606552"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710899"
 ---
 # <a name="workspace-expression-in-azure-monitor-log-query"></a>Expressão workspace() nas consultas de log do Azure Monitor
 
 A expressão `workspace` é usada em uma consulta do Azure Monitor para recuperar dados de um workspace específico no mesmo grupo de recursos, em outro grupo de recursos ou em outra assinatura. Isso é útil para incluir dados de log em uma consulta do Application Insights e para consultar dados em vários workspaces em uma consulta de log.
 
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 `workspace(`*ID*`)`
 
@@ -64,6 +64,6 @@ union
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte a [expressão do aplicativo](../log-query/app-expression.md) para se referir a um aplicativo Application insights.
-- Leia mais sobre como os [dados do Azure Monitor](../log-query/log-query-overview.md) são armazenados.
+- Consulte a [expressão do aplicativo](./app-expression.md) para se referir a um aplicativo Application insights.
+- Leia mais sobre como os [dados do Azure Monitor](./log-query-overview.md) são armazenados.
 - Acesse a documentação completa da [linguagem de consulta Kusto](/azure/kusto/query/).

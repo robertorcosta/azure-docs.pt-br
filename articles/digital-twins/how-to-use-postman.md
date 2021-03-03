@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: 96872a067d2414254aec3f212542dadabdf2bd6f
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98791733"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715693"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o postmaster para enviar solicitações para as APIs do Azure digital gêmeos
 
-O [postmaster](https://www.getpostman.com/) é uma ferramenta de teste REST que fornece funcionalidades de solicitação HTTP de chave em um desktop e GUI baseada em plug-in. Você pode usá-lo para criar solicitações HTTP e enviá-las para as [APIs REST do Azure digital gêmeos](how-to-use-apis-sdks.md).
+O [Postman](https://www.getpostman.com/) é uma ferramenta de testes REST que fornece importantes funcionalidades de solicitação HTTP em uma GUI baseada em plug-in e desktop. Você pode usá-lo para criar solicitações HTTP e enviá-las para as [APIs REST do Azure digital gêmeos](how-to-use-apis-sdks.md).
 
 Este artigo descreve como configurar o [cliente REST do postmaster](https://www.getpostman.com/) para interagir com as APIs do gêmeos digital do Azure, por meio das seguintes etapas:
 
@@ -140,7 +140,7 @@ Para continuar com uma consulta de exemplo, este artigo usará a API de consulta
 1. Verifique se os cabeçalhos mostrados para a solicitação na guia *cabeçalhos* correspondem aos descritos na documentação de referência. Para essa solicitação, vários cabeçalhos foram preenchidos automaticamente. Para a API de consulta, nenhuma das opções de cabeçalho é necessária, portanto, essa etapa é feita.
 1. Verifique se o corpo mostrado para a solicitação na guia *corpo* corresponde às necessidades descritas na documentação de referência. Para a API de consulta, um corpo JSON é necessário para fornecer o texto da consulta. Veja um exemplo de corpo para essa solicitação que consulta todos os gêmeos digitais na instância:
 
-   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes da nova solicitação, a guia corpo é mostrada. Ele contém um corpo JSON bruto com uma consulta de ' SELECT * FROM DIGITALTWINS '."lightbox="media/how-to-use-postman/postman-request-body.png":::
+   :::image type="content" source="media/how-to-use-postman/postman-request-body.png" alt-text="Nos detalhes da nova solicitação, a guia corpo é mostrada. Ele contém um corpo JSON bruto com uma consulta de ' SELECT * FROM DIGITALTWINS '." lightbox="media/how-to-use-postman/postman-request-body.png":::
 
    Para obter mais informações sobre como criar consultas do Azure digital gêmeos, consulte [*como consultar o grafo de entrelaçamento*](how-to-query-graph.md).
 

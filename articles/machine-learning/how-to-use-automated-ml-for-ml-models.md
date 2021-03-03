@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: 1a40fe01240474c2a6df3e028b7d03f3e8bb73fc
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: d7a0832fd15df402c88e1ba565c90a24e0d6eb8a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879740"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101692412"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 
@@ -153,7 +153,7 @@ A tabela a seguir resume as personalizações disponíveis no momento por meio d
 
 Coluna| Personalização
 ---|---
-Incluído | Especifica quais colunas incluir para treinamento.
+Incluso | Especifica quais colunas incluir para treinamento.
 Tipo de recurso| Altere o tipo de valor da coluna selecionada.
 Imputar com| Selecione o valor com o qual imputar valores ausentes em seus dados.
 
@@ -179,6 +179,21 @@ A guia **Modelos** contém uma lista dos modelos criados ordenados pela pontuaç
 Faça uma busca detalhada em qualquer um dos modelos concluídos para ver os detalhes da execução de treinamento, como um resumo do modelo na guia **modelo** ou nos gráficos de métrica de desempenho na guia **métricas** . [saiba mais sobre gráficos](how-to-understand-automated-ml.md).
 
 [![Detalhes da iteração](media/how-to-use-automated-ml-for-ml-models/iteration-details.png)](media/how-to-use-automated-ml-for-ml-models/iteration-details-expanded.png)
+
+## <a name="model-explanations"></a>Explicações do modelo
+
+Para entender melhor seu modelo, consulte quais recursos de dados (brutos ou com engenharia) influenciaram as previsões do modelo com o painel de explicações do modelo. 
+
+O painel explicações de modelo fornece uma análise geral do modelo treinado junto com suas previsões e explicações. Ele também permite que você faça drill-through de um ponto de dados individual e de suas importâncias de recursos individuais. [Saiba mais sobre as visualizações do painel de explicação e gráficos específicos](how-to-machine-learning-interpretability-aml.md#visualizations).
+
+Para obter explicações para um modelo específico, 
+
+1. Na guia **modelos** , selecione o modelo que você deseja usar. 
+1. Selecione o botão **modelo de explicação** e forneça uma computação que possa ser usada para gerar as explicações.
+1. Verifique a guia de **execuções filho** para obter o status. 
+1. Depois de concluído, navegue até a guia **explicações (visualização)** que contém o painel explicações. 
+
+    ![Painel de explicação do modelo](media/how-to-use-automated-ml-for-ml-models/model-explanation-dashboard.png)
 
 ## <a name="deploy-your-model"></a>Implantar o seu modelo
 

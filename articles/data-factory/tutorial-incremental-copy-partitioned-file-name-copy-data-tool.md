@@ -6,17 +6,17 @@ ms.author: yexu
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/09/2020
-ms.openlocfilehash: 8e68852434a4a8bea43b575523a60c9346b2a569
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 02/18/2021
+ms.openlocfilehash: aa6c0d9035f172cc7fb520ff58f233a82fca228a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384768"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741065"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Copiar incrementalmente novos arquivos com base no nome do arquivo particionado usando a ferramenta de Copiar Dados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você pode usar o portal do Azure para criar um Data Factory. Em seguida, você usa a ferramenta Copiar Dados para criar um pipeline que copia incrementalmente novos arquivos com base no nome de arquivo particionado do armazenamento de BLOBs do Azure para o armazenamento de BLOBs do Azure.
 

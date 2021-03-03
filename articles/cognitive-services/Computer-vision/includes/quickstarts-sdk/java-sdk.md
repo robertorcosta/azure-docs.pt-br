@@ -10,12 +10,12 @@ ms.topic: include
 ms.date: 12/15/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 6eec9cf199068db6b87e69dd97dd0e105f629a14
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: c8435d250f95f861f2a84e91d673eb59c3a6d44b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948335"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750373"
 ---
 <a name="HOLTop"></a>
 
@@ -105,7 +105,7 @@ No método **main** do aplicativo, adicione chamadas para os métodos usados nes
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_maincalls)]
 
 > [!div class="nextstepaction"]
-> [Configurei o cliente](?success=set-up-client#object-model) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Configurei o cliente](?success=set-up-client#object-model) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -132,7 +132,7 @@ Em um novo método, crie uma instância do objeto [ComputerVisionClient](/java/a
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_auth)]
 
 > [!div class="nextstepaction"]
-> [Autentiquei o cliente](?success=authenticate-client#analyze-an-image) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Autentiquei o cliente](?success=authenticate-client#analyze-an-image) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -215,7 +215,7 @@ O código a seguir imprime informações sobre o tipo de imagem – seja clip-ar
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_imagetype)]
 
 > [!div class="nextstepaction"]
-> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
@@ -261,7 +261,7 @@ Por fim, adicione o outro método auxiliar usado acima, que extrai a ID da opera
 [!code-java[](~/cognitive-services-quickstart-code/java/ComputerVision/src/main/java/ComputerVisionQuickstart.java?name=snippet_opid_extract)]
 
 > [!div class="nextstepaction"]
-> [Li o texto](?success=read-printed-handwritten-text#run-the-application) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Li o texto](?success=read-printed-handwritten-text#run-the-application) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
@@ -278,7 +278,7 @@ gradle run
 ```
 
 > [!div class="nextstepaction"]
-> [Executei o aplicativo](?success=run-the-application#clean-up-resources) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [Executei o aplicativo](?success=run-the-application#clean-up-resources) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -288,7 +288,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Limpei os recursos](?success=clean-up-resources#next-steps) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Limpei os recursos](?success=clean-up-resources#next-steps) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Java&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -7,19 +7,19 @@ ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 03/02/2021
 ms.topic: how-to
-ms.openlocfilehash: 9da725c433ad5d6233fd164d256692ca407714fc
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 16546432c8c0a23d5c9dc471fe8c62ced5eca993
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92206445"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687525"
 ---
 # <a name="upload-billing-data-to-azure-and-view-it-in-the-azure-portal"></a>Carregar dados de cobrança no Azure e exibi-los no portal do Azure
 
 > [!IMPORTANT] 
->  Não há nenhum custo para usar os serviços de dados habilitados para o Azure Arc durante o período de versão prévia. Embora o sistema de cobrança funcione de ponta a ponta, o medidor de cobrança é definido como $0.  Se você seguir este cenário, verá entradas em sua cobrança para um serviço chamado atualmente serviços de **dados híbridos** e para recursos de um tipo chamado **Microsoft. AzureData/ `<resource type>` **. Você poderá ver um registro para cada serviço de dados-arco do Azure que você criar, mas cada registro será cobrado por $0.
+>  Não há nenhum custo para usar os serviços de dados habilitados para o Azure Arc durante o período de versão prévia. Embora o sistema de cobrança funcione de ponta a ponta, o medidor de cobrança é definido como $0.  Se você seguir este cenário, verá entradas em sua cobrança para um serviço chamado atualmente serviços de **dados híbridos** e para recursos de um tipo chamado **Microsoft. AzureData/ `<resource type>`**. Você poderá ver um registro para cada serviço de dados-arco do Azure que você criar, mas cada registro será cobrado por $0.
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
@@ -111,8 +111,9 @@ azdata arc dc upload -p usage.json
 
 Siga estas etapas para exibir dados de cobrança no portal do Azure:
 
-1. Abra o portal do Azure usando a URL especial:  [https://aka.ms/arcdata](https://aka.ms/arcdata) .
+1. Abra o [Portal do Azure](https://portal.azure.com).
 1. Na caixa de pesquisa na parte superior do tipo de tela em **Gerenciamento de custos** e clique no serviço gerenciamento de custos.
+1. Em **visão geral do gerenciamento de custos**, clique na guia **Gerenciamento de custos** .
 1. Clique na guia **análise de custo** à esquerda.
 1. Clique no botão **custo por recurso** na parte superior da exibição.
 1. Verifique se o escopo está definido para a assinatura na qual os recursos do serviço de dados foram criados.

@@ -1,20 +1,20 @@
 ---
-title: Configurar o monitoramento na integridade de convidado do Azure Monitor para VMs (versão prévia)
-description: Descreve como modificar o monitoramento padrão para Azure Monitor para VMs integridade de convidado (versão prévia) usando o portal do Azure.
+title: Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)
+description: Descreve como modificar o monitoramento padrão para a integridade de convidado do insights de VM (versão prévia) usando o portal do Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 427bdec2b5e5ab14d566375d5ad8f9da9dc3e81b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8c15a44fc086c9c686e75879b3086436ea327560
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606782"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719586"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-preview"></a>Configurar o monitoramento na integridade de convidado do Azure Monitor para VMs (versão prévia)
-Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão usando o portal do Azure. Ele também descreve os conceitos fundamentais dos monitores necessários para [Configurar o monitoramento usando uma regra de coleta de dados](vminsights-health-configure-dcr.md).
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)
+A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão usando o portal do Azure. Ele também descreve os conceitos fundamentais dos monitores necessários para [Configurar o monitoramento usando uma regra de coleta de dados](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Abrir configuração do monitor
 Abra a configuração do monitor bin The portal do Azure selecionando o monitor e, em seguida, a guia **Configuration** .

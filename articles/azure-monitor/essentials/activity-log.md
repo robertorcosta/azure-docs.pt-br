@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 200c4c536df4a3e32b59945ae4ad97d7b770f269
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 38f5743e8a80af1ec824b07833f66ad50d67b91f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604934"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723292"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
-O log de atividades é um [log de plataforma](../platform/platform-logs-overview.md) no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](../platform/data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
+O log de atividades é um [log de plataforma](./platform-logs-overview.md) no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](../logs/data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
 
-Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../platform/diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico.
+Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](./diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico.
 
 > [!NOTE]
 > As entradas no log de atividades são geradas pelo sistema e não podem ser alteradas ou excluídas.
@@ -43,13 +43,13 @@ Se houver alterações associadas ao evento, você verá uma lista de alteraçõ
 ### <a name="other-methods-to-retrieve-activity-log-events"></a>Outros métodos para recuperar eventos do log de atividades
 Você também pode acessar eventos do log de atividades usando os métodos a seguir.
 
-- Use o cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar o log de atividades do PowerShell. Confira [Azure monitor exemplos do PowerShell](../samples/powershell-samples.md#retrieve-activity-log).
-- Use [az monitor activity-log](/cli/azure/monitor/activity-log) para recuperar o log de atividades da CLI.  Consulte [Exemplos de CLI do Azure Monitor](../samples/cli-samples.md#view-activity-log).
+- Use o cmdlet [Get-AzLog](/powershell/module/az.monitor/get-azlog) para recuperar o log de atividades do PowerShell. Confira [Azure monitor exemplos do PowerShell](../powershell-samples.md#retrieve-activity-log).
+- Use [az monitor activity-log](/cli/azure/monitor/activity-log) para recuperar o log de atividades da CLI.  Consulte [Exemplos de CLI do Azure Monitor](../cli-samples.md#view-activity-log).
 - Use a [API REST do Azure Monitor](/rest/api/monitor/) para recuperar o log de atividades de um cliente REST. 
 
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para o workspace do Log Analytics
- Envie o log de atividades para um espaço de trabalho Log Analytics para habilitar os recursos de [logs de Azure monitor](../platform/data-platform-logs.md) que incluem o seguinte:
+ Envie o log de atividades para um espaço de trabalho Log Analytics para habilitar os recursos de [logs de Azure monitor](../logs/data-platform-logs.md) que incluem o seguinte:
 
 - Correlacione os dados do log de atividades com outros dados de monitoramento coletados pelo Azure Monitor.
 - Consolide entradas de log de várias assinaturas e locatários do Azure em um único local para análise em conjunto.
@@ -59,9 +59,9 @@ Você também pode acessar eventos do log de atividades usando os métodos a seg
 - Não há encargos de ingestão de dados para dados de log de atividades armazenados em um espaço de trabalho Log Analytics.
 - Não há encargos de retenção de dados até 90 dias para os dados do log de atividades armazenados em um espaço de trabalho Log Analytics.
 
-[Crie uma configuração de diagnóstico](../platform/diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho log Analytics. Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho. A coleta de logs entre locatários requer o [Azure Lighthouse](../../lighthouse/index.yml).
+[Crie uma configuração de diagnóstico](./diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho log Analytics. Você pode enviar o log de atividades de qualquer assinatura única para até cinco espaços de trabalho. A coleta de logs entre locatários requer o [Azure Lighthouse](../../lighthouse/index.yml).
 
-Os dados do log de atividades em um espaço de trabalho Log Analytics são armazenados em uma tabela chamada *AzureActivity* que você pode recuperar com uma [consulta de log](../log-query/log-query-overview.md) no [log Analytics](../log-query/log-analytics-tutorial.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a [referência de dados do Azure monitor](/azure/azure-monitor/reference/tables/azureactivity).
+Os dados do log de atividades em um espaço de trabalho Log Analytics são armazenados em uma tabela chamada *AzureActivity* que você pode recuperar com uma [consulta de log](../logs/log-query-overview.md) no [log Analytics](../logs/log-analytics-tutorial.md). A estrutura dessa tabela varia dependendo da [categoria da entrada de log](activity-log-schema.md). Para obter uma descrição das propriedades da tabela, consulte a [referência de dados do Azure monitor](/azure/azure-monitor/reference/tables/azureactivity).
 
 Por exemplo, para exibir uma contagem de registros de log de atividades para cada categoria, use a consulta a seguir.
 
@@ -202,12 +202,12 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 
     | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
-    | Name |Yes |Nome de seu perfil de log. |
-    | StorageAccountId |No |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
-    | serviceBusRuleId |No |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
+    | Name |Sim |Nome de seu perfil de log. |
+    | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
+    | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |
-    | RetentionInDays |Yes |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
-    | Categoria |No |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_ e _ação_. |
+    | RetentionInDays |Sim |Número de dias pelos quais os eventos devem ser retidos na conta de armazenamento, entre 1 e 365. Um valor de zero armazena os logs indefinidamente. |
+    | Categoria |Não |Lista separada por vírgulas de categorias de eventos que devem ser coletados. Os valores possíveis são _gravação_, _exclusão_ e _ação_. |
 
 ### <a name="example-script"></a>Script de exemplo
 Veja a seguir um exemplo de script do PowerShell para criar um perfil de log que grava o log de atividades em uma conta de armazenamento e no Hub de eventos.
@@ -246,11 +246,11 @@ Se um perfil de log já existir, primeiro será necessário remover o perfil de 
     | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
     | name |Sim |Nome de seu perfil de log. |
-    | storage-account-id |Yes |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
+    | storage-account-id |Sim |A ID de Recurso da Conta de Armazenamento na qual os Logs de Atividades devem ser salvos. |
     | Locais |Sim |Lista separada por espaço de regiões para as quais você gostaria de coletar eventos do Log de Atividades. É possível exibir uma lista de todas as regiões para a assinatura usando `az account list-locations --query [].name`. |
-    | dias |Yes |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
-    |Habilitado | Yes |Verdadeiro ou falso.  Usado para habilitar ou desabilitar a política de retenção.  Se for Verdadeiro, o parâmetro de dias deverá ser um valor maior que 0.
-    | Categorias |Yes |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
+    | dias |Sim |Número de dias pelos quais os eventos devem ser retidos, entre 1 e 365. Um valor de zero armazenará os logs indefinidamente (para sempre).  Se for zero, o parâmetro Enabled deverá ser definido como false. |
+    |Habilitado | Sim |Verdadeiro ou falso.  Usado para habilitar ou desabilitar a política de retenção.  Se for Verdadeiro, o parâmetro de dias deverá ser um valor maior que 0.
+    | Categorias |Sim |Lista separada por espaço de categorias de eventos que devem ser coletadas. Os valores possíveis são Gravação, Exclusão e Ação. |
 
 
 ### <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
@@ -400,6 +400,6 @@ Em breve, você não poderá mais adicionar a solução de análise de logs de a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Leia uma visão geral dos logs de plataforma](../platform/platform-logs-overview.md)
+* [Leia uma visão geral dos logs de plataforma](./platform-logs-overview.md)
 * [Revisar esquema de evento do log de atividades](activity-log-schema.md)
-* [Criar configuração de diagnóstico para enviar logs de atividades para outros destinos](../platform/diagnostic-settings.md)
+* [Criar configuração de diagnóstico para enviar logs de atividades para outros destinos](./diagnostic-settings.md)

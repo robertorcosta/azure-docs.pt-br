@@ -2,13 +2,13 @@
 title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager (modelo ARM) e arquivo bicep.
 ms.topic: conceptual
-ms.date: 02/17/2021
-ms.openlocfilehash: 0371a5293b302a2eb0febb010fc16caa8355eb18
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.date: 02/19/2021
+ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703827"
 ---
 # <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
@@ -35,7 +35,21 @@ Para JSON, adicione a `outputs` seção ao modelo. O valor de saída Obtém o no
 }
 ```
 
+# <a name="bicep"></a>[Bicep](#tab/bicep)
+
+Para bicep, use a `output` palavra-chave.
+
+No exemplo a seguir, `publicIP` é o identificador de um endereço IP público implantado no arquivo bicep. O valor de saída Obtém o nome de domínio totalmente qualificado para o endereço IP público.
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+---
+
 Se você precisar gerar uma propriedade que tenha um hífen no nome, use colchetes ao invés do nome em vez de notação de ponto. Por exemplo, use  `['property-name']` em vez de `.property-name` .
+
+# <a name="json"></a>[JSON](#tab/json)
 
 ```json
 {
@@ -58,16 +72,6 @@ Se você precisar gerar uma propriedade que tenha um hífen no nome, use colchet
 ```
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
-
-Para bicep, use a `output` palavra-chave.
-
-No exemplo a seguir, `publicIP` é o nome simbólico de um endereço IP público implantado no arquivo bicep. O valor de saída Obtém o nome de domínio totalmente qualificado para o endereço IP público.
-
-```bicep
-output hostname string = publicIP.properties.dnsSettings.fqdn
-```
-
-Se você precisar gerar uma propriedade que tenha um hífen no nome, use colchetes ao invés do nome em vez de notação de ponto. Por exemplo, use  `['property-name']` em vez de `.property-name` .
 
 ```bicep
 var user = {
@@ -99,9 +103,7 @@ Em JSON, adicione o `condition` elemento para definir se a saída é retornada.
 
 # <a name="bicep"></a>[Bicep](#tab/bicep)
 
-A saída condicional não está disponível no momento para bicep.
-
-No entanto, você pode usar o `?` operador para retornar um dos dois valores, dependendo de uma condição.
+Para especificar uma saída condicional em bicep, use o `?` operador. O exemplo a seguir retorna uma URL de ponto de extremidade ou uma cadeia de caracteres vazia, dependendo de uma condição.
 
 ```bicep
 param deployStorage bool = true

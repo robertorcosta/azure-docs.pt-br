@@ -1,31 +1,31 @@
 ---
-title: Análise de alterações no Azure Monitor para VMs
-description: A integração de Azure Monitor para VMs com a integração de análise de alteração de aplicativo permite que você veja as alterações feitas em uma máquina virtual que podem ter afetado o desempenho de ti.
+title: Análise de alterações no Revisions da VM
+description: A integração de informações de VM com a integração de análise de alteração de aplicativo permite que você veja as alterações feitas em uma máquina virtual que podem ter afetado o desempenho de ti.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/23/2020
-ms.openlocfilehash: 59799a09436d5968a441f6f17655d3138a2d84d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 48f0f0e124040dc070bd5e31f956f75e759303d3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606309"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101703997"
 ---
-# <a name="change-analysis-in-azure-monitor-for-vms"></a>Análise de alterações no Azure Monitor para VMs
-A integração de Azure Monitor para VMs com a integração de [análise de alteração de aplicativo](../app/change-analysis.md) permite que você veja as alterações feitas em uma máquina virtual que podem ter afetado o desempenho de ti.
+# <a name="change-analysis-in-vm-insights"></a>Análise de alterações no Revisions da VM
+A integração de informações de VM com a integração de [análise de alteração de aplicativo](../app/change-analysis.md) permite que você veja as alterações feitas em uma máquina virtual que podem ter afetado o desempenho de ti.
 
 ## <a name="overview"></a>Visão geral
-Suponha que você tenha uma VM que se torne um pouco lenta e queira investigar se alterações recentes em sua configuração poderiam ter afetado seu desempenho. Você exibe o desempenho da VM usando Azure Monitor para VMs e descobre que há um aumento no uso de memória na última hora. A análise de alterações pode ajudá-lo a determinar se alguma alteração de configuração feita ao contrário desse tempo foi a causa desse aumento.
+Suponha que você tenha uma VM que se torne um pouco lenta e queira investigar se alterações recentes em sua configuração poderiam ter afetado seu desempenho. Você vê o desempenho da VM usando o virtual insights e descobre que há um aumento no uso de memória na última hora. A análise de alterações pode ajudá-lo a determinar se alguma alteração de configuração feita ao contrário desse tempo foi a causa desse aumento.
 
 O serviço de análise de alterações de aplicativo agrega alterações do [grafo de recursos do Azure](../../governance/resource-graph/how-to/get-resource-changes.md) , bem como alterações de propriedades aninhadas, como regras de segurança de rede de Azure Resource Manager. 
 
 ## <a name="enabling-change-analysis"></a>Habilitando a análise de alterações
-Para carregar a análise de alterações no Azure Monitor para VMs, você deve registrar o provedor de recursos *Microsoft. ChangeAnalysis* . Na primeira vez que você iniciar Azure Monitor para VMs ou análise de alteração do aplicativo no portal do Azure, esse provedor de recursos será registrado automaticamente para você. A análise de alterações do aplicativo é um serviço gratuito que não tem sobrecarga de desempenho nos recursos.
+Para carregar a análise de alterações no VM insights, você deve registrar o provedor de recursos *Microsoft. ChangeAnalysis* . Na primeira vez que você iniciar as informações de VM ou a análise de alteração do aplicativo no portal do Azure, esse provedor de recursos será registrado automaticamente para você. A análise de alterações do aplicativo é um serviço gratuito que não tem sobrecarga de desempenho nos recursos.
 
 ## <a name="view-change-analysis"></a>Exibir análise de alterações
-A análise de alterações está disponível na guia **desempenho** ou **mapa** de Azure monitor para VMs selecionando a opção **alterar** . 
+A análise de alterações está disponível na guia **desempenho** ou **mapa** do Revisions da VM, selecionando a opção **alterar** . 
 
 [![Investigar alterações](media/vminsights-change-analysis/investigate-changes-screenshot.png)](media/vminsights-change-analysis/investigate-changes-screenshot-zoom.png#lightbox)
 

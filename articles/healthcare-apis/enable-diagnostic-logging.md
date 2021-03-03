@@ -7,23 +7,30 @@ ms.subservice: fhir
 ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
-author: CaitlinV39
-ms.date: 02/03/2021
-ms.openlocfilehash: 220618f93d23ec71ee3246e8bd68bfd724860696
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+author: zxue
+ms.date: 02/24/2021
+ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581978"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712768"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR
 
 Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure para FHIR e poderá examinar algumas consultas de exemplo para esses logs. O acesso aos logs de diagnóstico é essencial para qualquer serviço de saúde em que a conformidade com os requisitos regulatórios (como a HIPAA) é uma necessidade. O recurso na API do Azure para FHIR que habilita logs de diagnóstico são as [**configurações de diagnóstico**](../azure-monitor/essentials/diagnostic-settings.md) no portal do Azure. 
 
+## <a name="view-and-download-fhir-metrics-data"></a>Exibir e baixar dados de métricas do FHIR
+
+Você pode exibir as métricas em monitoramento | Métricas do Portal. As métricas incluem o número de solicitações, a latência média, o número de erros, o tamanho dos dados, o RUs usado, o número de solicitações que excederam a capacidade e a disponibilidade (em%). A captura de tela abaixo mostra o RUs usado para um ambiente de exemplo com poucas atividades nos últimos sete dias. Você pode baixar os dados no formato JSON.
+
+   :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="API do Azure para métricas de FHIR do portal" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
+
 ## <a name="enable-audit-logs"></a>Habilitar logs de auditoria
 1. Para habilitar o log de diagnóstico na API do Azure para FHIR, selecione sua API do Azure para o serviço FHIR no portal do Azure 
-2. Navegue até **configurações de diagnóstico**  
- ![ configurações de diagnóstico](media/diagnostic-logging/diagnostic-settings-screen.png) 
+2. Navegue até **configurações de diagnóstico** 
+
+   :::image type="content" source="media/diagnostic-logging/diagnostic-settings-screen.png" alt-text="Adicionar configurações de diagnóstico FHIR do Azure." lightbox="media/diagnostic-logging/diagnostic-settings-screen.png":::
 
 3. Selecione **+ Adicionar configuração de diagnóstico**
 
@@ -35,7 +42,7 @@ Neste artigo, você aprenderá a habilitar o log de diagnóstico na API do Azure
     2. **Transmita para o Hub de eventos** para ingestão por um serviço de terceiros ou uma solução analítica personalizada. Você precisará criar um namespace do hub de eventos e uma política do hub de eventos antes de configurar esta etapa.
     3. **Transmitir para o** espaço de trabalho Log Analytics no Azure monitor. Você precisará criar seu espaço de trabalho do log Analytics antes de poder selecionar essa opção.
 
-6. Selecione **AuditLogs** e/ou todas as **métricas**. As métricas incluem nome do serviço, disponibilidade, tamanho dos dados, latência total, total de solicitações, total de erros e carimbo de data/hora.
+6. Selecione **AuditLogs** e/ou todas as **métricas**. As métricas incluem nome do serviço, disponibilidade, tamanho dos dados, latência total, total de solicitações, total de erros e carimbo de data/hora. Você pode encontrar mais detalhes sobre as [métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Configurações de diagnóstico do Azure FHIR. Selecione AuditLogs e/ou todas as métricas." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -59,7 +66,7 @@ Neste momento, a API do Azure para o serviço FHIR retorna os seguintes campos n
 |CorrelationId|String| ID de Correlação
 |FhirResourceType|String|O tipo de recurso para o qual a operação foi executada
 |LogCategory|String|A categoria de log (atualmente, estamos retornando ' AuditLogs ' LogCategory)
-|Location|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
+|Local|String|O local do servidor que processou a solicitação (por exemplo, EUA Central do Sul)
 |OperationDuration|int|O tempo necessário para concluir esta solicitação em segundos
 |OperationName|String| Descreve o tipo de operação (por exemplo, atualização, tipo de pesquisa)
 |RequestUri|String|O URI de solicitação 

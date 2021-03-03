@@ -14,12 +14,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 07/25/2020
 ms.author: abarora
-ms.openlocfilehash: 553c5081947ad784a8cdae6ad0eb92fc3e2a2c85
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 977982bf1a36b4b85524df2513f2272fe4a8d1bf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981793"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701511"
 ---
 # <a name="tutorial-use-dynamic-configuration-using-push-refresh-in-a-net-core-app"></a>Tutorial: Usar configuração dinâmica usando a atualização por push em um aplicativo .NET Core
 
@@ -27,7 +27,7 @@ A biblioteca de clientes do .NET Core de Configuração de Aplicativos é compat
 
 1. Modelo de sondagem: este é o comportamento padrão que usa a sondagem para detectar alterações na configuração. Após o valor em cache de uma configuração expirar, a próxima chamada para `TryRefreshAsync` ou `RefreshAsync` enviará uma solicitação ao servidor para verificar se a configuração foi alterada e efetuará pull da configuração atualizada, se necessário.
 
-1. Modo de push: usa [eventos da Configuração de Aplicativos](./concept-app-configuration-event.md) para detectar alterações na configuração. Quando a Configuração de Aplicativos é configurada para enviar eventos de alteração do valor da chave para a Grade de Eventos do Azure, o aplicativo pode usar esses eventos para otimizar o número total de solicitações necessárias para manter a configuração atualizada. Os aplicativos podem optar por assiná-los diretamente na Grade de Eventos ou por meio de um dos [manipuladores de eventos com suporte](https://docs.microsoft.com/azure/event-grid/event-handlers), como um webhook, uma função do Azure ou um tópico do Barramento de Serviço.
+1. Modo de push: usa [eventos da Configuração de Aplicativos](./concept-app-configuration-event.md) para detectar alterações na configuração. Quando a Configuração de Aplicativos é configurada para enviar eventos de alteração do valor da chave para a Grade de Eventos do Azure, o aplicativo pode usar esses eventos para otimizar o número total de solicitações necessárias para manter a configuração atualizada. Os aplicativos podem optar por assiná-los diretamente na Grade de Eventos ou por meio de um dos [manipuladores de eventos com suporte](../event-grid/event-handlers.md), como um webhook, uma função do Azure ou um tópico do Barramento de Serviço.
 
 Os aplicativos podem optar por assinar esses eventos diretamente da Grade de Eventos ou por meio de um webhook ou encaminhando eventos para o Barramento de Serviço do Azure. O SDK do Barramento de Serviço do Azure fornece uma API para registrar um manipulador de mensagens que simplifica esse processo para aplicativos que não têm um ponto de extremidade HTTP ou que não desejam sondar a Grade de Eventos em busca de alterações continuamente.
 
@@ -50,7 +50,7 @@ Para realizar este tutorial, instale o [SDK do .NET Core](https://dotnet.microso
 
 ## <a name="set-up-azure-service-bus-topic-and-subscription"></a>Configurar o tópico e a assinatura do Barramento de Serviço do Azure
 
-Este tutorial usa a integração do Barramento de Serviço para a Grade de Eventos para simplificar a detecção de alterações de configuração para aplicativos que não desejam sondar a Configuração de Aplicativos em busca de alterações continuamente. O SDK do Barramento de Serviço do Azure fornece uma API para registrar um manipulador de mensagens que pode ser usado para atualizar a configuração quando alterações são detectadas na Configuração de Aplicativos. Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico e uma assinatura do Barramento de Serviço](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal) para criar um namespace, um tópico e uma assinatura do Barramento de Serviço.
+Este tutorial usa a integração do Barramento de Serviço para a Grade de Eventos para simplificar a detecção de alterações de configuração para aplicativos que não desejam sondar a Configuração de Aplicativos em busca de alterações continuamente. O SDK do Barramento de Serviço do Azure fornece uma API para registrar um manipulador de mensagens que pode ser usado para atualizar a configuração quando alterações são detectadas na Configuração de Aplicativos. Siga as etapas no [Início Rápido: Usar o portal do Azure para criar um tópico e uma assinatura do Barramento de Serviço](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) para criar um namespace, um tópico e uma assinatura do Barramento de Serviço.
 
 Depois que os recursos forem criados, adicione as variáveis de ambiente a seguir. Elas serão usadas para registrar um manipulador de eventos para alterações de configuração no código do aplicativo.
 
@@ -81,7 +81,7 @@ Depois que os recursos forem criados, adicione as variáveis de ambiente a segui
     ![Assinaturas de evento da Configuração de Aplicativos](./media/event-subscription-view.png)
 
 > [!NOTE]
-> Ao assinar alterações de configuração, um ou mais filtros podem ser usados para reduzir o número de eventos enviados ao aplicativo. Eles podem ser configurados como [Filtros de assinatura da Grade de Eventos](https://docs.microsoft.com/azure/event-grid/event-filtering) ou [Filtros de assinatura do Barramento de Serviço](https://docs.microsoft.com/azure/service-bus-messaging/topic-filters). Por exemplo, um filtro de assinatura pode ser usado para assinar somente eventos de alterações em uma chave que começa com uma cadeia de caracteres específica.
+> Ao assinar alterações de configuração, um ou mais filtros podem ser usados para reduzir o número de eventos enviados ao aplicativo. Eles podem ser configurados como [Filtros de assinatura da Grade de Eventos](../event-grid/event-filtering.md) ou [Filtros de assinatura do Barramento de Serviço](../service-bus-messaging/topic-filters.md). Por exemplo, um filtro de assinatura pode ser usado para assinar somente eventos de alterações em uma chave que começa com uma cadeia de caracteres específica.
 
 ## <a name="register-event-handler-to-reload-data-from-app-configuration"></a>Registrar manipulador de eventos para recarregar dados da Configuração de Aplicativos
 
@@ -171,7 +171,7 @@ namespace TestConsole
 }
 ```
 
-O método [SetDirty](https://docs.microsoft.com/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) é usado para definir o valor armazenado em cache para valores de chave registrados para atualização como sujo. Isso garante que a próxima chamada para `RefreshAsync` ou `TryRefreshAsync` revalide os valores armazenados em cache com a Configuração de Aplicativos e os atualize, se necessário.
+O método [SetDirty](/dotnet/api/microsoft.extensions.configuration.azureappconfiguration.iconfigurationrefresher.setdirty) é usado para definir o valor armazenado em cache para valores de chave registrados para atualização como sujo. Isso garante que a próxima chamada para `RefreshAsync` ou `TryRefreshAsync` revalide os valores armazenados em cache com a Configuração de Aplicativos e os atualize, se necessário.
 
 Um atraso aleatório é adicionado antes que o valor em cache seja marcado como sujo para reduzir a limitação em potencial no caso de várias instâncias serem atualizadas ao mesmo tempo. O atraso máximo padrão antes do valor em cache ser marcado como sujo é de 30 segundos, mas pode ser substituído passando um parâmetro `TimeSpan` opcional para o método `SetDirty`.
 

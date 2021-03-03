@@ -4,19 +4,19 @@ description: Saiba mais sobre o esquema JSON que é enviado para uma URL de webh
 ms.topic: conceptual
 ms.date: 03/31/2017
 ms.subservice: alerts
-ms.openlocfilehash: bdac71655ca0c517624f8aa033ee5bc7fcc9d12a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9f5fbc6b0c7ae77181c8c5afdbaffb4e62dccd12
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605205"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701137"
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
 
-Para saber mais sobre alertas do log de atividades, veja como [Criar alertas do log de atividades do Azure](../platform/activity-log-alerts.md).
+Para saber mais sobre alertas do log de atividades, veja como [Criar alertas do log de atividades do Azure](./activity-log-alerts.md).
 
-Para saber mais sobre grupos de ações, veja como [criar grupos de ações](../platform/action-groups.md).
+Para saber mais sobre grupos de ações, veja como [criar grupos de ações](./action-groups.md).
 
 > [!NOTE]
 > Você também pode usar o [esquema de alerta comum](./alerts-common-schema.md), que fornece a vantagem de ter uma única carga de alerta extensível e unificada em todos os serviços de alerta no Azure monitor, para suas integrações de webhook. [Saiba mais sobre as definições de esquema de alerta comuns.](./alerts-common-schema-definitions.md)
@@ -298,10 +298,10 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 | status |Cadeia de caracteres. Status da operação. Os valores comuns incluem: Iniciado, Em Andamento, Êxito, Falha, Ativo, Resolvido. |
 | subStatus |Geralmente inclui o código de status HTTP da chamada REST correspondente. Também pode incluir outras cadeias de caracteres que descrevam um substatus. Os valores de substatus comuns incluem: OK (Código de Status HTTP: 200), Criado (Código de Status HTTP: 201), Aceito (Código de Status HTTP: 202), Sem Conteúdo (Código de Status HTTP: 204), Solicitação Incorreta (Código de Status HTTP: 400), Não Encontrado (Código de Status HTTP: 404), Conflito (Código de Status HTTP: 409), Erro Interno do Servidor (Código de Status HTTP: 500), Serviço Indisponível (Código de Status HTTP: 503), Tempo Limite do Gateway (Código de Status HTTP: 504). |
 
-Para obter detalhes de esquema específico em todos os outros alertas do log de atividades, veja [Visão geral do log de atividades do Azure](../platform/platform-logs-overview.md).
+Para obter detalhes de esquema específico em todos os outros alertas do log de atividades, veja [Visão geral do log de atividades do Azure](../essentials/platform-logs-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o log de atividades](../platform/platform-logs-overview.md).
+* [Saiba mais sobre o log de atividades](../essentials/platform-logs-overview.md).
 * [Execute os scripts de automação do Azure (Runbooks) nos alertas do Azure](https://go.microsoft.com/fwlink/?LinkId=627081).
 * [Usar aplicativo lógico para enviar um SMS por meio do Twilio de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.
 * [Usar aplicativo lógico para enviar uma mensagem do Slack de um alerta do Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app). Este exemplo serve para alertas de métrica, mas pode ser modificado para funcionar com um alerta do log de atividades.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: 1f461c4870b398a49387472c49d45b90929405c7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: c55314764f973a5a015a2bfc02815a58ce659901
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100529677"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734003"
 ---
 **Volume e retenção da coleta de dados** 
 
@@ -72,11 +72,11 @@ ms.locfileid: "100529677"
 
 **<a name="data-ingestion-volume-rate">Taxa do volume de ingestão de dados</a>**
 
-O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. O limite da taxa de volume se aplica aos dados ingeridos dos recursos do Azure por meio de [Configurações de diagnóstico](../articles/azure-monitor/platform/diagnostic-settings.md). Quando o limite da taxa de volume é atingido, um mecanismo de repetição tenta ingerir os dados quatro vezes em um período de 30 minutos e removê-los se a operação falhar. Ele não se aplica aos dados ingeridos de [agentes](../articles/azure-monitor/platform/agents-overview.md) ou da [API do Coletor de Dados](../articles/azure-monitor/platform/data-collector-api.md).
+O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. O limite da taxa de volume pretende isolar os clientes do Azure Monitor de picos repentinos de ingestão no ambiente de multilocação. Um limite da taxa do volume de ingestão padrão de 500 MB (compactados) é definido nos workspaces. Isso é movido para aproximadamente **6 GB/min** descompactados. O tamanho real pode variar entre os tipos de dados, dependendo do comprimento do log e da taxa de compactação. O limite da taxa de volume se aplica aos dados ingeridos dos recursos do Azure por meio de [Configurações de diagnóstico](../articles/azure-monitor/essentials/diagnostic-settings.md). Quando o limite da taxa de volume é atingido, um mecanismo de repetição tenta ingerir os dados quatro vezes em um período de 30 minutos e removê-los se a operação falhar. Ele não se aplica aos dados ingeridos de [agentes](../articles/azure-monitor/agents/agents-overview.md) ou da [API do Coletor de Dados](../articles/azure-monitor/logs/data-collector-api.md).
 
 Quando os dados enviados ao seu workspace estiverem a uma taxa de volume superior a 80% do limite configurado no workspace, um evento será enviado para a tabela *Operações* no workspace a cada seis horas enquanto o limite continuar sendo excedido. Quando a taxa do volume ingerido for maior do que o limite, alguns dados serão descartados e um evento será enviado para a tabela de *operações* no workspace a cada seis horas, enquanto o limite continua sendo excedido. Se a taxa do volume de ingestão continuar excedendo o limite ou se você estiver esperando alcançá-la em breve, poderá solicitar o aumento abrindo uma solicitação de suporte. 
 
-Confira [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](../articles/azure-monitor/platform/monitor-workspace.md) para criar regras de alerta para você ser proativamente notificado quando atingir os limites de ingestão.
+Confira [Monitorar a integridade do workspace do Log Analytics no Azure Monitor](../articles/azure-monitor/logs/monitor-workspace.md) para criar regras de alerta para você ser proativamente notificado quando atingir os limites de ingestão.
 
 >[!NOTE]
->Dependendo de quanto tempo está usando o Log Analytics, você poderá ter acesso a tipos de preço herdados. Saiba mais sobre os [tipos de preço herdados do Log Analytics](../articles/azure-monitor/platform/manage-cost-storage.md#legacy-pricing-tiers).
+>Dependendo de quanto tempo está usando o Log Analytics, você poderá ter acesso a tipos de preço herdados. Saiba mais sobre os [tipos de preço herdados do Log Analytics](../articles/azure-monitor/logs/manage-cost-storage.md#legacy-pricing-tiers).

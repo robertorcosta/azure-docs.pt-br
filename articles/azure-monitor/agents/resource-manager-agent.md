@@ -6,15 +6,15 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: 9f8ad1e9a3c69d4ab629694fb18eab4bce95bb38
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4d4f9b7caed81f8c01e7e2d7e9f94ec3acf3ba92
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597083"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737334"
 ---
 # <a name="resource-manager-template-samples-for-agents-in-azure-monitor"></a>Amostras de modelo do Resource Manager para agentes no Azure Monitor
-Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para implantar e configurar o [agente do Log Analytics](../platform/log-analytics-agent.md) e a [extensão de diagnóstico](../platform/diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
+Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para implantar e configurar o [agente do Log Analytics](./log-analytics-agent.md) e a [extensão de diagnóstico](./diagnostics-extension-overview.md) para máquinas virtuais no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
@@ -421,7 +421,7 @@ A amostra a seguir instala o agente do Log Analytics em uma máquina virtual Lin
 Os exemplos desta seção instalam a extensão de diagnóstico em máquinas virtuais do Windows e do Linux no Azure e a configuram para coleta de dados.
 
 ### <a name="windows"></a>Windows
-A amostra a seguir habilita e configura a extensão de diagnóstico em uma máquina virtual do Microsoft Azure. Para obter detalhes sobre a configuração, confira [Esquema de extensão de diagnóstico do Windows](../platform/diagnostics-extension-schema-windows.md).
+A amostra a seguir habilita e configura a extensão de diagnóstico em uma máquina virtual do Microsoft Azure. Para obter detalhes sobre a configuração, confira [Esquema de extensão de diagnóstico do Windows](./diagnostics-extension-schema-windows.md).
 
 #### <a name="template-file"></a>Arquivo de modelo
 
@@ -807,6 +807,6 @@ A amostra a seguir habilita e configura a extensão de diagnóstico em uma máqu
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha outros modelos de amostra do Azure Monitor](../samples/resource-manager-samples.md).
-* [Saiba mais sobre o agente do Log Analytics](../platform/log-analytics-agent.md).
-* [Saiba mais sobre a extensão de diagnóstico](../platform/diagnostics-extension-overview.md).
+* [Obtenha outros modelos de amostra do Azure Monitor](../resource-manager-samples.md).
+* [Saiba mais sobre o agente do Log Analytics](./log-analytics-agent.md).
+* [Saiba mais sobre a extensão de diagnóstico](./diagnostics-extension-overview.md).

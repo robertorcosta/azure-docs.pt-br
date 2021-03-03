@@ -7,21 +7,21 @@ ms.topic: reference
 ms.date: 09/30/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: a050e9832537dd9b6690c7f9409bfbb5b795af2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c2cea95dba3be02b9db584b0650761cb2d640283
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604942"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728766"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
-O [log de atividades do Azure](../platform/platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve as categorias de log de atividades e o esquema para cada uma. 
+O [log de atividades do Azure](./platform-logs-overview.md) fornece informações sobre qualquer evento de nível de assinatura que ocorreu no Azure. Este artigo descreve as categorias de log de atividades e o esquema para cada uma. 
 
 O esquema irá variar dependendo de como você acessa o log:
  
 - Os esquemas descritos neste artigo são quando você acessa o log de atividades da [API REST](/rest/api/monitor/activitylogs). Esse também é o esquema usado quando você seleciona a opção **JSON** ao exibir um evento na portal do Azure.
-- Consulte o [esquema de seção final da conta de armazenamento e dos hubs de eventos](#schema-from-storage-account-and-event-hubs) para o esquema quando você usa uma configuração de [diagnóstico](../platform/diagnostic-settings.md) para enviar o log de atividades para o armazenamento do Azure ou hubs de eventos do Azure.
-- Consulte [Azure monitor referência de dados](/azure/azure-monitor/reference/) para o esquema ao usar uma [configuração de diagnóstico](../platform/diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho do log Analytics.
+- Consulte o [esquema de seção final da conta de armazenamento e dos hubs de eventos](#schema-from-storage-account-and-event-hubs) para o esquema quando você usa uma configuração de [diagnóstico](./diagnostic-settings.md) para enviar o log de atividades para o armazenamento do Azure ou hubs de eventos do Azure.
+- Consulte [Azure monitor referência de dados](/azure/azure-monitor/reference/) para o esquema ao usar uma [configuração de diagnóstico](./diagnostic-settings.md) para enviar o log de atividades para um espaço de trabalho do log Analytics.
 
 ## <a name="severity-level"></a>Nível de severidade
 Cada entrada no log de atividades tem um nível de severidade. O nível de severidade pode ter um dos seguintes valores:  
@@ -36,7 +36,7 @@ Cada entrada no log de atividades tem um nível de severidade. O nível de sever
 O devlopers de cada provedor de recursos escolhe os níveis de severidade de suas entradas de recurso. Como resultado, a severidade real para você pode variar dependendo de como seu aplicativo é criado. Por exemplo, itens que são "críticos" para um recurso específico em isolamento podem não ser tão importantes quanto "erros" em um tipo de recurso que é fundamental para seu aplicativo do Azure. Certifique-se de considerar esse fato ao decidir quais eventos alertar.  
 
 ## <a name="categories"></a>Categorias
-Cada evento no log de atividades tem uma categoria específica que são descritas na tabela a seguir. Consulte as seções abaixo para obter mais detalhes sobre cada categoria e seu esquema ao acessar o log de atividades do portal, do PowerShell, da CLI e da API REST. O esquema é diferente quando você [transmite o log de atividades para o armazenamento ou hubs de eventos](../platform/resource-logs.md#send-to-azure-event-hubs). Um mapeamento das propriedades para o [esquema de logs de recursos](../platform/resource-logs-schema.md) é fornecido na última seção do artigo.
+Cada evento no log de atividades tem uma categoria específica que são descritas na tabela a seguir. Consulte as seções abaixo para obter mais detalhes sobre cada categoria e seu esquema ao acessar o log de atividades do portal, do PowerShell, da CLI e da API REST. O esquema é diferente quando você [transmite o log de atividades para o armazenamento ou hubs de eventos](./resource-logs.md#send-to-azure-event-hubs). Um mapeamento das propriedades para o [esquema de logs de recursos](./resource-logs-schema.md) é fornecido na última seção do artigo.
 
 | Categoria | Descrição |
 |:---|:---|
@@ -141,7 +141,7 @@ Essa categoria contém o registro de todas as operações de criação, atualiza
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | autorização |Blob das propriedades do RBAC do Azure do evento. Geralmente, inclui as propriedades "action", "role" e "scope". |
 | chamador |Endereço de email do usuário que realizou a operação, declaração UPN ou declaração SPN com base na disponibilidade. |
@@ -288,7 +288,7 @@ Esta categoria contém o registro de qualquer evento de integridade do recurso o
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Administrador, Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
@@ -381,7 +381,7 @@ Essa categoria contém o registro de todas as ativações de alertas clássicos 
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | chamador | Always Microsoft.Insights/alertRules |
 | canais | Sempre "Administrador, Operação" |
@@ -407,7 +407,7 @@ Essa categoria contém o registro de todas as ativações de alertas clássicos 
 O campo de propriedades conterá valores diferentes dependendo da fonte do evento de alerta. Dois provedores de alerta de evento comuns são alertas do Log de Atividades e de métrica.
 
 #### <a name="properties-for-activity-log-alerts"></a>Propriedades de alertas do Log de Atividades
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | properties.subscriptionId | A ID da assinatura do evento do log de atividades que ativou essa regra de alerta do log de atividades. |
 | properties.eventDataId | A ID dos dados de evento do evento do log de atividades que ativou essa regra de alerta do log de atividades. |
@@ -418,7 +418,7 @@ O campo de propriedades conterá valores diferentes dependendo da fonte do event
 | properties.status | O status do evento do log de atividades que ativou essa regra de alerta do log de atividades.|
 
 #### <a name="properties-for-metric-alerts"></a>Propriedades de alertas de métrica
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | properties.RuleUri | A ID de recurso da própria regra de alerta de métrica. |
 | properties.RuleName | O nome da regra de alerta de métrica. |
@@ -491,7 +491,7 @@ Essa categoria contém o registro de todos os eventos relacionados à operação
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | chamador | Always Microsoft.Insights/autoscaleSettings |
 | canais | Sempre "Administrador, Operação" |
@@ -581,7 +581,7 @@ Esta categoria contém o registro de todos os alertas gerados pela Central de Se
 ```
 
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
@@ -662,7 +662,7 @@ Esta categoria contém o registro das novas recomendações geradas para os serv
 
 ```
 ### <a name="property-descriptions"></a>Descrições de propriedade
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | canais | Sempre "Operação" |
 | correlationId | Um GUID no formato de cadeia de caracteres. |
@@ -772,7 +772,7 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 
 ### <a name="policy-event-property-descriptions"></a>Descrições de propriedade de evento do Policy
 
-| Nome do elemento | Description |
+| Nome do elemento | Descrição |
 | --- | --- |
 | autorização | Matriz de propriedades do RBAC do Azure do evento. Para os novos recursos, estes são a ação e o escopo da solicitação que disparou a avaliação. Para recursos existentes, a ação é "Microsoft.Resources/checkPolicyCompliance/read". |
 | chamador | Para novos recursos, a identidade que iniciou uma implantação. Para recursos existentes, o GUID do grupo de recursos de Insights do Microsoft Azure Policy. |
@@ -804,10 +804,10 @@ Essa categoria contém registros de todas as operações de ação de efeito exe
 
 
 ## <a name="schema-from-storage-account-and-event-hubs"></a>Esquema da conta de armazenamento e dos hubs de eventos
-Ao transmitir o log de atividades do Azure para uma conta de armazenamento ou Hub de eventos, os dados seguem o [esquema do log de recursos](../platform/resource-logs-schema.md). A tabela a seguir fornece um mapeamento das propriedades dos esquemas acima para o esquema de logs de recursos.
+Ao transmitir o log de atividades do Azure para uma conta de armazenamento ou Hub de eventos, os dados seguem o [esquema do log de recursos](./resource-logs-schema.md). A tabela a seguir fornece um mapeamento das propriedades dos esquemas acima para o esquema de logs de recursos.
 
 > [!IMPORTANT]
-> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](../platform/resource-logs-blob-format.md) para obter detalhes sobre essa alteração de formato.
+> O formato dos dados do log de atividades gravados em uma conta de armazenamento alterado para linhas JSON em 1º de novembro de 2018. Consulte [preparar para o formato de alteração para Azure monitor logs de recursos arquivados em uma conta de armazenamento](./resource-logs-blob-format.md) para obter detalhes sobre essa alteração de formato.
 
 
 | Propriedade de esquema dos logs de recursos | Propriedade de esquema da API REST do Log de Atividades | Observações |
@@ -894,5 +894,5 @@ Veja a seguir um exemplo de um evento que usa esse esquema.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre o log de atividades](../platform/platform-logs-overview.md)
-* [Criar uma configuração de diagnóstico para enviar o log de atividades para Log Analytics espaço de trabalho, armazenamento do Azure ou hubs de eventos](../platform/diagnostic-settings.md)
+* [Saiba mais sobre o log de atividades](./platform-logs-overview.md)
+* [Criar uma configuração de diagnóstico para enviar o log de atividades para Log Analytics espaço de trabalho, armazenamento do Azure ou hubs de eventos](./diagnostic-settings.md)

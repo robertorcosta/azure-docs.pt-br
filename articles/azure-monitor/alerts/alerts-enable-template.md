@@ -4,19 +4,19 @@ description: Saiba como usar um modelo do Resource Manager para criar um alerta 
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 03/09/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 418dde8311c2555f8df5929dd96ce72611422ee9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0923be317d497e471724b7611fe6b831a4be6f37
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605868"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718039"
 ---
 # <a name="create-a-classic-metric-alert-with-a-resource-manager-template"></a>Criar um alerta de métrica clássico com um modelo do Gerenciador de Recursos
 
 > [!WARNING]
-> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](../platform/alerts-overview.md). Os alertas clássicos são [desativados](../platform/monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas.
+> Este artigo descreve como criar alertas de métrica clássicos mais antigos. O Azure Monitor agora dá suporte [a alertas de métrica quase em tempo real mais recentes e uma nova experiência de alertas](./alerts-overview.md). Os alertas clássicos são [desativados](./monitoring-classic-retirement.md) para usuários de nuvem pública, embora ainda estejam em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Azure governamental e o Azure China 21Vianet serão desativados em **29 de fevereiro de 2024**.
 >
 
 Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar alertas de métrica clássicos do Azure. Isso permite que você configure de modo automático alertas sobre os recursos quando eles são criados para garantir que todos os recursos sejam monitorados corretamente.
@@ -399,6 +399,6 @@ Um alerta em um modelo do Resource Manager geralmente é mais útil ao criar um 
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Saiba mais sobre os Alertas](../platform/alerts-overview.md)
-* [Adicionar Configurações de Diagnóstico](../samples/resource-manager-diagnostic-settings.md) ao modelo do Resource Manager
+* [Saiba mais sobre os Alertas](./alerts-overview.md)
+* [Adicionar Configurações de Diagnóstico](../essentials/resource-manager-diagnostic-settings.md) ao modelo do Resource Manager
 * Para obter a sintaxe JSON e as propriedades, confira a referência de modelo [Microsoft.Insights/alertrules](/azure/templates/microsoft.insights/alertrules).

@@ -9,16 +9,16 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 02/01/2021
 tags: connectors
-ms.openlocfilehash: cbbc0edf710b8823c1a36daa66bc01d89acf63da
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: e52c4acb4b59414e89e87bf5a6ee2cfae8207cae
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99575476"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712446"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
-Este artigo explica como você pode acessar seus recursos SAP de aplicativos lógicos usando o [conector SAP](https://docs.microsoft.com/connectors/sap/).
+Este artigo explica como você pode acessar seus recursos SAP de aplicativos lógicos usando o [conector SAP](/connectors/sap/).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -547,14 +547,14 @@ Para versões do gateway de dados locais de abril de 2020 e anteriores, os logs 
 
 Se você usar um [Gateway de dados local para aplicativos lógicos](../logic-apps/logic-apps-gateway-install.md), poderá configurar um arquivo de log estendido para o conector SAP. Você pode usar seu gateway de dados local para redirecionar eventos de rastreamento de eventos para Windows (ETW) em arquivos de log de rotação que estão incluídos nos arquivos. zip de log do seu gateway. 
 
-Você pode [exportar todos os logs de configuração e de serviço do seu gateway](https://docs.microsoft.com/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) para um arquivo. zip nas configurações do aplicativo de gateway.
+Você pode [exportar todos os logs de configuração e de serviço do seu gateway](/data-integration/gateway/service-gateway-tshoot#collect-logs-from-the-on-premises-data-gateway-app) para um arquivo. zip nas configurações do aplicativo de gateway.
 
 > [!NOTE]
 > O registro em log estendido pode afetar o desempenho de seus aplicativos lógicos quando sempre habilitado. É uma prática recomendada desativar os arquivos de log estendidos depois de concluir a análise e a solução de um problema.
 
 #### <a name="capture-etw-events"></a>Capturar eventos ETW
 
-Opcionalmente, os usuários avançados podem capturar eventos ETW diretamente. Você pode [consumir seus dados em diagnóstico do Azure nos hubs de eventos](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-stream-event-hubs) ou [coletar seus dados para Azure monitor logs](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs). Para obter mais informações, consulte as [práticas recomendadas para coletar e armazenar dados](https://docs.microsoft.com/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Você pode usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/README.md) para trabalhar com os arquivos ETL resultantes ou pode escrever seu próprio programa. Este tutorial usa PerfView:
+Opcionalmente, os usuários avançados podem capturar eventos ETW diretamente. Você pode [consumir seus dados em diagnóstico do Azure nos hubs de eventos](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) ou [coletar seus dados para Azure monitor logs](/azure/azure-monitor/agents/diagnostics-extension-logs). Para obter mais informações, consulte as [práticas recomendadas para coletar e armazenar dados](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Você pode usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/README.md) para trabalhar com os arquivos ETL resultantes ou pode escrever seu próprio programa. Este tutorial usa PerfView:
 
 1. No menu Perfview, selecione **coletar** &gt; **coletar** para capturar os eventos.
 
@@ -729,7 +729,7 @@ Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usa
 
 1. Antes de começar, você precisa de um aplicativo lógico com um gatilho SAP. Se você ainda não tiver esse aplicativo lógico, siga as etapas anteriores neste tópico para [configurar um aplicativo lógico com um gatilho do SAP](#receive-message-from-sap).
 
-   Por exemplo:
+   Por exemplo: 
 
    ![Adicionar gatilho SAP ao aplicativo lógico](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
@@ -1336,7 +1336,7 @@ Para obter exemplos detalhados de como usar a ação chamar BAPI, consulte as [a
 
 ### <a name="send-idoc-action"></a>Enviar ação IDoc
 
-A ação [Enviar IDOC ( `SendIDoc` )](https://docs.microsoft.com/connectors/sap/#send-idoc-(preview)) envia a mensagem IDOC para o servidor SAP.
+A ação [Enviar IDOC ( `SendIDoc` )](/connectors/sap/) envia a mensagem IDOC para o servidor SAP.
 
 Você deve usar os seguintes parâmetros com sua chamada: 
 

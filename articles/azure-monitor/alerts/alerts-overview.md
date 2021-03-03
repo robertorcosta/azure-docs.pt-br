@@ -1,15 +1,15 @@
 ---
 title: Visão geral de alertas e monitoramento de notificações do Azure
-description: Visão geral de alertas no Azure. Alertas, alertas clássicos e a interface de alertas.
+description: Visão geral de alertas no Azure Monitor
 ms.subservice: alerts
 ms.topic: conceptual
-ms.date: 01/28/2018
-ms.openlocfilehash: 96e15c1e07d437855b6553757295800406a4cf4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.date: 02/14/2021
+ms.openlocfilehash: e2d447b7407ed874d9c183c5cd2009882f1d6b3b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605166"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723581"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
 
@@ -80,7 +80,7 @@ Os seguintes estados de alerta são compatíveis.
 |:---|:---|
 | Novo | O problema foi detectado e ainda não foi revisado. |
 | Confirmado | Um administrador examinou o alerta e começou a trabalhar nele. |
-| Fechadas | O problema foi resolvido. Depois que um alerta for fechado, será possível reabri-lo, alterando-o para outro estado. |
+| Fechado | O problema foi resolvido. Depois que um alerta for fechado, será possível reabri-lo, alterando-o para outro estado. |
 
 O *estado de alerta* é diferente e independente da *condição do monitor*. O estado de alerta é definido pelo usuário. A condição do monitor é definida pelo sistema. Quando um alerta é disparado, a condição de monitor do alerta é definida como ' disparado *'* e, quando a condição subjacente que fez com que o alerta fosse desativada, a condição do monitor é definida como *' resolvida '*. 
 
@@ -94,7 +94,7 @@ Em vez disso, você pode [enumerar programaticamente as instâncias de alerta ge
 > [!NOTE]
    >  Você só pode acessar alertas gerados nos últimos 30 dias.
 
-Ele não mostra nem rastreia alertas clássicos. Você pode alterar as assinaturas ou parâmetros para atualizar a página. 
+Você pode alterar as assinaturas ou parâmetros para atualizar a página.
 
 ![Captura de tela da página de alertas](media/alerts-overview/alerts-page.png)
 

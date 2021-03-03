@@ -3,12 +3,12 @@ title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo de Azure Resource Manager (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
 ms.date: 01/26/2021
-ms.openlocfilehash: aae3947656e475d15bc4f0da770d0398fafa13c5
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: ac987b1390e939ad2b081745396245b432bb836b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880417"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740997"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -668,10 +668,10 @@ O modelo de exemplo a seguir mostra como usar `copy` com um modelo aninhado.
             "kind": "StorageV2"
             // Copy works here when scope is inner
             // But, when scope is default or outer, you get an error
-            //"copy":{
-            //  "name": "storagecopy",
-            //  "count": 2
-            //}
+            // "copy": {
+            //   "name": "storagecopy",
+            //   "count": 2
+            // }
           }
         ]
       }

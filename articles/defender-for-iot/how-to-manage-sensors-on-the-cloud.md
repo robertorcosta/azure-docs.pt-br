@@ -1,20 +1,20 @@
 ---
-title: Carregar e gerenciar sensores no portal do defender para IoT
+title: Integração e gerenciamento de sensores e assinaturas no portal do defender para IoT
 description: Saiba como carregar, exibir e gerenciar sensores no portal do defender para IoT.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 12/27/2020
+ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 7cc4fe4e2b675fb1b46bb4404d892c02a1f00553
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526844"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733254"
 ---
-# <a name="onboard-and-manage-sensors-in-the-defender-for-iot-portal"></a>Carregar e gerenciar sensores no portal do defender para IoT
+# <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Integração e gerenciamento de sensores e assinaturas no portal do defender para IoT
 
 Este artigo descreve como carregar, exibir e gerenciar sensores no [portal do defender para IOT](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
@@ -78,8 +78,8 @@ Use as opções de edição **sites e sensores** para editar o nome do sensor e 
 
 Para editar:
 
-1. Clique com o botão direito do mouse nas reticências (**...**) do sensor que você deseja editar.
-1. Selecione Editar.
+1. Selecione as **reticências** (**...**) para o sensor que você deseja editar.
+1. Selecione **Editar**.
 1. Atualize a zona do sensor ou crie uma nova zona.
 
 ### <a name="delete-a-sensor"></a>Excluir um sensor
@@ -123,6 +123,24 @@ Para reativar um sensor:
 
 9. Selecione **Ativar**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="offboard-a-subscription"></a>Transferir uma assinatura
+
+As assinaturas são gerenciadas mensalmente. Quando você transferir uma assinatura, você será cobrado por essa assinatura até o fim do mês. 
+
+Desinstale todos os sensores associados à assinatura antes de remover a assinatura. Para obter mais informações sobre como excluir um sensor, consulte [excluir um sensor](#delete-a-sensor). 
+
+Para transferir uma assinatura:
+
+1. Navegue até a página de **preços** .
+1. Selecione a assinatura e, em seguida, selecione o ícone **excluir** :::image type="icon" source="media/how-to-manage-sensors-on-the-cloud/delete-icon.png" border="false"::: .
+1. No pop-up de confirmação, marque a caixa de seleção para confirmar que você excluiu todos os sensores associados à assinatura.
+
+    :::image type="content" source="media/how-to-manage-sensors-on-the-cloud/offboard-popup.png" alt-text="Marque a caixa de seleção e selecione transferir para transferir seu sensor.":::
+
+1. Selecione o botão **transferir** . 
+
+O ambiente local não é afetado, mas você deve desinstalar o sensor do ambiente local ou reatribuir o sensor a outra assinatura, de modo a impedir que todos os dados relacionados fluam para o console de gerenciamento local. 
+
+## <a name="see-also"></a>Confira também
 
 [Ativar e configurar seu sensor](how-to-activate-and-set-up-your-sensor.md)

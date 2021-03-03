@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: 64bdbf1005f0283438777b3bb2ba1d3312b6e140
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8dac947aea95dc79118032eb0996b6ba14f16363
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596975"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714096"
 ---
 # <a name="resource-manager-template-samples-for-log-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de log no Azure Monitor
 Este artigo inclui amostras de [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para criar e configurar alertas de consultas de log no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
@@ -479,4 +479,4 @@ O exemplo a seguir cria uma regra que pode ter como destino qualquer recurso.
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha outros modelos de amostra do Azure Monitor](../resource-manager-samples.md).
-* [Saiba mais sobre regras de alerta](../platform/alerts-overview.md).
+* [Saiba mais sobre regras de alerta](./alerts-overview.md).

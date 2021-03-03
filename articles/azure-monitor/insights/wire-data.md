@@ -1,17 +1,16 @@
 ---
 title: Solução de dados de transmissão em Azure Monitor | Microsoft Docs
 description: Os dados de transmissão são dados consolidados de rede e de desempenho de computadores com agentes do Log Analytics. Os dados de rede são combinados com os dados de log para ajudá-lo a correlacionar dados.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/29/2020
-ms.openlocfilehash: 563104a82da3b6b2263fce46792cf4f627c8f6ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5981a5f136d613ffcedda86797d807d2eecfab0d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572346"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713619"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solução Wire Data 2.0 (versão prévia) no Azure Monitor
 
@@ -26,7 +25,7 @@ Além do agente do Log Analytics, a solução Wire Data usa os Agentes de Depend
 > 
 >Os clientes existentes que usam a solução de dados de transmissão podem continuar a usá-la. Publicaremos as diretrizes para uma linha do tempo de migração para mudar para Mapa do Serviço.
 >
->Os novos clientes devem instalar a [solução mapa do serviço](../vm/service-map.md) ou [Azure monitor para VMs](../vm/vminsights-overview.md).  O conjunto de dados Mapa do Serviço é comparável a dados de transmissão.  Azure Monitor para VMs inclui o conjunto de dados Mapa do Serviço com recursos e dados de desempenho adicionais para análise. 
+>Novos clientes devem instalar a [solução mapa do serviço](../vm/service-map.md) ou o [virtual insights](../vm/vminsights-overview.md).  O conjunto de dados Mapa do Serviço é comparável a dados de transmissão.  As informações da VM incluem o conjunto de dados Mapa do Serviço com recursos e dados de desempenho adicionais para análise. 
 
 
 Por padrão, o Azure Monitor registra dados de CPU, memória, disco e dados de desempenho de rede de contadores criados no Windows e Linux, bem como outros contadores de desempenho que você pode especificar. A coleta de dados de rede e de outros dados é feita em tempo real para cada agente, incluindo sub-redes e protocolos no nível de aplicativo usados pelo computador.  O Wire Data analisa dados de rede no nível do aplicativo, não embaixo na camada de transporte TCP.  A solução não examina ACKs e SYNs individuais.  Após a conclusão do handshake, ele é considerado uma conexão dinâmica e marcado como Conectado. Essa conexão permanece ativa desde que ambos os lados aceitem que o soquete está aberto e que os dados podem passar em ambas as direções.  Quando um dos lados fecha a conexão, ele é marcado como desconectado.  Portanto, ele conta apenas a largura de banda de pacotes concluídos com êxito, não relatando nem reenviando pacotes com falha.
@@ -58,8 +57,8 @@ O Wire Data obtém seus dados do Agente de Dependência da Microsoft. A Dependen
 | --- | --- | --- |
 | Agentes do Windows | Sim | O Wire Data analisa e coleta dados de computadores de agente do Windows. <br><br> Além do [agente de log Analytics para Windows](../agents/agent-windows.md), os agentes do Windows exigem o Microsoft Dependency Agent. Consulte os [sistemas operacionais com suporte](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa de versões de sistema operacional. |
 | Agentes do Linux | Sim | O Wire Data analisa e coleta dados de computadores de agente do Linux.<br><br> Além do [agente de log Analytics para Linux](../vm/quick-collect-linux-computer.md), os agentes do Linux exigem o Microsoft Dependency Agent. Consulte os [sistemas operacionais com suporte](../vm/vminsights-enable-overview.md#supported-operating-systems) para obter uma lista completa de versões de sistema operacional. |
-| Grupo de gerenciamento do System Center Operations Manager | Yes | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../agents/om-agents.md) conectado. <br><br> É necessária uma conexão direta do computador do agente de System Center Operations Manager para Azure Monitor. |
-| Conta de Armazenamento do Azure | No | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
+| Grupo de gerenciamento do System Center Operations Manager | Sim | O Wire Data analisa e coleta dados de agentes do Windows e do Linux em um [grupo de gerenciamento do System Center Operations Manager](../agents/om-agents.md) conectado. <br><br> É necessária uma conexão direta do computador do agente de System Center Operations Manager para Azure Monitor. |
+| Conta de Armazenamento do Azure | Não | O Wire Data coleta dados de computadores do agente e, portanto, não há nenhum dado dele a ser coletado do Armazenamento do Azure. |
 
 No Windows, o Microsoft Monitoring Agent (MMA) é usado pelo System Center Operations Manager e Azure Monitor para coletar e enviar dados. Dependendo do contexto, esse agente é chamado de Agente do System Center Operations Manager, agente do Log Analytics, MMA ou Agente Direto. System Center Operations Manager e Azure Monitor fornecem versões ligeiramente diferentes do MMA. Essas versões podem cada relatório para System Center Operations Manager, para Azure Monitor ou para ambos.
 

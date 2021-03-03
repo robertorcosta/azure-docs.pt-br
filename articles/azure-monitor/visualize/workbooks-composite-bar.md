@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
-ms.openlocfilehash: 3bcbd2a58764003c174c02ec637050b57632048a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606436"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728596"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barra de composição
 
@@ -69,7 +69,7 @@ A barra de composição com as configurações acima:
 
 Selecione o nome da coluna e a cor correspondente para renderizar a coluna nessa cor como parte da barra de composição. Você pode inserir, excluir e mover linhas para cima e para baixo.
 
-### <a name="label"></a>Rótulo
+### <a name="label"></a>Label
 
 O rótulo da barra de composição é exibido na parte superior da barra de composição. Você pode usar uma mistura de texto estático, colunas e parâmetro.  Se o rótulo estiver vazio, o valor das colunas atuais será exibido como o rótulo. No exemplo anterior, se deixarmos o campo de rótulo preto, o valor do total de colunas será exibido.
 
@@ -141,7 +141,7 @@ Para visualizações de grade, a classificação das linhas da coluna com o rend
     | offline     | Vermelho (brilhante) |
 
     4. Adicionar rótulo: `["online"] of ["total"] are healthy` .
-10. Selecione **Aplicar**.
+10. Escolha **Aplicar**.
 
 Configurações da barra de composição para blocos:
 
@@ -180,7 +180,7 @@ Para fazer um renderizador de barra de composição para visualização de gráf
     4. Tamanho do nó: 100.
     5. Margem entre hexágonos: 5.
     6. Tipo de Coloring Type: **None**.
-1. Selecione **Aplicar**.
+1. Escolha **Aplicar**.
     
 Configurações da barra de composição para grafos:
 
@@ -193,4 +193,4 @@ A exibição da barra de composição para o grafo com as configurações acima 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Implante](../visualize/workbooks-automate.md) pastas de trabalho com Azure Resource Manager.
-* [Controle](../platform/workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Controle](./workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

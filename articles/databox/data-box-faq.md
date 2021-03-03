@@ -6,14 +6,15 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 02/25/2021
 ms.author: alkohli
-ms.openlocfilehash: 46a60642e177a2bfb9e8fb996427ea45f6777468
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.custom: references_regions
+ms.openlocfilehash: a692aeba312b6fcad580eac901f4b7bc65f059fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652778"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730568"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Perguntas frequentes
 
@@ -68,6 +69,16 @@ Por exemplo, no cenário de importação, se você tivesse os dados de origem no
 2. Depois que a cópia de dados local para a Data Box for concluída, retorne o dispositivo para o datacenter do Azure no Canadá. Os dados presentes na Data Box são carregados para a conta de armazenamento de destino na região do Azure do Canadá escolhida durante a criação do pedido.
 
 3. Você pode usar uma ferramenta como AzCopy para copiar os dados para uma conta de armazenamento no oeste dos EUA. Essa etapa incorre em custos de [largura de banda](https://azure.microsoft.com/pricing/details/bandwidth/) e [armazenamento padrão](https://azure.microsoft.com/pricing/details/storage/) que não estão incluídos na cobrança de data box.
+
+#### <a name="q-does-data-box-store-any-customer-data-outside-of-the-service-region"></a>Q. Data Box armazenar dados de clientes fora da região de serviço?
+
+a. Não. Data Box não armazena nenhum dado de cliente fora da região de serviço. O cliente tem Propriedade total de seus dados e pode salvar os dados em um local especificado com base na conta de armazenamento que eles selecionam durante a criação do pedido.  
+
+Além dos dados do cliente, há Data Box dados que incluem os artefatos de segurança relacionados ao dispositivo, os logs de monitoramento para o dispositivo e o serviço e os metadados relacionados ao serviço. Em todas as regiões (exceto sul do Brasil e Sudeste Asiático), Data Box dados são armazenados e replicados na região emparelhada por meio de uma conta de armazenamento com redundância geográfica para proteger contra perda de dados.  
+
+Devido aos [requisitos de residência de dados](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) no sul do Brasil e no sudeste asiático, data Box dados são armazenados em uma conta de ZRS (armazenamento com redundância de zona) para que ele esteja contido em uma única região. Para o Sudeste Asiático, todos os Data Box dados são armazenados em Cingapura e no sul do Brasil, os dados são armazenados no Brasil. 
+
+Se houver uma interrupção de serviço no sul do Brasil e no sudeste asiático, os clientes poderão criar novos pedidos de outra região. Os novos pedidos serão atendidos a partir da região em que são criados e os clientes são responsáveis pelo envio para e partir do dispositivo de Data Box.
 
 ### <a name="q-how-can-i-recover-my-data-if-an-entire-region-fails"></a>Q. Como posso recuperar meus dados se uma região inteira falhar?
 

@@ -1,14 +1,14 @@
 ---
 title: Como parar de monitorar o cluster do Azure Red Hat OpenShift v3 | Microsoft Docs
-description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com Azure Monitor para contêineres.
+description: Este artigo descreve como você pode interromper o monitoramento do seu cluster do Azure Red Hat OpenShift com o contêiner insights.
 ms.topic: conceptual
 ms.date: 04/24/2020
-ms.openlocfilehash: 7e6ab46940ed29a98b3988c00c92d6c691d6e0f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6a278898942e40d3347791d31a3c38341df01f7c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606903"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731809"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-v3-cluster"></a>Como parar de monitorar o cluster do Azure Red Hat OpenShift v3
 
@@ -21,7 +21,7 @@ ms.locfileid: "100606903"
 > Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Se você tiver dúvidas específicas, [entre em contato conosco](mailto:aro-feedback@microsoft.com).
 
-Depois de habilitar o monitoramento do cluster do Azure Red Hat OpenShift versão 3. x, você poderá parar de monitorar o cluster com Azure Monitor para contêineres se decidir que não deseja mais monitorá-lo. Este artigo mostra como fazer isso usando o modelo de Azure Resource Manager fornecido.  
+Depois de habilitar o monitoramento do cluster do Azure Red Hat OpenShift versão 3. x, você poderá parar de monitorar o cluster com o contêiner insights se decidir que não deseja mais monitorá-lo. Este artigo mostra como fazer isso usando o modelo de Azure Resource Manager fornecido.  
 
 ## <a name="azure-resource-manager-template"></a>Modelo do Azure Resource Manager
 
@@ -137,4 +137,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../platform/delete-workspace.md).
+Se o workspace foi criado apenas para dar suporte ao monitoramento do cluster e não for mais necessário, você terá que excluí-lo manualmente. Se você não estiver familiarizado com como excluir um espaço de trabalho, consulte [excluir um espaço de trabalho do Azure log Analytics](../logs/delete-workspace.md).

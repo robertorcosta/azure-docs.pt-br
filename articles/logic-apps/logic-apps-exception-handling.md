@@ -5,15 +5,15 @@ services: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, logicappspm
-ms.date: 01/11/2020
+ms.reviewer: estfan, logicappspm, azla
+ms.date: 02/18/2021
 ms.topic: article
-ms.openlocfilehash: a0c8286b2fb36642723ae28b8bc88e9e49f8a8fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702497"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
 
@@ -69,7 +69,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Necessária*
 
-| Valor | Tipo | Description |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*Retry-tipo de política*> | String | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`, ou `exponential` |
 | <*intervalo de repetição*> | String | O intervalo de repetição em que o valor deve usar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo de padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimos e máximos diferentes. |
@@ -78,7 +78,7 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 
 *Opcional*
 
-| Valor | Tipo | Description |
+| Valor | Tipo | Descrição |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
@@ -263,13 +263,14 @@ Para limites nos escopos, consulte [Limites e configurações](../logic-apps/log
 
 ### <a name="get-context-and-results-for-failures"></a>Obter o contexto e os resultados de falhas
 
-Embora seja útil detectar falhas de um escopo, convém ter o contexto para ajudá-lo a entender exatamente quais ações falharam, além de quais erros ou códigos de status foram retornados.
+Embora seja útil detectar falhas de um escopo, convém ter o contexto para ajudá-lo a entender exatamente quais ações falharam, além de quais erros ou códigos de status foram retornados. A [ `result()` função](../logic-apps/workflow-definition-language-functions-reference.md#result) retorna os resultados das ações de nível superior em uma ação com escopo aceitando um único parâmetro, que é o nome do escopo, e retornando uma matriz que contém os resultados dessas ações de primeiro nível. Esses objetos de ação incluem os mesmos atributos que os retornados pela `actions()` função, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. 
 
-A [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) função fornece contexto sobre os resultados de todas as ações em um escopo. A `result()` função aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém todos os resultados de ação de dentro desse escopo. Esses objetos de ação incluem os mesmos atributos que o `actions()` objeto, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas. Para enviar o contexto para todas as ações que falharam em um escopo, você pode facilmente emparelhar uma `@result()` expressão com a `runAfter` propriedade.
+> [!NOTE]
+> A `result()` função retorna os resultados *somente* de ações de primeiro nível e não de ações aninhadas mais profundas, como ações de alternância ou condição.
 
-Para executar uma ação para cada ação em um escopo que tenha um `Failed` resultado e para filtrar a matriz de resultados para as ações com falha, você pode emparelhar uma `@result()` expressão com uma ação de [**matriz de filtro**](logic-apps-perform-data-operations.md#filter-array-action) e um loop [**for each**](../logic-apps/logic-apps-control-flow-loops.md) . Você pode pegar a matriz de resultados filtrados e executar uma ação para cada falha usando o `For_each` loop.
+Para obter o contexto sobre as ações que falharam em um escopo, você pode usar a `@result()` expressão com o nome do escopo e a `runAfter` propriedade. Para filtrar a matriz retornada para ações com `Failed` status, você pode adicionar a [ação **Filtrar matriz**](logic-apps-perform-data-operations.md#filter-array-action). Para executar uma ação para uma ação retornada com falha, pegue a matriz filtrada retornada e use um [loop **for each**](../logic-apps/logic-apps-control-flow-loops.md).
 
-Aqui está um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para quaisquer ações que falharam no escopo "My_Scope":
+Aqui está um exemplo, seguido por uma explicação detalhada, que envia uma solicitação HTTP POST com o corpo da resposta para todas as ações que falharam na ação de escopo denominada "My_Scope":
 
 ```json
 "Filter_array": {

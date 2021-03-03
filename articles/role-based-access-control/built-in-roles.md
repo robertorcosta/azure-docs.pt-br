@@ -7,14 +7,14 @@ ms.topic: reference
 ms.workload: identity
 author: rolyon
 ms.author: rolyon
-ms.date: 02/15/2021
+ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 1cd86ac2b9500c15bc32445e1866a40ca1c6b409
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576994"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724499"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -24,7 +24,7 @@ Este artigo lista as funções internas do Azure, que estão sempre em evoluçã
 
 A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada função interna. Clique no nome de função para ver a lista de `Actions`, `NotActions`, `DataActions` e `NotDataActions` para cada função. Para obter informações sobre o que essas ações significam e como elas se aplicam aos planos de gerenciamento e de dados, consulte [Entender as definições de função do Azure](role-definitions.md).
 
-## <a name="all"></a>Tudo
+## <a name="all"></a>Todos
 
 > [!div class="mx-tableFixed"]
 > | Função interna | Descrição | ID |
@@ -116,7 +116,7 @@ A tabela a seguir fornece uma breve descrição e a ID exclusiva de cada funçã
 > | [Receptor de dados dos Hubs de Eventos do Azure](#azure-event-hubs-data-receiver) | Permite acesso de recebimento aos recursos dos Hubs de Eventos do Azure. | a638d3c7-ab3a-418d-83e6-5f17a39d4fde |
 > | [Remetente de dados dos Hubs de Eventos do Azure](#azure-event-hubs-data-sender) | Permite acesso de envio aos recursos dos Hubs de Eventos do Azure. | 2b629674-e913-4c01-ae53-ef4638d8f975 |
 > | [Colaborador da fábrica de dados](#data-factory-contributor) | Cria e gerencia data factories, assim como os recursos filhos neles. | 673868aa-7521-48A0-acc6-0f60742d39f5 |
-> | [Limpador de Dados](#data-purger) | Pode limpar os dados de análise | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
+> | [Limpador de Dados](#data-purger) | Exclua dados privados de um espaço de trabalho Log Analytics. | 150f5e0c-0603-4f03-8c7f-cf70034c4e90 |
 > | [Operador de Cluster do HDInsight](#hdinsight-cluster-operator) | Permite que você leia e modifique as configurações de cluster do HDInsight. | 61ed4efc-fab3-44fd-b111-e24485cc132a |
 > | [Colaborador dos serviços de domínio do HDInsight](#hdinsight-domain-services-contributor) | Pode ler, criar, modificar e excluir operações relacionadas aos serviços de domínio necessárias para o Enterprise Security Package do HDInsight | 8d8d5a11-05d3-4bda-a417-a08778121c7c |
 > | [Colaborador do Log Analytics](#log-analytics-contributor) | O Colaborador do Log Analytics pode ler todos os dados de monitoramento e editar as configurações de monitoramento. A edição das configurações de monitoramento inclui a adição da extensão da VM às VMs, leitura das chaves da conta de armazenamento para poder configurar a coleção de logs do Armazenamento do Microsoft Azure, criação e configuração de contas de Automação, adição de soluções e configuração do diagnóstico do Azure em todos os recursos do Azure. | 92aaf0da-9dab-42b6-94a3-d43ce8d16293 |
@@ -3944,6 +3944,10 @@ Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados n
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/regenerateKey/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listKeys/* |  |
 > | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/listConnectionStrings/* |  |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Write | Criar ou atualizar uma definição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleDefinitions/Delete | Excluir uma definição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Write | Criar ou atualizar uma atribuição de função SQL |
+> | [Microsoft.DocumentDB](resource-provider-operations.md#microsoftdocumentdb)/databaseAccounts/sqlRoleAssignments/Delete | Excluir uma atribuição de função SQL |
 > | **DataActions** |  |
 > | *nenhum* |  |
 > | **NotDataActions** |  |
@@ -3973,7 +3977,11 @@ Permite que você gerencie contas do Azure Cosmos DB, mas não acesse os dados n
         "Microsoft.DocumentDB/databaseAccounts/readonlyKeys/*",
         "Microsoft.DocumentDB/databaseAccounts/regenerateKey/*",
         "Microsoft.DocumentDB/databaseAccounts/listKeys/*",
-        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*"
+        "Microsoft.DocumentDB/databaseAccounts/listConnectionStrings/*",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleDefinitions/delete",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/write",
+        "Microsoft.DocumentDB/databaseAccounts/sqlRoleAssignments/delete"
       ],
       "dataActions": [],
       "notDataActions": []
@@ -4774,7 +4782,7 @@ Cria e gerencia data factories, assim como os recursos filhos neles. [Saiba mais
 
 ### <a name="data-purger"></a>Limpador de Dados
 
-Pode limpar dados de análise [saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
+Exclua dados privados de um espaço de trabalho Log Analytics. [Saiba mais](../azure-monitor/logs/personal-data-mgmt.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -5924,7 +5932,7 @@ Fornece ao usuário recursos de conversão, gerenciamento de sessão, renderiza�
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Read | Obter propriedades da sessão |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Action | Iniciar sessões |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Delete | Parar sessões |
-> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a uma sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a um servidor |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Diagnostic/Read | Conectar-se ao inspetor de renderização remoto |
 > | **NotDataActions** |  |
 > | *nenhum* |  |
@@ -5974,7 +5982,7 @@ Fornece ao usuário recursos de gerenciamento de sessão, renderização e diagn
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Read | Obter propriedades da sessão |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Action | Iniciar sessões |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/managesessions/Delete | Parar sessões |
-> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a uma sessão |
+> | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/render/Read | Conectar-se a um servidor |
 > | [Microsoft. MixedReality](resource-provider-operations.md#microsoftmixedreality)/RemoteRenderingAccounts/Diagnostic/Read | Conectar-se ao inspetor de renderização remoto |
 > | **NotDataActions** |  |
 > | *nenhum* |  |

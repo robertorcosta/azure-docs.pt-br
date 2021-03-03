@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: d9624fd899649f4e54c5bd509ed5961b862632dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 66faa2b3e6d24c264e2fe26ab42eeaffd48384f6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581578"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732829"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Criptografia de dados de servidor único do Banco de Dados do Azure para PostgreSQL com uma chave gerenciada pelo cliente
 
@@ -60,7 +60,7 @@ Quando o servidor é configurado para usar a chave gerenciada pelo cliente armaz
 Veja a seguir os requisitos para configurar o Key Vault:
 
 * O Key Vault e o servidor único do Banco de Dados do Azure para PostgreSQL precisam pertencer ao mesmo locatário do Azure AD (Azure Active Directory). Não há suporte para interações do servidor e do Key Vault entre locatários. A movimentação do recurso de Key Vault depois requer que você reconfigure a criptografia de dados.
-* O Key Vault deve ser definido com 90 dias para ' dias para manter os cofres excluídos '. Se o cofre de chaves existente tiver sido configurado com um número mais baixo, você precisará criar um novo cofre de chaves, pois ele não pode ser modificado após a criação.
+* O cofre de chaves deve ser definido com 90 dias para ' dias para manter os cofres excluídos '. Se o cofre de chaves existente tiver sido configurado com um número mais baixo, você precisará criar um novo cofre de chaves, pois ele não pode ser modificado após a criação.
 * Habilite o recurso de exclusão reversível no cofre de chaves para proteger contra perda de dados em caso de exclusão acidental da chave (ou do cofre de chaves). Os recursos excluídos com a exclusão reversível são retidos por 90 dias, a menos que o usuário os recupere ou limpe pelo. As ações de recuperação e limpeza têm suas próprias permissões associadas em uma política de acesso do Key Vault. O recurso de exclusão reversível está desativado por padrão, mas você pode habilitá-lo por meio do PowerShell ou da CLI do Azure (observe que não é possível habilitá-lo por meio do portal do Azure). 
 * Habilitar a proteção de limpeza para impor um período de retenção obrigatório para cofres e objetos de cofre excluídos
 * Conceda o acesso de servidor único do Banco de Dados do Azure para PostgreSQL ao cofre de chaves com as permissões get, wrapKey e unwrapKey usando a identidade gerenciada exclusiva. No portal do Azure, a identidade exclusiva do ' serviço ' é criada automaticamente quando a criptografia de dados é habilitada no servidor único PostgreSQL. Confira [Data encryption for Azure Database for PostgreSQL Single server by using the Azure portal](howto-data-encryption-portal.md) (Criptografia de dados para servidor único do Banco de Dados do Azure para PostgreSQL usando o portal do Azure) para obter instruções detalhadas passo a passo quando você estiver usando o portal do Azure.

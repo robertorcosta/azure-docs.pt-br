@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 703a5f145aee93fe7ec4ad2f8ec102f98bdd4174
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2b7648155c28ec9b6cf2048246c17805b5f22404
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605617"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700721"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Coletar dados da extensão de diagnóstico do Azure para logs de Azure Monitor
 A extensão de diagnóstico do Azure é um [agente no Azure monitor](../agents/agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado dos recursos de computação do Azure, incluindo máquinas virtuais. Este artigo descreve como coletar dados coletados pela extensão de diagnóstico do armazenamento do Azure para Azure Monitor logs.
@@ -22,7 +22,7 @@ A extensão de diagnóstico do Azure é um [agente no Azure monitor](../agents/a
 ## <a name="supported-data-types"></a>Tipos de dados com suporte
 A extensão de diagnóstico do Azure armazena dados em uma conta de armazenamento do Azure. Para que os logs de Azure Monitor coletem esses dados, eles devem estar nos seguintes locais:
 
-| Tipo de Log | Tipo de recurso | Location |
+| Tipo de Log | Tipo de recurso | Local |
 | --- | --- | --- |
 | Logs IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |wad-iis-logfiles (Armazenamento de Blobs) |
 | syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |
@@ -63,7 +63,6 @@ Em aproximadamente 30 minutos, você poderá ver os dados da conta de armazename
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Coletar logs e métricas para serviços do Azure](../platform/resource-logs.md#send-to-log-analytics-workspace) para serviços do Azure com suporte.
+* [Coletar logs e métricas para serviços do Azure](./resource-logs.md#send-to-log-analytics-workspace) para serviços do Azure com suporte.
 * [Habilitar Soluções](../insights/solutions.md) para fornecer informações sobre os dados.
-* [Usar consultas de pesquisa](../log-query/log-query-overview.md) para analisar os dados.
-
+* [Usar consultas de pesquisa](../logs/log-query-overview.md) para analisar os dados.

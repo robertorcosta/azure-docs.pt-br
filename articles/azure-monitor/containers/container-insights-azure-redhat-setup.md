@@ -1,16 +1,16 @@
 ---
-title: Configurar o Azure Red Hat OpenShift v3. x com Azure Monitor para contêineres | Microsoft Docs
+title: Configurar o Azure Red Hat OpenShift v3. x com o contêiner insights | Microsoft Docs
 description: Este artigo descreve como configurar o monitoramento de um cluster kubernetes com Azure Monitor hospedado no Azure Red Hat OpenShift versão 3 e superior.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f21a338a06d4a0947e2623854d828c720fb2d4bb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b46dfda0bdb0f3b582aa751786187a4d74524f75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606685"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708366"
 ---
-# <a name="configure-azure-red-hat-openshift-v3-with-azure-monitor-for-containers"></a>Configurar o Azure Red Hat OpenShift v3 com Azure Monitor para contêineres
+# <a name="configure-azure-red-hat-openshift-v3-with-container-insights"></a>Configurar o Azure Red Hat OpenShift v3 com informações de contêiner
 
 >[!IMPORTANT]
 > O Azure Red Hat OpenShift 3,11 será desativado em junho de 2022.
@@ -21,33 +21,33 @@ ms.locfileid: "100606685"
 > Siga este guia para [criar um cluster do Azure Red Hat OpenShift 4](../../openshift/tutorial-create-cluster.md).
 > Se você tiver dúvidas específicas, [entre em contato conosco](mailto:aro-feedback@microsoft.com).
 
-Azure Monitor para contêineres fornece experiência de monitoramento avançada para os clusters do AKS (serviço kubernetes do Azure) e do mecanismo do AKS. Este artigo descreve como habilitar o monitoramento de clusters kubernetes hospedados no [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versão 3 e a versão mais recente com suporte da versão 3, para obter uma experiência de monitoramento semelhante.
+As informações de contêiner fornecem uma experiência de monitoramento avançada para os clusters do AKS (serviço kubernetes do Azure) e do mecanismo do AKS. Este artigo descreve como habilitar o monitoramento de clusters kubernetes hospedados no [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) versão 3 e a versão mais recente com suporte da versão 3, para obter uma experiência de monitoramento semelhante.
 
 >[!NOTE]
 >O suporte para o Azure Red Hat OpenShift é um recurso em visualização pública no momento.
 >
 
-Azure Monitor para contêineres podem ser habilitados para novas ou uma ou mais implantações existentes do Azure Red Hat OpenShift usando os seguintes métodos com suporte:
+As informações de contêiner podem ser habilitadas para novas ou uma ou mais implantações existentes do Azure Red Hat OpenShift usando os seguintes métodos com suporte:
 
 - Para um cluster existente do portal do Azure ou usando o modelo Azure Resource Manager.
 - Para um novo cluster usando Azure Resource Manager modelo ou ao criar um novo cluster usando o [CLI do Azure](/cli/azure/openshift#az-openshift-create).
 
 ## <a name="supported-and-unsupported-features"></a>Recursos com e sem suporte
 
-Azure Monitor para contêineres dá suporte ao monitoramento do Azure Red Hat OpenShift conforme descrito no artigo de [visão geral](container-insights-overview.md) , com exceção dos seguintes recursos:
+O contêiner insights dá suporte ao monitoramento do Azure Red Hat OpenShift, conforme descrito no artigo de [visão geral](container-insights-overview.md) , com exceção dos seguintes recursos:
 
 - Dados dinâmicos (visualização)
 - [Coletar métricas](container-insights-update-metrics.md) de nós de cluster e pods e armazená-los no banco de dados de métricas de Azure monitor
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um [workspace do Log Analytics](../platform/design-logs-deployment.md).
+- Um [workspace do Log Analytics](../logs/design-logs-deployment.md).
 
-    Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../samples/resource-manager-workspace.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md).
+    O insights de contêiner dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../logs/resource-manager-workspace.md), por meio do [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../logs/quick-create-workspace.md).
 
-- Para habilitar e acessar os recursos no Azure Monitor para contêineres, no mínimo você precisa ser um membro da função *colaborador* do Azure na assinatura do Azure e um membro da [*log Analytics função colaborador*](../platform/manage-access.md#manage-access-using-azure-permissions) do espaço de trabalho log Analytics configurado com Azure monitor para contêineres.
+- Para habilitar e acessar os recursos em insights de contêiner, no mínimo você precisa ser um membro da função *colaborador* do Azure na assinatura do Azure e um membro da função colaborador de [*log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) do espaço de trabalho log Analytics configurado com informações de contêiner.
 
-- Para exibir os dados de monitoramento, você é um membro da permissão da função [*leitor de log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) com o espaço de trabalho log Analytics configurado com Azure monitor para contêineres.
+- Para exibir os dados de monitoramento, você é um membro da permissão da função [*leitor de log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) com o espaço de trabalho log Analytics configurado com o contêiner insights.
 
 ## <a name="identify-your-log-analytics-workspace-id"></a>Identificar sua ID do espaço de trabalho Log Analytics
 
@@ -176,13 +176,13 @@ Execute as etapas a seguir para habilitar o monitoramento de um cluster do Azure
 
 4. Na lista de clusters não monitorados, localize o cluster na lista e clique em **habilitar**. Você pode identificar os resultados na lista procurando o valor **toa** sob o **tipo de cluster** de coluna.
 
-5. Na página **Integração do Azure Monitor para contêineres**, se você tiver um espaço de trabalho do Log Analytics existente na mesma assinatura do cluster, selecione-o na lista suspensa.  
+5. Na página **integração com o contêiner insights** , se você tiver um espaço de trabalho log Analytics existente na mesma assinatura que o cluster, selecione-o na lista suspensa.  
     A lista seleciona o espaço de trabalho padrão e o local no qual o cluster é implantado na assinatura.
 
     ![Habilitar o monitoramento de clusters não monitorados](./media/container-insights-onboard/kubernetes-onboard-brownfield-01.png)
 
     >[!NOTE]
-    >Se você quiser criar um novo espaço de trabalho do Log Analytics para armazenar os dados de monitoramento do cluster, siga as instruções em [Criar um espaço de trabalho do Log Analytics](../learn/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma assinatura em que o cluster do RedHat OpenShift é implantado.
+    >Se você quiser criar um novo espaço de trabalho do Log Analytics para armazenar os dados de monitoramento do cluster, siga as instruções em [Criar um espaço de trabalho do Log Analytics](../logs/quick-create-workspace.md). Certifique-se de criar o espaço de trabalho na mesma assinatura em que o cluster do RedHat OpenShift é implantado.
 
 Depois de habilitar o monitoramento, poderão ser necessários cerca de 15 minutos antes de exibir as métricas de integridade para o cluster.
 
@@ -246,10 +246,10 @@ Se você optar por usar a CLI do Azure, primeiro precisará instalar e usar a CL
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do cluster do RedHat OpenShift e das cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.
+- Com o monitoramento habilitado para coletar a utilização de recursos e de integridade do cluster do RedHat OpenShift e das cargas de trabalho em execução neles, saiba [como usar o](container-insights-analyze.md) contêiner insights.
 
 - Por padrão, o agente em contêiner coleta os logs de contêiner stdout/stderr de todos os contêineres em execução em todos os namespaces, exceto Kube-System. Para configurar a coleta de log de contêiner específica para namespaces ou namespaces específicos, examine [configuração do agente do insights de contêiner](container-insights-agent-config.md) para definir as configurações de coleta de dados desejadas para o arquivo de configurações do ConfigMap.
 
 - Para revisar e analisar as métricas de Prometheus do seu cluster, examine [Configurar a recorte de métricas do Prometheus](container-insights-prometheus-integration.md)
 
-- Para saber como parar de monitorar o cluster com Azure Monitor para contêineres, consulte [como parar de monitorar o cluster do Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).
+- Para saber como parar de monitorar o cluster com o contêiner insights, consulte [como parar de monitorar o cluster do Azure Red Hat OpenShift](./container-insights-optout-openshift-v3.md).

@@ -4,22 +4,22 @@ description: Saiba como modificar seus WebHooks, aplicativos lógicos e runbooks
 author: yanivlavi
 ms.author: yalavi
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: 1d6fc8e4b9baecf02531fc1baa617b87a9d3255c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c88d0b8595434298eb564034a44665c5375457c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605165"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701035"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>Preparar seus aplicativos lógicos e runbooks para a migração de regras de alerta clássicos
 
 > [!NOTE]
-> Como [anunciado anteriormente](../platform/monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados para usuários de nuvem pública, embora ainda estejam em uso limitado para recursos que ainda não dão suporte aos novos alertas. A data de aposentadoria para esses alertas foi ainda mais estendida. Uma nova data será anunciada em breve.
+> Como [anunciado anteriormente](monitoring-classic-retirement.md), os alertas clássicos no Azure monitor são desativados para usuários de nuvem pública, embora ainda estejam em uso limitado até **31 de maio de 2021**. Os alertas clássicos para a nuvem do Azure governamental e o Azure China 21Vianet serão desativados em **29 de fevereiro de 2024**.
 >
 
-Se você optar por migrar voluntariamente suas regras de alerta clássicas para novas regras de alerta, lembre-se de que há algumas diferenças entre os dois sistemas. Este artigo explica essas diferenças e como você pode se preparar para a alteração.
+Se você optar por migrar voluntariamente suas regras de alerta clássicas para novas regras de alerta, haverá algumas diferenças entre os dois sistemas. Este artigo explica essas diferenças e como você pode se preparar para a alteração.
 
 ## <a name="api-changes"></a>Alterações de API
 
@@ -36,7 +36,7 @@ A tabela a seguir é uma referência às interfaces programáticas para alertas 
 
 ## <a name="notification-payload-changes"></a>Alterações de carga de notificação
 
-O formato da carga de notificação é ligeiramente diferente entre [as regras de alerta clássicas](../platform/alerts-webhooks.md) e os [novos alertas de métrica](alerts-metric-near-real-time.md#payload-schema). Se você tiver qualquer webhook, aplicativo lógico ou ações de runbook disparadas por regras de alerta clássicas, você deverá atualizar esses pontos de extremidade de notificação para aceitar o formato de carga de novos alertas de métrica.
+O formato da carga de notificação é ligeiramente diferente entre [as regras de alerta clássicas](alerts-webhooks.md) e os [novos alertas de métrica](alerts-metric-near-real-time.md#payload-schema). Se você tiver regras de alerta clássicas com webhook, aplicativo lógico ou ações de runbook, deverá atualizar os destinos para aceitar o novo formato de carga.
 
 Use a tabela a seguir para mapear os campos de carga do webhook do formato clássico para o novo formato:
 
@@ -153,13 +153,13 @@ Para obter um exemplo completo de um runbook que para uma máquina virtual quand
 
 ## <a name="partner-integration-via-webhooks"></a>Integração de parceiros por meio de WebHooks
 
-A maioria de [nossos parceiros que se integram com alertas clássicos](../platform/partners.md) já dão suporte a alertas de métrica mais recentes por meio de suas integrações. As integrações conhecidas que já funcionam com novos alertas de métrica são:
+A maioria de [nossos parceiros que se integram com alertas clássicos](../partners.md) já dão suporte a alertas de métrica mais recentes por meio de suas integrações. As integrações conhecidas que já funcionam com novos alertas de métrica são:
 
 - [PagerDuty](https://www.pagerduty.com/docs/guides/azure-integration-guide/)
 - [OpsGenie](https://docs.opsgenie.com/docs/microsoft-azure-integration)
 - [Signl4](https://www.signl4.com/blog/mobile-alert-notifications-azure-monitor/)
 
-Se você estiver usando uma integração de parceiro que não está listada aqui, confirme com o provedor de integração que a integração funciona com novos alertas de métrica.
+Se você estiver usando uma integração de parceiro que não está listada aqui, confirme com o provedor que ele trabalha com novos alertas de métrica.
 
 ## <a name="next-steps"></a>Próximas etapas
 

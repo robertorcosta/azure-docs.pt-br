@@ -3,12 +3,12 @@ title: Monitorar recursos delegados em escala
 description: Saiba como usar efetivamente os logs de Azure Monitor de maneira escalonável nos locatários do cliente que você está gerenciando.
 ms.date: 02/11/2021
 ms.topic: how-to
-ms.openlocfilehash: aadd14bb3e4aad61fb2afc0735b5714deedfe301
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 98fd984492276dbdfbc2f8001bca19560764a2a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593122"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742578"
 ---
 # <a name="monitor-delegated-resources-at-scale"></a>Monitorar recursos delegados em escala
 
@@ -49,7 +49,7 @@ Depois de implantar suas políticas, os dados serão registrados nos espaços de
 
 Você pode exibir [alertas](../../azure-monitor/alerts/alerts-overview.md) para as assinaturas delegadas nos locatários do cliente que você gerencia.
 
-Do seu locatário de gerenciamento, você pode [criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) no portal do Azure ou por meio de APIs e ferramentas de gerenciamento.
+Do seu locatário de gerenciamento, você pode [criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/alerts/alerts-activity-log.md) no portal do Azure ou por meio de APIs e ferramentas de gerenciamento.
 
 Para atualizar alertas automaticamente em vários clientes, use uma consulta [do grafo de recursos do Azure](../../governance/resource-graph/overview.md) para filtrar alertas. Você pode fixar a consulta ao seu painel e selecionar todos os clientes e assinaturas apropriados. Por exemplo, a consulta abaixo exibirá os alertas de severidade 0 e 1, atualizando a cada 60 minutos.
 

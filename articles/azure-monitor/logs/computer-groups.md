@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 92603165ac399415ec4fb6daeea1641065671a83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606348"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734121"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
-Os grupos de computadores no Azure Monitor permitem que você defina o escopo de [consultas de log](../log-query/log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
+Os grupos de computadores no Azure Monitor permitem que você defina o escopo de [consultas de log](./log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -135,5 +135,4 @@ Um registro é criado no espaço de trabalho do Log Analytics para cada associa�
 | `TimeGenerated` |Data e hora em que o grupo de computadores foi criado ou atualizado. |
 
 ## <a name="next-steps"></a>Próximas etapas
-* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
-
+* Saiba mais sobre [registrar consultas](./log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.

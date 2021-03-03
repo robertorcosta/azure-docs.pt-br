@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 11/09/2020
+ms.date: 02/22/2021
 ms.author: cherylmc
-ms.openlocfilehash: 1876ab86e6f4c46edc23361dd884d8b32328f36c
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 9d207e2ee0ddff49ab01094626b9af1c8505cb4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919052"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732472"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-using-azure-virtual-wan"></a>Tutorial: Criar uma conexão de VPN do Usuário usando a WAN Virtual do Azure
 
@@ -50,7 +50,6 @@ Uma configuração P2S (ponto a site) define os parâmetros para conexão de cli
 
 [!INCLUDE [Create hub](../../includes/virtual-wan-p2s-hub-include.md)]
 
-
 ## <a name="choose-p2s-client-address-pools"></a><a name="chooseclientpools"></a> Escolher pools de endereços de cliente P2S
 
 [!INCLUDE [Choose pools](../../includes/virtual-wan-allocating-p2s-pools.md)]
@@ -79,8 +78,6 @@ Depois de concluir a configuração do cliente, você poderá se conectar.
 1. Navegue até a WAN virtual.
 1. Na página **Visão Geral**, cada ponto no mapa representa um hub.
 1. Na seção **Hubs e conexões**, você pode ver o status do hub, o site, a região, o status de conexão de VPN e os bytes de entrada e saída.
-
-
 
 ## <a name="clean-up-resources"></a><a name="cleanup"></a>Limpar recursos
 

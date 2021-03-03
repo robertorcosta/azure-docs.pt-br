@@ -1,17 +1,16 @@
 ---
 title: Monitore os serviços de Armazenamento do Microsoft Azure com o Azure Monitor for Storage | Microsoft Docs
 description: Este artigo descreve o recurso Azure Monitor for Storage, que permite aos administradores entenderem rapidamente questões de desempenho e utilização de suas contas do Armazenamento do Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/11/2020
-ms.openlocfilehash: 13c884d9f140fbd962bfa32ef2d853339aec325a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0baaca8df8865061b51f1629da14c3b18a527047
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587352"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708060"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitorando seu serviço de armazenamento com o Azure Monitor for Storage
 
@@ -85,7 +84,7 @@ Ao selecionar um valor em qualquer uma das colunas da pasta de trabalho, você f
 
 ## <a name="view-from-a-storage-account"></a>Exibir a partir de uma conta de armazenamento
 
-Para acessar o Azure Monitor para VMs diretamente a partir de uma conta de armazenamento:
+Para acessar as informações da VM diretamente de uma conta de armazenamento:
 
 1. No portal do Azure, selecione Contas de armazenamento.
 

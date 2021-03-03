@@ -6,20 +6,20 @@ ms.topic: conceptual
 author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
-ms.openlocfilehash: 80a508aeb7eff9567bea67cb84350fc2e77551da
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1db5f5e4164d971dff3ec6b042fa4b0a969e508
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605051"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704235"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Integração do Log Analytics com o Power BI
 
 Este artigo se concentra em maneiras de alimentar dados de Log Analytics no Microsoft Power BI para criar painéis e relatórios mais atraentes visualmente. 
 
-## <a name="background"></a>Tela de fundo 
+## <a name="background"></a>Segundo plano 
 
-Os logs de Azure Monitor é uma plataforma que fornece uma solução de ponta a ponta para ingestão de logs. [Azure Monitor log Analytics](../platform/data-platform.md#) é a interface para consultar esses logs. Para obter mais informações sobre toda a plataforma de dados de Azure Monitor, incluindo Log Analytics, consulte [Azure monitor Data Platform](../platform/data-platform.md). 
+Os logs de Azure Monitor é uma plataforma que fornece uma solução de ponta a ponta para ingestão de logs. [Azure Monitor log Analytics](../platform/data-platform.md#) é a interface para consultar esses logs. Para obter mais informações sobre toda a plataforma de dados de Azure Monitor, incluindo Log Analytics, consulte [Azure monitor Data Platform](../data-platform.md). 
 
 O Microsoft Power BI é a plataforma de visualização de dados da Microsoft. Para obter mais informações sobre como começar, consulte a [Home Page do Power bi](https://powerbi.microsoft.com/). 
 
@@ -82,4 +82,4 @@ Informações adicionais podem ser encontradas em [integrar log Analytics e Exce
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Introdução às [consultas de log Analytics](../log-query/log-query-overview.md).
+Introdução às [consultas de log Analytics](./log-query-overview.md).

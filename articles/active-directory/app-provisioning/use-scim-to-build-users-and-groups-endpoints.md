@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650151"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689327"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: desenvolver um ponto de extremidade SCIM de exemplo
 
@@ -57,6 +57,8 @@ As etapas aqui implantam o ponto de extremidade SCIM em um serviço usando o [Vi
     ![Captura de tela que mostra a criação de um novo serviço de aplicativo.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-3.png)
 
 1. Selecione o grupo de recursos a ser usado e selecione **publicar**.
+
+    ![Captura de tela que mostra a publicação de um novo serviço de aplicativo.](media/use-scim-to-build-users-and-groups-endpoints/cloud-publish-4.png)
 
 1. Vá para o aplicativo em **Azure app**  >  **configuração** de serviço e selecione **nova configuração de aplicativo** para adicionar a configuração de *Token__TokenIssuer* com o valor `https://sts.windows.net/<tenant_id>/` . Substitua `<tenant_id>` pela sua ID de locatário do Azure AD. Se você quiser testar o ponto de extremidade SCIM usando o [postmaster](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint), adicione uma configuração de *ASPNETCORE_ENVIRONMENT* com o valor `Development` .
 

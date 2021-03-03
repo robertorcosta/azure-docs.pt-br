@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/22/2020
-ms.openlocfilehash: f878d7cf5fdc2eb6538c1192319405dbde098ba6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a765525b12431c68aa0bba0c0f49c477defff0f0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606326"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723207"
 ---
 # <a name="perform-log-query-in-azure-monitor-that-span-across-workspaces-and-apps"></a>Executar consulta de log em Azure Monitor que abrangem espaços de trabalho e aplicativos
 
@@ -19,7 +19,7 @@ Os logs de Azure Monitor dão suporte à consulta em vários espaços de trabalh
 
 Há dois métodos para consultar dados que são armazenados em vários espaços de trabalho e aplicativos:
 1. Explicitamente, especificando os detalhes do espaço de trabalho e do aplicativo. Essa técnica é detalhada neste artigo.
-2. Usando implicitamente [consultas de contexto de recurso](../platform/design-logs-deployment.md#access-mode). Quando você consulta no contexto de um recurso específico, um grupo de recursos ou uma assinatura, os dados relevantes serão buscados de todos os espaços de trabalho que contêm dados para esses recursos. Application Insights dados armazenados em aplicativos, não serão buscados.
+2. Usando implicitamente [consultas de contexto de recurso](./design-logs-deployment.md#access-mode). Quando você consulta no contexto de um recurso específico, um grupo de recursos ou uma assinatura, os dados relevantes serão buscados de todos os espaços de trabalho que contêm dados para esses recursos. Application Insights dados armazenados em aplicativos, não serão buscados.
 
 > [!IMPORTANT]
 > Se você estiver usando um [recurso do Application Insights baseado em workspace](../app/create-workspace-resource.md), a telemetria é armazenada no workspace do Log Analytics com todos os outros dados do log. Use a expressão Workspace () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
@@ -28,12 +28,12 @@ Há dois métodos para consultar dados que são armazenados em vários espaços 
 ## <a name="cross-resource-query-limits"></a>Limites de consulta entre recursos 
 
 * O número de recursos de Application Insights e espaços de trabalho de Log Analytics que você pode incluir em uma única consulta é limitado a 100.
-* Não há suporte para a consulta entre recursos no Designer de Exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../learn/tutorial-logs-dashboards.md). 
+* Não há suporte para a consulta entre recursos no Designer de Exibição. Você pode criar uma consulta em Log Analytics e fixá-la no painel do Azure para [Visualizar uma consulta de log](../visualize/tutorial-logs-dashboards.md). 
 * As consultas entre recursos em alertas de log só têm suporte na [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules)atual. Se você estiver usando a API de alertas de Log Analytics herdados, será necessário [alternar para a API atual](../alerts/alerts-log-api-switch.md).
 
 
 ## <a name="querying-across-log-analytics-workspaces-and-from-application-insights"></a>Consultar em workspaces do Log Analytics e do Application Insights
-Para fazer referência a outro workspace em sua consulta, use o identificador [*workspace*](../logs/workspace-expression.md) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](../log-query/app-expression.md).  
+Para fazer referência a outro workspace em sua consulta, use o identificador [*workspace*](../logs/workspace-expression.md) e, para um aplicativo do Application Insights, use o identificador [*aplicativo*](./app-expression.md).  
 
 ### <a name="identifying-workspace-resources"></a>Identificar recursos do workspace
 Os exemplos a seguir demonstram consultas em workspaces do Log Analytics para retornar contagens resumidas de logs da tabela de Atualização em um workspace chamado *contosoretail-it*. 
@@ -107,9 +107,9 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>Usando consulta entre recursos para vários recursos
-Ao usar consultas entre recursos para correlacionar dados de vários workspaces do Log Analytics e recursos do Application Insights, a consulta pode se tornar complexa e difícil de manter. Você deve aproveitar as [funções nas consultas de log do Azure Monitor](../log-query/functions.md) para separar a lógica de consulta do escopo dos recursos da consulta, o que simplifica a estrutura da consulta. O exemplo a seguir demonstra como você pode monitorar vários recursos do Application Insights e visualizar a contagem de solicitações com falha pelo nome do aplicativo. 
+Ao usar consultas entre recursos para correlacionar dados de vários workspaces do Log Analytics e recursos do Application Insights, a consulta pode se tornar complexa e difícil de manter. Você deve aproveitar as [funções nas consultas de log do Azure Monitor](./functions.md) para separar a lógica de consulta do escopo dos recursos da consulta, o que simplifica a estrutura da consulta. O exemplo a seguir demonstra como você pode monitorar vários recursos do Application Insights e visualizar a contagem de solicitações com falha pelo nome do aplicativo. 
 
-Crie uma consulta como a seguinte que referencia o escopo dos recursos do Application Insights. O comando `withsource= SourceApp` adiciona uma coluna que designa o nome do aplicativo que enviou o log. [Salve a consulta como função](../log-query/functions.md#create-a-function) com o alias _applicationsScoping_.
+Crie uma consulta como a seguinte que referencia o escopo dos recursos do Application Insights. O comando `withsource= SourceApp` adiciona uma coluna que designa o nome do aplicativo que enviou o log. [Salve a consulta como função](./functions.md#create-a-function) com o alias _applicationsScoping_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources
@@ -123,7 +123,7 @@ app('Contoso-app5').requests
 
 
 
-Agora você pode [usar essa função](../log-query/functions.md#use-a-function) em uma consulta entre recursos, como a seguir. O alias de função _applicationsScoping_ retorna a união da tabela de solicitações de todos os aplicativos definidos. A consulta então filtra solicitações com falha e visualiza as tendências por aplicativo. O operador _parse_ é opcional neste exemplo. Ele extrai o nome do aplicativo do _SourceApp_ propriedade.
+Agora você pode [usar essa função](./functions.md#use-a-function) em uma consulta entre recursos, como a seguir. O alias de função _applicationsScoping_ retorna a união da tabela de solicitações de todos os aplicativos definidos. A consulta então filtra solicitações com falha e visualiza as tendências por aplicativo. O operador _parse_ é opcional neste exemplo. Ele extrai o nome do aplicativo do _SourceApp_ propriedade.
 
 ```Kusto
 applicationsScoping 
@@ -142,5 +142,4 @@ applicationsScoping
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma visão geral das consultas de log e de como os dados de log do Azure Monitor estão estruturados, examine [Analisar dados de log no Azure Monitor](../log-query/log-query-overview.md).
-
+- Para obter uma visão geral das consultas de log e de como os dados de log do Azure Monitor estão estruturados, examine [Analisar dados de log no Azure Monitor](./log-query-overview.md).

@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 9/21/2020
-ms.openlocfilehash: d38a0ea7307584c25ddec9389feaef7518bcf925
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1232a0753c988f5a28ebba28f9819aa67ce28603
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591752"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718736"
 ---
 # <a name="track-database-activity-with-audit-logs-in-azure-database-for-mysql-flexible-server"></a>Acompanhar atividade do banco de dados com logs de auditoria no banco de dados do Azure para MySQL servidor flexível
 
@@ -46,7 +46,7 @@ Outros parâmetros que você pode ajustar para controlar o comportamento do log 
 | `DCL` | Consultas como "conceder permissão" |
 | `ADMIN` | Consultas como "mostrar STATUS" |
 | `GENERAL` | Tudo em DML_SELECT, DML_NONSELECT, DML, DDL, DCL e administrador |
-| `TABLE_ACCESS` | -Disponível somente para MySQL 5,7 <br> -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
+| `TABLE_ACCESS` | -Instruções de leitura de tabela, como selecionar ou inserir em... Não <br> -Instruções DELETE de tabela, como DELETE ou TRUNCATE TABLE <br> -Instruções INSERT de tabela, como INSERT ou REPLACE <br> -Instruções de atualização de tabela, como UPDATE |
 
 ## <a name="access-audit-logs"></a>Acesse os logs de auditoria
 
@@ -72,7 +72,7 @@ As seções a seguir descrevem a saída dos logs de auditoria do MySQL com base 
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | Nome do servidor |
 | `event_class_s` | `connection_log` |
-| `event_subclass_s` | `CONNECT`, `DISCONNECT` , `CHANGE USER` (disponível somente para MySQL 5,7) |
+| `event_subclass_s` | `CONNECT`, `DISCONNECT`, `CHANGE USER` |
 | `connection_id_d` | ID de conexão exclusiva gerada pelo MySQL |
 | `host_s` | Em branco |
 | `ip_s` | Endereço IP do cliente que se conecta ao MySQL |
@@ -116,7 +116,7 @@ O esquema a seguir se aplica aos tipos de evento geral, DML_SELECT, DML_NONSELEC
 ### <a name="table-access"></a>Acesso à tabela
 
 > [!NOTE]
-> Os logs de acesso à tabela são apenas saídas para MySQL 5,7.<br>Para `sql_text_s` , o log será truncado se exceder 2048 caracteres.
+> Para `sql_text_s` , o log será truncado se exceder 2048 caracteres.
 
 | **Propriedade** | **Descrição** |
 |---|---|

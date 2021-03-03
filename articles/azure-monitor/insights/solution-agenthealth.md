@@ -1,17 +1,16 @@
 ---
 title: Integridade do Agente solução no Azure Monitor | Microsoft Docs
 description: Este artigo destina-se a ajudá-lo a entender como usar essa solução para monitorar a integridade de seus agentes que se reportam diretamente ao Log Analytics ou ao System Center Operations Manager.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2020
-ms.openlocfilehash: a498c229acce9359acfb4593ec5f833000ca2c39
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 171230dc2ce6189e36c601c6c7d3b3612fce160c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573372"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711052"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Integridade do Agente solução no Azure Monitor
 A solução Integridade do Agente no Azure ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho Log Analytics no Azure Monitor ou um grupo de gerenciamento System Center Operations Manager conectado a Azure Monitor, que não respondem e enviam dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    

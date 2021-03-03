@@ -1,19 +1,19 @@
 ---
-title: Criar relatórios interativos do Azure Monitor para VMs com pastas de trabalho
-description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas para Azure Monitor para VMs.
+title: Criar relatórios interativos de VM insights com pastas de trabalho
+description: Simplifique relatórios complexos com pastas de trabalho parametrizadas predefinidas e personalizadas para o virtual insights.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 43cdb9de111bdea5486e49a56d58d38279b685c7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1e2f6c7a6b4a36eb1aa4230f62ee4b0c2a1c57c3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606581"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731282"
 ---
-# <a name="create-interactive-reports-azure-monitor-for-vms-with-workbooks"></a>Criar relatórios interativos do Azure Monitor para VMs com pastas de trabalho
+# <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos de VM insights com pastas de trabalho
 
 As pastas de trabalho combinam texto, [consultas de log](/azure/data-explorer/kusto/query/), métricas e parâmetros em relatórios interativos sofisticados. As Pastas de Trabalho são editáveis por qualquer membro da equipe com acesso aos mesmos recursos do Azure.
 
@@ -24,9 +24,9 @@ As pastas de trabalho são úteis para cenários como:
 * Compartilhando os resultados de um teste de redimensionamento de sua VM com outros membros de sua equipe. Você pode explicar as metas para o experimento com texto e, em seguida, mostrar cada métrica de uso e as consultas de análise usadas para avaliar o experimento, juntamente com as chamadas claras para se cada métrica estava acima ou abaixo do destino.
 * Relatar o impacto de uma interrupção no uso de sua VM, combinar dados, explicação de texto e uma discussão das próximas etapas para evitar interrupções no futuro.
 
-A tabela a seguir resume as pastas de trabalho que o Azure Monitor para VMs inclui para ajudá-lo a começar.
+A tabela a seguir resume as pastas de trabalho que a VM insights inclui para você começar.
 
-| Pasta de trabalho | Description | Escopo |
+| Pasta de trabalho | Descrição | Escopo |
 |----------|-------------|-------|
 | Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
 | Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
@@ -96,7 +96,7 @@ Seções de consulta são altamente flexíveis e podem ser usadas para responder
 
 Você também não está limitado à consulta no contexto da máquina virtual da qual iniciou a pasta de trabalho. Você pode consultar entre várias máquinas virtuais, bem como Log Analytics espaços de trabalho, desde que tenha permissão de acesso a esses recursos.
 
-Para incluir dados de outros espaços de trabalho do Log Analytics ou de um aplicativo Application Insights específico usando o identificador do **espaço de trabalho** . Para saber mais sobre consultas entre recursos, consulte a [orientação oficial](../log-query/cross-workspace-query.md).
+Para incluir dados de outros espaços de trabalho do Log Analytics ou de um aplicativo Application Insights específico usando o identificador do **espaço de trabalho** . Para saber mais sobre consultas entre recursos, consulte a [orientação oficial](../logs/cross-workspace-query.md).
 
 ### <a name="advanced-analytic-query-settings"></a>Configurações avançadas de consulta analítica
 
@@ -137,7 +137,7 @@ VMConnection
 
 ## <a name="adding-metrics-sections"></a>Adicionando seções de métricas
 
-As seções métricas dão acesso completo ao incorporar dados de métricas do Azure Monitor em seus relatórios interativos. Em Azure Monitor para VMs, as pastas de trabalho predefinidas normalmente conterão dados de consulta analítica em vez de dados de métrica.  Você pode optar por criar pastas de trabalho com dados de métrica, permitindo que você aproveite ao máximo os dois recursos em um só lugar. Você também tem a capacidade de extrair dados de métrica de recursos em qualquer uma das assinaturas que você tem acesso.
+As seções métricas dão acesso completo ao incorporar dados de métricas do Azure Monitor em seus relatórios interativos. No insights da VM, as pastas de trabalho predefinidas normalmente conterão dados de consulta analítica em vez de dados de métrica.  Você pode optar por criar pastas de trabalho com dados de métrica, permitindo que você aproveite ao máximo os dois recursos em um só lugar. Você também tem a capacidade de extrair dados de métrica de recursos em qualquer uma das assinaturas que você tem acesso.
 
 Aqui está um exemplo de dados da máquina virtual que estão sendo obtidos em uma pasta de trabalho para fornecer uma visualização em grade do desempenho da CPU:
 
@@ -244,4 +244,4 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
 
 - Para identificar as limitações e o desempenho geral da VM, consulte [Exibir o desempenho da VM do Azure](vminsights-performance.md).
 
-- Para saber mais sobre as dependências de aplicativos descobertas, confira [Exibir o Mapa do Azure Monitor para VMs](vminsights-maps.md).
+- Para saber mais sobre dependências de aplicativos descobertos, consulte [Exibir o mapa de informações de VM](vminsights-maps.md).

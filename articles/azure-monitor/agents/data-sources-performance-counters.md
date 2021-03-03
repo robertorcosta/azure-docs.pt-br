@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: f885945dfb6910df919038106487db912d87caee
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c06123b33c7f467e12742cf6180d821e647b5115
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605508"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711545"
 ---
 # <a name="collect-windows-and-linux-performance-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados de desempenho do Windows e do Linux com o agente de Log Analytics
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  Azure Monitor pode coletar contadores de desempenho de Log Analytics agentes em intervalos frequentes para análise NRT (quase em tempo real), além de agregar dados de desempenho para análise e relatórios de longo prazo.
 
 > [!IMPORTANT]
-> Este artigo aborda a coleta de dados de desempenho com o [agente de log Analytics](../platform/log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
+> Este artigo aborda a coleta de dados de desempenho com o [agente de log Analytics](./log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Contadores de desempenho](media/data-sources-performance-counters/overview.png)
 
@@ -28,7 +28,7 @@ Ao configurar os contadores de desempenho do Windows ou do Linux para um novo wo
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
-| Nome da instância | Description |
+| Nome da instância | Descrição |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -123,10 +123,10 @@ A tabela a seguir lista os objetos e contadores que você pode especificar no ar
 | Disco Físico | Média de segundos/Transferência do Disco |
 | Disco Físico | Média de segundos/Gravação do Disco |
 | Disco Físico | Bytes/s do Disco Físico |
-| Processar | % de Tempo Privilegiado |
-| Processar | % de Tempo do Usuário |
-| Processar | KBytes de Memória Usada |
-| Processar | Memória Virtual Compartilhada |
+| Processo | % de Tempo Privilegiado |
+| Processo | % de Tempo do Usuário |
+| Processo | KBytes de Memória Usada |
+| Processo | Memória Virtual Compartilhada |
 | Processador | % de Tempo de DPC |
 | Processador | % de Tempo Ocioso |
 | Processador | % de Tempo de Interrupção |
@@ -224,5 +224,5 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Colete contadores de desempenho de aplicativos Linux](data-sources-linux-applications.md), incluindo Apache HTTP Server e MySQL.
-* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
-* Exporte os dados coletados para o [Power BI](../platform/powerbi.md) para análise e visualizações adicionais.
+* Saiba mais sobre [registrar consultas](../logs/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Exporte os dados coletados para o [Power BI](../visualize/powerbi.md) para análise e visualizações adicionais.

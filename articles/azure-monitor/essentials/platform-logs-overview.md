@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: d2162a5c3d88eaae69b3a67456fdc29f19b1a79a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7a57a39dd72e2330c2adde2b471bca2f9f2e00a7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605560"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725842"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Visão geral dos logs de plataforma do Azure
 Os logs de plataforma fornecem informações detalhadas de diagnóstico e auditoria para os recursos do Azure e a plataforma do Azure da qual dependem. Eles são gerados automaticamente, embora você precise configurar determinados logs da plataforma para serem encaminhados a um ou mais destinos a serem retidos. Este artigo fornece uma visão geral dos logs de plataforma, incluindo as informações que eles fornecem e como você pode configurá-los para coleta e análise.
@@ -20,9 +20,9 @@ Os logs de plataforma fornecem informações detalhadas de diagnóstico e audito
 ## <a name="types-of-platform-logs"></a>Tipos de logs de plataforma
 A tabela a seguir lista os logs de plataforma específicos que estão disponíveis em diferentes camadas do Azure.
 
-| Log | Camada | Descrição |
+| Registro | Camada | Descrição |
 |:---|:---|:---|
-| [Logs de recursos](../platform/resource-logs.md) | Recursos do Azure | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o *plano de dados*), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso.<br><br>*Os logs de recursos foram anteriormente referidos como logs de diagnóstico.*  |
+| [Logs de recursos](./resource-logs.md) | Recursos do Azure | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o *plano de dados*), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso.<br><br>*Os logs de recursos foram anteriormente referidos como logs de diagnóstico.*  |
 | [Log de atividades](../essentials/activity-log.md) | Assinatura do Azure | Fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (*o plano de gerenciamento*), além de atualizações em eventos de integridade do serviço. Use o log de atividades para determinar o _que_, _quem_ e _quando_ para qualquer operação de gravação (put, post, Delete) realizada nos recursos em sua assinatura. Há um único log de atividades para cada assinatura do Azure. |
 | [Logs do Azure Active Directory](../../active-directory/reports-monitoring/overview-reports.md) | Locatário do Azure |  Contém o histórico de atividade de entrada e a trilha de auditoria das alterações feitas no Azure Active Directory para um locatário específico.   |
 
@@ -46,7 +46,7 @@ Você pode enviar os logs da plataforma para um ou mais dos destinos na tabela a
 
 | Destino | Descrição |
 |:---|:---|
-| Espaço de trabalho do Log Analytics | Analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](../platform/data-platform-logs.md) , incluindo [consultas de log](../log-query/log-query-overview.md) e alertas de [log](../alerts/alerts-log.md). Fixe os resultados de uma consulta de log em um painel do Azure ou inclua-os em uma pasta de trabalho como parte de um relatório interativo. |  |
+| Espaço de trabalho do Log Analytics | Analise os logs de todos os seus recursos do Azure juntos e aproveite todos os recursos disponíveis para [Azure monitor logs](../logs/data-platform-logs.md) , incluindo [consultas de log](../logs/log-query-overview.md) e alertas de [log](../alerts/alerts-log.md). Fixe os resultados de uma consulta de log em um painel do Azure ou inclua-os em uma pasta de trabalho como parte de um relatório interativo. |  |
 | Hub de Eventos | Envie dados de log da plataforma fora do Azure, por exemplo, para um SIEM de terceiros ou plataforma de telemetria personalizada.
 | Armazenamento do Azure | Arquive os logs para auditoria ou backup. |
 
@@ -61,5 +61,4 @@ Você pode enviar os logs da plataforma para um ou mais dos destinos na tabela a
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Leia mais detalhes sobre o log de atividades](../essentials/activity-log.md)
-* [Leia mais detalhes sobre os logs de recursos](../platform/resource-logs.md)
-
+* [Leia mais detalhes sobre os logs de recursos](./resource-logs.md)

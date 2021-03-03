@@ -3,22 +3,22 @@ title: Criar um modelo do Construtor de Imagens do Azure (versão prévia)
 description: Saiba como criar um modelo para usar com o Construtor de Imagens do Azure.
 author: danielsollondon
 ms.author: danis
-ms.date: 02/18/2021
+ms.date: 03/02/2021
 ms.topic: reference
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: c2e4a2c2700af99a074dfd640177a6baefe763e2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: eb02bff77ffedc0a1f2fee0a186d544c39374dbf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670422"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101693859"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
 
-O Construtor de Imagens do Azure usa um arquivo .json para passar informações para o serviço do Construtor de Imagens. Neste artigo, vamos abordar as seções do arquivo json para que você possa criar o seu próprio. Para ver exemplos completos de arquivos .json, confira o [Construtor de Imagens do Azure no GitHub](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts).
+O Construtor de Imagens do Azure usa um arquivo .json para passar informações para o serviço do Construtor de Imagens. Neste artigo, vamos abordar as seções do arquivo json para que você possa criar o seu próprio. Para ver exemplos completos de arquivos .json, confira o [Construtor de Imagens do Azure no GitHub](https://github.com/Azure/azvmimagebuilder/tree/main/quickquickstarts).
 
 Este é o formato de modelo básico:
 
@@ -249,7 +249,7 @@ Ao usar `customize`:
 - Se um personalizador falhar, o componente de personalização inteiro falhará e relatará um erro.
 - É altamente recomendável testar o script cuidadosamente antes de usá-lo em um modelo. A depuração do script em sua própria VM será mais fácil.
 - Não coloque dados confidenciais nos scripts. 
-- Os locais de script precisam ser acessíveis publicamente, a menos que você esteja usando [MSI](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts/7_Creating_Custom_Image_using_MSI_to_Access_Storage).
+- Os locais de script precisam ser acessíveis publicamente, a menos que você esteja usando [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
 
 ```json
         "customize": [
@@ -697,4 +697,4 @@ az resource invoke-action \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Há arquivos .json de exemplo para diferentes cenários no [Construtor de Imagens do Azure no GitHub](https://github.com/danielsollondon/azvmimagebuilder).
+Há arquivos .json de exemplo para diferentes cenários no [Construtor de Imagens do Azure no GitHub](https://github.com/azure/azvmimagebuilder).

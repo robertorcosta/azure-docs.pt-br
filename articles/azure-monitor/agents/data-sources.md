@@ -6,15 +6,15 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: a28748854e039d639755ce6bb93fb68695bd9891
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e03e31c342f90a0ea9f24e6be098a801410d4b72
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605882"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732081"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
-O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](../platform/data-platform.md) que inclui [logs](../platform/data-platform-logs.md) e [métricas](../platform/data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.
+O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](../data-platform.md) que inclui [logs](../logs/data-platform-logs.md) e [métricas](../essentials/data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.
 
 Este artigo descreve as diferentes fontes de monitoramento de dados coletadas por Azure Monitor além dos dados de monitoramento criados pelos recursos do Azure. São fornecidos links para informações detalhadas sobre a configuração necessária para coletar esses dados em locais diferentes.
 
@@ -40,7 +40,7 @@ A tabela a seguir descreve brevemente as camadas de aplicativo que podem estar n
 
 | Camada | Descrição | Método de coleta |
 |:---|:---|:---|
-| [Sistema operacional (convidado)](#operating-system-guest) | Dados sobre o sistema operacional em recursos de computação. | Instale o agente de Log Analytics para coletar fontes de dados do cliente no Azure Monitor e no agente de dependência para coletar dependências que dão suporte a Azure Monitor para VMs.<br>Para máquinas virtuais do Azure, instale a extensão de diagnóstico do Azure para coletar logs e métricas em Azure Monitor. |
+| [Sistema operacional (convidado)](#operating-system-guest) | Dados sobre o sistema operacional em recursos de computação. | Instale o agente de Log Analytics para coletar fontes de dados do cliente no Azure Monitor e no agente de dependência para coletar dependências que dão suporte a informações de VM.<br>Para máquinas virtuais do Azure, instale a extensão de diagnóstico do Azure para coletar logs e métricas em Azure Monitor. |
 | [Código do aplicativo](#application-code) | Dados sobre o desempenho e a funcionalidade do aplicativo e do código reais, incluindo rastreamentos de desempenho, logs de aplicativos e telemetria de usuários. | Instrumente seu código para coletar dados em Application Insights. |
 | [Fontes personalizadas](#custom-sources) | Dados de serviços externos ou outros componentes ou dispositivos. | Coletar dados de log ou métricas em Azure Monitor de qualquer cliente REST. |
 
@@ -66,14 +66,14 @@ Telemetria relacionada à integridade e operação de sua assinatura do Azure.
 ![Assinatura do Azure](media/data-sources/azure-subscription.png)
 
 ### <a name="azure-activity-log"></a>Log de Atividades do Azure 
-O [log de atividades do Azure](../platform/platform-logs-overview.md) inclui registros de integridade do serviço juntamente com registros em qualquer alteração de configuração feita aos recursos em sua assinatura do Azure. O Log de Atividades está disponível para todos os recursos do Azure e representa a exibição _externa_ desses recursos.
+O [log de atividades do Azure](../essentials/platform-logs-overview.md) inclui registros de integridade do serviço juntamente com registros em qualquer alteração de configuração feita aos recursos em sua assinatura do Azure. O Log de Atividades está disponível para todos os recursos do Azure e representa a exibição _externa_ desses recursos.
 
 | Destino | Descrição | Referência |
 |:---|:---|
-| Log de atividades | O log de atividades é coletado em seu próprio armazenamento de dados que você pode exibir no menu Azure Monitor ou usar para criar alertas do log de atividades. | [Consultar o log de atividades no portal do Azure](./../platform/activity-log.md#view-the-activity-log) |
-| Logs do Azure Monitor | Configure os logs de Azure Monitor para coletar o log de atividades para analisá-lo com outros dados de monitoramento. | [Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](./../platform/activity-log.md) |
-| Armazenamento do Azure | Exporte o log de atividades para o armazenamento do Azure para arquivamento. | [Log de atividades de arquivamento](./../platform/resource-logs.md#send-to-azure-storage)  |
-| Hubs de Eventos | Transmitir o log de atividades para outros locais usando os hubs de eventos | [Transmita o log de atividades para o Hub de eventos](./../platform/resource-logs.md#send-to-azure-event-hubs). |
+| Log de atividades | O log de atividades é coletado em seu próprio armazenamento de dados que você pode exibir no menu Azure Monitor ou usar para criar alertas do log de atividades. | [Consultar o log de atividades no portal do Azure](../essentials/activity-log.md#view-the-activity-log) |
+| Logs do Azure Monitor | Configure os logs de Azure Monitor para coletar o log de atividades para analisá-lo com outros dados de monitoramento. | [Coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../essentials/activity-log.md) |
+| Armazenamento do Azure | Exporte o log de atividades para o armazenamento do Azure para arquivamento. | [Log de atividades de arquivamento](../essentials/resource-logs.md#send-to-azure-storage)  |
+| Hubs de Eventos | Transmitir o log de atividades para outros locais usando os hubs de eventos | [Transmita o log de atividades para o Hub de eventos](../essentials/resource-logs.md#send-to-azure-event-hubs). |
 
 ### <a name="azure-service-health"></a>Integridade do Serviço do Azure
 [A Integridade do Serviço do Azure](../../service-health/service-health-overview.md) fornece informações sobre a integridade dos serviços do Azure na assinatura dos quais o aplicativo e os recursos dependem.
@@ -90,24 +90,24 @@ Métricas e logs de recursos fornecem informações sobre a operação _interna_
 
 
 ### <a name="platform-metrics"></a>Métricas de plataforma 
-A maioria dos serviços do Azure enviará [métricas de plataforma](../platform/data-platform-metrics.md) que refletem seu desempenho e operação diretamente no banco de dados de métricas. As [métricas específicas variam para cada tipo de recurso](../platform/metrics-supported.md). 
+A maioria dos serviços do Azure enviará [métricas de plataforma](../essentials/data-platform-metrics.md) que refletem seu desempenho e operação diretamente no banco de dados de métricas. As [métricas específicas variam para cada tipo de recurso](../essentials/metrics-supported.md). 
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Métricas do Azure Monitor | As métricas de plataforma serão gravadas no banco de dados de métricas Azure Monitor sem configuração. Acesse as métricas de plataforma de Metrics Explorer.  | [Introdução ao Azure Metrics Explorer](../platform/metrics-getting-started.md)<br>[Métricas com suporte com Azure Monitor](../platform/metrics-supported.md) |
-| Logs do Azure Monitor | Copie métricas de plataforma para os logs para tendência e outras análises usando Log Analytics. | [Direcionar o diagnóstico do Azure para o Log Analytics](./../platform/resource-logs.md#send-to-log-analytics-workspace) |
-| Hubs de Eventos | Transmita métricas para outros locais usando os hubs de eventos. |[Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../platform/stream-monitoring-data-event-hubs.md) |
+| Métricas do Azure Monitor | As métricas de plataforma serão gravadas no banco de dados de métricas Azure Monitor sem configuração. Acesse as métricas de plataforma de Metrics Explorer.  | [Introdução ao Azure Metrics Explorer](../essentials/metrics-getting-started.md)<br>[Métricas com suporte com Azure Monitor](../essentials/metrics-supported.md) |
+| Logs do Azure Monitor | Copie métricas de plataforma para os logs para tendência e outras análises usando Log Analytics. | [Direcionar o diagnóstico do Azure para o Log Analytics](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Hubs de Eventos | Transmita métricas para outros locais usando os hubs de eventos. |[Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../essentials/stream-monitoring-data-event-hubs.md) |
 
 ### <a name="resource-logs"></a>Logs de recursos
-[Os logs de recursos](../platform/platform-logs-overview.md) fornecem informações sobre a operação _interna_ de um recurso do Azure.  Os logs de recursos são criados automaticamente, mas você deve criar uma configuração de diagnóstico para especificar um destino para que eles sejam coletados para cada recurso.
+[Os logs de recursos](../essentials/platform-logs-overview.md) fornecem informações sobre a operação _interna_ de um recurso do Azure.  Os logs de recursos são criados automaticamente, mas você deve criar uma configuração de diagnóstico para especificar um destino para que eles sejam coletados para cada recurso.
 
-Os requisitos de configuração e o conteúdo dos logs de recursos variam por tipo de recurso e nem todos os serviços ainda os criam. Consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](./../platform/resource-logs-schema.md) para obter detalhes sobre cada serviço e links para os procedimentos de configuração detalhados. Se o serviço não estiver listado neste artigo, esse serviço não criará logs de recursos no momento.
+Os requisitos de configuração e o conteúdo dos logs de recursos variam por tipo de recurso e nem todos os serviços ainda os criam. Consulte [serviços, esquemas e categorias com suporte para logs de recursos do Azure](../essentials/resource-logs-schema.md) para obter detalhes sobre cada serviço e links para os procedimentos de configuração detalhados. Se o serviço não estiver listado neste artigo, esse serviço não criará logs de recursos no momento.
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Logs do Azure Monitor | Envie logs de recursos para Azure Monitor logs para análise com outros dados de log coletados. | [Coletar logs de recursos do Azure no espaço de trabalho Log Analytics no Azure Monitor](./../platform/resource-logs.md#send-to-azure-storage) |
-| Armazenamento | Envie logs de recursos para o armazenamento do Azure para arquivamento. | [Arquivar logs de recursos do Azure](./../platform/resource-logs.md#send-to-log-analytics-workspace) |
-| Hubs de Eventos | Transmita logs de recursos para outros locais usando os hubs de eventos. |[Transmitir logs de recursos do Azure para um hub de eventos](./../platform/resource-logs.md#send-to-azure-event-hubs) |
+| Logs do Azure Monitor | Envie logs de recursos para Azure Monitor logs para análise com outros dados de log coletados. | [Coletar logs de recursos do Azure no espaço de trabalho Log Analytics no Azure Monitor](../essentials/resource-logs.md#send-to-azure-storage) |
+| Armazenamento | Envie logs de recursos para o armazenamento do Azure para arquivamento. | [Arquivar logs de recursos do Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
+| Hubs de Eventos | Transmita logs de recursos para outros locais usando os hubs de eventos. |[Transmitir logs de recursos do Azure para um hub de eventos](../essentials/resource-logs.md#send-to-azure-event-hubs) |
 
 ## <a name="operating-system-guest"></a>Sistema operacional (convidado)
 Recursos de computação no Azure, em outras nuvens e localmente têm um sistema operacional convidado para monitorar. Com a instalação de um ou mais agentes, você pode reunir a telemetria do convidado em Azure Monitor para analisá-lo com as mesmas ferramentas de monitoramento que os próprios serviços do Azure.
@@ -119,10 +119,10 @@ Habilitar a extensão de Diagnóstico do Azure para máquinas virtuais do Azure 
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Armazenamento | A extensão de diagnóstico do Azure sempre grava em uma conta de armazenamento do Azure. | [Instalar e configurar a extensão WAD (Diagnóstico do Windows Azure)](../platform/diagnostics-extension-windows-install.md)<br>[Usar a Extensão de Diagnóstico do Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md) |
-| Métricas do Azure Monitor | Quando você configura a extensão de diagnóstico para coletar contadores de desempenho, eles são gravados no banco de dados de métricas Azure Monitor. | [Enviar métricas do sistema operacional convidado para o armazenamento de métrica Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows](../platform/collect-custom-metrics-guestos-resource-manager-vm.md) |
-| Hubs de Eventos | Configure a extensão de diagnóstico para transmitir os dados para outros locais usando os hubs de eventos.  | [Streaming de dados de Diagnóstico do Azure usando os hubs de eventos](../platform/diagnostics-extension-stream-event-hubs.md)<br>[Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md) |
-| Logs de Application Insights | Colete logs e contadores de desempenho do recurso de computação que dá suporte ao seu aplicativo para ser analisado com outros dados de aplicativo. | [Enviar dados de diagnóstico do Serviço de Nuvem, da máquina virtual ou do Service Fabric ao Application Insights](../platform/diagnostics-extension-to-application-insights.md) |
+| Armazenamento | A extensão de diagnóstico do Azure sempre grava em uma conta de armazenamento do Azure. | [Instalar e configurar a extensão WAD (Diagnóstico do Windows Azure)](./diagnostics-extension-windows-install.md)<br>[Usar a Extensão de Diagnóstico do Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Métricas do Azure Monitor | Quando você configura a extensão de diagnóstico para coletar contadores de desempenho, eles são gravados no banco de dados de métricas Azure Monitor. | [Enviar métricas do sistema operacional convidado para o armazenamento de métrica Azure Monitor usando um modelo do Resource Manager para uma máquina virtual do Windows](../essentials/collect-custom-metrics-guestos-resource-manager-vm.md) |
+| Hubs de Eventos | Configure a extensão de diagnóstico para transmitir os dados para outros locais usando os hubs de eventos.  | [Streaming de dados de Diagnóstico do Azure usando os hubs de eventos](./diagnostics-extension-stream-event-hubs.md)<br>[Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs](../../virtual-machines/extensions/diagnostics-linux.md) |
+| Logs de Application Insights | Colete logs e contadores de desempenho do recurso de computação que dá suporte ao seu aplicativo para ser analisado com outros dados de aplicativo. | [Enviar dados de diagnóstico do Serviço de Nuvem, da máquina virtual ou do Service Fabric ao Application Insights](./diagnostics-extension-to-application-insights.md) |
 
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics 
@@ -130,16 +130,16 @@ Instale o agente de Log Analytics para monitoramento e gerenciamento abrangentes
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Logs do Azure Monitor | O agente de Log Analytics se conecta a Azure Monitor diretamente ou por meio do System Center Operations Manager e permite coletar dados de fontes de dados que você configura ou de soluções de monitoramento que fornecem informações adicionais sobre aplicativos em execução na máquina virtual. | [Fontes de dados do agente no Azure Monitor](../agents/agent-data-sources.md)<br>[Conectar Operations Manager ao Azure Monitor](../platform/om-agents.md) |
-| Armazenamento de VM | Azure Monitor para VMs usa o agente de Log Analytics para armazenar informações de estado integridade em um local personalizado. Para obter mais informações, confira a próxima seção.  |
+| Logs do Azure Monitor | O agente de Log Analytics se conecta a Azure Monitor diretamente ou por meio do System Center Operations Manager e permite coletar dados de fontes de dados que você configura ou de soluções de monitoramento que fornecem informações adicionais sobre aplicativos em execução na máquina virtual. | [Fontes de dados do agente no Azure Monitor](../agents/agent-data-sources.md)<br>[Conectar Operations Manager ao Azure Monitor](./om-agents.md) |
+| Armazenamento de VM | O Revisions de VM usa o agente de Log Analytics para armazenar informações de estado integridade em um local personalizado. Para obter mais informações, confira a próxima seção.  |
 
 
-### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs 
-O [Azure monitor para VMs](../insights/vminsights-overview.md) fornece uma experiência de monitoramento Personalizada para máquinas virtuais que fornecem recursos além da funcionalidade de Azure monitor principal. Ele requer um Dependency Agent em máquinas virtuais Windows e Linux que se integre com o agente Log Analytics para coletar dados descobertos sobre processos em execução na máquina virtual e dependências de processo externas.
+### <a name="vm-insights"></a>Informações de VM 
+O [virtual insights](../vm/vminsights-overview.md) fornece uma experiência de monitoramento Personalizada para máquinas virtuais que fornecem recursos além da funcionalidade de Azure monitor básica. Ele requer um Dependency Agent em máquinas virtuais Windows e Linux que se integre com o agente Log Analytics para coletar dados descobertos sobre processos em execução na máquina virtual e dependências de processo externas.
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Logs do Azure Monitor | Armazena dados sobre processos e dependências no agente. | [Usando o mapa Azure Monitor para VMs (versão prévia) para entender os componentes do aplicativo](../insights/vminsights-maps.md) |
+| Logs do Azure Monitor | Armazena dados sobre processos e dependências no agente. | [Usando o mapa de informações de VM (versão prévia) para entender os componentes do aplicativo](../vm/vminsights-maps.md) |
 
 
 
@@ -154,7 +154,7 @@ Quando você habilita o Application Insights para um aplicativo por meio da inst
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Logs do Azure Monitor | Dados operacionais sobre seu aplicativo, incluindo exibições de página, solicitações de aplicativo, exceções e rastreamentos. | [Analisar dados de log no Azure Monitor](../log-query/log-query-overview.md) |
+| Logs do Azure Monitor | Dados operacionais sobre seu aplicativo, incluindo exibições de página, solicitações de aplicativo, exceções e rastreamentos. | [Analisar dados de log no Azure Monitor](../logs/log-query-overview.md) |
 |                    | Informações de dependência entre componentes de aplicativo para dar suporte ao mapa do aplicativo e à correlação de telemetria. | [Correlação de telemetria no Application Insights](../app/correlation.md) <br> [Mapa do aplicativo](../app/app-map.md) |
 |            | Resultados de testes de disponibilidade que testam a disponibilidade e a capacidade de resposta do seu aplicativo de locais diferentes na Internet pública. | [Monitorar a disponibilidade e a capacidade de resposta de qualquer site da Web](../app/monitor-web-app-availability.md) |
 | Métricas do Azure Monitor | Application Insights coleta métricas que descrevem o desempenho e a operação do aplicativo, além das métricas personalizadas que você define em seu aplicativo no banco de dados de métricas de Azure Monitor. | [Métricas baseadas em log e pré-agregadas no Application Insights](../app/pre-aggregated-metrics-log-metrics.md)<br>[API do Application Insights para métricas e eventos personalizados](../app/api-custom-events-metrics.md) |
@@ -170,20 +170,20 @@ O [monitoramento de soluções](../insights/solutions.md) e [informações](../m
 
 | Destino | Descrição | Referência
 |:---|:---|:---|
-| Logs do Azure Monitor | As soluções de monitoramento coletam dados em logs de Azure Monitor onde podem ser analisados usando a linguagem de consulta ou [exibições](../platform/view-designer.md) que normalmente são incluídas na solução. | [Detalhes da coleta de dados para soluções de monitoramento no Azure](../monitor-reference.md) |
+| Logs do Azure Monitor | As soluções de monitoramento coletam dados em logs de Azure Monitor onde podem ser analisados usando a linguagem de consulta ou [exibições](../visualize/view-designer.md) que normalmente são incluídas na solução. | [Detalhes da coleta de dados para soluções de monitoramento no Azure](../monitor-reference.md) |
 
 
-### <a name="azure-monitor-for-containers"></a>Azure Monitor para contêineres
-[Azure monitor para contêineres](../insights/container-insights-overview.md) fornece uma experiência de monitoramento Personalizada para o [AKs (serviço kubernetes do Azure)](../../aks/index.yml). Ele coleta dados adicionais sobre esses recursos descritos na tabela a seguir.
+### <a name="container-insights"></a>Informações de contêiner
+As [informações de contêiner](../containers/container-insights-overview.md) fornecem uma experiência de monitoramento Personalizada para o [AKs (serviço kubernetes do Azure)](../../aks/index.yml). Ele coleta dados adicionais sobre esses recursos descritos na tabela a seguir.
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Logs do Azure Monitor | Armazena dados de monitoramento para AKS, incluindo inventário, logs e eventos. Os dados de métrica também são armazenados em logs a fim de aproveitar sua funcionalidade de análise no Portal. | [Compreender o desempenho de cluster do AKS com o Azure Monitor para contêineres](../insights/container-insights-analyze.md) |
-| Métricas do Azure Monitor | Os dados de métrica são armazenados no banco de dado de métrica para impulsionar a visualização e os alertas. | [Exibir métricas de contêiner no Metrics Explorer](../insights/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
-| Serviço de Kubernetes do Azure | Fornece acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas de Pod no Portal. | [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real ](../insights/container-insights-livedata-overview.md) |
+| Logs do Azure Monitor | Armazena dados de monitoramento para AKS, incluindo inventário, logs e eventos. Os dados de métrica também são armazenados em logs a fim de aproveitar sua funcionalidade de análise no Portal. | [Entender o desempenho do cluster AKS com informações de contêiner](../containers/container-insights-analyze.md) |
+| Métricas do Azure Monitor | Os dados de métrica são armazenados no banco de dado de métrica para impulsionar a visualização e os alertas. | [Exibir métricas de contêiner no Metrics Explorer](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
+| Serviço de Kubernetes do Azure | Fornece acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas de Pod no Portal. | [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real ](../containers/container-insights-livedata-overview.md) |
 
-### <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
-[Azure monitor para VMs](../insights/vminsights-overview.md) fornece uma experiência personalizada para monitorar máquinas virtuais. Uma descrição dos dados coletados pelo Azure Monitor para VMs está incluída na seção do [sistema operacional (convidado)](#operating-system-guest) acima.
+### <a name="vm-insights"></a>Informações de VM
+As [informações de VM](../vm/vminsights-overview.md) fornecem uma experiência personalizada para monitorar máquinas virtuais. Uma descrição dos dados coletados pelo VM insights está incluída na seção do [sistema operacional (convidado)](#operating-system-guest) acima.
 
 ## <a name="custom-sources"></a>Fontes personalizadas
 Além das camadas padrão de um aplicativo, você precisa monitorar outros recursos que têm a telemetria que não pode ser coletada com outras fontes de dados. Para esses recursos, grave esses dados em métricas ou logs usando uma API Azure Monitor.
@@ -192,8 +192,8 @@ Além das camadas padrão de um aplicativo, você precisa monitorar outros recur
 
 | Destino | Método | Descrição | Referência |
 |:---|:---|:---|:---|
-| Logs do Azure Monitor | API do Coletor de Dados | Coletar dados de log de qualquer cliente REST e armazenar em Log Analytics espaço de trabalho. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](../platform/data-collector-api.md) |
-| Métricas do Azure Monitor | API de métricas personalizadas | Coletar dados de métrica de qualquer cliente REST e armazenar em Azure Monitor banco de dados de métricas. | [Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST](../platform/metrics-store-custom-rest-api.md) |
+| Logs do Azure Monitor | API do Coletor de Dados | Coletar dados de log de qualquer cliente REST e armazenar em Log Analytics espaço de trabalho. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](../logs/data-collector-api.md) |
+| Métricas do Azure Monitor | API de métricas personalizadas | Coletar dados de métrica de qualquer cliente REST e armazenar em Azure Monitor banco de dados de métricas. | [Enviar métricas personalizadas de um recurso do Azure para o repositório de métricas do Azure Monitor usando uma API REST](../essentials/metrics-store-custom-rest-api.md) |
 
 
 ## <a name="other-services"></a>Outros serviços
@@ -207,5 +207,5 @@ Outros serviços no Azure gravam dados na plataforma de dados Azure Monitor. Iss
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre os [tipos de dados de monitoramento coletados pelo Azure Monitor](../platform/data-platform.md) e como exibir e analisar esses dados.
+- Saiba mais sobre os [tipos de dados de monitoramento coletados pelo Azure Monitor](../data-platform.md) e como exibir e analisar esses dados.
 - Liste os [diferentes locais em que os recursos do Azure armazenam dados](../monitor-reference.md) e como você pode acessá-los.

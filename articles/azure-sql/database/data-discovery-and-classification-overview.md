@@ -13,12 +13,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/17/2021
 tags: azure-synapse
-ms.openlocfilehash: fee285aa3beb308f5e6b3b233d40597c2a287eb7
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: f47303a953dbb06b4c9efdfbbae41715cad81d2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651962"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690797"
 ---
 # <a name="data-discovery--classification"></a>Descoberta e Classificação de Dados
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -112,7 +112,7 @@ Depois que a política de toda a organização tiver sido definida, você poder�
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Auditoria de acesso a dados confidenciais
 
-Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Veja um exemplo:
+Um aspecto importante do paradigma da proteção de informações é a capacidade de monitorar o acesso a dados confidenciais. A [auditoria do SQL do Azure](../../azure-sql/database/auditing-overview.md) foi aprimorada para incluir um novo campo no log de auditoria chamado `data_sensitivity_information` . Esse campo registra as classificações de sensibilidade (rótulos) dos dados que foram retornados por uma consulta. Aqui está um exemplo:
 
 ![Log de auditoria](./media/data-discovery-and-classification-overview/11_data_classification_audit_log.png)
 
@@ -187,12 +187,12 @@ Você pode usar a API REST para gerenciar programaticamente as classificações 
 
 ## <a name="faq---advanced-classification-capabilities"></a>Perguntas frequentes-recursos de classificação avançada
 
-**Pergunta**: o [Azure alcance](https://docs.microsoft.com/azure/purview/overview) substituirá a descoberta de dados do SQL & classificação ou o SQL Data Discovery & classificação será desativada em breve?
-**Resposta**: continuamos a oferecer suporte à classificação de & do SQL Data Discovery e incentivamos você a adotar o [Azure alcance](https://docs.microsoft.com/azure/purview/overview) , que tem recursos mais avançados para impulsionar os recursos de classificação avançada e a governança de dados. Se decidirmos desativar qualquer serviço, recurso, API ou SKU, você receberá uma notificação antecipada, incluindo um caminho de migração ou de transição. Saiba mais sobre as políticas de ciclo de vida da Microsoft aqui.
+**Pergunta**: o [Azure alcance](../../purview/overview.md) substituirá a descoberta de dados do SQL & classificação ou o SQL Data Discovery & classificação será desativada em breve?
+**Resposta**: continuamos a oferecer suporte à classificação de & do SQL Data Discovery e incentivamos você a adotar o [Azure alcance](../../purview/overview.md) , que tem recursos mais avançados para impulsionar os recursos de classificação avançada e a governança de dados. Se decidirmos desativar qualquer serviço, recurso, API ou SKU, você receberá uma notificação antecipada, incluindo um caminho de migração ou de transição. Saiba mais sobre as políticas de ciclo de vida da Microsoft aqui.
 
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Próximas etapas
 
 - Considere configurar a [auditoria do SQL Azure](../../azure-sql/database/auditing-overview.md) para monitorar e auditar o acesso aos seus dados confidenciais classificados.
 - Para uma apresentação que inclui a descoberta de dados & classificação, consulte [descobrindo, classificando, rotulando & protegendo dados SQL | Dados expostos](https://www.youtube.com/watch?v=itVi9bkJUNc).
-- Para classificar seus bancos de dados SQL do Azure e o Azure Synapse Analytics com os rótulos de alcance do Azure usando comandos T-SQL, consulte [classificar seus dados SQL do Azure usando os rótulos de alcance do Azure](https://docs.microsoft.com/azure/sql-database/scripts/sql-database-import-purview-labels).
+- Para classificar seus bancos de dados SQL do Azure e o Azure Synapse Analytics com os rótulos de alcance do Azure usando comandos T-SQL, consulte [classificar seus dados SQL do Azure usando os rótulos de alcance do Azure](../../sql-database/scripts/sql-database-import-purview-labels.md).

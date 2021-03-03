@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
-ms.openlocfilehash: 9d8d37e1b161dfc8344d7ff03bc0093d23f86101
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fa826e951b9fe34eb27481718b8f026747011e4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717410"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
 
@@ -25,11 +25,11 @@ Recomendamos revisar [Limitações e restrições](#limitationsandconstraints) a
 
 Azure Monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu [Azure Key Vault](../../key-vault/general/overview.md), que fornece o controle para revogar o acesso aos seus dados a qualquer momento. Azure Monitor uso da criptografia é idêntico ao modo como a [criptografia de armazenamento do Azure](../../storage/common/storage-service-encryption.md#about-azure-storage-encryption) Opera.
 
-A chave gerenciada pelo cliente é entregue em [clusters dedicados](../log-query/logs-dedicated-clusters.md) , fornecendo maior nível de proteção e controle. Os dados ingeridos em clusters dedicados estão sendo criptografados duas vezes — uma vez no nível de serviço usando chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente e uma vez no nível de infraestrutura usando dois algoritmos de criptografia diferentes e duas chaves diferentes. A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protege contra um cenário em que um dos algoritmos ou chaves de criptografia pode ser comprometido. Nesse caso, a camada adicional de criptografia continua a proteger seus dados. O cluster dedicado também permite que você proteja seus dados com o controle de [Lockbox](#customer-lockbox-preview) .
+A chave gerenciada pelo cliente é entregue em [clusters dedicados](./logs-dedicated-clusters.md) , fornecendo maior nível de proteção e controle. Os dados ingeridos em clusters dedicados estão sendo criptografados duas vezes — uma vez no nível de serviço usando chaves gerenciadas pela Microsoft ou chaves gerenciadas pelo cliente e uma vez no nível de infraestrutura usando dois algoritmos de criptografia diferentes e duas chaves diferentes. A [criptografia dupla](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption) protege contra um cenário em que um dos algoritmos ou chaves de criptografia pode ser comprometido. Nesse caso, a camada adicional de criptografia continua a proteger seus dados. O cluster dedicado também permite que você proteja seus dados com o controle de [Lockbox](#customer-lockbox-preview) .
 
 Os dados ingeridos nos últimos 14 dias também são mantidos no cache de acesso frequente (com suporte de SSD) para uma operação de mecanismo de consulta eficiente. Esses dados permanecem criptografados com chaves da Microsoft independentemente da configuração de chave gerenciada pelo cliente, mas seu controle sobre os dados SSD adere à [revogação de chave](#key-revocation). Estamos trabalhando para ter dados SSD criptografados com chave gerenciada pelo cliente no primeiro semestre de 2021.
 
-Log Analytics clusters dedicados usam um modelo de [preços](../log-query/logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidade a partir de 1000 GB/dia.
+Log Analytics clusters dedicados usam um modelo de [preços](./logs-dedicated-clusters.md#cluster-pricing-model) de reserva de capacidade a partir de 1000 GB/dia.
 
 ## <a name="how-customer-managed-key-works-in-azure-monitor"></a>Como funciona a chave gerenciada pelo cliente no Azure Monitor
 
@@ -145,7 +145,7 @@ Os clusters dão suporte a dois [tipos de identidade gerenciados](../../active-d
 > [!IMPORTANT]
 > Você não poderá usar a identidade gerenciada atribuída pelo usuário se seu Key Vault estiver em Private-Link (vNet). Você pode usar a identidade gerenciada atribuída pelo sistema nesse cenário.
 
-Siga o artigo procedimento ilustrado no [clusters dedicados](../log-query/logs-dedicated-clusters.md#creating-a-cluster). 
+Siga o artigo procedimento ilustrado no [clusters dedicados](./logs-dedicated-clusters.md#creating-a-cluster). 
 
 ## <a name="grant-key-vault-permissions"></a>Conceder permissões do Key Vault
 
@@ -253,7 +253,7 @@ Uma resposta à solicitação GET deve ser parecida com esta quando a atualizaç
 
 Você precisa ter permissões de ' gravação ' no seu espaço de trabalho e cluster para executar essa operação, que incluem `Microsoft.OperationalInsights/workspaces/write` e `Microsoft.OperationalInsights/clusters/write` .
 
-Siga o artigo procedimento ilustrado no [clusters dedicados](../log-query/logs-dedicated-clusters.md#link-a-workspace-to-cluster).
+Siga o artigo procedimento ilustrado no [clusters dedicados](./logs-dedicated-clusters.md#link-a-workspace-to-cluster).
 
 ## <a name="key-revocation"></a>Revogação de chave
 
@@ -387,7 +387,7 @@ Saiba mais sobre [sistema de proteção de dados do cliente para Microsoft Azure
 
 ## <a name="customer-managed-key-operations"></a>Operações de Customer-Managed chave
 
-Customer-Managed chave é fornecida no cluster dedicado e essas operações são mencionadas no [artigo de cluster dedicado](../log-query/logs-dedicated-clusters.md#change-cluster-properties)
+Customer-Managed chave é fornecida no cluster dedicado e essas operações são mencionadas no [artigo de cluster dedicado](./logs-dedicated-clusters.md#change-cluster-properties)
 
 - Obter todos os clusters no grupo de recursos  
 - Obter todos os clusters na assinatura
@@ -470,8 +470,8 @@ Customer-Managed chave é fornecida no cluster dedicado e essas operações são
 
   **Atualização do cluster**
   -  400--o cluster está em estado de exclusão. A operação assíncrona está em andamento. O cluster deve concluir sua operação antes que qualquer operação de atualização seja executada.
-  -  400--keyvaultproperties não está vazio, mas tem um formato inválido. Consulte [atualização do identificador de chave](../platform/customer-managed-keys.md#update-cluster-with-key-identifier-details).
-  -  400--falha ao validar a chave no Key Vault. Pode ser devido à falta de permissões ou quando a chave não existe. Verifique se você [definiu a política de acesso e chave](../platform/customer-managed-keys.md#grant-key-vault-permissions) no Key Vault.
+  -  400--keyvaultproperties não está vazio, mas tem um formato inválido. Consulte [atualização do identificador de chave](#update-cluster-with-key-identifier-details).
+  -  400--falha ao validar a chave no Key Vault. Pode ser devido à falta de permissões ou quando a chave não existe. Verifique se você [definiu a política de acesso e chave](#grant-key-vault-permissions) no Key Vault.
   -  400--a chave não é recuperável. Key Vault deve ser definido como exclusão reversível e proteção de limpeza. Consulte a [documentação do Key Vault](../../key-vault/general/soft-delete-overview.md)
   -  400--a operação não pode ser executada agora. Aguarde a conclusão da operação assíncrona e tente novamente.
   -  400--o cluster está em estado de exclusão. Aguarde a conclusão da operação assíncrona e tente novamente.
@@ -492,5 +492,5 @@ Customer-Managed chave é fornecida no cluster dedicado e essas operações são
   -  409--operação de desvinculação ou link do espaço de trabalho no processo.
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [log Analytics cobrança de cluster dedicado](../platform/manage-cost-storage.md#log-analytics-dedicated-clusters)
-- Saiba mais sobre o [design adequado de espaços de trabalho de log Analytics](../platform/design-logs-deployment.md)
+- Saiba mais sobre [log Analytics cobrança de cluster dedicado](./manage-cost-storage.md#log-analytics-dedicated-clusters)
+- Saiba mais sobre o [design adequado de espaços de trabalho de log Analytics](./design-logs-deployment.md)

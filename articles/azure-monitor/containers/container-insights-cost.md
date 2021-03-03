@@ -1,22 +1,22 @@
 ---
-title: Custo de monitoramento para Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve o custo de monitoramento para métricas & dados de inventário coletados por Azure Monitor para contêineres para ajudar os clientes a gerenciar o uso e os custos associados.
+title: Custo de monitoramento para insights de contêiner | Microsoft Docs
+description: Este artigo descreve o custo de monitoramento para métricas & dados de inventário coletados por informações de contêiner para ajudar os clientes a gerenciar seu uso e os custos associados.
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: 0a3118e1dd839eced5e1f15d28feff4bbb58014f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 78387e950d476126d7c2065a530844e44fd59b4f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606680"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728902"
 ---
-# <a name="understand-monitoring-costs-for-azure-monitor-for-containers"></a>Entender os custos de monitoramento para Azure Monitor para contêineres
+# <a name="understand-monitoring-costs-for-container-insights"></a>Entender os custos de monitoramento para informações de contêiner
 
-Este artigo fornece diretrizes de preços para Azure Monitor para contêineres para ajudá-lo a entender o seguinte:
+Este artigo fornece diretrizes de preços para informações de contêiner para ajudá-lo a entender o seguinte:
 
 * Como estimar os custos antecipadamente antes de habilitar essa percepção
 
-* Como medir os custos depois que os Azure Monitor para contêineres tiverem sido habilitados para um ou mais contêineres
+* Como medir os custos após a habilitação de informações de contêiner para um ou mais contêineres
 
 * Como controlar a coleta de dados e fazer reduções de custos
 
@@ -27,7 +27,7 @@ O modelo de preços Azure Monitor se baseia principalmente na quantidade de dado
 >[!NOTE]
 >Todos os tamanhos e preços são apenas para estimativas de exemplo. Consulte a página de [preços](https://azure.microsoft.com/pricing/details/monitor/) do Azure monitor para obter os preços mais recentes com base em seu Azure monitor log Analytics modelo de preços e na região do Azure.
 
-Veja a seguir um resumo de quais tipos de dados são coletados de um cluster kubernetes com Azure Monitor para contêineres que influenciam o custo e podem ser personalizados com base no seu uso:
+Veja a seguir um resumo de quais tipos de dados são coletados de um cluster kubernetes com informações de contêiner que influenciam o custo e podem ser personalizados com base no seu uso:
 
 - Stdout, logs de contêiner stderr de cada contêiner monitorado em cada namespace kubernetes no cluster
 
@@ -37,11 +37,11 @@ Veja a seguir um resumo de quais tipos de dados são coletados de um cluster kub
 
 - Recorte ativo de métricas de Prometheus
 
-- [Coleta de log de diagnóstico](../../aks/view-master-logs.md) dos logs do nó mestre do kubernetes no cluster do AKS para analisar os dados de log gerados por componentes mestres, como *Kube-apiserver* e *Kube-Controller-Manager*.
+- [Coleta de log de diagnóstico](../../aks/view-control-plane-logs.md) dos logs do nó mestre do kubernetes no cluster do AKS para analisar os dados de log gerados por componentes mestres, como *Kube-apiserver* e *Kube-Controller-Manager*.
 
 ## <a name="what-is-collected-from-kubernetes-clusters"></a>O que é coletado de clusters kubernetes
 
-Azure Monitor para contêineres inclui um conjunto predefinido de métricas e itens de estoque coletados que são gravados como dados de log em seu espaço de trabalho do Log Analytics. Todas as métricas listadas abaixo são coletadas por padrão a cada minuto.
+As informações de contêiner incluem um conjunto predefinido de métricas e itens de inventário coletados que são gravados como dados de log em seu espaço de trabalho do Log Analytics. Todas as métricas listadas abaixo são coletadas por padrão a cada minuto.
 
 ### <a name="node-metrics-collected"></a>Métricas de nó coletadas
 
@@ -194,10 +194,10 @@ Se você estiver utilizando a [recorte de métrica Prometheus](container-insight
 
 - Verifique se a frequência de sucata está definida de forma ideal (o padrão é 60 segundos). Embora seja possível aumentar a frequência para 15 segundos, você precisa garantir que as métricas que você está recortando sejam publicadas nessa frequência. Caso contrário, haverá muitas métricas duplicadas resumidas e enviadas ao seu espaço de trabalho de Log Analytics em intervalos que agregam a ingestão de dados e custos de retenção, mas são de menor valor. 
 
-- Azure Monitor para contêineres dá suporte à exclusão & listas de inclusão por nome da métrica. Por exemplo, se você estiver dispensando métricas de **kubedns** em seu cluster, pode haver centenas delas que são recortadas por padrão, mas você provavelmente está interessado apenas em um subconjunto. Confirme que você especificou uma lista de métricas para sucata ou exclua outras, exceto algumas para salvar no volume de ingestão de dados. É fácil habilitar a recorte e não usar muitas dessas métricas, o que adicionará somente encargos adicionais à sua fatura de Log Analytics.
+- As informações de contêiner dão suporte à exclusão & listas de inclusão por nome de métrica. Por exemplo, se você estiver dispensando métricas de **kubedns** em seu cluster, pode haver centenas delas que são recortadas por padrão, mas você provavelmente está interessado apenas em um subconjunto. Confirme que você especificou uma lista de métricas para sucata ou exclua outras, exceto algumas para salvar no volume de ingestão de dados. É fácil habilitar a recorte e não usar muitas dessas métricas, o que adicionará somente encargos adicionais à sua fatura de Log Analytics.
 
 - Ao recorrer a anotações de Pod, certifique-se de filtrar por namespace para que você exclua a recorte de métricas de pod de namespaces que você não usa (por exemplo, o namespace **dev-Test** ).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre como entender quais são os custos prováveis com base nos padrões de uso recentes dos dados coletados com Azure Monitor para contêineres, consulte [gerenciar seus custos de uso e de estimativa](../platform/manage-cost-storage.md).
+Para obter mais informações sobre como entender quais são os custos prováveis com base nos padrões de uso recentes dos dados coletados com o contêiner insights, consulte [gerenciar seu uso e estimar os custos](../logs/manage-cost-storage.md).

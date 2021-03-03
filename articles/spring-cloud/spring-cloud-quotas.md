@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 20ebeb23fe09ba4fd70a724828afadfaa3901abd
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02ccb3acb4546e08e7d58159ab9d85bca2d0eed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095664"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711868"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Cotas e planos de serviço para o Azure Spring Cloud
 
@@ -32,7 +32,7 @@ Domínios personalizados | por instância do serviço de nuvem do Azure Spring |
 Volumes persistentes | por instância do serviço de nuvem do Azure Spring | aplicativos de 1 GB/aplicativo x 10 | 50 GB/aplicativo x 10 aplicativos
 
 > [!TIP]
-> As tarifas listadas para o total de instâncias de aplicativo por instância de serviço se aplicam a aplicativos/implantações no estado parado. Exclua os aplicativos/implantações que não estão em uso.
+> Os limites listados para total de instâncias de aplicativo por instância de serviço se aplicam a aplicativos e implantações em qualquer Estado, incluindo o estado parado. Exclua aplicativos ou implantações que não estão em uso.
 
 ## <a name="next-steps"></a>Próximas etapas
 

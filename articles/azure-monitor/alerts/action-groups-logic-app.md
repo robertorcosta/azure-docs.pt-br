@@ -4,14 +4,14 @@ description: Saiba como criar uma ação do aplicativo lógico para processar al
 author: dkamstra
 ms.author: dukek
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 02/19/2021
 ms.subservice: alerts
-ms.openlocfilehash: d74d77abbc0d105e6772240b8a6d7f463e8d94f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: adef1f729cbecd08b2cf99231423287bdc4c6ae0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606724"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701171"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Como disparar ações complexas com alertas do Azure Monitor
 
@@ -19,7 +19,7 @@ Este artigo mostra como configurar e disparar um aplicativo lógico para criar u
 
 ## <a name="overview"></a>Visão geral
 
-Quando um alerta do Azure Monitor dispara, ele chama um [grupo de ações](../platform/action-groups.md). Os grupos de ações permitem que você dispare uma ou mais ações para notificar os outros sobre o alerta e até mesmo corrigi-lo.
+Quando um alerta do Azure Monitor dispara, ele chama um [grupo de ações](./action-groups.md). Os grupos de ações permitem que você dispare uma ou mais ações para notificar os outros sobre o alerta e até mesmo corrigi-lo.
 
 O processo geral é:
 
@@ -35,29 +35,15 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
 ## <a name="create-an-activity-log-alert-administrative"></a>Criar um alerta de log de Atividades – Administrativo
 
-1.  No portal do Microsoft Azure, selecione **Criar um recurso** no canto superior esquerdo.
+1. [Criar um aplicativo lógico](~/articles/logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-2.  Pesquise e selecione **Aplicativo Lógico**, sem seguida selecione **Criar**.
+2.  Selecione o gatilho **Quando uma solicitação HTTP for recebida**.
 
-3.  Forneça um **Nome** ao Aplicativo Lógico, escolha um **Grupo de recursos** e etc.
+1. Na caixa de diálogo **Quando uma solicitação HTTP é recebida**, selecione **Use o conteúdo de amostra para gerar o esquema**.
 
-    ![Criar um aplicativo lógico](media/action-groups-logic-app/create-logic-app-dialog.png "Criar um aplicativo lógico")
+    ![Captura de tela que mostra a caixa de diálogo Quando uma solicitação H T T P e a opção Usar o conteúdo de amostra para gerar o esquema selecionada. ](~/articles/app-service/media/tutorial-send-email/generate-schema-with-payload.png)
 
-4.  Selecione **Criar** para criar o aplicativo lógico. Uma mensagem de pop-up indica que um aplicativo lógico foi criado. Selecione **Recursos de Lançamento** para abrir o **Designer de Aplicativos Lógicos**.
-
-5.  Selecione o gatilho **Quando uma solicitação HTTP for recebida**.
-
-    ![Gatilhos do aplicativo lógico](media/action-groups-logic-app/logic-app-triggers.png "Gatilhos do aplicativo lógico")
-
-6.  Selecione **Editar** para alterar o gatilho de solicitação HTTP.
-
-    ![Gatilhos de solicitação HTTP](media/action-groups-logic-app/http-request-trigger-shape.png "Gatilhos de solicitação HTTP")
-
-7.  Selecione **Use o conteúdo de amostra para gerar o esquema**.
-
-    ![Usar um conteúdo de exemplo](media/action-groups-logic-app/use-sample-payload-button.png "Usar um conteúdo de exemplo")
-
-8.  Copie e cole o seguinte conteúdo de exemplo na caixa de diálogo:
+3.  Copie e cole o seguinte conteúdo de exemplo na caixa de diálogo:
 
     ```json
         {
@@ -128,7 +114,7 @@ O processo será semelhante se você quiser que o aplicativo lógico execute uma
 
 14. Na parte superior do **Designer de Aplicativos Lógicos**, selecione **Salvar** para salvar seu aplicativo lógico.
 
-15. Abra o grupo de ações existente e adicione uma ação para referenciar o aplicativo lógico. Se você não tiver um grupo de ações existente, consulte [criar e gerenciar grupos de ações no portal do Azure](../platform/action-groups.md) para criar um. Não se esqueça de salvar as alterações.
+15. Abra o grupo de ações existente e adicione uma ação para referenciar o aplicativo lógico. Se você não tiver um grupo de ações existente, consulte [criar e gerenciar grupos de ações no portal do Azure](./action-groups.md) para criar um. Não se esqueça de salvar as alterações.
 
     ![Atualizar o grupo de ações](media/action-groups-logic-app/update-action-group.png "Atualizar o grupo de ações")
 
@@ -138,8 +124,8 @@ Na próxima vez que um alerta chamar o grupo de ações, o aplicativo lógico se
 
 As entradas da Integridade de Serviço do Azure são parte do registro de atividade. O processo para criar o alerta é semelhante para [criar um alerta de registro de atividade](#create-an-activity-log-alert-administrative),mas com algumas alterações:
 
-- As etapas 1 a 7 são as mesmas.
-- Para a etapa 8, use o seguinte conteúdo de exemplo para o gatilho de solicitação HTTP:
+- As etapas de 1 a 3 são as mesmas.
+- Para a etapa 4, use o seguinte conteúdo de exemplo para o gatilho de solicitação HTTP:
 
     ```json
     {
@@ -183,8 +169,8 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
     }
     ```
 
--  As etapas 9 a 10 são as mesmas.
--  Para as etapas de 11 a 14, use o processo a seguir:
+-  As etapas 5 e 6 são as mesmas.
+-  Para as etapas 7 a 11, use o seguinte processo:
 
    1. Selecione **+** **nova etapa** e, em seguida, escolha **Adicionar uma condição**. Defina as condições a seguir para que o aplicativo lógico seja executado quando os dados de entrada corresponderem aos valores abaixo.  Ao inserir o valor da versão na caixa de texto, coloque aspas ("0.1.1") para certificar-se de que ele seja avaliado como uma cadeia de caracteres e não um tipo numérico.  O sistema não mostra as aspas se você retorna à página, mas o código subjacente ainda mantém o tipo de cadeia de caracteres.   
        - `schemaId == Microsoft.Insights/activityLogs`
@@ -226,8 +212,8 @@ As entradas da Integridade de Serviço do Azure são parte do registro de ativid
 
 O processo para criar o alerta métrico é semelhante para [criar um alerta de registro de atividade](#create-an-activity-log-alert-administrative),mas com algumas alterações:
 
-- As etapas 1 a 7 são as mesmas.
-- Para a etapa 8, use o seguinte conteúdo de exemplo para o gatilho de solicitação HTTP:
+- As etapas de 1 a 3 são as mesmas.
+- Para a etapa 4, use o seguinte conteúdo de exemplo para o gatilho de solicitação HTTP:
 
     ```json
     {
@@ -271,8 +257,8 @@ O processo para criar o alerta métrico é semelhante para [criar um alerta de r
     }
     ```
 
-- As etapas 9 a 10 são as mesmas.
-- Para as etapas de 11 a 14, use o processo a seguir:
+- As etapas 5 e 6 são as mesmas.
+- Para as etapas 7 a 11, use o seguinte processo:
 
   1. Selecione **+** **nova etapa** e, em seguida, escolha **Adicionar uma condição**. Defina as condições a seguir para que o aplicativo lógico seja executado quando os dados de entrada corresponderem aos valores abaixo. Ao inserir o valor da versão na caixa de texto, coloque aspas ("2.0") para certificar-se de que ele seja avaliado como uma cadeia de caracteres e não um tipo numérico.  O sistema não mostra as aspas se você retorna à página, mas o código subjacente ainda mantém o tipo de cadeia de caracteres. 
      - `schemaId == AzureMonitorMetricAlert`
@@ -294,7 +280,6 @@ O processo para criar o alerta métrico é semelhante para [criar um alerta de r
 Aplicativos Lógicos têm um número de diferentes conectores que permitem disparar ações em um intervalo amplo de aplicativos e bancos de dados. Slack, SQL Server, Oracle, Salesforce, são apenas alguns exemplos. Para obter mais informações sobre conectores, consulte [Conectores do aplicativo lógico](../../connectors/apis-list.md).  
 
 ## <a name="next-steps"></a>Próximas etapas
-* Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](../platform/alerts-overview.md) e saiba como receber alertas.  
+* Obtenha uma [visão geral dos alertas do log de atividades do Microsoft Azure](./alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do Serviço do Azure é publicada](../../service-health/alerts-activity-log-service-notifications-portal.md).
-* Saiba mais sobre [grupos de ação](../platform/action-groups.md).
-
+* Saiba mais sobre [grupos de ação](./action-groups.md).

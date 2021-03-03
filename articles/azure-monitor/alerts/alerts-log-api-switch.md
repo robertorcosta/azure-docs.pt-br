@@ -6,12 +6,12 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 55f433786ed9dd40b08bb64395a6bbc50800add4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e07abdda805205701a10ca3bf295b7b0d2e71766
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605499"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718022"
 ---
 # <a name="upgrade-to-the-current-log-alerts-api-from-legacy-log-analytics-alert-api"></a>Atualizar para a API de alertas de log atual da API de alerta de Log Analytics herdado
 
@@ -19,26 +19,26 @@ ms.locfileid: "100605499"
 > Este artigo só é relevante para o público do Azure (**não** para o Azure governamental ou para a nuvem do Azure China).
 
 > [!NOTE]
-> Quando um usuário opta por alternar a preferência para a [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) atual, não é possível reverter de volta para a [API de alerta de log Analytics herdada](../platform/api-alerts.md)mais antiga.
+> Quando um usuário opta por alternar a preferência para a [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules) atual, não é possível reverter de volta para a [API de alerta de log Analytics herdada](./api-alerts.md)mais antiga.
 
-No passado, os usuários usaram a [API de alerta de log Analytics herdado](../platform/api-alerts.md) para gerenciar as regras de alerta de log. Os espaços de trabalho atuais usam a [API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Este artigo descreve os benefícios e o processo de alternar da API herdada para a API atual.
+No passado, os usuários usaram a [API de alerta de log Analytics herdado](./api-alerts.md) para gerenciar as regras de alerta de log. Os espaços de trabalho atuais usam a [API ScheduledQueryRules](/rest/api/monitor/scheduledqueryrules). Este artigo descreve os benefícios e o processo de alternar da API herdada para a API atual.
 
 ## <a name="benefits"></a>Benefícios
 
 - Modelo único para criação de regras de alerta (anteriormente necessários três modelos separados).
 - API única para Log Analytics espaços de trabalho ou recursos de Application Insights.
-- [Suporte a cmdlets do PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- [Suporte a cmdlets do PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - Alinhamento de severidades com todos os outros tipos de alerta.
-- Capacidade de criar um [alerta de log entre espaços de trabalho](../log-query/cross-workspace-query.md) que abrange vários recursos externos, como espaços de trabalho log Analytics ou recursos de Application insights.
+- Capacidade de criar um [alerta de log entre espaços de trabalho](../logs/cross-workspace-query.md) que abrange vários recursos externos, como espaços de trabalho log Analytics ou recursos de Application insights.
 - Os usuários podem especificar dimensões para dividir os alertas usando o parâmetro ' Aggregate on '.
 - Os alertas de log têm um período estendido de até dois dias de dados (anteriormente limitados a um dia).
 
 ## <a name="impact"></a>Impacto
 
-- Todas as novas regras devem ser criadas/editadas com a API atual. Consulte [exemplo de uso por meio do modelo de recurso do Azure](alerts-log-create-templates.md) e [uso de exemplo por meio do PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
+- Todas as novas regras devem ser criadas/editadas com a API atual. Consulte [exemplo de uso por meio do modelo de recurso do Azure](alerts-log-create-templates.md) e [uso de exemplo por meio do PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
 - À medida que as regras se tornam Azure Resource Manager recursos controlados na API atual e devem ser exclusivas, a ID de recurso de regras será alterada para esta estrutura: `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Os nomes de exibição da regra de alerta permanecerão inalterados.
 
-## <a name="process"></a>Processar
+## <a name="process"></a>Processo
 
 O processo de alternância não é interativo e não requer etapas manuais, na maioria dos casos. Suas regras de alerta não são interrompidas ou interrompidas durante ou após o comutador.
 Faça essa chamada para mudar todas as regras de alerta associadas ao espaço de trabalho específico do Log Analytics:
@@ -104,7 +104,7 @@ Se o espaço de trabalho Log Analytics não foi alternado, a resposta será:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Azure Monitor – Alertas de log](../platform/alerts-unified-log.md).
+- Saiba mais sobre o [Azure Monitor – Alertas de log](./alerts-unified-log.md).
 - Saiba como [gerenciar seus alertas de log usando a API](alerts-log-create-templates.md).
-- Saiba como [Gerenciar alertas de log usando o PowerShell](../platform/alerts-log.md#managing-log-alerts-using-powershell).
-- Saiba mais sobre a [experiência de alertas do Azure](../platform/alerts-overview.md).
+- Saiba como [Gerenciar alertas de log usando o PowerShell](./alerts-log.md#managing-log-alerts-using-powershell).
+- Saiba mais sobre a [experiência de alertas do Azure](./alerts-overview.md).

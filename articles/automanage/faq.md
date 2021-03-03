@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: troubleshooting
 ms.date: 02/22/2021
 ms.author: deanwe
-ms.openlocfilehash: 214730733780ef3492048f697b1c5e180434a527
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0b4e116210cf68dc672122ad4ddc98f85067f3b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654010"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688001"
 ---
 # <a name="frequently-asked-questions-for-azure-automanage-for-vms"></a>Perguntas frequentes sobre o autogerenciamento do Azure para VMs
 
@@ -80,7 +80,7 @@ O autogerenciamento do Azure está disponível sem custo adicional na visualiza�
 
 **Posso aplicar o autogerenciamento por meio da política do Azure?**
 
-Sim, temos uma política interna que aplicará automaticamente a autogerenciamento a todas as VMs em seu escopo definido. Você também especificará o perfil de configuração (DevTest ou produção) junto com sua conta de autogerenciamento. Saiba mais sobre como habilitar o autogerenciamento por meio da política do Azure [aqui](virtual-machines-policy-enable.md).
+Sim, temos uma política interna que aplicará automaticamente a autogerenciamento a todas as VMs em seu escopo definido. Você também especificará a configuração de ambiente (DevTest ou produção) junto com sua conta de autogerenciamento. Saiba mais sobre como habilitar o autogerenciamento por meio da política do Azure [aqui](virtual-machines-policy-enable.md).
 
 
 **O que é uma conta de autogerenciamento?**
@@ -93,9 +93,9 @@ A conta de autogerenciamento é uma MSI (Identidade de Serviço Gerenciada) que 
 Se sua VM estiver vinculada a um espaço de trabalho Log Analytics existente, usaremos esse espaço de trabalho para aplicar essas soluções: Controle de Alterações, inventário e Gerenciamento de Atualizações. Todas as VMs conectadas a esse espaço de trabalho terão essas soluções habilitadas.
 
 
-**Posso alterar o perfil de configuração da minha VM?**
+**Posso alterar o ambiente da minha VM?**
 
-Neste momento, você precisará desabilitar o autogerenci para essa VM e, em seguida, reabilitar o autogerenci com o perfil de configuração desejado e as preferências.
+Neste momento, você precisará desabilitar o autogerenci para essa VM e, em seguida, reabilitar o autogerenci com o ambiente e as preferências desejadas.
 
 
 **Se minha VM já estiver configurada para um serviço, como Gerenciamento de Atualizações, o autoconfigurável a reconfigurará?**

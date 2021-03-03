@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 21b84a40621f5a529c09dc0c03e024c4ea6d5c95
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.openlocfilehash: 98a3965160e7ab6c86ba8c6d3a4dfd75af4c6dbb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99532075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750928"
 ---
 Este tutorial requer os seguintes recursos do Azure:
 
@@ -36,10 +36,10 @@ Para este início rápido, recomendamos que você use o [Script de instalação 
     1. **Adaptador de rede**: permite que uma Máquina Virtual do Azure se comunique com a Internet, o Azure e outros recursos.
     1. **Conexão do bastion**: permite que você se conecte à máquina virtual usando o navegador e o portal do Azure.
     1. **Endereço IP público**: permite que os recursos do Azure se comuniquem com a Internet e os serviços do Azure voltados ao público
-    1. **Rede virtual**: permite a comunicação segura mútua de muitos tipos de recursos do Azure, como a sua máquina virtual, bem como com a Internet e as redes locais. Saiba mais sobre [Redes virtuais](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+    1. **Rede virtual**: permite a comunicação segura mútua de muitos tipos de recursos do Azure, como a sua máquina virtual, bem como com a Internet e as redes locais. Saiba mais sobre [Redes virtuais](../../../../../virtual-network/virtual-networks-overview.md)
     1. **Hub IoT**: funciona como um hub central de mensagens para comunicação bidirecional entre o aplicativo de IoT, os módulos do IoT Edge e os dispositivos gerenciados por ele.
     1. **Conta do serviço de mídia**: ajuda a gerenciar e transmitir o conteúdo de mídia no Azure.
-    1. **Conta de armazenamento**: você precisa ter uma conta de armazenamento Primária e pode ter quantas contas de armazenamento Secundárias quiser associadas à sua conta dos Serviços de Mídia. Para obter mais informações, confira [Contas do Armazenamento do Azure com as contas dos Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/latest/storage-account-concept).
+    1. **Conta de armazenamento**: você precisa ter uma conta de armazenamento Primária e pode ter quantas contas de armazenamento Secundárias quiser associadas à sua conta dos Serviços de Mídia. Para obter mais informações, confira [Contas do Armazenamento do Azure com as contas dos Serviços de Mídia do Azure](../../../../latest/storage-account-concept.md).
     1. **Registro de contêiner**: ajuda a armazenar e gerenciar suas imagens particulares de contêiner do Docker e artefatos relacionados.
 1. Após a conclusão do script, clique nas chaves para expor a estrutura de pastas. Você verá alguns arquivos no diretório *~/clouddrive/lva-sample*. Os itens de interesse neste guia de início rápido são:
 

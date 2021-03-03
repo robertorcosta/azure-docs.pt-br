@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/30/2020
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: f7301809b3befc41110a32062d6e478c412fa56e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: be5000b6f9153839b926932c82c9f8fa3ab93f5f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90981116"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704830"
 ---
 # <a name="secure-a-custom-dns-name-with-a-tlsssl-binding-in-azure-app-service"></a>Proteger um nome DNS personalizado com uma associação TLS/SSL no Serviço de Aplicativo do Azure
 
@@ -159,11 +159,11 @@ Os guias de configuração específicos da linguagem, como o guia de [configura�
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
+[!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom TLS/SSL certificate to a web app")] 
 
 ### <a name="powershell"></a>PowerShell
 
-[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
+[!code-powershell[main](../../powershell_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.ps1?highlight=1-3 "Bind a custom TLS/SSL certificate to a web app")]
 
 ## <a name="more-resources"></a>Mais recursos
 

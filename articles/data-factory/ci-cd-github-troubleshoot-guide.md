@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 091c0cb20877090453f38ab922cc2bd277e90093
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393744"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727950"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF 
 
@@ -162,7 +162,7 @@ Até recentemente, apenas a maneira de publicar o pipeline do ADF para implanta�
 
 #### <a name="resolution"></a>Resolução
 
-O processo de CI/CD foi aprimorado. O recurso de **publicação automatizada** pega, valida e exporta todos os recursos de modelo do Azure Resource Manager (ARM) da UX do ADF. Ele torna a lógica consumível por meio de um pacote NPM publicamente disponível [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . Isso permite que você acione programaticamente essas ações em vez de ter que ir para a interface do usuário do ADF e fazer um clique de botão. Isso dá aos pipelines de CI/CD uma experiência de integração contínua **verdadeira** . Siga as [melhorias de publicação de CI/CD do ADF](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment-improvements) para obter detalhes. 
+O processo de CI/CD foi aprimorado. O recurso de **publicação automatizada** pega, valida e exporta todos os recursos de modelo do Azure Resource Manager (ARM) da UX do ADF. Ele torna a lógica consumível por meio de um pacote NPM publicamente disponível [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities) . Isso permite que você acione programaticamente essas ações em vez de ter que ir para a interface do usuário do ADF e fazer um clique de botão. Isso dá aos pipelines de CI/CD uma experiência de integração contínua **verdadeira** . Siga as [melhorias de publicação de CI/CD do ADF](./continuous-integration-deployment-improvements.md) para obter detalhes. 
 
 ###  <a name="cannot-publish-because-of-4mb-arm-template-limit"></a>Não é possível publicar devido a um limite de modelo de 4 MB  
 
@@ -176,7 +176,45 @@ Azure Resource Manager restringe o tamanho do modelo a ser 4 MB. Limite o tamanh
 
 #### <a name="resolution"></a>Resolução
 
-Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem que você detalhe a solução em componentes de destino. Siga a prática recomendada em [usando modelos vinculados e aninhados](https://docs.microsoft.com/azure/azure-resource-manager/templates/linked-templates?tabs=azure-powershell).
+Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem que você detalhe a solução em componentes de destino. Siga a prática recomendada em [usando modelos vinculados e aninhados](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
+
+### <a name="cannot-connect-to-git-enterprise"></a>Não é possível se conectar ao GIT Enterprise 
+
+##### <a name="issue"></a>Problema
+
+Você não pode se conectar ao GIT Enterprise devido a problemas de permissão. Você pode ver um erro como **422-entidade não processável.**
+
+#### <a name="cause"></a>Causa
+
+Você não configurou o OAuth para ADF. A URL está configurada incorretamente.
+
+##### <a name="resolution"></a>Resolução
+
+Você concede acesso OAuth ao ADF primeiro. Em seguida, você precisa usar a URL correta para se conectar ao GIT Enterprise. A configuração deve ser definida para as organizações do cliente, pois o serviço ADF primeiro tentará https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... e falha. Em seguida, ele experimentará https://hostname/api/v3/orgs/ <vaorg> / <repo> e terá sucesso. 
+ 
+### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de um data factory excluído
+
+#### <a name="issue"></a>Problema
+O cliente excluiu o data Factory ou o grupo de recursos que contém o Data Factory. Ele gostaria de saber como restaurar um data factory excluído.
+
+#### <a name="cause"></a>Causa
+
+É possível recuperar o Data Factory somente se o cliente tiver o controle do código-fonte configurado (DevOps ou git). Isso trará todos os recursos publicados mais recentes e **não** restaurará o pipeline não publicado, o conjunto de informações e o serviço vinculado.
+
+Se não houver nenhum controle do código-fonte, a recuperação de um Data Factory excluído do back-end não será possível porque, uma vez que o serviço recebe o comando excluído, a instância é excluída e nenhum backup foi armazenado.
+
+#### <a name="resoloution"></a>Resoloution
+Para recuperar o Data Factory excluído que tem o controle do código-fonte, consulte as etapas abaixo:
+
+ * Crie um novo Azure Data Factory.
+
+ * Reconfigure o Git com as mesmas configurações, mas certifique-se de importar recursos de Data Factory existentes para o repositório selecionado e escolha novo Branch.
+
+ * Crie uma solicitação de pull para mesclar as alterações para a ramificação de colaboração e publicar.
+
+ * Se o cliente tivesse um Integration Runtime autohospedado no ADF excluído, ele precisará criar uma nova instância no ADF novo, além de desinstalar e reinstalar a instância em sua máquina/VM local com a nova chave obtida. Depois que a configuração do IR for concluída, o cliente precisará alterar o serviço vinculado para apontar para o novo IR e testar a conexão, ou ele falhará com a referência de erro **inválida.**
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

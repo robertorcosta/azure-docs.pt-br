@@ -7,12 +7,12 @@ ms.date: 12/11/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 65245b3c4b7e18670682f7e9e890453e32337644
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ff7cfb8c7aa8469111d4531da17c7cd184920f9b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820064"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101727559"
 ---
 # <a name="tutorial-create-a-connected-waste-management-app"></a>Tutorial: Criar um aplicativo de gerenciamento de resíduos conectado
 
@@ -21,12 +21,13 @@ Este tutorial mostra como usar o Azure IoT Central para criar um aplicativo de g
 Especificamente, você aprenderá como: 
 
 > [!div class="checklist"]
-> usar o modelo de *Gestão de resíduos conectada* do Azure IoT Central para criar seu aplicativo;
-> Explorar e personalizar o painel do operador. explorar um modelo de dispositivo de recipiente para resíduos conectado;
-> Explorar dispositivos simulados.
-> Explorar e configurar regras.
-> Configurar trabalhos.
-> personalizar a identidade visual do aplicativo.
+> * usar o modelo de *Gestão de resíduos conectada* do Azure IoT Central para criar seu aplicativo;
+> * Explorar e personalizar o painel do operador. 
+> * explorar um modelo de dispositivo de recipiente para resíduos conectado;
+> * Explorar dispositivos simulados.
+> * Explorar e configurar regras.
+> * Configurar trabalhos.
+> * personalizar a identidade visual do aplicativo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

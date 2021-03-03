@@ -4,12 +4,12 @@ description: Saiba como desenvolver funções usando Python
 ms.topic: article
 ms.date: 11/4/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a13b4463d2a9c32a3487f839c0bf53b4c5bd2963
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: 78965a1a09272663c52469b8ccd91988f30b53cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98735836"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708689"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guia do desenvolvedor de Python para o Azure Functions
 
@@ -20,6 +20,9 @@ Como desenvolvedor de Python, você também pode estar interessado em um dos seg
 | Introdução | Conceitos| Cenários/exemplos |
 | -- | -- | -- | 
 | <ul><li>[Função do Python usando Visual Studio Code](./create-first-function-vs-code-csharp.md?pivots=programming-language-python)</li><li>[Função do Python com terminal/prompt de comando](./create-first-function-cli-csharp.md?pivots=programming-language-python)</li></ul> | <ul><li>[Guia do desenvolvedor](functions-reference.md)</li><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li></ul> | <ul><li>[Classificação de imagens com o PyTorch](machine-learning-pytorch.md)</li><li>[Exemplo de automação do Azure](/samples/azure-samples/azure-functions-python-list-resource-groups/azure-functions-python-sample-list-resource-groups/)</li><li>[Aprendizado de máquina com o TensorFlow](functions-machine-learning-tensorflow.md)</li><li>[Procurar exemplos do Python](/samples/browse/?products=azure-functions&languages=python)</li></ul> |
+
+> [!NOTE]
+> Embora você possa [desenvolver seu Azure Functions baseado em Python localmente no Windows, o](./azure-functions/create-first-function-vs-code-python#run-the-function-locally)Python só tem suporte em um plano de hospedagem baseado em Linux quando executado no Azure. Consulte a lista de combinações de [sistema operacional/tempo de execução](./azure-functions/functions-scale#operating-systemruntime) com suporte.
 
 ## <a name="programming-model"></a>Modelo de programação
 
@@ -615,8 +618,8 @@ Para obter uma lista de bibliotecas do sistema pré-instalado em imagens do Dock
 
 |  runtime do Functions  | Versão do Debian | Versões do Python |
 |------------|------------|------------|
-| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
-| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3.7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
+| Versão 2.x | Stretch  | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/2.0/stretch/amd64/python/python37/python37.Dockerfile) |
+| Versão 3.x | Buster | [Python 3.6](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python36/python36.Dockerfile)<br/>[Python 3,7](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python37/python37.Dockerfile)<br />[Python 3.8](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python38/python38.Dockerfile)<br/> [Python 3,9](https://github.com/Azure/azure-functions-docker/blob/master/host/3.0/buster/amd64/python/python39/python39.Dockerfile)|
 
 ## <a name="cross-origin-resource-sharing"></a>Compartilhamento de recursos entre origens
 

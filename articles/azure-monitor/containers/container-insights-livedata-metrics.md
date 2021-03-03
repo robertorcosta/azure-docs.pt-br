@@ -1,19 +1,19 @@
 ---
-title: Exibir métricas em tempo real com Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve a exibição em tempo real de métricas sem usar o kubectl com Azure Monitor para contêineres.
+title: Exibir métricas em tempo real com o contêiner insights | Microsoft Docs
+description: Este artigo descreve a exibição em tempo real de métricas sem usar kubectl com informações de contêiner.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81d7210778fd6b5d75fb4b4fa8e066d2e015174f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2e3a8a417a934374c2c0b256bb65a471d98fdebe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605481"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731843"
 ---
 # <a name="how-to-view-metrics-in-real-time"></a>Como exibir métricas em tempo real
 
-Azure Monitor para contêineres de dados dinâmicos (versão prévia) permite que você visualize métricas sobre o estado de nó e pod em um cluster em tempo real. Ele emula o acesso direto aos `kubectl top nodes` comandos, `kubectl get pods –all-namespaces` e `kubectl get nodes` para chamar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com essa percepção.
+O recurso de dados dinâmicos de contêiner de informações (versão prévia) permite que você visualize métricas sobre o estado de nó e pod em um cluster em tempo real. Ele emula o acesso direto aos `kubectl top nodes` comandos, `kubectl get pods –all-namespaces` e `kubectl get nodes` para chamar, analisar e visualizar os dados em gráficos de desempenho que estão incluídos com essa percepção.
 
 Este artigo fornece uma visão geral detalhada e ajuda você a entender como usar esse recurso.
 
@@ -26,7 +26,7 @@ Para obter ajuda com a configuração ou solução de problemas do recurso de da
 
 O recurso de dados dinâmicos (versão prévia) acessa diretamente a API kubernetes e informações adicionais sobre o modelo de autenticação podem ser encontradas [aqui](https://kubernetes.io/docs/concepts/overview/kubernetes-api/).
 
-Esse recurso executa uma operação de sondagem em relação aos pontos de extremidade de métricas (incluindo `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` e `/api/v1/pods` ), que é a cada cinco segundos por padrão. Esses dados são armazenados em cache no navegador e são mostrados nos quatro gráficos de desempenho incluídos no Azure Monitor para contêineres na guia **cluster** selecionando **Go Live (visualização)**. Cada sondagem subsequente é inserida em uma janela de visualização de cinco minutos sem interrupção.
+Esse recurso executa uma operação de sondagem em relação aos pontos de extremidade de métricas (incluindo `/api/v1/nodes` , `/apis/metrics.k8s.io/v1beta1/nodes` e `/api/v1/pods` ), que é a cada cinco segundos por padrão. Esses dados são armazenados em cache no navegador e exibidos nos quatro gráficos de desempenho incluídos em informações de contêiner na guia **cluster** selecionando **Go Live (visualização)**. Cada sondagem subsequente é inserida em uma janela de visualização de cinco minutos sem interrupção.
 
 ![Opção Go Live na exibição do cluster](./media/container-insights-livedata-metrics/cluster-view-go-live-example-01.png)
 

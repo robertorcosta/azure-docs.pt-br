@@ -1,26 +1,26 @@
 ---
-title: Perguntas frequentes sobre Azure Monitor para VMs (GA) | Microsoft Docs
-description: O Azure Monitor para VMs é uma solução do Azure que combina integridade e monitoramento de desempenho do sistema operacional da VM do Azure, bem como a descoberta automática dos componentes de aplicativo e dependências com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns sobre a versão GA.
+title: Perguntas frequentes sobre o GA (virtual insights) | Microsoft Docs
+description: O virtual insights é uma solução no Azure que combina o monitoramento de integridade e desempenho do sistema operacional da VM do Azure, bem como a descoberta automática de componentes e dependências de aplicativos com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns sobre a versão GA.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 1958c5fcdac4ae2a080dd8a43178c204ba5fadd6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606791"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710746"
 ---
-# <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes de Azure Monitor para VMs disponíveis (GA)
+# <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes sobre o GA (disponibilidade geral) de VMs disponíveis
 Essas perguntas frequentes sobre disponibilidade geral abordam as alterações feitas no quarto trimestre de 2019 e no primeiro trimestre 2020, conforme preparamos para a GA.
 
-## <a name="updates-for-azure-monitor-for-vms"></a>Atualizações para Azure Monitor para VMs
-Lançamos uma nova versão do Azure Monitor para VMs em janeiro de 2020 à frente de nosso comunicado de GA. Os clientes que habilitam o Azure Monitor para VMs receberão a versão GA, mas os clientes existentes que usam a versão do Azure Monitor para VMs do quarto trimestre de 2019 e anteriores serão solicitados a fazer a atualização. Estas perguntas frequentes oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
+## <a name="updates-for-vm-insights"></a>Atualizações para o VM insights
+Lançamos uma nova versão do Revisions de VM em janeiro de 2020 em frente ao nosso anúncio de GA. Os clientes que habilitam as informações de VM agora receberão a versão GA, mas os clientes existentes que usam a versão do quarto trimestre de 2019 e anteriores serão solicitados a atualizar. Estas perguntas frequentes oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
 
 
-Com essa atualização, Azure Monitor para VMs dados de desempenho são armazenados na mesma tabela *InsightsMetrics* que [Azure monitor para contêineres](../insights/container-insights-overview.md), o que torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. 
+Com essa atualização, Azure Monitor para VMs dados de desempenho são armazenados na mesma tabela *InsightsMetrics* que as [informações de contêiner](../containers/container-insights-overview.md), o que torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. 
 
 Nossas exibições de desempenho agora estão usando os dados que armazenamos na tabela *InsightsMetrics* .  Se você ainda não tiver atualizado para usar a solução VMInsights mais recente em seu espaço de trabalho, seus gráficos não exibirão mais informações.  Você pode atualizar de nossa página de **introdução** , conforme descrito abaixo.
 
@@ -28,13 +28,13 @@ Nossas exibições de desempenho agora estão usando os dados que armazenamos na
 ## <a name="what-is-changing"></a>O que está mudando?
 Lançamos uma nova solução, chamada VMInsights, que inclui recursos adicionais para a coleta de dados, juntamente com um novo local para armazenar esses dados em seu espaço de trabalho de Log Analytics. 
 
-No passado, habilitamos a solução ServiceMap em seu espaço de trabalho e configuramos contadores de desempenho em seu espaço de trabalho Log Analytics para enviar os dados para a tabela *perf* . Essa nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é usada pelo Azure monitor para contêineres. Esse esquema de tabela nos permite armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela *perf* .
+No passado, habilitamos a solução ServiceMap em seu espaço de trabalho e configuramos contadores de desempenho em seu espaço de trabalho Log Analytics para enviar os dados para a tabela *perf* . Essa nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é usada por informações de contêiner. Esse esquema de tabela nos permite armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela *perf* .
 
 Atualizamos nossos gráficos de desempenho para usar os dados que armazenamos na tabela *InsightsMetrics* . Você pode atualizar para usar a tabela *InsightsMetrics* de nossa página de **introdução** , conforme descrito abaixo.
 
 
 ## <a name="how-do-i-upgrade"></a>Como fazer atualizar?
-Quando um espaço de trabalho Log Analytics é atualizado para a versão mais recente do Azure Monitor para VMs, ele atualizará o agente de dependência em cada uma das VMs anexadas a esse espaço de trabalho. Cada VM que requer atualização será identificada na guia **introdução** em Azure Monitor para VMs no portal do Azure. Quando você optar por atualizar uma VM, ela atualizará o espaço de trabalho para essa VM junto com todas as outras VMs anexadas a esse espaço de trabalho. Você pode selecionar uma única VM ou várias VMs, grupos de recursos ou assinaturas. 
+Quando um espaço de trabalho Log Analytics é atualizado para a versão mais recente do Azure Monitor para VMs, ele atualizará o agente de dependência em cada uma das VMs anexadas a esse espaço de trabalho. Cada VM que requer atualização será identificada na guia **introdução** do VM insights na portal do Azure. Quando você optar por atualizar uma VM, ela atualizará o espaço de trabalho para essa VM junto com todas as outras VMs anexadas a esse espaço de trabalho. Você pode selecionar uma única VM ou várias VMs, grupos de recursos ou assinaturas. 
 
 Use o seguinte comando para atualizar um espaço de trabalho usando o PowerShell:
 
@@ -44,7 +44,7 @@ Set-AzOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-nam
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>O que devo fazer sobre os contadores de desempenho em meu espaço de trabalho se eu instalar a solução VMInsights?
 
-O método anterior de habilitar Azure Monitor para VMs contadores de desempenho usados em seu espaço de trabalho. A versão atual armazena esses dados em uma tabela chamada `InsightsMetrics` . Você pode optar por desabilitar esses contadores de desempenho em seu espaço de trabalho se não precisar mais usá-los. 
+O método anterior de habilitar o Revisions de VM usava os contadores de desempenho no seu espaço de trabalho. A versão atual armazena esses dados em uma tabela chamada `InsightsMetrics` . Você pode optar por desabilitar esses contadores de desempenho em seu espaço de trabalho se não precisar mais usá-los. 
 
 >[!NOTE]
 >Se você tiver regras de alerta que referenciem esses contadores na `Perf` tabela, será necessário atualizá-los para fazer referência a novos dados armazenados na `InsightsMetrics` tabela. Consulte nossa documentação para obter exemplos de consultas de log que você pode usar para fazer referência a esta tabela.
@@ -66,11 +66,11 @@ Os dados de desempenho no nível da máquina que coletamos são os mesmos, é de
 
 ## <a name="what-if-i-only-want-to-use-service-map"></a>E se eu quiser usar apenas Mapa do Serviço?
 
-Tudo bem. Você verá prompts na portal do Azure ao exibir Azure Monitor para VMs sobre a próxima atualização. Depois de liberado, você receberá uma solicitação solicitando que você atualize para a nova versão. Se preferir usar apenas o recurso [Maps](vminsights-maps.md) , você poderá optar por não atualizar e continuar a usar o recurso maps no Azure monitor para VMs e a solução de mapa do serviço acessada do seu espaço de trabalho ou bloco do Dashboard.
+Tudo bem. Você verá prompts na portal do Azure ao exibir as informações da VM sobre a próxima atualização. Depois de liberado, você receberá uma solicitação solicitando que você atualize para a nova versão. Se preferir usar apenas o recurso [Maps](vminsights-maps.md) , você poderá optar por não atualizar e continuar a usar o recurso Maps no insights de VM e a solução de mapa do serviço acessada do seu espaço de trabalho ou bloco do painel.
 
-Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados na `InsightsMetrics` tabela. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do Azure Monitor para VMs.
+Se você optar por habilitar manualmente os contadores de desempenho em seu espaço de trabalho, poderá ver os dados em alguns dos nossos gráficos de desempenho exibidos em Azure Monitor. Depois que a nova solução for lançada, atualizaremos nossos gráficos de desempenho para consultar os dados armazenados na `InsightsMetrics` tabela. Se você quiser ver os dados dessa tabela nesses gráficos, será necessário atualizar para a nova versão do VM insights.
 
-As alterações para mover dados do `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão Mapa do Serviço e Azure monitor para VMs, para que você ainda precise planejar essa atualização.
+As alterações para mover dados de `ServiceMapComputer_CL` e `ServiceMapProcess_CL` afetarão as mapa do serviço e as informações da VM, para que você ainda precise planejar essa atualização.
 
 Se você optar por não atualizar para a solução **VMInsights** , continuaremos a fornecer versões herdadas de nossas pastas de trabalho de desempenho que se referem aos dados na `Perf` tabela.  
 
@@ -78,7 +78,7 @@ Se você optar por não atualizar para a solução **VMInsights** , continuaremo
 
 Os conjuntos de dados não serão duplicados se você usar ambas as soluções. As duas ofertas compartilham os conjuntos de dados que serão armazenados `VMComputer` (anteriormente ServiceMapComputer_CL), `VMProcess` (anteriormente ServiceMapProcess_CL), `VMConnection` e `VMBoundPort` tabelas para armazenar os conjuntos de dados do mapa que coletamos.  
 
-A `InsightsMetrics` tabela armazenará a VM, o processo e os conjuntos de dados de serviço que coletamos e só serão populados se você estiver usando Azure monitor para VMs e a solução de informações de VM. A solução de Mapa do Serviço não coletará ou armazenará dados na `InsightsMetrics` tabela.
+A `InsightsMetrics` tabela armazenará a VM, o processo e os conjuntos de dados de serviço que coletamos e só serão populados se você estiver usando o virtual insights e a solução de informações de VM. A solução de Mapa do Serviço não coletará ou armazenará dados na `InsightsMetrics` tabela.
 
 ## <a name="will-i-be-double-charged-if-i-have-the-service-map-and-vminsights-solutions-in-my-workspace"></a>Serei uma cobrança dupla se eu tiver as soluções Mapa do Serviço e VMInsights em meu espaço de trabalho?
 
@@ -94,7 +94,7 @@ Recebemos muitos comentários incríveis de clientes sobre nosso conjunto de rec
 
 Para minimizar o impacto dessas alterações em novos clientes, movemos esse recurso para uma **Visualização pública limitada**. Essa atualização ocorreu em outubro de 2019.
 
-Planejamos reiniciar esse recurso de integridade no 2020, depois que Azure Monitor para VMs estiver em GA.
+Planejamos reiniciar esse recurso de integridade no 2020, depois que a VM insights estiver em GA.
 
 ## <a name="how-do-existing-customers-access-the-health-feature"></a>Como os clientes existentes acessam o recurso de integridade?
 
@@ -112,4 +112,4 @@ Se você for um cliente existente que está usando o recurso de integridade e de
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para entender os requisitos e os métodos que ajudam você a monitorar suas máquinas virtuais, examine [Implantar o Azure Monitor para VMs](../insights/vminsights-enable-overview.md).
+Para entender os requisitos e métodos que ajudam a monitorar suas máquinas virtuais, examine [implantar o VM insights](./vminsights-enable-overview.md).

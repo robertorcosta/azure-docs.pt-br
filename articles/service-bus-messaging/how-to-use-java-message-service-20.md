@@ -4,12 +4,12 @@ description: Como usar o Java Message Service (JMS) com o barramento de serviço
 ms.topic: article
 ms.date: 07/17/2020
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: b7e4bf0ad69b6cd183296a7245ad3f720ced76c5
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 894821444f74248b73578595df943cb3a0025360
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652592"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698392"
 ---
 # <a name="use-java-message-service-20-api-with-azure-service-bus-premium"></a>Usar a API 2,0 do serviço de mensagens Java com o barramento de serviço Premium do Azure
 
@@ -34,7 +34,7 @@ Para desenvolver aplicativos Java, você precisa configurar o ambiente de desenv
    * O JDK ou o JRE é adicionado ao caminho de compilação e às variáveis de sistema apropriadas.
    * Um Java IDE é instalado para utilizar o JDK ou o JRE. Por exemplo, Eclipse ou IntelliJ.
 
-Para saber mais sobre como preparar seu ambiente de desenvolvedor para Java no Azure, utilize [este guia](https://docs.microsoft.com/azure/developer/java/fundamentals/).
+Para saber mais sobre como preparar seu ambiente de desenvolvedor para Java no Azure, utilize [este guia](/azure/developer/java/fundamentals/).
 
 ## <a name="what-jms-features-are-supported"></a>Quais recursos JMS têm suporte?
 

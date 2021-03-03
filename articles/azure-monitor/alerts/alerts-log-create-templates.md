@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 6b1403b12c05420c6296cbafd0d4ee0bc02f8dd4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 665137688a000433a9101a77342fa6f9350d7141
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605865"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714316"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Criar um alerta de log com um modelo do Resource Manager
 
-Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar a execução de uma ou mais ações usando [grupos de ações](../platform/action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](../platform/alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../logs/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar a execução de uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](./alerts-unified-log.md).
 
-Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de log](../platform/alerts-unified-log.md) no Azure monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Os alertas de log são criados no `Microsoft.Insights/scheduledQueryRules` provedor de recursos. Consulte referência de API para a [API de regras de consulta agendada](/rest/api/monitor/scheduledqueryrules/).
+Este artigo mostra como você pode usar um [modelo de Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) para configurar [alertas de log](./alerts-unified-log.md) no Azure monitor. Os modelos do Resource Manager permitem que você configure programaticamente os alertas de maneira consistente e reproduzível em seus ambientes. Os alertas de log são criados no `Microsoft.Insights/scheduledQueryRules` provedor de recursos. Consulte referência de API para a [API de regras de consulta agendada](/rest/api/monitor/scheduledqueryrules/).
 
 As etapas básicas são as seguintes:
 
@@ -26,15 +26,15 @@ As etapas básicas são as seguintes:
 4. Implantar o modelo usando qualquer método de implantação.
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](../platform/alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](../platform/alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../logs/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](./alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](./alerts-metric-logs.md).
 
 > [!NOTE]
-> Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](../platform/api-alerts.md) herdada e os modelos herdados de [log Analytics pesquisas e alertas salvos](../insights/solutions.md). [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](alerts-log-api-switch.md).
+> Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](./api-alerts.md) herdada e os modelos herdados de [log Analytics pesquisas e alertas salvos](../insights/solutions.md). [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](alerts-log-api-switch.md).
 
 
 ## <a name="simple-template-up-to-api-version-2018-04-16"></a>Modelo simples (até a versão de API 2018-04-16)
 
-Modelo de [criação de regras de consulta agendadas](/rest/api/monitor/scheduledqueryrules/createorupdate) com base no [número do alerta do log de resultados](../platform/alerts-unified-log.md#count-of-the-results-table-rows) (conjunto de dados de exemplo como variáveis):
+Modelo de [criação de regras de consulta agendadas](/rest/api/monitor/scheduledqueryrules/createorupdate) com base no [número do alerta do log de resultados](./alerts-unified-log.md#count-of-the-results-table-rows) (conjunto de dados de exemplo como variáveis):
 
 ```json
 {
@@ -109,7 +109,7 @@ Esse JSON pode ser salvo e implantado usando [Azure Resource Manager no portal d
 
 ## <a name="template-with-cross-resource-query-up-to-api-version-2018-04-16"></a>Modelo com consulta entre recursos (até a versão de API 2018-04-16)
 
-Modelo de [criação de regras de consulta agendada](/rest/api/monitor/scheduledqueryrules/createorupdate) com base na [medição métrica](../platform/alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) que consulta [recursos cruzados](../log-query/cross-workspace-query.md) (exemplo de conjunto de dados como variáveis):
+Modelo de [criação de regras de consulta agendada](/rest/api/monitor/scheduledqueryrules/createorupdate) com base na [medição métrica](./alerts-unified-log.md#calculation-of-measure-based-on-a-numeric-column-such-as-cpu-counter-value) que consulta [recursos cruzados](../logs/cross-workspace-query.md) (exemplo de conjunto de dados como variáveis):
 
 ```json
 {
@@ -432,7 +432,7 @@ Esse JSON pode ser salvo e implantado usando [Azure Resource Manager no portal d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre [alertas de log](../platform/alerts-unified-log.md)
-* Saiba mais sobre como [Gerenciar alertas de log](../platform/alerts-log.md)
-* Entender as [ações de webhook para alertas de log](../platform/alerts-log-webhook.md)
-* Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
+* Saiba mais sobre [alertas de log](./alerts-unified-log.md)
+* Saiba mais sobre como [Gerenciar alertas de log](./alerts-log.md)
+* Entender as [ações de webhook para alertas de log](./alerts-log-webhook.md)
+* Saiba mais sobre [consultas de log](../logs/log-query-overview.md).

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 02/01/2021
-ms.openlocfilehash: 5db0214e9b985df5c5aedb1dbe9878e484af2a55
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.date: 03/02/2021
+ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430790"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715200"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
@@ -38,7 +38,7 @@ Esta visão geral aborda as seguintes áreas:
 
 * [Limites na visualização dos aplicativos lógicos do Azure](#limits).
 
-Para obter mais informações, consulte estes outros artigos:
+Para obter mais informações, consulte estes outros tópicos:
 
 * [Aplicativos lógicos do Azure executando análise aprofundada em tempo de execução](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
 
@@ -50,7 +50,7 @@ Para obter mais informações, consulte estes outros artigos:
 
 O tempo de execução de visualização dos aplicativos lógicos do Azure usa [Azure Functions](../azure-functions/functions-overview.md) extensibilidade e é hospedado como uma extensão no tempo de execução de Azure functions. Essa arquitetura significa que você pode executar o novo tipo de aplicativo lógico em qualquer lugar que Azure Functions é executado. Você pode hospedar o tempo de execução de visualização dos aplicativos lógicos do Azure em praticamente qualquer topologia de rede desejada e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária que seu fluxo de trabalho precisa. Para obter mais informações sobre a extensibilidade de Azure Functions, consulte [SDK de trabalhos Web: Criando associações de entrada e saída personalizadas](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-Com essa nova abordagem, o tempo de execução de visualização dos aplicativos lógicos do Azure e seus fluxos de trabalho fazem parte de seu aplicativo que você pode empacotar juntos. Essa funcionalidade permite que você implante e execute seus fluxos de trabalho simplesmente copiando artefatos para o ambiente de hospedagem e iniciando seu aplicativo. Essa abordagem também fornece uma experiência mais padronizada para a criação de pipelines de DevOps em relação aos projetos de fluxo de trabalho para executar os testes e validações necessários antes de implantar alterações em ambientes de produção. Para obter mais informações, consulte [aplicativos lógicos do Azure executando aprofundamentos em tempo de execução](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
+Com essa nova abordagem, o tempo de execução de visualização dos aplicativos lógicos do Azure e seus fluxos de trabalho fazem parte de seu aplicativo que você pode empacotar juntos. Essa funcionalidade permite que você implante e execute seus fluxos de trabalho simplesmente copiando artefatos para o ambiente de hospedagem e iniciando seu aplicativo. Essa abordagem também fornece uma experiência mais padronizada para criar pipelines de implantação em todos os projetos de fluxo de trabalho para executar os testes e validações necessários antes de implantar alterações em ambientes de produção. Para obter mais informações, consulte [aplicativos lógicos do Azure executando aprofundamentos em tempo de execução](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
 A tabela a seguir resume brevemente as diferenças no modo como os fluxos de trabalho compartilham recursos, com base no ambiente em que são executados. Para obter diferenças nos limites, consulte [limites na visualização dos aplicativos lógicos do Azure](#limits).
 
@@ -139,10 +139,17 @@ A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais
 
 * Habilite o log de diagnóstico e os recursos de rastreamento para seu aplicativo lógico usando [Application insights](../azure-monitor/app/app-insights-overview.md) quando houver suporte para suas configurações de aplicativo lógico e de assinatura do Azure.
 
+* Acesse recursos de rede, como conectar e integrar de forma privada com redes virtuais do Azure, semelhante a Azure Functions quando você cria e implanta seus aplicativos lógicos usando o [plano Azure Functions Premium](../azure-functions/functions-premium-plan.md). Para obter mais informações, consulte estes tópicos:
+
+  * [Opções de rede do Azure Functions](../azure-functions/functions-networking-options.md)
+
+  * [Aplicativos lógicos do Azure executando possibilidades de rede em qualquer lugar com os aplicativos lógicos do Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+
 * Regenerar chaves de acesso para conexões gerenciadas usadas por fluxos de trabalho individuais em um recurso de **aplicativo lógico (versão prévia)** . Para essa tarefa, [siga as mesmas etapas para o recurso de **aplicativos lógicos** , mas no nível de fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não no nível de recurso do aplicativo lógico.
 
-> [!NOTE]
-> Para obter informações sobre os problemas atuais conhecidos, examine a [página problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
+* Adicione ramificações paralelas no novo designer seguindo as mesmas etapas que o designer sem visualização.
+ 
+Para obter mais informações, consulte [recursos alterados, limitados, indisponíveis e sem suporte](#limited-unavailable-unsupported) e a [página de problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
 
@@ -171,7 +178,9 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
 
 * **Suporte do so**: atualmente, o designer no Visual Studio Code não funciona no sistema operacional Linux, mas você ainda pode implantar aplicativos lógicos que usam o tempo de execução de visualização dos aplicativos lógicos para máquinas virtuais baseadas em Linux. Por enquanto, você pode criar seus aplicativos lógicos no Visual Studio Code no Windows ou no macOS e, em seguida, implantar em uma máquina virtual baseada em Linux.
 
-* **Gatilhos e ações**: alguns gatilhos internos não estão disponíveis, como janela deslizante e lote. Para iniciar o fluxo de trabalho, use a [recorrência interna, a solicitação, o http, o webhook http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). Gatilhos e ações internos são executados nativamente no tempo de execução de visualização dos aplicativos lógicos do Azure, enquanto os conectores gerenciados são implantados no Azure. No designer, gatilhos e ações internas aparecem sob a guia **interna** , enquanto os gatilhos e as ações do conector gerenciado aparecem na guia **Azure** .
+* **Gatilhos e ações**: gatilhos internos e ações são executados nativamente no tempo de execução de visualização dos aplicativos lógicos do Azure, enquanto os conectores gerenciados são implantados no Azure. Alguns gatilhos internos não estão disponíveis, como janela deslizante e lote.
+
+  Para iniciar o fluxo de trabalho, use a [recorrência interna, a solicitação, o http, o webhook http, os hubs de eventos ou o gatilho do barramento de serviço](../connectors/apis-list.md). No designer, gatilhos e ações internas aparecem sob a guia **interna** , enquanto os gatilhos e as ações do conector gerenciado aparecem na guia **Azure** .
 
   > [!NOTE]
   > Para executar localmente em Visual Studio Code, gatilhos e ações baseados em webhook exigem configuração adicional. Para obter mais informações, consulte [criar fluxos de trabalho com estado e sem estado no Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#webhook-setup).
@@ -199,11 +208,11 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
 
       * As ações de operações de código embutido não exigem mais uma conta de integração.
 
-      * Se você usar o macOS ou Linux, **as operações de código embutido** não estarão disponíveis no momento quando você usar a extensão de aplicativos lógicos do Azure (versão prévia) no Visual Studio Code.
+      * Para macOS e Linux, agora há suporte para **operações de código embutidas** quando você usa a extensão de aplicativos lógicos do Azure (versão prévia) no Visual Studio Code.
 
-      * Se você fizer alterações em uma ação de operações de código embutido, será necessário reiniciar o aplicativo lógico.
+      * Você não precisa mais reiniciar seu aplicativo lógico se fizer alterações em uma ação de **operações de código embutido** .
 
-      * As ações de operações de código embutido têm [limites atualizados](logic-apps-overview-preview.md#inline-code-limits).
+      * **As ações de operações de código embutido** têm [limites atualizados](logic-apps-overview-preview.md#inline-code-limits).
 
     * Alguns [gatilhos e ações B2B internos para contas de integração](../connectors/apis-list.md#integration-account-connectors) não estão disponíveis, por exemplo, as ações codificação de **arquivo simples** e decodificação.
 
@@ -211,17 +220,15 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
 
 * **Disponibilidade do plano de hospedagem**: se você criar um novo tipo de recurso de **aplicativo lógico (versão prévia)** no portal do Azure ou implantar do Visual Studio Code, você só poderá usar o plano de hospedagem do serviço de aplicativo ou Premium no Azure. Os planos de Hospedagem de consumo estão indisponíveis e não têm suporte para a implantação deste tipo de recurso. Você pode implantar de Visual Studio Code para um contêiner do Docker, mas não para um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
-* **Branches paralelos**: atualmente, você não pode adicionar ramificações paralelas por meio da nova experiência de designer. No entanto, você ainda pode adicionar essas ramificações por meio da experiência de designer original e fazer com que elas apareçam no novo designer.
-
-  1. Na parte inferior do designer, desabilite a nova experiência selecionando o **novo controle Canvas** .
-
-  1. Adicione as ramificações paralelas ao seu fluxo de trabalho.
-
-  1. Habilite a nova experiência selecionando o **novo controle Canvas** novamente.
+* **Depuração de ponto de interrupção no Visual Studio Code**: embora você possa adicionar e usar pontos de interrupção dentro do **workflow.jsno** arquivo para um fluxo de trabalho, os pontos de interrupção têm suporte apenas para ações no momento, não gatilhos. Para obter mais informações, consulte [criar fluxos de trabalho com estado e sem estado no Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
 * **Controle de zoom**: o controle de zoom não está disponível no designer no momento.
 
-* **Depuração de ponto de interrupção no Visual Studio Code**: embora você possa adicionar e usar pontos de interrupção dentro do **workflow.jsno** arquivo para um fluxo de trabalho, os pontos de interrupção têm suporte apenas para ações no momento, não gatilhos. Para obter mais informações, consulte [criar fluxos de trabalho com estado e sem estado no Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
+* **Histórico de gatilho e histórico de execução**: para o tipo de recurso de **aplicativo lógico (visualização)** , o histórico de gatilho e o histórico de execução no portal do Azure aparecem no nível do fluxo de trabalho, não no nível do aplicativo lógico. Para encontrar esses dados históricos, siga estas etapas:
+
+   * Para exibir o histórico de execuções, abra o fluxo de trabalho em seu aplicativo lógico. No menu fluxo de trabalho, em **desenvolvedor**, selecione **Monitor**.
+
+   * Para examinar o histórico do gatilho, abra o fluxo de trabalho em seu aplicativo lógico. No menu fluxo de trabalho, em **desenvolvedor**, selecione **históricos de gatilho**.
 
 <a name="limits"></a>
 

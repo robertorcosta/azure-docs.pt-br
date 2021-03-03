@@ -7,12 +7,12 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: ab49c294fb8923c9a1a47af016e5224a8bba846c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64588d5968df635c3bb017bd1ff1d10951968f32
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576345"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101724941"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 
@@ -37,7 +37,7 @@ Veja os artigos a seguir se você for novo no serviço de Lote do Azure:
 * Cmdlet [New-AzBatchPool](/powershell/module/az.batch/New-AzBatchPool) para criar um pool do Lote do Azure.
 
 > [!IMPORTANT]
-> Ao criar um novo pool do lote do Azure, ' VirtualMachineConfiguration ' deve ser usado e não ' CloudServiceConfiguration '. Para obter mais detalhes, consulte as [diretrizes de migração do pool do lote do Azure](https://docs.microsoft.com/azure/batch/batch-pool-cloud-service-to-virtual-machine-configuration). 
+> Ao criar um novo pool do lote do Azure, ' VirtualMachineConfiguration ' deve ser usado e não ' CloudServiceConfiguration '. Para obter mais detalhes, consulte as [diretrizes de migração do pool do lote do Azure](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
 ## <a name="azure-batch-linked-service"></a>Serviço vinculado do Lote do Azure
 
@@ -301,7 +301,7 @@ Activity Error section:
 Se você deseja consumir o conteúdo de stdout.txt nas atividades de downstream, você pode obter o caminho para o arquivo stdout.txt na expressão "\@activity('MyCustomActivity').output.outputs [0]".
 
 > [!IMPORTANT]
-> - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de runtime da tarefa Batch. Para este exemplo, o activity.json, linkedServices.json e datasets.json são armazenados em `"https://adfv2storage.blob.core.windows.net/adfjobs/\<GUID>/runtime/"` Path. Caso seja necessário, limpe-os separadamente.
+> - O activity.json, o linkedServices.json e o datasets.json são armazenados na pasta de runtime da tarefa Batch. Para este exemplo, o activity.json, linkedServices.json e datasets.json são armazenados em `https://adfv2storage.blob.core.windows.net/adfjobs/<GUID>/runtime/` Path. Caso seja necessário, limpe-os separadamente.
 > - Como os serviços vinculados que usam o Integration Runtime (auto-hospedado), as informações confidenciais, como chaves ou senhas, são criptografadas pelo Integration Runtime (auto-hospedado) para garantir que a credencial permaneça no ambiente de rede privada definido pelo cliente. Por esse motivo, alguns campos confidenciais podem ficar faltando na referência do código do aplicativo personalizado. Use SecureString em extendedProperties em vez de usar a referência do serviço vinculado, se necessário.
 
 ## <a name="pass-outputs-to-another-activity"></a>Saídas de passagem para outra atividade

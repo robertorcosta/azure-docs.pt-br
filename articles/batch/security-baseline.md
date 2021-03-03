@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 96d1c4c0ad210352be94255609a3a373b408ed23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d8ef3efcda55868abec188c10ef904ae40a56722
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593307"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728137"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Linha de base de segurança do Azure para lote
 
@@ -140,7 +140,7 @@ Você pode usar o Azure PowerShell ou a CLI do Azure para pesquisar ou executar 
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados aos seus pools do lote do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) 
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log) 
 
 - [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
@@ -516,7 +516,7 @@ Defina as configurações de diagnóstico para contas de armazenamento associada
 
 - [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-- [Como habilitar o registro em log/auditoria adicional para uma conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md)
+- [Como habilitar o registro em log/auditoria adicional para uma conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

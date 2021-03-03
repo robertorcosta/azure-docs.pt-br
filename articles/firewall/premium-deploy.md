@@ -7,12 +7,12 @@ services: firewall
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
-ms.openlocfilehash: ec8fc4473669b0c056d0b22ff44e5818b87ba3fa
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100549554"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721779"
 ---
 # <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Implantar e configurar o Azure firewall Premium Preview
 
@@ -20,7 +20,7 @@ ms.locfileid: "100549554"
 > O firewall Premium do Azure está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- O Azure firewall Premium Preview é um firewall de última geração com recursos que são necessários para ambientes altamente sensíveis e regulamentados. Ele contém os seguintes recursos:
+ O Firewall do Azure Premium Versão Prévia é um firewall de última geração com funcionalidades necessárias para ambientes altamente sensíveis e regulamentados. Ele contém os seguintes recursos:
 
 - **Inspeção de TLS** – descriptografa o tráfego de saída, processa os dados e, em seguida, criptografa os dados e os envia para o destino.
 - **IDPS** -um sistema de detecção e prevenção de intrusão na rede (IDPS) permite que você monitore atividades de rede para atividades mal-intencionadas, registre informações sobre essa atividade, relate-o e, opcionalmente, tente bloqueá-lo.
@@ -34,7 +34,7 @@ Você usará um modelo para implantar um ambiente de teste que tenha uma VNet ce
 - uma sub-rede de bastiões do Azure (10.0.20.0/24)
 - uma sub-rede de firewall (10.0.100.0/24)
 
-Uma única VNet central é usada nesse ambiente de teste para simplificar. Para fins de produção, uma [topologia de Hub e spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) com VNets emparelhadas é mais comum.
+Uma única VNet central é usada nesse ambiente de teste para simplificar. Para fins de produção, uma [topologia de Hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) com VNets emparelhadas é mais comum.
 
 :::image type="content" source="media/premium-deploy/premium-topology.png" alt-text="Topologia da VNet central":::
 
@@ -71,7 +71,7 @@ Para coletar logs de firewall, você precisa adicionar configurações de diagn�
 3. Para **nome da configuração de diagnóstico**, digite *FW-diag*.
 4. Em **log**, selecione **AzureFirewallApplicationRule** e **AzureFirewallNetworkRule**.
 5. Em **detalhes de destino**, selecione **Enviar para log Analytics espaço de trabalho**.
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ### <a name="idps-tests"></a>Testes de IDPS
 
@@ -98,7 +98,7 @@ Você pode usar o `curl` para controlar vários cabeçalhos HTTP e simular o tr�
    1. Selecione a guia **regras de assinatura** .
    1. Em **ID da assinatura**, na caixa de texto abrir, digite *2008983*.
    1. Em **modo**, selecione **negar**.
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
    1. Aguarde a conclusão da implantação antes de continuar.
 
 
@@ -121,7 +121,7 @@ Você pode usar o `curl` para controlar vários cabeçalhos HTTP e simular o tr�
 
 #### <a name="to-test-idps-for-https-traffic"></a>Para testar o IDPS para o tráfego HTTPS
 
-Repita esses testes de ondulação usando HTTPS em vez de HTTP. Por exemplo:
+Repita esses testes de ondulação usando HTTPS em vez de HTTP. Por exemplo: 
 
 `curl --ssl-no-revoke -A "BlackSun" <your web server address>`
 
@@ -143,7 +143,7 @@ Algumas páginas HTML podem parecer incompletas porque se referem a outras URLs 
 - Se a página HTML contiver links para outros domínios, você poderá adicionar esses domínios a uma nova regra de aplicativo com permitir acesso a esses FQDNs.
 - Se a página HTML contiver links para sub URLs, você poderá modificar a regra e adicionar um asterisco à URL. Por exemplo: `targetURLs=www.nytimes.com/section/world*`
 
-   Como alternativa, você pode adicionar uma nova URL à regra. Por exemplo: 
+   Como alternativa, você pode adicionar uma nova URL à regra. Por exemplo:  
 
    `www.nytimes.com/section/world, www.nytimes.com/section/world/*`
 

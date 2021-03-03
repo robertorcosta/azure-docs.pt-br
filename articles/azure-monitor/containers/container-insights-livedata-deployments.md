@@ -1,19 +1,19 @@
 ---
-title: Exibir Azure Monitor para implantações de contêineres (visualização) | Microsoft Docs
-description: Este artigo descreve a exibição em tempo real de implantações do kubernetes sem usar o kubectl no Azure Monitor para contêineres.
+title: Exibir implantações do contêiner insights (visualização) | Microsoft Docs
+description: Este artigo descreve o modo de exibição em tempo real de implantações do kubernetes sem usar o kubectl em informações de contêiner.
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2f1eac82ce67818c7bf86ce3ca8924155d8ee2aa
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c6eaac209234f7352395502c6761312cf258108f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605494"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101713908"
 ---
 # <a name="how-to-view-deployments-preview-in-real-time"></a>Como exibir implantações (visualização) em tempo real
 
-Com Azure Monitor para contêineres, o recurso Exibir implantações (versão prévia) emula o acesso direto aos objetos de implantação kubernetes em tempo real, expondo os `kubeclt get deployments` `kubectl describe deployment {your deployment}` comandos e.
+Com o contêiner insights, o recurso Exibir implantações (versão prévia) emula o acesso direto aos objetos de implantação kubernetes em tempo real, expondo os `kubeclt get deployments` `kubectl describe deployment {your deployment}` comandos e.
 
 >[!NOTE]
 >Os clusters AKS habilitados como [clusters privados](https://azure.microsoft.com/updates/aks-private-cluster/) não têm suporte com esse recurso. Esse recurso depende do acesso direto à API do Kubernetes por meio de um servidor proxy no navegador. A habilitação da segurança de rede para bloquear a API do Kubernetes nesse proxy bloqueará esse tráfego.
@@ -56,7 +56,7 @@ Quando você seleciona uma implantação na lista, um painel de propriedades é 
 
 Ao examinar os detalhes da implantação, você pode ver os logs de contêiner e os eventos em tempo real. Selecione o painel **Mostrar console ao vivo** e os dados dinâmicos (versão prévia) serão exibidos abaixo da grade de dados de implantações, em que você pode exibir dados de log dinâmicos em um fluxo contínuo. Se o indicador de status de busca mostrar uma marca de seleção verde, que está na extrema direita do painel, significa que os dados podem ser recuperados e começam a transmitir para o console.
 
-Você também pode filtrar por eventos de namespace ou de nível de cluster. Para saber mais sobre a exibição de dados em tempo real no console, consulte [exibir dados dinâmicos (versão prévia) com Azure monitor para contêineres](container-insights-livedata-overview.md).
+Você também pode filtrar por eventos de namespace ou de nível de cluster. Para saber mais sobre a exibição de dados em tempo real no console do, consulte [exibir dados dinâmicos (versão prévia) com informações de contêiner](container-insights-livedata-overview.md).
 
 ![As implantações exibem dados dinâmicos no console](./media/container-insights-livedata-deployments/deployments-console-view-events.png)
 

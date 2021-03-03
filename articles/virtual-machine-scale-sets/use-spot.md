@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675016"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694981"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais do Azure spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -68,13 +68,56 @@ Esse novo recurso de nível de plataforma usará o ia para tentar restaurar auto
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Experimente & os benefícios da restauração:
-- Habilitado por padrão ao implantar uma máquina virtual do Azure Spot em um conjunto de dimensionamento.
 - Tenta restaurar as máquinas virtuais do Azure Spot removidas devido à capacidade.
 - As máquinas virtuais do Azure Spot restauradas devem ser executadas por uma duração maior, com uma probabilidade menor de uma remoção disparada pela capacidade.
 - Melhora o tempo de vida de uma máquina virtual de ponto do Azure, para que as cargas de trabalho sejam executadas por uma duração maior.
 - Ajuda os conjuntos de dimensionamento de máquinas virtuais a manter a contagem de destino para máquinas virtuais de ponto do Azure, semelhante a manter o recurso de contagem de destino que já existe para VMs pagas conforme o uso.
 
 Tente & restauração seja desabilitada em conjuntos de dimensionamento que usam o [dimensionamento automático](virtual-machine-scale-sets-autoscale-overview.md). O número de VMs no conjunto de dimensionamento é orientado pelas regras de dimensionamento automático.
+
+### <a name="register-for-try--restore"></a>Registrar-se para a restauração do try &
+
+Antes de usar o recurso tentar & Restore, você deve registrar sua assinatura para a versão prévia. O registro pode levar vários minutos para ser concluído. Você pode usar o CLI do Azure ou o PowerShell para concluir o registro do recurso.
+
+
+**Usar a CLI**
+
+Use o [registro de recurso AZ](/cli/azure/feature#az-feature-register) para habilitar a visualização para sua assinatura. 
+
+```azurecli-interactive
+az feature register --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+O registro de recursos pode levar até 15 minutos. Para verificar o status do registro: 
+
+```azurecli-interactive
+az feature show --namespace Microsoft.Compute --name SpotTryRestore 
+```
+
+Depois que o recurso tiver sido registrado para sua assinatura, conclua o processo de aceitação propagando a alteração para o provedor de recursos de computação. 
+
+```azurecli-interactive
+az provider register --namespace Microsoft.Compute 
+```
+**Usar o PowerShell** 
+
+Use o cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar a visualização para sua assinatura. 
+
+```azurepowershell-interactive
+Register-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+O registro de recursos pode levar até 15 minutos. Para verificar o status do registro: 
+
+```azurepowershell-interactive
+Get-AzProviderFeature -FeatureName SpotTryRestore -ProviderNamespace Microsoft.Compute 
+```
+
+Depois que o recurso tiver sido registrado para sua assinatura, conclua o processo de aceitação propagando a alteração para o provedor de recursos de computação. 
+
+```azurepowershell-interactive
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute 
+```
 
 ## <a name="placement-groups"></a>Grupos de posicionamento
 

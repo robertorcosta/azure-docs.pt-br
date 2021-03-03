@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 09/11/2020
-ms.openlocfilehash: a95cacafc5b1d00b1e4d04fd84cdda2de72b6a59
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4545c3529baf92e2f90d9289ec6828ad9a720e3a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522998"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737997"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados de mapeamento em Azure Data Factory
 
@@ -132,7 +132,7 @@ Este artigo explora métodos comuns de solução de problemas para mapeamento de
  
 - **Mensagem**: o cluster encontrou um problema de memória insuficiente durante a execução. tente novamente usando um Integration Runtime com maior contagem de núcleos e/ou tipo de computação com otimização de memória
 - **Causas**: o cluster está ficando sem memória.
-- **Recomendação**: os clusters de depuração destinam-se a fins de desenvolvimento. Aproveite a amostragem de dados tipo e tamanho de computação apropriados para executar a carga. Consulte o [Guia de desempenho de fluxo](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-performance) de os para ajustar os fluxos de fluxo de os para obter o melhor desempenho.
+- **Recomendação**: os clusters de depuração destinam-se a fins de desenvolvimento. Aproveite a amostragem de dados tipo e tamanho de computação apropriados para executar a carga. Consulte o [Guia de desempenho de fluxo](./concepts-data-flow-performance.md) de os para ajustar os fluxos de fluxo de os para obter o melhor desempenho.
 
 ### <a name="error-code-df-executor-illegalargument"></a>Código de erro: DF-executor-illegalArgument
 - **Mensagem**: Verifique se a chave de acesso no serviço vinculado está correta.
@@ -182,7 +182,7 @@ Este artigo explora métodos comuns de solução de problemas para mapeamento de
 
 - **Mensagem**: intervalo inválido fornecido.
 - **Causas**: indeterminadas
-- **Recomendação**: Verifique o valor do parâmetro e especifique um intervalo válido por referência: [Propriedades do Excel](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recomendação**: Verifique o valor do parâmetro e especifique um intervalo válido por referência: [Propriedades do Excel](./format-excel.md#dataset-properties).
 
 - **Mensagem**: o arquivo do Excel inválido é fornecido enquanto houver suporte apenas para. xlsx e. xls
 - **Causas**: indeterminadas
@@ -204,7 +204,7 @@ Este artigo explora métodos comuns de solução de problemas para mapeamento de
 
 ### <a name="error-code-4502"></a>Código de erro: 4502
 - **Mensagem**: há execuções MappingDataflow simultâneas substanciais que estão causando falhas devido à limitação em Integration Runtime.
-- **Causas**: muitas execuções de atividade de Dataflow estão acontecendo simultaneamente no Integration Runtime. Saiba mais sobre os [limites de Azure data Factory](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#data-factory-limits).
+- **Causas**: muitas execuções de atividade de Dataflow estão acontecendo simultaneamente no Integration Runtime. Saiba mais sobre os [limites de Azure data Factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
 - **Recomendação**: caso você esteja procurando executar mais atividades de fluxo de dados em paralelo, distribua-as em vários tempos de execução de integração.
 
 

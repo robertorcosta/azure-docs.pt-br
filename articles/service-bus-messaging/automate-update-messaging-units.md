@@ -3,12 +3,12 @@ title: Barramento de Serviço do Azure – Atualizar automaticamente as unidades
 description: Este artigo mostra como você pode usar atualizar automaticamente as unidades de mensagens de um namespace do barramento de serviço.
 ms.topic: how-to
 ms.date: 09/15/2020
-ms.openlocfilehash: 932c7bb1235cb54aefe67253e38e1683187f4d2c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581633"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720589"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades do sistema de mensagens de um namespace do Barramento de Serviço do Azure 
 O dimensionamento automático permite ter a quantidade certa de recursos em execução para lidar com a carga em seu aplicativo. Ele permite adicionar recursos para lidar com os aumentos de carga e também economizar dinheiro removendo os recursos que estão ociosos. Consulte [visão geral do dimensionamento automático em Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para saber mais sobre o recurso de dimensionamento automático do Azure monitor. 
@@ -57,7 +57,7 @@ Você pode configurar o dimensionamento automático de unidades de mensagens usa
 Você não pode definir um agendamento para dimensionamento automático em um intervalo de datas ou dias específicos para uma condição padrão. Essa condição de escala é executada quando nenhuma das outras condições de escala com os agendamentos são correspondentes. 
 
 ### <a name="scale-based-on-a-metric"></a>Dimensionar com base em uma métrica
-O procedimento a seguir mostra como adicionar uma condição para aumentar automaticamente as unidades de mensagens (scale out) quando o uso da CPU for maior que 75% e diminuir as unidades de mensagens (Scale in) quando o uso da CPU for inferior a 25%. Os incrementos são feitos de 1 a 2, de 2 a 4 e de 4 a 8. Da mesma forma, os decrementos são feitos de 8 a 4, 4 a 2 e 2 a 1. 
+O procedimento a seguir mostra como adicionar uma condição para aumentar automaticamente as unidades de mensagens (scale out) quando o uso da CPU for maior que 75% e diminuir as unidades de mensagens (Scale in) quando o uso da CPU for inferior a 25%. Os incrementos são feitos de 1 a 2, de 2 a 4, de 4 a 8 e de 8 a 16. Da mesma forma, os decrementos são feitos de 16 a 8, 8 a 4, 4 a 2 e 2 a 1. 
 
 1. Na página **configuração de dimensionamento automático** , selecione **dimensionamento automático personalizado** para a opção **escolher como dimensionar seu recurso** . 
 1. Na seção **padrão** da página, especifique um **nome** para a condição padrão. Selecione o ícone de **lápis** para editar o texto. 
@@ -74,7 +74,7 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-75.png" alt-text="Padrão-escalar horizontalmente se o uso da CPU for maior que 75%":::       
 
         > [!NOTE]
-        > O recurso de dimensionamento automático aumentará as unidades de mensagens para o namespace se o uso geral da CPU ficar acima de 75% neste exemplo. Os incrementos são feitos de 1 a 2, de 2 a 4 e de 4 a 8. 
+        > O recurso de dimensionamento automático aumentará as unidades de mensagens para o namespace se o uso geral da CPU ficar acima de 75% neste exemplo. Os incrementos são feitos de 1 a 2, de 2 a 4, de 4 a 8 e de 8 a 16. 
 1. Selecione **+ Adicionar uma regra** novamente e siga estas etapas na página **regra de dimensionamento** :
     1. Selecione uma métrica na lista suspensa **nome da métrica** . Neste exemplo, é **CPU**. 
     1. Selecione um operador e valores de limite. Neste exemplo, eles são **menores que** e **25** para o **limite de métrica para disparar a ação de escala**. 
@@ -84,7 +84,7 @@ O procedimento a seguir mostra como adicionar uma condição para aumentar autom
         :::image type="content" source="./media/automate-update-messaging-units/scale-rule-cpu-25.png" alt-text="Padrão-Dimensionar em se o uso da CPU for inferior a 25%":::       
 
         > [!NOTE]
-        > O recurso de dimensionamento automático diminuirá as unidades de mensagens para o namespace se o uso geral da CPU ficar abaixo de 25% neste exemplo. Os decrementos são feitos de 8 a 4, 4 a 2 e 2 a 1. 
+        > O recurso de dimensionamento automático diminuirá as unidades de mensagens para o namespace se o uso geral da CPU ficar abaixo de 25% neste exemplo. Os decrementos são feitos de 16 a 8, 8 a 4, 4 a 2 e 2 a 1. 
 1. Defina o número **mínimo** e **máximo** e **padrão** de unidades de mensagens.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Regra padrão com base em uma métrica":::

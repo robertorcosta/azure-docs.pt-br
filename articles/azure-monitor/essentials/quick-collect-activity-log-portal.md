@@ -6,15 +6,15 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 2e6dc55b54bc3abaea22544d457f98307596c5dd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1316512badd69b545e39a47ea5da3ca6a0902482
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626075"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734274"
 ---
 # <a name="send-azure-activity-log-to-log-analytics-workspace-using-azure-portal"></a>Enviar o log de atividades do Azure para o workspace do Log Analytics usando o portal do Azure
-O log de atividades é um log de plataforma no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Este guia de início rápido mostra como usar o portal do Azure para criar um workspace do Log Analytics e uma configuração de diagnóstico para enviar o log de atividades para os Logs do Azure Monitor, em que você poderá analisá-los usando [consultas de log](../log-query/log-query-overview.md) e habilitar outros recursos, como [alertas de log](../alerts/alerts-log-query.md) e [pastas de trabalho](../visualize/workbooks-overview.md). 
+O log de atividades é um log de plataforma no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Este guia de início rápido mostra como usar o portal do Azure para criar um workspace do Log Analytics e uma configuração de diagnóstico para enviar o log de atividades para os Logs do Azure Monitor, em que você poderá analisá-los usando [consultas de log](../logs/log-query-overview.md) e habilitar outros recursos, como [alertas de log](../alerts/alerts-log-query.md) e [pastas de trabalho](../visualize/workbooks-overview.md). 
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 Entre no Portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
@@ -73,7 +73,7 @@ Experimente usar uma consulta mais complexa, como `AzureActivity | summarize cou
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você configurou o log de atividades para ser enviado a um workspace do Log Analytics. Agora você pode configurar outros dados a serem coletados no workspace, em que você poderá analisá-los juntos usando [consultas de log](../log-query/log-query-overview.md) no Azure Monitor e aproveitar recursos como [alertas de log](../alerts/alerts-log-query.md) e [pastas de trabalho](../visualize/workbooks-overview.md). Em seguida, reúna os [logs de recursos](../essentials/resource-logs.md) dos seus recursos do Azure, que complementam os dados do log de atividades, fornecendo insights sobre as operações que foram executadas em cada recurso.
+Neste guia de início rápido, você configurou o log de atividades para ser enviado a um workspace do Log Analytics. Agora você pode configurar outros dados a serem coletados no workspace, em que você poderá analisá-los juntos usando [consultas de log](../logs/log-query-overview.md) no Azure Monitor e aproveitar recursos como [alertas de log](../alerts/alerts-log-query.md) e [pastas de trabalho](../visualize/workbooks-overview.md). Em seguida, reúna os [logs de recursos](../essentials/resource-logs.md) dos seus recursos do Azure, que complementam os dados do log de atividades, fornecendo insights sobre as operações que foram executadas em cada recurso.
 
 
 > [!div class="nextstepaction"]

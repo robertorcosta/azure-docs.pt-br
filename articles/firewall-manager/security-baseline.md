@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f56270d853bf47faebbd6026586111ead6fb0495
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ec746a5c347db8cb92c95b1d76f3622498f0039f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091163"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742374"
 ---
 # <a name="azure-security-baseline-for-azure-firewall-manager"></a>Linha de base de segurança do Azure para o Gerenciador de firewall do Azure
 
@@ -437,7 +437,7 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 
 - [Como configurar Log Analytics período de retenção do espaço de trabalho](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage)
+- [Armazenando logs de recursos em uma conta de armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 

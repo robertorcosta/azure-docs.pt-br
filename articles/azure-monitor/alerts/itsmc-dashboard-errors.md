@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: d1ba698cd95a074c021aa351a98eb12fc8ae0fc3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0b0dd584aee4a7647a3028ea20b517c0d74a330a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605825"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734733"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Erros de status do conector no painel do ITSMC
 
@@ -56,7 +56,9 @@ As seções a seguir descrevem os erros comuns que aparecem na seção status do
 
 ## <a name="invalid-refresh-token"></a>Token de atualização inválido
 
-**Erro**: "AccessToken e RefreshToken inválido. O usuário precisa autenticar novamente. "
+**Erro**: 
+  * "AccessToken e RefreshToken inválidos. O usuário precisa autenticar novamente. "
+  * "Não foi possível sincronizar a configuração de modelos para evento, alerta, incidente. Consulte a mensagem de exceção para obter mais detalhes. "
 
 **Causa**: um token de atualização expirou.
 

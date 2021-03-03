@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
-ms.openlocfilehash: d72e3ffc8698d9f3a2df170bd87f2969475ca9ed
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580684"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101721252"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
 
@@ -142,9 +142,6 @@ Depois que o aplicativo lógico for executado, você poderá exibir os dados sob
    Veja um exemplo que mostra todas as execuções de um aplicativo lógico específico:
 
    ![Exibir as execuções e o status do aplicativo lógico](./media/monitor-logic-apps-log-analytics/logic-app-run-details.png)
-
-   > [!NOTE]
-   > A funcionalidade de **reenvio** nesta página não está disponível no momento.
 
    Para ações em que você [configura as propriedades rastreadas](#extend-data), você também pode exibir essas propriedades selecionando **Exibir** na coluna **Propriedades rastreadas** . Para pesquisar as propriedades rastreadas, use o filtro de coluna.
 

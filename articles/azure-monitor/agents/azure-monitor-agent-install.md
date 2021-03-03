@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/17/2020
-ms.openlocfilehash: f0d062766f0a5d58fbcaaa32b1df5a5e40c783b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 17c7609afeef8b5129e3bfe252def74b45cb4208
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719943"
 ---
 # <a name="install-the-azure-monitor-agent-preview"></a>Instalar o agente de Azure Monitor (versão prévia)
 Este artigo fornece as diferentes opções disponíveis no momento para instalar o [agente de Azure monitor](azure-monitor-agent-overview.md) em máquinas virtuais do Azure e em servidores habilitados para Arc do Azure e também as opções para criar [associações com regras de coleta de dados](data-collection-rule-azure-monitor-agent.md) que definem quais dados o agente deve coletar.
@@ -29,7 +29,7 @@ O agente de Azure Monitor é implementado como uma [extensão de VM do Azure](..
 |:---|:---|:---|
 | Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Tipo      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 
 ## <a name="install-with-azure-portal"></a>Instalação com o portal do Azure
@@ -42,7 +42,7 @@ Você pode usar modelos do Resource Manager para instalar o agente de Azure Moni
 Obtenha modelos de exemplo para instalar o agente e criar a associação a partir do seguinte: 
 
 - [Modelo para instalar o agente de Azure Monitor (Azure e Azure ARC)](../agents/resource-manager-agent.md#azure-monitor-agent-preview) 
-- [Modelo para criar associação com a regra de coleta de dados](../samples/resource-manager-data-collection-rules.md)
+- [Modelo para criar associação com a regra de coleta de dados](./resource-manager-data-collection-rules.md)
 
 Instale os modelos usando [qualquer método de implantação para modelos do Resource Manager](../../azure-resource-manager/templates/deploy-powershell.md) , como os comandos a seguir.
 

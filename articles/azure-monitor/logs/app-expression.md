@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/09/2019
-ms.openlocfilehash: cbfc9c8a32eb5345cfc69f51f40e0634e05bd978
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4789594cef0f7e900582dd9aad231b81547d3b3e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605087"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728409"
 ---
 # <a name="app-expression-in-azure-monitor-query"></a>expressão app() na consulta do Azure Monitor
 
@@ -20,7 +20,7 @@ A expressão `app` é usada em uma consulta do Azure Monitor para recuperar dado
 > [!IMPORTANT]
 > A expressão de aplicativo () não será usada se você estiver usando um [recurso de Application insights baseado em espaço de trabalho](../app/create-workspace-resource.md) , pois os dados de log são armazenados em um espaço de trabalho log Analytics. Use a expressão log () para gravar uma consulta que inclui o aplicativo em vários espaços de trabalho. Para vários aplicativos no mesmo espaço de trabalho, você não precisa de uma consulta entre espaços de trabalho.
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 `app(`*ID*`)`
 
@@ -73,6 +73,5 @@ union
 ## <a name="next-steps"></a>Próximas etapas
 
 - Veja a [expressão do espaço de trabalho](../logs/workspace-expression.md) para se referir a um espaço de trabalho do Log Analytics.
-- Leia mais sobre como os [dados do Azure Monitor](../log-query/log-query-overview.md) são armazenados.
+- Leia mais sobre como os [dados do Azure Monitor](./log-query-overview.md) são armazenados.
 - Acesse a documentação completa da [linguagem de consulta Kusto](/azure/kusto/query/).
-

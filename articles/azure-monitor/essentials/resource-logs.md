@@ -7,27 +7,27 @@ ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 3560152ce5e3185e79c7a7ff34e5360f10236980
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcd6522c46b6ca35031092c634803267a8486647
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605533"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731452"
 ---
 # <a name="azure-resource-logs"></a>Logs de recursos do Azure
-Os logs de recursos do Azure são [logs de plataforma](../essentials/platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](../platform/data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
+Os logs de recursos do Azure são [logs de plataforma](../essentials/platform-logs-overview.md) que fornecem informações sobre as operações que foram executadas em um recurso do Azure. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. Os logs de recursos não são coletados por padrão. Você deve criar uma configuração de diagnóstico para cada recurso do Azure para enviar seus logs de recursos para um Log Analytics espaço de trabalho para usar com [logs de Azure monitor](../logs/data-platform-logs.md), hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento.
 
 Consulte [criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes](../essentials/diagnostic-settings.md) para obter detalhes sobre como criar uma configuração de diagnóstico e [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md) para obter detalhes sobre como usar Azure Policy para criar automaticamente uma configuração de diagnóstico para cada recurso do Azure que você criar.
 
 ## <a name="send-to-log-analytics-workspace"></a>Enviar para o workspace do Log Analytics
- Envie logs de recursos para um espaço de trabalho Log Analytics para habilitar os recursos de [logs de Azure monitor](../platform/data-platform-logs.md) que incluem o seguinte:
+ Envie logs de recursos para um espaço de trabalho Log Analytics para habilitar os recursos de [logs de Azure monitor](../logs/data-platform-logs.md) que incluem o seguinte:
 
 - Correlacione os dados de log de recursos com outros dados de monitoramento coletados pelo Azure Monitor.
 - Consolide entradas de log de vários recursos, assinaturas e locatários do Azure em um único local para análise.
 - Use consultas de log para executar análises complexas e obter informações aprofundadas sobre dados de log.
 - Use alertas de log com lógica de alerta complexa.
 
-[Crie uma configuração de diagnóstico](../essentials/diagnostic-settings.md) para enviar logs de recursos para um espaço de trabalho log Analytics. Esses dados são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../platform/data-platform-logs.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
+[Crie uma configuração de diagnóstico](../essentials/diagnostic-settings.md) para enviar logs de recursos para um espaço de trabalho log Analytics. Esses dados são armazenados em tabelas, conforme descrito em [estrutura de logs de Azure monitor](../logs/data-platform-logs.md). As tabelas usadas pelos logs de recursos dependem do tipo de coleção que o recurso está usando:
 
 - Diagnóstico do Azure-todos os dados gravados estão na tabela _AzureDiagnostics_ .
 - Dados específicos do recurso são gravados em uma tabela individual para cada categoria do recurso.
@@ -43,7 +43,7 @@ Considere o exemplo a seguir em que as configurações de diagnóstico estão se
 
 A tabela AzureDiagnostics terá a seguinte aparência:  
 
-| ResourceProvider    | Categoria     | Um  | B  | C  | D  | E  | F  | G  | H  | I  |
+| ResourceProvider    | Categoria     | A  | B  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft. Service1 | AuditLogs    | X1 | Y1 | z1 |    |    |    |    |    |    |
 | Microsoft. Service1 | ErrorLogs    |    |    |    | q1 | W1 | E1 |    |    |    |
@@ -60,7 +60,7 @@ O exemplo acima resultaria em três tabelas sendo criadas:
  
 - Tabela *Service1AuditLogs* da seguinte maneira:
 
-    | Provedor de recursos | Categoria | Um | B | C |
+    | Provedor de recursos | Categoria | A | B | C |
     | -- | -- | -- | -- | -- |
     | Service1 | AuditLogs | X1 | Y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
@@ -90,7 +90,7 @@ A maioria dos recursos do Azure gravará dados no espaço de trabalho no modo de
    ![Seletor de modo de configurações de diagnóstico](media/resource-logs/diagnostic-settings-mode-selector.png)
 
 > [!NOTE]
-> Para obter um exemplo de como definir o modo de coleta usando um modelo do Resource Manager, consulte [exemplos de modelo do Resource Manager para configurações de diagnóstico em Azure monitor](../samples/resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
+> Para obter um exemplo de como definir o modo de coleta usando um modelo do Resource Manager, consulte [exemplos de modelo do Resource Manager para configurações de diagnóstico em Azure monitor](./resource-manager-diagnostic-settings.md#diagnostic-setting-for-recovery-services-vault).
 
 
 Você pode modificar uma configuração de diagnóstico existente para o modo específico do recurso. Nesse caso, os dados que já foram coletados permanecerão na tabela _AzureDiagnostics_ até que sejam removidos de acordo com sua configuração de retenção para o espaço de trabalho. Novos dados serão coletados na tabela dedicada. Use o operador [Union](/azure/kusto/query/unionoperator) para consultar dados em ambas as tabelas.

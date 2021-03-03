@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d129890cc63e5a0e4cbc6139e1de2df7a31f6f77
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 81a44d4d0025c841cf56e19d6afee5e95bd44a55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094567"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730500"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteger o gêmeos digital do Azure
 
@@ -92,7 +92,7 @@ O Azure dá suporte a dois tipos de identidades gerenciadas: atribuído pelo sis
 
 Você pode usar uma identidade gerenciada atribuída pelo sistema para sua instância digital do Azure para autenticar em um [ponto de extremidade definido pelo personalizado](concepts-route-events.md#create-an-endpoint). O Azure digital gêmeos dá suporte à autenticação baseada em identidades atribuída pelo sistema para pontos de extremidade para os destinos do [Hub de eventos](../event-hubs/event-hubs-about.md) e do [barramento de serviço](../service-bus-messaging/service-bus-messaging-overview.md)   e para um ponto de extremidades do [contêiner de armazenamento do Azure](../storage/blobs/storage-blobs-introduction.md)   para [eventos de mensagens mortas](concepts-route-events.md#dead-letter-events). [Grade](../event-grid/overview.md)   de eventos Atualmente, não há suporte para pontos de extremidade para identidades gerenciadas.
 
-Para obter instruções sobre como habilitar uma identidade gerenciada pelo sistema para o gêmeos digital do Azure e usá-la para rotear eventos, consulte [*como: habilitar uma identidade gerenciada para eventos de roteamento (visualização)*](how-to-enable-managed-identities.md).
+Para obter instruções sobre como habilitar uma identidade gerenciada pelo sistema para o gêmeos digital do Azure e usá-la para rotear eventos, consulte [*como: habilitar uma identidade gerenciada para eventos de roteamento (visualização)*](./how-to-enable-managed-identities-portal.md).
 
 ## <a name="private-network-access-with-azure-private-link-preview"></a>Acesso à rede privada com o link privado do Azure (versão prévia)
 
@@ -106,7 +106,7 @@ O ponto de extremidade privado usa um endereço IP do seu espaço de endereço d
 
 Configurar um ponto de extremidade privado para sua instância do gêmeos digital do Azure permite proteger sua instância do gêmeos digital do Azure e eliminar a exposição pública, bem como evitar dados vazamento de sua VNet.
 
-Para obter instruções sobre como configurar o link privado para o Azure digital gêmeos, consulte [*como habilitar o acesso privado com o link privado (visualização)*](how-to-enable-private-link.md).
+Para obter instruções sobre como configurar o link privado para o Azure digital gêmeos, consulte [*como habilitar o acesso privado com o link privado (visualização)*](./how-to-enable-private-link-portal.md).
 
 ### <a name="design-considerations"></a>Considerações sobre o design 
 

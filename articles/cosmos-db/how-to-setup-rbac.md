@@ -4,14 +4,14 @@ description: Saiba como configurar o controle de acesso baseado em função com 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/02/2021
 ms.author: thweiss
-ms.openlocfilehash: 49bf67a6703147ed31279e7af8145192d996c1cb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d83109f380a3044073cf2dd8d10f29027ebb9f41
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661781"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690899"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurar o controle de acesso baseado em função com Azure Active Directory para sua conta de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -101,6 +101,11 @@ Ao criar uma definição de função, você precisa fornecer:
     - `/` (nível de conta),
     - `/dbs/<database-name>` (nível de banco de dados),
     - `/dbs/<database-name>/colls/<container-name>` (nível de contêiner).
+
+> [!NOTE]
+> As operações descritas abaixo estão disponíveis no momento em:
+> - Azure PowerShell: [AZ. CosmosDB versão 2.0.1 – Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - CLI do Azure: [' cosmosdb-preview ' versão de extensão 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
 
 ### <a name="using-azure-powershell"></a>Usando o PowerShell do Azure
 
@@ -279,6 +284,11 @@ Depois de criar suas definições de função, você poderá associá-las às su
 > [!NOTE]
 > Se você quiser criar uma atribuição de função para uma entidade de serviço, certifique-se de usar sua **ID de objeto** como encontrada na seção **aplicativos empresariais** da folha do portal do **Azure Active Directory** .
 
+> [!NOTE]
+> As operações descritas abaixo estão disponíveis no momento em:
+> - Azure PowerShell: [AZ. CosmosDB versão 2.0.1 – Preview](https://www.powershellgallery.com/packages/Az.CosmosDB/2.0.1-preview)
+> - CLI do Azure: [' cosmosdb-preview ' versão de extensão 0.4.0](https://github.com/Azure/azure-cli-extensions/tree/master/src/cosmosdb-preview)
+
 ### <a name="using-azure-powershell"></a>Usando o PowerShell do Azure
 
 Atribuir uma função a uma identidade:
@@ -354,6 +364,12 @@ Essas informações adicionais fluem na categoria de log **DataPlaneRequests** e
 
 - `aadPrincipalId_g` mostra a ID da entidade de segurança da identidade do AAD que foi usada para autenticar a solicitação.
 - `aadAppliedRoleAssignmentId_g` mostra a [atribuição de função](#role-assignments) que foi respeitada ao autorizar a solicitação.
+
+## <a name="limits"></a>limites
+
+- Você pode criar até 100 definições de função e 2.000 atribuições de função por Azure Cosmos DB conta.
+- Atualmente, a resolução de grupo do Azure AD não tem suporte para identidades que pertencem a mais de 200 grupos.
+- O token do Azure AD é passado atualmente como um cabeçalho com cada solicitação individual enviada ao serviço de Azure Cosmos DB, aumentando o tamanho geral da carga.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 

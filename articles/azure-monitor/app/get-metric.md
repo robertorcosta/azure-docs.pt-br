@@ -5,12 +5,12 @@ ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: b4a255235b2c6d772ab9a05dffacd4574ddd3280
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0ce2651d5cfcb1578d78982af109a004aaac11f4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719773"
 ---
 # <a name="custom-metric-collection-in-net-and-net-core"></a>Coleção de métricas personalizadas no .NET e no .NET Core
 
@@ -33,7 +33,7 @@ A limitação é uma preocupação específica que, como a amostragem, a limita�
 No resumo `GetMetric()` , é a abordagem recomendada, já que ela faz a agregação, acumula valores de todas as chamadas Track () e envia um resumo/agregação a cada minuto. Isso pode reduzir significativamente o custo e a sobrecarga de desempenho enviando menos pontos de dados e, ao mesmo tempo, coletando todas as informações relevantes.
 
 > [!NOTE]
-> Somente os SDKs .NET e .NET Core têm um método getmetric (). Se você estiver usando o Java, poderá usar as [métricas micrometer](./micrometer-java.md) ou `TrackMetric()` . Para Python, você pode usar [OpenCensus. stats](./opencensus-python.md#metrics) para enviar métricas personalizadas. Para JavaScript e Node.js você ainda usaria `TrackMetric()` , mas tenha em mente as advertências que foram descritas na seção anterior.
+> Somente os SDKs .NET e .NET Core têm um método getmetric (). Se você estiver usando o Java, poderá usar as [métricas micrometer](./micrometer-java.md) ou `TrackMetric()` . Para JavaScript e Node.js você ainda usaria `TrackMetric()` , mas tenha em mente as advertências que foram descritas na seção anterior. Para Python, você pode usar [OpenCensus. stats](./opencensus-python.md#metrics) para enviar métricas personalizadas, mas a implementação de métricas é diferente.
 
 ## <a name="getting-started-with-getmetric"></a>Introdução ao getmetric
 
@@ -69,7 +69,7 @@ namespace WorkerService3
             // Here "computersSold", a custom metric name, is being tracked with a value of 42 every second.
             while (!stoppingToken.IsCancellationRequested)
             {
-                _telemetryClient.GetMetric("computersSold").TrackValue(42);
+                _telemetryClient.GetMetric("ComputersSold").TrackValue(42);
 
                 _logger.LogInformation("Worker running at: {time}", DateTimeOffset.Now);
                 await Task.Delay(1000, stoppingToken);
@@ -89,7 +89,7 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 "ai.internal.sdkVersion":"m-agg2c:2.12.0-21496",
 "ai.internal.nodeName":"Test-Computer-Name"},
 "data":{"baseType":"MetricData",
-"baseData":{"ver":2,"metrics":[{"name":"computersSold",
+"baseData":{"ver":2,"metrics":[{"name":"ComputersSold",
 "kind":"Aggregation",
 "value":1722,
 "count":41,
@@ -101,6 +101,9 @@ Application Insights Telemetry: {"name":"Microsoft.ApplicationInsights.Dev.00000
 ```
 
 Este item de telemetria única representa uma agregação de 41 medidas de métricas distintas. Como estávamos enviando o mesmo valor repetidamente, temos um *desvio padrão (DESVPAD)* de 0 com valores *máximos (máximos)* e *mínimos (* mínimos) idênticos. A propriedade *Value* representa uma soma de todos os valores individuais que foram agregados.
+
+> [!NOTE]
+> Getmetric não dá suporte ao acompanhamento do último valor (ou seja, "medidor") ou ao rastreamento de histogramas/distribuições.
 
 Se examinarmos nosso recurso de Application Insights na experiência de logs (análise), esse item de telemetria individual será semelhante ao seguinte:
 
@@ -283,7 +286,7 @@ computersSold.TrackValue(100, "Dim1Value1", "Dim2Value3");
 // The above call does not track the metric, and returns false.
 ```
 
-* `seriesCountLimit` é o número máximo de séries de tempo de dados que uma métrica pode conter. Quando esse limite for atingido, o chamará `TrackValue()` .
+* `seriesCountLimit` é o número máximo de séries de tempo de dados que uma métrica pode conter. Quando esse limite for atingido, as chamadas para `TrackValue()` não serão rastreadas.
 * `valuesPerDimensionLimit` limita o número de valores distintos por dimensão de maneira semelhante.
 * `restrictToUInt32Values` Determina se apenas valores inteiros não negativos devem ser controlados.
 

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2021
 ms.topic: conceptual
-ms.openlocfilehash: bed9cd23abc96c51cad0a13e81ee0b64f0d433b6
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.openlocfilehash: a201274bf0c06382da790dd051bf5023337970b8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100012288"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723836"
 ---
 # <a name="remove-startstop-vms-during-off-hours-from-automation-account"></a>Remover Iniciar/Parar VMs fora do horário comercial da conta de automação
 
@@ -94,7 +94,7 @@ Embora as informações sejam verificadas e a conta seja excluída, você pode a
 
 ## <a name="delete-the-feature"></a>Excluir o recurso
 
-Para excluir Iniciar/Parar VMs fora do horário comercial de sua conta de automação, execute as etapas a seguir. A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se não quiser manter o espaço de trabalho Log Analytics, você deverá excluí-lo manualmente. Para obter mais informações sobre como excluir seu espaço de trabalho, consulte [excluir e recuperar o Azure log Analytics espaço de trabalho](../azure-monitor/platform/delete-workspace.md).
+Para excluir Iniciar/Parar VMs fora do horário comercial de sua conta de automação, execute as etapas a seguir. A conta de Automação e o workspace do Log Analytics não serão excluídos como parte desse processo. Se não quiser manter o espaço de trabalho Log Analytics, você deverá excluí-lo manualmente. Para obter mais informações sobre como excluir seu espaço de trabalho, consulte [excluir e recuperar o Azure log Analytics espaço de trabalho](../azure-monitor/logs/delete-workspace.md).
 
 1. Navegue até sua conta de automação e selecione **espaço de trabalho vinculado** em **recursos relacionados**.
 

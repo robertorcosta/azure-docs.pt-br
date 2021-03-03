@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: d914c9b5f96cf502247d40a913ce8ad4651a4a14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 68a9dd5cb24dda54e867580cf7c1bc869e692833
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605261"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734410"
 ---
 # <a name="getting-started-with-azure-metrics-explorer"></a>Introdução ao Azure Metrics Explorer
 
@@ -29,7 +29,7 @@ O Azure Monitor Metrics Explorer é um componente do portal do Microsoft Azure q
 
 Para criar um gráfico de métricas, em seu recurso, grupo de recursos, assinatura ou Azure Monitor exibição, abra a guia **métricas** e siga estas etapas:
 
-1. Clique no botão "selecionar um escopo" para abrir o seletor de escopo de recurso. Isso permitirá que você selecione os recursos para os quais deseja ver as métricas. O recurso já deve estar preenchido se você tiver aberto o Metrics Explorer no menu do recurso. Para saber como exibir as métricas em vários recursos, [Leia este artigo](../platform/metrics-dynamic-scope.md).
+1. Clique no botão "selecionar um escopo" para abrir o seletor de escopo de recurso. Isso permitirá que você selecione os recursos para os quais deseja ver as métricas. O recurso já deve estar preenchido se você tiver aberto o Metrics Explorer no menu do recurso. Para saber como exibir as métricas em vários recursos, [Leia este artigo](./metrics-dynamic-scope.md).
     > ![Selecionar um recurso](./media/metrics-getting-started/scope-picker.png)
 
 2. Para alguns recursos, você deve escolher um namespace. O namespace é apenas uma maneira de organizar as métricas para que você possa encontrá-las com facilidade. Por exemplo, as contas de armazenamento têm namespaces separados para armazenar métricas de arquivos, tabelas, blobs e filas. Muitos tipos de recursos têm apenas um namespace.
@@ -72,7 +72,7 @@ Você pode personalizar o estilo do gráfico, o título e modificar as configura
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Saiba mais sobre os recursos avançados do Metrics Explorer](../essentials/metrics-charts.md)
-* [Exibindo vários recursos no Metrics Explorer](../platform/metrics-dynamic-scope.md)
+* [Exibindo vários recursos no Metrics Explorer](./metrics-dynamic-scope.md)
 * [Solução de problemas do Metrics Explorer](metrics-troubleshoot.md)
-* [Veja uma lista das métricas disponíveis para os serviços do Azure](../platform/metrics-supported.md)
+* [Veja uma lista das métricas disponíveis para os serviços do Azure](./metrics-supported.md)
 * [Veja exemplos de gráficos configurados](../essentials/metric-chart-samples.md)

@@ -1,22 +1,22 @@
 ---
-title: Como consultar logs de Azure Monitor para contêineres | Microsoft Docs
-description: Azure Monitor para contêineres coleta dados de log e métricas e este artigo descreve os registros e inclui exemplos de consultas.
+title: Como consultar logs de informações do contêiner | Microsoft Docs
+description: As informações de contêiner coletam dados de log e métricas e este artigo descreve os registros e inclui exemplos de consultas.
 ms.topic: conceptual
 ms.date: 06/01/2020
-ms.openlocfilehash: 8f02d900ba931768c7f8acebc1b124aff777da18
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 79efa714548adbde67774cab741bf953a4ff1e83
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606668"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711103"
 ---
-# <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Como consultar logs de Azure Monitor para contêineres
+# <a name="how-to-query-logs-from-container-insights"></a>Como consultar logs de informações de contêiner
 
-Azure Monitor para contêineres coleta métricas de desempenho, dados de inventário e informações de estado de integridade de hosts e contêineres de contêiner. Os dados são coletados a cada três minutos e encaminhados para o espaço de trabalho Log Analytics no Azure Monitor. Esses dados estão disponíveis para [consulta](../log-query/log-query-overview.md) no Azure monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+O insights de contêiner coleta métricas de desempenho, dados de inventário e informações de estado de integridade de contêineres e contêineres. Os dados são coletados a cada três minutos e encaminhados para o espaço de trabalho Log Analytics no Azure Monitor. Esses dados estão disponíveis para [consulta](../logs/log-query-overview.md) no Azure monitor. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 ## <a name="container-records"></a>Registros de contêiner
 
-Na tabela a seguir, são fornecidos detalhes dos registros coletados por Azure Monitor para contêineres. Para obter uma lista das descrições de coluna, consulte a referência para as tabelas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
+Na tabela a seguir, são fornecidos os detalhes dos registros coletados por informações de contêiner. Para obter uma lista das descrições de coluna, consulte a referência para as tabelas [ContainerInventory](/azure/azure-monitor/reference/tables/containerinventory) e [ContainerLog](/azure/azure-monitor/reference/tables/containerlog) .
 
 | Dados | Fonte de dados | Tipo de dados | Campos |
 |------|-------------|-----------|--------|
@@ -110,4 +110,4 @@ A saída mostra resultados semelhantes ao exemplo a seguir:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Azure Monitor para contêineres não inclui um conjunto predefinido de alertas. Examine [criar alertas de desempenho com Azure monitor para contêineres](./container-insights-log-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps.
+As informações de contêiner não incluem um conjunto predefinido de alertas. Examine [criar alertas de desempenho com o contêiner insights](./container-insights-log-alerts.md) para saber como criar alertas recomendados para alta utilização de CPU e memória para dar suporte aos processos e procedimentos operacionais ou DevOps.

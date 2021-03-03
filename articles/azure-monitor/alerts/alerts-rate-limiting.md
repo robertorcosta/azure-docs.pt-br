@@ -6,12 +6,12 @@ ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
 ms.subservice: alerts
-ms.openlocfilehash: fc49e923676b63e301b2d63b4274ae11b3043906
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 717f4087dabbb3286607498ab7f04bcbcce663dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605156"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737266"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>Limitação de taxa para voz, SMS, emails, notificações por push do Azure App e webhooks
 A limitação de taxa é uma suspensão de notificações que ocorre quando muitas são enviadas para determinado número de telefone, endereço de email ou dispositivo. A limitação de taxa assegura que os alertas sejam gerenciáveis e acionáveis.
@@ -31,5 +31,5 @@ Os limites de taxa são:
 
 ## <a name="next-steps"></a>Próximas etapas ##
 * Saiba mais sobre o [comportamento de alertas por SMS](alerts-sms-behavior.md).
-* Obtenha uma [visão geral dos alertas do log de atividades](../platform/alerts-overview.md) e saiba como receber alertas.  
+* Obtenha uma [visão geral dos alertas do log de atividades](./alerts-overview.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](../../service-health/alerts-activity-log-service-notifications-portal.md).

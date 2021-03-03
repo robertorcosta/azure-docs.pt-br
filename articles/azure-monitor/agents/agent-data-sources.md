@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: 2947f1c484f013c2d0bef9899b849f7ea761d89e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8b0debed6e0865f39cd42c7003347b2510600f81
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604965"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720011"
 ---
 # <a name="log-analytics-agent-data-sources-in-azure-monitor"></a>Log Analytics fontes de dados do agente no Azure Monitor
-Os dados que Azure Monitor coleta de máquinas virtuais com o agente de [log Analytics](../platform/log-analytics-agent.md) são definidos pelas fontes de dados que você configura no [espaço de trabalho log Analytics](../platform/data-platform-logs.md).   Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
+Os dados que Azure Monitor coleta de máquinas virtuais com o agente de [log Analytics](./log-analytics-agent.md) são definidos pelas fontes de dados que você configura no [espaço de trabalho log Analytics](../logs/data-platform-logs.md).   Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
 
 > [!IMPORTANT]
-> Este artigo aborda as fontes de dados para o [agente de log Analytics](../platform/log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
+> Este artigo aborda as fontes de dados para o [agente de log Analytics](./log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Coleta de dados de log](media/agent-data-sources/overview.png)
 
@@ -51,7 +51,7 @@ Qualquer configuração é entregue a todos os agentes conectados a esse espaço
 ## <a name="data-collection"></a>Coleta de dados
 As configurações de fonte de dados são entregues aos agentes que estão diretamente conectados ao Azure Monitor em alguns minutos.  Os dados especificados são coletados do agente e entregues diretamente para o Azure Monitor em intervalos específicos a cada fonte de dados.  Consulte a documentação para cada fonte de dados para encontrar essas especificações.
 
-Para agentes do System Center Operations Manager em um grupo de gerenciamento conectado, as configurações de fonte de dados são convertidas em pacotes de gerenciamento e entregues ao grupo de gerenciamento a cada cinco minutos por padrão.  O agente baixa o pacote de gerenciamento como qualquer outro e coleta os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gerenciamento que os encaminhará para o Azure Monitor ou o agente enviará os dados para o Azure Monitor sem passar pelo servidor de gerenciamento. Confira [Detalhes da coleta de dados para soluções de monitoramento no Azure](../monitor-reference.md) para obter detalhes.  Leia mais sobre os detalhes da conexão do Operations Manager e do Azure Monitor e a modificação da frequência de entrega da configuração em [Configurar a integração com o System Center Operations Manager](../platform/om-agents.md).
+Para agentes do System Center Operations Manager em um grupo de gerenciamento conectado, as configurações de fonte de dados são convertidas em pacotes de gerenciamento e entregues ao grupo de gerenciamento a cada cinco minutos por padrão.  O agente baixa o pacote de gerenciamento como qualquer outro e coleta os dados especificados. Dependendo da fonte de dados, os dados serão enviados para um servidor de gerenciamento que os encaminhará para o Azure Monitor ou o agente enviará os dados para o Azure Monitor sem passar pelo servidor de gerenciamento. Confira [Detalhes da coleta de dados para soluções de monitoramento no Azure](../monitor-reference.md) para obter detalhes.  Leia mais sobre os detalhes da conexão do Operations Manager e do Azure Monitor e a modificação da frequência de entrega da configuração em [Configurar a integração com o System Center Operations Manager](./om-agents.md).
 
 Se o agente não puder se conectar ao Azure Monitor nem ao Operations Manager, ele continuará coletando dados que serão fornecidos quando ele estabelecer uma conexão.  Dados podem ser perdidos se a quantidade de dados atingir o tamanho máximo do cache do cliente, ou se o agente não for capaz de estabelecer uma conexão dentro de 24 horas.
 
@@ -60,5 +60,5 @@ Todos os dados de log coletados pelo Azure Monitor são armazenados no workspace
 
 ## <a name="next-steps"></a>Próximas etapas
 * Conheça as [soluções de monitoramento](../insights/solutions.md) que adicionam funcionalidades ao Azure Monitor e também coletam dados no workspace.
-* Saiba mais sobre as [consultas de log](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções de monitoramento.  
-* Configure [alertas](../platform/alerts-overview.md) para notificá-lo de forma proativa sobre dados críticos coletados de fontes de dados e soluções de monitoramento.
+* Saiba mais sobre as [consultas de log](../logs/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções de monitoramento.  
+* Configure [alertas](../alerts/alerts-overview.md) para notificá-lo de forma proativa sobre dados críticos coletados de fontes de dados e soluções de monitoramento.

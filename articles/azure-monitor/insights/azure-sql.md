@@ -1,18 +1,17 @@
 ---
 title: Análise de SQL do Azure solução no Azure Monitor | Microsoft Docs
 description: Solução de Análise do Azure SQL ajuda a gerenciar os bancos de dados SQL do Azure
-ms.subservice: logs
 ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.date: 09/19/2020
 ms.reviewer: carlrab
-ms.openlocfilehash: fbe506dc3f5738f0ef639695ded980a24536993e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 54ef88e65925ba9c7e9fe2e44ef0c76fbc9ceb04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577459"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717478"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise de SQL do Azure (Versão Prévia)
 
@@ -34,16 +33,16 @@ Análise de SQL do Azure é uma solução de monitoramento somente de nuvem com 
 | Fonte Conectada | Com suporte | Descrição |
 | --- | --- | --- |
 | [Configurações de diagnóstico](../essentials/diagnostic-settings.md) | **Sim** | Os dados de log e métrica do Azure são enviados para Azure Monitor logs diretamente pelo Azure. |
-| [Conta de Armazenamento do Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | No | Azure Monitor não lê os dados de uma conta de armazenamento. |
-| [Agentes do Windows](../agents/agent-windows.md) | No | Os agentes diretos do Windows não são usados pelo Análise de SQL do Azure. |
-| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | No | Os agentes diretos do Linux não são usados pelo Análise de SQL do Azure. |
-| [Grupo de gerenciamento do System Center Operations Manager](../agents/om-agents.md) | No | Uma conexão direta do agente de Operations Manager para Azure Monitor não é usada pelo Análise de SQL do Azure. |
+| [Conta de Armazenamento do Azure](../essentials/resource-logs.md#send-to-log-analytics-workspace) | Não | Azure Monitor não lê os dados de uma conta de armazenamento. |
+| [Agentes do Windows](../agents/agent-windows.md) | Não | Os agentes diretos do Windows não são usados pelo Análise de SQL do Azure. |
+| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | Não | Os agentes diretos do Linux não são usados pelo Análise de SQL do Azure. |
+| [Grupo de gerenciamento do System Center Operations Manager](../agents/om-agents.md) | Não | Uma conexão direta do agente de Operations Manager para Azure Monitor não é usada pelo Análise de SQL do Azure. |
 
 ## <a name="azure-sql-analytics-options"></a>Opções de Análise de SQL do Azure
 
 A tabela abaixo descreve as opções com suporte para duas versões do painel de Análise de SQL do Azure, uma para o banco de dados SQL do Azure e a outra para bancos de dados SQL Instância Gerenciada do Azure.
 
-| Opção Análise de SQL do Azure | Description | Suporte ao banco de dados SQL | Suporte à Instância Gerenciada de SQL |
+| Opção Análise de SQL do Azure | Descrição | Suporte ao banco de dados SQL | Suporte à Instância Gerenciada de SQL |
 | --- | ------- | ----- | ----- |
 | Recurso por tipo | Perspectiva que conta todos os recursos monitorados. | Sim | Sim |
 | Insights | Fornece uma busca detalhada hierárquica no Intelligent Insights sobre o desempenho. | Sim | Sim |

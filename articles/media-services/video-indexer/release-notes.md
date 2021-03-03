@@ -12,12 +12,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 02/16/2021
 ms.author: juliako
-ms.openlocfilehash: c8fcd6e662a0beff61209de4b5c4331618b45ea1
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3a64bb261db39efb63b35004f1daa0452b4f0672
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653289"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101715149"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Notas de versão do Video Indexer de serviços de mídia do Azure
 
@@ -47,7 +47,7 @@ O recurso de áudio recém-adicionado afeta a disponibilidade de recursos ao ind
 
 O tipo de evento **Clapping** que foi incluído no modelo de efeitos de áudio anterior agora é extraído de uma parte do tipo de evento de **reação de torcida** .
 
-Quando você opta por ver os **insites** do seu vídeo no site [Video indexer](https://www.videoindexer.ai/) , os efeitos de áudio aparecem na página.
+Quando você opta por ver **informações** do seu vídeo no site [Video indexer](https://www.videoindexer.ai/) , os efeitos de áudio aparecem na página.
 
 :::image type="content" source="./media/release-notes/audio-detection.png" alt-text="Detecção de eventos de áudio":::
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: e28c995a0fb574f2e7319f8ee540f49d1bbed4dd
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 77cc509a9fac2a24b3cd70675c1ee4160ecdb24d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97656896"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741847"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -97,9 +97,9 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
     > [!WARNING]
     > O espaço de IP de back-end da porta frontal pode ser alterado mais tarde. no entanto, garantiremos que, antes disso, isso seria integrado aos [intervalos de IP e às marcas de serviço do Azure](https://www.microsoft.com/download/details.aspx?id=56519). Recomendamos que você assine [intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519) para quaisquer alterações ou atualizações.
 
--    Execute uma operação GET na sua porta frontal com a versão da API `2020-01-01` ou superior. Na chamada à API, procure o `frontdoorID` campo. Filtre o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com o valor como o do campo `frontdoorID` . Você também pode encontrar `Front Door ID` o valor na seção visão geral da página do portal de porta frontal. 
+- Procure o `Front Door ID` valor na seção visão geral da página do portal de porta frontal. Em seguida, você pode filtrar o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com esse valor para garantir que apenas sua própria instância de porta frontal específica seja permitida (porque os intervalos de IP acima são compartilhados com outras instâncias de porta frontal de outros clientes).
 
-- Aplique a filtragem de regra em seu servidor Web de back-end para restringir o tráfego com base no valor de cabeçalho ' X-Azure-FDID ' resultante.
+- Aplique a filtragem de regra em seu servidor Web de back-end para restringir o tráfego com base no valor de cabeçalho ' X-Azure-FDID ' resultante. Observe que alguns serviços como Azure App serviço fornecem esse recurso de [filtragem baseado em cabeçalho](../app-service/app-service-ip-restrictions#restrict-access-to-a-specific-azure-front-door-instance-preview) sem a necessidade de alterar seu aplicativo ou host.
 
   Aqui está um exemplo de [Microsoft serviços de informações da Internet (IIS)](https://www.iis.net/):
 

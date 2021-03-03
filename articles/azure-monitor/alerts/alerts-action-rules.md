@@ -4,12 +4,12 @@ description: Noções básicas sobre as regras de ação no Azure Monitor são e
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 5fc9b1f75faec7f2be8f9e6126fdacf9697413f6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1a837ac9aa94effa021d5395fb4856d1d5df2e90
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606767"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718141"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -105,7 +105,7 @@ Se você selecionar **grupo de ações** na alternância, adicione um grupo de a
 Por fim, configure os seguintes detalhes para a regra de ação:
 * Name
 * Grupo de recursos no qual ele foi salvo
-* Description
+* Descrição
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -209,7 +209,7 @@ A contoso deseja suprimir as notificações de todos os alertas de log gerados p
 
 ### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Cenário 3: grupo de ações definido em um grupo de recursos
 
-A contoso definiu [um alerta de métrica em um nível de assinatura](../platform/alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Mas ele deseja definir as ações que disparam especificamente para alertas gerados a partir do grupo de recursos **ContosoRG**.
+A contoso definiu [um alerta de métrica em um nível de assinatura](./alerts-metric-overview.md#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Mas ele deseja definir as ações que disparam especificamente para alertas gerados a partir do grupo de recursos **ContosoRG**.
 
 **Solução:** Crie uma regra de ação com:
 * Scope = **ContosoRG**
@@ -251,13 +251,13 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 * * *
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Melhores práticas
 
-Os alertas de log que você cria com a opção [número de resultados](../platform/alerts-unified-log.md) geram uma única instância de alerta usando o resultado da pesquisa inteiro (que pode se estender por vários computadores). Nesse cenário, se uma regra de ação usar o filtro de **contexto de alerta (carga)** , ela agirá na instância de alerta contanto que haja uma correspondência. No cenário 2, descrito anteriormente, se os resultados da pesquisa para o alerta de log gerado contiverem o **computador-01** e o **computador-02**, toda a notificação será suprimida. Não há nenhuma notificação gerada para o **computador-02** .
+Os alertas de log que você cria com a opção [número de resultados](./alerts-unified-log.md) geram uma única instância de alerta usando o resultado da pesquisa inteiro (que pode se estender por vários computadores). Nesse cenário, se uma regra de ação usar o filtro de **contexto de alerta (carga)** , ela agirá na instância de alerta contanto que haja uma correspondência. No cenário 2, descrito anteriormente, se os resultados da pesquisa para o alerta de log gerado contiverem o **computador-01** e o **computador-02**, toda a notificação será suprimida. Não há nenhuma notificação gerada para o **computador-02** .
 
 ![Diagrama mostra as regras de ação e alertas de log com uma única instância de alerta realçada.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
-Para usar melhor os alertas de log com regras de ação, crie alertas de log com a opção [medição de métrica](../platform/alerts-unified-log.md) . As instâncias de alerta separadas são geradas por essa opção, com base em seu campo de grupo definido. Em seguida, no cenário 2, as instâncias de alerta separadas são geradas para o **computador-01** e o **computador-02**. Devido à regra de ação descrita no cenário, somente a notificação para o **computador-01** é suprimida. A notificação para o **computador-02** continua a ser acionada normalmente.
+Para usar melhor os alertas de log com regras de ação, crie alertas de log com a opção [medição de métrica](./alerts-unified-log.md) . As instâncias de alerta separadas são geradas por essa opção, com base em seu campo de grupo definido. Em seguida, no cenário 2, as instâncias de alerta separadas são geradas para o **computador-01** e o **computador-02**. Devido à regra de ação descrita no cenário, somente a notificação para o **computador-01** é suprimida. A notificação para o **computador-02** continua a ser acionada normalmente.
 
 ![Regras de ação e alertas de log (número de resultados)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
@@ -287,7 +287,7 @@ Depois de definir o recurso de destino para sua regra de alerta, você pode ver 
 
 ### <a name="can-i-see-the-alerts-that-have-been-suppressed-by-an-action-rule"></a>Posso ver os alertas que foram suprimidos por uma regra de ação?
 
-Na [página lista de alertas](../platform/alerts-managing-alert-instances.md), você pode escolher uma coluna adicional chamada **status de supressão**. Se a notificação de uma instância de alerta foi suprimida, ela mostraria esse status na lista.
+Na [página lista de alertas](./alerts-managing-alert-instances.md), você pode escolher uma coluna adicional chamada **status de supressão**. Se a notificação de uma instância de alerta foi suprimida, ela mostraria esse status na lista.
 
 ![Instâncias de alerta suprimidas](media/alerts-action-rules/action-rules-suppressed-alerts.png)
 
@@ -321,4 +321,4 @@ Para cada alerta no VM1, o grupo de ações AG1 seria disparado uma vez. Sempre 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Saiba mais sobre alertas no Azure](../platform/alerts-overview.md)
+- [Saiba mais sobre alertas no Azure](./alerts-overview.md)

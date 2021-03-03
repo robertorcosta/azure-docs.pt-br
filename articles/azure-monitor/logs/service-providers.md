@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: MeirMen
 ms.author: meirm
 ms.date: 02/03/2020
-ms.openlocfilehash: 5f69de583dea14be3c7ce3ab6779af549e95de75
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09b5a6bd11db1a8faa29e7b3871156f9c28d1140
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606556"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717376"
 ---
 # <a name="azure-monitor-logs-for-service-providers"></a>Logs de Azure Monitor para provedores de serviço
 
@@ -48,7 +48,7 @@ As vantagens da arquitetura distribuída são:
 
 As desvantagens da arquitetura distribuída são:
 
-* Visualizar centralmente e analisar dados em locatários do cliente com ferramentas como Azure Monitor pastas de trabalho podem resultar em experiências mais lentas, especialmente ao analisar dados em mais de 50 espaços de trabalho.
+* Visualizar centralmente e analisar dados [em locatários do cliente](cross-workspace-query.md) com ferramentas como Azure monitor pastas de trabalho podem resultar em experiências mais lentas, especialmente ao analisar dados em mais de 50 espaços de trabalho.
 * Se os clientes não estiverem integrados ao gerenciamento de recursos delegado do Azure, os administradores do provedor de serviços deverão ser provisionados no diretório do cliente e será mais difícil para o provedor de serviços gerenciar um grande número de locatários do cliente ao mesmo tempo.
 
 ### <a name="2-central---logs-are-stored-in-a-workspace-located-in-the-service-provider-tenant"></a>2. central-os logs são armazenados em um espaço de trabalho localizado no locatário do provedor de serviço
@@ -85,7 +85,7 @@ Há duas opções para implementar logs em um local central:
 
 * Automatizar a criação de workspaces usando o [PowerShell](../logs/powershell-workspace-configuration.md)
 
-* Use [Alertas](../platform/alerts-overview.md) para integrar com sistemas existentes
+* Use [Alertas](../alerts/alerts-overview.md) para integrar com sistemas existentes
 
 * Gerar relatórios de resumo usando o [Power BI](../visualize/powerbi.md)
 

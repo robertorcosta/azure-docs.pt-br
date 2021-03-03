@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636f209eeb74ada1b4c7c4232b6aba8738eee10a
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e2a455e1ee6f8f714cf50ebdf6a59dab568489ca
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365847"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101646292"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios federados
 
@@ -95,7 +95,7 @@ Se você não usa a WPAD e precisa configurar as definições de proxy no comput
 
 Se a organização exigir acesso à Internet por meio de um proxy de saída autenticado, será preciso garantir que os computadores com Windows 10 possam ser autenticados com êxito no proxy de saída. Como computadores com Windows 10 executam o registro de dispositivos usando o contexto do computador, será preciso configurar a autenticação de proxy de saída usando o contexto do computador. Acompanhe com o provedor de proxy de saída nos requisitos de configuração.
 
-Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](https://docs.microsoft.com/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
+Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 
 ## <a name="configure-hybrid-azure-ad-join"></a>Configurar ingresso no Azure AD híbrido
 

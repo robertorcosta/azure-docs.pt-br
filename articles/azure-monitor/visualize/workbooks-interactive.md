@@ -7,12 +7,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/20/2020
-ms.openlocfilehash: a70f2cff1df5d0f5d1d4a36bbc2a440518ce5ed4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2cb284e1978ad6c890835318c51c6095891397cd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605458"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723003"
 ---
 # <a name="interactive-workbooks"></a>Pastas de trabalho interativas
 
@@ -188,5 +188,5 @@ Embora o comportamento padrão seja exportar um parâmetro como texto, se você 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](../platform/workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
-* [Controle](../platform/workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Controle](./workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.

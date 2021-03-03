@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: 30744ab97549d585cb6893dc2e2e12009e8cd3fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 754e9516c5fd47668cbff5bdc64b8dfdeed050d8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595777"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705120"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -29,9 +29,9 @@ A Central de Segurança coleta dados das VMs (máquinas virtuais) do Azure, dos 
 
 Não. Os workspaces criados pela Central de Segurança, embora sejam configurados para os logs do Azure Monitor por cobrança de nó, não incorrerão em encargos de logs do Azure Monitor. A cobrança da Central de Segurança sempre tem base em sua política de segurança da Central de Segurança e nas soluções instaladas em um workspace:
 
-- **Azure defender desativado** – a central de segurança habilita a solução ' SecurityCenterFree ' no espaço de trabalho padrão. Você não será cobrado se o Azure defender estiver desativado.
+- **Azure defender desativado** – a central de segurança habilita a solução "SecurityCenterFree" no espaço de trabalho padrão. Você não será cobrado se o Azure defender estiver desativado.
 
-- O **Azure defender em** – central de segurança habilita a solução ' segurança ' no espaço de trabalho padrão.
+- **Azure defender on** – a central de segurança habilita a solução de "segurança" no espaço de trabalho padrão.
 
 Para saber mais sobre preços, confira [preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -146,7 +146,7 @@ Se o agente do Log Analytics foi instalado diretamente na VM (mas não como exte
 
 O agente instalado continuará a gerar relatórios para os workspaces já configurados e também para o workspace configurado na Central de Segurança (há compatibilidade com a hospedagem múltipla em computadores Windows).
 
-Se o workspace configurado for do usuário (e não o workspace padrão da Central de Segurança), você precisará instalar a solução "Security/"SecurityCenterFree" nele para a Central de Segurança iniciar o processamento de eventos de VMs e computadores que geram relatórios para esse workspace.
+Se o espaço de trabalho configurado for um espaço de trabalho do usuário (não o espaço de trabalho padrão da central de segurança), você precisará instalar a solução "segurança" ou "SecurityCenterFree" nela para a central de segurança iniciar o processamento de eventos de VMs e computadores que se reportam a esse espaço de trabalho.
 
 Em computadores Linux, a hospedagem múltipla do Agente não é compatível. Portanto, se uma instalação de agente existente for detectada, o provisionamento automático não ocorrerá e a configuração do computador não será alterada.
 
@@ -178,7 +178,7 @@ Você pode desligar o provisionamento automático para suas assinaturas na polí
 
     :::image type="content" source="./media/security-center-enable-data-collection/agent-toggles.png" alt-text="Habilitar a implantação automática para o agente de Log Analytics":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 ## <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Devo recusar a instalação do agente e a criação do workspace automáticas?
@@ -207,7 +207,7 @@ Quando a migração for concluída, a Central de Segurança não poderá coletar
 
 Instale manualmente a extensão do agente do Log Analytics para que a Central de Segurança possa coletar dados de segurança das suas VMs e fazer recomendações e alertas. Consulte [Instalação do agente para VM do Windows](../virtual-machines/extensions/oms-windows.md) ou [Instalação do agente para VM do Linux](../virtual-machines/extensions/oms-linux.md) para obter orientações sobre a instalação.
 
-Você pode conectar o agente a qualquer workspace personalizado existente ou a um workspace criado pela Central de Segurança. Se um workspace personalizado não tiver as soluções 'Security' ou 'SecurityCenterFree' habilitadas, você precisará aplicar uma solução. Para aplicar, selecione o workspace ou a assinatura personalizada e aplique uma camada de preços na página **Política de segurança – tipo de preço**.
+Você pode conectar o agente a qualquer workspace personalizado existente ou a um workspace criado pela Central de Segurança. Se um espaço de trabalho personalizado não tiver as soluções "segurança" ou "SecurityCenterFree" habilitadas, será necessário aplicar uma solução. Para aplicar, selecione o workspace ou a assinatura personalizada e aplique uma camada de preços na página **Política de segurança – tipo de preço**.
 
 :::image type="content" source="./media/security-center-platform-migration-faq/pricing-tier.png" alt-text="Habilitar ou desabilitar o Azure defender":::
 

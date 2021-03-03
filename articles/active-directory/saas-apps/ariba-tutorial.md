@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/01/2021
 ms.author: jeedes
-ms.openlocfilehash: 2b03c093a871c8a662d45b257e6feb95c4945a8e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3ecbe96e0385bff6199094af7138017df500175b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100374551"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647238"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Active Directory do Azure ao Ariba
 
@@ -77,7 +77,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Informações de logon único de Domínio e URLs do Ariba](common/sp-identifier.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: 
+    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     
     ```http
     https://<subdomain>.sourcing.ariba.com
@@ -143,8 +143,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Ariba e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Ariba em Meus Aplicativos, será redirecionado à URL de Logon do Ariba. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Ariba em Meus Aplicativos, será redirecionado à URL de Logon do Ariba. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Ariba, você poderá impor um controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o Ariba, você poderá impor um controle de sessão, que protege contra exfiltração e infiltração de dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

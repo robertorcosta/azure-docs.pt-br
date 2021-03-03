@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 028088087b16ded182042aadec4be08a4b8a9589
-ms.sourcegitcommit: 1a98b3f91663484920a747d75500f6d70a6cb2ba
+ms.openlocfilehash: 4db7c9fdfd439e049ca76fec6f0e66bd4a37fffd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
-ms.locfileid: "99062671"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702701"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -217,7 +217,44 @@ Quando um dispositivo real se conectar ao seu aplicativo IoT Central, o status d
 
 ## <a name="best-practices"></a>Práticas recomendadas
 
-Não persista nem armazene em cache a cadeia de conexão do dispositivo retornada pelo DPS quando você conectar o dispositivo pela primeira vez. Para reconectar um dispositivo, percorra o fluxo de registro de dispositivo padrão para obter a cadeia de conexão de dispositivo correta. Se o dispositivo armazenar em cache a cadeia de conexão, o software do dispositivo correrá o risco de ter uma cadeia de conexão obsoleta. Se IoT Central atualizar o Hub IoT do Azure subjacente que ele usa, um dispositivo com uma cadeia de conexão obsoleta não poderá se conectar.
+Essas recomendações mostram como implementar dispositivos para aproveitar a recuperação de desastre interna e o dimensionamento automático no IoT Central.
+
+A lista a seguir mostra o fluxo de alto nível quando um dispositivo se conecta a IoT Central:
+
+1. Use o DPS para provisionar o dispositivo e obter uma cadeia de conexão de dispositivo.
+
+1. Use a cadeia de conexão para conectar o ponto de extremidade do Hub IoT interno do IoT Central. Envie dados para e receba dados do seu aplicativo IoT Central.
+
+1. Se o dispositivo obtiver falhas de conexão, dependendo do tipo de erro, repita a conexão ou provisione o dispositivo.
+
+### <a name="use-dps-to-provision-the-device"></a>Usar o DPS para provisionar o dispositivo
+
+Para provisionar um dispositivo com o DPS, use a ID do escopo, as credenciais e a ID do dispositivo do seu aplicativo IoT Central. Para saber mais sobre os tipos de credenciais, consulte [registro de grupo X. 509](#x509-group-enrollment) e [registro de grupo SAS](#sas-group-enrollment). Para saber mais sobre as IDs de dispositivo, confira [registro de dispositivo](#device-registration).
+
+Em caso de sucesso, o DPS retorna uma cadeia de conexão que o dispositivo pode usar para se conectar ao seu aplicativo IoT Central. Para solucionar problemas de erros de provisionamento, consulte [verificar o status de provisionamento do seu dispositivo](troubleshoot-connection.md#check-the-provisioning-status-of-your-device).
+
+O dispositivo pode armazenar em cache a cadeia de conexão a ser usada para conexões posteriores. No entanto, o dispositivo deve estar preparado para [lidar com falhas de conexão](#handle-connection-failures).
+
+### <a name="connect-to-iot-central"></a>Conectar-se ao IoT Central
+
+Use a cadeia de conexão para conectar o ponto de extremidade do Hub IoT interno do IoT Central. A conexão permite que você envie telemetria para seu aplicativo IoT Central, sincronize valores de propriedade com seu aplicativo IoT Central e responda a comandos enviados por seu aplicativo IoT Central.
+
+### <a name="handle-connection-failures"></a>Lidar com falhas de conexão
+
+Para fins de dimensionamento ou recuperação de desastre, IoT Central pode atualizar seu hub IoT subjacente. Para manter a conectividade, o código do dispositivo deve tratar erros de conexão específicos estabelecendo uma conexão com o novo ponto de extremidade do Hub IoT.
+
+Se o dispositivo obtiver qualquer um dos erros a seguir ao se conectar, ele deverá refazer a etapa de provisionamento com o DPS para obter uma nova cadeia de conexão. Esses erros significam a cadeia de conexão que o dispositivo está usando não é mais válido:
+
+- Ponto de extremidade do Hub IoT inacessível.
+- Token de segurança expirado.
+- Dispositivo desabilitado no Hub IoT.
+
+Se o dispositivo obtiver qualquer um dos erros a seguir ao se conectar, ele deverá usar uma estratégia de retirada para tentar a conexão novamente. Esses erros significam a cadeia de conexão que o dispositivo está usando ainda é válido, mas condições transitórias estão interrompendo o dispositivo de se conectar:
+
+- Dispositivo bloqueado pelo operador.
+- Erro interno 500 do serviço.
+
+Para saber mais sobre os códigos de erro do dispositivo, consulte [Solucionando problemas de conexões de dispositivo](troubleshoot-connection.md).
 
 ## <a name="sdk-support"></a>Suporte a SDK
 

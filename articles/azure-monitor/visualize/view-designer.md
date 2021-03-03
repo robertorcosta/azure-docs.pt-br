@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/04/2020
-ms.openlocfilehash: d63627c00f6fd06ba00a9d8a905891238ce94697
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 11a6d21a7a066d331a92453e9aaa876800da0bf4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605006"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700534"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-azure-monitor"></a>Criar exibições personalizadas usando o designer de exibição no Azure Monitor
 Usando o designer de exibição no Azure Monitor, você pode criar uma variedade de exibições personalizadas na portal do Azure que podem ajudá-lo a Visualizar dados em seu espaço de trabalho do Log Analytics. Este artigo apresenta uma visão geral do Designer de Exibição e procedimentos para criar e editar exibições personalizadas.
@@ -38,10 +38,10 @@ As exibições criadas com o Designer de Exibição contêm os elementos descrit
 |:--- |:--- |
 | Blocos | São exibidos na sua página de **visão geral** do Azure monitor. Cada bloco exibe um resumo visual da exibição personalizada que representa. Cada tipo de bloco fornece uma visualização diferente de seus registros. Você seleciona um bloco para exibir uma exibição personalizada. |
 | Exibição personalizada | Exibida quando você seleciona um bloco. Cada exibição contém uma ou mais partes de visualização. |
-| Partes de visualização | Apresente uma visualização dos dados no espaço de trabalho Log Analytics com base em uma ou mais [consultas de log](../log-query/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho do Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
+| Partes de visualização | Apresente uma visualização dos dados no espaço de trabalho Log Analytics com base em uma ou mais [consultas de log](../logs/log-query-overview.md). A maioria das partes inclui um cabeçalho, que fornece uma visualização de alto nível e uma lista que exibe os melhores resultados. Cada tipo de parte fornece uma visualização diferente dos registros no espaço de trabalho do Log Analytics. Você seleciona elementos na parte para executar uma consulta de log que fornece registros detalhados. |
 
 ## <a name="required-permissions"></a>Permissões necessárias
-Você precisa de pelo menos [permissões de nível de colaborador](../platform/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho log Analytics para criar ou modificar modos de exibição. Se você não tiver essa permissão, a opção designer de exibição não será exibida no menu.
+Você precisa de pelo menos [permissões de nível de colaborador](../logs/manage-access.md#manage-access-using-azure-permissions) no espaço de trabalho log Analytics para criar ou modificar modos de exibição. Se você não tiver essa permissão, a opção designer de exibição não será exibida no menu.
 
 
 ## <a name="work-with-an-existing-view"></a>Trabalhar com um modo de exibição existente
@@ -54,7 +54,7 @@ As opções estão descritas na tabela a seguir:
 | Opção | Descrição |
 |:--|:--|
 | Atualizar   | Atualiza a exibição com os dados mais recentes. | 
-| Logs      | Abre o [log Analytics](../log-query/log-query-overview.md) para analisar dados com consultas de log. |
+| Logs      | Abre o [log Analytics](../logs/log-query-overview.md) para analisar dados com consultas de log. |
 | Editar       | Abre a exibição no Designer de Exibição para editar o conteúdo e a configuração.  |
 | Clone      | Cria uma nova exibição e abre no Designer de Exibição. O nome da nova exibição é o mesmo que o nome original, mas com *Copiar* acrescentado a ele. |
 | Intervalo de datas | Define um filtro de data e tempo para os dados incluídos na exibição. Este intervalo de datas é aplicado antes de quaisquer intervalos de datas definidos nas consultas na exibição.  |

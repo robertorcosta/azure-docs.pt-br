@@ -1,31 +1,31 @@
 ---
-title: Configurar o monitoramento na integridade de convidado do Azure Monitor para VMs usando regras de coleta de dados (versão prévia)
-description: Descreve como modificar o monitoramento padrão em Azure Monitor para VMs integridade de convidado em escala usando modelos do Resource Manager.
+title: Configurar o monitoramento na integridade de convidado do insights de VM usando regras de coleta de dados (versão prévia)
+description: Descreve como modificar o monitoramento padrão na integridade de convidado do insights de VM em escala usando modelos do Resource Manager.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
-ms.openlocfilehash: 2001fece40267ca2e3256e699d2dc253ceb10f0c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 907aea16b018fb5dd3846db546787d132f8f5a9f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606785"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731214"
 ---
-# <a name="configure-monitoring-in-azure-monitor-for-vms-guest-health-using-data-collection-rules-preview"></a>Configurar o monitoramento na integridade de convidado do Azure Monitor para VMs usando regras de coleta de dados (versão prévia)
-[Azure monitor para VMs integridade de convidado](vminsights-health-overview.md) permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão em várias máquinas virtuais usando regras de coleta de dados.
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurar o monitoramento na integridade de convidado do insights de VM usando regras de coleta de dados (versão prévia)
+A [integridade de convidado do insights de VM](vminsights-health-overview.md) permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão em várias máquinas virtuais usando regras de coleta de dados.
 
 
 ## <a name="monitors"></a>Monitores
-O estado de integridade de uma máquina virtual é determinado pelo [acúmulo de integridade](vminsights-health-overview.md#health-rollup-policy) de cada um de seus monitores. Há dois tipos de monitores no Azure Monitor para VMs integridade de convidado, conforme mostrado na tabela a seguir.
+O estado de integridade de uma máquina virtual é determinado pelo [acúmulo de integridade](vminsights-health-overview.md#health-rollup-policy) de cada um de seus monitores. Há dois tipos de monitores na integridade de convidado do insights de VM, conforme mostrado na tabela a seguir.
 
-| Monitor | Description |
+| Monitoramento | Descrição |
 |:---|:---|
 | Monitor de unidade | Mede alguns aspectos de um recurso ou aplicativo. Talvez esteja verificando um contador de desempenho para determinar o desempenho do recurso ou sua disponibilidade. |
 | Monitor agregado | Agrupa vários monitores para fornecer um único estado de integridade agregado. Um monitor agregado pode conter um ou mais monitores de unidade e outros monitores agregados. |
 
-O conjunto de monitores usados pelo Azure Monitor para VMs integridade de convidado e sua configuração não podem ser alterados diretamente. É possível criar [substituições](#overrides) , no entanto, que modificam o comportamento da configuração padrão. As substituições são definidas em regras de coleta de dados. Você pode criar várias regras de coleta de dados, cada uma contendo várias substituições para obter a configuração de monitoramento necessária.
+O conjunto de monitores usados pela integridade de convidado do virtual insights e sua configuração não podem ser alterados diretamente. É possível criar [substituições](#overrides) , no entanto, que modificam o comportamento da configuração padrão. As substituições são definidas em regras de coleta de dados. Você pode criar várias regras de coleta de dados, cada uma contendo várias substituições para obter a configuração de monitoramento necessária.
 
 ## <a name="monitor-properties"></a>Propriedades do monitor
 A tabela a seguir descreve as propriedades que podem ser configuradas em cada monitor.
@@ -47,11 +47,11 @@ A tabela a seguir descreve as propriedades que podem ser configuradas em cada mo
 A tabela a seguir lista a configuração padrão para cada monitor. Essa configuração padrão não pode ser alterada diretamente, mas você pode definir [substituições](#overrides) que modificarão a configuração do monitor para determinadas máquinas virtuais.
 
 
-| Monitor | habilitado | Alertas | Aviso | Crítico | Frequência de avaliação | Lookback | Tipo de avaliação | Exemplo mín. | Máximo de amostras |
+| Monitoramento | habilitado | Alertas | Aviso | Crítico | Frequência de avaliação | Lookback | Tipo de avaliação | Exemplo mín. | Máximo de amostras |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Utilização da CPU  | Verdadeiro | Falso | Nenhum | \> 90%    | 60 s | 240 s | Min | 2 | 3 |
-| Memória disponível | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 240 s | Max | 2 | 3 |
-| Sistema de arquivos      | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 120 s | Max | 1 | 1 |
+| Utilização da CPU  | True | Falso | Nenhum | \> 90%    | 60 s | 240 s | Min | 2 | 3 |
+| Memória disponível | True | Falso | Nenhum | \< 100 MB | 60 s | 240 s | Max | 2 | 3 |
+| Sistema de arquivos      | True | Falso | Nenhum | \< 100 MB | 60 s | 120 s | Max | 1 | 1 |
 
 
 ## <a name="overrides"></a>Substituições
@@ -103,9 +103,9 @@ A integridade do convidado é implementada como uma extensão para o agente de A
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `name` | Sim | Cadeia de caracteres definida pelo usuário para a extensão. |
-| `streams` | Yes | Lista de fluxos aos quais os dados de integridade de convidado serão enviados. Isso deve incluir **Microsoft-HealthStateChange**.  |
-| `extensionName` | Yes | Nome da extensão. Isso deve ser **HealthExtension**. |
-| `extensionSettings` | Yes | Matriz de `healthRuleOverride` elementos a serem aplicados à configuração padrão. |
+| `streams` | Sim | Lista de fluxos aos quais os dados de integridade de convidado serão enviados. Isso deve incluir **Microsoft-HealthStateChange**.  |
+| `extensionName` | Sim | Nome da extensão. Isso deve ser **HealthExtension**. |
+| `extensionSettings` | Sim | Matriz de `healthRuleOverride` elementos a serem aplicados à configuração padrão. |
 
 
 ## <a name="extensionsettings-element"></a>elemento extensionSettings
@@ -122,8 +122,8 @@ Contém configurações para a extensão.
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `schemaVersion` | Sim | Cadeia de caracteres definida pela Microsoft para representar o esquema esperado do elemento. Atualmente deve ser definido como 1,0 |
-| `contentVersion` | No | Cadeia de caracteres definida pelo usuário para controlar versões diferentes da configuração de integridade, se necessário. |
-| `healthRuleOverrides` | Yes | Matriz de `healthRuleOverride` elementos a serem aplicados à configuração padrão. |
+| `contentVersion` | Não | Cadeia de caracteres definida pelo usuário para controlar versões diferentes da configuração de integridade, se necessário. |
+| `healthRuleOverrides` | Sim | Matriz de `healthRuleOverride` elementos a serem aplicados à configuração padrão. |
 
 ## <a name="healthrulesoverrides-element"></a>elemento healthRulesOverrides
 Contém um ou mais `healthRuleOverride` elementos que cada um define uma substituição.
@@ -143,10 +143,10 @@ Contém um ou mais `healthRuleOverride` elementos que cada um define uma substit
 | Elemento | Obrigatório | Descrição |
 |:---|:---|:---|
 | `scopes` | Sim | Lista de um ou mais escopos que especificam as máquinas virtuais às quais essa substituição é aplicável. Embora o DCR esteja associado a uma máquina virtual, a máquina virtual deve estar dentro de um escopo para que a substituição seja aplicada. |
-| `monitors` | Yes | Lista de uma ou mais cadeias de caracteres que definem quais monitores receberão essa substituição.  |
-| `monitorConfiguration` | No | Configuração do monitor, incluindo Estados de integridade e como eles são calculados. |
-| `alertConfiguration` | No | Configuração de alerta para o monitor. |
-| `isEnabled` | No | Controla se o monitor está habilitado ou não. Monitor desabilitado alterna para o estado de integridade e os Estados *especiais desabilitados* , a menos que sejam habilitados novamente. Se omitido, o monitor herdará seu status do monitor pai na hierarquia. |
+| `monitors` | Sim | Lista de uma ou mais cadeias de caracteres que definem quais monitores receberão essa substituição.  |
+| `monitorConfiguration` | Não | Configuração do monitor, incluindo Estados de integridade e como eles são calculados. |
+| `alertConfiguration` | Não | Configuração de alerta para o monitor. |
+| `isEnabled` | Não | Controla se o monitor está habilitado ou não. Monitor desabilitado alterna para o estado de integridade e os Estados *especiais desabilitados* , a menos que sejam habilitados novamente. Se omitido, o monitor herdará seu status do monitor pai na hierarquia. |
 
 
 ## <a name="scopes-element"></a>elemento escopos
@@ -227,12 +227,12 @@ Caso haja menos amostras no intervalo de lookback do que o `minSamples` , o moni
 | Elemento | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `evaluationFrequencySecs` | Não | Define a frequência para a avaliação do estado de integridade. Cada monitor é avaliado no momento em que o agente é iniciado e em um intervalo regular definido por esse parâmetro posteriormente. |
-| `lookbackSecs`   | No | Tamanho da janela lookback em segundos. |
-| `evaluationType` | No | `min` – Pegue o valor mínimo do conjunto de amostras inteiro<br>`max` -obter o valor máximo do conjunto de amostras inteiro<br>`avg` – obter a média dos valores do conjunto de amostras<br>`all` – Compare cada valor único no conjunto com limites. Monitorar o estado das opções se e somente se todas as amostras na condição definirem satisfazer o limite. |
-| `minSamples`     | No | Número mínimo de valores a serem usados para calcular o valor. |
-| `maxSamples`     | No | Número máximo de valores a serem usados para calcular o valor. |
-| `warningCondition`  | No | Limite e a lógica de comparação para a condição de aviso. |
-| `criticalCondition` | No | Limite e a lógica de comparação para a condição crítica. |
+| `lookbackSecs`   | Não | Tamanho da janela lookback em segundos. |
+| `evaluationType` | Não | `min` – Pegue o valor mínimo do conjunto de amostras inteiro<br>`max` -obter o valor máximo do conjunto de amostras inteiro<br>`avg` – obter a média dos valores do conjunto de amostras<br>`all` – Compare cada valor único no conjunto com limites. Monitorar o estado das opções se e somente se todas as amostras na condição definirem satisfazer o limite. |
+| `minSamples`     | Não | Número mínimo de valores a serem usados para calcular o valor. |
+| `maxSamples`     | Não | Número máximo de valores a serem usados para calcular o valor. |
+| `warningCondition`  | Não | Limite e a lógica de comparação para a condição de aviso. |
+| `criticalCondition` | Não | Limite e a lógica de comparação para a condição crítica. |
 
 
 ## <a name="warningcondition-element"></a>elemento warningCondition
@@ -249,8 +249,8 @@ Define o limite e a lógica de comparação para a condição de aviso. Se esse 
 | Propriedade | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `isEnabled` | Não | Especifica se a condição está habilitada. Se definido como **false**, a condição será desabilitada mesmo que as propriedades Threshold e Operator possam ser definidas. |
-| `threshold` | No | Define o limite para comparar o valor avaliado. |
-| `operator`  | No | Define o operador de comparação a ser usado na expressão de limite. Valores possíveis: >, <, >=, <=, = =. |
+| `threshold` | Não | Define o limite para comparar o valor avaliado. |
+| `operator`  | Não | Define o operador de comparação a ser usado na expressão de limite. Valores possíveis: >, <, >=, <=, = =. |
 
 
 ## <a name="criticalcondition-element"></a>elemento criticalCondition
@@ -267,8 +267,8 @@ Define a lógica de comparação e limite para a condição crítica. Se esse el
 | Propriedade | Obrigatório | Descrição | 
 |:---|:---|:---|
 | `isEnabled` | Não | Especifica se a condição está habilitada. Se definido como **false**, a condição será desabilitada mesmo que as propriedades Threshold e Operator possam ser definidas. |
-| `threshold` | No | Define o limite para comparar o valor avaliado. |
-| `operator`  | No | Define o operador de comparação a ser usado na expressão de limite. Valores possíveis: >, <, >=, <=, = =. |
+| `threshold` | Não | Define o limite para comparar o valor avaliado. |
+| `operator`  | Não | Define o operador de comparação a ser usado na expressão de limite. Valores possíveis: >, <, >=, <=, = =. |
 
 ## <a name="sample-data-collection-rule"></a>Regra de coleta de dados de exemplo
 Para obter uma regra de coleta de dados de exemplo habilitando o monitoramento de convidado, consulte [habilitar uma máquina virtual usando o modelo do Resource Manager](vminsights-health-enable.md#enable-a-virtual-machine-using-resource-manager-template).

@@ -5,18 +5,18 @@ author: harelbr
 ms.author: harelbr
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 06/26/2020
+ms.date: 02/14/2021
 ms.subservice: alerts
-ms.openlocfilehash: b09c7f1ff429a3daf675b0f44cc8b64f27e79a07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 435f7b9b585b4effe6b06d78587845bf53a7d051
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605149"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714197"
 ---
 # <a name="how-to-update-alert-rules-or-action-rules-when-their-target-resource-moves-to-a-different-azure-region"></a>Como atualizar regras de alerta ou regras de ação quando o recurso de destino for movido para uma região diferente do Azure
 
-Este artigo descreve por que [as regras de alerta](../platform/alerts-overview.md) e regras de [ação](./alerts-action-rules.md) existentes podem ser afetadas quando você move outros recursos do Azure entre regiões e como identificar e resolver esses problemas. Verifique a [documentação de movimentação de recursos](../../azure-resource-manager/management/move-region.md) principais para obter informações adicionais sobre quando o recurso é movido entre regiões úteis e uma lista de verificação de criação de um processo de movimentação.
+Este artigo descreve por que [as regras de alerta](./alerts-overview.md) e regras de [ação](./alerts-action-rules.md) existentes podem ser afetadas quando você move outros recursos do Azure entre regiões e como identificar e resolver esses problemas. Verifique a [documentação de movimentação de recursos](../../azure-resource-manager/management/move-region.md) principais para obter informações adicionais sobre quando o recurso é movido entre regiões úteis e uma lista de verificação de criação de um processo de movimentação.
 
 ## <a name="why-the-problem-exists"></a>Por que o problema existe
 
@@ -48,7 +48,6 @@ O problema se aplica a esses tipos de regra:
 
 - Regras de alerta do log de atividades
 - Regras de ação
-- Alertas clássicos
 - Alertas de métrica – para obter mais informações, consulte a próxima seção [regras de alerta com base em métricas](#alert-rules-based-on-metrics).
 
 > [!NOTE]
@@ -112,4 +111,4 @@ Se **apenas alguns** dos recursos no escopo tiverem sido movidos, você precisar
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre como corrigir outros problemas com [notificações de alerta](alerts-troubleshoot.md), [alertas de métrica](alerts-troubleshoot-metric.md)e alertas de [log](alerts-troubleshoot-log.md). 
+Saiba mais sobre como corrigir outros problemas com [notificações de alerta](alerts-troubleshoot.md), [alertas de métrica](alerts-troubleshoot-metric.md)e alertas de [log](alerts-troubleshoot-log.md).

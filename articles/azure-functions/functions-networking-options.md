@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: 2c3f207e98f574bb6c43f87d34b0a404e263e83c
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ceef827f7406f8915d205349372a43626c917e4b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806991"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729225"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -87,7 +87,7 @@ Para obter mais detalhes, confira [Pontos de extremidade de serviço de rede vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas.  Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular.  Atualmente, esse recurso só funciona com planos do Windows Premium.  Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas.  Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular.  Atualmente, esse recurso só funciona para todas as SKUs compatíveis com vnet que incluem Standard e Premium, exceto para carimbos flexíveis em que vnet está disponível apenas para SKU Premium. Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos de extremidade de serviço habilitados.
 1. Configure a função para se conectar à sua rede virtual.

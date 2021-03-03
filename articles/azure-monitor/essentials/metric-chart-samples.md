@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 0430f8efedbcefba551ce3ee81d0db8a654f5b13
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 882c9e50c344b792d70d09017aeca3a2874cb106
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605667"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700738"
 ---
 # <a name="metric-chart-examples"></a>Exemplos de gráfico de métrica 
 
-A plataforma do Azure oferece [mais de mil métricas](../platform/metrics-supported.md), muitas das quais têm dimensões. Ao usar [filtros de dimensão](./metrics-charts.md), aplicar a [divisão](./metrics-charts.md), controlar o tipo de gráfico e ajustar as configurações do gráfico você pode criar painéis e exibições de diagnóstico poderosos que fornecem insight sobre a integridade da sua infraestrutura e seus aplicativos. Este artigo mostra alguns exemplos dos gráficos que podem ser criados usando o [Metrics Explorer](./metrics-charts.md) e explica as etapas necessárias para configurar cada um deles.
+A plataforma do Azure oferece [mais de mil métricas](./metrics-supported.md), muitas das quais têm dimensões. Ao usar [filtros de dimensão](./metrics-charts.md), aplicar a [divisão](./metrics-charts.md), controlar o tipo de gráfico e ajustar as configurações do gráfico você pode criar painéis e exibições de diagnóstico poderosos que fornecem insight sobre a integridade da sua infraestrutura e seus aplicativos. Este artigo mostra alguns exemplos dos gráficos que podem ser criados usando o [Metrics Explorer](./metrics-charts.md) e explica as etapas necessárias para configurar cada um deles.
 
 Deseja compartilhar seus ótimos exemplos de gráficos com o mundo? Contribua com esta página no GitHub e compartilhe seus próprios exemplos de gráfico aqui mesmo!
 
@@ -54,4 +54,3 @@ No seletor de métrica, selecione sua conta de armazenamento e a métrica **Tran
 
 * Saiba mais sobre as [Pastas de Trabalho](../visualize/workbooks-overview.md) do Azure Monitor
 * Saiba mais sobre o [Metrics Explorer](metrics-charts.md)
-

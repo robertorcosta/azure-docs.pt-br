@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 30b8cb2b5c8b1ccd0c927a6ff8a3a282d3d43c69
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f19f8fb3811435e9bbc207d2d130c0655a6dee02
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100386536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706055"
 ---
 # <a name="json-format-in-azure-data-factory"></a>Formato JSON no Azure Data Factory
 
@@ -201,7 +201,7 @@ No mapeamento de fluxos de dados, você pode ler e gravar no formato JSON nos se
 
 A tabela abaixo lista as propriedades com suporte por uma origem JSON. Você pode editar essas propriedades na guia **Opções de origem** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Caminhos curinga | Todos os arquivos correspondentes ao caminho curinga serão processados. Substitui a pasta e o caminho do arquivo definido no conjunto de um. | não | String[] | wildcardPaths |
 | Caminho raiz da partição | Para dados de arquivo particionados, você pode inserir um caminho raiz de partição para ler pastas particionadas como colunas | não | String | partitionRootPath |
@@ -218,7 +218,7 @@ A tabela abaixo lista as propriedades com suporte por uma origem JSON. Você pod
 
 ### <a name="source-format-options"></a>Opções de formato de origem
 
-O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** .  
+O uso de um conjunto de dados JSON como uma origem em seu Flow permite definir cinco configurações adicionais. Essas configurações podem ser encontradas sob o acordeão de **configurações JSON** na guia **Opções de origem** . Para configuração de **formulário de documento** , você pode selecionar um documento **único**, **documento por linha**  e **matriz de tipos de documentos** .
 
 ![Configurações de JSON](media/data-flow/json-settings.png "Configurações de JSON")
 
@@ -297,7 +297,7 @@ Selecione **barra invertida** se as barras invertidas forem usadas para escapar 
 
 A tabela abaixo lista as propriedades com suporte por um coletor JSON. Você pode editar essas propriedades na guia **configurações** .
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Name | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Limpar a pasta | Se a pasta de destino for limpa antes da gravação | não | `true` ou `false` | truncate |
 | Opção de nome de arquivo | O formato de nomenclatura dos dados gravados. Por padrão, um arquivo por partição no formato `part-#####-tid-<guid>` | não | Padrão: cadeia de caracteres <br> Por partição: cadeia de caracteres [] <br> Como dados na coluna: String <br> Saída para arquivo único: `['<fileName>']`  | filePattern <br> partitionFileNames <br> rowUrlColumn <br> partitionFileNames |

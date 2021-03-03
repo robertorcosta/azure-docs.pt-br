@@ -4,16 +4,16 @@ description: Obtenha uma visão geral do que você pode fazer com alertas de mé
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 989c3b8a50c3e613e67726684f35c6adce9c8b96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc0f41f23f1d9387f806c947ac27e6f31cc0e053
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605161"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723598"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Entender como funcionam os alertas de métrica no Azure Monitor
 
-Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionais. Essas métricas podem ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../platform/metrics-custom-overview.md), [logs populares do Azure Monitor convertidos em métricas](./alerts-metric-logs.md) e métricas do Application Insights. Os alertas de métrica verificam, em intervalos regulares, se as condições em uma ou mais séries temporais de métrica são verdadeiras e notificam você quando as condições são atendidas. Os alertas de métrica são baseados em estado, ou seja, eles só enviam notificações quando o estado é alterado.
+Os alertas de métrica no Azure Monitor funcionam com métricas multidimensionais. Essas métricas podem ser [métricas de plataforma](alerts-metric-near-real-time.md#metrics-and-dimensions-supported), [métricas personalizadas](../essentials/metrics-custom-overview.md), [logs populares do Azure Monitor convertidos em métricas](./alerts-metric-logs.md) e métricas do Application Insights. Os alertas de métrica verificam, em intervalos regulares, se as condições em uma ou mais séries temporais de métrica são verdadeiras e notificam você quando as condições são atendidas. Os alertas de métrica são baseados em estado, ou seja, eles só enviam notificações quando o estado é alterado.
 
 ## <a name="how-do-metric-alerts-work"></a>Como funcionam os alertas de métrica?
 
@@ -26,7 +26,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: estático
-- Tipo de agregação (uma estatística que é executada sobre valores de métrica brutos. Os [tipos de agregação com suporte](../platform/metrics-aggregation-explained.md#aggregation-types) são mínimo, máximo, média, total, contagem): média
+- Tipo de agregação (uma estatística que é executada sobre valores de métrica brutos. Os [tipos de agregação com suporte](../essentials/metrics-aggregation-explained.md#aggregation-types) são mínimo, máximo, média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -43,7 +43,7 @@ Digamos que você tenha criado uma regra de alerta de métrica simples com limit
 - Recurso de destino (o recurso do Azure que você deseja monitorar): myVM
 - Métrica: porcentagem de CPU
 - Tipo de condição: dinâmica
-- Tipo de agregação (uma estatística que é executada sobre valores de métrica brutos. Os [tipos de agregação com suporte](../platform/metrics-aggregation-explained.md#aggregation-types) são mínimo, máximo, média, total, contagem): média
+- Tipo de agregação (uma estatística que é executada sobre valores de métrica brutos. Os [tipos de agregação com suporte](../essentials/metrics-aggregation-explained.md#aggregation-types) são mínimo, máximo, média, total, contagem): média
 - Período (a janela de pesquisa sobre quais valores de métrica são verificados): nos últimos 5 minutos
 - Frequência (a frequência com que o alerta de métrica verifica se as condições são atendidas): 1 min
 - Operador: maior que
@@ -180,9 +180,8 @@ Você pode encontrar a lista completa dos tipos de recursos com suporte neste [a
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como criar, exibir e gerenciar alertas de métrica no Azure](../alerts/alerts-metric.md)
-- [Saiba como criar alertas no Azure Agent Metrics Explorer](../platform/metrics-charts.md#alert-rules)
+- [Saiba como criar alertas no Azure Agent Metrics Explorer](../essentials/metrics-charts.md#alert-rules)
 - [Saiba como criar alertas de métrica usando modelos do Azure Resource Manager](./alerts-metric-create-templates.md)
-- [Saiba mais sobre grupos de ação](../platform/action-groups.md)
+- [Saiba mais sobre grupos de ação](./action-groups.md)
 - [Saiba mais sobre o tipo de condição de Limites Dinâmicos](../alerts/alerts-dynamic-thresholds.md)
 - [Saiba mais sobre como solucionar problemas em alertas de métricas](alerts-troubleshoot-metric.md)
-

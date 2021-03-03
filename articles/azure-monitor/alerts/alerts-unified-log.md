@@ -6,33 +6,33 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: 88643663c2f14cb7d8883eb1210bdee07b00eece
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e7909725f5e390f4e42a7d62e80f90f897c840f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605127"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101714146"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de log no Azure Monitor
 
 ## <a name="overview"></a>Visão geral
 
-Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](../platform/alerts-overview.md). Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](../platform/action-groups.md).
+Os alertas de log são um dos tipos de alertas que têm suporte nos [alertas do Azure](./alerts-overview.md). Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../logs/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md).
 
 > [!NOTE]
-> Os dados de log de um [espaço de trabalho log Analytics](../log-query/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
+> Os dados de log de um [espaço de trabalho log Analytics](../logs/log-analytics-tutorial.md) podem ser enviados para o repositório de métricas de Azure monitor. Os alertas de métricas têm [comportamento diferente](alerts-metric-overview.md), o que pode ser mais desejável, dependendo dos dados com os quais você está trabalhando. Para obter informações sobre o que e como você pode rotear logs para métricas, consulte [alerta de métrica para logs](alerts-metric-logs.md).
 
 > [!NOTE]
 > No momento, não há encargos adicionais para a versão da API `2020-05-01-preview` e alertas de log centrados no recurso.  Os preços para os recursos que estão na versão prévia serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a nova versão da API e alertas de log centrados no recurso após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Os alertas de log executam consultas em Log Analytics dados. Primeiro, você deve começar a [coletar dados de log](../platform/resource-logs.md) e consultar os dados de log para problemas. Você pode usar o [tópico Exemplos de consulta de alerta](../log-query/example-queries.md) no log Analytics para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../log-query/log-analytics-tutorial.md).
+Os alertas de log executam consultas em Log Analytics dados. Primeiro, você deve começar a [coletar dados de log](../essentials/resource-logs.md) e consultar os dados de log para problemas. Você pode usar o [tópico Exemplos de consulta de alerta](../logs/example-queries.md) no log Analytics para entender o que você pode descobrir ou começar [a escrever sua própria consulta](../logs/log-analytics-tutorial.md).
 
-O [colaborador de monitoramento do Azure](../platform/roles-permissions-security.md) é uma função comum que é necessária para criar, modificar e atualizar alertas de log. O acesso & direitos de execução de consulta para os logs de recursos também são necessários. O acesso parcial aos logs de recursos pode falhar em consultas ou retornar resultados parciais. [Saiba mais sobre como configurar alertas de log no Azure](./alerts-log.md).
+O [colaborador de monitoramento do Azure](../roles-permissions-security.md) é uma função comum que é necessária para criar, modificar e atualizar alertas de log. O acesso & direitos de execução de consulta para os logs de recursos também são necessários. O acesso parcial aos logs de recursos pode falhar em consultas ou retornar resultados parciais. [Saiba mais sobre como configurar alertas de log no Azure](./alerts-log.md).
 
 > [!NOTE]
-> Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](../platform/api-alerts.md)herdado. [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](../alerts/alerts-log-api-switch.md).
+> Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](./api-alerts.md)herdado. [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](../alerts/alerts-log-api-switch.md).
 
 ## <a name="query-evaluation-definition"></a>Definição de avaliação de consulta
 
@@ -44,17 +44,17 @@ A definição da condição de regras de pesquisa de logs começa com:
 As seções a seguir descrevem os diferentes parâmetros que você pode usar para definir a lógica acima.
 
 ### <a name="log-query"></a>Consulta de log
-A consulta [log Analytics](../log-query/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta pode ser delimitada para:
+A consulta [log Analytics](../logs/log-analytics-tutorial.md) usada para avaliar a regra. Os resultados retornados por essa consulta são usados para determinar se um alerta deve ser disparado. A consulta pode ser delimitada para:
 
 - Um recurso específico, como uma máquina virtual.
 - Um recurso em escala, como uma assinatura ou grupo de recursos.
-- Vários recursos usando [a consulta entre recursos](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
+- Vários recursos usando [a consulta entre recursos](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights). 
  
 > [!IMPORTANT]
 > As consultas de alerta têm restrições para garantir o desempenho ideal e a relevância dos resultados. [Saiba mais aqui](./alerts-log-query.md).
 
 > [!IMPORTANT]
-> O recurso centrado em recursos e [consulta entre recursos](../log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) só tem suporte usando a API scheduledQueryRules atual. Se você usar a [API de alerta do log Analytics](../platform/api-alerts.md)herdado, será necessário alternar. [Saiba mais sobre como alternar](./alerts-log-api-switch.md)
+> O recurso centrado em recursos e [consulta entre recursos](../logs/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) só tem suporte usando a API scheduledQueryRules atual. Se você usar a [API de alerta do log Analytics](./api-alerts.md)herdado, será necessário alternar. [Saiba mais sobre como alternar](./alerts-log-api-switch.md)
 
 #### <a name="query-time-range"></a>Intervalo de tempo de consulta
 
@@ -154,7 +154,7 @@ Por exemplo, você deseja monitorar erros para várias máquinas virtuais que ex
 Essa regra monitora se alguma máquina virtual tinha eventos de erro nos últimos 15 minutos. Cada máquina virtual é monitorada separadamente e disparará ações individualmente.
 
 > [!NOTE]
-> As dimensões de divisão por alerta só estão disponíveis para a API scheduledQueryRules atual. Se você usar a [API de alerta do log Analytics](../platform/api-alerts.md)herdado, será necessário alternar. [Saiba mais sobre como alternar](./alerts-log-api-switch.md). Os alertas centrados em recursos em escala só têm suporte na versão da API `2020-05-01-preview` e acima.
+> As dimensões de divisão por alerta só estão disponíveis para a API scheduledQueryRules atual. Se você usar a [API de alerta do log Analytics](./api-alerts.md)herdado, será necessário alternar. [Saiba mais sobre como alternar](./alerts-log-api-switch.md). Os alertas centrados em recursos em escala só têm suporte na versão da API `2020-05-01-preview` e acima.
 
 ## <a name="alert-logic-definition"></a>Definição de lógica de alerta
 
@@ -184,7 +184,7 @@ Em espaços de trabalho e Application Insights, ele é chamado de **suprimir ale
 
 Consulte este exemplo de avaliação de alerta:
 
-| Hora    | Avaliação da condição de log | Result 
+| Hora    | Avaliação da condição de log | Resultado 
 | ------- | ----------| ----------| ------- 
 | 00:05 | FALSE | O alerta não é acionado. Nenhuma ação chamada.
 | 00:10 | TRUE  | O alerta é acionado e os grupos de ação chamados. Novo estado de alerta ativo.
@@ -197,17 +197,17 @@ As informações de preços estão localizadas na [página de preços do Azure m
 
 - Alertas de log em Application Insights mostrados com o nome exato do recurso junto com as propriedades do grupo de recursos e do alerta.
 - Alertas de log em Log Analytics mostrados com o nome exato do recurso junto com as propriedades do grupo de recursos e do alerta; Quando criado usando a [API scheduledQueryRules](/rest/api/monitor/scheduledqueryrules).
-- Os alertas de log criados a partir da [API de log Analytics herdado](../platform/api-alerts.md) não são acompanhados pelos [recursos do Azure](../../azure-resource-manager/management/overview.md) e não impõe nomes de recursos exclusivos. Esses alertas ainda são criados `microsoft.insights/scheduledqueryrules` como recursos ocultos, que têm essa estrutura de nomeação de recursos `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Os alertas de log na API herdada são mostrados com o nome do recurso oculto acima, juntamente com as propriedades do grupo de recursos e do alerta.
+- Os alertas de log criados a partir da [API de log Analytics herdado](./api-alerts.md) não são acompanhados pelos [recursos do Azure](../../azure-resource-manager/management/overview.md) e não impõe nomes de recursos exclusivos. Esses alertas ainda são criados `microsoft.insights/scheduledqueryrules` como recursos ocultos, que têm essa estrutura de nomeação de recursos `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` . Os alertas de log na API herdada são mostrados com o nome do recurso oculto acima, juntamente com as propriedades do grupo de recursos e do alerta.
 
 > [!NOTE]
 > Os caracteres de recurso sem suporte, como `<, >, %, &, \, ?, /` são substituídos por `_` nos nomes de recursos ocultos, e isso também refletirá nas informações de cobrança.
 
 > [!NOTE]
-> Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](../platform/api-alerts.md) herdada e os modelos herdados de [log Analytics pesquisas e alertas salvos](../insights/solutions.md). [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](../alerts/alerts-log-api-switch.md). Qualquer gerenciamento de regras de alerta deve ser feito usando a [API de log Analytics herdada](../platform/api-alerts.md) até você decidir alternar e não pode usar os recursos ocultos.
+> Alertas de log para Log Analytics usados para serem gerenciados usando a [API de alerta log Analytics](./api-alerts.md) herdada e os modelos herdados de [log Analytics pesquisas e alertas salvos](../insights/solutions.md). [Saiba mais sobre como alternar para a API ScheduledQueryRules atual](../alerts/alerts-log-api-switch.md). Qualquer gerenciamento de regras de alerta deve ser feito usando a [API de log Analytics herdada](./api-alerts.md) até você decidir alternar e não pode usar os recursos ocultos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre a [criação de alertas de log no Azure](./alerts-log.md).
 * Entenda os [webhooks nos alertas de log no Azure](../alerts/alerts-log-webhook.md).
-* Saiba mais sobre os [Alertas do Azure](../platform/alerts-overview.md).
-* Saiba mais sobre [log Analytics](../log-query/log-query-overview.md).
+* Saiba mais sobre os [Alertas do Azure](./alerts-overview.md).
+* Saiba mais sobre [log Analytics](../logs/log-query-overview.md).

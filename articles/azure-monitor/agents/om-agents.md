@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2020
-ms.openlocfilehash: f9418b9a4bac9c458c530b246f7400ac067f5623
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9c20994c27680aaccb68db2ff78deb6b6bf9f8cf
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605870"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718124"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager ao Azure Monitor
 
@@ -40,8 +40,8 @@ Antes de começar, revise os seguintes requisitos.
 * Azure Monitor só dá suporte a System Center Operations Manager 2016 ou posterior, Operations Manager 2012 SP1 UR6 ou posterior e Operations Manager 2012 R2 UR2 ou posterior. Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 * A integração do System Center Operations Manager 2016 com a nuvem do governo dos EUA requer um pacote de gerenciamento do Advisor atualizado incluído no pacote cumulativo de atualizações 2 ou posterior. O System Center Operations Manager 2012 R2 requer um pacote de gerenciamento do Advisor atualizado incluído com o pacote cumulativo de atualizações 3 ou posterior.
 * Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Verifique se os agentes estão com a atualização mínima, caso contrário, a comunicação do agente do Windows poderá falhar e gerar erros no log de eventos do Operations Manager.
-* Um workspace do Log Analytics. Para mais informações, consulte [Visão geral do espaço de trabalho do Log Analytics](../platform/design-logs-deployment.md).
-* Você autentica no Azure com uma conta que seja membro da função [Log Analytics Contributor](../platform/manage-access.md#manage-access-using-azure-permissions).
+* Um workspace do Log Analytics. Para mais informações, consulte [Visão geral do espaço de trabalho do Log Analytics](../logs/design-logs-deployment.md).
+* Você autentica no Azure com uma conta que seja membro da função [Log Analytics Contributor](../logs/manage-access.md#manage-access-using-azure-permissions).
 
 * Regiões com suporte – somente as seguintes regiões do Azure têm suporte pelo System Center Operations Manager para se conectar a um espaço de trabalho do Log Analytics:
     - Centro-Oeste dos EUA
@@ -95,7 +95,7 @@ As informações abaixo listam as informações de configuração de proxy e fir
 
 ### <a name="tls-12-protocol"></a>Protocolo TLS 1.2
 
-Para garantir a segurança dos dados em trânsito para Azure Monitor, é altamente recomendável que você configure o agente e o grupo de gerenciamento para usar pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12).
+Para garantir a segurança dos dados em trânsito para Azure Monitor, é altamente recomendável que você configure o agente e o grupo de gerenciamento para usar pelo menos o protocolo TLS (segurança de camada de transporte) 1,2. Constatou-se que versões mais antigas do protocolo TLS/protocolo SSL eram vulneráveis e embora elas ainda funcionem no momento para permitir a compatibilidade com versões anteriores, elas **não são recomendadas**. Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12).
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Conectando Operations Manager ao Azure Monitor
 
@@ -345,4 +345,3 @@ No futuro, se você pretender reconectar o grupo de gerenciamento a um espaço d
 ## <a name="next-steps"></a>Próximas etapas
 
 Para adicionar funcionalidade e coletar dados, consulte [Adicionar soluções de Azure monitor do Galeria de soluções](../insights/solutions.md).
-

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 038663a6b8fe015f36f70b7bf13d25accb470903
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a7a6ba395769677fe46ddfff675640f6e15060a0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597195"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723173"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics
 O Log Analytics é uma ferramenta do portal do Azure usada para editar e executar consultas de log dos dados coletados pelos logs do Azure Monitor e analisar os resultados de maneira interativa. Use as consultas do Log Analytics para recuperar registros que correspondem a critérios específicos, identificar tendências, analisar padrões e fornecer uma variedade de insights sobre seus dados. 
@@ -33,7 +33,7 @@ Este tutorial descreve a interface do Log Analytics, apresenta algumas consultas
 Este tutorial usa o [ambiente de demonstração do Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade), que inclui vários dados de exemplo que dão suporte às consultas de exemplo. Você também pode usar sua assinatura do Azure, mas talvez não tenha os dados nas mesmas tabelas.
 
 ## <a name="open-log-analytics"></a>Abrir Log Analytics
-Abra o [ambiente de demonstração do Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) ou selecione **Logs** no menu do Azure Monitor na sua assinatura. Isso definirá o escopo inicial para um workspace do Log Analytics, o que significa que a consulta selecionará todos os dados desse workspace. Se você selecionar **Logs** no menu de um recurso do Azure, o escopo será definido como somente os registros desse recurso. Veja [Escopo da consulta de log](../log-query/scope.md) para obter detalhes sobre o escopo.
+Abra o [ambiente de demonstração do Log Analytics](https://ms.portal.azure.com/#blade/Microsoft_Azure_Monitoring_Logs/DemoLogsBlade) ou selecione **Logs** no menu do Azure Monitor na sua assinatura. Isso definirá o escopo inicial para um workspace do Log Analytics, o que significa que a consulta selecionará todos os dados desse workspace. Se você selecionar **Logs** no menu de um recurso do Azure, o escopo será definido como somente os registros desse recurso. Veja [Escopo da consulta de log](./scope.md) para obter detalhes sobre o escopo.
 
 Veja o escopo no canto superior esquerdo da tela. Se você estiver usando seu ambiente, verá uma opção para selecionar outro escopo, mas essa opção não está disponível no ambiente de demonstração.
 

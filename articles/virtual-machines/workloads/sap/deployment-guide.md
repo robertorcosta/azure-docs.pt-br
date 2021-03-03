@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/16/2020
 ms.author: sedusch
-ms.openlocfilehash: fe98ef297c6bed5ef3d982ed09db361244f75216
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5d6ea75936383388a57a7822f054e0ea7297471e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101675702"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695508"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure para SAP NetWeaver
 
@@ -1057,47 +1057,17 @@ A nova extensão de VM para SAP usa uma identidade gerenciada atribuída à VM p
    az login
    ```
 
-1. Siga as etapas em [Configurar identidades gerenciadas para recursos do Azure em uma VM do Azure usando CLI do Azure][qs-configure-cli-windows-vm] artigo para habilitar uma identidade de System-Assigned gerenciada para a VM. User-Assigned identidades gerenciadas não são suportadas pela extensão de VM para SAP. No entanto, você pode habilitar tanto uma identidade atribuída pelo sistema quanto uma de usuário.
-
-   Exemplo:
+1. Instale a extensão CLI do Azure AEM. Certifique-se de usar pelo menos a versão 0.2.0 ou superior.
+  
    ```azurecli
-   az vm identity assign -g <resource-group-name> -n <vm name>
+   az extension add --name aem
    ```
-
-1. Atribua o acesso de identidade gerenciada ao grupo de recursos da VM ou a todas as interfaces de rede, discos gerenciados e a própria VM, conforme descrito em [atribuir um acesso de identidade gerenciada a um recurso usando CLI do Azure][howto-assign-access-cli]
-
-    Exemplo:
-
-    ```azurecli
-    # Azure CLI on Linux
-    spID=$(az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines)
-    rgId=$(az group show -g <resource-group-name> --query id --out tsv)
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-
-    # Azure CLI on Windows/PowerShell
-    $spID=az resource show -g <resource-group-name> -n <vm name> --query identity.principalId --out tsv --resource-type Microsoft.Compute/virtualMachines
-    $rgId=az group show -g <resource-group-name> --query id --out tsv
-    az role assignment create --assignee $spID --role 'Reader' --scope $rgId
-    ```
-
-1. Execute o comando CLI do Azure a seguir para instalar a extensão do Azure para SAP.
-    Atualmente, a extensão só tem suporte no AzureCloud. O Azure China 21Vianet, o Azure governamental ou qualquer um dos outros ambientes especiais ainda não tem suporte.
-
-    ```azurecli
-    # Azure CLI on Linux
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{"system":"SAP"}'
-
-    # Azure CLI on Windows/PowerShell
-    ## For Linux machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Linux --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-
-    ## For Windows machines
-    az vm extension set --publisher Microsoft.AzureCAT.AzureEnhancedMonitoring --name MonitorX64Windows --version 1.0 -g <resource-group-name> --vm-name <vm name> --settings '{\"system\":\"SAP\"}'
-    ```
+  
+1. Instalar a nova extensão com
+  
+   ```azurecli
+   az vm aem set -g <resource-group-name> -n <vm name> --install-new-extension
+   ```
 
 ## <a name="checks-and-troubleshooting"></a><a name="564adb4f-5c95-4041-9616-6635e83a810b"></a>Verificações e solução de problemas
 

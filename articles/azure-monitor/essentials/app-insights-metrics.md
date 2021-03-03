@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 400f239f3e7b736196bf950e81148fa2e39aca96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ca19fdfa617b71b1465e4710d8ca52b18c9ebff5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604926"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731673"
 ---
 # <a name="application-insights-log-based-metrics"></a>Application Insights métricas baseadas em log
 
@@ -21,13 +21,13 @@ Application Insights métricas baseadas em log permitem analisar a integridade d
 * As [métricas baseadas em log](../app/pre-aggregated-metrics-log-metrics.md#log-based-metrics) por trás da cena são convertidas em [consultas Kusto](/azure/kusto/query/) de eventos armazenados.
 * As [métricas padrão](../app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics) são armazenadas como uma série de tempo agregado previamente.
 
-Como as *métricas padrão* são previamente agregadas durante a coleta, elas têm melhor desempenho no momento da consulta. Isso os torna uma opção melhor para o painel e alertas em tempo real. As *métricas baseadas em log* têm mais dimensões, o que as torna a opção superior para análise de dados e diagnóstico ad hoc. Use o [seletor de namespace](../platform/metrics-getting-started.md#create-your-first-metric-chart) para alternar entre as métricas padrão e baseadas em log no [Metrics Explorer](../platform/metrics-getting-started.md).
+Como as *métricas padrão* são previamente agregadas durante a coleta, elas têm melhor desempenho no momento da consulta. Isso os torna uma opção melhor para o painel e alertas em tempo real. As *métricas baseadas em log* têm mais dimensões, o que as torna a opção superior para análise de dados e diagnóstico ad hoc. Use o [seletor de namespace](./metrics-getting-started.md#create-your-first-metric-chart) para alternar entre as métricas padrão e baseadas em log no [Metrics Explorer](./metrics-getting-started.md).
 
 ## <a name="interpret-and-use-queries-from-this-article"></a>Interpretar e usar consultas deste artigo
 
 Este artigo lista as métricas com as dimensões e agregações com suporte. Os detalhes sobre as métricas baseadas em log incluem as instruções de consulta Kusto subjacentes. Para sua conveniência, cada consulta usa padrões para granularidade de tempo, tipo de gráfico e, às vezes, dividindo a dimensão, o que simplifica o uso da consulta em Log Analytics sem necessidade de modificação.
 
-Quando você plota a mesma métrica no [Metrics Explorer](../platform/metrics-getting-started.md), não há padrões-a consulta é ajustada dinamicamente com base nas configurações do seu gráfico:
+Quando você plota a mesma métrica no [Metrics Explorer](./metrics-getting-started.md), não há padrões-a consulta é ajustada dinamicamente com base nas configurações do seu gráfico:
 
 - O **intervalo de tempo** selecionado é convertido em uma cláusula WHERE de *carimbo de data/* hora adicional para selecionar apenas os eventos do intervalo de tempo selecionado. Por exemplo, um gráfico mostrando dados para as 24 horas mais recentes, a consulta inclui *| onde o carimbo de data/hora > atrás (24 h)*.
 
@@ -38,7 +38,7 @@ Quando você plota a mesma métrica no [Metrics Explorer](../platform/metrics-ge
 - A dimensão de **gráfico dividido** selecionada é convertida em uma propriedade resumida extra. Por exemplo, se você dividir o gráfico por *local* e plotar usando uma granularidade de tempo de 5 minutos, a cláusula *resumete* será resumida *... por compartimento (carimbo de data/hora, 5 m), local*.
 
 > [!NOTE]
-> Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../log-query/log-analytics-tutorial.md) e [Azure monitor](../overview.md).
+> Se você for novo na linguagem de consulta do Kusto, comece copiando e colando instruções Kusto no painel de consulta Log Analytics sem fazer nenhuma modificação. Clique em **executar** para ver o gráfico básico. Ao começar a entender a sintaxe da linguagem de consulta, você pode começar a fazer pequenas modificações e ver o impacto de sua alteração. Explorar seus próprios dados é uma ótima maneira de começar a concretizar todo o poder da [log Analytics](../logs/log-analytics-tutorial.md) e [Azure monitor](../overview.md).
 
 ## <a name="availability-metrics"></a>Métricas de disponibilidade
 
@@ -49,7 +49,7 @@ A métrica de *disponibilidade* mostra a porcentagem de execuções de teste na 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|---|---|---|
-|Porcentagem|Média|Local de execução, nome do teste|
+|Percentual|Média|Local de execução, nome do teste|
 
 ```Kusto
 availabilityResults 
@@ -312,7 +312,7 @@ A métrica mostra quanto da capacidade total do processador é consumida pelo pr
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|Instância de função de nuvem
+|Percentual|Média, mín., máx.|Instância de função de nuvem
 
 ```Kusto
 performanceCounters
@@ -358,7 +358,7 @@ Consumo de CPU por *todos os* processos em execução na instância do servidor 
 
 |Unidade de medida|Agregações com suporte|Dimensões com suporte|
 |---|---|---|
-|Porcentagem|Média, mín., máx.|Instância de função de nuvem
+|Percentual|Média, mín., máx.|Instância de função de nuvem
 
 >[!NOTE]
 > A métrica de tempo do processador não está disponível para os aplicativos hospedados nos serviços de Azure App. Use a métrica  [processar CPU](#process-cpu-performancecountersprocesscpupercentage) para acompanhar a utilização da CPU dos aplicativos Web hospedados nos serviços de aplicativos.

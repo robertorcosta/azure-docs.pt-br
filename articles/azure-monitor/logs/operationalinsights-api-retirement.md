@@ -6,17 +6,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/29/2020
-ms.openlocfilehash: 6564e7263639f0a78df6f2674ce7a4b610fb0fc1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 03e534564b4a32f112c2aaff44a187b10eb2a537
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605738"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723105"
 ---
 # <a name="operationalinsights-api-version-retirement"></a>Desativação da versão da API do OperationalInsights
 A Microsoft fornece notificações com pelo menos 12 meses de antecedência para desativar uma API a fim de suavizar a transição para uma versão mais recente/com suporte. Lançamos uma nova versão (2020-08-01) para as APIs do provedor de recursos **OperationalInsights** e desativaremos todas as versões anteriores da API em 29 de fevereiro de 2024.
 
-Incentivamos você a começar a usar a versão 2020-08-01 agora para obter os benefícios da nova funcionalidade, como [cluster dedicado](../log-query/logs-dedicated-clusters.md), [chaves gerenciadas pelo cliente](../logs/customer-managed-keys.md), [link privado](./private-link-security.md) e [exportação de dados](./logs-data-export.md). Além disso, novos recursos e funcionalidades e otimizações são adicionados somente à API atual.
+Incentivamos você a começar a usar a versão 2020-08-01 agora para obter os benefícios da nova funcionalidade, como [cluster dedicado](./logs-dedicated-clusters.md), [chaves gerenciadas pelo cliente](../logs/customer-managed-keys.md), [link privado](./private-link-security.md) e [exportação de dados](./logs-data-export.md). Além disso, novos recursos e funcionalidades e otimizações são adicionados somente à API atual.
 
 Após 29 de fevereiro de 2024 Azure Monitor não dará mais suporte a versões anteriores de APIs do que 2020-08-01. Se você preferir não atualizar, as solicitações enviadas de versões anteriores continuarão sendo servidas pelo serviço de Azure Monitor até 29 de fevereiro de 2024.
 

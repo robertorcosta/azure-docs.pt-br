@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: 857fba6dfa6191163c06c423cefb42d57f25dc1d
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 1a73988b66ba7b47f18ecaaa07df59e9047a933b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980568"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691817"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -34,7 +34,7 @@ Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
 + [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
 + [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
-+ [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
++ [Grupos de segurança de rede (NSG)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Cenário de exemplo
@@ -71,7 +71,7 @@ Use as etapas a seguir para proteger seu espaço de trabalho e os recursos assoc
 1. Crie um [espaço de trabalho habilitado para vínculo privado](how-to-secure-workspace-vnet.md#secure-the-workspace-with-private-endpoint) para habilitar a comunicação entre a VNet e o espaço de trabalho.
 1. Adicione Azure Key Vault à rede virtual com um [ponto de extremidade de serviço](../key-vault/general/overview-vnet-service-endpoints.md) ou um ponto de [extremidade privado](../key-vault/general/private-link-service.md). Defina Key Vault como ["permitir que os serviços confiáveis da Microsoft ignorem esse firewall"](how-to-secure-workspace-vnet.md#secure-azure-key-vault).
 1. Adicione sua conta de armazenamento do Azure à rede virtual com um [ponto de extremidade de serviço](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-service-endpoints) ou um ponto de [extremidade privado](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints).
-1. [Configure o registro de contêiner do Azure para usar um ponto de extremidade privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr) e [habilitar a delegação de sub-rede em instâncias de contêiner do Azure](how-to-secure-inferencing-vnet.md#enable-azure-container-instances-aci).
+1. [Configure o registro de contêiner do Azure para usar um ponto de extremidade privado](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
 ![Diagrama de arquitetura mostrando como o espaço de trabalho e os recursos associados se comunicam entre si em pontos de extremidade de serviço ou pontos de extremidade privados dentro de uma VNet](./media/how-to-network-security-overview/secure-workspace-resources.png)
 

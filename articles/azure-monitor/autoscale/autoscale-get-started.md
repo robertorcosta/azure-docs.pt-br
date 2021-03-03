@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recursos, serviço de 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 6ac3ebb4cf007141967786f51243c741a6045c83
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605773"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101726046"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -128,7 +128,7 @@ Esta seção descreve como mover a autoescala do Azure para outra região sob a 
 ### <a name="move"></a>Mover
 Use a [API REST](/rest/api/monitor/autoscalesettings/createorupdate) para criar uma configuração de dimensionamento automático no novo ambiente. A configuração de dimensionamento automático criada na região de destino será uma cópia da configuração de dimensionamento automático na região de origem.
 
-[As configurações de diagnóstico](../platform/diagnostic-settings.md) que foram criadas em associação com a configuração de dimensionamento automático na região de origem não podem ser movidas. Você precisará recriar as configurações de diagnóstico na região de destino, depois que a criação de configurações de autovenda for concluída. 
+[As configurações de diagnóstico](../essentials/diagnostic-settings.md) que foram criadas em associação com a configuração de dimensionamento automático na região de origem não podem ser movidas. Você precisará recriar as configurações de diagnóstico na região de destino, depois que a criação de configurações de autovenda for concluída. 
 
 ### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Saiba mais sobre como mover recursos entre regiões do Azure
 Para saber mais sobre como mover recursos entre regiões e recuperação de desastres no Azure, consulte [mover recursos para um novo grupo de recursos ou assinatura](../../azure-resource-manager/management/move-resource-group-and-subscription.md)

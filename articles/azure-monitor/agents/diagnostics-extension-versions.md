@@ -1,17 +1,16 @@
 ---
 title: Histórico de versão do esquema de configuração do WAD (Windows Diagnóstico do Azure Extension)
 description: Relevante para a coleta de contadores de desempenho em máquinas virtuais do Azure, conjuntos de dimensionamento de VM, Service Fabric e Serviços de Nuvem.
-ms.subservice: diagnostic-extension
 ms.topic: reference
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: 3b6dc0e19c181ebf4df2778633f981258023e046
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605705"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719807"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração do WAD (Windows Diagnóstico do Azure Extension)
 Este artigo fornece o histórico de versões das versões de esquema do [diagnóstico do Azure Extension for Windows (wad)](diagnostics-extension-overview.md) fornecidas como parte do SDK do Microsoft Azure.  
@@ -21,8 +20,8 @@ Este artigo fornece o histórico de versões das versões de esquema do [diagnó
 
 |Versão do SDK do Azure | Versão da extensão do Diagnóstico | Modelar|  
 |------------------|-------------------------------|------|  
-|1.x               |1.0                            |plug-in|  
-|2.0 - 2.4         |1.0                            |plug-in|  
+|1.x               |1,0                            |plug-in|  
+|2.0 - 2.4         |1,0                            |plug-in|  
 |2.5               |1.2                            |extensão|  
 |2.6               |1,3                            |"|  
 |2.7               |1.4                            |"|  
@@ -47,7 +46,7 @@ Versões diferentes do Diagnóstico do Azure usam esquemas de configuração dif
 ### <a name="diagnostics-extension-111"></a>Extensão de diagnóstico 1.11
 Suporte adicionado para o coletor Azure Monitor. Esse coletor só é aplicável aos contadores de desempenho. Permite o envio de contadores de desempenho coletados em sua VM, VMSS ou serviço de nuvem para o Azure Monitor como métricas personalizadas. O coletor do Azure Monitor dá suporte a:
 * Recuperação de todos os contadores de desempenho enviados para o Azure Monitor por meio de [APIs de métrica do Azure Monitor.](/rest/api/monitor/metrics/list)
-* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](../platform/alerts-overview.md) no Azure Monitor
+* Alertas de todos os contadores de desempenho enviados para o Azure Monitor por meio da nova [experiência unificada de alertas](../alerts/alerts-overview.md) no Azure Monitor
 * Tratamento do operador curinga em contadores de desempenho como a dimensão de "Instância" na sua métrica. Por exemplo, se você tiver coletado o contador "LogicalDisk(\*)/DiskWrites/sec", será capaz de filtrar e dividir na dimensão "Instância" para gráfico ou alerta sobre as gravações de disco/s para cada disco lógico (C:, D: etc.)
 
 Definir o Azure Monitor como um novo coletor em sua configuração de extensão de diagnóstico
@@ -190,4 +189,3 @@ Se você estiver atualizando seu projeto do SDK do Azure 2.4 para o SDK do Azure
 * **Diagnóstico para aplicativos de serviço de nuvem só podem ser configurados no nível de função, não no nível de instância.**
 * **Sempre que você implanta seu aplicativo, a configuração de diagnóstico é atualizada** – isso pode causar problemas de paridade, se você altera a configuração de diagnóstico do Gerenciador de Servidores e, em seguida, reimplanta o aplicativo.
 * **No SDK do Azure 2.5 e posteriores, despejos de memória são configurados no arquivo de configuração de diagnóstico, não no código** – se você tiver despejos de memória configurados no código, precisará transferir manualmente a configuração de código para o arquivo de configuração, pois os despejos de memória não são transferidos durante a migração para o SDK do Azure 2.6.
-

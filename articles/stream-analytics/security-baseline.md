@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e37171fce5dd7fe625550c5f554f211cf148ea07
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6e6ad96da5f5c7901fda1f041c55075552edecde
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591430"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101720334"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Linha de base de segurança do Azure para Stream Analytics
 
 A linha de base de segurança do Azure para Stream Analytics contém recomendações que ajudarão você a melhorar a postura de segurança de sua implantação.
 
-A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações sobre como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
+A linha de base para esse serviço é extraída do [Azure Security Benchmark versão 1.0](../security/benchmarks/overview.md), que fornece recomendações de como proteger suas soluções de nuvem no Azure com nossas diretrizes de melhores práticas.
 
 Para obter mais informações, confira a [Visão geral sobre linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md).
 
@@ -168,7 +168,7 @@ Para obter mais informações, confira a [Visão geral sobre linhas de base de s
 
 * [Azure Stream Analytics fornece logs de diagnóstico e dados de atividade para análise](./stream-analytics-job-diagnostic-logs.md)
 
-* [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+* [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 * [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 

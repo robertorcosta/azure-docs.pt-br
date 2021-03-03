@@ -4,12 +4,12 @@ description: Rastreamento de problemas com o dimensionamento automático do Azur
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 8936d1b94082291f5c081c47f8331cc64042896b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0fed6c2d06edcb2c9eb8d715feb0ef6c6ade46f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605761"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711392"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Solucionando problemas do dimensionamento automático do Azure
  
@@ -24,14 +24,14 @@ O serviço de dimensionamento automático fornece métricas e logs para entender
   
 ## <a name="autoscale-metrics"></a>Métricas de dimensionamento automático
 
-O dimensionamento automático fornece [quatro métricas](../platform/metrics-supported.md#microsoftinsightsautoscalesettings) para entender sua operação. 
+O dimensionamento automático fornece [quatro métricas](../essentials/metrics-supported.md#microsoftinsightsautoscalesettings) para entender sua operação. 
 
 - **Valor de métrica observado** -o valor da métrica na qual você escolheu realizar a ação de escala, como visto ou calculado pelo mecanismo de dimensionamento automático. Como uma única configuração de dimensionamento automático pode ter várias regras e, portanto, várias fontes métricas, você pode filtrar usando a "origem da métrica" como uma dimensão.
 - **Limite de métrica** -o limite definido para tomar a ação de escala. Como uma única configuração de dimensionamento automático pode ter várias regras e, portanto, várias fontes métricas, você pode filtrar usando "regra métrica" como uma dimensão.
 - **Capacidade observada** -o número ativo de instâncias do recurso de destino, como visto pelo mecanismo de dimensionamento automático.
 - **Ações de dimensionamento iniciadas** - O número de ações de expansão e redução horizontal iniciadas pelo mecanismo de dimensionamento automático. Você pode filtrar por escala horizontal versus escala em ações.
 
-Você pode usar o [Metrics Explorer](../platform/metrics-getting-started.md) para fazer o gráfico das métricas acima em um único lugar. O gráfico deve mostrar:
+Você pode usar o [Metrics Explorer](../essentials/metrics-getting-started.md) para fazer o gráfico das métricas acima em um único lugar. O gráfico deve mostrar:
 
   - a métrica real
   - a métrica como visto/computada pelo mecanismo de dimensionamento automático
@@ -87,7 +87,7 @@ O gráfico na parte inferior mostra alguns valores.
  - A **capacidade observada** (roxo) mostra a contagem de instâncias vista pelo mecanismo de dimensionamento automático. 
  - O **limite de métrica** (verde claro) é definido como 10. 
 
-Se houver várias regras de ação de escala, você poderá usar a opção de divisão ou **Adicionar filtro** no gráfico do Metrics Explorer para examinar a métrica por uma fonte ou regra específica. Para obter mais informações sobre como dividir um gráfico de métricas, consulte [recursos avançados de gráficos de métrica – divisão](../platform/metrics-charts.md#apply-splitting)
+Se houver várias regras de ação de escala, você poderá usar a opção de divisão ou **Adicionar filtro** no gráfico do Metrics Explorer para examinar a métrica por uma fonte ou regra específica. Para obter mais informações sobre como dividir um gráfico de métricas, consulte [recursos avançados de gráficos de métrica – divisão](../essentials/metrics-charts.md#apply-splitting)
 
 ## <a name="example-3---understanding-autoscale-events"></a>Exemplo 3-noções básicas sobre eventos de dimensionamento automático
 
@@ -97,13 +97,13 @@ Na tela de configuração de dimensionamento automático, vá para a guia **hist
 
 ## <a name="autoscale-resource-logs"></a>Logs de recursos de dimensionamento automático
 
-O mesmo que qualquer outro recurso do Azure, o serviço de dimensionamento automático fornece [logs de recursos](../platform/platform-logs-overview.md). Há duas categorias de logs.
+O mesmo que qualquer outro recurso do Azure, o serviço de dimensionamento automático fornece [logs de recursos](../essentials/platform-logs-overview.md). Há duas categorias de logs.
 
 - **Avaliações de dimensionamento automático** -o mecanismo de dimensionamento automático registra entradas de log para cada avaliação de condição única toda vez que faz uma verificação.  A entrada inclui detalhes sobre os valores observados das métricas, as regras avaliadas e se a avaliação resultou em uma ação de escala ou não.
 
 - **Ações de escala de dimensionamento automático** -o mecanismo registra eventos de ação de escala iniciados pelo serviço de dimensionamento automático e os resultados dessas ações de escala (êxito, falha e a quantidade de dimensionamento ocorrida conforme visto pelo serviço de dimensionamento automático).
 
-Assim como ocorre com qualquer serviço com suporte Azure Monitor, você pode usar [as configurações de diagnóstico](../platform/diagnostic-settings.md) para rotear esses logs:
+Assim como ocorre com qualquer serviço com suporte Azure Monitor, você pode usar [as configurações de diagnóstico](../essentials/diagnostic-settings.md) para rotear esses logs:
 
 - para seu espaço de trabalho Log Analytics para análise detalhada
 - para os hubs de eventos e, em seguida, para as ferramentas que não são do Azure
@@ -206,4 +206,4 @@ Crie regras de alerta para ser notificado de falhas ou ações de dimensionament
 Para obter mais informações, consulte [autoescala logs de recursos](autoscale-resource-log-schema.md)
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia informações sobre [práticas recomendadas de dimensionamento automático](autoscale-best-practices.md). 
+Leia informações sobre [práticas recomendadas de dimensionamento automático](autoscale-best-practices.md).

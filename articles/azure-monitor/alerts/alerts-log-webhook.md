@@ -7,16 +7,16 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.subservice: alerts
-ms.openlocfilehash: f90709431ea54a640554b642b96a63c7edac472e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 19cf900b8e943b4f9ee69a6241ebc7ddb5a3dba6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605587"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704388"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Ações de webhook para regras de alerta do log
 
-O [alerta de log](alerts-log.md) dá suporte à configuração de grupos de ação de [webhook](../platform/action-groups.md#webhook). Neste artigo, descreveremos quais propriedades estão disponíveis e como configurar um webhook JSON personalizado.
+O [alerta de log](alerts-log.md) dá suporte à configuração de grupos de ação de [webhook](./action-groups.md#webhook). Neste artigo, descreveremos quais propriedades estão disponíveis e como configurar um webhook JSON personalizado.
 
 > [!NOTE]
 > Atualmente, não há suporte para webhook personalizado com base em JSON na versão da API `2020-05-01-preview`
@@ -47,7 +47,7 @@ Propriedades de ação de webhook padrão e seus nomes de parâmetro JSON person
 | *SearchQuery* |#searchquery |A consulta da pesquisa de log usada pela regra de alerta. |
 | *SearchResults* |"IncludeSearchResults": true|Registros retornados pela consulta como uma tabela JSON, limitados aos primeiros 1.000 registros. "IncludeSearchResults": true é adicionado em uma definição personalizada de webhook JSON como uma propriedade de nível superior. |
 | *Dimensões* |"IncludeDimensions": verdadeiro|Combinações de valores de dimensões que dispararam esse alerta como uma seção JSON. "IncludeDimensions": true é adicionado em uma definição personalizada de webhook JSON como uma propriedade de nível superior. |
-| *Tipo de alerta*| #alerttype | O tipo de regra de alerta de log configurada como [medida métrica ou número de resultados](../platform/alerts-unified-log.md#measure).|
+| *Tipo de alerta*| #alerttype | O tipo de regra de alerta de log configurada como [medida métrica ou número de resultados](./alerts-unified-log.md#measure).|
 | *WorkspaceID* |#workspaceid |ID do seu espaço de trabalho do Log Analytics. |
 | *ID do Aplicativo* |#applicationid |ID do seu aplicativo Application Insights. |
 | *ID da assinatura* |#subscriptionid |ID da sua assinatura do Azure usada. |
@@ -84,7 +84,7 @@ Esta seção mostra as cargas de exemplo para WebHooks para alertas de log. Os c
 A seguinte carga de exemplo é para uma ação de webhook padrão que é usada para alertas com base em Log Analytics:
 
 > [!NOTE]
-> O valor do campo "Severity" será alterado se você tiver [alternado para a API scheduledQueryRules atual](../alerts/alerts-log-api-switch.md) da [API de alerta do log Analytics herdado](../platform/api-alerts.md).
+> O valor do campo "Severity" será alterado se você tiver [alternado para a API scheduledQueryRules atual](../alerts/alerts-log-api-switch.md) da [API de alerta do log Analytics herdado](./api-alerts.md).
 
 ```json
 {
@@ -318,8 +318,8 @@ A seguinte carga de exemplo é para uma ação personalizada de webhook para qua
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre os [alertas de log nos alertas do Azure](../platform/alerts-unified-log.md).
+- Saiba mais sobre os [alertas de log nos alertas do Azure](./alerts-unified-log.md).
 - Entenda como [Gerenciar alertas de log no Azure](alerts-log.md).
-- Crie e gerencie [grupos de ações no Azure](../platform/action-groups.md).
-- Saiba mais sobre o [Application Insights](../log-query/log-query-overview.md).
-- Saiba mais sobre [consultas de log](../log-query/log-query-overview.md). 
+- Crie e gerencie [grupos de ações no Azure](./action-groups.md).
+- Saiba mais sobre o [Application Insights](../logs/log-query-overview.md).
+- Saiba mais sobre [consultas de log](../logs/log-query-overview.md).

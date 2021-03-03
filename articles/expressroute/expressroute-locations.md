@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: c686902ed23e0f1a94bc9548d0a876ecbbce8f31
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5fedb9d09e61540d0ee8a1fe21fbd25f31390f5d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100377866"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742442"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros de conectividade do ExpressRoute
 
@@ -43,16 +43,16 @@ A tabela a seguir fornece um mapa das regiões do Azure para locais de ExpressRo
 | **Região Geopolítica** | **Regiões do Azure** | **Locais de ExpressRoute** |
 | --- | --- | --- |
 | **Governo da Austrália** |Austrália Central, Austrália Central 2 |Canberra, Canberra2 |
-| **Europa** | França Central, Sul da França, Norte da Alemanha, Centro-Oeste da Alemanha, Norte da Europa, Leste da Noruega, Oeste da Noruega, Norte da Suíça, Oeste da Suíça, Oeste do Reino Unido, Sul do Reino Unido, Oeste da Europa |Amsterdã, Amsterdam2, Berlim, Copenhague, Dublin, Frankfurt, Genebra, Londres, London2, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
-| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, los Angeles2, Miami, Minneapolis, Montreal, Nova York, Phoenix, Quebec cidade, Queretaro (México), Quincy, San Antonio, Seattle, vale do silício, silício Valley2, Toronto, Vancouver, Washington, d.c., Washington DC2 |
-| **Ásia** | Leste da Ásia, Sudeste Asiático | Bancoc, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Singapura, Singapore2, Taipé |
+| **Europa** | França Central, Sul da França, Norte da Alemanha, Centro-Oeste da Alemanha, Norte da Europa, Leste da Noruega, Oeste da Noruega, Norte da Suíça, Oeste da Suíça, Oeste do Reino Unido, Sul do Reino Unido, Oeste da Europa |Amsterdã, Amsterdam2, Berlim, Copenhague, Dublin, Frankfurt, Frankfurt2, Geneva, Londres, London2, Madri, Marselha, Milão, Munique, Newport (Gales), Oslo, Paris, Stavanger, Estocolmo, Zurique |
+| **América do Norte** |Leste dos EUA, Oeste dos EUA, Leste dos EUA 2, Oeste dos EUA 2, Centro dos EUA, Centro-Sul dos EUA, Centro-Norte dos EUA, Centro-Oeste dos EUA, Centro do Canadá, Leste do Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, los Angeles2, Miami, Minneapolis, Montreal, Nova York, Phoenix, Quebec cidade, Queretaro (México), Quincy, San Antonio, Seattle, vale do silício, silício Valley2, Toronto, Toronto2, Vancouver, Washington, d.c., Washington DC2 |
+| **Ásia** | Leste da Ásia, Sudeste Asiático | Bancoc, Hong Kong, Hong Kong2, Jacarta, Kuala Lumpur, Singapura, Singapura2, Taipé |
 | **Índia** | Oeste da Índia, Índia Central, Sul da Índia |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Japão** | Oeste do Japão, Leste do Japão |Osaka, Tóquio, Tokyo2 |
 | **Oceânia** | Sudeste da Austrália, Leste da Austrália |Auckland, Melbourne, Perth, Sydney, Sydney2 |
 | **Coreia do Sul** | Coreia Central, Sul da Coreia |Busan, Seul|
 | **EAU** | EAU Central, Norte dos EAU | Dubai, Dubai2 |
 | **África do Sul** | Oeste da África do Sul, Norte da África do Sul |Cidade do Cabo, Joanesburgo |
-| **América do Sul** | Sul do Brasil |Bogotá, são Paulo |
+| **América do Sul** | Sul do Brasil |Bogotá, Rio de rio, são Paulo |
 
 
 ## <a name="regions-and-geopolitical-boundaries-for-national-clouds"></a>Regiões e limites geopolíticos para nuvens nacionais
@@ -105,7 +105,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **du datamena** |Com suporte |Com suporte | Dubai2 |
 | **eir** |Com suporte |Com suporte |Dublin|
 | **[Epsilon Global Communications](https://www.epsilontel.com/solutions/direct-cloud-connect)** |Com suporte |Com suporte |Singapura, Singapura2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Atlanta, Berlim, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Geneva, RAE de Hong Kong, Londres, London2, Los Angeles, los Angeles2, Melbourne, Miami, Milão, Nova York, Osaka, Paris, são Paulo, Seattle, Seul, vale do silício, Cingapura, Estocolmo, Sydney, Tóquio, Toronto, D.c. de Washington, Zurique |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Atlanta, Berlim, Bogotá, Canberra2, Chicago, Dallas, Dubai2, Dublin, Frankfurt, Frankfurt2, Geneva, RAE de Hong Kong, Londres, London2, Los Angeles, los Angeles2, Melbourne, Miami, Milão, Nova York, Osaka, Paris, Rio de rio, são Paulo, Seattle, Seul, o vale do silício, Cingapura, Estocolmo, Sydney, Tóquio, Toronto, Washington, D.c. |
 | **Etisalat UAE** |Com suporte |Com suporte |Dubai|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |Com suporte |Com suporte |Amsterdã, Amsterdam2, Dublin, Frankfurt, Londres |
 | **[FarEasTone](https://www.fetnet.net/corporate/en/Enterprise.html)** |Com suporte |Com suporte |Taipé|
@@ -133,7 +133,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Com suporte |Com suporte |Amsterdã, Chicago, Dallas, Londres, Newport (País de Gales), São Paulo, Seattle, Vale do Silício, Singapura, Washington D.C. |
 | **LG CNS** |Com suporte |Com suporte |Busan, Seul |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |Com suporte |Com suporte |Cidade do Cabo, Joanesburgo |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Auckland, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong, Hong Kong2, Las Vegas, Londres, London2, Los Angeles, Melbourne, Miami, Minneapolis, Montreal, Nova York, Osaka, Oslo, Perth, Quebec, San Antonio, Seattle, vale do silício, Cingapura, Cingapura2, Stavanger, Estocolmo, Sydney, Sydney2, Tóquio, Tokyo2 Toronto, Singapura, Washington,, são |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte |Com suporte |Amsterdã, Atlanta, Auckland, Chennai, Chicago, Dallas, Denver, Dubai2, Dublin, Frankfurt, Geneva, Hong Kong, Hong Kong2, Las Vegas, Londres, London2, Los Angeles, Melbourne, Miami, Minneapolis, Montreal, Nova York, Osaka, Oslo, Paris, Perth, cidade de Quebec, San Antonio, Seattle, vale do silício, Cingapura, Cingapura2, Stavanger, Estocolmo, Sydney, Sydney2, Tóquio, Tokyo2 Toronto, Vancouver, Washington,, Belém, Zurique |
 | **[MTN](https://www.mtnbusiness.co.za/en/Cloud-Solutions/Pages/microsoft-express-route.aspx)** |Com suporte |Com suporte |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |Com suporte |Com suporte |Dallas, Los Angeles, Miami, São Paulo, Washington D.C. |
 | **[Dados da Próxima Geração](https://vantage-dc-cardiff.co.uk/)** |Com suporte |Com suporte |Newport (País de Gales) |
@@ -149,6 +149,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[Orixcom](https://www.orixcom.com/cloud-solutions/)** | Com suporte | Com suporte | Dubai2 |
 | **[PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure)** |Com suporte |Com suporte |Chicago, Las Vegas, vale do silício, Washington, D.c. |
 | **[PCCW Global Limited](https://consoleconnect.com/clouds/#azureRegions)** |Com suporte |Com suporte |Chicago, Hong Kong, Hong Kong2, Londres, Singapore2 |
+| **[REANNZ](https://www.reannz.co.nz/products-and-services/cloud-connect/)** | Com suporte | Com suporte | Auckland |
 | **[Retelit](https://www.retelit.it/EN/Home.aspx)** | Com suporte | Com suporte | Milão | 
 | **[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)** |Com suporte |Com suporte |Seul |
 | **[SES](https://www.ses.com/networks/signature-solutions/signature-cloud/ses-and-azure-expressroute)** | Com suporte |Com suporte | London2, Washington, D.c. |
@@ -194,7 +195,7 @@ As nuvens nacionais do Azure são isoladas umas das outras e do Azure comercial 
 | --- | --- | --- | --- |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |Com suporte |Com suporte |Chicago, Phoenix, Vale do Silício, Washington D.C. |
 | **[CenturyLink Cloud Connect](https://www.centurylink.com/cloudconnect)** |Com suporte |Com suporte |Nova York, Phoenix, San Antonio, Washington D.C. |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Atlanta, Chicago, Dallas, Nova York, Seattle, Vale do Silício, Washington D.C. |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Com suporte |Com suporte |Atlanta, Chicago, Dallas, Nova York, Seattle, vale do silício, Washington, D.c. |
 | **[Comunicações de Nível 3](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Com suporte |Com suporte |Chicago, Vale do Silício, Washington D.C. |
 | **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Com suporte | Com suporte | Chicago, Dallas, San Antonio, Seattle, Washington D.C. |
 | **[Verizon](http://news.verizonenterprise.com/2014/04/secure-cloud-interconnect-solutions-enterprise/)** |Com suporte |Com suporte |Chicago, Los Angeles, Nova York, Vale do Silício, Washington, D.C. |

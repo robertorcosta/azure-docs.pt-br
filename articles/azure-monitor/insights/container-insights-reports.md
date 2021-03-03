@@ -1,17 +1,17 @@
 ---
-title: Relatórios em Azure Monitor para contêineres
-description: Descreve os relatórios disponíveis para analisar os dados coletados por Azure Monitor para contêineres.
+title: Relatórios em informações de contêiner
+description: Descreve os relatórios disponíveis para analisar os dados coletados por informações de contêiner.
 ms.topic: conceptual
 ms.date: 12/07/2020
-ms.openlocfilehash: 94709cf4a8b579447c11f91f9bc6863ab4b4fe08
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100582313"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704269"
 ---
-# <a name="reports-in-azure-monitor-for-containers"></a>Relatórios em Azure Monitor para contêineres
-Os relatórios em Azure Monitor para contêineres são [pastas de trabalho do Azure](../visualize/workbooks-overview.md)prontas para uso. Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
+# <a name="reports-in-container-insights"></a>Relatórios em informações de contêiner
+Os relatórios em insights de contêiner são [pastas de trabalho do Azure](../visualize/workbooks-overview.md)prontas para uso. Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
 
 ## <a name="viewing-reports"></a>Visualizando relatórios
 No menu **Azure monitor** na portal do Azure, selecione **contêineres**. Selecione **insights** na seção **monitoramento** , escolha um cluster específico e, em seguida, selecione a página **relatórios (versão prévia)** . 

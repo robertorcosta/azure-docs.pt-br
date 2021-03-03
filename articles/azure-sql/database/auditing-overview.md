@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/03/2021
+ms.date: 02/28/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 0e85019c8f02b8a4a97426d50a30d047b95378a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100572292"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691511"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -47,6 +47,8 @@ A auditoria também:
 - Atualmente, **não há suporte** para o **Armazenamento Premium**.
 - **O namespace hierárquico** da **conta de armazenamento do Azure Data Lake Storage Gen2** não tem **suporte** no momento.
 - Não há suporte para habilitar a auditoria em um **Synapse do Azure** em pausa. Para habilitar a auditoria, retome o Azure Synapse.
+- A auditoria de **pools do SQL Synapse do Azure** dá suporte **apenas** a grupos de ação de auditoria padrão.
+
 
 #### <a name="define-server-level-vs-database-level-auditing-policy"></a><a id="server-vs-database-level"></a>Definir a política de auditoria no nível do servidor versus no nível do banco de dados
 
@@ -75,7 +77,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 - Para obter detalhes sobre o formato de log, a hierarquia da pasta de armazenamento e as convenções de nomenclatura, consulte a [Referência de formato do log de auditoria de blob](./audit-log-format.md).
 - A auditoria em [réplicas somente leitura](read-scale-out.md) é habilitada automaticamente. Para obter mais detalhes sobre a hierarquia das pastas de armazenamento, as convenções de nomenclatura e o formato do log, consulte [Formato do log de auditoria do Banco de Dados SQL](audit-log-format.md).
 - Ao usar a autenticação do Azure AD, os registros de logons com falha *não* serão exibidos no log de auditoria do SQL. Para exibir logs de auditoria de logon com falha, você precisa visitar o [portal do Azure Active Directory](../../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), que registra os detalhes desses eventos.
-- Os logons são roteados pelo gateway para a instância específica em que o banco de dados está localizado.  No caso de logons do AAD, as credenciais são verificadas antes de tentar usar esse usuário para fazer logon no banco de dados solicitado.  No caso de falha, o banco de dados solicitado nunca é acessado, portanto, não ocorre nenhuma auditoria.  No caso de logons do SQL, as credenciais são verificadas nos dados solicitados, portanto, nesse caso, elas podem ser auditadas.  Logons bem-sucedidos, que obviamente atingem o banco de dados, são auditados em ambos os casos.
+- Os logons são encaminhados pelo gateway para a instância específica em que o banco de dados está localizado.  No caso de logons do AAD, as credenciais são verificadas antes de tentar utilizar esse usuário para fazer logon no banco de dados solicitado.  Em caso de falha, o banco de dados solicitado nunca é acessado, portanto, a auditoria não é realizada.  No caso de logons do SQL, as credenciais são verificadas nos dados solicitados, portanto, nesse caso, elas podem ser auditadas.  Os logons bem-sucedidos, que obviamente alcançaram o banco de dados, são auditados em ambos os casos.
 - Depois de definir as configurações de auditoria, você poderá ativar o novo recurso de detecção de ameaças e configurar emails para receber alertas de segurança. Ao usar a detecção de ameaças, você recebe alertas proativos sobre atividades anômalas do banco de dados que podem indicar possíveis ameaças à segurança. Para obter mais informações, consulte [Introdução à detecção de ameaças](threat-detection-overview.md).
 
 ## <a name="set-up-auditing-for-your-server"></a><a id="setup-auditing"></a>Configurar a auditoria para o servidor

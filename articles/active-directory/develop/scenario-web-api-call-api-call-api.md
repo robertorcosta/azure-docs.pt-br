@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 2c69cea7055476bcc4c4a28cea0a0cf8c8f66f88
-ms.sourcegitcommit: 5cdd0b378d6377b98af71ec8e886098a504f7c33
+ms.openlocfilehash: bbb42a4955ff0b4fbbac58830ec5c8aecf04915d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98753452"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686726"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API Web que chama APIs da Web: chamar uma API
 
@@ -29,9 +29,15 @@ Depois de ter um token, você pode chamar uma API Web protegida. Normalmente, vo
 
 Ao usar *o Microsoft. Identity. Web*, você tem três cenários de uso:
 
-- [Opção 1: chamar Microsoft Graph com o SDK do Microsoft Graph](#option-1-call-microsoft-graph-with-the-sdk)
-- [Opção 2: chamar uma API da Web downstream com a classe auxiliar](#option-2-call-a-downstream-web-api-with-the-helper-class)
-- [Opção 3: chamar uma API da Web downstream sem a classe auxiliar](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Uma API Web que chama APIs da Web: chamar uma API](#a-web-api-that-calls-web-apis-call-an-api)
+  - [Código do controlador](#controller-code)
+- [ASP.NET Core](#aspnet-core)
+      - [Opção 1: chamar Microsoft Graph com o SDK](#option-1-call-microsoft-graph-with-the-sdk)
+      - [Opção 2: chamar uma API da Web downstream com a classe auxiliar](#option-2-call-a-downstream-web-api-with-the-helper-class)
+      - [Opção 3: chamar uma API da Web downstream sem a classe auxiliar](#option-3-call-a-downstream-web-api-without-the-helper-class)
+- [Java](#java)
+- [Python](#python)
+  - [Próximas etapas](#next-steps)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opção 1: chamar Microsoft Graph com o SDK
 
@@ -159,7 +165,7 @@ private String callMicrosoftGraphMeEndpoint(String accessToken){
 ```
 
 # <a name="python"></a>[Python](#tab/python)
-Um exemplo que demonstra esse fluxo com o MSAL Python ainda não está disponível.
+Um exemplo que demonstra esse fluxo com o MSAL Python está disponível em [MS-Identity-Python-on-nome-of](https://github.com/Azure-Samples/ms-identity-python-on-behalf-of).
 
 ---
 

@@ -3,14 +3,14 @@ title: Implantar um Hybrid Runbook Worker do Linux na Automação do Azure
 description: Este artigo informa como instalar um Hybrid Runbook Worker de automação do Azure para executar runbooks em computadores baseados em Linux em seu datacenter local ou ambiente de nuvem.
 services: automation
 ms.subservice: process-automation
-ms.date: 11/23/2020
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 58c340c97bd8e46c5a588b4bf0ba2673712ffb95
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 543ae640871699c7e1fffda46463752483ff6a4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581198"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708910"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
 
@@ -43,12 +43,15 @@ A função Hybrid Runbook Worker requer o [agente de log Analytics](../azure-mon
 O recurso Hybrid Runbook Worker dá suporte às seguintes distribuições. Todos os sistemas operacionais são considerados x64. Não há suporte para x86 em nenhum sistema operacional.
 
 * Amazon Linux 2012, 9 a 2015, 9
-* CentOS Linux 5, 6 e 7
+* CentOS Linux 5, 6, 7 e 8
 * Oracle Linux 5, 6 e 7
-* Red Hat Enterprise Linux Server 5, 6 e 7
+* Red Hat Enterprise Linux Server 5, 6, 7 e 8
 * Debian GNU/Linux 6, 7 e 8
 * Ubuntu 12, 4 LTS, 14, 4 LTS, 16, 4 LTS e 18, 4 LTS
-* SUSE Linux Enterprise Server 12
+* SUSE Linux Enterprise Server 12 e 15
+
+> [!IMPORTANT]
+> Antes de habilitar o recurso Gerenciamento de Atualizações, que depende da função de Hybrid Runbook Worker do sistema, confirme as distribuições às quais ele dá suporte [aqui](update-management/overview.md#supported-operating-systems).
 
 ### <a name="minimum-requirements"></a>Requisitos mínimos
 

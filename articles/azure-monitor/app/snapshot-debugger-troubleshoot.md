@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6e926211a0d86fef55608ede574dca53487f267c
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98732720"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731945"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas.
@@ -35,9 +35,10 @@ Se isso não resolver o problema, consulte as etapas manuais de solução de pro
 
 Certifique-se de que está usando a chave de instrumentação correta no aplicativo publicado. Normalmente, a chave de instrumentação é lida do arquivo ApplicationInsights.config. Verifique se o valor é o mesmo da chave de instrumentação para o recurso do Application Insights que você vê no portal.
 
-## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Verificar as configurações do cliente SSL (ASP.NET)
+## <a name="check-tlsssl-client-settings-aspnet"></a><a id="SSL"></a>Verificar as configurações do cliente TLS/SSL (ASP.NET)
 
-Se você tiver um aplicativo ASP.NET hospedado no serviço Azure App ou no IIS em uma máquina virtual, seu aplicativo poderá falhar ao se conectar ao serviço Depurador de Instantâneos devido a um protocolo de segurança SSL ausente.
+Se você tiver um aplicativo ASP.NET que esteja hospedado no serviço Azure App ou no IIS em uma máquina virtual, seu aplicativo poderá falhar ao se conectar ao serviço de Depurador de Instantâneos devido a um protocolo de segurança SSL ausente.
+
 [O ponto de extremidade depurador de instantâneos requer TLS versão 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). O conjunto de protocolos de segurança SSL é uma das sutilezas habilitadas pelo valor de targetFramework de httpRuntime na seção System. Web do web.config. Se o targetFramework de httpRuntime for 4.5.2 ou inferior, o TLS 1,2 não será incluído por padrão.
 
 > [!NOTE]
@@ -64,6 +65,10 @@ Se você estiver usando uma versão de visualização do .NET Core ou seu aplica
 
 ## <a name="check-the-diagnostic-services-site-extension-status-page"></a>Verificar a página de status da extensão de site dos serviços de diagnóstico
 Se Depurador de Instantâneos foi habilitado por meio do [painel de Application insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) no portal, ele foi habilitado pela extensão de site dos serviços de diagnóstico.
+
+> [!NOTE]
+> A instalação sem código do Application Insights Depurador de Instantâneos segue a política de suporte do .NET Core.
+> Para obter mais informações sobre tempos de execução com suporte, consulte [política de suporte do .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
 
 Você pode verificar a página de status dessa extensão indo para a seguinte URL: `https://{site-name}.scm.azurewebsites.net/DiagnosticServices`
 
@@ -135,7 +140,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 No exemplo anterior, a chave de instrumentação é `c12a605e73c44346a984e00000000000`. Esse valor deve corresponder à chave de instrumentação para seu aplicativo.
 O minidespejo é associado a um instantâneo com a ID `139e411a23934dc0b9ea08a626db16c5`. Você pode usar essa ID posteriormente para localizar o registro de exceção associado no Application Insights Analytics.
 
-O carregador examina novos PDBs cerca de uma vez a cada 15 minutos. Veja um exemplo:
+O carregador examina novos PDBs cerca de uma vez a cada 15 minutos. Aqui está um exemplo:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.

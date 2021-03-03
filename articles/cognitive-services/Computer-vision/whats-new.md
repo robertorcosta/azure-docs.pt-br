@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: dbe0b5ac207b361a9584603bbe2d59abd5e5ca4e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390395"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738218"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
@@ -50,8 +50,8 @@ Uma nova versão do [contêiner de análise espacial](spatial-analysis-container
 * **Alteração interruptiva**: O evento *personZoneEvent* foi renomeado para *personZoneEnterExitEvent*. Esse evento é gerado pela operação *personcrossingpolygon* quando uma pessoa entra ou sai da zona e fornece informações direcionais com o lado numerado da zona que foi cruzada.
 * A URL de vídeo pode ser fornecida como "Parâmetro Privado/ofuscado" em todas as operações. A ofuscação é opcional agora e só funcionará se `KEY` e `IV` forem fornecidas como variáveis de ambiente.
 * A calibragem é habilitada por padrão para todas as operações. Defina o `do_calibration: false` para desabilitá-lo.
-* Suporte adicionado para recalibragem automática (desabilitado por padrão) por meio do parâmetro `enable_recalibration`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes
-* Parâmetros de calibragem de câmera para o `DETECTOR_NODE_CONFIG`. Confira [Operações de análise espacial](https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-operations) para obter detalhes.
+* Suporte adicionado para recalibragem automática (desabilitado por padrão) por meio do parâmetro `enable_recalibration`. Confira [Operações de análise espacial](./spatial-analysis-operations.md) para obter detalhes
+* Parâmetros de calibragem de câmera para o `DETECTOR_NODE_CONFIG`. Confira [Operações de análise espacial](./spatial-analysis-operations.md) para obter detalhes.
 
 
 ## <a name="october-2020"></a>Outubro de 2020

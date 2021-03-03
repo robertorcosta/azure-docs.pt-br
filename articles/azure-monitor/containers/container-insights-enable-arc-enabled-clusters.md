@@ -1,28 +1,28 @@
 ---
-title: Configurar o cluster kubernetes habilitado para Arc do Azure com Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve como configurar o monitoramento com Azure Monitor para contêineres em clusters kubernetes habilitados para Arc do Azure.
+title: Configurar o cluster kubernetes habilitado para Arc do Azure com insights de contêiner | Microsoft Docs
+description: Este artigo descreve como configurar o monitoramento com informações de contêiner em clusters kubernetes habilitados para Arc do Azure.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 77b536141f0e7c6094964011719a0e536e8d33f1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 307f9d9928042410dc9b4443aba5c019c592980c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606678"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711290"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Habilitar o monitoramento do cluster do Kubernetes habilitado para Azure Arc
 
-Azure Monitor para contêineres fornece experiência de monitoramento avançada para os clusters do AKS (serviço kubernetes do Azure) e do mecanismo do AKS. Este artigo descreve como habilitar o monitoramento de seus clusters kubernetes hospedados fora do Azure que são habilitados com o Arc do Azure para obter uma experiência de monitoramento semelhante.
+As informações de contêiner fornecem uma experiência de monitoramento avançada para os clusters do AKS (serviço kubernetes do Azure) e do mecanismo do AKS. Este artigo descreve como habilitar o monitoramento de seus clusters kubernetes hospedados fora do Azure que são habilitados com o Arc do Azure para obter uma experiência de monitoramento semelhante.
 
-Azure Monitor para contêineres podem ser habilitados para uma ou mais implantações existentes do kubernetes usando um script do PowerShell ou bash.
+As informações de contêiner podem ser habilitadas para uma ou mais implantações existentes do kubernetes usando um script do PowerShell ou bash.
 
 ## <a name="supported-configurations"></a>Configurações com suporte
 
-Azure Monitor para contêineres dá suporte ao monitoramento do Azure Arc habilitado kubernetes (versão prévia), conforme descrito no artigo de [visão geral](container-insights-overview.md) , com exceção dos seguintes recursos:
+O contêiner insights dá suporte ao monitoramento do Azure Arc habilitado kubernetes (versão prévia), conforme descrito no artigo de [visão geral](container-insights-overview.md) , com exceção dos seguintes recursos:
 
 - Dados dinâmicos (visualização)
 
-O seguinte é oficialmente suportado com Azure Monitor para contêineres:
+O seguinte é oficialmente suportado com o contêiner insights:
 
 - As versões do kubernetes e da política de suporte são as mesmas que as versões do [AKs com suporte](../../aks/supported-kubernetes-versions.md).
 
@@ -36,15 +36,15 @@ Antes de começar, verifique se você tem o seguinte:
 
 - Um workspace do Log Analytics.
 
-    Azure Monitor para contêineres dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../samples/resource-manager-workspace.md), por meio do [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../learn/quick-create-workspace.md).
+    O insights de contêiner dá suporte a um espaço de trabalho Log Analytics nas regiões listadas em produtos do Azure [por região](https://azure.microsoft.com/global-infrastructure/services/?regions=all&products=monitor). Para criar seu próprio espaço de trabalho, ele pode ser criado por meio de [Azure Resource Manager](../logs/resource-manager-workspace.md), por meio do [PowerShell](../logs/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json)ou no [portal do Azure](../logs/quick-create-workspace.md).
 
-- Para habilitar e acessar os recursos no Azure Monitor para contêineres, no mínimo você precisa ser um membro da função *colaborador* do Azure na assinatura do Azure e um membro da [*log Analytics função colaborador*](../platform/manage-access.md#manage-access-using-azure-permissions) do espaço de trabalho log Analytics configurado com Azure monitor para contêineres.
+- Para habilitar e acessar os recursos em insights de contêiner, no mínimo você precisa ser um membro da função *colaborador* do Azure na assinatura do Azure e um membro da função colaborador de [*log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) do espaço de trabalho log Analytics configurado com informações de contêiner.
 
 - Você é um membro da função [colaborador](../../role-based-access-control/built-in-roles.md#contributor) no recurso de cluster de arco do Azure.
 
-- Para exibir os dados de monitoramento, você é um membro da permissão da função [*leitor de log Analytics*](../platform/manage-access.md#manage-access-using-azure-permissions) com o espaço de trabalho log Analytics configurado com Azure monitor para contêineres.
+- Para exibir os dados de monitoramento, você é um membro da permissão da função [*leitor de log Analytics*](../logs/manage-access.md#manage-access-using-azure-permissions) com o espaço de trabalho log Analytics configurado com o contêiner insights.
 
-- [Helm cliente](https://helm.sh/docs/using_helm/) para carregar o Azure monitor para o gráfico de contêineres para o cluster kubernetes especificado.
+- [Helm Client](https://helm.sh/docs/using_helm/) para carregar o gráfico do contêiner insights para o cluster kubernetes especificado.
 
 - As seguintes informações de configuração de proxy e firewall são necessárias para que a versão em contêiner do agente de Log Analytics para Linux se comunique com Azure Monitor:
 
@@ -247,7 +247,7 @@ bash enable-monitoring.sh --resource-id $azureArcClusterResourceId --client-id $
 
 ## <a name="configure-proxy-endpoint"></a>Configurar ponto de extremidade proxy
 
-Com o agente em contêiner para Azure Monitor para contêineres, você pode configurar um ponto de extremidade de proxy para permitir que ele se comunique por meio do servidor proxy. A comunicação entre o agente em contêiner e o Azure Monitor pode ser um servidor proxy HTTP ou HTTPS e a autenticação anônima e básica (nome de usuário/senha) têm suporte.
+Com o agente em contêiner para informações de contêiner, você pode configurar um ponto de extremidade de proxy para permitir que ele se comunique por meio do servidor proxy. A comunicação entre o agente em contêiner e o Azure Monitor pode ser um servidor proxy HTTP ou HTTPS e a autenticação anônima e básica (nome de usuário/senha) têm suporte.
 
 O valor de configuração de proxy tem a seguinte sintaxe: `[protocol://][user:password@]proxyhost[:port]`
 
@@ -284,10 +284,10 @@ export proxyEndpoint=https://<user>:<password>@<proxyhost>:<port>
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Com o monitoramento habilitado para coletar a utilização de recursos e de integridade de seu cluster kubernetes habilitado para Arc e cargas de trabalho em execução neles, saiba [como usar](container-insights-analyze.md) Azure monitor para contêineres.
+- Com o monitoramento habilitado para coletar a utilização de recursos e de integridade de seu cluster kubernetes habilitado para Arc e cargas de trabalho em execução neles, saiba [como usar o](container-insights-analyze.md) contêiner insights.
 
 - Por padrão, o agente em contêiner coleta os logs de contêiner stdout/stderr de todos os contêineres em execução em todos os namespaces, exceto Kube-System. Para configurar a coleta de log de contêiner específica para namespaces ou namespaces específicos, examine [configuração do agente do insights de contêiner](container-insights-agent-config.md) para definir as configurações de coleta de dados desejadas para o arquivo de configurações do ConfigMap.
 
 - Para revisar e analisar as métricas de Prometheus do seu cluster, examine [Configurar a recorte de métricas do Prometheus](container-insights-prometheus-integration.md)
 
-- Para saber como parar de monitorar o cluster kubernetes habilitado para Arc com Azure Monitor para contêineres, consulte [como parar de monitorar o cluster híbrido](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes).
+- Para saber como parar de monitorar o cluster kubernetes habilitado para Arc com o contêiner insights, consulte [como parar de monitorar o cluster híbrido](container-insights-optout-hybrid.md#how-to-stop-monitoring-on-arc-enabled-kubernetes).

@@ -11,12 +11,12 @@ ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: a907bf61cb7ccb8b6d287840c12a00451cad782f
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ee41ae2a705ceaa0e9742c91552d6bdae26820ce
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101657852"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690270"
 ---
 # <a name="troubleshooting-the-parallelrunstep"></a>Como solucionar problemas do ParallelRunStep
 
@@ -119,7 +119,7 @@ Crie o ParallelRunStep usando o script, a configuração do ambiente e os parâm
 - `parallel_run_config`: Um objeto `ParallelRunConfig`, conforme definido anteriormente.
 - `inputs`: um ou mais conjuntos de dados do Azure Machine Learning de tipo único a serem particionados para processamento paralelo.
 - `side_inputs`: um ou mais dados de referência ou conjuntos de dados usados como entradas laterais sem a necessidade de partição.
-- `output`: Um `OutputDatasetConfig` ou um `PipelineData` objeto que corresponde ao diretório de saída.
+- `output`: Um `OutputFileDatasetConfig` objeto que representa o caminho do diretório no qual os dados de saída serão armazenados.
 - `arguments`: uma lista de argumentos passados para o script do usuário. Use unknown_args para recuperá-los em seu script de entrada (opcional).
 - `allow_reuse`: Se a etapa deve reutilizar os resultados anteriores quando executada com as mesmas configurações/entradas. Se esse parâmetro for `False`, uma nova execução sempre será gerada para essa etapa durante a execução do pipeline. (opcional; o valor padrão é `True`.)
 

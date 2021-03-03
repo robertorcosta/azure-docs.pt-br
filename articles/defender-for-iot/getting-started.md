@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/26/2020
+ms.date: 2/18/2021
 ms.author: shhazam
-ms.openlocfilehash: 06cf8b5f35bdebed0ebaa9e6949261d7c0d516f2
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c224dc3f919471e769717f308aff9ae58630d421
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522556"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712752"
 ---
 # <a name="get-started-with-defender-for-iot"></a>Introdução ao defender para IoT
 
@@ -69,6 +69,8 @@ Para se inscrever:
 1. Selecione **assinatura integrada**.
 1. Na página de **preços** , selecione uma assinatura ou crie uma nova e adicione o número de dispositivos confirmados.
 1. Selecione **baixar a guia Console de gerenciamento local** e salve o arquivo de ativação baixado. Esse arquivo contém os dispositivos confirmados agregados que você definiu. O arquivo será carregado no console de gerenciamento após a entrada inicial.
+
+Para obter informações sobre como transferir uma assinatura, consulte [transferir a Subscription](how-to-manage-sensors-on-the-cloud.md#offboard-a-subscription).
 
 ## <a name="3-install-and-set-up-the-on-premises-management-console"></a>3. instalar e configurar o console de gerenciamento local
 
@@ -126,8 +128,9 @@ Para obter mais informações, consulte [conectar sensores ao console de gerenci
 ## <a name="7-populate-azure-sentinel-with-alert-information-optional"></a>7. popular o Azure Sentinel com informações de alerta (opcional)
 
 Enviar informações de alerta para o Azure Sentinel Configurando o Azure Sentinel. Consulte [conectar seus dados do defender para IOT ao Azure Sentinel](how-to-configure-with-sentinel.md).
-## <a name="next-steps"></a>Próximas etapas
 
-[Bem-vindo ao Azure defender para IoT](overview.md)
+## <a name="see-also"></a>Confira também
 
-[Arquitetura do Azure defender para IoT](architecture.md)
+- [Bem-vindo ao Azure defender para IoT](overview.md)
+
+- [Arquitetura do Azure defender para IoT](architecture.md)

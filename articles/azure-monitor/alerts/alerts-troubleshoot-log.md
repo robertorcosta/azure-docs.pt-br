@@ -6,18 +6,18 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.subservice: alerts
 ms.date: 09/22/2020
-ms.openlocfilehash: b877cba794f97dd4736e30a72d91695774c8e688
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9352b27002162e08d53bc8166ceddd010be3c8d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605141"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738643"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Solucionar problemas de alertas de log no Azure Monitor  
 
 Este artigo mostra como resolver problemas comuns com alertas de log no Azure Monitor. Ele também fornece soluções para problemas comuns com a funcionalidade e a configuração de alertas de log.
 
-Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../log-query/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](../platform/action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
+Os alertas de log permitem que os usuários usem uma consulta [log Analytics](../logs/log-analytics-tutorial.md) para avaliar os logs de recursos a cada frequência definida e acionar um alerta com base nos resultados. As regras podem disparar uma ou mais ações usando [grupos de ações](./action-groups.md). [Saiba mais sobre a funcionalidade e a terminologia de alertas de log](alerts-unified-log.md).
 
 > [!NOTE]
 > Este artigo não considera casos em que a portal do Azure mostra uma regra de alerta disparada e uma notificação não é executada por um grupo de ação associado. Para esses casos, consulte os detalhes sobre solução de problemas [aqui](./alerts-troubleshoot.md#action-or-notification-on-my-alert-did-not-work-as-expected).
@@ -26,7 +26,7 @@ Os alertas de log permitem que os usuários usem uma consulta [log Analytics](..
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo de ingestão de dados para logs
 
-O Azure Monitor processa terabytes de logs de clientes de todo o mundo, o que pode causar a [latência de ingestão de logs](../platform/data-ingestion-time.md).
+O Azure Monitor processa terabytes de logs de clientes de todo o mundo, o que pode causar a [latência de ingestão de logs](../logs/data-ingestion-time.md).
 
 Os logs são dados semiestruturados e inerentemente mais Lates do que as métricas. Se você estiver enfrentando um atraso de mais de 4 minutos em alertas acionados, considere o uso de [alertas de métrica](alerts-metric-overview.md). Você pode enviar dados para o repositório de métricas de logs usando [alertas de métricas para logs](alerts-metric-logs.md).
 
@@ -60,7 +60,7 @@ Uma [regra de alerta de log](./alerts-log.md) configurada no Azure monitor pode 
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta disparado por dados parciais
 
-O Azure Monitor processa terabytes de logs de clientes de todo o mundo, o que pode causar a [latência de ingestão de logs](../platform/data-ingestion-time.md).
+O Azure Monitor processa terabytes de logs de clientes de todo o mundo, o que pode causar a [latência de ingestão de logs](../logs/data-ingestion-time.md).
 
 Os logs são dados semiestruturados e inerentemente mais Lates do que as métricas. Se você estiver enfrentando muitos incêndios inadequados em alertas acionados, considere o uso de [alertas de métrica](alerts-metric-overview.md). Você pode enviar dados para o repositório de métricas de logs usando [alertas de métricas para logs](alerts-metric-logs.md).
 
@@ -87,7 +87,7 @@ SecurityEvent
 
 Não há necessidade de adicionar lógica de alerta à consulta e fazer isso pode até mesmo causar problemas. No exemplo acima, se você incluir `count` em sua consulta, ela sempre resultará no valor 1, pois o serviço de alerta fará `count` do `count` .
 
-A consulta otimizada é o que o serviço de alerta de log executa. Você pode executar a consulta modificada no [portal](../log-query/log-query-overview.md) log Analytics ou na [API](/rest/api/loganalytics/).
+A consulta otimizada é o que o serviço de alerta de log executa. Você pode executar a consulta modificada no [portal](../logs/log-query-overview.md) log Analytics ou na [API](/rest/api/loganalytics/).
 
 Para espaços de trabalho e Application Insights, ele é chamado de **consulta a ser executada** no painel condição. Em todos os outros tipos de recursos, selecione **Ver consulta de alerta final** na guia condição.
 
@@ -108,7 +108,7 @@ Azure Monitor desabilitará o alerta de log após uma semana se ele falhar conti
 Quando uma regra de alerta de log é criada, a consulta é validada para a sintaxe correta. Mas, às vezes, a consulta fornecida na regra de alerta de log pode começar a falhar. Alguns motivos comuns são:
 
 - As regras foram criadas por meio da API e a validação foi ignorada pelo usuário.
-- A consulta [é executada em vários recursos](../log-query/cross-workspace-query.md) e um ou mais dos recursos foram excluídos ou movidos.
+- A consulta [é executada em vários recursos](../logs/cross-workspace-query.md) e um ou mais dos recursos foram excluídos ou movidos.
 - A [consulta falha](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque:
     - A solução de log não foi [implantada no espaço de trabalho](../insights/solutions.md#install-a-monitoring-solution), portanto, as tabelas não são criadas.
     - Os dados interromperam o fluxo para uma tabela na consulta por mais de 30 dias.
@@ -219,5 +219,5 @@ Se a consulta falhar por sete dias continuamente, Azure Monitor desabilitará o 
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre os [alertas de log no Azure](./alerts-unified-log.md).
-- Saiba mais sobre como [configurar alertas de log](../log-query/log-query-overview.md).
-- Saiba mais sobre [consultas de log](../log-query/log-query-overview.md).
+- Saiba mais sobre como [configurar alertas de log](../logs/log-query-overview.md).
+- Saiba mais sobre [consultas de log](../logs/log-query-overview.md).

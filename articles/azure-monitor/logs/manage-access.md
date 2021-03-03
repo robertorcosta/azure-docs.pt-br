@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: f16e5363af7de2152a7fa73bb52219d87971a249
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: bc03d8cdcaf0079ef15e648d16fd5656d9da368c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091189"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725672"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gerenciar acesso a dados de log e workspaces no Azure Monitor
 
@@ -285,7 +285,7 @@ Os exemplos acima definem uma lista de tabelas que são permitidas. Este exemplo
 
 ### <a name="custom-logs"></a>Logs personalizados
 
- Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](../log-query/log-analytics-tutorial.md#table-schema).
+ Os logs personalizados são criados a partir de fontes de dados como logs personalizados e API do coletor de dados HTTP. A maneira mais fácil de identificar o tipo de log é verificando as tabelas listadas em [logs personalizados no esquema de log](./log-analytics-tutorial.md#table-schema).
 
  Você não pode conceder acesso a logs personalizados individuais, mas pode conceder acesso a todos os logs personalizados. Para criar uma função com acesso a todos os logs personalizados, crie uma função personalizada usando as seguintes ações:
 
@@ -312,4 +312,4 @@ Uma abordagem alternativa para gerenciar o acesso a logs personalizados é atrib
 
 * Consulte a [visão geral do agente do Log Analytics](../agents/log-analytics-agent.md) para reunir dados de computadores no datacenter ou outro ambiente de nuvem.
 
-* Consulte [coletar dados sobre máquinas virtuais do Azure](../learn/quick-collect-azurevm.md) para configurar a coleta de dados de VMs do Azure.
+* Consulte [coletar dados sobre máquinas virtuais do Azure](../vm/quick-collect-azurevm.md) para configurar a coleta de dados de VMs do Azure.

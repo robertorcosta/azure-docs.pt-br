@@ -7,12 +7,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
-ms.openlocfilehash: 47134712bb953d9194bd943e228bae681877dcaa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ebc71ea2d354caf0c8f31b1231ecc1487237dd29
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098328"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741881"
 ---
 # <a name="set-up-an-azure-front-door-standardpremium-preview-origin"></a>Configurar uma origem do Azure front door Standard/Premium (visualização)
 
@@ -60,16 +60,16 @@ Antes de criar uma origem padrão/Premium da porta frontal do Azure, você deve 
     > [!IMPORTANT]
     > Durante a configuração, as APIs não validam se a origem é inacessível de ambientes de porta frontal. Verifique se a porta frontal pode alcançar sua origem.
 
-1. Selecione **Adicionar** para criar a nova origem. A origem criada deve aparecer na lista de origem com o grupo
+1. Selecione **Adicionar** para criar a nova origem. A origem criada deve aparecer na lista de origem com o grupo.
   
-    :::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Captura de tela da página Adicionar uma origem.":::
+    :::image type="content" source="../media/how-to-create-origin/origin-list-view.png" alt-text="Captura de tela de origem na exibição de lista.":::
 
 1. Selecione **Adicionar** para adicionar o grupo de origem ao ponto de extremidade atual. O grupo de origem deve aparecer dentro do painel de grupo de origem.
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 Para excluir um grupo de origem quando ele não for mais necessário, clique em **...** e, em seguida, selecione **excluir** na lista suspensa.
 
-:::image type="content" source="../media/how-to-create-origin/add-origin-view.png" alt-text="Captura de tela de como excluir um grupo de origem.":::
+:::image type="content" source="../media/how-to-create-origin/delete-origin-group.png" alt-text="Captura de tela de como excluir um grupo de origem.":::
 
 Para excluir uma origem quando você não precisar mais dela, clique em **...** e, em seguida, selecione **excluir** na lista suspensa. 
 

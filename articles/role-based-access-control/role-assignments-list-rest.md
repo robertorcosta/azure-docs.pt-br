@@ -5,22 +5,18 @@ services: active-directory
 documentationcenter: na
 author: rolyon
 manager: mtillman
-editor: ''
-ms.assetid: 1f90228a-7aac-4ea7-ad82-b57d222ab128
 ms.service: role-based-access-control
 ms.workload: multiple
 ms.tgt_pltfrm: rest-api
-ms.devlang: na
 ms.topic: how-to
-ms.date: 05/06/2020
+ms.date: 02/27/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 1d90e83405cf9c560f644277a04012571e1a5a9d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 9780902a1c5f4a711e1abffa6b508c28efe269ac
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100556898"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735873"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>Listar atribuições de função do Azure usando a API REST
 
@@ -28,6 +24,8 @@ ms.locfileid: "100556898"
 
 > [!NOTE]
 > Se sua organização tiver funções de gerenciamento terceirizadas para um provedor de serviços que usa o [Gerenciamento de recursos delegado do Azure](../lighthouse/concepts/azure-delegated-resource-management.md), as atribuições de função autorizadas por esse provedor de serviços não serão mostradas aqui.
+
+[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="list-role-assignments"></a>Listar atribuições de função
 
@@ -42,7 +40,7 @@ No RBAC do Azure, para listar o acesso, você lista as atribuições de função
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções de atribuição.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Type |
+    > | Escopo | Tipo |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |

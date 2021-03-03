@@ -6,14 +6,14 @@ manager: nberdy
 ms.service: iot-dps
 services: iot-dps
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 02/14/2021
 ms.author: xujing
-ms.openlocfilehash: 2d27c4eb1ea4586e0f2eac48930d86217052b2d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ba81be54592e591f734b05235bb3ce183a07a11c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100585448"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709879"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Solução de problemas com o serviço de provisionamento de dispositivos no Hub IoT do Azure
 
@@ -44,7 +44,7 @@ O procedimento a seguir descreve como exibir e configurar o alerta na métrica d
 
 7. Selecione **Adicionar condição** e, em seguida, selecione a métrica e o limite desejados seguindo os prompts.
 
-Para saber mais, confira [o que são alertas clássicos no Microsoft Azure?](../azure-monitor/alerts/alerts-overview.md)
+Para saber mais, consulte [alertas em Azure monitor](../azure-monitor/platform/alerts-overview.md).
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>Usando o log analítico para exibir e resolver erros
 

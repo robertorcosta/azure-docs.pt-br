@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 01/28/2021
 ms.author: allensu
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 34223298dbf0dad9d9214676a5190bef063a8228
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 34168a02b5a2d2dfe74e2a5839e0bfddcf684222
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577027"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712174"
 ---
 # <a name="what-is-azure-private-link"></a>O que é o Link Privado do Azure? 
 O Link Privado do Azure lhe permite acessar os serviços de PaaS do Azure (por exemplo, Armazenamento do Azure e Banco de Dados SQL) e serviços de parceiros/de propriedade de clientes hospedados no Azure em um [ponto de extremidade privado](private-endpoint-overview.md) em sua rede virtual.
@@ -54,7 +54,7 @@ O Link Privado do Azure fornece os seguintes benefícios:
 |  Banco de Dados do Azure para PostgreSQL – Servidor único         | Todas as regiões públicas <br/> Todas as regiões do Governo<br/>Todas as regiões da China     | Compatível com os tipos de preço uso geral e otimizado para memória | GA <br/> [Saiba como criar um ponto de extremidade privado para o Banco de Dados do Azure para PostgreSQL.](../postgresql/concepts-data-access-and-security-private-link.md)      |
 |  Banco de Dados do Azure para MySQL         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China      |  | GA <br/> [Saiba como criar um ponto de extremidade privado para o Banco de Dados do Azure para MySQL.](../mysql/concepts-data-access-security-private-link.md)     |
 |  Banco de Dados do Azure para MariaDB         | Todas as regiões públicas<br/> Todas as regiões do Governo<br/>Todas as regiões da China     |  | GA <br/> [Saiba como criar um ponto de extremidade privado para o Banco de Dados do Azure para MariaDB.](../mariadb/concepts-data-access-security-private-link.md)      |
-|  Gêmeos Digitais do Azure         | Todas as regiões públicas com suporte nos Gêmeos Digitais do Azure     |  | Versão Prévia <br/> [Saiba como criar um ponto de extremidade privado para os Gêmeos Digitais do Azure.](../digital-twins/how-to-enable-private-link.md)      |
+|  Gêmeos Digitais do Azure         | Todas as regiões públicas com suporte nos Gêmeos Digitais do Azure     |  | Versão Prévia <br/> [Saiba como criar um ponto de extremidade privado para os Gêmeos Digitais do Azure.](../digital-twins/how-to-enable-private-link-portal.md)      |
 |  Cofre de Chave do Azure         | Todas as regiões públicas<br/> Todas as regiões do Governo      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Key Vault.](../key-vault/general/private-link-service.md)   |
 |Serviço de Kubernetes do Azure – API Kubernetes | Todas as regiões públicas      |  | GA   <br/> [Saiba como criar um ponto de extremidade privado para Serviço de Kubernetes do Azure.](../aks/private-clusters.md)   |
 |Azure Search | Todas as regiões públicas <br/> Todas as regiões do Governo | Compatível com o serviço no modo privado | GA   <br/> [Saiba como criar um ponto de extremidade privado para o Azure Search.](../search/service-create-private-endpoint.md)    |

@@ -1,18 +1,17 @@
 ---
 title: Soluções de monitoramento no Azure Monitor | Microsoft Docs
 description: As soluções de monitoramento no Azure Monitor são uma coleção de regras de lógica, visualização e aquisição de dados que fornecem métricas centradas em torno de uma área específica do problema.  Este artigo fornece informações sobre como instalar e usar soluções de monitoramento.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: d2e898c6401ff9959298e5e435d68b4c4a452c4c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a63db154d055675b834e2949a330375633a5761d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587281"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728579"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
 

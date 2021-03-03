@@ -11,17 +11,17 @@ ms.workload: identity
 ms.date: 07/22/2020
 ms.subservice: app-mgmt
 ms.author: kenwith
-ms.openlocfilehash: a4b029a1397a2522dfaa6eba9c0206dd5a031875
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.openlocfilehash: 6ba622bd52dc13fb0053b61b65529db6e6912611
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99258126"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686709"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de Aplicativo do AD do Azure: histórico de lançamento de versão
 Este artigo lista as versões e os recursos do proxy de aplicativo Azure Active Directory (AD do Azure) que foram lançados. A equipe do Azure AD atualiza regularmente o proxy de aplicativo com novos recursos e funcionalidades. Os conectores de proxy de aplicativo são atualizados automaticamente quando uma nova versão é liberada. 
 
-É recomendável verificar se as atualizações automáticas estão habilitadas para seus conectores para garantir que você tenha os recursos e correções de bug mais recentes. A Microsoft fornece suporte direto para a versão do conector mais recente e uma versão anterior.
+É recomendável verificar se as atualizações automáticas estão habilitadas para seus conectores para garantir que você tenha os recursos e correções de bug mais recentes. A Microsoft fornece suporte direto para a versão mais recente do conector e uma versão anterior.
 
 Aqui está uma lista de recursos relacionados:
 
@@ -44,7 +44,7 @@ Download do conector do Azure Proxy de Aplicativo do AD |  [Baixe o conector mai
 
 ### <a name="fixed-issues"></a>Problemas corrigidos
 - Corrigido um problema de WebSocket que forçou cadeias de caracteres em minúsculas.
-- Corrigido um problema que fazia com que os conectores occassionallyssem sem resposta.
+- Correção de um problema que fazia com que os conectores não respondessem ocasionalmente.
 
 ## <a name="1516260"></a>1.5.1626.0
 
@@ -60,7 +60,7 @@ Download do conector do Azure Proxy de Aplicativo do AD |  [Baixe o conector mai
 
 ### <a name="release-status"></a>Status de liberação
 
-07 de abril de 2020: lançamento para download
+07 de abril de 2020: lançamento para download esta versão só está disponível para instalação por meio da página de download. Um lançamento de atualização automática desta versão será lançado posteriormente.
 
 ### <a name="new-features-and-improvements"></a>Novos recursos e aprimoramentos
 -   Os conectores usam apenas o TLS 1,2 para todas as conexões. Consulte [pré-requisitos do conector](application-proxy-add-on-premises-application.md#prerequisites) para obter mais detalhes.

@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: c99a9086171192e5d954fb5a9bfbe5d2d7ef4ea5
-ms.sourcegitcommit: 5b926f173fe52f92fcd882d86707df8315b28667
+ms.openlocfilehash: 8a9149119bc754ff0715f2841925da01301faecd
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99569437"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749995"
 ---
 ### <a name="examine-and-edit-the-sample-files"></a>Examinar e editar os arquivos de exemplo
 
@@ -26,11 +26,11 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 1. Edite o arquivo *operations.json*:
  
     * Altere o link para a topologia do grafo:
-    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/2.0/topology.json"`
+    * `"topologyUrl"` : `"https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/motion-with-grpcExtension/2.0/topology.json"`
     * Em GraphInstanceSet, edite o nome da topologia de grafo para que corresponda ao valor no link anterior:
-    * `"topologyName"` : `"InferencingWithGrpcExtension"`
+    * `"topologyName"` : `"EVROnMotionPlusGrpcExtension"`
     * Em GraphTopologyDelete, edite o nome:
-    * `"name"` : `"InferencingWithGrpcExtension"`
+    * `"name"` : `"EVROnMotionPlusGrpcExtension"`
 
 > [!NOTE]
 > <p>
@@ -51,7 +51,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
 >   },
 >   "dataTransfer": {
 >       "mode": "sharedMemory",
->       "SharedMemorySizeMiB": "5"
+>       "SharedMemorySizeMiB": "256"
 >   },
 >   "image": {
 >       "scale": {
@@ -107,10 +107,10 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
         > As etapas acima pressupõem que você esteja usando a máquina virtual criada pelo script de instalação. Se estiver usando um dispositivo de borda próprio, acesse o dispositivo de borda e execute os seguintes comandos com **direitos de administrador** para efetuar pull do arquivo de vídeo de exemplo usado neste guia de início rápido e armazená-lo:  
 
         ```
-        mkdir /home/lvaadmin/samples
-        mkdir /home/lvaadmin/samples/input    
-        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaadmin/samples/input/camera-300s.mkv  
-        chown -R lvaadmin /home/lvaadmin/samples/  
+        mkdir /home/lvaedgeuser/samples
+        mkdir /home/lvaedgeuser/samples/input    
+        curl https://lvamedia.blob.core.windows.net/public/camera-300s.mkv > /home/lvaedgeuser/samples/input/camera-300s.mkv  
+        chown -R lvalvaedgeuser:localusergroup /home/lvaedgeuser/samples/  
         ```
     * O módulo **lvaExtension**, o modelo de detecção de objetos YOLOv3 que usa o gRPC como o método de comunicação e aplica a pesquisa visual computacional às imagens e retorna várias classes de tipos de objetos.
     
@@ -167,7 +167,7 @@ Como parte dos pré-requisitos, você baixou o código de exemplo para uma pasta
       "@apiVersion": "2.0",
       "name": "Sample-Graph-1",
       "properties": {
-        "topologyName": "InferencingWithGrpcExtension",
+        "topologyName": "EVROnMotionPlusGrpcExtension",
         "description": "Sample graph description",
         "parameters": [
           {

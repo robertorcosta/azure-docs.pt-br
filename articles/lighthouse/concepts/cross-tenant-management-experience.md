@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 02/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 97b28409a7f180ffbf4f8766ee281710d6226019
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573090"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101699242"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -97,8 +97,8 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 
 - Exibir alertas para assinaturas delegadas, com a capacidade de exibir e atualizar alertas em todas as assinaturas
 - Exibir detalhes do log de atividades para assinaturas delegadas
-- [Log Analytics](../../azure-monitor/platform/service-providers.md): consultar dados de espaços de trabalho remotos em vários locatários (Observe que as contas de automação usadas para acessar dados de espaços de trabalho em locatários do cliente devem ser criadas no mesmo locatário)
-- [Criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/platform/alerts-activity-log.md) em locatários do cliente
+- [Log Analytics](../../azure-monitor/logs/service-providers.md): consultar dados de espaços de trabalho remotos em vários locatários (Observe que as contas de automação usadas para acessar dados de espaços de trabalho em locatários do cliente devem ser criadas no mesmo locatário)
+- [Criar, exibir e gerenciar alertas do log de atividades](../../azure-monitor/alerts/alerts-activity-log.md) em locatários do cliente
 - Criar alertas em locatários do cliente que disparam a automação, como runbooks de automação do Azure ou Azure Functions, no gerenciamento de locatário por meio de WebHooks
 - Criar [configurações de diagnóstico](../..//azure-monitor/essentials/diagnostic-settings.md) em locatários do cliente para enviar logs de recursos para espaços de trabalho no locatário de gerenciamento
 - Para cargas de trabalho do SAP, [monitore as métricas de soluções SAP com uma exibição agregada entre locatários do cliente](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)

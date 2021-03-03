@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 01/03/2021
-ms.openlocfilehash: 6c5d758f94a4ad4e70a8b02a02c7c61097725f63
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: b02572f8f6f6531afba9e24af1d2eab53f5cb6ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094840"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101742102"
 ---
 # <a name="tutorial-migrate-sql-server-to-azure-sql-database-offline-using-dms"></a>Tutorial: Migrar SQL Server para Banco de Dados SQL do Azure offline usando DMS
 
@@ -33,10 +33,6 @@ Você saberá como:
 > - Criar um projeto de migração usando o Serviço de Migração de Banco de Dados do Azure.
 > - Executar a migração.
 > - Monitorar a migração.
-
-[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
-
-Este artigo descreve uma migração offline do SQL Server para um banco de dados no Banco de Dados SQL do Azure. Para uma migração online, confira [Migrar o SQL Server para o Banco de Dados SQL do Azure online usando DMS](tutorial-sql-server-azure-sql-online.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -275,7 +271,5 @@ Depois que o serviço é criado, localize-o no portal do Azure, abra-o e, em seg
 
 ### <a name="additional-resources"></a>Recursos adicionais
 
-- Laboratório prático da [migração do SQL usando o Serviço de Migração de Banco de Dados do Azure](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=3b671509-c3cd-4495-8e8f-354acfa09587).
-- Para obter informações sobre problemas conhecidos e limitações na realização de migrações online para o Banco de Dados SQL do Azure, confira o artigo [Problemas conhecidos e soluções alternativas nas migrações online de Banco de Dados SQL do Azure](known-issues-azure-sql-online.md).
 - Para obter informações sobre o Serviço de Migração de Banco de Dados do Azure, confira o artigo [O que é o Serviço de Migração de Banco de Dados do Azure?](./dms-overview.md).
 - Para saber mais sobre o Banco de Dados SQL do Azure, confira o artigo [O que é o serviço Banco de Dados SQL do Azure?](../azure-sql/database/sql-database-paas-overview.md).

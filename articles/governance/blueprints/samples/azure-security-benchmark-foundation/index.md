@@ -3,16 +3,16 @@ title: Visão geral do exemplo de blueprint do Azure Security Benchmark Foundati
 description: Visão geral e arquitetura do exemplo de blueprint do Azure Security Benchmark Foundation.
 ms.date: 02/17/2020
 ms.topic: sample
-ms.openlocfilehash: b3b58f2fb603e23e4b188e527fa4fc60f4041a29
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed497eff85e07b6a51939907bc751f3b40c99b30
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095275"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741864"
 ---
 # <a name="overview-of-the-azure-security-benchmark-foundation-blueprint-sample"></a>Visão geral do exemplo de blueprint do Azure Security Benchmark Foundation
 
-O exemplo de blueprint do Azure Security Benchmark Foundation fornece um conjunto de padrões de infraestrutura de linha de base para ajudar você a criar um ambiente do Azure seguro e em conformidade. O blueprint ajuda você a implantar uma arquitetura baseada em nuvem que oferece soluções para os cenários com requisitos de conformidade ou de credenciamento. Este exemplo de blueprint de base é uma extensão do [blueprint de exemplo do Azure Security Benchmark](../azure-security-benchmark/index.md). Ele implanta e configura limites de rede, monitoramento e outros recursos em alinhamento com as políticas e outros verificadores de integridade definidos no [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
+O exemplo de blueprint do Azure Security Benchmark Foundation fornece um conjunto de padrões de infraestrutura de linha de base para ajudar você a criar um ambiente do Azure seguro e em conformidade. O blueprint ajuda você a implantar uma arquitetura baseada em nuvem que oferece soluções para os cenários com requisitos de conformidade ou de credenciamento. Este exemplo de blueprint de base é uma extensão do [blueprint de exemplo do Azure Security Benchmark](../azure-security-benchmark.md). Ele implanta e configura limites de rede, monitoramento e outros recursos em alinhamento com as políticas e outros verificadores de integridade definidos no [Azure Security Benchmark](../../../../security/benchmarks/index.yml).
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -23,7 +23,7 @@ O blueprint implanta uma rede virtual de hub que contém recursos comuns e compa
 
 O blueprint implanta vários serviços do Azure para fornecer uma fundação segura, monitorada e pronta para empresas. Esse ambiente é composto de:
 
-- [Logs do Azure Monitor](../../../../azure-monitor/platform/data-platform-logs.md) e uma conta de Armazenamento do Azure para assegurar que logs de recurso, logs de atividade, métricas e fluxos de tráfego de rede sejam armazenados em uma localização central para facilidade de consulta, análise, arquivamento e alerta.
+- [Logs do Azure Monitor](../../../../azure-monitor/logs/data-platform-logs.md) e uma conta de Armazenamento do Azure para assegurar que logs de recurso, logs de atividade, métricas e fluxos de tráfego de rede sejam armazenados em uma localização central para facilidade de consulta, análise, arquivamento e alerta.
 - A [Central de Segurança do Azure](../../../../security-center/security-center-introduction.md) (versão padrão) fornece proteção contra ameaças para recursos do Azure.
 - A [Rede Virtual do Azure](../../../../virtual-network/virtual-networks-overview.md) no hub dá suporte a sub-redes para conectividade com uma rede local, uma pilha de entrada e saída para conectividade com a Internet e sub-redes opcionais para implantação de serviços administrativos ou de gerenciamento adicionais. A Rede Virtual no spoke contém sub-redes para hospedagem de cargas de trabalho de aplicativo. Sub-redes adicionais podem ser criadas após a implantação conforme necessário para darem suporte aos cenários aplicáveis.
 - [Firewall do Azure](../../../../firewall/overview.md), para rotear todo o tráfego de Internet de saída e para permitir o tráfego de Internet de entrada via jumpbox. (As regras de firewall padrão bloqueiam todo o tráfego de Internet de entrada e saída e é preciso configurar as regras após a implantação, conforme aplicável.)

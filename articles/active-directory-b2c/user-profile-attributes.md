@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/13/2021
+ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f76aecc80537e6db55c8c4f2e5a7a240be6b1415
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: dcd0ccdc42a820f1e264b739cb0063516a0cb53e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98675739"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688545"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil do usuário
 
@@ -39,7 +39,7 @@ A tabela a seguir lista os atributos do [tipo de recurso de usuário](/graph/api
 - Se o atributo pode ser usado em um fluxo de usuário
 - Se o atributo pode ser usado em uma política personalizada de [perfil técnico do Azure Active Directory](active-directory-technical-profile.md) e em qual seção (&lt;InputClaims&gt;, &lt;OutputClaims&gt; ou &lt;PersistedClaims&gt;)
 
-|Nome     |Type     |Descrição|Portal do Azure|Fluxos de usuário|Política personalizada|
+|Nome     |Tipo     |Descrição|Portal do Azure|Fluxos de usuário|Política personalizada|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Se a conta de usuário está habilitada ou desabilitada: **true** se a conta estiver habilitada; caso contrário, **false**.|Sim|Não|Persistente, Saída|
 |ageGroup        |String|O grupo de idade do usuário. Valores possíveis: null, Undefined, Minor, Adult, NotAdult.|Sim|Não|Persistente, Saída|
@@ -105,7 +105,7 @@ Um usuário com uma conta de cliente pode entrar com várias identidades. Por ex
 
 Na API Microsoft Graph, as identidades locais e federadas são armazenadas no atributo User `identities` , que é do tipo [objectidentity] [Graph-objectidentity]. A `identities` coleção representa um conjunto de identidades usadas para entrar em uma conta de usuário. Essa coleção permite que o usuário entre na conta de usuário com qualquer uma de suas identidades associadas.
 
-| Nome   | Type |Descrição|
+| Nome   | Tipo |Descrição|
 |:---------------|:--------|:----------|
 |signInType|string| Especifica os tipos de entrada do usuário em seu diretório. Para conta local:,,,,  `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3`  `userName` ou qualquer outro tipo que você desejar. A conta social deve ser definida como  `federated` .|
 |emissor|string|Especifica o emissor da identidade. Para contas locais (em que **signInType** não é `federated` ), essa propriedade é o nome de domínio padrão do locatário B2C local, por exemplo `contoso.onmicrosoft.com` . Para a identidade social (em que **signInType** é  `federated` ), o valor é o nome do emissor, por exemplo `facebook.com`|
@@ -137,7 +137,7 @@ Para identidades federadas, dependendo do provedor de identidade, o **issuerAssi
 
 ## <a name="password-profile-property"></a>Propriedade de perfil de senha
 
-Para uma identidade local, o atributo **passwordProfile** é necessário e contém a senha do usuário. O `forceChangePasswordNextSignIn` atributo deve ser definido como `false` .
+Para uma identidade local, o atributo **passwordProfile** é necessário e contém a senha do usuário. O `forceChangePasswordNextSignIn` atributo indica se um usuário deve redefinir a senha na próxima entrada. Para lidar com uma redefinição de senha forçada, [Configure o fluxo de redefinição de senha forçada](force-password-reset.md).
 
 Para uma identidade federada (social), o atributo **passwordProfile** não é necessário.
 
@@ -175,7 +175,7 @@ Os atributos de extensão [estender o esquema](/graph/extensibility-overview#sch
 > - Se o aplicativo b2c-extensions-app for excluído, esses atributos de extensão serão removidos de todos os usuários junto com os dados que eles contêm.
 > - Se um atributo de extensão for excluído pelo aplicativo, ele será removido de todas as contas de usuário e os valores serão excluídos.
 
-Os atributos de extensão no API do Graph são nomeados usando a Convenção `extension_ApplicationClientID_AttributeName` , em que o `ApplicationClientID` é a **ID do aplicativo (cliente)** do `b2c-extensions-app` aplicativo (encontrado em **registros de aplicativo**  >  **todos os aplicativos** no portal do Azure). Observe que a **ID do aplicativo (cliente)** , como é representada no nome do atributo de extensão, não inclui hifens. Por exemplo:
+Os atributos de extensão no API do Graph são nomeados usando a Convenção `extension_ApplicationClientID_AttributeName` , em que o `ApplicationClientID` é a **ID do aplicativo (cliente)** do `b2c-extensions-app` aplicativo (encontrado em **registros de aplicativo**  >  **todos os aplicativos** no portal do Azure). Observe que a **ID do aplicativo (cliente)** , como é representada no nome do atributo de extensão, não inclui hifens. Por exemplo: 
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -183,7 +183,7 @@ Os atributos de extensão no API do Graph são nomeados usando a Convenção `ex
 
 Os tipos de dados a seguir têm suporte ao definir um atributo em uma extensão de esquema:
 
-|Type |Comentários  |
+|Tipo |Comentários  |
 |--------------|---------|
 |Boolean    | Os valores possíveis: **true** ou **false**. |
 |Datetime   | Deve ser especificado no formato ISO 8601. Será armazenado em UTC.   |

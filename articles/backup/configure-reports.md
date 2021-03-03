@@ -3,14 +3,14 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 78ab22bece54caa15e23021e594eaa0742505f79
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62bb59a8a77d11e30e54298317a35e1f883a9622
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591981"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710610"
 ---
-# <a name="configure-azure-backup-reports-preview"></a>Configurar relatórios de backup do Azure (visualização)
+# <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
 Um requisito comum para administradores de backup é obter insights sobre backups com base em dados que abrangem um longo período. Os casos de uso para essa solução incluem:
 
@@ -139,6 +139,20 @@ Selecionar o bloco **otimizações de política** seguido pelo bloco **otimizaç
 O filtro de **tipo de gerenciamento de backup** na parte superior da guia deve ter os itens **SQL na VM do Azure** e **SAP Hana na VM do Azure** selecionada, para que a grade seja capaz de exibir cargas de trabalho de banco de dados conforme o esperado.
 
 ![Otimizar otimizações de agendamento de backup de guia](./media/backup-azure-configure-backup-reports/optimize-backup-schedule.png)
+
+###### <a name="policy-adherence"></a>Adesão à política
+
+Usando essa guia, você pode identificar se todas as instâncias de backup tiveram pelo menos um backup bem-sucedido todos os dias. Você pode exibir a adesão da política por período de tempo ou por instância de backup.
+
+###### <a name="email-azure-backup-reports"></a>Enviar relatórios de backup do Azure
+
+Usando o recurso de **relatório de email** disponível em relatórios de backup, você pode criar tarefas automatizadas para receber relatórios periódicos por email. Esse recurso funciona implantando um aplicativo lógico em seu ambiente do Azure que consulta dados de seus espaços de trabalho selecionados de Log Analytics (LA), com base nas entradas que você fornecer.
+
+Depois que o aplicativo lógico for criado, você precisará autorizar conexões com Azure Monitor logs e o Office 365. Para fazer isso, navegue até **aplicativos lógicos** na portal do Azure e procure o nome da tarefa que você criou. A seleção do item de menu **conexões de API** abre a lista de conexões de API que você precisa autorizar.
+
+###### <a name="customize-azure-backup-reports"></a>Personalizar relatórios de backup do Azure
+
+Os relatórios de backup usam funções em logs de Azure Monitor. Essas funções operam em dados nas tabelas brutas de backup do Azure em LA e retornam dados formatados que ajudam a recuperar facilmente as informações de todas as suas entidades relacionadas ao backup, usando consultas simples.
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 

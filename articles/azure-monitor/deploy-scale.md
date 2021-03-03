@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
-ms.openlocfilehash: f06ed85e362f15e36e030cd11639d9d17348e938
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bcd56e464419312e74aec01cf22ae56f797991ad
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573615"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731758"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implantar Azure Monitor em escala usando Azure Policy
 Embora alguns recursos de Azure Monitor sejam configurados uma vez ou um número limitado de vezes, outros devem ser repetidos para cada recurso que você deseja monitorar. Este artigo descreve métodos para usar o Azure Policy para implementar Azure Monitor em escala para garantir que o monitoramento seja configurado de forma consistente e precisa para todos os seus recursos do Azure.
@@ -121,34 +121,34 @@ A iniciativa será aplicada a cada máquina virtual à medida que ela for criada
 ![Correção da iniciativa](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="azure-monitor-for-vms"></a>Azure Monitor para VMs
-[Azure monitor para VMs](vm/vminsights-overview.md) é a principal ferramenta no Azure monitor para monitorar as máquinas virtuais. Habilitar Azure Monitor para VMs instala o agente de Log Analytics e o agente de dependência. Em vez de executar essas tarefas manualmente, use Azure Policy para garantir que cada máquina virtual seja configurada ao criá-la.
+## <a name="vm-insights"></a>Informações de VM
+O [virtual insights](vm/vminsights-overview.md) é a principal ferramenta em Azure monitor para monitorar máquinas virtuais. A habilitação das informações de VM instala o agente de Log Analytics e o agente de dependência. Em vez de executar essas tarefas manualmente, use Azure Policy para garantir que cada máquina virtual seja configurada ao criá-la.
 
 > [!NOTE]
-> Azure Monitor para VMs inclui um recurso chamado **Azure monitor para VMs cobertura de política** que permite descobrir e corrigir VMs não compatíveis em seu ambiente. Você pode usar esse recurso em vez de trabalhar diretamente com Azure Policy para VMs do Azure e para máquinas virtuais híbridas conectadas com o Azure Arc. Para conjuntos de dimensionamento de máquinas virtuais do Azure, você deve criar a atribuição usando Azure Policy.
+> O Revisions de VM inclui um recurso chamado **cobertura de política de informações de VM** que permite descobrir e corrigir VMs não compatíveis em seu ambiente. Você pode usar esse recurso em vez de trabalhar diretamente com Azure Policy para VMs do Azure e para máquinas virtuais híbridas conectadas com o Azure Arc. Para conjuntos de dimensionamento de máquinas virtuais do Azure, você deve criar a atribuição usando Azure Policy.
  
 
-O Azure Monitor para VMs inclui as seguintes iniciativas internas que instalam os dois agentes para habilitar o monitoramento completo. 
+As informações de VM incluem as seguintes iniciativas internas que instalam os dois agentes para habilitar o monitoramento completo. 
 
-|Nome |Descrição |
+|Name |Descrição |
 |:---|:---|
-|Habilitar o Azure Monitor para VMs | Instala o agente de Log Analytics e o agente de dependência em VMs do Azure e VMs híbridas conectadas ao Azure Arc. |
+|Habilitar informações de VM | Instala o agente de Log Analytics e o agente de dependência em VMs do Azure e VMs híbridas conectadas ao Azure Arc. |
 |Habilitar Azure Monitor para conjuntos de dimensionamento de máquinas virtuais | Instala o agente de Log Analytics e o agente de dependência no conjunto de dimensionamento de máquinas virtuais do Azure. |
 
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
-Em vez de criar atribuições para essas iniciativas usando a interface Azure Policy, Azure Monitor para VMs inclui um recurso que permite inspecionar o número de máquinas virtuais em cada escopo para determinar se a iniciativa foi aplicada. Em seguida, você pode configurar o espaço de trabalho e criar as atribuições necessárias usando essa interface.
+Em vez de criar atribuições para essas iniciativas usando a interface Azure Policy, o VM insights inclui um recurso que permite inspecionar o número de máquinas virtuais em cada escopo para determinar se a iniciativa foi aplicada. Em seguida, você pode configurar o espaço de trabalho e criar as atribuições necessárias usando essa interface.
 
-Para obter detalhes sobre esse processo, consulte [habilitar Azure monitor para VMs usando Azure Policy](./vm/vminsights-enable-policy.md).
+Para obter detalhes sobre esse processo, consulte [habilitar o insights de VM usando Azure Policy](./vm/vminsights-enable-policy.md).
 
-![Política de Azure Monitor para VMs](media/deploy-scale/vminsights-policy.png)
+![Política de informações de VM](media/deploy-scale/vminsights-policy.png)
 
 ### <a name="virtual-machine-scale-sets"></a>conjuntos de escala de máquina virtual
 Para usar Azure Policy para habilitar o monitoramento de conjuntos de dimensionamento de máquinas virtuais, atribua a iniciativa **habilitar Azure monitor para conjuntos de dimensionamento de máquinas virtuais** a um grupo de gerenciamento, assinatura ou grupo de recursos do Azure, dependendo do escopo dos recursos a serem monitorados. Um [grupo de gerenciamento](../governance/management-groups/overview.md) é particularmente útil para a diretiva de escopo, especialmente se a sua organização tiver várias assinaturas.
 
 ![Captura de tela da página atribuir iniciativa no portal do Azure. A definição de iniciativa está definida para habilitar Azure Monitor para conjuntos de dimensionamento de máquinas virtuais.](media/deploy-scale/virtual-machine-scale-set-assign-initiative.png)
 
-Selecione o espaço de trabalho para o qual os dados serão enviados. Esse espaço de trabalho deve ter a solução *VMInsights* instalada, conforme descrito em [configurar log Analytics espaço de trabalho para Azure monitor para VMs](vm/vminsights-configure-workspace.md).
+Selecione o espaço de trabalho para o qual os dados serão enviados. Esse espaço de trabalho deve ter a solução *VMInsights* instalada, conforme descrito em [Configurar o espaço de trabalho log Analytics para o VM insights](vm/vminsights-configure-workspace.md).
 
 ![Selecione o workspace](media/deploy-scale/virtual-machine-scale-set-workspace.png)
 
@@ -157,13 +157,13 @@ Crie uma tarefa de correção se você tiver um conjunto de dimensionamento de m
 ![Tarefa de correção](media/deploy-scale/virtual-machine-scale-set-remediation.png)
 
 ### <a name="log-analytics-agent"></a>Agente do Log Analytics
-Você pode ter cenários em que deseja instalar o agente de Log Analytics, mas não o agente de dependência. Não há nenhuma iniciativa interna para apenas o agente, mas você pode criar o seu próprio com base nas definições de política internas fornecidas pelo Azure Monitor para VMs.
+Você pode ter cenários em que deseja instalar o agente de Log Analytics, mas não o agente de dependência. Não há nenhuma iniciativa interna apenas para o agente, mas você pode criar suas próprias com base nas definições de política internas fornecidas pelo virtual insights.
 
 > [!NOTE]
 > Não haveria nenhum motivo para implantar o agente de dependência por conta própria, pois ele requer que o agente de Log Analytics entregue seus dados a Azure Monitor.
 
 
-|Nome |Descrição |
+|Name |Descrição |
 |-----|------------|
 |Implantação de agente de Log Analytics de auditoria – imagem de VM (SO) não listada |Relata as VMs como não compatíveis se a imagem de VM (SO) não estiver definida na lista e o agente não estiver instalado. |
 |Implantar o agente do Log Analytics para VMs do Linux |Implante Log Analytics agente para VMs Linux se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |

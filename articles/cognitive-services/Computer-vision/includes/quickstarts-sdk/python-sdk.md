@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: 7f1fe99cab46f8d3b87a5c1ef8397cf5f305b11c
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: 2ae65cc8799fd507952120129ecef83655a465b7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98948191"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750271"
 ---
 <a name="HOLTop"></a>
 
@@ -68,7 +68,7 @@ Em seguida, crie variáveis para a chave e o ponto de extremidade do Azure do re
 > Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](../../../../key-vault/general/overview.md).
 
 > [!div class="nextstepaction"]
-> [Configurei o cliente](?success=set-up-client#object-model) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Configurei o cliente](?success=set-up-client#object-model) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -95,7 +95,7 @@ Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto [Cogni
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [Autentiquei o cliente](?success=authenticate-client#analyze-an-image) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Autentiquei o cliente](?success=authenticate-client#analyze-an-image) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -173,7 +173,7 @@ O código a seguir imprime informações sobre o tipo de imagem – seja clip-ar
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
@@ -195,7 +195,7 @@ Em seguida, obtenha a ID da operação retornada da chamada **read** e use-a par
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_read_response)]
 
 > [!div class="nextstepaction"]
-> [Li o texto](?success=read-printed-handwritten-text#run-the-application) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Li o texto](?success=read-printed-handwritten-text#run-the-application) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
@@ -206,7 +206,7 @@ python quickstart-file.py
 ```
 
 > [!div class="nextstepaction"]
-> [Executei o aplicativo](?success=run-the-application#clean-up-resources) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [Executei o aplicativo](?success=run-the-application#clean-up-resources) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -216,7 +216,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Limpei os recursos](?success=clean-up-resources#next-steps) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Limpei os recursos](?success=clean-up-resources#next-steps) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Python&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Próximas etapas
 

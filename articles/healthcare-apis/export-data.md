@@ -5,14 +5,14 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 1/21/2021
+ms.date: 2/19/2021
 ms.author: cavoeg
-ms.openlocfilehash: 3437c8bcf8ff508149abae2549d7c34521700840
-ms.sourcegitcommit: 59cfed657839f41c36ccdf7dc2bee4535c920dd4
+ms.openlocfilehash: 675030ac47cb26e817a9ef7ee51999f25020f292
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/06/2021
-ms.locfileid: "99627256"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101712684"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -58,7 +58,49 @@ A API do Azure para FHIR dá suporte aos seguintes parâmetros de consulta. Todo
 | \_typefilter | Sim | Para solicitar uma filtragem refinada, você pode usar \_ TypeFilter juntamente com o \_ parâmetro de tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgulas de consultas FHIR que restringem ainda mais os resultados |
 | \_Container | Não |  Especifica o contêiner dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um contêiner for especificado, os dados serão exportados para esse contêiner em uma nova pasta com o nome. Se o contêiner não for especificado, ele será exportado para um novo contêiner usando o carimbo de data/hora e a ID do trabalho. |
 
+## <a name="secure-export-to-azure-storage"></a>Exportação segura para o armazenamento do Azure
 
+A API do Azure para FHIR dá suporte a uma operação de exportação segura. Uma opção para executar uma exportação segura é permitir que endereços IP específicos associados à API do Azure para FHIR acessem a conta de armazenamento do Azure. Dependendo se a conta de armazenamento está no mesmo local ou em uma localização diferente da API do Azure para FHIR, as configurações são diferentes.
+
+### <a name="when-the-azure-storage-account-is-in-a-different-region"></a>Quando a conta de armazenamento do Azure está em uma região diferente
+
+Selecione a folha rede da conta de armazenamento do Azure no Portal. 
+
+   :::image type="content" source="media/export-data/storage-networking.png" alt-text="Configurações de rede do armazenamento do Azure." lightbox="media/export-data/storage-networking.png":::
+   
+Selecione "redes selecionadas" e especifique o endereço IP na caixa **intervalo de endereços** na seção do firewall \| Adicionar intervalos de IP para permitir o acesso da Internet ou de suas redes locais. Você pode encontrar o endereço IP da tabela abaixo para a região do Azure em que a API do Azure para o serviço FHIR é provisionada.
+
+|**Região do Azure**         |**Endereço IP público** |
+|:----------------------|:-------------------|
+| Leste da Austrália       | 20.53.44.80       |
+| Canadá Central       | 20.48.192.84      |
+| Centro dos EUA           | 52.182.208.31     |
+| Leste dos EUA              | 20.62.128.148     |
+| Leste dos EUA 2            | 20.49.102.228     |
+| Leste dos EUA 2 EUAP       | 20.39.26.254      |
+| Norte da Alemanha        | 51.116.51.33      |
+| Centro-Oeste da Alemanha | 51.116.146.216    |
+| Japan East           | 20.191.160.26     |
+| Coreia Central        | 20.41.69.51       |
+| Centro-Norte dos EUA     | 20.49.114.188     |
+| Norte da Europa         | 52.146.131.52     |
+| Norte da África do Sul   | 102.133.220.197   |
+| Centro-Sul dos Estados Unidos     | 13.73.254.220     |
+| Sudeste Asiático       | 23.98.108.42      |
+| Norte da Suíça    | 51.107.60.95      |
+| Sul do Reino Unido             | 51.104.30.170     |
+| Oeste do Reino Unido              | 51.137.164.94     |
+| Centro-Oeste dos EUA      | 52.150.156.44     |
+| Europa Ocidental          | 20.61.98.66       |
+| Oeste dos EUA 2            | 40.64.135.77      |
+
+### <a name="when-the-azure-storage-account-is-in-the-same-region"></a>Quando a conta de armazenamento do Azure está na mesma região
+
+O processo de configuração é igual ao anterior, exceto que um intervalo de endereços IP específico no formato CIDR é usado em vez disso, 100.64.0.0/10. O motivo pelo qual o intervalo de endereços IP, que inclui 100.64.0.0 – 100.127.255.255, deve ser especificado é porque o endereço IP real usado pelo serviço varia, mas estará dentro do intervalo, para cada solicitação de $export.
+
+> [!Note] 
+> É possível que um endereço IP privado dentro do intervalo de 10.0.2.0/24 possa ser usado em vez disso. Nesse caso, a operação de $export não terá sucesso. Você pode repetir a $export solicitação, mas não há nenhuma garantia de que um endereço IP dentro do intervalo de 100.64.0.0/10 será usado na próxima vez. Esse é o comportamento de rede conhecido por design. A alternativa é configurar a conta de armazenamento em uma região diferente.
+    
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste artigo, você aprendeu a exportar recursos do FHIR usando o comando $export. Em seguida, saiba como exportar dados de identificação:

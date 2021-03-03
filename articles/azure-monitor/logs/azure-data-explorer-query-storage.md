@@ -7,12 +7,12 @@ ms.author: bwren
 ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020
-ms.openlocfilehash: 5a26e5d045be78772ee5dc940fcfecd3cfde9dc7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f24947eba71588d8b97afafea35f9a0bcab33c86
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606365"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711001"
 ---
 # <a name="query-exported-data-from-azure-monitor-using-azure-data-explorer-preview"></a>Consultar dados exportados de Azure Monitor usando o Data Explorer do Azure (versão prévia)
 A exportação de dados de Azure Monitor para uma conta de armazenamento do Azure permite a retenção de baixo custo e a capacidade de realocar os logs para regiões diferentes. Use o Data Explorer do Azure para consultar dados que foram exportados de seus espaços de trabalho do Log Analytics. Uma vez configuradas, as tabelas com suporte enviadas de seus espaços de trabalho para uma conta de armazenamento do Azure estarão disponíveis como uma fonte de dados para o Azure Data Explorer.
@@ -30,9 +30,9 @@ O fluxo do processo é o seguinte:
 ## <a name="send-data-to-azure-storage"></a>Enviar dados para o armazenamento do Azure
 Azure Monitor logs podem ser exportados para uma conta de armazenamento do Azure usando qualquer uma das opções a seguir.
 
-- Para exportar todos os dados do seu espaço de trabalho do Log Analytics para uma conta de armazenamento do Azure ou Hub de eventos, use o recurso de exportação de dados do espaço de trabalho Log Analytics dos logs do Azure Monitor. Confira [log Analytics exportação de dados de espaço de trabalho no Azure monitor (versão prévia)](../platform/logs-data-export.md)
-- Exportação agendada de uma consulta de log usando um aplicativo lógico. Isso é semelhante ao recurso de exportação de dados, mas permite que você envie dados filtrados ou agregados para o armazenamento do Azure. Esse método está sujeito a [limites de consulta de log](../service-limits.md#log-analytics-workspaces)  , consulte [arquivar dados de log Analytics espaço de trabalho no armazenamento do Azure usando o aplicativo lógico](../platform/logs-export-logic-app.md).
-- Exportar uma vez usando um aplicativo lógico. Consulte [conector de logs de Azure monitor para aplicativos lógicos e automação de energia](../platform/logicapp-flow-connector.md).
+- Para exportar todos os dados do seu espaço de trabalho do Log Analytics para uma conta de armazenamento do Azure ou Hub de eventos, use o recurso de exportação de dados do espaço de trabalho Log Analytics dos logs do Azure Monitor. Confira [log Analytics exportação de dados de espaço de trabalho no Azure monitor (versão prévia)](./logs-data-export.md)
+- Exportação agendada de uma consulta de log usando um aplicativo lógico. Isso é semelhante ao recurso de exportação de dados, mas permite que você envie dados filtrados ou agregados para o armazenamento do Azure. Esse método está sujeito a [limites de consulta de log](../service-limits.md#log-analytics-workspaces)  , consulte [arquivar dados de log Analytics espaço de trabalho no armazenamento do Azure usando o aplicativo lógico](./logs-export-logic-app.md).
+- Exportar uma vez usando um aplicativo lógico. Consulte [conector de logs de Azure monitor para aplicativos lógicos e automação de energia](./logicapp-flow-connector.md).
 - Exportar uma vez para o computador local usando o script do PowerShell. Consulte [Invoke-AzOperationalInsightsQueryExport](https://www.powershellgallery.com/packages/Invoke-AzOperationalInsightsQueryExport).
 
 > [!TIP]
@@ -118,7 +118,7 @@ A imagem a seguir mostra e exemplo da saída.
 
 :::image type="content" source="media/azure-data-explorer-query-storage/external-table-create-command-output.png" alt-text="Saída de comando de criação externa.":::
 
-[![Saída de exemplo](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
+[![Exemplo de saída](media/azure-data-explorer-query-storage/external-table-create-command-output.png)](media/azure-data-explorer-query-storage/external-table-create-command-output.png#lightbox)
 
 >[!TIP]
 >* Copie, Cole e execute a saída do script em sua ferramenta de cliente do Azure Data Explorer para criar a tabela e o mapeamento.

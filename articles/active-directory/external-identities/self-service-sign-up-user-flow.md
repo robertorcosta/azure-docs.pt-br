@@ -11,26 +11,31 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a08cc9f5b6bf7f02666406bcc541edb677196eeb
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 883e658fd3f03eb50d54e548ffac49e23b340808
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647329"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688603"
 ---
-# <a name="add-a-self-service-sign-up-user-flow-to-an-app"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo
+# <a name="add-a-self-service-sign-up-user-flow-to-an-app-preview"></a>Adicionar um fluxo do usuário de inscrição por autoatendimento a um aplicativo (visualização)
 
-Você pode criar fluxos de usuários para aplicativos criados por sua organização. Associar seu fluxo de usuário a um aplicativo permite que você habilite a inscrição nesse aplicativo. Você pode escolher mais de um aplicativo a ser associado ao fluxo do usuário. Depois de associar o fluxo de usuários a um ou mais aplicativos, os usuários que visitarem esse aplicativo poderão se inscrever e obter uma conta de convidado usando as opções configuradas no fluxo.
+> [!NOTE]
+> Alguns dos recursos mencionados neste artigo são recursos de visualização pública do Azure Active Directory. Para saber mais sobre versões prévias, consulte os [Termos de Uso Complementares para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Para aplicativos que você cria, você pode criar fluxos de usuário que permitem que um usuário se inscreva em um aplicativo e crie uma nova conta de convidado. Um fluxo de usuário de inscrição de autoatendimento define a série de etapas que o usuário seguirá durante a inscrição, os provedores de identidade que você permitirá que eles usem e os atributos de usuário que você deseja coletar. Você pode associar um ou mais aplicativos a um único fluxo de usuário.
 
 > [!NOTE]
 > Você pode associar os fluxos de usuários com aplicativos criados por sua organização. Os fluxos de usuários não podem ser usados para aplicativos da Microsoft, como SharePoint ou Teams.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-### <a name="add-social-identity-providers-optional"></a>Adicionar provedores de identidade social (opcional)
+### <a name="add-identity-providers-optional"></a>Adicionar provedores de identidade (opcional)
 
-O Azure AD é o provedor de identidade padrão para inscrição de autoatendimento. Isso significa que os usuários podem se inscrever por padrão com uma conta do Azure AD. Os provedores de identidade social também podem ser incluídos nesses fluxos de inscrição para dar suporte a contas do Google e do Facebook.
+O Azure AD é o provedor de identidade padrão para inscrição de autoatendimento. Isso significa que os usuários podem se inscrever por padrão com uma conta do Azure AD. Em seus fluxos de usuário de inscrição de autoatendimento, você também pode incluir provedores de identidade social, como Google e Facebook, conta da Microsoft (versão prévia) e senha de uso único de email (versão prévia).
 
+- [Provedor de identidade da conta da Microsoft (versão prévia)](microsoft-account.md)
+- [Autenticação de senha de uso único de email](one-time-passcode.md)
 - [Adicionar o Facebook à sua lista de provedores de identidade social](facebook-federation.md)
 - [Adicionar o Google à sua lista de provedores de identidade social](google-federation.md)
 

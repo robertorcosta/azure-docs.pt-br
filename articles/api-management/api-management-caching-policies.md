@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 4db42d8fa8c676b20b236577ce6646b909df7c3a
-ms.sourcegitcommit: 18046170f21fa1e569a3be75267e791ca9eb67d0
+ms.openlocfilehash: bd3a63db7dd4946a9836b3978992fb544b9ab0ab
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2020
-ms.locfileid: "94638879"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688035"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](./api-management-policies.md).
@@ -248,7 +248,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 `cache-store-value` armazena em cache por chave. A chave pode ter um valor de cadeia de caracteres arbitrária e geralmente é fornecida usando uma expressão de política.
 
 > [!NOTE]
-> Esta política deve ter uma política [Obter valor do cache](#GetFromCacheByKey) correspondente.
+> A operação de armazenar o valor no cache executado por essa política é assíncrona. O valor armazenado pode ser recuperado usando [obter valor da política de cache](#GetFromCacheByKey) . No entanto, o valor armazenado pode não estar imediatamente disponível para recuperação, pois a operação assíncrona que armazena o valor no cache ainda pode estar em andamento. 
 
 ### <a name="policy-statement"></a>Declaração de política
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/07/2021
 ms.author: memildin
-ms.openlocfilehash: a7ad5f661d4eca07deb0942c7684b89ac59931a2
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: b18b498f250e9ff62180ba21c3bcbda562b13b8c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834384"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101735855"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Use controles de aplicativo adaptáveis para reduzir as superfícies de ataque de suas máquinas
 
@@ -219,7 +219,7 @@ Quando você move um computador de um grupo para outro, a política de controle 
 
 Para gerenciar seus controles de aplicativo adaptáveis de forma programática, use nossa API REST. 
 
-A documentação completa da API está [aqui](/rest/api/securitycenter/adaptiveapplicationcontrols).
+A documentação de API relevante está disponível na [seção controles de aplicativo adaptáveis dos documentos de API da central de segurança](/rest/api/securitycenter/adaptiveapplicationcontrols).
 
 Algumas das funções que estão disponíveis na API REST:
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: noakup
 ms.author: noakuper
 ms.date: 09/03/2020
-ms.openlocfilehash: 3c5a528ada9e7239f5c53da1cae6df7ceffac918
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4161f2f4ced848eb02d395dfb2da35d64f0c0fb6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605736"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723054"
 ---
 # <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Como usar contas de armazenamento gerenciadas pelo cliente no Log Analytics do Azure Monitor
 
@@ -51,6 +51,7 @@ Para que a conta de armazenamento se conecte com êxito ao seu link privado, ela
 * Permitir que Azure Monitor acesse a conta de armazenamento. Se você optar por permitir apenas selecionar redes para acessar sua conta de armazenamento, deverá selecionar a exceção: "permitir que os serviços confiáveis da Microsoft acessem esta conta de armazenamento".
 ![Imagem de serviços de confiança da conta de armazenamento MS](./media/private-storage/storage-trust.png)
 * Se o seu espaço de trabalho tratar o tráfego de outras redes também, você deverá configurar a conta de armazenamento para permitir o tráfego de entrada proveniente das redes/Internet relevantes.
+* Coordenar a versão do TLS entre os agentes e a conta de armazenamento-é recomendável que você envie dados para Log Analytics usando o TLS 1,2 ou superior. Examine as [diretrizes específicas da plataforma](https://docs.microsoft.com/azure/azure-monitor/logs/data-security#sending-data-securely-using-tls-12)e, se necessário, [Configure seus agentes para usar o TLS 1,2](https://docs.microsoft.com/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12). Se por algum motivo isso não for possível, configure a conta de armazenamento para aceitar o TLS 1,0.
 
 ### <a name="using-a-customer-managed-storage-account-for-cmk-data-encryption"></a>Usando uma conta de armazenamento gerenciada pelo cliente para CMK Data Encryption
 O armazenamento do Azure criptografa todos os dados em repouso em uma conta de armazenamento. Por padrão, ele usa chaves gerenciadas pela Microsoft (MMK) para criptografar os dados; No entanto, o armazenamento do Azure também permite que você use o CMK do Azure Key Vault para criptografar seus dados de armazenamento. Você pode importar suas próprias chaves para Azure Key Vault ou pode usar as APIs de Azure Key Vault para gerar chaves.

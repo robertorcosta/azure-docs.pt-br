@@ -8,16 +8,16 @@ ms.date: 01/03/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 153ffd699b22a6379758bf66b896a2b37a19fdf3
-ms.sourcegitcommit: 6d6030de2d776f3d5fb89f68aaead148c05837e2
+ms.openlocfilehash: d75b60c715a758684e6f3a4b331c0b12d17eaf21
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2021
-ms.locfileid: "97883275"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101705102"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Habilitar a autenticação de Azure Active Directory Domain Services nos arquivos do Azure
 
-[Arquivos](storage-files-introduction.md)   do Azure oferece suporte à autenticação baseada em identidade sobre o protocolo SMB por meio de dois tipos de serviços de domínio: Active Directory Domain Services local (AD DS) e Azure Active Directory Domain Services (Azure AD DS). É altamente recomendável que você examine a [seção como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A instalação é diferente dependendo do serviço de domínio que você escolher. Este artigo se concentra na habilitação e configuração da AD DS do Azure para autenticação com compartilhamentos de arquivos do Azure.
+[Arquivos](storage-files-introduction.md)   do Azure oferece suporte à autenticação baseada em identidade sobre o protocolo SMB por meio de dois tipos de serviços de domínio: Active Directory Domain Services local (AD DS) e Azure Active Directory Domain Services (Azure AD DS). É altamente recomendável que você examine a [seção como funciona](./storage-files-active-directory-overview.md#how-it-works) para selecionar o serviço de domínio certo para autenticação. A configuração é diferente dependendo do serviço de domínio que você escolher. Este artigo se concentra na habilitação e configuração da AD DS do Azure para autenticação com compartilhamentos de arquivos do Azure.
 
 Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável ler nosso [Guia de planejamento](storage-files-planning.md) antes de ler a série de artigos a seguir.
 
@@ -89,7 +89,7 @@ Para habilitar a autenticação de AD DS do Azure sobre SMB com o [portal do Azu
 1. Na portal do Azure, vá para sua conta de armazenamento existente ou [crie uma conta de armazenamento](../common/storage-account-create.md).
 1. Na seção **Configurações**, selecione **Configuração**.
 1. Em **acesso baseado em identidade para compartilhamentos de arquivos** , alterne a alternância para o **serviço de domínio Azure Active Directory (AAD DS)** para **habilitado**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A imagem a seguir mostra como habilitar a autenticação de AD DS do Azure sobre SMB para sua conta de armazenamento.
 

@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: ee4436d2b8445f2a1d368fb6c76e04d1ec790d98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606807"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101700568"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
 
@@ -34,7 +34,7 @@ Os autores da pasta de trabalho podem facilmente consultar em vários recursos, 
 
 ## <a name="metrics"></a>Métricas
 
-Os recursos do Azure emitem [métricas](../platform/data-platform-metrics.md) que podem ser acessadas via pastas de trabalho. As métricas podem ser acessadas em pastas de trabalho por meio de um controle especializado que permite especificar os recursos de destino, as métricas desejadas e sua agregação. Esses dados podem então ser plotados em gráficos ou grades.
+Os recursos do Azure emitem [métricas](../essentials/data-platform-metrics.md) que podem ser acessadas via pastas de trabalho. As métricas podem ser acessadas em pastas de trabalho por meio de um controle especializado que permite especificar os recursos de destino, as métricas desejadas e sua agregação. Esses dados podem então ser plotados em gráficos ou grades.
 
 ![Captura de tela de gráficos de métricas de pasta de trabalho de utilização da CPU](./media/workbooks-data-sources/metrics-graph.png)
 
@@ -145,6 +145,6 @@ Este provedor dá suporte a [JSONPath](workbooks-jsonpath.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Comece a aprender mais](../platform/workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
-* [Controle](../platform/workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
-* [Dicas de otimização de consulta Log Analytics](../log-query/query-optimization.md)
+* [Comece a aprender mais](./workbooks-overview.md#visualizations) sobre pastas de trabalho muitas opções de visualizações ricas.
+* [Controle](./workbooks-access-control.md) e compartilhe o acesso aos recursos da pasta de trabalho.
+* [Dicas de otimização de consulta Log Analytics](../logs/query-optimization.md)

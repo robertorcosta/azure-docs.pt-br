@@ -5,12 +5,12 @@ description: Consulte as perguntas frequentes ao executar pools de nós do Windo
 services: container-service
 ms.topic: article
 ms.date: 10/12/2020
-ms.openlocfilehash: b20ebe82556bb4db6844511ec0953f4d4e75f383
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cc5a5ec2bbfb64a1e787277bf67579bad0543cd6
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574742"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739569"
 ---
 # <a name="frequently-asked-questions-for-windows-server-node-pools-in-aks"></a>Perguntas frequentes sobre pools de nós do Windows Server no AKS
 
@@ -54,6 +54,8 @@ Para obter os patches mais recentes para os nós do Windows, você pode [atualiz
 
 Clusters AKS com pools de nós do Windows devem usar o modelo de rede CNI do Azure (avançado). Não há suporte para a rede Kubenet (básica). Para obter mais informações sobre as diferenças em modelos de rede, consulte [conceitos de rede para aplicativos no AKs][azure-network-models]. O modelo de rede CNI do Azure requer planejamento e considerações adicionais para o gerenciamento de endereços IP. Para obter mais informações sobre como planejar e implementar o Azure CNI, consulte [Configurar a rede CNI do Azure no AKs][configure-azure-cni].
 
+Os nós do Windows em clusters AKS também têm o [DSR (Direct Server Return)][dsr] habilitado por padrão quando Calico está habilitado.
+
 ## <a name="is-preserving-the-client-source-ip-supported"></a>Há suporte para a preservação do IP de origem do cliente?
 
 Neste momento, não há suporte para a [preservação do IP de origem do cliente][client-source-ip] com nós do Windows.
@@ -91,7 +93,7 @@ Você precisa manter o nome em um máximo de 6 (seis) caracteres. Essa é uma li
 
 ## <a name="are-all-features-supported-with-windows-nodes"></a>Todos os recursos têm suporte com nós do Windows?
 
-As políticas de rede e kubenet não têm suporte no momento com nós do Windows.
+No momento, não há suporte para Kubenet com nós do Windows.
 
 ## <a name="can-i-run-ingress-controllers-on-windows-nodes"></a>Posso executar controladores de entrada em nós do Windows?
 
@@ -197,3 +199,4 @@ Para começar a usar contêineres do Windows Server no AKS, [crie um pool de nó
 [managed-identity]: use-managed-identity.md
 [hybrid-vms]: ../virtual-machines/windows/hybrid-use-benefit-licensing.md
 [resource-groups]: faq.md#why-are-two-resource-groups-created-with-aks
+[dsr]: ../load-balancer/load-balancer-multivip-overview.md#rule-type-2-backend-port-reuse-by-using-floating-ip

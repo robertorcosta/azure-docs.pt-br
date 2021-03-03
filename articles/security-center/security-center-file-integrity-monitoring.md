@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: 90f0cd913a191f345afd8acc3f3449b87e4cbfaf
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: 474bad4c3d7250d93b3e926f6e71da6734d7a4d0
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98918599"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702038"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoramento de integridade de arquivo na central de segurança do Azure
 Saiba como configurar o FIM (monitoramento de integridade de arquivo) na central de segurança do Azure usando este passo a passos.
@@ -120,7 +120,7 @@ O FIM só está disponível nas páginas da central de segurança na portal do A
 
     - Acessar e exibir o status e as configurações de cada espaço de trabalho
 
-    - ![Ícone do plano ][4] de atualização atualize o espaço de trabalho para usar o Azure defender. Esse ícone indica que o espaço de trabalho ou a assinatura não está protegido pelo Azure defender. Para usar os recursos do FIM, sua assinatura deve ser protegida pelo Azure defender. [Saiba mais](security-center-pricing.md).
+    - ![Ícone do plano ][4] de atualização atualize o espaço de trabalho para usar o Azure defender. Esse ícone indica que o espaço de trabalho ou a assinatura não está protegido pelo Azure defender. Para usar os recursos do FIM, sua assinatura deve ser protegida pelo Azure defender. Para obter mais informações, consulte a [central de segurança gratuita vs Azure defender habilitado](security-center-pricing.md#security-center-free-vs-azure-defender-enabled).
 
     - ![Ícone Habilitar][3] Habilite o FIM em todos os computadores no espaço de trabalho e configure as opções do FIM. Este ícone indica que o FIM não está habilitado para o espaço de trabalho.
 
@@ -236,7 +236,7 @@ Em **Editar para Controle de Alterações** você pode:
 
    ![Definir Habilitado como false][19]
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="folder-and-path-monitoring-using-wildcards"></a>Pasta e o caminho de monitoramento usando caracteres curinga
 

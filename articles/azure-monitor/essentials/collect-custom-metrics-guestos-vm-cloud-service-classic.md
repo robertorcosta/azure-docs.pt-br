@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 971a3063ff86e2a6b7d1b11f72ff0a257f459da0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d6866361b78656d99888c4df70cc0c92ed096425
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604911"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737045"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Enviar as métricas do SO convidado aos Serviços de Nuvem clássicos de armazenamento de métricas do Azure Monitor 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Com a [Extensão de diagnóstico](../agents/diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](../platform/data-platform.md?toc=/azure/azure-monitor/toc.json)
+Com a [Extensão de diagnóstico](../agents/diagnostics-extension-overview.md) do Azure Monitor, você pode coletar logs e métricas do SO (sistema operacional) convidado executado como parte de uma máquina virtual, do serviço de nuvem ou do cluster do Service Fabric. A extensão pode enviar telemetria para [muitos locais diferentes.](../data-platform.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 
 Este artigo descreve o processo para enviar métricas de desempenho do SO convidado dos Serviços de Nuvem clássicos do Azure para o armazenamento de métricas do Azure Monitor. A partir da versão 1.11 do Diagnostics, você pode gravar métricas diretamente no repositório de métricas do Monitor do Azure, onde métricas de plataforma padrão já foram coletadas. 
 
@@ -34,7 +34,7 @@ O processo descrito neste artigo só funciona para contadores de desempenho nos 
 
 - Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](../../cloud-shell/overview.md) instalado.
 
-- Seu serviço de nuvem deve estar em uma [região que dá suporte a métricas personalizadas](../platform/metrics-custom-overview.md#supported-regions).
+- Seu serviço de nuvem deve estar em uma [região que dá suporte a métricas personalizadas](./metrics-custom-overview.md#supported-regions).
 
 ## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionar um serviço de nuvem e uma conta de armazenamento 
 
@@ -191,4 +191,4 @@ Use a filtragem de dimensão e os recursos de divisão para exibir a memória to
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre [métricas personalizadas](../platform/metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](./metrics-custom-overview.md).

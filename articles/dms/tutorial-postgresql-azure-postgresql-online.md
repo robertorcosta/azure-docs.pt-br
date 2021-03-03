@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: e5efa30343afcda736946164eb271ad0bf420cab
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 87b3ecd9b77fcf07e6c41bce0a38ef4f99da1006
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096142"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740929"
 ---
 # <a name="tutorial-migrate-postgresql-to-azure-db-for-postgresql-online-using-dms-via-the-azure-cli"></a>Tutorial: Migrar o PostgreSQL para o BD do Azure para PostgreSQL online usando o DMS por meio da CLI do Azure
 
@@ -62,7 +62,7 @@ Para concluir este tutorial, você precisará:
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o servidor PostgreSQL de origem, que por padrão é a porta TCP 5432.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) no nível de servidor para o Banco de Dados do Azure para PostgreSQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
+* Crie uma [regra de firewall](../postgresql/concepts-firewall-rules.md) no nível de servidor para o Banco de Dados do Azure para PostgreSQL a fim de permitir o acesso do Serviço de Migração de Banco de Dados do Azure aos bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 * Há dois métodos para invocar a CLI:
 
   * No canto superior direito do portal do Azure, selecione o botão Cloud Shell:

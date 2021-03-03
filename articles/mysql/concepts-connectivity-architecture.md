@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: c888a6882f2a408801492de914c57e3e9a6eeaed
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3ec582a429008fc073f68cbc9795e264d6814ccb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375503"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730007"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -63,7 +63,7 @@ A tabela a seguir lista os endereços IP do gateway do banco de dados do Azure p
 | Centro da Índia | 104.211.96.159     | | |
 | Sul da Índia | 104.211.224.146  | | |
 | Oeste da Índia | 104.211.160.80    | | |
-| Japan East | 40.79.192.23 | 13.78.61.196 | |
+| Japan East | 40.79.192.23, 40.79.184.8 | 13.78.61.196 | |
 | Oeste do Japão | 191.238.68.11, 40.74.96.6, 40.74.96.7     | 104.214.148.156 | |
 | Coreia Central | 52.231.17.13   | 52.231.32.42 | |
 | Sul da Coreia | 52.231.145.3     | 52.231.200.86 | |

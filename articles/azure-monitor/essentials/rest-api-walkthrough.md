@@ -5,12 +5,12 @@ ms.subservice: metrics
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.custom: has-adal-ref
-ms.openlocfilehash: 41c2432c3c80be7d28e8f33372dea44ba108c5d3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b22387272ebeae7a7db8f0e0940841415e345279
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605530"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734206"
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
 
@@ -462,9 +462,9 @@ Depois que as definições de métrica disponíveis são conhecidas, é possíve
 >
 >
 
-**Método**: GET
+**Método**: `GET`
 
-**URI de solicitação**: `https:\//management.azure.com/subscriptions/\*{subscription-id}*/resourceGroups/*{resource-group-name}*/providers/*{resource-provider-namespace}*/*{resource-type}*/*{resource-name}*/providers/microsoft.insights/metrics?$filter=*{filter}*&api-version=*{apiVersion}*`
+**URI de solicitação**: `https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider-namespace}/{resource-type}/{resource-name}/providers/microsoft.insights/metrics?$filter={filter}&api-version={apiVersion}`
 
 Por exemplo, para recuperar os pontos de dados da métrica RunsSucceeded para o intervalo de tempo determinado e para um intervalo de agregação de 1 hora, a solicitação seria a seguinte:
 
@@ -734,7 +734,6 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="next-steps"></a>Próximas etapas
 
 * Verifique a [Visão geral do monitoramento](../overview.md).
-* Visualize as [Métricas compatíveis com o Azure Monitor](../platform/metrics-supported.md).
+* Visualize as [Métricas compatíveis com o Azure Monitor](./metrics-supported.md).
 * Verifique a [referência da API REST do Monitor do Microsoft Azure](/rest/api/monitor/).
 * Verifique a [Biblioteca de Gerenciamento do Azure](/previous-versions/azure/reference/mt417623(v=azure.100)).
-

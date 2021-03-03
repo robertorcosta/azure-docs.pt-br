@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: 9a6c62e91a2d3c600326730b3e6345f97bf6f5f9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0e928f3890e0d86aff7e4615d6d12e1b53c3b6f5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597005"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734682"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Amostras de modelo do Resource Manager para regras de alerta de métrica no Azure Monitor
 
@@ -3303,6 +3303,5 @@ A configuração adicional do parâmetro de correspondência de conteúdo `pingT
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Obtenha outros modelos de amostra do Azure Monitor](../resource-manager-samples.md).
-- [Saiba mais sobre os alertas](../platform/alerts-overview.md).
+- [Saiba mais sobre os alertas](./alerts-overview.md).
 - [Obtenha uma amostra para criar um grupo de ações com o modelo do Resource Manager](resource-manager-action-groups.md)
-

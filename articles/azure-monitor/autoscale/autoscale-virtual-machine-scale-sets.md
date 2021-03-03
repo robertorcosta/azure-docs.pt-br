@@ -9,12 +9,12 @@ ms.subservice: autoscale
 ms.date: 06/25/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 96d8c32791bd968dd8740a2d4633496b42e9f3f4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 26cfdf05847b01d28a8574483acc89cfeced0ffa
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605755"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717733"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuração avançada de autoescala usando modelos do Resource Manager para Conjuntos de Dimensionamento de VMs
 Você pode escalar e reduzir horizontalmente Conjuntos de Dimensionamento de Máquina Virtual com base nos limites de métrica de desempenho, em uma agenda recorrente ou em determinada data. Você também pode configurar notificações por email e webhook para ações de escala. Este passo a passo mostra um exemplo de configuração de todos esses objetos usando um modelo do Resource Manager em um Conjunto de Dimensionamento de VMs.
@@ -243,9 +243,9 @@ Use estes links para saber mais sobre o dimensionamento automático.
 
 [Práticas Recomendadas para o Serviço de Aplicativo do Azure](autoscale-best-practices.md)
 
-[Gerenciar o dimensionamento automático usando o PowerShell](../samples/powershell-samples.md#create-and-manage-autoscale-settings)
+[Gerenciar o dimensionamento automático usando o PowerShell](../powershell-samples.md#create-and-manage-autoscale-settings)
 
-[Gerenciar o dimensionamento automático usando a CLI](../samples/cli-samples.md#autoscale)
+[Gerenciar o dimensionamento automático usando a CLI](../cli-samples.md#autoscale)
 
 [Configurar webhooks e notificações por email para dimensionamento automático](autoscale-webhook-email.md)
 

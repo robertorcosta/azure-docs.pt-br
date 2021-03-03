@@ -7,15 +7,15 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
 ms.subservice: metrics
-ms.openlocfilehash: 0ab7d8548494e96b4a7570ef26ccde39456bf690
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604924"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731707"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para uma máquina virtual do Windows
-Os dados de desempenho do SO convidado de máquinas virtuais do Azure não são coletados automaticamente como outras [métricas de plataforma](../insights/monitor-azure-resource.md#monitoring-data). Instale a [extensão de diagnóstico](../agents/diagnostics-extension-overview.md) do Azure Monitor para coletar métricas do SO convidado no banco de dados de métricas para que elas possam ser usadas com todos os recursos de Métricas do Azure Monitor, incluindo alertas quase em tempo real, criação de gráficos, roteamento e acesso de uma API REST. Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows para o banco de dados de métricas usando um modelo do Resource Manager. 
+Os dados de desempenho do SO convidado de máquinas virtuais do Azure não são coletados automaticamente como outras [métricas de plataforma](./monitor-azure-resource.md#monitoring-data). Instale a [extensão de diagnóstico](../agents/diagnostics-extension-overview.md) do Azure Monitor para coletar métricas do SO convidado no banco de dados de métricas para que elas possam ser usadas com todos os recursos de Métricas do Azure Monitor, incluindo alertas quase em tempo real, criação de gráficos, roteamento e acesso de uma API REST. Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows para o banco de dados de métricas usando um modelo do Resource Manager. 
 
 > [!NOTE]
 > Para obter detalhes sobre como configurar a extensão de diagnóstico para coletar métricas de SO convidado usando o portal do Azure, confira [Instalar e configurar a WAD (extensão de Diagnóstico do Microsoft Azure)](../agents/diagnostics-extension-windows-install.md).
@@ -29,7 +29,7 @@ Se você é novo nos modelos do Resource Manager, aprenda sobre [implantações 
 
 - Você precisará ter o [Azure PowerShell](/powershell/azure) ou o [Azure Cloud Shell](../../cloud-shell/overview.md) instalado.
 
-- O recurso de VM deve estar em uma [região com suporte para métricas personalizadas](../platform/metrics-custom-overview.md#supported-regions). 
+- O recurso de VM deve estar em uma [região com suporte para métricas personalizadas](./metrics-custom-overview.md#supported-regions). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurar o Azure Monitor como um coletor de dados
@@ -250,7 +250,7 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
     New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
-   > Lembre-se de [usar uma região do Azure habilitada para métricas personalizadas](../platform/metrics-custom-overview.md).
+   > Lembre-se de [usar uma região do Azure habilitada para métricas personalizadas](./metrics-custom-overview.md).
 
 1. Execute os comandos a seguir para implantar a VM usando o modelo do Resource Manager.
    > [!NOTE]
@@ -285,4 +285,4 @@ Para implantar o modelo do Resource Manager, usamos o Azure PowerShell.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [métricas personalizadas](../platform/metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](./metrics-custom-overview.md).

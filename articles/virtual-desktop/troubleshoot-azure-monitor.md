@@ -6,12 +6,12 @@ ms.topic: troubleshooting
 ms.date: 12/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1453d43707a3680380e553fe69d738b27fe5ae3a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: c335c1cf7e5319b812345714dbdc6b87ddc4e81b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571354"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709165"
 ---
 # <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Solucionar problemas de Azure Monitor para área de trabalho virtual do Windows (versão prévia)
 
@@ -42,7 +42,7 @@ Se os dados não estiverem sendo exibidos corretamente, verifique sua configura�
     - Acesso de leitura aos grupos de recursos da assinatura que contêm os hosts de sessão da área de trabalho virtual do Windows 
     - Acesso de leitura ao espaço de trabalho do Log Analytics
 
-- Talvez seja necessário abrir portas de saída no firewall do servidor para permitir que Azure Monitor enviem dados para o portal, consulte [portas de saída](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses). 
+- Talvez seja necessário abrir portas de saída no firewall do servidor para permitir que Azure Monitor enviem dados para o portal, consulte [portas de saída](../azure-monitor/app/ip-addresses.md). 
 
 - Não está vendo dados da atividade recente? Talvez você queira aguardar 15 minutos e atualizar o feed. Azure Monitor tem um período de latência de 15 minutos para popular dados de log. Para saber mais, confira [tempo de ingestão de dados de log em Azure monitor](../azure-monitor/logs/data-ingestion-time.md).
 
@@ -62,8 +62,8 @@ Saiba mais sobre os termos de dados no [Glossário do Azure monitor para área d
 
 Se você quiser monitorar mais contadores de desempenho ou eventos, poderá habilitá-los para enviar ao espaço de trabalho do Log Analytics e monitorá-los no diagnóstico do host: navegador de host. 
 
-- Para adicionar contadores de desempenho, consulte [Configurando contadores de desempenho](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-performance-counters#configuring-performance-counters)
-- Para adicionar eventos do Windows, consulte [Configurando logs de eventos do Windows](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events#configuring-windows-event-logs)
+- Para adicionar contadores de desempenho, consulte [Configurando contadores de desempenho](../azure-monitor/agents/data-sources-performance-counters.md#configuring-performance-counters)
+- Para adicionar eventos do Windows, consulte [Configurando logs de eventos do Windows](../azure-monitor/agents/data-sources-windows-events.md#configuring-windows-event-logs)
 
 Não consegue encontrar um ponto de dados para ajudar a diagnosticar um problema? Envie-nos comentários!
 

@@ -6,16 +6,16 @@ services: storage
 ms.service: storage
 ms.subservice: files
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 3/02/2021
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: e872d28063a3e0671558ee4d388cad280b94f45b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 620afb0ca5de7c6a89db107fb4616748473f0809
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596928"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101701647"
 ---
 # <a name="monitoring-azure-files"></a>Monitorando arquivos do Azure
 
@@ -156,7 +156,7 @@ Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pela
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
@@ -172,7 +172,7 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](/powershel
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
@@ -186,7 +186,7 @@ Habilite logs usando o cmdlet do PowerShell [set-AzDiagnosticSetting](/powershel
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operations-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
@@ -218,7 +218,7 @@ Substitua o `<storage-service-resource--id>` espaço reservado neste trecho pelo
 
 Você pode usar `StorageRead` , `StorageWrite` e `StorageDelete` para o valor do parâmetro **Category** .
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
@@ -234,7 +234,7 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azu
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
@@ -248,7 +248,7 @@ Habilite logs usando o comando [AZ monitor Diagnostics-Settings Create](/cli/azu
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
 ```
 
-Veja um exemplo:
+Aqui está um exemplo:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
@@ -481,21 +481,10 @@ As entradas de log são criadas somente se há solicitações feitas no ponto de
 
 - Solicitações bem-sucedidas
 - Solicitações com falha, incluindo tempo limite, limitação, rede, autorização e outros erros
-- Solicitações que usam uma SAS (Assinatura de Acesso Compartilhado) ou OAuth, incluindo solicitações bem-sucedidas e com falha
-- Solicitações para dados de análise (dados de log clássicos no contêiner **$logs** e dados de métrica clássicos nas tabelas **$metric**)
+- Solicitações que usam Kerberos, NTLM ou SAS (assinatura de acesso compartilhado), incluindo solicitações com falha e bem-sucedidas
+- Solicitações para dados de análise (dados de log clássicos no contêiner de **$logs** e dados de métrica clássicos nas tabelas de **$Metric** )
 
 As solicitações feitas pelo próprio serviço de arquivos do Azure, como criação ou exclusão de log, não são registradas. Para obter uma lista completa das solicitações SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
-
-### <a name="log-anonymous-requests"></a>Registrar em log solicitações anônimas
-
- Os seguintes tipos de solicitações anônimas são registrados:
-
-- Solicitações bem-sucedidas
-- Erros do servidor
-- Erros de tempo limite para o cliente e o servidor
-- Solicitações GET com falha com o código de erro 304 (não modificado)
-
-Nenhuma outra solicitação anônima com falha é registrada em log. Para obter uma lista completa das solicitações SMB e REST registradas, consulte [operações registradas de armazenamento e mensagens de status](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [referência de dados de monitoramento de arquivos do Azure](storage-files-monitoring-reference.md).
 
 ### <a name="accessing-logs-in-a-storage-account"></a>Acessando logs em uma conta de armazenamento
 
@@ -631,13 +620,12 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
    > [!NOTE]
    > Se os tipos de resposta não estiverem listados na lista suspensa **valores de dimensão** , isso significa que o recurso não foi limitado. Para adicionar os valores de dimensão, ao lado da lista suspensa **valores de dimensão** , selecione **adicionar valor personalizado**, insira o tipo resposta (por exemplo, **SuccessWithThrottling**), selecione **OK** e repita essas etapas para adicionar todos os tipos de resposta aplicáveis ao compartilhamento de arquivos.
 
-8. Clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
-9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
-
+8. Para **compartilhamentos de arquivos Premium**, clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**. Para **compartilhamentos de arquivos padrão**, pule para a **etapa #10**.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a dimensão de **compartilhamento de arquivos** não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas de limitação para compartilhamentos de arquivos padrão serão disparados se algum compartilhamento de arquivos dentro da conta de armazenamento for limitado e o alerta não identificar qual compartilhamento de arquivos foi limitado. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
+9. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 10. Defina os **parâmetros de alerta** (valor de limite, operador, granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 
     > [!TIP]
@@ -654,12 +642,12 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for `contoso` , selecione o `contoso/file` recurso.
 4. Clique em **Adicionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **capacidade de arquivo** .
-6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
-7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
+6. Para **compartilhamentos de arquivos Premium**, clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**. Para **compartilhamentos de arquivos padrão**, pule para a **etapa #8**.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a dimensão de **compartilhamento de arquivos** não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
+7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 8. Insira o **valor do limite** em bytes. Por exemplo, se o tamanho do compartilhamento de arquivos for 100 TiB e você quiser receber um alerta quando o tamanho do compartilhamento de arquivos for 80% da capacidade, o valor do limite em bytes será 87960930222080.
 9. Defina o restante dos **parâmetros de alerta** (granularidade de agregação e frequência de avaliação) e clique em **concluído**.
 10. Clique em **Adicionar grupos de ações** para adicionar um **grupo de ações** (email, SMS, etc.) ao alerta selecionando um grupo de ações existente ou criando um novo grupo de ação.
@@ -673,12 +661,12 @@ A tabela a seguir lista alguns cenários de exemplo para monitorar e a métrica 
 3. Clique em **Editar recurso**, selecione o **tipo de recurso arquivo** para a conta de armazenamento e clique em **concluído**. Por exemplo, se o nome da conta de armazenamento for contoso, selecione o recurso contoso/File.
 4. Clique em **Adicionar condição** para adicionar uma condição.
 5. Você verá uma lista de sinais com suporte para a conta de armazenamento, selecione a métrica de **saída** .
-6. Na folha **Configurar lógica de sinal** , clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**.
-7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
+6. Para **compartilhamentos de arquivos Premium**, clique na lista suspensa **nome da dimensão** e selecione **compartilhamento de arquivos**. Para **compartilhamentos de arquivos padrão**, pule para a **etapa #8**.
 
    > [!NOTE]
-   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, selecione **todos os valores atuais e futuros**. O menu suspenso valores de dimensão não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
+   > Se o compartilhamento de arquivos for um compartilhamento de arquivos padrão, a dimensão de **compartilhamento de arquivos** não listará os compartilhamentos de arquivos porque as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão. Os alertas para compartilhamentos de arquivos padrão são baseados em todos os compartilhamentos de arquivos na conta de armazenamento. Como as métricas por compartilhamento não estão disponíveis para compartilhamentos de arquivos padrão, a recomendação é ter um compartilhamento de arquivos por conta de armazenamento.
 
+7. Clique na lista suspensa **valores de dimensão** e selecione os compartilhamentos de arquivos que você deseja alertar.
 8. Insira **536870912000** bytes para o valor de limite. 
 9. Clique na lista suspensa **agregação de granularidade** e selecione **24 horas**.
 10. Selecione a **frequência de avaliação** e **clique em concluído**.

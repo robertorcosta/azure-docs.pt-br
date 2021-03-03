@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: 88138cc1366dcef68aeccf652af05704e72c8e15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596991"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734138"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Coletar e analisar logs de recursos de um recurso do Azure
 
@@ -93,7 +93,7 @@ Os dados são recuperados de um workspace do Log Analytics usando uma consulta d
 
 
 5. Digite uma consulta e clique em **Executar** para inspecionar os resultados. 
-6. Confira [Introdução às consultas de log no Azure Monitor](../log-query/get-started-queries.md) ara um tutorial sobre como escrever consultas de log.
+6. Confira [Introdução às consultas de log no Azure Monitor](../logs/get-started-queries.md) ara um tutorial sobre como escrever consultas de log.
 
     ![Consulta de log](media/tutorial-resource-logs/log-query-1.png)
 
@@ -104,4 +104,4 @@ Os dados são recuperados de um workspace do Log Analytics usando uma consulta d
 Agora que você aprendeu a coletar logs de recursos em um workspace do Log Analytics, conclua um tutorial sobre como escrever consultas de log para analisar esses dados.
 
 > [!div class="nextstepaction"]
-> [Introdução às consultas de log no Azure Monitor](../log-query/get-started-queries.md)
+> [Introdução às consultas de log no Azure Monitor](../logs/get-started-queries.md)

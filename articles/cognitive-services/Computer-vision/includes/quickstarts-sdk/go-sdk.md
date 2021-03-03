@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/15/2020
 ms.author: pafarley
-ms.openlocfilehash: df171b74014179c36466a2683a8d0d7c0c3b5e90
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.openlocfilehash: 37c1b81f2396eff1613a6af604b2490b18b93ea8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97560875"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749976"
 ---
 <a name="HOLTop"></a>
 
@@ -89,7 +89,7 @@ Além disso, declare um contexto na raiz do seu script. Você precisará desse o
 Em seguida, você começará a adicionar o código para realizar diferentes operações de Pesquisa Visual Computacional.
 
 > [!div class="nextstepaction"]
-> [Configurei o cliente](?success=set-up-client#object-model) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=set-up-client)
+> [Configurei o cliente](?success=set-up-client#object-model) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=set-up-client)
 
 ## <a name="object-model"></a>Modelo de objeto
 
@@ -120,7 +120,7 @@ Crie uma função `main` e adicione o código a seguir a ela para criar uma inst
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_client)]
 
 > [!div class="nextstepaction"]
-> [Autentiquei o cliente](?success=authenticate-client#analyze-an-image) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=authenticate-client)
+> [Autentiquei o cliente](?success=authenticate-client#analyze-an-image) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=authenticate-client)
 
 ## <a name="analyze-an-image"></a>Analisar uma imagem
 
@@ -214,7 +214,7 @@ A função a seguir imprime informações sobre o tipo de imagem &mdash;, seja c
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_type)]
 
 > [!div class="nextstepaction"]
-> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=analyze-image)
+> [Analisei uma imagem](?success=analyze-image#read-printed-and-handwritten-text) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=analyze-image)
 
 ## <a name="read-printed-and-handwritten-text"></a>Ler texto impresso e manuscrito
 
@@ -246,7 +246,7 @@ Adicione o código a seguir para analisar e exibir os dados de texto recuperados
 [!code-go[](~/cognitive-services-quickstart-code/go/ComputerVision/ComputerVisionQuickstart.go?name=snippet_read_display)]
 
 > [!div class="nextstepaction"]
-> [Li o texto](?success=read-printed-handwritten-text#run-the-application) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=read-printed-handwritten-text)
+> [Li o texto](?success=read-printed-handwritten-text#run-the-application) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=read-printed-handwritten-text)
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 
@@ -257,7 +257,7 @@ go run sample-app.go
 ```
 
 > [!div class="nextstepaction"]
-> [Executei o aplicativo](?success=run-the-application#clean-up-resources) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=run-the-application)
+> [Executei o aplicativo](?success=run-the-application#clean-up-resources) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=run-the-application)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -267,7 +267,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 * [CLI do Azure](../../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 > [!div class="nextstepaction"]
-> [Limpei os recursos](?success=clean-up-resources#next-steps) [Encontrei um problema](https://www.research.net/r/7QYZKHL?issue=clean-up-resources)
+> [Limpei os recursos](?success=clean-up-resources#next-steps) [Encontrei um problema](https://microsoft.qualtrics.com/jfe/form/SV_0Cl5zkG3CnDjq6O?PLanguage=Go&Section=clean-up-resources)
 
 ## <a name="next-steps"></a>Próximas etapas
 

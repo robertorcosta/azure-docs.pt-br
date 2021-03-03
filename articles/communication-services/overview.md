@@ -8,14 +8,19 @@ ms.author: mikben
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 45ce295ceee9d5bd1c2393eaed854e8f2c5643ba
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 27b1a2654a52c136c0b827b536f5cf99928e5947
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659232"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691579"
 ---
 # <a name="what-is-azure-communication-services"></a>O que são os Serviços de Comunicação do Azure?
+
+[!INCLUDE [Public Preview Notice](./includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> Os aplicativos que você cria usando os Serviços de Comunicação do Azure podem se comunicar com o Microsoft Teams. Para saber mais, visite nossa documentação de [Interoperabilidade do Teams](./quickstarts/voice-video-calling/get-started-teams-interop.md).
 
 Os Serviços de Comunicação do Azure permitem que você adicione facilmente recursos de comunicação multimídia com voz, vídeo e telefonia por IP aos seus aplicativos. As bibliotecas de clientes dos Serviços de Comunicação também permitem que você adicione funcionalidade de chat e SMS às suas soluções de comunicação.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2020
 ms.author: allensu
-ms.openlocfilehash: 7a456057bc088264cefb91be9f3e5069b29474a1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 36937ace82d2bd8d4317f90a375042de10fe719f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596812"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709811"
 ---
 # <a name="azure-monitor-logs-for-azure-standard-load-balancer"></a>Logs de Azure Monitor do Azure Standard Load Balancer
 
@@ -74,7 +74,7 @@ O log de atividade é habilitado automaticamente para todos os recursos do Resou
 
 ## <a name="view-and-analyze-the-activity-log"></a>Exibir e analisar o log de atividades
 
-O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](../azure-monitor/platform/activity-log.md). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
+O log de atividades é gerado por padrão. Você pode configurá-lo para ser exportado em um nível de assinatura seguindo [as instruções neste artigo](../azure-monitor/essentials/activity-log.md). Saiba mais sobre esses logs lendo o artigo [Exibir logs de atividades para monitorar ações em recursos](../azure-resource-manager/management/view-activity-logs.md) .
 
 Você pode exibir e analisar os dados do log de atividades usando um dos seguintes métodos:
 
@@ -113,4 +113,4 @@ O recurso de exportação de métricas para logs para Azure Load Balancer tem as
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Examinar as métricas disponíveis para o balanceador de carga](./load-balancer-standard-diagnostics.md)
-* [Criar e testar consultas seguindo as instruções de Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Criar e testar consultas seguindo as instruções de Azure Monitor](../azure-monitor/logs/log-query-overview.md)

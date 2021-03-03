@@ -2,13 +2,14 @@
 title: Registro com redundância de zona para alta disponibilidade
 description: Saiba como habilitar a redundância de zona no registro de contêiner do Azure. Crie um registro de contêiner ou replicação em uma zona de disponibilidade do Azure. A redundância de zona é um recurso da camada de serviço Premium.
 ms.topic: article
-ms.date: 01/07/2021
-ms.openlocfilehash: 7de8ed101d2df9e491c475f522a56580798c49a9
-ms.sourcegitcommit: 77afc94755db65a3ec107640069067172f55da67
+ms.date: 02/23/2021
+ms.custom: references_regions
+ms.openlocfilehash: 931adcf8258c48d7df42bd5927e8789d7cc871db
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98696271"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738099"
 ---
 # <a name="enable-zone-redundancy-in-azure-container-registry-for-resiliency-and-high-availability"></a>Habilitar a redundância de zona no registro de contêiner do Azure para resiliência e alta disponibilidade
 
@@ -20,7 +21,7 @@ A redundância de zona é um recurso de **Visualização** da camada de serviço
 
 ## <a name="preview-limitations"></a>Limitações de visualização
 
-* Atualmente com suporte nas seguintes regiões: leste dos EUA, leste dos EUA 2 e oeste dos EUA 2.
+* Atualmente com suporte nas seguintes regiões: leste dos EUA, leste dos EUA 2, oeste dos EUA 2, Europa Setentrional, Europa Ocidental, leste do Japão.
 * Atualmente, não há suporte para conversões de região para zonas de disponibilidade. Para habilitar o suporte à zona de disponibilidade em uma região, o registro deve ser criado na região desejada, com o suporte à zona de disponibilidade habilitado, ou uma região replicada deve ser adicionada com o suporte à zona de disponibilidade habilitado.
 * A redundância de zona não pode ser desabilitada em uma região.
 * [As tarefas ACR](container-registry-tasks-overview.md) ainda não dão suporte a zonas de disponibilidade.

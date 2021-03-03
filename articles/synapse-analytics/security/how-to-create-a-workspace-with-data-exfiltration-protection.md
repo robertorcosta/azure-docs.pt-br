@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 12/01/2020
 ms.author: NanditaV
 ms.reviewer: jrasnick
-ms.openlocfilehash: 12d858488c4530e4b0d949cd36ed9ad2f7df4c59
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6fd28c9392d760888eafde37471a49ffaa2e4423
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100384479"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694131"
 ---
 # <a name="create-a-workspace-with-data-exfiltration-protection-enabled"></a>Criar um espaço de trabalho com o data vazamento Protection habilitado
 Este artigo descreve como criar um espaço de trabalho com a proteção de vazamento de dados habilitada e como gerenciar os locatários do Azure AD aprovados para este espaço de trabalho.
@@ -50,7 +50,7 @@ Você pode criar pontos de extremidade privados gerenciados para se conectar aos
 >Os recursos em locatários diferentes do locatário do espaço de trabalho não devem bloquear as regras de firewall em vigor para que os pools do SQL se conectem a eles. Os recursos dentro da rede virtual gerenciada do espaço de trabalho, como clusters do Spark, podem se conectar por meio de links privados gerenciados para recursos protegidos por firewall.
 
 ## <a name="known-limitations"></a>Limitações conhecidas
-Os usuários podem fornecer um arquivo de configuração de ambiente para instalar pacotes python de repositórios públicos, como PyPI. Em espaços de trabalho protegidos por data vazamento, as conexões com repositórios de saída são bloqueadas. Como resultado, a biblioteca do Python instalada a partir de repositórios públicos, como PyPI, não é suportada. 
+Os usuários podem fornecer um arquivo de configuração de ambiente para instalar pacotes python de repositórios públicos, como PyPI. Em espaços de trabalho protegidos por data vazamento, as conexões com repositórios de saída são bloqueadas. Como resultado, a biblioteca do Python instalada a partir de repositórios públicos, como PyPI, não é suportada. Como alternativa, os usuários podem criar um canal privado dentro de sua conta de Azure Data Lake Storage primária e fazer referência a ele em seu arquivo de configuração de ambiente Conda. 
   
 ## <a name="next-steps"></a>Próximas etapas
 

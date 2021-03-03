@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 04/11/2020
-ms.openlocfilehash: 077bda7c254e00e919a22423038a051dc7eafe60
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 9d54aca572d55b6107e756d50c4b2c02cae094cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101094907"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741473"
 ---
 # <a name="tutorial-migrate-rds-postgresql-to-azure-db-for-postgresql-online-using-dms"></a>Tutorial: Migrar o PostgreSQL em RDS para o Banco de Dados do Azure para PostgreSQL online usando o DMS
 
@@ -57,7 +57,7 @@ Para concluir este tutorial, você precisará:
 * Configurar o [Firewall do Windows para acesso ao mecanismo de banco de dados](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 * Abra o firewall do Windows para permitir que o Serviço de Migração de Banco de Dados do Azure acesse o servidor PostgreSQL de origem, que por padrão é a porta TCP 5432.
 * Ao usar um dispositivo de firewall na frente de seus bancos de dados de origem, talvez seja necessário adicionar regras de firewall para permitir que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de origem para migração.
-* Crie uma [regra de firewall](https://docs.microsoft.com/azure/postgresql/concepts-firewall-rules) no nível do servidor para que o Banco de Dados do Azure para servidor PostgreSQL permita que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
+* Crie uma [regra de firewall](../postgresql/concepts-firewall-rules.md) no nível do servidor para que o Banco de Dados do Azure para servidor PostgreSQL permita que o Serviço de Migração de Banco de Dados do Azure acesse os bancos de dados de destino. Forneça o intervalo de sub-redes da rede virtual usado para o Serviço de Migração de Banco de Dados do Azure.
 
 ### <a name="set-up-aws-rds-postgresql-for-replication"></a>Configurar AWS RDS para PostgreSQL para replicação
 

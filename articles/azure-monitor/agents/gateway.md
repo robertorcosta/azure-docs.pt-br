@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: a9b93cf05141442901531e745971ee16348cdaae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d83ee4b53d4ccda9cb2af21fa0cb4c91822ec7c4
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605351"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732013"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor
 
@@ -89,7 +89,7 @@ O gateway de Log Analytics está disponível nestes idiomas:
 
 O gateway de Log Analytics dá suporte apenas a TLS (segurança de camada de transporte) 1,0, 1,1 e 1,2.  Ele não dá suporte a protocolo SSL (SSL).  Para garantir a segurança dos dados em trânsito para Log Analytics, configure o gateway para usar pelo menos o TLS 1,2. Versões mais antigas de TLS ou SSL são vulneráveis. Embora eles atualmente permitam compatibilidade com versões anteriores, evite usá-los.  
 
-Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../platform/data-security.md#sending-data-securely-using-tls-12). 
+Para obter mais informações, examine [Enviando dados com segurança usando o TLS 1.2](../logs/data-security.md#sending-data-securely-using-tls-12). 
 
 ### <a name="supported-number-of-agent-connections"></a>Número de conexões de agente com suporte
 
@@ -332,7 +332,7 @@ Um erro na etapa 3 significa que o módulo não foi importado. O erro pode ocorr
 | `Get-OMSGatewayConfig` |Chave |Obtém a configuração do serviço |`Get-OMSGatewayConfig` |  
 | `Set-OMSGatewayConfig` |Chave (obrigatória) <br> Valor |Altera a configuração do serviço |`Set-OMSGatewayConfig -Name ListenPort -Value 8080` |  
 | `Get-OMSGatewayRelayProxy` | |Obtém o endereço do proxy de retransmissão (upstream) |`Get-OMSGatewayRelayProxy` |  
-| `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de usuário<br> Senha (cadeia de caracteres segura) |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Defina um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Defina um proxy de retransmissão que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. desmarque a configuração de proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
+| `Set-OMSGatewayRelayProxy` |Endereço<br> Nome de Usuário<br> Senha (cadeia de caracteres segura) |Define o endereço (e as credenciais) do proxy de retransmissão (upstream) |1. Defina um proxy de retransmissão e uma credencial:<br> `Set-OMSGatewayRelayProxy`<br>`-Address http://www.myproxy.com:8080`<br>`-Username user1 -Password 123` <br><br> 2. Defina um proxy de retransmissão que não precise de autenticação: `Set-OMSGatewayRelayProxy`<br> `-Address http://www.myproxy.com:8080` <br><br> 3. desmarque a configuração de proxy de retransmissão:<br> `Set-OMSGatewayRelayProxy` <br> `-Address ""` |  
 | `Get-OMSGatewayAllowedHost` | |Obtém o host atualmente permitido (somente o host permitido configurado localmente, os hosts permitidos que não foram baixados automaticamente) |`Get-OMSGatewayAllowedHost` | 
 | `Add-OMSGatewayAllowedHost` |Host (obrigatório) |Adiciona o host à lista de permissões |`Add-OMSGatewayAllowedHost -Host www.test.com` |  
 | `Remove-OMSGatewayAllowedHost` |Host (obrigatório) |Remove o host da lista de permissões |`Remove-OMSGatewayAllowedHost`<br> `-Host www.test.com` |  

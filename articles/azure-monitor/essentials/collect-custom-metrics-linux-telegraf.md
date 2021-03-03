@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fbed48dda3d6b022d30bb9fb0507c3f9f203771d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4274f976a04a9694c0429a2a4794d645304a9e97
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604904"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728800"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>Coletar métricas personalizadas para uma VM do Linux com o Agente InfluxData Telegraf
 
@@ -25,7 +25,7 @@ O [Telegraf](https://docs.influxdata.com/telegraf/) é um agente controlado por 
  ![Visão Geral do Agente Telegraf](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
 > [!NOTE]  
-> Não há suporte para métricas personalizadas em todas as regiões. As regiões com suporte estão listadas [aqui](../platform/metrics-custom-overview.md#supported-regions)
+> Não há suporte para métricas personalizadas em todas as regiões. As regiões com suporte estão listadas [aqui](./metrics-custom-overview.md#supported-regions)
 
 ## <a name="send-custom-metrics"></a>Enviar métricas personalizadas 
 
@@ -136,4 +136,4 @@ Além disso, neste passo a passo, você usou o agente Telegraf para emitem métr
 Quando o grupo de recursos, a máquina virtual e todos os recursos relacionados não forem mais necessários, exclua-os. Para fazer isso, selecione o grupo de recursos para a máquina virtual e selecione **excluir**. Em seguida, confirme o nome do grupo de recursos para excluir. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Saiba mais sobre [métricas personalizadas](../platform/metrics-custom-overview.md).
+- Saiba mais sobre [métricas personalizadas](./metrics-custom-overview.md).

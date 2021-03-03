@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: cdc5de8153e8b2e0ea8bb8ea372fe8610ccb895b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: da172e9a7605876711e4a4f32bf4fac698b35109
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679047"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101694794"
 ---
 # <a name="add-spell-check-to-queries-in-cognitive-search"></a>Adicionar verificação ortográfica a consultas no Pesquisa Cognitiva
 
@@ -36,7 +36,7 @@ Você pode melhorar a RECALL, corrigindo os termos da consulta de pesquisa indiv
   O queryLanguage é necessário para o verificador ortográfico e, atualmente, "en-US" é o único valor válido.
 
 > [!Note]
-> O parâmetro do verificador ortográfico está disponível em todas as camadas, nas mesmas regiões que fornecem pesquisa semântica. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
+> O parâmetro do verificador ortográfico está disponível em todas as camadas, nas mesmas regiões que fornecem pesquisa semântica. Você não precisa se inscrever para acessar esse recurso de visualização. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
 ## <a name="spell-correction-with-simple-search"></a>Correção ortográfica com pesquisa simples
 
@@ -94,7 +94,13 @@ POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/
 
 ## <a name="language-considerations"></a>Considerações sobre o idioma
 
-O parâmetro queryLanguage necessário para o verificador ortográfico deve ser consistente com quaisquer [analisadores de idioma](index-add-language-analyzers.md) atribuídos às definições de campo no esquema de índice. Especificado em uma solicitação de consulta, o queryLanguage determina quais léxicos são usados para verificação ortográfica e também é usado como uma entrada para o [algoritmo de classificação semântica](semantic-how-to-query-response.md) se você o estiver usando. Os analisadores de idioma são usados durante a indexação e, ao mesmo tempo, recuperam documentos correspondentes no índice de pesquisa. Para ser consistente, se queryLanguage for "en-US", todos os analisadores de idioma também deverão ser uma variante em inglês ("en. Microsoft" ou "en. Lucene"). 
+O parâmetro queryLanguage necessário para o verificador ortográfico deve ser consistente com quaisquer [analisadores de idioma](index-add-language-analyzers.md) atribuídos às definições de campo no esquema de índice. 
+
++ queryLanguage determina quais léxicos são usados para verificação ortográfica e também é usado como uma entrada para o [algoritmo de classificação semântica](semantic-how-to-query-response.md) se você estiver usando "QueryType = semântico".
+
++ Os analisadores de linguagem são usados durante a indexação e a execução da consulta para localizar documentos correspondentes no índice de pesquisa. Um exemplo de uma definição de campo que usa um analisador de linguagem é `"name": "Description", "type": "Edm.String", "analyzer": "en.microsoft"` .
+
+Para obter melhores resultados ao usar o verificador ortográfico, se queryLanguage for "en-US", qualquer analisador de idioma também deverá ser uma variante em inglês ("en. Microsoft" ou "en. Lucene").
 
 > [!NOTE]
 > Analisadores independentes de linguagem (como palavra-chave, simples, padrão, parada, espaço em branco ou `standardasciifolding.lucene` ) não entram em conflito com as configurações de queryLanguage.

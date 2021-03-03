@@ -5,18 +5,18 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 01/15/2021
+ms.date: 02/18/2021
 ms.author: jingwang
-ms.openlocfilehash: 002ceba60853908e381f084e95ec1ee58e8580cb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: a3cc3686d4b256fc7b8702f34cdf393dc1b0e25f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100375809"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740385"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copiar dados com segurança do Armazenamento de Blobs do Azure para um Banco de Dados SQL usando pontos de extremidade privados
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Neste tutorial, você criará um data factory ao usar a interface do usuário do Azure Data Factory. *O pipeline deste data factory copia os dados com segurança do Armazenamento de Blobs do Azure para um Banco de Dados SQL do Azure (permitindo o acesso somente às redes selecionadas) usando pontos de extremidade privados na [Rede Virtual Gerenciada do Azure Data Factory](managed-virtual-network-private-endpoint.md).* O padrão de configuração neste tutorial aplica-se a cópia de um armazenamento de dados baseado em arquivo para um armazenamento de dados relacional. Para obter uma lista de armazenamentos de dados compatíveis como origens e coletores, confira a tabela de [Formatos e armazenamentos de dados compatíveis](./copy-activity-overview.md).
 

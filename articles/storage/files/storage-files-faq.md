@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 266862a1691387caf1b1ffa9a47b0e60e84970d8
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96492124"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737606"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que podem ser acessados por meio do [protocolo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão do setor e do [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -73,7 +73,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="tier-options"></a>
   **Atualmente, quais camadas de armazenamento têm suporte no serviço Arquivos do Azure?**  
-    Os Arquivos do Azure dão suporte a duas camadas de armazenamento: Premium e Standard. Os compartilhamentos de arquivos Standard são criados em contas de armazenamento de uso geral (GPv1 ou GPv2) e os compartilhamentos de arquivos Premium são criados em contas de armazenamento FileStorage. Saiba mais sobre como criar [compartilhamentos de arquivos Standard](storage-how-to-create-file-share.md) e [compartilhamentos de arquivos Standard Premium](storage-how-to-create-premium-fileshare.md). 
+    Os Arquivos do Azure dão suporte a duas camadas de armazenamento: Premium e Standard. Os compartilhamentos de arquivos Standard são criados em contas de armazenamento de uso geral (GPv1 ou GPv2) e os compartilhamentos de arquivos Premium são criados em contas de armazenamento FileStorage. Saiba mais sobre como criar [compartilhamentos de arquivos Standard](storage-how-to-create-file-share.md) e [compartilhamentos de arquivos Standard Premium](./storage-how-to-create-file-share.md). 
     
     > [!NOTE]
     > Você não pode criar compartilhamentos de arquivos do Azure de contas de armazenamento para blob ou contas de armazenamento de uso geral (GPv1 ou GPv2) *Premium*. Os compartilhamentos de arquivos Standard do Azure precisam ser criados apenas em contas de uso geral *Standard* e os compartilhamentos de arquivo Premium do Azure precisam ser criados apenas em contas FileStorage. Contas de armazenamento de uso geral *Premium* (GPv1 e GPv2) são apenas para blobs de páginas premium. 

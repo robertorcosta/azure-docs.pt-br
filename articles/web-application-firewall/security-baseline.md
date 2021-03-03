@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d1f0b0b36c8f0ed5ede7b5c3113207ae3cce10fd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581245"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101737402"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de base de segurança do Azure para o Firewall do aplicativo Web do Azure
 
@@ -35,7 +35,7 @@ Linha de base do tráfego de rede com o modo de detecção do WAF. Depois de det
 
 Acompanhe as recomendações de severidade alta da central de segurança para todos os recursos habilitados para Web que não são protegidos pelo WAF.  
 
-- [Regras e grupos de regras CRS do firewall do aplicativo Web](ag/application-gateway-crs-rulegroups-rules.md) 
+- [Regras e grupos de regras CRS do Firewall de Aplicativo Web](ag/application-gateway-crs-rulegroups-rules.md) 
 
 - [Modos de WAF no gateway de aplicativo](ag/ag-overview.md#waf-modes)
 
@@ -164,7 +164,7 @@ O Azure Sentinel tem uma pasta de trabalho interna do Azure WAF, que fornece uma
 ### <a name="25-configure-security-log-storage-retention"></a>2.5: Configurar a retenção de armazenamento do log de segurança
 
 **Diretrizes**: envie os logs do WAF (firewall do aplicativo Web) do Azure para uma conta de armazenamento personalizada e defina a política de retenção. Use Azure Monitor para definir seu período de retenção de espaço de trabalho de Log Analytics com base nos requisitos de conformidade de sua organização.
-- [Configurar o monitoramento para uma conta de armazenamento](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Configurar o monitoramento para uma conta de armazenamento](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

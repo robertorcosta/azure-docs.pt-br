@@ -4,12 +4,12 @@ description: A API REST do alerta de Log Analytics permite criar e gerenciar ale
 ms.subservice: logs
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 6c347b7b8ddaac103019e15e32fb5c06219e0064
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4acb6cdcb544e8774fb60bf1ead1a4a13140024a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606844"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717801"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST 
 
@@ -21,7 +21,7 @@ A API REST de alerta do Log Analytics permite criar e gerenciar alertas no Log A
 A API REST de Pesquisa do Log Analytics é RESTful e pode ser acessada por meio da API REST do Azure Resource Manager. Neste documento, você encontrará exemplos em que a API é acessada por meio de uma linha de comando do PowerShell usando o [ARMClient](https://github.com/projectkudu/ARMClient), uma ferramenta de linha de comando de software livre que simplifica a invocação da API do Azure Resource Manager. O uso do ARMClient e do PowerShell é uma das muitas opções para acessar a API de Pesquisa do Log Analytics. Com essas ferramentas, você pode utilizar a API do RESTful Azure Resource Manager para fazer chamadas para espaços de trabalho do Log Analytics e executar comandos de pesquisa dentro deles. A API produzirá resultados da pesquisa para você no formato JSON, permitindo que você use os resultados da pesquisa de diferentes maneiras por meio de programação.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log Analytics.  Você pode consultar a [API REST da Pesquisa de Log](../log-query/log-query-overview.md) para obter mais informações.
+Atualmente, os alertas somente podem ser criados com uma pesquisa salva no Log Analytics.  Você pode consultar a [API REST da Pesquisa de Log](../logs/log-query-overview.md) para obter mais informações.
 
 ## <a name="schedules"></a>Agendas
 Uma pesquisa salva pode ter um ou mais agendamentos. O agendamento define a frequência com que a pesquisa é executada e o intervalo de tempo em que os critérios são identificados.
@@ -387,7 +387,6 @@ armclient put /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Use a [API REST para executar pesquisas de log](../log-query/log-query-overview.md) no Log Analytics.
+* Use a [API REST para executar pesquisas de log](../logs/log-query-overview.md) no Log Analytics.
 * Saiba mais sobre os [alertas de log no Azure monitor](./alerts-unified-log.md)
 * Como [criar, editar ou gerenciar regras de alerta de log no Azure monitor](./alerts-log.md)
-

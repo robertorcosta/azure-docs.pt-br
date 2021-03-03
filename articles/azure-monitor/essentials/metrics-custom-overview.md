@@ -7,16 +7,16 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.subservice: metrics
-ms.openlocfilehash: 9fba5b7636bcef68b55528350ea63ce9d386bb16
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b1e61d0b8eb8312c78acabbd087208bb64a2d0d1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605271"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734444"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
 
-Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](../platform/metrics-supported.md). No entanto, eles são limitados por natureza. 
+Ao implantar recursos e aplicativos no Azure, é melhor começar a coletar dados telemétricos para obter percepções sobre sua integridade e desempenho. O Azure disponibiliza algumas métricas para você imediatamente. Essas métricas são chamadas [de Standard ou Platform](./metrics-supported.md). No entanto, eles são limitados por natureza. 
 
 Você pode querer coletar alguns indicadores de desempenho personalizados ou métricas específicas de negócios para fornecer insights mais profundos. Essas **métricas personalizadas** podem ser coletadas por meio da telemetria do aplicativo, um agente que é executado nos recursos do Azure ou até mesmo um sistema de monitoramento externo e enviado diretamente ao Monitor do Azure. Depois de publicados no Azure Monitor, você pode procurar, consultar e alertar sobre métricas personalizadas para os recursos e aplicativos do Azure, lado a lado com as métricas padrão emitidas pelo Azure.
 
@@ -223,5 +223,3 @@ Use métricas personalizadas de diferentes serviços:
  - [Linux Virtual Machine usando o agente Telegraf](../essentials/collect-custom-metrics-linux-telegraf.md)
  - [REST API](./metrics-store-custom-rest-api.md)
  - [Serviços de nuvem clássico](../essentials/collect-custom-metrics-guestos-vm-cloud-service-classic.md)
- 
-

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 01/13/2021
-ms.openlocfilehash: 4ed5a26e1f871f7ac5fd8f29f0a66bc39a8013a1
-ms.sourcegitcommit: b85ce02785edc13d7fb8eba29ea8027e614c52a2
+ms.date: 02/18/2021
+ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/03/2021
-ms.locfileid: "99507241"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101702480"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -282,7 +282,7 @@ Para a referência completa sobre cada função, consulte a [lista alfabética](
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Retornar o corpo de uma parte específica na saída de uma ação que tem várias partes. |
 | [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Retornar a saída de uma ação em runtime. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Retorna o valor de um parâmetro descrito na definição de fluxo de trabalho. |
-| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retorna as entradas e as saídas de todas as ações que estão dentro da ação no escopo especificada, como `For_each`, `Until` e `Scope`. |
+| [result](../logic-apps/workflow-definition-language-functions-reference.md#result) | Retornar as entradas e saídas das ações de nível superior dentro da ação com escopo especificado, como `For_each` , `Until` e `Scope` . |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Retornar a saída de um gatilho em runtime ou de outros pares de nome e valor JSON. Confira também [triggerOutputs](#triggerOutputs) e [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Retornar a saída `body` de um gatilho em runtime. Confira [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
 | [triggerFormDataValue](../logic-apps/workflow-definition-language-functions-reference.md#triggerFormDataValue) | Retornar um único valor correspondente a um nome de chave nas saídas dos gatilhos *form-data* ou *form-encoded*. |
@@ -1136,20 +1136,20 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
+| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
 
 Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` :
 
-| Valor de entrada | Type | Valor retornado |
+| Valor de entrada | Tipo | Retornar valor |
 | ----------- | ---------- | ---------------------- |
 | `bool(1)` | Integer | `true` |
 | `bool(0)` | Integer    | `false` |
 | `bool(-1)` | Integer | `true` |
 | `bool('true')` | String | `true` |
-| `bool('false')` | Cadeia de caracteres | `false` |
+| `bool('false')` | String | `false` |
 
 <a name="coalesce"></a>
 
@@ -3451,7 +3451,12 @@ Este é o objeto JSON atualizado:
 
 ### <a name="result"></a>result
 
-Retorna as entradas e as saídas de todas as ações que estão dentro da ação no escopo especificado, como uma ação `For_each`, `Until` ou `Scope`. Essa função é útil para retornar os resultados de uma ação com falha, de modo que você possa diagnosticar e tratar as exceções. Para obter mais informações, confira [Obter o contexto e os resultados de falhas](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
+Retorna os resultados das ações de nível superior na ação com escopo especificado, como uma `For_each` `Until` ação, ou `Scope` . A `result()` função aceita um único parâmetro, que é o nome do escopo, e retorna uma matriz que contém informações das ações de primeiro nível nesse escopo. Esses objetos de ação incluem os mesmos atributos que os retornados pela `actions()` função, como a hora de início da ação, a hora de término, o status, as entradas, as IDs de correlação e as saídas.
+
+> [!NOTE]
+> Essa função retorna informações *apenas* das ações de primeiro nível na ação com escopo e não de ações aninhadas mais profundas, como ações de alternância ou condição.
+
+Por exemplo, você pode usar essa função para obter os resultados de ações com falha para que você possa diagnosticar e manipular exceções. Para obter mais informações, confira [Obter o contexto e os resultados de falhas](../logic-apps/logic-apps-exception-handling.md#get-results-from-failures).
 
 ```
 result('<scopedActionName>')
@@ -3459,17 +3464,17 @@ result('<scopedActionName>')
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*scopedActionName*> | Sim | String | O nome da ação no escopo da qual as entradas e as saídas de todas as ações internas serão retornadas |
+| <*scopedActionName*> | Sim | String | O nome da ação com escopo no qual você deseja as entradas e saídas das ações de nível superior dentro desse escopo |
 ||||
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| <*array-object*> | Objeto Array | Uma matriz que contém matrizes de entradas e saídas de cada ação que é exibida dentro da ação no escopo especificada |
+| <*array-object*> | Objeto Array | Uma matriz que contém matrizes de entradas e saídas de cada ação de nível superior dentro do escopo especificado |
 ||||
 
 *Exemplo*
 
-Este exemplo retorna as entradas e as saídas de cada iteração de uma ação HTTP dentro de um loop `For_each` usando a função `result()` na ação `Compose`:
+Este exemplo retorna as entradas e saídas de cada iteração de uma ação HTTP dentro de um `For_each` loop usando a `result()` função na `Compose` ação:
 
 ```json
 {

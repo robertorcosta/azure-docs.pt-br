@@ -3,12 +3,12 @@ title: Limites e cotas de assinatura do Azure
 description: Fornece uma lista de assinaturas comuns do Azure e limites de serviço, cotas e restrições. Este artigo inclui informações sobre como aumentar os limites juntamente com os valores máximos.
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5d003392eeeca56bbfb0033db22e6bde4ae5e136
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: fd9f8c9fff60ea9f7c24eb5d6f35542a197fe366
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520674"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734006"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 
@@ -187,6 +187,10 @@ Os valores mais recentes para Azure Machine Learning cotas de computação podem
 ## <a name="azure-signalr-service-limits"></a>Limites do serviço de Signaler do Azure
 
 [!INCLUDE [signalr-service-limits](../../../includes/signalr-service-limits.md)]
+
+## <a name="azure-vmware-solution-limits"></a>Limites da solução VMware do Azure
+
+[!INCLUDE [azure-vmware-solutions-limits](../../azure-vmware/includes/azure-vmware-solutions-limits.md)]
 
 ## <a name="backup-limits"></a>Limites do Backup
 
@@ -443,7 +447,7 @@ Há limites por assinatura para implantar recursos usando Galerias de Imagens Co
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 * [Entender os limites e as aumentos do Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Tamanhos de máquina virtual e serviço de nuvem para o Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

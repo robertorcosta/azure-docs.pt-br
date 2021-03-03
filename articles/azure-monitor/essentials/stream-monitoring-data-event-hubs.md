@@ -7,12 +7,12 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.subservice: ''
-ms.openlocfilehash: e541869d040cc1eead2d295583c42016b64d5edb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: db8f8628f77ef2a04a7e6d42d6470f254e458e01
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605529"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101708077"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmitir dados de monitoramento do Azure para um hub de eventos ou parceiro externo
 
@@ -48,20 +48,19 @@ Para dados que você não pode transmitir diretamente para um hub de eventos, vo
 
 O roteamento dos dados de monitoramento para um hub de eventos com o Azure Monitor permite que você integre facilmente com as ferramentas de monitoramento e SIEM externos. Exemplos de ferramentas com integração de Azure Monitor incluem o seguinte:
 
-| Ferramenta | Hospedado no Azure | Description |
+| Ferramenta | Hospedado no Azure | Descrição |
 |:---|:---| :---|
-|  IBM QRadar | No | O Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](https://www.ibm.com/support). Você pode saber mais sobre a integração com o Azure em [configuração do QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
-| Splunk | No | [Microsoft Azure Add-On para Splunk](https://splunkbase.splunk.com/app/3757/) é um projeto de código-fonte aberto disponível no splunkbase. <br><br> Se você não puder instalar um complemento em sua instância do Splunk, se, por exemplo, estiver usando um proxy ou em execução na nuvem do Splunk, você poderá encaminhar esses eventos para o coletor de eventos HTTP do Splunk usando o [Azure function para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), que é disparado por novas mensagens no Hub de eventos. |
-| SumoLogic | No | As instruções para configurar o SumoLogic para consumir dados de um hub de eventos estão disponíveis em [coletar logs para o aplicativo de auditoria do Azure do hub de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
-| ArcSight | No | O conector inteligente do hub de eventos ArcSight do Azure está disponível como parte da [coleção de conectores inteligentes do ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
-| Servidor syslog | No | Se você quiser transmitir dados Azure Monitor diretamente para um servidor syslog, poderá usar uma [solução baseada em uma função do Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
-| LogRhythm | No| As instruções para configurar o LogRhythm para coletar logs de um hub de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
-|Logz.io | Yes | Para obter mais informações, consulte [introdução ao monitoramento e registro em log usando o LOGZ.Io para aplicativos Java em execução no Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
+|  IBM QRadar | Não | O Microsoft Azure DSM e protocolo de Hub de Eventos do Microsoft Azure estão disponíveis para download do [site de suporte da IBM](https://www.ibm.com/support). Você pode saber mais sobre a integração com o Azure em [configuração do QRADAR DSM](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0). |
+| Splunk | Não | [Microsoft Azure Add-On para Splunk](https://splunkbase.splunk.com/app/3757/) é um projeto de código-fonte aberto disponível no splunkbase. <br><br> Se você não puder instalar um complemento em sua instância do Splunk, se, por exemplo, estiver usando um proxy ou em execução na nuvem do Splunk, você poderá encaminhar esses eventos para o coletor de eventos HTTP do Splunk usando o [Azure function para Splunk](https://github.com/Microsoft/AzureFunctionforSplunkVS), que é disparado por novas mensagens no Hub de eventos. |
+| SumoLogic | Não | As instruções para configurar o SumoLogic para consumir dados de um hub de eventos estão disponíveis em [coletar logs para o aplicativo de auditoria do Azure do hub de eventos](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub). |
+| ArcSight | Não | O conector inteligente do hub de eventos ArcSight do Azure está disponível como parte da [coleção de conectores inteligentes do ArcSight](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852). |
+| Servidor syslog | Não | Se você quiser transmitir dados Azure Monitor diretamente para um servidor syslog, poderá usar uma [solução baseada em uma função do Azure](https://github.com/miguelangelopereira/azuremonitor2syslog/).
+| LogRhythm | Não| As instruções para configurar o LogRhythm para coletar logs de um hub de eventos estão disponíveis [aqui](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/). 
+|Logz.io | Sim | Para obter mais informações, consulte [introdução ao monitoramento e registro em log usando o LOGZ.Io para aplicativos Java em execução no Azure](/azure/developer/java/fundamentals/java-get-started-with-logzio)
 
-Outros parceiros também podem estar disponíveis. Para obter uma lista mais completa de todos os parceiros de Azure Monitor e seus recursos, consulte [integrações de parceiro Azure monitor](../platform/partners.md).
+Outros parceiros também podem estar disponíveis. Para obter uma lista mais completa de todos os parceiros de Azure Monitor e seus recursos, consulte [integrações de parceiro Azure monitor](../partners.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Arquivar o log de atividades em uma conta de armazenamento](./activity-log.md#legacy-collection-methods)
 * [Leia a visão geral do log de atividades do Azure](../essentials/platform-logs-overview.md)
 * [Configurar um alerta com base em um evento do log de atividades](../alerts/alerts-log-webhook.md)
-

@@ -5,12 +5,12 @@ author: nicolela
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
-ms.openlocfilehash: 8d5356f7fd2661d9743d1058a147a0b20f62850e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 530597a72b19afa1e80b5c7640b105d86479b1c1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373701"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740096"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Configurar um laboratório para o ArcMap\ArcGIS desktop
 
@@ -24,7 +24,7 @@ Depois de obter uma assinatura do Azure, você poderá criar uma nova conta de l
 
 ### <a name="lab-account-settings"></a>Configurações de conta do laboratório
 
-Habilite as configurações de conta do laboratório conforme descrito na tabela a seguir.  Para obter mais informações sobre como habilitar as imagens do Azure Marketplace, consulte [especificar as imagens do Azure Marketplace disponíveis para os criadores de laboratório](https://docs.microsoft.com/azure/lab-services/specify-marketplace-images).
+Habilite as configurações de conta do laboratório conforme descrito na tabela a seguir.  Para obter mais informações sobre como habilitar as imagens do Azure Marketplace, consulte [especificar as imagens do Azure Marketplace disponíveis para os criadores de laboratório](./specify-marketplace-images.md).
 
 | Configuração da conta de laboratório | Instruções |
 | ------------------- | ------------ |
@@ -34,7 +34,7 @@ Habilite as configurações de conta do laboratório conforme descrito na tabela
 
 Um tipo de licenciamento que o ArcGIS Desktop oferece é [licenças de uso simultâneas](https://desktop.arcgis.com/en/license-manager/latest/license-manager-basics.htm).  Isso requer que você instale o Gerenciador de licenças do ArcGIS em seu servidor de licença.  O Gerenciador de licenças controla o número de cópias de software que podem ser executadas ao mesmo tempo.  Para obter mais informações sobre como configurar o Gerenciador de licenças em seu servidor, consulte o [Guia do Gerenciador de licenças](https://desktop.arcgis.com/en/license-manager/latest/welcome.htm).
 
-O servidor de licença normalmente está localizado na sua rede local ou hospedado em uma máquina virtual do Azure em uma rede virtual do Azure.  Depois que o servidor de licença estiver configurado, você precisará [emparelhar a rede virtual](https://docs.microsoft.com/azure/lab-services/how-to-connect-peer-virtual-network) com sua [conta de laboratório](https://docs.microsoft.com/azure/lab-services/tutorial-setup-lab-account).  Você precisa fazer o emparelhamento de rede antes de criar o laboratório para que suas VMs de laboratório possam acessar o servidor de licença e vice-versa.
+O servidor de licença normalmente está localizado na sua rede local ou hospedado em uma máquina virtual do Azure em uma rede virtual do Azure.  Depois que o servidor de licença estiver configurado, você precisará [emparelhar a rede virtual](./how-to-connect-peer-virtual-network.md) com sua [conta de laboratório](./tutorial-setup-lab-account.md).  Você precisa fazer o emparelhamento de rede antes de criar o laboratório para que suas VMs de laboratório possam acessar o servidor de licença e vice-versa.
 
 Para obter mais informações, consulte [configurar um servidor de licença como um recurso compartilhado](how-to-create-a-lab-with-shared-resource.md).
 

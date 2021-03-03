@@ -4,12 +4,12 @@ description: Saiba quais métricas são usadas comumente para fazer o dimensiona
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: f358efb8f99066dc1d7a564ad36d6ed1290853e0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4b763f39d3b88a7884e89dddbc2c483c1bb84d31
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605789"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717767"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Métricas comuns de dimensionamento automático do Azure Monitor
 
@@ -33,8 +33,8 @@ Se qualquer um dos casos acima for verdadeiro, consulte [Usar o PowerShell para 
 ### <a name="host-metrics-for-resource-manager-based-windows-and-linux-vms"></a>Métricas de host para VMs Windows e Linux baseadas no Resource Manager
 As seguintes métricas de nível de host são emitidas por padrão para a VM do Azure e VMSS em instâncias do Windows e Linux. Essas métricas descrevem sua VM do Azure, mas são coletadas do host de VM do Azure em vez de por meio do agente instalado na VM convidada. Você pode usar essas métricas em regras de dimensionamento automático.
 
-- [Métricas de host para VMs Windows e Linux baseadas no Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachines)
-- [Métricas de host para Conjuntos de Dimensionamento de VMs Windows e Linux baseadas no Resource Manager](../platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
+- [Métricas de host para VMs Windows e Linux baseadas no Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachines)
+- [Métricas de host para Conjuntos de Dimensionamento de VMs Windows e Linux baseadas no Resource Manager](../essentials/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
 ### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>Métricas do SO convidado para VMs do Windows baseadas no Gerenciador de recursos
 Quando você cria uma VM no Azure, o diagnóstico é habilitado usando a extensão de Diagnóstico. A extensão de diagnóstico emite um conjunto de métricas extraído de dentro da VM. Isso significa que você pode desativar o dimensionamento automático de métricas que não são emitidas por padrão.
@@ -186,4 +186,3 @@ Para Conjuntos de Dimensionamento de VMs, você pode atualizar a configuração 
 > Para o Barramento de Serviço, o conceito de grupo de recursos não existe, mas o Azure Resource Manager cria um grupo de recursos padrão por região. O grupo de recursos geralmente está no formato 'Default - ServiceBus-[região]'. Por exemplo, 'Default-ServiceBus-EastUS', 'Default-ServiceBus-WestUS', 'Default-ServiceBus-AustraliaEast' etc.
 >
 >
-

@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 0374c7d304a40031919bae8816d31477e742b9c8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606321"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717138"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
@@ -26,7 +26,7 @@ Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço.
 * O [Dependency Agent](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se o Mapa do Serviço já foi implantado, também será possível exibir os mapas no Azure Monitor para VMs, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, consulte [visão geral do Azure Monitor para VMs](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de Azure Monitor para VMs, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms)a seguir.
+>Se você já implantou o Mapa do Serviço, agora você também pode exibir seus mapas no VM insights, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, confira [visão geral do VM insights](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de informações de VM, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms)a seguir.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -154,7 +154,7 @@ Clique no menu de reticências próximo ao nome do grupo na Lista de Grupos.
 
 Alguns processos possuem funções específicas em computadores: servidores Web, servidores de aplicativos, banco de dados, etc. O Mapa do Serviço adiciona ao processo e às caixas do computador ícones de função para ajudar a identificar rapidamente a função de um processo ou servidor.
 
-| Ícone de função | Description |
+| Ícone de função | Descrição |
 |:--|:--|
 | ![Servidor Web](media/service-map/role-web-server.png) | Servidor Web |
 | ![Servidor de aplicativos](media/service-map/role-application-server.png) | Servidor de aplicativos |
@@ -241,7 +241,7 @@ O Mapa do Serviço integra-se à Pesquisa de Logs para mostrar uma contagem de t
 
 ## <a name="service-desk-integration"></a>Integração da Central de Serviços
 
-A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](../platform/itsmc-overview.md).
+A integração do Mapa do Serviço com o Conector de Gerenciamento de Serviços de TI é automática quando as duas soluções estão habilitadas e configuradas no espaço de trabalho do Log Analytics. A integração no Mapa do Serviço é rotulada "Central de Serviços." Para obter mais informações, consulte [Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI](../alerts/itsmc-overview.md).
 
 O painel **Central de Serviços do Computador** lista todos os eventos de Gerenciamento de Serviço de TI para o servidor selecionado no intervalo de tempo selecionado. Se houver itens atuais, o servidor exibirá um ícone e o painel da Central de Serviços do Computador irá listá-los.
 
@@ -304,7 +304,7 @@ O painel **Atualizações do Computador** exibe dados da solução de Gerenciame
 
 ## <a name="log-analytics-records"></a>Registros do Log Analytics
 
-Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../log-query/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
+Dados de inventário do processo e do computador do Mapa do Serviço estão disponíveis para [pesquisa](../logs/log-query-overview.md) no Log Analytics. Você pode aplicar esses dados a cenários que incluem planejamento de migração, análise de capacidade, descoberta e solução de problemas de desempenho sob demanda.
 
 Um registro é gerado por hora para cada computador e processo exclusivo, além dos registros que são gerados quando um processo ou computador inicia ou é integrado ao Mapa do Serviço. Esses registros têm as propriedades descritas nas tabelas a seguir. Os campos e valores nos eventos ServiceMapComputer_CL mapeiam para campos do recurso do Computador na API do ServiceMap do Azure Resource Manager. Os campos e valores nos eventos ServiceMapProcess_CL mapeiam para os campos do recurso do Processo na API do ServiceMap do Azure Resource Manager. O campo ResourceName_s corresponde ao campo de nome no recurso do Gerenciador de Recursos correspondente. 
 
@@ -550,7 +550,7 @@ Para obter mais informações sobre a coleta e uso de dados, consulte a [Políti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre [pesquisas de logs](../log-query/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
+Saiba mais sobre [pesquisas de logs](../logs/log-query-overview.md) no Log Analytics para recuperar dados coletados pelo Mapa do Serviço.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

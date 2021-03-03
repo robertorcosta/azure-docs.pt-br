@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/25/2021
+ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: ebadfc889eb648b734747e5a2a45662e82aab643
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 0b4a31200b99062a72a02ca62ac8f3bf1206f9c9
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546798"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101722085"
 ---
 # <a name="connect-to-azure-resource-manager-on-your-azure-stack-edge-pro-device"></a>Conectar-se a Azure Resource Manager em seu dispositivo do Azure Stack Edge pro
 
@@ -34,7 +34,7 @@ Azure Resource Manager fornece uma camada de gerenciamento consistente para cham
 
 A tabela a seguir resume os vários pontos de extremidade expostos em seu dispositivo, os protocolos com suporte e as portas para acessar esses pontos de extremidade. Ao longo do artigo, você encontrará referências a esses pontos de extremidade.
 
-| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usada para |
+| # | Ponto de extremidade | Protocolos com suporte | Porta usada | Usado para |
 | --- | --- | --- | --- | --- |
 | 1. | Azure Resource Manager | HTTPS | 443 | Para se conectar ao Azure Resource Manager para automação |
 | 2. | Serviço de token de segurança | HTTPS | 443 | Para autenticar por meio de tokens de acesso e de atualização |
@@ -99,10 +99,10 @@ Para uso somente de teste e desenvolvimento, você pode usar o Windows PowerShel
 
 3. Para todos esses certificados, verifique se o nome da entidade e o nome alternativo da entidade estão em conformidade com as seguintes diretrizes:
 
-    |Type |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
+    |Tipo |Nome da entidade (SN)  |SAN (nome alternativo da entidade)  |Exemplo de nome da entidade |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Armazenamento de Blobs|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Armazenamento de blob|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificado único de várias SANs para ambos os pontos de extremidade|`<Device name>.<dnsdomain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 Para obter mais informações sobre certificados, acesse como [gerenciar certificados](azure-stack-edge-gpu-manage-certificates.md).
@@ -130,7 +130,7 @@ O cliente do Windows no qual você invocará o Azure Resource Manager APIs preci
 
 O cliente do Windows deve atender aos seguintes pré-requisitos:
 
-1. Execute o PowerShell versão 5,0. Você deve ter o PowerShell versão 5,0 ou superior. Para verificar a versão do PowerShell em seu sistema, execute o seguinte cmdlet:
+1. Execute o PowerShell versão 5,0. Você deve ter o PowerShell versão 5,0. Não há suporte para o PowerShell Core. Para verificar a versão do PowerShell em seu sistema, execute o seguinte cmdlet:
 
     ```powershell
     $PSVersionTable.PSVersion

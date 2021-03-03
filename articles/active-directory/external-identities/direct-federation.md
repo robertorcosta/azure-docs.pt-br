@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d07aa283c40a54ba02faa13b07e466e519bd68ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 598cbf303c8a87675833b8d87f05055771e46f55
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649414"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101687236"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>Federação direta com AD FS e provedores de terceiros para usuários convidados (versão prévia)
 
@@ -42,13 +42,7 @@ Com a federação direta, os usuários convidados usam as respectivas contas org
 
 ## <a name="sign-in-endpoints"></a>Pontos de extremidade de entrada
 
-Os usuários convidados da Federação direta agora podem entrar em seus aplicativos internos multilocatários ou da Microsoft usando um [ponto de extremidade comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (em outras palavras, uma URL de aplicativo geral que não inclui o contexto do locatário). Veja a seguir exemplos de pontos de extremidade comuns:
-
-- `https://teams.microsoft.com`
-- `https://myapps.microsoft.com`
-- `https://portal.azure.com`
-
-Durante o processo de entrada, o usuário convidado escolhe **as opções de entrada** e, em seguida, seleciona **entrar em uma organização**. Em seguida, o usuário digita o nome da sua organização e continua entrando usando suas próprias credenciais.
+Os usuários convidados da Federação direta agora podem entrar em seus aplicativos internos multilocatários ou da Microsoft usando um [ponto de extremidade comum](redemption-experience.md#redemption-and-sign-in-through-a-common-endpoint) (em outras palavras, uma URL de aplicativo geral que não inclui o contexto do locatário). Durante o processo de entrada, o usuário convidado escolhe **as opções de entrada** e, em seguida, seleciona **entrar em uma organização**. Em seguida, o usuário digita o nome da sua organização e continua entrando usando suas próprias credenciais.
 
 Os usuários convidados de Federação direta também podem usar pontos de extremidade de aplicativo que incluem suas informações de locatário, por exemplo:
 

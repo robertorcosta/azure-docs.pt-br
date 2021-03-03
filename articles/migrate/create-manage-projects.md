@@ -6,18 +6,18 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
-ms.openlocfilehash: 25572a4cc342277289459891c9bee2fa7f1cccd7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 0656a9eabb692453331c5c4b229ce26f41ecfdf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589092"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101730194"
 ---
 # <a name="create-and-manage-azure-migrate-projects"></a>Criar e gerenciar projetos de Migrações para Azure
 
 Este artigo descreve como criar, gerenciar e excluir projetos de [migrações para Azure](migrate-services-overview.md) . 
 
-A migração do Azure clássica está se aposentando em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica de migrações para Azure não terá mais suporte e os metadados de inventário no projeto clássico serão excluídos. Se você estiver usando projetos de migração do Azure clássicos, exclua esses projetos e siga as etapas para criar um novo projeto de migrações para Azure. Você não pode atualizar projetos ou componentes de migração do Azure clássicos para as migrações para Azure. Veja as [perguntas frequentes](https://docs.microsoft.com/azure/migrate/resources-faq#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar o processo de criação.
+As Migrações para Azure (versão clássica) serão desativadas em fevereiro de 2024. Depois de fevereiro de 2024, a versão clássica de migrações para Azure não terá mais suporte e os metadados de inventário no projeto clássico serão excluídos. Se você estiver usando projetos de migração do Azure clássicos, exclua esses projetos e siga as etapas para criar um novo projeto de migrações para Azure. Você não pode atualizar projetos ou componentes de migração do Azure clássicos para as migrações para Azure. Veja as [perguntas frequentes](./resources-faq.md#i-have-a-project-with-the-previous-classic-experience-of-azure-migrate-how-do-i-start-using-the-new-version) antes de iniciar o processo de criação.
 
 Um projeto das Migrações para Azure é usado para armazenar metadados de descoberta, avaliação e migração coletados do ambiente que você está avaliando ou migrando. Em um projeto, você pode acompanhar os ativos descobertos, criar avaliações e orquestrar as migrações para o Azure.  
 

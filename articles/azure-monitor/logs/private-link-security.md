@@ -6,12 +6,12 @@ ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 55a3cd6b02b9eeb774a084552c086acbfb9966cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e9431aac203b831a0ffe22b835acf4677061780c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605382"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101707690"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -157,9 +157,53 @@ Agora que os recursos estão conectados a seu AMPLS, crie um ponto de extremidad
  
    e.    Selecione **Criar**. 
 
-    ![Captura de tela com a opção Criar Ponto de Extremidade Privado2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
+    ![Captura de tela dos detalhes de selecionar ponto de extremidade particular.](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
 Agora você criou um novo ponto de extremidade privado que está conectado a este AMPLS.
+
+## <a name="review-and-validate-your-private-link-setup"></a>Examine e valide sua configuração de link privado
+
+### <a name="reviewing-your-endpoints-dns-settings"></a>Examinando as configurações de DNS do ponto de extremidade
+O ponto de extremidade privado que você criou agora deve ter quatro zonas DNS configuradas:
+
+[![Captura de tela das zonas DNS do ponto de extremidade privado.](./media/private-link-security/private-endpoint-dns-zones.png)](./media/private-link-security/private-endpoint-dns-zones-expanded.png#lightbox)
+
+* privatelink-monitor-Azure-com
+* privatelink-OMS-opinsights-Azure-com
+* privatelink-ODS-opinsights-Azure-com
+* privatelink-AgentSvc-Azure-Automation-net
+
+Cada uma dessas zonas mapeia Azure Monitor pontos de extremidade específicos para IPs privados do pool de IPs da VNet do ponto de extremidade privado.
+
+#### <a name="privatelink-monitor-azure-com"></a>Privatelink-monitor-Azure-com
+Essa zona abrange os pontos de extremidade globais usados pelo Azure Monitor, o que significa que esses pontos de extremidade atendem a solicitações que consideram todos os recursos, não um específico. Esta zona deve ter pontos de extremidade mapeados para:
+* `in.ai` -(Application Insights ponto de extremidade de ingestão, você verá uma entrada global e uma regional
+* `api` -Application Insights e Log Analytics ponto de extremidade de API
+* `live` -Ponto de extremidade de métricas Application Insights Live
+* `profiler` -Ponto de extremidade do Application Insights Profiler
+* `snapshot`-Application Insights [ ![ captura de tela do ponto de extremidade de instantâneos do DNS privado monitor de zona-Azure-com.](./media/private-link-security/dns-zone-privatelink-monitor-azure-com.png)](./media/private-link-security/dns-zone-privatelink-monitor-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-oms-opinsights-azure-com"></a>privatelink-OMS-opinsights-Azure-com
+Esta zona aborda o mapeamento específico do espaço de trabalho para pontos de extremidade do OMS. Você deve ver uma entrada para cada espaço de trabalho vinculado ao AMPLS conectado a esse ponto de extremidade privado.
+[![Captura de tela da zona de DNS privado OMS-opinsights-Azure-com.](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-oms-opinsights-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-ods-opinsights-azure-com"></a>privatelink-ODS-opinsights-Azure-com
+Esta zona aborda o mapeamento específico do espaço de trabalho para os pontos de extremidade do ODS – o ponto final de ingestão de Log Analytics. Você deve ver uma entrada para cada espaço de trabalho vinculado ao AMPLS conectado a esse ponto de extremidade privado.
+[![Captura de tela da zona de DNS privado ODS-opinsights-Azure-com.](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com.png)](./media/private-link-security/dns-zone-privatelink-ods-opinsights-azure-com-expanded.png#lightbox)
+
+#### <a name="privatelink-agentsvc-azure-automation-net"></a>privatelink-AgentSvc-Azure-Automation-net
+Esta zona aborda o mapeamento específico do espaço de trabalho para os pontos de extremidade de automação do serviço do Agent. Você deve ver uma entrada para cada espaço de trabalho vinculado ao AMPLS conectado a esse ponto de extremidade privado.
+[![Captura de tela de DNS privado agente de zona svc-Azure-Automation-net.](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net.png)](./media/private-link-security/dns-zone-privatelink-agentsvc-azure-automation-net-expanded.png#lightbox)
+
+### <a name="validating-you-are-communicating-over-a-private-link"></a>Validando você está se comunicando por meio de um link privado
+* Para validar suas solicitações agora são enviadas por meio do ponto de extremidade privado e para os pontos de extremidades mapeados por IP privado, você pode examiná-las com um rastreamento de rede para ferramentas ou até mesmo seu navegador. Por exemplo, ao tentar consultar seu espaço de trabalho ou aplicativo, verifique se a solicitação é enviada para o IP privado mapeado para o ponto de extremidade da API, neste exemplo, é *172.17.0.9*.
+
+    Observação: alguns navegadores podem usar outras configurações de DNS (consulte [configurações de DNS do navegador](#browser-dns-settings)). Verifique se as configurações de DNS se aplicam.
+
+* Para certificar-se de que seu espaço de trabalho ou componente não está recebendo solicitações de redes públicas (não conectadas por meio de AMPLS), defina os sinalizadores de ingestão pública e consulta do recurso como *não* , conforme explicado em [gerenciar o acesso de fora dos escopos de links privados](#manage-access-from-outside-of-private-links-scopes).
+
+* De um cliente em sua rede protegida, use `nslookup` para qualquer um dos pontos de extremidade listados em suas zonas DNS. Ele deve ser resolvido pelo servidor DNS para os IPs privados mapeados em vez dos IPs públicos usados por padrão.
+
 
 ## <a name="configure-log-analytics"></a>Configurar a análise de logs
 
@@ -170,7 +214,7 @@ Vá para o portal do Azure. No menu de recursos do espaço de trabalho Log Analy
 ### <a name="connected-azure-monitor-private-link-scopes"></a>Escopos de link privado Azure Monitor conectados
 Todos os escopos conectados ao espaço de trabalho aparecem nesta tela. Conectar-se a escopos (AMPLSs) permite o tráfego de rede da rede virtual conectada a cada AMPLS para alcançar este espaço de trabalho. A criação de uma conexão aqui tem o mesmo efeito que configurá-la no escopo, como fizemos para [conectar Azure monitor recursos](#connect-azure-monitor-resources). Para adicionar uma nova conexão, selecione **Adicionar** e selecione o escopo do link Azure monitor privado. Selecione **aplicar** para conectar-se. Observe que um espaço de trabalho pode se conectar a 5 objetos AMPLS, conforme mencionado em [restrições e limitações](#restrictions-and-limitations). 
 
-### <a name="access-from-outside-of-private-links-scopes"></a>Acesso de fora dos escopos de links privados
+### <a name="manage-access-from-outside-of-private-links-scopes"></a>Gerenciar o acesso de fora dos escopos de links privados
 As configurações na parte inferior dessa página controlam o acesso de redes públicas, o que significa que as redes não estão conectadas por meio dos escopos listados acima. A configuração **permitir acesso à rede pública para ingestão** para **não** bloqueia a ingestão de logs de computadores fora dos escopos conectados. A configuração **permitir acesso à rede pública para consultas** para **não** bloquear consultas provenientes de computadores fora dos escopos. Isso inclui consultas executadas por meio de pastas de trabalho, painéis, experiências de cliente baseadas em API, informações no portal do Azure e muito mais. As experiências em execução fora do portal do Azure e essa consulta Log Analytics dados também precisam estar em execução na VNET vinculada ao privado.
 
 ### <a name="exceptions"></a>Exceções
@@ -207,7 +251,7 @@ Em segundo lugar, você pode controlar como esse recurso pode ser acessado de fo
 
 Será necessário adicionar ao link privado recursos que hospedem as cargas de trabalho monitoradas. Confira esta [documentação](../../app-service/networking/private-endpoint.md) para saber como fazer isso nos Serviços de Aplicativos.
 
-Essa restrição de acesso se aplica apenas aos dados no recurso Application Insights. Quaisquer alterações, inclusive de ativação/desativação das configurações de acesso, são gerenciadas pelo Azure Resource Manager. Como alternativa, é possível restringir o acesso ao Resource Manager usando as funções, permissões, controles de rede e auditoria apropriados. Para obter mais informações, confira [Funções, permissões e segurança do Azure Monitor](../roles-permissions-security.md).
+Essa restrição de acesso se aplica apenas aos dados no recurso Application Insights. No entanto, as alterações de configuração, incluindo a ativação ou desativação dessas configurações de acesso, são gerenciadas pelo Azure Resource Manager. Portanto, você deve restringir o acesso ao Resource Manager usando as funções, permissões, controles de rede, e auditoria apropriados. Para obter mais informações, confira [Funções, permissões e segurança do Azure Monitor](../roles-permissions-security.md).
 
 > [!NOTE]
 > Para proteger totalmente o Application Insights baseado no workspace, é necessário bloquear o acesso ao recurso do Application Insights e ao workspace subjacente do Log Analytics.
@@ -218,14 +262,14 @@ Essa restrição de acesso se aplica apenas aos dados no recurso Application Ins
 Conforme explicado em [planejando a configuração do link privado](#planning-your-private-link-setup), a configuração de um link privado até mesmo para um único recurso afeta todos os Azure monitor recursos nessas redes e em outras redes que compartilham o mesmo DNS. Isso pode tornar o processo de integração desafiador. Considere as seguintes opções:
 
 * Toda a abordagem mais simples e segura é adicionar todos os seus componentes de Application Insights ao AMPLS. Para os componentes que você ainda deseja acessar de outras redes, deixe os sinalizadores "permitir acesso público à Internet para ingestão/consulta" definidos como Sim (o padrão).
-* Isolar redes – se você estiver (ou puder se alinhar) usando o spoke vnets, siga as orientações em [topologia de rede hub-spoke no Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Em seguida, configure as configurações de vínculo privado separadas no VNets de spoke relevante. Lembre-se também de separar zonas DNS, já que o compartilhamento de zonas DNS com outras redes spoke causará [substituições de DNS](#the-issue-of-dns-overrides).
+* Isolar redes – se você estiver (ou puder se alinhar) usando o spoke vnets, siga as orientações em [topologia de rede hub-spoke no Azure](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Em seguida, configure as configurações de vínculo privado separadas no VNets de spoke relevante. Lembre-se também de separar zonas DNS, já que o compartilhamento de zonas DNS com outras redes spoke causará [substituições de DNS](#the-issue-of-dns-overrides).
 * Usar zonas DNS personalizadas para aplicativos específicos – essa solução permite que você acesse os componentes selecionados Application Insights por meio de um link privado, mantendo todo o tráfego nas rotas públicas.
-    - Configure uma [zona DNS privada personalizada](https://docs.microsoft.com/azure/private-link/private-endpoint-dns)e dê a ela um nome exclusivo, como Internal.monitor.Azure.com
+    - Configure uma [zona DNS privada personalizada](../../private-link/private-endpoint-dns.md)e dê a ela um nome exclusivo, como Internal.monitor.Azure.com
     - Criar um AMPLS e um ponto de extremidade privado e optar por **não** integrar automaticamente com o DNS privado
-    - Acesse o ponto de extremidade privado-> configuração de DNS e examine o mapeamento sugerido de FQDNs semelhante a este: ![ captura de tela da configuração de zona DNS sugerida](./media/private-link-security/private-endpoint-fqdns.png)
+    - Acesse o ponto de extremidade privado-> configuração de DNS e examine o mapeamento sugerido de FQDNs.
     - Escolha Adicionar configuração e escolha a zona internal.monitor.azure.com que você acabou de criar
     - Adicionar registros para a ![ captura de tela acima da zona DNS configurada](./media/private-link-security/private-endpoint-global-dns-zone.png)
-    - Vá para o componente Application Insights e copie sua [cadeia de conexão](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string).
+    - Vá para o componente Application Insights e copie sua [cadeia de conexão](../app/sdk-connection-string.md).
     - Aplicativos ou scripts que desejam chamar esse componente sobre um link privado devem usar a cadeia de conexão com EndpointSuffix = Internal. monitor. Azure. com
 * Mapear pontos de extremidade por meio de arquivos hosts em vez de DNS – para ter um link privado acesso somente de um computador/VM específico em sua rede:
     - Configurar um AMPLS e um ponto de extremidade privado e optar por **não** integrar automaticamente com o DNS privado 
@@ -280,7 +324,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 Para usar as experiências do portal do Azure Monitor, como Application Insights e Log Analytics, você precisa permitir que o portal do Azure e as extensões do Azure Monitor estejam acessíveis nas redes privadas. Adicione as [marcas de serviço](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty** e **AzureFrontDoor. frontend** ao seu grupo de segurança de rede.
 
 ### <a name="querying-data"></a>Consultando dados
-O [ `externaldata` operador](https://docs.microsoft.com/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) não tem suporte em um link privado, pois lê dados de contas de armazenamento, mas não garante que o armazenamento seja acessado em particular.
+O [ `externaldata` operador](/azure/data-explorer/kusto/query/externaldata-operator?pivots=azuremonitor) não tem suporte em um link privado, pois lê dados de contas de armazenamento, mas não garante que o armazenamento seja acessado em particular.
 
 ### <a name="programmatic-access"></a>Acesso Programático
 

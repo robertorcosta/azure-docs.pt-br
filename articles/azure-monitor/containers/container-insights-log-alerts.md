@@ -1,18 +1,18 @@
 ---
-title: Alertas de log de Azure Monitor para contêineres | Microsoft Docs
-description: Este artigo descreve como criar alertas de log personalizados para utilização de memória e CPU de Azure Monitor para contêineres.
+title: Registrar em log os alertas de informações do contêiner | Microsoft Docs
+description: Este artigo descreve como criar alertas de log personalizados para utilização de memória e CPU de insights de contêiner.
 ms.topic: conceptual
 ms.date: 01/05/2021
-ms.openlocfilehash: 4239567c60afda6ca165e097562cb888c731f15a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605103"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101711188"
 ---
-# <a name="how-to-create-log-alerts-from-azure-monitor-for-containers"></a>Como criar alertas de log do Azure Monitor para contêineres
+# <a name="how-to-create-log-alerts-from-container-insights"></a>Como criar alertas de log de insights de contêiner
 
-Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de contêiner que são implantadas em clusters gerenciados ou autogerenciados do kubernetes. Para alertar sobre o que importa, este artigo descreve como criar alertas baseados em log para as seguintes situações com clusters AKS:
+O insights de contêiner monitora o desempenho de cargas de trabalho de contêiner que são implantadas em clusters gerenciados ou autogerenciados do kubernetes. Para alertar sobre o que importa, este artigo descreve como criar alertas baseados em log para as seguintes situações com clusters AKS:
 
 - Quando a utilização de CPU ou memória em nós de cluster excede um limite
 - Quando a utilização de CPU ou memória em qualquer contêiner dentro de um controlador excede um limite em comparação com um limite definido no recurso correspondente
@@ -20,9 +20,9 @@ Azure Monitor para contêineres monitora o desempenho de cargas de trabalho de c
 - Contagens de fase-Pod *com falha*, *pendentes*, *desconhecidas* ou *com* *êxito*
 - Quando o espaço livre em disco em nós de cluster excede um limite
 
-Para alertar sobre alta utilização de CPU ou memória ou pouco espaço livre em disco em nós de cluster, use as consultas que são fornecidas para criar um alerta de métrica ou um alerta de medição de métrica. Embora os alertas de métrica tenham menor latência que os alertas de log, os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alerta de log comparam um DateTime com o presente usando o operador *Now* e retornando uma hora. (Azure Monitor para contêineres armazena todas as datas no formato UTC (tempo Universal Coordenado).)
+Para alertar sobre alta utilização de CPU ou memória ou pouco espaço livre em disco em nós de cluster, use as consultas que são fornecidas para criar um alerta de métrica ou um alerta de medição de métrica. Embora os alertas de métrica tenham menor latência que os alertas de log, os alertas de log fornecem consulta avançada e maior sofisticação. As consultas de alerta de log comparam um DateTime com o presente usando o operador *Now* e retornando uma hora. (O contêiner de informações armazena todas as datas no formato UTC (tempo Universal Coordenado).)
 
-Se você não estiver familiarizado com alertas de Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../platform/alerts-overview.md) antes de iniciar. Para saber mais sobre alertas que usam consultas de log, consulte [alertas de log em Azure monitor](../alerts/alerts-unified-log.md). Para obter mais informações sobre alertas de métrica, consulte [alertas de métrica em Azure monitor](../alerts/alerts-metric-overview.md).
+Se você não estiver familiarizado com alertas de Azure Monitor, consulte [visão geral de alertas no Microsoft Azure](../alerts/alerts-overview.md) antes de iniciar. Para saber mais sobre alertas que usam consultas de log, consulte [alertas de log em Azure monitor](../alerts/alerts-unified-log.md). Para obter mais informações sobre alertas de métrica, consulte [alertas de métrica em Azure monitor](../alerts/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Consultas de pesquisa de log de utilização de recursos
 
@@ -275,7 +275,7 @@ InsightsMetrics
 
 ## <a name="create-an-alert-rule"></a>Criar uma regra de alerta
 
-Esta seção percorre a criação de uma regra de alerta de medição de métrica usando dados de desempenho de Azure Monitor para contêineres. Você pode usar esse processo básico com uma variedade de consultas de log para alertar sobre diferentes contadores de desempenho. Use uma das consultas de pesquisa de log fornecidas anteriormente para começar com o. Para criar usando um modelo do ARM, consulte [amostras de criação de alerta de log usando o modelo de recurso do Azure](../alerts/alerts-log-create-templates.md).
+Esta seção percorre a criação de uma regra de alerta de medição de métrica usando dados de desempenho de insights de contêiner. Você pode usar esse processo básico com uma variedade de consultas de log para alertar sobre diferentes contadores de desempenho. Use uma das consultas de pesquisa de log fornecidas anteriormente para começar com o. Para criar usando um modelo do ARM, consulte [amostras de criação de alerta de log usando o modelo de recurso do Azure](../alerts/alerts-log-create-templates.md).
 
 >[!NOTE]
 >O procedimento a seguir para criar uma regra de alerta para utilização de recursos de contêiner exige que você alterne para uma nova API de alertas de log, conforme descrito em [preferência de API de switch para alertas de log](../alerts/alerts-log-api-switch.md).
@@ -283,7 +283,7 @@ Esta seção percorre a criação de uma regra de alerta de medição de métric
 
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. No portal do Azure, procure e selecione **Workspaces do Log Analytics**.
-3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que oferece suporte a Azure Monitor para contêineres. 
+3. Na lista de espaços de trabalho do Log Analytics, selecione o espaço de trabalho que dá suporte a informações de contêiner. 
 4. No painel no lado esquerdo, selecione **logs** para abrir a página logs de Azure monitor. Use essa página para gravar e executar consultas de log do Azure.
 5. Na página **logs** , Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo consulta de **pesquisa** e, em seguida, selecione **executar** para validar os resultados. Se você não executar essa etapa, a opção **+ novo alerta** não estará disponível para seleção.
 6. Selecione **+ novo alerta** para criar um alerta de log.

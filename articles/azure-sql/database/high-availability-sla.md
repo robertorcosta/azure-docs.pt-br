@@ -12,12 +12,12 @@ author: emlisa
 ms.author: emlisa
 ms.reviewer: sstein, emlisa
 ms.date: 10/28/2020
-ms.openlocfilehash: 53b6b4f5d783029cb53de71fe3c47b8cb2d26968
-ms.sourcegitcommit: f377ba5ebd431e8c3579445ff588da664b00b36b
+ms.openlocfilehash: 5e84831798ec1c5f42facb04a25da9d8631b9d04
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99593411"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690576"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Alta disponibilidade para o banco de dados SQL do Azure e o SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -52,7 +52,7 @@ A configuração com redundância de zona para a camada de serviço de uso geral
 
 A configuração com redundância de zona para a camada de uso geral tem duas camadas:  
 
-- Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no PFS ZRS ( [compartilhamento de arquivos premium de armazenamento](../../storage/files/storage-how-to-create-premium-fileshare.md)com redundância de zona. Usando o [armazenamento com redundância de zona,](../../storage/common/storage-redundancy.md) os arquivos de dados e de log são copiados de forma síncrona em três zonas de disponibilidade do Azure fisicamente isoladas.
+- Uma camada de dados com monitoração de estado com os arquivos de banco (. MDF/. ldf) armazenados no PFS ZRS ( [compartilhamento de arquivos premium de armazenamento](../../storage/files/storage-how-to-create-file-share.md)com redundância de zona. Usando o [armazenamento com redundância de zona,](../../storage/common/storage-redundancy.md) os arquivos de dados e de log são copiados de forma síncrona em três zonas de disponibilidade do Azure fisicamente isoladas.
 - Uma camada de computação sem monitoração de estado que executa o processo de sqlservr.exe e contém somente dados transitórios e em cache, como TempDB, bancos de dado de modelo no SSD anexado e cache de planos, pool de buffers e pool columnstore na memória. Esse nó sem estado é operado pelo Service Fabric do Azure que inicializa sqlservr.exe, controla a integridade do nó e executa o failover para outro nó, se necessário. Para bancos de dados de uso geral com redundância de zona, os nós com capacidade de reposição estão prontamente disponíveis em outros Zonas de Disponibilidade para failover.
 
 A versão com redundância de zona da arquitetura de alta disponibilidade para a camada de serviço de uso geral é ilustrada pelo seguinte diagrama:

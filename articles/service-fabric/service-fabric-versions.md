@@ -3,12 +3,12 @@ title: Atualizar sua versão do cluster de Service Fabric do Azure
 description: Saiba mais sobre as versões de cluster no Azure Service Fabric, incluindo um link para as versões mais recentes do blog da equipe do Service Fabric.
 ms.topic: troubleshooting
 ms.date: 06/15/2020
-ms.openlocfilehash: 9c7e5e3778c9a38190be210ebb391bc8b0b58c76
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 7cb9a739572c667e0821a7a60f5c5d8cceb97957
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652047"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101698375"
 ---
 # <a name="upgrade-your-azure-service-fabric-cluster-version"></a>Atualizar sua versão do cluster de Service Fabric do Azure
 
@@ -63,9 +63,9 @@ Os clusters Service Fabric do Azure que são executados em versões inalteradas 
   
   - **Para clusters que executam uma versão do Service Fabric maior que 6,3 não usando o recurso de rede aberta**, o cluster permanecerá ativo.
 
- - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](https://docs.microsoft.com/azure/service-fabric/service-fabric-networking-modes#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
+ - **Para clusters que executam uma versão do Service Fabric maior que 6,3 e usam o [recurso de rede aberta para contêineres](./service-fabric-networking-modes.md#set-up-open-networking-mode)** , o cluster pode se tornar indisponível e deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
  
- -   **Para clusters que executam [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](https://docs.microsoft.com/azure/service-fabric/service-fabric-versions#supported-version-names) e o sistema operacional Windows tem o recurso de contêineres do Windows habilitado. Observação: as versões do Linux 7.0.457, 7.0.464 e 7.0.465 não são afetadas**.
+ -   **Para clusters que executam [versões do Windows entre 7.0.457 e 7.0.466 (ambas as versões incluídas)](#supported-version-names) e o sistema operacional Windows tem o recurso de contêineres do Windows habilitado. Observação: as versões do Linux 7.0.457, 7.0.464 e 7.0.465 não são afetadas**.
     - **Impacto**: o cluster deixará de funcionar, o que pode causar interrupções de serviço para suas cargas de trabalho.
     
 #### <a name="required-action"></a>Ação necessária
@@ -132,7 +132,7 @@ A tabela a seguir lista as versões do Service Fabric e suas datas de término d
 | 7.2.452.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 | 7.2.457.* | 7.0.470.* |Menor ou igual à versão 4,2 |Versão atual, portanto, sem data de término |
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 A tabela a seguir lista os sistemas operacionais com suporte para as versões de Service Fabric com suporte.
 
@@ -153,26 +153,26 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 
 | Nome da versão | Número de versão do Windows | Número de versão do Linux |
 | --- | --- | --- |
-| RTO DE 5,3 | 5.3.121.9494 | Não Aplicável|
-| 5,3 CU1 | 5.3.204.9494 | Não Aplicável|
-| 5,3 CU2 | 5.3.301.9590 | Não Aplicável|
-| 5,3 CU3 | 5.3.311.9590 | Não Aplicável|
-| 5,4 CU2 | 5.4.164.9494 | Não Aplicável|
-| 5,5 CU1 | 5.5.216.0    | Não Aplicável|
-| 5,5 CU2 | 5.5.219.0 | Não Aplicável|
-| 5,5 CU3 | 5.5.227.0 | Não Aplicável|
-| 5,5 CU4 | 5.5.232.0 | Não Aplicável|
-| RTO DE 5,6 | 5.6.204.9494 | Não Aplicável|
-| 5,6 CU2 | 5.6.210.9494 | Não Aplicável|
-| 5,6 CU3 | 5.6.220.9494 | Não Aplicável|
-| RTO DE 5,7 | 5.7.198.9494 | Não Aplicável|
-| 5,7 CU4 | 5.7.221.9494 | Não Aplicável|
+| RTO DE 5,3 | 5.3.121.9494 | Não aplicável|
+| 5,3 CU1 | 5.3.204.9494 | Não aplicável|
+| 5,3 CU2 | 5.3.301.9590 | Não aplicável|
+| 5,3 CU3 | 5.3.311.9590 | Não aplicável|
+| 5,4 CU2 | 5.4.164.9494 | Não aplicável|
+| 5,5 CU1 | 5.5.216.0    | Não aplicável|
+| 5,5 CU2 | 5.5.219.0 | Não aplicável|
+| 5,5 CU3 | 5.5.227.0 | Não aplicável|
+| 5,5 CU4 | 5.5.232.0 | Não aplicável|
+| RTO DE 5,6 | 5.6.204.9494 | Não aplicável|
+| 5,6 CU2 | 5.6.210.9494 | Não aplicável|
+| 5,6 CU3 | 5.6.220.9494 | Não aplicável|
+| RTO DE 5,7 | 5.7.198.9494 | Não aplicável|
+| 5,7 CU4 | 5.7.221.9494 | Não aplicável|
 | RTO DE 6,0 | 6.0.211.9494 | 6.0.120.1 |
 | 6,0 CU1 | 6.0.219.9494 | 6.0.127.1 |
 | 6,0 CU2 | 6.0.232.9494 | 6.0.133.1 |
 | 6,1 CU1 | 6.1.456.9494 | 6.1.183.1 |
 | 6,1 CU2 | 6.1.467.9494 | 6.1.185.1 |
-| 6,1 CU3 | 6.1.472.9494 | Não Aplicável|
+| 6,1 CU3 | 6.1.472.9494 | Não aplicável|
 | 6,1 CU4 | 6.1.480.9494 | 6.1.187.1 |
 | RTO DE 6,2 | 6.2.269.9494 | 6.2.184.1 |
 | 6,2 CU1 | 6.2.274.9494 | 6.2.191.1 |
@@ -182,13 +182,13 @@ A tabela a seguir lista os nomes de versão de Service Fabric e seus números de
 | 6,3 CU1 | 6.3.176.9494 | 6.3.124.1 |
 | 6,3 CU1 | 6.3.187.9494 | 6.3.129.1 |
 | RTO DE 6,4 | 6.4.617.9590 | 6.4.625.1 |
-| 6,4 CU2 | 6.4.622.9590 | Não Aplicável|
+| 6,4 CU2 | 6.4.622.9590 | Não aplicável|
 | 6,4 CU3 | 6.4.637.9590 | 6.4.634.1 |
 | 6,4 CU4 | 6.4.644.9590 | 6.4.639.1 |
 | 6,4 CU5 | 6.4.654.9590 | 6.4.649.1 |
-| 6,4 CU6 | 6.4.658.9590 | Não Aplicável|
+| 6,4 CU6 | 6.4.658.9590 | Não aplicável|
 | 6,4 CU7 | 6.4.664.9590 | 6.4.661.1 |
-| 6,4 CU8 | 6.4.670.9590 | Não Aplicável|
+| 6,4 CU8 | 6.4.670.9590 | Não aplicável|
 | RTO DE 6,5 | 6.5.639.9590 | 6.5.435.1 |
 | 6,5 CU1 | 6.5.641.9590 | 6.5.454.1 |
 | 6,5 CU2 | 6.5.658.9590 | 6.5.460.1 |

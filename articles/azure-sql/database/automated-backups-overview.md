@@ -11,12 +11,12 @@ author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
 ms.date: 11/18/2020
-ms.openlocfilehash: e4917d03e3c0fb8109f9ad9bdcea9e7c1cdcd5df
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.openlocfilehash: 862d33e523562511796999d82b67d2b4b11efaf3
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98108051"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101690594"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backups automatizados – banco de dados SQL do Azure & SQL Instância Gerenciada
 
@@ -34,7 +34,7 @@ O banco de dados SQL e o SQL Instância Gerenciada usam a tecnologia SQL Server 
 
 Quando você restaura um banco de dados, o serviço determina quais backups completos, diferenciais e de log de transações precisam ser restaurados.
 
-### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
+### <a name="backup-storage-redundancy"></a>Redundância do armazenamento de backup
 
 Por padrão, o banco de dados SQL e o SQL Instância Gerenciada armazenam em [blobs de armazenamento](../../storage/common/storage-redundancy.md) com redundância geográfica que são replicados para uma [região emparelhada](../../best-practices-availability-paired-regions.md). Isso ajuda a proteger contra interrupções que afetam o armazenamento de backup na região primária e permite que você restaure o servidor para uma região diferente em caso de desastre. 
 
@@ -176,7 +176,7 @@ Os cenários de cobrança de backup reais são mais complexos. Como a taxa de al
 
 Você pode monitorar o consumo de armazenamento de backup total para cada tipo de backup (completo, diferencial, log de transações) ao longo do tempo, conforme descrito em [monitorar consumo](#monitor-consumption).
 
-### <a name="backup-storage-redundancy"></a>Redundância de armazenamento de backup
+### <a name="backup-storage-redundancy"></a>Redundância do armazenamento de backup
 
 A redundância de armazenamento de backup afeta os custos de backup da seguinte maneira:
 - preço com redundância local = x
@@ -229,17 +229,15 @@ Você pode alterar o período de retenção de backup de PITR padrão usando o p
 
 ### <a name="change-the-pitr-backup-retention-period-by-using-the-azure-portal"></a>Alterar o período de retenção de backup de PITR usando o portal do Azure
 
-Para alterar o período de retenção de backup PITR para bancos de dados ativos usando o portal do Azure, vá para o servidor ou instância gerenciada com os bancos de dados cujo período de retenção você deseja alterar. 
+Para alterar o período de retenção de backup PITR para bancos de dados ativos usando o portal do Azure, vá para o servidor ou instância gerenciada com os bancos de dados cujo período de retenção você deseja alterar. Selecione **backups** no painel esquerdo e, em seguida, selecione a guia **políticas de retenção** . Selecione os bancos de dados para os quais você deseja alterar a retenção de backup PITR. Em seguida, selecione **Configurar retenção** na barra de ação.
+
+
 
 #### <a name="sql-database"></a>[Banco de Dados SQL](#tab/single-database)
-
-Alterações na retenção de backup PITR para banco de dados SQL são feitas na página servidor no Portal. Para alterar a retenção de PITR para bancos de dados em um servidor, vá para a folha visão geral do servidor. Selecione **gerenciar backups** no painel esquerdo, selecione os bancos de dados no escopo de sua alteração e, em seguida, selecione **Configurar retenção** na parte superior da tela:
 
 ![Alterar a retenção de PITR, nível de servidor](./media/automated-backups-overview/configure-backup-retention-sqldb.png)
 
 #### <a name="sql-managed-instance"></a>[Instância Gerenciada de SQL](#tab/managed-instance)
-
-As alterações na retenção de backup PITR para o SQL Instância Gerenciada são feitas em um nível de banco de dados individual. Para alterar a retenção de backup de PITR para um banco de dados de instância no portal do Azure, vá para a folha de visão geral do banco de dados individual. Em seguida, selecione **Configurar retenção de backup** na parte superior da tela:
 
 ![Alterar a retenção de PITR, instância gerenciada](./media/automated-backups-overview/configure-backup-retention-sqlmi.png)
 

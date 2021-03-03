@@ -6,12 +6,12 @@ ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: cab41c025f9f3e5b03f042a2bf5686cb08dbd0a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 62afc0ab4e65da53adb35510503051d39e0edc4e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626074"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101734223"
 ---
 # <a name="quickstart-monitor-an-azure-resource-with-azure-monitor"></a>Início Rápido: Monitorar um recurso do Azure com o Azure Monitor
 O [Azure Monitor](../overview.md) inicia a coleta de dados dos recursos do Azure no momento em que eles são criados. Este guia de início rápido apresenta uma breve explicação dos dados coletados automaticamente para um recurso e como exibi-los no portal do Azure para um recurso específico. Posteriormente, você pode adicionar a configuração para coletar dados adicionais e acessar o menu de Azure Monitor para usar as mesmas ferramentas para acessar os dados coletados para todos os recursos em sua assinatura.
@@ -67,7 +67,7 @@ Métricas são valores numéricos que descrevem algum aspecto de seu recurso em 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você exibiu o log de atividades e as métricas de um recurso do Azure coletados automaticamente pelo Azure Monitor. Prossiga para o próximo guia de início rápido, que mostra como coletar o log de atividades em um workspace do Log Analytics, em que ele poderá ser analisado por meio de [consultas de log](../log-query/log-query-overview.md).
+Neste guia de início rápido, você exibiu o log de atividades e as métricas de um recurso do Azure coletados automaticamente pelo Azure Monitor. Prossiga para o próximo guia de início rápido, que mostra como coletar o log de atividades em um workspace do Log Analytics, em que ele poderá ser analisado por meio de [consultas de log](../logs/log-query-overview.md).
 
 > [!div class="nextstepaction"]
-> [Enviar o log de atividades do Azure para o workspace do Log Analytics](../learn/quick-collect-activity-log-portal.md)
+> [Enviar o log de atividades do Azure para o workspace do Log Analytics](./quick-collect-activity-log-portal.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/19/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 449fc686fb30cde0d15759036b58fea3bcfc6723
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 69234d7c22f1725f6f21fe52a455e64d743f052e
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596888"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101709845"
 ---
 # <a name="azure-security-baseline-for-azure-lighthouse"></a>Linha de base de segurança do Azure para Azure Lighthouse
 
@@ -406,7 +406,7 @@ No Azure Monitor, você pode definir seu período de retenção de espaço de tr
 
 - [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 - A [exportação de recomendações e alertas da central de segurança do Azure](../security-center/continuous-export.md) configura e o cliente não pode definir nenhuma retenção de log.
 

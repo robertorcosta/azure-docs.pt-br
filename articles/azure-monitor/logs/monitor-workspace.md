@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/20/2020
-ms.openlocfilehash: bef7db19142f0387077af1487230e7891c255aa1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09df1c2ecb94089f23a88dd36c5343bb4cf2feea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605746"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710933"
 ---
 # <a name="monitor-health-of-log-analytics-workspace-in-azure-monitor"></a>Monitorar a integridade do espaço de trabalho de Log Analytics no Azure Monitor
 Para manter o desempenho e a disponibilidade do seu espaço de trabalho do Log Analytics no Azure Monitor, você precisa ser capaz de detectar proativamente quaisquer problemas que surjam. Este artigo descreve como monitorar a integridade do seu espaço de trabalho do Log Analytics usando dados na tabela de [operações](/azure/azure-monitor/reference/tables/operation) . Essa tabela está incluída em todos os Log Analytics espaço de trabalho e contém erros e avisos que ocorrem em seu espaço de trabalho. Você deve examinar esses dados regularmente e criar alertas para que sejam notificados proativamente quando houver incidentes importantes em seu espaço de trabalho.
@@ -58,10 +58,10 @@ As operações de ingestão são problemas ocorridos durante a ingestão de dado
 | Log personalizado | Erro   | Limite de colunas de campos personalizados atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Log personalizado | Erro   | Falha na ingestão de logs personalizados. | |
 | Metadata. | Erro | Erro de configuração detectado. | |
-| Coleta de dados | Erro   | Os dados foram descartados porque a solicitação foi criada antes do número de dias definidos. | [Gerenciar o uso e os custos com logs do Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached)
+| Coleta de dados | Erro   | Os dados foram descartados porque a solicitação foi criada antes do número de dias definidos. | [Gerenciar o uso e os custos com logs do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached)
 | Coleta de dados | Info    | A configuração da máquina de coleta foi detectada.| |
-| Coleta de dados | Info    | Coleta de dados iniciada devido ao novo dia. | [Gerenciar o uso e os custos com logs do Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
-| Coleta de dados | Aviso | A coleta de dados foi interrompida devido a um limite diário atingido.| [Gerenciar o uso e os custos com logs do Azure Monitor](../platform/manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Coleta de dados | Info    | Coleta de dados iniciada devido ao novo dia. | [Gerenciar o uso e os custos com logs do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
+| Coleta de dados | Aviso | A coleta de dados foi interrompida devido a um limite diário atingido.| [Gerenciar o uso e os custos com logs do Azure Monitor](./manage-cost-storage.md#alert-when-daily-cap-reached) |
 | Processamento de dados | Erro   | Formato JSON inválido. | [Enviar dados de log para o Azure Monitor com a API do Coletor de Dados HTTP (visualização pública)](../logs/data-collector-api.md#request-body) | 
 | Processamento de dados | Aviso | O valor foi cortado para o tamanho máximo permitido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) |
 | Processamento de dados | Aviso | Valor de campo cortado como limite de tamanho atingido. | [Limites do serviço Azure Monitor](../service-limits.md#log-analytics-workspaces) | 
@@ -125,4 +125,4 @@ O exemplo a seguir cria um alerta de aviso quando a coleta de dados atingiu o li
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [alertas de log](../alerts/alerts-log.md).
-- [Coletar dados de auditoria de consulta](../log-query/query-audit.md) para seu espaço de trabalho.
+- [Coletar dados de auditoria de consulta](./query-audit.md) para seu espaço de trabalho.

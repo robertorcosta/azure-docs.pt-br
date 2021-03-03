@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb1891b7201d8e1d3d18b0e01817ee943ae6341f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548175"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718515"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 
@@ -132,6 +132,8 @@ Há dois pacotes necessários para a integração de Key Vault:
 * O Azure. Core contém `IKeyEncryptionKey` as `IKeyEncryptionKeyResolver` interfaces e. A biblioteca de cliente de armazenamento para .NET já a define como uma dependência.
 * Azure. Security. keyvault. Keys (v4. x) contém o cliente REST Key Vault, bem como clientes criptográficos usados com criptografia do lado do cliente.
 
+O Cofre da Chave foi criado para chaves mestras de alto valor e os limites por Cofre da Chave são criados com tal prioridade em mente. A partir de Azure. Security. keyvault. Keys 4.1.0, não há uma `IKeyEncryptionKeyResolver` implementação que dê suporte ao cache de chaves. O armazenamento em cache deve ser necessário devido à limitação; [esse exemplo](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) pode ser seguido para injetar uma camada de cache em uma `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instância.
+
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
 Há três pacotes do Cofre da Chave:
@@ -140,17 +142,17 @@ Há três pacotes do Cofre da Chave:
 * Microsoft. Azure. keyvault (v3. x) contém o cliente REST Key Vault.
 * Microsoft. Azure. keyvault. Extensions (v3. x) contém o código de extensão que inclui implementações de algoritmos de criptografia e um RSAKey e um SymmetricKey. Ele depende dos namespaces básicos e KeyVault, e fornece a funcionalidade para definir um resolvedor de agregação (quando os usuários desejam usar vários provedores de chave) e um resolvedor de chave em cache. Embora a biblioteca de cliente de armazenamento não dependa diretamente deste pacote, se os usuários quiserem usar o Cofre da Chave do Azure para armazenar suas chaves ou usar as extensões do Cofre da Chave para consumir provedores criptográficos local e na nuvem, eles precisarão esse pacote.
 
-Mais informações sobre o uso de Key Vault no v11 podem ser encontradas nos [exemplos de código de criptografia do v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
-
----
-
 O Cofre da Chave foi criado para chaves mestras de alto valor e os limites por Cofre da Chave são criados com tal prioridade em mente. Ao executar a criptografia do lado do cliente com o Cofre da Chave, o modelo preferido é usar chaves mestras simétricas armazenadas como segredos no Cofre da Chave e armazenadas em cache localmente. Os usuários devem fazer o seguinte:
 
 1. Crie um segredo offline e carregue-o no Cofre da Chave.
 2. Use o identificador de base do segredo como um parâmetro para resolver a versão atual do segredo para criptografia e armazenar essas informações localmente em cache. Use CachingKeyResolver para armazenamento em cache. Os usuários não deverão implementar sua própria lógica de cache.
 3. Use o resolvedor de cache como uma entrada ao criar a política de criptografia.
 
-## <a name="best-practices"></a>Práticas recomendadas
+Mais informações sobre o uso de Key Vault no v11 podem ser encontradas nos [exemplos de código de criptografia do v11](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples).
+
+---
+
+## <a name="best-practices"></a>Melhores práticas
 
 O suporte à criptografia está disponível somente na biblioteca de cliente de armazenamento para .NET. Atualmente, o Windows Phone e o Windows Runtime não dão suporte à criptografia.
 

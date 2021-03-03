@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 11/09/2020
 ms.author: spelluru
 ms.custom: devx-track-js
-ms.openlocfilehash: 27ffbafb92dd3269e38092b64e2b74f17ff9f09f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3c499dcb5233cbf5cd4048c641d1b38e289cc35f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373072"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101739705"
 ---
 # <a name="send-messages-to-and-receive-messages-from-azure-service-bus-queues-javascript"></a>Enviar e receber mensagens em filas do Barramento de Serviço do Azure (JavaScript)
 Neste tutorial, você aprenderá a usar o pacote [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) em um programa JavaScript para enviar e receber mensagens em uma fila do Barramento de Serviço.
@@ -206,6 +206,6 @@ Selecione a fila nesta página **Visão geral** para acessar a página **Fila do
 Confira os seguintes exemplos e a documentação: 
 
 - [Biblioteca de clientes do Barramento de Serviço do Azure para JavaScript](https://www.npmjs.com/package/@azure/service-bus)
-- [Exemplos de JavaScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-javascript/)
-- [Exemplos de TypeScript](https://docs.microsoft.com/samples/azure/azure-sdk-for-js/service-bus-typescript/)
+- [Exemplos de JavaScript](/samples/azure/azure-sdk-for-js/service-bus-javascript/)
+- [Exemplos de TypeScript](/samples/azure/azure-sdk-for-js/service-bus-typescript/)
 - [Documentação de referência da API](/javascript/api/overview/azure/service-bus)

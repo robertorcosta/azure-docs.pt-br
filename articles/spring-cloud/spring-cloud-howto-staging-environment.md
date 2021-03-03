@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 82a8da9d2663b03d89ad0819ec6d918bebaf5f5e
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: d610e79773dabb9942352747f1f032b17730ffca
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99574695"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101738745"
 ---
 # <a name="set-up-a-staging-environment-in-azure-spring-cloud"></a>Configurar um ambiente de preparo no Azure Spring Cloud
 
@@ -23,7 +23,7 @@ Este artigo explica como configurar uma implantação de preparo usando o padrã
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Instância do Azure Spring Cloud no **tipo de preço** *Standard* .
-* CLI do Azure [extensão do Azure Spring Cloud](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview)
+* CLI do Azure [extensão do Azure Spring Cloud](/cli/azure/azure-cli-extensions-overview)
 
 Este artigo usa um aplicativo criado a partir do inicializador Spring. Se você quiser usar um aplicativo diferente para este exemplo, será necessário fazer uma alteração simples em uma parte voltada ao público do aplicativo para diferenciar a implantação de preparo da produção.
 

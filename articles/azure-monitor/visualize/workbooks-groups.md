@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/06/2020
 ms.author: lagayhar
-ms.openlocfilehash: 2614117d153b1db50d4487bf4045a63af430f3ac
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b36dec79e5d60d97c11b9f8c74790527e1bd19fb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605361"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731350"
 ---
 # <a name="how-to-use-groups-in-workbooks"></a>Como usar grupos em pastas de trabalho
 
@@ -143,5 +143,5 @@ Para transformar um modelo maior em vários submodelos:
 6. Em seguida, você pode alterar a etapa do grupo para carregar do modelo e definir o campo ID do modelo para a pasta de trabalho/modelo que você criou na etapa 5. Para trabalhar com IDs de pastas de trabalho, a origem precisa ser uma ID de recurso de pasta de trabalho compartilhada. Pressione *carregar* e o conteúdo desse grupo agora será carregado desse submodelo, em vez de salvo nessa pasta de trabalho externa.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Visão geral das pastas de trabalho](../platform/workbooks-overview.md)
+- [Visão geral das pastas de trabalho](./workbooks-overview.md)
 - [Usando JSONPath com pastas de trabalho](workbooks-jsonpath.md)

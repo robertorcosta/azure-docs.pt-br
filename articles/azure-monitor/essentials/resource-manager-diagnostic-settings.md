@@ -6,12 +6,12 @@ ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/11/2020
-ms.openlocfilehash: 87951c0366090c1ea4eba490d114771e47bf452c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 304c359296c4fbff79dd367facd8bbb98c8903b5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597001"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731435"
 ---
 # <a name="resource-manager-template-samples-for-diagnostic-settings-in-azure-monitor"></a>Amostras do modelo do Resource Manager para configurações de diagnóstico no Azure Monitor
 Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para criar configurações de diagnóstico para um recurso do Azure. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
@@ -349,7 +349,7 @@ O exemplo a seguir cria uma configuração de diagnóstico para um banco de dado
 ```
 
 ## <a name="diagnostic-setting-for-recovery-services-vault"></a>Configuração de diagnóstico para o cofre dos Serviços de Recuperação
-O exemplo a seguir cria uma configuração de diagnóstico para um cofre dos Serviços de Recuperação do Azure adicionando um recurso do tipo `microsoft.recoveryservices/vaults/providers/diagnosticSettings` ao modelo. Este exemplo especifica o modo de coleta, conforme descrito em [logs de recursos do Azure](../platform/resource-logs.md#send-to-log-analytics-workspace). Especifique `Dedicated` ou `AzureDiagnostics` para a propriedade `logAnalyticsDestinationType`.
+O exemplo a seguir cria uma configuração de diagnóstico para um cofre dos Serviços de Recuperação do Azure adicionando um recurso do tipo `microsoft.recoveryservices/vaults/providers/diagnosticSettings` ao modelo. Este exemplo especifica o modo de coleta, conforme descrito em [logs de recursos do Azure](./resource-logs.md#send-to-log-analytics-workspace). Especifique `Dedicated` ou `AzureDiagnostics` para a propriedade `logAnalyticsDestinationType`.
 
 ### <a name="template-file"></a>Arquivo de modelo
 
@@ -812,5 +812,5 @@ O exemplo a seguir cria uma configuração de diagnóstico para cada ponto de ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha outros modelos de amostra do Azure Monitor](../samples/resource-manager-samples.md).
+* [Obtenha outros modelos de amostra do Azure Monitor](../resource-manager-samples.md).
 * [Saiba mais sobre as configurações de diagnóstico](../essentials/diagnostic-settings.md).

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/02/2021
 ms.author: justinha
 author: rhicock
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e90a6060a9c8202f7f743a0ee433f89b9dc9fdd
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d25ed1e46823ec6d820addf3944c96c97fcabcb8
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661700"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689021"
 ---
 # <a name="two-way-sms-unsupported"></a>SMS bidirecional sem suporte
 
@@ -27,7 +27,7 @@ Notificações por email e notificações de integridade do serviço de portal d
 ## <a name="required-actions"></a>Ações necessárias
 
 1. Habilite o aplicativo móvel para seus usuários, caso ainda não tenha feito isso. Para obter mais informações, consulte [habilitar a autenticação de aplicativo móvel com o servidor MFA](howto-mfaserver-deploy-mobileapp.md).
-1. Notifique seus usuários finais para visitar o portal do [usuário](howto-mfaserver-deploy-userportal.md) do servidor MFA para ativar o aplicativo móvel. O [aplicativo Microsoft Authenticator](https://www.microsoft.com/account/authenticator) é a opção de verificação recomendada, pois é mais seguro do que o SMS de duas vias. Para obter mais informações, consulte [a hora de desligar os transportes de telefone para autenticação](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
+1. Notifique seus usuários finais para visitar o portal do [usuário](howto-mfaserver-deploy-userportal.md) do servidor MFA para ativar o aplicativo móvel. O [aplicativo Microsoft Authenticator](https://www.microsoft.com/en-us/account/authenticator) é a opção de verificação recomendada, pois é mais seguro do que o SMS de duas vias. Para obter mais informações, consulte [a hora de desligar os transportes de telefone para autenticação](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/it-s-time-to-hang-up-on-phone-transports-for-authentication/ba-p/1751752).
 1. Altere as configurações de usuário da mensagem de texto bidirecional para o aplicativo móvel como o método padrão.
 
 ## <a name="faq"></a>Perguntas frequentes

@@ -1,29 +1,29 @@
 ---
-title: Habilitar a integridade de convidado do Azure Monitor para VMs (versão prévia)
-description: Descreve como habilitar Azure Monitor para VMs integridade de convidado em sua assinatura e como carregar VMs.
+title: Habilitar integridade de convidado do insights de VM (versão prévia)
+description: Descreve como habilitar a integridade de convidado do Revisions da VM em sua assinatura e como carregar VMs.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
-ms.openlocfilehash: 5a65a986e95f333b6179c71a46edc69ca61acdea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 3747e9190010bd3c0b88dfdbe9da01009316c275
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605656"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733713"
 ---
-# <a name="enable-azure-monitor-for-vms-guest-health-preview"></a>Habilitar a integridade de convidado do Azure Monitor para VMs (versão prévia)
-Azure Monitor para VMs integridade de convidado permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
+# <a name="enable-vm-insights-guest-health-preview"></a>Habilitar integridade de convidado do insights de VM (versão prévia)
+A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
 
 ## <a name="current-limitations"></a>Limitações atuais
-Azure Monitor para VMs integridade de convidado tem as seguintes limitações na visualização pública:
+A integridade do convidado do insights de VM tem as seguintes limitações na visualização pública:
 
 - No momento, somente as máquinas virtuais do Azure têm suporte. No momento, não há suporte para o Azure Arc para servidores.
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 A máquina virtual deve executar um dos seguintes sistemas operacionais: 
 
   - Ubuntu 16, 4 LTS, Ubuntu 18, 4 LTS
@@ -35,20 +35,26 @@ A máquina virtual deve estar localizada em uma das seguintes regiões:
 
 - Austrália Central
 - Leste da Austrália
-- Australia Southeast
+- Sudeste da Austrália
+- Canadá Central
 - Índia Central
 - Centro dos EUA
 - Leste da Ásia
 - Leste dos EUA
 - Leste dos EUA 2
 - Leste dos EUA 2 EUAP
+- França Central
 - Centro-Oeste da Alemanha
 - Japan East
+- Coreia Central
 - Centro-Norte dos EUA
 - Norte da Europa
 - Centro-Sul dos Estados Unidos
+- Norte da África do Sul
 - Sudeste Asiático
+- Norte da Suíça
 - Sul do Reino Unido
+- Oeste do Reino Unido
 - Centro-Oeste dos EUA
 - Europa Ocidental
 - Oeste dos EUA
@@ -57,24 +63,36 @@ A máquina virtual deve estar localizada em uma das seguintes regiões:
 
 Log Analytics espaço de trabalho deve estar localizado em uma das seguintes regiões:
 
+- Austrália Central
+- Leste da Austrália
+- Sudeste da Austrália
+- Canadá Central
+- Índia do Canadá
 - Centro dos EUA
+- Leste da Ásia
 - Leste dos EUA
 - Leste dos EUA 2
 - Leste dos EUA 2 EUAP
+- França Central
+- Leste do Japão
+- Centro-Norte dos EUA
 - Norte da Europa
+- Centro-Sul dos Estados Unidos
 - Sudeste Asiático
+- Norte da Suíça
 - Sul do Reino Unido
 - Região de Europa Ocidental
+- Oeste dos EUA
 - Oeste dos EUA 2
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- A máquina virtual deve ser integrada a Azure Monitor para VMs.
+- A máquina virtual deve ser integrada ao insights da VM.
 - O usuário executando etapas de integração deve ter um nível de colaborador mínimo acesso à assinatura em que a máquina virtual e a regra de coleta de dados estão localizadas.
 - Os provedores de recursos do Azure necessários devem ser registrados conforme descrito na seção a seguir.
 
 ## <a name="register-required-azure-resource-providers"></a>Registrar os provedores de recursos do Azure necessários
-Os provedores de recursos do Azure a seguir serão registrados para sua assinatura para habilitar Azure Monitor para VMs integridade de convidado. 
+Os provedores de recursos do Azure a seguir serão registrados para sua assinatura para habilitar a integridade de convidado do insights de VM. 
 
 - Microsoft.WorkloadMonitor
 - Microsoft.insights
@@ -90,7 +108,7 @@ POST https://management.azure.com/subscriptions/[subscriptionId]/providers/Micro
 ## <a name="enable-a-virtual-machine-using-the-azure-portal"></a>Habilitar uma máquina virtual usando o portal do Azure
 Quando você habilita a integridade de convidado de uma máquina virtual no portal do Azure, deve realizar toda a configuração necessária. Isso inclui a criação da regra exigir coleta de dados, a instalação da extensão de integridade do convidado na máquina virtual e a criação de uma associação com a regra de coleta de dados.
 
-Na exibição de **introdução** no Azure monitor para VMs, clique no link ao lado da mensagem de atualização de uma máquina virtual e, em seguida, clique no botão **Atualizar** . Você também pode selecionar várias máquinas virtuais para atualizá-las juntas.
+Na exibição de **introdução** no insights da VM, clique no link ao lado da mensagem de atualização de uma máquina virtual e, em seguida, clique no botão **Atualizar** . Você também pode selecionar várias máquinas virtuais para atualizá-las juntas.
 
 ![Habilitar o recurso de integridade na máquina virtual](media/vminsights-health-enable/enable-agent.png)
 
@@ -107,10 +125,10 @@ Há três etapas necessárias para habilitar as máquinas virtuais usando Azure 
 > [!NOTE]
 > Se você habilitar uma máquina virtual usando a portal do Azure, a regra de coleta de dados descrita aqui será criada para você. Nesse caso, você não precisa executar esta etapa.
 
-A configuração dos monitores no Azure Monitor para VMs integridade do convidado é armazenada em [Data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Cada máquina virtual com a extensão de integridade do convidado precisará de uma associação com essa regra.
+A configuração dos monitores na integridade do convidado do insights da VM é armazenada em [Data Collection Rules (DCR)](../agents/data-collection-rule-overview.md). Cada máquina virtual com a extensão de integridade do convidado precisará de uma associação com essa regra.
 
 > [!NOTE]
-> Você pode criar regras de coleta de dados adicionais para modificar a configuração padrão dos monitores, conforme descrito em [Configurar monitoramento em Azure monitor para VMs integridade de convidado (versão prévia)](vminsights-health-configure.md).
+> Você pode criar regras de coleta de dados adicionais para modificar a configuração padrão dos monitores, conforme descrito em [Configurar monitoramento na integridade de convidado do insights de VM (versão prévia)](vminsights-health-configure.md).
 
 O modelo requer valores para os seguintes parâmetros:
 
@@ -414,4 +432,4 @@ az deployment group create --name GuestHealthDeployment --resource-group my-reso
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Personalizar monitores habilitados pelo Azure Monitor para VMs](vminsights-health-configure.md)
+- [Personalizar monitores habilitados por informações de VM](vminsights-health-configure.md)

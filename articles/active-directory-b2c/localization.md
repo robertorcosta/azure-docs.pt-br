@@ -1,22 +1,10 @@
 ---
-title: Azure Active Directory B2C de localização
-description: Especifica o elemento Localization de uma política personalizada no Azure Active Directory B2C.
-services: active-directory-b2c
-author: msmimart
-manager: celestedg
-ms.service: active-directory
-ms.workload: identity
-ms.topic: reference
-ms.date: 10/15/2020
-ms.author: mimart
-ms.subservice: B2C
-ms.openlocfilehash: 88244ec3ba4bbebe7d6096fa3ac49bd4f1b8f661
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
-ms.translationtype: MT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97108613"
+Título: Descrição de Azure Active Directory B2C de localização: especifica o elemento de localização de uma política personalizada em Azure Active Directory B2C.
+serviços: Active-Directory-B2C Author: msmimart Manager: celestedg
+
+MS. Service: Active-Directory MS. Workload: identidade MS. Topic: referência MS. Date: 10/15/2020 MS. autor: mimart MS. subservice: B2C MS. Custom: "B2C-support"
 ---
+
 # <a name="localization-element"></a>Elemento de localização
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -41,7 +29,7 @@ O elemento **Localization** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Habilitada | Não | Valores possíveis: `true` ou `false`. |
+| habilitado | Não | Valores possíveis: `true` ou `false`. |
 
 O elemento **Localization** contém os seguintes elementos XML
 
@@ -73,7 +61,7 @@ O elemento **LocalizedResources** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
+| ID | Sim | Um identificador usado para identificar exclusivamente os recursos localizados. |
 
 O elemento **LocalizedResources** contém os seguintes elementos:
 
@@ -335,7 +323,7 @@ O valor UxElement é usado para localizar um dos elementos da interface do usuá
 
 ### <a name="displaycontrol"></a>DisplayControl
 
-O valor de DisplayControl é usado para localizar um dos elementos da interface do usuário do [controle de exibição](display-controls.md) . O exemplo a seguir mostra como localizar os botões enviar e verificar. 
+O valor de DisplayControl é usado para localizar um dos elementos da interface do usuário do [controle de exibição](display-controls.md) . Quando habilitado, o controle de exibição localizedStrings usa a *** precedência** _ sobre algumas das _ *UxElement** StringIDs como **ver_but_send**, **ver_but_edit**, **ver_but_resend** e **ver_but_verify**. O exemplo a seguir mostra como localizar os botões enviar e verificar. 
 
 ```xml
 <LocalizedString ElementType="DisplayControl" ElementId="emailVerificationControl" StringId="but_send_code">Send verification code</LocalizedString>

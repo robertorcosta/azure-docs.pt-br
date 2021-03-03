@@ -1,24 +1,24 @@
 ---
 title: Estender IoT Central do Azure com análise personalizada | Microsoft Docs
 description: Como desenvolvedor de soluções, configure um aplicativo IoT Central para realizar análises e visualizações personalizadas. Essa solução usa Azure Databricks.
-author: dominicbetts
-ms.author: dobett
-ms.date: 12/02/2019
+author: TheJasonAndrew
+ms.author: v-anjaso
+ms.date: 02/18/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 1e261e8d5d9cd147f3157303b7a2a50db7c33e58
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 86f94b8059d85b892a87c82537b1e9b02552f8f7
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123038"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101741646"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda o IoT Central do Azure com análises personalizadas usando Azure Databricks
 
-Este guia de instruções mostra, como desenvolvedor de soluções, como estender seu aplicativo IoT Central com análises e visualizações personalizadas. O exemplo usa um espaço de trabalho [Azure Databricks](/azure/azure-databricks/) para analisar o fluxo de telemetria IOT central e gerar visualizações como [plotagens de caixa](https://wikipedia.org/wiki/Box_plot).
+Este guia de instruções mostra, como desenvolvedor de soluções, como estender seu aplicativo IoT Central com análises e visualizações personalizadas. O exemplo usa um espaço de trabalho [Azure Databricks](/azure/azure-databricks/) para analisar o fluxo de telemetria IOT central e gerar visualizações como [plotagens de caixa](https://wikipedia.org/wiki/Box_plot).  
 
 Este guia de instruções mostra como estender IoT Central além do que ele já pode fazer com as ferramentas de [análise internas](./howto-create-custom-analytics.md).
 
@@ -84,12 +84,12 @@ Quando você criou os recursos necessários, o grupo de recursos **IoTCentralAna
 
 ![Grupo de recursos de análise de IoT Central](media/howto-create-custom-analytics/resource-group.png)
 
-## <a name="create-an-event-hub"></a>Criar um Hub de Evento
+## <a name="create-an-event-hub"></a>Criar um hub de eventos
 
 Você pode configurar um aplicativo de IoT Central para exportar continuamente a telemetria para um hub de eventos. Nesta seção, você cria um hub de eventos para receber telemetria do seu aplicativo IoT Central. O Hub de eventos fornece a telemetria para seu trabalho de Stream Analytics para processamento.
 
 1. Na portal do Azure, navegue até o namespace de seus hubs de eventos e selecione **+ Hub de eventos**.
-1. Nomeie o **centralexport**do hub de eventos e selecione **criar**.
+1. Nomeie o **centralexport** do hub de eventos e selecione **criar**.
 1. Na lista de hubs de eventos em seu namespace, selecione **centralexport**. Em seguida, escolha **políticas de acesso compartilhado**.
 1. Selecione **+ Adicionar**. Crie uma política chamada **Listen** com a Declaração **Listen** .
 1. Quando a política estiver pronta, selecione-a na lista e copie o valor da **chave primária da cadeia de conexão** .
@@ -103,16 +103,16 @@ O namespace dos hubs de eventos é semelhante à captura de tela a seguir:
 
 No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou por meio do modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
 
-1. Navegue até a página **exportação de dados** , selecione **+ novo**e os **hubs de eventos do Azure**.
+1. Navegue até a página **exportação de dados (herdada)** , selecione **+ novo** e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Nome de Exibição | Exportar para hubs de eventos |
-    | Habilitada | Ativado |
+    | habilitado | Por |
     | Namespace do Hubs de Eventos | Nome do namespace de seus hubs de eventos |
     | Hub de Eventos | centralexport |
-    | Medidas | Ativado |
+    | Medidas | Por |
     | Dispositivos | Desativado |
     | Modelos de Dispositivo | Desativado |
 
@@ -134,7 +134,7 @@ Use as informações na tabela a seguir para criar o cluster:
 | ------- | ----- |
 | Nome do cluster | centralanalysis |
 | Modo de cluster | Standard |
-| Versão do Databricks Runtime | 5,5 LTS (escala 2,11, Spark 2.4.3) |
+| Versão do Databricks Runtime | 5,5 LTS (escala 2,11, Spark 2.4.5) |
 | Versão do Python | 3 |
 | Habilitar o dimensionamento automático | Não |
 | Terminar após minutos de inatividade | 30 |

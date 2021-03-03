@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: a43a27a8e880c76ba21639437c0c20f583620d50
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: af028499d84a767ccb2a888ec7e7f92c80dbdd36
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100653611"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101710559"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Instalar e executar o contêiner de análise espacial (versão prévia)
 
@@ -32,7 +32,7 @@ O contêiner análise espacial permite que você analise o vídeo de streaming e
 
 Para executar o contêiner de análise espacial, você precisa de um dispositivo de computação com uma [GPU NVIDIA Tesla T4](https://www.nvidia.com/en-us/data-center/tesla-t4/). É recomendável que você use [Azure Stack Edge](https://azure.microsoft.com/products/azure-stack/edge/) com aceleração de GPU, no entanto, o contêiner é executado em qualquer outro computador desktop que atenda aos requisitos mínimos. Iremos nos referir a esse dispositivo como o computador host.
 
-#### <a name="azure-stack-edge-device"></a>[Azure Stack dispositivo do Edge](#tab/azure-stack-edge)
+#### <a name="azure-stack-edge-device"></a>[Dispositivo do Azure Stack Edge](#tab/azure-stack-edge)
 
 O Azure Stack Edge é uma solução de hardware como serviço e um dispositivo de computação de borda habilitado para ia com recursos de transferência de dados de rede. Para obter instruções de preparação e configuração detalhadas, consulte a [documentação do Azure Stack Edge](../../databox-online/azure-stack-edge-deploy-prep.md).
 
@@ -90,7 +90,7 @@ Você não poderá executar o contêiner se sua assinatura do Azure não tiver s
 
 É recomendável que você use um dispositivo de borda Azure Stack para o computador host. Clique em **computador desktop** se você estiver configurando um dispositivo diferente ou **máquina virtual** se estiver utilizando uma VM.
 
-#### <a name="azure-stack-edge-device"></a>[Azure Stack dispositivo do Edge](#tab/azure-stack-edge)
+#### <a name="azure-stack-edge-device"></a>[Dispositivo do Azure Stack Edge](#tab/azure-stack-edge)
 
 ### <a name="configure-compute-on-the-azure-stack-edge-portal"></a>Configurar a computação no portal do Azure Stack Edge 
  
@@ -295,7 +295,7 @@ Instale a versão 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Em seguida, registre o computador host como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+Em seguida, registre o computador host como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
 
 Você precisa conectar o dispositivo IoT Edge ao Hub IoT do Azure. Você precisa copiar a cadeia de conexão do dispositivo IoT Edge criado anteriormente. Como alternativa, você pode executar o comando abaixo na CLI do Azure.
 
@@ -446,7 +446,7 @@ Instale a versão 1.0.9:
 sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
-Em seguida, registre a VM como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](../../iot-edge/how-to-manual-provision-symmetric-key.md?view=iotedge-2018-06).
+Em seguida, registre a VM como um dispositivo IoT Edge em sua instância do Hub IoT usando uma [cadeia de conexão](../../iot-edge/how-to-register-device.md?view=iotedge-2018-06).
 
 Você precisa conectar o dispositivo IoT Edge ao Hub IoT do Azure. Você precisa copiar a cadeia de conexão do dispositivo IoT Edge criado anteriormente. Como alternativa, você pode executar o comando abaixo na CLI do Azure.
 

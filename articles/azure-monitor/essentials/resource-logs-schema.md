@@ -4,12 +4,12 @@ description: Entenda os serviços com suporte e o esquema de eventos para logs d
 ms.subservice: logs
 ms.topic: reference
 ms.date: 09/01/2020
-ms.openlocfilehash: b37535b67ed1873c5a492e28e6bf4da8c67c7e5d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c426074bbeb2792f152063d938e867b86dc1f6f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605536"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101717529"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para logs de recursos do Azure
 
@@ -49,7 +49,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Serviço | Esquema e Documentos |
 | --- | --- |
 | Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), esquema de [log de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [esquemas de entradas](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | [Log de diagnóstico da instalação do Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
+| Serviços de análise | [Log de diagnóstico da instalação do Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
 | Gerenciamento de API | [Logs de recursos de gerenciamento de API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Serviço de Aplicativo | [Logs do serviço de aplicativo](../../app-service/troubleshoot-diagnostic-logs.md)
 | Gateways do Aplicativo |[Registro em log do gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md) |
@@ -73,7 +73,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Front Door | [Registro em log da porta frontal](../../frontdoor/front-door-diagnostics.md) |
 | Hub IoT | [Operações do Hub IoT](../../iot-hub/monitor-iot-hub-reference.md#resource-logs) |
 | Key Vault |[Logs do Cofre da Chave do Azure](../../key-vault/general/logging.md) |
-| Serviço de Kubernetes |[Log de kubernetes do Azure](../../aks/view-master-logs.md#log-event-schema) |
+| Serviço de Kubernetes |[Log de kubernetes do Azure](../../aks/view-control-plane-logs.md#log-event-schema) |
 | Load Balancer |[Análise de log para Balanceador de Carga do Azure](../../load-balancer/load-balancer-monitor-log.md) |
 | Aplicativos Lógicos |[Esquema de acompanhamento personalizado dos Aplicativos Lógicos B2B](../../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
 | Grupos de segurança de rede |[Log Analytics para grupos de segurança de rede (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |

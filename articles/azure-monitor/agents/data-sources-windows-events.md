@@ -6,18 +6,18 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/21/2020
-ms.openlocfilehash: c911b3a2ef927bf000513665dfafd735e3bcf181
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605348"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719858"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados de log de eventos do Windows com o agente de Log Analytics
 Os logs de eventos do Windows são uma das [fontes de dados](../agents/agent-data-sources.md) mais comuns para agentes de log Analytics em máquinas virtuais do Windows, já que muitos aplicativos gravam no log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
 
 > [!IMPORTANT]
-> Este artigo aborda a coleta de eventos do Windows com o [agente de log Analytics](../platform/log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
+> Este artigo aborda a coleta de eventos do Windows com o [agente de log Analytics](./log-analytics-agent.md) , que é um dos agentes usados pelo Azure monitor. Outros agentes coletam dados diferentes e são configurados de forma diferente. Consulte [visão geral dos agentes de Azure monitor](../agents/agents-overview.md) para obter uma lista dos agentes disponíveis e os dados que eles podem coletar.
 
 ![Eventos do Windows](media/data-sources-windows-events/overview.png)     
 
@@ -73,5 +73,5 @@ A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configure o Log Analytics para coletar outras [fontes de dados](../agents/agent-data-sources.md) para análise.
-* Saiba mais sobre [registrar consultas](../log-query/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
+* Saiba mais sobre [registrar consultas](../logs/log-query-overview.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Configure a [coleta de contadores de desempenho](data-sources-performance-counters.md) de seus agentes do Windows.

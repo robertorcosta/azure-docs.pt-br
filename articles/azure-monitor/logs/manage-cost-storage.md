@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/31/2021
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: d4ead88fb34d6475dae66d9708d7203eb94eaef1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4e711eb70c1fa099dd67b1ec23a0e8014ee11e47
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605657"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101731384"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -268,7 +268,7 @@ Para começar, aqui estão as configurações recomendadas para o alerta consult
 - Nome da regra de alerta: Limite diário de dados atingido
 - Gravidade: Aviso (Sev 1)
 
-Quando o alerta é definido e o limite é alcançado, um alerta é disparado e executa a resposta definida no Grupo de Ações. Ele pode notificar a equipe por email e mensagens de texto, ou automatizar ações usando webhooks, runbooks de Automação ou [integrando com uma solução ITSM externa](../platform/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
+Quando o alerta é definido e o limite é alcançado, um alerta é disparado e executa a resposta definida no Grupo de Ações. Ele pode notificar a equipe por email e mensagens de texto, ou automatizar ações usando webhooks, runbooks de Automação ou [integrando com uma solução ITSM externa](../alerts/itsmc-definition.md#create-itsm-work-items-from-azure-alerts). 
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Solução de problemas por uso acima do esperado
 
@@ -488,8 +488,8 @@ Algumas sugestões para reduzir o volume de logs coletados incluem:
 | AzureDiagnostics           | Altere a [coleção de logs de recursos](../essentials/diagnostic-settings.md#create-in-azure-portal) para: <br> - Reduzir o número de logs de envio de recursos para o Log Analytics <br> - Coletar somente os logs necessários |
 | Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../insights/solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
 | Application Insights | Revisar opções para [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [Análise de SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Use [set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) para ajustar as configurações de auditoria. |
-| Azure Sentinel | Examine as [fontes de dados Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que você habilitou recentemente como fontes de volume de dados adicionais. |
+| [Análise de SQL](../insights/azure-sql.md) | Use [set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) para ajustar as configurações de auditoria. |
+| Azure Sentinel | Examine as [fontes de dados Sentinel](../../sentinel/connect-data-sources.md) que você habilitou recentemente como fontes de volume de dados adicionais. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obter nós conforme a cobrança no tipo de preço Por Nó
 

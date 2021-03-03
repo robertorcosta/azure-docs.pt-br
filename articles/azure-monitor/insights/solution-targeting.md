@@ -1,17 +1,16 @@
 ---
 title: Direcionamento de soluções de monitoramento no Azure Monitor | Microsoft Docs
 description: O direcionamento de soluções de monitoramento permite limitar as soluções de monitoramento a um conjunto específico de agentes.  Este artigo descreve como criar uma configuração de escopo e aplicá-la a uma solução.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/27/2017
-ms.openlocfilehash: 338dc22c7a4f9fbca9f007ae76c092a3fe5f6762
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: cb030456eb3b9e3c81fadd8451b5b0526920ba33
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587233"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728562"
 ---
 # <a name="targeting-monitoring-solutions-in-azure-monitor-preview"></a>Direcionamento de soluções de monitoramento no Azure Monitor (versão prévia)
 Quando você adiciona uma solução de monitoramento à sua assinatura, ela é implantada automaticamente por padrão em todos os agentes do Windows e do Linux conectados ao seu espaço de trabalho do Log Analytics.  Talvez você queira gerenciar os custos e limitar a quantidade de dados coletados de uma solução limitando-a a determinado conjunto de agentes.  Este artigo descreve como usar o **Direcionamento de Solução**, que é um recurso que permite aplicar um escopo às suas soluções.

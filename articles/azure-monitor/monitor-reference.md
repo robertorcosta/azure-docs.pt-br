@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 08/15/2020
-ms.openlocfilehash: 153b153399bd430b4688d4790a3dd5785c545012
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7c8f1a45f46975b489690eded5b094ffee94dbf1
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100579394"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728392"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>O que é monitorado pelo Azure Monitor?
 Este artigo descreve os diferentes aplicativos e serviços monitorados pelo Azure Monitor. 
@@ -26,12 +26,12 @@ O Insights fornece uma experiência de monitoramento personalizada para aplicati
 | Insight | Descrição |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | Serviço de APM (gerenciamento de desempenho de aplicativos) extensível para monitorar seu aplicativo Web ativo em qualquer plataforma. |
-| [Azure Monitor para Contêineres](containers/container-insights-overview.md) | Monitora o desempenho das cargas de trabalho de contêineres implantadas nas Instâncias de Contêiner do Azure ou nos clusters Kubernetes gerenciados hospedados no AKS (Serviço de Kubernetes do Azure). |
+| [Informações de contêiner](containers/container-insights-overview.md) | Monitora o desempenho das cargas de trabalho de contêineres implantadas nas Instâncias de Contêiner do Azure ou nos clusters Kubernetes gerenciados hospedados no AKS (Serviço de Kubernetes do Azure). |
 | [Azure Monitor para Azure Cosmos DB](insights/cosmosdb-insights-overview.md) | Fornece uma exibição do desempenho geral, das falhas, da capacidade e da integridade operacional de todos os seus recursos de Azure Cosmos DB em uma experiência interativa unificada. |
 | [Azure Monitor para Redes (versão prévia)](insights/network-insights-overview.md) | Fornece uma visão abrangente da integridade e das métricas para todos os seus recursos de rede. O recurso de pesquisa avançada ajuda a identificar dependências de recursos, permitindo cenários como identificar recursos que hospedam seu site, simplesmente pesquisando o nome do site. |
 [Azure Monitor para Grupos de Recursos (versão prévia)](insights/resource-group-insights.md) |  Facilita a triagem e o diagnóstico de quaisquer problemas encontrados pelos recursos individuais, oferecendo contexto sobre a integridade e o desempenho do grupo de recursos como um todo. |
 | [Azure Monitor para Armazenamento](insights/storage-insights-overview.md) | Fornece monitoramento abrangente das contas do Armazenamento do Azure proporcionando uma exibição unificada de desempenho, capacidade e disponibilidade dos serviços do Armazenamento. |
-| [Azure Monitor para VMs](vm/vminsights-overview.md) | Monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
+| [Informações de VM](vm/vminsights-overview.md) | Monitora as VMs (máquinas virtuais) e os conjuntos de dimensionamento de máquinas virtuais do Azure em escala. Ele analisa o desempenho e a integridade das VMs do Windows e do Linux e monitora os processos e as dependências de outros recursos e processos externos. |
 | [Azure Monitor para Key Vault (versão prévia)](./insights/key-vault-insights-overview.md) | Fornece monitoramento abrangente de seus cofres de chaves, fornecendo uma exibição unificada de suas solicitações de Key Vault, desempenho, falhas e latência. |
 | [Azure Monitor para Cache do Azure para Redis (versão prévia)](insights/redis-cache-insights-overview.md) |  Fornece uma exibição unificada e interativa de desempenho geral, falhas, capacidade e integridade operacional. |
 
@@ -240,7 +240,7 @@ O Azure Monitor pode coletar dados de recursos fora do Azure usando os métodos 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia mais sobre a [Plataforma de dados do Azure Monitor que armazena os logs e as métricas coletados pelos insights e pelas soluções](/data-platform.md).
+- Leia mais sobre a [Plataforma de dados do Azure Monitor que armazena os logs e as métricas coletados pelos insights e pelas soluções](data-platform.md).
 - Conclua um [tutorial sobre como monitorar um recurso do Azure](essentials/tutorial-resource-logs.md).
 - Conclua um [tutorial sobre como gravar uma consulta de log para analisar dados em logs do Azure Monitor](essentials/tutorial-resource-logs.md).
 - Conclua um [tutorial sobre como criar um gráfico de métricas para analisar dados nas métricas do Azure Monitor](essentials/tutorial-metrics-explorer.md).

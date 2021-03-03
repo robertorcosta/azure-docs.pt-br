@@ -1,17 +1,16 @@
 ---
 title: Solução de Gerenciamento de Alertas no Azure Log Analytics | Microsoft Docs
 description: A solução de Gerenciamento de Alertas no Log Analytics ajuda a analisar todos os alertas em seu ambiente.  Além de consolidar alertas gerados no Log Analytics, ela importa alertas dos grupos de gerenciamento do System Center Operations Manager conectados ao Log Analytics.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2018
-ms.openlocfilehash: 1771801068b08b987fc9b756af6099d45ae5ea9e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6f3761b1c933d113bf65c70370c29bcfa7950eea
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101728647"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Solução de Gerenciamento de Alertas no Azure Log Analytics
 
@@ -40,11 +39,11 @@ Para obter mais informações sobre como os pacotes de gerenciamento da soluçã
 ### <a name="agents"></a>Agentes
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suporte | Description |
+| Fonte Conectada | Suporte | Descrição |
 |:--- |:--- |:--- |
-| [Agentes do Windows](../agents/agent-windows.md) | No |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
-| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | No |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
-| [Grupo de gerenciamento do System Center Operations Manager](../agents/om-agents.md) |Yes |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
+| [Agentes do Windows](../agents/agent-windows.md) | Não |Agentes diretos do Windows não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Windows. |
+| [Agentes do Linux](../vm/quick-collect-linux-computer.md) | Não |Agentes diretos do Linux não geram alertas.  Alertas do Log Analytics podem ser criados de eventos e dados de desempenho coletados de agentes do Linux.  Alertas do Nagios e Zabbix são coletados desses servidores que exigem o agente do Linux. |
+| [Grupo de gerenciamento do System Center Operations Manager](../agents/om-agents.md) |Sim |Os alertas gerados em agentes do System Center Operations Manager são entregues ao grupo de gerenciamento e, em seguida, encaminhados para o Log Analytics.<br><br>Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de alerta são encaminhados do grupo de gerenciamento para o repositório do Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Frequência de coleta

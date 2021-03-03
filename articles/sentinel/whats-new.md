@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/04/2021
-ms.openlocfilehash: 9136947767bffb7bea800cdd2a735794baf8f329
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.date: 02/22/2021
+ms.openlocfilehash: 887245bbbefa1c0232313b638203206b623d506b
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "100007356"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101729701"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>O que há de novo no Azure Sentinel
 
@@ -29,6 +29,37 @@ Os recursos indicados estão atualmente em versão prévia. Os [termos suplement
 >
 > Você também pode contribuir! Junte-se a nós na [comunidade GitHub do Azure Sentinel Threat caçadores](https://github.com/Azure/Azure-Sentinel/wiki).
 > 
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+- [UEBA insights na página de entidade](#ueba-insights-in-the-entity-page)
+- [Pesquisa de incidente aprimorada](#improved-incident-search)
+
+### <a name="ueba-insights-in-the-entity-page"></a>UEBA insights na página de entidade
+
+As páginas de detalhes da entidade Sentinela do Azure fornecem um [painel de informações](identify-threats-with-entity-behavior-analytics.md#entity-insights), que exibe informações comportamentais sobre a entidade e ajuda a identificar rapidamente anomalias e ameaças à segurança.
+
+Se você tiver o [Ueba habilitado](ueba-enrichments.md)e tiver selecionado um período de pelo menos quatro dias, este painel de informações também incluirá as seguintes novas seções para o Ueba insights:
+
+|Seção  |Descrição  |
+|---------|---------|
+|**Informações do UEBA**     | Resume as atividades anormais do usuário: <br>-Em locais geográficos, dispositivos e ambientes<br>-Em horizontes de tempo e frequência, em comparação com o próprio histórico do usuário <br>-Comparação com o comportamento de pares <br>– Em comparação com o comportamento da organização     |
+|**Pares do usuário com base na associação de grupo de segurança**     |   Lista os pares do usuário com base na associação de grupos de segurança do Azure AD, fornecendo às equipes de operações de segurança uma lista de outros usuários que compartilham permissões semelhantes.  |
+|**Permissões de acesso de usuário para a assinatura do Azure**     |     Mostra as permissões de acesso do usuário para as assinaturas do Azure acessíveis diretamente ou por meio de grupos/entidades de serviço do Azure AD.   |
+|**Indicadores de ameaça relacionados ao usuário**     |  Lista uma coleção de ameaças conhecidas relacionadas aos endereços IP representados nas atividades do usuário. As ameaças são listadas por tipo de ameaça e família e são aprimoradas pelo serviço de inteligência contra ameaças da Microsoft.       |
+|     |         |
+
+### <a name="improved-incident-search"></a>Pesquisa de incidente aprimorada
+
+Melhoramos a experiência de pesquisa de incidentes do Azure Sentinel, permitindo que você navegue mais rápido por meio de incidentes à medida que investiga uma ameaça específica.
+
+Ao pesquisar incidentes no Azure Sentinel, agora você poderá pesquisar os seguintes detalhes do incidente:
+
+- ID
+- Título
+- Produto
+- Proprietário
+- Marca
 
 ## <a name="january-2021"></a>Janeiro de 2021
 
@@ -57,7 +88,7 @@ O Azure Sentinel agora dá suporte ao novo módulo do PowerShell [AZ. SecurityIn
 
 O módulo **AZ. SecurityInsights** dá suporte a casos de uso comuns do Azure Sentinel, como interagir com incidentes para alterar Statues, severidade, proprietário e assim por diante, adicionando comentários e rótulos a incidentes e criando indicadores.
 
-Embora seja recomendável usar modelos de [Azure Resource Manager (ARM)](/azure/azure-resource-manager/templates/) para o pipeline de CI/CD, o módulo **AZ. SecurityInsights** é útil para tarefas pós-implantação e é direcionado para a automação do SOC.  Por exemplo, a automação do SOC pode incluir etapas para configurar conectores de dados, criar regras de análise ou adicionar ações de automação a regras de análise.
+Embora seja recomendável usar modelos de [Azure Resource Manager (ARM)](../azure-resource-manager/templates/index.yml) para o pipeline de CI/CD, o módulo **AZ. SecurityInsights** é útil para tarefas pós-implantação e é direcionado para a automação do SOC.  Por exemplo, a automação do SOC pode incluir etapas para configurar conectores de dados, criar regras de análise ou adicionar ações de automação a regras de análise.
 
 Para obter mais informações, incluindo uma lista completa e uma descrição dos cmdlets disponíveis, descrições de parâmetros e exemplos, consulte a [documentação do PowerShell AZ. SecurityInsights](/powershell/module/az.securityinsights/).
 
@@ -85,7 +116,7 @@ O Azure Sentinel agora dá suporte a clusters de Log Analytics dedicados como um
 
 Os clusters dedicados permitem usar recursos como chaves gerenciadas pelo cliente, Lockbox, criptografia dupla e consultas de espaço de trabalho mais rápidas quando você tem vários espaços de trabalho no mesmo cluster.
 
-Para obter mais informações, consulte [Azure monitor logs de clusters dedicados](https://docs.microsoft.com/azure/azure-monitor/log-query/logs-dedicated-clusters).
+Para obter mais informações, consulte [Azure monitor logs de clusters dedicados](../azure-monitor/logs/logs-dedicated-clusters.md).
 
 ### <a name="logic-apps-managed-identities"></a>Identidades gerenciadas de aplicativos lógicos
 
@@ -97,7 +128,7 @@ O Azure Sentinel agora dá suporte a identidades gerenciadas para o conector de 
 
 Para obter mais informações, consulte:
 
-- [Autenticando com identidade gerenciada em aplicativos lógicos do Azure](/azure/logic-apps/create-managed-service-identity)
+- [Autenticando com identidade gerenciada em aplicativos lógicos do Azure](../logic-apps/create-managed-service-identity.md)
 - [Documentação do conector de aplicativos lógicos do Azure Sentinel](/connectors/azuresentinel) 
 
 ### <a name="improved-rule-tuning-with-the-analytics-rule-preview-graphs-public-preview"></a>Aprimoramento do ajuste de regras com os gráficos de visualização de regra de análise (visualização pública)
@@ -151,18 +182,18 @@ O Azure Sentinel usa o agente de Log Analytics para enviar eventos para seu espa
 > O agente de Log Analytics, às vezes, é chamado de agente do OMS ou o Microsoft Monitoring Agent (MMA). 
 > 
 
-Para obter mais informações, consulte a [documentação do log Analytics](/azure/azure-monitor/platform/log-analytics-agent) e as notas de versão do agente de [log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
+Para obter mais informações, consulte a [documentação do log Analytics](../azure-monitor/agents/log-analytics-agent.md) e as notas de versão do agente de [log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## <a name="november-2020"></a>Novembro de 2020
 
 - [Monitorar os guias estratégicos de aplicativos lógicos no Azure Sentinel](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
 - [Conector do Microsoft 365 defender (visualização pública)](#microsoft-365-defender-connector-public-preview)
 ### <a name="monitor-your-logic-apps-playbooks-in-azure-sentinel"></a>Monitorar os guias estratégicos de aplicativos lógicos no Azure Sentinel
 
-O Azure Sentinel agora se integra aos [aplicativos de log do Azure](/azure/logic-apps/), um serviço de nuvem que ajuda a agendar, automatizar e orquestrar tarefas, processos de negócios e fluxos de trabalho.
+O Azure Sentinel agora se integra aos [aplicativos de log do Azure](../logic-apps/index.yml), um serviço de nuvem que ajuda a agendar, automatizar e orquestrar tarefas, processos de negócios e fluxos de trabalho.
 
 Use um aplicativo lógico do Azure no Azure Sentinel como um guia estratégico, que pode ser invocado automaticamente quando um incidente é criado ou durante a triagem e o trabalho com incidentes. 
 
-Para fornecer informações sobre a integridade, o desempenho e o uso de seus guias estratégicos, incluindo qualquer um que você adicionar com os aplicativos lógicos do Azure, adicionamos uma [pasta de trabalho do Azure](/azure/azure-monitor/platform/workbooks-overview) denominada **monitoramento de integridade de guias estratégicos**. 
+Para fornecer informações sobre a integridade, o desempenho e o uso de seus guias estratégicos, incluindo qualquer um que você adicionar com os aplicativos lógicos do Azure, adicionamos uma [pasta de trabalho do Azure](../azure-monitor/visualize/workbooks-overview.md) denominada **monitoramento de integridade de guias estratégicos**. 
 
 Use a pasta de trabalho de **monitoramento de integridade dos guias estratégicos** para monitorar a integridade de seus guias estratégicos ou Procure anomalias na quantidade de execuções com êxito ou com falha. 
 
@@ -172,9 +203,9 @@ A pasta de trabalho de **monitoramento de integridade dos guias estratégicos** 
 
 Para obter mais informações, consulte:
 
-- [Documentação dos aplicativos lógicos](/azure/logic-apps/monitor-logic-apps-log-analytics#set-up-azure-monitor-logs)
+- [Documentação dos aplicativos lógicos](../logic-apps/monitor-logic-apps-log-analytics.md#set-up-azure-monitor-logs)
 
-- [Documentação do Azure Monitor](/azure/azure-monitor/platform/activity-log#send-to-log-analytics-workspace)
+- [Documentação do Azure Monitor](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace)
 
 ### <a name="microsoft-365-defender-connector-public-preview"></a>Conector do Microsoft 365 defender (visualização pública)
  

@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: CelesteDG
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f37c7e2f21c76fcc902b0922399081b9be949e99
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365524"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101688460"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único de email
 
@@ -26,7 +26,8 @@ Este artigo descreve como habilitar a autenticação de senha de uso único de e
 ![Diagrama de visão geral de senha de email de uso único](media/one-time-passcode/email-otp.png)
 
 > [!IMPORTANT]
-> A **partir de outubro de 2021**, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Se não quiser permitir que esse recurso seja ativado automaticamente, você poderá desabilitá-lo. Consulte [Desabilitar senha de uso único de email](#disable-email-one-time-passcode) abaixo.
+> - A **partir de outubro de 2021**, o recurso de senha de uso único de email será ativado para todos os locatários existentes e habilitado por padrão para novos locatários. Se não quiser permitir que esse recurso seja ativado automaticamente, você poderá desabilitá-lo. Consulte [Desabilitar senha de uso único de email](#disable-email-one-time-passcode) abaixo.
+> - As configurações de senha de email de uso único foram movidas no portal do Azure de **configurações de colaboração externas** para **todos os provedores de identidade**.
 
 > [!NOTE]
 > Os usuários de senha descartável devem entrar usando um link que inclui o contexto do locatário (por exemplo, `https://myapps.microsoft.com/?tenantid=<tenant id>`, `https://portal.azure.com/<tenant id>` ou, no caso de um domínio verificado, `https://myapps.microsoft.com/<verified domain>.onmicrosoft.com`). Links diretos para aplicativos e recursos também funcionam desde que incluam o contexto do locatário. No momento, os usuários convidados não conseguem entrar usando pontos de extremidade sem contexto do locatário. Por exemplo, usando `https://myapps.microsoft.com` , `https://portal.azure.com` resultará em um erro.
@@ -83,27 +84,50 @@ A partir de outubro de 2021, o recurso de senha de uso único de email será ati
 
 2. No painel de navegação, selecione **Azure Active Directory**.
 
-3. Selecione **Identidades Externas** > **Configurações de colaboração externa**.
+3. Confira **Identidades Externas** > **Todos os provedores de identidade**.
 
-4. Em **senha de uso único de email para convidados**, selecione **desabilitar a senha de uso único de email para convidados**.
+4. Selecione **senha de uso único de email** e, em seguida, selecione **Desabilitar senha de uso único de email para convidados**.
 
    > [!NOTE]
-   > Se você vir a seguinte alternância em vez das opções de senha de uso único de email, isso significa que você já habilitou, desabilitou ou aceitou a versão prévia do recurso. Selecione **não** para desabilitar o recurso.
+   > As configurações de senha de email de uso único foram movidas no portal do Azure de **configurações de colaboração externas** para **todos os provedores de identidade**.
+   > Se você vir uma alternância em vez das opções de senha de email único, isso significa que você habilitou, desabilitou ou aceitou anteriormente a visualização do recurso. Selecione **não** para desabilitar o recurso.
    >
-   >![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
+   >![Alternância de senha de uso único de email desabilitada](media/one-time-passcode/enable-email-otp-disabled.png)
 
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 ## <a name="note-for-public-preview-customers"></a>Observação para clientes de visualização pública
 
-Se você tiver optado anteriormente pela visualização pública de senha de uso único de email, a data de outubro de 2021 para a habilitação automática de recursos não se aplicará a você, de modo que seus processos comerciais relacionados não serão afetados. Além disso, na portal do Azure, sob a **senha de uso único de email para as propriedades de convidados** , você não verá a opção de **habilitar automaticamente o email de senha de uso único para convidados em outubro de 2021**. Em vez disso, você verá a seguinte opção **Sim** ou **não** alternar:
+Se você tiver optado anteriormente pela visualização pública de senha de uso único de email, a data de outubro de 2021 para a habilitação automática de recursos não se aplicará a você, de modo que seus processos comerciais relacionados não serão afetados. Além disso, na portal do Azure, sob a **senha do email de uso único para as propriedades de convidados** , você não verá a opção de **habilitar automaticamente o email de senha de uso único para convidados a partir de outubro de 2021**. Em vez disso, você verá a seguinte opção **Sim** ou **não** alternar:
 
-![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
+![Senha do email de uso único aceito](media/one-time-passcode/enable-email-otp-opted-in.png)
 
 No entanto, se você preferir recusar o recurso e permitir que ele seja habilitado automaticamente em outubro de 2021, você poderá reverter para as configurações padrão usando o tipo de recurso de [configuração do método de autenticação de email](/graph/api/resources/emailauthenticationmethodconfiguration)Microsoft Graph API. Depois de reverter para as configurações padrão, as opções a seguir estarão disponíveis em **senha de uso único de email para convidados**:
 
-- **Habilite automaticamente a senha de um único email para convidados em outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado em outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
+![Habilitar o email de senha de uso único aceito](media/one-time-passcode/email-otp-options.png)
+
+- **Habilite automaticamente a senha de um único email para convidados a partir de outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado a partir de outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
 
 - **Habilite o email de senha de uso único para convidados em vigor agora**. Ativa o recurso de senha de uso único de email para seu locatário.
 
 - **Desabilite a senha de uso único de email para convidados**. Desativa o recurso de senha de uso único de email para seu locatário e impede que o recurso seja ligado em outubro de 2021.
+
+## <a name="note-for-azure-us-government-customers"></a>Observação para os clientes do governo dos EUA do Azure
+
+O recurso de senha de email de uso único é desabilitado por padrão na nuvem do governo dos EUA do Azure.  
+
+ ![Senha de uso único de email desabilitada](media/one-time-passcode/enable-email-otp-disabled.png)
+
+Para habilitar o recurso de senha de um email de uso único na nuvem do governo dos EUA do Azure:
+
+1. Entre no [portal do Azure](https://portal.azure.com) como um administrador global do Azure AD.
+2. No painel de navegação, selecione **Azure Active Directory**.
+3. Selecione Configurações de **relações organizacionais**   >  ****.
+
+   > [!NOTE]
+   > - Se você não vir **relações organizacionais**, procure "identidades externas" na barra de pesquisa na parte superior.
+
+4. Selecione **senha de uso único de email** e, em seguida, selecione **Sim**.
+5. Clique em **Salvar**.
+
+Para obter mais informações sobre as limitações atuais, consulte [nuvens do governo dos EUA do Azure](current-limitations.md#azure-us-government-clouds).

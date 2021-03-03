@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: overview
 ms.date: 09/28/2020
 ms.author: ginle
-ms.openlocfilehash: 6dff16f4a68f3db4ff841141e7d7025e794cca8f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f810769529569309656193d41f28cca201a85c07
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100105174"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101719212"
 ---
 # <a name="configure-customer-managed-keys-at-rest"></a>Configurar chaves gerenciada pelo cliente em repouso
 
@@ -140,4 +140,4 @@ New-AzResourceGroupDeployment `
 Neste artigo, você aprendeu a configurar chaves gerenciadas pelo cliente inativas usando o portal do Azure, o PowerShell, a CLI e o modelo do Resource Manager. Confira a seção de perguntas frequentes do Azure Cosmos DB para encontrar outras perguntas que você pode ter: 
  
 >[!div class="nextstepaction"]
->[Cosmos DB: como configurar CMK](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
+>[Cosmos DB: como configurar CMK](../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)
