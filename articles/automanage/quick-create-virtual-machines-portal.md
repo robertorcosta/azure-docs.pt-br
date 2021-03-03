@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: quickstart
-ms.date: 09/04/2020
+ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: 69f43b626bb50171ceaca1b7a8761bec040d1dd6
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 6e0e582ed37230ba3f379f193a229cfec06f066c
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92897221"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648026"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Início Rápido: Habilitar o gerenciamento do Azure para máquinas virtuais no portal do Azure
 
@@ -33,29 +33,42 @@ Caso não tenha uma assinatura do Azure, [crie uma conta](https://azure.microsof
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Entre no [portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://aka.ms/AutomanagePortal-Ignite21).
 
+## <a name="enable-automanage-for-a-single-vm"></a>Habilitar o Gerenciamento Automatizado em uma VM individual
 
-## <a name="enable-automanage-for-vms-on-an-existing-vm"></a>Habilitar o Gerenciamento Automático para VMs em uma VM existente
+1. Procure a Máquina Virtual que deseja habilitar.
 
-1. Na barra de pesquisa, pesquise e selecione **o Gerenciamento Automático – melhores práticas de máquina virtual do Azure**.
+2. Clique na entrada **Gerenciamento Automatizado (Versão prévia)** no Sumário em **Operações**.
+
+3. Selecione **Introdução**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-GetStarted.png" alt-text="Introdução à VM individual.":::
+
+4. Escolha suas configurações de Gerenciamento Automatizado (ambiente, preferências, conta do Gerenciamento Automatizado) e clique em **Habilitar**.
+
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMManage-Enable.png" alt-text="Habilitação em uma VM individual.":::
+
+## <a name="enable-automanage-for-multiple-vms"></a>Habilitar o Gerenciamento Automatizado em várias VMs
+
+1. Na barra de pesquisa, procure e selecione **Gerenciamento Automatizado – Melhores práticas para computadores do Azure**.
 
 2. Selecione **Habilitar em VM existente**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\zero-vm-list-view.png" alt-text="Habilitar na VM existente.":::
 
-3. Na folha **Selecionar computadores** :
+3. Na folha **Selecionar computadores**:
     1. Filtre a lista de VMs pela sua **Assinatura** e **Grupo de Recursos**.
     1. Marque a caixa de seleção de cada máquina virtual que você deseja integrar.
     1. Clique no botão **Selecionar**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-select-machine.png" alt-text="Selecione a VM existente na lista de VMs disponíveis.":::
 
-4. Em **Perfil de configuração** , clique em **Procurar e alterar perfis e preferências**.
+4. Em **Perfil de configuração**, clique em **Procurar e alterar perfis e preferências**.
 
     :::image type="content" source="media\quick-create-virtual-machine-portal\existing-vm-quick-create.png" alt-text="Procurar e alterar perfis e preferências.":::
 
-5. Na folha **Selecionar perfil de configuração + preferências** :
+5. Na folha **Selecionar perfil de configuração + preferências**:
     1. Selecione um perfil à esquerda: *Desenvolvimento/Teste* para teste, *Prod* para produção.
     1. Clique no botão **Selecionar**.
 
@@ -64,31 +77,29 @@ Entre no [portal do Azure](https://portal.azure.com/).
 6. Clique no botão **Habilitar**.
 
 
-## <a name="enable-automanage-for-vms-on-a-new-vm"></a>Habilitar o Gerenciamento Automático para VMs em uma nova VM
+## <a name="enable-automanage-for-a-new-vm"></a>Habilitar o Gerenciamento Automatizado em uma nova VM
 
-Entre no portal do Azure [aqui](https://aka.ms/automanageportalnextstep) para criar uma VM e habilitar o Gerenciamento Automático.
+Entre no portal do Azure [aqui](https://aka.ms/AutomanagePortal-Ignite21) para criar uma VM e habilitar o Gerenciamento Automático.
 
-1. Siga as etapas de criação em [Início rápido – criar uma VM do Windows no portal do Azure](..\virtual-machines\windows\quick-create-portal.md).
+1. Escolha **Criar um recurso** no canto superior esquerdo do portal do Azure.
 
-2. Depois que a VM for implantada, você chegará à página status da implantação que tem as **próximas etapas** recomendadas na parte inferior.
+2. Na caixa de pesquisa acima da lista de recursos do Azure Marketplace, procure e selecione a imagem que deseja usar e escolha **Criar**.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-next-steps.png" alt-text="Seção de próximas etapas localizada na parte inferior da página de implantação.":::
+> [!NOTE]
+> Verifique as [distribuições do Linux](automanage-linux.md#supported-linux-distributions-and-versions) e as [versões do Windows Server](automanage-windows-server.md#supported-windows-server-versions) compatíveis com o Gerenciamento Automatizado.
 
-3. Em **Próximas etapas** , selecione **Habilitar Gerenciamento Automático – melhores práticas de máquina virtual**.
+3. Preencha a guia **Informações Básicas** com os detalhes da VM.
 
-4. Na página **Gerenciamento Automático – melhores práticas de máquina virtual do Azure** , **Computadores** será preenchido automaticamente pela sua VM que acaba de ser criada.
+> [!NOTE]
+> Verifique as [regiões com suporte](automanage-virtual-machines#supported-regions) do Gerenciamento Automatizado.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\create-new-enable-overview.png" alt-text="A VM que acaba de ser criada aparecerá como o computador selecionado.":::
+4. Procure a guia **Gerenciamento** e escolha seu **Ambiente de Gerenciamento Automatizado**.
 
-5. Em **Perfil de configuração** , clique em **Procurar e alterar perfis e preferências**.
+    :::image type="content" source="media\quick-create-virtual-machine-portal\VMCreate-Management-Tab.png" alt-text="Habilitar o Gerenciamento Automatizado na guia Gerenciamento.":::
 
-6. Na folha **Selecionar perfil de configuração + preferências** :
-    1. Selecione um perfil à esquerda: *Desenvolvimento/Teste* para teste, *Prod* para produção.
-    1. Clique no botão **Selecionar**.
+5. Deixe os padrões restantes e, em seguida, selecione o botão **Examinar + criar** na parte inferior da página.
 
-    :::image type="content" source="media\quick-create-virtual-machine-portal\browse-production-profile.png" alt-text="Procurar perfil de configuração de produção.":::
-
-7. Clique no botão **Habilitar**.
+6. Quando você receber a mensagem informando que a validação foi aprovada, selecione **Criar**.
 
 ## <a name="disable-automanage-for-vms"></a>Desabilitar o Gerenciamento Automático para VMs
 
@@ -96,7 +107,7 @@ Pare rapidamente de usar o Gerenciamento Automático do Azure para máquinas vir
 
 :::image type="content" source="media\automanage-virtual-machines\disable-step-1.png" alt-text="Desabilitar o Gerenciamento Automático em uma máquina virtual.":::
 
-1. Acesse a página **Gerenciamento Automático – melhores práticas de máquina virtual do Azure** , que lista todas as suas VMs gerenciadas automaticamente.
+1. Acesse a página **Gerenciamento Automático – melhores práticas de máquina virtual do Azure**, que lista todas as suas VMs gerenciadas automaticamente.
 1. Marque a caixa de seleção ao lado da máquina virtual que você deseja desabilitar.
 1. Clique no botão **Desabilitar gerenciamento automático**.
 1. Leia atentamente as mensagens no pop-up resultante antes de concordar em **Desabilitar**.
@@ -115,9 +126,9 @@ O Gerenciamento Automático do Azure cria grupos de recursos padrão nos quais p
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você habilitou o Gerenciamento Automático do Azure para VMs. 
+Neste guia de início rápido, você habilitou o Gerenciamento Automático do Azure para VMs.
 
-Descubra como você pode criar e aplicar preferências personalizadas ao habilitar o Gerenciamento Automático em sua máquina virtual. 
+Descubra como você pode criar e aplicar preferências personalizadas ao habilitar o Gerenciamento Automático em sua máquina virtual.
 
 > [!div class="nextstepaction"]
-> [Gerenciamento Automático do Azure para VMS – perfil de configuração personalizada](virtual-machines-custom-preferences.md)
+> [Gerenciamento Automatizado do Azure para VMs – Perfil de configuração personalizado](virtual-machines-custom-preferences.md)

@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 15209bc9dae1f10e1158c805ba7903b9f946766f
-ms.sourcegitcommit: 1cf157f9a57850739adef72219e79d76ed89e264
+ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2020
-ms.locfileid: "94593936"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682383"
 ---
 Nesta etapa, você criará um [servidor SQL lógico](../database/logical-servers.md) e um [banco de dados individual](../database/single-database-overview.md) que usa os dados de exemplo da AdventureWorksLT. Você pode criar o banco de dados usando os menus e as telas do portal do Azure ou um script da CLI do Azure ou do PowerShell no Azure Cloud Shell.
 
@@ -23,33 +23,33 @@ Para criar um grupo de recursos, um servidor e um banco de dados individual no p
 
 1. Entre no [portal](https://portal.azure.com).
 1. Na barra de pesquisa, pesquise pelo **SQL Azure** e selecione-o.
-1. Na página do **SQL Azure** , selecione **Adicionar**.
+1. Na página do **SQL Azure**, selecione **Adicionar**.
 
    ![Adicionar ao SQL Azure](./media/sql-database-create-single-database/sqldbportal.png)
 
-1. Na página **Selecionar opção de implantação do SQL** , selecione o bloco **Bancos de dados SQL** , com **Banco de dados individual** em **Tipo de recurso**. Veja mais informações sobre os diferentes bancos de dados selecionando **Mostrar detalhes**.
+1. Na página **Selecionar opção de implantação do SQL**, selecione o bloco **Bancos de dados SQL**, com **Banco de dados individual** em **Tipo de recurso**. Veja mais informações sobre os diferentes bancos de dados selecionando **Mostrar detalhes**.
 1. Selecione **Criar**.
 
    ![Criar banco de dados individual](./media/sql-database-create-single-database/create-single-database.png)
 
-1. Na guia **Básico** do formulário **Criar banco de dados SQL** , em **Detalhes do projeto** , selecione a **Assinatura** correta do Azure caso ainda não esteja selecionada.
-1. Em **Grupo de recursos** , selecione **Criar** , insira *myResourceGroup* e selecione **OK**.
-1. Em **Detalhes do banco de dados** , para **Nome do banco de dados** , insira *mySampleDatabase*.
-1. Para **Servidor** , selecione **Criar** e preencha o formulário **Novo servidor** da seguinte maneira:
-   - **Nome do servidor** : insira *mysqlserver* e alguns caracteres para que o nome seja exclusivo.
-   - **Logon de administrador do servidor** : insira *azureuser*.
-   - **Senha** : insira uma senha que atenda aos requisitos e insira-a novamente no campo **Confirmar senha**.
-   - **Localização** : abra o menu suspenso e escolha um local, como **(EUA) Leste dos EUA**.
+1. Na guia **Básico** do formulário **Criar banco de dados SQL**, em **Detalhes do projeto**, selecione a **Assinatura** correta do Azure caso ainda não esteja selecionada.
+1. Em **Grupo de recursos**, selecione **Criar**, insira *myResourceGroup* e selecione **OK**.
+1. Em **Detalhes do banco de dados**, para **Nome do banco de dados**, insira *mySampleDatabase*.
+1. Para **Servidor**, selecione **Criar** e preencha o formulário **Novo servidor** da seguinte maneira:
+   - **Nome do servidor**: insira *mysqlserver* e alguns caracteres para que o nome seja exclusivo.
+   - **Logon de administrador do servidor**: insira *azureuser*.
+   - **Senha**: insira uma senha que atenda aos requisitos e insira-a novamente no campo **Confirmar senha**.
+   - **Localização**: abra o menu suspenso e escolha um local, como **(EUA) Leste dos EUA**.
 
    Selecione **OK**.
 
    ![Novo servidor](./media/sql-database-create-single-database/new-server.png)
 
-   Registre o logon de administrador do servidor e a senha para fazer logon no servidor e nos respectivos bancos de dados. Caso esqueça seu logon ou senha, obtenha o nome de logon ou redefina a senha na página do **servidor SQL** após a criação do banco de dados. Para abrir a página do **servidor SQL** , selecione o nome do servidor na página **Visão Geral** do banco de dados.
+   Registre o logon de administrador do servidor e a senha para fazer logon no servidor e nos respectivos bancos de dados. Caso esqueça seu logon ou senha, obtenha o nome de logon ou redefina a senha na página do **servidor SQL** após a criação do banco de dados. Para abrir a página do **servidor SQL**, selecione o nome do servidor na página **Visão Geral** do banco de dados.
 
-1. Em **Computação + armazenamento** , se quiser reconfigurar os padrões, selecione **Configurar banco de dados**.
+1. Em **Computação + armazenamento**, se quiser reconfigurar os padrões, selecione **Configurar banco de dados**.
 
-   Na página **Configurar** , você pode:
+   Na página **Configurar**, você pode:
    - Alterar a **Camada de computação** de **Provisionada** para **Sem servidor**.
    - Examinar e alterar as configurações de **vCores** e **Tamanho máximo de dados**.
    - Selecionar **Alterar configuração** para alterar a geração do hardware.
@@ -60,15 +60,17 @@ Para criar um grupo de recursos, um servidor e um banco de dados individual no p
 
    ![Novo banco de dados SQL – guia Básico](./media/sql-database-create-single-database/new-sql-database-basics.png)
 
-1. Na guia **Rede** , em **Método de conectividade** , selecione **Ponto de extremidade público**.
-1. Em **Regras de firewall** , defina **Adicionar endereço IP do cliente atual** como **Sim**.
+1. Na guia **Rede**, em **Método de conectividade**, selecione **Ponto de extremidade público**.
+1. Em **Regras de firewall**, defina **Adicionar endereço IP do cliente atual** como **Sim**.
 1. Selecione **Avançar: Configurações adicionais** na parte inferior da página.
 
    ![Guia Rede](./media/sql-database-create-single-database/networking.png)
   
    Para obter mais informações sobre s configurações de firewall, confira [Permitir que serviços e recursos do Azure acessem este servidor](../database/network-access-controls-overview.md) e [Adicionar um ponto de extremidade privado](../database/private-endpoint-overview.md).
 
-1. Na guia **Configurações adicionais** , na seção **Fonte de dados** , para **Usar dados existentes** , selecione **Exemplo**.
+1. Na guia **Configurações adicionais**, na seção **Fonte de dados**, para **Usar dados existentes**, selecione **Exemplo**.
+1. Você também pode habilitar [Azure Defender para SQL](../database/azure-defender-for-sql.md).
+1. Opcionalmente, defina a [janela de manutenção](../database/maintenance-window.md) para que a manutenção planejada seja executada no melhor momento para seu banco de dados.
 1. Selecione **Revisar + criar** na parte inferior da página.
 
    ![Guia Configurações adicionais](./media/sql-database-create-single-database/additional-settings.png)

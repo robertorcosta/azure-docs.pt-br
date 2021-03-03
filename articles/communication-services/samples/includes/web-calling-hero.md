@@ -10,15 +10,13 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 61b3b3abace5c7a1cd846c1e3c1e7ac166efd5c7
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.openlocfilehash: eb420a8d5242cb6a122e7f7062e457b64f1fb5db
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99475602"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101682425"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
 O **Exemplo de Destaque de Chamadas em Grupo** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes Web de Chamadas dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
@@ -29,7 +27,7 @@ Encontre o código finalizado para este guia de início rápido no [GitHub](http
 
 ## <a name="overview"></a>Visão geral
 
-O exemplo tem um aplicativo do lado do cliente e um aplicativo do lado do servidor. O **aplicativo do lado do cliente** é um aplicativo Web React/Redux que usa a estrutura de interface do usuário Fluent da Microsoft. Esse aplicativo envia solicitações a um **aplicativo do lado do servidor** ASP.NET Core que ajuda o aplicativo do lado do cliente a se conectar ao Azure. 
+O exemplo tem um aplicativo do lado do cliente e um aplicativo do lado do servidor. O **aplicativo do lado do cliente** é um aplicativo Web React/Redux que usa a estrutura de interface do usuário Fluent da Microsoft. Esse aplicativo envia solicitações a um **aplicativo do lado do servidor** ASP.NET Core que ajuda o aplicativo do lado do cliente a se conectar ao Azure.
 
 Aqui está um exemplo:
 
@@ -91,7 +89,7 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 ## <a name="next-steps"></a>Próximas etapas
 
->[!div class="nextstepaction"] 
+>[!div class="nextstepaction"]
 >[Baixar o exemplo do GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
 
 Para obter mais informações, consulte os seguintes artigos:

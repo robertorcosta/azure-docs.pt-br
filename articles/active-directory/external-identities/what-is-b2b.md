@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e02cb23188b552b1779d184a2384835f4195762
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365371"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101649284"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?
 
@@ -85,7 +85,7 @@ O Azure AD dá suporte a provedores de identidade externos como Facebook, contas
 ![Captura de tela mostrando a página Provedores de identidade](media/what-is-b2b/identity-providers.png)
 
 
-## <a name="create-a-self-service-sign-up-user-flow-preview"></a>Criar um fluxo de usuários com inscrição por autoatendimento (Versão Prévia)
+## <a name="create-a-self-service-sign-up-user-flow"></a>Criar um fluxo do usuário de inscrição para autoatendimento
 
 Com um fluxo de usuários com inscrição por autoatendimento, você pode criar uma experiência de inscrição para usuários externos que desejam acessar seus aplicativos. Como parte do fluxo de inscrição, é possível fornecer opções para diferentes provedores de identidade social ou corporativa, e coletar informações sobre o usuário. Saiba mais sobre a [inscrição por autoatendimento e como configurá-la](self-service-sign-up-overview.md).
 

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
 ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
-ms.openlocfilehash: c65f086fb0b7db9eb65606da73552facd8e470b0
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5ca8c41dc1e6a05975227555abd91f5d6725285a
+ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103474"
+ms.lasthandoff: 02/18/2021
+ms.locfileid: "101092187"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-node-web-app-using-the-auth-code-flow"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo Web Node usando o fluxo de código de autenticação
 
@@ -26,9 +26,6 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este guia de início rápido usa a biblioteca de autenticação da Microsoft para Node.js (nó MSAL) com o fluxo de código de autorização.
-
-> [!IMPORTANT]
-> Nó MSAL [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

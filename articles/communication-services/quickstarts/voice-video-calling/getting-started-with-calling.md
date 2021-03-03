@@ -8,18 +8,16 @@ ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: 419997bf06dd951092661903f5a06ca86538de4f
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 7d183be69b83f324d56e6977c55e973b02d8f9a0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548482"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656595"
 ---
 # <a name="quickstart-add-voice-calling-to-your-app"></a>Início Rápido: Adicionar chamada de voz ao aplicativo
 
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de chamada dos Serviços de Comunicação para adicionar chamada de vídeo e de voz ao seu aplicativo. 
+Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de chamada dos Serviços de Comunicação para adicionar chamada de vídeo e de voz ao seu aplicativo.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 

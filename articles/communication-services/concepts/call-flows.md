@@ -9,26 +9,24 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 79382dde5780827d7b0393858fe8896c5da1b56d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 5b1d24dc6056de0b8dd19d0d0e52c85055596a1d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559460"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101664135"
 ---
 # <a name="call-flow-basics"></a>Noções básicas do fluxo de chamadas
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 A seção a seguir fornece uma visão geral dos fluxos de chamada nos Serviços de Comunicação do Azure. Os fluxos de sinalização e de mídia dependem dos tipos de chamadas que os usuários estão fazendo. Exemplos de tipos de chamada incluem VoIP de um para um, PSTN de um para um e chamadas em grupo contendo uma combinação de VoIP e participantes conectados a PSTN. Examine os [Tipos de chamada](./voice-video-calling/about-call-types.md).
 
 ## <a name="about-signaling-and-media-protocols"></a>Sobre protocolos de mídia e sinalização
 
-Quando você estabelece uma chamada em grupo ou ponto a ponto, dois protocolos são usados em segundo plano: o HTTP (REST) para sinalização e o SRTP para mídia. 
+Quando você estabelece uma chamada em grupo ou ponto a ponto, dois protocolos são usados em segundo plano: o HTTP (REST) para sinalização e o SRTP para mídia.
 
-A sinalização entre as bibliotecas de cliente ou entre as bibliotecas de cliente e os Controladores de Sinalização dos Serviços de Comunicação é administrada com HTTP REST (TLS). Para o Tráfego de Mídia em Tempo Real (RTP), o protocolo UDP é preferencial. Se o uso do UDP for impedido pelo firewall, a biblioteca de clientes usará o protocolo TCP para a mídia. 
+A sinalização entre as bibliotecas de cliente ou entre as bibliotecas de cliente e os Controladores de Sinalização dos Serviços de Comunicação é administrada com HTTP REST (TLS). Para o Tráfego de Mídia em Tempo Real (RTP), o protocolo UDP é preferencial. Se o uso do UDP for impedido pelo firewall, a biblioteca de clientes usará o protocolo TCP para a mídia.
 
-Vamos examinar os protocolos de sinalização e de mídia em vários cenários. 
+Vamos examinar os protocolos de sinalização e de mídia em vários cenários.
 
 ## <a name="call-flow-cases"></a>Casos de fluxo de chamadas
 
@@ -40,7 +38,7 @@ Em chamadas de vídeo ou VoIP de um para um, o tráfego prefere o caminho mais d
 
 ### <a name="case-2-voip-where-a-direct-connection-between-devices-is-not-possible-but-where-connection-between-nat-devices-is-possible"></a>Caso 2: VoIP no qual uma conexão direta entre dispositivos não é possível, mas a conexão entre dispositivos NAT é possível
 
-Se dois dispositivos estiverem localizados em sub-redes que estiverem fora do alcance uma da outra (por exemplo, Alice trabalha em uma cafeteria e Pedro trabalha de casa), mas a conexão entre os dispositivos NAT for possível, as bibliotecas de clientes do lado do cliente estabelecerão a conectividade por meio de dispositivos NAT. 
+Se dois dispositivos estiverem localizados em sub-redes que estiverem fora do alcance uma da outra (por exemplo, Alice trabalha em uma cafeteria e Pedro trabalha de casa), mas a conexão entre os dispositivos NAT for possível, as bibliotecas de clientes do lado do cliente estabelecerão a conectividade por meio de dispositivos NAT.
 
 Para Alice, ele será o NAT da cafeteria e, para Pedro, será o NAT da casa dele. O dispositivo da Alice enviará o endereço externo do NAT dela e o do Pedro fará o mesmo. As bibliotecas de cliente aprendem os endereços externos de um serviço STUN (Utilitários Transversais de Sessão para NAT) que os Serviços de Comunicação do Azure fornecem gratuitamente. A lógica que manipula o handshake entre a Alice e o Pedro é inserida nas bibliotecas de clientes fornecidas pelos Serviços de Comunicação do Azure. (Você não precisa de nenhuma configuração adicional)
 
@@ -51,7 +49,7 @@ Para Alice, ele será o NAT da cafeteria e, para Pedro, será o NAT da casa dele
 Se um ou ambos os dispositivos cliente estiverem protegidos por um NAT simétrico, será necessário que um serviço de nuvem separado retransmita a mídia entre as duas bibliotecas de clientes. Esse serviço é chamado TURN (Atravessamento Usando Retransmissões ao redor de NAT) e também é fornecido pelos Serviços de Comunicação. Os Serviços de Comunicação que chamam a biblioteca de clientes usam automaticamente os serviços TURN com base nas condições de rede detectadas. O uso do serviço TURN da Microsoft é cobrado separadamente.
 
 :::image type="content" source="./media/call-flows/about-voice-case-3.png" alt-text="Diagrama que mostra uma chamada VOIP que utiliza uma conexão TURN.":::
- 
+
 ### <a name="case-4-group-calls-with-pstn"></a>Caso 4: Chamadas em grupo com PSTN
 
 Tanto a sinalização quanto a mídia para Chamadas PSTN usam o recurso de telefonia dos Serviços de Comunicação do Azure. Esse recurso é interconectado com outras operadoras.
@@ -78,7 +76,7 @@ Se a biblioteca de clientes não puder usar o UDP para mídia devido a restriç�
 
 ### <a name="case-5-communication-services-client-library-and-microsoft-teams-in-a-scheduled-teams-meeting"></a>Caso 5: biblioteca de cliente dos Serviços de Comunicação e do Microsoft Teams em uma reunião agendada do Teams
 
-A sinalização flui pelo controlador de sinalização. A mídia flui pelo processador de mídia. O controlador de sinalização e o processador de mídia são compartilhados entre os Serviços de Comunicação e o Microsoft Teams. 
+A sinalização flui pelo controlador de sinalização. A mídia flui pelo processador de mídia. O controlador de sinalização e o processador de mídia são compartilhados entre os Serviços de Comunicação e o Microsoft Teams.
 
 :::image type="content" source="./media/call-flows/teams-communication-services-meeting.png" alt-text="Diagrama mostrando a biblioteca de cliente dos Serviços de Comunicação e o cliente do Teams em uma reunião agendada do Teams.":::
 

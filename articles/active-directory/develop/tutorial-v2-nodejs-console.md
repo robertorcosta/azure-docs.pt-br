@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 01/12/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: 3d4211acbf6b65ef8f04d00b3936d70bb930ed9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 33d3712e25a06419e0ccc5914cdddfae7d85a371
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561019"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645782"
 ---
 # <a name="tutorial-call-the-microsoft-graph-api-in-a-nodejs-console-app"></a>Tutorial: Chamar a API do Microsoft Graph em um aplicativo de console Node.js
 
@@ -125,9 +125,9 @@ Dentro da pasta *bin*, crie outro arquivo chamado *auth.js* e adicione o código
 const msal = require('@azure/msal-node');
 
 /**
- * Configuration object to be passed to MSAL instance on creation. 
+ * Configuration object to be passed to MSAL instance on creation.
  * For a full list of MSAL Node configuration parameters, visit:
- * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md 
+ * https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-node/docs/configuration.md
  */
 const msalConfig = {
     auth: {
@@ -139,8 +139,8 @@ const msalConfig = {
 
 /**
  * With client credentials flows permissions need to be granted in the portal by a tenant administrator.
- * The scope is always in the format '<resource>/.default'. For more, visit: 
- * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow 
+ * The scope is always in the format '<resource>/.default'. For more, visit:
+ * https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow
  */
 const tokenRequest = {
     scopes: [process.env.GRAPH_ENDPOINT + '.default'],
@@ -158,7 +158,7 @@ const cca = new msal.ConfidentialClientApplication(msalConfig);
 
 /**
  * Acquires token with client credentials.
- * @param {object} tokenRequest 
+ * @param {object} tokenRequest
  */
 async function getToken(tokenRequest) {
     return await cca.acquireTokenByClientCredential(tokenRequest);
@@ -212,8 +212,8 @@ const axios = require('axios');
 
 /**
  * Calls the endpoint with authorization bearer token.
- * @param {string} endpoint 
- * @param {string} accessToken 
+ * @param {string} endpoint
+ * @param {string} accessToken
  */
 async function callApi(endpoint, accessToken) {
 
@@ -239,7 +239,7 @@ module.exports = {
 };
 ```
 
-Aqui, o método `callApi` é usado para fazer uma solicitação HTTP `GET` em um recurso protegido que exige um token de acesso. Depois, a solicitação retorna o conteúdo para o chamador. Esse método adiciona o token adquirido no *cabeçalho de Autorização HTTP*. O recurso protegido aqui é o [ponto de extremidade de usuários](https://docs.microsoft.com/graph/api/user-list) da API do Microsoft Graph que exibe os usuários no locatário em que esse aplicativo está registrado.
+Aqui, o método `callApi` é usado para fazer uma solicitação HTTP `GET` em um recurso protegido que exige um token de acesso. Depois, a solicitação retorna o conteúdo para o chamador. Esse método adiciona o token adquirido no *cabeçalho de Autorização HTTP*. O recurso protegido aqui é o [ponto de extremidade de usuários](/graph/api/user-list) da API do Microsoft Graph que exibe os usuários no locatário em que esse aplicativo está registrado.
 
 ## <a name="test-the-app"></a>Testar o aplicativo
 
@@ -278,7 +278,7 @@ request made to web API at: Fri Jan 22 2021 09:31:52 GMT-0800 (Pacific Standard 
 
 ## <a name="how-the-application-works"></a>Como o aplicativo funciona
 
-Este aplicativo usa a [concessão das credenciais do cliente OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow). Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. O fluxo de concessão de credenciais permite que um serviço Web (um cliente confidencial) use credenciais próprias, em vez de representar um usuário, para autenticação ao chamar outro serviço Web. Os tipos de aplicativos compatíveis com esse modelo de autenticação geralmente são **daemons** ou **contas de serviço**.
+Este aplicativo usa a [concessão das credenciais do cliente OAuth 2.0](./v2-oauth2-client-creds-grant-flow.md). Esse tipo de concessão normalmente é usado para interações de servidor para servidor que devem ser executadas em segundo plano, sem interação imediata com um usuário. O fluxo de concessão de credenciais permite que um serviço Web (um cliente confidencial) use credenciais próprias, em vez de representar um usuário, para autenticação ao chamar outro serviço Web. Os tipos de aplicativos compatíveis com esse modelo de autenticação geralmente são **daemons** ou **contas de serviço**.
 
 O escopo a ser solicitado para um fluxo de credenciais do cliente é o nome do recurso seguido por `/.default`. Essa notação instrui o Azure AD (Azure Active Directory) a usar as permissões no nível do aplicativo declaradas estaticamente durante o registro de aplicativo. Além disso, essas permissões de API precisam ser concedidas por um **administrador de locatários**.
 

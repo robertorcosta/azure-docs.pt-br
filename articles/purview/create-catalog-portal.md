@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: quickstart
 ms.date: 10/23/2020
-ms.openlocfilehash: 82b72567a0db4dc9dbff9128402d0ee9f40f3512
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 0346b467bc299b4eb6125df04a4449e94c035e47
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100094144"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666467"
 ---
 # <a name="quickstart-create-an-azure-purview-account-in-the-azure-portal"></a>Início Rápido: Criar uma conta do Azure Purview no portal do Azure
 
@@ -117,7 +117,7 @@ Se necessário, siga essas etapas para configurar sua assinatura para permitir q
    :::image type="content" source="./media/create-catalog-portal/add-purview-instance.png" alt-text="Captura de tela mostrando como criar uma instância de conta do Azure Purview no portal do Azure.":::
 
     > [!Note] 
-    > O Azure Purview não dá suporte à movimentação da conta entre regiões. Encontre mais informações sobre isso na [página de serviços compatíveis do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/region-move-support).
+    > O Azure Purview não dá suporte à movimentação da conta entre regiões. Encontre mais informações sobre isso na [página de serviços compatíveis do Azure](../azure-resource-manager/management/region-move-support.md).
 
 1. Na folha **Noções Básicas**, faça o seguinte:
     1. Selecione um **Grupo de recursos**.
