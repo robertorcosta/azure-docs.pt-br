@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 39973fe8c15364dc214392985cecd8b8bc7834ed
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 9a50d8402515cb7aafa9a1b02c8b8c18412f6618
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98878198"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659385"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
 
@@ -25,13 +25,13 @@ Neste artigo, você aprenderá a criar conjuntos de dados Azure Machine Learning
 
 Ao criar um conjunto de dados, você cria uma referência para o local da fonte de dados com uma cópia de seus metadados. Como os dados permanecem em seu local existente, você não incorre nenhum custo de armazenamento extra e não arriscará a integridade de suas fontes de dados. Além disso, os conjuntos de itens são avaliados lentamente, o que auxilia nas velocidades de desempenho do fluxo de trabalho. Você pode criar conjuntos de valores de repositórios de armazenamento, URLs públicas e conjuntos de de [Azure abertos](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 
-Para uma experiência de baixo código, [crie Azure Machine Learning conjuntos de valores com o Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets).
+Para uma experiência de baixo código, [crie Azure Machine Learning conjuntos de valores com o Azure Machine Learning Studio.](how-to-connect-data-ui.md#create-datasets)
 
 Com os conjuntos de Azure Machine Learning, você pode:
 
 * Mantenha uma única cópia de dados em seu armazenamento, referenciada por conjuntos.
 
-* Acesse dados diretamente durante o treinamento do modelo sem se preocupar com cadeias de conexão ou caminhos de dados. [Saiba mais sobre como treinar com conjuntos de](how-to-train-with-datasets.md)os.
+* Acesse dados diretamente durante o treinamento do modelo sem se preocupar com cadeias de conexão ou caminhos de dados. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md).
 
 * Compartilhe dados e colabore com outros usuários.
 
@@ -82,7 +82,7 @@ Com o TabularDatasets, você pode especificar um carimbo de data/hora de uma col
 Crie um TabularDataset com [o SDK do Python ou o](#create-a-tabulardataset) [Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 >[!NOTE]
-> Os fluxos de trabalho do AutoML gerados por meio do Azure Machine Learning Studio atualmente só dão suporte a TabularDatasets. 
+> Fluxos de trabalho de [ml automatizados](concept-automated-ml.md) gerados por meio do Azure Machine Learning Studio atualmente só dão suporte a TabularDatasets. 
 
 ## <a name="access-datasets-in-a-virtual-network"></a>Acessar conjuntos de os em uma rede virtual
 
@@ -90,15 +90,20 @@ Se o seu espaço de trabalho estiver em uma rede virtual, você deverá configur
 
 <a name="datasets-sdk"></a>
 
-## <a name="create-datasets"></a>Criar conjuntos de dados
+## <a name="create-datasets-from-datastores"></a>Criar conjuntos de os de armazenamentos
 
-Para que os dados sejam acessíveis por Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em [repositórios de dados do Azure](how-to-access-data.md) ou URLs da Web públicas. 
+Para que os dados sejam acessíveis por Azure Machine Learning, os conjuntos de dados devem ser criados a partir de caminhos em [Azure Machine Learning repositórios](how-to-access-data.md) de dados ou URLs da Web. 
 
-Para criar conjuntos de itens de um [repositório de armazenamento do Azure](how-to-access-data.md) com o SDK do Python:
+> [!TIP] 
+> Você pode criar conjuntos de dados diretamente a partir de URLs de armazenamento com acesso a data baseado em identidade. Saiba mais em [conectar-se ao armazenamento com acesso a dados com base em identidade (versão prévia)](how-to-identity-based-data-access.md)<br><br>
+Esse recurso é um recurso de visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento. 
 
-1. Verifique se você tem `contributor` ou tem `owner` acesso ao repositório de armazenamento do Azure registrado.
+ 
+Para criar conjuntos de itens de um repositório de armazenamento com o SDK do Python:
 
-2. Crie o conjunto de um referenciando caminhos no repositório de armazenamento. Você pode criar um conjunto de um DataSet a partir de vários caminhos em vários repositórios de armazenamento. Não há nenhum limite rígido para o número de arquivos ou o tamanho de dados do qual você pode criar um DataSet. 
+1. Verifique se você tem `contributor` ou tem `owner` acesso ao serviço de armazenamento subjacente de seu armazenamento de Azure Machine Learning registrado. [Verifique as permissões da conta de armazenamento no portal do Azure](../role-based-access-control/check-access.md).
+
+1. Crie o conjunto de um referenciando caminhos no repositório de armazenamento. Você pode criar um conjunto de um DataSet a partir de vários caminhos em vários repositórios de armazenamento. Não há nenhum limite rígido para o número de arquivos ou o tamanho de dados do qual você pode criar um DataSet. 
 
 > [!NOTE]
 > Para cada caminho de dados, algumas solicitações serão enviadas ao serviço de armazenamento para verificar se ele aponta para um arquivo ou uma pasta. Essa sobrecarga pode levar à degradação do desempenho ou falha. Um conjunto de dados que faz referência a uma pasta com 1000 arquivos dentro é considerado fazendo referência a um caminho de dado. É recomendável criar um conjunto de consulta que referencie menos de 100 caminhos em repositórios de armazenamento para um desempenho ideal.
@@ -169,11 +174,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|Index|PassengerId|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
+|Index|PassengerId|Survived|Pclass|Name|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Para reutilizar e compartilhar conjuntos de testes entre experimentos em seu espaço de trabalho, [Registre seu conjunto de registros](#register-datasets).
 
@@ -203,11 +208,11 @@ Para TabularDatasets, use o [`to_pandas_dataframe()`](/python/api/azureml-core/a
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-|Index|PassengerId|Survived|Pclass|Nome|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
+|Index|PassengerId|Survived|Pclass|Name|Sexo|Idade|SibSp|Parch|Tíquete|Tarifa|Cabine|Embarcou
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 
@@ -261,7 +266,7 @@ Há vários modelos [https://github.com/Azure/azure-quickstart-templates/tree/ma
 Para obter informações sobre como usar esses modelos, consulte [usar um modelo de Azure Resource Manager para criar um espaço de trabalho para Azure Machine Learning](how-to-create-workspace-template.md).
 
 
-## <a name="create-datasets-with-azure-open-datasets"></a>Criar conjuntos de itens com os conjuntos de valores abertos do Azure
+## <a name="create-datasets-from-azure-open-datasets"></a>Criar conjuntos de itens de conjuntos de os abertos do Azure
 
 Os [Conjuntos de dados abertos do Azure](https://azure.microsoft.com/services/open-datasets/) são conjuntos de dados públicos coletados que você pode usar para adicionar recursos específicos do cenário para soluções de aprendizado de máquina para obter modelos mais precisos. Os conjuntos de dados incluem dados de domínio público de clima, censo, feriados, segurança pública e localização que ajudam você a treinar os modelos de machine learning e aprimorar as soluções de previsão. Os conjuntos de itens abertos estão na nuvem no Microsoft Azure e são incluídos no SDK e no Studio.
 
@@ -269,7 +274,7 @@ Saiba como criar [conjuntos de Azure Machine Learning de conjuntos de informaç�
 
 ## <a name="train-with-datasets"></a>Treinar com conjuntos de dados
 
-Use seus conjuntos de informações em seus experimentos de aprendizado de máquina para modelos de ML de treinamento. [Saiba mais sobre como treinar com conjuntos de os](how-to-train-with-datasets.md)
+Use seus conjuntos de informações em seus experimentos de aprendizado de máquina para modelos de ML de treinamento. [Saiba mais sobre como treinar com conjuntos de dados](how-to-train-with-datasets.md).
 
 ## <a name="version-datasets"></a>Conjuntos de itens de versão
 

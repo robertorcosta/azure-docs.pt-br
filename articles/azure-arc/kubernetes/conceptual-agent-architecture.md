@@ -2,18 +2,18 @@
 title: Arquitetura do agente kubernetes habilitado para Arc do Azure
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/17/2021
+ms.date: 02/19/2021
 ms.topic: conceptual
 author: shashankbarsin
 ms.author: shasb
 description: Este artigo fornece uma visão geral da arquitetura dos agentes kubernetes habilitados para o Azure Arc
 keywords: Kubernetes, Arc, Azure, contêineres
-ms.openlocfilehash: 287ffdd40dc9ffdb91abb58b305d8b35b0bc3674
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b4fb836cc7782f4026a28f4af0ca372c76486a31
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652557"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650525"
 ---
 # <a name="azure-arc-enabled-kubernetes-agent-architecture"></a>Arquitetura do agente kubernetes habilitado para Arc do Azure
 
@@ -29,7 +29,7 @@ A maioria dos data centers locais impõe regras de rede estritas que impedem a c
 
 ![Visão geral da arquitetura](./media/architectural-overview.png)
 
-### <a name="connect-a-cluster-to-azure-arc"></a>Conectar um cluster ao arco do Azure
+### <a name="connect-a-cluster-to-azure-arc"></a>Conectar um cluster ao Azure Arc
 
 1. Crie um cluster kubernetes em sua escolha de infraestrutura (VMware vSphere, Amazon Web Services, Google Cloud Platform, etc.). 
 
@@ -42,7 +42,7 @@ A maioria dos data centers locais impõe regras de rede estritas que impedem a c
 
         | Agente | Descrição |
         | ----- | ----------- |
-        | `deployment.apps/clusteridentityoperator` | O kubernetes habilitado para Arc do Azure atualmente dá suporte apenas a [identidades atribuídas do sistema](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). `clusteridentityoperator` inicia a primeira comunicação de saída. Essa primeira comunicação busca o certificado de Identidade de Serviço Gerenciada (MSI) usado por outros agentes para comunicação com o Azure. |
+        | `deployment.apps/clusteridentityoperator` | O kubernetes habilitado para Arc do Azure atualmente dá suporte apenas a [identidades atribuídas do sistema](../../active-directory/managed-identities-azure-resources/overview.md). `clusteridentityoperator` inicia a primeira comunicação de saída. Essa primeira comunicação busca o certificado de Identidade de Serviço Gerenciada (MSI) usado por outros agentes para comunicação com o Azure. |
         | `deployment.apps/config-agent` | Observa o cluster conectado para obter os recursos de configuração de controle do código-fonte aplicados no cluster. Atualiza o estado de conformidade. |
         | `deployment.apps/controller-manager` | Um operador de operadores que orquestra as interações entre os componentes Arc do Azure. |    
         | `deployment.apps/metrics-agent` | Coleta métricas de outros agentes ARC para verificar o desempenho ideal. |
@@ -93,5 +93,5 @@ A maioria dos data centers locais impõe regras de rede estritas que impedem a c
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Conectar um cluster ao arco do Azure](./connect-cluster.md)
+* [Conectar um cluster ao Azure Arc](./quickstart-connect-cluster.md)
 * [Visão geral conceitual das configurações](./conceptual-configurations.md)

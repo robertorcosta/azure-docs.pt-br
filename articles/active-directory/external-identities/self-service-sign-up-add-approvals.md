@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3165bc28e6d6283bf8578d9c10b11f7b19981002
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97355232"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644860"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento
 
@@ -28,7 +28,7 @@ Este artigo fornece um exemplo de como integrar o a um sistema de aprovação. N
 - Dispare uma revisão manual. Se a solicitação for aprovada, o sistema de aprovação usará Microsoft Graph para provisionar a conta de usuário. O sistema de aprovação também pode notificar o usuário de que sua conta foi criada.
 
 > [!IMPORTANT]
->A **partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se você estiver usando a inscrição do Google Federation ou autoatendimento com o Gmail, deverá [testar seus aplicativos nativos de linha de negócios para compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
+>**A partir de 4 de janeiro de 2021**, o Google está [preterindo o suporte de entrada do WebView](https://developers.googleblog.com/2020/08/guidance-for-our-effort-to-block-less-secure-browser-and-apps.html). Se estiver usando a federação do Google ou a inscrição por autoatendimento com o Gmail, você deverá [testar seus aplicativos nativos de linha de negócios para garantir a compatibilidade](google-federation.md#deprecation-of-webview-sign-in-support).
 
 ## <a name="register-an-application-for-your-approval-system"></a>Registrar um aplicativo para seu sistema de aprovação
 
@@ -81,7 +81,7 @@ Agora você adicionará os conectores de API a um fluxo de usuário de inscriç�
 1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
-4. Selecione **fluxos de usuário (versão prévia)** e, em seguida, selecione o fluxo de usuário para o qual você deseja habilitar o conector de API.
+4. Selecione **fluxos de usuário** e, em seguida, selecione o fluxo de usuário para o qual você deseja habilitar o conector de API.
 5. Selecione **conectores de API** e, em seguida, selecione os pontos de extremidade de API que você deseja invocar nas etapas a seguir no fluxo do usuário:
 
    - **Depois de entrar com um provedor de identidade**: Selecione seu conector de API de status de aprovação, por exemplo, _Verifique o status de aprovação_.
@@ -357,8 +357,8 @@ POST https://graph.microsoft.com/v1.0/invitations
 Content-type: application/json
 
 {
-    "invitedUserEmailAddress":"johnsmith@fabrikam.onmicrosoft.com",
-    "inviteRedirectUrl" : "https://myapp.com"
+    "invitedUserEmailAddress": "johnsmith@fabrikam.onmicrosoft.com",
+    "inviteRedirectUrl" : "https://myapp.com"
 }
 ```
 
@@ -370,9 +370,9 @@ Content-type: application/json
 
 {
     ...
-    "invitedUser": {
-        "id": "<generated-user-guid>"
-    }
+    "invitedUser": {
+        "id": "<generated-user-guid>"
+    }
 }
 ```
 

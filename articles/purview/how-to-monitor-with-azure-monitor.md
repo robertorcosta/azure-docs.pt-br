@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
-ms.openlocfilehash: b13d03f05b7225a1c88f6b10b454749bd7b42477
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100588334"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667735"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas do Azure alcance no Azure Monitor
 
@@ -62,7 +62,7 @@ Para se familiarizar com como usar a seção métrica no portal do Azure antes, 
 
 A tabela a seguir contém a lista de métricas disponíveis para explorar no portal do Azure:
 
-| Nome da métrica | Namespace da métrica | Tipo de agregação | Description |
+| Nome da métrica | Namespace da métrica | Tipo de agregação | Descrição |
 | ------------------- | ------------------- | ------------------- | ----------------- |
 | Verificação cancelada | Verificação automatizada | Somar <br> Contagem | Agregar as verificações da fonte de dados cancelada com o período de tempo |
 | Verificação concluída | Verificação automatizada | Somar <br> Contagem | Agregar as verificações de fonte de dados concluídas ao longo do período de tempo |
@@ -83,7 +83,7 @@ Siga as etapas para criar uma configuração de diagnóstico para sua conta do A
 
    :::image type="content" source="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png" alt-text="Captura de tela mostrando a atribuição da conta de armazenamento para o log de diagnóstico." lightbox="./media/how-to-monitor-with-azure-monitor/step-two-diagnostic-setting.png":::
 
-Aguarde até 15 minutos para começar a receber logs na conta de armazenamento recém-criada. [Consulte retenção de dados e esquema de logs de recursos na conta de armazenamento do Azure](../azure-monitor/platform/resource-logs.md#send-to-azure-storage). Depois que os logs de diagnóstico são configurados, os eventos fluem para a conta de armazenamento.
+Aguarde até 15 minutos para começar a receber logs na conta de armazenamento recém-criada. [Consulte retenção de dados e esquema de logs de recursos na conta de armazenamento do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage). Depois que os logs de diagnóstico são configurados, os eventos fluem para a conta de armazenamento.
 
 ### <a name="scanstatuslogevent"></a>ScanStatusLogEvent
 

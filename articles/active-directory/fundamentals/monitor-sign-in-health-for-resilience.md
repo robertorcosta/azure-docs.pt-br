@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 40bfa27dba905cb2e9a363c7739f0a43e7c2afdf
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: ad99c8d319a22f8b5388838b9d537de2f610478a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100101104"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650984"
 ---
 # <a name="monitoring-application-sign-in-health-for-resilience"></a>Monitorando a integridade de entrada do aplicativo para resiliência
 
@@ -51,7 +51,7 @@ Este artigo explica como configurar a pasta de trabalho de integridade de entrad
 
 * Um espaço de trabalho Log Analytics em sua assinatura do Azure para enviar logs para Azure Monitor logs. 
 
-   * Saiba como [criar um espaço de trabalho log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
+   * Saiba como [criar um espaço de trabalho log Analytics](../../azure-monitor/logs/quick-create-workspace.md)
 
 * Logs do Azure AD integrados a logs de Azure Monitor
 
@@ -94,7 +94,7 @@ Use as instruções a seguir para criar alertas de email com base nas consultas 
 
  Para configurar a consulta subjacente e definir alertas, conclua as etapas a seguir. Você usará a consulta de exemplo como base para sua configuração. Uma explicação da estrutura de consulta é exibida no final desta seção.
 
-Para obter mais informações sobre como criar, exibir e gerenciar alertas de log usando Azure Monitor consulte [Gerenciar alertas de log](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log).
+Para obter mais informações sobre como criar, exibir e gerenciar alertas de log usando Azure Monitor consulte [Gerenciar alertas de log](../../azure-monitor/alerts/alerts-log.md).
 
  
 1. Na pasta de trabalho, selecione **Editar** e, em seguida, selecione o **ícone de consulta** logo acima do lado direito do grafo.   
@@ -280,10 +280,9 @@ Depois de configurar a consulta e os alertas, crie processos de negócios para g
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Saiba mais sobre pastas de trabalho](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks)
+[Saiba mais sobre pastas de trabalho](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
  
 
  
 
- 

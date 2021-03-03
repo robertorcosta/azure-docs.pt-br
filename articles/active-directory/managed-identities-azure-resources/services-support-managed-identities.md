@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: b8e75b86d2cfd778aec44ea163a1bafda5ff6fba
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3021e9155e229fcaf52166fd0e9dc908f9b7cfb6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373667"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650066"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Serviços que dão suporte a identidades gerenciadas para recursos do Azure
 
@@ -176,7 +176,7 @@ Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões
 
 Consulte a lista a seguir para configurar a identidade gerenciada para o gêmeos digital do Azure (em regiões onde disponível):
 
-- [Portal do Azure](~/articles/digital-twins/how-to-enable-managed-identities.md)
+- [Portal do Azure](../../digital-twins/how-to-enable-managed-identities-portal.md)
 
 ### <a name="azure-event-grid"></a>Grade de Eventos do Azure
 
@@ -221,7 +221,7 @@ Consulte a lista a seguir para configurar a identidade gerenciada para o Hub IoT
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | --- | --- | --- | --- |
-| Atribuído pelo sistema | Disponível na região em que o serviço de exportação de importação do Azure está disponível | Visualizar | Disponível | Disponível |
+| Atribuído pelo sistema | Disponível na região em que o serviço de exportação de importação do Azure está disponível | Visualização | Disponível | Disponível |
 | Atribuído pelo usuário | Não disponível | Não disponível | Não disponível | Não disponível |
 
 ### <a name="azure-kubernetes-service-aks"></a>AKS (Serviço de Kubernetes do Azure)
@@ -252,7 +252,7 @@ Veja a lista a seguir para configurar a identidade gerenciada para Aplicativos L
 
 Tipo de identidade gerenciada | Todos Disponíveis ao Público Geral<br>Regiões Globais do Azure | Azure Government | Azure Alemanha | Azure China 21Vianet |
 | --- | :-: | :-: | :-: | :-: |
-| Atribuído pelo sistema | Visualizar | Não disponível | Não disponível | Não disponível |
+| Atribuído pelo sistema | Visualização | Não disponível | Não disponível | Não disponível |
 | Atribuído pelo usuário | Visualização | Não disponível | Não disponível | Não disponível |
 
 Para obter mais informações, consulte [usar identidades gerenciadas com Azure Machine Learning](../../machine-learning/how-to-use-managed-identities.md).

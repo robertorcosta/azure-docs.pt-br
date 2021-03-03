@@ -9,13 +9,13 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
-ms.date: 02/17/2021
-ms.openlocfilehash: ecd97efbf12fb149037a94749bc899169f2c5a92
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.date: 02/23/2021
+ms.openlocfilehash: c154699b7701b584e465ebea7950d4fe50be961f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096512"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101660790"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manual iniciado pelo usuário na Instância Gerenciada de SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -34,7 +34,7 @@ Você pode considerar a execução de um [failover manual](../database/high-avai
 - Em alguns casos de degradações de desempenho de consulta, o failover manual pode ajudar a mitigar o problema de desempenho.
 
 > [!NOTE]
-> Garantir que seus aplicativos sejam resistentes a failover antes da implantação na produção ajudará a reduzir o risco de falhas de aplicativo na produção e contribuirá para a disponibilidade do aplicativo para seus clientes.
+> Garantir que seus aplicativos sejam resistentes a failover antes da implantação na produção ajudará a reduzir o risco de falhas de aplicativo na produção e contribuirá para a disponibilidade do aplicativo para seus clientes. Saiba mais sobre como testar seus aplicativos para prontidão de nuvem com o [teste da preparação da nuvem de aplicativo para resiliência de failover com a recodificação de vídeo do SQL instância gerenciada](https://youtu.be/FACWYLgYDL8) .
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Iniciar o failover manual no SQL Instância Gerenciada
 
@@ -43,7 +43,7 @@ Você pode considerar a execução de um [failover manual](../database/high-avai
 O usuário que estiver iniciando um failover precisará ter uma das seguintes funções do Azure:
 
 - Função de proprietário da assinatura ou
-- Instância Gerenciada função colaborador ou
+- [Instância gerenciada função colaborador](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) ou
 - Função personalizada com a seguinte permissão:
   - `Microsoft.Sql/managedInstances/failover/action`
 
@@ -153,6 +153,6 @@ A pequena perda de conectividade do cliente durante o failover, normalmente dura
 > - O failover não será permitido até que o primeiro backup completo de um novo banco de dados seja concluído por sistemas de backup automatizados.
 
 ## <a name="next-steps"></a>Próximas etapas
-
+- Saiba mais sobre como testar seus aplicativos para prontidão de nuvem com o [teste da preparação da nuvem de aplicativo para resiliência de failover com a recodificação de vídeo do SQL instância gerenciada](https://youtu.be/FACWYLgYDL8) .
 - Saiba mais sobre a alta disponibilidade da instância gerenciada [alta disponibilidade para o Azure SQL instância gerenciada](../database/high-availability-sla.md).
 - Para obter uma visão geral, consulte [o que é o Azure SQL instância gerenciada?](sql-managed-instance-paas-overview.md).

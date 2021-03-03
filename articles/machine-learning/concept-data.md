@@ -11,16 +11,16 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python, data4ml
-ms.openlocfilehash: 9e4722933ec224712c8d649c0d9d850a9ee3e322
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 1c2a917712cbde95fda9321e56fe1c033ad444aa
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98872002"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659708"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteger o acesso a dados no Azure Machine Learning
 
-Azure Machine Learning facilita a conexão com seus dados na nuvem.  Ele fornece uma camada de abstração sobre o serviço de armazenamento subjacente, para que você possa acessar e trabalhar com segurança com seus dados sem precisar escrever código específico ao seu tipo de armazenamento. O Azure Machine Learning também fornece os seguintes recursos de dados:
+Azure Machine Learning facilita a conexão com seus dados na nuvem. Ele fornece uma camada de abstração sobre o serviço de armazenamento subjacente, para que você possa acessar e trabalhar com segurança com seus dados sem precisar escrever código específico ao seu tipo de armazenamento. O Azure Machine Learning também fornece os seguintes recursos de dados:
 
 *    Interoperabilidade com pandas e Spark dataframes
 *    Controle de versão e acompanhamento de linhagem de dados
@@ -53,7 +53,7 @@ O diagrama a seguir fornece uma demonstração visual desse fluxo de trabalho re
 <a name="datastores"></a>
 ## <a name="connect-to-storage-with-datastores"></a>Conectar-se ao armazenamento com armazenamentos de
 
-Azure Machine Learning armazenamentos de dados mantêm com segurança as informações de conexão para o armazenamento do Azure, de modo que você não precisará codificar em seus scripts. [Registre e crie um armazenamento](how-to-access-data.md) de dados para se conectar facilmente à sua conta de armazenamento e acesse os dados em seu serviço de armazenamento do Azure subjacente. 
+Azure Machine Learning armazenamentos de dados mantêm com segurança as informações de conexão para o armazenamento de seu dado no Azure, de modo que você não precisará codificar em seus scripts. [Registre e crie um armazenamento](how-to-access-data.md) de dados para se conectar facilmente à sua conta de armazenamento e acesse os dados em seu serviço de armazenamento subjacente. 
 
 Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser registrados como repositórios de armazenamento:
 
@@ -65,6 +65,9 @@ Serviços de armazenamento baseados em nuvem com suporte no Azure que podem ser 
 + Banco de Dados do Azure para PostgreSQL
 + Sistema de arquivos do Databricks
 + Banco de Dados do Azure para MySQL
+
+>[!TIP]
+> A funcionalidade geralmente disponível para a criação de repositórios de armazenamento requer autenticação baseada em credencial para acessar serviços de armazenamento, como uma entidade de serviço ou um token SAS (assinatura de acesso compartilhado). Essas credenciais podem ser acessadas por usuários que têm acesso de *leitor* ao espaço de trabalho. <br><br>Se essa for uma preocupação,  [crie um armazenamento de dados que usa o acesso a serviços de armazenamento com base em identidades (versão prévia)](how-to-identity-based-data-access.md). Esse recurso é um recurso de visualização [experimental](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py#stable-vs-experimental) e pode mudar a qualquer momento.
 
 <a name="datasets"></a>
 ## <a name="reference-data-in-storage-with-datasets"></a>Dados de referência no armazenamento com DataSets

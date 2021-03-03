@@ -1,5 +1,5 @@
 ---
-title: Solucionar erros de instalação da biblioteca
+title: Solucionar problemas referentes a erros de instalação de bibliotecas
 description: Este tutorial fornece uma visão geral sobre como solucionar erros de instalação da biblioteca.
 services: synapse-analytics
 author: midesa
@@ -8,14 +8,14 @@ ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: conceptual
 ms.date: 01/04/2021
-ms.openlocfilehash: 60ea97ea2df271f867febec3fa0f0826a18dbbbf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e812fa47d35889a9cf8c671a4df6034812272a6a
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416909"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670621"
 ---
-# <a name="troubleshoot-library-installation-errors"></a>Solucionar erros de instalação da biblioteca 
+# <a name="troubleshoot-library-installation-errors"></a>Solucionar problemas referentes a erros de instalação de bibliotecas 
 Para disponibilizar código de terceiros ou localmente compilado para seus aplicativos, você pode instalar uma biblioteca em um dos pools de Apache Spark sem servidor. Os pacotes listados no arquivo de requirements.txt são baixados de PyPi no momento da inicialização do pool. Esse arquivo de requisitos é usado toda vez que uma instância do Spark é criada a partir desse pool do Spark. Depois que uma biblioteca é instalada para um pool do Spark, ela fica disponível para todas as sessões que usam o mesmo pool. 
 
 Em alguns casos, você pode descobrir que a biblioteca que você está tentando instalar não aparece no pool de Apache Spark. Esse caso geralmente ocorre quando há um erro no requirements.txt fornecido ou em bibliotecas especificadas. Quando houver um erro no processo de instalação da biblioteca, o pool de Apache Spark será revertido para bibliotecas especificadas no tempo de execução de base do Synapse.
@@ -54,7 +54,7 @@ df = spark.createDataFrame(data=data2,schema=schema)
 df.write.csv("abfss://<<ENTER NAME OF FILE SYSTEM>>@<<ENTER NAME OF PRIMARY STORAGE ACCOUNT>>.dfs.core.windows.net/validate_permissions.csv")
 
 ```
-Se você receber um erro, provavelmente você não tem as permissões necessárias. Para saber como obter as permissões necessárias, visite este documento: [atribuir permissões de proprietário de dados de blob de armazenamento ou de proprietários de dados de blob de armazenamento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal#assign-an-azure-built-in-role).
+Se você receber um erro, provavelmente você não tem as permissões necessárias. Para saber como obter as permissões necessárias, visite este documento: [atribuir permissões de proprietário de dados de blob de armazenamento ou de proprietários de dados de blob de armazenamento](../../storage/common/storage-auth-aad-rbac-portal.md#assign-an-azure-built-in-role).
 
 Além disso, se você estiver executando um pipeline, o MSI do espaço de trabalho deverá ter também permissões de colaborador de armazenamento de dados do BLOB ou armazenamento de dados de BLOB. Para saber como conceder a identidade do seu espaço de trabalho essa permissão, visite: [conceder permissões para identidade gerenciada do espaço de trabalho](../security/how-to-grant-workspace-managed-identity-permissions.md).
 
@@ -98,4 +98,3 @@ Para recriar o ambiente e validar suas atualizações:
 
 ## <a name="next-steps"></a>Próximas etapas
 - Exibir as bibliotecas padrão: [suporte à versão Apache Spark](apache-spark-version-support.md)
-

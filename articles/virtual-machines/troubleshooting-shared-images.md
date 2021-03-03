@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 9a905dd61bcc267b47dcd075f54a0ed6563a3797
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 507dd224ddeb935cc8b3718bb2e2628be36066f4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879622"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676024"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solucionar problemas de galerias de imagens compartilhadas no Azure
 
@@ -52,9 +52,13 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 **Causa**: você tentou excluir uma galeria que contém pelo menos uma definição de imagem existente. Uma galeria deve estar vazia antes que possa ser excluída.  
 **Solução alternativa**: exclua todas as definições de imagem dentro da galeria e, em seguida, continue a excluir a galeria. Se a definição de imagem contiver versões de imagem, você deverá excluir as versões da imagem antes de excluir as definições de imagem.
 
+*O nome da Galeria ' <galleryname \> ' não é exclusivo na assinatura ' <subscriptionId> '. Escolha outro nome de galeria.*  
+**Causa**: você tem uma galeria existente com o mesmo nome e tentou criar outra galeria com o mesmo nome.  
+**Solução alternativa**: escolha um nome diferente para a galeria.
+
 *O recurso <galleryname \> já existe no local <região \_ 1 \> no grupo de recursos <resourcegroup \> . Um recurso com o mesmo nome não pode ser criado no local <região \_ 2 \> . Selecione um novo nome de recurso.*  
-**Causa**: você tem uma galeria existente no grupo de recursos com o mesmo nome e tentou criar outra galeria com o mesmo nome, mas em uma região diferente.  
-**Solução alternativa**: Use uma galeria diferente ou use um grupo de recursos diferente.
+**Causa**: você tem uma galeria existente com o mesmo nome e tentou criar outra galeria com o mesmo nome.  
+**Solução alternativa**: escolha um nome diferente para a galeria.
 
 ## <a name="creating-or-modifying-image-definitions"></a>Criando ou modificando definições de imagem ##
 

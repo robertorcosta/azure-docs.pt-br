@@ -9,13 +9,13 @@ ms.topic: how-to
 author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
-ms.date: 11/06/2020
-ms.openlocfilehash: 9afe50e419f9c180b0b5efcd6182eb693dc6622a
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.date: 02/18/2020
+ms.openlocfilehash: 5485d97638679651a3890e0b7578787e481437c6
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99093935"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656271"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -90,6 +90,7 @@ A tabela a seguir lista as ferramentas de migração recomendadas:
 |---------|---------|
 |[DMS (Serviço de Migração de Banco de Dados do Azure)](../../../dms/tutorial-sql-server-to-managed-instance.md)  | Serviço do Azure de primeira empresa que dá suporte à migração no modo offline para aplicativos que podem proporcionar tempo de inatividade durante o processo de migração. Ao contrário da migração contínua no modo online, a migração de modo offline executa uma restauração única de um backup de banco de dados completo da origem para o destino. | 
 |[Backup e restauração nativos](../../managed-instance/restore-sample-database-quickstart.md) | O SQL Instância Gerenciada dá suporte à restauração de backups de banco de dados nativos SQL Server (arquivos. bak), tornando-o a opção de migração mais fácil para clientes que podem fornecer backups de banco de dados completos para o armazenamento do Azure. Os backups completo e diferencial também têm suporte e estão documentados na [seção ativos de migração](#migration-assets) mais adiante neste artigo.| 
+|[Serviço de reprodução de log (LRS)](../../managed-instance/log-replay-service-migrate.md) | Esse é um serviço de nuvem habilitado para Instância Gerenciada com base na tecnologia de envio de logs do SQL Server, tornando-o uma opção de migração para clientes que podem fornecer backups de banco de dados completos, diferenciais e de log para o armazenamento do Azure. LRS é usado para restaurar arquivos de backup do armazenamento de BLOBs do Azure para o SQL Instância Gerenciada.| 
 | | |
 
 ### <a name="alternative-tools"></a>Ferramentas alternativas
@@ -116,6 +117,7 @@ A tabela a seguir compara as opções de migração recomendadas:
 |---------|---------|---------|
 |[DMS (Serviço de Migração de Banco de Dados do Azure)](../../../dms/tutorial-sql-server-to-managed-instance.md) | -Migre bancos de dados individuais ou vários bancos de dados em escala. </br> -Pode acomodar o tempo de inatividade durante o processo de migração. </br> </br> Fontes com suporte: </br> -SQL Server (2005-2019) local ou VM do Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP computação SQL Server VM |  -As migrações em escala podem ser automatizadas por meio do [PowerShell](../../../dms/howto-sql-server-to-azure-sql-mi-powershell.md). </br> -Tempo para concluir a migração depende do tamanho do banco de dados e afetado pelo tempo de backup e restauração. </br> -Pode ser necessário um tempo de inatividade suficiente. |
 |[Backup e restauração nativos](../../managed-instance/restore-sample-database-quickstart.md) | -Migrar bancos de dados de aplicativo de linha de negócios individuais.  </br> -Migração rápida e fácil sem um serviço de migração ou uma ferramenta separada.  </br> </br> Fontes com suporte: </br> -SQL Server (2005-2019) local ou VM do Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP computação SQL Server VM | -O backup do banco de dados usa vários threads para otimizar a transferência de dados para o armazenamento de BLOBs do Azure, mas a largura de banda e o tamanho do banco de </br> -A inatividade deve acomodar o tempo necessário para executar um backup completo e restauração (que é um tamanho de operação de dados).| 
+|[Serviço de reprodução de log (LRS)](../../managed-instance/log-replay-service-migrate.md) | -Migrar bancos de dados de aplicativo de linha de negócios individuais.  </br> -Mais controle é necessário para migrações de banco de dados.  </br> </br> Fontes com suporte: </br> -SQL Server (2008-2019) local ou VM do Azure </br> -AWS EC2 </br> -AWS RDS </br> -GCP computação SQL Server VM | -A migração envolve fazer backups de banco de dados completos em SQL Server e copiar arquivos de backup para o armazenamento de BLOBs do Azure. LRS é usado para restaurar arquivos de backup do armazenamento de BLOBs do Azure para o SQL Instância Gerenciada. </br> -Os bancos de dados que estão sendo restaurados durante o processo de migração estarão em um modo de restauração e não poderão ser usados para leitura ou gravação até que o processo seja concluído.| 
 | | | |
 
 ### <a name="alternative-options"></a>Opções alternativas

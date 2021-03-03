@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: article
-ms.date: 06/16/2020
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26403c20d7f3274e8f3f2dcae479f72e9a7e3354
-ms.sourcegitcommit: 8245325f9170371e08bbc66da7a6c292bbbd94cc
+ms.openlocfilehash: 5265b875769e6a1b8f1728c9c41c0bee00619956
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/07/2021
-ms.locfileid: "99807013"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647380"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
 
@@ -30,7 +30,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
-4. Selecione **todos os conectores de API (versão prévia)** e, em seguida, selecione **novo conector de API**.
+4. Selecione **todos os conectores de API** e, em seguida, selecione **novo conector de API**.
 
    ![Adicionar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-new.png)
 
@@ -41,7 +41,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
    - Somente a autenticação básica tem suporte no momento. Se você quiser usar uma API sem autenticação básica para fins de desenvolvimento, basta inserir um **nome de usuário** e **senha** fictícios que sua API pode ignorar. Para usar com uma função do Azure com uma chave de API, você pode incluir o código como um parâmetro de consulta na **URL do ponto de extremidade** (por exemplo, `https://contoso.azurewebsites.net/api/endpoint?code=0123456789` ).
 
    ![Configurar um novo conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 > [!IMPORTANT]
 > Anteriormente, era necessário configurar quais atributos de usuário enviar à API (' claims to send ') e quais atributos de usuário aceitar da API (' claims to Receive '). Agora, todos os atributos de usuário são enviados por padrão se eles tiverem um valor e qualquer atributo de usuário puder ser retornado pela API em uma resposta de ' continuação '.
@@ -97,7 +97,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 1. Entre no [Portal do Azure](https://portal.azure.com/) como administrador do Microsoft Azure AD.
 2. Em **Serviços do Azure**, selecione **Azure Active Directory**.
 3. No menu à esquerda, selecione **Identidades Externas**.
-4. Selecione **fluxos de usuário (versão prévia)** e, em seguida, selecione o fluxo de usuário ao qual você deseja adicionar o conector de API.
+4. Selecione **fluxos de usuário** e, em seguida, selecione o fluxo de usuário ao qual você deseja adicionar o conector de API.
 5. Selecione **conectores de API** e, em seguida, selecione os pontos de extremidade de API que você deseja invocar nas etapas a seguir no fluxo do usuário:
 
    - **Depois de entrar com um provedor de identidade**
@@ -105,7 +105,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
    ![Adicionar APIs ao fluxo do usuário](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
@@ -313,7 +313,7 @@ Content-type: application/json
 ### <a name="using-serverless-cloud-functions"></a>Usando funções de nuvem sem servidor
 Funções sem servidor, como gatilhos HTTP no Azure Functions, fornecem uma maneira simples de criar pontos de extremidade de API para usar com o conector de API. Você pode usar a função de nuvem sem servidor para, [por exemplo](code-samples-self-service-sign-up.md#api-connector-azure-function-quickstarts), executar a lógica de validação e limitar as entradas a domínios específicos. A função de nuvem sem servidor também pode chamar e invocar outras APIs da Web, lojas de usuários e outros serviços de nuvem para cenários mais complexos.
 
-### <a name="best-practices"></a>Práticas recomendadas
+### <a name="best-practices"></a>Melhores práticas
 Verifique se:
 * Sua API está seguindo os contratos de solicitação e resposta da API, conforme descrito acima. 
 * A **URL do ponto de extremidade** do conector de API aponta para o ponto de extremidade de API correto.

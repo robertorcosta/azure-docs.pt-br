@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 06ae46eb96db39f44cd052e6e9b0d1a19f898007
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 18ccadcf43d41c677a665ed068d093f51389b576
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091492"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657325"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar blocos de anotações do Jupyter em seu espaço de trabalho
 
@@ -190,10 +190,10 @@ Encontre detalhes sobre suas instâncias de computação na página **Computaç�
 
 * Se você não puder se conectar a um bloco de anotações, verifique se a comunicação de soquete da Web **não** está desabilitada. Para a funcionalidade de Jupyter da instância de computação funcionar, a comunicação de soquete da Web deve ser habilitada. Verifique se a sua rede permite conexões WebSocket com *. instances.azureml.net e *. instances.azureml.ms. 
 
-* Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser acessada de dentro da rede virtual. Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para <nome da instância>. <region> . instances.azureml.ms com endereço IP privado do ponto de extremidade particular do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns?tabs=azure-cli) .
+* Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser acessada de dentro da rede virtual. Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para <nome da instância>. <region> . instances.azureml.ms com endereço IP privado do ponto de extremidade particular do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Executar seu primeiro experimento](tutorial-1st-experiment-sdk-train.md)
 * [Fazer backup do armazenamento de arquivos com instantâneos](../storage/files/storage-snapshots-files.md)
-* [Trabalhando em ambientes seguros](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance)
+* [Trabalhando em ambientes seguros](./how-to-secure-training-vnet.md#compute-instance)

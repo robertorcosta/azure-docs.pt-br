@@ -10,12 +10,12 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
-ms.openlocfilehash: 61ac4c979445ef48b5986ec3793a9880cedc837a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: a522a650413be056ff64d26e90b6c15cf88d9a7d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650245"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101643483"
 ---
 # <a name="upload-usage-data-metrics-and-logs-to-azure-monitor"></a>Carregar dados de uso, métricas e logs para Azure Monitor
 
@@ -65,11 +65,11 @@ Siga estes comandos para criar sua entidade de serviço de carregamento de métr
 > [!NOTE]
 > A criação de uma entidade de serviço requer [determinadas permissões no Azure](../../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
-Para criar uma entidade de serviço, atualize o exemplo a seguir. Substitua `<ServicePrincipalName>` pelo nome da entidade de serviço e execute o comando:
+Para criar uma entidade de serviço, atualize o exemplo a seguir. Substitua `<ServicePrincipalName>` e `SubscriptionId` `resourcegroup` pelos seus valores e execute o comando:
 
 ```azurecli
-az ad sp create-for-rbac --name <ServicePrincipalName>
-``` 
+az ad sp create-for-rbac --name <ServicePrincipalName> --role Contributor --scopes /subscriptions/{SubscriptionId}/resourceGroups/{resourcegroup}
+```
 
 Se você criou a entidade de serviço anteriormente e precisa apenas obter as credenciais atuais, execute o comando a seguir para redefinir a credencial.
 
@@ -79,8 +79,8 @@ az ad sp credential reset --name <ServicePrincipalName>
 
 Por exemplo, para criar uma entidade de serviço chamada `azure-arc-metrics` , execute o seguinte comando
 
-```
-az ad sp create-for-rbac --name azure-arc-metrics
+```azurecli
+az ad sp create-for-rbac --name azure-arc-metrics --role Contributor --scopes /subscriptions/a345c178a-845a-6a5g-56a9-ff1b456123z2/resourceGroups/myresourcegroup
 ```
 
 Saída de exemplo:
@@ -137,16 +137,15 @@ Execute este comando para atribuir a entidade de serviço à `Monitoring Metrics
 > Você precisa usar aspas duplas para nomes de função ao executar de um ambiente do Windows.
 
 ```azurecli
-az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role "Contributor" --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role "Monitoring Metrics Publisher" --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
+
 ```
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos-and-linux"
 
 ```azurecli
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end
@@ -154,8 +153,7 @@ az role assignment create --assignee <appId> --role 'Contributor' --scope subscr
 ::: zone pivot="client-operating-system-powershell"
 
 ```powershell
-az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/<Subscription ID>
-az role assignment create --assignee <appId> --role 'Contributor' --scope subscriptions/<Subscription ID>
+az role assignment create --assignee <appId> --role 'Monitoring Metrics Publisher' --scope subscriptions/{SubscriptionID}/resourceGroups/{resourcegroup}
 ```
 
 ::: zone-end

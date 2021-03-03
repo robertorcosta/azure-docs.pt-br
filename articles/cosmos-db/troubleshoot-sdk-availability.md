@@ -3,17 +3,17 @@ title: Diagnosticar e solucionar problemas de disponibilidade de SDKs do Azure C
 description: Saiba tudo sobre o comportamento de disponibilidade do SDK do Azure Cosmos ao operar em ambientes de várias regiões.
 author: ealsur
 ms.service: cosmos-db
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 641b7d44407f8f3760c673f45d69dcfdc8b363b8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 0720eb01920e39a9bee27e4d00d97acba55b0ad5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650976"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661419"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticar e solucionar problemas de disponibilidade de SDKs do Azure Cosmos em ambientes multiregiãois
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,13 +47,13 @@ Se você **não definir uma região preferida**, o cliente SDK usa como padrão 
 > Se os valores especificados como preferência regional não corresponderem a nenhuma região do Azure existente, eles serão ignorados. Se eles corresponderem a uma região existente, mas a conta não for replicada para ela, o cliente se conectará à próxima região preferida que corresponda ou à região primária.
 
 > [!WARNING]
-> Desabilitar a redescoberta de ponto de extremidade (que está definindo-a como false) na configuração do cliente desabilitará toda a lógica de failover e disponibilidade descrita neste documento.
-> Essa configuração pode ser acessada pelos seguintes parâmetros em cada SDK do cosmos do Azure:
+> A lógica de failover e disponibilidade descrita neste documento pode ser desabilitada na configuração do cliente, o que não é recomendável, a menos que o aplicativo do usuário trate os erros de disponibilidade em si. Isso pode ser feito por:
 >
-> * A propriedade [ConnectionPolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) no SDK do .net v2.
-> * O método [CosmosClientBuilder. endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) no SDK do Java v4.
-> * O parâmetro [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) no SDK do Python.
-> * O parâmetro [CosmosClientOptions. ConnectionPolicy. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) no SDK js.
+> * Definindo a propriedade [ConnectionPolicy. EnableEndpointRediscovery](/dotnet/api/microsoft.azure.documents.client.connectionpolicy.enableendpointdiscovery) no SDK do .net v2 como false.
+> * Definindo a propriedade [CosmosClientOptions. LimitToEndpoint](/dotnet/api/microsoft.azure.cosmos.cosmosclientoptions.limittoendpoint) no SDK do .net V3 como true.
+> * Definindo o método [CosmosClientBuilder. endpointDiscoveryEnabled](/java/api/com.azure.cosmos.cosmosclientbuilder.endpointdiscoveryenabled) no SDK do Java v4 como false.
+> * Definindo o parâmetro [CosmosClient.enable_endpoint_discovery](/python/api/azure-cosmos/azure.cosmos.cosmos_client.cosmosclient) no SDK do Python como false.
+> * Definindo o parâmetro [CosmosClientOptions. ConnectionPolicy. enableEndpointDiscovery](/javascript/api/@azure/cosmos/connectionpolicy#enableEndpointDiscovery) no SDK js como false.
 
 Em circunstâncias normais, o cliente do SDK se conectará à região preferida (se uma preferência regional estiver definida) ou à região primária (se nenhuma preferência estiver definida) e as operações serão limitadas a essa região, a menos que qualquer um dos cenários a seguir ocorra.
 

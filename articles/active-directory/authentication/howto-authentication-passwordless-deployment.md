@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/30/2020
+ms.date: 02/22/2021
 ms.author: baselden
 author: justinha
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d04c148e8a96e3b1d72c5301f6226df6d9a569
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.openlocfilehash: dc5916cf4277935f6d7d7f453fd4dd76d7909ef2
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100530341"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651120"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Planejar uma implantação de autenticação com senha no Azure Active Directory
 
@@ -51,7 +51,7 @@ A Microsoft oferece três opções de autenticação com senha que abrangem muit
 
 Os métodos de autenticação com senha da Microsoft permitem diferentes cenários. Considere suas necessidades organizacionais, pré-requisitos e os recursos de cada método de autenticação para selecionar sua estratégia de autenticação com senha. Recomendamos que todas as organizações que usam dispositivos Windows 10 usem o Windows Hello para empresas. Em seguida, adicione uma entrada do telefone (com o aplicativo Microsoft Authenticator) ou chaves de segurança para cenários adicionais.
 
-| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello para Empresas |
+| Cenário | Autenticação por telefone | Chaves de segurança | Windows Hello for Business |
 | --- | --- | --- | --- |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 atribuído | **Não** | **Sim** <br> Com biométrica, PIN | **Sim**<br>com reconhecimento biométrico e PIN |
 | **Entrada do computador**: <br> Do dispositivo Windows 10 compartilhado | **Não** | **Sim** <br> Com biométrica, PIN  | **Não** |
@@ -149,7 +149,7 @@ Há três tipos de implantações de entrada sem senha disponíveis com chaves d
 
 -    Azure Active Directory aplicativos Web em um navegador com suporte
 -    Azure Active Directory dispositivos Windows 10 associados
--    Dispositivos Windows 10 ingressados Azure Active Directory híbridos (visualização)
+-    Dispositivos Windows 10 ingressados Azure Active Directory híbridos
      -    Fornece acesso a recursos baseados em nuvem e locais. Para obter mais informações sobre o acesso a recursos locais, consulte [SSO para recursos locais usando chaves FIDO2](./howto-authentication-passwordless-security-key-on-premises.md)
 
 Você deve habilitar **as chaves de segurança FIDO2 compatíveis**. A Microsoft anunciou as [principais parcerias com os principais fornecedores de FIDO2](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Microsoft-passwordless-partnership-leads-to-innovation-and-great/ba-p/566493).
@@ -193,7 +193,7 @@ Habilitar a entrada do Windows 10 usando chaves de segurança FIDO2 requer a hab
 
 #### <a name="enable-on-premises-integration"></a>Habilitar a integração local
 
-Para habilitar o acesso a recursos locais, siga as etapas para [habilitar a entrada de chave de segurança sem senha para recursos locais (versão prévia)](howto-authentication-passwordless-security-key-on-premises.md).
+Para habilitar o acesso a recursos locais, siga as etapas para [habilitar a entrada de chave de segurança sem senha para recursos locais](howto-authentication-passwordless-security-key-on-premises.md).
 
 > [!IMPORTANT]
 > Essas etapas também devem ser concluídas para qualquer dispositivo ingressado no Azure AD híbrido para utilizar as chaves de segurança do FIDO2 para entrar no Windows 10.

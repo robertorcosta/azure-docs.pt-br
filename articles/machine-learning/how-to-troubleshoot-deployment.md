@@ -10,22 +10,22 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 4901d73235778a3194fe75b95df9cb81aeeb093b
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3839dd27d4ae380b268694a93e5910b323411847
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651673"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657274"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
 Saiba como solucionar problemas e resolver, ou contornar, erros comuns que você pode encontrar ao implantar um modelo em ACI (instâncias de contêiner do Azure) e AKS (serviço kubernetes do Azure) usando o Azure Machine Learning.
 
 > [!NOTE]
-> Se você estiver implantando um modelo no AKS (serviço kubernetes do Azure), aconselharemos a habilitar [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-enable-existing-clusters) para esse cluster. Isso ajudará você a entender a integridade geral do cluster e o uso de recursos. Você também pode encontrar os seguintes recursos úteis:
+> Se você estiver implantando um modelo no AKS (serviço kubernetes do Azure), aconselharemos a habilitar [Azure monitor](../azure-monitor/containers/container-insights-enable-existing-clusters.md) para esse cluster. Isso ajudará você a entender a integridade geral do cluster e o uso de recursos. Você também pode encontrar os seguintes recursos úteis:
 >
-> * [Verificar Resource Health eventos que afetam o cluster AKS](https://docs.microsoft.com/azure/aks/aks-resource-health)
-> * [Diagnóstico do serviço kubernetes do Azure](https://docs.microsoft.com/azure/aks/concepts-diagnostics)
+> * [Verificar Resource Health eventos que afetam o cluster AKS](../aks/aks-resource-health.md)
+> * [Diagnóstico do serviço kubernetes do Azure](../aks/concepts-diagnostics.md)
 >
 > Se você estiver tentando implantar um modelo em um cluster não íntegro ou sobrecarregado, espera-se que eles tenham problemas. Se precisar de ajuda para solucionar problemas de cluster AKS, entre em contato com o suporte do AKS.
 

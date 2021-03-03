@@ -3,17 +3,18 @@ title: Usar a CLI para implantar máquinas virtuais do Azure Spot
 description: Saiba como usar a CLI para implantar máquinas virtuais do Azure spot para economizar custos.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: abb29c0826e38af0bbbc1b59e41234acdaaca0f9
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: f1ad1dff695755e88881773bdcbebc2da283b75d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100554777"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669368"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-the-azure-cli"></a>Implantar máquinas virtuais do Azure Spot usando o CLI do Azure
 
@@ -28,7 +29,7 @@ O processo para criar uma máquina virtual do Azure Spot usando o CLI do Azure �
 
 ## <a name="install-azure-cli"></a>Instalar a CLI do Azure.
 
-Para criar máquinas virtuais do Azure Spot, você precisa estar executando o CLI do Azure versão 2.0.74 ou posterior. Execute **AZ--Version** para localizar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
+Para criar máquinas virtuais do Azure Spot, você precisa estar executando o CLI do Azure versão 2.0.74 ou posterior. Execute **az --version** para descobrir a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli). 
 
 Entrar no Azure usando [login az](/cli/azure/reference-index#az-login).
 

@@ -13,12 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.openlocfilehash: f87f2e79bd9439fddb52fad82c7ab4712fc68fb9
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 902159153bccbea851481e1f81d03e8e70495020
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98680358"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644265"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usar o MSAL para Android com B2C
 
@@ -39,21 +39,23 @@ O arquivo de configuração para o aplicativo declararia dois `authorities` . Um
 >Observação: o `account_mode` deve ser definido como **vários** para aplicativos B2C. Consulte a documentação para obter mais informações sobre [aplicativos cliente públicos de várias contas](./single-multi-account.md#multiple-account-public-client-application).
 
 ### `app/src/main/res/raw/msal_config.json`
+
 ```json
 {
-    "client_id": "<your_client_id_here>",
-    "redirect_uri": "<your_redirect_uri_here>",
-    "account_mode" : "MULTIPLE",
-    "authorities": [{
-            "type": "B2C",
-            "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
-            "default": true
-        },
-        {
-            "type": "B2C",
-            "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
-        }
-    ]
+  "client_id": "<your_client_id_here>",
+  "redirect_uri": "<your_redirect_uri_here>",
+  "account_mode" : "MULTIPLE",
+  "authorities": [
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_SISOPolicy/",
+      "default": true
+    },
+    {
+      "type": "B2C",
+      "authority_url": "https://contoso.b2clogin.com/tfp/contoso.onmicrosoft.com/B2C_1_EditProfile/"
+    }
+  ]
 }
 ```
 
@@ -118,7 +120,7 @@ pca.acquireToken(parameters);
 Para adquirir um token silenciosamente com MSAL, crie uma `AcquireTokenSilentParameters` instância e forneça-a ao `acquireTokenSilentAsync` método. Ao contrário do `acquireToken` método, o `authority` deve ser especificado para adquirir um token silenciosamente.
 
 ```java
-IMultilpeAccountPublicClientApplication pca = ...; // Initialization not shown
+IMultipleAccountPublicClientApplication pca = ...; // Initialization not shown
 AcquireTokenSilentParameters parameters = new AcquireTokenSilentParameters.Builder()
     .withScopes(Arrays.asList("https://contoso.onmicrosoft.com/contosob2c/read")) // Provide your registered scope here
     .forAccount(account)
@@ -142,7 +144,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Especificar uma política
 
-Como as políticas no B2C são representadas como autoridades separadas, a invocação de uma política diferente da padrão é obtida pela especificação de uma `fromAuthority` cláusula durante a construção `acquireToken` ou os `acquireTokenSilent` parâmetros.  Por exemplo:
+Como as políticas no B2C são representadas como autoridades separadas, a invocação de uma política diferente da padrão é obtida pela especificação de uma `fromAuthority` cláusula durante a construção `acquireToken` ou os `acquireTokenSilent` parâmetros.  Por exemplo: 
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

@@ -5,13 +5,13 @@ author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.openlocfilehash: a0ea9a0871dd57088473999b28553258ff210038
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.date: 02/18/2021
+ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94628757"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668292"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade para máquinas virtuais no Azure
 
@@ -52,6 +52,10 @@ Os conjuntos de dimensionamento de máquinas virtuais do Azure permitem criar e 
 **Domínios de falha e domínios de atualização**
 
 Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para alta disponibilidade alinhando domínios de falha e domínios de atualização. Você precisará definir apenas a contagem de domínios de falha para o conjunto de dimensionamento. O número de domínios de falha disponíveis para os conjuntos de dimensionamento pode variar por região. Consulte [gerenciar a disponibilidade de máquinas virtuais no Azure](./manage-availability.md).
+
+**Modos de orquestração para conjuntos de dimensionamento**
+
+Os modos de orquestração dos conjuntos de dimensionamento de máquinas virtuais permitem que você tenha mais controle sobre como as instâncias de máquina virtual são gerenciadas pelo conjunto de dimensionamento. Você pode habilitar um modo de orquestração uniforme ou flexível em seu conjunto de dimensionamento. A orquestração uniforme é otimizada para cargas de trabalho sem estado de grande escala com instâncias idênticas. A orquestração flexível (versão prévia) destina-se à alta disponibilidade em escala com tipos de máquina virtual idênticos ou múltiplos. Saiba mais sobre esses [modos de orquestração](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e como habilitá-los.
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

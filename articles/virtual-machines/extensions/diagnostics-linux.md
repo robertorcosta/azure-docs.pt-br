@@ -10,19 +10,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/05/2021
 ms.author: akjosh
-ms.openlocfilehash: d45535f11568fddd10130d506af3329dcdfb0484
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 741db5ea10847e2fe6711e7ca01d65efb1f09dea
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580272"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667313"
 ---
 # <a name="use-linux-diagnostic-extension-40-to-monitor-metrics-and-logs"></a>Usar a extensão de diagnóstico do Linux 4,0 para monitorar as métricas e os logs
 
 Este documento descreve a versão 4,0 e mais recente da extensão de diagnóstico do Linux.
 
 > [!IMPORTANT]
-> Para obter informações sobre a versão 3. *, consulte  [este documento](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux-v3). Para saber mais sobre a versão 2.3 e anteriores, veja [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
+> Para obter informações sobre a versão 3. *, consulte  [este documento](./diagnostics-linux-v3.md). Para saber mais sobre a versão 2.3 e anteriores, veja [este documento](/previous-versions/azure/virtual-machines/linux/classic/diagnostic-extension-v2).
 
 ## <a name="introduction"></a>Introdução
 
@@ -108,7 +108,7 @@ O executável python2 deve ter um alias para *Python*. A seguir, um método que 
 A configuração de exemplo baixada nesses exemplos coleta um conjunto de dados padrão e os envia para o Armazenamento de Tabelas. A URL para a configuração de exemplo e o respectivo conteúdo estão sujeitos a alterações. Na maioria dos casos, você deve baixar uma cópia do arquivo JSON de configurações do portal e personalizá-lo para suas necessidades e, em seguida, fazer com que qualquer modelo ou automação que você construa use sua versão do arquivo de configuração, em vez de baixar essa URL a cada vez.
 
 > [!NOTE]
-> Para habilitar o novo coletor de Azure Monitor, as VMs precisam ter a identidade atribuída pelo sistema habilitada para a geração de token de autenticação do MSI. Isso pode ser feito durante a criação da VM ou após a criação da VM. Etapas para habilitar a identidade atribuída pelo sistema por meio do portal, da CLI, do PowerShell e do Resource Manager.  são listados detalhadamente [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). 
+> Para habilitar o novo coletor de Azure Monitor, as VMs precisam ter a identidade atribuída pelo sistema habilitada para a geração de token de autenticação do MSI. Isso pode ser feito durante a criação da VM ou após a criação da VM. Etapas para habilitar a identidade atribuída pelo sistema por meio do portal, da CLI, do PowerShell e do Resource Manager.  são listados detalhadamente [aqui](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). 
 
 #### <a name="azure-cli-sample"></a>Exemplo de CLI do Azure
 
@@ -490,7 +490,7 @@ Os exemplos incluem `LinuxSyslog20170410` e `LinuxSyslog20170609`.
 Essa seção opcional controla a habilitação de métricas de envio para o coletor de Azure Monitor além da conta de armazenamento e da folha de métricas de convidado padrão.
 
 > [!NOTE]
-> Isso requer que a identidade atribuída pelo sistema esteja habilitada nas VMs/VMSS. Isso pode ser feito por meio do portal, da CLI, do PowerShell e do Resource Manager. As etapas são listadas em detalhes [aqui](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm). As etapas para habilitar isso também estão listadas nos exemplos de instalação para AZ CLI, PowerShell, etc. acima. 
+> Isso requer que a identidade atribuída pelo sistema esteja habilitada nas VMs/VMSS. Isso pode ser feito por meio do portal, da CLI, do PowerShell e do Resource Manager. As etapas são listadas em detalhes [aqui](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md). As etapas para habilitar isso também estão listadas nos exemplos de instalação para AZ CLI, PowerShell, etc. acima. 
 
 ```json
   "sinksConfig": {

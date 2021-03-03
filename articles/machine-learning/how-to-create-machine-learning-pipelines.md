@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 12/10/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 168e5340842dca3c26e4fa48d2f14b8ade529cd9
-ms.sourcegitcommit: 2ba6303e1ac24287762caea9cd1603848331dd7a
+ms.openlocfilehash: 18d93a1a6ac9661b18054611015b02e41219bc14
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2020
-ms.locfileid: "97505689"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659640"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
@@ -92,6 +92,7 @@ from azureml.core import Dataset
 
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
+
 Dados intermediários (ou a saída de uma etapa) são representados por um objeto [PipelineData](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?preserve-view=true&view=azure-ml-py). `output_data1` é produzido como a saída de uma etapa e usado como a entrada de um ou mais etapas futuras. O `PipelineData` introduz uma dependência de dados entre etapas e cria uma ordem de execução implícita no pipeline. Esse objeto será usado mais tarde ao criar etapas de pipeline.
 
 ```python
@@ -108,7 +109,7 @@ output_data1 = PipelineData(
 > A persistência de dados intermediários entre etapas de pipeline também é possível com a classe de visualização pública, [`OutputFileDatasetConfig`](/python/api/azureml-core/azureml.data.outputfiledatasetconfig?preserve-view=true&view=azure-ml-py) . Para obter um exemplo de código usando a `OutputFileDatasetConfig` classe, consulte como [criar um pipeline de ml de duas etapas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/pipeline-with-datasets/pipeline-for-image-classification.ipynb).
 
 > [!TIP]
-> Carregue somente arquivos relevantes para o trabalho em questão. Qualquer alteração nos arquivos no diretório de dados será vista como motivo para executar a etapa novamente na próxima vez que o pipeline for executado, mesmo se a reutilização for especificada. 
+> Carregue somente arquivos pertinentes para o trabalho em questão. Qualquer alteração nos arquivos no diretório de dados será vista como motivo para executar a etapa novamente na próxima vez que o pipeline for executado, mesmo se a reutilização for especificada. 
 
 ## <a name="set-up-a-compute-target"></a>Configurar um destino de computação
 

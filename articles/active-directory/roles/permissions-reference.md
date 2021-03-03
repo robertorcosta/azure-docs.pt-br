@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0211388f3b638080c79a58330ba1fff1989def7d
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 41a63d7d0c5844e7837be44b359b6d04a9009eb4
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101095869"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651818"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permissões da função de administrador no Azure Active Directory
 
@@ -99,7 +99,7 @@ A função de [administrador da política de autenticação](#authentication-pol
 >* Não administradores, como executivos, o departamento jurídico e os funcionários de recursos humanos, que podem ter acesso a informações confidenciais ou privadas.
 
 > [!IMPORTANT]
-> Atualmente, essa função não é capaz de gerenciar o MFA por usuário no portal de gerenciamento herdado do MFA. As mesmas funções podem ser realizadas usando o módulo PowerShell do Azure AD do [MsolUser do conjunto](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) .
+> Atualmente, essa função não é capaz de gerenciar o MFA por usuário no portal de gerenciamento herdado do MFA. As mesmas funções podem ser realizadas usando o módulo PowerShell do Azure AD do [MsolUser do conjunto](/powershell/module/msonline/set-msoluser) .
 
 ### <a name="authentication-policy-administrator"></a>[Administrador da política de autenticação](#authentication-policy-administrator-permissions)
 
@@ -245,7 +245,7 @@ Esse administrador gerencia a federação entre as organizações do Azure AD e 
 * Organizações do Azure AD para funcionários e parceiros: a adição de uma federação (por exemplo, com o Gmail) afetará imediatamente todos os convites de convidados que ainda não foram resgatados. Consulte [Adicionar o Google como provedor de identidade para usuários convidados B2B](../external-identities/google-federation.md).
 * Organizações do Azure Active Directory B2C: a adição de uma federação (por exemplo, com o Facebook ou outra organização do Azure AD) não afeta imediatamente os fluxos dos usuários finais até que o provedor de identidade seja adicionado como uma opção em um fluxo dos usuários (também chamada de política interna). Consulte [Configurar uma conta da Microsoft como um provedor de identidade](../../active-directory-b2c/identity-provider-microsoft-account.md) para ver um exemplo.  Para alterar os fluxos dos usuários, é preciso ter a função limitada de “Administrador de Fluxos dos Usuários B2C”.
 
-### <a name="global-administrator"></a>[Administrador Global](#global-administrator-permissions)
+### <a name="global-administrator"></a>[Administrador global](#global-administrator-permissions)
 
 Os usuários com essa função têm acesso a todos os recursos administrativos do Azure Active Directory, bem como aos serviços que usam identidades do Azure Active Directory como centro de segurança do Microsoft 365, centro de conformidade do Microsoft 365, Exchange Online, SharePoint Online e Skype for Business Online. Além disso, os administradores globais podem [elevar seu acesso](../../role-based-access-control/elevate-access-global-admin.md) para gerenciar todas as assinaturas e grupos de gerenciamento do Azure. Isso permite que os administradores globais obtenham acesso completo a todos os recursos do Azure usando o respectivo locatário do Azure AD. A pessoa que se inscreve na organização do Azure AD se torna um administrador global. Pode haver mais de um administrador global na sua empresa. Os administradores globais podem redefinir a senha para qualquer usuário e todos os outros administradores.
 
@@ -406,7 +406,7 @@ A função de [administrador da política de autenticação](#authentication-pol
 
 
 > [!IMPORTANT]
-> Atualmente, essa função não é capaz de gerenciar o MFA por usuário no portal de gerenciamento herdado do MFA. As mesmas funções podem ser realizadas usando o módulo PowerShell do Azure AD do [MsolUser do conjunto](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) .
+> Atualmente, essa função não é capaz de gerenciar o MFA por usuário no portal de gerenciamento herdado do MFA. As mesmas funções podem ser realizadas usando o módulo PowerShell do Azure AD do [MsolUser do conjunto](/powershell/module/msonline/set-msoluser) .
 
 ### <a name="privileged-role-administrator"></a>[Administrador de Função com Privilégios](#privileged-role-administrator-permissions)
 

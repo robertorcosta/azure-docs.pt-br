@@ -16,12 +16,12 @@ ms.date: 02/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15e5aba2bad4cd7ae63ceb9c9f67f7e653a82a91
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 000b91529b3b02f2c7d03b50ddc841c68625dada
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650143"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101644796"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Pré-requisitos do Azure AD Connect
 Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure Active Directory (Azure AD) Connect.
@@ -29,7 +29,7 @@ Este artigo descreve os pré-requisitos e os requisitos de hardware para o Azure
 ## <a name="before-you-install-azure-ad-connect"></a>Antes de instalar o Azure AD Connect
 Antes de instalar o Azure AD Connect, aqui estão algumas coisas de que você precisará.
 
-### <a name="azure-ad"></a>Azure AD
+### <a name="azure-ad"></a>AD do Azure
 * Você precisa de um locatário do Azure AD. Você recebe uma [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). Você pode usar um dos seguintes portais para gerenciar o Azure AD Connect:
   * O [portal do Azure](https://portal.azure.com).
   * O [portal do Office](https://portal.office.com).
@@ -141,7 +141,7 @@ Recomendamos que você proteja seu servidor de Azure AD Connect para diminuir a 
 Para obter mais informações, consulte o MSDN sobre o [elemento proxy padrão](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Para obter mais informações quando você tiver problemas de conectividade, consulte [Solucionar problemas de conectividade](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Outros
+### <a name="other"></a>Outro
 Opcional: Use uma conta de usuário de teste para verificar a sincronização.
 
 ## <a name="component-prerequisites"></a>Pré-requisitos do componente
@@ -175,9 +175,9 @@ Durante a instalação do serviço de sincronização, o Azure AD Connect verifi
 
 Nessa chave do registro, Azure AD Connect verificará se os seguintes valores estão presentes e não corrompedos: 
 
-- [MachineAccessRestriction](https://docs.microsoft.com/windows/win32/com/machineaccessrestriction)
-- [MachineLaunchRestriction](https://docs.microsoft.com/windows/win32/com/machinelaunchrestriction)
-- [DefaultLaunchPermission](https://docs.microsoft.com/windows/win32/com/defaultlaunchpermission)
+- [MachineAccessRestriction](/windows/win32/com/machineaccessrestriction)
+- [MachineLaunchRestriction](/windows/win32/com/machinelaunchrestriction)
+- [DefaultLaunchPermission](/windows/win32/com/defaultlaunchpermission)
 
 ## <a name="prerequisites-for-federation-installation-and-configuration"></a>Pré-requisitos para a configuração e instalação de federação
 ### <a name="windows-remote-management"></a>Gerenciamento Remoto do Windows

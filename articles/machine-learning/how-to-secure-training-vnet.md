@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 9a937336e1628add54ab5f52cdd6ef475d463f7d
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 6a89d225b747f116ed75bbe2e6928ec2a74f9c5e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515981"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101655948"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteger um ambiente de treinamento Azure Machine Learning com redes virtuais
 
@@ -74,7 +74,7 @@ Para usar um [destino de computação __do__ Azure Machine Learning gerenciado](
 > * Um balanceador de carga
 > 
 > No caso de clusters, esses recursos são excluídos (e recriados) sempre que o cluster é reduzido para 0 nós. No entanto, para uma instância, os recursos são mantidos até que a instância seja completamente excluída (a interrupção não remove os recursos). 
-> Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Se o grupo de recursos de rede virtual estiver bloqueado, a exclusão do cluster/instância de computação falhará. O balanceador de carga não pode ser excluído até que o cluster/instância de computação seja excluído.
+> Esses recursos são limitados pelas [cotas de recursos](../azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Se o grupo de recursos de rede virtual estiver bloqueado, a exclusão do cluster/instância de computação falhará. O balanceador de carga não pode ser excluído até que o cluster/instância de computação seja excluído. Além disso, verifique se não há nenhuma política do Azure que proíba a criação de grupos de segurança de rede.
 
 
 ### <a name="required-ports"></a><a id="mlcports"></a> Portas obrigatórias
@@ -83,7 +83,7 @@ Se você planeja proteger a rede virtual restringindo o tráfego de rede de/para
 
 O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos adaptadores de rede (NICs) anexados às VMs. Esses NSGs configuraram automaticamente as regras de entrada e saída para permitir o tráfego a seguir:
 
-- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__.
+- Tráfego TCP de entrada nas portas 29876 e 29877 a partir de uma __Marca de serviço__ de __BatchNodeManagement__. O tráfego por essas portas é criptografado e usado pelo lote do Azure para a comunicação do Agendador/nó.
 
     ![Uma regra de entrada que usa a marca de serviço BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -93,7 +93,7 @@ O serviço de Lote adiciona grupos de segurança de rede (NSGs) no nível dos ad
 
 - Tráfego de saída em qualquer porta para a internet.
 
-- Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__.
+- Para o tráfego TCP de entrada da instância de computação na porta 44224 de uma __Marca de serviço__ do __AzureMachineLearning__. O tráfego por essa porta é criptografado e usado pelo Azure Machine Learning para comunicação com aplicativos em execução em instâncias de computação.
 
 > [!IMPORTANT]
 > Tenha cuidado se você modificar ou adicionar regras de entrada ou saída nos NSGs configurados em Lote. Se um NSG bloquear a comunicação com os nós de computação, os serviços de computação definem o estado dos nós de computação como inutilizáveis.

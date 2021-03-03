@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/30/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: 41db671e4ab76dc56dc2c01f4852640acfe3fd83
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 1186715003abef387343bb2b6cb71d56490c519d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100389732"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101667847"
 ---
 # <a name="virtual-network-service-tags"></a>Marcas de serviço de rede virtual
 <a name="network-service-tags"></a>
@@ -53,6 +53,7 @@ Por padrão, as marcas de serviço refletem os intervalos para toda a nuvem. Alg
 | **AzureActiveDirectory** | Azure Active Directory. | Saída | Não | Sim |
 | **AzureActiveDirectoryDomainServices** | Tráfego de gerenciamento para implantações dedicadas ao Azure Active Directory Domain Services. | Ambos | Não | Sim |
 | **AzureAdvancedThreatProtection** | Proteção Avançada contra Ameaças do Azure. | Saída | Não | Não |
+| **AzureAPIForFHIR** | API do Azure para FHIR (recursos de interoperabilidade do Fast Healthcare).<br/><br/> *Observação: essa marca não é configurável no momento por meio do portal do Azure.*| Saída | Não | Não |
 | **AzureArcInfrastructure** | Servidores habilitados para Arc do Azure, Azure Arc habilitado kubernetes e tráfego de configuração de convidado.<br/><br/>*Observação:* Essa marca tem uma dependência nas marcas **AzureActiveDirectory**,**AzureTrafficManager** e **AzureResourceManager** . *Essa marca não é configurável no momento por meio do portal do Azure*.| Saída | Não | Sim |
 | **AzureBackup** |Backup do Azure.<br/><br/>*Observação:* essa marca tem uma dependência nas marcas **Armazenamento** e **AzureActiveDirectory**. | Saída | Não | Sim |
 | **AzureBotService** | Serviço de Bot do Azure. | Saída | Não | Não |

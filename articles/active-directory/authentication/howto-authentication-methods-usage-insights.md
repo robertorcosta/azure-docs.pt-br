@@ -1,35 +1,37 @@
 ---
-title: Uso de métodos de autenticação & insights-Azure Active Directory
-description: Relatórios sobre a redefinição de senha de autoatendimento do Azure AD e o uso do método de autenticação de autenticação multifator
+title: Atividade dos métodos de autenticação-Azure Active Directory
+description: Visão geral dos métodos de autenticação registrados e usados pela sua organização para entrar e executar a redefinição de senha.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/17/2020
+ms.date: 02/22/2021
 ms.author: justinha
-author: justinha
+author: sopand
 manager: daveba
-ms.reviewer: sahenry
+ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfff8d450a6506cb37730838e4f70609080ca7b1
-ms.sourcegitcommit: d79513b2589a62c52bddd9c7bd0b4d6498805dbe
+ms.openlocfilehash: 6566ee7e744411fc3b7005938f95181e5c5ec94d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97670784"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645115"
 ---
-# <a name="authentication-methods-usage--insights-preview"></a>Uso de métodos de autenticação & insights (versão prévia)
+# <a name="authentication-methods-activity"></a>Atividade de métodos de autenticação 
 
-O uso & insights permite que você entenda como os métodos de autenticação para recursos como a autenticação multifator do Azure AD e a redefinição de senha de autoatendimento estão funcionando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos estão sendo registrados e como eles estão sendo usados.
+O painel de atividade novos métodos de autenticação permite que os administradores monitorem o registro e o uso do método de autenticação em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos estão sendo registrados e como eles estão sendo usados.
+
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 ## <a name="permissions-and-licenses"></a>Permissões e licenças
 
 As funções a seguir podem acessar o uso e as informações:
 
-- Administrador global
+- Leitor de Relatórios
 - Leitor de segurança
 - Administrador de Segurança
-- Leitor de Relatórios
+- Administrador Global
 
  Uma licença Azure AD Premium P1 ou P2 é necessária para acessar o uso e as informações. As informações de licenciamento de autenticação multifator do Azure AD e SSPR (redefinição de senha de autoatendimento) podem ser encontradas no [site de preços Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -37,64 +39,88 @@ As funções a seguir podem acessar o uso e as informações:
 
 Para acessar o uso e as informações do método de autenticação:
 
-1. Navegue até o [Portal do Azure](https://portal.azure.com).
-1. Navegue até **Azure Active Directory**  >  uso de **redefinição de senha**  >  **& insights**.
-1. Nas visões gerais de **registro** ou **uso** , você pode optar por abrir os relatórios previamente filtrados para filtrar com base em suas necessidades.
+1. Entre no [portal do Azure](https://portal.azure.com).
+1. Clique **Azure Active Directory**  >    >  **atividade métodos de autenticação** de segurança  >  .
+1. Há duas guias no relatório: **registro** e **uso**.
 
-![Visão geral do uso & insights](./media/howto-authentication-methods-usage-insights/usage-insights-overview.png)
+   ![Visão geral da atividade dos métodos de autenticação](media/how-to-authentication-methods-usage-insights/registration-usage-tabs.png)
 
-Para acessar o uso do & de informações diretamente, vá para [https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) . Esse link levará você à visão geral do registro.
+## <a name="registration-details"></a>Detalhes do registro
 
-Os blocos usuários registrados, usuários habilitados e usuários compatíveis mostram os seguintes dados de registro para seus usuários:
+Você pode acessar a [**guia registro**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AuthMethodsOverviewBlade) para mostrar o número de usuários com capacidade de autenticação multifator, autenticação passowordless e redefinição de senha de autoatendimento. 
 
-- Registrado: um usuário será considerado registrado se eles (ou um administrador) tiverem registrado métodos de autenticação suficientes para atender à política de SSPR ou autenticação multifator da sua organização.
-- Habilitado: um usuário será considerado habilitado se estiver no escopo da política SSPR. Se SSPR estiver habilitado para um grupo, o usuário será considerado habilitado se ele estiver nesse grupo. Se SSPR estiver habilitado para todos os usuários, todos os usuários no locatário (excluindo convidados) serão considerados habilitados.
-- Compatível: um usuário é considerado compatível se eles estiverem registrados e habilitados. Esse status significa que eles podem executar SSPR a qualquer momento, se necessário.
+Clique em **usuários com capacidade de autenticação multifator do Azure**, **usuários capazes de autenticação sem senha** ou **usuários capazes de redefinição de senha de autoatendimento** ou insights para filtrar previamente uma lista de detalhes de registro do usuário.
 
-Clicar em qualquer um desses blocos ou nas informações mostradas nele o levará a uma lista previamente filtrada de detalhes do registro.
+- **Os usuários com capacidade de autenticação multifator do Azure** mostram a divisão de usuários capazes de MFA no Azure AD. Os usuários serão considerados capacitados se estiverem registrados para um método de autenticação forte e habilitados pela política para usar esse método para executar a MFA. Esse número não reflete os usuários registrados para MFA fora do Azure AD. 
+- **Os usuários que têm a autenticação sem senha** mostram a divisão dos usuários capazes de se conectarem com uma senha. Isso inclui os usuários registrados para FIDO2, Windows Hello para empresas e entrada por telefone sem senha com o aplicativo Microsoft Authenticator. 
+- **Os usuários com capacidade de redefinição de senha de autoatendimento** mostram a divisão de usuários capazes de redefinição de senha de autoatendimento. Os usuários são considerados capazes de SSPR se estão registrados para métodos suficientes para satisfazer a política de SSPR de uma organização e estão habilitados para executar o SSPR. 
 
-O gráfico de **registros** na guia **registro** mostra o número de registros do método de autenticação com êxito e com falha por método de autenticação. O gráfico **redefine** a guia **uso** mostra o número de autenticações com êxito e com falha durante o método de autenticação do fluxo de redefinição de senha.
+  ![Captura de tela de usuários capazes de registrar](media/how-to-authentication-methods-usage-insights/users-capable.png)
 
-Clicar em um dos gráficos irá levá-lo para uma lista filtrada previamente de registro ou redefinição de eventos.
+**Os usuários registrados por método de autenticação** mostram quantos usuários estão registrados para cada método de autenticação. Clique em um método de autenticação para ver quais usuários estão registrados para esse método. 
 
-Usando o controle no canto superior direito, você pode alterar o intervalo de datas para os dados de auditoria mostrados nos registros e redefine os gráficos para 24 horas, 7 dias ou 30 dias.
+![Captura de tela de usuários registrados](media/how-to-authentication-methods-usage-insights/users-registered.png)
 
-### <a name="registration-details"></a>Detalhes do registro
+**Registro recente por método de autenticação** mostra o número de registros do método de autenticação com êxito e com falha por método de autenticação. Clique em um método de autenticação para ver eventos de registro recentes para esse método.
 
-Clicar nos blocos **usuários registrados**, **usuários habilitados** ou **usuários com capacidade** de inscrição levará você aos detalhes do registro.
+![Captura de tela de registrado recentemente](media/how-to-authentication-methods-usage-insights/recently-registered.png)
+
+## <a name="usage-details"></a>Detalhes de uso
+
+O relatório **uso** mostra quais métodos de autenticação os usuários estão usando para entrar e redefinir suas senhas.
+
+![Captura de tela da página de uso](media/how-to-authentication-methods-usage-insights/usage-page.png)
+
+As **entradas por requisito de autenticação** mostram o número de entradas interativas de usuário bem-sucedidas que eram necessárias para executar o fator único versus a autenticação multifator no Azure AD. Isso não reflete as entradas em que a MFA foi imposta por um provedor de MFA de terceiros.
+
+![Captura de tela de entradas por requisito de autenticação](media/how-to-authentication-methods-usage-insights/sign-ins-protected.png)
+
+As **entradas por método de autenticação** mostram o número de entradas interativas do usuário (êxito e falha) por método de autenticação usado. Ele não inclui entradas em que o requisito de autenticação foi atendido por uma declaração no token.
+
+![Captura de tela de entradas por método](media/how-to-authentication-methods-usage-insights/sign-ins-by-method.png)
+
+**Número de redefinições de senha e desbloqueios de conta** mostra o número de alterações de senha e redefinições de senha com êxito (autoatendimento e administrador) ao longo do tempo.
+
+![Captura de tela de redefinições e desbloqueios](media/how-to-authentication-methods-usage-insights/password-changes.png)
+
+**Redefinições de senha por método de autenticação** mostra o número de autenticações bem-sucedidas e com falha durante o método de autenticação do fluxo de redefinição de senha.
+
+![Captura de tela de redefinições por método](media/how-to-authentication-methods-usage-insights/resets-by-method.png)
+
+## <a name="user-registration-details"></a>Detalhes de registro do usuário 
+
+Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
 
 O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
-- Nome
+- Nome UPN
+- Name
+- Compatível com MFA (capaz, sem capacidade)
+- Com capacidade de senha (capaz, sem capacidade)
+- SSPR registrado (registrado, não registrado)
+- SSPR habilitado (habilitado, não habilitado)
+- Compatível com SSPR (capaz, sem capacidade) 
+- Métodos registrados (email, telefone celular, telefone celular alternativo, telefone comercial, Microsoft Authenticator Push, senha de um software uma vez, FIDO2, chave de segurança, perguntas de segurança)
+
+  ![Captura de tela dos detalhes de registro do usuário](media/how-to-authentication-methods-usage-insights/registration-details.png)
+
+## <a name="registration-and-reset-events"></a>Eventos de registro e redefinição 
+
+**Eventos de registro e redefinição** mostram os eventos de registro e redefinição das últimas 24 horas, dos últimos sete dias ou dos últimos 30 dias, incluindo:
+
+- Data
 - Nome de usuário
-- Status do registro (tudo, registrado, não registrado)
-- Status habilitado (tudo, habilitado, não habilitado)
-- Status com capacidade (tudo, capaz, sem capacidade)
-- Métodos (notificação do aplicativo, código do aplicativo, chamada telefônica, SMS, email, perguntas de segurança)
+- Usuário 
+- Recurso (registro, redefinição)
+- Método usado (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, chamada móvel alternativa, SMS, email, perguntas de segurança)
+- Status (êxito, falha)
+- Motivo da falha (explicação)
 
-Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
-
-### <a name="reset-details"></a>Redefinir detalhes
-
-Clicar nos gráficos de registros ou redefinições irá levá-lo para os detalhes de redefinição.
-
-O relatório detalhes de redefinir mostra o registro e a redefinição dos eventos dos últimos 30 dias, incluindo:
-
-- Nome
-- Nome de usuário
-- Recurso (tudo, registro, redefinição)
-- Método de autenticação (notificação do aplicativo, código do aplicativo, chamada telefônica, chamada do Office, SMS, email, perguntas de segurança)
-- Status (tudo, êxito, falha)
-
-Usando os controles na parte superior da lista, você pode pesquisar um usuário e filtrar a lista de usuários com base nas colunas mostradas.
+  ![Captura de tela da página de uso](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Limitações
 
-Os dados mostrados nesses relatórios serão atrasados em até 60 minutos. Um campo "última atualização" existe no portal do Azure para identificar o quanto os dados são recentes.
-
-Os dados de uso e insight não são uma substituição para os relatórios de atividade da autenticação multifator do Azure AD ou informações contidas no relatório de entradas do Azure AD.
-
-O relatório não pode ser filtrado no momento para excluir usuários externos.
+Os registros de passagem de acesso temporário (toque) não são refletidos na guia registro do relatório porque eles só são válidos por um curto período de tempo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

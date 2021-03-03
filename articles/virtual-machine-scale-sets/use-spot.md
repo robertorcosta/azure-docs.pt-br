@@ -6,15 +6,15 @@ ms.author: jagaveer
 ms.topic: how-to
 ms.service: virtual-machine-scale-sets
 ms.subservice: spot
-ms.date: 03/25/2020
+ms.date: 02/26/2021
 ms.reviewer: cynthn
-ms.custom: jagaveer, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 265f78970f17fe7321db8786c2fb8dd2304bb578
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 33aa553e688b595551c20e8b1432163152865537
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558675"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101675016"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais do Azure spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -46,19 +46,38 @@ Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.micros
 -   Contrato Enterprise
 -   Código de oferta pago conforme o uso 003P
 -   Patrocinado
-- Para provedor de serviços de nuvem (CSP), entre em contato com seu parceiro
+- Para o CSP (provedor de serviços de nuvem), consulte o [Partner Center](https://docs.microsoft.com/partner-center/azure-plan-get-started) ou contate seu parceiro diretamente.
 
 ## <a name="eviction-policy"></a>Política de remoção
 
-Ao criar conjuntos de dimensionamento de máquinas virtuais do Azure Spot, você pode definir a política de remoção como *desalocar* (padrão) ou *excluir*. 
+Ao criar um conjunto de dimensionamento usando máquinas virtuais do Azure Spot, você pode definir a política de remoção como *desalocar* (padrão) ou *excluir*. 
 
 A política *Desalocar* move suas instâncias removidas para o estado de parado desalocado permitindo que você reimplante instâncias removidas. No entanto, não há nenhuma garantia de que a alocação terá êxito. As VMs deslocadas afetarão sua cota de instância do conjunto de dimensionamento e você será cobrado pelos discos subjacentes. 
 
-Se você quiser que suas instâncias em seu conjunto de dimensionamento de máquinas virtuais do Azure Spot sejam excluídas quando forem removidas, você poderá definir a *política de remoção* a ser excluída. Com a política de remoção definida para excluir, você pode criar novas VMs, aumentando a propriedade de contagem de instância do conjunto de dimensionamento. As VMs removidas são excluídas junto com seus discos subjacentes e, portanto, você não será cobrado pelo armazenamento. Você também pode usar o recurso de dimensionamento automático dos conjuntos de dimensionamento para tentar e compensar automaticamente as VMs removidas, mas não há nenhuma garantia de que a alocação terá êxito. É recomendável que você use apenas o recurso de dimensionamento automático em conjuntos de escala de máquina virtual do Azure Spot quando você define a política de remoção a ser excluída para evitar o custo dos seus discos e atingir os limites de cota. 
+Se você quiser que suas instâncias sejam excluídas quando forem removidas, poderá definir a *política de remoção* a ser excluída. Com a política de remoção definida para excluir, você pode criar novas VMs, aumentando a propriedade de contagem de instância do conjunto de dimensionamento. As VMs removidas são excluídas junto com seus discos subjacentes e, portanto, você não será cobrado pelo armazenamento. Você também pode usar o recurso de dimensionamento automático dos conjuntos de dimensionamento para tentar e compensar automaticamente as VMs removidas, mas não há nenhuma garantia de que a alocação terá êxito. É recomendável que você use apenas o recurso de dimensionamento automático em conjuntos de escala de máquina virtual do Azure Spot quando você define a política de remoção a ser excluída para evitar o custo dos seus discos e atingir os limites de cota. 
 
 Os usuários podem optar por receber notificações na VM por meio [do Azure eventos agendados](../virtual-machines/linux/scheduled-events.md). Isso notificará você se suas VMs estiverem sendo removidas e você terá 30 segundos para concluir todos os trabalhos e realizar tarefas de desligamento antes da remoção. 
 
+<a name="bkmk_try"></a>
+## <a name="try--restore-preview"></a>Tentar restaurar & (versão prévia)
+
+Esse novo recurso de nível de plataforma usará o ia para tentar restaurar automaticamente as instâncias de máquina virtual do Azure Spot removidas dentro de um conjunto de dimensionamento para manter a contagem de instâncias de destino. 
+
+> [!IMPORTANT]
+> Tente & Restore esteja atualmente em visualização pública.
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Experimente & os benefícios da restauração:
+- Habilitado por padrão ao implantar uma máquina virtual do Azure Spot em um conjunto de dimensionamento.
+- Tenta restaurar as máquinas virtuais do Azure Spot removidas devido à capacidade.
+- As máquinas virtuais do Azure Spot restauradas devem ser executadas por uma duração maior, com uma probabilidade menor de uma remoção disparada pela capacidade.
+- Melhora o tempo de vida de uma máquina virtual de ponto do Azure, para que as cargas de trabalho sejam executadas por uma duração maior.
+- Ajuda os conjuntos de dimensionamento de máquinas virtuais a manter a contagem de destino para máquinas virtuais de ponto do Azure, semelhante a manter o recurso de contagem de destino que já existe para VMs pagas conforme o uso.
+
+Tente & restauração seja desabilitada em conjuntos de dimensionamento que usam o [dimensionamento automático](virtual-machine-scale-sets-autoscale-overview.md). O número de VMs no conjunto de dimensionamento é orientado pelas regras de dimensionamento automático.
+
 ## <a name="placement-groups"></a>Grupos de posicionamento
+
 O grupo de posicionamento é um constructo semelhante a um conjunto de disponibilidade do Azure, com seus próprios domínios de falha e domínios de atualização. Por padrão, um conjunto de dimensionamento consiste em um único grupo de posicionamento com tamanho máximo de 100 VMs. Se a propriedade do conjunto de dimensionamento chamada `singlePlacementGroup` for definida como *false*, o conjunto de dimensionamento poderá ser composto de vários grupos de posicionamento e terá um intervalo de 0-1.000 VMS. 
 
 > [!IMPORTANT]
@@ -136,6 +155,24 @@ Adicione as `priority` `evictionPolicy` Propriedades, e `billingProfile` à `"vi
 ```
 
 Para excluir a instância depois que ela tiver sido removida, altere o parâmetro `evictionPolicy` para `Delete`.
+
+
+## <a name="simulate-an-eviction"></a>Simular uma remoção
+
+Você pode [simular uma remoção](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) de uma máquina virtual de ponto do Azure para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
+
+Substitua o seguinte pelas suas informações: 
+
+- `subscriptionId`
+- `resourceGroupName`
+- `vmName`
+
+
+```rest
+POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+```
+
+`Response Code: 204` significa que a remoção simulada foi bem-sucedida. 
 
 ## <a name="faq"></a>Perguntas frequentes
 

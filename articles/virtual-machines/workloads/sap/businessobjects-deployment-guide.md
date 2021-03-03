@@ -8,19 +8,18 @@ manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
-ms.service: virtual-machines-windows
-ms.subservice: workloads
+ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/05/2020
 ms.author: depadia
-ms.openlocfilehash: 0c2deb1ae1d41f8daaed8856f97c4b458930c616
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: e753d810bbc2ed1079b58d20a0659bf5e2219d11
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96484372"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101671911"
 ---
 # <a name="sap-businessobjects-bi-platform-planning-and-implementation-guide-on-azure"></a>Guia de planejamento e implementação da plataforma SAP BusinessObjects BI no Azure
 
@@ -184,7 +183,7 @@ O banco de dados SQL do Azure oferece os três modelos de compra a seguir:
 
 O banco de dados do Azure para MySQL vem com três tipos de preço diferentes. Eles são diferenciados pela quantidade de computação em vCores, memória por vCore e a tecnologia de armazenamento usada para armazenar a data. Veja a seguir os detalhes de alto nível sobre as opções e para obter mais detalhes sobre atributos diferentes, consulte [camada de preços](../../../mysql/concepts-pricing-tiers.md) do banco de dados do Azure para MySQL.
 
-- Básico
+- Basic
 
   Ele é usado para as cargas de trabalho de destino que exigem desempenho de e/s e computação leve.
 

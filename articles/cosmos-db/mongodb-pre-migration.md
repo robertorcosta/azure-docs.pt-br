@@ -5,14 +5,14 @@ author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 09/01/2020
+ms.date: 03/02/2021
 ms.author: chrande
-ms.openlocfilehash: 72e89a67f2d767c8a104982dbe9eb9e47aec015a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ced795385fdf00e706ea897db80f558b513a9f9d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574657"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656951"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Etapas de pré-migração para a migração de dados do MongoDB para a API do Azure Cosmos DB para o MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -80,7 +80,7 @@ De maneira parecida, o recurso de particionamento adiciona a capacidade automati
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indexar os dados
 
-A API do Azure Cosmos DB para o servidor MongoDB versão 3,6 indexa automaticamente o `_id` campo somente. Este campo não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Para indexar campos adicionais, você aplica os comandos de gerenciamento de índice do MongoDB. Essa política de indexação padrão difere da API de SQL do Azure Cosmos DB, que indexa todos os campos por padrão.
+A API do Azure Cosmos DB para o servidor MongoDB versões 3,6 e superiores indexa automaticamente o `_id` campo. Este campo não pode ser removido. Ele impõe automaticamente a exclusividade do `_id` campo por chave de fragmentação. Para indexar campos adicionais, aplique os [comandos de gerenciamento de índice do MongoDB](mongodb-indexing.md). Essa política de indexação padrão difere da API de SQL do Azure Cosmos DB, que indexa todos os campos por padrão.
 
 Os recursos de indexação fornecidos pelo Azure Cosmos DB incluem a adição de índices compostos, índices exclusivos e índices TTL (vida útil). A interface de gerenciamento de índice é mapeada para o comando `createIndex()`. Saiba mais na [indexação no artigo API do Azure Cosmos DB para MongoDB](mongodb-indexing.md).
 

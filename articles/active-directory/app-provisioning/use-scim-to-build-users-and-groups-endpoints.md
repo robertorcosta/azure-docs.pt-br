@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: 9fac8db6747d1e081fa884ed794e55b98f44577f
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b69e701177c6f017388521ed05c37de1271c7e60
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652030"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650151"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: desenvolver um ponto de extremidade SCIM de exemplo
 
@@ -33,7 +33,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="deploy-your-scim-endpoint-in-azure"></a>Implantar seu ponto de extremidade do SCIM no Azure
 
-As etapas aqui implantam o ponto de extremidade SCIM em um serviço usando o [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) e o [serviço Azure app](https://docs.microsoft.com/azure/app-service/). O código de referência do SCIM também pode ser executado localmente, hospedado por um servidor local ou implantado em outro serviço externo.
+As etapas aqui implantam o ponto de extremidade SCIM em um serviço usando o [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) e o [serviço Azure app](../../app-service/index.yml). O código de referência do SCIM também pode ser executado localmente, hospedado por um servidor local ou implantado em outro serviço externo.
 
 1. Vá para o [código de referência](https://github.com/AzureAD/SCIMReferenceCode) do GitHub e selecione **clonar ou baixar**.
 

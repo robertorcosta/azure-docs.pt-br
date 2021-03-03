@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/12/2021
+ms.date: 02/19/2021
 ms.author: justinha
 author: inbarckms
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 56d45119fa86ab47e6a625c628d8cb9763db83bd
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: b0f49f39e6bc291c3242fe739866a015ac154a8b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520852"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651154"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurar a passagem de acesso temporário no Azure AD para registrar métodos de autenticação com senha (versão prévia)
 
@@ -49,7 +49,7 @@ Para configurar a diretiva de método de autenticação TAP:
    O valor padrão e o intervalo de valores permitidos são descritos na tabela a seguir.
 
 
-   | Setting          | Valores padrão | Valores permitidos               | Comentários                                                                                                                                                                                                                                                                 |   |
+   | Configuração          | Valores padrão | Valores permitidos               | Comentários                                                                                                                                                                                                                                                                 |   |
    |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
     Tempo de vida mínimo | 1 hora         | 10 a 43200 minutos (30 dias) | Número mínimo de minutos em que o toque é válido.                                                                                                                                                                                                                         |   |
    | Tempo de vida máximo | 24 horas       | 10 a 43200 minutos (30 dias) | Número máximo de minutos em que o toque é válido.                                                                                                                                                                                                                         |   |
@@ -74,6 +74,9 @@ Para criar um toque:
 1. Selecione a opção para **Adicionar métodos de autenticação**.
 1. Abaixo, **escolha o método**, clique em **aprovação de acesso temporário (versão prévia)**.
 1. Defina uma hora ou duração de ativação personalizada e clique em **Adicionar**.
+
+   >[!NOTE]
+   >O uso de toque único não é imposto quando me mantenha conectado (KMSI) está habilitado no locatário. Se você estiver criando um toque único, certifique-se de desabilitar o KMSI.
 
    ![Captura de tela de como criar um toque](./media/how-to-authentication-temporary-access-pass/create.png)
 
@@ -125,6 +128,7 @@ Tenha essas limitações em mente:
 - Os usuários convidados não podem entrar com um toque.
 - Os usuários no escopo da política de registro de redefinição de senha de autoatendimento (SSPR) serão necessários para registrar um dos métodos do SSPR depois que eles tiverem entrado com o TAP. Se o usuário usar apenas a chave FIDO2, exclua-os da política SSPR ou desabilite a política de registro SSPR. 
 - O TAP não pode ser usado com a extensão NPS (servidor de políticas de rede) e o adaptador de Serviços de Federação do Active Directory (AD FS) (AD FS).
+- O uso de toque único não é imposto quando KMSI está habilitado no locatário.
 - Quando o SSO contínuo está habilitado no locatário, os usuários são solicitados a inserir uma senha. O link **usar seu passo de acesso temporário em vez disso** estará disponível para o usuário entrar com TAP.
 
 ![Captura de tela de usar um toque em vez disso](./media/how-to-authentication-temporary-access-pass/alternative.png)

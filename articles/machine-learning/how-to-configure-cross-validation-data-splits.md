@@ -10,13 +10,13 @@ ms.custom: how-to, automl
 ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
-ms.date: 06/16/2020
-ms.openlocfilehash: a781900534156e455c125dffe3b1334820fdf4d5
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.date: 02/23/2021
+ms.openlocfilehash: add84c2cb53a362fc78fc50a6df13b4976e3868d
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98599070"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661028"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurar divisões de dados e validação cruzada no machine learning automatizado
 
@@ -26,7 +26,7 @@ Em Azure Machine Learning, quando você usa o ML automatizado para criar vários
 
 As experiências de ML automatizadas executam automaticamente a validação do modelo. As seções a seguir descrevem como você pode personalizar ainda mais as configurações de validação com o [SDK Azure Machine Learning Python](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
-Para uma experiência de baixo código ou sem código, confira [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
+Para uma experiência de baixo código ou sem código, confira [criar experiências automatizadas de aprendizado de máquina no Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment). 
 
 > [!NOTE]
 > Atualmente, o estúdio dá suporte a divisões de dados de treinamento e validação, bem como opções de validação cruzada, mas não oferece suporte à especificação de arquivos de dados individuais para seu conjunto de validação. 
@@ -73,6 +73,9 @@ Se você não especificar explicitamente um `validation_data` `n_cross_validatio
 
 Nesse caso, você pode começar com um único arquivo de dados e dividi-lo em dados de treinamento e conjuntos de dados de validação ou pode fornecer um arquivo de dados separado para o conjunto de validação. De qualquer forma, o `validation_data` parâmetro em seu `AutoMLConfig` objeto atribui os dados a serem usados como seu conjunto de validação. Esse parâmetro só aceita conjuntos de dados na forma de um [conjunto](how-to-create-register-datasets.md) de dados Azure Machine Learning ou pandas dataframe.   
 
+> [!NOTE]
+> `validation_size`Não há suporte para o parâmetro em cenários de previsão.
+
 O exemplo de código a seguir define explicitamente qual parte dos dados fornecidos no `dataset` usar para treinamento e validação.
 
 ```python
@@ -93,7 +96,12 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Fornecer tamanho do conjunto de validação
 
-Nesse caso, apenas um único conjunto de um é fornecido para o experimento. Ou seja, o `validation_data` parâmetro **não** é especificado e o conjunto de e fornecido é atribuído ao  `training_data` parâmetro.  Em seu `AutoMLConfig` objeto, você pode definir o `validation_size` parâmetro para manter uma parte dos dados de treinamento para validação. Isso significa que o conjunto de validação será dividido por AutoML do inicial `training_data` fornecido. Esse valor deve estar entre 0,0 e 1,0 não inclusivo (por exemplo, 0,2 significa que 20% dos dados são mantidos para dados de validação).
+Nesse caso, apenas um único conjunto de um é fornecido para o experimento. Ou seja, o `validation_data` parâmetro **não** é especificado e o conjunto de e fornecido é atribuído ao  `training_data` parâmetro.  
+
+Em seu `AutoMLConfig` objeto, você pode definir o `validation_size` parâmetro para manter uma parte dos dados de treinamento para validação. Isso significa que o conjunto de validação será dividido por ML automatizado a partir do inicial `training_data` fornecido. Esse valor deve estar entre 0,0 e 1,0 não inclusivo (por exemplo, 0,2 significa que 20% dos dados são mantidos para dados de validação).
+
+> [!NOTE]
+> `validation_size`Não há suporte para o parâmetro em cenários de previsão. 
 
 Consulte o exemplo de código a seguir:
 
@@ -111,10 +119,13 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                             )
 ```
 
-## <a name="set-the-number-of-cross-validations"></a>Definir o número de validações cruzadas
+## <a name="k-fold-cross-validation"></a>Validação cruzada K vezes
 
-Para executar a validação cruzada, inclua o `n_cross_validations` parâmetro e defina-o como um valor. Esse parâmetro define quantas validações cruzadas executar, com base no mesmo número de dobras.
+Para executar a validação cruzada k-fold, inclua o `n_cross_validations` parâmetro e defina-o como um valor. Esse parâmetro define quantas validações cruzadas executar, com base no mesmo número de dobras.
 
+> [!NOTE]
+> `n_cross_validations`Não há suporte para o parâmetro em cenários de classificação que usam redes neurais profundas.
+ 
 No código a seguir, são definidas cinco dobras para validação cruzada. Portanto, cinco treinamentos diferentes, cada um treinando usando 4/5 dos dados e cada validação usando 1/5 dos dados com uma dobra de controle diferente a cada vez.
 
 Como resultado, as métricas são calculadas com a média das cinco métricas de validação.
@@ -129,6 +140,31 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
                              primary_metric = 'AUC_weighted',
                              training_data = dataset,
                              n_cross_validations = 5
+                             label_column_name = 'Class'
+                            )
+```
+## <a name="monte-carlo-cross-validation"></a>Validação cruzada do Monte Carlo
+
+Para executar a validação cruzada do Monte Carlo, inclua os `validation_size` `n_cross_validations` parâmetros e em seu `AutoMLConfig` objeto. 
+
+Para a validação cruzada do Monte Carlo, os conjuntos de ML automatizados além da parte dos dados de treinamento especificados pelo `validation_size` parâmetro para validação e, em seguida, atribui o restante dos dados para treinamento. Esse processo é repetido com base no valor especificado no `n_cross_validations` parâmetro; que gera novas divisões de treinamento e validação, aleatoriamente, cada vez.
+
+> [!NOTE]
+> Não há suporte para a validação cruzada Monte Carlo em cenários de previsão.
+
+O código a seguir define, 7 dobras para validação cruzada e 20% dos dados de treinamento devem ser usados para validação. Portanto, 7 treinamentos diferentes, cada treinamento usa 80% dos dados e cada validação usa 20% dos dados com uma dobra de controle diferente a cada vez.
+
+```python
+data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
+
+dataset = Dataset.Tabular.from_delimited_files(data)
+
+automl_config = AutoMLConfig(compute_target = aml_remote_compute,
+                             task = 'classification',
+                             primary_metric = 'AUC_weighted',
+                             training_data = dataset,
+                             n_cross_validations = 7
+                             validation_size = 0.2,
                              label_column_name = 'Class'
                             )
 ```

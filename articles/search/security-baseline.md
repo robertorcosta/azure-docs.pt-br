@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 0618e4445629893fbe623df4bc937698bd307c7c
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 4f54eab9616aa014e6f3a59b5c79e268450ecfce
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096573"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101668343"
 ---
 # <a name="azure-security-baseline-for-azure-cognitive-search"></a>Linha de base de segurança do Azure para Azure Pesquisa Cognitiva
 
@@ -207,7 +207,7 @@ Em Azure Monitor, defina seu período de retenção de espaço de trabalho de Lo
 
 - [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/storage-monitor-storage-account.md#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

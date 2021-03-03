@@ -5,14 +5,15 @@ author: cynthn
 ms.author: cynthn
 ms.date: 05/05/2020
 ms.topic: how-to
-ms.service: virtual-machines-windows
-ms.subservice: imaging
-ms.openlocfilehash: ca9f9ad0fb724884e865469ba118af4c7e6cea2f
-ms.sourcegitcommit: 2bd0a039be8126c969a795cea3b60ce8e4ce64fc
+ms.service: virtual-machines
+ms.subervice: image-builder
+ms.colletion: windows
+ms.openlocfilehash: 6e2dda624c66f5081720188ada20db10bf7ede5b
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98202837"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669075"
 ---
 # <a name="preview-create-a-windows-vm-with-azure-image-builder"></a>Versão prévia: criar uma VM do Windows com o construtor de imagens do Azure
 
@@ -237,7 +238,7 @@ Você deve ver esses dois diretórios criados durante a personalização da imag
 - buildActions
 - buildArtifacts
 
-## <a name="clean-up"></a>Limpeza
+## <a name="clean-up"></a>Limpar
 
 Quando terminar, exclua os recursos.
 

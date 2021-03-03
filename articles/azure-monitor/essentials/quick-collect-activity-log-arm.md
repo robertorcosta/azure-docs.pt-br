@@ -7,12 +7,12 @@ ms.custom: subject-armqs, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 06/25/2020
-ms.openlocfilehash: 8150a172c49b2b0e969ff35928976e5909b7daa8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7465127ed9c52941d6c3ccfd40446546f0795455
+ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626085"
+ms.locfileid: "100635465"
 ---
 # <a name="quickstart-send-azure-activity-log-to-log-analytics-workspace-using-an-arm-template"></a>Início Rápido: Enviar o Log de atividades do Azure para workspace do Log Analytics usando um modelo do ARM
 
@@ -260,7 +260,7 @@ az deployment sub create --name CreateDiagnosticSetting --location eastus --temp
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```powershell
-New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName="Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
+New-AzSubscriptionDeployment -Name CreateDiagnosticSetting -location eastus -TemplateFile CreateDiagnosticSetting.json -settingName "Send Activity log to workspace" -workspaceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/my-resource-group/providers/microsoft.operationalinsights/workspaces/my-workspace-01"
 ```
 ---
 
@@ -277,7 +277,7 @@ az monitor diagnostic-settings show --resource '/subscriptions/00000000-0000-000
 
 ## <a name="generate-log-data"></a>Gerar dados de log
 
-Somente novas entradas do log de atividades serão enviadas para o workspace do Log Analytics, portanto, execute algumas ações em sua assinatura que serão registradas, como iniciar ou parar uma máquina virtual ou criar ou modificar outro recurso. Talvez seja necessário aguardar alguns minutos para que a configuração de diagnóstico seja criada e para que os dados sejam gravados inicialmente no workspace. Após esse atraso, todos os eventos gravados no log de atividades serão enviados para o workspace dentro de alguns segundos.
+Somente as novas entradas do log de atividades serão enviadas ao workspace do Log Analytics; portanto, execute algumas ações na sua assinatura que serão registradas em log, como iniciar ou parar uma máquina virtual ou criar ou modificar outro recurso. Talvez seja necessário aguardar alguns minutos para que a configuração de diagnóstico seja criada e os dados sejam gravados inicialmente no workspace. Após esse atraso, todos os eventos gravados no log de atividades serão enviados ao workspace em alguns segundos.
 
 ## <a name="retrieve-data-with-a-log-query"></a>Recuperar dados com uma consulta de log
 
@@ -285,19 +285,19 @@ Use o portal do Azure para usar Log Analytics para recuperar dados do workspace.
 
 ![Portal do Azure](media/quick-collect-activity-log/azure-portal-monitor.png)
 
-Selecione **Logs** no menu **Azure Monitor**. Feche a página **Consultas de exemplo**. Se o escopo não estiver definido como o workspace que você criou, clique em **Selecionar escopo** e localize-o.
+Selecione **Logs** no menu **Azure Monitor**. Feche a página **Consultas de exemplo**. Se o escopo não estiver definido como o workspace criado, clique em **Selecionar escopo** e localize-o.
 
 ![Escopo do Log Analytics](media/quick-collect-activity-log/log-analytics-scope.png)
 
-Na janela de consulta, digite `AzureActivity` e clique em **Executar**. Essa é uma consulta simples que retorna todos os registros na tabela *AzureActivity*, que contém todos os registros enviados do Log de atividades.
+Na janela de consulta, digite `AzureActivity` e clique em **Executar**. Essa é uma consulta simples que retorna todos os registros da tabela *AzureActivity*, que contém todos os registros enviados do log de atividades.
 
 ![Consulta simples](media/quick-collect-activity-log/query-01.png)
 
-Expanda um dos registros para ver suas propriedades detalhadas.
+Expanda um dos registros para ver as propriedades detalhadas.
 
 ![Expandir propriedades](media/quick-collect-activity-log/expand-properties.png)
 
-Tente uma consulta mais complexa, como `AzureActivity | summarize count() by CategoryValue`, que fornece uma contagem de eventos resumidos pela categoria.
+Experimente usar uma consulta mais complexa, como `AzureActivity | summarize count() by CategoryValue`, que fornece uma contagem de eventos resumidos pela categoria.
 
 ![Consulta complexa](media/quick-collect-activity-log/query-02.png)
 
@@ -321,7 +321,7 @@ Remove-AzResourceGroup -Name my-resource-group
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você configurou o Log de atividades para ser enviado a um workspace do Log Analytics. Agora você pode configurar outros dados a serem coletados no workspace em que você pode analisá-los juntos usando [consultas de log](../log-query/log-query-overview.md) no Azure Monitor e aproveitar recursos como [alertas de log](../alerts/alerts-log-query.md) e [pastas de trabalho](../visualize/workbooks-overview.md). Em seguida, você deve reunir [logs de recursos](../essentials/resource-logs.md) de seus recursos do Azure, que complementam os dados no log de atividades, fornecendo informações sobre as operações que foram executadas em cada recurso.
+Neste guia de início rápido, você configurou o log de atividades para ser enviado a um workspace do Log Analytics. Agora você pode configurar outros dados a serem coletados no workspace, em que você poderá analisá-los juntos usando [consultas de log](../log-query/log-query-overview.md) no Azure Monitor e aproveitar recursos como [alertas de log](../alerts/alerts-log-query.md) e [pastas de trabalho](../visualize/workbooks-overview.md). Em seguida, reúna os [logs de recursos](../essentials/resource-logs.md) dos seus recursos do Azure, que complementam os dados do log de atividades, fornecendo insights sobre as operações que foram executadas em cada recurso.
 
 > [!div class="nextstepaction"]
 > [Coletar e analisar logs de recursos com o Azure Monitor](../essentials/tutorial-resource-logs.md)

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 75ea473c8669e9d50d2e9971a20a5fc1c3070779
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7a6213528f204ac31fbcf8a29625787fc73d5153
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368006"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656798"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning
 
@@ -172,7 +172,12 @@ Para obter informações sobre máquinas virtuais do Azure, consulte a [document
 
 ## <a name="enable-public-access"></a>Habilitar acesso público
 
-Depois de configurar um espaço de trabalho com um ponto de extremidade privado, você pode opcionalmente habilitar o acesso público ao espaço de trabalho. Isso não remove o ponto de extremidade privado. Ele habilita o acesso público além do acesso privado. Para habilitar o acesso público a um espaço de trabalho habilitado para vínculo privado, use as seguintes etapas:
+Em algumas situações, talvez você queira permitir que alguém se conecte ao seu espaço de trabalho protegido por um ponto de extremidade público, em vez de através da VNet. Depois de configurar um espaço de trabalho com um ponto de extremidade privado, você pode opcionalmente habilitar o acesso público ao espaço de trabalho. Isso não remove o ponto de extremidade privado. Todas as comunicações entre componentes por trás da VNet ainda são protegidas. Ele permite acesso público somente ao espaço de trabalho, além do acesso privado por meio da VNet.
+
+> [!WARNING]
+> Ao se conectar por meio do ponto de extremidade público, alguns recursos do estúdio falharão ao acessar seus dados. Esse problema ocorre quando os dados são armazenados em um serviço protegido por trás da VNet. Por exemplo, uma conta de armazenamento do Azure.
+
+Para habilitar o acesso público a um espaço de trabalho habilitado para vínculo privado, use as seguintes etapas:
 
 # <a name="python"></a>[Python](#tab/python)
 

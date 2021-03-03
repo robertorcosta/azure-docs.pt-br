@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 9ffc450294f186b77cc7a6c44c10eecf266161d3
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526674"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101673525"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem no Azure alcance
 
@@ -85,8 +85,9 @@ Esses tipos de credenciais têm suporte no alcance:
 - Entidade de serviço: Adicione a **chave da entidade de serviço** como um segredo no cofre de chaves.
 - Autenticação do SQL: você adiciona a **senha** como um segredo no cofre de chaves.
 - Chave de conta: Adicione a **chave de conta** como um segredo no cofre de chaves.
+- ARN de função: para uma fonte de dados do Amazon S3, adicione sua **função ARN** no AWS. 
 
-Para obter mais informações, consulte [Adicionar um segredo a Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault).
+Para obter mais informações, consulte [Adicionar um segredo para Key Vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault) e [criar uma nova função AWS para alcance](register-scan-amazon-s3.md#create-a-new-aws-role-for-purview).
 
 Depois de armazenar seus segredos no cofre de chaves:
 

@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente do Connected Machine do Windows
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 02/16/2021
+ms.date: 02/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 8c06989d726a30e95f0b9c4dcc15a967d498f92a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100580879"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651086"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -68,6 +68,10 @@ Você pode baixar o pacote do agente do Azure Connected Machine para Wind
 O agente do Azure Connected Machine para Windows e Linux pode ser atualizado para a versão mais recente manual ou automaticamente dependendo de suas necessidades. Para saber mais, clique [aqui](manage-agent.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+### <a name="supported-environments"></a>Ambientes compatíveis
+
+Os servidores habilitados para Arc oferecem suporte à instalação do agente do computador conectado em qualquer servidor físico e máquina virtual hospedada *fora* do Azure. Isso inclui máquinas virtuais em execução em plataformas como VMware, Azure Stack HCI e em outros ambientes de nuvem. Os servidores habilitados para ARC não dão suporte à instalação do agente em máquinas virtuais em execução no Azure, ou máquinas virtuais em execução no Hub de Azure Stack ou Azure Stack Edge, pois já estão modeladas como VMs do Azure.
 
 ### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 

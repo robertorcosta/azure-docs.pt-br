@@ -12,12 +12,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bce9479d063d091eb4fa68d2452d8a4218d45db9
-ms.sourcegitcommit: 54e1d4cdff28c2fd88eca949c2190da1b09dca91
+ms.openlocfilehash: c72a305a7000052be4f11c9c24a76db94de47ace
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/31/2021
-ms.locfileid: "99219936"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650100"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
 
@@ -32,11 +32,11 @@ Se começar a integração ao Azure AD (Azure Active Directory), identidades da 
 
 ## <a name="search"></a>Pesquisar
 
-Se você tiver uma pergunta relacionada ao desenvolvimento, poderá encontrar a resposta na documentação, nos [exemplos do GitHub](https://github.com/azure-samples)ou nas respostas para a [Microsoft Q&](https://docs.microsoft.com/answers/products/) perguntas.
+Se você tiver uma pergunta relacionada ao desenvolvimento, poderá encontrar a resposta na documentação, nos [exemplos do GitHub](https://github.com/azure-samples)ou nas respostas para a [Microsoft Q&](/answers/products/) perguntas.
 
 ### <a name="scoped-search"></a>Pesquisa com escopo
 
-Para obter resultados mais rápidos, use o escopo de sua pesquisa para a [Microsoft Q&uma](https://docs.microsoft.com/answers/products/)documentação e os exemplos de código usando a seguinte consulta em seu mecanismo de pesquisa favorito:
+Para obter resultados mais rápidos, use o escopo de sua pesquisa para a [Microsoft Q&uma](/answers/products/)documentação e os exemplos de código usando a seguinte consulta em seu mecanismo de pesquisa favorito:
 
 ```
 {Your Search Terms} (site:http://www.docs.microsoft.com/answers/products/ OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
@@ -53,24 +53,24 @@ Em que *{Seus Termos de Pesquisa}* correspondem às palavras-chave de pesquisa.
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Poste uma pergunta para a Microsoft Q&A
 
-O [Microsoft Q&a](https://docs.microsoft.com/answers/products/) é o canal preferido para perguntas relacionadas ao desenvolvimento. Aqui, os membros da comunidade de desenvolvedores e da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
+O [Microsoft Q&a](/answers/products/) é o canal preferido para perguntas relacionadas ao desenvolvimento. Aqui, os membros da comunidade de desenvolvedores e da equipe da Microsoft estão diretamente envolvidos em ajudá-lo a resolver seus problemas.
 
-Se você não encontrar uma resposta à sua pergunta por meio de pesquisa, envie uma nova pergunta para a [Microsoft Q&a](https://docs.microsoft.com/answers/products/) . Use uma das seguintes marcas ao fazer perguntas para ajudar a comunidade a identificar e responder a pergunta com mais rapidez:
+Se você não encontrar uma resposta à sua pergunta por meio de pesquisa, envie uma nova pergunta para a [Microsoft Q&a](/answers/products/) . Use uma das seguintes marcas ao fazer perguntas para ajudar a comunidade a identificar e responder a pergunta com mais rapidez:
 
-|Componente/área  | Marcações |
+|Componente/área  | Marcas |
 |---------|---------|
-| Biblioteca ADAL | [Adal](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html) |
-| Biblioteca MSAL     | [MSAL](https://docs.microsoft.com/answers/topics/azure-ad-msal.html) |
-| Middleware OWIN  | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
-| [B2B do Azure](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](https://docs.microsoft.com/answers/topics/azure-ad-b2b.html) |
-| [B2C do Azure](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://docs.microsoft.com/answers/topics/azure-ad-b2c.html) |
-| [API do Microsoft Graph](https://developer.microsoft.com/graph/) | [[Azure-ad-Graph]](https://docs.microsoft.com/answers/topics/azure-ad-graph.html) |
-| Qualquer outra área relacionada aos tópicos de autenticação ou autorização | [[Azure-Active-Directory]](https://docs.microsoft.com/answers/topics/azure-active-directory.html) |
+| Biblioteca ADAL | [Adal](/answers/topics/azure-ad-adal-deprecation.html) |
+| Biblioteca MSAL     | [MSAL](/answers/topics/azure-ad-msal.html) |
+| Middleware OWIN  | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
+| [B2B do Azure](../external-identities/what-is-b2b.md)  | [[azure-ad-b2b]](/answers/topics/azure-ad-b2b.html) |
+| [B2C do Azure](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](/answers/topics/azure-ad-b2c.html) |
+| [API do Microsoft Graph](https://developer.microsoft.com/graph/) | [[Azure-ad-Graph]](/answers/topics/azure-ad-graph.html) |
+| Qualquer outra área relacionada aos tópicos de autenticação ou autorização | [[Azure-Active-Directory]](/answers/topics/azure-active-directory.html) |
 
-As seguintes postagens da [Microsoft Q&a](https://docs.microsoft.com/answers/products/) contêm dicas sobre como fazer perguntas e como adicionar código-fonte. Siga essas diretrizes para aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:
+As seguintes postagens da [Microsoft Q&a](/answers/products/) contêm dicas sobre como fazer perguntas e como adicionar código-fonte. Siga essas diretrizes para aumentar as chances de os membros da comunidade avaliarem e responderem à sua pergunta rapidamente:
 
-* [Como fazer fazer uma boa pergunta](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html)
-* [Como criar um exemplo mínimo, completo e verificável](https://docs.microsoft.com/answers/articles/24907/how-to-write-a-quality-answer.html)
+* [Como fazer fazer uma boa pergunta](/answers/articles/24951/how-to-write-a-quality-question.html)
+* [Como criar um exemplo mínimo, completo e verificável](/answers/articles/24907/how-to-write-a-quality-answer.html)
 
 ## <a name="create-a-github-issue"></a>Criar um problema do GitHub
 

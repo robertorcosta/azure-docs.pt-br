@@ -8,12 +8,12 @@ ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 9ed811f96e08e8ebab2e6fd090a4322d9f7827fb
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f9152e341ac04209754bbf5f008cd56373967b9f
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92681403"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101677447"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Criptografia do lado do servidor de Armazenamento em Disco do Azure
 
@@ -51,6 +51,17 @@ Por enquanto, as chaves gerenciadas pelo cliente têm as seguintes restrições:
 #### <a name="supported-regions"></a>Regiões com suporte
 
 As chaves gerenciadas pelo cliente estão disponíveis em todas as regiões em que os discos gerenciados estão disponíveis.
+
+A rotação de chaves automática está em visualização e só está disponível nas seguintes regiões:
+
+- Leste dos EUA
+- Leste dos EUA 2
+- Centro-Sul dos Estados Unidos
+- Oeste dos EUA
+- Oeste dos EUA 2
+- Norte da Europa
+- Europa Ocidental
+- França Central
 
 > [!IMPORTANT]
 > As chaves gerenciadas pelo cliente contam com as identidades gerenciadas para recursos do Azure, um recurso do Azure Active Directory (Azure AD). Ao configurar chaves gerenciadas pelo cliente, uma identidade gerenciada é atribuída automaticamente aos recursos nos bastidores. Se, subsequentemente, você mover a assinatura, o grupo de recursos ou o disco gerenciado de um diretório do Azure AD para outro, a identidade gerenciada associada a discos gerenciados não será transferida para o novo locatário, portanto, as chaves gerenciadas pelo cliente poderão deixar de funcionar. Para obter mais informações, confira [Transferência de uma assinatura entre diretórios do Azure Active Directory](../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).

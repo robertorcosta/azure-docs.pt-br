@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad69df37d2635156873dc59d6fbf700a67ade548
-ms.sourcegitcommit: b4e6b2627842a1183fce78bce6c6c7e088d6157b
+ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/30/2021
-ms.locfileid: "99091925"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651930"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral do provisionamento de logs no portal do Azure (versão prévia)
 
@@ -60,8 +60,8 @@ Para que você exiba o relatório de atividade de provisionamento, seu locatári
 Os clientes podem interagir com os logs de provisionamento de quatro maneiras:
 
 - Acessar os logs do portal do Azure, conforme descrito na próxima seção.
-- Streaming dos logs de provisionamento em [Azure monitor](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-log-analytics). Esse método permite a retenção de dados estendidos e a criação de painéis, alertas e consultas personalizados.
-- Consultando a [API de Microsoft Graph](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os logs de provisionamento.
+- Streaming dos logs de provisionamento em [Azure monitor](../app-provisioning/application-provisioning-log-analytics.md). Esse método permite a retenção de dados estendidos e a criação de painéis, alertas e consultas personalizados.
+- Consultando a [API de Microsoft Graph](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta) para os logs de provisionamento.
 - Baixar os logs de provisionamento como um arquivo CSV ou JSON.
 
 ## <a name="access-the-logs-from-the-azure-portal"></a>Acessar os logs do portal do Azure
@@ -140,7 +140,7 @@ O filtro de **ação** permite filtrar essas ações:
 - **Atualizar**
 - **Delete (excluir)**
 - **Desabilitar**
-- **Outras**
+- **Outros**
 
 Além dos filtros da exibição padrão, você pode definir os filtros a seguir.
 
@@ -207,7 +207,7 @@ O arquivo JSON é baixado no formato reduzidos para reduzir o tamanho do downloa
 
 Aqui estão alguns comandos de exemplo para trabalhar com o arquivo JSON usando o PowerShell. Você pode usar qualquer linguagem de programação com a qual esteja familiarizado.  
 
-Primeiro, [Leia o arquivo JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando este comando:
+Primeiro, [Leia o arquivo JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando este comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

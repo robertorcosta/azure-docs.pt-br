@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08a919338789a02d50cbb6976ee50b214cb0d612
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: d081754616b40a21b3b842758844eb13e2752569
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100416912"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101650950"
 ---
 # <a name="securing-standalone-managed-service-accounts"></a>Protegendo contas de serviço gerenciados autônomos
 
@@ -44,7 +44,7 @@ o sMSAs oferece maior segurança do que as contas de usuário usadas como contas
 
    * O nome DNS do computador host é alterado.
 
-   * Ao adicionar ou remover um Sam-AccountName ou parâmetros DNS-hostname adicionais usando o [PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
+   * Ao adicionar ou remover um Sam-AccountName ou parâmetros DNS-hostname adicionais usando o [PowerShell](/powershell/module/addsadministration/set-adserviceaccount?view=win10-ps)
 
 ## <a name="when-to-use-smsas"></a>Quando usar o sMSAs
 
@@ -53,7 +53,7 @@ o sMSAs pode simplificar as tarefas de gerenciamento e segurança. Use sMSAs qua
 > [!NOTE] 
 > Embora você possa usar o sMSAs para mais de um serviço, é recomendável que cada serviço tenha sua própria identidade para fins de auditoria. 
 
-Se o criador do software não puder informá-lo se ele pode usar um MSA, você deve testar seu aplicativo. Para fazer isso, crie um ambiente de teste e verifique se ele pode acessar todos os recursos necessários. Consulte [criar e instalar um sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) para obter instruções passo a passo.
+Se o criador do software não puder informá-lo se ele pode usar um MSA, você deve testar seu aplicativo. Para fazer isso, crie um ambiente de teste e verifique se ele pode acessar todos os recursos necessários. Consulte [criar e instalar um sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) para obter instruções passo a passo.
 
 ### <a name="assess-security-posture-of-smsas"></a>Avaliar a postura de segurança do sMSAs
 
@@ -112,7 +112,7 @@ Você pode usar os seguintes cmdlets Active Directory PowerShell para gerenciar 
 
 ## <a name="move-to-smsas"></a>Mover para sMSAs
 
-Se um serviço de aplicativo oferecer suporte a sMSA, mas não gMSAs, e estiver usando uma conta de usuário ou conta de computador no momento para o contexto de segurança, [crie e instale um sMSA](https://docs.microsoft.com/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) no servidor. 
+Se um serviço de aplicativo oferecer suporte a sMSA, mas não gMSAs, e estiver usando uma conta de usuário ou conta de computador no momento para o contexto de segurança, [crie e instale um sMSA](/archive/blogs/askds/managed-service-accounts-understanding-implementing-best-practices-and-troubleshooting) no servidor. 
 
 Idealmente, mova os recursos para o Azure e use as identidades gerenciadas do Azure ou entidades de serviço.
 
@@ -121,7 +121,7 @@ Idealmente, mova os recursos para o Azure e use as identidades gerenciadas do Az
 ## <a name="next-steps"></a>Próximas etapas
 Consulte os artigos a seguir sobre como proteger contas de serviço
 
-* [Introdução às contas de serviço locais](service-accounts-on-premises.md)
+* [Introdução a contas de serviço locais](service-accounts-on-premises.md)
 
 * [Contas de serviço gerenciado de grupo seguro](service-accounts-group-managed.md)
 
@@ -131,6 +131,5 @@ Consulte os artigos a seguir sobre como proteger contas de serviço
 
 * [Proteger contas de usuário](service-accounts-user-on-premises.md)
 
-* [Controlar contas de serviço locais](service-accounts-govern-on-premises.md)
+* [Administrar contas de serviço locais](service-accounts-govern-on-premises.md)
 
- 

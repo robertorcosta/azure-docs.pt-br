@@ -14,12 +14,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 397c74203aae2f52ce81844695266cc36fdf3042
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0b42ac7b4e379559d86942279eaa19fe58533840
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370892"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101651880"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Redefinir a senha de um usuário usando o Azure Active Directory
 
@@ -50,6 +50,10 @@ Como um administrador, você pode redefinir a senha de um usuário se a senha fo
 
     >[!Note]
     >A senha temporária nunca expira. Na próxima vez em que o usuário entrar, a senha continuará funcionando, independentemente de quanto tempo se passou desde que a senha temporária foi gerada.
+
+> [!IMPORTANT]
+> Se um administrador não puder redefinir a senha do usuário e nos logs de eventos do aplicativo no servidor de Azure AD Connect o seguinte código de erro HR = 80231367 será visto, examine os atributos do usuário em Active Directory.  Se o atributo **AdminCount** for definido como 1, isso impedirá que um administrador redefina a senha do usuário.  O atributo **AdminCount** deve ser definido como 0, para que os administradores redefinam a senha do usuário.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

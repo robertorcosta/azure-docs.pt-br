@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89434632"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101666220"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solucionando problemas de provisionamento de VM com Cloud-init
 
@@ -56,9 +56,9 @@ Quando a VM não puder ser provisionada, o Azure mostrará o status ' criando ',
 
 Enquanto a VM estiver em execução, você precisará dos logs da VM para entender por que houve falha no provisionamento.  Para entender por que o provisionamento de VM falhou, não pare a VM. Mantenha a VM em execução. Você precisará manter a VM com falha em um estado de execução para coletar logs. Para coletar os logs, use um dos seguintes métodos:
 
-- [Console Serial](../troubleshooting/serial-console-grub-single-user-mode.md)
+- [Console serial](../troubleshooting/serial-console-grub-single-user-mode.md)
 
-- [Habilite o diagnóstico de inicialização](./tutorial-monitor.md#enable-boot-diagnostics) antes de criar a VM e, em seguida, [exibi](./tutorial-monitor.md#view-boot-diagnostics) -las durante a inicialização.
+- [Habilite o diagnóstico de inicialização](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#enable-boot-diagnostics) antes de criar a VM e, em seguida, [exibi](/previous-versions/azure/virtual-machines/linux/tutorial-monitor#view-boot-diagnostics) -las durante a inicialização.
 
 - [Execute AZ VM Repair](../troubleshooting/repair-linux-vm-using-azure-virtual-machine-repair-commands.md) para anexar e montar o disco do sistema operacional, o que permitirá que você colete esses logs:
 ```bash
@@ -89,7 +89,7 @@ Aqui estão mais detalhes sobre o que procurar em cada log de inicialização de
 
 Por padrão, todos os eventos Cloud-init com uma prioridade de debug ou superior são gravados no `/var/log/cloud-init.log` . Isso fornece logs detalhados de cada evento ocorrido durante a inicialização de Cloud-init. 
 
-Por exemplo:
+Por exemplo: 
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -124,7 +124,7 @@ Se ainda não for possível isolar por que a Cloud-init falhou ao provisionar, v
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Etapa 4: investigar por que a configuração não está sendo aplicada
-Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por exemplo, se você estiver usando o `runcmd` módulo em uma configuração de inicialização de nuvem, um código de saída diferente de zero do comando que está sendo executado fará com que o provisionamento da VM falhe. Isso ocorre porque ele é executado após a funcionalidade de provisionamento principal que ocorre nos três primeiros estágios de Cloud-init. Para solucionar problemas por que a configuração não foi aplicada, examine os logs nos módulos etapa 3 e Cloud-init manualmente. Por exemplo:
+Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por exemplo, se você estiver usando o `runcmd` módulo em uma configuração de inicialização de nuvem, um código de saída diferente de zero do comando que está sendo executado fará com que o provisionamento da VM falhe. Isso ocorre porque ele é executado após a funcionalidade de provisionamento principal que ocorre nos três primeiros estágios de Cloud-init. Para solucionar problemas por que a configuração não foi aplicada, examine os logs nos módulos etapa 3 e Cloud-init manualmente. Por exemplo: 
 
 - `runcmd` -os scripts são executados sem erros? Execute a configuração manualmente do terminal para garantir que elas sejam executadas conforme o esperado.
 - Instalando pacotes – a VM tem acesso aos repositórios de pacotes?
@@ -133,4 +133,4 @@ Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Se você ainda não puder isolar por que a Cloud-init não executou a configuração, precisará olhar mais detalhadamente o que acontece em cada estágio Cloud-init e quando os módulos são executados. Consulte aprofundando [-se na configuração do Cloud-init](./cloud-init-deep-dive.md) para obter mais informações. 
+Se você ainda não puder isolar por que a Cloud-init não executou a configuração, precisará olhar mais detalhadamente o que acontece em cada estágio Cloud-init e quando os módulos são executados. Consulte aprofundando [-se na configuração do Cloud-init](./cloud-init-deep-dive.md) para obter mais informações.

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.author: jeedes
-ms.openlocfilehash: aab1f99984ed5286692cbf9dae39fb4f7d28599c
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 3c1b4b3d57bdce4a66adb35717f46d8989ee2453
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652455"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101648808"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>Como configurar a declaração de função emitida no token SAML para aplicativos empresariais
 
@@ -29,7 +29,7 @@ Usando o Azure AD (Azure Active Directory), você pode personalizar o tipo de de
 - Uma assinatura com logon único habilitado. Você precisa configurar o SSO com o aplicativo.
 
 > [!NOTE]
-> Este artigo explica como criar/atualizar/excluir funções de aplicativo na entidade de serviço usando APIs no Azure AD. Se você quiser usar a nova interface do usuário para funções de aplicativo, consulte os detalhes [aqui](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps).
+> Este artigo explica como criar/atualizar/excluir funções de aplicativo na entidade de serviço usando APIs no Azure AD. Se você quiser usar a nova interface do usuário para funções de aplicativo, consulte os detalhes [aqui](./howto-add-app-roles-in-azure-ad-apps.md).
 
 ## <a name="when-to-use-this-feature"></a>Quando usar esse recurso
 
@@ -170,7 +170,7 @@ Use esse recurso se seu aplicativo espera funções personalizadas na resposta S
 
     1. Na lista **Atributo de origem**, digite o valor do atributo mostrado para essa linha.
 
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
 10. Para testar seu aplicativo em um logon único iniciado por um provedor de identidade, entre no [Painel de Acesso](https://myapps.microsoft.com) e selecione o bloco do aplicativo. No token SAML, você deve ver todas as funções atribuídas ao usuário com o nome da declaração fornecido.
 

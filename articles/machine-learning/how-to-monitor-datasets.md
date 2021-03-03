@@ -11,12 +11,12 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to, data4ml, contperf-fy21q2
-ms.openlocfilehash: 1bf7856e807b04e35d28a3e262ae89ea9c298f3c
-ms.sourcegitcommit: 799f0f187f96b45ae561923d002abad40e1eebd6
+ms.openlocfilehash: b62ed4c0b661ebc725bd4cd3737249d91e48c43e
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97763584"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101656832"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Detectar descompasso de dados (versão prévia) em conjuntos
 
@@ -234,12 +234,12 @@ monitor = monitor.enable_schedule()
 
     | Configuração | Descrição | Dicas | Mutável | 
     | ------- | ----------- | ---- | ------- |
-    | Nome | Nome do monitor de DataSet. | | Não |
+    | Name | Nome do monitor de DataSet. | | Não |
     | Recursos | Lista de recursos que serão analisados para descompasso de dados ao longo do tempo. | Definido como um ou mais recursos de saída do modelo para medir a descompasso de conceito. Não inclua recursos que naturalmente se descompassom ao longo do tempo (mês, ano, índice, etc.). Você pode aterrar e monitorar o descompasso de dados existente depois de ajustar a lista de recursos. | Sim | 
     | Destino de computação | Azure Machine Learning o destino de computação para executar os trabalhos do monitor de conjunto de trabalho. | | Sim | 
     | Habilitar | Habilitar ou desabilitar a agenda no pipeline do monitor de conjunto de um | Desabilite a agenda para analisar os dados históricos com a configuração de aterramento. Ele pode ser habilitado após a criação do monitor de conjunto de um. | Sim | 
     | Frequência | A frequência que será usada para agendar o trabalho de pipeline e analisar os dados históricos se estiver executando um aterramento. As opções incluem diário, semanal ou mensal. | Cada execução compara dados no DataSet de destino de acordo com a frequência: <li>Diário: comparar o dia completo mais recente no conjunto de entrada de destino com linha de base <li>Semanalmente: comparar a semana concluída mais recente (segunda-feira a domingo) no conjunto de entrada de destino com linha de base <li>Mensal: comparar o mês completo mais recente no conjunto de entrada de destino com linha de base | Não | 
-    | Latência | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
+    | Latency | Tempo, em horas, leva para que os dados cheguem no DataSet. Por exemplo, se demorar três dias para que os dados cheguem no BD SQL encapsulado, defina a latência como 72. | Não pode ser alterado após a criação do monitor de conjunto de um | Não | 
     | Endereços de email | Endereços de email para alertas com base na violação do limite de porcentagem de descompasso de dados. | Os emails são enviados por meio de Azure Monitor. | Sim | 
     | Limite | Limite de porcentagem de descompasso de dados para alerta de email. | Alertas e eventos adicionais podem ser definidos em muitas outras métricas no recurso de Application Insights associado do espaço de trabalho. | Sim |
 
@@ -256,7 +256,7 @@ Comece com as informações de nível superior sobre a magnitude da descompasso 
 :::image type="content" source="media/how-to-monitor-datasets/drift-overview.png" alt-text="Visão geral do descompasso":::
 
 
-| Metric | Descrição | 
+| Métrica | Descrição | 
 | ------ | ----------- | 
 | Magnitude da descompasso de dados | Uma porcentagem de descompasso entre a linha de base e o conjunto de origem de destino ao longo do tempo Variando de 0 a 100, 0 indica conjuntos de dados idênticos e 100 indica que o modelo de descompasso de Azure Machine Learning pode contar totalmente com os dois conjuntos. O ruído na porcentagem exata medida é esperado devido a técnicas de aprendizado de máquina que estão sendo usadas para gerar essa magnitude. | 
 | Principais recursos de descompasso | Mostra os recursos do conjunto de um que foram mais desnecessários e, portanto, contribuindo mais para a métrica de magnitude de descompasso. Devido ao deslocamento covariado, a distribuição subjacente de um recurso não necessariamente precisa ser alterada para ter uma importância de recurso relativamente alta. |
@@ -290,7 +290,7 @@ As métricas no gráfico dependem do tipo de recurso.
 
 * Recursos numéricos
 
-    | Metric | Descrição |  
+    | Métrica | Descrição |  
     | ------ | ----------- |  
     | Distância Wasserstein | Quantidade mínima de trabalho para transformar a distribuição de linha de base na distribuição de destino. |
     | Valor médio | Valor médio do recurso. |
@@ -299,7 +299,7 @@ As métricas no gráfico dependem do tipo de recurso.
 
 * Recursos categóricos
     
-    | Metric | Descrição |  
+    | Métrica | Descrição |  
     | ------ | ----------- |  
     | Distância euclidiana     |  Calculado para colunas categóricas. A distância euclidiana é calculada em dois vetores, gerados da distribuição empírica da mesma coluna categórica de dois conjuntos de valores. 0 indica que não há nenhuma diferença nas distribuições de empírica.  Quanto mais se desviar de 0, mais esta coluna se descompassou. As tendências podem ser observadas em uma plotagem de série temporal dessa métrica e podem ser úteis para descobrir um recurso de descompasso.  |
     | Valores únicos | Número de valores exclusivos (cardinalidade) do recurso. |
@@ -363,7 +363,7 @@ Limitações e problemas conhecidos para monitores de descompasso de dados:
           service_principal_id=app_id,
           service_principal_password=client_secret
           )
-   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group"xxx")
+   ws = Workspace.get("xxx", auth=auth, subscription_id="xxx", resource_group="xxx")
    compute = ws.compute_targets.get("xxx")
    ```
 

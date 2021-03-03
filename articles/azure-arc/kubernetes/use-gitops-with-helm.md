@@ -1,21 +1,21 @@
 ---
-title: Implantar gráficos do Helm usando o GitOps em um cluster kubernetes habilitado para Arc (versão prévia)
+title: Implantar gráficos do Helm usando o GitOps em um cluster kubernetes habilitado para Arc
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/15/2021
+ms.date: 03/02/2021
 ms.topic: article
 author: mlearned
 ms.author: mlearned
-description: Usar GitOps com Helm para uma configuração de cluster habilitada para Arc do Azure (versão prévia)
+description: Usar GitOps com Helm para uma configuração de cluster habilitada para o Azure Arc
 keywords: GitOps, Kubernetes, K8s, Azure, Helm, Arc, AKS, Serviço do Kubernetes do Azure, contêineres
-ms.openlocfilehash: 2dfb516487d1064f29b4018cc8b322e8db44e53a
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 117fc8dabdce2fdf23cbc2b9fe78137db1c656a5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558524"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101647635"
 ---
-# <a name="deploy-helm-charts-using-gitops-on-arc-enabled-kubernetes-cluster-preview"></a>Implantar gráficos do Helm usando o GitOps em um cluster kubernetes habilitado para Arc (versão prévia)
+# <a name="deploy-helm-charts-using-gitops-on-an-arc-enabled-kubernetes-cluster"></a>Implantar gráficos do Helm usando o GitOps em um cluster do kubernetes habilitado para Arc
 
 Helm é uma ferramenta de empacotamento de software livre que ajuda a instalar e gerenciar o ciclo de vida de aplicativos Kubernetes. De forma semelhante aos gerenciadores de pacotes do Linux, como APT e yum, o Helm é usado para gerenciar os gráficos do kubernetes, que são pacotes de recursos de kubernetes pré-configurados.
 
@@ -23,7 +23,7 @@ Este artigo mostra como configurar e usar o Helm com Kubernetes habilitado para 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-Verifique se você tem um cluster conectado do Azure kubernetes habilitado para Arc existente. Se você precisar de um cluster conectado, consulte o guia de [início rápido conectar um cluster do kubernetes habilitado para o Azure Arc](./connect-cluster.md).
+Verifique se você tem um cluster conectado do Azure kubernetes habilitado para Arc existente. Se você precisar de um cluster conectado, consulte o guia de [início rápido conectar um cluster do kubernetes habilitado para o Azure Arc](./quickstart-connect-cluster.md).
 
 ## <a name="overview-of-using-gitops-and-helm-with-azure-arc-enabled-kubernetes"></a>Visão geral de como usar GitOps e Helm com o Azure Arc habilitado kubernetes
 
@@ -69,7 +69,7 @@ A configuração de versão Helm contém os seguintes campos:
 | `metadata.name` | Campo obrigatório. Precisa seguir as convenções de nomenclatura kubernetes. |
 | `metadata.namespace` | Campo opcional. Determina onde a versão é criada. |
 | `spec.releaseName` | Campo opcional. Se não for fornecido, o nome da versão será `$namespace-$name` . |
-| `spec.chart.path` | O diretório que contém o gráfico, fornecido em relação à raiz do repositório. |
+| `spec.chart.path` | O diretório que contém o gráfico (relativo à raiz do repositório). |
 | `spec.values` | Personalizações de usuário de valores de parâmetro padrão do próprio gráfico. |
 
 As opções especificadas no HelmRelease `spec.values` substituirão as opções especificadas em `values.yaml` da origem do gráfico.
@@ -78,30 +78,27 @@ Você pode saber mais sobre o HelmRelease na documentação do [operador Helm](h
 
 ## <a name="create-a-configuration"></a>Criar uma configuração
 
-Usando a extensão de CLI do Azure para `k8sconfiguration` , vincule o cluster conectado ao repositório git de exemplo. Dê a essa configuração o nome `azure-arc-sample` e implante o operador de fluxo no `arc-k8s-demo` namespace.
+Usando a extensão de CLI do Azure para `k8s-configuration` , vincule o cluster conectado ao repositório git de exemplo. Dê a essa configuração o nome `azure-arc-sample` e implante o operador de fluxo no `arc-k8s-demo` namespace.
 
 ```console
-az k8sconfiguration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
+az k8s-configuration create --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --operator-instance-name flux --operator-namespace arc-k8s-demo --operator-params='--git-readonly --git-path=releases' --enable-helm-operator --helm-operator-version='1.2.0' --helm-operator-params='--set helm.versions=v3' --repository-url https://github.com/Azure/arc-helm-demo.git --scope namespace --cluster-type connectedClusters
 ```
 
 ### <a name="configuration-parameters"></a>Parâmetros de configuração
 
-Para personalizar a criação da configuração, [saiba mais sobre parâmetros adicionais que você pode usar](./use-gitops-connected-cluster.md#additional-parameters).
+Para personalizar a criação da configuração, [saiba mais sobre parâmetros adicionais](./tutorial-use-gitops-connected-cluster.md#additional-parameters).
 
 ## <a name="validate-the-configuration"></a>Validar a configuração
 
-Usando o CLI do Azure, verifique se o `sourceControlConfiguration` foi criado com êxito.
+Usando o CLI do Azure, verifique se a configuração foi criada com êxito.
 
 ```console
-az k8sconfiguration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
+az k8s-configuration show --name azure-arc-sample --cluster-name AzureArcTest1 --resource-group AzureArcTest --cluster-type connectedClusters
 ```
 
-O `sourceControlConfiguration` recurso é atualizado com o status de conformidade, mensagens e informações de depuração.
+O recurso de configuração é atualizado com o status de conformidade, mensagens e informações de depuração.
 
-**Saída:**
-
-```console
-Command group 'k8sconfiguration' is in preview. It may be changed/removed in a future release.
+```output
 {
   "complianceStatus": {
     "complianceState": "Installed",
@@ -129,7 +126,7 @@ Command group 'k8sconfiguration' is in preview. It may be changed/removed in a f
 }
 ```
 
-## <a name="validate-application"></a>Validar o aplicativo
+## <a name="validate-application"></a>Validar aplicativo
 
 Execute o comando a seguir e navegue até `localhost:8080` no navegador para verificar se o aplicativo está em execução.
 

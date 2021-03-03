@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: ea96e1056e6157cfddbdc2f0b6451ed55a74d1de
-ms.sourcegitcommit: 90caa05809d85382c5a50a6804b9a4d8b39ee31e
+ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/23/2020
-ms.locfileid: "97756051"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661011"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -78,6 +78,17 @@ Quando você usa **ScriptRunConfig**, pode usar ```run.wait_for_completion(show_
 
 <a id="queryrunmetrics"></a>
 
+### <a name="logging-run-metrics"></a>Métricas de execução de log 
+
+Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas. Observe os [limites de serviço](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) para essas métricas registradas. 
+
+|Valor conectado|Código de exemplo| Formato no portal|
+|----|----|----|
+|Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável único|
+|Registre um único valor numérico com o mesmo nome de métrica usado repetidamente (como em um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável-único|
+|Faça uma linha com colunas numéricas 2 repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
+|Tabela de log com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
+
 ## <a name="query-run-metrics"></a>Métricas de execução de consulta
 
 Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Por exemplo, você pode usar isso com o exemplo acima para determinar o melhor modelo procurando o modelo com o valor do MSE (erro de quadrado médio) mais baixo.
@@ -95,18 +106,6 @@ Para a exibição de experimento individual, selecione a guia **todos os experim
 Você também pode editar a tabela de lista de execução para selecionar várias execuções e exibir o valor registrado por último, mínimo ou máximo para suas execuções. Personalize seus gráficos para comparar os valores de métricas registrados e as agregações entre várias execuções. 
 
 ![Detalhes da execução no estúdio do Azure Machine Learning](media/how-to-track-experiments/experimentation-tab.gif)
-
-### <a name="format-charts"></a>Formatar gráficos 
-
-Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas.
-
-|Valor conectado|Código de exemplo| Formato no portal|
-|----|----|----|
-|Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável único|
-|Registre um único valor numérico com o mesmo nome de métrica usado repetidamente (como em um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável-único|
-|Faça uma linha com colunas numéricas 2 repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
-|Tabela de log com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
-
 
 ### <a name="view-log-files-for-a-run"></a>Exibir arquivos de log para uma execução 
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 02/12/2021
+ms.date: 03/02/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68ed67afc949b3a67936f20a098bca8b6906a598
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 747fa3005930414832878757664f4787157302d5
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100365541"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101645816"
 ---
 # <a name="enable-b2b-external-collaboration-and-manage-who-can-invite-guests"></a>Habilitar a Colaboração B2B externa e gerenciar quem pode enviar convites
 
@@ -78,11 +78,11 @@ Por padrão, todos os usuários, incluindo convidados, podem enviar convites.
    >
    >![Habilitar o email de senha de uso único aceito](media/delegate-invitations/enable-email-otp-opted-in.png)
 
-7. Em **habilitar inscrição de autoatendimento de convidado por meio de fluxos de usuário (visualização)**, selecione **Sim** se você deseja poder criar fluxos de usuário que permitem que os usuários se inscrevam em aplicativos. Para obter mais informações sobre essa configuração, consulte [Adicionar um fluxo de usuário de inscrição de autoatendimento a um aplicativo (versão prévia)](self-service-sign-up-user-flow.md).
+7. Em **habilitar inscrição de autoatendimento de convidado por meio de fluxos de usuário**, selecione **Sim** se você deseja poder criar fluxos de usuário que permitem que os usuários se inscrevam em aplicativos. Para obter mais informações sobre essa configuração, consulte [Adicionar um fluxo de usuário de inscrição de autoatendimento a um aplicativo](self-service-sign-up-user-flow.md).
 
     ![Inscrição de autoatendimento por meio da configuração de fluxos de usuário](./media/delegate-invitations/self-service-sign-up-setting.png)
 
-7. Em **restrições de colaboração**, escolha se deseja permitir ou negar convites para os domínios que você especificar. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
+7. Em **restrições de colaboração**, você pode escolher entre permitir ou negar convites para os domínios que você especificar e inserir nomes de domínio específicos nas caixas de texto. Para vários domínios, insira cada domínio em uma nova linha. Para obter mais informações, consulte [Permitir ou bloquear convites para usuários B2B de organizações específicas](allow-deny-list.md).
 
     ![Configurações de restrições de colaboração](./media/delegate-invitations/collaboration-restrictions.png)
 ## <a name="assign-the-guest-inviter-role-to-a-user"></a>Atribuir a função Emissor de convites independente a um usuário

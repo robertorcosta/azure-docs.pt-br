@@ -3,16 +3,17 @@ title: Códigos de erro para máquinas virtuais do Azure Spot e instâncias de c
 description: Saiba mais sobre os códigos de erro que você poderia ver ao usar as máquinas virtuais do Azure Spot e as instâncias do conjunto de dimensionamento.
 author: cynthn
 ms.service: virtual-machines
+ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: troubleshooting
 ms.date: 03/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 9bea9978f1755e5a40b5fb3ff967eb7f32384d19
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6d43935365580233063deb0e523d222351c22d54
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557740"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101670614"
 ---
 # <a name="error-messages-for-azure-spot-virtual-machines-and-scale-sets"></a>Mensagens de erro para máquinas virtuais do Azure Spot e conjuntos de dimensionamento
 
@@ -33,8 +34,8 @@ Aqui estão alguns códigos de erro possíveis que você pode receber ao usar as
 | AzureSpotIsNotSupportedForThisAPIVersion  |  Não há suporte para a máquina virtual de ponto do Azure nesta versão de API. | A versão da API precisa ser 2019-03-01. |
 | AzureSpotIsNotSupportedForThisVMSize  |  A máquina virtual do Azure Spot não tem suporte para esse tamanho de VM {0} . | Selecione outro tamanho de VM. Para obter mais informações, consulte [máquinas virtuais do Azure Spot](./spot-vms.md). |
 | MaxPriceIsSupportedOnlyForAzureSpotVirtualMachines  |  O preço máximo tem suporte apenas para máquinas virtuais do Azure Spot. | Para obter mais informações, consulte [máquinas virtuais do Azure Spot](./spot-vms.md). |
-| MoveResourcesWithAzureSpotVMNotSupported  |  A solicitação mover recursos contém uma máquina virtual de ponto do Azure. Não há suporte. Verifique os detalhes do erro para IDs de máquina virtual. | Não é possível mover as máquinas virtuais do Azure Spot. |
-| MoveResourcesWithAzureSpotVmssNotSupported  |  A solicitação mover recursos contém um conjunto de dimensionamento de máquinas virtuais do Azure Spot. Não há suporte. Verifique os detalhes do erro para as IDs do conjunto de dimensionamento de máquinas virtuais. | Não é possível mover as instâncias do conjunto de dimensionamento de máquinas virtuais do Azure Spot. |
+| MoveResourcesWithAzureSpotVMNotSupported  |  A solicitação mover recursos contém uma máquina virtual de ponto do Azure. Sem suporte. Verifique os detalhes do erro para IDs de máquina virtual. | Não é possível mover as máquinas virtuais do Azure Spot. |
+| MoveResourcesWithAzureSpotVmssNotSupported  |  A solicitação mover recursos contém um conjunto de dimensionamento de máquinas virtuais do Azure Spot. Sem suporte. Verifique os detalhes do erro para as IDs do conjunto de dimensionamento de máquinas virtuais. | Não é possível mover as instâncias do conjunto de dimensionamento de máquinas virtuais do Azure Spot. |
 | AzureSpotVMNotSupportedInVmssWithVMOrchestrationMode | Não há suporte para a máquina virtual de ponto do Azure no conjunto de dimensionamento de máquinas virtuais com o modo de orquestração de VM. | Defina o modo de orquestração como conjunto de dimensionamento de máquinas virtuais para usar as instâncias de máquina virtual do Azure Spot. |
 
 

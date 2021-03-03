@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 33cd19f7bb1881b17f1ca9080a9634162014808a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f801d25a0d0f70daaaac1ade3e8966cf5f53affc
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574300"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101672751"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use Azure Monitor com seu espaço de trabalho do Azure Synapse Analytics
 
@@ -103,7 +103,7 @@ Entre no portal do Azure e selecione **monitorar**  >  **alertas** para criar al
 
 Estes são os logs emitidos pelos espaços de trabalho do Azure Synapse Analytics:
 
-| Nome da tabela de Log Analytics | Nome da categoria de log                 | Description |
+| Nome da tabela de Log Analytics | Nome da categoria de log                 | Descrição |
 |-------------------------------|-------------------------------------------------|-------------|
 | SynapseGatewayApiRequests     | GatewayApiRequests             | Solicitações da API do gateway Synapse do Azure. |
 | SynapseRbacOperations         | SynapseRbacOperations          | Operações de SRBAC (controle de acesso baseado em função) do Azure Synapse. |
@@ -112,7 +112,7 @@ Estes são os logs emitidos pelos espaços de trabalho do Azure Synapse Analytic
 
 Estes são os logs emitidos por pools SQL dedicados:
 
-| Nome da tabela de Log Analytics        | Nome da categoria de log             | Description |
+| Nome da tabela de Log Analytics        | Nome da categoria de log             | Descrição |
 |----------------------|--------------------------------------|-------------|
 | SynapseSqlPoolExecRequests  | ExecRequests | Informações sobre solicitações/consultas SQL em um pool SQL dedicado do Azure Synapse.
 | SynapseSqlPoolDmsWorkers    | DmsWorkers   | Informações sobre trabalhadores concluindo as etapas de DMS em um pool SQL dedicado do Azure Synapse.
@@ -121,17 +121,17 @@ Estes são os logs emitidos por pools SQL dedicados:
 | SynapseSqlPoolWaits         | Esperas        | Informações sobre os Estados de espera encontrados durante a execução de uma solicitação/consulta SQL em um pool SQL dedicado do Azure Synapse, incluindo bloqueios e esperas em filas de transmissão.
 
 Para obter mais informações sobre esses logs, consulte as seguintes informações:
-- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
-- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_dms_workers](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-dms-workers-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql?view=azure-sqldw-latest&preserve-view=true)
+- [sys.dm_pdw_sql_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-sql-requests-transact-sql?view=azure-sqldw-latest&preserve-view=true)
 
 ### <a name="apache-spark-pool-log"></a>Log do pool de Apache Spark
 
 Este é o log emitido por pools de Apache Spark:
 
-| Nome da tabela de Log Analytics               | Nome da categoria de log              | Description                 |
+| Nome da tabela de Log Analytics               | Nome da categoria de log              | Descrição                 |
 |-----------------------------|---------------------------------------|-----------------------------|
 | SynapseBigDataPoolApplicationsEnded | BigDataPoolAppsEnded | Informações sobre os aplicativos Apache Spark finalizados |
 
@@ -173,7 +173,7 @@ Crie ou adicione configurações de diagnóstico para seu espaço de trabalho, p
     > [!NOTE]
     > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [log Analytics limitações conhecidas](../../azure-monitor/essentials/resource-logs.md#column-limit-in-azurediagnostics).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações para seu espaço de trabalho, pool de SQL dedicado ou pool de Apache Spark. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 

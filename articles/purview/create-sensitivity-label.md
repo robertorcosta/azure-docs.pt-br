@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 70aaa528fc86c9e543267b68b5b4cf157ec2dc65
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: c8d0ea43410b8d191d3d0b08c2f232bd72c80b20
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100535256"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101669620"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -104,7 +104,7 @@ Ao estender os rótulos de sensibilidade de MIP com o Azure alcance, as organiza
 
 Em Microsoft 365, navegue até a página **proteção de informações** . Em **estender o rótulo para ativos no Azure alcance**, selecione o botão **Ativar** e, em seguida, selecione **Sim** na caixa de diálogo de confirmação que aparece.
 
-Por exemplo:
+Por exemplo: 
 
 :::image type="content" source="media/create-sensitivity-label/extend-sensitivity-labels-to-purview-small.png" alt-text="Selecione * * Ativar * * para estender os rótulos de sensibilidade para alcance" lightbox="media/create-sensitivity-label/extend-sensitivity-labels-to-purview.png":::
  
@@ -162,7 +162,7 @@ Defina regras de rotulamento automático para arquivos no assistente quando voc�
 
 Na página **rotulação automática para aplicativos do Office** , habilite a **rotulagem automática para aplicativos do Office** e defina as condições em que você deseja que seu rótulo seja aplicado automaticamente aos seus dados.
 
-Por exemplo:
+Por exemplo: 
 
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-files-small.png" alt-text="Definir regras de rotulação automática para arquivos no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-files.png":::
  
@@ -178,7 +178,7 @@ Na opção **ativos do alcance do Azure (versão prévia)** :
 
 1. Selecione **verificar tipos de informações confidenciais** para escolher os tipos de informações confidenciais que você deseja aplicar ao seu rótulo.
 
-Por exemplo:
+Por exemplo: 
         
 :::image type="content" source="media/create-sensitivity-label/create-auto-labeling-rules-db-columns-small.png" alt-text="Definir regras de rotulamento automático para colunas SQL no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-auto-labeling-rules-db-columns.png":::
 
@@ -201,11 +201,11 @@ Depois de definir as regras de rotulagem automática para seus rótulos no Micro
 
 **Para exibir os rótulos aplicados aos seus ativos no catálogo alcance do Azure:**
 
-No catálogo alcance do Azure, use as opções de filtragem de **rótulo** para mostrar somente os arquivos com rótulos específicos. Por exemplo: 
+No catálogo alcance do Azure, use as opções de filtragem de **rótulo** para mostrar somente os arquivos com rótulos específicos. Por exemplo:  
 
 :::image type="content" source="media/create-sensitivity-label/filter-search-results-small.png" alt-text="Pesquisar ativos por rótulo" lightbox="media/create-sensitivity-label/filter-search-results.png":::
 
-Por exemplo:
+Por exemplo: 
 
 :::image type="content" source="media/create-sensitivity-label/view-labeled-files-blob-storage-small.png" alt-text="Exibir um rótulo de sensibilidade em um arquivo em seu armazenamento de BLOBs do Azure" lightbox="media/create-sensitivity-label/view-labeled-files-blob-storage.png":::
 
@@ -218,5 +218,3 @@ Encontre informações sobre seus dados classificados e rotulados no Azure alcan
 
 > [!div class="nextstepaction"]
 > [Informações de rótulo de sensibilidade](sensitivity-insights.md)
-
-
