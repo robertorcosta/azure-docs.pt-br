@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8916fbc7c2a0b9789dcc73697324cee370f1fc1c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6291964aff7c215df7f738ab103947dcb9b1b1d4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704898"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036839"
 ---
 # <a name="scenario-route-traffic-through-nvas-by-using-custom-settings"></a>Cenário: rotear o tráfego por meio de NVAs usando configurações personalizadas
 
@@ -176,7 +176,7 @@ Para configurar o roteamento via NVA, considere as seguintes etapas:
    >
    > * Os usuários do portal devem habilitar "propagar para a rota padrão" em conexões (VPN/ER/P2S/VNet) para que a rota 0.0.0.0/0 entre em vigor.
    > * Os usuários do PS/CLI/REST devem definir o sinalizador ' enableinternetsecurity ' como true para que a rota 0.0.0.0/0 tenha efeito.
-   >
+   > * A conexão de rede virtual não oferece suporte ao próximo IP de salto ' múltiplo/exclusivo ' para a solução de virtualização de rede ' mesma ' em uma VNet SPOKE ' se ' uma das rotas com o próximo IP de salto for indicada como endereço IP público ou 0.0.0.0/0 (Internet)
 
 ## <a name="next-steps"></a>Próximas etapas
 

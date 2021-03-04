@@ -4,21 +4,21 @@ description: Resposta a incidente do Azure Security benchmark v2
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 002/22/2021
+ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 40a88349040482b3325e63d7035dea35df444cdb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b9295482c2464eb80bc49fa707744f49a2fbebfd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101698579"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035370"
 ---
 # <a name="security-control-v2-incident-response"></a>Controle de segurança v2: resposta a incidentes
 
 A resposta a incidentes cobre controles no ciclo de vida de resposta a incidentes – preparação, detecção e análise, confinamento e atividades pós-incidente. Isso inclui o uso de serviços do Azure, como a central de segurança do Azure e o Sentinel para automatizar o processo de resposta a incidentes.
 
-Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade regulatória de benchmark de segurança do Azure: resposta a incidentes](../../governance/policy/samples/azure-security-benchmark#incident-response)
+Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade regulatória de benchmark de segurança do Azure: resposta a incidentes](../../governance/policy/samples/azure-security-benchmark.md#incident-response)
 
 ## <a name="ir-1-preparation--update-incident-response-process-for-azure"></a>IR-1: preparação – atualizar o processo de resposta a incidentes do Azure
 

@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: d1a0a6ad5b45af2157b960f8990574e47d10eeb2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2dbb491e77f132daf7b432f27705eba9e3e3cd3c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718413"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036955"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizar compilações, testes e implantações de um trabalho de Azure Stream Analytics usando as ferramentas de CI/CD
 
@@ -122,6 +122,9 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 |---|---|
 | `-project` | O caminho do **asaproj.jsno** arquivo para seu projeto Visual Studio Code ou **[nome do projeto]. asaproj** para o projeto do Visual Studio. |
 | `-testConfigPath` | O caminho do arquivo de configuração de teste. Se não for especificado, o arquivo será pesquisado em **\test** no diretório atual do **asaproj.jsno** arquivo, com o nome de arquivo padrão **testConfig.jsem**. Um novo arquivo será criado se não existir. |
+
+> [!NOTE]
+> O `Script` valor notestConfig.jsgerado **no** arquivo é apenas para fornecer o contexto; Ele não é usado na lógica de teste. 
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 

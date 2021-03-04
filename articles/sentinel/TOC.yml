@@ -25,8 +25,12 @@
       href: tutorial-respond-threats-playbook.md
 - name: Conceitos
   items:
-    - name: Atribuir permissões usando funções
-      href: roles.md
+    - name: Gerenciar acesso
+      items:
+        - name: Permissões no Azure Sentinel
+          href: roles.md
+        - name: Gerenciar o acesso por recurso
+          href: resource-context-rbac.md
     - name: Detecção avançada de ataque multiestágio
       href: fusion.md
     - name: Criar sua plataforma de machine learning
@@ -236,7 +240,7 @@
           href: connect-azure-stack.md
         - name: Monitorar a integridade do conector de dados
           href: monitor-data-connector-health.md
-    - name: Habilitar a Análise do Comportamento de Usuários e de Entidades
+    - name: Habilitar a análise do comportamento de usuários e de entidades
       href: enable-entity-behavior-analytics.md
     - name: Gerenciar vários locatários (MSSP)
       href: multiple-tenants-service-providers.md
@@ -248,6 +252,8 @@
       href: create-incidents-from-alerts.md
     - name: Gerenciar melhor seu SOC com métricas de incidentes
       href: manage-soc-with-incident-metrics.md
+    - name: Auditar consultas e atividades do Azure Sentinel
+      href: audit-sentinel-data.md
     - name: Buscando
       href: hunting.md
       items:
@@ -259,6 +265,8 @@
           href: livestream.md
     - name: Remover o Azure Sentinel
       href: offboard.md
+    - name: Implementar RBAC avançado
+      items: null
 - name: Referência
   items:
     - name: Funções do RBAC do Azure
@@ -293,8 +301,8 @@
   items:
     - name: Recursos úteis
       href: resources.md
-    - name: 'Blog Segurança, Privacidade e Conformidade do Azure'
-      href: /archive/blogs/azuresecurity/
+    - name: Blog do Azure Sentinel
+      href: 'https://techcommunity.microsoft.com/t5/azure-sentinel/bg-p/AzureSentinelBlog'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=azure-sentinel'
     - name: Preços

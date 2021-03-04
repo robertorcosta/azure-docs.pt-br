@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 3c0e348e62184f839ce38e4c364fb5c6b81f1131
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 90addb74811819dec563ba072e9a6aea2cf72ca4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726216"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036530"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Visão geral da extensão de Diagnóstico do Azure
 A extensão de Diagnóstico do Azure é um [agente no Azure Monitor](../agents/agents-overview.md) que coleta dados de monitoramento do sistema operacional convidado de recursos de computação do Azure, incluindo máquinas virtuais. Este artigo fornece uma visão geral da extensão de Diagnóstico do Azure, incluindo funcionalidades específicas às quais ele dá suporte e opções para instalação e configuração. 
@@ -78,7 +78,7 @@ Configure um ou mais *coletores de dados* para enviar dados a outros destinos ad
 | Blobs do Armazenamento do Azure | Grave em dados em blobs no Armazenamento do Azure, além de tabelas. |
 | Application Insights | Colete dados de aplicativos em execução em sua VM para o Application Insights a fim de fazer a integração com outro monitoramento de aplicativo. Confira [Enviar dados de diagnóstico para o Application Insights](diagnostics-extension-to-application-insights.md). |
 
-Você também pode coletar dados do WAD do armazenamento para um workspace do Log Analytics a fim de analisá-los com Logs do Azure Monitor, embora o agente do Log Analytics seja normalmente usado para essa funcionalidade. Ele pode enviar dados diretamente para um workspace do Log Analytics e dá suporte a soluções e informações que fornecem funcionalidade adicional.  Confira [Coletar logs de diagnóstico do Azure do Armazenamento do Azure](../essentials/diagnostics-extension-logs.md). 
+Você também pode coletar dados do WAD do armazenamento para um workspace do Log Analytics a fim de analisá-los com Logs do Azure Monitor, embora o agente do Log Analytics seja normalmente usado para essa funcionalidade. Ele pode enviar dados diretamente para um workspace do Log Analytics e dá suporte a soluções e informações que fornecem funcionalidade adicional.  Confira [Coletar logs de diagnóstico do Azure do Armazenamento do Azure](../agents/diagnostics-extension-logs.md). 
 
 
 ### <a name="linux-diagnostics-extension-lad"></a>Extensão de diagnóstico do Linux (LAD)

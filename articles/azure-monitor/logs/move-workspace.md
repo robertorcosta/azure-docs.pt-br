@@ -1,17 +1,16 @@
 ---
 title: Mover um espaço de trabalho Log Analytics no Azure Monitor | Microsoft Docs
 description: Saiba como mover seu espaço de trabalho Log Analytics para outra assinatura ou grupo de recursos.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/12/2020
-ms.openlocfilehash: 7095a4c6928152ad9b643ff71c0c6a1d00036e55
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8f48ed1aa7422d6925c3a7b0ad30b59a479e4614
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605742"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034941"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Mover um espaço de trabalho Log Analytics para uma assinatura ou grupo de recursos diferente
 

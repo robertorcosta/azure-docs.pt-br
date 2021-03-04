@@ -6,12 +6,12 @@ ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6601cd31cf6e332bf292cd887b498a92946d8af7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c336c1632cf206cdf2bf7151dc191c4de5ef820d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101668292"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036921"
 ---
 # <a name="availability-options-for-virtual-machines-in-azure"></a>Opções de disponibilidade para máquinas virtuais no Azure
 
@@ -55,7 +55,7 @@ Os conjuntos de dimensionamento de máquinas virtuais simplificam o design para 
 
 **Modos de orquestração para conjuntos de dimensionamento**
 
-Os modos de orquestração dos conjuntos de dimensionamento de máquinas virtuais permitem que você tenha mais controle sobre como as instâncias de máquina virtual são gerenciadas pelo conjunto de dimensionamento. Você pode habilitar um modo de orquestração uniforme ou flexível em seu conjunto de dimensionamento. A orquestração uniforme é otimizada para cargas de trabalho sem estado de grande escala com instâncias idênticas. A orquestração flexível (versão prévia) destina-se à alta disponibilidade em escala com tipos de máquina virtual idênticos ou múltiplos. Saiba mais sobre esses [modos de orquestração](./virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e como habilitá-los.
+Os modos de orquestração dos conjuntos de dimensionamento de máquinas virtuais permitem que você tenha mais controle sobre como as instâncias de máquina virtual são gerenciadas pelo conjunto de dimensionamento. Você pode habilitar um modo de orquestração uniforme ou flexível em seu conjunto de dimensionamento. A orquestração uniforme é otimizada para cargas de trabalho sem estado de grande escala com instâncias idênticas. A orquestração flexível (versão prévia) destina-se à alta disponibilidade em escala com tipos de máquina virtual idênticos ou múltiplos. Saiba mais sobre esses [modos de orquestração](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md) e como habilitá-los.
 
 
 ## <a name="availability-sets"></a>Conjuntos de disponibilidade

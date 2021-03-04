@@ -2,21 +2,19 @@
 title: Idioma bicep para modelos de Azure Resource Manager
 description: Descreve a linguagem bicep para implantar a infraestrutura no Azure por meio de modelos de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 6a2750dc99e82c9cf8c9b8b97d156d3a9fe30f31
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 2fb13bca9e9d456889185d512ee2fc9d4cbbe673
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744311"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036377"
 ---
 # <a name="what-is-bicep-preview"></a>O que é o bicep (versão prévia)?
 
-Bicep é uma linguagem para a implantação declarativa de recursos do Azure. Ele simplifica a experiência de criação fornecendo uma sintaxe concisa e melhor suporte para modularidade e reutilização de código. Bicep é uma DSL (linguagem específica de domínio), o que significa que ele foi projetado para um determinado cenário ou domínio. O bicep não é destinado a uma linguagem de programação geral para escrever aplicativos.
+Bicep é uma linguagem para a implantação declarativa de recursos do Azure. Ele simplifica a experiência de criação fornecendo uma sintaxe concisa e melhor suporte à reutilização de código. Bicep é uma DSL (linguagem específica de domínio), o que significa que ele foi projetado para um determinado cenário ou domínio. O bicep não é destinado a uma linguagem de programação geral para escrever aplicativos.
 
-Bicep é uma abstração transparente sobre modelos de Azure Resource Manager (modelos ARM). Cada arquivo bicep é compilado em um modelo ARM padrão. Os tipos de recursos, as versões de API e as propriedades que são válidas em um modelo ARM são válidas em um arquivo bicep.
-
-[!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
+No passado, você desenvolveu modelos de Azure Resource Manager (modelos ARM) com JSON. A sintaxe JSON para criar o modelo pode ser detalhada e exigir uma expressão complicada. O bicep melhora essa experiência sem perder nenhum dos recursos de um modelo JSON. É uma abstração transparente sobre o JSON para modelos de ARM. Cada arquivo bicep é compilado em um modelo ARM padrão. Os tipos de recursos, as versões de API e as propriedades que são válidas em um modelo ARM são válidas em um arquivo bicep.
 
 ## <a name="get-started"></a>Introdução
 
@@ -30,7 +28,26 @@ Se você tiver um modelo ARM existente que deseja converter em bicep, consulte [
 
 ## <a name="bicep-improvements"></a>Aprimoramentos do bicep
 
-O bicep oferece uma sintaxe mais fácil e concisa quando comparado ao JSON equivalente. Você não usa `[...]` expressões. Em vez disso, você chama diretamente funções, obtém valores de parâmetros e variáveis e recursos de referência. Para obter uma comparação completa da sintaxe, consulte comparando [JSON e bicep para modelos](compare-template-syntax.md).
+O bicep oferece uma sintaxe mais fácil e concisa quando comparado ao JSON equivalente. Você não usa `[...]` expressões. Em vez disso, você chama diretamente funções e obtém valores de parâmetros e variáveis. Você dá a cada recurso implantado um nome simbólico, o que torna mais fácil fazer referência a esse recurso em seu modelo.
+
+Por exemplo, o JSON a seguir retorna um valor de saída de uma propriedade de recurso.
+
+```json
+"outputs": {
+  "hostname": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', variables('publicIPAddressName'))).dnsSettings.fqdn]"
+    },
+}
+```
+
+A expressão de saída equivalente em bicep é mais fácil de escrever. O exemplo a seguir retorna a mesma propriedade usando o **publicIP** do nome simbólico para um recurso que é definido dentro do modelo:
+
+```bicep
+output hostname string = publicIP.properties.dnsSettings.fqdn
+```
+
+Para obter uma comparação completa da sintaxe, consulte comparando [JSON e bicep para modelos](compare-template-syntax.md).
 
 O bicep gerencia automaticamente as dependências entre os recursos. Você pode evitar `dependsOn` a configuração quando o nome simbólico de um recurso é usado em outra declaração de recurso.
 

@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a4f1c6e32bbc679a7ec946384903b2bda3887d05
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 29d4acc50ed872c37268a0b21c3e34837249a026
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720572"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035404"
 ---
 # <a name="security-control-v2-privileged-access"></a>Controle de segurança v2: acesso privilegiado
 
 O acesso privilegiado abrange controles para proteger o acesso privilegiado ao seu locatário e recursos do Azure. Isso inclui uma variedade de controles para proteger seu modelo administrativo, contas administrativas e estações de trabalho de acesso privilegiado contra riscos deliberados e inadvertidos.
 
-Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade normativa de benchmark de segurança do Azure: acesso privilegiado](../../governance/policy/samples/azure-security-benchmark#privileged-access)
+Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade normativa de benchmark de segurança do Azure: acesso privilegiado](../../governance/policy/samples/azure-security-benchmark.md#privileged-access)
 
 ## <a name="pa-1-protect-and-limit-highly-privileged-users"></a>PA-1: proteger e limitar os usuários altamente privilegiados
 
@@ -160,8 +160,6 @@ Use os recursos de gerenciamento de direitos do Azure AD para automatizar fluxos
 Estações de trabalho seguras e isoladas são extremamente importantes para a segurança de funções confidenciais, como administrador, desenvolvedor e operador de serviço crítico. Use estações de trabalho de usuário altamente protegidas e/ou bastiões do Azure para tarefas administrativas. Use o Azure Active Directory, o Microsoft ATP (Proteção Avançada contra Ameaças) e/ou o Microsoft Intune para implantar uma estação de trabalho do usuário protegida e gerenciada para tarefas administrativas. As estações de trabalho protegidas podem ser gerenciadas centralmente para impor configuração segura, incluindo autenticação forte, linhas de base de software e hardware e acesso lógico restrito à rede. 
 
 - [Entender as estações de trabalho com acesso privilegiado](/security/compass/privileged-access-deployment)
-
-- [Implantar uma estação de trabalho com acesso privilegiado](../../active-directory/devices/howto-azure-managed-workstation)
 
 **Responsabilidade**: Cliente
 

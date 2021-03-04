@@ -1,17 +1,16 @@
 ---
 title: Coletar fontes de dados de log de eventos do Windows com Log Analytics Agent no Azure Monitor
 description: Descreve como configurar a coleta de logs de Eventos do Windows pelo Azure Monitor e detalhes dos registros criados.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: b747a4b58c9c460178d415d0b45ade814723d8fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: a3baa83e2ae306f1e43aee52e29a151bad6f85d9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719858"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036581"
 ---
 # <a name="collect-windows-event-log-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados de log de eventos do Windows com o agente de Log Analytics
 Os logs de eventos do Windows são uma das [fontes de dados](../agents/agent-data-sources.md) mais comuns para agentes de log Analytics em máquinas virtuais do Windows, já que muitos aplicativos gravam no log de eventos do Windows.  Você pode coletar eventos de logs padrão como do sistema e aplicativo além de especificar todos os logs personalizados criados por aplicativos que você precisa monitorar.
@@ -22,13 +21,13 @@ Os logs de eventos do Windows são uma das [fontes de dados](../agents/agent-dat
 ![Eventos do Windows](media/data-sources-windows-events/overview.png)     
 
 ## <a name="configuring-windows-event-logs"></a>Configurando os logs de eventos do Windows
-Configure logs de eventos do Windows no [menu dados em configurações avançadas](../agents/agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics.
+Configure logs de eventos do Windows no [menu de configuração de agentes](../agents/agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics.
 
 O Azure Monitor coleta apenas os eventos dos logs de eventos do Windows especificados nas configurações.  Você pode adicionar um log de eventos digitando o nome do log e clicando em **+** .  Para cada log, somente eventos com as severidades selecionadas são coletados.  Marque as severidades para o log específico que você deseja coletar.  Você não pode fornecer quaisquer critérios adicionais para filtrar eventos.
 
 Conforme você digita o nome de um log de eventos, o Azure Monitor fornece sugestões de nomes comuns de log de eventos. Se o log que você deseja adicionar não aparecer na lista, você ainda poderá adicioná-lo digitando o nome completo do log. Você pode encontrar o nome completo do log usando o visualizador de eventos. No visualizador de eventos, abra a página *Propriedades* para o log e copie a cadeia de caracteres do campo *Nome Completo*.
 
-![Configurar eventos do Windows](media/data-sources-windows-events/configure.png)
+[![Configurar eventos do Windows](media/data-sources-windows-events/configure.png)](media/data-sources-windows-events/configure.png#lightbox)
 
 > [!NOTE]
 > Os eventos críticos do log de eventos do Windows terão uma severidade de "erro" nos logs de Azure Monitor.

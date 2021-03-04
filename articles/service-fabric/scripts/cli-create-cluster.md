@@ -13,18 +13,18 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8a6f23a5f4ce497c38358f06394f0f0aa97f9889
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b69f62f6f47c656921f4f2230a296e293e423fa4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739654"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035285"
 ---
 # <a name="create-a-secure-service-fabric-linux-cluster-in-azure"></a>Criar um cluster Linux seguro do Service Fabric no Azure
 
 Esse comando cria um certificado autoassinado, adiciona-o a um cofre de chaves e baixa o certificado localmente.  O novo certificado é usado para proteger o cluster quando ele for implantado.  Você também pode usar um certificado já existente em vez de criar um novo.  De qualquer forma, o nome da referência do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric. Essa correspondência é necessária para fornecer um TLS para os pontos de extremidade de gerenciamento de HTTPS e o Service Fabric Explorer do cluster. Você não pode obter um certificado TLS/SSL de uma AC para o domínio `.cloudapp.azure.com`. Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
-Se necessário, instale a [CLI do Azure](cli/azure/install-azure-cli).
+Se necessário, instale a [CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Exemplo de script
 

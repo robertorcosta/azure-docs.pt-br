@@ -1,26 +1,26 @@
 ---
-title: Amostras de modelo do Resource Manager para o Azure Monitor para contêineres
-description: Realize amostragem de modelos do Azure Resource Manager para implantar e configurar o Azure Monitor para contêineres.
+title: Exemplos de modelo do Resource Manager para insights de contêiner
+description: Realize amostragem de modelos do Azure Resource Manager para implantar e configurar insights de contêineres.
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: e33bb6ae04f0b11a25a7ab87362bc243ee19c79c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596969"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101723326"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-containers"></a>Amostras de modelo do Resource Manager para o Azure Monitor para contêineres
+# <a name="resource-manager-template-samples-for-container-insights"></a>Exemplos de modelo do Resource Manager para insights de contêiner
 Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para implantar e configurar o agente do Log Analytics para máquinas virtuais no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="enable-for-aks-cluster"></a>Habilitar para o cluster do AKS
-A amostra a seguir habilita o Azure Monitor para contêineres em um cluster do AKS.
+O exemplo a seguir habilita os insights de contêiner em um cluster do AKS.
 
 
 ### <a name="template-file"></a>Arquivo de modelo
@@ -357,4 +357,4 @@ A amostra a seguir habilita o Azure Monitor para contêineres em um cluster do A
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Obtenha outros modelos de amostra do Azure Monitor](../resource-manager-samples.md).
-* [Saiba mais sobre o Azure Monitor para contêineres](../containers/container-insights-overview.md).
+* [Saiba mais sobre os insights de contêiner](../containers/container-insights-overview.md).

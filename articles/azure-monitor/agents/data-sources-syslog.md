@@ -1,17 +1,16 @@
 ---
 title: Coletar fontes de dados do syslog com Log Analytics Agent no Azure Monitor
 description: O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Este artigo descreve como configurar a coleta de mensagens do Syslog no Log Analytics e os detalhes dos registros criados.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 10/21/2020
-ms.openlocfilehash: 0d9804d088e1f193e0adf1fa26adbbe5d3680097
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: e82e74f4cd325444221bbd2e1c060b7cd2f5c6c7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729191"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036717"
 ---
 # <a name="collect-syslog-data-sources-with-log-analytics-agent"></a>Coletar fontes de dados do syslog com o agente Log Analytics
 O Syslog é um protocolo de registro de eventos em log que é comum para o Linux. Os aplicativos enviarão mensagens que podem ser armazenadas no computador local ou entregues a um coletor de Syslog. Quando o agente do Log Analytics para Linux é instalado, ele configura o daemon do Syslog local para encaminhar mensagens para o agente. O agente envia a mensagem ao Azure Monitor, onde um registro correspondente é criado.  
@@ -48,11 +47,11 @@ Para qualquer outro recurso, [Configure uma fonte de dados de logs personalizado
 O agente do Log Analytics para Linux coletará apenas eventos com as instalações e as severidades especificadas na configuração. Você pode configurar o Syslog por meio do Portal do Azure ou gerenciando arquivos de configuração em seus agentes do Linux.
 
 ### <a name="configure-syslog-in-the-azure-portal"></a>Configurar o Syslog no Portal do Azure
-Configure o syslog no [menu dados em configurações avançadas](../agents/agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics. Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
+Configure o syslog no [menu de configuração do agente](../agents/agent-data-sources.md#configuring-data-sources) para o espaço de trabalho log Analytics. Essa configuração é entregue ao arquivo de configuração em cada agente do Linux.
 
-Você pode adicionar um novo recurso selecionando primeiro a opção **aplicar abaixo a configuração em meus computadores** e, em seguida, digitando seu nome e clicando em **+** . Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar. Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
+Você pode adicionar um novo recurso clicando em **Adicionar instalação**. Para cada recurso, somente mensagens com as severidades selecionadas serão coletados.  Marque as severidades para o recurso específico que você deseja coletar. Você não pode fornecer quaisquer critérios adicionais para filtrar mensagens.
 
-![Configurar Syslog](media/data-sources-syslog/configure.png)
+[![Configurar Syslog](media/data-sources-syslog/configure.png)](media/data-sources-syslog/configure.png#lightbox)
 
 Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes. Se você quiser configurar o syslog manualmente em cada agente do Linux, desmarque a caixa *aplicar configuração abaixo a meus computadores*.
 

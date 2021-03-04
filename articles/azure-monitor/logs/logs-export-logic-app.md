@@ -2,17 +2,16 @@
 title: Arquivar dados de Log Analytics espaço de trabalho para o armazenamento do Azure usando o aplicativo lógico
 description: Descreve um método para usar o aplicativo lógico do Azure para consultar dados de um espaço de trabalho Log Analytics e enviar para o armazenamento do Azure.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/02/2020
-ms.openlocfilehash: ae95580a8c192f0815623461fb21ec9ecf52ae26
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fd66aa1f10a32d94d515a1f0aa25c25331796a8d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700636"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035680"
 ---
 # <a name="archive-data-from-log-analytics-workspace-to-azure-storage-using-logic-app"></a>Arquivar dados de Log Analytics espaço de trabalho para o armazenamento do Azure usando o aplicativo lógico
 Este artigo descreve um método para usar os [aplicativos lógicos do Azure](../../logic-apps/index.yml) para consultar dados de um espaço de trabalho Log Analytics no Azure monitor e enviar para o armazenamento do Azure. Use esse processo quando precisar exportar seus dados de log do Azure Monitor para cenários de auditoria e conformidade ou para permitir que outro serviço recupere esses dados.  
