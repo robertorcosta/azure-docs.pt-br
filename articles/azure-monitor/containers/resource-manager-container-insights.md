@@ -1,17 +1,16 @@
 ---
 title: Exemplos de modelo do Resource Manager para insights de contêiner
 description: Realize amostragem de modelos do Azure Resource Manager para implantar e configurar insights de contêineres.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: f75278663abde8d4b0f47c8df1dbbdbc298bcafb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68bad5b4bfcef4f0f633bce7e3e352486aed3fdf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723326"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039182"
 ---
 # <a name="resource-manager-template-samples-for-container-insights"></a>Exemplos de modelo do Resource Manager para insights de contêiner
 Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para implantar e configurar o agente do Log Analytics para máquinas virtuais no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.

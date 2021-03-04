@@ -1,17 +1,16 @@
 ---
 title: Investigar erros usando o painel do ITSMC
 description: Saiba como usar o painel de Conector de Gerenciamento de Serviços de TI para investigar erros.
-ms.subservice: alerts
 ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/15/2021
-ms.openlocfilehash: 5cbd501b9ccb408ee23cb5c8ed9cde2689ef79fb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5e1acf422abf487edda3e871fa99d07212c59b3a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605810"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039522"
 ---
 # <a name="investigate-errors-by-using-the-itsmc-dashboard"></a>Investigar erros usando o painel do ITSMC
 

@@ -6,12 +6,12 @@ ms.date: 11/25/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e9208e617eb73786bcb003dc1b55d0d77ca6650f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e1c7e15ff77fd75ff2fb70a6741ea2dd9a4cab8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704422"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102040236"
 ---
 # <a name="upgrading-from-application-insights-java-2x-sdk"></a>Atualizando do SDK do Application Insights Java 2. x
 
@@ -219,11 +219,24 @@ Novamente, para alguns aplicativos, você ainda pode preferir a exibição agreg
 
 Anteriormente no SDK 2. x, o nome da operação da telemetria de solicitação também foi definido na telemetria de dependência.
 Application Insights Java 3,0 não popula mais o nome da operação na telemetria de dependência.
-Se você quiser ver o nome da operação para a solicitação que é o pai da telemetria de dependência, você pode gravar uma consulta de logs (Kusto) para unir da tabela de dependência à tabela de solicitação.
+Se você quiser ver o nome da operação para a solicitação que é o pai da telemetria de dependência, você pode gravar uma consulta de logs (Kusto) para unir da tabela de dependência à tabela de solicitação, por exemplo,
+
+```
+let start = datetime('...');
+let end = datetime('...');
+dependencies
+| where timestamp between (start .. end)
+| project timestamp, type, name, operation_Id
+| join (requests
+    | where timestamp between (start .. end)
+    | project operation_Name, operation_Id)
+    on $left.operation_Id == $right.operation_Id
+| summarize count() by operation_Name, type, name
+```
 
 ## <a name="2x-sdk-logging-appenders"></a>2. x anexadores de log do SDK
 
-O agente 3,0 [coleta automaticamente o log](./java-standalone-config#auto-collected-logging) sem a necessidade de configurar os anexadores de log.
+O agente 3,0 [coleta automaticamente o log](./java-standalone-config.md#auto-collected-logging) sem a necessidade de configurar os anexadores de log.
 Se você estiver usando anexadores de log do SDK do 2. x, eles poderão ser removidos, pois eles serão suprimidos pelo agente 3,0 mesmo assim.
 
 ## <a name="2x-sdk-spring-boot-starter"></a>2. x SDK Spring boot inicial

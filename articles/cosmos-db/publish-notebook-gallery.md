@@ -7,17 +7,17 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: dech
-ms.openlocfilehash: c7c910c7162bde2209b07eb4f1d533328bae08c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 58ae61bc9e1736b13bb1802e2f39d5ada045cb6a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692994"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039222"
 ---
 # <a name="publish-notebooks-to-the-azure-cosmos-db-notebook-gallery"></a>Publicar blocos de anotações na Galeria de notebooks Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Azure Cosmos DB blocos de anotações internos do Jupyter são diretamente integrados às suas contas de Azure Cosmos DB no portal do Azure. Usando esses blocos de anotações, você pode analisar e visualizar seus dados do portal do Azure. Os blocos de anotações internos para Azure Cosmos DB estão disponíveis atualmente em [29 regiões](#supported-regions). Para usar blocos de anotações, [crie uma nova conta do cosmos](#create-a-new-cosmos-account) ou [habilite blocos de anotações em uma conta existente](#enable-notebooks-in-an-existing-cosmos-account) em uma dessas regiões.
+Azure Cosmos DB blocos de anotações internos do Jupyter são diretamente integrados às suas contas de Azure Cosmos DB no portal do Azure. Usando esses blocos de anotações, você pode analisar e visualizar seus dados do portal do Azure. Os blocos de anotações internos para Azure Cosmos DB estão disponíveis atualmente em [muitas regiões](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). Para usar blocos de anotações, [crie uma nova conta do cosmos](create-cosmosdb-resources-portal.md) ou [habilite blocos de anotações em uma conta existente](enable-notebooks.md) em uma dessas regiões.
 
 O ambiente do notebook na portal do Azure tem alguns exemplos publicados pela equipe de Azure Cosmos DB. Ele também tem uma galeria pública onde você pode publicar e compartilhar seus próprios blocos de anotações. Depois que um bloco de anotações é publicado na Galeria, ele está disponível para todos os Azure Cosmos DB usuários para exibir e usar. Neste artigo, você aprenderá a usar os blocos de anotações da Galeria pública e publicará seu bloco de anotações na galeria.
 
@@ -53,7 +53,7 @@ Use as seguintes etapas para publicar um bloco de anotações:
 
    Você também pode encontrar a opção **publicar na Galeria** selecionando a **...** botão ao lado do nome do bloco de anotações:
 
-   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Escolha um bloco de anotações para publicar na galeria.":::
+   :::image type="content" source="./media/publish-notebook-gallery/choose-notebook-publish.png" alt-text="Outra abordagem para escolher um bloco de anotações para publicar na galeria.":::
 
 1. Preencha o formulário **publicar na Galeria** com os seguintes detalhes:
 
@@ -61,11 +61,10 @@ Use as seguintes etapas para publicar um bloco de anotações:
    * **Descrição:**  Uma breve descrição do que o seu notebook faz.
    * **Marcas:** As marcas são opcionais e são usadas para filtrar os resultados quando pesquisados por uma palavra-chave.
    * **Imagem da capa:** Uma imagem que é usada na página de rosto quando o notebook é publicado. Você pode escolher uma das seguintes opções:
-
-     * **Imagem personalizada** – você pode carregar uma imagem do seu computador. Escolha um arquivo de imagem com taxa de proporção 256x144.
-     * **URL** -forneça uma URL acessível publicamente em que a imagem está localizada.
-     * **Tirar captura de tela** – uma captura de tela de seu notebook aberto é automaticamente executada e carregada para a versão prévia.
-     * **Usar primeira exibição de saída** -saída da primeira célula que tem uma saída de exibição. Células que exibem apenas redução/texto não são contadas como uma saída de exibição.
+   * **Imagem personalizada** – você pode carregar uma imagem do seu computador. Escolha um arquivo de imagem com taxa de proporção 256x144.
+   * **URL** -forneça uma URL acessível publicamente em que a imagem está localizada.
+   * **Tirar captura de tela** – uma captura de tela de seu notebook aberto é automaticamente executada e carregada para a versão prévia.
+   * **Usar primeira exibição de saída** -saída da primeira célula que tem uma saída de exibição. Células que exibem apenas redução/texto não são contadas como uma saída de exibição.
 
    :::image type="content" source="./media/publish-notebook-gallery/publish-notebook.png" alt-text="Preencha o formulário publicar na galeria.":::
 

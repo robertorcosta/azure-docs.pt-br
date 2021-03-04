@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bbb42a4955ff0b4fbbac58830ec5c8aecf04915d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f4dfd2c7f9dbdd111f70a5dd5a648c11eacbf7b0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686726"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038536"
 ---
 # <a name="a-web-api-that-calls-web-apis-call-an-api"></a>Uma API Web que chama APIs da Web: chamar uma API
 
@@ -29,15 +29,9 @@ Depois de ter um token, você pode chamar uma API Web protegida. Normalmente, vo
 
 Ao usar *o Microsoft. Identity. Web*, você tem três cenários de uso:
 
-- [Uma API Web que chama APIs da Web: chamar uma API](#a-web-api-that-calls-web-apis-call-an-api)
-  - [Código do controlador](#controller-code)
-- [ASP.NET Core](#aspnet-core)
-      - [Opção 1: chamar Microsoft Graph com o SDK](#option-1-call-microsoft-graph-with-the-sdk)
-      - [Opção 2: chamar uma API da Web downstream com a classe auxiliar](#option-2-call-a-downstream-web-api-with-the-helper-class)
-      - [Opção 3: chamar uma API da Web downstream sem a classe auxiliar](#option-3-call-a-downstream-web-api-without-the-helper-class)
-- [Java](#java)
-- [Python](#python)
-  - [Próximas etapas](#next-steps)
+- [Opção 1: chamar Microsoft Graph com o SDK](#option-1-call-microsoft-graph-with-the-sdk)
+- [Opção 2: chamar uma API da Web downstream com a classe auxiliar](#option-2-call-a-downstream-web-api-with-the-helper-class)
+- [Opção 3: chamar uma API da Web downstream sem a classe auxiliar](#option-3-call-a-downstream-web-api-without-the-helper-class)
 
 #### <a name="option-1-call-microsoft-graph-with-the-sdk"></a>Opção 1: chamar Microsoft Graph com o SDK
 

@@ -1,24 +1,23 @@
 ---
 title: Conector de Gerenciamento de Serviços de TI-exportação segura no Azure Monitor-configurações do Azure
 description: Este artigo mostra como configurar o Azure para conectar seus produtos/serviços de ITSM com exportação segura em Azure Monitor para monitorar e gerenciar centralmente os itens de trabalho de ITSM.
-ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/03/2021
-ms.openlocfilehash: 62167b8fd72c660e50378a9492528aa5b70bbee7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8eb9430e3d280c52cf84c61f0a44cb12152ac054
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606829"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037533"
 ---
 # <a name="configure-azure-to-connect-itsm-tools-using-secure-export"></a>Configurar o Azure para conectar as ferramentas de ITSM usando a exportação segura
 
 Este artigo fornece informações sobre como configurar o Azure para usar a "exportação segura".
 Para usar a "exportação segura", siga estas etapas:
 
-1. [Registrar um aplicativo no Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
+1. [Registre seu aplicativo com o Azure AD.](./itsm-connector-secure-webhook-connections-azure-configuration.md#register-with-azure-active-directory)
 1. [Defina a entidade de serviço.](./itsm-connector-secure-webhook-connections-azure-configuration.md#define-service-principal)
 1. [Crie um grupo de ação de webhook seguro.](./itsm-connector-secure-webhook-connections-azure-configuration.md#create-a-secure-webhook-action-group)
 1. Configure seu ambiente de parceiro.
@@ -30,12 +29,12 @@ Para usar a "exportação segura", siga estas etapas:
 
 Siga estas etapas para registrar o aplicativo com o Azure AD:
 
-1. Siga as etapas em [registrar um aplicativo com a plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-register-app.md).
+1. Siga as etapas em [Registrar um aplicativo com a plataforma de identidade da Microsoft](../../active-directory/develop/quickstart-register-app.md).
 2. No Azure AD, selecione **expor aplicativo**.
 3. Selecione **definir** para o **URI da ID do aplicativo**.
 
    [![Captura de tela da opção de configuração do U R I do aplicativo I D.](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad.png)](media/itsm-connector-secure-webhook-connections-azure-configuration/azure-ad-expand.png#lightbox)
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="define-service-principal"></a>Definir entidade de serviço
 

@@ -5,13 +5,12 @@ author: ofirmanor
 ms.author: ofmanor
 ms.topic: reference
 ms.date: 03/16/2020
-ms.subservice: alerts
-ms.openlocfilehash: d3f8da7e985e62ce0b40c6dddcd137cce8561e59
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d65fa03a183c15022535debee6476844192ec6bf
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717852"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102037839"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-alerts"></a>Solucionando problemas em alertas de Azure Monitor
 
@@ -245,7 +244,7 @@ Se você recebeu um erro ao tentar criar, atualizar ou excluir uma [regra de aç
 
 1. **Você verificou os parâmetros da regra de ação?**  
 
-    Verifique a [documentação da regra de ação](../alerts/alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](/powershell/module/az.alertsmanagement/set-azactionrule?view=azps-3.5.0) . 
+    Verifique a [documentação da regra de ação](../alerts/alerts-action-rules.md)ou o comando [set-AzActionRule do PowerShell da regra de ação](/powershell/module/az.alertsmanagement/set-azactionrule) . 
 
 
 ## <a name="next-steps"></a>Próximas etapas

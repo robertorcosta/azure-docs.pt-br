@@ -1,17 +1,16 @@
 ---
 title: Regras de coleta de dados no Azure Monitor (versão prévia)
 description: Visão geral das regras de coleta de dados (DCRs) em Azure Monitor incluindo seu conteúdo e estrutura e como você pode criar e trabalhar com elas.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/19/2021
-ms.openlocfilehash: 0bae058804bdb1f199c39497c59e89bda8087424
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: a0c5e9f89b983871224e79c2fc4f518a15d42a6f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606739"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039607"
 ---
 # <a name="data-collection-rules-in-azure-monitor-preview"></a>Regras de coleta de dados no Azure Monitor (versão prévia)
 As regras de coleta de dados (DCR) definem os dados que chegam ao Azure Monitor e especificam onde esses dados devem ser enviados ou armazenados. Este artigo fornece uma visão geral das regras de coleta de dados, incluindo seu conteúdo e estrutura, e como você pode criar e trabalhar com elas.
@@ -40,7 +39,7 @@ O diagrama a seguir mostra os componentes de uma regra de coleta de dados e sua 
 ### <a name="data-source-types"></a>Tipos de fontes de dados
 Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto exclusivo de propriedades que devem ser especificadas para cada fonte de dados. Os tipos de fonte de dados disponíveis atualmente são mostrados na tabela a seguir.
 
-| Tipo de fonte de dados | Description | 
+| Tipo de fonte de dados | Descrição | 
 |:---|:---|
 | extensão | Fonte de dados baseada em extensão de VM |
 | performanceCounters | Contadores de desempenho para Windows e Linux |
@@ -48,7 +47,7 @@ Cada fonte de dados tem um tipo de fonte de dados. Cada tipo define um conjunto 
 | windowsEventLogs | Log de eventos do Windows |
 
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 Para os limites que se aplicam a cada regra de coleta de dados, consulte [limites de serviço Azure monitor](../service-limits.md#data-collection-rules).
 
 

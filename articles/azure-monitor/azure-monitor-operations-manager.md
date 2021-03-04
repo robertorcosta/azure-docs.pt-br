@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor para clientes Operations Manager existentes
 description: Diretrizes para usuários existentes de Operations Manager fazer a transição do monitoramento de determinadas cargas de trabalho para Azure Monitor como parte de uma transição para a nuvem.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2021
-ms.openlocfilehash: e9f0a285df6013334970b971e46079b9e78b19cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d92b7c2f01a7e9ef12bc2bb422cfb6ed0076f73
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728953"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039369"
 ---
 # <a name="azure-monitor-for-existing-operations-manager-customers"></a>Azure Monitor para clientes Operations Manager existentes
 Este artigo fornece diretrizes para os clientes que atualmente usam [System Center Operations Manager](/system-center/scom/welcome) e estão planejando uma transição para [Azure monitor](overview.md) à medida que migram aplicativos de negócios e outros recursos para o Azure. Ele pressupõe que seu objetivo final é uma transição completa para a nuvem, substituindo o máximo Operations Manager funcionalidade possível com Azure Monitor, sem comprometer seus requisitos operacionais de ti e de negócios. 

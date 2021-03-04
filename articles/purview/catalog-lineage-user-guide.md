@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
-ms.openlocfilehash: 6af183c16238c6630b194b112f0c09fd4399d443
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cd4bba1bacbdb21a6bff4fcc5d3c1f3b2166ec35
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694063"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102039965"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guia do usuário de linhagem do catálogo de dados do Azure alcance
 
@@ -31,7 +31,7 @@ As ferramentas de ETL e integração de dados podem enviar a linhagem por push p
 
 | Sistema de processamento de dados | Escopo com suporte |
 | ---------------------- | ------------|
-| Fábrica de dados do Azure | [Atividade de cópia](how-to-link-azure-data-factory.md#data-factory-copy-data-support) <br> [Atividade de fluxo de dados](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Atividade executar pacote SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
+| Fábrica de dados do Azure | [Atividade de cópia](how-to-link-azure-data-factory.md#data-factory-copy-activity-support) <br> [Atividade de fluxo de dados](how-to-link-azure-data-factory.md#data-factory-data-flow-support) <br> [Atividade executar pacote SSIS](how-to-link-azure-data-factory.md#data-factory-execute-ssis-package-support) |
 | Azure Data Share | [Instantâneo de compartilhamento](how-to-link-azure-data-share.md) |
  
 ### <a name="data-storage-systems"></a>Sistemas de armazenamento de dados
