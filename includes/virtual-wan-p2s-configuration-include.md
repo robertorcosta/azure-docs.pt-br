@@ -4,13 +4,15 @@ ms.author: cherylmc
 ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 567c0bb75c30a1f0ccdcde7ec1b0f04f5d6e54c5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732473"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048243"
 ---
+[!INCLUDE [Portal feature rollout](virtual-wan-portal-feature-rollout.md)]
+
 1. Navegue até **Todos os recursos** e selecione a WAN criada. Em seguida, selecione **Configurações de VPN do usuário** no menu à esquerda.
 1. Na página **Configurações de VPN do usuário**, selecione **+Criar configuração de VPN do usuário** no início da página para abrir a página **Criar configuração de VPN do usuário**.
 
@@ -23,7 +25,7 @@ ms.locfileid: "101732473"
    **VPN IKEv2**
 
    * **Requisitos:** quando você seleciona o tipo de túnel **IKEv2**, aparece uma mensagem que pede a escolha de um método de autenticação. Para IKEv2, você pode especificar apenas um método de autenticação. Você pode escolher o Certificado do Azure, o Azure Active Directory ou autenticação baseada em RADIUS.
- 
+
    * **Parâmetros de IPsec personalizados:** para personalizar os parâmetros das fases 1 e 2 do IKE, alterne o botão de IPsec para **Personalizar** e selecione os valores dos parâmetros. Para obter mais informações sobre parâmetros personalizáveis, confira o artigo [IPsec personalizado](../articles/virtual-wan/point-to-site-ipsec.md).
 
      :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="Captura de tela do botão IPsec alternado para Personalizar.":::

@@ -1,17 +1,16 @@
 ---
 title: Alertas de informações de VM
 description: Descreve como criar regras de alerta de dados de desempenho coletados pelo VM insights.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: e3b5f49d9a4ed7af40afba5b267ba0c7bb9cd73a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 06c58b7081ed68724a3c907f8fe76dcf5f7b8057
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704048"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046798"
 ---
 # <a name="how-to-create-alerts-from-vm-insights"></a>Como criar alertas de informações da VM
 [Alertas no Azure monitor](../alerts/alerts-overview.md) notificá-lo proativamente de dados e padrões interessantes em seus dados de monitoramento. As informações da VM não incluem regras de alerta pré-configuradas, mas você pode criar suas próprias com base nos dados coletados. Este artigo fornece orientação sobre como criar regras de alerta, incluindo um conjunto de consultas de exemplo.

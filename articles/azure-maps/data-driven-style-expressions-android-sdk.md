@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 61d7a295d86fd7da74dee03cd35c79feea0218ed
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 7e4af0647a2810a27001c15a5030fca660828147
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681415"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047733"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expressões de estilo controladas por dados (SDK do Android)
 
@@ -144,14 +144,14 @@ As expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `accumulated()` | número | Obtém o valor de uma propriedade de cluster acumulado até o momento. |
-| `at(number | Expression, Expression)` | valor | Recupera um item de uma matriz. |
+| `at(number | Expression, Expression)` | value | Recupera um item de uma matriz. |
 | `geometryType()` | string | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
-| `get(string | Expression)` \| `get(string | Expression, Expression)` | valor | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
+| `get(string | Expression)` \| `get(string | Expression, Expression)` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
 | `has(string | Expression)` \| `has(string | Expression, Expression)` | booleano | Determina se as propriedades de um recurso têm a propriedade especificada. |
-| `id()` | valor | Obtém a ID do recurso se ele tiver um. |
+| `id()` | value | Obtém a ID do recurso se ele tiver um. |
 | `in(string | number | Expression, Expression)` | booleano | Determina se um item existe em uma matriz |
 | `length(string | Expression)` | número | Obtém o comprimento de uma cadeia de caracteres ou de uma matriz. |
-| `properties()`| valor | Obtém o objeto de propriedades do recurso. |
+| `properties()`| value | Obtém o objeto de propriedades do recurso. |
 
 As seguintes expressões de estilo do SDK Web não têm suporte no SDK do Android:
 
@@ -470,7 +470,7 @@ BubbleLayer layer = new BubbleLayer(dataSource,
 );
 ```
 
-Se todos os parâmetros de cor forem números, não será necessário encapsulá-los com a `literal` expressão. Por exemplo:
+Se todos os parâmetros de cor forem números, não será necessário encapsulá-los com a `literal` expressão. Por exemplo: 
 
 ```java
 BubbleLayer layer = new BubbleLayer(dataSource,
@@ -545,7 +545,7 @@ interpolate(Expression.Interpolator interpolation, Expression number, Expression
 
 Há três tipos de métodos de interpolação que podem ser usados em uma `interpolate` expressão:
 
-| Nome | Descrição | 
+| Name | Descrição | 
 |------|-------------|
 | `linear()` | Interpola linearmente entre o par de paradas.  |
 | `exponential(number)` \| `exponential(Expression)` | Interpola exponencialmente entre as interrupções. Uma "base" é especificada e controla a taxa na qual a saída aumenta. Valores mais altos fazem com que a saída aumente mais em direção ao alto fim do intervalo. Um valor "base" próximo a 1 produz uma saída que aumenta de forma linear.|
@@ -662,7 +662,7 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 
 Além de usar um gradiente suave para colorir um mapa de calor, as cores podem ser especificadas dentro de um conjunto de intervalos usando uma `step` expressão. Usar uma `step` expressão para colorir o mapa de calor visualmente divide a densidade em intervalos que se assemelham a um mapa de estilo de contorno ou de radar.  
 
-```java 
+```java
 HeatMapLayer layer = new HeatMapLayer(dataSource,
     heatmapColor(
         step(
@@ -679,6 +679,36 @@ HeatMapLayer layer = new HeatMapLayer(dataSource,
 ```
 
 Para obter mais informações, consulte a documentação [Adicionar uma camada do mapa de calor](map-add-heat-map-layer-android.md) .
+
+### <a name="line-progress-expression"></a>Expressão de progresso da linha
+
+Uma expressão de progresso de linha recupera o progresso ao longo de uma linha de gradiente em uma camada de linha e é definida como `lineProgress()` . Esse valor é um número entre 0 e 1. Ele é usado em combinação com uma `interpolation` `step` expressão ou. Essa expressão só pode ser usada com a `strokeGradient` opção da camada de linha.
+
+> [!NOTE]
+> A `strokeGradient` opção da camada de linha requer a `lineMetrics` opção da fonte de dados a ser definida como `true` .
+
+**Exemplo**
+
+Este exemplo usa a `lineProgress()` expressão para aplicar um gradiente de cor ao traço de uma linha.
+
+```javascript
+LineLayer layer = new LineLayer(source,
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+);
+```
+
+[Consulte o exemplo ao vivo](map-add-line-layer.md#line-stroke-gradient)
 
 ### <a name="text-field-format-expression"></a>Expressão de formato de campo de texto
 

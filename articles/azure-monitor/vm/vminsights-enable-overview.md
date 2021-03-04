@@ -1,18 +1,17 @@
 ---
 title: Habilitar visão geral de informações de VM
 description: Saiba como implantar e configurar o VM insights. Descubra os requisitos do sistema.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 661c65f33f0c65f2f7ccd038afdffbf3c8e241c9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719688"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046662"
 ---
 # <a name="enable-vm-insights-overview"></a>Habilitar visão geral de informações de VM
 

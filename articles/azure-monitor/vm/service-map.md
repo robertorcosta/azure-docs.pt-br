@@ -1,17 +1,16 @@
 ---
 title: Usando a solução Mapa do Serviço no Azure | Microsoft Docs
 description: O Mapa do Serviço é uma solução no Azure que descobre automaticamente os componentes do aplicativo nos sistemas Windows e Linux, e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre a implantação do Mapa do Serviço em seu ambiente e sobre como usá-lo em diversos cenários.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/24/2019
-ms.openlocfilehash: 688adcf0012f8871c4034cbba6ce2ddcacdbcc43
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ad3f8821189e6e7aabb5653e5f938bb73f57a34b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717138"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046985"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Usando a solução Mapa do Serviço no Azure
 
@@ -26,7 +25,7 @@ Este artigo descreve os detalhes de integração e como usar o Mapa do Serviço.
 * O [Dependency Agent](vminsights-enable-overview.md#agents) instalado no computador Windows ou no servidor Linux.
 
 >[!NOTE]
->Se você já implantou o Mapa do Serviço, agora você também pode exibir seus mapas no VM insights, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, confira [visão geral do VM insights](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de informações de VM, consulte as [perguntas frequentes](../faq.md#azure-monitor-for-vms)a seguir.
+>Se você já implantou o Mapa do Serviço, agora você também pode exibir seus mapas no VM insights, que inclui recursos adicionais para monitorar a integridade e o desempenho da VM. Para saber mais, confira [visão geral do VM insights](../vm/vminsights-overview.md). Para saber mais sobre as diferenças entre a solução de Mapa do Serviço e o recurso de mapa de informações de VM, consulte as [perguntas frequentes](../faq.md#vm-insights)a seguir.
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

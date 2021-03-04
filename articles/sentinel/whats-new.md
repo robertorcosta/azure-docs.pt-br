@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 887245bbbefa1c0232313b638203206b623d506b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729701"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048175"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>O que há de novo no Azure Sentinel
 
@@ -32,8 +32,44 @@ Os recursos indicados estão atualmente em versão prévia. Os [termos suplement
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
+- [Conectores de dados de terceiros](#third-party-data-connectors)
 - [UEBA insights na página de entidade](#ueba-insights-in-the-entity-page)
 - [Pesquisa de incidente aprimorada](#improved-incident-search)
+
+### <a name="third-party-data-connectors"></a>Conectores de dados de terceiros
+
+Nossa coleção de integrações de terceiros continua crescendo, com trinta conectores sendo adicionados nos últimos dois meses. Aqui está uma lista:
+
+- [Agari Phishing Defense e Brand Protection](connect-agari-phishing-defense.md)
+- [Akamai Security Events](connect-akamai-security-events.md)
+- [Alsid para Active Directory](connect-alsid-active-directory.md)
+- [Apache HTTP Server](connect-apache-http-server.md)
+- [ClearPass de Aruba](connect-aruba-clearpass.md)
+- [CylancePROTECT BlackBerry](connect-data-sources.md)
+- [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
+- [Cisco potência eStreamer](connect-data-sources.md)
+- [Cisco Meraki](connect-cisco-meraki.md)
+- [Cisco Umbrella](connect-cisco-umbrella.md)
+- [UCS (sistema de computação unificada da Cisco)](connect-cisco-ucs.md)
+- [Inspetor do ESET Enterprise](connect-data-sources.md)
+- [Centro de gerenciamento de segurança do ESET](connect-data-sources.md)
+- [Google Workspace (antigo G Suite)](connect-google-workspace.md)
+- [Imperva WAF Gateway](connect-imperva-waf-gateway.md)
+- [Juniper SRX](connect-juniper-srx.md)
+- [Netskope](connect-data-sources.md)
+- [Logs DNS do NXLog](connect-nxlog-dns.md)
+- [Auditoria do NXLog Linux](connect-nxlog-linuxaudit.md)
+- [Plataforma Onapsis](connect-data-sources.md)
+- [POD (segurança de email) do proofpoint on Demand](connect-proofpoint-pod.md)
+- [Base de dados de conhecimento do gerenciamento de vulnerabilidades Qualys](connect-data-sources.md)
+- [Nuvem de serviço Salesforce](connect-salesforce-service-cloud.md)
+- [Firewall do SonicWall](connect-data-sources.md)
+- [Optix de nuvem do Sophos](connect-sophos-cloud-optix.md)
+- [Proxy da Squid](connect-squid-proxy.md)
+- [Endpoint Protection da Symantec](connect-data-sources.md)
+- [Servidor secreto Thycotic](connect-thycotic-secret-server.md)
+- [XDR da Trend Micro](connect-data-sources.md)
+- [VMWare ESXi](connect-vmware-esxi.md)
 
 ### <a name="ueba-insights-in-the-entity-page"></a>UEBA insights na página de entidade
 
@@ -66,6 +102,7 @@ Ao pesquisar incidentes no Azure Sentinel, agora você poderá pesquisar os segu
 - [Assistente de regra de análise: experiência de edição de consulta aprimorada (visualização pública)](#analytics-rule-wizard-improved-query-editing-experience-public-preview)
 - [Módulo do PowerShell AZ. SecurityInsights (visualização pública)](#azsecurityinsights-powershell-module-public-preview)
 - [Conector do banco de dados SQL](#sql-database-connector)
+- [Conector do Dynamics 365](#dynamics-365-connector)
 - [Comentários de incidente aprimorados](#improved-incident-comments)
 - [Clusters de Log Analytics dedicados](#dedicated-log-analytics-clusters)
 - [Identidades gerenciadas de aplicativos lógicos](#logic-apps-managed-identities)
@@ -81,7 +118,7 @@ O assistente de regra de análise agendada do Azure Sentinel agora fornece os se
 -   Suporte de preenchimento automático expandido.
 -   Validações de consulta em tempo real. Os erros em sua consulta agora são mostrados como um bloco vermelho na barra de rolagem e como um ponto vermelho no nome da guia **definir lógica da regra** . Além disso, uma consulta com erros não pode ser salva.
 
-Para obter mais informações, consulte [tutorial: detectar ameaças prontas para uso](tutorial-detect-threats-built-in.md).
+Para obter mais informações, consulte [tutorial: criar regras de análise personalizadas para detectar ameaças](tutorial-detect-threats-custom.md).
 ### <a name="azsecurityinsights-powershell-module-public-preview"></a>Módulo do PowerShell AZ. SecurityInsights (visualização pública)
 
 O Azure Sentinel agora dá suporte ao novo módulo do PowerShell [AZ. SecurityInsights](https://www.powershellgallery.com/packages/Az.SecurityInsights/) .
@@ -99,6 +136,12 @@ O Azure Sentinel agora fornece um conector de banco de dados SQL do Azure, que v
 O SQL do Azure é um mecanismo de banco de dados PaaS (plataforma como serviço) totalmente gerenciado que lida com a maioria das funções de gerenciamento de banco de dados, como atualização, aplicação de patches, backups e monitoramento, sem envolvimento do usuário.
 
 Para obter mais informações, consulte [conectar logs de auditoria e diagnóstico do banco de dados SQL do Azure](connect-azure-sql-logs.md).
+
+### <a name="dynamics-365-connector"></a>Conector do Dynamics 365
+
+O Azure Sentinel agora fornece um conector para o Microsoft Dynamics 365, que permite que você colete os logs de atividade de usuário, administrador e suporte dos aplicativos do Dynamics 365 para o Azure Sentinel. Você pode usar esses dados para ajudá-lo a auditar todo o funcionamento de ações de processamento de dados e analisá-lo para possíveis violações de segurança.
+
+Para obter mais informações, consulte [conectar logs de atividades do Dynamics 365 ao Azure Sentinel](connect-dynamics-365.md).
 
 ### <a name="improved-incident-comments"></a>Comentários de incidente aprimorados
 
@@ -185,15 +228,14 @@ O Azure Sentinel usa o agente de Log Analytics para enviar eventos para seu espa
 Para obter mais informações, consulte a [documentação do log Analytics](../azure-monitor/agents/log-analytics-agent.md) e as notas de versão do agente de [log Analytics](https://github.com/microsoft/OMS-Agent-for-Linux/releases).
 ## <a name="november-2020"></a>Novembro de 2020
 
-- [Monitorar os guias estratégicos de aplicativos lógicos no Azure Sentinel](#monitor-your-logic-apps-playbooks-in-azure-sentinel)
+- [Monitore a integridade dos guias estratégicos no Azure Sentinel](#monitor-your-playbooks-health-in-azure-sentinel)
 - [Conector do Microsoft 365 defender (visualização pública)](#microsoft-365-defender-connector-public-preview)
-### <a name="monitor-your-logic-apps-playbooks-in-azure-sentinel"></a>Monitorar os guias estratégicos de aplicativos lógicos no Azure Sentinel
 
-O Azure Sentinel agora se integra aos [aplicativos de log do Azure](../logic-apps/index.yml), um serviço de nuvem que ajuda a agendar, automatizar e orquestrar tarefas, processos de negócios e fluxos de trabalho.
+### <a name="monitor-your-playbooks-health-in-azure-sentinel"></a>Monitore a integridade dos guias estratégicos no Azure Sentinel
 
-Use um aplicativo lógico do Azure no Azure Sentinel como um guia estratégico, que pode ser invocado automaticamente quando um incidente é criado ou durante a triagem e o trabalho com incidentes. 
+Os guias estratégicos do Azure Sentinel se baseiam em fluxos de trabalho criados nos [aplicativos de log do Azure](../logic-apps/index.yml), um serviço de nuvem que ajuda a agendar, automatizar e orquestrar tarefas, processos de negócios e fluxos de trabalho. Os guias estratégicos podem ser invocados automaticamente quando um incidente é criado ou durante a triagem e o trabalho com incidentes. 
 
-Para fornecer informações sobre a integridade, o desempenho e o uso de seus guias estratégicos, incluindo qualquer um que você adicionar com os aplicativos lógicos do Azure, adicionamos uma [pasta de trabalho do Azure](../azure-monitor/visualize/workbooks-overview.md) denominada **monitoramento de integridade de guias estratégicos**. 
+Para fornecer informações sobre a integridade, o desempenho e o uso de seus guias estratégicos, adicionamos uma [pasta de trabalho](../azure-monitor/visualize/workbooks-overview.md) denominada monitoramento de **integridade de guias estratégicos**. 
 
 Use a pasta de trabalho de **monitoramento de integridade dos guias estratégicos** para monitorar a integridade de seus guias estratégicos ou Procure anomalias na quantidade de execuções com êxito ou com falha. 
 

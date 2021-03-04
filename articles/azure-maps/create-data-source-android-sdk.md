@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 78b0cbbdccc7d6853d4ce2821bf659e888680a5f
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: fc68dc25aad3671a55e5c11cbee094b4027e7070
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98674636"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047665"
 ---
 # <a name="create-a-data-source-android-sdk"></a>Criar uma fonte de dados (SDK do Android)
 
@@ -360,14 +360,17 @@ O mapas do Azure segue a [especificação de bloco de vetor Mapbox](https://gith
 - Detalhes do [](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato de dados](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) de documentação do fluxo de tráfego
 - O criador do mapas do Azure também permite que blocos de vetor personalizados sejam criados e acessados por meio da [renderização de bloco Get v2](/rest/api/maps/renderv2/getmaptilepreview)
 
+> [!TIP]
+> Ao usar blocos de imagem vetorial ou rasterizada do serviço de renderização do Azure Maps com o SDK da Web, você pode substituir `atlas.microsoft.com` pelo espaço reservado `azmapsdomain.invalid` . Esse espaço reservado será substituído pelo mesmo domínio usado pelo mapa e também acrescentará automaticamente os mesmos detalhes de autenticação. Isso simplifica muito a autenticação com o serviço de renderização ao usar a autenticação Azure Active Directory.
+
 Para exibir dados de uma fonte de bloco de vetor no mapa, conecte a origem a uma das camadas de renderização de dados. Todas as camadas que usam uma fonte de vetor devem especificar um `sourceLayer` valor nas opções. O código a seguir carrega o serviço de bloco de vetor do fluxo de tráfego do Azure Maps como uma fonte de bloco de vetor e, em seguida, o exibe em um mapa usando uma camada de linha. Essa fonte de bloco vetorial tem um único conjunto de dados na camada de origem chamada "fluxo de tráfego". Os dados de linha nesse conjunto de dados têm uma propriedade chamada `traffic_level` que é usada neste código para selecionar a cor e dimensionar o tamanho das linhas.
 
 ```java
 //Formatted URL to the traffic flow vector tiles, with the maps subscription key appended to it.
-String trafficFlowUrl = "https://atlas.microsoft.com/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}&subscription-key=" + AzureMaps.getSubscriptionKey();
+String trafficFlowUrl = "https://azmapsdomain.invalid/traffic/flow/tile/pbf?api-version=1.0&style=relative&zoom={z}&x={x}&y={y}";
 
 //Create a vector tile source and add it to the map.
-VectorTileSource source = new VectorTileSource("flowLayer",
+VectorTileSource source = new VectorTileSource(
     tiles(new String[] { trafficFlowUrl }),
     maxSourceZoom(22)
 );

@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: fda9026adf46a26927912b9e1983a537470c37ee
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744178"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047909"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Dimensionar a migração sem agente de máquinas virtuais VMware para o Azure
 
@@ -153,7 +153,7 @@ Neste ponto, você deve revalidar que o dispositivo de expansão é capaz de se 
 :::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importação bem-sucedida":::
 
 > [!IMPORTANT]
-> Se você editar as credenciais de vCenter Server no dispositivo primário, certifique-se de importar os arquivos de configuração novamente para o dispositivo de expansão para obter a configuração mais recente e continuar com as replicações em andamento.<br/> Se você não precisar mais do dispositivo de expansão, certifique-se de desabilitar o dispositivo de expansão. [**Saiba mais**](./common-questions-appliance) sobre como desabilitar o dispositivo de expansão quando não for necessário.
+> Se você editar as credenciais de vCenter Server no dispositivo primário, certifique-se de importar os arquivos de configuração novamente para o dispositivo de expansão para obter a configuração mais recente e continuar com as replicações em andamento.<br/> Se você não precisar mais do dispositivo de expansão, certifique-se de desabilitar o dispositivo de expansão. [**Saiba mais**](./common-questions-appliance.md) sobre como desabilitar o dispositivo de expansão quando não for necessário.
 
 ## <a name="replicate"></a>Replicar
 

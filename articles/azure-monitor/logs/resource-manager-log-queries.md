@@ -1,17 +1,16 @@
 ---
 title: Amostras de modelo do Resource Manager para consultas de log
 description: Realize amostragem de modelos do Azure Resource Manager para implantar consultas de log do Azure Monitor.
-ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: ad8d984f7d363499ed2e85d7d46b95c05460f3eb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 97b3ac4d693afb8ee2f2dba362e1e2f307e50f78
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597180"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047257"
 ---
 # <a name="resource-manager-template-samples-for-log-queries-in-azure-monitor"></a>Amostras de modelo do Resource Manager para consultas de log no Azure Monitor
 Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para criar e configurar consultas de log no Azure Monitor. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.

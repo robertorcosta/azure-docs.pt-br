@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 02/28/2021
+ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8635e3590d4196e407dfc591a55ee240806358ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691511"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046424"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -58,6 +58,11 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 
 - Se a opção *auditoria de servidor estiver habilitada*, ela *sempre será aplicada ao banco de dados*. O banco de dados será auditado, independentemente das configurações de auditoria do banco de dados.
 
+- Quando a política de auditoria é definida no nível do banco de dados para um Log Analytics espaço de trabalho ou um destino do hub de eventos, as seguintes operações não manterão a política de auditoria no nível do banco de dados de origem:
+    - [Cópia do banco de dados](database-copy.md)
+    - [Restauração point-in-time](recovery-using-backups.md)
+    - [Replicação geográfica](active-geo-replication-overview.md) (o banco de dados secundário não terá auditoria no nível do banco de dados)
+
 - Habilitar a auditoria no banco de dados, além de habilitá-lo no servidor, *não substitui nem* altera as configurações da auditoria do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo: uma vez pela política de servidor e outra, pela política de banco de dados.
 
    > [!NOTE]
@@ -94,7 +99,8 @@ O banco de dados SQL do Azure e o Azure Synapse Audit armazenam 4000 caracteres 
 A seção a seguir descreve a configuração de auditoria usando o Portal do Azure.
 
   > [!NOTE]
-  > Não é possível habilitar a auditoria em um pool SQL dedicado em pausa. Para habilitar a auditoria, cancele a pausa do pool SQL dedicado. Saiba mais sobre o [pool SQL dedicado](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Não é possível habilitar a auditoria em um pool SQL dedicado em pausa. Para habilitar a auditoria, cancele a pausa do pool SQL dedicado. Saiba mais sobre o [pool SQL dedicado](../..//synapse-analytics/sql/best-practices-sql-pool.md).
+  > - Quando a auditoria é configurada para um espaço de trabalho Log Analytics ou para um destino de Hub par por meio do cmdlet portal do Azure ou do PowerShell, uma [configuração de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md) é criada com a categoria "SQLSecurityAuditEvents" habilitada.
 
 1. Acesse o [portal do Azure](https://portal.azure.com).
 2. Navegue até **auditoria** no título segurança no seu banco de **dados SQL** ou no painel do **SQL Server** .
@@ -104,18 +110,18 @@ A seção a seguir descreve a configuração de auditoria usando o Portal do Azu
 
 4. Se você preferir habilitar a auditoria no nível do banco de dados, alterne **Auditoria** para **LIGADO**. Se a auditoria do servidor estiver habilitada, a auditoria configurada para o banco de dados existirá lado a lado com a auditoria do servidor.
 
-5. Você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs em uma conta de armazenamento do Azure, em um workspace do Log Analytics para consumo dos logs do Azure Monitor (versão prévia) ou em um hub de eventos para consumo usando o hub de eventos (versão prévia). Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
+5. Você tem várias opções para configurar o local em que os logs de auditoria serão gravados. Você pode gravar logs em uma conta de armazenamento do Azure, em um espaço de trabalho Log Analytics para consumo por Azure Monitor logs ou no Hub de eventos para consumo usando o Hub de eventos. Você pode configurar qualquer combinação dessas opções, e os logs de auditoria serão gravados em cada uma.
   
    ![opções de armazenamento](./media/auditing-overview/auditing-select-destination.png)
 
-### <a name="auditing-of-microsoft-support-operations-preview"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoria de operações de Suporte da Microsoft (versão prévia)
+### <a name="auditing-of-microsoft-support-operations"></a><a id="auditing-of-microsoft-support-operations"></a>Auditoria de operações de Suporte da Microsoft
 
-A auditoria de operações de Suporte da Microsoft (visualização) para o Azure SQL Server permite que você Auditore operações de engenheiros de suporte da Microsoft quando eles precisam acessar o servidor durante uma solicitação de suporte. O uso desse recurso, juntamente com a auditoria, permite mais transparência em sua força de seus funcionários e permite a detecção de anomalias, a visualização de tendências e a prevenção de perda de dados.
+A auditoria de operações de Suporte da Microsoft para o Azure SQL Server permite a auditoria de operações de engenheiros de suporte da Microsoft quando eles precisam acessar o servidor durante uma solicitação de suporte. O uso desse recurso, juntamente com a auditoria, permite mais transparência em sua força de seus funcionários e permite a detecção de anomalias, a visualização de tendências e a prevenção de perda de dados.
 
-Para habilitar a auditoria de operações de Suporte da Microsoft (versão prévia), navegue até **auditoria** no título segurança no painel do **SQL Server do Azure** e alterne a **auditoria de operações de suporte da Microsoft (versão prévia)** para **ativado**.
+Para habilitar a auditoria de Suporte da Microsoft operações, navegue até **auditoria** no título segurança no painel do **SQL Server do Azure** e alterne a **auditoria de operações de suporte da Microsoft** para **ativado**.
 
   > [!IMPORTANT]
-  > A auditoria de operações de suporte da Microsoft (versão prévia) não dá suporte ao destino da conta de armazenamento. Para habilitar a funcionalidade, um espaço de trabalho Log Analytics ou um destino do hub de eventos deve ser configurado.
+  > A auditoria de operações de suporte da Microsoft não dá suporte ao destino da conta de armazenamento. Para habilitar a funcionalidade, um espaço de trabalho Log Analytics ou um destino do hub de eventos deve ser configurado.
 
 ![Captura de tela de operações de Suporte da Microsoft](./media/auditing-overview/support-operations.png)
 
@@ -137,7 +143,7 @@ Para configurar a gravação de logs de auditoria para uma conta de armazenament
 
 ### <a name="audit-to-log-analytics-destination"></a><a id="audit-log-analytics-destination"></a>Auditoria para destino do Log Analytics
   
-Para configurar a gravação de logs de auditoria em um espaço de trabalho do Log Analytics, selecione **Log Analytics (Visualizar)** e abra **detalhes do Log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
+Para configurar a gravação de logs de auditoria em um espaço de trabalho do Log Analytics, selecione **log Analytics** e abra **detalhes do log Analytics**. Selecione ou crie o espaço de trabalho do Log Analytics, onde os logs serão gravados e, em seguida, clique em **Ok**.
 
    ![LogAnalyticsworkspace](./media/auditing-overview/auditing_select_oms.png)
 
@@ -145,7 +151,7 @@ Para obter mais detalhes sobre Azure Monitor Log Analytics espaço de trabalho, 
    
 ### <a name="audit-to-event-hub-destination"></a><a id="audit-event-hub-destination"></a>Auditoria para destino do hub de eventos
 
-Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de Eventos (versão prévia)** e abra **Detalhes do Hub de Eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
+Para configurar a gravação de logs de auditoria para um hub de eventos, selecione **Hub de eventos** e abra detalhes do **Hub de eventos**. Selecione o hub de eventos no qual os logs serão gravados e, em seguida, clique em **OK**. Verifique se o hub de eventos está na mesma região que o banco de dados e o servidor.
 
    ![Eventhub](./media/auditing-overview/auditing_select_event_hub.png)
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 1712cedab9cef23108fcc48b8e09bdc3e33065c4
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 25785ae7a214d6122fb90b80e8f0725a3468c48d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97679464"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047581"
 ---
 # <a name="add-a-polygon-layer-to-the-map-android-sdk"></a>Adicionar uma camada de polígono ao mapa (SDK do Android)
 
@@ -97,6 +97,47 @@ A captura de tela a seguir mostra o código acima renderizando um polígono com 
 > [!TIP]
 > Ao estruturar um polígono com uma camada de linha, não se esqueça de fechar todos os anéis em polígonos de modo que cada matriz de pontos tenha o mesmo ponto inicial e final. Se isso não for feito, a camada de linha poderá não conectar o último ponto do polígono ao primeiro ponto.
 
+## <a name="fill-a-polygon-with-a-pattern"></a>Preencher um polígono com um padrão
+
+Além de preencher um polígono com uma cor, você pode usar um padrão de imagem para preencher o polígono. Carregue um padrão de imagem na imagem de mapas recursos de Sprite e, em seguida, faça referência a essa imagem com a `fillPattern` opção da camada de polígono.
+
+```java
+//Load an image pattern into the map image sprite.
+map.images.add("fill-checker-red", R.drawable.fill_checker_red);
+
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Create a polygon.
+source.add(Polygon.fromLngLats(
+    Arrays.asList(
+        Arrays.asList(
+            Point.fromLngLat(-50, -20),
+            Point.fromLngLat(0, 40),
+            Point.fromLngLat(50, -20),
+            Point.fromLngLat(-50, -20)
+        )
+    )
+));
+
+//Create and add a polygon layer to render the polygon on the map, below the label layer.
+map.layers.add(new PolygonLayer(source,
+        fillPattern("fill-checker-red"),
+        fillOpacity(0.5f)
+), "labels");
+```
+
+Para este exemplo, a imagem a seguir foi carregada na pasta desenhável do aplicativo.
+
+| ![Imagem do ícone de seta roxa](media/how-to-add-shapes-to-android-map/fill-checker-red.png)|
+|:-----------------------------------------------------------------------:|
+| fill_checker_red.png                                                    |
+
+Veja a seguir uma captura de tela do código acima renderizando um polígono com um padrão de preenchimento no mapa.
+
+![Polígono com um padrão de preenchimento renderizado no mapa](media/how-to-add-shapes-to-android-map/android-polygon-pattern.jpg)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Consulte os artigos a seguir para obter mais exemplos de código para adicionar aos seus mapas:
@@ -109,3 +150,6 @@ Consulte os artigos a seguir para obter mais exemplos de código para adicionar 
 
 > [!div class="nextstepaction"]
 > [Adicionar uma camada de linha](android-map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Adicionar uma camada de extrusão de polígono](map-extruded-polygon-android.md)

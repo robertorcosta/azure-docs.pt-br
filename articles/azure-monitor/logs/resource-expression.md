@@ -1,24 +1,23 @@
 ---
 title: expressão de recurso () na consulta de log de Azure Monitor | Microsoft Docs
 description: A expressão de recurso é usada em uma consulta de log de Azure Monitor centrada em recursos para recuperar dados de vários recursos.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a5e5c7959a243d6c9d243b706524f624ffa3cdb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606565"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047206"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>expressão de recurso () na consulta de log de Azure Monitor
 
 A `resource` expressão é usada em uma consulta Azure monitor [com escopo para um recurso](scope.md#query-scope) para recuperar dados de outros recursos. 
 
 
-## <a name="syntax"></a>Syntax
+## <a name="syntax"></a>Sintaxe
 
 `resource(`*ID*`)`
 

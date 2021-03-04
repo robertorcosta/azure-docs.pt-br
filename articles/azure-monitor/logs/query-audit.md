@@ -1,17 +1,16 @@
 ---
 title: Consultas de auditoria em consultas de log de Azure Monitor
 description: Detalhes de logs de auditoria de consulta de log que fornecem telemetria sobre consultas de log executadas no Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/03/2020
-ms.openlocfilehash: 70741e91830027e210afce75e93d931d70bdbed1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 28dfac7de8e73adf577b0a13e5fbd8740b1e3b06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605732"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047410"
 ---
 # <a name="audit-queries-in-azure-monitor-logs-preview"></a>Auditar consultas em logs de Azure Monitor (versão prévia)
 Logs de auditoria de consulta de log fornecem telemetria sobre as consultas de log executadas no Azure Monitor. Isso inclui informações como, por exemplo, quando uma consulta foi executada, quem a executou, qual ferramenta foi usada, o texto da consulta e as estatísticas de desempenho que descrevem a execução da consulta.

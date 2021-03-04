@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/02/2021
-ms.openlocfilehash: ae31b329cbea82ac664af24e42ec58d094b3a7ae
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661895"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048583"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configurar a janela de manutenção (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -275,7 +275,7 @@ As etapas a seguir definem a janela de manutenção em um banco de dados existen
 1. Navegue até a instância gerenciada para a qual você deseja definir a janela de manutenção.
 1. No menu **configurações** , selecione **manutenção** e, em seguida, selecione a janela de manutenção desejada.
 
-   :::image type="content" source="media/maintenance-window-configure/maintenance.png" alt-text="Página de manutenção do banco de dados SQL":::
+   :::image type="content" source="media/maintenance-window-configure/maintenance-mi.png" alt-text="Página de manutenção da instância gerenciada do SQL":::
 
 
 

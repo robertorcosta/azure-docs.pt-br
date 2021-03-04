@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
-ms.openlocfilehash: 9b07af72983931e0e1cab9e7d5093fd845b363bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692191"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102048498"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurar pontos de extremidade privados para o repositório analítico do Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -118,7 +118,8 @@ Para configurar o isolamento de rede para essa conta de um espaço de trabalho S
    az cosmosdb update --name MyCosmosDBDatabaseAccount --resource-group MyResourceGroup --network-acl-bypass AzureServices --network-acl-bypass-resource-ids "/subscriptions/subId/resourceGroups/rgName/providers/Microsoft.Synapse/workspaces/wsName"
    ```
 
-   > ANOTAÇÕES Azure Cosmos DB conta e o espaço de trabalho do Azure Synapse Analytics devem estar sob o mesmo locatário do Azure Active Directory (AD).
+   > [!NOTE]
+   > Azure Cosmos DB conta e o espaço de trabalho do Azure Synapse Analytics devem estar sob o mesmo locatário do Azure Active Directory (AD).
 
 2. Agora você pode acessar a conta de pools SQL sem servidor, usando consultas T-SQL no link Synapse do Azure. No entanto, para garantir o isolamento de rede para os dados no repositório analítico, você deve adicionar um ponto de extremidade privado gerenciado **analítico** para essa conta. Caso contrário, os dados no repositório analítico não serão bloqueados do acesso público.
 

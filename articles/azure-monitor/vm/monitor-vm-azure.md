@@ -2,17 +2,16 @@
 title: Monitorar máquinas virtuais do Azure com o Azure Monitor
 description: Descreve como coletar e analisar dados de monitoramento de máquinas virtuais no Azure usando o Azure Monitor.
 ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
-ms.openlocfilehash: 6209389843b19d933bdce2726b55946b8839a264
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731367"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102047036"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
 Este artigo descreve como usar o Azure Monitor para coletar e analisar dados de monitoramento de máquinas virtuais do Azure para manter sua integridade. As máquinas virtuais podem ser monitoradas quanto à disponibilidade e ao desempenho com Azure Monitor como qualquer [outro recurso do Azure](../essentials/monitor-azure-resource.md), mas são exclusivas de outros recursos, já que você também precisa monitorar o sistema operacional e as cargas de trabalho convidadas que são executadas nelas. 
@@ -56,7 +55,7 @@ Para habilitar todos os recursos do Azure Monitor para monitoramento de máquina
 | Etapa de configuração | Ações concluídas | Recursos habilitados |
 |:---|:---|:---|
 | Nenhuma configuração | - Métricas de plataforma de host coletadas para métricas.<br>- Coleta de logs de atividades. | - Metrics Explorer para host.<br>- Alertas de métricas para host.<br>- Alertas do log de atividades. |
-| [Habilitar informações de VM](#enable-azure-monitor-for-vms) | - Agente do Log Analytics instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho de convidado coletados para logs.<br>- Detalhes de processo e dependência coletados para logs. | - Gráficos de desempenho e pastas de trabalho para dados de desempenho de convidado.<br>- Consultas de log para dados de desempenho de convidado.<br>- Alertas de log para dados de desempenho de convidado.<br>- Mapa de dependências. |
+| [Habilitar informações de VM](#enable-vm-insights) | - Agente do Log Analytics instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho de convidado coletados para logs.<br>- Detalhes de processo e dependência coletados para logs. | - Gráficos de desempenho e pastas de trabalho para dados de desempenho de convidado.<br>- Consultas de log para dados de desempenho de convidado.<br>- Alertas de log para dados de desempenho de convidado.<br>- Mapa de dependências. |
 | [Instalar a extensão de diagnóstico e o agente Telegraf](#enable-diagnostics-extension-and-telegraf-agent) | - Dados de desempenho de convidado coletados para métricas. | - Metrics Explorer para convidado.<br>- Alertas de métricas para convidado.  |
 | [Configurar um espaço de trabalho do Log Analytics](#configure-log-analytics-workspace) | - Eventos coletados do convidado. | - Consultas de log para eventos de convidado.<br>- Alertas de log para eventos de convidado. |
 | [Criar a configuração de diagnóstico para a máquina virtual](#collect-platform-metrics-and-activity-log) | - Métricas de plataforma coletadas para Logs.<br>- Log de atividades coletados para Logs. | -Log de consultas para métricas de host.<br>- Alertas de log para métricas do host.<br>- Consultas de log para log de atividades.
