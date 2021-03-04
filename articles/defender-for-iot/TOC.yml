@@ -113,12 +113,12 @@
             - name: Identificar os dispositivos necessários
               displayName: 'virtual, Dell, HPE, SMB, certified, hardware, deployment'
               href: how-to-identify-required-appliances.md
-            - name: Instalar o software
-              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install, deploy'
-              href: how-to-install-software.md
             - name: Configurar sua rede
               displayName: 'passive, browsers, network access, TAP, switch, mirroring, firewall, SPAN, monitoring, tuning'
               href: how-to-set-up-your-network.md
+            - name: Instalar o software
+              displayName: 'virtual, Dell, HPE, SMB, certified, hardware, port mirroring, ESXi, install'
+              href: how-to-install-software.md
         - name: Preparar seus sensores
           items:
             - name: Integrar sensores
@@ -155,7 +155,7 @@
         - name: Gerenciar sensores na nuvem
           href: how-to-manage-sensors-on-the-cloud.md
         - name: Gerenciar o console de gerenciamento local
-          displayName: 'upgrade, activation, certificate, SSL, TLS, connect, sync, backup, restore, software update, failure'
+          displayName: 'upgrade, activation, certificate, software update, backup, restore, proxy, password recovery'
           href: how-to-manage-the-on-premises-management-console.md
         - name: Trabalhar com pacotes de inteligência contra ameaças
           href: how-to-work-with-threat-intelligence-packages.md

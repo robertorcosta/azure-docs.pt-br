@@ -1,17 +1,16 @@
 ---
 title: Consultas de log no Azure Monitor
 description: Informações de referência para a linguagem de consulta Kusto usada pelo Azure Monitor. Inclui elementos adicionais específicos ao Azure Monitor e elementos sem suporte às consultas do Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
-ms.openlocfilehash: 7ce73fc69ac0ff88c6048aad39fd07ae802b978d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704218"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041018"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Consultas de log no Azure Monitor
 Os logs de Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log são escritas usando a mesma linguagem de consulta Kusto (KQL). Essa é uma linguagem avançada criada para ser fácil de ler e criar, portanto, você deve ser capaz de começar a escrever consultas com algumas diretrizes básicas.

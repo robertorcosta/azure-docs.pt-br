@@ -1,6 +1,6 @@
 - name: Azure Synapse Analytics
   href: index.yml
-- name: Alternar para o pool de SQL dedicado (antigo SQL DW)
+- name: Alternar para o pool de SQL dedicado (antigo SQL DW) >
   href: ./sql-data-warehouse/sql-data-warehouse-overview-what-is.md
 - name: Visão geral
   items:
@@ -48,17 +48,19 @@
   items:
     - name: Inícios rápidos
       items:
-        - name: Criar um workspace usando o portal do Azure
-          href: quickstart-create-workspace.md
-          displayName: quickstart
-        - name: Criar um workspace usando a CLI do Azure
-          href: quickstart-create-workspace-cli.md
-          displayName: quickstart
-        - name: Criar um workspace usando o Azure PowerShell
-          href: quickstart-create-workspace-powershell.md
-          displayName: quickstart
-        - name: Implantar com um modelo
-          href: quickstart-deployment-template-workspaces.md
+        - name: Criar um workspace
+          items:
+            - name: Portal do Azure
+              href: quickstart-create-workspace.md
+              displayName: quickstart
+            - name: CLI do Azure
+              href: quickstart-create-workspace-cli.md
+              displayName: quickstart
+            - name: Azure PowerShell
+              href: quickstart-create-workspace-powershell.md
+              displayName: quickstart
+            - name: Modelo de ARM
+              href: quickstart-deployment-template-workspaces.md
           displayName: quickstart
         - name: Vincular um workspace do Power BI
           href: quickstart-power-bi.md

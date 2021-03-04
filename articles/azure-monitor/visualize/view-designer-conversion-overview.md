@@ -3,15 +3,14 @@ title: Guia de transição do designer de Azure Monitor exibição para pastas d
 description: Transição de exibições para pastas de trabalho no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 7c43d1e4dda10cca6b868ef814ec8298d6e21fd0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 19de2a3d3f5a998c09db7c4df689b0378e2597fd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736960"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043364"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-transition-guide"></a>Guia de transição do designer de Azure Monitor exibição para pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Elas foram transferidas para pastas de trabalho para fornecer uma tela flexível para análise de dados e criação de relatórios visuais avançados dentro do portal do Azure. Este artigo ajuda você a fazer a transição do designer de exibição para pastas de trabalho. 

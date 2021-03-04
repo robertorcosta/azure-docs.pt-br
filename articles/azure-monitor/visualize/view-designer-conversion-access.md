@@ -3,15 +3,14 @@ title: Resumo e acesso de conversão do designer de exibição para pastas de tr
 description: Permissões necessárias para acessar pastas de trabalho ao fazer a transição de exibições no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: c5b3096c4eb8cf71ff1d13476fa09cc65ef413a7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 42cb8db0f67d3a01b2e8443e6cb7c47f0fc44c4b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604876"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043383"
 ---
 # <a name="view-designer-to-workbooks-conversion-summary-and-access"></a>Resumo e acesso de conversão do designer de pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho, que fornecem funcionalidade adicional. Este artigo fornece detalhes sobre como você pode criar um resumo de visão geral e as permissões necessárias para acessar pastas de trabalho.

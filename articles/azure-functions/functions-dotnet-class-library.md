@@ -1,27 +1,30 @@
 ---
-title: Referência do desenvolvedor de C# do Azure Functions
-description: Entenda como desenvolver no Azure Functions usando NodeJS.
+title: Desenvolver funções C# usando Azure Functions
+description: Entenda como usar o C# para desenvolver e publicar código que é executado em processo com o tempo de execução de Azure Functions.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 335cc3017e7b016666324306181c90a0e405a956
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806317"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041188"
 ---
-# <a name="azure-functions-c-developer-reference"></a>Referência do desenvolvedor de C# do Azure Functions
+# <a name="develop-c-functions-using-azure-functions"></a>Desenvolver funções C# usando Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
 Este artigo é uma introdução ao desenvolvimento do Azure Functions usando o script C# em biblioteca de classes .NET.
 
+>[!IMPORTANT]
+>Este artigo dá suporte a funções de biblioteca de classes do .NET que são executadas em processo com o tempo de execução. O Functions também dá suporte ao .NET 5. x, executando suas funções C# fora do processo e isolada do tempo de execução. Para saber mais, consulte [funções de processo isolado do .net](dotnet-isolated-process-guide.md).
+
 Como desenvolvedor de C#, você também pode estar interessado em um dos seguintes artigos:
 
 | Introdução | Conceitos| Aprendizado guiado/amostras |
 | -- | -- | -- | 
-| <ul><li>[Usando o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Usar o Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Exemplos do C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
+| <ul><li>[Usando o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Usando Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Exemplos do C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 O Azure Functions oferece suporte às linguagens de programação C# e script C#. Se estiver procurando diretrizes sobre [como usar C# no portal do Azure](functions-create-function-app-portal.md), consulte [Referência do desenvolvedor de script C# (.csx)](functions-reference-csharp.md).
 
@@ -31,9 +34,11 @@ As versões do tempo de execução do Functions funcionam com versões específi
 
 | Versão de tempo de execução do Functions | Versão máxima do .NET |
 | ---- | ---- |
-| Funções 3. x | .NET Core 3.1 |
+| Funções 3. x | .NET Core 3.1<br/>.NET 5,0<sup>*</sup> |
 | Funções 2.x | .NET Core 2.2 |
 | Funções 1.x | .NET Framework 4.7 |
+
+<sup>*</sup> Deve executar [fora do processo](dotnet-isolated-process-guide.md).
 
 Para saber mais, consulte [visão geral das versões do Azure Functions Runtime](functions-versions.md)
 
@@ -94,9 +99,11 @@ A assinatura do método pode conter parâmetros diferentes daquela usada com o a
 
 Não importa a ordem dos parâmetros na assinatura de função. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
 
-### <a name="output-binding-example"></a>Exemplo de associação de saída
+### <a name="output-bindings"></a>Associações de saída
 
-O exemplo a seguir modifica o anterior por adicionar uma associação de fila de saída. A função grava a mensagem da fila que aciona a função para uma nova mensagem de fila em uma fila diferente.
+Uma função pode ter zero ou uma associação de saída definida usando parâmetros de saída. 
+
+O exemplo a seguir modifica o anterior, adicionando uma associação de fila de saída chamada `myQueueItemCopy` . A função grava o conteúdo da mensagem que dispara a função para uma nova mensagem em uma fila diferente.
 
 ```csharp
 public static class SimpleExampleWithOutput
@@ -112,6 +119,8 @@ public static class SimpleExampleWithOutput
     }
 }
 ```
+
+Os valores atribuídos às associações de saída são gravados quando a função é encerrada. Você pode usar mais de uma associação de saída em uma função simplesmente atribuindo valores a vários parâmetros de saída. 
 
 Os artigos de referência de associação ([Filas de armazenamento](functions-bindings-storage-queue.md), por exemplo) explicam quais tipos de parâmetro você pode usar com os atributos de associação de gatilho, entrada ou saída.
 
@@ -140,7 +149,7 @@ O processo de compilação cria um arquivo *function.json* em uma pasta de funç
 
 A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](event-driven-scaling.md). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
 
-O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Veja um exemplo:
+O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Aqui está um exemplo:
 
 ```json
 {
@@ -312,7 +321,7 @@ public static class CancellationTokenExample
 }
 ```
 
-## <a name="logging"></a>Registrando em log
+## <a name="logging"></a>Registro em log
 
 No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não use `Console.Write` o para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
 
@@ -361,7 +370,7 @@ Aqui está uma representação JSON de exemplo de dados `customDimensions`:
 }
 ```
 
-## <a name="log-custom-telemetry-in-c-functions"></a>Registrar telemetria personalizada em funções C#
+### <a name="log-custom-telemetry"></a><a name="log-custom-telemetry-in-c-functions"></a>Registrar telemetria personalizada
 
 Há uma versão do SDK do Application Insights específica de Functions, que você pode usar para enviar dados de telemetria personalizada das suas funções para Application Insights: [Microsoft.Azure.WebJobs.Logging.ApplicationInsights](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights). Use o comando a seguir, no prompt de comando, para instalar esse pacote:
 

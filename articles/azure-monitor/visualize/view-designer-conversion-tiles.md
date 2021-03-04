@@ -3,15 +3,14 @@ title: Conversões de bloco do designer de exibição para pastas de trabalho Az
 description: Detalhes da conversão de blocos em pastas de trabalho ao fazer a transição de exibições no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 0fe1c5a4e6da1cb2955542c2651fcaf2d015b8f8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9b8d1840c0b1cea4c03312d38ed892fde94faa4c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606467"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043330"
 ---
 # <a name="azure-monitor-view-designer-tile-conversions"></a>Azure Monitor conversões de bloco do designer de exibição
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo fornece detalhes para converter blocos diferentes em pastas de trabalho.

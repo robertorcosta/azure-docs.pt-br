@@ -1,17 +1,16 @@
 ---
 title: Azure Monitor os clusters dedicados
 description: Os clientes que ingerirem mais de 1 TB um dia de dados de monitoramento poderão usar clusters dedicados em vez de compartilhados
-ms.subservice: logs
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 09/16/2020
-ms.openlocfilehash: fe7bd4b9f800b59d2c16d4aa3dadd3626c55b7e1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1fbb8f82366ee961d10ce8a6bc098128bad6555a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707635"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041001"
 ---
 # <a name="azure-monitor-logs-dedicated-clusters"></a>Azure Monitor os clusters dedicados
 

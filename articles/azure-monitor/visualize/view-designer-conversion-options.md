@@ -3,15 +3,14 @@ title: Opções de conversão do designer de exibição para pastas de trabalho 
 description: Opções de conversão para transição de exibições para pastas de trabalho no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: a36361430d6ac2af598c2255aed5830150f02217
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b8b6b8b41c729c3cbb6cf4589d679e93149e5314
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606746"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043381"
 ---
 # <a name="azure-monitor-view-designer-to-workbooks-conversion-options"></a>Opções de conversão do designer de exibição para pastas de trabalho do Azure Monitor
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo compara os conceitos fundamentais entre as duas opções para converter exibições em pastas de trabalho.

@@ -2,7 +2,6 @@
 title: Autenticação e autorização de API – Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve como configurar a autenticação e autorização para um aplicativo personalizado que chama a API do Azure Time Series Insights.
 ms.service: time-series-insights
-services: time-series-insights
 author: deepakpalled
 ms.author: shresha
 manager: dpalled
@@ -12,16 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 58c0f408e3ad80109efd3db79d6e4a0d881aed78
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724160"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041205"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
-Dependendo das suas necessidades de negócios, sua solução pode incluir um ou mais aplicativos cliente que você usa para interagir com as [APIs](https://docs.microsoft.com/en-us/rest/api/time-series-insights/reference-data-access-overview)do seu ambiente de Azure Time Series insights. Azure Time Series Insights executa a autenticação usando [tokens de segurança do Azure AD com base no OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar seus clientes, você precisará obter um token de portador com as permissões corretas e passá-lo junto com suas chamadas à API. Este documento descreve vários métodos de obtenção de credenciais que você pode usar para obter um token de portador e autenticar.
+Dependendo das suas necessidades de negócios, sua solução pode incluir um ou mais aplicativos cliente que você usa para interagir com as [APIs](/rest/api/time-series-insights/reference-data-access-overview)do seu ambiente de Azure Time Series insights. Azure Time Series Insights executa a autenticação usando [tokens de segurança do Azure AD com base no OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar seus clientes, você precisará obter um token de portador com as permissões corretas e passá-lo junto com suas chamadas à API. Este documento descreve vários métodos de obtenção de credenciais que você pode usar para obter um token de portador e autenticar.
 
 
   como registrar um aplicativo no Azure Active Directory usando a folha novo Azure Active Directory. Os aplicativos registrados no Azure Active Directory permitem que os usuários se autentiquem no e estejam autorizados a usar a API do Azure Time Series Insight associada a um ambiente de Azure Time Series Insights.
@@ -34,7 +33,7 @@ As seções a seguir descrevem como usar uma identidade gerenciada do Azure Acti
 - Você pode usar identidades gerenciadas para fazer a autenticação em qualquer serviço do Azure que dê suporte à autenticação do Azure AD incluindo o Azure Key Vault.
 - Identidades gerenciadas podem ser usadas sem nenhum custo adicional.
 
-Para obter mais informações sobre os dois tipos de identidades gerenciadas, leia [o que são identidades gerenciadas para recursos do Azure?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
+Para obter mais informações sobre os dois tipos de identidades gerenciadas, leia [o que são identidades gerenciadas para recursos do Azure?](../active-directory/managed-identities-azure-resources/overview.md)
 
 Você pode usar identidades gerenciadas do seu:
 
@@ -44,7 +43,7 @@ Você pode usar identidades gerenciadas do seu:
 - Instâncias de contêiner do Azure
 - e muito mais...
 
-Consulte [Serviços do Azure que dão suporte a identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-managed-identities-for-azure-resources) para obter a lista completa.
+Consulte [Serviços do Azure que dão suporte a identidades gerenciadas para recursos do Azure](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-managed-identities-for-azure-resources) para obter a lista completa.
 
 ## <a name="azure-active-directory-app-registration"></a>Registro de aplicativo do Azure Active Directory
 
@@ -54,9 +53,9 @@ Quando você concluir o registro do aplicativo, terá uma instância globalmente
 
 Se você registrar um aplicativo no portal, um objeto de aplicativo, bem como um objeto de entidade de serviço, será criado automaticamente em seu locatário inicial. Se você registrar/criar um aplicativo usando as APIs de Microsoft Graph, a criação do objeto de entidade de serviço será uma etapa separada. Um objeto de entidade de serviço é necessário para solicitar tokens.
 
-Certifique-se de examinar a lista de verificação de [segurança](https://docs.microsoft.com/azure/active-directory/develop/identity-platform-integration-checklist#security) para seu aplicativo. Como prática recomendada, você deve usar [credenciais de certificado](https://docs.microsoft.com/azure/active-directory/develop/active-directory-certificate-credentials), não credenciais de senha (segredos de cliente).
+Certifique-se de examinar a lista de verificação de [segurança](../active-directory/develop/identity-platform-integration-checklist.md#security) para seu aplicativo. Como prática recomendada, você deve usar [credenciais de certificado](../active-directory/develop/active-directory-certificate-credentials.md), não credenciais de senha (segredos de cliente).
 
-Consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) para obter mais detalhes.
+Consulte [objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md) para obter mais detalhes.
 
 ## <a name="step-1-create-your-managed-identity-or-app-registration"></a>Etapa 1: criar sua identidade gerenciada ou registro de aplicativo
 
@@ -64,16 +63,16 @@ Depois de identificar se você usará uma identidade gerenciada ou um registro d
 
 ### <a name="managed-identity"></a>Identidade gerenciada
 
-As etapas que você usará para criar uma identidade gerenciada variam de acordo com o local em que o código está localizado e se você está criando ou não uma identidade atribuída pelo sistema ou pelo usuário. Leia [tipos de identidade gerenciada](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types) para entender a diferença. Depois de selecionar o tipo de identidade, localize e siga o tutorial correto na [documentação](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)de identidades gerenciadas do Azure AD. Lá, você encontrará instruções sobre como configurar identidades gerenciadas para o:
+As etapas que você usará para criar uma identidade gerenciada variam de acordo com o local em que o código está localizado e se você está criando ou não uma identidade atribuída pelo sistema ou pelo usuário. Leia [tipos de identidade gerenciada](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) para entender a diferença. Depois de selecionar o tipo de identidade, localize e siga o tutorial correto na [documentação](../active-directory/managed-identities-azure-resources/index.yml)de identidades gerenciadas do Azure AD. Lá, você encontrará instruções sobre como configurar identidades gerenciadas para o:
 
-- [VMs do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#enable-system-assigned-managed-identity-during-creation-of-a-vm)
-- [Serviço de aplicativo e Azure Functions](https://docs.microsoft.com/azure/app-service/overview-managed-identity)
-- [Instâncias de Contêiner do Azure](https://docs.microsoft.com/azure/container-instances/container-instances-managed-identity)
+- [VMs do Azure](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm)
+- [Serviço de aplicativo e Azure Functions](../app-service/overview-managed-identity.md)
+- [Instâncias de Contêiner do Azure](../container-instances/container-instances-managed-identity.md)
 - e muito mais...
 
 ### <a name="application-registration"></a>Registro de aplicativo
 
-Siga as etapas listadas em [registrar um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#register-an-application).
+Siga as etapas listadas em [registrar um aplicativo](../active-directory/develop/quickstart-register-app.md#register-an-application).
 
 [!INCLUDE [Azure Active Directory app registration](../../includes/time-series-insights-aad-registration.md)]
 
@@ -81,16 +80,16 @@ Siga as etapas listadas em [registrar um aplicativo](https://docs.microsoft.com/
 
 Quando o ambiente de Azure Time Series Insights recebe uma solicitação, primeiro o token de portador do chamador é validado. Se a validação for aprovada, o chamador foi autenticado e outra verificação será feita para garantir que o chamador esteja autorizado a executar a ação solicitada. Para autorizar qualquer usuário ou entidade de serviço, primeiro você deve conceder a eles acesso ao ambiente, atribuindo a função de leitor ou colaborador.
 
-- Para conceder acesso por meio da interface do usuário do [portal do Azure](https://portal.azure.com/) , siga as instruções listadas no artigo [conceder acesso a dados a um ambiente](https://docs.microsoft.com/azure/time-series-insights/concepts-access-policies) . Ao selecionar o usuário, você pode pesquisar a identidade gerenciada ou o registro do aplicativo por seu nome ou por ID.
+- Para conceder acesso por meio da interface do usuário do [portal do Azure](https://portal.azure.com/) , siga as instruções listadas no artigo [conceder acesso a dados a um ambiente](concepts-access-policies.md) . Ao selecionar o usuário, você pode pesquisar a identidade gerenciada ou o registro do aplicativo por seu nome ou por ID.
 
-- Para conceder acesso usando o CLI do Azure, execute o comando a seguir. Examine a documentação [aqui](https://docs.microsoft.com/cli/azure/ext/timeseriesinsights/tsi/access-policy?view=azure-cli-latest) para obter a lista completa de comandos disponíveis para gerenciar o acesso.
+- Para conceder acesso usando o CLI do Azure, execute o comando a seguir. Examine a documentação [aqui](/cli/azure/ext/timeseriesinsights/tsi/access-policy) para obter a lista completa de comandos disponíveis para gerenciar o acesso.
 
    ```azurecli-interactive
    az tsi access-policy create --name "ap1" --environment-name "env1" --description "some description" --principal-object-id "aGuid" --roles Reader Contributor --resource-group "rg1"
    ```
 
 > [!Note]
-> A extensão timeseriesinsights para CLI do Azure requer a versão 2.11.0 ou superior. A extensão será instalada automaticamente na primeira vez que você executar um comando AZ TSI Access-Policy. [Saiba mais](https://docs.microsoft.com/cli/azure/azure-cli-extensions-overview) sobre extensões.
+> A extensão timeseriesinsights para CLI do Azure requer a versão 2.11.0 ou superior. A extensão será instalada automaticamente na primeira vez que você executar um comando AZ TSI Access-Policy. [Saiba mais](/cli/azure/azure-cli-extensions-overview) sobre extensões.
 
 ## <a name="step-3-requesting-tokens"></a>Etapa 3: solicitando tokens
 
@@ -107,37 +106,37 @@ Depois que a identidade gerenciada ou o registro do aplicativo tiver sido provis
 
 ### <a name="managed-identities"></a>Identidades gerenciadas
 
-Ao acessar de Azure App serviço ou funções, siga as orientações em [obter tokens para recursos do Azure](https://docs.microsoft.com/azure/app-service/overview-managed-identity).
+Ao acessar de Azure App serviço ou funções, siga as orientações em [obter tokens para recursos do Azure](../app-service/overview-managed-identity.md).
 
 > [!TIP]
-> Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio da [biblioteca de cliente de identidade do Azure](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme) para .net. 
+> Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio da [biblioteca de cliente de identidade do Azure](/dotnet/api/overview/azure/identity-readme) para .net. 
 
-Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote Microsoft.Azure.Services.AppAuthentication. Este pacote é popular devido a seus benefícios de simplicidade e de segurança. Os desenvolvedores podem escrever código uma vez e permitir que a biblioteca de cliente determine como autenticar com base no ambiente de aplicativo – seja em uma estação de trabalho de desenvolvedor usando a conta de um desenvolvedor ou implantada no Azure usando uma identidade de serviço gerenciada. Para obter diretrizes de migração da biblioteca predecessora AppAuthentication, leia [AppAuthentication para o Azure. diretrizes de migração de identidade](https://docs.microsoft.com/dotnet/api/overview/azure/app-auth-migration?view=azure-dotnet).
+Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote Microsoft.Azure.Services.AppAuthentication. Este pacote é popular devido a seus benefícios de simplicidade e de segurança. Os desenvolvedores podem escrever código uma vez e permitir que a biblioteca de cliente determine como autenticar com base no ambiente de aplicativo – seja em uma estação de trabalho de desenvolvedor usando a conta de um desenvolvedor ou implantada no Azure usando uma identidade de serviço gerenciada. Para obter diretrizes de migração da biblioteca predecessora AppAuthentication, leia [AppAuthentication para o Azure. diretrizes de migração de identidade](/dotnet/api/overview/azure/app-auth-migration).
 
 Solicite um token para Azure Time Series Insights usando C# e a biblioteca de cliente de identidade do Azure para .NET:
 
-    ```csharp
-    using Azure.Identity;
-    // ...
-    var credential = new DefaultAzureCredential();
-    var token = credential.GetToken(
-    new Azure.Core.TokenRequestContext(
-        new[] { "https://api.timeseries.azure.com/" }));
-   var accessToken = token. Token
-    ```
+   ```csharp
+   using Azure.Identity;
+   // ...
+   var credential = new DefaultAzureCredential();
+   var token = credential.GetToken(
+   new Azure.Core.TokenRequestContext(
+       new[] { "https://api.timeseries.azure.com/" }));
+   var accessToken = token.Token;
+   ```
 
 ### <a name="app-registration"></a>Registro do aplicativo
 
-* Os desenvolvedores podem usar a MSAL ( [biblioteca de autenticação da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/msal-overview) ) para obter tokens para registros de aplicativo.
+* Os desenvolvedores podem usar a MSAL ( [biblioteca de autenticação da Microsoft](../active-directory/develop/msal-overview.md) ) para obter tokens para registros de aplicativo.
 
 O MSAL pode ser usado em muitos cenários de aplicativos, incluindo, mas não se limitando a:
 
-* [Aplicativos de página única (JavaScript)](https://docs.microsoft.com/azure/active-directory/develop/scenario-spa-overview.md)
-* [Aplicativo Web que conecta um usuário e chama uma API Web em nome dele](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-call-api-overview.md)
-* [API Web que chama outra API Web downstream em nome do usuário conectado](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-api-call-api-overview.md)
-* [Aplicativo de desktop chamando uma API da Web em nome do usuário conectado](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview.md)
-* [Aplicativo móvel chamando uma API da Web em nome do usuário que está conectado interativamente](https://docs.microsoft.com/azure/active-directory/develop/scenario-mobile-overview.md).
-* [Aplicativo daemon da área de trabalho/de serviço que chama uma API Web em seu próprio nome](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-overview.md)
+* [Aplicativos de página única (JavaScript)](../active-directory/develop/scenario-spa-overview.md)
+* [Aplicativo Web que conecta um usuário e chama uma API Web em nome dele](../active-directory/develop/scenario-web-app-call-api-overview.md)
+* [API Web que chama outra API Web downstream em nome do usuário conectado](../active-directory/develop/scenario-web-api-call-api-overview.md)
+* [Aplicativo de desktop chamando uma API da Web em nome do usuário conectado](../active-directory/develop/scenario-desktop-overview.md)
+* [Aplicativo móvel chamando uma API da Web em nome do usuário que está conectado interativamente](../active-directory/develop/scenario-mobile-overview.md).
+* [Aplicativo daemon da área de trabalho/de serviço que chama uma API Web em seu próprio nome](../active-directory/develop/scenario-daemon-overview.md)
 
 Para exemplo de código C# mostrando como adquirir um token como um registro de aplicativo e dados de consulta de um ambiente Gen2, exiba o aplicativo de exemplo no [GitHub](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen2-sample/csharp-tsi-gen2-sample/DataPlaneClientSampleApp/Program.cs)
 

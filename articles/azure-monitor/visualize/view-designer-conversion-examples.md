@@ -3,15 +3,14 @@ title: Exemplos de conversão do designer de exibição para pastas de trabalho 
 description: Exemplos de transição de exibições para pastas de trabalho no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 126add52d5411c4121bc1624246ae4d2c6d5359e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bd57838dd3cceae308b55dd2d7fdbb55cec79ec4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606748"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043347"
 ---
 # <a name="view-designer-conversion-examples"></a>Exemplos de conversão do designer de exibição
 

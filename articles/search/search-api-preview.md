@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: a03707133b384f7717a624e810d0f7a41267969d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 596113f9fcb7326010090e67b3a52ca03faa25d0
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670877"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041970"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Recursos de visualização no Azure Pesquisa Cognitiva
 
@@ -25,7 +25,7 @@ Os recursos de visualização que fazem a transição para a disponibilidade ger
 |---------|------------------|-------------|---------------|
 | [**Pesquisa semântica**](semantic-search-overview.md) | Relevância (Pontuação) | Um algoritmo de classificação semântica, tipo de consulta e resposta de consulta. | [API REST de Pesquisa 2020-06-30-Versão prévia](/rest/api/searchservice/) |
 | [**verificador ortográfico**](cognitive-search-aml-skill.md) | Consulta | Correção de ortografia opcional em entradas de termo de consulta para consultas simples, completas e semânticas. | [API REST de Pesquisa 2020-06-30-Versão prévia](/rest/api/searchservice/) |
-| Indexador do SharePoint Online | Fonte de dados do indexador | Nova fonte de dados para indexação baseada em indexador de conteúdo do SharePoint. | [API REST de Pesquisa 2020-06-30-Versão prévia](/rest/api/searchservice/) |
+| [**Indexador do SharePoint Online**](search-howto-index-sharepoint-online.md) | Fonte de dados do indexador | Nova fonte de dados para indexação baseada em indexador de conteúdo do SharePoint. | [API REST de Pesquisa 2020-06-30-Versão prévia](/rest/api/searchservice/) |
 | [**Habilidade do Azure Machine Learning (AML)**](cognitive-search-aml-skill.md) | Enriquecimento de IA| Um novo tipo de habilidade para integrar um ponto de extremidade inferência de Azure Machine Learning. Veja uma introdução [neste tutorial](cognitive-search-tutorial-aml-custom-skill.md). | Use [a API REST de pesquisa 2020-06-30-Preview](/rest/api/searchservice/) ou 2019-05-06-Preview. Também disponível no portal, no design de Skills, supondo que Pesquisa Cognitiva e os serviços do Azure ML sejam implantados na mesma assinatura. |
 | [**parâmetro featuresmode**](/rest/api/searchservice/preview-api/search-documents#query-parameters) | Relevância (Pontuação) | Expansão da Pontuação de relevância para incluir detalhes: por Pontuação de similaridade de campo, por frequência de termo de campo, e por número de campo de tokens exclusivos correspondentes. Você pode consumir esses pontos de dados em [soluções de Pontuação personalizadas](https://github.com/Azure-Samples/search-ranking-tutorial). | Adicione esse parâmetro de consulta usando [Pesquisar documentos (REST)](/rest/api/searchservice/preview-api/search-documents) com a API-Version = 2020-06 -30-preview ou 2019-05-06-Preview. |
 | [**Sessões de depuração**](cognitive-search-debug-session.md) | Portal, enriquecimento de ia (contextset) | Um editor de qualificações na sessão usado para investigar e resolver problemas com um qualificable. As correções aplicadas durante uma sessão de depuração podem ser salvas em um conconhecimento no serviço. | Somente no portal, usando links de página intermediária na página Visão geral para abrir uma sessão de depuração. |
