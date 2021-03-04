@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: ed9690a750ad6e1167ba0a0ae4a87b603c4a1f15
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a889275782388781eadffb7cf0a24771bf6e9e4f
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717393"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030827"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Projetando a implantação de logs do Azure Monitor
 
@@ -87,9 +87,9 @@ Os usuários têm duas opções para acessar os dados:
 
     > [!NOTE]
     > Os logs estarão disponíveis para consultas de contexto de recurso somente se estiverem corretamente associados ao recurso relevante. Atualmente, os seguintes recursos têm limitações:
-    > - Computadores fora do Azure
+    > - Computadores fora do Azure-com suporte para o contexto de recurso somente por meio do [Azure ARC para servidores](../../azure-arc/servers/index.yml)
     > - Service Fabric
-    > - Application Insights
+    > - Application Insights-com suporte para o contexto de recurso somente ao usar o [recurso de Application insights baseado em espaço de trabalho](../app/create-workspace-resource.md)
     >
     > Você pode testar se os logs estão corretamente associados ao recurso executando uma consulta e inspecionando os registros nos quais você está interessado. Se a ID de recurso correta estiver na propriedade [_ResourceId](./log-standard-columns.md#_resourceid) , os dados estarão disponíveis para consultas centradas em recursos.
 

@@ -1,17 +1,17 @@
 ---
 title: Como importar uma nova atualização | Microsoft Docs
 description: Guia de How-To para importar uma nova atualização para a atualização de dispositivo do Hub IoT para o Hub IoT.
-author: andbrown
+author: andrewbrownmsft
 ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: d8757f3076f784576f95bbdfc30abf578446c776
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661802"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030725"
 ---
 # <a name="import-new-update"></a>Importar nova atualização
 Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT.
@@ -53,7 +53,7 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
     $importManifest | Out-File '.\importManifest.json' -Encoding UTF8
     ```
 
-    Para referência rápida, aqui estão alguns exemplos de valores para os parâmetros acima. Para obter a documentação completa, consulte o esquema de manifesto de importação completa abaixo.
+    Para referência rápida, aqui estão alguns exemplos de valores para os parâmetros acima. Você também pode exibir o [esquema de manifesto de importação](import-schema.md) completo para obter mais detalhes.
 
     | Parâmetro | Descrição |
     | --------- | ----------- |
@@ -66,19 +66,6 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
     | installedCriteria | <ul><li>Especificar o valor de SWVersion para o `microsoft/swupdate:1` tipo de atualização</li><li>Especifique o valor recomendado para o `microsoft/apt:1` tipo de atualização.
     | updateFilePath (s) | Caminho para os arquivos de atualização no computador
 
-    Esquema de manifesto de importação completa
-
-    | Nome | Tipo | Descrição | Restrições |
-    | --------- | --------- | --------- | --------- |
-    | UpdateID | Objeto `UpdateId` | Atualizar identidade. |
-    | UpdateType | string | Tipo de atualização: <ul><li>Especifique `microsoft/apt:1` ao executar uma atualização baseada em pacote usando o agente de referência.</li><li>Especifique `microsoft/swupdate:1` ao executar uma atualização baseada em imagem usando o agente de referência.</li><li>Especifique `microsoft/simulator:1` ao usar o simulador de agente de exemplo.</li><li>Especifique um tipo personalizado se estiver desenvolvendo um agente personalizado.</li></ul> | <ul><li>Formato: `{provider}/{type}:{typeVersion}`</li><li>Máximo de 32 caracteres no total</li></ul> |
-    | InstalledCriteria | string | Cadeia de caracteres interpretada pelo agente para determinar se a atualização foi aplicada com êxito:  <ul><li>Especifique o **valor** de SWVersion para o tipo de atualização `microsoft/swupdate:1` .</li><li>Especifique `{name}-{version}` para o tipo de atualização `microsoft/apt:1` , de qual nome e versão são obtidos do arquivo apt.</li><li>Especifique o hash do arquivo de atualização para o tipo de atualização `microsoft/simulator:1` .</li><li>Especifique uma cadeia de caracteres personalizada se estiver desenvolvendo um agente personalizado.</li></ul> | Máximo de 64 caracteres |
-    | Compatibilidade | Matriz de `CompatibilityInfo` objetos | Informações de compatibilidade do dispositivo compatível com esta atualização. | Máximo de 10 itens |
-    | CreatedDateTime | data/hora | Data e hora em que a atualização foi criada. | Formato de data e hora ISO 8601 delimitado, em UTC |
-    | ManifestVersion | string | Importar versão do esquema de manifesto. Especifique `2.0` , que será compatível com `urn:azureiot:AzureDeviceUpdateCore:1` interface e `urn:azureiot:AzureDeviceUpdateCore:4` interface.</li></ul> | Precisa ser `2.0` |
-    | Arquivos | Matriz de `File` objetos | Atualizar arquivos de conteúdo | Máximo de 5 arquivos |
-
-Observação: todos os campos são obrigatórios.
 
 ## <a name="review-generated-import-manifest"></a>Examinar o manifesto de importação gerado
 

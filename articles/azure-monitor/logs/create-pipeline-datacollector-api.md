@@ -1,17 +1,16 @@
 ---
 title: Usar a API do coletor de dados para criar um pipeline de dados
 description: É possível usar a API do Coletor de Dados HTTP do Azure Monitor para adicionar dados JSON POST ao espaço de trabalho do Log Analytics de qualquer cliente que possa chamar a API REST. Este artigo descreve como carregar os dados armazenados em arquivos de uma maneira automatizada.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/09/2018
-ms.openlocfilehash: ac2b79046718fe45ad0dad0396b6f7653efbb779
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: ab2e9c691f17b8f0891ecbc82ff42cd3529a1328
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606329"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031184"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Criar um pipeline de dados com a API do Coletor de Dados
 

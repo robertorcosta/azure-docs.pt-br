@@ -1,17 +1,16 @@
 ---
 title: Grupos de computadores nas consultas de log do Azure Monitor | Microsoft Docs
 description: Os grupos de computadores no Azure Monitor permitem que você analise as consultas de log em um determinado conjunto de computadores.  Este artigo descreve os diferentes métodos que podem ser utilizados para criar grupos de computadores e como usá-los em uma consulta de log.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
-ms.openlocfilehash: 3dffab040b8ee17760e23aa8b1d8fb65aa0417e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734121"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031082"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
 Os grupos de computadores no Azure Monitor permitem que você defina o escopo de [consultas de log](./log-query-overview.md) para um determinado conjunto de computadores.  Cada grupo é preenchido com computadores usando uma consulta que você define ou importando grupos de fontes diferentes.  Quando o grupo é incluído em uma consulta de log, os resultados são limitados aos registros que correspondem aos computadores no grupo.

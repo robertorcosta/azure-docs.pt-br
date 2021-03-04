@@ -1,17 +1,16 @@
 ---
 title: Habilitar o insights de VM usando Azure Policy
 description: Descreve como habilitar o insights de VM para várias máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando Azure Policy.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: a63a647f3d76e3cc2616f05fe96d86dbdd36e74d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707533"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031949"
 ---
 # <a name="enable-vm-insights-by-using-azure-policy"></a>Habilitar o insights de VM usando Azure Policy
 Este artigo explica como habilitar as informações de VM para máquinas virtuais do Azure ou máquina virtual híbrida conectada com o Arc do Azure (versão prévia) usando Azure Policy. Azure Policy permite que você atribua definições de política que instalam os agentes necessários para as informações da VM em todo o ambiente do Azure e habilitam automaticamente o monitoramento de VMs à medida que cada máquina virtual é criada. O Revisions da VM fornece um recurso que permite que você descubra e corrija VMs não compatíveis em seu ambiente. Use esse recurso em vez de trabalhar diretamente com Azure Policy.
@@ -19,7 +18,7 @@ Este artigo explica como habilitar as informações de VM para máquinas virtuai
 Se você não estiver familiarizado com Azure Policy, obtenha uma breve introdução em [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md).
 
 > [!NOTE]
-> Para usar Azure Policy com conjuntos de dimensionamento de máquinas virtuais do Azure ou para trabalhar com Azure Policy diretamente para habilitar máquinas virtuais do Azure, consulte [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md#azure-monitor-for-vms).
+> Para usar Azure Policy com conjuntos de dimensionamento de máquinas virtuais do Azure ou para trabalhar com Azure Policy diretamente para habilitar máquinas virtuais do Azure, consulte [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md#vm-insights).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - [Criar e configurar um espaço de trabalho log Analytics](./vminsights-configure-workspace.md).

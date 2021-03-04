@@ -1,17 +1,16 @@
 ---
 title: Perguntas frequentes sobre o GA (virtual insights) | Microsoft Docs
 description: O virtual insights é uma solução no Azure que combina o monitoramento de integridade e desempenho do sistema operacional da VM do Azure, bem como a descoberta automática de componentes e dependências de aplicativos com outros recursos e mapeia a comunicação entre eles. Este artigo responde a perguntas comuns sobre a versão GA.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 0c55463847e0bf55cf14db2a35de1de16526cd90
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fbef73bfe8058110277b200b8c4091fcde110c04
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710746"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031849"
 ---
 # <a name="vm-insights-generally-available-ga-frequently-asked-questions"></a>Perguntas frequentes sobre o GA (disponibilidade geral) de VMs disponíveis
 Essas perguntas frequentes sobre disponibilidade geral abordam as alterações feitas no quarto trimestre de 2019 e no primeiro trimestre 2020, conforme preparamos para a GA.
@@ -20,15 +19,15 @@ Essas perguntas frequentes sobre disponibilidade geral abordam as alterações f
 Lançamos uma nova versão do Revisions de VM em janeiro de 2020 em frente ao nosso anúncio de GA. Os clientes que habilitam as informações de VM agora receberão a versão GA, mas os clientes existentes que usam a versão do quarto trimestre de 2019 e anteriores serão solicitados a atualizar. Estas perguntas frequentes oferecem orientação para executar uma atualização em escala se você tiver grandes implantações em vários espaços de trabalho.
 
 
-Com essa atualização, Azure Monitor para VMs dados de desempenho são armazenados na mesma tabela *InsightsMetrics* que as [informações de contêiner](../containers/container-insights-overview.md), o que torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. 
+Com essa atualização, os dados de desempenho da VM insights são armazenados na mesma tabela *InsightsMetrics* que o [contêiner insights](../containers/container-insights-overview.md), o que torna mais fácil consultar os dois conjuntos de dados. Além disso, você pode armazenar conjuntos de dados mais diversificados que não pudemos armazenar na tabela usada anteriormente. 
 
 Nossas exibições de desempenho agora estão usando os dados que armazenamos na tabela *InsightsMetrics* .  Se você ainda não tiver atualizado para usar a solução VMInsights mais recente em seu espaço de trabalho, seus gráficos não exibirão mais informações.  Você pode atualizar de nossa página de **introdução** , conforme descrito abaixo.
 
 
 ## <a name="what-is-changing"></a>O que está mudando?
-Lançamos uma nova solução, chamada VMInsights, que inclui recursos adicionais para a coleta de dados, juntamente com um novo local para armazenar esses dados em seu espaço de trabalho de Log Analytics. 
+Lançamos uma nova solução, chamada VMInsights, que inclui mais recursos para a coleta de dados, juntamente com um novo local para armazenar esses dados em seu espaço de trabalho de Log Analytics. 
 
-No passado, habilitamos a solução ServiceMap em seu espaço de trabalho e configuramos contadores de desempenho em seu espaço de trabalho Log Analytics para enviar os dados para a tabela *perf* . Essa nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é usada por informações de contêiner. Esse esquema de tabela nos permite armazenar métricas adicionais e conjuntos de dados de serviço que não são compatíveis com o formato de tabela *perf* .
+No passado, habilitamos a solução ServiceMap em seu espaço de trabalho e configuramos contadores de desempenho em seu espaço de trabalho Log Analytics para enviar os dados para a tabela *perf* . Essa nova solução envia os dados para uma tabela chamada *InsightsMetrics* que também é usada por informações de contêiner. Esse esquema de tabela nos permite armazenar mais métricas e conjuntos de dados de serviço que não são compatíveis com o formato de tabela *perf* .
 
 Atualizamos nossos gráficos de desempenho para usar os dados que armazenamos na tabela *InsightsMetrics* . Você pode atualizar para usar a tabela *InsightsMetrics* de nossa página de **introdução** , conforme descrito abaixo.
 
@@ -58,7 +57,7 @@ Se você tiver criado [alertas de log](../alerts/alerts-unified-log.md) que cons
 
 Atualizaremos essas perguntas frequentes e nossa documentação para incluir regras de alerta de pesquisa de log de exemplo para os conjuntos de dados que coletamos.
 
-## <a name="how-will-this-affect-my-bill"></a>Como isso afetará minha fatura?
+## <a name="how-will-this-change-affect-my-bill"></a>Como essa alteração afetará minha fatura?
 
 A cobrança ainda se baseia nos dados ingeridos e retidos em seu espaço de trabalho Log Analytics.
 
@@ -90,7 +89,7 @@ Não, as duas soluções compartilham os conjuntos de dados do mapa que armazena
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>O recurso de integridade está em visualização pública limitada
 
-Recebemos muitos comentários incríveis de clientes sobre nosso conjunto de recursos de integridade da VM. Há muito interesse em relação a esse recurso e empolga o seu potencial para dar suporte a fluxos de trabalho de monitoramento. Estamos planejando fazer uma série de alterações para adicionar funcionalidade e abordar os comentários que recebemos. 
+Recebemos muitos comentários incríveis de clientes sobre nosso conjunto de recursos de integridade da VM. Há interesse de asignificant em relação a esse recurso e empolgante em relação ao seu potencial para dar suporte a fluxos de trabalho de monitoramento. Estamos planejando fazer uma série de alterações para adicionar funcionalidade e abordar os comentários que recebemos. 
 
 Para minimizar o impacto dessas alterações em novos clientes, movemos esse recurso para uma **Visualização pública limitada**. Essa atualização ocorreu em outubro de 2019.
 
@@ -108,7 +107,7 @@ Como um cliente existente, você pode continuar a usar o recurso de integridade 
 
 ## <a name="i-use-vm-health-now-with-one-environment-and-would-like-to-deploy-it-to-a-new-one"></a>Eu uso a integridade da VM agora com um ambiente e gostaria de implantá-la em uma nova
 
-Se você for um cliente existente que está usando o recurso de integridade e deseja usá-lo para uma nova distribuição, entre em contato conosco em vminsights@microsoft.com para solicitar instruções.
+Se você for um cliente existente que está usando o recurso de integridade e deseja usá-lo para uma nova distribuição, entre em contato conosco vminsights@microsoft.com para solicitar instruções.
 
 ## <a name="next-steps"></a>Próximas etapas
 

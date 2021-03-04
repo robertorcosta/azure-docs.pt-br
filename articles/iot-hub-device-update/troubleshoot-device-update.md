@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/17/2021
 ms.topic: troubleshooting
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6329e93bb5e628d68afbb2700ce0b9e3a2a711ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3c1f60b214397b1f97e0157b5beca32d504102d6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678965"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102030623"
 ---
 # <a name="device-update-for-iot-hub-troubleshooting-guide"></a>Atualização de dispositivo para o guia de solução de problemas do Hub IoT
 
@@ -46,7 +46,7 @@ _O status de conformidade do dispositivo pode levar até 5 minutos para ser atua
 ### <a name="q-my-devices-deployment-status-shows-incompatible-what-should-i-do"></a>P: o status de implantação do meu dispositivo mostra incompatível, o que devo fazer?
 _As propriedades de fabricante e modelo de um dispositivo de destino podem ter sido alteradas depois de conectar o dispositivo ao Hub IoT, fazendo com que o dispositivo agora seja considerado incompatível com o conteúdo de atualização da implantação atual._
 
-_Verifique a [interface do Adu Core](./device-update-plug-and-play) para ver qual fabricante e modelo seu dispositivo está relatando para o serviço de atualização de dispositivo e verifique se ele corresponde ao fabricante e ao modelo especificado no [manifesto de importação](./import-concepts.md) do conteúdo de atualização que está sendo implantado. Você pode alterar essas propriedades para um determinado dispositivo usando o [arquivo de configuração de atualização de dispositivo](./device-update-cofiguration-file.md)._
+_Verifique a [interface do Adu Core](./device-update-plug-and-play.md) para ver qual fabricante e modelo seu dispositivo está relatando para o serviço de atualização de dispositivo e verifique se ele corresponde ao fabricante e ao modelo especificado no [manifesto de importação](./import-concepts.md) do conteúdo de atualização que está sendo implantado. Você pode alterar essas propriedades para um determinado dispositivo usando o [arquivo de configuração de atualização de dispositivo](./device-update-configuration-file.md)._
 
 ### <a name="q-i-see-my-deployment-is-in-active-stage-but-none-of-my-devices-are-in-progress-with-the-update-what-should-i-do"></a>P: vejo que minha implantação está no estágio "ativo", mas nenhum dos meus dispositivos está "em andamento" com a atualização. O que devo fazer?
 _Verifique se a data de início da implantação não está definida no futuro. Quando você cria uma nova implantação, a data de início da implantação é padronizada para o dia seguinte como uma proteção, a menos que você a altere explicitamente. Você pode aguardar a chegada da data de início da implantação ou cancelar a implantação em andamento e criar uma nova implantação com a data de início desejada._

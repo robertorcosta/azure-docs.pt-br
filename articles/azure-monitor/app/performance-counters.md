@@ -4,12 +4,12 @@ description: Monitore o sistema e contadores de desempenho .NET personalizados n
 ms.topic: conceptual
 ms.date: 12/13/2018
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5f1bd3ac4542dcce0d41f69a9c1664b747214554
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 423e17ef2b44286c28b464836075284929d8644c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100583894"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102031354"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Contadores de desempenho do sistema no Application Insights
 
@@ -21,7 +21,7 @@ O painel Métricas mostra o conjunto padrão de contadores de desempenho.
 
 ![Contadores de desempenho reportados no Application Insights](./media/performance-counters/performance-counters.png)
 
-Os contadores padrão atuais configurados para serem coletados para aplicativos Web do ASP.NET/ASP.NET Core são:
+Os contadores padrão atuais que estão configurados para serem coletados para aplicativos Web ASP.NET são:
 - % de processo\\Tempo do processador
 - % de processo\\Tempo do processador normalizado
 - Memória\\Bytes disponíveis
@@ -31,6 +31,14 @@ Os contadores padrão atuais configurados para serem coletados para aplicativos 
 - Processo\\Bytes particulares
 - Processo\\Bytes de dados de E/S/segundo
 - Aplicativos ASP.NET\\Fila de solicitações em aplicativos
+- \Processador(_Total)\\% de tempo do processador
+
+Os contadores padrão atuais que estão configurados para serem coletados para ASP.NET Core aplicativos Web são:
+- % de processo\\Tempo do processador
+- % de processo\\Tempo do processador normalizado
+- Memória\\Bytes disponíveis
+- Processo\\Bytes particulares
+- Processo\\Bytes de dados de E/S/segundo
 - \Processador(_Total)\\% de tempo do processador
 
 ## <a name="add-counters"></a>Adicionar contadores
