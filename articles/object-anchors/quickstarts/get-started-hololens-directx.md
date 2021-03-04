@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/02/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 7e71719d83426a3444435ed78d0d63a2599a9157
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8a02bb7c70df4fed55c354638fe6662b85e6c164
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747356"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049606"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-object-anchors-in-cwinrt-and-directx"></a>Início rápido: criar um aplicativo do HoloLens com as Âncoras de Objeto do Azure no C++/WinRT e no DirectX
 
@@ -23,7 +23,6 @@ Você aprenderá a:
 > [!div class="checklist"]
 > * Criar e carregar paralelamente um aplicativo do HoloLens
 > * Detectar um objeto e visualizar o respectivo modelo
-> * Capturar o diagnóstico de runtime
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -64,7 +63,7 @@ Para inicializar e depurar o aplicativo, selecione **Depurar > Iniciar Depuraç�
 
 ## <a name="ingest-object-model-and-detect-its-instance"></a>Ingerir o modelo de objeto e detectar a respectiva instância
 
-Será necessário criar um modelo de objeto para executar o aplicativo de exemplo. Suponha que você já tem um modelo de malha 3D do CAD ou digitalizado de um objeto em seu espaço. Confira o [Início rápido: ingestão de um modelo 3D](./get-started-model-ingestion.md) sobre como criar um modelo.
+Será necessário criar um modelo de objeto para executar o aplicativo de exemplo. Suponha que você já tem um modelo de malha 3D do CAD ou digitalizado de um objeto em seu espaço. Confira o [Início rápido: ingestão de um modelo 3D](./get-started-model-conversion.md) sobre como criar um modelo.
 
 Baixe esse modelo – **chair.ou**, em nosso caso – para o seu computador. Em seguida, no portal de dispositivo do HoloLens, selecione **Sistema > Explorador de Arquivos > LocalAppData > AoaSampleApp > LocalState** e depois **Procurar...** . Então, selecione o arquivo de modelo (**chair.ou**, por exemplo) e selecione **Upload**. Em seguida, você deve ver o arquivo do modelo no cache local.
 
@@ -86,7 +85,7 @@ O aplicativo alinha um modelo 3D à sua contraparte física com proximidade. O u
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Início rápido: ingestão de um modelo 3D](./get-started-model-ingestion.md)
+> [Início rápido: ingestão de um modelo 3D](./get-started-model-conversion.md)
 
 > [!div class="nextstepaction"]
 > [Conceitos: visão geral do SDK](../concepts/sdk-overview.md)

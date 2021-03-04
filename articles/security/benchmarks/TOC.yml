@@ -242,4 +242,4 @@
     - name: Central de Segurança do Azure
       href: ../../security-center/index.yml
     - name: Amostra de blueprint do Azure Security Benchmark Foundation
-      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.yml
+      href: ../../governance/blueprints/samples/azure-security-benchmark-foundation/index.md

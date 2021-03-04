@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b545afb370b84404d3e15f885464aabf00d2eaf2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bdcdd387575faec87656430860e24fee56387775
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101687066"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050895"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -29,7 +29,7 @@ Com as restrições de locatário, as organizações podem especificar a lista d
 
 Este artigo se concentra em restrições de locatário para Microsoft 365, mas o recurso protege todos os aplicativos que enviam o usuário ao Azure AD para logon único. Se você usar aplicativos SaaS com um locatário do Azure AD diferente do locatário usado pelo seu Microsoft 365, certifique-se de que todos os locatários necessários sejam permitidos (por exemplo, em cenários de colaboração B2B). Para obter mais informações sobre os aplicativos de nuvem de SaaS, consulte o [Marketplace do Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-Além disso, o recurso de restrições de locatário agora dá suporte ao [bloqueio do uso de todos os aplicativos de consumidor da Microsoft](#blocking-consumer-applications) (aplicativos MSA), como onedrive, Hotmail e Xbox.com.  Isso usa um cabeçalho separado para o `login.live.com` ponto de extremidade e é detalhado no final do documento.
+Além disso, o recurso de restrições de locatário agora dá suporte ao [bloqueio do uso de todos os aplicativos de consumidor da Microsoft](#blocking-consumer-applications-public-preview) (aplicativos MSA), como onedrive, Hotmail e Xbox.com.  Isso usa um cabeçalho separado para o `login.live.com` ponto de extremidade e é detalhado no final do documento.
 
 ## <a name="how-it-works"></a>Como ele funciona
 

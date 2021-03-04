@@ -1,14 +1,14 @@
 ---
 title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
-ms.date: 02/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: 644cac70ef6459a1b0be45e9ab8f2757fafddeed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 844ac637f9fcaed5d78520923e5f7184fcde0d25
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699242"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050385"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -113,9 +113,11 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
 [Azure Policy](../../governance/policy/index.yml):
 
 - Criar e Editar definições de política em assinaturas delegadas
+- Implantar definições de política e atribuições de política em vários locatários
 - Atribuir definições de política definidas pelo cliente em assinaturas delegadas
 - Os clientes veem políticas criadas pelo provedor de serviços junto com políticas que eles mesmos criaram
 - Pode [corrigir deployIfNotExists ou modificar atribuições dentro do locatário gerenciado](../how-to/deploy-policy-remediation.md)
+- Observe que não há suporte atualmente para a exibição de detalhes de conformidade para recursos sem conformidade em locatários do cliente
 
 [Azure Resource Graph](../../governance/resource-graph/index.yml):
 

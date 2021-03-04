@@ -3,12 +3,12 @@ title: Configurar o backup operacional para BLOBs do Azure
 description: Saiba como configurar e gerenciar o backup operacional para BLOBs do Azure (em versão prévia)
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: 7fe302de0e93575e7bb62f7c5cdefd7acc0720c3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0dc490842389ba9286799aef5d37c1cf7c1ba64e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744230"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051065"
 ---
 # <a name="configure-operational-backup-for-azure-blobs-in-preview"></a>Configurar o backup operacional para BLOBs do Azure (em versão prévia)
 
@@ -170,4 +170,4 @@ Para obter mais informações, consulte [visão geral do centro de backup (vers�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Restaurar BLOBs do Azure](blob-backup-support-matrix.md)
+- [Restaurar BLOBs do Azure](blob-restore.md)

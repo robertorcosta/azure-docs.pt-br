@@ -6,13 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: bwren
-ms.subservice: metrics
-ms.openlocfilehash: 0051ec15cafc60af6a0523631f77a9b52294e69c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e510cf2e6fed9f9ffdec1dcc4dacf16a866d66b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731707"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049008"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine"></a>Enviar métricas do SO convidado para o repositório de métricas do Monitor do Azure usando um modelo do Azure Resource Manager para uma máquina virtual do Windows
 Os dados de desempenho do SO convidado de máquinas virtuais do Azure não são coletados automaticamente como outras [métricas de plataforma](./monitor-azure-resource.md#monitoring-data). Instale a [extensão de diagnóstico](../agents/diagnostics-extension-overview.md) do Azure Monitor para coletar métricas do SO convidado no banco de dados de métricas para que elas possam ser usadas com todos os recursos de Métricas do Azure Monitor, incluindo alertas quase em tempo real, criação de gráficos, roteamento e acesso de uma API REST. Este artigo descreve o processo para enviar métricas de desempenho do SO convidado para uma máquina virtual do Windows para o banco de dados de métricas usando um modelo do Resource Manager. 

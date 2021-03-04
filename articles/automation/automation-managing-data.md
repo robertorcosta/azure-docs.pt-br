@@ -3,14 +3,14 @@ title: Segurança de dados da automação do Azure
 description: Este artigo ajuda você a aprender como a automação do Azure protege sua privacidade e protege seus dados.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 01/08/2021
+ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: f2ce8d482231b4a95c322e9d495a75f89953c32a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2bdf25ef24f1fbf4aaf4dec154ea6af3421b915a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581105"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050810"
 ---
 # <a name="management-of-azure-automation-data"></a>Gerenciamento de dados da Automação do Azure
 
@@ -41,7 +41,7 @@ Para obter informações sobre o suporte a TLS 1,2 com o agente de Log Analytics
 
 ## <a name="data-retention"></a>Retenção de dados
 
-Quando você exclui um recurso na Automação do Azure, ele é mantido por vários dias para fins de auditoria antes da remoção permanente. Você não pode ver nem usar o recurso durante esse período. Essa política também se aplica aos recursos que pertencem a uma conta da Automação excluída.
+Quando você exclui um recurso na Automação do Azure, ele é mantido por vários dias para fins de auditoria antes da remoção permanente. Você não pode ver nem usar o recurso durante esse período. Essa política também se aplica aos recursos que pertencem a uma conta da Automação excluída. A política de retenção se aplica a todos os usuários e atualmente não pode ser personalizada. No entanto, se você precisar manter os dados por um longo período, [poderá encaminhar os dados do trabalho de Automação do Azure para os logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
 
 A tabela a seguir resume a política de retenção para diferentes recursos.
 
@@ -54,9 +54,9 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 | Módulos |Um módulo é removido permanentemente 30 dias depois que é excluído por um usuário, ou 30 dias depois que a conta que o contém é excluída por um usuário. |
 | Arquivos de configurações/MOF de nó |Uma configuração de nó antigo é removida permanentemente 30 dias depois que uma nova configuração de nó é gerada. |
 | Relatórios de Nó |Um relatório de nó é removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó. |
-| Runbooks |Um runbook é removido permanentemente 30 dias depois que é excluído por um usuário, ou 30 dias depois que a conta que o contém é excluída por um usuário. |
+| Runbooks |Um runbook é removido permanentemente 30 dias depois que um usuário exclui o recurso ou 30 dias depois que um usuário exclui a conta que contém o recurso<sup>1</sup>. |
 
-A política de retenção se aplica a todos os usuários e atualmente não pode ser personalizada. No entanto, se você precisar manter os dados por um longo período, [poderá encaminhar os dados do trabalho de Automação do Azure para os logs do Azure Monitor](automation-manage-send-joblogs-log-analytics.md).
+<sup>1</sup> O runbook pode ser recuperado dentro do período de 30 dias, criando um incidente de suporte do Azure com suporte Microsoft Azure. Vá para o [site de suporte do Azure](/support/options) e selecione **Enviar uma solicitação de suporte**.
 
 ## <a name="data-backup"></a>Backup de dados
 

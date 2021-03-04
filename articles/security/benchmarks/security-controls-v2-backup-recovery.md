@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: fd9a01868230efd9e9078171359d81302b472cd3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 39466ad621eff1a7d3490c936c90fbff6f63e0fc
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724414"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051541"
 ---
 # <a name="security-control-v2-backup-and-recovery"></a>Controle de segurança v2: backup e recuperação
 
 O backup e a recuperação abrangem controles para garantir que os backups de dados e de configuração em diferentes camadas de serviço sejam executados, validados e protegidos.
 
-Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: backup e recuperação](../../governance/policy/samples/azure-security-benchmark#backup-and-recovery)
+Para ver as Azure Policy internas aplicáveis, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: backup e recuperação](../../governance/policy/samples/azure-security-benchmark.md#backup-and-recovery)
 
 ## <a name="br-1-ensure-regular-automated-backups"></a>BR-1: garantir backups automatizados regulares
 
@@ -66,7 +66,7 @@ Use o controle de acesso baseado em função do Azure no backup do Azure, Azure 
 
 - [Criptografia de dados de backup usando chaves gerenciadas pelo cliente](../../backup/encryption-at-rest-with-cmk.md) 
 
-- [Como fazer backup de chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como fazer backup de chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 - [Recursos de segurança para ajudar a proteger backups híbridos contra ataques](../../backup/backup-azure-security-feature.md#prevent-attacks)
 
@@ -90,7 +90,7 @@ Execute periodicamente a restauração de dados do seu backup. Verifique se voc�
 
 - [Como recuperar arquivos do backup de máquina virtual do Azure](../../backup/backup-azure-restore-files-from-vm.md)
 
-- [Como restaurar chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0)
+- [Como restaurar chaves de Key Vault no Azure](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey)
 
 **Responsabilidade**: Cliente
 

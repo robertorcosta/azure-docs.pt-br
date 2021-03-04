@@ -1,17 +1,16 @@
 ---
 title: Coletar logs do IIS com Log Analytics Agent no Azure Monitor
 description: O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Azure Monitor.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do Azure Monitor.
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/13/2020
-ms.openlocfilehash: 96eab2d93ae0212568f8ef23e32a35016cb17248
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/26/2021
+ms.openlocfilehash: 484e49219b94f5974661b1e76f533236666ebcfb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732047"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050725"
 ---
 # <a name="collect-iis-logs-with-log-analytics-agent-in-azure-monitor"></a>Coletar logs do IIS com Log Analytics Agent no Azure Monitor
 O Serviços de Informações da Internet (IIS) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo agente de Log Analytics e armazenados em [logs de Azure monitor](../data-platform.md).
@@ -26,7 +25,7 @@ O Azure Monitor coleta entradas de arquivos de log criados pelo IIS, por isso vo
 
 O Azure Monitor só oferece suporte a arquivos de log do IIS armazenados em formato W3C e não oferece suporte a campos personalizados ou a registro em Log Avançado do IIS. Ele não coleta logs no formato nativo IIS ou NCSA.
 
-Configure os logs do IIS no Azure Monitor no [menu configurações avançadas](../agents/agent-data-sources.md#configuring-data-sources) para o agente de log Analytics.  Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files**(Coletar arquivos de log do IIS no formato W3C).
+Configure os logs do IIS no Azure Monitor no [menu de configuração do agente](../agents/agent-data-sources.md#configuring-data-sources) para o agente de log Analytics.  Não há nenhuma outra configuração necessária além da seleção de **Collect W3C format IIS log files**(Coletar arquivos de log do IIS no formato W3C).
 
 
 ## <a name="data-collection"></a>Coleta de dados

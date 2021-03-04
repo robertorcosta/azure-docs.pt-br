@@ -2,13 +2,13 @@
 title: Conformidade usando o Azure Policy
 description: Atribuir políticas internas no Azure Policy para auditar a conformidade de seus registros de contêiner do Azure
 ms.topic: article
-ms.date: 06/11/2020
-ms.openlocfilehash: 26c56616bcc411063d0ebfda28ba1e6fdf44c7fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/01/2021
+ms.openlocfilehash: 3f6809698171950060b54257a365889242f4636e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89291001"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102050572"
 ---
 # <a name="audit-compliance-of-azure-container-registries-using-azure-policy"></a>Auditar a conformidade de registros de contêiner do Azure usando o Azure Policy
 
@@ -22,7 +22,7 @@ Não há encargos para usar Azure Policy.
 
 As definições de política internas a seguir são específicas do registro de contêiner do Azure:
 
-[!INCLUDE [azure-policy-reference-policies-container-registry](../../includes/policy/reference/bycat/policies-container-registry.md)]
+[!INCLUDE [azure-policy-reference-rp-containerreg](../../includes/policy/reference/byrp/microsoft.containerregistry.md)]
 
 Consulte também a definição de política de rede interna: o [registro de contêiner deve usar um ponto de extremidade de serviço de rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc4857be7-912a-4c75-87e6-e30292bcdf78).
 
@@ -43,7 +43,7 @@ Quando um recurso não está em conformidade, há muitos motivos possíveis. Par
 
 ### <a name="policy-compliance-in-the-portal"></a>Conformidade de política no Portal:
 
-1. Selecione **todos os serviços**e procure **política**.
+1. Selecione **todos os serviços** e procure **política**.
 1. Selecione **conformidade**.
 1. Use os filtros para limitar os Estados de conformidade ou para pesquisar políticas.
 
