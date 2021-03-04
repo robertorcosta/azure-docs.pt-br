@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/23/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e0516c25a69f22f5e66dd3ed083805cd4a9f1a61
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d64e85576b35caa2262ad1d635fc72fc7e2d2b8
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096132"
+ms.locfileid: "102120616"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -71,7 +71,7 @@ A sessão de aplicativo pode ser uma sessão baseada em cookie armazenada sob o 
 
 Você pode configurar o comportamento da sessão de Azure AD B2C, incluindo:
 
-- Tempo de **vida da sessão do aplicativo Web (minutos)** – a quantidade de vezes que o cookie de sessão Azure ad B2C é armazenado no navegador do usuário após a autenticação bem-sucedida. Você pode definir o tempo de vida da sessão para um valor de 15 a 720 minutos.
+- Tempo de **vida da sessão do aplicativo Web (minutos)** – a quantidade de vezes que o cookie de sessão Azure ad B2C é armazenado no navegador do usuário após a autenticação bem-sucedida. Você pode definir o tempo de vida da sessão de até 24 horas.
 
 - **Tempo limite da sessão do aplicativo Web** -indica como uma sessão é estendida pela configuração de tempo de vida da sessão ou pela configuração manter-me conectado (KMSI).
   - **Sem interrupção** -indica que a sessão é estendida toda vez que o usuário executa uma autenticação baseada em cookie (padrão).

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 44a084266a083b2cc7c0609e4bfedb10a018585d
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 075b04414c752ce87365d03212fcdabab6eaa7dd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107269"
+ms.locfileid: "102119817"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configurar opções do provedor de identidade SAML com Azure Active Directory B2C
 
@@ -43,8 +43,8 @@ Você também pode incluir declarações que não são retornadas pelo provedor 
 O elemento de declaração de saída contém os seguintes atributos:
 
 - **ClaimTypeReferenceId** é a referência a um tipo de declaração. 
-- **PartnerClaimType** é o nome da propriedade que é exibido no Azure Insights. Use a sintaxe `{property:NAME}` , em que a `NAME` propriedade é adicionada ao evento.
-- **DefaultValue** é um valor predefinido a ser registrado, como o nome do evento. Uma declaração que é usada no percurso do usuário, como o nome do provedor de identidade. Se a declaração estiver vazia, o valor padrão será usado. Por exemplo, a `identityProvider` declaração é definida pelos perfis técnicos da Federação, como o Facebook. Se a declaração estiver vazia, ela indicará a entrada do usuário com uma conta local. Portanto, o valor padrão é definido como *local*. Você também pode registrar um [resolvedor de declaração](claim-resolver-overview.md) com um valor contextual, como a ID do aplicativo ou o endereço IP do usuário.
+- **PartnerClaimType** é o nome da propriedade que aparece Asserção SAML. 
+- **DefaultValue** é um valor padrão predefinido. Se a declaração estiver vazia, o valor padrão será usado. Você também pode usar um [resolvedor de declaração](claim-resolver-overview.md) com um valor contextual, como a ID de correlação ou o endereço IP do usuário.
 
 ### <a name="subject-name"></a>Nome da entidade
 

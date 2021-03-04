@@ -2,30 +2,31 @@
 title: Fluxo de trabalho de CI/CD usando GitOps-kubernetes habilitado para arco do Azure
 services: azure-arc
 ms.service: azure-arc
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.topic: conceptual
 author: tcare
 ms.author: tcare
 description: Este artigo fornece uma visão geral conceitual de um fluxo de trabalho de CI/CD usando o GitOps
 keywords: GitOps, kubernetes, K8s, Azure, Helm, Arc, AKS, serviço kubernetes do Azure, contêineres, CI, CD, Azure DevOps
-ms.openlocfilehash: 044275db0977a20474aa1451324486ad1750a7f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054484"
+ms.locfileid: "102121772"
 ---
-# <a name="overview"></a>Visão geral
+# <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Fluxo de trabalho de CI/CD usando GitOps-kubernetes habilitado para arco do Azure
 
 As implantações modernas do kubernetes abrigam vários aplicativos, clusters e ambientes. Com o GitOps, você pode gerenciar essas configurações complexas com mais facilidade, acompanhando o estado desejado dos ambientes kubernetes declarativamente com o git. Usando ferramentas git comuns para acompanhar o estado do cluster, você pode aumentar a responsabilidade, facilitar a investigação de falhas e habilitar a automação para gerenciar ambientes.
 
-Este artigo fornece uma visão geral conceitual de como tornar o GitOps uma realidade no ciclo de vida completo de uma mudança de aplicativo usando o Arc do Azure, Azure Repos e Azure Pipelines. Percorra um exemplo de ponta a ponta de uma única alteração em um aplicativo de um desenvolvedor para ambientes kubernetes controlados por GitOps.
+Esta visão geral conceitual explica o GitOps como uma realidade no ciclo de vida completo da alteração do aplicativo usando o Arc do Azure, Azure Repos e Azure Pipelines. [Salte para um exemplo](#example-workflow) de uma única alteração de aplicativo para ambientes kubernetes GitOps.
 
 ## <a name="architecture"></a>Arquitetura
 
 Considere um aplicativo implantado em um ou mais ambientes kubernetes.
 
 ![Arquitetura de CI/CD do GitOps](./media/gitops-arch.png)
+
 ### <a name="application-repo"></a>Repositório de aplicativos
 O repositório de aplicativos contém o código do aplicativo no qual os desenvolvedores trabalham durante o loop interno. Os modelos de implantação do aplicativo residem nesse repositório em um formato genérico, como Helm ou Kustomize. Os valores específicos do ambiente não são armazenados. As alterações neste repositório invocam um pipeline de PR ou CI que inicia o processo de implantação.
 ### <a name="container-registry"></a>Registro de Contêiner
@@ -39,9 +40,9 @@ O fluxo é um serviço executado em cada cluster e é responsável por manter o 
 ### <a name="cd-pipeline"></a>Pipeline de CD
 O pipeline de CD é disparado automaticamente por compilações de CI bem-sucedidas. Ele usa os modelos publicados anteriormente, substitui valores de ambiente e abre uma PR para o repositório GitOps para solicitar uma alteração no estado desejado de um ou mais clusters kubernetes. Os administradores de cluster examinam a alteração de estado PR e aprovam a mesclagem para o repositório GitOps. O pipeline aguarda a conclusão da PR, o que permite que o fluxo pegue a alteração de estado.
 ### <a name="gitops-repo"></a>Repositório GitOps
-O repositório GitOps representa o estado atual desejado de todos os ambientes em clusters. Qualquer alteração nesse repositório é coletada pelo serviço de fluxo em cada cluster e implantada. PRs são criados com alterações no estado desejado, revisado e mesclado. Esses PRs contêm alterações nos dois modelos de implantação e nos manifestos kubernetes renderizados resultantes. Os manifestos renderizados de baixo nível evitam qualquer surpresas por trás da substituição do modelo, permitindo uma inspeção cuidadosa das alterações normalmente não vistas no nível do modelo.
+O repositório GitOps representa o estado atual desejado de todos os ambientes em clusters. Qualquer alteração nesse repositório é coletada pelo serviço de fluxo em cada cluster e implantada. PRs são criados com alterações no estado desejado, revisado e mesclado. Esses PRs contêm alterações nos dois modelos de implantação e nos manifestos kubernetes renderizados resultantes. Os manifestos renderizados de nível baixo permitem uma inspeção mais cuidadosa das alterações normalmente não vistas no nível do modelo.
 ### <a name="kubernetes-clusters"></a>Clusters do Kubernetes
-Um ou mais clusters kubernetes habilitados para o Azure Arc atendem aos diferentes ambientes necessários para o aplicativo. Por exemplo, um único cluster pode servir a um ambiente de desenvolvimento e QA por meio de namespaces diferentes. Um segundo cluster pode fornecer uma separação mais fácil de ambientes e um controle mais refinado.
+Pelo menos um dos clusters kubernetes habilitados para o Azure Arc atende aos diferentes ambientes necessários para o aplicativo. Por exemplo, um único cluster pode servir a um ambiente de desenvolvimento e QA por meio de namespaces diferentes. Um segundo cluster pode fornecer uma separação mais fácil de ambientes e um controle mais refinado.
 ## <a name="example-workflow"></a>Fluxo de trabalho de exemplo
 Como desenvolvedor de aplicativos, Alice:
 * Grava o código do aplicativo.
@@ -73,4 +74,4 @@ Suponha que Alice queira fazer uma alteração no aplicativo que altere a imagem
 8.  Depois que todos os ambientes receberam implantações bem-sucedidas, o pipeline é concluído.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Configurações e GitOps com o Azure Arc habilitado kubernetes](./conceptual-configurations.md)
+Saiba mais sobre como criar conexões entre o cluster e um repositório Git como um [recurso de configuração com o Azure Arc habilitado kubernetes](./conceptual-configurations.md)

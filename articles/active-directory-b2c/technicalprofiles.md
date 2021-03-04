@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bbb0c5617696347b566ba09a481afae4f52379aa
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a70b8be6c034f002f0e387b5d3b4ba5deafa1a5e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102096030"
+ms.locfileid: "102120497"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -120,7 +120,7 @@ O **protocolo** especifica o protocolo a ser usado para a comunicação com a ou
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
+| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis:,,,, `OAuth1` `OAuth2` `SAML2` `OpenIdConnect` `Proprietary` ou `None` . |
 | Manipulador | Não | Quando o nome do protocolo é definido como `Proprietary` , especifique o nome do assembly que é usado pelo Azure ad B2C para determinar o manipulador de protocolo. |
 
 ## <a name="metadata"></a>Metadados
@@ -555,7 +555,7 @@ O perfil técnico de referência do elemento **UseTechnicalProfileForSessionMana
 
 ## <a name="enabled-for-user-journeys"></a>Habilitado para viagens do usuário
 
-O [ClaimsProviderSelections](userjourneys.md#claimsproviderselection) em um percurso do usuário define a lista de opções de seleção de provedor de declarações e sua ordem. Com o elemento **EnabledForUserJourneys**, você filtra qual provedor de declarações está disponível para o usuário. O elemento **EnabledForUserJourneys** contém um dos seguintes valores:
+O [ClaimsProviderSelections](userjourneys.md#identity-provider-selection) em um percurso do usuário define a lista de opções de seleção de provedor de declarações e sua ordem. Com o elemento **EnabledForUserJourneys**, você filtra qual provedor de declarações está disponível para o usuário. O elemento **EnabledForUserJourneys** contém um dos seguintes valores:
 
 - **Always**, executar o perfil técnico.
 - **Never**, ignorar o perfil técnico.

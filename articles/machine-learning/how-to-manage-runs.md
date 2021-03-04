@@ -9,15 +9,15 @@ ms.author: roastala
 author: rastala
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 12/04/2020
+ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 3eaab31d3948e41a216eaa402c2a11e470a6545d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fb877b208e6c9599347e2b45e140545e5815e695
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691494"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120803"
 ---
 # <a name="start-monitor-and-cancel-training-runs-in-python"></a>Iniciar, monitorar e cancelar execuções de treinamento em Python
 
@@ -113,6 +113,10 @@ Você precisará dos seguintes itens:
     
         Para obter mais informações, consulte [az ml run submit-script](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-run-submit-script).
 
+    # <a name="studio"></a>[Estúdio](#tab/azure-studio)
+
+    Para obter um exemplo de treinamento de um modelo no designer de Azure Machine Learning, consulte [tutorial: prever o preço do automóvel com o designer](tutorial-designer-automobile-price-train-score.md).
+
     ---
 
 * Monitorar o status de uma execução
@@ -195,8 +199,7 @@ Uma descrição de execução pode ser adicionada a uma execução para fornecer
 
 Navegue até a página de **detalhes da execução** da sua execução e selecione o ícone Editar ou lápis para adicionar, editar ou excluir descrições para sua execução. Para manter as alterações na lista de execuções, salve as alterações em sua exibição personalizada existente ou em uma nova exibição personalizada. O formato de redução tem suporte para descrições de execução, o que permite que as imagens sejam incorporadas e vinculação profunda, conforme mostrado abaixo.
 
-:::image type="content" source="media/how-to-manage-runs/rundescription.gif" alt-text="Captura de tela: criar uma descrição de execução"::: 
-    
+:::image type="content" source="media/how-to-manage-runs/run-description.gif" alt-text="Captura de tela: criar uma descrição de execução"::: 
 
 ## <a name="tag-and-find-runs"></a>Marcar e localizar execuções
 

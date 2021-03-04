@@ -9,12 +9,12 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 03/02/2021
 ms.topic: conceptual
-ms.openlocfilehash: d4667e8fa3a5624dddc3cb0dd792fc73ea812332
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8100d9e12f107e0c4598876c46453b46c6ee4d0e
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692969"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121993"
 ---
 # <a name="known-issues---azure-arc-enabled-data-services-preview"></a>Problemas conhecidos-serviços de dados habilitados para o Azure Arc (versão prévia)
 
@@ -22,10 +22,7 @@ ms.locfileid: "101692969"
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
-
 - O modo de cluster conectado está desabilitado
-- A hiperescala do PostgreSQL habilitado para Arc do Azure retorna uma mensagem de erro imprecisa quando não pode restaurar para o ponto relativo no tempo que você indica. Por exemplo, se você especificou um ponto no tempo para restaurar que é mais antigo do que os seus backups contêm, a restauração falhará com uma mensagem de erro como: `ERROR: (404). Reason: Not found. HTTP response body: {"code":404, "internalStatus":"NOT_FOUND", "reason":"Failed to restore backup for server...}` . Quando isso acontecer, reinicie o comando depois de indicar um ponto no tempo que está dentro do intervalo de datas para o qual você tem backups. Para determinar esse intervalo, liste os backups e examine as datas em que foram tirados.
-- Uma ID de backup é necessária ao fazer uma restauração completa. Por padrão, se você não estiver indicando uma ID de backup, o backup mais recente será usado. Isso não funciona nesta versão.
 
 ## <a name="introduced-prior-to-february-2021"></a>Introduzido antes de fevereiro de 2021
 

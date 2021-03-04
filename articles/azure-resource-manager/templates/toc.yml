@@ -328,6 +328,8 @@
       items:
         - name: Comparando JSON com Bicep
           href: compare-template-syntax.md
+    - name: Tipos de dados
+      href: data-types.md
     - name: Perguntas frequentes
       href: frequently-asked-questions.md
     - name: Modelos de consistência de nuvem

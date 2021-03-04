@@ -2,20 +2,20 @@
 title: Programa de validação kubernetes habilitado para Arc do Azure
 services: azure-arc
 ms.service: azure-arc
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.topic: article
 author: shashankbarsin
 ms.author: shasb
 description: Descreve o programa de validação ARC para distribuições kubernetes
 keywords: Kubernetes, Arc, Azure, K8s, validação
-ms.openlocfilehash: 0d7756f407a3a176c8913d99bdb45a5026300569
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 819df906add6275997e01fab310fe8dd57a87b51
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689208"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121364"
 ---
-# <a name="azure-arc-validation-program"></a>Programa de validação do Azure Arc
+# <a name="azure-arc-validation-program"></a>Programa de validação do Arc do Azure
 
 O Kubernetes habilitado para Azure Arc funciona com qualquer cluster Kubernetes certificado pela CNCF (Cloud Native Computing Foundation). A equipe de arco do Azure também trabalhou com os principais fornecedores de ofertas de kubernetes da indústria para validar kubernetes habilitados para o Azure com suas distribuições kubernetes. As versões futuras e secundárias das distribuições kubernetes lançadas por esses provedores serão validadas para compatibilidade com o kubernetes habilitado para o Arc do Azure.
 
@@ -61,6 +61,6 @@ Os testes de conformidade executados como parte da validação de kubernetes hab
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Conectar um cluster ao Azure Arc](./connect-cluster.md)
-* [Criar configurações em seu cluster kubernetes habilitado para Arc](./use-gitops-connected-cluster.md)
-* [Usar Azure Policy para aplicar configurações em escala](./use-azure-policy.md)
+Saiba como conectar um cluster ao arco do Azure.
+> [!div class="nextstepaction"]
+> [Conectar um cluster ao Azure Arc](./quickstart-connect-cluster.md)

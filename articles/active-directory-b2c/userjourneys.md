@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ce41edd2c0048a20368dd02c2dd6101248e26c14
-ms.sourcegitcommit: cc13f3fc9b8d309986409276b48ffb77953f4458
+ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2020
-ms.locfileid: "97400006"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102120735"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -37,7 +37,7 @@ O elemento **UserJourney** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
+| ID | Sim | Um identificador de um percurso do usuário que pode ser usado para referenciá-lo de outros elementos na política. O elemento **DefaultUserJourney** da [política de terceira parte confiável](relyingparty.md) aponta para esse atributo. |
 
 O elemento **UserJourney** contém os seguintes elementos:
 
@@ -80,7 +80,7 @@ O exemplo a seguir mostra um elemento de jornada do usuário com perfis técnico
 
 Um percurso do usuário é representado como uma sequência de orquestração que deve ser seguida para ter uma transação bem-sucedida. Se alguma delas falhar, a transação falhará. Essas etapas de orquestração fazem referência aos blocos de construção e aos provedores de declarações permitidos no arquivo de política. Qualquer etapa de orquestração responsável por mostrar ou renderizar uma experiência do usuário também tem uma referência ao identificador de definição do conteúdo correspondente.
 
-As etapas de orquestração podem ser executadas condicionalmente com base nas pré-condições definidas no elemento da etapa de orquestração. Por exemplo, você pode verificar para executar uma etapa de orquestração somente se houver declarações específicas ou se uma declaração for igual ou não para o valor especificado.
+As etapas de orquestração podem ser executadas condicionalmente com base nas pré-condições definidas no elemento da etapa de orquestração. Por exemplo, você pode verificar para executar uma etapa de orquestração somente se houver uma declaração específica ou se uma declaração for igual ou não para o valor especificado.
 
 Para especificar a lista ordenada de etapas de orquestração, um elemento **OrchestrationSteps** é adicionado como parte da política. Este elemento é obrigatório.
 
@@ -189,9 +189,12 @@ As pré-condições podem verificar várias pré-condições. O exemplo a seguir
 </OrchestrationStep>
 ```
 
-## <a name="claimsproviderselection"></a>ClaimsProviderSelection
+## <a name="identity-provider-selection"></a>Seleção do provedor de identidade
 
-Uma etapa de orquestração do tipo `ClaimsProviderSelection` ou `CombinedSignInAndSignUp` pode conter uma lista de provedores de declarações com que um usuário pode se conectar. A ordem dos elementos dentro dos elementos `ClaimsProviderSelections` controla a ordem dos provedores de identidade apresentados ao usuário.
+A seleção do provedor de identidade permite que os usuários selecionem uma ação em uma lista de opções. A seleção do provedor de identidade consiste em um par de duas etapas de orquestração: 
+
+1. **Buttons** -ele começa com o tipo de `ClaimsProviderSelection` , ou `CombinedSignInAndSignUp` que contém uma lista de opções que um usuário pode escolher. A ordem das opções dentro do `ClaimsProviderSelections` elemento controla a ordem dos botões apresentados ao usuário.
+2. **Ações** -seguidas pelo tipo de `ClaimsExchange` . O ClaimsExchange contém a lista de ações. A ação é uma referência a um perfil técnico, como [OAuth2](oauth2-technical-profile.md), [OpenID Connect](openid-connect-technical-profile.md), [transformação de declarações](claims-transformation-technical-profile.md)ou [autodeclarad](self-asserted-technical-profile.md). Quando um usuário clica em um dos botões, a ação correspondente é executada.
 
 O elemento **ClaimsProviderSelections** contém o seguinte elemento:
 
@@ -242,7 +245,7 @@ Na etapa de orquestração a seguir, o usuário pode optar por entrar com o Face
   <ClaimsExchanges>
     <ClaimsExchange Id="FacebookExchange" TechnicalProfileReferenceId="Facebook-OAUTH" />
     <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-  <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
+    <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
     <ClaimsExchange Id="LinkedInExchange" TechnicalProfileReferenceId="LinkedIn-OAUTH" />
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
   </ClaimsExchanges>
@@ -261,7 +264,7 @@ O elemento **ClaimsExchange** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. |
+| ID | Sim | Um identificador da etapa de troca de declarações. O identificador é usado para referenciar a troca de declarações para uma etapa da seleção do provedor de declarações na política. |
 | TechnicalProfileReferenceId | Sim | O identificador do perfil técnico que deve ser executado. |
 
 ## <a name="journeylist"></a>Jornadalist
