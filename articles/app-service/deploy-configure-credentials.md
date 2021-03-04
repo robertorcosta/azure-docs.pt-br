@@ -5,17 +5,20 @@ ms.topic: article
 ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 2a53ecb1b3411561da50f7dbf3be79f9d70b42bc
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: c7d3c7c8b5da40a4e9ccd9085af5a850b9ebc3dd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560423"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052340"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
 Para proteger a implantação de aplicativo de um computador local, [Azure app serviço](./overview.md) dá suporte a dois tipos de credenciais para implantação [local do git](deploy-local-git.md) e [implantação de FTP/S](deploy-ftp.md). Essas credenciais não são iguais às suas credenciais de assinatura do Azure.
 
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
+
+> [!NOTE]
+> A página do **centro de desenvolvimento (clássico)** na portal do Azure, que é a antiga experiência de implantação, será preterida em março de 2021. Essa alteração não afetará nenhuma configuração de implantação existente em seu aplicativo e você poderá continuar a gerenciar a implantação do aplicativo na página do **centro de implantação** .
 
 ## <a name="configure-user-scope-credentials"></a><a name="userscope"></a>Configurar credenciais de escopo do usuário
 
@@ -71,13 +74,13 @@ Uma vez que as credenciais de escopo do usuário são vinculadas ao usuário e n
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Obtenha as credenciais de escopo do aplicativo usando o comando [AZ webapp Deployment List-Publishing-Profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) . Por exemplo:
+Obtenha as credenciais de escopo do aplicativo usando o comando [AZ webapp Deployment List-Publishing-Profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) . Por exemplo: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
-Para a [implantação do git local](deploy-local-git.md), você também pode usar o comando [AZ webapp Deployment List-Publishing-Credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) para obter um URI remoto do git para seu aplicativo, com as credenciais de escopo do aplicativo já inseridas. Por exemplo:
+Para a [implantação do git local](deploy-local-git.md), você também pode usar o comando [AZ webapp Deployment List-Publishing-Credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) para obter um URI remoto do git para seu aplicativo, com as credenciais de escopo do aplicativo já inseridas. Por exemplo: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
@@ -85,7 +88,7 @@ az webapp deployment list-publishing-credentials --resource-group <group-name> -
 
 # <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
 
-Obtenha as credenciais de escopo do aplicativo usando o comando [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . Por exemplo:
+Obtenha as credenciais de escopo do aplicativo usando o comando [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . Por exemplo: 
 
 ```azurepowershell-interactive
 Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>

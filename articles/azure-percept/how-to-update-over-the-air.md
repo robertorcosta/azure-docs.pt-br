@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: aa8f696b6a26e812256be4e93975844f2c721b6e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661750"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095384"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>Atualizar seu Percept do Azure DK no ar
 
@@ -92,7 +92,7 @@ Requisitos de marca de Grupo:
 1. Confirme se o grupo de dispositivos correto está selecionado como o grupo de dispositivos de destino. Selecione uma **data de início** e uma **hora de início** para sua implantação e clique em **criar implantação**. 
 
     >[!CAUTION]
-    >Definir a hora de início que o passado irá disparar a implantação imediatamente.
+    >Definir a hora de início no passado irá disparar a implantação imediatamente.
  
 1. Verifique o gráfico de conformidade. Você deve ver que a atualização está em andamento.
  

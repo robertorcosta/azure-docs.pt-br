@@ -11,12 +11,12 @@ author: justinha
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36acb5a6a0984b003e4e8deb597bddfc43b064a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 97517ad3ff260806108dc22686d49b43b0fc6609
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647550"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096013"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opções de autenticação com senha para Azure Active Directory
 
@@ -89,6 +89,8 @@ As chaves de segurança FIDO2 são um método de autenticação de senha com bas
 Os usuários podem registrar e, em seguida, selecionar uma chave de segurança FIDO2 na interface de entrada como o principal meio de autenticação. Essas chaves de segurança FIDO2 normalmente são dispositivos USB, mas também podem usar Bluetooth ou NFC. Com um dispositivo de hardware que manipula a autenticação, a segurança de uma conta é aumentada, pois não há senha que possa ser exposta ou adivinhada.
 
 As chaves de segurança do FIDO2 podem ser usadas para entrar em seus dispositivos Windows 10 do Azure AD ou híbridos ingressados no Azure AD e obter logon único em seus recursos locais e de nuvem. Os usuários também podem entrar em navegadores com suporte. As chaves de segurança do FIDO2 são uma ótima opção para empresas que são muito sensíveis à segurança ou que têm cenários ou funcionários que não estão dispostos ou podem usar seus telefones como um segundo fator.
+
+Temos um documento de referência para os quais os [navegadores dão suporte à autenticação FIDO2 com o Azure ad](fido2-compatibility.md), bem como as práticas recomendadas para os desenvolvedores que desejam [oferecer suporte à autenticação FIDO2 nos aplicativos que eles desenvolvem](../develop/support-fido2-authentication.md).
 
 ![Entrar no Microsoft Edge com uma chave de segurança](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 

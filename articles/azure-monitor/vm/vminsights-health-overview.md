@@ -1,17 +1,16 @@
 ---
 title: Integridade de convidado do insights de VM (versão prévia)
 description: Visão geral do recurso de integridade no insights da VM, incluindo como você pode exibir a integridade de suas máquinas virtuais e receber alertas quando uma máquina virtual se tornar não íntegra.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/27/2020
-ms.openlocfilehash: 3db6c2f4da28bba2d12aacc90b2fa8e420aa6fbf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2922ca4068531c45e6acad0ce54aa96624c6238e
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101707448"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052119"
 ---
 # <a name="vm-insights-guest-health-preview"></a>Integridade de convidado do insights de VM (versão prévia)
 A integridade de convidado do insights de VM permite que você exiba a integridade das máquinas virtuais com base em um conjunto de medidas de desempenho que são amostradas em intervalos regulares do sistema operacional convidado. Você pode verificar rapidamente a integridade de todas as máquinas virtuais em uma assinatura ou grupo de recursos, fazer uma busca detalhada sobre a integridade detalhada de uma determinada máquina virtual ou ser notificado proativamente quando uma máquina virtual se tornar não íntegra. 

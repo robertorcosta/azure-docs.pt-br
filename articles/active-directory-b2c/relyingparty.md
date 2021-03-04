@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/14/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0f0f3b6ffcb7ee12a692470b922cf23a3f0f40f0
-ms.sourcegitcommit: 89c0482c16bfec316a79caa3667c256ee40b163f
+ms.openlocfilehash: ea23be06939d58b08516a00bbe8aba97c6ccc87d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/04/2021
-ms.locfileid: "97858427"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095265"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -93,7 +93,7 @@ O elemento de **ponto de extremidade** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador exclusivo do ponto de extremidade.|
+| ID | Sim | Um identificador exclusivo do ponto de extremidade.|
 | UserJourneyReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md)  | 
 
 O exemplo a seguir mostra uma terceira parte confiável com o [ponto de extremidade UserInfo](userinfo-endpoint.md):
@@ -190,7 +190,7 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome do par chave-valor. |
+| Name | Sim | O nome do par chave-valor. |
 
 Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
@@ -200,7 +200,7 @@ O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O valor deve ser `PolicyProfile`. |
+| ID | Sim | O valor deve ser `PolicyProfile`. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 
@@ -217,21 +217,7 @@ O elemento **Protocol** contém os seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Nome | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. |
-
-### <a name="metadata"></a>Metadados
-
-Quando o protocolo é `SAML` , um elemento de metadados contém os elementos a seguir.
-
-| Atributo | Obrigatório | Descrição |
-| --------- | -------- | ----------- |
-| IdpInitiatedProfileEnabled | Não | Indica se há suporte para o fluxo iniciado pelo IDP. Valores possíveis: `true` ou `false` (padrão). | 
-| XmlSignatureAlgorithm | Não | O método que Azure AD B2C usa para assinar a resposta SAML. Valores possíveis: `Sha256`, `Sha384`, `Sha512` ou `Sha1`. Certifique-se de configurar o algoritmo de assinatura em ambos os lados com o mesmo valor. Use apenas o algoritmo com suporte do seu certificado. Para configurar a Asserção SAML, consulte [metadados do perfil técnico do emissor SAML](saml-issuer-technical-profile.md#metadata). |
-| DataEncryptionMethod | Não | Indica o método que Azure AD B2C usa para criptografar os dados usando o algoritmo de criptografia AES (AES). Os metadados controlam o valor do `<EncryptedData>` elemento na resposta SAML. Valores possíveis: `Aes256` (padrão), `Aes192`, `Sha512` ou ` Aes128`. |
-| KeyEncryptionMethod| Não | Indica o método que Azure AD B2C usa para criptografar a cópia da chave que foi usada para criptografar os dados. Os metadados controlam o valor do  `<EncryptedKey>` elemento na resposta SAML. Valores possíveis: ` Rsa15` (padrão)-algoritmo de criptografia do RSA Public Key Cryptography padrão (PKCS) versão 1,5, ` RsaOaep` -algoritmo de encriptação de OAEP (preenchimento de criptografia assimétrica ideal) da RSA. |
-| UseDetachedKeys | Não |  Valores possíveis: `true` ou `false` (padrão). Quando o valor é definido como `true` , Azure ad B2C altera o formato das asserções criptografadas. O uso de chaves desanexadas adiciona a asserção criptografada como um filho do EncrytedAssertion em oposição ao EncryptedData. |
-| WantsSignedResponses| Não | Indica se Azure AD B2C assina a `Response` seção da resposta SAML. Valores possíveis: `true` (padrão) ou `false` .  |
-| RemoveMillisecondsFromDateTime| Não | Indica se o millisconds será removido dos valores de DateTime na resposta SAML (isso inclui IssueInstant, nobefore, NotOnOrAfter e AuthnInstant). Valores possíveis: `false` (padrão) ou `true` .  |
+| Name | Sim | O nome de um protocolo válido com suporte no Azure AD B2C que é usado como parte do perfil técnico. Valores possíveis: `OpenIdConnect` ou `SAML2`. O valor `OpenIdConnect` representa o padrão de protocolo do OpenID Connect 1.0 de acordo com a especificação OpenID Foundation. O representa `SAML2` o padrão de protocolo SAML 2.0 de acordo com a especificação OASIS. |
 
 ### <a name="outputclaims"></a>OutputClaims
 

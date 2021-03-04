@@ -1,17 +1,16 @@
 ---
 title: Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)
 description: Descreve como modificar o monitoramento padrão para a integridade de convidado do insights de VM (versão prévia) usando o portal do Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 8c15a44fc086c9c686e75879b3086436ea327560
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719586"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102052204"
 ---
 # <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)
 A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão usando o portal do Azure. Ele também descreve os conceitos fundamentais dos monitores necessários para [Configurar o monitoramento usando uma regra de coleta de dados](vminsights-health-configure-dcr.md).

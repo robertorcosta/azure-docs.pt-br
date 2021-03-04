@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 03/03/2021
 ms.author: duau
-ms.openlocfilehash: fa8dba12a050e42e258e4224f29e379ff53f09d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 163436ad82ea6f5067ad41b7fdd7e315db6dc29a
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576675"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095010"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -385,10 +385,10 @@ Para perfis com qualquer método de roteamento que não seja de Múltiplos Valor
 |Solicitação de consulta de entrada|     Tipo de ponto de extremidade|     Resposta fornecida|
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Ponto de extremidade de destino| 
-|Um |    A / CNAME |    Ponto de extremidade de destino|
+|A |    A / CNAME |    Ponto de extremidade de destino|
 |A |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Ponto de extremidade de destino|
-|AAAA |    Um |    NODATA |
+|AAAA |    A |    NODATA |
 |CNAME |    CNAME |    Ponto de extremidade de destino|
 |CNAME     |A / AAAA |    NODATA |
 |
@@ -398,7 +398,7 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 |Solicitação de consulta de entrada|     Tipo de ponto de extremidade |    Resposta fornecida|
 |--|--|--|
 |ANY |    Combinação de A e AAAA |    Pontos de extremidade de destino|
-|Um |    Combinação de A e AAAA |    Somente pontos de extremidade de destino do tipo A|
+|A |    Combinação de A e AAAA |    Somente pontos de extremidade de destino do tipo A|
 |AAAA    |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA |    NODATA |
 
@@ -447,7 +447,18 @@ Se nenhuma configuração de cabeçalho de host personalizado for fornecida, o c
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quais são os endereços IP dos quais as verificações de integridade se originam?
 
-Clique em [aqui](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure/probe-ip-ranges.json) para exibir o arquivo JSON que lista os endereços IP dos quais as verificações de integridade do Gerenciador de Tráfego podem se originar. Examine os IPs listados no arquivo JSON para garantir que as conexões de entrada desses endereços IP sejam permitidas nos pontos de extremidades, possibilitando a verificação do status de integridade.
+Clique [aqui](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) para saber como recuperar as listas de endereços IP das quais as verificações de integridade do Gerenciador de tráfego podem se originar. Você pode usar a API REST, CLI do Azure ou Azure PowerShell para recuperar a lista mais recente. Examine os IPs listados para garantir que as conexões de entrada desses endereços IP sejam permitidas nos pontos de extremidade para verificar seu status de integridade.
+
+Exemplo usando Azure PowerShell:
+
+```azurepowershell-interactive
+$serviceTags = Get-AzNetworkServiceTag -Location eastus
+$result = $serviceTags.Values | Where-Object { $_.Name -eq "AzureTrafficManager" }
+$result.Properties.AddressPrefixes
+```
+
+> [!NOTE]
+> Os endereços IP públicos podem ser alterados sem aviso prévio. Certifique-se de recuperar as informações mais recentes usando a API de descoberta de marca de serviço ou o arquivo JSON baixável.
 
 ### <a name="how-many-health-checks-to-my-endpoint-can-i-expect-from-traffic-manager"></a>Quantas verificações de integridade no meu ponto de extremidade posso esperar do Gerenciador de Tráfego?
 

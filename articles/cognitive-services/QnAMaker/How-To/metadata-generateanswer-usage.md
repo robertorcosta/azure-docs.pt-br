@@ -9,12 +9,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 18b70d60ade7cd40f7ed51aa7c219c8c046abfc3
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99584731"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051898"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
 
@@ -273,11 +273,49 @@ Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste u
 }
 ```
 
+## <a name="return-precise-answers"></a>Retornar respostas precisas
+
+### <a name="generate-answer-api"></a>Gerar API de resposta 
+
+O usuário pode habilitar [respostas precisas](../reference-precise-answering.md) ao usar o QnA Maker recurso gerenciado. O parâmetro answerSpanRequest deve ser atualizado para o mesmo.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3,
+    "answerSpanRequest": {
+        "enable": true,
+        "topAnswersWithSpan": 1
+    }
+}
+```
+
+Da mesma forma, os usuários podem optar por desabilitar respostas precisas não definindo o parâmetro answerSpanRequest.
+
+```json
+{
+    "question": "How long it takes to charge surface pro 4?",
+    "top": 3
+}
+```
+### <a name="bot-settings"></a>Configurações de bot
+
+Se você quiser definir configurações de resposta precisas para o serviço de bot, navegue até o recurso do serviço de aplicativo para o bot. Em seguida, você precisa atualizar as configurações adicionando a configuração a seguir.
+
+- EnablePreciseAnswer
+- DisplayPreciseAnswerOnly
+
+|Configuração de vídeo|EnablePreciseAnswer|DisplayPreciseAnswerOnly|
+|:--|--|--|
+|Somente respostas precisas|true|true|
+|Somente respostas longas|false|false|
+|Respostas longas e precisas|true|false|
+
 ## <a name="common-http-errors"></a>Erros comuns de HTTP
 
 |Código|Explicação|
 |:--|--|
-|2xx|Sucesso|
+|2xx|Êxito|
 |400|Os parâmetros da solicitação estão incorretos, o que significa que os parâmetros necessários estão ausentes, errados ou são muitos grandes|
 |400|O corpo da solicitação está incorreto, o que significa que o JSON está ausente, errado ou é muito grande|
 |401|Chave inválida|
