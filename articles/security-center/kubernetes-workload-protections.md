@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: f024457ed9f20e6bab0852a53ab6a60ac85ed25a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100546254"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102095588"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -51,7 +51,7 @@ A central de segurança do Azure inclui um conjunto de recomendações que estã
 
 Para configurar as recomendações, instale o  **complemento Azure Policy para kubernetes**. 
 
-- Você pode implantar automaticamente esse complemento, conforme explicado em [habilitar o provisionamento automático de extensões](security-center-enable-data-collection.md#enable-auto-provisioning-of-extensions). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
+- Você pode implantar automaticamente esse complemento, conforme explicado em [habilitar o provisionamento automático do agente e das extensões de log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Quando o provisionamento automático para o complemento é definido como "ativado", a extensão fica habilitada por padrão em todos os clusters existentes e futuros (que atendem aos requisitos de instalação do complemento).
 
     :::image type="content" source="media/defender-for-kubernetes-usage/policy-add-on-auto-provision.png" alt-text="Usando a ferramenta de provisionamento automático da central de segurança para instalar o complemento de política para kubernetes":::
 
@@ -104,7 +104,7 @@ Para configurar as recomendações, instale o  **complemento Azure Policy para k
     1. Selecione "ASC padrão".
     1. Abra a guia **parâmetros** e modifique os valores conforme necessário.
     1. Selecione **Examinar + salvar**.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
 
 1. Para impor qualquer uma das recomendações, 

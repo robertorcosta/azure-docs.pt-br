@@ -1,17 +1,16 @@
 ---
 title: Fontes de dados no Azure Monitor | Microsoft Docs
 description: Descreve os dados disponíveis para monitorar a integridade e desempenho de seus recursos do Azure e dos aplicativos executados neles.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
-ms.openlocfilehash: e03e31c342f90a0ea9f24e6be098a801410d4b72
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 537163b4a78954443eeb7799dc624837ba03e2bd
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732081"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102036615"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
 O Azure Monitor se baseia em uma [plataforma de dados de monitoramento comum](../data-platform.md) que inclui [logs](../logs/data-platform-logs.md) e [métricas](../essentials/data-platform-metrics.md). Coletar dados nessa plataforma permite que os dados de vários recursos sejam analisados juntos usando um conjunto comum de ferramentas no Azure Monitor. Os dados de monitoramento também podem ser enviados para outros locais para dar suporte a determinados cenários, e alguns recursos podem gravar em outros locais antes que possam ser coletados em logs ou métricas.

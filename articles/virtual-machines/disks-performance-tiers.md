@@ -8,12 +8,12 @@ ms.date: 03/02/2021
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 161aafce1c04e5d09cf08529bcbf1baf6b8a86b1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 429845aa22b6d069b8d7233132de8eb3b24b2985
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674936"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043670"
 ---
 # <a name="change-your-performance-tier-using-the-azure-powershell-module-or-the-azure-cli"></a>Altere o nível de desempenho usando o módulo Azure PowerShell ou o CLI do Azure
 
@@ -117,7 +117,7 @@ $disk.Tier
 
 ## <a name="change-the-performance-tier-of-a-disk-without-downtime-preview"></a>Alterar o nível de desempenho de um disco sem tempo de inatividade (versão prévia)
 
-Você também pode alterar seu nível de desempenho sem tempo de inatividade, portanto, não é necessário desalocar sua VM ou desanexar o disco para alterar a camada. Para obter mais informações e o link de inscrição para a versão prévia, consulte a seção [alterando o tipo de desempenho sem tempo de inatividade (versão prévia)](#changing-performance-tier-without-downtime-preview) .
+Você também pode alterar seu nível de desempenho sem tempo de inatividade, portanto, não é necessário desalocar sua VM ou desanexar o disco para alterar a camada. Para obter mais informações e o link de inscrição para a versão prévia, consulte a seção [alterar o tipo de desempenho sem tempo de inatividade (versão prévia)](#change-performance-tier-without-downtime-preview) .
 
 
 O script a seguir atualizará a camada de um disco maior do que a camada de linha de base usando o modelo de exemplo [CreateUpdateDataDiskWithTier.jsem](https://github.com/Azure/azure-managed-disks-performance-tiers/blob/main/CreateUpdateDataDiskWithTier.json). Substitua `<yourSubScriptionID>` , `<yourResourceGroupName>` , `<yourDiskName>` , `<yourDiskSize>` e `<yourDesiredPerformanceTier>` Execute o script:

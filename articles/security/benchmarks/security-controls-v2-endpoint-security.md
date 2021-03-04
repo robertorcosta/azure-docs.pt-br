@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7672f4eb4530dbfb5d039b066fe7cf6eaf79e5a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 48b22ba913370b27cd01319a14a2a627d7589ce4
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718634"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051507"
 ---
 # <a name="security-control-v2-endpoint-security"></a>Controle de segurança v2: segurança do ponto de extremidade
 
 O Endpoint Security abrange controles em resposta e detecção de ponto de extremidade. Isso inclui o uso de EDR (detecção de ponto de extremidade e resposta) e o serviço antimalware para pontos de extremidade em ambientes do Azure.
 
-Para ver o Azure Policy interno aplicável, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: segurança do ponto de extremidade](../../governance/policy/samples/azure-security-benchmark#endpoint-security)
+Para ver o Azure Policy interno aplicável, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: segurança do ponto de extremidade](../../governance/policy/samples/azure-security-benchmark.md#endpoint-security)
 
 ## <a name="es-1-use-endpoint-detection-and-response-edr"></a>ES-1: usar a detecção e resposta de ponto de extremidade (EDR)
 

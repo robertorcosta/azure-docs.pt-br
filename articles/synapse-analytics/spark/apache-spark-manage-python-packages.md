@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 296bd3a4a75cdd7f5dab3b6eb5fdcb00a889703d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695904"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098767"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas do Python para Apache Spark no Azure Synapse Analytics
 
@@ -42,7 +42,7 @@ Há duas maneiras principais de instalar uma biblioteca em um cluster:
 > [!IMPORTANT]
 > - Se o pacote que você está instalando for grande ou demorar muito para ser instalado, isso afetará o tempo de inicialização da instância do Spark.
 > - Não há suporte para a alteração da versão PySpark, Python, escala/Java, .NET ou Spark.
-> - Não há suporte para a instalação de pacotes do PyPI em espaços de trabalho habilitados para DEP.
+> - A instalação de pacotes de repositórios externos como PyPI, Conda ou canais de Conda padrão não tem suporte em espaços de trabalho habilitados para DEP.
 
 ### <a name="install-python-packages"></a>Instalar pacotes do Python
 Os pacotes do Python podem ser instalados de repositórios como PyPI e Conda-Forge fornecendo um arquivo de especificação de ambiente. 
@@ -140,9 +140,6 @@ Para adicionar pacotes de espaço de trabalho:
 
 ![Captura de tela que realça os pacotes de espaço de trabalho.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Exibir pacotes de espaço de trabalho")
 
-> [!IMPORTANT]
-> Atualmente, a instalação de pacotes de espaço de trabalho ainda não tem suporte em espaços de trabalho do DEP (data vazamento protected).
-
 ### <a name="storage-account"></a>Conta de armazenamento
 Os pacotes de roda personalizados podem ser instalados no pool de Apache Spark carregando todos os arquivos de roda na conta Azure Data Lake Storage (Gen2) que está vinculada ao espaço de trabalho Synapse. 
 
@@ -160,8 +157,8 @@ Talvez seja necessário adicionar a ```python``` pasta dentro da ```libraries```
 >[!WARNING]
 > Ao fornecer arquivos de roda personalizados, os usuários não podem fornecer arquivos de roda na conta de armazenamento e na interface de biblioteca de espaço de trabalho. Se ambos forem fornecidos, somente os arquivos de roda especificados na lista pacotes de espaço de trabalho serão instalados. 
 
-## <a name="session-scoped-libraries-preview"></a>Bibliotecas com escopo de sessão (versão prévia)
-Além das bibliotecas de nível de pool, você também pode especificar bibliotecas no escopo da sessão no início de uma sessão do bloco de anotações.  Bibliotecas com escopo de sessão permitem especificar e usar ambientes de Python personalizados em uma sessão de notebook. 
+## <a name="session-scoped-packages-preview"></a>Pacotes no escopo da sessão (versão prévia)
+Além dos pacotes de nível de pool, você também pode especificar bibliotecas no escopo da sessão no início de uma sessão do bloco de anotações.  Bibliotecas com escopo de sessão permitem especificar e usar ambientes de Python personalizados em uma sessão de notebook. 
 
 Ao usar bibliotecas com escopo de sessão, é importante ter os seguintes pontos em mente:
    - Quando você instala bibliotecas com escopo de sessão, somente o notebook atual tem acesso às bibliotecas especificadas. 
@@ -187,3 +184,4 @@ Em alguns casos, para exibir as versões do pacote do Conda, talvez seja necess�
 ## <a name="next-steps"></a>Próximas etapas
 - Exibir as bibliotecas padrão: [suporte à versão Apache Spark](apache-spark-version-support.md)
 - Solucionar erros de instalação da biblioteca: [solucionar erros de biblioteca](apache-spark-troubleshoot-library-errors.md)
+- Criar um canal Conda privado usando sua conta de Azure Data Lake Storage: [canais privados Conda](./spark/../apache-spark-custom-conda-channel.md)

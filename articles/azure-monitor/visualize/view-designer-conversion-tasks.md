@@ -3,15 +3,14 @@ title: Tarefas comuns de conversão do designer de exibição para pastas de tra
 description: Tarefas comuns ao fazer a transição de exibições para pastas de trabalho no Azure Monitor.
 author: austonli
 ms.author: aul
-ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 4e9d9e65dedae083138f3b29a2a609e124ce0fc8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d479e64620519491ba4847349ea33820747fcea7
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100606485"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043466"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>Tarefas comuns de conversão do designer de exibição para pastas de trabalho
 O [Designer de exibição](view-designer.md) é um recurso do Azure monitor que permite que você crie modos de exibição personalizados para ajudá-lo a Visualizar dados em seu espaço de trabalho do log Analytics, com gráficos, listas e linhas do tempo. Eles estão sendo desativados e substituídos por pastas de trabalho que fornecem funcionalidade adicional. Este artigo detalha as tarefas que são comuns na conversão de exibições em pastas de trabalho.

@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2020
 ms.author: yelevin
-ms.openlocfilehash: d388478fb3bc9b4e355d8c3cd3f16c0a785b8b27
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: da7d540a4b7982c7f743a7ae968515485b45aa5a
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100578910"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102035406"
 ---
 # <a name="use-logstash-to-connect-data-sources-to-azure-sentinel"></a>Usar o Logstash para conectar fontes de dados ao Azure Sentinel
 
 > [!IMPORTANT]
 > A ingestão de dados usando o plug-in de saída Logstash está atualmente em visualização pública. Esse recurso é fornecido sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Usando o novo plug-in de saída do Sentinela do Azure para o **mecanismo de coleta de dados Logstash**, agora você pode enviar qualquer tipo de log que desejar por meio do Logstash diretamente para seu espaço de trabalho do log Analytics no Azure sentinela. Seus logs serão enviados para uma tabela personalizada que você definirá usando o plug-in de saída.
+Usando o plug-in de saída do Sentinela do Azure para o **mecanismo de coleta de dados Logstash**, você pode enviar qualquer tipo de log que desejar por meio do Logstash diretamente para seu espaço de trabalho do log Analytics no Azure Sentinel. Seus logs serão enviados para uma tabela personalizada que você definirá usando o plug-in de saída.
 
 Para saber mais sobre como trabalhar com o mecanismo de coleta de dados do Logstash, consulte [introdução ao Logstash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html).
 
@@ -76,8 +76,10 @@ Use as informações na estrutura Logstash [de um documento de arquivo de config
 | `plugin_flush_interval` | número | Campo opcional. Defina para definir o intervalo máximo (em segundos) entre as transmissões de mensagem para Log Analytics. O padrão é 5. |
     | `amount_resizing` | booleano | True ou false. Habilitar ou desabilitar o mecanismo de dimensionamento automático, que ajusta o tamanho do buffer de mensagens de acordo com o volume de dados de log recebidos. |
 | `max_items` | número | Campo opcional. Aplica-se somente se `amount_resizing` definido como "false". Use para definir um limite no tamanho do buffer de mensagens (em registros). O padrão é 2000.  |
+| `azure_resource_id` | string | Campo opcional. Define a ID do recurso do Azure onde os dados residem. <br>O valor da ID de recurso será especialmente útil se você estiver usando o [RBAC de contexto de recurso](resource-context-rbac.md) para fornecer acesso apenas a dados específicos. |
+| | | |
 
-\* Você pode encontrar a ID do espaço de trabalho e a chave primária no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
+* Você pode encontrar a ID do espaço de trabalho e a chave primária no recurso de espaço de trabalho, em **Gerenciamento de agentes**.
 
 #### <a name="sample-configurations"></a>Exemplos de configuração
 

@@ -5,16 +5,16 @@ services: synapse-analytics
 author: midesa
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.date: 03/01/2020
+ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 8d5c18eaaa4065eac515f38557664ceb44262adf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c70ecc4fc5469d728bc12d47024585ccf00ff98e
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695903"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102098699"
 ---
 # <a name="manage-scala-and-java-packages-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar pacotes escalares e Java para Apache Spark no Azure Synapse Analytics
 
@@ -37,13 +37,10 @@ Os pacotes de espaço de trabalho podem ser arquivos jar personalizados ou priva
 
 Para adicionar pacotes de espaço de trabalho:
 1. Navegue até a guia **gerenciar**  >  **pacotes de espaço de trabalho** .
-2. Carregue seus arquivos de roda usando o seletor de arquivo.
-3. Depois que os arquivos tiverem sido carregados no espaço de trabalho Synapse do Azure, você poderá adicionar esses arquivos de roda a um determinado pool de Apache Spark.
+2. Carregue os arquivos jar usando o seletor de arquivo.
+3. Depois que os arquivos tiverem sido carregados no espaço de trabalho Synapse do Azure, você poderá adicionar esses arquivos jar a um determinado pool de Apache Spark.
 
 ![Captura de tela que realça os pacotes de espaço de trabalho.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Exibir pacotes de espaço de trabalho")
-
-> [!IMPORTANT]
-> Atualmente, a instalação de pacotes de espaço de trabalho ainda não tem suporte em espaços de trabalho do DEP (data vazamento protected).
 
 ## <a name="pool-libraries"></a>Bibliotecas de pool
 Depois de identificar os pacotes escalares e Java que você gostaria de usar para o aplicativo Spark, você pode instalá-los em um pool do Spark. As bibliotecas de nível de pool estão disponíveis para todos os blocos de anotações e trabalhos em execução no pool.

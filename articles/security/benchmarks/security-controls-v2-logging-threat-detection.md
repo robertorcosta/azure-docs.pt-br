@@ -7,18 +7,18 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 43119a51be2359ed2ddfb4e5d5fa629badedb054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a274ec1aab3f530700f89ef810fa667fdf4d08e6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720674"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102042973"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controle de segurança v2: registro em log e detecção de ameaças
 
 O registro em log e a detecção de ameaças abrangem controles para detectar ameaças no Azure e habilitar, coletar e armazenar logs de auditoria para serviços do Azure. Isso inclui a habilitação de processos de detecção, investigação e correção com controles para gerar alertas de alta qualidade com a detecção de ameaças nativas nos serviços do Azure; Ele também inclui a coleta de logs com Azure Monitor, centralização da análise de segurança com o Azure Sentinel, sincronização de tempo e retenção de log.
 
-Para ver o Azure Policy interno aplicável, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: registro em log e detecção de ameaças](../../governance/policy/samples/azure-security-benchmark#logging-and-threat-detection)
+Para ver o Azure Policy interno aplicável, consulte [os detalhes da iniciativa interna de conformidade de benchmark de segurança do Azure: registro em log e detecção de ameaças](../../governance/policy/samples/azure-security-benchmark.md#logging-and-threat-detection)
 
 ## <a name="lt-1-enable-threat-detection-for-azure-resources"></a>LT-1: habilitar a detecção de ameaças para recursos do Azure
 

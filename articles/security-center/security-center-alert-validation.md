@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
-ms.openlocfilehash: 3bdc0af2ea581954cb5edd2c7d00d286f814506c
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633590"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099515"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta na central de segurança do Azure
 Este documento ensina você a verificar se o sistema está configurado corretamente para os alertas da Central de Segurança do Azure.
@@ -97,5 +97,4 @@ Este artigo apresentou a você o processo de validação de alertas. Agora que v
 
 * [Validação da detecção de ameaças do Azure Key Vault na Central de Segurança do Azure](https://techcommunity.microsoft.com/t5/azure-security-center/validating-azure-key-vault-threat-detection-in-azure-security/ba-p/1220336)
 * [Gerenciando e respondendo a alertas de segurança na central de segurança do Azure](security-center-managing-and-responding-alerts.md) -saiba como gerenciar alertas e responder a incidentes de segurança na central de segurança.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
 * [Noções básicas sobre alertas de segurança na central de segurança do Azure](./security-center-alerts-overview.md) -saiba mais sobre os diferentes tipos de alertas de segurança.
