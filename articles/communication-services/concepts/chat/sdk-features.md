@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 93f90520f9a5f6ec424a7558418abfa4de4699ee
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: ef013d97be8a5decbee46d25752ced7bd622a646
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364827"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101657767"
 ---
 # <a name="chat-client-library-overview"></a>Visão geral da biblioteca de clientes de chat
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 As bibliotecas de clientes de chat dos Serviços de Comunicação do Azure podem ser usadas para adicionar um chat sofisticado e em tempo real aos seus aplicativos.
 
