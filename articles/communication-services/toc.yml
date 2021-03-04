@@ -5,6 +5,8 @@
   items:
     - name: O que são os Serviços de Comunicação do Azure?
       href: overview.md
+    - name: Opções de Ajuda e Suporte
+      href: support.md
 - name: Inícios rápidos
   expanded: true
   items:

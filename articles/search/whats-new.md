@@ -6,18 +6,26 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 02/09/2021
+ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: 6de91d51f3700c25ba1e0f361c948dc8ab338c43
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 606b102b1922d382f479235ffc4c61b68e7db766
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590553"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101676396"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Novidades no Azure Cognitive Search
 
-Conheça o que há de novo no serviço. Marque esta página para manter-se atualizado quanto ao serviço. Confira a [Lista de recursos da versão prévia](search-api-preview.md) para exibir os recursos em versão prévia pública.
+Conheça o que há de novo no serviço. Marque esta página para manter-se atualizado quanto ao serviço. Confira a [Lista de versão prévia dos recursos](search-api-preview.md) com todas as funcionalidades que ainda não estão em disponibilidade geral.
+
+## <a name="march-2021"></a>Março de 2021
+
+|Recurso&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Descrição | Disponibilidade  |
+|------------------------------|---------------|---------------|
+| [Pesquisa semântica](semantic-search-overview.md) | Uma coleção de recursos relacionados à consulta que modificam os resultados da pesquisa para gerar resultados mais relevantes. Com pequenas alterações na solicitação de pesquisa, você pode experimentar esses recursos em índices existentes.</br></br>A [consulta semântica](semantic-how-to-query-request.md) é um novo tipo de consulta que aproveita os avanços no processamento de linguagem natural para melhorar a classificação, bem como entender a intenção de consulta para fornecer respostas, legendas e destaques semânticos.</br></br>[Classificação semântica e respostas (respostas, legendas e destaques)](semantic-how-to-query-response.md) referem-se ao algoritmo que define uma consulta semântica e à estrutura da resposta. | Versão prévia pública ([por solicitação](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use a api-version=2020-06-30-Preview de [Pesquisar documentos (REST)](/rest/api/searchservice/preview-api/search-documents) e o [Gerenciador de pesquisa](search-explorer.md) no portal do Azure. </br></br>Aplicam-se restrições de região e nível. |
+| [Verificação ortográfica dos termos da consulta](speller-how-to-add.md) | Antes que os termos da consulta cheguem ao mecanismo de pesquisa, você pode solicitar a verificação de erros ortográficos. A opção `speller` funciona com qualquer tipo de consulta (simples, completa ou semântica). |  Visualização pública, somente REST, api-version=2020-06-30-Preview|
+| [Indexador do SharePoint Online](search-howto-index-sharepoint-online.md) | Este indexador conecta você a um site do SharePoint Online para que possa indexar o conteúdo de uma biblioteca de documentos. | Visualização pública, somente REST, api-version=2020-06-30-Preview |
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 

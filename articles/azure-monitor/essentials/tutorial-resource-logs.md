@@ -1,17 +1,16 @@
 ---
 title: Coletar logs de recursos de um Recurso do Azure e analisá-los com Azure Monitor
 description: Tutorial para definir as configurações de diagnóstico para coletar logs de recurso de um recurso do Azure para um workspace do Log Analytics em que eles podem ser analisados com uma consulta de log.
-ms.subservice: ''
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 12/15/2019
-ms.openlocfilehash: d3c3eff32120438fd891cb32fe98d73424f82b7f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 43a9c88bc64b688bfd1171e331232bb254b0eebe
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734138"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032867"
 ---
 # <a name="tutorial-collect-and-analyze-resource-logs-from-an-azure-resource"></a>Tutorial: Coletar e analisar logs de recursos de um recurso do Azure
 

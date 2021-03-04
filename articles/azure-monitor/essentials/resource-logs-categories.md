@@ -1,15 +1,14 @@
 ---
 title: Azure Monitor de serviços e categorias com suporte de logs de recursos
 description: Referência de Azure Monitor entender os serviços com suporte e o esquema de eventos para logs de recursos do Azure.
-ms.subservice: logs
 ms.topic: reference
 ms.date: 01/29/2021
-ms.openlocfilehash: 39ff78cd97682096fb284e137868c246dfdd7f14
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a04d0f470522dd4689d604756ffd25e70c5d456
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100605539"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033139"
 ---
 # <a name="supported-categories-for-azure-resource-logs"></a>Categorias com suporte para logs de recursos do Azure
 
@@ -38,14 +37,14 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AccountLogon|AccountLogon|No|
-|AccountManagement|AccountManagement|No|
-|DetailTracking|DetailTracking|No|
-|DirectoryServiceAccess|DirectoryServiceAccess|No|
-|LogonLogoff|LogonLogoff|No|
-|Objectaccess|Objectaccess|No|
-|PolicyChange|PolicyChange|No|
-|PrivilegeUse|PrivilegeUse|No|
+|AccountLogon|AccountLogon|Não|
+|AccountManagement|AccountManagement|Não|
+|DetailTracking|DetailTracking|Não|
+|DirectoryServiceAccess|DirectoryServiceAccess|Não|
+|LogonLogoff|LogonLogoff|Não|
+|Objectaccess|Objectaccess|Não|
+|PolicyChange|PolicyChange|Não|
+|PrivilegeUse|PrivilegeUse|Não|
 |SystemSecurity|SystemSecurity|Não|
 
 
@@ -53,7 +52,7 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Mecanismo|Mecanismo|No|
+|Mecanismo|Mecanismo|Não|
 |Serviço|Serviço|Não|
 
 
@@ -61,31 +60,31 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|GatewayLogs|Logs relacionados ao Gateway ApiManagement|No|
+|GatewayLogs|Logs relacionados ao Gateway ApiManagement|Não|
 
 
 ## <a name="microsoftappconfigurationconfigurationstores"></a>Microsoft.AppConfiguration/configurationStores
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|HttpRequest|Solicitações HTTP|Yes|
+|HttpRequest|Solicitações HTTP|Sim|
 
 
 ## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ApplicationConsole|Console de aplicativo|No|
-|SystemLogs|Logs do sistema|No|
+|ApplicationConsole|Console de aplicativo|Não|
+|SystemLogs|Logs do sistema|Não|
 
 
 ## <a name="microsoftattestationattestationproviders"></a>Microsoft.Attestation/attestationProviders
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AuditEvent|Categoria do log de mensagens AuditEvent.|No|
-|ERRA|Categoria do log de mensagens de erro.|No|
-|INF|Categoria de log de mensagens informativa.|No|
+|AuditEvent|Categoria do log de mensagens AuditEvent.|Não|
+|ERRA|Categoria do log de mensagens de erro.|Não|
+|INF|Categoria de log de mensagens informativa.|Não|
 |AVI|Categoria do log de mensagens de aviso.|Não|
 
 
@@ -93,8 +92,8 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DscNodeStatus|Status do nó DSC|No|
-|JobLogs|Logs de trabalho|No|
+|DscNodeStatus|Status do nó DSC|Não|
+|JobLogs|Logs de trabalho|Não|
 |JobStreams|Transmissões de trabalho|Não|
 
 
@@ -109,8 +108,8 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|BaiClusterEvent|BaiClusterEvent|No|
-|BaiClusterNodeEvent|BaiClusterNodeEvent|No|
+|BaiClusterEvent|BaiClusterEvent|Não|
+|BaiClusterNodeEvent|BaiClusterNodeEvent|Não|
 |BaiJobEvent|BaiJobEvent|Não|
 
 
@@ -118,49 +117,49 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|BlockchainApplication|Aplicativo Blockchain|No|
-|FabricOrderer|Solicitante de malha|No|
-|FabricPeer|Ponto de malha|No|
-|Proxy|Proxy|No|
+|BlockchainApplication|Aplicativo Blockchain|Não|
+|FabricOrderer|Solicitante de malha|Não|
+|FabricPeer|Ponto de malha|Não|
+|Proxy|Proxy|Não|
 
 
 ## <a name="microsoftblockchaincordamembers"></a>Microsoft. Blockchain/cordaMembers
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|BlockchainApplication|Aplicativo Blockchain|No|
+|BlockchainApplication|Aplicativo Blockchain|Não|
 
 
 ## <a name="microsoftbotservicebotservices"></a>microsoft.botservice/botservices
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|BotRequest|Solicitações dos canais para o bot|No|
-|DependencyRequest|Solicitações para dependências|No|
+|BotRequest|Solicitações dos canais para o bot|Não|
+|DependencyRequest|Solicitações para dependências|Não|
 
 
 ## <a name="microsoftcdncdnwebapplicationfirewallpolicies"></a>Microsoft. CDN/cdnwebapplicationfirewallpolicies
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|WebApplicationFirewallLogs|Logs de firewall de aplicação Web|No|
+|WebApplicationFirewallLogs|Logs de firewall de aplicação Web|Não|
 
 
 ## <a name="microsoftcdnprofiles"></a>Microsoft.Cdn/profiles
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AzureCdnAccessLog|Log de acesso da CDN do Azure|No|
-|FrontDoorAccessLog|Log de acesso do FrontDoor|Yes|
-|FrontDoorHealthProbeLog|Log de investigação de integridade do FrontDoor|Yes|
-|FrontDoorWebApplicationFirewallLog|Log do FrontDoor WebApplicationFirewall|Yes|
+|AzureCdnAccessLog|Log de acesso da CDN do Azure|Não|
+|FrontDoorAccessLog|Log de acesso do FrontDoor|Sim|
+|FrontDoorHealthProbeLog|Log de investigação de integridade do FrontDoor|Sim|
+|FrontDoorWebApplicationFirewallLog|Log do FrontDoor WebApplicationFirewall|Sim|
 
 
 ## <a name="microsoftcdnprofilesendpoints"></a>Microsoft.Cdn/profiles/endpoints
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|No|
+|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|Não|
 
 
 ## <a name="microsoftclassicnetworknetworksecuritygroups"></a>Microsoft.ClassicNetwork/networksecuritygroups
@@ -174,17 +173,17 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Audit|Logs de Auditoria|No|
-|RequestResponse|Logs de Solicitação e Resposta|No|
-|Trace|Logs de rastreamento|No|
+|Audit|Logs de Auditoria|Não|
+|RequestResponse|Logs de Solicitação e Resposta|Não|
+|Trace|Logs de rastreamento|Não|
 
 
 ## <a name="microsoftcommunicationcommunicationservices"></a>Microsoft. Communication/Communications
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ChatOperational|Logs de chat operacionais|No|
-|SMSOperational|Logs de SMS operacionais|No|
+|ChatOperational|Logs de chat operacionais|Não|
+|SMSOperational|Logs de SMS operacionais|Não|
 |Uso|Registros de uso|Não|
 
 
@@ -192,7 +191,7 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ContainerRegistryLoginEvents|Eventos de logon|No|
+|ContainerRegistryLoginEvents|Eventos de logon|Não|
 |ContainerRegistryRepositoryEvents|Logs do RepositoryEvent|Não|
 
 
@@ -200,28 +199,28 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|cluster-autoscaler|Dimensionador automático de cluster do Kubernetes|No|
-|guard|guard|No|
-|kube-apiserver|Servidor de API do Kubernetes|No|
-|Kube-auditoria|Kubernetes auditoria|No|
-|Kube-Audit-admin|Logs do administrador de auditoria do kubernetes|No|
-|kube-controller-manager|Gerenciador do Controlador do Kubernetes|No|
-|kube-scheduler|Agendador do Kubernetes|No|
+|cluster-autoscaler|Dimensionador automático de cluster do Kubernetes|Não|
+|guard|guard|Não|
+|kube-apiserver|Servidor de API do Kubernetes|Não|
+|Kube-auditoria|Kubernetes auditoria|Não|
+|Kube-Audit-admin|Logs do administrador de auditoria do kubernetes|Não|
+|kube-controller-manager|Gerenciador do Controlador do Kubernetes|Não|
+|kube-scheduler|Agendador do Kubernetes|Não|
 
 
 ## <a name="microsoftcustomprovidersresourceproviders"></a>Microsoft. CustomProviders/resourceproviders
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AuditLogs|Logs de auditoria para chamadas MiniRP|No|
+|AuditLogs|Logs de auditoria para chamadas MiniRP|Não|
 
 
 ## <a name="microsoftd365customerinsightsinstances"></a>Microsoft. D365CustomerInsights/instâncias
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Audit|Eventos de auditoria|No|
-|Operacional|Eventos operacionais|No|
+|Audit|Eventos de auditoria|Não|
+|Operacional|Eventos operacionais|Não|
 
 
 ## <a name="microsoftdatabricksworkspaces"></a>Microsoft. databricks/espaços de trabalho
@@ -229,25 +228,25 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
 |accounts|Contas do databricks|Não|
-|clusters|Clusters do databricks|No|
-|dBFS|Sistema de arquivos do Databricks|No|
+|clusters|Clusters do databricks|Não|
+|dBFS|Sistema de arquivos do Databricks|Não|
 |instancePools|Pools de instância|Não|
-|jobs|Trabalhos do databricks|No|
+|jobs|Trabalhos do databricks|Não|
 |notebook|Databricks Notebook|Não|
-|segredos|Segredos do databricks|No|
-|sqlpermissions|Sqlpermissões do databricks|No|
-|ssh|SSH do databricks|No|
-|workspace|Espaço de trabalho do databricks|No|
+|segredos|Segredos do databricks|Não|
+|sqlpermissions|Sqlpermissões do databricks|Não|
+|ssh|SSH do databricks|Não|
+|workspace|Espaço de trabalho do databricks|Não|
 
 
 ## <a name="microsoftdatacollaborationworkspaces"></a>Microsoft. datacollaboration/Workspaces
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|CollaborationAudit|Auditoria de colaboração|Yes|
-|Dataassets|Ativos de dados|No|
-|Pipelines|Pipelines|No|
-|Propostas|Propostas|No|
+|CollaborationAudit|Auditoria de colaboração|Sim|
+|Dataassets|Ativos de dados|Não|
+|Pipelines|Pipelines|Não|
+|Propostas|Propostas|Não|
 |Scripts|Scripts|Não|
 
 
@@ -255,14 +254,14 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ActivityRuns|Registro de execuções de atividade de pipeline|No|
-|PipelineRuns|Registro de execuções de pipeline|No|
-|SSISIntegrationRuntimeLogs|Logs do SSIS Integration Runtime|No|
-|SSISPackageEventMessageContext|Contexto de mensagem de evento do pacote SSIS|No|
-|SSISPackageEventMessages|Mensagens de evento de pacote SSIS|No|
-|SSISPackageExecutableStatistics|Estatísticas de executável do pacote SSIS|No|
-|SSISPackageExecutionComponentPhases|Fases do componente de execução de pacote SSIS|No|
-|SSISPackageExecutionDataStatistics|Estatísticas de dados de exeution do pacote SSIS|No|
+|ActivityRuns|Registro de execuções de atividade de pipeline|Não|
+|PipelineRuns|Registro de execuções de pipeline|Não|
+|SSISIntegrationRuntimeLogs|Logs do SSIS Integration Runtime|Não|
+|SSISPackageEventMessageContext|Contexto de mensagem de evento do pacote SSIS|Não|
+|SSISPackageEventMessages|Mensagens de evento de pacote SSIS|Não|
+|SSISPackageExecutableStatistics|Estatísticas de executável do pacote SSIS|Não|
+|SSISPackageExecutionComponentPhases|Fases do componente de execução de pacote SSIS|Não|
+|SSISPackageExecutionDataStatistics|Estatísticas de dados de exeution do pacote SSIS|Não|
 |TriggerRuns|Registro de execuções de gatilho|Não|
 
 
@@ -270,7 +269,7 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Audit|Logs de Auditoria|No|
+|Audit|Logs de Auditoria|Não|
 |Requests|Logs de solicitação|Não|
 
 
@@ -278,42 +277,42 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Audit|Logs de Auditoria|No|
-|Requests|Logs de solicitação|No|
+|Audit|Logs de Auditoria|Não|
+|Requests|Logs de solicitação|Não|
 
 
 ## <a name="microsoftdatashareaccounts"></a>Microsoft.DataShare/accounts
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ReceivedShareSnapshots|Instantâneos de compartilhamento recebidos|No|
-|SentShareSnapshots|Instantâneos de compartilhamento enviados|No|
-|Compartilhamentos|Compartilhamentos|No|
-|ShareSubscriptions|Compartilhar assinaturas|No|
+|ReceivedShareSnapshots|Instantâneos de compartilhamento recebidos|Não|
+|SentShareSnapshots|Instantâneos de compartilhamento enviados|Não|
+|Compartilhamentos|Compartilhamentos|Não|
+|ShareSubscriptions|Compartilhar assinaturas|Não|
 
 
 ## <a name="microsoftdbformariadbservers"></a>Microsoft.DBforMariaDB/servers
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|MySqlAuditLogs|Logs de auditoria do MariaDB|No|
-|MySqlSlowLogs|Logs do servidor MariaDB|No|
+|MySqlAuditLogs|Logs de auditoria do MariaDB|Não|
+|MySqlSlowLogs|Logs do servidor MariaDB|Não|
 
 
 ## <a name="microsoftdbformysqlflexibleservers"></a>Microsoft.DBforMySQL/flexibleServers
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|MySqlAuditLogs|Logs de auditoria do MySQL|No|
-|MySqlSlowLogs|Logs lentos do MySQL|No|
+|MySqlAuditLogs|Logs de auditoria do MySQL|Não|
+|MySqlSlowLogs|Logs lentos do MySQL|Não|
 
 
 ## <a name="microsoftdbformysqlservers"></a>Microsoft.DBforMySQL/servers
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|MySqlAuditLogs|Logs de auditoria do MySQL|No|
-|MySqlSlowLogs|Logs do MySQL Server|No|
+|MySqlAuditLogs|Logs de auditoria do MySQL|Não|
+|MySqlSlowLogs|Logs do MySQL Server|Não|
 
 
 ## <a name="microsoftdbforpostgresqlflexibleservers"></a>Microsoft.DBforPostgreSQL/flexibleServers
@@ -327,8 +326,8 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|PostgreSQLLogs|Logs do PostgreSQL Server|No|
-|QueryStoreRuntimeStatistics|As estatísticas de tempo de execução Repositório de Consultas PostgreSQL|No|
+|PostgreSQLLogs|Logs do PostgreSQL Server|Não|
+|QueryStoreRuntimeStatistics|As estatísticas de tempo de execução Repositório de Consultas PostgreSQL|Não|
 |QueryStoreWaitStatistics|Estatísticas de espera Repositório de Consultas PostgreSQL|Não|
 
 
@@ -336,57 +335,57 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|PostgreSQLLogs|Logs do PostgreSQL Server|No|
+|PostgreSQLLogs|Logs do PostgreSQL Server|Não|
 
 
 ## <a name="microsoftdesktopvirtualizationapplicationgroups"></a>Microsoft. DesktopVirtualization/applicationgroups
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Ponto de verificação|Ponto de verificação|No|
-|Erro|Erro|No|
-|Gerenciamento|Gerenciamento|No|
+|Ponto de verificação|Ponto de verificação|Não|
+|Erro|Erro|Não|
+|Gerenciamento|Gerenciamento|Não|
 
 
 ## <a name="microsoftdesktopvirtualizationhostpools"></a>Microsoft. DesktopVirtualization/hostpools
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AgentHealthStatus|AgentHealthStatus|No|
-|Ponto de verificação|Ponto de verificação|No|
-|Conexão|Conexão|No|
-|Erro|Erro|No|
-|HostRegistration|HostRegistration|No|
-|Gerenciamento|Gerenciamento|No|
+|AgentHealthStatus|AgentHealthStatus|Não|
+|Ponto de verificação|Ponto de verificação|Não|
+|Conexão|Conexão|Não|
+|Erro|Erro|Não|
+|HostRegistration|HostRegistration|Não|
+|Gerenciamento|Gerenciamento|Não|
 
 
 ## <a name="microsoftdesktopvirtualizationworkspaces"></a>Microsoft. DesktopVirtualization/Workspaces
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Ponto de verificação|Ponto de verificação|No|
-|Erro|Erro|No|
-|Feed|Feed|No|
-|Gerenciamento|Gerenciamento|No|
+|Ponto de verificação|Ponto de verificação|Não|
+|Erro|Erro|Não|
+|Feed|Feed|Não|
+|Gerenciamento|Gerenciamento|Não|
 
 
 ## <a name="microsoftdeviceselasticpoolsiothubtenants"></a>Microsoft.Devices/ElasticPools/IotHubTenants
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|C2DCommands|Comandos C2C|No|
-|C2CTwinOperations|Operações de Gêmeos C2D|No|
-|Configurações|Configurações|No|
-|conexões|conexões|No|
-|D2CTwinOperations|D2CTwinOperations|No|
-|DeviceIdentityOperations|Operações de Identidade do Dispositivo|No|
-|DeviceStreams|Fluxos de dispositivo (visualização)|No|
-|DeviceTelemetry|Telemetria de Dispositivo|No|
-|DirectMethods|Métodos diretos|No|
-|DistributedTracing|Rastreamento Distribuído (Versão Prévia)|No|
-|FileUploadOperations|Operações de Upload de Arquivo|No|
-|JobsOperations|Operações de Trabalhos|No|
-|Rotas|Rotas|No|
+|C2DCommands|Comandos C2C|Não|
+|C2CTwinOperations|Operações de Gêmeos C2D|Não|
+|Configurações|Configurações|Não|
+|conexões|conexões|Não|
+|D2CTwinOperations|D2CTwinOperations|Não|
+|DeviceIdentityOperations|Operações de Identidade do Dispositivo|Não|
+|DeviceStreams|Fluxos de dispositivo (visualização)|Não|
+|DeviceTelemetry|Telemetria de Dispositivo|Não|
+|DirectMethods|Métodos diretos|Não|
+|DistributedTracing|Rastreamento Distribuído (Versão Prévia)|Não|
+|FileUploadOperations|Operações de Upload de Arquivo|Não|
+|JobsOperations|Operações de Trabalhos|Não|
+|Rotas|Rotas|Não|
 |TwinQueries|Consultas de Gêmeos|Não|
 
 
@@ -394,37 +393,37 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|C2DCommands|Comandos C2C|No|
-|C2CTwinOperations|Operações de Gêmeos C2D|No|
-|Configurações|Configurações|No|
-|conexões|conexões|No|
-|D2CTwinOperations|D2CTwinOperations|No|
-|DeviceIdentityOperations|Operações de Identidade do Dispositivo|No|
-|DeviceStreams|Fluxos de dispositivo (visualização)|No|
-|DeviceTelemetry|Telemetria de Dispositivo|No|
-|DirectMethods|Métodos diretos|No|
-|DistributedTracing|Rastreamento Distribuído (Versão Prévia)|No|
-|FileUploadOperations|Operações de Upload de Arquivo|No|
-|JobsOperations|Operações de Trabalhos|No|
-|Rotas|Rotas|No|
-|TwinQueries|Consultas de Gêmeos|No|
+|C2DCommands|Comandos C2C|Não|
+|C2CTwinOperations|Operações de Gêmeos C2D|Não|
+|Configurações|Configurações|Não|
+|conexões|conexões|Não|
+|D2CTwinOperations|D2CTwinOperations|Não|
+|DeviceIdentityOperations|Operações de Identidade do Dispositivo|Não|
+|DeviceStreams|Fluxos de dispositivo (visualização)|Não|
+|DeviceTelemetry|Telemetria de Dispositivo|Não|
+|DirectMethods|Métodos diretos|Não|
+|DistributedTracing|Rastreamento Distribuído (Versão Prévia)|Não|
+|FileUploadOperations|Operações de Upload de Arquivo|Não|
+|JobsOperations|Operações de Trabalhos|Não|
+|Rotas|Rotas|Não|
+|TwinQueries|Consultas de Gêmeos|Não|
 
 
 ## <a name="microsoftdevicesprovisioningservices"></a>Microsoft.Devices/provisioningServices
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DeviceOperations|Operações do Dispositivo|No|
-|ServiceOperations|Operações de serviço|No|
+|DeviceOperations|Operações do Dispositivo|Não|
+|ServiceOperations|Operações de serviço|Não|
 
 
 ## <a name="microsoftdigitaltwinsdigitaltwinsinstances"></a>Microsoft. DigitalTwins/digitalTwinsInstances
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DigitalTwinsOperation|DigitalTwinsOperation|No|
-|EventRoutesOperation|EventRoutesOperation|No|
-|ModelsOperation|ModelsOperation|No|
+|DigitalTwinsOperation|DigitalTwinsOperation|Não|
+|EventRoutesOperation|EventRoutesOperation|Não|
+|ModelsOperation|ModelsOperation|Não|
 |QueryOperation|QueryOperation|Não|
 
 
@@ -432,13 +431,13 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|CassandraRequests|CassandraRequests|No|
-|ControlPlaneRequests|ControlPlaneRequests|No|
-|DataPlaneRequests|DataPlaneRequests|No|
-|GremlinRequests|GremlinRequests|No|
-|MongoRequests|MongoRequests|No|
-|PartitionKeyRUConsumption|PartitionKeyRUConsumption|No|
-|PartitionKeyStatistics|PartitionKeyStatistics|No|
+|CassandraRequests|CassandraRequests|Não|
+|ControlPlaneRequests|ControlPlaneRequests|Não|
+|DataPlaneRequests|DataPlaneRequests|Não|
+|GremlinRequests|GremlinRequests|Não|
+|MongoRequests|MongoRequests|Não|
+|PartitionKeyRUConsumption|PartitionKeyRUConsumption|Não|
+|PartitionKeyStatistics|PartitionKeyStatistics|Não|
 |QueryRuntimeStatistics|QueryRuntimeStatistics|Não|
 
 
@@ -446,37 +445,37 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DeliveryFailures|Logs de falha de entrega|No|
-|PublishFailures|Publicar logs de falha|No|
+|DeliveryFailures|Logs de falha de entrega|Não|
+|PublishFailures|Publicar logs de falha|Não|
 
 
 ## <a name="microsofteventgridpartnernamespaces"></a>Microsoft. EventGrid/partnerNamespaces
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DeliveryFailures|Logs de falha de entrega|No|
-|PublishFailures|Publicar logs de falha|No|
+|DeliveryFailures|Logs de falha de entrega|Não|
+|PublishFailures|Publicar logs de falha|Não|
 
 
 ## <a name="microsofteventgridpartnertopics"></a>Microsoft. EventGrid/partnerTopics
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DeliveryFailures|Logs de falha de entrega|No|
+|DeliveryFailures|Logs de falha de entrega|Não|
 
 
 ## <a name="microsofteventgridsystemtopics"></a>Microsoft. EventGrid/systemTopics
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DeliveryFailures|Logs de falha de entrega|No|
+|DeliveryFailures|Logs de falha de entrega|Não|
 
 
 ## <a name="microsofteventgridtopics"></a>Microsoft.EventGrid/topics
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DeliveryFailures|Logs de falha de entrega|No|
+|DeliveryFailures|Logs de falha de entrega|Não|
 |PublishFailures|Publicar logs de falha|Não|
 
 
@@ -484,34 +483,34 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ArchiveLogs|Logs de arquivo|No|
-|AutoScaleLogs|Logs de Escala Automática|No|
-|CustomerManagedKeyUserLogs|Logs de chave gerenciado pelo cliente|No|
-|EventHubVNetConnectionEvent|Logs de conexão de filtragem de VNet/IP|No|
-|KafkaCoordinatorLogs|Logs do coordenador de Kafka|No|
-|KafkaUserErrorLogs|Logs de erros do usuário Kafka|No|
-|OperationalLogs|Logs operacionais|No|
+|ArchiveLogs|Logs de arquivo|Não|
+|AutoScaleLogs|Logs de Escala Automática|Não|
+|CustomerManagedKeyUserLogs|Logs de chave gerenciado pelo cliente|Não|
+|EventHubVNetConnectionEvent|Logs de conexão de filtragem de VNet/IP|Não|
+|KafkaCoordinatorLogs|Logs do coordenador de Kafka|Não|
+|KafkaUserErrorLogs|Logs de erros do usuário Kafka|Não|
+|OperationalLogs|Logs operacionais|Não|
 
 
 ## <a name="microsoftexperimentationexperimentworkspaces"></a>Microsoft. Experimentation/experimentWorkspaces
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Solicitação|Solicitação|No|
+|Solicitação|Solicitação|Não|
 
 
 ## <a name="microsofthealthcareapisservices"></a>Microsoft.HealthcareApis/services
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AuditLogs|Logs de auditoria|No|
+|AuditLogs|Logs de auditoria|Não|
 
 
 ## <a name="microsoftinsightsautoscalesettings"></a>microsoft.insights/autoscalesettings
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AutoscaleEvaluations|Avaliações de Dimensionamento Automático|No|
+|AutoscaleEvaluations|Avaliações de Dimensionamento Automático|Não|
 |AutoscaleScaleActions|Ações de Dimensionamento Automático|Não|
 
 
@@ -519,29 +518,29 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AppAvailabilityResults|Resultados da disponibilidade|No|
-|AppBrowserTimings|Tempos do navegador|No|
-|AppDependencies|Dependências|No|
-|AppEvents|Eventos|No|
-|AppExceptions|Exceções|No|
-|AppMetrics|Métricas|No|
-|AppPageViews|Exibições de página|No|
-|AppPerformanceCounters|Contadores de desempenho|No|
-|AppRequests|Requests|No|
-|AppSystemEvents|Eventos do sistema|No|
-|AppTraces|Rastreamentos|No|
+|AppAvailabilityResults|Resultados da disponibilidade|Não|
+|AppBrowserTimings|Tempos do navegador|Não|
+|AppDependencies|Dependências|Não|
+|AppEvents|Eventos|Não|
+|AppExceptions|Exceções|Não|
+|AppMetrics|Métricas|Não|
+|AppPageViews|Exibições de página|Não|
+|AppPerformanceCounters|Contadores de desempenho|Não|
+|AppRequests|Requests|Não|
+|AppSystemEvents|Eventos do sistema|Não|
+|AppTraces|Rastreamentos|Não|
 
 
 ## <a name="microsoftiotspacesgraph"></a>Microsoft.IoTSpaces/Graph
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Audit|Audit|No|
-|Saída|Saída|No|
-|Entrada|Entrada|No|
-|Operacional|Operacional|No|
-|Trace|Trace|No|
-|UserDefinedFunction|UserDefinedFunction|No|
+|Audit|Audit|Não|
+|Saída|Saída|Não|
+|Entrada|Entrada|Não|
+|Operacional|Operacional|Não|
+|Trace|Trace|Não|
+|UserDefinedFunction|UserDefinedFunction|Não|
 
 
 ## <a name="microsoftkeyvaultmanagedhsms"></a>Microsoft. keyvault/managedhsms
@@ -555,20 +554,20 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AuditEvent|Logs de Auditoria|No|
+|AuditEvent|Logs de Auditoria|Não|
 
 
 ## <a name="microsoftkustoclusters"></a>Microsoft.Kusto/Clusters
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Comando|Comando|No|
-|FailedIngestion|Operações de ingestão com falha|No|
-|IngestionBatching|Envio em lote de ingestão|No|
-|Consulta|Consulta|No|
-|SucceededIngestion|Operações de ingestão com êxito|No|
-|TableDetails|Detalhes da tabela|No|
-|TableUsageStatistics|Estatísticas de uso de tabela|No|
+|Comando|Comando|Não|
+|FailedIngestion|Operações de ingestão com falha|Não|
+|IngestionBatching|Envio em lote de ingestão|Não|
+|Consulta|Consulta|Não|
+|SucceededIngestion|Operações de ingestão com êxito|Não|
+|TableDetails|Detalhes da tabela|Não|
+|TableUsageStatistics|Estatísticas de uso de tabela|Não|
 
 
 ## <a name="microsoftlogicintegrationaccounts"></a>Microsoft.Logic/integrationAccounts
@@ -589,10 +588,10 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AmlComputeClusterEvent|AmlComputeClusterEvent|No|
-|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|No|
-|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|No|
-|AmlComputeJobEvent|AmlComputeJobEvent|No|
+|AmlComputeClusterEvent|AmlComputeClusterEvent|Não|
+|AmlComputeClusterNodeEvent|AmlComputeClusterNodeEvent|Não|
+|AmlComputeCpuGpuUtilization|AmlComputeCpuGpuUtilization|Não|
+|AmlComputeJobEvent|AmlComputeJobEvent|Não|
 |AmlRunStatusChangedEvent|AmlRunStatusChangedEvent|Não|
 
 
@@ -607,8 +606,8 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|No|
-|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|No|
+|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|Não|
+|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|Não|
 |ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|Não|
 
 
@@ -616,9 +615,9 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AzureFirewallApplicationRule|Regra de Aplicativo de Firewall do Azure|No|
-|AzureFirewallDnsProxy|Proxy de DNS do firewall do Azure|No|
-|AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|No|
+|AzureFirewallApplicationRule|Regra de Aplicativo de Firewall do Azure|Não|
+|AzureFirewallDnsProxy|Proxy de DNS do firewall do Azure|Não|
+|AzureFirewallNetworkRule|Regra de Rede de Firewall do Azure|Não|
 
 
 ## <a name="microsoftnetworkbastionhosts"></a>Microsoft.Network/bastionHosts
@@ -632,14 +631,14 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|PeeringRouteLog|Logs de Tabela de Rota de Emparelhamento|No|
+|PeeringRouteLog|Logs de Tabela de Rota de Emparelhamento|Não|
 
 
 ## <a name="microsoftnetworkfrontdoors"></a>Microsoft.Network/frontdoors
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|FrontdoorAccessLog|Log de acesso do Frontdoor|No|
+|FrontdoorAccessLog|Log de acesso do Frontdoor|Não|
 |FrontdoorWebApplicationFirewallLog|Log de firewall do aplicativo Web Frontdoor|Não|
 
 
@@ -647,25 +646,25 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|No|
-|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|No|
+|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|Não|
+|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|Não|
 
 
 ## <a name="microsoftnetworknetworksecuritygroups"></a>Microsoft.Network/networksecuritygroups
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|NetworkSecurityGroupEvent|Network Security Group Event|No|
-|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|No|
-|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|No|
+|NetworkSecurityGroupEvent|Network Security Group Event|Não|
+|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|Não|
+|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|Não|
 
 
 ## <a name="microsoftnetworkp2svpngateways"></a>Microsoft. Network/p2sVpnGateways
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|No|
-|IKEDiagnosticLog|Logs de Diagnóstico IKE|No|
+|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|Não|
+|IKEDiagnosticLog|Logs de Diagnóstico IKE|Não|
 |P2SDiagnosticLog|Logs de Diagnóstico P2S|Não|
 
 
@@ -673,8 +672,8 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DDoSMitigationFlowLogs|Logs de fluxo de decisões de mitigação de DDoS|No|
-|DDoSMitigationReports|Relatórios de mitigações de DDoS|No|
+|DDoSMitigationFlowLogs|Logs de fluxo de decisões de mitigação de DDoS|Não|
+|DDoSMitigationReports|Relatórios de mitigações de DDoS|Não|
 |DDoSProtectionNotifications|Notificações de proteção contra DDoS|Não|
 
 
@@ -689,10 +688,10 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|No|
-|IKEDiagnosticLog|Logs de Diagnóstico IKE|No|
-|P2SDiagnosticLog|Logs de Diagnóstico P2S|No|
-|RouteDiagnosticLog|Logs de Diagnóstico de Rota|No|
+|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|Não|
+|IKEDiagnosticLog|Logs de Diagnóstico IKE|Não|
+|P2SDiagnosticLog|Logs de Diagnóstico P2S|Não|
+|RouteDiagnosticLog|Logs de Diagnóstico de Rota|Não|
 |TunnelDiagnosticLog|Logs de Diagnóstico de Túnel|Não|
 
 
@@ -700,17 +699,17 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|VMProtectionAlerts|Alertas de proteção da VM|No|
+|VMProtectionAlerts|Alertas de proteção da VM|Não|
 
 
 ## <a name="microsoftnetworkvpngateways"></a>Microsoft. Network/vpnGateways
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|No|
-|IKEDiagnosticLog|Logs de Diagnóstico IKE|No|
-|RouteDiagnosticLog|Logs de Diagnóstico de Rota|No|
-|TunnelDiagnosticLog|Logs de Diagnóstico de Túnel|No|
+|GatewayDiagnosticLog|Logs de Diagnóstico de Gateway|Não|
+|IKEDiagnosticLog|Logs de Diagnóstico IKE|Não|
+|RouteDiagnosticLog|Logs de Diagnóstico de Rota|Não|
+|TunnelDiagnosticLog|Logs de Diagnóstico de Túnel|Não|
 
 
 ## <a name="microsoftnotificationhubsnamespaces"></a>Microsoft.NotificationHubs/namespaces
@@ -724,14 +723,14 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Audit|Logs de Auditoria|No|
+|Audit|Logs de Auditoria|Não|
 
 
 ## <a name="microsoftpowerbitenants"></a>Microsoft. PowerBI/locatários
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Mecanismo|Mecanismo|No|
+|Mecanismo|Mecanismo|Não|
 
 
 ## <a name="microsoftpowerbitenantsworkspaces"></a>Microsoft. PowerBI/locatários/espaços de trabalho
@@ -745,40 +744,40 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Mecanismo|Mecanismo|No|
+|Mecanismo|Mecanismo|Não|
 
 
 ## <a name="microsoftprojectbabylonaccounts"></a>Microsoft. ProjectBabylon/accounts
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ScanStatusLogEvent|ScanStatus|No|
+|ScanStatusLogEvent|ScanStatus|Não|
 
 
 ## <a name="microsoftpurviewaccounts"></a>Microsoft. alcance/accounts
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|ScanStatusLogEvent|ScanStatus|No|
+|ScanStatusLogEvent|ScanStatus|Não|
 
 
 ## <a name="microsoftrecoveryservicesvaults"></a>Microsoft.RecoveryServices/Vaults
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AddonAzureBackupAlerts|Dados de alerta de backup do Azure addon|No|
-|AddonAzureBackupJobs|Dados do trabalho de backup do Azure addon|No|
-|AddonAzureBackupPolicy|Dados de política de backup do Azure addon|No|
-|AddonAzureBackupProtectedInstance|Dados de instância protegida do backup do Azure addon|No|
-|AddonAzureBackupStorage|Dados de armazenamento de backup do Azure addon|No|
-|AzureBackupReport|Dados de relatórios de backup do Azure|No|
-|AzureSiteRecoveryEvents|Eventos do Azure Site Recovery|No|
-|AzureSiteRecoveryJobs|Trabalhos do Azure Site Recovery|No|
-|AzureSiteRecoveryProtectedDiskDataChurn|Rotatividade de Dados de Disco Protegido do Azure Site Recovery|No|
-|AzureSiteRecoveryRecoveryPoints|Pontos de Recuperação do Azure Site Recovery|No|
-|AzureSiteRecoveryReplicatedItems|Itens replicados do Azure Site Recovery|No|
-|AzureSiteRecoveryReplicationDataUploadRate|Taxa de Carregamento de Dados de Replicação do Azure Site Recovery|No|
-|AzureSiteRecoveryReplicationStats|Estatísticas de Replicação do Azure Site Recovery|No|
+|AddonAzureBackupAlerts|Dados de alerta de backup do Azure addon|Não|
+|AddonAzureBackupJobs|Dados do trabalho de backup do Azure addon|Não|
+|AddonAzureBackupPolicy|Dados de política de backup do Azure addon|Não|
+|AddonAzureBackupProtectedInstance|Dados de instância protegida do backup do Azure addon|Não|
+|AddonAzureBackupStorage|Dados de armazenamento de backup do Azure addon|Não|
+|AzureBackupReport|Dados de relatórios de backup do Azure|Não|
+|AzureSiteRecoveryEvents|Eventos do Azure Site Recovery|Não|
+|AzureSiteRecoveryJobs|Trabalhos do Azure Site Recovery|Não|
+|AzureSiteRecoveryProtectedDiskDataChurn|Rotatividade de Dados de Disco Protegido do Azure Site Recovery|Não|
+|AzureSiteRecoveryRecoveryPoints|Pontos de Recuperação do Azure Site Recovery|Não|
+|AzureSiteRecoveryReplicatedItems|Itens replicados do Azure Site Recovery|Não|
+|AzureSiteRecoveryReplicationDataUploadRate|Taxa de Carregamento de Dados de Replicação do Azure Site Recovery|Não|
+|AzureSiteRecoveryReplicationStats|Estatísticas de Replicação do Azure Site Recovery|Não|
 |CoreAzureBackup|Principais dados de backup do Azure|Não|
 
 
@@ -786,7 +785,7 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|HybridConnectionsEvent|Eventos de HybridConnections|No|
+|HybridConnectionsEvent|Eventos de HybridConnections|Não|
 |HybridConnectionsLogs|HybridConnectionsLogs|Não|
 
 
@@ -801,7 +800,7 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|OperationalLogs|Logs operacionais|No|
+|OperationalLogs|Logs operacionais|Não|
 
 
 ## <a name="microsoftsignalrservicesignalr"></a>Microsoft.SignalRService/SignalR
@@ -815,18 +814,18 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DevOpsOperationsAudit|Logs de auditoria de operações do DevOps|No|
-|ResourceUsageStats|Estatísticas de uso de recursos|No|
-|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|No|
+|DevOpsOperationsAudit|Logs de auditoria de operações do DevOps|Não|
+|ResourceUsageStats|Estatísticas de uso de recursos|Não|
+|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|Não|
 
 
 ## <a name="microsoftsqlmanagedinstancesdatabases"></a>Microsoft.Sql/managedInstances/databases
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Errors|Errors|No|
-|QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|No|
-|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|No|
+|Errors|Errors|Não|
+|QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|Não|
+|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|Não|
 |SQLInsights|Insights do SQL|Não|
 
 
@@ -834,21 +833,21 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AutomaticTuning|Ajuste automático|No|
-|Blocos|Blocos|No|
-|DatabaseWaitStatistics|Estatísticas de Espera do Banco de Dados|No|
-|Deadlocks|Deadlocks|No|
-|DevOpsOperationsAudit|Logs de auditoria de operações do DevOps|No|
-|DmsWorkers|Trabalhos DMS|No|
-|Errors|Errors|No|
-|ExecRequests|Solicitações de Exec|No|
-|QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|No|
-|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|No|
-|RequestSteps|Etapas de solicitação|No|
-|SQLInsights|Insights do SQL|No|
-|SqlRequests|Solicitações de Sql|No|
-|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|No|
-|Tempos limite|Tempos limite|No|
+|AutomaticTuning|Ajuste automático|Não|
+|Blocos|Blocos|Não|
+|DatabaseWaitStatistics|Estatísticas de Espera do Banco de Dados|Não|
+|Deadlocks|Deadlocks|Não|
+|DevOpsOperationsAudit|Logs de auditoria de operações do DevOps|Não|
+|DmsWorkers|Trabalhos DMS|Não|
+|Errors|Errors|Não|
+|ExecRequests|Solicitações de Exec|Não|
+|QueryStoreRuntimeStatistics|Estatísticas de Runtime do Repositório de Consultas|Não|
+|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|Não|
+|RequestSteps|Etapas de solicitação|Não|
+|SQLInsights|Insights do SQL|Não|
+|SqlRequests|Solicitações de Sql|Não|
+|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|Não|
+|Tempos limite|Tempos limite|Não|
 |Esperas|Esperas|Não|
 
 
@@ -856,126 +855,126 @@ Se você considerar que há algo ausente, poderá abrir um comentário do GitHub
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|StorageDelete|StorageDelete|Sim|
+|StorageRead|StorageRead|Sim|
+|StorageWrite|StorageWrite|Sim|
 
 
 ## <a name="microsoftstoragestorageaccountsfileservices"></a>Microsoft.Storage/storageAccounts/fileServices
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|StorageDelete|StorageDelete|Sim|
+|StorageRead|StorageRead|Sim|
+|StorageWrite|StorageWrite|Sim|
 
 
 ## <a name="microsoftstoragestorageaccountsqueueservices"></a>Microsoft.Storage/storageAccounts/queueServices
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|StorageDelete|StorageDelete|Sim|
+|StorageRead|StorageRead|Sim|
+|StorageWrite|StorageWrite|Sim|
 
 
 ## <a name="microsoftstoragestorageaccountstableservices"></a>Microsoft.Storage/storageAccounts/tableServices
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|StorageDelete|StorageDelete|Yes|
-|StorageRead|StorageRead|Yes|
-|StorageWrite|StorageWrite|Yes|
+|StorageDelete|StorageDelete|Sim|
+|StorageRead|StorageRead|Sim|
+|StorageWrite|StorageWrite|Sim|
 
 
 ## <a name="microsoftstreamanalyticsstreamingjobs"></a>Microsoft.StreamAnalytics/streamingjobs
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Criação|Criação|No|
-|Execução|Execução|No|
+|Criação|Criação|Não|
+|Execução|Execução|Não|
 
 
 ## <a name="microsoftsynapseworkspaces"></a>Microsoft.Synapse/workspaces
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|BuiltinSqlReqsEnded|Solicitações de pool de SQL internas encerradas|No|
-|GatewayApiRequests|Solicitações de API de gateway Synapse|No|
-|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|No|
-|SynapseRbacOperations|Operações de RBAC Synapse|No|
+|BuiltinSqlReqsEnded|Solicitações de pool de SQL internas encerradas|Não|
+|GatewayApiRequests|Solicitações de API de gateway Synapse|Não|
+|SQLSecurityAuditEvents|Evento de Auditoria de Segurança do SQL|Não|
+|SynapseRbacOperations|Operações de RBAC Synapse|Não|
 
 
 ## <a name="microsoftsynapseworkspacesbigdatapools"></a>Microsoft. Synapse/Workspaces/bigDataPools
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|BigDataPoolAppsEnded|Aplicativos de pool de Big data encerrados|No|
+|BigDataPoolAppsEnded|Aplicativos de pool de Big data encerrados|Não|
 
 
 ## <a name="microsoftsynapseworkspacessqlpools"></a>Microsoft. Synapse/espaços de trabalho/sqlpools
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|DmsWorkers|Trabalhos DMS|No|
-|ExecRequests|Solicitações de Exec|No|
-|RequestSteps|Etapas de solicitação|No|
-|SqlRequests|Solicitações de Sql|No|
-|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|No|
-|Esperas|Esperas|No|
+|DmsWorkers|Trabalhos DMS|Não|
+|ExecRequests|Solicitações de Exec|Não|
+|RequestSteps|Etapas de solicitação|Não|
+|SqlRequests|Solicitações de Sql|Não|
+|SQLSecurityAuditEvents|Evento de auditoria de segurança do SQL|Não|
+|Esperas|Esperas|Não|
 
 
 ## <a name="microsofttimeseriesinsightsenvironments"></a>Microsoft.TimeSeriesInsights/environments
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Entrada|Entrada|No|
-|Gerenciamento|Gerenciamento|No|
+|Entrada|Entrada|Não|
+|Gerenciamento|Gerenciamento|Não|
 
 
 ## <a name="microsofttimeseriesinsightsenvironmentseventsources"></a>Microsoft.TimeSeriesInsights/environments/eventsources
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|Entrada|Entrada|No|
-|Gerenciamento|Gerenciamento|No|
+|Entrada|Entrada|Não|
+|Gerenciamento|Gerenciamento|Não|
 
 
 ## <a name="microsoftwebhostingenvironments"></a>microsoft.web/hostingenvironments
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AppServiceEnvironmentPlatformLogs|Ambiente do Serviço de Aplicativondo logs da plataforma|No|
+|AppServiceEnvironmentPlatformLogs|Ambiente do Serviço de Aplicativondo logs da plataforma|Não|
 
 
 ## <a name="microsoftwebsites"></a>microsoft.web/sites
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AppServiceAntivirusScanAuditLogs|Relatar logs de auditoria de antivírus|No|
-|AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|No|
-|AppServiceAuditLogs|Acessar logs de auditoria|No|
-|AppServiceConsoleLogs|Logs do console do serviço de aplicativo|No|
-|AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|No|
-|AppServiceHTTPLogs|Logs de HTTP|No|
-|AppServiceIPSecAuditLogs|Logs de auditoria do IPSecurity|No|
-|AppServicePlatformLogs|Logs da plataforma do serviço de aplicativo|No|
-|FunctionAppLogs|Logs do aplicativo de funções|No|
+|AppServiceAntivirusScanAuditLogs|Relatar logs de auditoria de antivírus|Não|
+|AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|Não|
+|AppServiceAuditLogs|Acessar logs de auditoria|Não|
+|AppServiceConsoleLogs|Logs do console do serviço de aplicativo|Não|
+|AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|Não|
+|AppServiceHTTPLogs|Logs de HTTP|Não|
+|AppServiceIPSecAuditLogs|Logs de auditoria do IPSecurity|Não|
+|AppServicePlatformLogs|Logs da plataforma do serviço de aplicativo|Não|
+|FunctionAppLogs|Logs do aplicativo de funções|Não|
 
 
 ## <a name="microsoftwebsitesslots"></a>microsoft.web/sites/slots
 
 |Categoria|Nome de exibição da categoria|Custos para exportar|
 |---|---|---|
-|AppServiceAntivirusScanAuditLogs|Relatar logs de auditoria de antivírus|No|
-|AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|No|
-|AppServiceAuditLogs|Acessar logs de auditoria|No|
-|AppServiceConsoleLogs|Logs do console do serviço de aplicativo|No|
-|AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|No|
-|AppServiceHTTPLogs|Logs de HTTP|No|
-|AppServiceIPSecAuditLogs|Logs de auditoria do IPSecurity|No|
-|AppServicePlatformLogs|Logs da plataforma do serviço de aplicativo|No|
-|FunctionAppLogs|Logs do aplicativo de funções|No|
+|AppServiceAntivirusScanAuditLogs|Relatar logs de auditoria de antivírus|Não|
+|AppServiceAppLogs|Logs de aplicativo do serviço de aplicativo|Não|
+|AppServiceAuditLogs|Acessar logs de auditoria|Não|
+|AppServiceConsoleLogs|Logs do console do serviço de aplicativo|Não|
+|AppServiceFileAuditLogs|Logs de auditoria de alteração de conteúdo do site|Não|
+|AppServiceHTTPLogs|Logs de HTTP|Não|
+|AppServiceIPSecAuditLogs|Logs de auditoria do IPSecurity|Não|
+|AppServicePlatformLogs|Logs da plataforma do serviço de aplicativo|Não|
+|FunctionAppLogs|Logs do aplicativo de funções|Não|
 
 
 

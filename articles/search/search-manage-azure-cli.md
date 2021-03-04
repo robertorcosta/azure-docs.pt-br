@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: bb132baf3e93242c1b228f0ac7f0cfb7f41e1164
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679050"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032510"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Gerenciar o serviço de Pesquisa Cognitiva do Azure com o CLI do Azure
 > [!div class="op_single_selector"]
@@ -47,7 +47,7 @@ Dentro de um serviço, a criação e o gerenciamento de conteúdo são por meio 
 
 Os exemplos neste artigo são interativos e exigem permissões elevadas. O CLI do Azure deve ser instalado. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Agora você pode executar o CLI do Azure com o `az` comando do prompt de comando do Windows, do PowerShell ou do [Azure cloud Shell](../cloud-shell/overview). O PowerShell oferece alguns recursos de conclusão de guia não disponíveis no prompt de comando do Windows. 
+Agora você pode executar o CLI do Azure com o `az` comando do prompt de comando do Windows, do PowerShell ou do [Azure cloud Shell](../cloud-shell/overview.md). O PowerShell oferece alguns recursos de conclusão de guia não disponíveis no prompt de comando do Windows. 
 
 ### <a name="check-the-azure-cli-version"></a>Verificar a versão do CLI do Azure
 
@@ -152,7 +152,7 @@ az search service show --name <service-name> --resource-group <resource-group-na
 
 ## <a name="create-or-delete-a-service"></a>Criar ou excluir um serviço
 
-Para [criar um novo serviço de pesquisa](search-create-service-portal), use o comando [**AZ Search Service Create**](/cli/azure/search/service#az_search_service_show) .
+Para [criar um novo serviço de pesquisa](search-create-service-portal.md), use o comando [**AZ Search Service Create**](/cli/azure/search/service#az_search_service_show) .
 
 ```azurecli-interactive
 az search service create \

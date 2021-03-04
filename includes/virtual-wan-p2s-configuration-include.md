@@ -1,31 +1,46 @@
 ---
-title: incluir arquivo
-description: incluir arquivo
-services: virtual-wan
 author: cherylmc
+ms.author: cherylmc
+ms.date: 02/23/2021
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 09/12/2018
-ms.author: cherylmc
-ms.custom: include file
-ms.openlocfilehash: 411c28c0bbbf5ea659c6b6cca1e5bfae847ddd7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5c0bdbb29af7b8894d86233520ff09854faa201
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91812638"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101732473"
 ---
-1. Navegue até **Todos os recursos**.
-1. Selecione a WAN Virtual que você criou.
-1. Selecione **+Criar configuração de VPN do usuário** na parte superior da página para abrir a página **Criar configuração de VPN do usuário**.
+1. Navegue até **Todos os recursos** e selecione a WAN criada. Em seguida, selecione **Configurações de VPN do usuário** no menu à esquerda.
+1. Na página **Configurações de VPN do usuário**, selecione **+Criar configuração de VPN do usuário** no início da página para abrir a página **Criar configuração de VPN do usuário**.
 
-   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.jpg" alt-text="Configurações de VPN de Usuário":::
+   :::image type="content" source="media/virtual-wan-p2s-configuration/user-vpn.png" alt-text="Captura de tela da página de configurações de VPN do usuário.":::
 
-1. Na página **Criar nova configuração de VPN do usuário**, preencha os campos a seguir:
+1. Na guia **Noções básicas**, em **Detalhes da instância**, insira o **Nome** que deseja atribuir à configuração de VPN.
+1. Em **Tipo de túnel**, selecione o tipo de túnel desejado na lista suspensa. As opções de tipo de túnel são: **VPN IKEv2**, **OpenVPN** e **OpenVpn e IkeV2**.
+1. Use as etapas a seguir que correspondam ao tipo de túnel selecionado. Depois que todos os valores forem especificados, clique em **Examinar + Criar** e em **Criar** para criar a configuração.
 
-   * **Nome da configuração**: esse é o nome atribuído à sua configuração.
-   * **Tipo de túnel**: o protocolo a ser usado para o túnel.
-   * **Nome do certificado raiz**: um nome descritivo para o certificado.
-   * **Dados de certificado público** – dados do certificado X.509 codificado em Base 64.
-  
-1. Selecione **Criar** para criar a configuração.
+   **VPN IKEv2**
+
+   * **Requisitos:** quando você seleciona o tipo de túnel **IKEv2**, aparece uma mensagem que pede a escolha de um método de autenticação. Para IKEv2, você pode especificar apenas um método de autenticação. Você pode escolher o Certificado do Azure, o Azure Active Directory ou autenticação baseada em RADIUS.
+ 
+   * **Parâmetros de IPsec personalizados:** para personalizar os parâmetros das fases 1 e 2 do IKE, alterne o botão de IPsec para **Personalizar** e selecione os valores dos parâmetros. Para obter mais informações sobre parâmetros personalizáveis, confira o artigo [IPsec personalizado](../articles/virtual-wan/point-to-site-ipsec.md).
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/custom.png" alt-text="Captura de tela do botão IPsec alternado para Personalizar.":::
+
+   * **Autenticação:** navegue até o mecanismo de autenticação que deseja usar clicando em **Avançar** no final da página para passar para o método de autenticação ou clicando na guia apropriada no início da página. Alterne o botão para **Sim** para selecionar o método.
+
+     O exemplo mostra a seleção da autenticação RADIUS. Para a autenticação baseada em RADIUS, você pode informar um endereço IP secundário do servidor RADIUS e o segredo do servidor.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/ike-radius.png" alt-text="Captura de tela do IKE.":::
+
+   **OpenVPN**
+
+   * **Requisitos:** quando você seleciona o tipo de túnel **OpenVPN**, aparece uma mensagem que pede a escolha de um mecanismo de autenticação. Se OpenVPN for selecionado como o tipo de túnel, você poderá especificar vários métodos de autenticação. Você pode escolher qualquer subconjunto de Certificado do Azure, Azure Active Directory ou autenticação baseada em RADIUS. Para a autenticação baseada em RADIUS, você pode informar um endereço IP secundário do servidor RADIUS e o segredo do servidor.
+
+   * **Autenticação:** navegue até os métodos de autenticação que deseja usar clicando em **Avançar** no final da página para passar para o método de autenticação ou clicando na guia apropriada no início da página.
+   Para cada método que desejar selecionar, alterne o botão para **Sim** e insira os valores apropriados.
+
+     O exemplo mostra a seleção do Azure Active Directory.
+
+     :::image type="content" source="media/virtual-wan-p2s-configuration/openvpn.png" alt-text="Captura de tela da página OpenVPN.":::

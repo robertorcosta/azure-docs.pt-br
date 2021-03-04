@@ -239,13 +239,13 @@
         - name: Gerenciar certificados
           items:
             - name: Requisitos
-              href: azure-stack-edge-j-series-certificate-requirements.md
+              href: azure-stack-edge-gpu-certificate-requirements.md
             - name: Traga seu próprio
-              href: azure-stack-edge-j-series-manage-certificates.md
+              href: azure-stack-edge-gpu-manage-certificates.md
             - name: Criar por meio da ferramenta Verificador de Preparação do Azure Stack
-              href: azure-stack-edge-j-series-create-certificates-tool.md
+              href: azure-stack-edge-gpu-create-certificates-tool.md
             - name: Solucionar erros de certificado
-              href: azure-stack-edge-j-series-certificate-troubleshooting.md
+              href: azure-stack-edge-gpu-certificate-troubleshooting.md
         - name: Gerenciar a computação de borda
           href: azure-stack-edge-j-series-manage-compute.md
         - name: Gerenciar o Registro de contêiner do Edge
@@ -272,6 +272,8 @@
               href: azure-stack-edge-gpu-connect-powershell-interface.md
             - name: Aplicar atualizações
               href: azure-stack-edge-gpu-install-update.md
+            - name: 'Redefinir, reativar dispositivo'
+              href: azure-stack-edge-reset-reactivate-device.md
             - name: Devolução do dispositivo
               href: azure-stack-edge-return-device.md
             - name: Substituir dispositivo

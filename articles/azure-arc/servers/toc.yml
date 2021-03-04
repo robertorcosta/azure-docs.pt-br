@@ -31,6 +31,8 @@
       items:
         - name: Visão geral do agente do Connected Machine
           href: agent-overview.md
+        - name: Planejar implantação em escala
+          href: plan-at-scale-deployment.md
         - name: Conecte computadores ao Azure Arc usando o portal do Azure
           href: onboard-portal.md
         - name: Conecte computadores em escala usando uma entidade de serviço

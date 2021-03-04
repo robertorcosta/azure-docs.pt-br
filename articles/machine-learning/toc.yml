@@ -321,11 +321,14 @@
             - name: Criar conjuntos de dados com rótulos
               displayName: 'data, labels, torchvision'
               href: how-to-use-labeled-dataset.md
-        - name: Obter dados
+        - name: Obter e preparar dados
           items:
             - name: Ingestão de dados com o Azure Data Factory
               displayName: 'data, ingestion, adf'
               href: how-to-data-ingest-adf.md
+            - name: Preparação de dados com o Azure Synapse
+              displayName: 'data, data prep, spark, spark pool, cluster, spark cluster,dataset, datastore'
+              href: how-to-data-prep-synapse-spark-pool.md
             - name: DevOps para ingestão de dados
               displayName: 'data, ingestion, devops'
               href: how-to-cicd-data-ingestion.md
@@ -337,6 +340,9 @@
             - name: Conectar ao armazenamento do Azure (Python)
               displayName: 'blob, get, fileshare, access, mount, download, data lake, datastore'
               href: how-to-access-data.md
+            - name: Acesso ao armazenamento com dados baseados em identidade
+              displayName: 'blob, access, data lake, datastore, managed identity'
+              href: how-to-identity-based-data-access.md
             - name: Obter dados de um armazenamento de dados (Python)
               displayName: 'data, data set, register, access data'
               href: how-to-create-register-datasets.md
@@ -385,8 +391,8 @@
             - name: Habilitar logs
               displayName: 'troubleshoot, log, files, tracing'
               href: how-to-track-experiments.md
-            - name: Exibir logs
-              displayName: 'troubleshoot, log, files, tracing'
+            - name: Exibir logs e métricas de execuções
+              displayName: 'troubleshoot, log, files, tracing, metrics'
               href: how-to-monitor-view-training-logs.md
             - name: Visualizar execuções com o TensorBoard
               displayName: 'log, monitor, metrics'
@@ -531,6 +537,8 @@
           href: how-to-move-data-in-out-of-pipelines.md
         - name: Implantar pipelines de ML (Python)
           href: how-to-deploy-pipelines.md
+        - name: Usar pools do Apache Spark do Azure Synapse em um pipeline de Machine Learning (Python)
+          href: how-to-use-synapsesparkstep.md
         - name: Disparar um pipeline
           href: how-to-trigger-published-pipeline.md
         - name: Designer (arrastar e soltar)

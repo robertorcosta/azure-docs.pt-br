@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c9df24a255d640c463bd62e8bdfe8a576df3b09
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: eaad4995abcf54e9ca7040d570c7a9abbdbc9cf5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692972"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032376"
 ---
 # <a name="securing-service-principals"></a>Protegendo entidades de serviço
 
@@ -107,7 +107,7 @@ Não é possível gerenciar a entrada das entidades de serviço com acesso condi
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Mover de uma conta de usuário para uma entidade de serviço  
 Se você estiver usando uma conta de usuário do Azure como uma entidade de serviço, avalie se você pode mudar para uma [identidade gerenciada](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) ou uma entidade de serviço. Se você não puder usar uma identidade gerenciada, Provisione uma entidade de serviço que tenha apenas permissões e escopo suficientes para executar as tarefas necessárias. Você pode criar uma entidade de serviço [registrando um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)ou com o [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
 
-Ao usar Microsoft Graph, verifique a documentação da API específica, [como neste exemplo](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps?view=azps-5.0.0), e verifique se o tipo de permissão para o aplicativo está sendo exibido como com suporte.
+Ao usar Microsoft Graph, verifique a documentação da API específica, [como neste exemplo](/powershell/azure/create-azure-service-principal-azureps), e verifique se o tipo de permissão para o aplicativo está sendo exibido como com suporte.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -115,7 +115,7 @@ Ao usar Microsoft Graph, verifique a documentação da API específica, [como ne
 
 [Criar uma entidade de serviço](../develop/howto-create-service-principal-portal.md)
 
- [Monitorar as entradas da entidade de serviço](../reports-monitoring/concept-all-sign-ins#sign-ins-report.md)
+ [Monitorar as entradas da entidade de serviço](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
 
 **Para saber mais sobre como proteger as contas de serviço:**
 
@@ -125,4 +125,4 @@ Ao usar Microsoft Graph, verifique a documentação da API específica, [como ne
 
 [Governando contas de serviço do Azure](service-accounts-governing-azure.md)
 
-[Introdução a contas de serviço locais](service-accounts-on-poremises.md)
+[Introdução a contas de serviço locais](service-accounts-on-premises.md)

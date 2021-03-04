@@ -419,7 +419,7 @@
           items:
             - name: Criar pontos de restauração
               href: ./backuprestore/sqlpool-create-restore-point.md
-            - name: Restaurar um pool de SQL do Synapse
+            - name: Restaurar um pool de SQL dedicado
               href: ./backuprestore/restore-sql-pool.md
         - name: Gerenciar e monitorar
           items:
@@ -552,6 +552,10 @@
           href: ./spark/apache-spark-machine-learning-mllib-notebook.md
         - name: Enviar definições de trabalho do Spark
           href: ./spark/apache-spark-job-definitions.md
+        - name: Conectar e monitorar as métricas no nível do aplicativo Spark do Azure Synapse
+          href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
+        - name: Monitorar métricas no nível do aplicativo Apache Spark com Prometheus e Grafana
+          href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
     - name: Conceitos
       items:
         - name: Apache Spark
@@ -566,17 +570,21 @@
           href: ./spark/apache-spark-machine-learning-concept.md
         - name: Notebooks
           href: ./spark/apache-spark-notebook-concept.md
+        - name: Gerenciamento de pacotes
+          href: ./spark/apache-spark-azure-portal-add-libraries.md
         - name: Ferramentas de monitoramento
           href: monitoring/how-to-monitor-spark-applications.md
     - name: Guias de instruções
       items:
         - name: Trabalhar com o Delta Lake
           href: ./spark/apache-spark-delta-lake-overview.md
-        - name: Gerenciar bibliotecas
+        - name: Gerenciar pacotes
           items:
-            - name: Adicionar e gerenciar bibliotecas
-              href: ./spark/apache-spark-azure-portal-add-libraries.md
-            - name: Solucionar problemas referentes a erros de instalação de bibliotecas
+            - name: Gerenciar pacotes do Python
+              href: ./spark/apache-spark-manage-python-packages.md
+            - name: Gerenciar pacotes Scala
+              href: ./spark/apache-spark-manage-scala-packages.md
+            - name: Solucionar problemas com erros de instalação do pacote Python
               href: ./spark/apache-spark-troubleshoot-library-errors.md
         - name: Usar notebooks e ferramentas de IDE
           items:

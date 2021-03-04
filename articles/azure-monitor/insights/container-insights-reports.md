@@ -2,19 +2,19 @@
 title: Relatórios em informações de contêiner
 description: Descreve os relatórios disponíveis para analisar os dados coletados por informações de contêiner.
 ms.topic: conceptual
-ms.date: 12/07/2020
-ms.openlocfilehash: ab704ed184d9d67ddfba5aede385899faf2a56de
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: ca74521a08d4edaa498e00e6452d8f69912e4bb9
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101704269"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032782"
 ---
 # <a name="reports-in-container-insights"></a>Relatórios em informações de contêiner
 Os relatórios em insights de contêiner são [pastas de trabalho do Azure](../visualize/workbooks-overview.md)prontas para uso. Este artigo descreve os diferentes relatórios que estão disponíveis e como acessá-los.
 
 ## <a name="viewing-reports"></a>Visualizando relatórios
-No menu **Azure monitor** na portal do Azure, selecione **contêineres**. Selecione **insights** na seção **monitoramento** , escolha um cluster específico e, em seguida, selecione a página **relatórios (versão prévia)** . 
+No menu **Azure monitor** na portal do Azure, selecione **contêineres**. Selecione **insights** na seção **monitoramento** , escolha um cluster específico e, em seguida, selecione a página **relatórios** . 
 
 [![Página de relatórios](media/container-insights-reports/reports-page.png)](media/container-insights-reports/reports-page.png#lightbox)
 

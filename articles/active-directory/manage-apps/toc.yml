@@ -150,8 +150,10 @@
           href: disable-user-sign-in-portal.md
         - name: Configurar atribuição de aplicativo de autoatendimento
           href: manage-self-service-access.md
-        - name: Descoberta de Realm Inicial
+        - name: Forçar a aceleração automática por meio da política de Descoberta de Realm Inicial
           href: configure-authentication-for-federated-users-portal.md
+        - name: Impedir a aceleração automática de credenciais com a política de Descoberta de Realm Inicial
+          href: prevent-domain-hints-with-home-realm-discovery.md
     - name: Migrar o gerenciamento de identidades para o Azure AD
       items:
         - name: Recursos de migração

@@ -3,12 +3,12 @@ title: Como planejar uma implantação em escala de servidores habilitados para 
 description: Saiba como habilitar um grande número de máquinas para servidores habilitados para Arc do Azure para simplificar a configuração de recursos essenciais de segurança, gerenciamento e monitoramento no Azure.
 ms.date: 02/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: fd02e7c0b4d65efde13fbc428a15d60adab174d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e77fc00f94f2f46c60bb2c5dcecc10a4e2e3bc5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692966"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102032221"
 ---
 # <a name="planing-for-an-at-scale-deployment-of-azure-arc-enabled-servers"></a>Planejando uma implantação em escala de servidores habilitados para Arc do Azure
 
@@ -71,7 +71,7 @@ Em seguida, adicionamos à Fundação disposta na fase 1, preparando a implanta�
 
 |Tarefa |Detalhe |Duration |
 |-----|-------|---------|
-| Baixar o script de instalação predefinido | Examine e personalize o script de instalação predefinido para a implantação em escala do agente do computador conectado para dar suporte aos seus requisitos de implantação automatizados.<br><br> Exemplo de recursos de integração em escala:<br><br> * [Script de implantação básica em escala](servers/onboard-service-principal.md)<br><br> * [Integração em escala VMware vSphere VMs do Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)<br><br> * [Integração em escala VMware vSphere VMs Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)<br><br> * [Integração em escala AWS instâncias de EC2 usando o Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)<br><br> * [Implantação em escala usando a comunicação remota do PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (somente Windows)| Um ou mais dias, dependendo dos requisitos, dos processos organizacionais (por exemplo, alteração e Release Management) e do método de automação usado. |
+| Baixar o script de instalação predefinido | Examine e personalize o script de instalação predefinido para a implantação em escala do agente do computador conectado para dar suporte aos seus requisitos de implantação automatizados.<br><br> Exemplo de recursos de integração em escala:<br><br> <ul><li> [Script de implantação básica em escala](onboard-service-principal.md)</ul></li> <ul><li>[Integração em escala VMware vSphere VMs do Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Integração em escala VMware vSphere VMs Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Integração em escala AWS instâncias de EC2 usando o Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implantação em escala usando a comunicação remota do PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (somente Windows)</ul></li>| Um ou mais dias, dependendo dos requisitos, dos processos organizacionais (por exemplo, alteração e Release Management) e do método de automação usado. |
 | [Criar uma entidade de serviço](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Crie uma entidade de serviço para conectar computadores de forma não interativa usando Azure PowerShell ou no Portal.| Uma hora |
 | Implantar o agente do computador conectado nos servidores e máquinas de destino |Use sua ferramenta de automação para implantar os scripts em seus servidores e conectá-los ao Azure.| Um ou mais dias, dependendo do seu plano de versão, e se estiver seguindo uma distribuição em fases. |
 
@@ -83,7 +83,7 @@ A fase 3 vê os administradores ou engenheiros de sistema que permitem a automa�
 |-----|-------|---------|
 |Criar um alerta Resource Health |Se um servidor parar de enviar pulsações para o Azure por mais de 15 minutos, isso pode significar que está offline, a conexão de rede foi bloqueada ou o agente não está em execução. Desenvolva um plano para como você responderá e investigará esses incidentes e usará [Resource Health alertas](../..//service-health/resource-health-alert-monitor-guide.md) para ser notificado quando eles forem iniciados.<br><br> Especifique o seguinte ao configurar o alerta:<br> **Tipo**  =  de recurso **Servidores habilitados para Arc do Azure**<br> Status do recurso **atual**  =  **Não disponível**<br> Status do recurso **anterior**  =  **Disponível** | Uma hora |
 |Criar um alerta do supervisor do Azure | Para obter a melhor experiência e correções de bugs e segurança mais recentes, é recomendável manter o agente de servidores habilitados para Arc do Azure atualizado. Agentes desatualizados serão identificados com um [alerta do supervisor do Azure](../../advisor/advisor-alerts-portal.md).<br><br> Especifique o seguinte ao configurar o alerta:<br> **Tipo**  =  de recomendação **Atualizar para a versão mais recente do agente do computador conectado do Azure** | Uma hora |
-|[Atribuir políticas do Azure](../../governance/policy/assign-policy-portal.md) à sua assinatura ou ao escopo do grupo de recursos |Atribua a política **habilitar Azure monitor para VMs** e outras que atendam às suas necessidades para a assinatura ou o escopo do grupo de recursos, para garantir que todos os seus servidores habilitados para Arc sejam automaticamente configurados para monitoramento com Azure monitor para VMs.| Varia |
+|[Atribuir políticas do Azure](../../governance/policy/assign-policy-portal.md) à sua assinatura ou ao escopo do grupo de recursos |Atribua a [política](../../azure-monitor/vm/vminsights-enable-policy.md) **habilitar Azure monitor para VMs** (e outras que atendam às suas necessidades) à assinatura ou ao escopo do grupo de recursos. Azure Policy permite atribuir definições de política que instalam os agentes necessários para Azure Monitor para VMs em seu ambiente.| Varia |
 |[Habilitar Gerenciamento de Atualizações para seus servidores habilitados para Arc](../../automation/update-management/enable-from-automation-account.md) |Configure Gerenciamento de Atualizações na automação do Azure para gerenciar atualizações do sistema operacional para suas máquinas virtuais Windows e Linux registradas com servidores habilitados para Arc. | 15 minutos |
 
 ## <a name="next-steps"></a>Próximas etapas
