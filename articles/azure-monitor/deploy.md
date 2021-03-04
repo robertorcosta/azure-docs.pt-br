@@ -1,17 +1,16 @@
 ---
 title: Implantar o Azure Monitor
 description: Descreve as diferentes etapas necessárias para uma implementação completa de Azure Monitor monitorar todos os recursos em sua assinatura do Azure.
-ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: f5855d7ab1f7ba8e11334f1373fb10166f47003a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7656efeb26a8a8b3c752ea996c8e644c68a48626
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708247"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043993"
 ---
 # <a name="deploy-azure-monitor"></a>Implantar o Azure Monitor
 A habilitação do Azure Monitor para monitorar todos os seus recursos do Azure é uma combinação de configuração de componentes do Azure Monitor e configuração de recursos do Azure para gerar dados de monitoramento para Azure Monitor coletar. Este artigo descreve as diferentes etapas necessárias para uma implementação completa de Azure Monitor usando uma configuração comum para monitorar todos os recursos em sua assinatura do Azure. Descrições básicas para cada etapa são fornecidas com links para outras documentações para requisitos de configuração detalhados.

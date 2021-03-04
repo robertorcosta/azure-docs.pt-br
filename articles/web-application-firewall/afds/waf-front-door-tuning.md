@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
-ms.openlocfilehash: 4c710792dd7966fad76b33954fdf7c2253cf18f0
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 8752886bc5304de420083212d29ccd3e1cb14084
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96488231"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043687"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Ajustando o WAF (firewall do aplicativo Web) para a porta frontal do Azure
  
@@ -38,9 +38,17 @@ UserId=20&captchaId=7&captchaId=15&comment="1=1"&rating=3
 
 Se você tentar a solicitação, o WAF bloqueará o tráfego que contém a cadeia de caracteres *1 = 1* em qualquer parâmetro ou campo. Essa é uma cadeia de caracteres com frequência associada a um ataque de injeção de SQL. Você pode examinar os logs e ver o carimbo de data/hora da solicitação e as regras que foram bloqueadas/correspondidas.
  
-No exemplo a seguir, exploramos um `FrontdoorWebApplicationFirewallLog` log gerado devido a uma correspondência de regra.
+No exemplo a seguir, exploramos um `FrontdoorWebApplicationFirewallLog` log gerado devido a uma correspondência de regra. A consulta Log Analytics a seguir pode ser usada para localizar solicitações que foram bloqueadas nas últimas 24 horas:
+
+```kusto
+AzureDiagnostics
+| where Category == 'FrontdoorWebApplicationFirewallLog'
+| where TimeGenerated > ago(1d)
+| where action_s == 'Block'
+
+```
  
-No campo "requestUri", você pode ver que a solicitação foi feita para `/api/Feedbacks/` especificamente. Indo além, encontramos a ID da regra `942110` no campo "ruleName". Sabendo a ID da regra, você pode ir para o [OWASP ModSecurity Core Rule Set oficial Repository](https://github.com/coreruleset/coreruleset) e Pesquisar por essa [ID de regra](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) para examinar seu código e entender exatamente o que essa regra corresponde. 
+No `requestUri` campo, você pode ver que a solicitação foi feita `/api/Feedbacks/` especificamente. Indo além, encontramos a ID da regra `942110` no `ruleName` campo. Sabendo a ID da regra, você pode ir para o [OWASP ModSecurity Core Rule Set oficial Repository](https://github.com/coreruleset/coreruleset) e Pesquisar por essa [ID de regra](https://github.com/coreruleset/coreruleset/blob/v3.1/dev/rules/REQUEST-942-APPLICATION-ATTACK-SQLI.conf) para examinar seu código e entender exatamente o que essa regra corresponde. 
  
 Em seguida, ao verificar o `action` campo, vemos que essa regra está definida para bloquear solicitações na correspondência e confirmamos que a solicitação foi, de fato, bloqueada pelo WAF porque o `policyMode` está definido como `prevention` . 
  
@@ -181,7 +189,7 @@ No exemplo a seguir, criamos uma regra personalizada com duas condições. A pri
 
 O uso de uma regra personalizada permite que você seja o mais granular ao ajustar suas regras WAF e para lidar com falsos positivos. Nesse caso, não estamos realizando uma ação apenas com base no `comment` valor do corpo da solicitação, que pode existir em vários sites ou aplicativos na mesma política de WAF. Ao incluir outra condição para corresponder também a um URI de solicitação específico `/api/Feedbacks/` , garantimos que essa regra personalizada realmente se aplique a esse caso de uso explícito que verificados. Isso garante que o mesmo ataque, se executado em condições diferentes, ainda seria inspecionado e impedido pelo mecanismo de WAF.
 
-![Log](../media/waf-front-door-tuning/custom-rule.png)
+![Registro](../media/waf-front-door-tuning/custom-rule.png)
 
 Ao explorar o log, você pode ver que o `ruleName_s` campo contém o nome fornecido para a regra personalizada que criamos: `redirectcomment` . No `action_s` campo, você pode ver que a ação de *redirecionamento* foi executada para esse evento. No `details_matches_s` campo, podemos ver os detalhes de ambas as condições serem correspondidas.
 
@@ -196,6 +204,9 @@ No entanto, desabilitar uma regra é uma configuração global que se aplica a t
 Se você quiser usar Azure PowerShell para desabilitar uma regra gerenciada, consulte a [`PSAzureManagedRuleOverride`](/powershell/module/az.frontdoor/new-azfrontdoorwafmanagedruleoverrideobject?preserve-view=true&view=azps-4.7.0) documentação do objeto. Se você quiser usar CLI do Azure, consulte a [`az network front-door waf-policy managed-rules override`](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/override?preserve-view=true&view=azure-cli-latest) documentação.
 
 ![Regras de WAF](../media/waf-front-door-tuning/waf-rules.png)
+
+> [!TIP]
+> É uma boa ideia documentar quaisquer alterações feitas na política do WAF. Inclua solicitações de exemplo para ilustrar a detecção de falsos positivos e explique claramente por que você adicionou uma regra personalizada, desabilitou uma regra ou conjunto de regras ou adicionou uma exceção. Esta documentação pode ser útil se você reprojetar seu aplicativo no futuro e precisar verificar se suas alterações ainda são válidas. Ele também pode ajudar se você já tiver auditado ou precisar justificar por que você reconfigurou a política de WAF de suas configurações padrão.
 
 ## <a name="finding-request-fields"></a>Localizando campos de solicitação
 

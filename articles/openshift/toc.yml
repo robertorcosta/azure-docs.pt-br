@@ -28,6 +28,8 @@
           href: dns-forwarding.md
     - name: Armazenamento
       items:
+        - name: Criptografar PVCs com chave gerenciada pelo cliente (versão prévia)
+          href: howto-encrypt-data-disks.md
         - name: Criar um Storageclass dos Arquivos do Azure
           href: howto-create-a-storageclass.md
         - name: Usar o registro de contêiner interno

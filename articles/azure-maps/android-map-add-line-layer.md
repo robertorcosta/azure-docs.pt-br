@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: 3e68be79a4405af103512a9009187857a0d9af39
-ms.sourcegitcommit: 66b0caafd915544f1c658c131eaf4695daba74c8
+ms.openlocfilehash: 62002b776262e97dd34db1d9ecd3b7b0e09f46f3
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2020
-ms.locfileid: "97681417"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102044214"
 ---
 # <a name="add-a-line-layer-to-the-map-android-sdk"></a>Adicionar uma camada de linha ao mapa (SDK do Android)
 
@@ -110,20 +110,21 @@ A captura de tela a seguir mostra o código acima renderizando duas linhas em um
 
 ![Mapear com linhas com estilo de unidade de dados renderizadas em uma camada de linha](media/android-map-add-line-layer/android-line-layer-data-drive-style.png)
 
-## <a name="add-symbols-along-a-line"></a>Adicionar símbolos ao longo de uma linha
+## <a name="add-a-stroke-gradient-to-a-line"></a>Adicionar um gradiente de traço a uma linha
 
-Este exemplo demonstra como adicionar ícones de seta ao longo de uma linha no mapa. Ao usar uma camada de símbolo, defina a `symbolPlacement` opção como `SymbolPlacement.LINE` . Essa opção renderizará os símbolos ao longo da linha e vai girar os ícones (0 grau = direita).
+Você pode aplicar uma cor de traço único a uma linha. Você também pode preencher uma linha com um gradiente de cores para mostrar a transição de um segmento de linha para o outro. Por exemplo, gradientes de linha podem ser usados para representar alterações ao longo do tempo e de acordo com a distância ou temperaturas diferentes em uma linha de objetos conectada. Para aplicar esse recurso a uma linha, a fonte de dados deve ter a `lineMetrics` opção definida como `true` e, em seguida, uma expressão de gradiente de cor pode ser passada para a `strokeColor` opção da linha. A expressão de gradiente de traço precisa fazer referência à expressão de dados `lineProgress` que expõe as métricas de linha calculada para a expressão.
 
 ```java
 //Create a data source and add it to the map.
-DataSource source = new DataSource();
+source = new DataSource(
+    //Enable line metrics on the data source. This is needed to enable support for strokeGradient.
+    withLineMetrics(true)
+);
 map.sources.add(source);
 
-//Load a image of an arrow into the map image sprite and call it "arrow-icon".
-map.images.add("arrow-icon", R.drawable.purple-arrow-right);
-
-//Create and add a line to the data source.
-source.add(LineString.fromLngLats(Arrays.asList(
+//Create a line and add it to the data source.
+source.add(LineString.fromLngLats(
+    Arrays.asList(
         Point.fromLngLat(-122.18822, 47.63208),
         Point.fromLngLat(-122.18204, 47.63196),
         Point.fromLngLat(-122.17243, 47.62976),
@@ -139,7 +140,65 @@ source.add(LineString.fromLngLats(Arrays.asList(
         Point.fromLngLat(-122.11595, 47.66712),
         Point.fromLngLat(-122.11063, 47.66735),
         Point.fromLngLat(-122.10668, 47.67035),
-        Point.fromLngLat(-122.10565, 47.67498))));
+        Point.fromLngLat(-122.10565, 47.67498)
+    )
+));
+
+//Create a line layer and pass in a gradient expression for the strokeGradient property.
+map.layers.add(new LineLayer(source,
+    strokeWidth(6f),
+
+    //Pass an interpolate or step expression that represents a gradient.
+    strokeGradient(
+        interpolate(
+            linear(),
+            lineProgress(),
+            stop(0, color(Color.BLUE)),
+            stop(0.1, color(Color.argb(255, 65, 105, 225))), //Royal Blue
+            stop(0.3, color(Color.CYAN)),
+            stop(0.5, color(Color.argb(255,0, 255, 0))), //Lime
+            stop(0.7, color(Color.YELLOW)),
+            stop(1, color(Color.RED))
+        )
+    )
+));
+```
+
+A captura de tela a seguir mostra o código acima exibindo uma linha renderizada usando uma cor de traçado gradiente.
+
+![Mapear com uma linha renderizada como um caminho de gradiente em uma camada de linha](media/android-map-add-line-layer/android-line-layer-gradient.jpg)
+
+## <a name="add-symbols-along-a-line"></a>Adicionar símbolos ao longo de uma linha
+
+Este exemplo demonstra como adicionar ícones de seta ao longo de uma linha no mapa. Ao usar uma camada de símbolo, defina a `symbolPlacement` opção como `SymbolPlacement.LINE` . Essa opção renderizará os símbolos ao longo da linha e vai girar os ícones (0 grau = direita).
+
+```java
+//Create a data source and add it to the map.
+DataSource source = new DataSource();
+map.sources.add(source);
+
+//Load a image of an arrow into the map image sprite and call it "arrow-icon".
+map.images.add("arrow-icon", R.drawable.purple-arrow-right);
+
+//Create and add a line to the data source.
+source.add(LineString.fromLngLats(Arrays.asList(
+    Point.fromLngLat(-122.18822, 47.63208),
+    Point.fromLngLat(-122.18204, 47.63196),
+    Point.fromLngLat(-122.17243, 47.62976),
+    Point.fromLngLat(-122.16419, 47.63023),
+    Point.fromLngLat(-122.15852, 47.62942),
+    Point.fromLngLat(-122.15183, 47.62988),
+    Point.fromLngLat(-122.14256, 47.63451),
+    Point.fromLngLat(-122.13483, 47.64041),
+    Point.fromLngLat(-122.13466, 47.64422),
+    Point.fromLngLat(-122.13844, 47.65440),
+    Point.fromLngLat(-122.13277, 47.66515),
+    Point.fromLngLat(-122.12779, 47.66712),
+    Point.fromLngLat(-122.11595, 47.66712),
+    Point.fromLngLat(-122.11063, 47.66735),
+    Point.fromLngLat(-122.10668, 47.67035),
+    Point.fromLngLat(-122.10565, 47.67498)))
+);
 
 //Create a line layer and add it to the map.
 map.layers.add(new LineLayer(source,
@@ -175,7 +234,7 @@ Para este exemplo, a imagem a seguir foi carregada na pasta desenhável do aplic
 |:-----------------------------------------------------------------------:|
 |                                                  |
 
-A captura de tela abaixo mostra o código acima Renderizando uma linha com ícones de seta exibidos ao longo dele.
+A captura de tela abaixo mostra o código acima exibindo uma linha com ícones de seta exibidos ao longo dele.
 
 ![Mapear com linhas com estilo de unidade de dados com setas renderizadas em uma camada de linha](media/android-map-add-line-layer/android-symbols-along-line-path.png)
 

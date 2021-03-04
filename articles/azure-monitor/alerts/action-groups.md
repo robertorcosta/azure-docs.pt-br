@@ -5,13 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.subservice: alerts
-ms.openlocfilehash: 50fb898e1ea55d0bcc09fc10dfee051ca7b1d809
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ca43315258ea6439b08682898612137f7de1d61b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701154"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102045625"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
@@ -176,7 +175,7 @@ A ação de webhook dos grupos de ações permite que você aproveite o Azure Ac
 2. Habilite grupos de ações para usar seu aplicativo Azure AD.
 
     > [!NOTE]
-    > Você deve ser membro da [função Administrador do aplicativo Azure AD](../../active-directory/roles/permissions-reference.md#available-roles) para executar esse script.
+    > Você deve ser membro da [função Administrador do aplicativo Azure AD](../../active-directory/roles/permissions-reference.md#all-roles) para executar esse script.
     
     - Modifique a chamada Connect-AzureAD do script do PowerShell para usar sua ID de locatário do Azure AD.
     - Modifique a variável do script do PowerShell $myAzureADApplicationObjectId para usar a ID de objeto do seu aplicativo do Azure AD.

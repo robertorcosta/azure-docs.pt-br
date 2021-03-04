@@ -8,12 +8,12 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: fccd1bd6f808fad11946c6f0b0dff1f453b61d66
-ms.sourcegitcommit: eb546f78c31dfa65937b3a1be134fb5f153447d6
+ms.openlocfilehash: ace0847f1b6df646bf0d9a6c8507f4660ab02c8b
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
-ms.locfileid: "99430621"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046203"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Criar e provisionar um dispositivo IoT Edge com um TPM no Linux
 
@@ -240,8 +240,8 @@ Você pode conceder acesso de TPM ao tempo de execução de IoT Edge substituind
 4. Copie as seguintes informações de acesso para o arquivo de regras.
 
    ```input
-   # allow iotedge access to tpm0
-   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="iotedge", MODE="0600"
+   # allow aziottpm access to tpm0
+   KERNEL=="tpm0", SUBSYSTEM=="tpm", OWNER="aziottpm", MODE="0600"
    ```
 
 5. Salve e feche o arquivo.
