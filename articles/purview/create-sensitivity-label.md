@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: b86414758c3b644725e5aa29ca3b314f489508aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcfe26bc6f637dd140776df98f8267c4c43684ba
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693519"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049519"
 ---
 # <a name="automatically-label-your-data-in-azure-purview"></a>Rotular seus dados automaticamente no Azure alcance
 
@@ -120,7 +120,10 @@ Depois de estender o rótulo para ativos no Azure alcance, você pode selecionar
 
     :::image type="content" source="media/create-sensitivity-label/create-sensitivity-label-full-small.png" alt-text="Criar rótulos de sensibilidade no centro de conformidade e segurança Microsoft 365" lightbox="media/create-sensitivity-label/create-sensitivity-label-full.png":::
 
-1. Nomeie o rótulo. Em seguida, em **definir o escopo para este rótulo**, selecione **arquivos e emails** e **ativos de alcance do Azure**.
+1. Nomeie o rótulo. Em seguida, em **definir o escopo para este rótulo**:
+
+    - Em todos os casos, selecione **ativos de alcance do Azure**.
+    - Para rotular arquivos, selecione também **arquivos & emails**. Essa opção não é necessária para rotular somente os ativos do banco de dados. 
     
     :::image type="content" source="media/create-sensitivity-label/create-label-scope-small.png" alt-text="Crie seu rótulo no centro de conformidade e segurança do Microsoft 365" lightbox="media/create-sensitivity-label/create-label-scope.png":::
 

@@ -12,12 +12,12 @@ ms.date: 03/02/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d7f597010f86e0f962f250dcd87d6c78f401a73d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8e4926fb228837c3ec0573af8ee5b15da5fd7431
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688977"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102033871"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de redefinição de senha no Azure Active Directory B2C
 
@@ -206,7 +206,7 @@ No percurso do usuário, você pode representar a subjornada de senha esquecida 
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Definir a jornada do usuário a ser executada
 
-Agora que você modificou ou criou um percurso do usuário, na seção **terceira parte confiável** , especifique a jornada que Azure ad B2C será executada para essa política personalizada. Dentro do elemento [RelyingParty](../articles/active-directory-b2c/relyingparty.md) , localize o elemento **DefaultUserJourney** . Atualize o  **DefaultUserJourney referenceid** para corresponder à ID do percurso do usuário no qual você adicionou o **ClaimsProviderSelections**.
+Agora que você modificou ou criou um percurso do usuário, na seção **terceira parte confiável** , especifique a jornada que Azure ad B2C será executada para essa política personalizada. Dentro do elemento [RelyingParty](relyingparty.md) , localize o elemento **DefaultUserJourney** . Atualize o  **DefaultUserJourney referenceid** para corresponder à ID do percurso do usuário no qual você adicionou o **ClaimsProviderSelections**.
 
 ```xml
 <RelyingParty>

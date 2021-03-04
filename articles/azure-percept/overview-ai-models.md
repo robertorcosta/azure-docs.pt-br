@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: e61fb00b4ddd309124c11d1749f448c742d660d0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 28a8de231f179cf69342da81e6a2ae1989d2a5d6
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661785"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102041579"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos de ia do Azure Percept
 
@@ -22,7 +22,6 @@ O Azure Percept permite que você desenvolva e implante modelos de ia diretament
 
 O Azure Percept Studio contém modelos de exemplo para os seguintes aplicativos:
 
-- detecção facial
 - detecção de pessoas
 - detecção de veículo
 - detecção geral de objeto

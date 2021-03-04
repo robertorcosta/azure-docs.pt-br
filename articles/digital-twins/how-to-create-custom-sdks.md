@@ -8,12 +8,12 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: e0c0d18dbb3596733d02430554fd40ec16180c64
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: e7239bfdca1dc464048c0db08488029b0868deb5
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99980653"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102049790"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Criar SDKs personalizados para o gêmeos digital do Azure usando o REST
 
@@ -44,10 +44,10 @@ Para executar o REST no arquivo do Azure digital gêmeos Swagger, siga estas eta
 3. Execute o comando executar como a seguir. Substitua o `<language>` espaço reservado pelo idioma de sua escolha: `python` , `java` , `go` e assim por diante. (Você pode encontrar a lista completa de opções no [Leiame do autorest](https://github.com/Azure/autorest).)
 
 ```cmd/sh
-autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
+autorest --input-file=digitaltwins.json --<language> --output-folder=DigitalTwinsApi --add-credentials --azure-arm --namespace=DigitalTwinsApi
 ```
 
-Como resultado, você verá uma nova pasta chamada *ADTApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *ADTApi*. Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
+Como resultado, você verá uma nova pasta chamada *DigitalTwinsApi* em seu diretório de trabalho. Os arquivos do SDK gerados terão o namespace *DigitalTwinsApi*. Você continuará a usar esse namespace por meio do restante dos exemplos de uso neste artigo.
 
 O REST oferece suporte a uma ampla variedade de geradores de código de linguagem.
 
@@ -57,11 +57,11 @@ Você pode incluir os arquivos gerados pelo autorest diretamente em uma soluçã
 
 Esta seção fornece instruções sobre como criar o SDK como uma biblioteca de classes, que é seu próprio projeto e pode ser incluído em outros projetos. Essas etapas dependem do **Visual Studio** (você pode instalar a versão mais recente [aqui](https://visualstudio.microsoft.com/downloads/)).
 
-Siga estas etapas:
+Estas são as etapas:
 
 1. Criar uma nova solução do Visual Studio para uma biblioteca de classes
-2. Usar *ADTApi* como o nome do projeto
-3. No Gerenciador de soluções, selecione o projeto *ADTApi* da solução gerada e escolha *Adicionar > item existente...*
+2. Usar *DigitalTwinsApi* como o nome do projeto
+3. No Gerenciador de soluções, selecione o projeto *DigitalTwinsApi* da solução gerada e escolha *Adicionar > item existente...*
 4. Localize a pasta na qual você gerou o SDK e selecione os arquivos no nível raiz
 5. Pressione "OK"
 6. Adicione uma pasta ao projeto (selecione o projeto com o botão direito do mouse em Gerenciador de Soluções e escolha *adicionar > nova pasta*)

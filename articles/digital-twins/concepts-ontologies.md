@@ -1,5 +1,5 @@
 ---
-title: O que é um ontologia?
+title: O que é uma ontologia?
 titleSuffix: Azure Digital Twins
 description: Saiba mais sobre o ontologies do setor DTDL para modelagem em um determinado domínio
 author: baanders
@@ -7,14 +7,14 @@ ms.author: baanders
 ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: b53cac6e732fb568ba799534d9ad9168fd65eab1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 3393856b25040cff603ea2ef51e8adbcba78dc26
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561256"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102034686"
 ---
-# <a name="what-is-an-ontology"></a>O que é um ontologia? 
+# <a name="what-is-an-ontology"></a>O que é uma ontologia? 
 
 O vocabulário de uma solução de gêmeos digital do Azure é definido usando [modelos](concepts-models.md), que descrevem os tipos de entidade que existem em seu ambiente.
 
@@ -58,7 +58,7 @@ Não importa qual estratégia você escolher para integrar um ontologia no Azure
 
 Depois disso, você deve ser capaz de usar seus modelos em sua instância de gêmeos digital do Azure. 
 
-Você pode visualizá-los com exemplos como o visualizador [do gêmeos do Azure digital (ADT) ou do modelo do](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) [ADT](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer), ou então passar a usá-los para criar [gêmeos digital](concepts-twins-graph.md).
+Você pode visualizá-los com exemplos como o [Azure digital gêmeos Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/) ou o [Visualizador de modelo do Azure digital gêmeos](https://github.com/Azure/opendigitaltwins-building-tools/tree/master/AdtModelVisualizer), ou então passar a usá-los para criar [gêmeos digital](concepts-twins-graph.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

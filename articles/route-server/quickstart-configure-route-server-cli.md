@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 518baa47fd16d69bf935cd3253f5bebeb413b513
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c24d88e47569da430153dedfd1ff68a584083775
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101680545"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101695236"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-cli"></a>Início rápido: criar e configurar o Servidor de Rota usando a CLI do Azure 
 
@@ -33,11 +33,27 @@ Este artigo ajuda a configurar o Servidor de Rota do Azure para ser emparelhado 
 
 ###  <a name="sign-in-to-your-azure-account-and-select-your-subscription"></a>Entre na sua conta do Azure e selecione sua assinatura. 
 
-[!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)] 
+Para iniciar sua configuração, entrar na sua conta do Azure. Se usar o "Experimente" do Cloud Shell, você entrará automaticamente. Use o exemplo a seguir para ajudar a conectar:
+
+```azurecli-interactive
+az login
+```
+
+Verificar as assinaturas da conta.
+
+```azurecli-interactive
+az account list
+```
+
+Selecione a assinatura para a qual você deseja criar um circuito do ExpressRoute.
+
+```azurecli-interactive
+az account set --subscription "<subscription ID>"
+```
 
 ### <a name="create-a-resource-group-and-virtual-network"></a>Criar um grupo de recursos e uma rede virtual 
 
-Para criar um Servidor de Rota do Azure, você precisa de uma rede virtual para hospedar a implantação. Use o comando a seguir para criar um grupo de recursos e uma rede virtual. Se você já tiver uma rede virtual, pule para a próxima seção.
+Para criar um Servidor de Rota do Azure, você precisa de uma rede virtual para hospedar a implantação. Use o comando a seguir para criar um grupo de recursos e uma rede virtual. Se você já tiver uma rede virtual, pode pular para a próxima seção.
 
 ```azurecli-interactive
 az group create -n “RouteServerRG” -l “westus” 
@@ -46,7 +62,7 @@ az network vnet create -g “RouteServerRG” -n “myVirtualNetwork” --addres
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede 
 
-1. Adicione uma sub-rede chamada *RouteServerSubnet* para implantar o Servidor de Rota do Azure. Essa é uma sub-rede dedicada somente para o Servidor de Rota do Azure. O RouteServerSubnet deve ser /27 ou um prefixo mais curto (como /26, /25); caso contrário, você receberá uma mensagem de erro ao adicionar o Servidor de Rota do Azure.
+1. Adicione uma sub-rede chamada *RouteServerSubnet* para implantar o Servidor de Rota do Azure. Essa é uma sub-rede dedicada somente para o Servidor de Rota do Azure. O RouteServerSubnet deve ser /27 ou um prefixo mais curto (como /26, /25), caso contrário, você receberá uma mensagem de erro ao adicionar o Servidor de Rota do Azure.
 
     ```azurecli-interactive 
     az network vnet subnet create -g “RouteServerRG” --vnet-name “myVirtualNetwork” --name “RouteServerSubnet” --address-prefix “10.0.0.0/24”  
@@ -62,9 +78,9 @@ A ID de RouteServerSubnet é parecida com a seguinte:
 
 `/subscriptions/<subscriptionID>/resourceGroups/RouteServerRG/providers/Microsoft.Network/virtualNetworks/myVirtualNetwork/subnets/RouteServerSubnet`
 
-## <a name="create-the-route-server"></a>Criar o Servidor de Rota 
+## <a name="create-the-route-server"></a>Crie o Servidor de Rota 
 
-Crie o servidor de rota usando este comando: 
+Crie o Servidor de Rota usando este comando: 
 
 ```azurecli-interactive
 az network routeserver create -n “myRouteServer” -g “RouteServerRG” --hosted-subnet $subnet_id  
@@ -150,7 +166,7 @@ az network routeserver peering list-learned-routes -g RouteServerRG --vrouter-na
 
 Se você não precisar mais do Servidor de Rota do Azure, use estes comandos para remover o emparelhamento via BGP e, em seguida, remova o Servidor de Rota. 
 
-1. Remova o emparelhamento via BGP entre o Servidor de Rota do Azure e uma NVA usando este comando:
+1. Remova o emparelhamento via protocolo BGP entre o Servidor de Rota do Azure e uma NVA usando este comando:
 
 ```azurecli-interactive
 az network routeserver peering delete --routeserver-name “myRouteServer” -g “RouteServerRG” -n “NVA2_name” 
@@ -164,7 +180,7 @@ az network routeserver delete -n “myRouteServer” -g “RouteServerRG”
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar o Servidor de Rota do Azure, continue a aprender como ele interage com os gateways de VPN e ExpressRoute: 
+Depois de criar o Servidor de Rota do Azure, continue a aprender como o Servidor de Rota do Azure interage com os gateways de VPN e ExpressRoute: 
 
 > [!div class="nextstepaction"]
 > [Suporte à VPN do Azure e ao Azure ExpressRoute](expressroute-vpn-support.md)
