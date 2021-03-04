@@ -6,12 +6,12 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9a7a3a603944970a5e78a24ca4042f97b1c43fcc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047852"
+ms.locfileid: "102096183"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
 
@@ -62,7 +62,7 @@ O dispositivo se comunica com as fontes de descoberta usando o processo a seguir
 
 **Processo** | **Dispositivo VMware** | **Dispositivo Hyper-V** | **Dispositivo físico**
 ---|---|---|---
-**Iniciar descoberta**| O dispositivo se comunica com o servidor vCenter na porta TCP 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá configurá-lo no Gerenciador de configuração de dispositivo. | O dispositivo se comunica com os hosts Hyper-V na porta WinRM 5985 (HTTP). | O dispositivo se comunica com servidores Windows pela porta WinRM 5985 (HTTP) com servidores Linux pela porta 22 (TCP).
+**Iniciar descoberta** | O dispositivo se comunica com o servidor vCenter na porta TCP 443 por padrão. Se o servidor vCenter escutar em uma porta diferente, você poderá configurá-lo no Gerenciador de configuração de dispositivo. | O dispositivo se comunica com os hosts Hyper-V na porta WinRM 5985 (HTTP). | O dispositivo se comunica com servidores Windows pela porta WinRM 5985 (HTTP) com servidores Linux pela porta 22 (TCP).
 **Coletar metadados de configuração e desempenho** | O dispositivo coleta os metadados de servidores em execução no vCenter Server usando APIs vSphere conectando-se na porta 443 (porta padrão) ou em qualquer outra porta vCenter Server escuta. | O dispositivo coleta os metadados de servidores em execução em hosts Hyper-V usando uma sessão modelo CIM (CIM) com hosts na porta 5985.| O dispositivo coleta metadados de servidores Windows usando a sessão modelo CIM (CIM) com servidores na porta 5985 e de servidores Linux usando a conectividade SSH na porta 22.
 **Enviar dados de descoberta** | O dispositivo envia os dados coletados para migrações para Azure: avaliação do servidor e migrações para Azure: migração de servidor sobre a porta SSL 443.<br/><br/> O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft). | O dispositivo envia os dados coletados para migrações para Azure: avaliação de servidor sobre a porta SSL 443.<br/><br/> O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft).| O dispositivo envia os dados coletados para migrações para Azure: avaliação de servidor sobre a porta SSL 443.<br/><br/> O dispositivo pode se conectar ao Azure pela Internet ou via ExpressRoute (requer emparelhamento da Microsoft).
 **Frequência de coleta de dados** | Os metadados de configuração são coletados e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são coletados a cada 20 segundos e agregados para enviar um ponto de dados para o Azure a cada 10 minutos. <br/><br/> Os dados de inventário de software são enviados para o Azure uma vez a cada 12 horas. <br/><br/> Os dados de dependência sem agente são coletados a cada 5 minutos, agregados no dispositivo e enviados ao Azure a cada 6 horas. <br/><br/> Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.| Os metadados de configuração são coletados e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são coletados a cada 30 segundos e agregados para enviar um ponto de dados para o Azure a cada 10 minutos.|  Os metadados de configuração são coletados e enviados a cada 30 minutos. <br/><br/> Os metadados de desempenho são coletados a cada 5 minutos e agregados para enviar um ponto de dados para o Azure a cada 10 minutos.

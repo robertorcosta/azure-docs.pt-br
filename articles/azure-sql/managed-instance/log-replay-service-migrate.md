@@ -4,17 +4,17 @@ description: Saiba como migrar bancos de dados do SQL Server para o SQL Instânc
 services: sql-database
 ms.service: sql-managed-instance
 ms.custom: seo-lt-2019, sqldbrb=1
-ms.devlang: ''
 ms.topic: how-to
 author: danimir
+ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: bc0dc72c7547c8f74aec53b7153fc5384c6b634b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 74403b7ec1469ce7cdaadc9931eb5ac95f55f6f5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690780"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096829"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-using-log-replay-service-preview"></a>Migrar bancos de dados do SQL Server para o SQL Instância Gerenciada usando o serviço de reprodução de log (versão prévia)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -56,7 +56,7 @@ LRS pode ser iniciado em modo de preenchimento automático ou contínuo. Quando 
 
 Depois que o LRS for interrompido, automaticamente no preenchimento automático ou manualmente na transferência, o processo de restauração não poderá ser retomado para um banco de dados que foi colocado online no SQL Instância Gerenciada. Para restaurar arquivos de backup adicionais depois que a migração for concluída por meio do preenchimento automático ou manualmente na transferência, o banco de dados precisará ser excluído e toda a cadeia de backup precisará ser restaurada do zero reiniciando o LRS.
 
-![Etapas de orquestração do serviço de reprodução de log explicadas para o SQL Instância Gerenciada](./media/log-replay-service-migrate/log-replay-service-conceptual.png)
+   :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Etapas de orquestração do serviço de reprodução de log explicadas para o SQL Instância Gerenciada" border="false":::
     
 | Operação | Detalhes |
 | :----------------------------- | :------------------------- |
@@ -193,18 +193,30 @@ WITH COMPRESSION, CHECKSUM
 O armazenamento de BLOBs do Azure é usado como um armazenamento intermediário para arquivos de backup entre SQL Server e Instância Gerenciada SQL. O token de autenticação SAS com permissões de lista e somente leitura precisa ser gerado para uso pelo serviço LRS. Isso permitirá que o serviço LRS acesse o armazenamento de BLOBs do Azure e use os arquivos de backup para restaurá-los no SQL Instância Gerenciada. Siga estas etapas para gerar a autenticação SAS para uso do LRS:
 
 1. Acessar o Gerenciador de Armazenamento de portal do Azure
+
 2. Expanda Contêineres de Blob
-3. Clique com o botão direito do mouse no contêiner de BLOB e selecione obter assinatura de acesso compartilhado  ![ log reproduzir serviço de autenticação SAS](./media/log-replay-service-migrate/lrs-sas-token-01.png)
+
+3. Clique com o botão direito do mouse no contêiner de BLOB e selecione obter assinatura de acesso compartilhado
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-01.png" alt-text="Serviço de reprodução de log-obter assinatura de acesso compartilhado":::
+
 4. Selecione o período de expiração do token. Verifique se o token é válido para duração da sua migração.
+
 5. Selecione o fuso horário para o token-UTC ou sua hora local
-    - O fuso horário do token e o SQL Instância Gerenciada podem não ser compatíveis. Verifique se o token SAS tem a validade de tempo apropriada levando os fusos horários em consideração. Se possível, defina o fuso horário para uma hora anterior e posterior da sua janela de migração planejada.
+
+   - O fuso horário do token e o SQL Instância Gerenciada podem não ser compatíveis. Verifique se o token SAS tem a validade de tempo apropriada levando os fusos horários em consideração. Se possível, defina o fuso horário para uma hora anterior e posterior da sua janela de migração planejada.
+
 6. Selecionar somente permissões de leitura e listar somente
-    - Nenhuma outra permissão deve ser selecionada ou, caso contrário, LRS não será capaz de iniciar. Esse requisito de segurança é por design.
-7. Clique em criar botão  ![ log de repetição do serviço gerar token de autenticação SAS](./media/log-replay-service-migrate/lrs-sas-token-02.png)
 
-A autenticação SAS será gerada com a validade de tempo especificada anteriormente. Você precisará da versão de URI do token gerado-conforme mostrado na captura de tela abaixo.
+   - Nenhuma outra permissão deve ser selecionada ou, caso contrário, LRS não será capaz de iniciar. Esse requisito de segurança é por design.
 
-![Exemplo de URI de autenticação SAS gerado pelo serviço de reprodução de log](./media/log-replay-service-migrate/lrs-generated-uri-token.png)
+7. Clique no botão criar
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-sas-token-02.png" alt-text="Serviço de reprodução de log-gerar token de autenticação SAS":::
+
+   A autenticação SAS será gerada com a validade de tempo especificada anteriormente. Você precisará da versão de URI do token gerado-conforme mostrado na captura de tela abaixo.
+
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-generated-uri-token.png" alt-text="Serviço de reprodução de log – copiar a assinatura de acesso compartilhado de URI":::
 
 ### <a name="copy-parameters-from-sas-token-generated"></a>Copiar parâmetros do token SAS gerado
 
@@ -212,7 +224,7 @@ Para poder usar corretamente o token SAS para iniciar o LRS, precisamos entender
 - StorageContainerUri e 
 - StorageContainerSasToken, separados por um ponto de interrogação (?), conforme mostrado na imagem abaixo.
 
-    ![Exemplo de URI de autenticação SAS gerado pelo serviço de reprodução de log](./media/log-replay-service-migrate/lrs-token-structure.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-structure.png" alt-text="Exemplo de URI de autenticação SAS gerado pelo serviço de reprodução de log" border="false":::
 
 - A primeira parte começando com "https://" até que o ponto de interrogação (?) seja usado para o parâmetro StorageContainerURI que é alimentado como entrada em LRS. Isso fornece informações de LRS sobre a pasta em que os arquivos de backup de banco de dados são armazenados.
 - A segunda parte, começando após o ponto de interrogação (?), no exemplo "SP =" e até o final da cadeia de caracteres é o parâmetro StorageContainerSasToken. Esse é o token de autenticação assinado real, válido durante o tempo especificado. Essa parte não precisa necessariamente começar com "SP =", conforme mostrado, e que seu caso pode ser diferente.
@@ -221,11 +233,11 @@ Copie os parâmetros da seguinte maneira:
 
 1. Copie a primeira parte do token começando do https://até o ponto de interrogação (?) e use-o como parâmetro StorageContainerUri no PowerShell ou CLI para iniciar o LRS, conforme mostrado na captura de tela abaixo.
 
-    ![Parâmetro StorageContainerUri de cópia do serviço de reprodução de log](./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-01.png" alt-text="Parâmetro StorageContainerUri de cópia do serviço de reprodução de log":::
 
 2. Copie a segunda parte do token começando do ponto de interrogação (?), até o final da cadeia de caracteres, e use-o como parâmetro StorageContainerSasToken no PowerShell ou na CLI para iniciar o LRS, conforme mostrado na captura de tela abaixo.
 
-    ![Parâmetro StorageContainerSasToken de cópia do serviço de reprodução de log](./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png)
+   :::image type="content" source="./media/log-replay-service-migrate/lrs-token-uri-copy-part-02.png" alt-text="Parâmetro StorageContainerSasToken de cópia do serviço de reprodução de log":::
 
 > [!IMPORTANT]
 > - As permissões para o token SAS para o armazenamento de BLOBs do Azure precisam ser somente leitura e lista. Se qualquer outra permissão for concedida para o token de autenticação SAS, a inicialização do serviço LRS falhará. Esses requisitos de segurança são por design.

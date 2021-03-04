@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: 640e13261fa76fe89c9f5fbd038f20766c509025
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c305ee78abac7e175dc086666dfd1e2926f8da2b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038935"
+ms.locfileid: "102097815"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adicionar suporte a IPv6 para emparelhamento privado usando o portal do Azure (versão prévia)
 
@@ -98,7 +98,7 @@ Embora o suporte a IPv6 esteja disponível para conexões com implantações em 
 * Conexões com implantações no Azure por meio de um SKU de gateway de ExpressRoute não AZ
 * Conexões com implantações em regiões não AZ
 * Conexões Alcance Global entre circuitos do ExpressRoute
-* Uso do ExpressRoute com vWAN
+* Uso do ExpressRoute com WAN virtual
 
 ## <a name="next-steps"></a>Próximas etapas
 

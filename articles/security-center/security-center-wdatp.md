@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: b9095d78d902bf5e44bffaba5db19bf2c26e0845
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a659ea897f013e504668789a7d5671420ff70a9f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726998"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099073"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -41,7 +41,7 @@ O Microsoft defender for Endpoint é uma solução de segurança de ponto de ext
 | Aspecto                          | Detalhes                                                                                                                                                                                                                                                                                                       |
 |---------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Estado da versão:                  | GA (em disponibilidade geral)                                                                                                                                                                                                                                                                                      |
-| Preço:                        | Requer [Azure Defender para Servidores](security-center-pricing.md)                                                                                                                                                                                                                                             |
+| Preço:                        | Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Plataformas compatíveis:            |  • Máquinas do Azure executando o Windows<br> • Computadores do Arc do Azure executando o Windows|
 | Versões do Windows com suporte:  |   • **GA (disponibilidade geral)-** detecção no Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • Detecção **de visualização** no windows Server 2019, [área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)e [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para desktops virtuais (EVD)<br>O monitoramento do ponto de extremidade do servidor usando essas integrações foi desabilitado para clientes do Office 365 GCC|
 | Sistemas operacionais sem suporte:  |  • Windows 10 (diferente de EVD ou WVD)<br> • Linux|
@@ -83,8 +83,7 @@ Depois de configurar o local, você não poderá alterá-lo. Se você tiver sua 
         - Se você estiver implantando o defender no ponto de extremidade em computadores locais, conecte-o ao arco do Azure conforme explicado em [conectar computadores híbridos com os servidores habilitados para Arc do Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
     - Além disso, para **computadores com Windows Server 2019**, confirme se eles estão executando um agente válido e têm a extensão extensão microsoftmonitoringagent
 
-1. Habilitar o **Azure defender para servidores**. Consulte os [preços da central de segurança do Azure](security-center-pricing.md#enable-azure-defender).
-
+1. Habilitar o **Azure defender para servidores**. Consulte [início rápido: habilitar o Azure defender](enable-azure-defender.md).
 
 1. Se você já tiver licenciado e implantado o Microsoft defender para pontos de extremidade em seus servidores, remova-o usando o procedimento descrito em [transferir Windows Servers](/windows/security/threat-protection/microsoft-defender-atp/configure-server-endpoints#offboard-windows-servers).
 1. No menu da Central de Segurança, selecione **Preço e configurações**.

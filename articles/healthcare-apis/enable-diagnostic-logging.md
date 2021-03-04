@@ -8,13 +8,13 @@ ms.topic: conceptual
 ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
-ms.date: 02/24/2021
-ms.openlocfilehash: 73e1db2754749e1fb1142231e7179771bcce8e76
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 8dde5c6206087c8bb1c1f456a0c858abbccf0cc4
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712768"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096302"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR
 
@@ -50,7 +50,7 @@ Você pode exibir as métricas em monitoramento | Métricas do Portal. As métri
 
 
 > [!Note] 
-> Pode levar até 15 minutos para que os primeiros logs sejam mostrados em Log Analytics.  
+> Pode levar até 15 minutos para que os primeiros logs sejam mostrados em Log Analytics. Além disso, se a API do Azure para FHIR for movida de um grupo de recursos ou de uma assinatura para outra, atualize a configuração quando a movimentação for concluída. 
  
 Para obter mais informações sobre como trabalhar com logs de diagnóstico, consulte a [documentação do log de recursos do Azure](../azure-monitor/essentials/platform-logs-overview.md)
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 1e2ad920afb55066f07430568f976154f6d7cae1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a3877ea680e7b4c705f127c54e0fa10c45d3b51d
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678996"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097968"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Solução de problemas do módulo de áudio e fala do Azure Percept
 
@@ -38,35 +38,32 @@ Depois de redirecionar a saída para um arquivo. txt, copie o arquivo para o com
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[caminho do arquivo de host local] refere-se ao local no computador host para o qual você gostaria de copiar o arquivo. txt. [nome de usuário remoto] é o nome de usuário SSH escolhido durante a [experiência de instalação](./quickstart-percept-dk-set-up.md). Se você não configurou um logon SSH durante o OOBE, seu nome de usuário remoto é raiz.
+[caminho do arquivo de host local] refere-se ao local no computador host para o qual você gostaria de copiar o arquivo. txt. [nome de usuário remoto] é o nome de usuário SSH escolhido durante a [experiência de integração](./quickstart-percept-dk-set-up.md). Se você não configurou um logon SSH durante a experiência de integração do Azure Percept DK, seu nome de usuário remoto é raiz.
 
 ## <a name="checking-runtime-status-of-the-speech-module"></a>Verificando o status do tempo de execução do módulo de fala
 
-Verifique se o status de tempo de execução de **azureearspeechclientmodule** é mostrado como **em execução**. Para localizar o status de tempo de execução dos seus módulos de dispositivo, abra o [portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home) e navegue até **todos os recursos**  ->  **\<your IoT hub>**  ->  **IOT Edge**  ->  **\<your device ID>** . Clique na guia **módulos** para ver o status de tempo de execução de todos os módulos instalados.
+Verifique se o status de tempo de execução de **azureearspeechclientmodule** é mostrado como **em execução**. Para localizar o status de tempo de execução dos seus módulos de dispositivo, abra o [portal do Azure](https://portal.azure.com/) e navegue até **todos os recursos**  ->  **\<your IoT hub>**  ->  **IOT Edge**  ->  **\<your device ID>** . Clique na guia **módulos** para ver o status de tempo de execução de todos os módulos instalados.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Página de dispositivo do Edge no portal do Azure.":::
 
 Se o status de tempo de execução de **azureearspeechclientmodule** não estiver listado como **em execução**, clique em **definir módulos**  ->  **azureearspeechclientmodule**. Na página **configurações do módulo** , defina **o status desejado** como **em execução** e clique em **Atualizar**.
 
-:::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/firmware-desired-status-stopped.png" alt-text="Tela definir módulos no portal do Azure.":::
-
 ## <a name="understanding-ear-som-led-indicators"></a>Entendendo indicadores de LED de SoM Ear
 
 Você pode usar indicadores de LED para entender em qual estado seu dispositivo está. Normalmente, leva cerca de 2 minutos para que o módulo seja inicializado completamente após a *ativação*. Como ele percorre as etapas de inicialização, você verá:
 
-1. 1 luz verde esquerda-o dispositivo está ligado. 
-2. 1 luz verde esquerda e LED central piscando em verde-a autenticação está em andamento. 
+1. 1 LED de centro-branco-o dispositivo está ligado. 
+2. 1 LED branco central piscando-a autenticação está em andamento. 
 3. Todos os três LEDs serão alterados para azul quando o dispositivo for autenticado e estiver pronto para uso.
 
-|Estado do LED                  |Status de SoM Ear            |
-|----------------------------|---------------------------|
-|1x verde (LED esquerdo)         |ligar |
-|1x verde (LED esquerdo) <br> 1x piscando verde (LED central) |autenticação em andamento |
-|3x                      |Inicialização concluída |
-|azul-3x                     |Pronto para uso |
-|azul piscando triplo            |palavra-chave reconhecida |
-|azul de corrida em 3x              |processando |
-|vermelho-3x                      |Muta |
+|LED|   Estado do LED|  Status de SoM Ear|
+|---|------------|----------------| 
+|L02|   1x branco, estático em |Ligue |
+|L02|   1x branco, 0,5 Hz piscando|  Autenticação em andamento |
+|L01 & L02 & L03|   azul-3x, estático ativado|     Aguardando palavra-chave|
+|L01 & L02 & L03|   Matriz de LED piscando, 20fps | Ouvindo ou falando|
+|L01 & L02 & L03|   Corrida de matriz LED, 20fps|    Pensando|
+|L01 & L02 & L03|   triplo vermelho, estático em | Mute|
 
 ## <a name="next-steps"></a>Próximas etapas
 

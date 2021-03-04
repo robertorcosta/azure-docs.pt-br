@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
-ms.openlocfilehash: 9b8dc635781c96dcbd7aa423c77f60ff0556bd71
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100634049"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096965"
 ---
 # <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
 
@@ -44,7 +44,7 @@ Este artigo descreve como configurar a exportação contínua para Log Analytics
 |Estado da versão:|GA (Disponibilidade Geral)|
 |Preço:|Gratuita|
 |Funções e permissões necessárias:|<ul><li>**Administrador de segurança** ou **proprietário** no grupo de recursos</li><li>Permissões de gravação para o recurso de destino</li><li>Se você estiver usando as Azure Policy políticas ' DeployIfNotExist ' descritas abaixo, também precisará de permissões para atribuir políticas</li></ul>|
-|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros governos<br>![Sim](./media/icons/yes-icon.png) China gov (para o Hub de eventos)|
+|Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) US Gov, outros governos<br>![Sim](./media/icons/yes-icon.png) Governo da China|
 |||
 
 
@@ -65,7 +65,7 @@ A exportação contínua pode exportar os seguintes tipos de dados sempre que el
 
 Você pode configurar a exportação contínua nas páginas da central de segurança no portal do Azure, por meio da API REST da central de segurança ou em escala usando os modelos de Azure Policy fornecidos. Selecione a guia apropriada abaixo para obter detalhes de cada um.
 
-### <a name="use-the-azure-portal"></a>[**Use o Portal do Azure**](#tab/azure-portal)
+### <a name="use-the-azure-portal"></a>[**Usar o portal do Azure**](#tab/azure-portal)
 
 ### <a name="configure-continuous-export-from-the-security-center-pages-in-azure-portal"></a>Configurar a exportação contínua das páginas da central de segurança no portal do Azure
 
@@ -96,7 +96,7 @@ As etapas a seguir são necessárias se você estiver configurando uma exportaç
     :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Incluir a alternância de descobertas de segurança na configuração de exportação contínua" :::
 
 1. Na área "destino de exportação", escolha onde você deseja que os dados sejam salvos. Os dados podem ser salvos em um destino em uma assinatura diferente (por exemplo, em uma instância central de Hub de eventos ou em um espaço de trabalho central Log Analytics).
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="use-the-rest-api"></a>[**Usar a API REST**](#tab/rest-api)
 
@@ -171,7 +171,7 @@ Se você quiser analisar os dados da central de segurança do Azure dentro de um
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabelas e esquemas
 
-Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendations* , respectivamente. 
+Alertas de segurança e recomendações são armazenados nas tabelas *SecurityAlert* e *SecurityRecommendation* , respectivamente. 
 
 O nome da solução de Log Analytics que contém essas tabelas depende se você tem o Azure defender habilitado: segurança (' Segurança e Auditoria ') ou SecurityCenterFree. 
 
@@ -251,7 +251,7 @@ Saiba mais nos [hubs de eventos do Azure – recuperação de desastres geografi
 
 ### <a name="is-continuous-export-available-with-azure-security-center-free"></a>A exportação contínua está disponível com a central de segurança do Azure gratuita?
 
-Sim! Observe que muitos alertas da central de segurança são fornecidos apenas quando você habilitou o Azure defender. Uma boa maneira de visualizar os alertas que você obterá em seus dados exportados é Ver os alertas mostrados nas páginas da central de segurança na portal do Azure.
+Sim. Observe que muitos alertas da central de segurança são fornecidos apenas quando você habilitou o Azure defender. Uma boa maneira de visualizar os alertas que você obterá em seus dados exportados é Ver os alertas mostrados nas páginas da central de segurança na portal do Azure.
 
 
 

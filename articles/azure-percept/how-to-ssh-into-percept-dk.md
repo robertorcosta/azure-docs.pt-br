@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 8d150228be2cf6deff3bc2fd0a0599cca70d24ac
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8dda18271de9b7d65246f0882ee7a68191031c05
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661751"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102096608"
 ---
 # <a name="connect-to-your-azure-percept-dk-over-ssh"></a>Conectar-se ao Azure Percept DK por SSH
 
@@ -25,6 +25,7 @@ Siga as etapas abaixo para configurar uma conexão SSH para o Azure Percept [DK 
     - Se o computador host executar o Windows [, o](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) reinício será um cliente SSH efetivo e será usado em todo este guia.
     - Se o computador host executar o Linux ou o OS X, os serviços SSH serão incluídos nesses sistemas operacionais e poderão ser executados sem um aplicativo cliente separado. Verifique a documentação do produto do sistema operacional para obter mais informações sobre como executar serviços SSH.
 - Azure Percept DK
+- Configurar uma conta de logon SSH durante a [experiência de integração do Azure PERCEPT DK](./quickstart-percept-dk-set-up.md)
 
 ## <a name="initiate-the-ssh-connection"></a>Iniciar a conexão SSH
 
@@ -48,15 +49,8 @@ Siga as etapas abaixo para configurar uma conexão SSH para o Azure Percept [DK 
 
     :::image type="content" source="./media/how-to-ssh-into-percept-dk/ssh-putty.png" alt-text="Imagem.":::
 
-1. Faça logon no terminal de reemitida. Se você configurar um nome de usuário e senha SSH durante o OOBE, insira essas credenciais de logon quando solicitado. Caso contrário, insira o seguinte:  
-
-    1. fazer logon como: raiz
-    1. Senha: p@ssw0rd
-
-    :::image type="content" source="./media/how-to-ssh-into-percept-dk/putty-terminal.png" alt-text="Janela de terminal de intervalo.":::  
+1. Faça logon no terminal de saída com o nome de usuário e senha do SSH criados durante a experiência de integração.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de se conectar com êxito ao Percept do Azure DK por meio do SSH, você pode executar uma variedade de tarefas, incluindo solução de problemas, atualizações de USB e executar a ferramenta DiagTool ou SoftAP.
-
-
