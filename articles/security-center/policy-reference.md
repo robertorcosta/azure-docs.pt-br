@@ -7,12 +7,12 @@ author: memildin
 ms.author: memildin
 ms.service: security-center
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3b5860cc4ada88e2e7c7813e3441db3ec89f31af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b80ceffe22c797d46b82ec33a47c726d68bf4cdb
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101729906"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099821"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-security-center"></a>Definições internas do Azure Policy para a Central de Segurança do Azure
 
@@ -44,13 +44,4 @@ Para saber mais sobre as políticas internas que são monitoradas pela central d
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu sobre as definições de política de segurança Azure Policy na central de segurança. Para saber mais, consulte os artigos a seguir.
-
-- Confira os internos no [repositório Azure Policy GitHub](https://github.com/Azure/azure-policy).
-- Revise a [estrutura de definição do Azure Policy](../governance/policy/concepts/definition-structure.md).
-- Revisar [Compreendendo os efeitos da política](../governance/policy/concepts/effects.md).
-- [Guia de planejamento e operações da central de segurança do Azure](./security-center-planning-and-operations-guide.md): saiba como planejar e entender as considerações de design na central de segurança do Azure.
-- [Monitoramento da integridade de segurança na Central de Segurança do Azure](./security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
-- [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](./security-center-managing-and-responding-alerts.md): saiba como gerenciar e responder aos alertas de segurança.
-- [Monitorar as soluções de parceiros com a Central de Segurança do Azure](./security-center-partner-integration.md): saiba como monitorar o status de integridade de suas soluções de parceiros.
-- [Azure Policy](../governance/policy/overview.md): Aprenda a auditar e governar os recursos do Azure.
+Neste artigo, você aprendeu sobre as definições de política de segurança Azure Policy na central de segurança. Para saber mais sobre iniciativas, políticas e como elas se relacionam com as recomendações da central de segurança, consulte [o que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md).

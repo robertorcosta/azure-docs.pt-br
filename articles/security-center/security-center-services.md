@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: memildin
-ms.openlocfilehash: 0e1f669b6955d5c5b70f2f29ff39ba5aef0a9a56
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 1ba030ea42d3e865021aa52c651cd72eead9f1a1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100544809"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100263"
 ---
 # <a name="feature-coverage-for-machines"></a>Cobertura de recursos para computadores
 
@@ -117,7 +117,7 @@ Para obter informações sobre quando as recomendações são geradas para cada 
 |[Microsoft Defender para Ponto de extremidade](harden-docker-hosts.md) (1)|✔|-|
 |[Conectar à conta da AWS](quickstart-onboard-aws.md) (1)|-|-|
 |[Conectar contas GCP](quickstart-onboard-gcp.md) (1)|-|-|
-|[Exportação contínua](continuous-export.md)|✔|✔ (2)|
+|[Exportação contínua](continuous-export.md)|✔|✔|
 |[Automação do fluxo de trabalho](workflow-automation.md)|✔|✔|
 |[Regras de isenção de recomendação](exempt-resource.md)|-|-|
 |[Regras de supressão de alertas](alerts-suppression-rules.md)|✔|✔|

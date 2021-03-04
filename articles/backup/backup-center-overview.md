@@ -3,12 +3,12 @@ title: Visão geral do centro de backup
 description: Este artigo fornece uma visão geral do centro de backup do Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: 0acf3a17e41b89b462a7fb07c5d3ebd55d4052af
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725366"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102099991"
 ---
 # <a name="overview-of-backup-center"></a>Visão geral do centro de backup
 
@@ -27,7 +27,7 @@ Alguns dos principais benefícios do centro de backup incluem:
 
 ## <a name="get-started"></a>Introdução
 
-Para começar a usar o centro de backup, procure **centro de backup** na portal do Azure e navegue até o painel do **centro de backup (versão prévia)** .
+Para começar a usar o centro de backup, procure **centro de backup** na portal do Azure e navegue até o painel do **centro de backup** .
 
 ![Pesquisa do centro de backup](./media/backup-center-overview/backup-center-search.png)
 
@@ -37,7 +37,7 @@ A primeira tela que você vê é a **visão geral**. Ele contém dois blocos –
 
 No bloco **trabalhos** , você obtém uma exibição resumida de todos os trabalhos relacionados a backup e restauração que foram disparados em todo o seu espaço de backup nas últimas 24 horas. Você pode exibir informações sobre o número de trabalhos que foram concluídos, com falha e que estão em andamento. A seleção de qualquer um dos números neste bloco permite que você exiba mais informações sobre os trabalhos para um tipo de fonte de dados específico, tipo de operação e status.
 
-No bloco **instâncias de backup** , você obtém uma exibição resumida de todas as instâncias de backup em seu espaço de backup. Por exemplo, você pode ver o número de instâncias de backup que estão no estado de exclusão reversível em comparação com o número de instâncias que ainda estão configuradas para proteção. A seleção de qualquer um dos números neste bloco permite que você exiba mais informações sobre instâncias de backup para um tipo de fonte de dados e um estado de proteção específicos.
+No bloco **instâncias de backup** , você obtém uma exibição resumida de todas as instâncias de backup em seu espaço de backup. Por exemplo, você pode ver o número de instâncias de backup que estão no estado de exclusão reversível em comparação com o número de instâncias que ainda estão configuradas para proteção. A seleção de qualquer um dos números neste bloco permite que você exiba mais informações sobre instâncias de backup para um tipo de fonte de dados e um estado de proteção específicos. Você também pode exibir todas as instâncias de backup cuja fonte de base subjacente não foi encontrada (a fonte de origem pode ser excluída ou você pode não ter acesso à fonte de fontes).
 
 Assista ao vídeo a seguir para entender os recursos do centro de backup:
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: dabd7e9e2c3c74225efc4611c7ad3523a6c76ba5
-ms.sourcegitcommit: 02ed9acd4390b86c8432cad29075e2204f6b1bc3
+ms.openlocfilehash: 6222491d35317e549a3d21f29395b9c25813ea9f
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97807983"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100348"
 ---
 # <a name="remediate-recommendations-in-azure-security-center"></a>Recomendações de correção na Central de Segurança do Azure
 
@@ -36,7 +36,7 @@ Depois de examinar todas as recomendações, decida qual delas corrigir primeiro
 
 1. Depois de concluído, uma notificação é exibida informando se o problema foi resolvido.
 
-## <a name="quick-fix-remediation"></a>Correção de correção rápida
+## <a name="quick-fix-remediation"></a>Correção rápida
 
 Para simplificar a correção e melhorar a segurança do seu ambiente (e aumentar sua pontuação segura), muitas recomendações incluem uma opção de correção rápida.
 
@@ -81,5 +81,5 @@ A operação de correção usa uma implantação de modelo ou chamada à API de 
 
 Neste documento, você mostrou como corrigir recomendações na central de segurança. Para saber mais sobre a Central de Segurança, confira as páginas seguintes:
 
-* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) -saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Monitoramento da integridade de segurança na Central de Segurança do Azure](security-center-monitoring.md): saiba como monitorar a integridade dos recursos do Azure.
+* [Configurando políticas de segurança na central de segurança do Azure](tutorial-security-policy.md) -saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure
+* [O que são políticas de segurança, iniciativas e recomendações?](security-policy-concept.md)

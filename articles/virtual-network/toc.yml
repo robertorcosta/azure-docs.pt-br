@@ -25,10 +25,8 @@
       href: tutorial-restrict-network-access-to-resources.md
     - name: Conectar redes virtuais
       href: tutorial-connect-virtual-networks-portal.md
-    - name: Criar gateway NAT
-      href: quickstart-create-nat-gateway-portal.md
     - name: Criar e validar gateway NAT
-      href: tutorial-create-validate-nat-gateway-portal.md
+      href: tutorial-create-nat-gateway-portal.md
 - name: Exemplos
   items:
     - name: CLI do Azure

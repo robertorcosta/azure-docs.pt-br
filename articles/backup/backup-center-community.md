@@ -3,12 +3,12 @@ title: Acessar recursos da Comunidade usando o centro de backup
 description: Use o centro de backup para acessar modelos de exemplo, scripts e solicitações de recursos
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: ee377ed393aa4afe1f41d243230686020f5825aa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23892c11df26bd3799ca247ef31a7d4c1b6e8bf5
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744309"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100025"
 ---
 # <a name="access-community-resources-using-backup-center"></a>Acessar recursos da Comunidade usando o centro de backup
 
@@ -26,7 +26,7 @@ Alguns dos recursos disponíveis por meio do Hub de Comunidade são:
 
 - **Solicitações de recursos**: você pode navegar para solicitações de recursos de arquivo e UserVoice.
 
-- **Exemplos de implantações automatizadas**: usando o Hub de comunidade, você pode descobrir modelos de Azure Resource Manager de exemplo (ARM) e políticas do Azure que você pode usar prontamente. Você também pode encontrar scripts do PowerShell de exemplo, comandos da CLI e scripts MSDB.
+- **Exemplos de implantações automatizadas**: usando o Hub de comunidade, você pode descobrir modelos de Azure Resource Manager de exemplo (ARM) e políticas do Azure que você pode usar prontamente. Você também pode encontrar scripts do PowerShell de exemplo, comandos da CLI e scripts de backup do banco de dados da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

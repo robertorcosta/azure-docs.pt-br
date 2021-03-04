@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 64432e2717057c1ff6bb09e0158ddb779d5b5373
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742595"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101368"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -143,7 +143,7 @@ O balanceador de carga entre regiões roteia o tráfego para o balanceador de ca
 
 * Uma investigação de integridade não pode ser configurada no momento. Uma investigação de integridade padrão coleta automaticamente informações de disponibilidade sobre o balanceador de carga regional a cada 20 segundos. 
 
-* A integração com o serviço de kubernetes do Azure (AKS) não está disponível no momento. A perda de conectividade ocorrerá ao implantar um balanceador de carga entre regiões com o balanceador de carga público do AKS.
+* A integração com o serviço de kubernetes do Azure (AKS) não está disponível no momento. A perda de conectividade ocorrerá ao implantar um balanceador de carga entre regiões com o balanceador de carga padrão com o cluster AKS implantado no back-end.
 
 ## <a name="pricing-and-sla"></a>Preço e SLA
 O balanceador de carga entre regiões compartilha o [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/ ) do balanceador de carga padrão.

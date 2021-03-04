@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
-ms.openlocfilehash: 79262b85e9591ae4b41e8467abdcbccb3804d4ec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590343"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101028"
 ---
 # <a name="azure-threat-protection"></a>Proteção contra ameaças do Azure
 
@@ -128,7 +128,7 @@ Os pesquisadores de segurança da Microsoft estão constantemente à procura de 
 
 Dessa forma, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
 
-:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da central de segurança do Azure":::
+:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Lista de alertas de segurança da Central de Segurança do Azure":::
 
 O Azure defender coleta automaticamente informações de segurança de seus recursos, da rede e das soluções de parceiros conectadas. Ele analisa essas informações, correlacionando informações de várias fontes para identificar ameaças.
 
@@ -368,6 +368,6 @@ Para obter exemplos de firewalls de aplicativo Web que estão disponíveis no Az
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Respondendo às ameaças atuais](../../security-center/security-center-alerts-overview.md#respond-threats): Ajudam a identificar ameaças ativas direcionadas aos seus recursos do Azure e fornece os insights de que você precisa para responder rapidamente a elas.
+- [Respondendo às ameaças atuais](../../security-center/security-center-managing-and-responding-alerts.md): Ajudam a identificar ameaças ativas direcionadas aos seus recursos do Azure e fornece os insights de que você precisa para responder rapidamente a elas.
 
 - [Detecção de Ameaças do Banco de Dados SQL do Azure](https://azure.microsoft.com/blog/azure-sql-database-threat-detection-your-built-in-security-expert/): Ajuda a sanar suas preocupações com possíveis ameaças aos bancos de dados.

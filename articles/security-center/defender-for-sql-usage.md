@@ -1,6 +1,6 @@
 ---
-title: Como usar o Azure defender para SQL
-description: Saiba como usar o plano opcional do Azure defender para SQL da central de segurança do Azure
+title: Como configurar o Azure defender para SQL
+description: Saiba como habilitar o plano opcional do Azure defender para SQL da central de segurança do Azure
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: 96af34b5b68fca5ab8061c8c99f03bee094dc175
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590373"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100569"
 ---
-# <a name="azure-defender-for-sql-servers-on-machines"></a>Azure defender para SQL Servers em computadores 
+# <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Habilitar o Azure defender para SQL Servers em computadores 
 
 Este plano do Azure defender detecta atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
@@ -31,7 +31,7 @@ Você receberá alertas quando ocorrerem atividades suspeitas no banco de dados 
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (Disponibilidade Geral)|
-|Preço:|O **Azure defender para SQL Servers em computadores** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Preço:|O **Azure defender para SQL Servers em computadores** é cobrado conforme mostrado na [central de segurança preços](https://azure.microsoft.com/pricing/details/security-center/)|
 |Versões do SQL protegidas:|SQL Server do Azure (todas as versões cobertas pelo suporte da Microsoft)|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos|
 |||
@@ -40,11 +40,10 @@ Você receberá alertas quando ocorrerem atividades suspeitas no banco de dados 
 
 Para habilitar este plano:
 
-* Provisione o agente de Log Analytics no host do SQL Server. Isso fornece a conexão com o Azure.
+[Etapa 1. Provisione o agente de Log Analytics no host do SQL Server:](#step-1-provision-the-log-analytics-agent-on-your-sql-servers-host)
 
-* Habilite o plano opcional na página de preços e configurações da central de segurança.
+[Etapa 2. Habilite o plano opcional na página de preços e configurações da central de segurança:](#step-2-enable-the-optional-plan-in-security-centers-pricing-and-settings-page)
 
-Ambos são descritos abaixo.
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Etapa 1. Provisione o agente de Log Analytics no host do SQL Server:
 
@@ -81,31 +80,6 @@ Ambos são descritos abaixo.
 1. Opcionalmente, configure a notificação por email para alertas de segurança. 
     Você pode definir uma lista de destinatários para receber uma notificação por email quando os alertas da central de segurança são gerados. O email contém um link direto para o alerta na central de segurança do Azure com todos os detalhes relevantes. Para obter mais informações, consulte [configurar notificações por email para alertas de segurança](security-center-provide-security-contact-details.md).
 
-
-
-## <a name="explore-vulnerability-assessment-reports"></a>Explorar relatórios de avaliação de vulnerabilidade
-
-O serviço de avaliação de vulnerabilidade examina seus bancos de dados uma vez por semana. As verificações são executadas no mesmo dia da semana em que você habilitou o serviço.
-
-O painel de avaliação de vulnerabilidade fornece uma visão geral dos resultados da sua avaliação em todos os seus bancos de dados, juntamente com um resumo de bancos de dados íntegros e não íntegros, além de um resumo geral das verificações com falha de acordo com a distribuição de risco.
-
-Você pode exibir os resultados da avaliação de vulnerabilidade diretamente da central de segurança.
-
-1. Na barra lateral da central de segurança, abra a página **recomendações** e selecione as **vulnerabilidades de recomendação em seus servidores SQL em computadores devem ser corrigidos (visualização)**. Para obter mais informações, consulte [recomendações da central de segurança](security-center-recommendations.md). 
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/data-and-storage-sqldb-vulns-on-vm.png" alt-text="As descobertas de avaliação de vulnerabilidade em seus SQL Servers em computadores devem ser corrigidas (visualização)":::
-
-    A exibição detalhada para essa recomendação é exibida.
-
-    :::image type="content" source="./media/security-center-advanced-iaas-data/all-servers-view.png" alt-text="Exibição detalhada para a recomendação":::
-
-1. Para obter mais detalhes, faça uma busca detalhada:
-
-    * Para obter uma visão geral dos recursos verificados (bancos de dados) e da lista de verificações de segurança que foram testadas, selecione o servidor de interesse.
-
-    * Para obter uma visão geral das vulnerabilidades agrupadas por um banco de dados SQL específico, selecione o banco de dados de interesse.
-
-    Em cada exibição, as verificações de segurança são classificadas por **severidade**. Clique em uma verificação de segurança específica para ver um painel de detalhes com uma **Descrição**, como **corrigi** -lo e outras informações relacionadas, como **impacto** ou **benchmark**.
 
 ## <a name="azure-defender-for-sql-alerts"></a>Alertas do Azure defender para SQL
 Os alertas são gerados por tentativas incomuns e potencialmente prejudiciais de acessar ou explorar máquinas do SQL. Esses eventos podem disparar alertas mostrados na [página de referência de alertas](alerts-reference.md#alerts-sql-db-and-warehouse).

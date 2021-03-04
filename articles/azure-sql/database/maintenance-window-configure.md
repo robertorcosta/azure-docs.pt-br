@@ -8,13 +8,13 @@ ms.topic: how-to
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 03/02/2021
-ms.openlocfilehash: e8f7e5451b48066f52a4c1038e58b1efa99951e6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/04/2021
+ms.openlocfilehash: f5692f2bcaaadfc56084ec8db745eae48112ecf3
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048583"
+ms.locfileid: "102101232"
 ---
 # <a name="configure-maintenance-window-preview"></a>Configurar a janela de manutenção (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -26,6 +26,8 @@ A janela de manutenção *padrão do sistema* é de 17:00 a 8:00 diariamente (ho
 
 A capacidade de mudar para uma janela de manutenção diferente não está disponível para cada nível de serviço ou em cada região. Para obter detalhes sobre a disponibilidade, consulte [disponibilidade da janela de manutenção](maintenance-window.md#availability).
 
+> [!Important]
+> A configuração da janela de manutenção é uma operação assíncrona de execução longa, semelhante à alteração da camada de serviço do recurso SQL do Azure. O recurso está disponível durante a operação, exceto um failover curto que ocorre no final da operação e normalmente dura até 8 segundos, mesmo no caso de transações de longa execução interrompidas. Para minimizar o impacto do failover, você deve executar a operação fora do horário de pico.
 
 ## <a name="configure-maintenance-window-during-database-creation"></a>Configurar a janela de manutenção durante a criação do banco de dados 
 
