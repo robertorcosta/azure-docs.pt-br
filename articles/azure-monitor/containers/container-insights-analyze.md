@@ -3,12 +3,12 @@ title: Monitoramento de kubernetes com insights de contêiner | Microsoft Docs
 description: Este artigo descreve como você pode exibir e analisar o desempenho de um cluster kubernetes com informações de contêiner.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: 432de02d22a418e92a7487001ae8c128323f3685
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 865a21e8c54d2cf569e04534fab6ec14f5519f34
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101711341"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124305"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-container-insights"></a>Monitorar o desempenho do cluster kubernetes com insights de contêiner
 
@@ -20,7 +20,7 @@ Para obter informações sobre como habilitar o insights de contêiner, consulte
 
 Azure Monitor fornece uma exibição de vários clusters que mostra o status de integridade de todos os clusters kubernetes monitorados que executam o Linux e o Windows Server 2019 implantados em grupos de recursos em suas assinaturas. Ele mostra os clusters descobertos em todos os ambientes que não são monitorados pela solução. Você pode entender imediatamente a integridade do cluster e, a partir daqui, pode fazer uma busca detalhada na página de desempenho do nó e do controlador ou navegar para ver os gráficos de desempenho do cluster. Para clusters AKS que foram descobertos e identificados como não monitorados, você pode habilitar o monitoramento para eles a qualquer momento.
 
-As principais diferenças no monitoramento de um cluster do Windows Server com informações de contêiner em comparação a um cluster do Linux são descritas [aqui](container-insights-overview.md#what-does-azure-monitor-for-containers-provide) no artigo Visão geral.
+As principais diferenças no monitoramento de um cluster do Windows Server com informações de contêiner em comparação a um cluster do Linux são descritas [aqui](container-insights-overview.md#what-does-container-insights-provide) no artigo Visão geral.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 
@@ -191,7 +191,7 @@ As informações apresentadas quando você exibe a guia **nós** é descrita na 
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do host. |
+| Nome | O nome do host. |
 | Status | Exibição de Kubernetes do status do nó. |
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%  | Percentual médio de nós com base no percentil pela duração selecionada. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | Valor real dos nós médios com base no percentil durante o tempo de duração selecionado. O valor médio é medido do limite de CPU/memória definido para um nó. Para pods e contêineres, é o valor médio relatado pelo host. |
@@ -234,7 +234,7 @@ As informações exibidas quando você exibe controladores são descritas na tab
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Status | O status de rollup dos contêineres após a conclusão da execução com status, como *OK*, *encerrado*, *com falha*, *parado* ou em *pausa*. Se o contêiner estiver em execução, mas o status não tiver sido exibido corretamente ou não tiver sido selecionado pelo agente e não tiver respondido por mais de 30 minutos, o status será *desconhecido*. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;%| Média de rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max  | Rollup da média de milinúcleo de CPU ou desempenho da memória do contêiner para o percentil selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |
@@ -271,7 +271,7 @@ As informações exibidas quando você exibe contêineres são descritas na tabe
 
 | Coluna | Descrição |
 |--------|-------------|
-| Name | O nome do controlador.|
+| Nome | O nome do controlador.|
 | Status | Status dos contêineres, se houver. Detalhes adicionais do ícone de status são fornecidos na tabela a seguir.|
 | Min &nbsp; %, AVG &nbsp; %, 50 º &nbsp; %, 90 º &nbsp; %, 95 º &nbsp; %, Max&nbsp;% | O rollup do percentual médio de cada entidade para a métrica e o percentil selecionados. |
 | Min, AVG, 50 º, 90 º, 95 º, Max | O rollup da média do desempenho de memória ou do milinúcleo da CPU do contêiner para o percentual selecionado. O valor médio é medido usando o limite de CPU/memória definido para um pod. |

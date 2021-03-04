@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 2/26/2021
-ms.openlocfilehash: c57ac9ddbebcf02cb0118705b63f97fd1880b0f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 098f62365971fd634001706ab99fd414a6b25056
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695915"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123557"
 ---
 # <a name="register-and-scan-azure-multiple-sources"></a>Registrar e examinar várias fontes do Azure
 
@@ -95,12 +95,12 @@ Para criar e executar uma nova verificação, faça o seguinte:
     1. Você pode selecionar uma **credencial no nível pai** como msi ou uma credencial de tipo de entidade de serviço específica, que você pode optar por usar para todos os tipos de recurso na assinatura ou grupo de recursos
     1. Você também pode **selecionar especificamente o tipo de recurso e aplicar uma credencial diferente** para esse tipo de recurso
     1. Cada credencial será considerada como o método de autenticação para todos os recursos em um determinado tipo
-    1. Você deve definir a credencial escolhida nos recursos para examiná-las com êxito, conforme descrito nesta [seção](#Setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) acima
+    1. Você deve definir a credencial escolhida nos recursos para examiná-las com êxito, conforme descrito nesta [seção](#setting-up-authentication-to-scan-resources-under-a-subscription-or-resource-group) acima
 1. Dentro de cada tipo, você pode selecionar para verificar todos os recursos ou um subconjunto deles por nome.
     1. Se você deixar a opção como **todos os** recursos futuros desse tipo também serão verificados em execuções futuras de verificação
     1. Se você selecionar contas de armazenamento ou bancos de dados SQL específicos, os recursos futuros criados nesse tipo dentro dessa assinatura ou grupo de recursos não serão incluídos para verificações, a menos que a verificação seja explicitamente editada no futuro
  
-1.  Clique em **Continuar** para prosseguir. Vamos testar o acesso para verificar se você aplicou o MSI alcance como um leitor na assinatura ou no grupo de recursos. Se uma mensagem de erro for gerada, siga as instruções [aqui](#Setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
+1.  Clique em **Continuar** para prosseguir. Vamos testar o acesso para verificar se você aplicou o MSI alcance como um leitor na assinatura ou no grupo de recursos. Se uma mensagem de erro for gerada, siga as instruções [aqui](#setting-up-authentication-for-enumerating-resources-under-a-subscription-or-resource-group)
 
 1.  Selecione **verificar conjuntos de regras** para cada tipo de recurso escolhido na etapa anterior. Você também pode criar conjuntos de regras de verificação embutidos.
   :::image type="content" source="media/register-scan-azure-multiple-sources/multiple-scan-rule-set.png" alt-text="Seleção de conjunto de regras de verificação múltipla do Azure":::

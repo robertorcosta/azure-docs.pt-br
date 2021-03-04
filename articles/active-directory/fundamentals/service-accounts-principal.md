@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eaad4995abcf54e9ca7040d570c7a9abbdbc9cf5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fff9f9e809c61761ae22bc64cb0810b6e8b98f07
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032376"
+ms.locfileid: "102122690"
 ---
-# <a name="securing-service-principals"></a>Protegendo entidades de serviço
+# <a name="securing-service-principals"></a>Proteção de entidades de serviço
 
 Uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) do Azure Active Directory (AD do Azure) é a representação local de um objeto de aplicativo em um único locatário ou diretório.  Ele funciona como a identidade da instância do aplicativo. As entidades de serviço definem quem pode acessar o aplicativo e quais recursos o aplicativo pode acessar. Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado e faz referência ao objeto de aplicativo exclusivo globalmente. O locatário protege a entrada da entidade de serviço e o acesso aos recursos.  
 
@@ -115,14 +115,14 @@ Ao usar Microsoft Graph, verifique a documentação da API específica, [como ne
 
 [Criar uma entidade de serviço](../develop/howto-create-service-principal-portal.md)
 
- [Monitorar as entradas da entidade de serviço](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report)
+ [Monitorar as entradas da entidade de serviço](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
 
 **Para saber mais sobre como proteger as contas de serviço:**
 
 [Introdução às contas de serviço do Azure](service-accounts-introduction-azure.md)
 
-[Protegendo identidades gerenciadas](service-accounts-managed-identities.md)
+[Proteção de identidades gerenciadas](service-accounts-managed-identities.md)
 
-[Governando contas de serviço do Azure](service-accounts-governing-azure.md)
+[Administração de contas de serviço do Azure](service-accounts-governing-azure.md)
 
 [Introdução a contas de serviço locais](service-accounts-on-premises.md)

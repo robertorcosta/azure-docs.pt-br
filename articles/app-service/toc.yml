@@ -187,8 +187,6 @@
               href: deploy-ci-cd-custom-container.md
             - name: Implantar a partir do Git local
               href: deploy-local-git.md
-            - name: Ação do GitHub
-              href: deploy-github-actions.md
             - name: Ação do GitHub para contêineres
               href: deploy-container-github-action.md
             - name: Implantar com modelo

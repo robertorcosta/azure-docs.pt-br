@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: deanwe
-ms.openlocfilehash: 1bcf9009a039a10017d53ca6fe9e78acec1efd55
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5cdc0080c0d8b06bd0b7e19566b54b4f105648e5
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100581229"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122095"
 ---
 # <a name="azure-automanage-for-virtual-machines-best-practices"></a>Práticas recomendadas do Azure Manage para máquinas virtuais
 
@@ -38,7 +38,7 @@ Para todos esses serviços, faremos a integração automática, configuração a
 |Workspace do Log Analytics    |O Azure Monitor armazena dados de log em um espaço de trabalho Log Analytics, que é um recurso do Azure e um contêiner em que os dados são coletados, agregados e servem como um limite administrativo. Saiba [mais](../azure-monitor/logs/design-logs-deployment.md).    |Práticas recomendadas de VM do Azure – produção, práticas recomendadas de VM do Azure – desenvolvimento/teste    |Não    |
 
 
-<sup>1</sup> perfis de configuração estão disponíveis quando você está habilitando o autogerenciamento. Saiba [mais](automanage-virtual-machines.md#configuration-profiles). Você também pode ajustar as configurações padrão do perfil de configuração e definir suas próprias preferências nas restrições de práticas recomendadas.
+<sup>1</sup> perfis de configuração estão disponíveis quando você está habilitando o autogerenciamento. Saiba [mais](automanage-virtual-machines.md). Você também pode ajustar as configurações padrão do perfil de configuração e definir suas próprias preferências nas restrições de práticas recomendadas.
 
 
 ## <a name="next-steps"></a>Próximas etapas

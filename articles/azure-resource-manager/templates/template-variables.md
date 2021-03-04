@@ -3,12 +3,12 @@ title: Variáveis em modelos
 description: Descreve como definir variáveis em um modelo de Azure Resource Manager (modelo ARM) e arquivo bicep.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: e00a9e8e1801725707bac2abdc67512477e2cf07
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3ab14c9acfcc2d6c9edd23fb3bc4d876cd5ac756
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700330"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123370"
 ---
 # <a name="variables-in-arm-templates"></a>Variáveis em modelos ARM
 
@@ -20,7 +20,7 @@ O Gerenciador de recursos resolve as variáveis antes de iniciar as operações 
 
 ## <a name="define-variable"></a>Definir variável
 
-Ao definir uma variável, você não especifica um [tipo de dados](template-syntax.md#data-types) para a variável. Em vez disso, forneça um valor ou uma expressão de modelo. O tipo de variável é inferido a partir do valor resolvido. O exemplo a seguir define uma variável para uma cadeia de caracteres.
+Ao definir uma variável, você não especifica um [tipo de dados](data-types.md) para a variável. Em vez disso, forneça um valor ou uma expressão de modelo. O tipo de variável é inferido a partir do valor resolvido. O exemplo a seguir define uma variável para uma cadeia de caracteres.
 
 # <a name="json"></a>[JSON](#tab/json)
 

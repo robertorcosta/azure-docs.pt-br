@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b37277c660562721273ff9ae86dd677ee7ac7d55
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 2419761c195258c60561e284abf0227b915ed4f6
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049994"
+ms.locfileid: "102123625"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conectar aplicativos de funções no Azure para processamento de dados
 
@@ -86,7 +86,7 @@ Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _funct
 
 Agora, você declarará variáveis de nível de classe e adicionará o código de autenticação que permitirá que a função acesse o Azure digital gêmeos. Você adicionará o seguinte à sua função no arquivo _function1.cs_ .
 
-* Código para ler a URL do serviço gêmeos do Azure digital como uma variável de ambiente. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função.
+* Código para ler a URL do serviço gêmeos do Azure digital como uma **variável de ambiente**. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função. Você definirá o valor dessa variável de ambiente [posteriormente neste artigo](#set-up-security-access-for-the-function-app). Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
     :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="ADT_service_URL":::
 
@@ -134,7 +134,7 @@ Use o valor de _principalId_ no comando a seguir para atribuir a identidade do a
 ```azurecli-interactive 
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
 ```
-Por fim, você pode tornar a URL da sua instância de gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre como definir variáveis de ambiente, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). 
+Por fim, torne a URL da sua instância do gêmeos digital do Azure acessível para sua função definindo uma **variável de ambiente** para ela. Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
 
 > [!TIP]
 > A URL da instância do gêmeos digital do Azure é feita adicionando *https://* ao início do *nome de host* da instância do Azure digital gêmeos. Para ver o nome do host, juntamente com todas as propriedades de sua instância, você pode executar `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
@@ -183,7 +183,7 @@ Em seguida, Salve seus detalhes pressionando o botão _salvar_ .
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Definir configurações de aplicativo usando portal do Azure
 
-Você pode tornar a URL da sua instância do gêmeos digital do Azure acessível para sua função definindo uma variável de ambiente. Para obter mais informações sobre isso, consulte [*variáveis de ambiente*](/sandbox/functions-recipes/environment-variables). As configurações do aplicativo são expostas como variáveis de ambiente para acessar a instância digital gêmeos. 
+Para tornar a URL da sua instância do gêmeos digital do Azure acessível para sua função, você pode definir uma **variável de ambiente** para ela. Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). As configurações do aplicativo são expostas como variáveis de ambiente para acessar a instância do gêmeos digital do Azure. 
 
 Para definir uma variável de ambiente com a URL de sua instância, primeiro obtenha a URL encontrando o nome de host da instância do gêmeos digital do Azure. Pesquise sua instância na barra de pesquisa [portal do Azure](https://portal.azure.com) . Em seguida, selecione _visão geral_ na barra de navegação à esquerda para exibir o _nome do host_. Copie esse valor.
 

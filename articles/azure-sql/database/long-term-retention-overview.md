@@ -9,15 +9,15 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: shkale-msft
-ms.author: shkale-msft
+ms.author: shkale
 ms.reviewer: mathoma, sstein
 ms.date: 02/25/2021
-ms.openlocfilehash: cd1ba0516d8cb7fdaf3b8d4786cfe68240231303
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5879cc32f8dd5b8643f8c091f329dd430481245b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050963"
+ms.locfileid: "102122962"
 ---
 # <a name="long-term-retention---azure-sql-database-and-azure-sql-managed-instance"></a>Retenção de longo prazo-banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 

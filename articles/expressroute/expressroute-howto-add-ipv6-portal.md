@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 2/9/2021
 ms.author: duau
-ms.openlocfilehash: c305ee78abac7e175dc086666dfd1e2926f8da2b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ef6ea9017a9aaa98e153df0d67f0b54fe5a2b64d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097815"
+ms.locfileid: "102124152"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adicionar suporte a IPv6 para emparelhamento privado usando o portal do Azure (versão prévia)
 
@@ -88,7 +88,7 @@ Siga as etapas abaixo se você planeja se conectar a um novo conjunto de recurso
 
 2. [Crie a sub-rede de gateway de pilha dupla](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-gateway-subnet).
 
-3. [Crie o gateway de rede virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) usando um SKU com redundância de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Se você planeja usar o FastPath, use ErGw3AZ.
+3. [Crie o gateway de rede virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-portal-resource-manager#create-the-virtual-network-gateway) usando um SKU com redundância de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Se você planeja usar o FastPath, use ErGw3AZ (Observe que isso só está disponível para circuitos que usam o ExpressRoute Direct).
 
 4. [Vincule sua rede virtual ao circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager).
 
@@ -99,6 +99,8 @@ Embora o suporte a IPv6 esteja disponível para conexões com implantações em 
 * Conexões com implantações em regiões não AZ
 * Conexões Alcance Global entre circuitos do ExpressRoute
 * Uso do ExpressRoute com WAN virtual
+* FastPath com circuitos diretos não ExpressRoute
+* Coexistência com o gateway de VPN
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/31/2021
+ms.date: 03/03/2021
 ms.author: bwren
-ms.openlocfilehash: 32a34acb454dc87a46e59e8c1231d043a55b7cab
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1ec8c65a1babe707175eb891592694dd0524711b
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051082"
+ms.locfileid: "102123591"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Gerenciar o uso e os custos com logs do Azure Monitor    
 
@@ -39,17 +39,17 @@ O preço padrão do Log Analytics é um modelo de **Pagamento Conforme o Uso** b
   
 Além do modelo de Pagamento Conforme o Uso, o Log Analytics tem tipos de preço de **Reserva de Capacidade**, o que permite que você economize até 25% em comparação com o preço de Pagamento Conforme o Uso. O preço de reserva de capacidade habilita você a comprar uma reserva a partir de 100 GB/dia. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. Os tipos de preço de Reserva de Capacidade têm um período de compromisso de 31 dias. Durante o período de compromisso, é possível alterar para um tipo de preço de Reserva de Capacidade de um nível maior (o qual reiniciará o período de compromisso de 31 dias), mas não poderá voltar para o modelo de Pagamento Conforme o Uso ou para um tipo de preço de Reserva de Capacidade menor até que o período de compromisso seja concluído. A cobrança dos tipos de preço de Reserva de Capacidade é feita diariamente. [Saiba mais](https://azure.microsoft.com/pricing/details/monitor/) sobre os modelos de preços de Pagamento Conforme o Uso e de Reserva de Capacidade do Log Analytics. 
 
-Em todos os tipos de preço, o tamanho dos dados de um evento é calculado a partir de uma representação de cadeia de caracteres das propriedades que são armazenadas em Log Analytics para esse evento, quer os dados sejam enviados de um agente ou adicionados durante o processo de ingestão. Isso inclui todos os [campos personalizados](../logs/custom-fields.md) que são adicionados à medida que os dados são coletados e armazenados em log Analytics. Várias propriedades comuns a todos os tipos de dados, incluindo algumas [log Analytics propriedades padrão](../logs/log-standard-columns.md), são excluídas no cálculo do tamanho do evento. Isso inclui `_ResourceId` , `_ItemId` , `_IsBillable` `_BilledSize` e `Type` . Todas as outras propriedades armazenadas em Log Analytics são incluídas no cálculo do tamanho do evento. Alguns tipos de dados são gratuitos dos encargos de ingestão de dados, por exemplo, os tipos de AzureActivity, pulsação e uso. Para determinar se um evento foi excluído da cobrança da ingestão de dados, você pode usar a `_IsBillable` propriedade, conforme mostrado [abaixo](#data-volume-for-specific-events). O uso é relatado em GB (1,0 E9 bytes). 
+Em todos os tipos de preço, o tamanho dos dados de um evento é calculado a partir de uma representação de cadeia de caracteres das propriedades que são armazenadas em Log Analytics para esse evento, quer os dados sejam enviados de um agente ou adicionados durante o processo de ingestão. Isso inclui todos os [campos personalizados](custom-fields.md) que são adicionados à medida que os dados são coletados e armazenados em log Analytics. Várias propriedades comuns a todos os tipos de dados, incluindo algumas [log Analytics propriedades padrão](./log-standard-columns.md), são excluídas no cálculo do tamanho do evento. Isso inclui `_ResourceId` ,,, `_SubscriptionId` `_ItemId` `_IsBillable` `_BilledSize` e `Type` . Todas as outras propriedades armazenadas em Log Analytics são incluídas no cálculo do tamanho do evento. Alguns tipos de dados são gratuitos dos encargos de ingestão de dados, por exemplo, os tipos de AzureActivity, pulsação e uso. Para determinar se um evento foi excluído da cobrança da ingestão de dados, você pode usar a `_IsBillable` propriedade, conforme mostrado [abaixo](#data-volume-for-specific-events). O uso é relatado em GB (1,0 E9 bytes). 
 
 Além disso, observe que algumas soluções, como a [Central de Segurança do Azure](https://azure.microsoft.com/pricing/details/security-center/), o [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/) e o [Gerenciamento de configurações](https://azure.microsoft.com/pricing/details/automation/) têm seus próprios modelos de preços. 
 
 ### <a name="log-analytics-dedicated-clusters"></a>Clusters dedicados do Log Analytics
 
-Os clusters dedicados do Log Analytics são coleções de workspace em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [Chaves Gerenciadas pelo Cliente](../logs/customer-managed-keys.md).  Log Analytics clusters dedicados usam um modelo de preços de reserva de capacidade que deve ser configurado para pelo menos 1000 GB/dia. Esse nível de capacidade tem um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. A Reserva de Capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas ele pode ser aumentado a qualquer momento. Quando os espaços de trabalho estão associados a um cluster, a cobrança de ingestão de dados para esses espaços de trabalho é feita no nível do cluster usando o nível de reserva de capacidade configurado. Saiba mais sobre [criação de clusters do Log Analytics](../logs/customer-managed-keys.md#create-cluster) e [associação de workspaces a ele](../logs/customer-managed-keys.md#link-workspace-to-cluster). As informações de preços de reserva de capacidade estão disponíveis na [página de preços Azure monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
+Os clusters dedicados do Log Analytics são coleções de workspace em um único cluster gerenciado do Azure Data Explorer para dar suporte a cenários avançados, como [Chaves Gerenciadas pelo Cliente](customer-managed-keys.md).  Log Analytics clusters dedicados usam um modelo de preços de reserva de capacidade que deve ser configurado para pelo menos 1000 GB/dia. Esse nível de capacidade tem um desconto de 25% em comparação com o preço pago conforme o uso. Qualquer uso acima do nível de reserva será cobrado com a taxa de Pagamento Conforme o Uso. A Reserva de Capacidade do cluster tem um período de compromisso de 31 dias após o aumento do nível de reserva. Durante o período de compromisso, o nível de reserva de capacidade não pode ser reduzido, mas ele pode ser aumentado a qualquer momento. Quando os espaços de trabalho estão associados a um cluster, a cobrança de ingestão de dados para esses espaços de trabalho é feita no nível do cluster usando o nível de reserva de capacidade configurado. Saiba mais sobre [criação de clusters do Log Analytics](customer-managed-keys.md#create-cluster) e [associação de workspaces a ele](customer-managed-keys.md#link-workspace-to-cluster). As informações de preços de reserva de capacidade estão disponíveis na [página de preços Azure monitor]( https://azure.microsoft.com/pricing/details/monitor/).  
 
-O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . A `Capacity` é especificada em unidades de GB e pode ter valores de 1.000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado em [Azure monitor chave gerenciada pelo cliente](../logs/customer-managed-keys.md#create-cluster). Caso o cluster precise de uma reserva acima de 2.000 GB/dia, entre em contato conosco pelo email [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
+O nível de reserva de capacidade do cluster é configurado por meio de programação com Azure Resource Manager usando o `Capacity` parâmetro em `Sku` . A `Capacity` é especificada em unidades de GB e pode ter valores de 1.000 GB/dia ou mais em incrementos de 100 GB/dia. Isso é detalhado em [Azure monitor chave gerenciada pelo cliente](customer-managed-keys.md#create-cluster). Caso o cluster precise de uma reserva acima de 2.000 GB/dia, entre em contato conosco pelo email [LAIngestionRate@microsoft.com](mailto:LAIngestionRate@microsoft.com).
 
-Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao [Configurar o cluster](../logs/customer-managed-keys.md#customer-managed-key-operations). Os dois modos são: 
+Há dois modos de cobrança para uso em um cluster. Eles podem ser especificados pelo `billingType` parâmetro ao [Configurar o cluster](customer-managed-keys.md#customer-managed-key-operations). Os dois modos são: 
 
 1. **Cluster**: nesse caso (que é o padrão), a cobrança de dados ingeridos é feita no nível do cluster. As quantidades de dados ingeridos de cada workspace associado a um cluster são agregadas para calcular a fatura diária do cluster. Observe que as alocações por nó da [Central de Segurança do Azure](../../security-center/index.yml) são aplicadas no nível do workspace antes dessa agregação de dados em todos os workspaces presentes no cluster. 
 
@@ -79,7 +79,7 @@ Os encargos do Log Analytics são adicionadas à sua fatura do Azure. É possív
 
 O Azure fornece um grande controle da funcionalidade útil no hub [Gerenciamento de Custos do Azure + Cobrança](../../cost-management-billing/costs/quick-acm-cost-analysis.md?toc=%2fazure%2fbilling%2fTOC.json). Por exemplo, a funcionalidade de "Análise de custo" permite que você exiba seus gastos dos recursos do Azure. Primeiro, adicione um filtro por "tipo de recurso" (para Microsoft. operationalinsights/espaço de trabalho para Log Analytics e Microsoft. operationalinsights/cluster para clusters Log Analytics) permitirá que você acompanhe seus Log Analytics gastos. Depois, em "Agrupar por", selecione "Categoria do medidor" ou "Medidor".  Observe que outros serviços, como a Central de Segurança do Azure e o Azure Sentinel, também cobram seu uso em relação aos recursos do workspace do Log Analytics. Para ver o mapeamento para o Nome do serviço, você pode selecionar a Exibição de tabela em vez de um gráfico. 
 
-É possível obter uma compreensão maior do seu uso [baixando seu uso do portal do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure (por exemplo, workspace do Log Analytics) por dia. Nessa planilha do Excel, o uso de seus workspaces do Log Analytics pode ser encontrado ao, primeiro, filtrar a coluna "Categoria do Medidor" para mostrar o "Log Analytics", "Insight e Análise" (usado por alguns dos tipos de preço herdados) e "Azure Monitor" (usado por tipos de preço de Reserva de Capacidade) e, em seguida, adicionar um filtro na coluna "ID da Instância", que será "contém workspace" ou "contém cluster" (este último inclui o uso de cluster do Log Analytics). O uso é mostrado na coluna "Quantidade Consumida", e a unidade de cada entrada é mostrada na coluna "Unidade de Medida".  Há mais detalhes disponíveis para ajudar você a [entender sua fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
+É possível obter uma compreensão maior do seu uso [baixando seu uso do portal do Azure](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). Na planilha baixada, você pode ver o uso por recurso do Azure (por exemplo, workspace do Log Analytics) por dia. Nesta planilha do Excel, o uso de seus espaços de trabalho do Log Analytics pode ser encontrado primeiro filtrando a coluna "categoria do medidor" para mostrar "Log Analytics", "insight and Analytics" (usado por alguns dos tipos de preço herdados) e "Azure Monitor" (usado pelos tipos de preço de reserva de capacidade) e, em seguida, adicionando um filtro na coluna "ID da instância", que é "contém espaço de trabalho" ou "contém cluster" (o último a incluir Log Analytics uso do cluster). O uso é mostrado na coluna "Quantidade Consumida", e a unidade de cada entrada é mostrada na coluna "Unidade de Medida".  Há mais detalhes disponíveis para ajudar você a [entender sua fatura do Microsoft Azure](../../cost-management-billing/understand/review-individual-bill.md). 
 
 ## <a name="changing-pricing-tier"></a>Alterando o tipo de preço
 
@@ -93,7 +93,7 @@ Para alterar o tipo de preço do Log Analytics do seu workspace:
     
 3. Depois de revisar os custos estimados com base nos últimos 31 dias de uso, caso você decida alterar o tipo de preço, clique em **Selecionar**.  
 
-Você também pode [definir o tipo de preço por meio do Azure Resource Manager](../logs/resource-manager-workspace.md) usando o parâmetro `sku` (`pricingTier` no modelo do Azure Resource Manager). 
+Você também pode [definir o tipo de preço por meio do Azure Resource Manager](../samples/resource-manager-workspace.md) usando o parâmetro `sku` (`pricingTier` no modelo do Azure Resource Manager). 
 
 ## <a name="legacy-pricing-tiers"></a>Tipos de preço legados
 
@@ -127,7 +127,7 @@ Nenhum dos tipos de preço herdados tem preços baseados na região.
 
 ## <a name="log-analytics-and-security-center"></a>Central de Log Analytics e segurança
 
-A cobrança da [central de segurança do Azure](../../security-center/index.yml) está diretamente ligada à cobrança log Analytics. A central de segurança fornece a alocação de 500 MB/nó/dia em relação a um conjunto de [tipos de dados de segurança](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update e UpdateSummary quando a solução gerenciamento de atualizações não está em execução no espaço de trabalho ou o direcionamento de solução está habilitado. Se o espaço de trabalho estiver no tipo de preço herdado por nó, a central de segurança e as alocações de Log Analytics serão combinadas e aplicadas em conjunto a todos os dados ingeridos faturáveis.  
+A cobrança da [central de segurança do Azure](../../security-center/index.yml) está diretamente ligada à cobrança log Analytics. A central de segurança fornece a alocação de 500 MB/nó/dia contra o seguinte subconjunto de [tipos de dados de segurança](/azure/azure-monitor/reference/tables/tables-category#security) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus) e os tipos de dados Update e UpdateSummary quando a solução gerenciamento de atualizações não está em execução no espaço de trabalho ou a solução de destino está habilitada. Se o espaço de trabalho estiver no tipo de preço herdado por nó, a central de segurança e as alocações de Log Analytics serão combinadas e aplicadas em conjunto a todos os dados ingeridos faturáveis.  
 
 ## <a name="change-the-data-retention-period"></a>Alterar o período de retenção de dados
 
@@ -145,7 +145,7 @@ Para definir a retenção padrão do seu workspace:
 
 Quando a retenção é reduzida, há um período de carência de vários dias antes que os dados anteriores à nova configuração de retenção sejam removidos. 
 
-A página de **retenção de dados** permite configurações de retenção de 30, 31, 60, 90, 120, 180, 270, 365, 550 e 730 dias. Se outra configuração for necessária, ela poderá ser configurada usando [Azure Resource Manager](../logs/resource-manager-workspace.md) usando o `retentionInDays` parâmetro. Ao definir a retenção de dados para 30 dias, você pode disparar uma limpeza imediata de dados mais antigos usando o `immediatePurgeDataOn30Days` parâmetro (eliminando o período de carência de vários dias). Isso pode ser útil para cenários relacionados à conformidade em que a remoção imediata de dados é imperativa. Essa funcionalidade de limpeza imediata só é exposta por meio de Azure Resource Manager. 
+A página de **retenção de dados** permite configurações de retenção de 30, 31, 60, 90, 120, 180, 270, 365, 550 e 730 dias. Se outra configuração for necessária, ela poderá ser configurada usando [Azure Resource Manager](../samples/resource-manager-workspace.md) usando o `retentionInDays` parâmetro. Ao definir a retenção de dados para 30 dias, você pode disparar uma limpeza imediata de dados mais antigos usando o `immediatePurgeDataOn30Days` parâmetro (eliminando o período de carência de vários dias). Isso pode ser útil para cenários relacionados à conformidade em que a remoção imediata de dados é imperativa. Essa funcionalidade de limpeza imediata só é exposta por meio de Azure Resource Manager. 
 
 Os espaços de trabalho com retenção de 30 dias podem realmente reter dados por 31 dias. Se for imperativo que os dados sejam mantidos por apenas 30 dias, use a Azure Resource Manager para definir a retenção para 30 dias e com o `immediatePurgeDataOn30Days` parâmetro.  
 
@@ -215,7 +215,7 @@ Tão logo o limite diário seja alcançado, a coleta de tipos de dados faturáve
 > O limite diário não pode parar a coleta de dados exatamente com o nível de Cap especificado e alguns dados em excesso são esperados, especialmente se o espaço de trabalho estiver recebendo grandes volumes de dados. Veja [abaixo](#view-the-effect-of-the-daily-cap) uma consulta que é útil para estudar o comportamento de limite diário. 
 
 > [!WARNING]
-> O limite diário não interrompe a coleta de tipos de dados incluídos na [concessão diária por nó da central de segurança do Azure](#log-analytics-and-security-center) (WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update e UpdateSummary), exceto para espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
+> O limite diário não interrompe a coleta de tipos de dados WindowsEvent, SecurityAlert, SecurityBaseline, SecurityBaselineSummary, SecurityDetection, SecurityEvent, WindowsFirewall, MaliciousIPCommunication, LinuxAuditLog, SysmonEvent, ProtectionStatus, Update e UpdateSummary, exceto para os espaços de trabalho nos quais a central de segurança do Azure foi instalada antes de 19 de junho de 2017. 
 
 ### <a name="identify-what-daily-data-limit-to-define"></a>Identificar o limite diário de dados a definir
 
@@ -258,7 +258,7 @@ Para começar, aqui estão as configurações recomendadas para o alerta consult
 - Destino: Selecionar o recurso do Log Analytics
 - Critérios: 
    - Nome do sinal: Pesquisa de logs personalizada
-   - Consulta de pesquisa: `_LogOperation | where Category == "Ingestion" | where Operation == "Ingestion rate" | where Level == "Warning"`
+   - Consulta de pesquisa: `_LogOperation | where Operation == "Data Collection Status" | where Detail contains "OverQuota"`
    - Baseado em: Número de resultados
    - Condição: Maior que
    - Limite: 0
@@ -322,7 +322,7 @@ O número de unidades em sua fatura está em unidades de nó * meses, que é rep
 
 
 > [!TIP]
-> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../logs/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso (veja abaixo).
+> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso (veja abaixo).
 
 ## <a name="understanding-ingested-data-volume"></a>Noções básicas sobre o volume de dados ingeridos
 
@@ -340,7 +340,7 @@ Event
 | summarize count(), Bytes=sum(_BilledSize) by EventID, bin(TimeGenerated, 1d)
 ``` 
 
-Observe que a cláusula `where _IsBillable = true` filtra os tipos de dados de determinadas soluções para o qual não há nenhuma taxa de ingestão. [Saiba mais](../logs/log-standard-columns.md#_isbillable) sobre o `_IsBillable` .
+Observe que a cláusula `where _IsBillable = true` filtra os tipos de dados de determinadas soluções para o qual não há nenhuma taxa de ingestão. [Saiba mais](./log-standard-columns.md#_isbillable) sobre o `_IsBillable` .
 
 ### <a name="data-volume-by-solution"></a>Volume de dados por solução
 
@@ -383,7 +383,7 @@ Usage
 
 ### <a name="data-volume-by-computer"></a>Volume de dados por computador
 
-O tipo de dados `Usage` não contém informações no nível do computador. Para ver o **tamanho** de dados ingeridos por computador, use a [propriedade](../logs/log-standard-columns.md#_billedsize) `_BilledSize`, que fornece o tamanho em bytes:
+O tipo de dados `Usage` não contém informações no nível do computador. Para ver o **tamanho** de dados ingeridos por computador, use a [propriedade](./log-standard-columns.md#_billedsize) `_BilledSize`, que fornece o tamanho em bytes:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
@@ -393,7 +393,7 @@ find where TimeGenerated > ago(24h) project _BilledSize, _IsBillable, Computer
 | sort by BillableDataBytes nulls last
 ```
 
-A [propriedade](../logs/log-standard-columns.md#_isbillable) `_IsBillable` especifica se os dados ingeridos incorrerão em encargos. 
+A [propriedade](./log-standard-columns.md#_isbillable) `_IsBillable` especifica se os dados ingeridos incorrerão em encargos. 
 
 Para ver a **contagem** de eventos faturáveis ingeridos por computador, use 
 
@@ -406,11 +406,11 @@ find where TimeGenerated > ago(24h) project _IsBillable, Computer
 ```
 
 > [!TIP]
-> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../logs/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso.
+> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados **por computador**, consulte o tipo de dados Uso.
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume de dados por recurso do Azure, grupo de recursos ou assinatura
 
-Em relação aos dados de nós hospedados no Azure, você pode obter o **tamanho** de dados ingeridos __por computador__; use a [propriedade](../logs/log-standard-columns.md#_resourceid) _ResourceId, a qual fornece o caminho completo para o recurso:
+Em relação aos dados de nós hospedados no Azure, você pode obter o **tamanho** de dados ingeridos __por computador__; use a [propriedade](./log-standard-columns.md#_resourceid) _ResourceId, a qual fornece o caminho completo para o recurso:
 
 ```kusto
 find where TimeGenerated > ago(24h) project _ResourceId, _BilledSize, _IsBillable
@@ -445,7 +445,7 @@ Você também pode analisar o `_ResourceId` mais completamente, se necessário, 
 ```
 
 > [!TIP]
-> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../logs/query-optimization.md#query-performance-pane). Caso não precise de resultados por assinatura, por grupo de recursos ou por nome de recurso, consulte o tipo de dados Uso.
+> Use essas consultas `find` com moderação como verificações entre tipos de dados, uma que a execução delas faz um uso [intensivo de recursos](../log-query/query-optimization.md#query-performance-pane). Caso não precise de resultados por assinatura, por grupo de recursos ou por nome de recurso, consulte o tipo de dados Uso.
 
 > [!WARNING]
 > Alguns dos campos do tipo de dados Uso, ainda no esquema, foram reprovados e seus valores não serão mais preenchidos. Estes são **Computador**, bem como campos relacionados à ingestão (**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
@@ -479,7 +479,7 @@ Algumas sugestões para reduzir o volume de logs coletados incluem:
 
 | Origem do alto volume de dados | Como reduzir o volume de dados |
 | -------------------------- | ------------------------- |
-| Insights do contêiner         | [Configure o insights de contêiner](../containers/container-insights-cost.md#controlling-ingestion-to-reduce-cost) para coletar somente os dados necessários. |
+| Insights do contêiner         | [Configure o insights de contêiner](../insights/container-insights-cost.md#controlling-ingestion-to-reduce-cost) para coletar somente os dados necessários. |
 | Eventos de segurança            | Selecione [eventos de segurança mínima ou comuns](../../security-center/security-center-enable-data-collection.md#data-collection-tier) <br> Alterar a política de auditoria de segurança para coletar somente eventos necessários. Em particular, examine a necessidade para coletar eventos para <br> - [auditoria de plataforma de filtragem](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772749(v=ws.10)) <br> - [auditoria de registro](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [auditoria de sistema de arquivos](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [auditoria de objeto kernel](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [auditoria de manipulação de identificador](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - auditoria de armazenamento removível |
 | Contadores de desempenho       | Altere a [configuração do contador de desempenho](../agents/data-sources-performance-counters.md) para: <br> - Reduzir a frequência de coleta <br> - Reduzir o número de contadores de desempenho |
 | Logs de eventos                 | Altere a [configuração de log de eventos](../agents/data-sources-windows-events.md) para: <br> - Reduzir o número de logs de eventos coletados <br> - Coletar somente níveis de eventos necessários. Por exemplo, não colete eventos de nível *informações* |
@@ -487,12 +487,12 @@ Algumas sugestões para reduzir o volume de logs coletados incluem:
 | AzureDiagnostics           | Altere a [coleção de logs de recursos](../essentials/diagnostic-settings.md#create-in-azure-portal) para: <br> - Reduzir o número de logs de envio de recursos para o Log Analytics <br> - Coletar somente os logs necessários |
 | Dados da solução de computadores que não precisam da solução | Use [direcionamento de solução](../insights/solution-targeting.md) para coletar dados somente dos grupos de computadores necessários. |
 | Application Insights | Revisar opções para [https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume](managing Application Insights data volume) |
-| [Análise de SQL](../insights/azure-sql.md) | Use [set-AzSqlServerAudit](/powershell/module/az.sql/set-azsqlserveraudit) para ajustar as configurações de auditoria. |
-| Azure Sentinel | Examine as [fontes de dados Sentinel](../../sentinel/connect-data-sources.md) que você habilitou recentemente como fontes de volume de dados adicionais. |
+| [Análise de SQL](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Use [set-AzSqlServerAudit](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserveraudit) para ajustar as configurações de auditoria. |
+| Azure Sentinel | Examine as [fontes de dados Sentinel](https://docs.microsoft.com/azure/sentinel/connect-data-sources) que você habilitou recentemente como fontes de volume de dados adicionais. |
 
 ### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>Obter nós conforme a cobrança no tipo de preço Por Nó
 
-Para obter uma lista de computadores que serão cobrados como nós caso o workspace esteja no tipo de preço Por Nó herdado, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para isso, use a [propriedade](../logs/log-standard-columns.md#_isbillable) `_IsBillable` e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a contagem de computadores com dados cobrados por hora (o que é a granularidade na qual os nós são contados e cobrados):
+Para obter uma lista de computadores que serão cobrados como nós caso o workspace esteja no tipo de preço Por Nó herdado, procure os nós que estão enviando **tipos de dados cobrados** (alguns tipos de dados são gratuitos). Para isso, use a [propriedade](./log-standard-columns.md#_isbillable) `_IsBillable` e use o campo mais à esquerda do nome de domínio totalmente qualificado. Isso retorna a contagem de computadores com dados cobrados por hora (o que é a granularidade na qual os nós são contados e cobrados):
 
 ```kusto
 find where TimeGenerated > ago(24h) project Computer, TimeGenerated
@@ -502,8 +502,6 @@ find where TimeGenerated > ago(24h) project Computer, TimeGenerated
 ```
 
 ### <a name="getting-security-and-automation-node-counts"></a>Obter contagens de nós de segurança e automação
-
-Se você estiver no nível de preço "Por nó (OMS)", será cobrado com base no número de nós e soluções usados, o número de nós do Insights e do Analytics para os quais você está sendo faturado será mostrado na tabela do **Uso e custo estimado**.  
 
 Para ver o número de nós de segurança distintos, você pode usar a consulta:
 
@@ -559,11 +557,17 @@ Esta é a consulta de recomendação de tipo de preço:
 
 ```kusto
 // Set these parameters before running query
-let workspaceHasSecurityCenter = true;  // Specify if the workspace has Azure Security Center
+// Pricing details available at https://azure.microsoft.com/en-us/pricing/details/monitor/
+let daysToEvaluate = 7; // Enter number of previous days to analyze (reduce if the query is taking too long)
+let workspaceHasSecurityCenter = false;  // Specify if the workspace has Azure Security Center
 let PerNodePrice = 15.; // Enter your montly price per monitored nodes
 let PerNodeOveragePrice = 2.30; // Enter your price per GB for data overage in the Per Node pricing tier
 let PerGBPrice = 2.30; // Enter your price per GB in the Pay-as-you-go pricing tier
-let daysToEvaluate = 7; // Enter number of previous days look at (reduce if the query is taking too long)
+let CarRes100Price = 196.; // Enter your price for the 100 GB/day Capacity Reservation
+let CarRes200Price = 368.; // Enter your price for the 200 GB/day Capacity Reservation
+let CarRes300Price = 540.; // Enter your price for the 300 GB/day Capacity Reservation
+let CarRes400Price = 704.; // Enter your price for the 400 GB/day Capacity Reservation
+let CarRes500Price = 865.; // Enter your price for the 500 GB/day Capacity Reservation
 // ---------------------------------------
 let SecurityDataTypes=dynamic(["SecurityAlert", "SecurityBaseline", "SecurityBaselineSummary", "SecurityDetection", "SecurityEvent", "WindowsFirewall", "MaliciousIPCommunication", "LinuxAuditLog", "SysmonEvent", "ProtectionStatus", "WindowsEvent", "Update", "UpdateSummary"]);
 let StartDate = startofday(datetime_add("Day",-1*daysToEvaluate,now()));
@@ -591,16 +595,35 @@ union *
     | summarize DataGB=sum(Quantity)/1000., NonSecurityDataGB=sum(NonSecurityData)/1000., SecurityDataGB=sum(SecurityData)/1000. by day=bin(StartTime, 1d)  
 ) on day
 | extend AvgGbPerNode =  NonSecurityDataGB / nodesPerDay
-| extend PerGBDailyCost = iff(workspaceHasSecurityCenter,
-             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)) * PerGBPrice,
-             DataGB * PerGBPrice)
 | extend OverageGB = iff(workspaceHasSecurityCenter, 
              max_of(DataGB - 0.5*nodesPerDay - 0.5*ASCnodesPerDay, 0.), 
              max_of(DataGB - 0.5*nodesPerDay, 0.))
 | extend PerNodeDailyCost = nodesPerDay * PerNodePrice / 31. + OverageGB * PerNodeOveragePrice
-| extend Recommendation = iff(PerNodeDailyCost < PerGBDailyCost, "Per Node tier", 
-             iff(NonSecurityDataGB > 85., "Capacity Reservation tier", "Pay-as-you-go (Per GB) tier"))
-| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, Recommendation | sort by day asc
+| extend billableGB = iff(workspaceHasSecurityCenter,
+             (NonSecurityDataGB + max_of(SecurityDataGB - 0.5*ASCnodesPerDay, 0.)), DataGB )
+| extend PerGBDailyCost = billableGB * PerGBPrice
+| extend CapRes100DailyCost = CarRes100Price + max_of(billableGB - 100, 0.)* PerGBPrice
+| extend CapRes200DailyCost = CarRes200Price + max_of(billableGB - 200, 0.)* PerGBPrice
+| extend CapRes300DailyCost = CarRes300Price + max_of(billableGB - 300, 0.)* PerGBPrice
+| extend CapRes400DailyCost = CarRes400Price + max_of(billableGB - 400, 0.)* PerGBPrice
+| extend CapResLevel500AndAbove = max_of(floor(billableGB, 100),500)
+| extend CapRes500AndAboveDailyCost = CarRes500Price*CapResLevel500AndAbove/500 + max_of(billableGB - CapResLevel500AndAbove, 0.)* PerGBPrice
+| extend MinCost = min_of(
+    PerNodeDailyCost,PerGBDailyCost,CapRes100DailyCost,CapRes200DailyCost,
+    CapRes300DailyCost, CapRes400DailyCost, CapRes500AndAboveDailyCost)
+| extend Recommendation = case(
+    MinCost == PerNodeDailyCost, "Per node tier",
+    MinCost == PerGBDailyCost, "Pay-as-you-go tier",
+    MinCost == CapRes100DailyCost, "Capacity Reservation (100 GB/day)",
+    MinCost == CapRes200DailyCost, "Capacity Reservation (200 GB/day)",
+    MinCost == CapRes300DailyCost, "Capacity Reservation (300 GB/day)",
+    MinCost == CapRes400DailyCost, "Capacity Reservation (400 GB/day)",
+    MinCost == CapRes500AndAboveDailyCost, strcat("Capacity Reservation (",CapResLevel500AndAbove," GB/day)"),
+    "Error"
+)
+| project day, nodesPerDay, ASCnodesPerDay, NonSecurityDataGB, SecurityDataGB, OverageGB, AvgGbPerNode, PerGBDailyCost, PerNodeDailyCost, 
+    CapRes100DailyCost, CapRes200DailyCost, CapRes300DailyCost, CapRes400DailyCost, CapRes500AndAboveDailyCost, Recommendation 
+| sort by day asc
 //| project day, Recommendation // Comment this line to see details
 | sort by day asc
 ```

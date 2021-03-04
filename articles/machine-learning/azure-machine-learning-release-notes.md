@@ -9,18 +9,36 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b19c5e8ca1f7984f33a5cedf37a2774532c79350
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 69313b48b505bd0b53df6f15f636e2903f41ebfd
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661096"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123999"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 __Feed RSS__: Receba uma notificação quando esta página for atualizada copiando e colando a seguinte URL em seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+## <a name="2021-02-28"></a>2021-02-28
+### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de fevereiro)
++ **Novos recursos**
+  + [Terminal nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do terminal integrado.
+  + [Trechos de bloco de anotações (visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Trechos de código comuns do Azure ML agora estão disponíveis ao seu alcance. Navegue até o painel trechos de código, acessível por meio da barra de ferramentas ou ative o menu de trechos no código usando Ctrl + espaço.  
+  + [Atalhos de teclado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Paridade completa com atalhos de teclado disponíveis no Jupyter. 
+  + Indicar parâmetros de célula. Mostra que os usuários com célula em um bloco de anotações são célula de parâmetro e podem executar blocos de anotações com parâmetros via [Papermill](https://github.com/nteract/papermill) na instância de computação.
+  + Gerenciador de sessão de terminal e kernel: os usuários poderão gerenciar todos os kernels e sessões de terminal em execução em sua computação.
+  + Botão de compartilhamento. Agora, os usuários podem compartilhar qualquer arquivo no explorador de arquivos do bloco de anotações clicando com o botão direito do mouse no arquivo e usando o botão compartilhar.
+
+
++ **Correções de bugs e melhorias**
+  + Tempos de carregamento de página aprimorados
+  + desempenho aprimorado 
+  + Velocidade aprimorada e confiabilidade do kernel
+  + Roda giratória adicionada para mostrar o progresso de todas as [operações de instância de computação](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)em andamento.
+  + Clique com o botão direito do mouse no explorador de arquivos. Clicar com o botão direito do mouse em qualquer arquivo agora abrirá as operações de arquivo. 
 
 ## <a name="2021-02-16"></a>2021-02-16
 

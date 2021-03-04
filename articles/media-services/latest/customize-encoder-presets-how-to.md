@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c60aac675a76d8cb25463f8b0ca1b2dc563d1179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 415d50258ce5fc8416dd908bf53f812e72a10f48
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101730313"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124492"
 ---
 # <a name="how-to-encode-with-a-custom-transform---net"></a>Como codificar com uma transformação personalizada-.NET
 
@@ -56,7 +56,7 @@ Ao criar uma [Transformação](/rest/api/media/transforms), você deverá verifi
 
 O exemplo a seguir define um conjunto de saídas que desejamos gerar quando essa transformação é usada. Primeiro, adicionamos uma camada AacAudio para a codificação de áudio e duas camadas H264Video para a codificação de vídeo. Nas camadas de vídeo, atribuímos rótulos para que possam ser usados nos nomes de arquivo de saída. Em seguida, queremos que a saída também inclua miniaturas. No exemplo abaixo, especificamos as imagens no formato PNG, geradas a 50% da resolução do vídeo de entrada e em três carimbos de data/hora-{25%, 50%, 75%} do comprimento do vídeo de entrada. Por fim, especificamos o formato dos arquivos de saída-um para vídeo + áudio e outro para as miniaturas. Como temos vários H264Layers, temos que usar macros que produzem nomes exclusivos por camada. Podemos usar uma `{Label}` `{Bitrate}` macro ou, o exemplo mostra o primeiro.
 
-[!code-csharp[Main](../../../media-services-v3-dotnet/blob/main/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
+[!code-csharp[Main](../../../media-services-v3-dotnet/VideoEncoding/EncodingWithMESCustomPreset/Program.cs#EnsureTransformExists)]
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: c9bc6e3822ac6c014b9ff00e9cd81bbe707628fe
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6dc687879eb646b4abd081b40bce292d20ff3186
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736059"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123982"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Noções básicas sobre as alterações na AC raiz alterar para o banco de dados do Azure para PostgreSQL servidor único
 
@@ -83,7 +83,7 @@ Nossas recomendações para os usuários são, use as etapas mencionadas anterio
 
 ## <a name="what-if-we-removed-the-baltimorecybertrustroot-certificate"></a>E se removermos o certificado BaltimoreCyberTrustRoot?
 
-Você começará a se conectar a erros de conectividade durante a conexão com o servidor do banco de dados do Azure para PostgreSQL. Você precisará [Configurar o SSL](howto-configure-ssl.md) com o certificado [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) novamente para manter a conectividade.
+Você começará a se conectar a erros de conectividade durante a conexão com o servidor do banco de dados do Azure para PostgreSQL. Você precisará configurar o SSL com o certificado [BaltimoreCyberTrustRoot](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem) novamente para manter a conectividade.
 
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

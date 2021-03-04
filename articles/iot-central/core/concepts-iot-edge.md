@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 91869614aef03b819a5f7fbb355004f6e802d673
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732999"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123268"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conectar dispositivos Azure IoT Edge a um aplicativo do Azure IoT Central
 
@@ -87,6 +87,20 @@ IoT Central usa [modelos de dispositivo](concepts-device-templates.md) para defi
 * Os comandos aos quais um dispositivo responde para que IoT Central possa exibir uma interface do usuário para que um operador Use para chamar os comandos.
 
 Um dispositivo IoT Edge pode enviar telemetria, sincronizar valores de propriedade e responder a comandos da mesma maneira que um dispositivo padrão. Portanto, um dispositivo IoT Edge precisa de um modelo de dispositivo no IoT Central.
+
+### <a name="iot-edge-device-templates"></a>Modelos de dispositivo IoT Edge
+
+IoT Central modelos de dispositivo usam modelos para descrever os recursos dos dispositivos. O diagrama a seguir mostra a estrutura do modelo para um dispositivo IoT Edge:
+
+:::image type="content" source="media/concepts-iot-edge/iot-edge-model.png" alt-text="Estrutura do modelo para IoT Edge dispositivo conectado a IoT Central" border="false":::
+
+O IoT Central modela um dispositivo IoT Edge da seguinte maneira:
+
+* Cada modelo de dispositivo IoT Edge tem um modelo de funcionalidade.
+* Para cada módulo personalizado listado no manifesto de implantação, um modelo de funcionalidade de módulo é gerado.
+* Uma relação é estabelecida entre cada modelo de funcionalidade de módulo e um modelo de dispositivo.
+* Um modelo de funcionalidade de módulo implementa uma ou mais interfaces de módulo.
+* Cada interface de módulo contém telemetria, propriedades e comandos.
 
 ### <a name="iot-edge-deployment-manifests-and-iot-central-device-templates"></a>IoT Edge manifestos de implantação e modelos de dispositivo de IoT Central
 

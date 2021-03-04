@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 2/19/2021
-ms.author: gunnarcms
-ms.openlocfilehash: 3bce980f183dc55b67684cb097399efdb62b4b43
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.author: gunnarc
+ms.openlocfilehash: f60df0c18368af46c5f2946b5668ac404c1fae90
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716628"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124543"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -135,7 +135,7 @@ O SO convidado de outubro foi lançado.
 ###### <a name="october-12-2018"></a>**12 de outubro de 2018**
 O SO convidado de setembro foi lançado.
 
-## <a name="releases"></a>Versões
+## <a name="releases"></a>Lançamentos
 
 ## <a name="family-6-releases"></a>Lançamentos do Family 6
 **Windows Server 2019**

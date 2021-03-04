@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: c0d153ff8125a6ef16a69aec72a27dd4b234eab5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100042"
+ms.locfileid: "102123047"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Adicionar suporte a IPv6 para emparelhamento privado usando Azure PowerShell (versão prévia)
 
@@ -165,7 +165,7 @@ Siga as etapas abaixo se você planeja se conectar a um novo conjunto de recurso
 
 2. [Crie a sub-rede de gateway de pilha dupla](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway).
 
-3. [Crie o gateway de rede virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) usando um SKU com redundância de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Se você planeja usar o FastPath, use ErGw3AZ.
+3. [Crie o gateway de rede virtual](https://docs.microsoft.com/azure/expressroute/expressroute-howto-add-gateway-resource-manager#add-a-gateway) usando um SKU com redundância de zona (ErGw1AZ, ErGw2AZ, ErGw3AZ). Se você planeja usar o FastPath, use ErGw3AZ (Observe que isso só está disponível para circuitos que usam o ExpressRoute Direct).
 
 4. [Vincule sua rede virtual ao circuito do ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-arm).
 
@@ -176,6 +176,8 @@ Embora o suporte a IPv6 esteja disponível para conexões com implantações em 
 * Conexões com implantações em regiões não AZ
 * Conexões Alcance Global entre circuitos do ExpressRoute
 * Uso do ExpressRoute com WAN virtual
+* FastPath com circuitos diretos não ExpressRoute
+* Coexistência com o gateway de VPN
 
 ## <a name="next-steps"></a>Próximas etapas
 

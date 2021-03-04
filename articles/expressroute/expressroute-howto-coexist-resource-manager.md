@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 12/11/2019
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: edbd36ad3444795ade4b3f8d29d8473b21a2fda8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b20bb4df7524c179766a2b2f7f090fccbddd7f37
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651506"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122605"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -42,6 +42,7 @@ As etapas para configurar as duas situações são cobertas neste artigo. Este a
 * **O roteamento estático deve ser configurado para o gateway de VPN.** Se sua rede local estiver conectada à VPN Site a Site e de ExpressRoute, será necessário ter uma rota estática configurada em sua rede local para rotear a conexão VPN Site a Site para a Internet pública.
 * **O Gateway de VPN usa ASN 65515 como padrão se essa opção não é especificada.** O Gateway de VPN do Azure dá suporte ao protocolo de roteamento BGP. Você pode especificar o ASN (número AS) de uma rede virtual adicionando a opção -Asn. Se você não especificar esse parâmetro, o número AS padrão será 65515. Você pode usar qualquer ASN para a configuração, mas se selecionar algo diferente de 65515, precisará redefinir o gateway para que a configuração entre em vigor.
 * **A sub-rede de gateway deve ser/27 ou um prefixo mais curto**, (por exemplo,/26,/25), ou você receberá uma mensagem de erro ao adicionar o gateway de rede virtual do ExpressRoute.
+* **Não há suporte para a coexistência em uma vnet de pilha dupla.** Se você estiver usando o suporte a IPv6 do ExpressRoute e um gateway de ExpressRoute de pilha dupla, a coexistência com o gateway de VPN não será possível.
 
 ## <a name="configuration-designs"></a>Designs de configuração
 ### <a name="configure-a-site-to-site-vpn-as-a-failover-path-for-expressroute"></a>Configurar uma VPN site a site como um caminho de failover para o ExpressRoute

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 90d526a58f4223fc70be5414ce5722238ce2c735
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b09c36f1dce3c394ff24e3e601d773279a6ac510
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733424"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123302"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Melhores práticas de uma base de dados de conhecimento do QnA Maker
 
@@ -43,7 +43,7 @@ O usuário pode inserir perguntas com um estilo de conversa de texto `How do I a
 
 As melhores respostas são respostas simples, mas não muito simples. Não use respostas como `yes` e `no` . Se sua resposta deve ser vinculada a outras fontes ou fornecer uma experiência rica com mídia e links, use a [marcação de metadados](../how-to/edit-knowledge-base.md#add-metadata) para distinguir entre as respostas e, em seguida, [envie a consulta com as](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) marcas de metadados na `strictFilters` propriedade para obter a versão de resposta correta.
 
-|Resposta|Prompts de Follup|
+|Resposta|Solicitações de acompanhamento|
 |--|--|
 |Desligue o laptop da superfície com o botão de energia no teclado.|* Combinações de teclas para suspensão, desligamento e reinicialização.<br>* Como inicializar um laptop de superfície<br>* Como alterar o BIOS de um laptop de superfície<br>* Diferenças entre suspensão, desligamento e reinicialização|
 |O atendimento ao cliente está disponível por telefone, Skype e mensagem de texto 24 horas por dia.|* Informações de contato para vendas.<br> * Localizações e horas do escritório e da loja para uma visita pessoal.<br> * Acessórios para um laptop Surface.|

@@ -3,18 +3,18 @@ title: Saídas em modelos
 description: Descreve como definir valores de saída em um modelo de Azure Resource Manager (modelo ARM) e arquivo bicep.
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.openlocfilehash: 91feb1a0b653e4b6e96e38df57f87af27e4676f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2b6a6afa127bf43102103baadae576233843f00d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703827"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123404"
 ---
 # <a name="outputs-in-arm-templates"></a>Saídas em modelos ARM
 
 Este artigo descreve como definir valores de saída em seu modelo de Azure Resource Manager (modelo ARM) e arquivo bicep. Você usa saídas quando precisa retornar valores dos recursos implantados.
 
-O formato de cada valor de saída deve ser resolvido para um dos [tipos de dados](template-syntax.md#data-types).
+O formato de cada valor de saída deve ser resolvido para um dos [tipos de dados](data-types.md).
 
 [!INCLUDE [Bicep preview](../../../includes/resource-manager-bicep-preview.md)]
 

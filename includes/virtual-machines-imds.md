@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: fcdccf6701afe73ab0f11a7a907072b01a9d5aa4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b720e98fc83fd12744c289cb99814748b469b15d
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100373293"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102123676"
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
 
@@ -42,13 +42,13 @@ Aqui está o código de exemplo para recuperar todos os metadados de uma instân
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
 
 ```bash
-curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01"
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance?api-version=2020-09-01" | jq
 ```
 
 ---
@@ -98,7 +98,7 @@ Os pontos de extremidade podem dar suporte a parâmetros obrigatórios e/ou opci
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-Os pontos de extremidade IMDS dão suporte a parâmetros de cadeia de caracteres de consulta HTTP. Por exemplo: 
+Os pontos de extremidade IMDS dão suporte a parâmetros de cadeia de caracteres de consulta HTTP. Por exemplo:  
 
 ```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
@@ -196,7 +196,7 @@ Para acessar um formato de resposta não padrão, especifique o formato solicita
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -248,9 +248,7 @@ Quando você não especificar uma versão, obterá um erro com uma lista das ver
 - 2020-07-15
 - 2020-09-01
 - 2020-10-01
-
-> [!NOTE]
-> A versão 2020-10-01 está sendo distribuída no momento e talvez ainda não esteja disponível em todas as regiões.
+- 2020-12-01
 
 ### <a name="swagger"></a>Swagger
 
@@ -273,6 +271,7 @@ A API IMDS contém várias categorias de ponto de extremidade que representam di
 | `/metadata/attested` | Confira [Dados Atestados](#attested-data) | 01-10-2018
 | `/metadata/identity` | Consulte [identidade gerenciada via IMDS](#managed-identity) | 01-02-2018
 | `/metadata/instance` | Consulte os [metadados da instância](#instance-metadata) | 2017-04-02
+| `/metadata/loadbalancer` | Consulte [recuperar metadados de Load Balancer via IMDS](#load-balancer-metadata) | 2020-10-01
 | `/metadata/scheduledevents` | Consulte [eventos agendados via IMDS](#scheduled-events) | 2017-08-01
 | `/metadata/versions` | Consulte [as versões](#versions) | N/D
 
@@ -319,7 +318,7 @@ GET /metadata/instance
 
 | Nome | Obrigatório/Opcional | Descrição |
 |------|-------------------|-------------|
-| `api-version` | Necessária | A versão usada para atender à solicitação.
+| `api-version` | Obrigatório | A versão usada para atender à solicitação.
 | `format` | Adicional | O formato ( `json` ou `text` ) da resposta. * Observação: pode ser necessário ao usar parâmetros de solicitação
 
 Esse ponto de extremidade dá suporte à filtragem de resposta via [parâmetros de rota](#route-parameters).
@@ -336,6 +335,7 @@ Divisão de esquema:
 |------|-------------|--------------------|
 | `azEnvironment` | Ambiente do Azure em que a VM está em execução | 01-10-2018
 | `customData` | Este recurso está desabilitado no momento. Atualizaremos esta documentação quando ela ficar disponível | 2019-02-01
+| `evictionPolicy` | Define como uma [VM Spot](../articles/virtual-machines/spot-vms.md) será removida. | 2020-12-01
 | `isHostCompatibilityLayerVm` | Identifica se a VM é executada na camada de compatibilidade do host | 2020-06-01
 | `licenseType` | Tipo de licença para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-benefit). Isso está presente apenas para VMs habilitadas para AHB | 2020-09-01
 | `location` | Região do Azure na qual a máquina virtual está sendo executada | 2017-04-02
@@ -349,6 +349,7 @@ Divisão de esquema:
 | `plan` | O [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) que contém o nome, produto e editor de uma VM, se for uma imagem do Azure Marketplace | 2018-04-02
 | `platformUpdateDomain` |  [Domínio de atualização](../articles/virtual-machines/manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
 | `platformFaultDomain` | [Domínio de falha](../articles/virtual-machines/manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
+| `priority` | Prioridade da VM. Consulte [detectar VMs](../articles/virtual-machines/spot-vms.md) para obter mais informações | 2020-12-01
 | `provider` | Provedor da VM | 01-10-2018
 | `publicKeys` | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
 | `publisher` | Publicador da imagem da máquina virtual | 2017-04-02
@@ -423,13 +424,6 @@ Dados | Descrição |
 | `ipv6.ipAddress` | Endereço IPv6 local da máquina virtual | 2017-04-02
 | `macAddress` | Endereço mac da máquina virtual | 2017-04-02
 
-**Marcas de VM**
-
-As marcas de VM são incluídas na API de instância no ponto de extremidade de instância/computação/marcações.
-As marcas podem ter sido aplicadas à VM do Azure para organizá-las logicamente em uma taxonomia. As marcas atribuídas a uma VM podem ser recuperadas usando a solicitação abaixo.
-
-O campo `tags` é uma cadeia de caracteres com as marcas delimitadas por ponto e vírgula. Essa saída pode ser um problema se ponto e vírgulas forem usados nas próprias marcas. Se um analisador for escrito para extrair as marcas programaticamente, você deverá contar com o `tagsList` campo. O `tagsList` campo é uma matriz JSON sem delimitadores e, consequentemente, mais fácil de analisar.
-
 
 #### <a name="sample-1-tracking-vm-running-on-azure"></a>Exemplo 1: VM de controle em execução no Azure
 
@@ -440,7 +434,7 @@ Como provedor de serviço, você talvez precise controlar o número de máquinas
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"| ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/vmId?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -468,7 +462,7 @@ Você pode consultar esses dados diretamente por meio de IMDS.
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -485,7 +479,98 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 0
 ```
 
-#### <a name="sample-3-get-more-information-about-the-vm-during-support-case"></a>Exemplo 3: obter mais informações sobre a VM durante o caso de suporte
+#### <a name="sample-3-get-vm-tags"></a>Exemplo 3: obter as marcas de VM
+
+As marcas de VM são incluídas na API de instância no ponto de extremidade de instância/computação/marcações.
+As marcas podem ter sido aplicadas à VM do Azure para organizá-las logicamente em uma taxonomia. As marcas atribuídas a uma VM podem ser recuperadas usando a solicitação abaixo.
+
+**Solicitação**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tags?api-version=2017-08-01&format=text"
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/platformFaultDomain?api-version=2017-08-01&format=text"
+```
+
+---
+
+**Resposta**
+
+```
+Department:IT;ReferenceNumber:123456;TestStatus:Pending
+```
+
+O campo `tags` é uma cadeia de caracteres com as marcas delimitadas por ponto e vírgula. Essa saída pode ser um problema se ponto e vírgulas forem usados nas próprias marcas. Se um analisador for escrito para extrair as marcas programaticamente, você deverá contar com o `tagsList` campo. O `tagsList` campo é uma matriz JSON sem delimitadores e, consequentemente, mais fácil de analisar. As marcas de marca atribuídas a uma VM podem ser recuperadas usando a solicitação abaixo.
+
+**Solicitação**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```powershell
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | ConvertTo-Json -Depth 64
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```bash
+curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/compute/tagsList?api-version=2019-06-04" | jq
+```
+
+---
+
+**Resposta**
+
+#### <a name="windows"></a>[Windows](#tab/windows/)
+
+```json
+{
+    "value":  [
+                  {
+                      "name":  "Department",
+                      "value":  "IT"
+                  },
+                  {
+                      "name":  "ReferenceNumber",
+                      "value":  "123456"
+                  },
+                  {
+                      "name":  "TestStatus",
+                      "value":  "Pending"
+                  }
+              ],
+    "Count":  3
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+
+```json
+[
+  {
+    "name": "Department",
+    "value": "IT"
+  },
+  {
+    "name": "ReferenceNumber",
+    "value": "123456"
+  },
+  {
+    "name": "TestStatus",
+    "value": "Pending"
+  }
+]
+```
+
+---
+
+
+#### <a name="sample-4-get-more-information-about-the-vm-during-support-case"></a>Exemplo 4: obter mais informações sobre a VM durante o caso de suporte
 
 Como provedor de serviços, você poderá receber uma chamada de suporte na qual gostaria de ter mais informações sobre a máquina virtual. Pedir ao cliente para informar os metadados de computação pode fornecer informações básicas para o profissional de suporte saber o tipo de VM no Azure.
 
@@ -494,7 +579,7 @@ Como provedor de serviços, você poderá receber uma chamada de suporte na qual
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute?api-version=2020-09-01" | ConvertTo-Json -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -510,6 +595,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 > [!NOTE]
 > A resposta é uma cadeia de caracteres JSON. Todas as respostas de exemplo a seguir são estilos de formatação para facilitar a leitura.
 
+#### <a name="windows"></a>[Windows](#tab/windows/)
 ```json
 {
     "azEnvironment": "AZUREPUBLICCLOUD",
@@ -517,13 +603,13 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
     "licenseType":  "Windows_Client",
     "location": "westus",
     "name": "examplevmname",
-    "offer": "Windows",
+    "offer": "WindowsServer",
     "osProfile": {
         "adminUsername": "admin",
         "computerName": "examplevmname",
         "disablePasswordAuthentication": "true"
     },
-    "osType": "linux",
+    "osType": "Windows",
     "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
     "plan": {
         "name": "planName",
@@ -548,7 +634,108 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
         "secureBootEnabled": "true",
         "virtualTpmEnabled": "false"
     },
-    "sku": "Windows-Server-2012-R2-Datacenter",
+    "sku": "2019-Datacenter",
+    "storageProfile": {
+        "dataDisks": [{
+            "caching": "None",
+            "createOption": "Empty",
+            "diskSizeGB": "1024",
+            "image": {
+                "uri": ""
+            },
+            "lun": "0",
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampledatadiskname",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }],
+        "imageReference": {
+            "id": "",
+            "offer": "WindowsServer",
+            "publisher": "MicrosoftWindowsServer",
+            "sku": "2019-Datacenter",
+            "version": "latest"
+        },
+        "osDisk": {
+            "caching": "ReadWrite",
+            "createOption": "FromImage",
+            "diskSizeGB": "30",
+            "diffDiskSettings": {
+                "option": "Local"
+            },
+            "encryptionSettings": {
+                "enabled": "false"
+            },
+            "image": {
+                "uri": ""
+            },
+            "managedDisk": {
+                "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
+                "storageAccountType": "Standard_LRS"
+            },
+            "name": "exampleosdiskname",
+            "osType": "Windows",
+            "vhd": {
+                "uri": ""
+            },
+            "writeAcceleratorEnabled": "false"
+        }
+    },
+    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+    "tags": "baz:bash;foo:bar",
+    "version": "15.05.22",
+    "vmId": "02aab8a4-74ef-476e-8182-f6d2ba4166a6",
+    "vmScaleSetName": "crpteste9vflji9",
+    "vmSize": "Standard_A3",
+    "zone": ""
+}
+```
+
+#### <a name="linux"></a>[Linux](#tab/linux/)
+```json
+{
+    "azEnvironment": "AZUREPUBLICCLOUD",
+    "isHostCompatibilityLayerVm": "true",
+    "licenseType":  "Windows_Client",
+    "location": "westus",
+    "name": "examplevmname",
+    "offer": "UbuntuServer",
+    "osProfile": {
+        "adminUsername": "admin",
+        "computerName": "examplevmname",
+        "disablePasswordAuthentication": "true"
+    },
+    "osType": "Linux",
+    "placementGroupId": "f67c14ab-e92c-408c-ae2d-da15866ec79a",
+    "plan": {
+        "name": "planName",
+        "product": "planProduct",
+        "publisher": "planPublisher"
+    },
+    "platformFaultDomain": "36",
+    "platformUpdateDomain": "42",
+    "publicKeys": [{
+            "keyData": "ssh-rsa 0",
+            "path": "/home/user/.ssh/authorized_keys0"
+        },
+        {
+            "keyData": "ssh-rsa 1",
+            "path": "/home/user/.ssh/authorized_keys1"
+        }
+    ],
+    "publisher": "Canonical",
+    "resourceGroupName": "macikgo-test-may-23",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/virtualMachines/examplevmname",
+    "securityProfile": {
+        "secureBootEnabled": "true",
+        "virtualTpmEnabled": "false"
+    },
+    "sku": "18.04-LTS",
     "storageProfile": {
         "dataDisks": [{
             "caching": "None",
@@ -593,7 +780,7 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
                 "storageAccountType": "Standard_LRS"
             },
             "name": "exampleosdiskname",
-            "osType": "Linux",
+            "osType": "linux",
             "vhd": {
                 "uri": ""
             },
@@ -610,7 +797,9 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/co
 }
 ```
 
-#### <a name="sample-4-get-the-azure-environment-where-the-vm-is-running"></a>Exemplo 4: obter o ambiente do Azure onde a VM está em execução
+---
+
+#### <a name="sample-5-get-the-azure-environment-where-the-vm-is-running"></a>Exemplo 5: obter o ambiente do Azure onde a VM está em execução
 
 O Azure tem várias nuvens soberanas, como o [Azure Governamental](https://azure.microsoft.com/overview/clouds/government/). Às vezes, é necessário que o Ambiente do Azure tome algumas decisões de runtime. O exemplo a seguir mostra como você pode gerar tal comportamento.
 
@@ -619,7 +808,7 @@ O Azure tem várias nuvens soberanas, como o [Azure Governamental](https://azure
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -646,14 +835,14 @@ A nuvem e os valores do ambiente do Azure são listados aqui.
 | [Azure Alemanha](https://azure.microsoft.com/overview/clouds/germany/) | AzureGermanCloud
 
 
-#### <a name="sample-5-retrieve-network-information"></a>Exemplo 5: recuperar informações de rede
+#### <a name="sample-6-retrieve-network-information"></a>Exemplo 6: recuperar informações de rede
 
 **Solicitação**
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network?api-version=2017-08-01" | ConvertTo-Json  -Depth 64
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -693,12 +882,12 @@ curl -H Metadata:true --noproxy "*" "http://169.254.169.254/metadata/instance/ne
 }
 ```
 
-#### <a name="sample-6-retrieve-public-ip-address"></a>Exemplo 6: recuperar o endereço IP público
+#### <a name="sample-7-retrieve-public-ip-address"></a>Exemplo 7: recuperar endereço IP público
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
 ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text" | ConvertTo-Json
+Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri "http://169.254.169.254/metadata/instance/network/interface/0/ipv4/ipAddress/0/publicIpAddress?api-version=2017-08-01&format=text"
 ```
 
 #### <a name="linux"></a>[Linux](#tab/linux/)
@@ -723,7 +912,7 @@ GET /metadata/attested/document
 
 | Nome | Obrigatório/Opcional | Descrição |
 |------|-------------------|-------------|
-| `api-version` | Necessária | A versão usada para atender à solicitação.
+| `api-version` | Obrigatório | A versão usada para atender à solicitação.
 | `nonce` | Opcional | Uma cadeia de caracteres de 10 dígitos que serve como um nonce criptográfico. Se nenhum valor for fornecido, IMDS usará o carimbo de data/hora UTC atual.
 
 #### <a name="response"></a>Resposta
@@ -792,7 +981,7 @@ Os fornecedores no Azure Marketplace querem garantir que seu software seja licen
 
 ```powershell
 # Get the signature
-$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -NoProxy -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
+$attestedDoc = Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Proxy $Null -Uri http://169.254.169.254/metadata/attested/document?api-version=2020-09-01
 # Decode the signature
 $signature = [System.Convert]::FromBase64String($attestedDoc.signature)
 ```
@@ -913,8 +1102,12 @@ Em seguida, você pode solicitar tokens para identidades gerenciadas de IMDS. Us
 
 Para obter as etapas detalhadas para habilitar esse recurso, confira [Adquirir um token de acesso](../articles/active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
+## <a name="load-balancer-metadata"></a>Metadados de Load Balancer
+Ao posicionar as instâncias de máquina virtual ou de conjunto de máquinas virtuais por trás de uma Standard Load Balancer do Azure, você pode usar IMDS para recuperar metadados relacionados ao balanceador de carga e às instâncias. Para obter mais informações, consulte [recuperar informações do balanceador de carga](../articles/load-balancer/instance-metadata-service-load-balancer.md).
+
 ## <a name="scheduled-events"></a>Eventos agendados
 Você pode obter o status dos eventos agendados usando IMDS. Em seguida, o usuário pode especificar um conjunto de ações a serem executadas sobre esses eventos. Para obter mais informações, consulte [eventos agendados para Linux](../articles/virtual-machines/linux/scheduled-events.md) ou [eventos agendados para Windows](../articles/virtual-machines/windows/scheduled-events.md).
+
 
 ## <a name="sample-code-in-different-languages"></a>Código de exemplo em idiomas diferentes
 
@@ -983,7 +1176,7 @@ As chamadas de metadados devem ser feitas a partir do endereço IP primário atr
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
-1. Despeje sua tabela de roteamento local e procure a entrada IMDS. Por exemplo:
+1. Despeje sua tabela de roteamento local e procure a entrada IMDS. Por exemplo: 
     ```console
     > route print
     IPv4 Route Table
