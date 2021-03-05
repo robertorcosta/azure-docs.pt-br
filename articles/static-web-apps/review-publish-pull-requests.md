@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: yolasors
-ms.openlocfilehash: 78d2f3b399e26ca0c6036fd74fa1fba49d1f21f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1cb5f2f9ac941001efb18301f4a54bd0092920ba
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042769"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102172733"
 ---
 # <a name="review-pull-requests-in-pre-production-environments-in-azure-static-web-apps-preview"></a>Examinar solicitações de pull em ambientes de pré-produção na Versão Prévia dos Aplicativos Web Estáticos do Azure
 
@@ -109,7 +109,7 @@ As versões em etapas do seu aplicativo estão atualmente acessíveis publicamen
 > [!WARNING]
 > Tenha cuidado ao publicar conteúdo confidencial em versões de preparação, pois o acesso a ambientes de pré-produção não é restrito.
 
-O número de ambientes de pré-produção disponíveis para cada aplicativo implantado com Aplicativos Web Estáticos depende da camada de SKU que você está usando. Por exemplo, com a Camada gratuita, você pode ter 1 ambiente de pré-produção além do ambiente de produção.
+O número de ambientes de pré-produção disponíveis para cada aplicativo implantado com Aplicativos Web Estáticos depende da camada de SKU que você está usando. Por exemplo, com a camada gratuita, você pode ter três ambientes de pré-produção além do ambiente de produção.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: thweiss
-ms.openlocfilehash: acb82a66c8ef4adcfeef0fcb527c44512ad4feaf
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7c5497615ce71d0be713ef9ae28ab1e0f85b7ddb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040865"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177225"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurar o controle de acesso baseado em função com Azure Active Directory para sua conta de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ O RBAC do plano de dados Azure Cosmos DB se baseia em conceitos que normalmente 
 
 A tabela a seguir lista todas as ações expostas pelo modelo de permissão.
 
-| Name | Operação (ões) de banco de dados correspondente |
+| Nome | Operação (ões) de banco de dados correspondente |
 |---|---|
 | `Microsoft.DocumentDB/databaseAccounts/readMetadata` | Ler metadados da conta. Consulte [solicitações de metadados](#metadata-requests) para obter detalhes. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Criar um novo item. |
@@ -314,7 +314,7 @@ resourceGroupName='<myResourceGroup>'
 accountName='<myCosmosAccount>'
 readOnlyRoleDefinitionId = '<roleDefinitionId>' // as fetched above
 principalId = '<aadPrincipalId>'
-az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principalId $principalId --role-definition-id $readOnlyRoleDefinitionId
+az cosmosdb sql role assignment create --account-name $accountName --resource-group --scope "/" --principal-id $principalId --role-definition-id $readOnlyRoleDefinitionId
 ```
 
 ## <a name="initialize-the-sdk-with-azure-ad"></a>Inicializar o SDK com o Azure AD

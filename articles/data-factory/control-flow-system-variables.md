@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: cb19b7e8c5271e1106e69c98d5bd17a1bcb822bf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3da450ce1130b693fa346b4a6f4b42f6a0fd60a3
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100385278"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174199"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema com suporte pelo Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,6 +20,7 @@ ms.locfileid: "100385278"
 Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factory. Você pode usar essas variáveis em expressões ao definir entidades do Data Factory.
 
 ## <a name="pipeline-scope"></a>Escopo do pipeline
+
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no pipeline dp JSON.
 
 | Nome da variável | Descrição |
@@ -36,6 +37,7 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no pipelin
 >As variáveis do sistema de data/hora relacionadas ao gatilho (em escopos de pipeline e de gatilho) retornam datas UTC no formato ISO 8601, por exemplo, `2017-06-01T22:20:00.4061448Z` .
 
 ## <a name="schedule-trigger-scope"></a>Planejar o escopo do gatilho
+
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho JSON para gatilhos do tipo [ScheduleTrigger](concepts-pipeline-execution-triggers.md#schedule-trigger).
 
 | Nome da variável | Descrição |
@@ -44,6 +46,7 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho
 | @trigger().startTime |Hora em que o gatilho **realmente** foi acionado para invocar a execução do pipeline. Isso pode ser ligeiramente diferente do horário agendado do gatilho. |
 
 ## <a name="tumbling-window-trigger-scope"></a>Escopo de gatilho de janela em cascata
+
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho JSON para gatilhos do tipo [TumblingWindowTrigger](concepts-pipeline-execution-triggers.md#tumbling-window-trigger).
 
 | Nome da variável | Descrição |
@@ -53,7 +56,8 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho
 | @trigger().scheduledTime |Hora em que o gatilho foi agendado para invocar a execução do pipeline. |
 | @trigger().startTime |Hora em que o gatilho **realmente** foi acionado para invocar a execução do pipeline. Isso pode ser ligeiramente diferente do horário agendado do gatilho. |
 
-## <a name="event-based-trigger-scope"></a>Escopo do gatilho baseado em evento
+## <a name="storage-event-trigger-scope"></a>Escopo do gatilho de evento de armazenamento
+
 Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho JSON para gatilhos do tipo [BlobEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
 
 | Nome da variável | Descrição |
@@ -63,4 +67,5 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho
 | @trigger().startTime |Hora em que o gatilho foi acionado para invocar a execução do pipeline. |
 
 ## <a name="next-steps"></a>Próximas etapas
+
 Para obter informações sobre como essas variáveis são usadas em expressões, consulte [Funções e linguagem de expressão](control-flow-expression-language-functions.md).

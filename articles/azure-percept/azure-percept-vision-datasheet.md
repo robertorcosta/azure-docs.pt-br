@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 54dae3341910bf863de7e2a2cef832ae670ca09a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 7bbb3a88bbc3011ec5dd917cdb0c1e49f7556aab
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097560"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177157"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Folha de dados da pesquisa visual do Azure Percept
 
@@ -26,7 +26,7 @@ As especificações listadas abaixo são para o dispositivo Azure Percept Vision
 |Software e serviços com suporte |[Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) <br> [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) <br> [ONNX Runtime](https://www.onnxruntime.ai/) <br> [OpenVINO](https://docs.openvinotoolkit.org/latest/index.html) <br> Atualização de dispositivo do Azure |
 |Aceleração de ia                 |Unidade de processamento de visão (VPU) Intel Movidius infinidade X (MA2085) com o ISP de câmera Intel integrado, 0,7 TOPS |
 |Sensores e indicadores visuais   |Sensor de câmera Sony IMX219 com lentes 6P<br>Resolução: 8MP em 30FPS, Distance: 50cm-Infinity<br>FoV: 120 graus diagonal, cor: amplo intervalo dinâmico, obturador com foco fixo|
-|Suporte à câmera                  |RGB (atualmente) e IR (no futuro) <br> 2 câmeras podem ser executadas simultaneamente |
+|Suporte à câmera                  |RGB <br> 2 câmeras podem ser executadas simultaneamente |
 |Crypto-Controller de segurança      |ST-Micro STM32L462CE      |
 |Componente de ID/versão       |EEPROM de 64 KB |
 |Memória                          |LPDDR4 DE 2GB     |

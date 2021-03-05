@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 642fa044b3272e311769ddbcc5462cb396563652
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 02/22/2021
+ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702548"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177276"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -203,20 +203,24 @@ No [portal do Azure](https://portal.azure.com), adicione uma ou mais políticas 
    | Propriedade | Obrigatório | Descrição |
    |----------|----------|-------------|
    | **Nome da política** | Sim | O nome que você deseja usar para a política de autorização |
-   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID JWT** (ID do Token Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
+   | **Declarações** | Sim | Os tipos de declaração e os valores que seu aplicativo lógico aceita de chamadas de entrada. O valor da declaração é limitado a um [número máximo de caracteres](logic-apps-limits-and-config.md#authentication-limits). Estes são os tipos de declaração disponíveis: <p><p>- **Emissor** <br>- **Público-alvo** <br>- **Assunto** <br>- **ID do JWT** (identificador de token da Web JSON) <p><p>No mínimo, a lista de **declarações** deve incluir a declaração do **emissor** , que tem um valor que começa com `https://sts.windows.net/` ou `https://login.microsoftonline.com/` como a ID do emissor do Azure AD. Para mais informações sobre esses tipos de declaração, confira [Declarações nos tokens de segurança do Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). Você também pode especificar seu tipo e valor de declaração. |
    |||
 
 1. Para adicionar outra declaração, selecione uma destas opções:
 
    * Para adicionar outro tipo de declaração, selecione **Adicionar declaração padrão**, selecione o tipo e especifique o valor.
 
-   * Para adicionar sua declaração, selecione **Adicionar declaração personalizada** e especifique o valor.
+   * Para adicionar sua própria declaração, selecione **Adicionar declaração personalizada**. Para obter mais informações, consulte [como fornecer declarações opcionais para seu aplicativo](../active-directory/develop/active-directory-optional-claims.md). Sua declaração personalizada é então armazenada como parte da ID do JWT; por exemplo, `"tid": "72f988bf-86f1-41af-91ab-2d7cd011db47"` . 
 
 1. Para adicionar outra política de autorização, selecione **Adicionar política**. Repita as etapas anteriores para configurar a política.
 
 1. Quando terminar, selecione **Salvar**.
 
 1. Para incluir o `Authorization` cabeçalho do token de acesso nas saídas do gatilho baseado em solicitação, consulte [incluir o cabeçalho ' Authorization ' nas saídas do gatilho de solicitação](#include-auth-header).
+
+
+As propriedades do fluxo de trabalho, como as políticas, não aparecem no modo de exibição de código do aplicativo lógico na portal do Azure. Para acessar suas políticas programaticamente, chame a seguinte API por meio de Azure Resource Manager (ARM): `https://management.azure.com/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group-name}/providers/Microsoft.Logic/workflows/{your-workflow-name}?api-version=2016-10-01&_=1612212851820` . Certifique-se de substituir os valores de espaço reservado para sua ID de assinatura do Azure, nome do grupo de recursos e nome do fluxo de trabalho.
+
 
 <a name="define-authorization-policy-template"></a>
 

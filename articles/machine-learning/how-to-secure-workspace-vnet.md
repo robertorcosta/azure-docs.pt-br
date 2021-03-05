@@ -11,17 +11,16 @@ author: peterclu
 ms.date: 10/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, tracking-python, contperf-fy21q1
-ms.openlocfilehash: 07b8c130a2a22554e4cd5b33996d5a5ee967d47f
-ms.sourcegitcommit: 3ea45bbda81be0a869274353e7f6a99e4b83afe2
+ms.openlocfilehash: 083d750db0db050265c93cc658d4f3b6556b850d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
-ms.locfileid: "97029525"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176205"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteger um espaço de trabalho Azure Machine Learning com redes virtuais
 
 Neste artigo, você aprenderá a proteger um espaço de trabalho Azure Machine Learning e seus recursos associados em uma rede virtual.
-
 
 Este artigo é a parte dois de uma série de cinco partes que orienta você pela proteção de um fluxo de trabalho Azure Machine Learning. É altamente recomendável que você leia a [parte um: visão geral da VNet](how-to-network-security-overview.md) para entender a arquitetura geral primeiro. 
 
@@ -296,7 +295,7 @@ Depois que esses requisitos forem atendidos, use as etapas a seguir para habilit
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo faz parte de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo é a parte dois de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 1: visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 3: proteger o ambiente de treinamento](how-to-secure-training-vnet.md)

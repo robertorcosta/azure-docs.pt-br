@@ -1,5 +1,5 @@
 ---
-title: Scripts de CLI do Azure usando o módulo de pesquisa AZ
+title: CLI do Azure scripts usando o módulo de pesquisa AZ
 titleSuffix: Azure Cognitive Search
 description: Crie e configure um serviço de Pesquisa Cognitiva do Azure com o CLI do Azure. Você pode dimensionar um serviço para cima ou para baixo, gerenciar as chaves de API de administração e de consulta e consultar informações do sistema.
 manager: luisca
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 6287215233ae9baa220df37c6b820c1d1bec7720
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6b0e1b745e86c72843af88c0f6d17f91512e15
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032510"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176749"
 ---
 # <a name="manage-your-azure-cognitive-search-service-with-the-azure-cli"></a>Gerenciar o serviço de Pesquisa Cognitiva do Azure com o CLI do Azure
 > [!div class="op_single_selector"]
@@ -41,48 +41,7 @@ Ocasionalmente, as perguntas são feitas sobre tarefas que *não* estão na list
 
 Dentro de um serviço, a criação e o gerenciamento de conteúdo são por meio de [serviço de pesquisa API REST](/rest/api/searchservice/) ou [SDK do .net](/dotnet/api/overview/azure/search.documents-readme). Embora não haja nenhum comando do PowerShell dedicado para o conteúdo, você pode escrever scripts que chamam as APIs REST ou .NET para criar e carregar índices.
 
-<a name="check-versions-and-load"></a>
-
-## <a name="check-versions-and-upgrade"></a>Verificar versões e atualizar
-
-Os exemplos neste artigo são interativos e exigem permissões elevadas. O CLI do Azure deve ser instalado. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
-
-Agora você pode executar o CLI do Azure com o `az` comando do prompt de comando do Windows, do PowerShell ou do [Azure cloud Shell](../cloud-shell/overview.md). O PowerShell oferece alguns recursos de conclusão de guia não disponíveis no prompt de comando do Windows. 
-
-### <a name="check-the-azure-cli-version"></a>Verificar a versão do CLI do Azure
-
-Se você não tiver certeza se o CLI do Azure está instalado, execute o comando a seguir como uma etapa de verificação. 
-
-```azurecli-interactive
-az --version
-```
-Se esse comando não funcionar, consulte [instalar o CLI do Azure](/cli/azure/install-azure-cli) para obter o CLI do Azure instalado.
-
-Se você tiver a versão 2.11.0 ou mais recente, poderá executar o `az upgrade` comando para atualizar a CLI para a versão mais recente.
-
-```azurecli-interactive
-az upgrade
-```
-
-### <a name="connect-to-azure-with-a-browser-sign-in-token"></a>Conectar-se ao Azure com um token de entrada do navegador
-
-Você pode usar suas credenciais de logon do portal para se conectar a uma assinatura no CLI do Azure. Como alternativa, você pode [autenticar de forma não interativa com uma entidade de serviço](/cli/azure/authenticate-azure-cli#sign-in-with-a-service-principal).
-
-```azurecli-interactive
-az login
-```
-
-Se você mantiver várias assinaturas do Azure, defina sua assinatura do Azure. Para ver uma lista de suas assinaturas atuais, execute este comando.
-
-```azurecli-interactive
-az account list --output table
-```
-
-Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, o nome da assinatura é `ContosoSubscription`.
-
-```azurecli-interactive
-az account set --subscription "ContosoSubscription"
-```
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 <a name="list-search-services"></a>
 
@@ -262,7 +221,7 @@ az network vnet subnet update \
 id=$(az search service show \
     --resource-group <resource-group-name> \
     --name <service-name> \
-    --query [id]' \
+    --query [id] \
     --output tsv)
 
 # Create the private endpoint

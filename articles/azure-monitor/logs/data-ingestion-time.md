@@ -5,24 +5,24 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/18/2019
-ms.openlocfilehash: 6037ef9c539c3c57f2ba5a19f371237159d1bf69
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 3bba9dbf40fe6893a06c21d7f6b5475cfa8552cb
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030878"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176647"
 ---
 # <a name="log-data-ingestion-time-in-azure-monitor"></a>Tempo de ingestão de dados de log no Azure Monitor
 O Azure Monitor é um serviço de dados de grande escala que atende milhares de clientes que enviam terabytes de dados por mês em um ritmo cada vez maior. Frequentemente, há dúvidas sobre o tempo necessário para que os dados de log fiquem disponíveis após a coleta. Este artigo explica os diferentes fatores que afetam essa latência.
 
 ## <a name="typical-latency"></a>Latência típica
-Latência se refere ao momento em que os dados são criados no sistema monitorado e o momento em que são disponibilizados para análise no Azure Monitor. A latência típica de ingestão de dados de log é entre 2 e 5 minutos. A latência específica para dados específicos variará conforme uma variedade de fatores explicados abaixo.
+Latência se refere ao momento em que os dados são criados no sistema monitorado e o momento em que são disponibilizados para análise no Azure Monitor. A latência típica para ingerir dados de log está entre 20 s e 3 minutos. No entanto, a latência específica para qualquer dado específico variará dependendo de uma variedade de fatores explicados abaixo.
 
 
 ## <a name="factors-affecting-latency"></a>Fatores que afetam a latência
 O tempo total de ingestão para determinado conjunto de dados pode ser dividido nas áreas de alto nível a seguir. 
 
-- Tempo do agente – o tempo necessário para descobrir um evento, coletá-lo e, em seguida, enviá-lo para o ponto de ingestão do Azure Monitor como um registro de log. Na maioria dos casos, esse processo é manipulado por um agente.
+- Tempo do agente-o tempo para descobrir um evento, coletá-lo e enviá-lo para Azure Monitor ponto de ingestão de logs como um registro de log. Na maioria dos casos, esse processo é manipulado por um agente. A latência adicional pode ser introduzida pela rede.
 - Tempo do pipeline – o tempo necessário para o pipeline de ingestão processar o registro de log. Isso inclui a análise das propriedades do evento e a adição potencial de informações calculadas.
 - Tempo de indexação – o tempo gasto para ingestão de um registro de log no armazenamento de Big Data do Azure Monitor.
 
@@ -36,16 +36,17 @@ Os agentes e as soluções de gerenciamento usam estratégias diferentes para co
 - A solução Replicação do Active Directory realiza sua avaliação a cada cinco dias, enquanto a solução Avaliação do Active Directory realiza uma avaliação semanal da infraestrutura do Active Directory. O agente coletará esses logs somente quando a avaliação for concluída.
 
 ### <a name="agent-upload-frequency"></a>Frequência de upload de agente
-Para garantir que o agente do Log Analytics seja leve, o agente armazena em buffer os logs e carrega-os periodicamente no Azure Monitor. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é carregada em menos de 1 minuto. As condições de rede podem afetar negativamente a latência com a qual esses dados são recebidos no ponto de ingestão do Azure Monitor.
+Para garantir que o agente do Log Analytics seja leve, o agente armazena em buffer os logs e carrega-os periodicamente no Azure Monitor. A frequência de upload varia entre 30 segundos e 2 minutos, dependendo do tipo de dados. A maioria dos dados é carregada em menos de 1 minuto. 
+
+### <a name="network"></a>Rede
+As condições de rede podem afetar negativamente a latência desses dados para alcançar Azure Monitor ponto de ingestão de logs.
 
 ### <a name="azure-activity-logs-resource-logs-and-metrics"></a>Logs de atividades do Azure, logs de recursos e métricas
-Os dados do Azure adicionam tempo extra para se tornarem disponíveis no ponto de ingestão do Log Analytics para processamento:
+Os dados do Azure adicionam mais tempo para serem disponibilizados em Azure Monitor ponto de ingestão de logs para processamento:
 
-- Os dados dos logs de recursos levam 2-15 minutos, dependendo do serviço do Azure. Confira a [consulta abaixo](#checking-ingestion-time) para examinar essa latência em seu ambiente
-- As métricas de plataforma do Azure levam 3 minutos para serem enviadas ao ponto de ingestão do Log Analytics.
-- Os dados do log de atividades levarão cerca de 10 a 15 minutos para serem enviados ao ponto de ingestão do Log Analytics.
-
-Quando estiverem disponíveis no ponto de ingestão, somam-se mais 2 a 5 minutos para que os dados fiquem disponíveis para consulta.
+- Os logs de recursos normalmente adicionam 30-90 segundos, dependendo do serviço do Azure. Alguns serviços do Azure (especificamente, o banco de dados SQL do Azure e a rede virtual do Azure) atualmente relatam seus logs em intervalos de 5 minutos. O trabalho está em andamento para melhorar ainda mais esse processo. Confira a [consulta abaixo](#checking-ingestion-time) para examinar essa latência em seu ambiente
+- As métricas da plataforma Azure levam 3 minutos adicionais para serem exportadas para Azure Monitor ponto de ingestão de logs.
+- Os dados do log de atividades podem levar mais de 10-15 minutos, se a integração herdada for usada. É recomendável usar as configurações de diagnóstico no nível de assinatura para ingerir logs de atividades em logs de Azure Monitor, o que incorre em uma latência adicional de aproximadamente 30 segundos.
 
 ### <a name="management-solutions-collection"></a>Coleção de soluções de gerenciamento
 Algumas soluções não coletam seus dados de um agente e podem usar um método de coleta que introduz latência adicional. Algumas soluções coletam dados em intervalos regulares sem tentar a coleta quase em tempo real. Exemplos específicos incluem os seguintes:
@@ -56,6 +57,9 @@ Algumas soluções não coletam seus dados de um agente e podem usar um método 
 Veja a documentação de cada solução para determinar sua frequência de coleta.
 
 ### <a name="pipeline-process-time"></a>Tempo de processo de pipeline
+
+Uma vez disponível no ponto de ingestão, os dados levam 30-60 segundos adicionais para serem disponibilizados para consulta.
+
 Depois que os registros de log são ingeridos no pipeline de Azure Monitor (conforme identificado na propriedade [_TimeReceived](./log-standard-columns.md#_timereceived) ), eles são gravados no armazenamento temporário para garantir o isolamento do locatário e para garantir que os dados não sejam perdidos. Normalmente, esse processo adiciona 5 a 15 segundos. Algumas soluções de gerenciamento implementam algoritmos mais pesados para agregar dados e obter insights conforme os dados são recebidos. Por exemplo, o Monitoramento de Desempenho de Rede agrega os dados recebidos em intervalos de 3 minutos, efetivamente, adicionando uma latência de 3 minutos. Outro processo que adiciona latência é o processo que lida com logs personalizados. Em alguns casos, esse processo pode adicionar alguns minutos de latência aos logs que são coletados de arquivos pelo agente.
 
 ### <a name="new-custom-data-types-provisioning"></a>Provisionamento de novos tipos de dados personalizados

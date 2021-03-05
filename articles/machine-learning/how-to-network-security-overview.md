@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: e3705be10cb540538464e6b1299d848bc9057c7c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1309ad1b3e3f6bd6f9b543959220bf71c569f083
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039913"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174998"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -34,7 +34,7 @@ Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
 + [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
 + [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
-+ [Grupos de segurança de rede (NSG)](../virtual-network/network-security-groups-overview.md)
++ [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
 
 ## <a name="example-scenario"></a>Cenário de exemplo
@@ -175,7 +175,7 @@ Para obter mais informações sobre os nomes de domínio e endereços IP necess�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo faz parte de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo faz parte de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 2: visão geral da rede virtual](how-to-secure-workspace-vnet.md)
 * [Parte 3: proteger o ambiente de treinamento](how-to-secure-training-vnet.md)

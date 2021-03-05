@@ -1,23 +1,18 @@
 ---
 title: Usando a licença do Microsoft defender para ponto de extremidade incluída na central de segurança do Azure
 description: Saiba mais sobre o Microsoft defender para ponto de extremidade e como implantá-lo na central de segurança do Azure.
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/15/2021
 ms.author: memildin
-ms.openlocfilehash: a659ea897f013e504668789a7d5671420ff70a9f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 475c7671636d3aac036e3da1392fc2da9b0a001f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099073"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176460"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -43,10 +38,10 @@ O Microsoft defender for Endpoint é uma solução de segurança de ponto de ext
 | Estado da versão:                  | GA (em disponibilidade geral)                                                                                                                                                                                                                                                                                      |
 | Preço:                        | Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Plataformas compatíveis:            |  • Máquinas do Azure executando o Windows<br> • Computadores do Arc do Azure executando o Windows|
-| Versões do Windows com suporte:  |   • **GA (disponibilidade geral)-** detecção no Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • Detecção **de visualização** no windows Server 2019, [área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)e [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para desktops virtuais (EVD)<br>O monitoramento do ponto de extremidade do servidor usando essas integrações foi desabilitado para clientes do Office 365 GCC|
+| Versões do Windows com suporte:  |  • **GA (disponibilidade geral)-** detecção no Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • Detecção **de visualização** no windows Server 2019, [área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)e [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para desktops virtuais (EVD)<br>O monitoramento do ponto de extremidade do servidor usando essas integrações foi desabilitado para clientes do Office 365 GCC|
 | Sistemas operacionais sem suporte:  |  • Windows 10 (diferente de EVD ou WVD)<br> • Linux|
 | Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura** ou colaborador da **assinatura**|
-| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos<br>![Não](./media/icons/no-icon.png) Clientes GCC executando cargas de trabalho em nuvens globais do Azure                                                        |
+| Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos                                                        |
 |                                 |                                                                                                                                                                                                                                                                                                               |
 
 ## <a name="microsoft-defender-for-endpoint-features-in-security-center"></a>Recursos do Microsoft defender para ponto de extremidade na central de segurança

@@ -6,13 +6,13 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 02/28/2021
-ms.openlocfilehash: a5aae4013067ba37334e3e85a9e7ef882efd1dd2
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/04/2021
+ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107297"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176426"
 ---
 # <a name="what-are-security-policies-initiatives-and-recommendations"></a>O que são políticas de segurança, iniciativas e recomendações?
 
@@ -25,6 +25,7 @@ Uma definição de política do Azure, criada no Azure Policy, é uma regra sobr
 
 Para implementar essas definições de política (se internas ou personalizadas), você precisará atribuí-las. Você pode atribuir qualquer uma dessas políticas usando o portal do Azure, o PowerShell ou a CLI do Azure.
 
+Há diferentes tipos de políticas no Azure Policy. A central de segurança usa principalmente as políticas de "auditoria" que verificam condições e configurações específicas e, em seguida, relatam a conformidade. Também há políticas "impor" que podem ser usadas para aplicar configurações seguras.
 
 ## <a name="what-is-a-security-initiative"></a>O que é uma iniciativa de segurança?
 
@@ -38,7 +39,7 @@ A iniciativa padrão atribuída automaticamente a cada assinatura na central de 
 
 A central de segurança oferece as seguintes opções para trabalhar com iniciativas de segurança e políticas:
 
-- **Exibir e editar a iniciativa padrão interna** -quando você habilita a central de segurança, a iniciativa chamada ' Azure Security benchmark ' é automaticamente atribuída a todas as assinaturas registradas da central de segurança. Para personalizar essa iniciativa, você pode habilitar ou desabilitar políticas individuais dentro dela. Consulte a lista de [políticas de segurança internas](./policy-reference.md) para entender as opções disponíveis de forma integrada.
+- **Exibir e editar a iniciativa padrão interna** -quando você habilita a central de segurança, a iniciativa chamada ' Azure Security benchmark ' é automaticamente atribuída a todas as assinaturas registradas da central de segurança. Para personalizar essa iniciativa, você pode habilitar ou desabilitar políticas individuais dentro dela editando os parâmetros de uma política. Consulte a lista de [políticas de segurança internas](./policy-reference.md) para entender as opções disponíveis de forma integrada.
 
 - **Adicione suas próprias iniciativas personalizadas** -se desejar personalizar as iniciativas de segurança aplicadas à sua assinatura, você poderá fazer isso na central de segurança. Em seguida, você receberá recomendações se os computadores não seguirem as políticas que você criar. Para obter instruções sobre como criar e atribuir políticas personalizadas, consulte [usando iniciativas e políticas de segurança personalizadas](custom-security-policies.md).
 
@@ -46,9 +47,9 @@ A central de segurança oferece as seguintes opções para trabalhar com iniciat
 
 ## <a name="what-is-a-security-recommendation"></a>O que é são recomendações de segurança?
 
-A central de segurança do Azure analisa periodicamente o estado de segurança de seus recursos do Azure para identificar possíveis vulnerabilidades de segurança. Em seguida, ela fornece recomendações sobre como corrigir essas vulnerabilidades. Uma recomendação é o resultado da avaliação de seus recursos em relação às políticas relevantes e à identificação de recursos que não atendem aos seus requisitos definidos.
+Usando as políticas, a central de segurança analisa periodicamente o status de conformidade de seus recursos para identificar possíveis falhas e configurações de segurança. Em seguida, ele fornece recomendações sobre como corrigir esses problemas. As recomendações são o resultado da avaliação de seus recursos em relação às políticas relevantes e à identificação de recursos que não atendem aos seus requisitos definidos.
 
-A central de segurança do Azure faz suas recomendações de segurança com base em suas iniciativas escolhidas. 
+A central de segurança faz suas recomendações de segurança com base em suas iniciativas escolhidas. Quando uma política de sua iniciativa é comparada com seus recursos e encontra um ou mais que não é compatível, ele é apresentado como uma recomendação na central de segurança.
 
 As recomendações são ações a serem executadas para proteger e proteger seus recursos. Cada recomendação fornece as seguintes informações:
 

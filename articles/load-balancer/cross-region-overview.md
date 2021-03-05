@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 272fb0a27cf57483af6c07373e35a30f7f6e1c4b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101368"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176715"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -28,7 +28,7 @@ O Azure Standard Load Balancer dá suporte ao balanceamento de carga entre regi�
 
 * Tráfego de entrada proveniente de várias regiões.
 * [Failover global instantâneo](#regional-redundancy) para a próxima implantação regional ideal.
-* Carregar a distribuição entre regiões para a região do Azure mais próxima com [ultra latência](#ultra-low-latency).
+* Carregar a distribuição entre regiões para a região do Azure mais próxima com [latência extremamente baixa](#ultra-low-latency).
 * Capacidade de [escalar](#ability-to-scale-updown-behind-a-single-endpoint) verticalmente por trás de um único ponto de extremidade.
 * [IP Estático](#static-ip)
 * [Preservação de IP do cliente](#client-ip-preservation)
