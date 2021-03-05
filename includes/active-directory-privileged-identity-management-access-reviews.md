@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/07/2020
 ms.author: barclayn
 ms.custom: include file
-ms.openlocfilehash: cbcd4b459faa3bf67f591cc7afab0bf0027062e1
-ms.sourcegitcommit: 8b4b4e060c109a97d58e8f8df6f5d759f1ef12cf
+ms.openlocfilehash: 0b1606e4506e7a1781426632d1f22221f7028b88
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
-ms.locfileid: "96842302"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102193861"
 ---
 ## <a name="create-one-or-more-access-reviews"></a>Criar uma ou mais revisões de acesso
 
@@ -53,7 +53,7 @@ ms.locfileid: "96842302"
 
     - **Usuários selecionados** – Use essa opção quando você não souber quem precisa de acesso. Com essa opção, você pode atribuir a revisão a um proprietário de recurso ou ao gerente do grupo para conclusão.
     - **Membros (próprio)** – Use essa opção para fazer com que os usuários examinem suas próprias atribuições de função.
-    - **(Visualização) Gerenciador** – Use essa opção para fazer com que o gerente do usuário examine sua atribuição de função. Ao selecionar (visualização) Gerenciador, você também terá a opção de especificar um revisor de fallback. Os revisores de fallback são solicitados a revisar um usuário quando o usuário não tem nenhum Gerenciador especificado no diretório.
+    - **Gerenciador** – Use essa opção para fazer com que o gerente do usuário examine sua atribuição de função. Após selecionar o Gerenciador, você também terá a opção de especificar um revisor de fallback. Os revisores de fallback são solicitados a revisar um usuário quando o usuário não tem nenhum Gerenciador especificado no diretório.
 
 ### <a name="upon-completion-settings"></a>Após configurações de conclusão
 
