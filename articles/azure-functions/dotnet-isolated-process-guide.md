@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 13dd2f81aa7714c37e329d3a9e63a3cfcfd43cb0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b13c19aea3c3d36bd1cb4237278e5f0edbb8ed54
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102054483"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181713"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções no .NET 5,0 no Azure
 
@@ -114,7 +114,7 @@ O .NET isolado passa um `FunctionContext` objeto para seus métodos de função.
 
 As associações são definidas usando atributos em métodos, parâmetros e tipos de retorno. Um método de função é um método com um `Function` e um atributo de gatilho aplicado a um parâmetro de entrada, conforme mostrado no exemplo a seguir:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-16" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-14" :::
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo anterior é disparada por uma mensagem da fila e a mensagem da fila é passada para o método no `myQueueItem` parâmetro.
 
@@ -132,7 +132,7 @@ Uma função pode ter zero ou mais associações de entrada que podem passar dad
 
 Para gravar em uma associação de saída, você deve aplicar um atributo de associação de saída ao método de função, que definiu como gravar no serviço associado. O valor retornado pelo método é gravado na associação de saída. Por exemplo, o exemplo a seguir grava um valor de cadeia de caracteres em uma fila de mensagens chamada `functiontesting2` usando uma associação de saída:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="13-23" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-21" :::
 
 ### <a name="multiple-output-bindings"></a>Várias associações de saída
 
@@ -148,7 +148,7 @@ Da mesma forma, a função retorna um `HttpReponseData` objeto, que fornece dado
 
 O código a seguir é um gatilho HTTP 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="15-30" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="13-27" :::
 
 ## <a name="logging"></a>Registro em log
 
@@ -156,7 +156,7 @@ No .NET isolado, você pode gravar em logs usando uma [`ILogger`](/dotnet/api/mi
 
 O exemplo a seguir mostra como obter um `ILogger` e gravar logs dentro de uma função:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="19-20" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="17-18" ::: 
 
 Use vários métodos do `ILogger` para gravar vários níveis de log, como `LogWarning` ou `LogError` . Para saber mais sobre os níveis de log, consulte o [artigo monitoramento](functions-monitoring.md#log-levels-and-categories).
 

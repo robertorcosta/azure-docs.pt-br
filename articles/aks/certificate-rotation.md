@@ -4,12 +4,12 @@ description: Saiba como girar seus certificados em um cluster do AKS (serviço k
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 90526b78e65c335f07a2a9d2d152b54b47233082
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1871a8deed4d189534915a9b46b6ace071c1126c
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88211037"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181764"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Girar certificados no serviço kubernetes do Azure (AKS)
 
@@ -62,7 +62,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Pode levar até 30 minutos para `az aks rotate-certs` ser concluído. Se o comando falhar antes de concluir, use `az aks show` para verificar se o status do cluster é de *rotação de certificado*. Se o cluster estiver em um estado de falha, execute novamente `az aks rotate-certs` para girar os certificados novamente.
 
-Verifique se os certificados antigos não são mais válidos executando um `kubectl` comando. Como você não atualizou os certificados usados pelo `kubectl` , verá um erro.  Por exemplo:
+Verifique se os certificados antigos não são mais válidos executando um `kubectl` comando. Como você não atualizou os certificados usados pelo `kubectl` , verá um erro.  Por exemplo: 
 
 ```console
 $ kubectl get no
@@ -75,7 +75,7 @@ Atualize o certificado usado pelo `kubectl` executando `az aks get-credentials` 
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verifique se os certificados foram atualizados executando um `kubectl` comando, que agora terá sucesso. Por exemplo:
+Verifique se os certificados foram atualizados executando um `kubectl` comando, que agora terá sucesso. Por exemplo: 
 
 ```console
 kubectl get no
@@ -90,7 +90,7 @@ Este artigo mostrou como girar automaticamente os certificados, as CAs e as SAs 
 
 
 [azure-cli-install]: /cli/azure/install-azure-cli
-[az-aks-get-credentials]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md

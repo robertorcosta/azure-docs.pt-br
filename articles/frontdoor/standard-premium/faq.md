@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
-ms.openlocfilehash: a42601b696f292e9d2a9da90070fea3662acae87
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 6f6d71dec9726f009ab9a56e0a49ba21f5d218fd
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098406"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181016"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-standardpremium-preview"></a>Perguntas frequentes sobre o Azure front door Standard/Premium (visualização)
 
@@ -85,7 +85,11 @@ Sim. Na verdade, a porta frontal do Azure dá suporte ao host, caminho, redireci
 
 ### <a name="how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door"></a>Como fazer bloquear o acesso ao meu back-end para apenas a porta frontal do Azure?
 
-Para bloquear seu aplicativo para aceitar somente o tráfego de sua porta de frente específica, você precisará configurar ACLs de IP para seu back-end. Em seguida, restrinja o tráfego do back-end para o valor específico do cabeçalho ' X-Azure-FDID ' enviado pela porta frontal. Essas etapas são detalhadas como a seguir:
+A melhor maneira de bloquear seu aplicativo para aceitar o tráfego somente de sua instância de porta frontal específica é publicar seu aplicativo por meio do ponto de extremidade privado. O tráfego de rede entre a porta da frente e o aplicativo atravessa a VNet e um link privado na rede de backbone da Microsoft, eliminando a exposição da Internet pública.
+
+Saiba mais sobre a [origem de proteção para a porta frontal com o link privado](concept-private-link.md).  
+
+Maneira alternativa de bloquear seu aplicativo para aceitar o tráfego somente de sua porta de frente específica, você precisará configurar ACLs de IP para seu back-end. Em seguida, restrinja o tráfego do back-end para o valor específico do cabeçalho ' X-Azure-FDID ' enviado pela porta frontal. Essas etapas são detalhadas como a seguir:
 
 * Configure o IP atuação para seus back-ends para aceitar o tráfego do espaço de endereço IP de back-end da porta do Azure e dos serviços de infraestrutura do Azure apenas. Consulte os detalhes de IP abaixo para atuação seu back-end:
  

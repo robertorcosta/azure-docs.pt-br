@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 0f5ecef1716a503b7d27d0f5cdde15a4560c0e61
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 1753f2bb649e73d7a5fe6c1cc32361a418ea7f63
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098545"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102181798"
 ---
 # <a name="overview-of-azure-front-door-standardpremium-sku-preview"></a>Visão geral do SKU Standard/Premium da porta do Azure (versão prévia)
 
@@ -59,10 +59,10 @@ A porta frontal do Azure é oferecida para 3 SKUs diferentes, [porta frontal do]
 | Reconfiguração de URL | Sim | Sim |
 | Mecanismo de Regras | Sim | Sim |
 | Origem privada (link privado) | Não | Sim |
-| WAF | Não | Sim |
+| WAF | Somente regras personalizadas | Sim |
 | Proteção de bot | Não | Sim |
 | Diagnósticos e métricas aprimorados | Sim | Sim |
-| Relatórios de tráfego | Sim | Sim |
+| Relatório de tráfego | Sim | Sim |
 | Relatório de segurança | Não | Sim | 
 
 ## <a name="next-steps"></a>Próximas etapas
