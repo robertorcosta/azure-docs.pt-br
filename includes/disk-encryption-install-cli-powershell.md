@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file, devx-track-azurecli
-ms.openlocfilehash: 1c1d438f0322942a1e68c0af74de8d5e2d77c77a
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.openlocfilehash: be6de283ed230a6e6a6b4986abb0a36386e36925
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95559247"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211984"
 ---
 O Azure Disk Encryption pode ser habilitado e gerenciado por meio da [CLI do Azure](/cli/azure) e do [Azure PowerShell](/powershell/azure/new-azureps-module-az). Para fazer isso, você deve instalar as ferramentas localmente e conectar-se à sua assinatura do Azure.
 
 ### <a name="azure-cli"></a>CLI do Azure
 
-O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-la localmente seguindo as etapas em [Instalar a CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
+O [CLI 2.0 do Azure](/cli/azure) é uma ferramenta de linha de comando para gerenciar recursos do Azure. A CLI é projetada para consultar dados com flexibilidade, dar suporte a operações de longa execução como processos desbloqueados e facilitar o script. Você pode instalá-la localmente seguindo as etapas em [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
-Para [Entrar na assinatura do Azure com a CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [az login](/cli/azure/reference-index?view=azure-cli-latest#az-login).
+Para [Entrar na assinatura do Azure com a CLI do Azure](/cli/azure/authenticate-azure-cli), use o comando [az login](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login

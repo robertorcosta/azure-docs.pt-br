@@ -6,18 +6,19 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 291f06bea0744c991c71640272ee341b7273472b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728987"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211610"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no serviço Azure App
 
 O Depurador de Instantâneos atualmente dá suporte a aplicativos ASP.NET e ASP.NET Core que estão em execução no serviço Azure App nos planos de serviço do Windows.
 
-Recomendamos que você execute seu aplicativo na camada de serviço básica ou superior ao usar o depurador de instantâneos.
+Recomendamos que você execute seu aplicativo na camada de serviço básica ou superior ao usar o depurador de instantâneo.
+
 Para a maioria dos aplicativos, as camadas de serviço gratuitas e compartilhadas não têm memória suficiente ou espaço em disco para salvar instantâneos.
 
 ## <a name="enable-snapshot-debugger"></a><a id="installation"></a> Habilitar Depurador de Instantâneos
@@ -52,6 +53,16 @@ Depois de implantar um aplicativo, siga as etapas abaixo para habilitar o depura
 4. Depurador de Instantâneos agora está habilitado usando uma configuração de aplicativo dos serviços de aplicativo.
 
     ![Configuração de aplicativo para Depurador de Instantâneos][snapshot-debugger-app-setting]
+
+## <a name="enable-snapshot-debugger-for-other-clouds"></a>Habilitar Depurador de Instantâneos para outras nuvens
+
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) por meio da cadeia de conexão Application insights.
+
+|Propriedade da cadeia de conexão    | Nuvem do governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Desabilitar Depurador de Instantâneos
 

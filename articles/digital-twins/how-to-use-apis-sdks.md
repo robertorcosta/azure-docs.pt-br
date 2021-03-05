@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4a2667e4876682a6b0aa6d6b7a8cf67eaee376cc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.openlocfilehash: 3724586ae9773e135905cddd2a9a33a3a6803ce5
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
-ms.locfileid: "98683660"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211769"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -32,7 +32,7 @@ Para usar as APIs do plano de controle:
 * Você pode chamar as APIs diretamente referenciando a pasta Swagger mais recente no [repositório Swagger do plano de controle](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable). Essa pasta também inclui uma pasta de exemplos que mostram o uso.
 * Atualmente, você pode acessar SDKs para APIs de controle no...
   - [**.Net (C#)**](https://www.nuget.org/packages/Microsoft.Azure.Management.DigitalTwins/) ([referência [gerada automaticamente]](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true)) ([origem](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Microsoft.Azure.Management.DigitalTwins))
-  - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([referência [gerada automaticamente]](/java/api/overview/azure/digitaltwins?view=azure-java-stable&preserve-view=true)) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
+  - [**Java**](https://search.maven.org/search?q=a:azure-mgmt-digitaltwins) ([referência [gerada automaticamente]](/java/api/overview/azure/digitaltwins)) ([origem](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins))
   - [**JavaScript**](https://www.npmjs.com/package/@azure/arm-digitaltwins) ([origem](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/arm-digitaltwins))
   - [**Python**](https://pypi.org/project/azure-mgmt-digitaltwins/) ([origem](https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins))
   - [**Ir**](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins) para ([origem](https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins))
@@ -60,11 +60,11 @@ Para usar as APIs do plano de dados:
    - Você pode ver informações detalhadas e exemplos de uso, continuando para a seção [*SDK (plano de dados) do .net (C#)*](#net-c-sdk-data-plane) deste artigo.
 * Você pode usar o **SDK do Java**. Para usar o SDK do Java...
    - Você pode exibir e instalar o pacote do Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
-   - Você pode exibir a [documentação de referência do SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-stable)
+   - Você pode exibir a [documentação de referência do SDK](/java/api/overview/azure/digitaltwins/client)
    - Você pode encontrar a origem do SDK no GitHub: [biblioteca de cliente do Azure IOT digital gêmeos para Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * Você pode usar o **SDK do JavaScript**. Para usar o SDK do JavaScript...
    - Você pode exibir e instalar o pacote em NPM: [biblioteca de cliente principal do gêmeos do Azure Azure digital para JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
-   - Você pode exibir a [documentação de referência do SDK](/javascript/api/@azure/digital-twins-core/?branch=master&view=azure-node-latest&preserve-view=true).
+   - Você pode exibir a [documentação de referência do SDK](/javascript/api/@azure/digital-twins-core/).
    - Você pode encontrar a origem do SDK no GitHub: [biblioteca de cliente do Microsoft Azure digital gêmeos Core para JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * Você pode usar o **SDK do Python**. Para usar o SDK do Python...
    - Você pode exibir e instalar o pacote em PyPi: [biblioteca de cliente principal do gêmeos do Azure Azure digital para Python](https://pypi.org/project/azure-digitaltwins-core/).

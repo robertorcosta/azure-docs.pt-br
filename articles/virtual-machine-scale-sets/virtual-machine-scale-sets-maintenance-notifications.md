@@ -9,12 +9,12 @@ ms.subservice: management
 ms.date: 11/12/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt, devx-track-azurecli
-ms.openlocfilehash: 85e4b6a4d0ff1c3bd7e634311a36396a74408419
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b4c705e65b5b8c4f9e34dc5ff1474e87da5bee02
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100594450"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209774"
 ---
 # <a name="planned-maintenance-notifications-for-virtual-machine-scale-sets"></a>Notificações de manutenção planejada para conjuntos de dimensionamento de máquinas virtuais
 
@@ -75,7 +75,7 @@ Quando uma onda de manutenção planejada é agendada, é possível exibir a lis
 1. Entre no [portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, selecione **Todos os serviços** e, em seguida, selecione **Conjuntos de dimensionamento de máquinas virtuais**.
 3. Em **Conjuntos de dimensionamento de máquinas virtuais**, selecione **Editar colunas** para abrir a lista de colunas disponíveis.
-4. Na seção **Colunas disponíveis**, selecione **Manutenção de autoatendimento** e, em seguida, mova-a para a lista **Colunas selecionadas**. Selecione **Aplicar**.  
+4. Na seção **Colunas disponíveis**, selecione **Manutenção de autoatendimento** e, em seguida, mova-a para a lista **Colunas selecionadas**. Escolha **Aplicar**.  
 
     Para facilitar a localização do item de **Manutenção de autoatendimento**, é possível alterar a opção suspensa na seção **Colunas disponíveis** de **Todos** para **Propriedades**.
 
@@ -84,7 +84,7 @@ A **Manutenção de autoatendimento** agora aparece na lista de conjuntos de dim
 | Valor | Descrição |
 |-------|-------------|
 | Sim | Pelo menos uma VM no conjunto de dimensionamento de máquinas virtuais está em uma janela de autoatendimento. Você pode iniciar a manutenção a qualquer momento durante essa janela de autoatendimento. | 
-| No | Nenhuma VM está em uma janela de autoatendimento no conjunto de dimensionamento de máquinas virtuais afetado. | 
+| Não | Nenhuma VM está em uma janela de autoatendimento no conjunto de dimensionamento de máquinas virtuais afetado. | 
 | - | Os conjuntos de dimensionamento de máquinas virtuais não fazem parte de uma onda de manutenção planejada.| 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notificação e alertas no portal
@@ -143,7 +143,7 @@ Set-AzVmss -ResourceGroupName rgName -VMScaleSetName vmssName -InstanceId id -Pe
 
 ## <a name="check-maintenance-status-by-using-the-cli"></a>Verificar status de manutenção usando a CLI
 
-É possível exibir as informações de manutenção planejada usando [az vmss list-instances](/cli/azure/vmss?view=azure-cli-latest#az-vmss-list-instances).
+É possível exibir as informações de manutenção planejada usando [az vmss list-instances](/cli/azure/vmss#az-vmss-list-instances).
  
 As informações de manutenção serão retornadas somente se a manutenção for planejada. Se nenhuma manutenção que afete a instância de VM estiver agendada, o comando não retornará nenhuma informação de manutenção. 
 

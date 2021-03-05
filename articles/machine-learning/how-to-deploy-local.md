@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 11/20/2020
 ms.topic: conceptual
 ms.custom: how-to, deploy
-ms.openlocfilehash: 71f393897dff266f1b0922a19eefd70cffea133d
-ms.sourcegitcommit: c4246c2b986c6f53b20b94d4e75ccc49ec768a9a
+ms.openlocfilehash: 8f22f1af04d59b4c1fb7f19a3d6815b61cac5fbd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96600346"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211220"
 ---
 # <a name="deploy-models-trained-with-azure-machine-learning-on-your-local-machines"></a>Implantar modelos treinados com o Azure Machine Learning em seus computadores locais 
 
@@ -185,8 +185,8 @@ Usar o Docker para implantar seu modelo como um serviço Web é a opção mais c
 Você pode baixar o modelo:  
 
 - No portal, selecionando a guia **modelos** , selecionando o modelo desejado e, na página **detalhes** , selecionando **baixar**.
-- Na linha de comando, usando `az ml model download` . (Consulte [download do modelo.](/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext_azure_cli_ml_az_ml_model_download&preserve-view=false))
-- Usando o método SDK do Python `Model.download()` . (Consulte [classe de modelo.](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#download-target-dir------exist-ok-false--exists-ok-none-&preserve-view=false))
+- Na linha de comando, usando `az ml model download` . (Consulte [download do modelo.](/cli/azure/ext/azure-cli-ml/ml/model#ext_azure_cli_ml_az_ml_model_download))
+- Usando o método SDK do Python `Model.download()` . (Consulte [classe de modelo.](/python/api/azureml-core/azureml.core.model.model#download-target-dir------exist-ok-false--exists-ok-none-))
 
 Um modelo do Azure é um ou mais objetos Python serializados, empacotados como um arquivo Python pickle (extensão. PKL). O conteúdo do arquivo pickle depende da biblioteca de aprendizado de máquina ou da técnica usada para treinar o modelo. Por exemplo, se você estiver usando o modelo do tutorial, você pode carregar o modelo com:
 

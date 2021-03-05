@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 59cedb25295770ba4ae4a33aac3287c5fed1297d
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 8c2ea69d38f354455b7957ddc7b6ff41da30100b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381487"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102210760"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
 
@@ -378,11 +378,11 @@ Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, cer
 
 ### <a name="additional-types"></a>Tipos adicionais
 
-Os aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem usar tipos do [SDK do Azure para .net](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para o `CloudQueueMessage` tipo herdado em favor dos seguintes tipos:
+Os aplicativos que usam a [versão 5.0.0 ou posterior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também poderão usar tipos do [SDK do Azure para .NET](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para o `CloudQueueMessage` tipo herdado em favor dos seguintes tipos:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
  
-Para obter exemplos de como usar esses tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+Para obter exemplos de como usar esses tipos, confira [o repositório GitHub da extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
@@ -399,15 +399,15 @@ Se você tentar associar `CloudQueueMessage` e receber uma mensagem de erro, cer
 
 ### <a name="additional-types"></a>Tipos adicionais
 
-Os aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem usar tipos do [SDK do Azure para .net](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para o `CloudQueueMessage` tipo herdado em favor dos seguintes tipos:
+Os aplicativos que usam a [versão 5.0.0 ou posterior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também poderão usar tipos do [SDK do Azure para .NET](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para o `CloudQueueMessage` tipo herdado em favor dos seguintes tipos:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 
-Para obter exemplos de como usar esses tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+Para obter exemplos de como usar esses tipos, confira [o repositório GitHub da extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
-A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger?view=azure-java-stable&preserve-view=true) fornece acesso à mensagem da fila que disparou a função.
+A anotação [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) fornece acesso à mensagem da fila que disparou a função.
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 

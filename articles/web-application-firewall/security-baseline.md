@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f29e6f0de3286b04321207b4c469f34aeaee8ef5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ae6b4f38772cd6c6755ece78fb5c47834a616204
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737402"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102211627"
 ---
 # <a name="azure-security-baseline-for-azure-web-application-firewall"></a>Linha de base de segurança do Azure para o Firewall do aplicativo Web do Azure
 
@@ -81,9 +81,9 @@ Configure o WAF do Azure para ser executado no modo de prevenção após a linha
 
 Aplique regras e grupos de regras às políticas do WAF (firewall do aplicativo Web) do Azure com base nos metadados de marca aplicados.
 
-- [Política de WAF no gateway de aplicativo](/cli/azure/network/application-gateway/waf-policy?view=azure-cli-latest) 
+- [Política de WAF no gateway de aplicativo](/cli/azure/network/application-gateway/waf-policy) 
 
-- [Política de WAF na porta frontal](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest)
+- [Política de WAF na porta frontal](/cli/azure/ext/front-door/network/front-door/waf-policy)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.author: gistefan
 ms.reviewer: mikben
-ms.openlocfilehash: ee691d4809a68a0ba60f60a2240b76a1e53104bc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 9571d13537b504b4d48685e879a379b08df3110d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171566"
+ms.locfileid: "102211474"
 ---
 # <a name="use-managed-identities-net"></a>Usar identidades gerenciadas (.NET)
 
@@ -24,8 +24,9 @@ Este guia de início rápido mostra como autorizar o acesso às bibliotecas de c
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
- - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free)
+ - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free).
  - Um recurso e uma cadeia de conexão ativos dos Serviços de Comunicação. [Crie um recurso dos Serviços de Comunicação](./create-communication-resource.md?pivots=platform-azp&tabs=windows).
+ -  Uma identidade gerenciada. [Crie uma identidade gerenciada](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal).
 
 ## <a name="setting-up"></a>Ao configurar o
 
@@ -59,10 +60,9 @@ Para atribuir funções e permissões usando o PowerShell, consulte [Adicionar o
 ### <a name="install-the-client-library-packages"></a>Instalar os pacotes de biblioteca de cliente
 
 ```console
-dotnet add package Azure.Communication.Identity
-dotnet add package Azure.Communication.Configuration
-dotnet add package Azure.Communication.Sms
 dotnet add package Azure.Identity
+dotnet add package Azure.Communication.Identity
+dotnet add package Azure.Communication.Sms
 ```
 
 ### <a name="use-the-client-library-packages"></a>Usar os pacotes de biblioteca de cliente
@@ -70,9 +70,11 @@ dotnet add package Azure.Identity
 Adicione as seguintes `using` diretivas ao seu código para usar as bibliotecas de cliente de armazenamento do Azure e identidade do Azure.
 
 ```csharp
+using Azure;
+using Azure.Core;
 using Azure.Identity;
+using Azure.Communication;
 using Azure.Communication.Identity;
-using Azure.Communication.Configuration;
 using Azure.Communication.Sms;
 ```
 
@@ -89,6 +91,7 @@ O exemplo de código a seguir mostra como criar um objeto de cliente de serviço
      
           var client = new CommunicationIdentityClient(resourceEndpoint, credential);
           var identityResponse = await client.CreateUserAsync();
+          var identity = identityResponse.Value;
      
           var tokenResponse = await client.IssueTokenAsync(identity, scopes: new [] { CommunicationTokenScope.VoIP });
 
@@ -101,7 +104,6 @@ O exemplo de código a seguir mostra como criar um objeto de cliente de serviço
 O exemplo de código a seguir mostra como criar um objeto de cliente de serviço com tokens Azure Active Directory e, em seguida, usar o cliente para enviar uma mensagem SMS:
 
 ```csharp
-
      public async Task SendSmsAsync(Uri resourceEndpoint, PhoneNumber from, PhoneNumber to, string message)
      {
           TokenCredential credential = new DefaultAzureCredential();

@@ -11,12 +11,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 06b871d29c26241c38be27c4ace8ab7461834fd1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9dc7c0a476f57048c7caefb6001918d314c991ee
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101655710"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102209689"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Disparar aplicativos, processos ou fluxos de trabalho de CI/CD com base em eventos de Azure Machine Learning (versão prévia)
 
@@ -59,7 +59,7 @@ Esses eventos são publicados por meio da Grade de Eventos do Azure. Por meio do
 
 Ao configurar seus eventos, você pode aplicar filtros para disparar apenas dados específicos dos eventos. No exemplo a seguir, para eventos de status de execução alterado, é possível filtrar por tipos de execução. O evento só dispara quando os critérios são atendidos. Confira [Esquema de grade de eventos do Azure Machine Learning](../event-grid/event-schema-machine-learning.md) para saber mais sobre os dados de evento que podem ser filtrados. 
 
-As assinaturas para eventos de Azure Machine Learning são protegidas pelo Azure RBAC (controle de acesso baseado em função). Somente um [colaborador ou proprietário](how-to-assign-roles.md#default-roles) do workspace pode criar, atualizar e excluir assinaturas de evento.  Filtros podem ser aplicados a assinaturas de evento durante a [criação](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) da assinatura do evento ou em um momento posterior. 
+As assinaturas para eventos de Azure Machine Learning são protegidas pelo Azure RBAC (controle de acesso baseado em função). Somente um [colaborador ou proprietário](how-to-assign-roles.md#default-roles) do workspace pode criar, atualizar e excluir assinaturas de evento.  Filtros podem ser aplicados a assinaturas de evento durante a [criação](/cli/azure/eventgrid/event-subscription) da assinatura do evento ou em um momento posterior. 
 
 
 1. Acesse o portal do Azure, selecione uma nova assinatura ou uma existente. 
@@ -130,7 +130,7 @@ Depois de confirmar sua seleção, clique em __Criar__. Após a configuração, 
 
 ### <a name="set-up-with-the-cli"></a>Configurar com a CLI
 
-É possível instalar a [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) mais recente ou usar o Azure Cloud Shell fornecido como parte da assinatura do Azure.
+É possível instalar a [CLI do Azure](/cli/azure/install-azure-cli) mais recente ou usar o Azure Cloud Shell fornecido como parte da assinatura do Azure.
 
 Para instalar a extensão da Grade de Eventos, use o seguinte comando da CLI:
 
