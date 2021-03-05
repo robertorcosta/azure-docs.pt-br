@@ -9,12 +9,12 @@ ms.subservice: security
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 4c4ad2a1350632d381cc258049ee85c87766f9b5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f8a6758cdf0a6da709a564c1e17c56a2fe5625b0
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694114"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124645"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implantar uma VM com inicialização confiável habilitada (visualização)
 
@@ -140,7 +140,7 @@ Para obter vTPM e recomendações de inicialização segura para VMs de iniciali
 
 Em alguns casos, talvez seja necessário assinar coisas para inicialização segura de UEFI.  Por exemplo, talvez seja necessário percorrer [como assinar coisas para inicialização segura](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para o Ubuntu. Nesses casos, você precisa inserir as chaves de registro do utilitário MOK para sua VM. Para fazer isso, você precisa usar o console serial do Azure para acessar o utilitário MOK.
 
-1. Habilite o console serial do Azure para Linux. Para obter mais informações, consulte [console serial para Linux](serial-console-linux.md).
+1. Habilite o console serial do Azure para Linux.
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Pesquise **máquinas virtuais** e selecione sua VM na lista.
 1. No menu à esquerda, em **suporte + solução de problemas**, selecione **console serial**. Uma página será aberta à direita, com o console serial.
