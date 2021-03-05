@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: how-to
 ms.date: 11/10/2020
-ms.openlocfilehash: d99ec80308152ce9e4870da809acaa25c663d98d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c6b9cfab4256c72118a65f7fb0c8e672e2082ffe
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715693"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199655"
 ---
 # <a name="how-to-use-postman-to-send-requests-to-the-azure-digital-twins-apis"></a>Como usar o postmaster para enviar solicitações para as APIs do Azure digital gêmeos
 
@@ -21,7 +21,7 @@ O [Postman](https://www.getpostman.com/) é uma ferramenta de testes REST que fo
 
 Este artigo descreve como configurar o [cliente REST do postmaster](https://www.getpostman.com/) para interagir com as APIs do gêmeos digital do Azure, por meio das seguintes etapas:
 
-1. Use o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para obter um token de portador que será usado para fazer solicitações de API no postmaster.
+1. Use o [CLI do Azure](/cli/azure/install-azure-cli) para obter um token de portador que será usado para fazer solicitações de API no postmaster.
 1. Configure uma coleção do postmaster e configure o cliente REST do postmaster para usar o token de portador para autenticar.
 1. Use o postmaster configurado para criar e enviar uma solicitação para as APIs do Azure digital gêmeos.
 
@@ -41,9 +41,9 @@ Em seguida, baixe a versão da área de trabalho do cliente do postmaster. Naveg
 
 Agora que você configurou o postmaster e sua instância do gêmeos digital do Azure, você precisará obter um token de portador que as solicitações do postmaster podem usar para autorizar nas APIs do gêmeos digital do Azure.
 
-Há várias maneiras possíveis de obter esse token. Este artigo usa o [CLI do Azure](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) para entrar em sua conta do Azure e obter um token dessa maneira.
+Há várias maneiras possíveis de obter esse token. Este artigo usa o [CLI do Azure](/cli/azure/install-azure-cli) para entrar em sua conta do Azure e obter um token dessa maneira.
 
-Se você tiver um CLI do Azure [instalado localmente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true), poderá iniciar um prompt de comando em seu computador para executar os comandos a seguir.
+Se você tiver um CLI do Azure [instalado localmente](/cli/azure/install-azure-cli), poderá iniciar um prompt de comando em seu computador para executar os comandos a seguir.
 Caso contrário, você pode abrir uma janela de [Azure cloud Shell](https://shell.azure.com) no navegador e executar os comandos.
 
 1. Primeiro, verifique se você está conectado ao Azure com as credenciais apropriadas, executando este comando:
@@ -52,7 +52,7 @@ Caso contrário, você pode abrir uma janela de [Azure cloud Shell](https://shel
     az login
     ```
 
-1. Em seguida, use o comando [AZ Account Get-Access-token](/cli/azure/account?preserve-view=true&view=azure-cli-latest#az_account_get_access_token) para obter um token de portador com acesso ao serviço de gêmeos digital do Azure.
+1. Em seguida, use o comando [AZ Account Get-Access-token](/cli/azure/account#az_account_get_access_token) para obter um token de portador com acesso ao serviço de gêmeos digital do Azure.
 
     ```azurecli-interactive
     az account get-access-token --resource 0b07f429-9f4b-4714-9392-cc5e8e80c8b0

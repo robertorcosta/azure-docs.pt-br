@@ -166,6 +166,10 @@ items:
             href: sensitivity-insights.md
           - name: Exibir insights de extensão de arquivo
             href: file-extension-insights.md
+      - name: Segurança e Rede
+        items:
+          - name: Gerenciar pontos de extremidade privados
+            href: catalog-private-link.md
   - name: Referência
     items:
       - name: Classificações compatíveis

@@ -6,12 +6,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 4970cacb0995678bdad87f14ba971b8fb88ffa09
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44554434eee51c11e7f89007c532f1a142fc998c
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593651"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199332"
 ---
 # <a name="react-plugin-for-application-insights-javascript-sdk"></a>Plug-in de reagir para Application Insights SDK do JavaScript
 
@@ -161,7 +161,11 @@ Ele funcionará como o componente de ordem superior, mas responderá a conectar 
 
 ### `useTrackEvent`
 
-O `useTrackEvent` gancho é usado para rastrear qualquer evento personalizado que um aplicativo possa precisar controlar, como um clique de botão ou outra chamada à API. Ele usa dois argumentos, o primeiro é a Application Insights instância (que pode ser obtida do `useAppInsightsContext` gancho) e um nome para o evento.
+O `useTrackEvent` gancho é usado para rastrear qualquer evento personalizado que um aplicativo possa precisar controlar, como um clique de botão ou outra chamada à API. São necessários quatro argumentos:
+-   Application Insights instância (que pode ser obtida do `useAppInsightsContext` gancho).
+-   Nome do evento.
+-   Objeto de dados de evento que encapsula as alterações que têm que ser rastreadas.
+-   sinalizador skipFirstRun (opcional) para ignorar a `trackEvent` chamada na inicialização. O valor padrão é definido como `true`.
 
 ```javascript
 import React, { useState, useEffect } from "react";

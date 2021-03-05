@@ -4,12 +4,12 @@ description: Saiba como solucionar problemas do agente Java para Azure Monitor A
 ms.topic: conceptual
 ms.date: 11/30/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 286354ecf508dec7b9ba7633bf3b5c7ddc6bfd91
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 45f45e71546909b71c71c66303c1459edd74548f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737050"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199604"
 ---
 # <a name="troubleshooting-guide-azure-monitor-application-insights-for-java"></a>Guia de solução de problemas: Azure Monitor Application Insights para Java
 
@@ -45,7 +45,7 @@ O registro em log só será capturado se ele atender primeiro ao limite configur
 
 A melhor maneira de saber se uma determinada instrução de log atende ao limite configurado da estrutura de registro em log é confirmar que ela está aparecendo no log normal do aplicativo (por exemplo, arquivo ou console).
 
-Observe também que, se uma exceção for passada para o agente, a mensagem de log (e exceção) aparecerá na portal do Azure na `exceptions` tabela em vez da `traces` tabela.
+Observe também que, se um objeto de exceção for passado para o agente, a mensagem de log (e os detalhes do objeto de exceção) aparecerá na portal do Azure na `exceptions` tabela em vez da `traces` tabela.
 
 Consulte a [configuração de log coletada automaticamente](./java-standalone-config.md#auto-collected-logging) para obter mais detalhes.
 

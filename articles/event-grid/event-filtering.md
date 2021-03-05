@@ -2,13 +2,13 @@
 title: Evento de filtragem para a Grade de Eventos do Azure
 description: Descreve como filtrar eventos durante a criação de uma assinatura de Grade de Eventos do Azure.
 ms.topic: conceptual
-ms.date: 02/26/2021
-ms.openlocfilehash: 7253c4a38660b0041f27918309efae21675fdc8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/04/2021
+ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721949"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102197768"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -58,13 +58,27 @@ Para filtrar por valores nos campos de dados e especificar o operador de compara
 * Values-o valor ou valores para comparar com a chave.
 
 ## <a name="key"></a>Chave
-Chave é o campo nos dados de evento que você está usando para filtragem. Pode ser um número, booliano, Cadeia de caracteres ou uma matriz. Para eventos no **esquema da grade de eventos**, use os seguintes valores para os dados de evento Key:,,,, `ID` `Topic` `Subject` `EventType` `DataVersion` ou (como `data.key1` ).
+Chave é o campo nos dados de evento que você está usando para filtragem. Pode ser um dos seguintes tipos:
+
+- Número
+- Boolean
+- String
+- Matriz. Você precisa definir a `enableAdvancedFilteringOnArrays` propriedade como true para usar esse recurso. Atualmente, o portal do Azure não dá suporte à habilitação desse recurso. 
+
+    ```json
+    "filter":
+    {
+        "subjectBeginsWith": "/blobServices/default/containers/mycontainer/log",
+        "subjectEndsWith": ".jpg",
+        "enableAdvancedFilteringOnArrays": true
+    }
+    ```
+
+Para eventos no **esquema da grade de eventos**, use os seguintes valores para os dados de evento Key:,,,, `ID` `Topic` `Subject` `EventType` `DataVersion` ou (como `data.key1` ).
 
 Para eventos no **esquema de eventos de nuvem**, use os seguintes valores para os `eventid` dados de evento Key:,, `source` `eventtype` , `eventtypeversion` ou (como `data.key1` ).
 
-Para **esquema de entrada personalizado**, use os campos de dados de evento (como `data.key1` ).
-
-Para acessar campos na seção de dados, use a `.` notação (ponto). Por exemplo, `data.sitename` `data.appEventTypeDetail.action` para acessar `sitename` ou `action` para o seguinte evento de exemplo.
+Para **esquema de entrada personalizado**, use os campos de dados de evento (como `data.key1` ). Para acessar campos na seção de dados, use a `.` notação (ponto). Por exemplo, `data.sitename` `data.appEventTypeDetail.action` para acessar `sitename` ou `action` para o seguinte evento de exemplo.
 
 ```json
     "data": {
@@ -80,10 +94,8 @@ Para acessar campos na seção de dados, use a `.` notação (ponto). Por exempl
     },
 ```
 
-
 ## <a name="values"></a>Valores
 Os valores podem ser: número, Cadeia de caracteres, booliano ou matriz
-
 
 ## <a name="operators"></a>Operadores
 

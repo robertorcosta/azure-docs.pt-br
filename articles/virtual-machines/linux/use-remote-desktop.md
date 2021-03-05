@@ -7,21 +7,23 @@ ms.service: virtual-machines-linux
 ms.collection: linux
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 03/01/2021
+ms.date: 03/03/2021
 ms.author: cynthn
-ms.openlocfilehash: 448e9f6487b5afc51be9b3dee8e07007c8534a0b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0fecf9f16cd1069b140e61a019a43510b59e76e8
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695168"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102199130"
 ---
-# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-a-linux-vm"></a>Instalar e configurar o xrdp para usar o Área de Trabalho Remota com uma VM do Linux
+# <a name="install-and-configure-xrdp-to-use-remote-desktop-with-ubuntu"></a>Instalar e configurar o xrdp para usar o Área de Trabalho Remota com o Ubuntu
 
-As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([xfce](https://www.xfce.org)) e área de trabalho remota ([xrdp](http://xrdp.org)) para sua VM do Linux usando o modelo de implantação do Resource Manager.
+As VMs (máquinas virtuais) do Linux no Azure são normalmente gerenciadas a partir da linha de comando usando uma conexão SSH (secure shell). Para novos usuários Linux, ou para cenários de solução rápida de problemas, o uso da área de trabalho remota pode ser mais fácil. Este artigo fornece detalhes sobre como instalar e configurar um ambiente de área de trabalho ([Xfce](https://www.xfce.org)) e uma área de trabalho remota ([xrdp](http://xrdp.org)) para sua VM Linux que executa o Ubuntu.
 
+O artigo foi gravado e testado usando uma VM Ubuntu 18, 4. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
 Este artigo exige uma VM do Ubuntu 18.04 LTS existente no Azure. Se você precisar criar uma VM, use um dos seguintes métodos:
 
 - A [CLI do Azure](quick-create-cli.md)

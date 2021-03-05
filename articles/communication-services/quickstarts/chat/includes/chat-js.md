@@ -10,17 +10,17 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 4d3781c7a3894429cb5daccb334655543e3eea01
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100551551"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101661607"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, é preciso:
 
-- Criar uma conta do Azure com uma assinatura ativa. Para obter detalhes, confira [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Criar uma conta do Azure com uma assinatura ativa. Para obter detalhes, confira [Criar uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Instalar o [Node.js](https://nodejs.org/en/download/), versões Active LTS e Maintenance LTS (8.11.1 e 10.14.1 são recomendadas).
 - Criar um recurso dos Serviços de Comunicação do Azure. Para obter detalhes, confira [Criar um recurso de comunicação do Azure](../../create-communication-resource.md). Você precisará **registrar o ponto de extremidade do recurso** para este guia de início rápido.
 - Crie *três* usuários do ACS e emita-os como um [token de acesso do usuário](../../access-tokens.md) token de acesso do usuário. Defina o escopo como **chat** e **anote a cadeia de caracteres do token, bem como a cadeia de caracteres da userId**. A demonstração completa cria um thread com dois participantes iniciais e adiciona um terceiro participante ao thread.
@@ -34,7 +34,7 @@ Primeiro, abra o terminal ou a janela de comando para criar um diretório para s
 ```console
 mkdir chat-quickstart && cd chat-quickstart
 ```
-   
+
 Execute `npm init -y` para criar um arquivo **package.json** com as configurações padrão.
 
 ```console
@@ -48,7 +48,7 @@ Use o comando `npm install` para instalar as bibliotecas de clientes dos Serviç
 ```console
 npm install @azure/communication-common --save
 
-npm install @azure/communication-administration --save
+npm install @azure/communication-identity --save
 
 npm install @azure/communication-signaling --save
 
@@ -86,26 +86,9 @@ Crie um arquivo no diretório raiz do projeto chamado **client.js** para conter 
 
 ### <a name="create-a-chat-client"></a>Criar um cliente de chat
 
-Para criar um cliente de chat no aplicativo Web, você usará o **ponto de extremidade** do Serviço de Comunicação e o **token de acesso** que foi gerado como parte das etapas de pré-requisito. 
+Para criar um cliente de chat no aplicativo Web, você usará o **ponto de extremidade** do Serviço de Comunicação e o **token de acesso** que foi gerado como parte das etapas de pré-requisito.
 
-Os tokens de acesso do usuário permitem que você crie aplicativos cliente que se autenticam diretamente nos Serviços de Comunicação do Azure.
-
-##### <a name="server-vs-client-side"></a>Lado do servidor versus do cliente
-
-É recomendável gerar tokens de acesso usando um componente do lado do servidor que os transmite para o aplicativo cliente. Nesse cenário, o lado do servidor seria responsável por criar e gerenciar usuários e emitir os tokens deles. O lado do cliente pode receber tokens de acesso do serviço e usá-los para autenticar as bibliotecas de cliente dos Serviços de Comunicação do Azure.
-
-Os tokens também podem ser emitidos no lado do cliente usando a biblioteca de Administração de Comunicação do Azure para JavaScript. Nesse cenário, o lado do cliente precisaria reconhecer os usuários para emitir os tokens deles.
-
-Confira a documentação a seguir para obter mais detalhes sobre a [Arquitetura de Cliente e Servidor](../../../concepts/client-and-server-architecture.md)
-
-No diagrama abaixo, o aplicativo do lado do cliente recebe um token de acesso de uma camada de serviço confiável. Em seguida, o aplicativo usa o token para autenticar as bibliotecas de Serviços de Comunicação. Depois de autenticado, o aplicativo agora pode usar as bibliotecas do lado do cliente dos Serviços de Comunicação para executar operações como conversar com outros usuários.
-
-:::image type="content" source="../../../media/scenarios/archdiagram-access.png" alt-text="Diagrama mostrando a arquitetura de token de acesso do usuário.":::
-
-##### <a name="instructions"></a>Instruções
-Esta demonstração não aborda a criação de uma camada de serviço para seu aplicativo de chat. 
-
-Se você não tiver gerado usuários e os tokens deles, siga as instruções aqui para fazer isso: [Token de Acesso do Usuário](../../access-tokens.md). Lembre-se de definir o escopo como "chat" e não "voip".
+Os tokens de acesso do usuário permitem que você crie aplicativos cliente que se autenticam diretamente nos Serviços de Comunicação do Azure. Este guia de início rápido não abrange a criação de uma camada de serviço para gerenciar tokens no seu aplicativo de chat. Confira os [conceitos de chat](../../../concepts/chat/concepts.md) para obter mais informações sobre a arquitetura de chat e os [tokens de acesso do usuário](../../access-tokens.md) para obter mais informações sobre tokens de acesso.
 
 Dentro de **client.js**, use o ponto de extremidade e o token de acesso no código abaixo para adicionar a funcionalidade de chat usando a biblioteca de clientes de chat de comunicação do Azure para JavaScript.
 
@@ -139,7 +122,7 @@ No console de ferramentas para desenvolvedores do navegador, você verá o segui
 Azure Communication Chat client created!
 ```
 
-## <a name="object-model"></a>Modelo de objeto 
+## <a name="object-model"></a>Modelo de objeto
 As classes e as interfaces a seguir lidam com alguns dos principais recursos da biblioteca de clientes de Chat dos Serviços de Comunicação do Azure para JavaScript.
 
 | Name                                   | Descrição                                                                                                                                                                           |
@@ -154,7 +137,7 @@ Use o método `createThread` para criar uma conversa de chat.
 
 `createThreadRequest` é usado para descrever a solicitação de conversa:
 
-- Use `topic` para fornecer um tópico a esse chat; o tópico pode ser atualizado depois que a conversa de chat é criada por meio da função `UpdateThread`. 
+- Use `topic` para fornecer um tópico para esse chat. Os tópicos podem ser atualizados após a conversa do chat ser criada usando a função `UpdateThread`.
 - Use `participants` para listar os participantes a serem adicionados ao thread de chat.
 
 Quando resolvido, o método `createChatThread` retorna um `CreateChatThreadResponse`. Esse modelo contém uma propriedade `chatThread` na qual você pode acessar o `id` do thread recém-criado. Você pode usar o `id` para obter uma instância de um `ChatThreadClient`. O `ChatThreadClient` pode então ser usado para executar a operação dentro do thread, como enviar mensagens ou listar participantes.
@@ -220,7 +203,7 @@ Use o método `sendMessage` para enviar uma mensagem de chat para a conversa rec
 
 `sendMessageOptions` descreve os campos opcionais da solicitação de mensagem de chat:
 
-- Use `priority` para especificar o nível de prioridade da mensagem de chat, como 'Normal' ou 'Alta'; essa propriedade pode ser usada para que o indicador da interface do usuário destinatário no aplicativo dê atenção à mensagem ou execute uma lógica de negócios personalizada.   
+- Use `priority` para especificar o nível de prioridade da mensagem do chat, como 'Normal' ou 'Alto'. Essa propriedade pode ser usada para exibir um indicador de interface do usuário para o usuário destinatário no seu aplicativo a fim de chamar atenção para a mensagem ou executar uma lógica de negócios personalizada.
 - Use `senderDisplayName` para especificar o nome de exibição do remetente;
 
 A resposta `sendChatMessageResult` contém uma ID, que é a ID exclusiva dessa mensagem.
@@ -263,7 +246,7 @@ chatClient.on("chatMessageReceived", (e) => {
 Adicione este código no lugar do comentário `<RECEIVE A CHAT MESSAGE FROM A CHAT THREAD>` em **client.js**.
 Atualize a guia do navegador e você verá uma mensagem `Notification chatMessageReceived` no console.
 
-Como alternativa, você pode recuperar mensagens de chat sondando o método `listMessages` em intervalos especificados. 
+Como alternativa, você pode recuperar mensagens de chat sondando o método `listMessages` em intervalos especificados.
 
 ```JavaScript
 
