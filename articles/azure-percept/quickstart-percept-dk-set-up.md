@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/15/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 77ccf09903b6cff83b52d60d43d0c52533c9c1ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 49bf89d38edef6a9186cbdb5bb89a763339385b4
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041681"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175814"
 ---
 # <a name="set-up-your-azure-percept-dk-and-deploy-your-first-ai-model"></a>Configurar o Azure Percept DK e implantar seu primeiro modelo de IA
 
@@ -25,7 +25,7 @@ Se você tiver problemas durante este Início Rápido, confira o guia de [soluç
 - Um Azure Percept DK.
 - Um computador host baseado em Windows, Linux ou OS X com a funcionalidade de Wi-Fi e um navegador da Web.
 - Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-- A conta do Azure deve ter a função "proprietário" ou "colaborador" na assinatura. Saiba mais sobre definições de função do Azure
+- A conta do Azure deve ter a função "proprietário" ou "colaborador" na assinatura. Saiba mais sobre [definições de função do Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles#azure-roles).
 
 ### <a name="prerequisite-check"></a>Verificação de pré-requisitos
 
@@ -182,7 +182,7 @@ Se quiser criar uma assinatura, siga [estas etapas](https://docs.microsoft.com/a
 
 ## <a name="view-your-device-in-the-azure-percept-studio-and-deploy-common-prebuilt-sample-apps"></a>Exiba seu dispositivo no Azure Percept Studio e implante aplicativos de exemplo predefinidos comuns
 
-1. Exiba sua lista de dispositivos na página Visão geral do Azure Percept. A página Visão geral do Azure Percept é seu ponto de partida para acessar vários fluxos de trabalho diferentes para o Desenvolvimento de solução e modelo de borda de IA inicial e avançado
+1. Exiba sua lista de dispositivos na página Visão geral do [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). A página Visão geral do Azure Percept é seu ponto de partida para acessar vários fluxos de trabalho diferentes para o Desenvolvimento de solução e modelo de borda de IA inicial e avançado
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/portal-01-get-device-list.png" alt-text="Exibir a lista de dispositivos.":::
     

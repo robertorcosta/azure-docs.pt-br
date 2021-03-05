@@ -147,6 +147,8 @@
       items:
         - name: Autodiagnosticar e resolver problemas
           href: spring-cloud-howto-self-diagnose-solve.md
+        - name: Autodiagnóstico em execução na VNET
+          href: spring-cloud-howto-self-diagnose-running-in-vnet.md
         - name: Guia de Solução de Problemas
           href: spring-cloud-troubleshoot.md
     - name: Migrações

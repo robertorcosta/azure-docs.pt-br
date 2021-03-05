@@ -177,7 +177,7 @@
           href: awarego-tutorial.md
         - name: AWS ClientVPN
           href: aws-clientvpn-tutorial.md
-        - name: Logon Único da AWS
+        - name: Logon Único do AWS
           href: aws-single-sign-on-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
@@ -261,6 +261,8 @@
           href: brightspace-desire2learn-tutorial.md
         - name: Britive
           href: britive-tutorial.md
+        - name: SaaS da DX Broadcom
+          href: broadcom-dx-saas-tutorial.md
         - name: Logon único do BrowserStack
           href: browserstack-single-sign-on-tutorial.md
         - name: Bugsnag
@@ -593,6 +595,8 @@
           href: euromonitor-passport-tutorial.md
         - name: EverBridge
           href: everbridge-tutorial.md
+        - name: Evergreen
+          href: evergreen-tutorial.md
         - name: Evernote
           href: evernote-tutorial.md
         - name: Evidence.com
@@ -625,6 +629,8 @@
           href: factset-tutorial.md
         - name: Nuvem de borda da Fastly
           href: fastly-edge-cloud-tutorial.md
+        - name: FAX.PLUS
+          href: fax.plus-tutorial.md
         - name: FCM HUB
           href: fcm-hub-tutorial.md
         - name: Field iD
@@ -675,6 +681,8 @@
           href: fortes-change-cloud-tutorial.md
         - name: VPN SSL FortiGate
           href: fortigate-ssl-vpn-tutorial.md
+        - name: FortiSASE SIA
+          href: fortisase-sia-tutorial.md
         - name: Freedcamp
           href: freedcamp-tutorial.md
         - name: FreshDesk
@@ -967,6 +975,8 @@
           href: jostle-tutorial.md
         - name: Juno Journey
           href: juno-journey-tutorial.md
+        - name: JuriBlox
+          href: juriblox-tutorial.md
         - name: Kallidus
           href: kallidus-tutorial.md
         - name: Kanbanize
@@ -983,7 +993,7 @@
           href: kantegassoforjira-tutorial.md
         - name: Gerenciador de senhas e cofre digital Keeper
           href: keeperpasswordmanager-tutorial.md
-        - name: Kemp LoadMaster – Integração com o Azure AD
+        - name: Integração do Azure AD com o Kemp LoadMaster
           href: kemp-tutorial.md
         - name: Kendis – Integração com o Azure AD
           href: kendis-scaling-agile-platform-tutorial.md
@@ -1591,6 +1601,8 @@
           href: securedeliver-tutorial.md
         - name: SecureW2 JoinNow Connector
           href: securejoinnow-tutorial.md
+        - name: SecurityStudio
+          href: securitystudio-tutorial.md
         - name: Sedgwick CMS
           href: sedgwickcms-tutorial.md
         - name: Segment
@@ -1701,7 +1713,7 @@
           href: softeon-tutorial.md
         - name: Software AG Cloud
           href: software-ag-cloud-tutorial.md
-        - name: Central de Serviços SolarWinds
+        - name: Central de Serviços do SolarWinds
           href: samanage-tutorial.md
         - name: Soloinsight-CloudGate SSO
           href: soloinsight-cloudgate-sso-tutorial.md
@@ -1889,6 +1901,8 @@
           href: userecho-tutorial.md
         - name: UserVoice
           href: uservoice-tutorial.md
+        - name: ValidSign
+          href: validsign-tutorial.md
         - name: Velpic SAML
           href: velpicsaml-tutorial.md
         - name: Veracode
@@ -2082,7 +2096,7 @@
           href: atlassian-cloud-provisioning-tutorial.md
         - name: Conector SCIM do Azure Databricks
           href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
-        - name: Logon Único da AWS
+        - name: Logon Único do AWS
           href: aws-single-sign-on-provisioning-tutorial.md
         - name: BitaBIZ
           href: bitabiz-provisioning-tutorial.md
@@ -2188,8 +2202,6 @@
           href: keeper-password-manager-digitalvault-provisioning-tutorial.md
         - name: LinkedIn Elevate
           href: linkedinelevate-provisioning-tutorial.md
-        - name: LinkedIn Learning
-          href: linkedin-learning-provisioning-tutorial.md
         - name: LinkedIn Sales Navigator
           href: linkedinsalesnavigator-provisioning-tutorial.md
         - name: Lucidchart
@@ -2312,14 +2324,14 @@
           href: thousandeyes-provisioning-tutorial.md
         - name: Tic-Tac Mobile
           href: tic-tac-mobile-provisioning-tutorial.md
-        - name: Templafy
-          href: templafy-provisioning-tutorial.md
         - name: Templafy SAML2
           href: templafy-saml-2-provisioning-tutorial.md
         - name: Templafy OpenID Connect
           href: templafy-openid-connect-provisioning-tutorial.md
         - name: TheOrgWiki
           href: theorgwiki-provisioning-tutorial.md
+        - name: TravelPerk
+          href: travelperk-provisioning-tutorial.md
         - name: Velpic
           href: velpic-provisioning-tutorial.md
         - name: Visibly
