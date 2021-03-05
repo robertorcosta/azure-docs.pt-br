@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b743b5be195f44c03adbee75c3108f4908d8d4e8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101717750"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218002"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights
 
@@ -56,11 +56,11 @@ Aqui estão as configurações necessárias para habilitar o criador de perfil:
 
 Você pode definir esses valores usando [modelos de Azure Resource Manager](./azure-web-apps.md#app-service-application-settings-with-azure-resource-manager), [Azure PowerShell](/powershell/module/az.websites/set-azwebapp)  [CLI do Azure](/cli/azure/webapp/config/appsettings).
 
-### <a name="enabling-profiler-for-other-clouds-manually"></a>Como habilitar o criador de perfil para outras nuvens manualmente
+## <a name="enable-profiler-for-other-clouds"></a>Habilitar o Profiler para outras nuvens
 
-Se você quiser habilitar o criador de perfil para outras nuvens, poderá usar as configurações de aplicativo abaixo.
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
-|Configurações de Aplicativo    | Valores do Governo dos EUA| Nuvem da China |   
+|Configurações de Aplicativo    | Nuvem do governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
 |ApplicationInsightsProfilerEndpoint         | `https://profiler.monitor.azure.us`    | `https://profiler.monitor.azure.cn` |
 |ApplicationInsightsEndpoint | `https://dc.applicationinsights.us` | `https://dc.applicationinsights.azure.cn` |

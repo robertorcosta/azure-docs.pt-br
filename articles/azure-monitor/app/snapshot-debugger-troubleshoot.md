@@ -6,17 +6,54 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c9813108c05cabbd071a9d919452682bd6ad69e7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101731945"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102217407"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas.
 
 Pode haver vários motivos diferentes pelos quais os instantâneos não são gerados. Você pode começar executando a verificação de integridade de instantâneo para identificar algumas das possíveis causas comuns.
+
+## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Verifique se você está usando o ponto de extremidade de Depurador de Instantâneos apropriado
+
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+
+Para aplicativos e serviço de aplicativo usando o SDK do Application Insights, você precisa atualizar a cadeia de conexão usando as substituições com suporte para Depurador de Instantâneos conforme definido abaixo:
+
+|Propriedade da cadeia de conexão    | Nuvem do governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+
+Por Aplicativo de funções, você precisa atualizar o `host.json` usando as substituições com suporte abaixo:
+
+|Propriedade    | Nuvem do governo dos EUA | Nuvem da China |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
+Abaixo está um exemplo da `host.json` atualização com o ponto de extremidade do agente de nuvem do governo dos EUA:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
 
 ## <a name="use-the-snapshot-health-check"></a>Use a verificação de integridade do instantâneo
 Vários problemas comuns resultam na não exibição do Abrir Instantâneo de Depuração. Usando um Coletor de Instantâneo desatualizado, por exemplo; alcançando o limite de carregamento diário; ou talvez o instantâneo está simplesmente demorando muito para carregar. Use a Verificação de Integridade de Instantâneo para solucionar problemas comuns.

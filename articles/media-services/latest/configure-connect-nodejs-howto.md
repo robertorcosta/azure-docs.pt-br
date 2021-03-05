@@ -14,12 +14,12 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: ab0113823bb5751828a71a9afd8c474091272e16
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724618"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216421"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-Node.js
 
@@ -224,13 +224,13 @@ Os exemplos a seguir estão disponíveis no [repositório](https://github.com/Az
 
 ## <a name="see-also"></a>Confira também
 
-- [Documentação de referência para os módulos dos serviços de mídia do Azure para Node.js](https://docs.microsoft.com/javascript/api/overview/azure/media-services?view=azure-node-latest)
-- [Azure para JavaScript & Node.js desenvolvedores](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Documentação de referência para os módulos dos serviços de mídia do Azure para Node.js](/javascript/api/overview/azure/media-services)
+- [Azure para JavaScript & Node.js desenvolvedores](/azure/developer/javascript/)
 - [Código-fonte dos serviços de mídia no @azure/azure-sdk-for-js repositório do Hub git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Documentação do pacote do Azure para desenvolvedores de Node.js](https://docs.microsoft.com/javascript/api/overview/azure/?view=azure-node-latest)
+- [Documentação do pacote do Azure para desenvolvedores de Node.js](/javascript/api/overview/azure/)
 - [Conceitos dos Serviços de Mídia](concepts-overview.md)
 - [NPM instalar @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure para JavaScript & Node.js desenvolvedores](https://docs.microsoft.com/azure/developer/javascript/?view=azure-node-latest)
+- [Azure para JavaScript & Node.js desenvolvedores](/azure/developer/javascript/)
 - [Código-fonte dos serviços de mídia no @azure/azure-sdk-for-js repositório](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Próximas etapas

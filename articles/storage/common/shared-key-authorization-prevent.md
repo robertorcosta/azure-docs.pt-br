@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 03/05/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 944e233fafc4cf5c8c90041e18f94d0e53b7bb46
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591535"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215571"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -22,12 +22,8 @@ Todas as solicitações seguras para uma conta de armazenamento do Azure devem s
 
 Quando você não permite a autorização de chave compartilhada para uma conta de armazenamento, o armazenamento do Azure rejeita todas as solicitações subsequentes para essa conta que são autorizadas com as chaves de acesso da conta. Somente as solicitações seguras autorizadas com o Azure AD terão sucesso. Para obter mais informações sobre como usar o Azure AD, consulte [autorizar o acesso a BLOBs e filas usando o Azure Active Directory](storage-auth-aad.md).
 
-> [!WARNING]
-> O armazenamento do Azure dá suporte à autorização do Azure AD para solicitações de armazenamento de BLOBs e de filas. Se você não permitir a autorização com chave compartilhada para uma conta de armazenamento, as solicitações para os arquivos do Azure ou o armazenamento de tabelas que usam a autorização de chave compartilhada falharão. Como o portal do Azure sempre usa a autorização de chave compartilhada para acessar dados de arquivo e tabela, se você não permitir a autorização com chave compartilhada para a conta de armazenamento, não será possível acessar dados de arquivo ou tabela no portal do Azure.
->
-> A Microsoft recomenda que você migre todos os arquivos do Azure ou dados de armazenamento de tabela para uma conta de armazenamento separada antes de não permitir o acesso à conta por meio da chave compartilhada ou que você não aplique essa configuração a contas de armazenamento que dão suporte a arquivos do Azure ou cargas de trabalho de armazenamento de tabelas.
->
-> A despermissão de acesso de chave compartilhada para uma conta de armazenamento não afeta as conexões SMB com os arquivos do Azure.
+> [!IMPORTANT]
+> A despermissão da autorização de chave compartilhada está atualmente em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 Este artigo descreve como detectar solicitações enviadas com a autorização de chave compartilhada e como corrigir a autorização de chave compartilhada para sua conta de armazenamento. Para saber como registrar-se para a versão prévia, consulte [sobre a versão prévia](#about-the-preview).
 
@@ -123,7 +119,7 @@ A propriedade **AllowSharedKeyAccess** não é definida por padrão e não retor
 > [!WARNING]
 > Se algum cliente estiver acessando dados em sua conta de armazenamento com a chave compartilhada, a Microsoft recomendará que você migre esses clientes para o Azure AD antes de não permitir o acesso à chave compartilhada à conta de armazenamento.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para não permitir a autorização de chave compartilhada para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -133,11 +129,23 @@ Para não permitir a autorização de chave compartilhada para uma conta de arma
 
     :::image type="content" source="media/shared-key-authorization-prevent/shared-key-access-portal.png" alt-text="Captura de tela mostrando como não permitir acesso de chave compartilhada para a conta":::
 
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+
+Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com o PowerShell, instale o [módulo AZ. Storage PowerShell](https://www.powershellgallery.com/packages/Az.Storage), versão 3.4.0 ou posterior. Em seguida, configure a propriedade **AllowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
+
+O exemplo a seguir mostra como impedir o acesso com chave compartilhada para uma conta de armazenamento existente com o PowerShell. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource-group> `
+    -AccountName <storage-account> `
+    -AllowSharedKeyAccess $false
+```
+
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
 Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com CLI do Azure, instale CLI do Azure versão 2.9.1 ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Em seguida, configure a propriedade **allowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
 
-O exemplo a seguir mostra como definir a propriedade **allowSharedKeyAccess** com CLI do Azure. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
+O exemplo a seguir mostra como impedir o acesso com chave compartilhada para uma conta de armazenamento existente com CLI do Azure. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
 ```azurecli-interactive
 $storage_account_id=$(az resource show \
@@ -214,7 +222,7 @@ Quando o acesso à chave compartilhada não é permitido para a conta de armazen
 
 | Tipo de SAS | Tipo de autorização | Comportamento quando AllowSharedKeyAccess é false |
 |-|-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
 | SAS do serviço | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 | SAS da conta | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 
@@ -236,12 +244,17 @@ Algumas ferramentas do Azure oferecem a opção de usar a autorização do Azure
 | Hub IoT do Azure | Com suporte. Para obter mais informações, consulte [suporte do Hub IOT para redes virtuais](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell é um shell integrado no portal do Azure. Azure Cloud Shell hospeda arquivos para persistência em um compartilhamento de arquivos do Azure em uma conta de armazenamento. Esses arquivos ficarão inacessíveis se a autorização de chave compartilhada não for permitida para essa conta de armazenamento. Para obter mais informações, consulte [conectar o armazenamento de arquivos de Microsoft Azure](../../cloud-shell/overview.md#connect-your-microsoft-azure-files-storage). <br /><br /> Para executar comandos no Azure Cloud Shell para gerenciar contas de armazenamento para as quais o acesso à chave compartilhada não é permitido, primeiro certifique-se de ter recebido as permissões necessárias para essas contas por meio do RBAC do Azure. Para obter mais informações, consulte [o que é o Azure RBAC (controle de acesso baseado em função)?](../../role-based-access-control/overview.md). |
 
+## <a name="transition-azure-files-and-table-storage-workloads"></a>Fazer a transição de cargas de trabalho de armazenamento de tabelas e arquivos do Azure
+
+O armazenamento do Azure dá suporte à autorização do Azure AD para solicitações de armazenamento de BLOBs e de filas. Se você não permitir a autorização com chave compartilhada para uma conta de armazenamento, as solicitações para os arquivos do Azure ou o armazenamento de tabelas que usam a autorização de chave compartilhada falharão. Como o portal do Azure sempre usa a autorização de chave compartilhada para acessar dados de arquivo e tabela, se você não permitir a autorização com chave compartilhada para a conta de armazenamento, não será possível acessar dados de arquivo ou tabela no portal do Azure.
+
+A Microsoft recomenda que você migre todos os arquivos do Azure ou dados de armazenamento de tabela para uma conta de armazenamento separada antes de não permitir o acesso à conta por meio da chave compartilhada ou que você não aplique essa configuração a contas de armazenamento que dão suporte a arquivos do Azure ou cargas de trabalho de armazenamento de tabelas.
+
+A despermissão de acesso de chave compartilhada para uma conta de armazenamento não afeta as conexões SMB com os arquivos do Azure.
+
 ## <a name="about-the-preview"></a>Sobre a visualização
 
 A visualização para a despermissão da autorização de chave compartilhada está disponível na nuvem pública do Azure. Há suporte para contas de armazenamento que usam apenas o modelo de implantação Azure Resource Manager. Para obter informações sobre quais contas de armazenamento usam o modelo de implantação Azure Resource Manager, consulte [tipos de contas de armazenamento](storage-account-overview.md#types-of-storage-accounts).
-
-> [!IMPORTANT]
-> Esta versão prévia é destinada apenas para uso não produtivo.
 
 A visualização inclui as limitações descritas nas seções a seguir.
 

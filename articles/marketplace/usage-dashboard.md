@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
-ms.openlocfilehash: 9f798751065d4889569f4b798ac864342f3e54ef
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.openlocfilehash: d898efb44bb92151a5d044a6699a4efb70fa9390
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
-ms.locfileid: "98934404"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215724"
 ---
 # <a name="usage-dashboard-in-commercial-marketplace-analytics"></a>Painel de uso na análise do marketplace comercial
 
@@ -154,9 +154,9 @@ _**Tabela 1: dicionário de termos de dados**_
 | NormalizedUsage | Uso normalizado | O total de unidades de uso normalizadas consumidas pelo ativo que é implantado pelo cliente.<br>As horas de uso normalizadas são definidas como as horas de uso normalizadas para contabilizar o número de núcleos da VM ([número de núcleos da VM] x [horas brutas de uso]). As VMs designadas como "SHAREDCORE" usam 1/6 (ou 0,1666) como o multiplicador [número de núcleos de VM]. |
 | MeteredUsage | Uso medido | As unidades de uso total consumidas pelos medidores configurados com a oferta que é implantada pelo cliente. |
 | RawUsage | Uso bruto | As unidades de uso bruto total consumidas pelo ativo que é implantado pelo cliente.<br>Horas de uso brutos são definidas como a quantidade de tempo que as VMs estão em execução em termos de unidades de uso. |
-| Custo estendido estimado (CC) | Encargo estendido estimado na moeda do cliente | Significa os encargos associados ao uso. A coluna é o produto de preço (CC) e quantidade de uso. |
-| Custo estendido estimado (PC) | Encargo estendido estimado na moeda do pagamento | Significa os encargos associados ao uso. A coluna é o produto de preço estimado (PC) e quantidade de uso. |
-||||
+| Custo estendido estimado (CC) | Encargo estendido estimado na moeda do cliente | Significa os encargos associados ao uso. A coluna é o produto de preço (CC) e uso bruto. |
+| Custo estendido estimado (PC) | Encargo estendido estimado na moeda do pagamento | Significa os encargos associados ao uso. A coluna é o produto de preço estimado (PC) e uso bruto. |
+|
 
 ### <a name="usage-page-filters"></a>Filtros de página de uso
 

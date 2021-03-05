@@ -2,17 +2,17 @@
 title: Configuração de DNS do ponto de extremidade privado do Azure
 description: Aprenda a configuração de DNS do ponto de extremidade privado do Azure
 services: private-link
-author: allensu
+author: asudbring
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: allensu
-ms.openlocfilehash: 3cb5dd88572fda7a939aa529a5372d72575ffdbb
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 42c5b315c9c3560c400c685448a11dc61bf64eb6
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203276"
+ms.locfileid: "102215605"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configuração de DNS do ponto de extremidade privado do Azure
 
@@ -79,7 +79,7 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Serviços cognitivas (Microsoft. Cognitivaservices/contas)/conta | privatelink.cognitiveservices.azure.com  | cognitiveservices.azure.com  |
 | Sincronização de Arquivos do Azure (Microsoft. StorageSync/storageSyncServices)/AFS |  privatelink.afs.azure.net  |  afs.azure.net  |
 | Azure Data Factory (Microsoft. datafactory/fábricas)/datafactory |  privatelink.datafactory.azure.net  |  datafactory.azure.net  |
-| Azure Data Factory (Microsoft. datafactory/fábricas)/Portal |  privatelink.azure.com  |  azure.com  |
+| Azure Data Factory (Microsoft. datafactory/fábricas)/Portal |  privatelink.adf.azure.com  |  adf.azure.com  |
 | Cache do Azure para Redis (Microsoft. cache/Redis)/redisCache | privatelink.redis.cache.windows.net | redis.cache.windows.net |
 
 <sup>1</sup> Para usar com o ponto de extremidade compatível com o Hub de eventos interno do Hub IoT. Para saber mais, consulte [suporte de link privado para ponto de extremidade interno do Hub IOT](../iot-hub/virtual-network-support.md#built-in-event-hub-compatible-endpoint)
@@ -97,7 +97,6 @@ Para os serviços do Azure, use os nomes de zona recomendados, conforme descrito
 | Banco de Dados do Azure para PostgreSQL - servidor único (Microsoft.DBforPostgreSQL/servers)/postgresqlServer | privatelink.postgres.database.chinacloudapi.cn | postgres.database.chinacloudapi.cn |
 | Banco de Dados do Azure para MySQL (Microsoft.DBforMySQL/servers)/mysqlServer | privatelink.mysql.database.chinacloudapi.cn  | mysql.database.chinacloudapi.cn  |
 | Banco de Dados do Azure para MariaDB (Microsoft.DBforMariaDB/servers)/mariadbServer | privatelink.mariadb.database.chinacloudapi.cn | mariadb.database.chinacloudapi.cn |
-
 
 ## <a name="dns-configuration-scenarios"></a>Cenários de configuração de DNS
 

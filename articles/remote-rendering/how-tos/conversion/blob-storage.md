@@ -5,12 +5,12 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/04/2020
 ms.topic: how-to
-ms.openlocfilehash: cfc10658463888e43ea1a24dfefd3f8939ec8ef7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 889c25fd1402c4438ff648afce64905de112c8db
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762779"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215537"
 ---
 # <a name="use-azure-blob-storage-for-model-conversion"></a>Usar o armazenamento de Blobs do Azure para conversão de modelo
 
@@ -28,7 +28,7 @@ O serviço de [conversão de modelo](model-conversion.md) requer acesso ao armaz
 A criação da conta de armazenamento e os contêineres de blob podem ser feitos com uma das seguintes ferramentas:
 
 - [Azure portal](https://portal.azure.com)
-- [linha de comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando AZ](/cli/azure/install-azure-cli)
 - [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
 - SDKs (C#, Python...)
 
@@ -52,7 +52,7 @@ Um URI SAS pode ser gerado usando um dos:
 
 - módulo AZ PowerShell
   - consulte o [exemplo de scripts do PowerShell](../../samples/powershell-example-scripts.md)
-- [linha de comando AZ](/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [linha de comando AZ](/cli/azure/install-azure-cli)
 - [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/)
   - Clique com o botão direito do mouse no contêiner "obter assinatura de acesso compartilhado" (leitura, acesso à lista para o contêiner de entrada, acesso de gravação para o contêiner de saída)
 - SDKs (C#, Python...)
