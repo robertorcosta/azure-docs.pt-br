@@ -3,12 +3,12 @@ title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 11/20/2020
-ms.openlocfilehash: e55be57968eae2a371a21b214dbd15921641e31f
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: be38d4f91afcaa1ac31e9b9bbc6d2547da2ee99e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98741767"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183651"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -74,6 +74,9 @@ A **Configuração de Máquina Virtual** especifica que o pool é composto de m�
 O [agente de nó de lote](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) é um programa executado em cada nó no pool e fornece a interface de comando e controle entre o nó e o serviço de lote. Há diferentes implementações do agente do nó, conhecido como SKUs, para diferentes sistemas operacionais. Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais. Quando incluir discos de dados, você precisará montar e formatar os discos de dentro de uma VM para usá-los.
 
 ### <a name="cloud-services-configuration"></a>Configuração de Serviços de Nuvem
+
+> [!WARNING]
+> Os pools de configuração do serviço de nuvem foram preteridos. Em vez disso, use pools de configuração de máquina virtual.
 
 A **Configuração dos Serviços de Nuvem** especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os serviços de nuvem fornecem apenas nós de computação do Windows.
 

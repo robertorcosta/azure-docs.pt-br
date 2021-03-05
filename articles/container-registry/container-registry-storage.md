@@ -2,34 +2,34 @@
 title: Armazenamento de imagens de contêiner
 description: Detalhes sobre como as imagens de contêiner e outros artefatos são armazenados no registro de contêiner do Azure, incluindo segurança, redundância e capacidade.
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/03/2021
 ms.custom: references_regions
-ms.openlocfilehash: 4bdffd111273e00b796e45f4e09bfac9ba6713e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ec4328b44d5493b8d765fa30c548adc3d747d446
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036003"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183260"
 ---
 # <a name="container-image-storage-in-azure-container-registry"></a>Armazenamento de imagens de contêiner no Registro de Contêiner do Azure
 
-Cada registro de contêiner do Azure [Básico, Standard e Premium](container-registry-skus.md) beneficia-se de recursos avançados de armazenamento do Azure, como criptografia em repouso para segurança de dados de imagem e redundância geográfica para proteção de dados de imagem. As seções a seguir descrevem os recursos e os limites do armazenamento de imagens no ACR (Registro de Contêiner do Azure).
+Cada registro de contêiner do Azure [básico, Standard e Premium](container-registry-skus.md) se beneficia dos recursos avançados de armazenamento do Azure, incluindo criptografia em repouso. As seções a seguir descrevem os recursos e limites do armazenamento de imagem no ACR (registro de contêiner do Azure).
 
 ## <a name="encryption-at-rest"></a>Criptografia em repouso
 
 Todas as imagens de contêiner e outros artefatos em seu registro são criptografados em repouso. O Azure criptografa automaticamente uma imagem antes de armazená-la e descriptografa-a dinamicamente quando você ou seus aplicativos e serviços obtêm a imagem. Opcionalmente, aplique uma camada de criptografia extra a uma [chave gerenciada pelo cliente](container-registry-customer-managed-keys.md).
 
-## <a name="geo-redundant-storage"></a>Armazenamento com redundância geográfica
+## <a name="regional-storage"></a>Armazenamento regional
 
-Para registros de contêiner implantados na maioria das regiões, o Azure usa um esquema de armazenamento com redundância geográfica para ajudar a proteger contra perda de suas imagens de contêiner e outros artefatos. O registro de contêiner do Azure replica automaticamente suas imagens de contêiner para vários data centers distantes geograficamente, evitando a perda se ocorrer uma falha de armazenamento regional.
+O registro de contêiner do Azure armazena dados na região em que o registro é criado, para ajudar os clientes a atender aos requisitos de conformidade e residência de dados.
 
-> [!IMPORTANT]
-> * Se ocorrer uma falha de armazenamento regional, os dados do registro só poderão ser recuperados entrando em contato com o suporte do Azure. 
-> * Devido aos requisitos de residência de dados no sul do Brasil e sudeste asiático, os dados do registro de contêiner do Azure nessas regiões são armazenados [somente em geografia local](https://azure.microsoft.com/global-infrastructure/geographies/). Para o Sudeste Asiático, todos os dados são armazenados em Cingapura. Para o sul do Brasil, todos os dados são armazenados no Brasil. Quando a região é perdida devido a um desastre significativo, a Microsoft não será capaz de recuperar os dados do registro de contêiner do Azure.
+Para ajudar a proteger contra interrupções do datacenter, algumas regiões oferecem [redundância de zona](zone-redundancy.md), em que os dados são replicados em vários datacenters em uma região específica.
+
+Os clientes que desejam ter seus dados armazenados em várias regiões para melhorar o desempenho em diferentes geografias ou que desejam ter resiliência no caso de uma interrupção regional devem habilitar [a replicação geográfica](container-registry-geo-replication.md).
 
 ## <a name="geo-replication"></a>Replicação geográfica
 
-Para cenários que exigem ainda mais garantia de alta disponibilidade, utilize o recurso de [replicação geográfica](container-registry-geo-replication.md) dos registros Premium. A replicação geográfica ajuda a proteger contra a perda de acesso ao registro no caso de uma falha regional *total* e não apenas uma falha de armazenamento. A replicação geográfica também oferece outros benefícios, como armazenamento de imagens de proximidade de rede para efetuar pushes e pulls mais rápido em cenários de implantação ou desenvolvimento distribuído.
+Para cenários que exigem garantia de alta disponibilidade, considere o uso do recurso de [replicação geográfica](container-registry-geo-replication.md) de registros Premium. A replicação geográfica ajuda a proteger contra a perda de acesso ao registro no caso de uma falha regional. A replicação geográfica também oferece outros benefícios, como armazenamento de imagens de proximidade de rede para efetuar pushes e pulls mais rápido em cenários de implantação ou desenvolvimento distribuído.
 
 ## <a name="zone-redundancy"></a>Redundância de zona
 

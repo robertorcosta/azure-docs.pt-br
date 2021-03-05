@@ -6,12 +6,12 @@ ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: c2241d738a43c6891ee4bea0829400fdc51a664b
-ms.sourcegitcommit: f7084d3d80c4bc8e69b9eb05dfd30e8e195994d8
+ms.openlocfilehash: 83fc88a57a1cdbec35a8f939a81698799d290d70
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2020
-ms.locfileid: "97734225"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183617"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implantar um modelo de aprendizado de máquina para Azure Functions com o cache do Azure para Redis 
 
@@ -26,7 +26,7 @@ O cache do Azure para Redis é extremamente funcional e escalonável – quando 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Assinatura do Azure – [Crie uma gratuitamente](https://azure.microsoft.com/free/).
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte o artigo [criar um espaço de trabalho](../machine-learning/how-to-manage-workspace.md) .
-* [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
+* [CLI do Azure](/cli/azure/install-azure-cli).
 * Um modelo de aprendizado de máquina treinado registrado em seu espaço de trabalho. Se você não tiver um modelo, use o [tutorial de classificação de imagem: treinar modelo](../machine-learning/tutorial-train-models-with-aml.md) para treinar e registrar um.
 
 > [!IMPORTANT]
@@ -294,7 +294,7 @@ Agora, executaremos e testaremos nosso gatilho HTTP Azure Functions.
 
 Agora você implantou com êxito um modelo de Azure Machine Learning como um aplicativo de funções usando um cache do Azure para a instância Redis. Saiba mais sobre o cache do Azure para Redis navegando até os links na seção abaixo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você pretende continuar até o próximo tutorial, pode manter os recursos criados neste início rápido e reutilizá-los.
 

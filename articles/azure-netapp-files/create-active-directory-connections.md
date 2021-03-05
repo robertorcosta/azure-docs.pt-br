@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: b-juche
-ms.openlocfilehash: 756bf1cd7a7e9435130a3ad2d3b530b7f2e5b1b4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 44959b2f60f9aafd7d9430c9c19baea72344293f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100604865"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183872"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Criar e gerenciar conexões de Active Directory para Azure NetApp Files
 
@@ -183,7 +183,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFAesEncryption
         ```
         
-        Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
+        Você também pode usar [comandos de CLI do Azure](/cli/azure/feature) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
     * **Assinatura LDAP**   
         Marque esta caixa de seleção para habilitar a assinatura LDAP. Essa funcionalidade permite pesquisas LDAP seguras entre o serviço Azure NetApp Files e os [controladores de domínio Active Directory Domain Services](/windows/win32/ad/active-directory-domain-services)especificados pelo usuário. Para obter mais informações, consulte [ADV190023 | Diretrizes da Microsoft para habilitar a assinatura LDAP e a associação de canal LDAP](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023).  
@@ -205,7 +205,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFLdapSigning
         ```
         
-        Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
+        Você também pode usar [comandos de CLI do Azure](/cli/azure/feature) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
      * **Usuários da política de backup**  
         Você pode incluir outras contas que exigem privilégios elevados na conta de computador criada para uso com o Azure NetApp Files. As contas especificadas terão permissão para alterar as permissões de NTFS no nível do arquivo ou da pasta. Por exemplo, você pode especificar uma conta de serviço sem privilégios usada para migrar dados para um compartilhamento de arquivos SMB no Azure NetApp Files.  
@@ -227,7 +227,7 @@ Essa configuração é definida em **Conexões do Active Directory** em **Conta 
         Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFBackupOperator
         ```
         
-        Você também pode usar [comandos de CLI do Azure](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
+        Você também pode usar [comandos de CLI do Azure](/cli/azure/feature) `az feature register` e `az feature show` para registrar o recurso e exibir o status do registro. 
 
     * Credenciais, incluindo seu **nome de usuário** e sua **senha**
 

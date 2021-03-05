@@ -3,12 +3,12 @@ title: Alterar configurações de cluster do Azure Service Fabric
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 34a63a86bc10a787ef077b9067c3fba5a9e4da25
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98919775"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183396"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -130,7 +130,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |EnableTelemetry |Bool, o padrão é true | Dinâmico |Isso vai habilitar ou desabilitar a telemetria. |
 |FailuresOnlyHttpTelemetry | Bool, o padrão é false | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; a captura será de apenas solicitações com falha. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
 |HttpTelemetryCapturePercentage | int, o padrão é 50 | Dinâmico | Se a captura de telemetria HTTP estiver habilitada; a captura será de apenas uma porcentagem aleatória de solicitações. Isso é para ajudar a reduzir o número de eventos gerados para telemetria. |
-|MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmico |Cota de disco em MB para arquivos de log do Windows Fabric. |
+|MaxDiskQuotaInMB |Int, o padrão é 65536 | Dinâmico |Cota de disco em MB para arquivos de log da malha do Windows e do Linux. |
 |ProducerInstances |String | Dinâmico |A lista de instâncias de produtor DCA. |
 
 ## <a name="dnsservice"></a>DnsService

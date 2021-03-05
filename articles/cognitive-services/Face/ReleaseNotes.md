@@ -10,16 +10,23 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 12/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 49d8eeaa8d1160659a456f147a6a5e27f923af33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a66f65d48a14853ec1da08f5d83b777f4fdac846
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733458"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183303"
 ---
 # <a name="whats-new-in-face-service"></a>O que há de novo no serviço de Detecção Facial?
 
 O serviço de face do Azure é atualizado em uma base contínua. Use este artigo para se manter atualizado com os aprimoramentos de recursos, correções e atualizações de documentação.
+
+## <a name="february-2021"></a>Fevereiro de 2021
+
+* Novo modelo de detecção de API de Detecção Facial: o novo modelo de detecção 03 é o modelo de detecção mais preciso disponível no momento. Se você for um cliente novo, é recomendável usar esse modelo. A detecção 03 melhora a RECALL e a precisão em rostos menores encontrados nas imagens (64 x 64 pixels). Os aprimoramentos adicionais incluem uma redução geral em falsos positivos e uma detecção aprimorada em orientações de face giradas. A combinação da detecção 03 com o novo reconhecimento 04 também proporcionará maior precisão de reconhecimento. Consulte [especificar um modelo de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) para obter mais detalhes.
+* Atributo de máscara facial: o atributo de máscara facial está disponível com o modelo de detecção mais recente 03, juntamente com o atributo adicional `"noseAndMouthCovered"` que detecta se a máscara de face está gasta conforme o esperado, cobrindo o nariz e a boca. Para usar o recurso de detecção de máscara mais recente, os usuários precisam especificar o modelo de detecção na solicitação de API: atribuir a versão do modelo com o parâmetro _detectionModel_ para `detection_03` . Consulte [especificar um modelo de detecção facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-detection-model) para obter mais detalhes.
+* Novo modelo de reconhecimento de API de Detecção Facial: o novo modelo de reconhecimento 04 é o modelo de reconhecimento mais preciso disponível no momento. Se você for um novo cliente, recomendamos usar esse modelo para verificação e identificação. Ele melhora a precisão do reconhecimento 03, incluindo o reconhecimento aprimorado para usuários registrados com cobertura de face (máscaras de Surgical, máscaras N95, máscaras de tecido). Agora, os clientes podem criar experiências de usuário seguras e diretas que detectam se um usuário registrado está aproveitando uma capa com o modelo de detecção mais recente 03 e reconhece quem está com o modelo mais recente de reconhecimento 04. Consulte [especificar um modelo de reconhecimento facial](https://docs.microsoft.com/azure/cognitive-services/face/face-api-how-to-topics/specify-recognition-model) para obter mais detalhes.
+
 
 ## <a name="january-2021"></a>Janeiro de 2021
 * Reduzir a latência ao usar o API de Detecção Facial: a equipe de face publicou um novo artigo detalhando possíveis causas de latência ao usar o serviço e as estratégias de mitigação possíveis. Consulte [mitigar latência ao usar o serviço de face](./face-api-how-to-topics/how-to-mitigate-latency.md).

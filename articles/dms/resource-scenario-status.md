@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: cc3323a3ae2d604557d7e09b38252d63f17c5470
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d51de526205e8ef663dcfd682ec5858e4bc2f645
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319921"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183974"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -56,7 +56,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 | **VM do SQL do Azure** | SQL Server | ✔ | GA |
 |   | Oracle | X |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **BD do Azure para MySQL** | MySQL | X |   |
+| **Banco de dados do Azure para MySQL** | MySQL | X |   |
 |   | MySQL para RDS | X |   |
 | **BD do Azure para PostgreSQL-servidor único** | PostgreSQL | X |
 |  | PostgreSQL para RDS | X |   |
@@ -69,16 +69,16 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 
 | Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **BD SQL do Azure** | SQL Server | ✔ | GA |
-|   | SQL para RDS | ✔ | GA |
+| **BD SQL do Azure** | SQL Server | X | GA |
+|   | SQL para RDS | X | GA |
 |   | Oracle | X |  |
 | **SQL do Azure para MI do BD** | SQL Server | ✔ | GA |
-|   | SQL para RDS | ✔ | GA |
+|   | SQL para RDS | X | GA |
 |   | Oracle | X |  |
 | **VM do SQL do Azure** | SQL Server | X |   |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
-| **BD do Azure para MySQL** | MySQL | ✔ | GA |
+| **Banco de dados do Azure para MySQL** | MySQL | ✔ | GA |
 |   | MySQL para RDS | ✔ | GA |
 | **BD do Azure para PostgreSQL-servidor único** | PostgreSQL | ✔ | GA |
 |   | BD do Azure para PostgreSQL-servidor único | ✔ | GA |
