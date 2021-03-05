@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: tyao
-ms.openlocfilehash: 885582481e3783bdd4fbad40a24499f42a40ce24
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 885b4d132208ab6f8b470d147438e26a5fd4bab7
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193380"
+ms.locfileid: "102201661"
 ---
 # <a name="connect-azure-front-door-premium-to-a-storage-account-origin-with-private-link"></a>Conectar a porta frontal do Azure Premium a uma origem da conta de armazenamento com link privado
 
@@ -23,7 +23,7 @@ Este artigo irá orientá-lo sobre como configurar a SKU Premium da porta do Azu
 
 Entre no [portal do Azure](https://portal.azure.com).
 
-## <a name="enable-private-link-to-a-storage-account-in-azure-front-door-premium"></a>Habilitar o link privado para uma conta de armazenamento na porta de recepção Premium do Azure
+## <a name="enable-private-link-to-a-storage-account"></a>Habilitar o link privado para uma conta de armazenamento
  
 Nesta seção, você mapeará o serviço de vínculo privado para um ponto de extremidade privado criado na rede privada da porta de frente do Azure. 
 
@@ -47,7 +47,7 @@ Nesta seção, você mapeará o serviço de vínculo privado para um ponto de ex
 
 1. Em seguida, selecione **Adicionar** para salvar sua configuração.
 
-## <a name="approve-azure-front-door-premium-private-endpoint-connection-from-the-storage-account"></a>Aprovar a conexão de ponto de extremidade privada Premium da porta do Azure da conta de armazenamento
+## <a name="approve-private-endpoint-connection-from-the-storage-account"></a>Aprovar conexão de ponto de extremidade privada da conta de armazenamento
 
 1. Acesse a conta de armazenamento para a qual você configurou o link privado na última seção. Selecione **rede** em **configurações**.
 
