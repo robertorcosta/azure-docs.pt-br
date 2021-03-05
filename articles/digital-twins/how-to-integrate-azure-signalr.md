@@ -7,12 +7,12 @@ ms.author: aymarqui
 ms.date: 02/12/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a39b91304c4123b216a0b508dcea0547cae5ab43
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 89bd77c30ec52a72087598b86f22e85659fa1b0e
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041494"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203888"
 ---
 # <a name="integrate-azure-digital-twins-with-azure-signalr-service"></a>Integrar o gêmeos digital do Azure ao serviço de Signaler do Azure
 
@@ -88,7 +88,7 @@ Em seguida, configure as funções para se comunicar com sua instância do Signa
 
     :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-keys.png" alt-text="Captura de tela da portal do Azure que mostra a página de chaves para a instância do Signalr. O ícone ' copiar para área de transferência ' ao lado da cadeia de conexão primária é realçado." lightbox="media/how-to-integrate-azure-signalr/signalr-keys.png":::
 
-1. Por fim, adicione a cadeia de **conexão** do signalr do Azure às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. Além disso, substitua os espaços reservados pelo seu grupo de recursos e pelo nome do aplicativo/função do serviço de aplicativo do [pré-requisito do tutorial](how-to-integrate-azure-signalr.md#prerequisites). O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true):
+1. Por fim, adicione a cadeia de **conexão** do signalr do Azure às configurações do aplicativo da função, usando o comando CLI do Azure a seguir. Além disso, substitua os espaços reservados pelo seu grupo de recursos e pelo nome do aplicativo/função do serviço de aplicativo do [pré-requisito do tutorial](how-to-integrate-azure-signalr.md#prerequisites). O comando pode ser executado no [Azure cloud Shell](https://shell.azure.com)ou localmente se você tiver o CLI do Azure [instalado em seu computador](/cli/azure/install-azure-cli):
  
     ```azurecli-interactive
     az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "AzureSignalRConnectionString=<your-Azure-SignalR-ConnectionString>"
@@ -185,11 +185,11 @@ Isso abrirá uma janela do navegador que executa o aplicativo de exemplo, que ex
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/signalr-webapp-output.png" alt-text="Trecho do aplicativo Web do cliente de exemplo, mostrando um medidor de temperatura Visual. A temperatura refletida é 67,52":::
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você não precisar mais dos recursos criados neste artigo, siga estas etapas para excluí-los. 
 
-Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [AZ Group Delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az-group-delete) . Remover o grupo de recursos também será removido...
+Usando o CLI do Azure de Azure Cloud Shell ou local, você pode excluir todos os recursos do Azure em um grupo de recursos com o comando [AZ Group Delete](/cli/azure/group#az-group-delete) . Remover o grupo de recursos também será removido...
 * a instância do gêmeos digital do Azure (do tutorial de ponta a ponta)
 * o Hub IoT e o registro do dispositivo de Hub (do tutorial de ponta a ponta)
 * o tópico da grade de eventos e as assinaturas associadas

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 02/09/2021
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 035d782321feb5d467638159fc191f65573b1042
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c9ce87584373bd87a8f89ecb4ea692b44d3fab4d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716118"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202953"
 ---
 # <a name="enable-a-managed-identity-for-routing-azure-digital-twins-events-preview-azure-cli"></a>Habilitar uma identidade gerenciada para roteamento de eventos de gêmeos digital do Azure (versão prévia): CLI do Azure
 
@@ -40,7 +40,7 @@ Qualquer um desses métodos de criação fornecerá as mesmas opções de config
 
 Nesta seção, você aprenderá a habilitar uma identidade gerenciada pelo sistema em uma instância do gêmeos digital do Azure que está sendo criada no momento. 
 
-Isso é feito adicionando um `--assign-identity` parâmetro ao `az dt create` comando que é usado para criar a instância. (Para obter mais informações sobre esse comando, consulte sua [documentação de referência](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create) ou as [instruções gerais para configurar uma instância de gêmeos digital do Azure](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
+Isso é feito adicionando um `--assign-identity` parâmetro ao `az dt create` comando que é usado para criar a instância. (Para obter mais informações sobre esse comando, consulte sua [documentação de referência](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create) ou as [instruções gerais para configurar uma instância de gêmeos digital do Azure](how-to-set-up-instance-cli.md#create-the-azure-digital-twins-instance)).
 
 Para criar uma instância com uma identidade gerenciada do sistema, adicione o  `--assign-identity` parâmetro da seguinte maneira:
 
@@ -97,9 +97,9 @@ Aqui está um exemplo que cria uma instância com uma identidade gerenciada do s
 az dt create -n {instance_name} -g {resource_group} --assign-identity --scopes "/subscriptions/<subscription ID>/resourceGroups/<resource_group>/providers/Microsoft.EventHub/namespaces/<Event_Hubs_namespace>/eventhubs/<event_hub_name>" --role MyCustomRole
 ```
 
-Para obter mais exemplos de atribuições de função com esse comando, consulte a [documentação **AZ DT Create** Reference](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true#ext_azure_iot_az_dt_create).
+Para obter mais exemplos de atribuições de função com esse comando, consulte a [documentação **AZ DT Create** Reference](/cli/azure/ext/azure-iot/dt#ext_azure_iot_az_dt_create).
 
-Como alternativa, você também pode usar o grupo de comandos [**AZ role Assignment**](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) para criar e gerenciar funções. Isso pode ser usado para dar suporte a cenários adicionais em que você não deseja agrupar a atribuição de função com o comando criar.
+Como alternativa, você também pode usar o grupo de comandos [**AZ role Assignment**](/cli/azure/role/assignment) para criar e gerenciar funções. Isso pode ser usado para dar suporte a cenários adicionais em que você não deseja agrupar a atribuição de função com o comando criar.
 
 ## <a name="create-an-endpoint-with-identity-based-authentication"></a>Criar um ponto de extremidade com autenticação baseada em identidade
 
@@ -108,7 +108,7 @@ Depois de configurar uma identidade gerenciada pelo sistema para sua instância 
 >[!NOTE]
 > Você não pode editar um ponto de extremidade que já foi criado com a identidade baseada em chave para mudar para a autenticação baseada em identidade. Você deve escolher o tipo de autenticação quando o ponto de extremidade é criado pela primeira vez.
 
-Isso é feito adicionando um `--auth-type` parâmetro ao `az dt endpoint create` comando usado para criar o ponto de extremidade. (Para obter mais informações sobre esse comando, consulte sua [documentação de referência](/cli/azure/ext/azure-iot/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) ou as [instruções gerais para configurar um ponto de extremidade de gêmeos digital do Azure](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
+Isso é feito adicionando um `--auth-type` parâmetro ao `az dt endpoint create` comando usado para criar o ponto de extremidade. (Para obter mais informações sobre esse comando, consulte sua [documentação de referência](/cli/azure/ext/azure-iot/dt/endpoint/create) ou as [instruções gerais para configurar um ponto de extremidade de gêmeos digital do Azure](how-to-manage-routes-apis-cli.md#create-the-endpoint)).
 
 Para criar um ponto de extremidade que usa a autenticação baseada em identidade, especifique o `IdentityBased` tipo de autenticação com o  `--auth-type` parâmetro. O exemplo a seguir ilustra isso para um ponto de extremidade de hubs de eventos.
 

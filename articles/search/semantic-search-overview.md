@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: eedb3dfeafbd378cfff7afb04fcc2b9aa6e791d6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e9cbb7daf61397064bd79f30d851d96fdf63f5a0
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679046"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203225"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica no Azure Pesquisa Cognitiva
 
@@ -27,7 +27,7 @@ A tecnologia subjacente aproveita os investimentos do Bing e do Microsoft Resear
 
 Os recursos de visualização pública incluem:
 
-+ Algoritmo de classificação semântica que recupera documentos relevantes com base no contexto ou significado semântico dos termos da consulta de pesquisa
++ Modelo de classificação semântica que pontua resultados com base no contexto ou significado semântico dos termos da consulta de pesquisa
 + Legendas semânticas que realçam passagens relevantes
 + Respostas semânticas para a consulta, também formuladas a partir dos resultados
 + Verificação ortográfica que corrige erros antes que os termos da consulta alcancem o mecanismo de pesquisa
@@ -44,7 +44,9 @@ Para criar legendas e respostas, ele usa modelos de representação de idioma. D
 
 ## <a name="availability-and-pricing"></a>Disponibilidade e preços
 
-A classificação semântica está disponível por meio do [registro de inscrição](https://aka.ms/SemanticSearchPreviewSignup), nos serviços de pesquisa criados em uma camada Standard (S1, S2, S3), localizada em uma destas regiões: Norte EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA 2, Europa setentrional Europa Ocidental. A correção ortográfica está disponível nas mesmas regiões, mas não tem restrições de camada. Se você tiver um serviço existente que atenda aos critérios de camada e região, somente a inscrição será necessária.
+A classificação semântica está disponível por meio do [registro de inscrição](https://aka.ms/SemanticSearchPreviewSignup), nos serviços de pesquisa criados em uma camada Standard (S1, S2, S3), localizada em uma destas regiões: Norte EUA Central, oeste dos EUA, oeste dos EUA 2, leste dos EUA 2, Europa setentrional Europa Ocidental. Um serviço de pesquisa existente em S1 ou superior nas regiões declaradas é qualificado para a versão prévia (sem necessidade de criar um novo serviço).
+
+A correção ortográfica está disponível nas mesmas regiões, mas não tem nenhuma restrição de camada e nenhum requisito de inscrição. 
 
 Entre a inicialização da visualização em 2 de março até 1º de abril, a correção ortográfica e a classificação semântica são oferecidas gratuitamente. Após 1º de abril, os custos computacionais da execução dessa funcionalidade se tornarão um evento faturável. O custo esperado é de cerca de USD $500/mês para consultas de 250.000. Você pode encontrar informações detalhadas de custo documentadas na [página de preços pesquisa cognitiva](https://azure.microsoft.com/pricing/details/search/) e em [estimar e gerenciar custos](search-sku-manage-costs.md).
 

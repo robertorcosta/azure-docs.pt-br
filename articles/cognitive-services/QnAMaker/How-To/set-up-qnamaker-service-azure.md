@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 0f03cd536d329a94ec80ef884c380c79b5687289
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 7137b26dcf951f98473f0fcc139f563438ce8878
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096612"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102203463"
 ---
 # <a name="manage-qna-maker-resources"></a>Gerenciar QnA Maker recursos
 
@@ -92,69 +92,6 @@ Este procedimento cria os recursos do Azure necessários para gerenciar o conte�
     ![O recurso criou um novo serviço gerenciado (versão prévia) QnA Maker](../media/qnamaker-how-to-setup-service/resources-created-v2.png)
 
     O recurso com o tipo de _Serviços cognitivas_ tem suas chaves de _assinatura_ .
-    
----
-
-## <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
-
-# <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
-
-1. Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
-2. Proteger o serviço de aplicativo (tempo de execução QnA) do acesso público.
-
-   ##### <a name="add-ips-to-app-service-allowlist"></a>Adicionar IPs àlist de permissão do serviço de aplicativo
-
-    * Permitir tráfego somente de IPs de serviço cognitiva. Eles já estão incluídos na marca de serviço `CognitiveServicesManagement` . Isso é necessário para criar APIs (criar/atualizar KB) para invocar o serviço de aplicativo e atualizar o serviço de Azure Search de acordo. Confira [mais informações sobre marcas de serviço.](../../../virtual-network/service-tags-overview.md)
-    * Certifique-se também de permitir outros pontos de entrada como o serviço de bot, QnA Maker Portal (pode ser seu corpnet) etc. para acesso à API de previsão "GenerateAnswer".
-    * Siga estas etapas para adicionar os intervalos de endereços IP a uma permissão:
-
-      * Baixe [intervalos de IP para todas as marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519).
-      * Selecione os IPs de "CognitiveServicesManagement".
-      * Navegue até a seção rede do recurso do serviço de aplicativo e clique na opção "configurar restrição de acesso" para adicionar os IPs a uma permissão.
-
-    ![exceções de porta de entrada](../media/inbound-ports.png)    
-
-    Também temos um script automatizado para fazer o mesmo para seu serviço de aplicativo. Você pode encontrar o [script do PowerShell para configurar umalist de permissão](https://github.com/pchoudhari/QnAMakerBackupRestore/blob/master/AddRestrictedIPAzureAppService.ps1) no github. Você precisa inserir a ID da assinatura, o grupo de recursos e o nome real do serviço de aplicativo como parâmetros de script. A execução do script adicionará automaticamente os IPs àlist de permissão do serviço de aplicativo.
-
-    ##### <a name="configure-app-service-environment-to-host-qna-maker-app-service"></a>Configurar Ambiente do Serviço de Aplicativo para hospedar QnA Maker serviço de aplicativo
-    O Ambiente do Serviço de Aplicativo (ASE) pode ser usado para hospedar QnA Maker serviço de aplicativo. Siga as etapas abaixo:
-
-    1. Crie um Ambiente do Serviço de Aplicativo e marque-o como "externo". Siga o [tutorial](../../../app-service/environment/create-external-ase.md) para obter instruções.
-    2.  Crie um serviço de aplicativo dentro do Ambiente do Serviço de Aplicativo.
-        * Verifique a configuração do serviço de aplicativo e adicione ' PrimaryEndpointKey ' como uma configuração de aplicativo. O valor de ' PrimaryEndpointKey ' deve ser definido como " \<app-name\> -PrimaryEndpointKey". O nome do aplicativo é definido na URL do serviço de aplicativo. Por exemplo, se a URL do serviço de aplicativo for "mywebsite.myase.p.azurewebsite.net", o nome do aplicativo será "mysite". Nesse caso, o valor de ' PrimaryEndpointKey ' deve ser definido como "mysite-PrimaryEndpointKey".
-        * Crie um serviço de Azure Search.
-        * Verifique se Azure Search e as configurações do aplicativo estão configuradas adequadamente. 
-          Siga este [tutorial](../reference-app-service.md?tabs=v1#app-service).
-    3.  Atualizar o grupo de segurança de rede associado ao Ambiente do Serviço de Aplicativo
-        * Atualize as regras de segurança de entrada criadas previamente de acordo com seus requisitos.
-        * Adicione uma nova regra de segurança de entrada com a fonte como ' marca de serviço ' e a marca de serviço de origem como ' CognitiveServicesManagement '.
-    4.  Crie um QnA Maker instância de serviço cognitiva (Microsoft. Cognitivaservices/accounts) usando Azure Resource Manager, em que QnA Maker ponto de extremidade deve ser definido para o ponto de extremidade do serviço de aplicativo criado acima (https://mywebsite.myase.p.azurewebsite.net).
-    
-3. Configurando Pesquisa Cognitiva como um ponto de extremidade privado dentro de uma VNET
-
-    Quando uma instância de pesquisa é criada durante a criação de um recurso de QnA Maker, você pode forçar Pesquisa Cognitiva a dar suporte a uma configuração de ponto de extremidade particular criada inteiramente dentro da VNet de um cliente.
-
-    Todos os recursos devem ser criados na mesma região para usar um ponto de extremidade privado.
-
-    * Recurso do QnA Maker
-    * novo recurso de Pesquisa Cognitiva
-    * novo recurso de rede virtual
-
-    Conclua as seguintes etapas no [portal do Azure](https://portal.azure.com):
-
-    1. Crie um [recurso de QnA Maker](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker).
-    1. Crie um novo recurso de Pesquisa Cognitiva com conectividade de ponto de extremidade (dados) definida como _particular_. Crie o recurso na mesma região que o QnA Maker recurso criado na etapa 1. Saiba mais sobre como [criar um recurso de pesquisa cognitiva](../../../search/search-create-service-portal.md)e, em seguida, use este link para ir diretamente para a [página de criação do recurso](https://ms.portal.azure.com/#create/Microsoft.Search).
-    1. Crie um novo [recurso de rede virtual](https://ms.portal.azure.com/#create/Microsoft.VirtualNetwork-ARM).
-    1. Configure a VNET no recurso do serviço de aplicativo criado na etapa 1 deste procedimento.
-        1. Crie uma nova entrada DNS na VNET para o novo recurso Pesquisa Cognitiva criado na etapa 2. para o endereço IP Pesquisa Cognitiva.
-    1. [Associe o serviço de aplicativo ao novo recurso de pesquisa cognitiva](#configure-qna-maker-to-use-different-cognitive-search-resource) criado na etapa 2. Em seguida, você pode excluir o recurso de Pesquisa Cognitiva original criado na etapa 1.
-
-    No [portal de QnA Maker](https://www.qnamaker.ai/), crie sua primeira base de dados de conhecimento.
-
-# <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
-
-1. Proteja o recurso de serviço cognitiva do acesso público [Configurando a rede virtual](../../cognitive-services-virtual-networks.md?tabs=portal).
-2. [Crie pontos de extremidade privados](../reference-private-endpoint.md) para o recurso de Azure Search.
 
 ---
 
@@ -352,7 +289,7 @@ Se você criar um serviço QnA gerenciado (versão prévia) e suas dependências
 
     ![Captura de tela de QnA Maker página de configuração gerenciada (versão prévia)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > Se você alterar o serviço de Azure Search associado ao QnA Maker, você perderá o acesso a todas as bases de dados de conhecimento já presentes nela. Certifique-se de exportar as bases de dados de conhecimento existentes antes de alterar o serviço Azure Search.

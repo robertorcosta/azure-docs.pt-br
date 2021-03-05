@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: JenCook
-ms.openlocfilehash: 8d5ce3cde8c86d66bec025c778318a192ef60b73
-ms.sourcegitcommit: 04fb3a2b272d4bbc43de5b4dbceda9d4c9701310
+ms.openlocfilehash: de7eaf40271965d48dc0507e0335e6924bdfb73f
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
-ms.locfileid: "94560836"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102204177"
 ---
 # <a name="solutions-on-azure-virtual-machines"></a>Soluções em máquinas virtuais do Azure
 
@@ -29,7 +29,7 @@ Inicie a implantação de uma VM da série DCsv2 por meio do marketplace comerci
 
 ### <a name="current-available-sizes-and-regions"></a>Tamanhos e regiões disponíveis no momento
 
-Para obter uma lista de todos os tamanhos de VMs de computação confidencial disponíveis para o público em regiões e zonas disponíveis, execute o seguinte comando na [CLI do Azure](/cli/azure/install-azure-cli-windows?view=azure-cli-latest):
+Para obter uma lista de todos os tamanhos de VMs de computação confidencial disponíveis para o público em regiões e zonas disponíveis, execute o seguinte comando na [CLI do Azure](/cli/azure/install-azure-cli-windows):
 
 ```azurecli-interactive
 az vm list-skus `
@@ -54,9 +54,9 @@ A implantação de um tamanho de máquina virtual **Standard_DC8_v2** na famíli
 
 Siga um tutorial de início rápido para implantar uma máquina virtual da série DCsv2 em menos de dez minutos. 
 
-- **Assinatura do Azure** : para implantar uma instância de VM de computação confidencial, considere aderir a uma assinatura paga conforme o uso ou outra opção de compra. Se você estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), não terá uma cota com a quantidade apropriada de núcleos de computação do Azure.
+- **Assinatura do Azure**: para implantar uma instância de VM de computação confidencial, considere aderir a uma assinatura paga conforme o uso ou outra opção de compra. Se você estiver usando uma [conta gratuita do Azure](https://azure.microsoft.com/free/), não terá uma cota com a quantidade apropriada de núcleos de computação do Azure.
 
-- **Preços e disponibilidade regional** : encontre os preços das VMs da série DCsv2 na [Página de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para ver a disponibilidade nas regiões do Azure.
+- **Preços e disponibilidade regional**: encontre os preços das VMs da série DCsv2 na [Página de preços de máquinas virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). Confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines) para ver a disponibilidade nas regiões do Azure.
 
 
 - **Cota de núcleos** – Talvez seja preciso aumentar a cota de núcleos em sua assinatura do Azure, saindo do valor padrão. Sua assinatura também pode limitar o número de núcleos que você pode implantar em determinadas famílias de tamanho de VM, incluindo a série de DCsv2. Para solicitar um aumento de cota, [abra uma solicitação de atendimento ao cliente online](../azure-portal/supportability/per-vm-quota-requests.md) gratuitamente. Observação: os limites padrão podem variar dependendo de sua categoria de assinatura.
@@ -64,13 +64,13 @@ Siga um tutorial de início rápido para implantar uma máquina virtual da séri
   > [!NOTE]
   > Entre em contato com o Suporte do Azure se precisar de capacidade em larga escala. Cotas do Azure são limites de crédito, não garantias de capacidade. Independentemente de sua cota, você é cobrado apenas pelo núcleos utilizados.
   
-- **Redimensionamento** : devido ao hardware especializado, você só pode redimensionar instâncias de computação confidenciais dentro da mesma família de tamanhos. Por exemplo, só é possível dimensionar o tamanho de uma VM da série DCsv2 para outra DCsv2. Não há suporte para o redimensionamento de um tamanho de computação não confidencial para um tamanho de computação confidencial.  
+- **Redimensionamento**: devido ao hardware especializado, você só pode redimensionar instâncias de computação confidenciais dentro da mesma família de tamanhos. Por exemplo, só é possível dimensionar o tamanho de uma VM da série DCsv2 para outra DCsv2. Não há suporte para o redimensionamento de um tamanho de computação não confidencial para um tamanho de computação confidencial.  
 
-- **Imagem** : para fornecer suporte ao SGX da Intel (Intel Software Guard Extension) em instâncias de computação confidenciais, todas as implantações precisam ser executadas nas imagens da Geração 2. A computação confidencial do Azure dá suporte a cargas de trabalho em execução no Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 Gen2 e Windows Server 2016 Gen 2. Leia sobre o [suporte a VMs da geração 2 no Azure](../virtual-machines/generation-2.md) para saber mais sobre os cenários com e sem suporte. 
+- **Imagem**: para fornecer suporte ao SGX da Intel (Intel Software Guard Extension) em instâncias de computação confidenciais, todas as implantações precisam ser executadas nas imagens da Geração 2. A computação confidencial do Azure dá suporte a cargas de trabalho em execução no Ubuntu 18.04 Gen 2, Ubuntu 16.04 Gen 2, Windows Server 2019 Gen2 e Windows Server 2016 Gen 2. Leia sobre o [suporte a VMs da geração 2 no Azure](../virtual-machines/generation-2.md) para saber mais sobre os cenários com e sem suporte. 
 
-- **Armazenamento** : os discos de dados da máquina virtual de computação confidencial do Azure e nossos discos efêmeros do SO estão em discos NVMe. As instâncias dão suporte apenas para discos SSD Premium e SSD Standard, não SSD Ultra ou HDD Standard. O tamanho da máquina virtual **DC8_v2** não oferece suporte de armazenamento Premium. 
+- **Armazenamento**: os discos de dados da máquina virtual de computação confidencial do Azure e nossos discos efêmeros do SO estão em discos NVMe. As instâncias dão suporte apenas para discos SSD Premium e SSD Standard, não SSD Ultra ou HDD Standard. O tamanho da máquina virtual **DC8_v2** não oferece suporte de armazenamento Premium. 
 
-- **Criptografia de disco** : no momento, as instâncias confidenciais de computação não dão suporte para criptografia de disco. 
+- **Criptografia de disco**: no momento, as instâncias confidenciais de computação não dão suporte para criptografia de disco. 
 
 ## <a name="high-availability-and-disaster-recovery-considerations"></a>Considerações sobre alta disponibilidade e recuperação de desastres
 
@@ -101,7 +101,7 @@ Especifique um dos seguintes tamanhos no modelo do ARM no recurso de máquina vi
 
 ### <a name="gen2-os-image"></a>Imagem do so Gen2
 
-Em **Propriedades** , você também deverá fazer referência a uma imagem em **storageProfile**. Use *apenas uma* das imagens a seguir em sua **imageReference**.
+Em **Propriedades**, você também deverá fazer referência a uma imagem em **storageProfile**. Use *apenas uma* das imagens a seguir em sua **imageReference**.
 
 ```json
       "2019-datacenter-gensecond": {

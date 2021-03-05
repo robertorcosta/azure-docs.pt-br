@@ -7,12 +7,12 @@ ms.date: 02/23/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: 739e1dea23f87403a4aded50d5c9f254a55c64cc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 2d4286cc8bc08eaf7d0b376a8b7789c8c8db183d
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737606"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202630"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Perguntas frequentes sobre o Azure Files
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que podem ser acessados por meio do [protocolo SMB (Server Message Block)](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) padrão do setor e do [protocolo NFS (sistema de arquivos de rede)](https://en.wikipedia.org/wiki/Network_File_System) (visualização). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Também é possível armazenar em cache os compartilhamentos de arquivos do Azure em computadores Windows Server usando a Sincronização de Arquivos do Azure para acesso rápido próximo ao local em que os dados são usados.
@@ -119,26 +119,38 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 * <a id="sizeondisk-versus-size"></a>
   **Por que a propriedade *Tamanho em disco* de um arquivo não corresponde à propriedade *Tamanho* depois do uso da Sincronização de arquivos do Azure?**  
-  Confira [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#sizeondisk-versus-size) (Noções básicas sobre a Camada de Nuvem).
+  Consulte [entender sincronização de arquivos do Azure camadas de nuvem](storage-sync-cloud-tiering-overview.md#tiered-vs-locally-cached-file-behavior).
 
 * <a id="is-my-file-tiered"></a>
   **Como saber se um arquivo está em camadas?**  
-  Confira [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#is-my-file-tiered) (Noções básicas sobre a Camada de Nuvem).
+  Consulte [como gerenciar sincronização de arquivos do Azure arquivos em camadas](storage-sync-how-to-manage-tiered-files.md#how-to-check-if-your-files-are-being-tiered).
 
 * <a id="afs-recall-file"></a>**Um arquivo que eu desejo usar foi dividido em camadas. Como é possível fazer o recall do arquivo no disco para usá-lo localmente?**  
-  Confira [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-recall-file) (Noções básicas sobre a Camada de Nuvem).
+  Consulte [como gerenciar sincronização de arquivos do Azure arquivos em camadas](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk).
 
 * <a id="afs-force-tiering"></a>
   **Como posso forçar um arquivo ou diretório a ficar em camadas?**  
-  Confira [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-force-tiering) (Noções básicas sobre a Camada de Nuvem).
+  Consulte [como gerenciar sincronização de arquivos do Azure arquivos em camadas](storage-sync-how-to-manage-tiered-files.md#how-to-force-a-file-or-directory-to-be-tiered).
 
 * <a id="afs-effective-vfs"></a>
   **Como o *espaço livre no volume* é interpretado quando há vários pontos de extremidade do servidor em um volume?**  
-  Confira [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-effective-vfs) (Noções básicas sobre a Camada de Nuvem).
+  Consulte [escolher sincronização de arquivos do Azure políticas de camadas de nuvem](storage-sync-cloud-tiering-policy.md#multiple-server-endpoints-on-a-local-volume).
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **Tenho a camada de nuvem desabilitada, por que existem arquivos em camadas no local do ponto de extremidade do servidor?**  
-  Confira [Understanding Cloud Tiering](storage-sync-cloud-tiering.md#afs-tiering-disabled) (Noções básicas sobre a Camada de Nuvem).
+    Há dois motivos pelos quais os arquivos em camadas podem existir no local do ponto de extremidade do servidor:
+
+    - Ao adicionar um novo ponto de extremidade de servidor a um grupo de sincronização existente, se você escolher a opção recuperar namespace primeiro ou recuperar somente namespace para o modo de download inicial, os arquivos aparecerão como em camadas até serem baixados localmente. Para evitar isso, selecione a opção evitar arquivos em camadas para o modo de download inicial. Para recuperar arquivos manualmente, use o cmdlet [Invoke-StorageSyncFileRecall](storage-sync-how-to-manage-tiered-files.md#how-to-recall-a-tiered-file-to-disk) .
+
+    - Se a camada de nuvem foi habilitada no ponto de extremidade do servidor e, em seguida, desabilitada, os arquivos permanecerão em camadas até que sejam acessados.
+
+* <a id="afs-tiered-files-not-showing-thumbnails"></a>
+  **Por que meus arquivos em camadas não estão mostrando miniaturas ou visualizações no Windows Explorer?**  
+    Para arquivos em camadas, miniaturas e visualizações não estarão visíveis no ponto de extremidade do servidor. Esse comportamento é esperado, pois o recurso de cache em miniatura do Windows ignora intencionalmente a leitura de arquivos com o atributo offline. Com a camada de nuvem habilitada, a leitura por meio de arquivos em camadas fará com que eles fossem baixados (rechamados).
+
+    Esse comportamento não é específico do Sincronização de Arquivos do Azure, o Windows Explorer exibe um "X cinza" para todos os arquivos que têm o atributo offline definido. Você verá o ícone X ao acessar arquivos por SMB. Para obter uma explicação detalhada desse comportamento, consulte [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
+    Para perguntas sobre como gerenciar arquivos em camadas, consulte [como gerenciar arquivos em camadas](storage-sync-how-to-manage-tiered-files.md).
 
 * <a id="afs-files-excluded"></a>
   **Quais arquivos ou pastas são excluídas automaticamente pela Sincronização de arquivos do Azure?**  
@@ -274,7 +286,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
     2.  Abrir o console "Active Directory domínios e relações de confiança"
     3.  Clique com o botão direito do mouse no domínio que você deseja acessar o compartilhamento de arquivos, clique na guia "relações de confiança" e selecione domínio da floresta B de relações de confiança de saída. Se você não configurou a confiança entre as duas florestas, precisará configurar a confiança primeiro
     4.  Clique em "Propriedades..." em seguida, "roteamento de sufixo de nome"
-    5.  Verifique se o surffix "*. file.core.windows.net" aparece. Caso contrário, clique em ' Atualizar '
+    5.  Verifique se o sufixo "*. file.core.windows.net" aparece. Caso contrário, clique em ' Atualizar '
     6.  Selecione "*. file.core.windows.net" e clique em "habilitar" e "aplicar"
 
 * <a id=""></a>

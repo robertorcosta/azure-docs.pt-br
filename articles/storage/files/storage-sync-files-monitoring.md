@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d1e51552acdd869a3f304a6d48e18e9d2aa6c782
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 272a642f70849b85be00d2507109eb97935c0dde
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576778"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102202494"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorar a Sincronização de Arquivos do Azure
 
@@ -42,7 +42,7 @@ As métricas para a Sincronização de Arquivos do Azure são habilitadas por pa
 
 As métricas a seguir para a Sincronização de Arquivos do Azure estão disponíveis no Azure Monitor:
 
-| Nome da métrica | Description |
+| Nome da métrica | Descrição |
 |-|-|
 | Bytes sincronizados | Tamanho dos dados transferidos (upload e download).<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensões aplicáveis: nome do ponto de extremidade do servidor, direção de sincronização, nome do grupo de sincronização |
 | Recall da camada de nuvem | Tamanho dos dados em recall.<br><br>**Observação**: essa métrica será removida no futuro. Use a métrica de tamanho de recuperação de camadas de nuvem para monitorar o tamanho dos dados recuperados.<br><br>Unidade: Bytes<br>Tipo de agregação: Sum<br>Dimensão aplicável: nome do servidor |
@@ -111,14 +111,14 @@ Para exibir a integridade de um **ponto de extremidade do servidor** no portal, 
 
 - A **atividade de sincronização** e integridade do ponto de **extremidade do servidor** no portal baseia-se nos eventos de sincronização que são registrados no log de eventos de telemetria no servidor (ID 9102 e 9302). Se uma sessão de sincronização falhar devido a um erro transitório, como o erro cancelado, o ponto de extremidade do servidor ainda será mostrado como **íntegro** no portal, desde que a sessão de sincronização atual esteja progredindo (os arquivos são aplicados). A ID de evento 9302 é o evento de progresso de sincronização e a ID de evento 9102 é registrada quando uma sessão de sincronização é concluída.  Para obter mais informações, consulte [sincronizar integridade](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#broken-sync) e [sincronizar andamento](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session). Se a integridade do ponto de extremidade do servidor mostrar um **erro** ou **nenhuma atividade**, consulte a [documentação de solução de problemas](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#common-sync-errors) para obter diretrizes.
 - A contagem de **arquivos não sincronizados** no portal é baseada na ID de evento 9121 registrada no log de eventos de telemetria no servidor. Esse evento é registrado para cada erro por item quando a sessão de sincronização é concluída. Para resolver erros por item, consulte [como fazer ver se há arquivos ou pastas específicas que não estão sincronizando?](./storage-sync-files-troubleshoot.md?tabs=server%252cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
-- Para exibir a **eficiência de camadas de nuvem** no portal, vá para as **Propriedades de ponto de extremidade do servidor** e navegue até a seção camadas de **nuvem** . Os dados fornecidos para a eficiência de camadas de nuvem baseiam-se na ID de evento 9071 que é registrada no log de eventos de telemetria no servidor. Para saber mais, consulte [Visão geral da camada de nuvem](./storage-sync-cloud-tiering.md).
+- Para exibir a **eficiência de camadas de nuvem** no portal, vá para as **Propriedades de ponto de extremidade do servidor** e navegue até a seção camadas de **nuvem** . Os dados fornecidos para a eficiência de camadas de nuvem baseiam-se na ID de evento 9071 que é registrada no log de eventos de telemetria no servidor. Para saber mais, consulte [monitorar camadas de nuvem](./storage-sync-monitor-cloud-tiering.md).
 - Para exibir **arquivos que não** são em camadas e **recuperar erros** no portal, vá para as **Propriedades de ponto de extremidade do servidor** e navegue até a seção camadas de **nuvem** . **Os arquivos que não são camadas** baseiam-se na ID de evento 9003 que é registrada no log de eventos de telemetria no servidor e os **erros de recuperação** se baseiam na ID de evento 9006. Para investigar os arquivos que estão falhando na camada ou na recuperação, consulte [como solucionar problemas de arquivos que falham na camada](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-tier) e [como solucionar problemas de arquivos que não puderam ser recuperados](./storage-sync-files-troubleshoot.md?tabs=portal1%252cazure-portal#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 ### <a name="metric-charts"></a>Gráficos de métricas
 
 - Os gráficos de métrica a seguir são visíveis no portal do serviço de sincronização de armazenamento:
 
-  | Nome da métrica | Description | Nome da folha |
+  | Nome da métrica | Descrição | Nome da folha |
   |-|-|-|
   | Bytes sincronizados | Tamanho dos dados transferidos (upload e download) | Grupo de sincronização, ponto de extremidade do servidor |
   | Recall da camada de nuvem | Tamanho dos dados em recall | Servidores registrados |
@@ -178,7 +178,7 @@ Para exibir Sincronização de Arquivos do Azure contadores de desempenho no ser
 
 Os seguintes contadores de desempenho para a Sincronização de Arquivos do Azure estão disponíveis no Monitor de Desempenho:
 
-| Objeto de Desempenho\Nome do Contador | Description |
+| Objeto de Desempenho\Nome do Contador | Descrição |
 |-|-|
 | Bytes de AFS Transferidos\Bytes Baixados/s | Número de bytes baixados por segundo. |
 | Bytes de AFS Transferidos\Bytes Carregados/s | Número de bytes carregados por segundo. |
