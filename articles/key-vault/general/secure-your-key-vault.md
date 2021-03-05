@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: sudbalas
-ms.openlocfilehash: 552aad3e3b41bcfd55d1b57a53d8dff2080a6210
-ms.sourcegitcommit: b513b0becf878eb9a1554c26da53aa48d580bb22
+ms.openlocfilehash: 94034edfa1a5c6ffccd022b4cbf7bae42cc0bae3
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100534695"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212460"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Proteger o acesso a um cofre de chaves
 
@@ -36,7 +36,7 @@ Uma entidade de segurança é um objeto que representa um usuário, grupo, servi
 
 * Uma entidade de segurança de **grupo** identifica um conjunto de usuários criado no Azure Active Directory. Todas as funções ou permissões atribuídas ao grupo são concedidas a todos os usuários dentro do grupo.
 
-* Uma **entidade de serviço** é um tipo de entidade de segurança que identifica um aplicativo ou serviço, ou seja, um trecho de código, em vez de um usuário ou grupo. A ID do objeto de uma entidade de serviço é conhecida como a **ID do cliente** dessa entidade de serviço e atua como o nome de usuário dela. O **certificado** ou **segredo do cliente** da entidade de serviço atua como sua senha. Muitos serviços do Azure dão suporte à atribuição de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) com o gerenciamento automatizado da **ID do cliente** e do **certificado**. A identidade gerenciada é a opção mais segura e recomendada para autenticação no Azure.
+* Uma **entidade de serviço** é um tipo de entidade de segurança que identifica um aplicativo ou serviço, que é dizer, um trecho de código em vez de um usuário ou grupo. A ID do objeto de uma entidade de serviço é conhecida como a **ID do cliente** dessa entidade de serviço e atua como o nome de usuário dela. O **certificado** ou **segredo do cliente** da entidade de serviço atua como sua senha. Muitos serviços do Azure dão suporte à atribuição de [identidade gerenciada](../../active-directory/managed-identities-azure-resources/overview.md) com o gerenciamento automatizado da **ID do cliente** e do **certificado**. A identidade gerenciada é a opção mais segura e recomendada para autenticação no Azure.
 
 Para obter mais informações sobre autenticação para Key Vault, consulte [autenticar para Azure Key Vault](authentication.md)
 

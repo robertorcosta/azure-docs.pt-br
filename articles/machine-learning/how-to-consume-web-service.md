@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: dddecb3dba6d707e16241731a25df3b3749be103
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: d23d6cb5a43de4ccf0d10287b8cf8f597797b893
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97825419"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214976"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Consumir um modelo de Azure Machine Learning implantado como um serviço web
 
@@ -77,7 +77,7 @@ Há várias maneiras de recuperar essas informações para serviços Web implant
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Se você souber o nome do serviço implantado, use o comando [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
+Se você souber o nome do serviço implantado, use o comando [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) :
 
 ```azurecli
 az ml service show -n <service-name>
@@ -677,7 +677,7 @@ O Power BI dá suporte ao consumo de serviços Web Azure Machine Learning para e
 
 Para gerar um serviço Web com suporte para consumo no Power BI, o esquema deve dar suporte ao formato exigido pelo Power BI. [Saiba como criar um esquema com suporte a Power bi](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-Depois que o serviço Web for implantado, ele será consumível pelos fluxos de dados do Power BI. [Saiba como consumir um serviço web Azure Machine Learning do Power bi](/power-bi/service-machine-learning-integration).
+Depois que o serviço Web for implantado, ele será consumível pelos fluxos de dados do Power BI. [Saiba como consumir um serviço Web do Machine Learning do Azure no Power BI](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Próximas etapas
 

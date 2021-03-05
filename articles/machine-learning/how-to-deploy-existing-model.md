@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 46b8f153e65f436fa1062a0606e0fb0136d972a5
-ms.sourcegitcommit: e7179fa4708c3af01f9246b5c99ab87a6f0df11c
+ms.openlocfilehash: 0a536781f3218807c36f6eefe738b9a375de8d4b
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/30/2020
-ms.locfileid: "97824608"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213123"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implantar seu modelo existente com Azure Machine Learning
 
@@ -34,7 +34,7 @@ Para obter mais informações sobre os conceitos e termos deste artigo, consulte
 
 * O [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
-* A extensão da [CLI](reference-azure-machine-learning-cli.md)de [CLI do Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) e Machine Learning.
+* A extensão da [CLI](reference-azure-machine-learning-cli.md)de [CLI do Azure](/cli/azure/install-azure-cli) e Machine Learning.
 
 * Um modelo treinado. O modelo deve ser persistido em um ou mais arquivos em seu ambiente de desenvolvimento. <br><br>Para demonstrar o registro de um modelo treinado, o código de exemplo neste artigo usa os modelos do [projeto de análise de opiniões do Twitter do Paolo Ripamonti](https://www.kaggle.com/paoloripamonti/twitter-sentiment-analysis).
 
@@ -61,7 +61,7 @@ az ml model register -p ./models -n sentiment -w myworkspace -g myresourcegroup
 > [!TIP]
 > Você também pode definir objetos de adição `tags` e `properties` dicionário para o modelo registrado. Esses valores podem ser usados posteriormente para ajudar a identificar um modelo específico. Por exemplo, a estrutura usada, parâmetros de treinamento, etc.
 
-Para obter mais informações, consulte a referência de [registro do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-register) .
+Para obter mais informações, consulte a referência de [registro do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-register) .
 
 
 Para obter mais informações sobre o registro de modelo em geral, consulte [gerenciar, implantar e monitorar modelos de aprendizado de máquina](concept-model-management-and-deployment.md).
@@ -268,7 +268,7 @@ Para implantar o modelo da CLI, use o comando a seguir. Este comando implanta a 
 az ml model deploy -n myservice -m sentiment:1 --ic inferenceConfig.json --dc deploymentConfig.json
 ```
 
-Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
+Para obter mais informações, consulte a referência de [implantação do modelo AZ ml](/cli/azure/ext/azure-cli-ml/ml/model#ext-azure-cli-ml-az-ml-model-deploy) .
 
 Para obter mais informações sobre a implantação, consulte [como e onde implantar modelos](how-to-deploy-and-where.md).
 

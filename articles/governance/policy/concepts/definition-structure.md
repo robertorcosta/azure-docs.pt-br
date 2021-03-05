@@ -3,12 +3,12 @@ title: Detalhes da estrutura de definição de política
 description: Descreve como as definições de política são usadas para estabelecer convenções para os recursos do Azure na sua organização.
 ms.date: 02/17/2021
 ms.topic: conceptual
-ms.openlocfilehash: 741cfce56554e05d0c5f5a9242a33502b8a6fbe6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101699412"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102215061"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -150,7 +150,7 @@ Um parâmetro tem as seguintes propriedades que são usadas na definição de po
   - `assignPermissions`: (opcional) defina essa opção como _true_ para que o portal do Azure crie atribuições de função durante a atribuição de política. Essa propriedade é útil caso você queira atribuir permissões fora do escopo de atribuição. Há uma atribuição de função por definição de função na política (ou por definição de função em todas as políticas na iniciativa). O valor do parâmetro precisa ser um recurso ou um escopo válido.
 - `defaultValue`: (opcional) define o valor do parâmetro em uma atribuição se não houver valor fornecido.
   Necessário ao atualizar uma definição de política existente que é atribuída.
-- `allowedValues`: (opcional) fornece uma matriz de valores que o parâmetro aceita durante a atribuição.
+- `allowedValues`: (opcional) fornece uma matriz de valores que o parâmetro aceita durante a atribuição. Comparações de valor permitido diferenciam maiúsculas de minúsculas. 
 
 Por exemplo, você pode definir uma definição de política para limitar os locais em que os recursos podem ser implantados. Um parâmetro para essa definição de política pode ser **allowedLocations**. Esse parâmetro deve ser usado por cada atribuição da definição de política para limitar os valores aceitos. O uso de **strongType** fornece uma experiência aprimorada ao concluir a atribuição por meio do portal:
 
@@ -908,7 +908,7 @@ Vários aliases disponíveis têm uma versão que é exibida como um nome 'norma
 
 o alias 'normal' representa o campo como um só valor. Esse campo destina-se a cenários de comparação de correspondência exata quando o conjunto inteiro de valores precisa ser exatamente o mesmo definido, nem mais nem menos.
 
-O **\[\*\]** alias representa uma coleção de valores selecionados dos elementos de uma propriedade de recurso de matriz. Por exemplo: 
+O **\[\*\]** alias representa uma coleção de valores selecionados dos elementos de uma propriedade de recurso de matriz. Por exemplo:
 
 | Alias | Valores selecionados |
 |:---|:---|

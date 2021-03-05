@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: 9a3a511a287f093b4fc317213afedd5fdc3c21be
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 055df9d2290ee445e2a7201acd374508a86e839f
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100520656"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102213310"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -307,7 +307,7 @@ Para usar a identidade gerenciada do aplicativo lógico para autenticação, con
 * [Azure portal](#azure-portal-assign-access)
 * [Modelo do Azure Resource Manager](../role-based-access-control/role-assignments-template.md)
 * O Azure PowerShell ([New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md).
-* CLI do Azure ([az role assignment create](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true#az-role-assignment-create)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e a CLI do Azure](../role-based-access-control/role-assignments-cli.md).
+* CLI do Azure ([az role assignment create](/cli/azure/role/assignment#az-role-assignment-create)) – para obter mais informações, confira [Adicionar atribuição de função usando o Azure RBAC e a CLI do Azure](../role-based-access-control/role-assignments-cli.md).
 * [API REST do Azure](../role-based-access-control/role-assignments-rest.md)
 
 <a name="azure-portal-assign-access"></a>

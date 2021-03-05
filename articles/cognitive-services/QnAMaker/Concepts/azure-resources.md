@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: f5a248b8701c71b2dcf0415c6656b9b565535232
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101096528"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102214160"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
 
@@ -66,7 +66,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 | -------------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | **Experimentação**        | SKU gratuito             | Camada Gratuita   | Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
 | **Ambiente de Desenvolvimento/Teste**   | SKU Standard         | Compartilhado      | Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
-| **Ambiente de Produção** | SKU Standard         | Basic       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
+| **Ambiente de produção** | SKU Standard         | Basic       | Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
@@ -94,7 +94,7 @@ A tabela a seguir fornece algumas diretrizes de alto nível.
 | -------------------------- |------------ | -------------------------------- |
 | **Experimentação**        |Camada Gratuita    | Publicar até 2 KB/s, tamanho de 50 MB  |
 | **Ambiente de Desenvolvimento/Teste**   |Basic        | Publicar até 14 KBs, com tamanho de 2 GB    |
-| **Ambiente de Produção** |Standard     | Publicar até 49 KBs, tamanho de 25 GB |
+| **Ambiente de produção** |Standard     | Publicar até 49 KBs, tamanho de 25 GB |
 
 ---
 
@@ -126,7 +126,7 @@ O QnA Maker gerenciado é um serviço gratuito, e a taxa de transferência está
 |[Atualizar](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) o SKU do serviço de aplicativo e verificar Pesquisa Cognitiva camada e [criar réplicas de pesquisa cognitiva](../../../search/search-capacity-planning.md)|Sua base de dados de conhecimento precisa atender a mais solicitações do aplicativo cliente, como um bot de chat.|
 |[Atualizar](../How-to/set-up-qnamaker-service-azure.md#upgrade-the-azure-cognitive-search-service) o Serviço de Pesquisa Cognitiva do Azure|Você planeja ter muitas bases de dados de conhecimento.|
 
-Obtenha as atualizações de tempo de execução mais recentes [atualizando seu serviço de aplicativo no portal do Azure](../how-to/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates).
+Obtenha as atualizações de tempo de execução mais recentes [atualizando seu serviço de aplicativo no portal do Azure](../how-to/configure-QnA-Maker-resources.md#get-the-latest-runtime-updates).
 
 # <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 
@@ -146,7 +146,7 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação/assinatura|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves e ponto de extremidade** .|
+|Chave de criação/assinatura|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves e ponto de extremidade** .|
 |Chave do ponto de extremidade da consulta|[Portal do QnA Maker](https://www.qnamaker.ai)|Essas chaves são usadas para consultar o ponto de extremidade da base de dados de conhecimento publicado para obter uma resposta para uma pergunta de usuário. Normalmente, você usa esse ponto de extremidade de consulta em seu bot de chat ou no código do aplicativo cliente que se conecta ao serviço de QnA Maker. Essas chaves são criadas quando você publica sua base de dados de conhecimento QnA Maker.<br><br>Localize essas chaves na página **configurações de serviço** . Localize essa página no menu do usuário no canto superior direito da página no menu suspenso.|
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Localizar chaves de criação no portal do Azure
@@ -189,8 +189,8 @@ Use essas chaves ao fazer solicitações ao serviço por meio de APIs.
 
 |Nome|Localização|Finalidade|
 |--|--|--|
-|Chave de criação/assinatura|[Portal do Azure](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves e ponto de extremidade** .|
-|Chave de administração de Pesquisa Cognitiva do Azure|[Portal do Azure](../../../search/search-security-api-keys.md)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
+|Chave de criação/assinatura|[Azure portal](https://azure.microsoft.com/free/cognitive-services/)|essas chaves são usadas para acessar as [APIs do serviço de gerenciamento do QnA Maker](/rest/api/cognitiveservices/qnamaker4.0/knowledgebase). Essas APIs permitem que você edite as perguntas e respostas em sua base de dados de conhecimento e publique sua base de dados de conhecimento. Essas chaves são criadas quando você cria um novo serviço de QnA Maker.<br><br>Localize essas chaves no recurso **Serviços cognitivas** na página **chaves e ponto de extremidade** .|
+|Chave de administração de Pesquisa Cognitiva do Azure|[Azure portal](../../../search/search-security-api-keys.md)|Essas chaves são usadas para se comunicar com o serviço de pesquisa cognitiva do Azure implantado na assinatura do Azure do usuário. Quando você associa uma pesquisa cognitiva do Azure com o serviço QnA Maker gerenciado (versão prévia), a chave de administração é passada automaticamente para o serviço QnA Maker. <br><br>Você pode encontrar essas chaves no recurso **pesquisa cognitiva do Azure** na página **chaves** .|
 
 ### <a name="find-authoring-keys-in-the-azure-portal"></a>Localizar chaves de criação no portal do Azure
 
@@ -307,7 +307,7 @@ A primeira base de dados de conhecimento criada no recurso QnA Maker é usada pa
 
 Se você criar um serviço QnA e suas dependências (como pesquisa) por meio do portal, um serviço de pesquisa será criado para você e vinculado ao serviço de QnA Maker. Depois que esses recursos forem criados, você poderá atualizar a configuração do serviço de aplicativo para usar um serviço de pesquisa existente anteriormente e remover o que você acabou de criar.
 
-Saiba [como configurar](../How-To/set-up-qnamaker-service-azure.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker para usar um recurso de serviço cognitiva diferente daquele criado como parte do processo de criação de recursos QnA Maker.
+Saiba [como configurar](../How-To/configure-QnA-Maker-resources.md#configure-qna-maker-to-use-different-cognitive-search-resource) QnA Maker para usar um recurso de serviço cognitiva diferente daquele criado como parte do processo de criação de recursos QnA Maker.
 
 ### <a name="app-service-and-app-service-plan"></a>Serviço de aplicativo e plano do serviço de aplicativo
 

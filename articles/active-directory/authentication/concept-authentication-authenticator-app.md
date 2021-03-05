@@ -10,18 +10,18 @@ ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fafeae02bce001d473b0ed916624046a559a795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 8e33c87d53580d96363ba15bccbc889370f2479d
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648791"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102212902"
 ---
 # <a name="authentication-methods-in-azure-active-directory---microsoft-authenticator-app"></a>Métodos de autenticação no aplicativo Azure Active Directory Microsoft Authenticator
 
 O aplicativo Microsoft Authenticator fornece um nível adicional de segurança à sua conta corporativa ou de estudante do Azure AD ou à sua conta Microsoft e está disponível para [Android](https://go.microsoft.com/fwlink/?linkid=866594) e [Ios](https://go.microsoft.com/fwlink/?linkid=866594). Com o aplicativo Microsoft Authenticator, os usuários podem autenticar de forma sem senha durante a entrada ou como uma opção de verificação adicional durante os eventos de redefinição de senha de autoatendimento (SSPR) ou autenticação multifator do Azure AD.
 
-Os usuários podem receber uma notificação por meio do aplicativo móvel para que eles aprovem ou neguem a entrada ou podem usar o aplicativo Authenticator para gerar um código de verificação OATH que pode ser inserido em uma interface de entrada. Se você habilitar um código de notificação e verificação, os usuários que registrarem o aplicativo Authenticator poderão usar qualquer um dos métodos para confirmar a identidade.
+Os usuários podem receber uma notificação por meio do aplicativo móvel para que eles aprovem ou neguem ou usem o aplicativo autenticador para gerar um código de verificação OAUTH que pode ser inserido em uma interface de entrada. Se você habilitar um código de notificação e verificação, os usuários que registrarem o aplicativo Authenticator poderão usar qualquer um dos métodos para confirmar a identidade.
 
 Para usar o aplicativo autenticador em um prompt de entrada em vez de uma combinação de nome de usuário e senha, consulte [habilitar a entrada sem senha com o aplicativo Microsoft Authenticator](howto-authentication-passwordless-phone.md).
 
