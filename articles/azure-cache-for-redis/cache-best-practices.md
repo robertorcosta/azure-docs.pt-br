@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 1b62777ec647efc6d5aded573e681cadd6475b47
-ms.sourcegitcommit: ad677fdb81f1a2a83ce72fa4f8a3a871f712599f
+ms.openlocfilehash: 9754a043c90c01f889be9639d2d045fb1929de17
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
-ms.locfileid: "97654788"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178109"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -51,7 +51,7 @@ Há várias coisas relacionadas ao uso de memória em sua instância do servidor
 ## <a name="client-library-specific-guidance"></a>Diretrizes específicas da biblioteca de cliente
  * [StackExchange. Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-qual cliente devo usar?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
- * [Lettuce (Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
+ * [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
  * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
@@ -61,7 +61,7 @@ Há várias coisas relacionadas ao uso de memória em sua instância do servidor
 ## <a name="when-is-it-safe-to-retry"></a>Quando é seguro tentar novamente?
 Infelizmente, não há uma resposta fácil.  Cada aplicativo precisa decidir quais operações podem ser repetidas e quais não podem.  Cada operação tem requisitos e dependências entre chaves diferentes.  Aqui estão algumas coisas que você pode considerar:
 
- * Você pode obter erros do lado do cliente, embora Redis tenha executado com êxito o comando que você solicitou que ele fosse executado.  Por exemplo:
+ * Você pode obter erros do lado do cliente, embora Redis tenha executado com êxito o comando que você solicitou que ele fosse executado.  Por exemplo: 
     - Os tempos limite são um conceito do lado do cliente.  Se a operação tiver atingido o servidor, o servidor executará o comando mesmo se o cliente desistir de espera.  
     - Quando ocorre um erro na conexão de soquete, não é possível saber se a operação realmente foi executada no servidor.  Por exemplo, o erro de conexão pode ocorrer depois que o servidor processou a solicitação, mas antes de o cliente receber a resposta.
  * Como meu aplicativo reage se eu executar acidentalmente a mesma operação duas vezes?  Por exemplo, e se eu incrementar um inteiro duas vezes em vez de uma vez?  Meu aplicativo está gravando na mesma chave de vários locais?  E se minha lógica de repetição substituir um valor definido por alguma outra parte do meu aplicativo?
@@ -73,6 +73,8 @@ Se você quiser testar como o código funciona em condições de erro, considere
  * A VM do cliente usada para teste deve estar **na mesma região** que a instância do cache Redis.
  * **É recomendável usar a série de VMs Dv2** para seu cliente, pois eles têm um hardware melhor e fornecerão os melhores resultados.
  * Verifique se a VM do cliente que você usa tem **pelo menos tanto de computação quanto de largura de banda* quanto o cache que está sendo testado. 
+ * **Teste sob condições de failover** em seu cache. É importante garantir que você não teste o desempenho do seu cache somente sob condições de estado estável. Além disso, teste em condições de failover e meça a carga de CPU/servidor no cache durante esse tempo. Você pode iniciar um failover [reiniciando o nó primário](cache-administration.md#reboot). Isso permitirá que você veja como seu aplicativo se comporta em termos de taxa de transferência e latência durante as condições de failover (ocorre durante as atualizações e pode ocorrer durante um evento não planejado). Idealmente, você don't't deseja ver o pico de carga de CPU/servidor para mais do que dizer 80% mesmo durante um failover, pois isso pode afetar o desempenho.
+ * O **Premium P2 e versões posteriores** são hospedados em VMs com 4 ou mais núcleos. Isso é útil para distribuir a carga de trabalho de criptografia/descriptografia TLS entre vários núcleos para reduzir o uso geral da CPU.  [Consulte aqui para obter detalhes sobre tamanhos de VM e núcleos](cache-planning-faq.md#azure-cache-for-redis-performance)
  * **Habilite o VRSS** no computador cliente se você estiver no Windows.  [Consulte aqui para obter detalhes](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn383582(v=ws.11)).  Exemplo de script do PowerShell:
      >PowerShell-ExecutionPolicy irrestrito Enable-NetAdapterRSS-Name (Get-netadapter). Nomes 
 

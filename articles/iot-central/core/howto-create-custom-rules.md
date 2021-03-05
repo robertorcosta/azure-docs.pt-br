@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 824308b66803d2dfa05383ff06ce97c48626619d
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 6146676121bac0089d5f520d60a97d74567a32bc
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100557576"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179333"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estender o Azure IoT Central com regras personalizadas usando Stream Analytics, Azure Functions e SendGrid
 
@@ -63,7 +63,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 | Configuração | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do namespace |
-| Tipo de preço | Básico |
+| Tipo de preço | Basic |
 | Subscription | Sua assinatura |
 | Resource group | DetectStoppedDevices |
 | Localização | Leste dos EUA |
@@ -119,26 +119,28 @@ Você pode configurar um aplicativo de IoT Central para exportar continuamente a
 
 O namespace dos hubs de eventos é semelhante à captura de tela a seguir: 
 
-```:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Screenshot of Event Hubs namespace." border="false":::
+:::image type="content" source="media/howto-create-custom-rules/event-hubs-namespace.png" alt-text="Captura de tela do namespace de hubs de eventos." border="false":::
 
-## Define the function
 
-This solution uses an Azure Functions app to send an email notification when the Stream Analytics job detects a stopped device. To create your function app:
+## <a name="define-the-function"></a>Definir a função
 
-1. In the Azure portal, navigate to the **App Service** instance in the **DetectStoppedDevices** resource group.
-1. Select **+** to create a new function.
-1. Select **HTTP Trigger**.
-1. Select **Add**.
+Essa solução usa um aplicativo Azure Functions para enviar uma notificação por email quando o trabalho de Stream Analytics detecta um dispositivo interrompido. Para criar seu aplicativo de funções:
 
-    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Image of the Default HTTP trigger function"::: 
+1. Na portal do Azure, navegue até a instância do **serviço de aplicativo** no grupo de recursos **DetectStoppedDevices** .
+1. Selecione **+** para criar uma nova função.
+1. Selecione **gatilho http**.
+1. Selecione **Adicionar**.
 
-## Edit code for HTTP Trigger
+    :::image type="content" source="media/howto-create-custom-rules/add-function.png" alt-text="Imagem da função de gatilho HTTP padrão"::: 
 
-The portal creates a default function called **HttpTrigger1**:
+## <a name="edit-code-for-http-trigger"></a>Editar código para gatilho HTTP
 
-```:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Screenshot of Edit HTTP trigger function.":::
+O portal cria uma função padrão chamada **HttpTrigger1**:
 
-1. Replace the C# code with the following code:
+:::image type="content" source="media/howto-create-custom-rules/default-function.png" alt-text="Captura de tela de Editar função de gatilho HTTP.":::
+
+
+1. Substitua o código C# pelo código a seguir:
 
     ```csharp
     #r "Newtonsoft.Json"
@@ -177,50 +179,50 @@ The portal creates a default function called **HttpTrigger1**:
     }
     ```
 
-    You may see an error message until you save the new code.
-1. Select **Save** to save the function.
+    Você poderá ver uma mensagem de erro até salvar o novo código.
+1. Selecione **salvar** para salvar a função.
 
-## Add SendGrid Key
+## <a name="add-sendgrid-key"></a>Adicionar chave SendGrid
 
-To add your SendGrid API Key, you need to add it to your **Function Keys** as follows:
+Para adicionar sua chave de API do SendGrid, você precisa adicioná-la às suas **chaves de função** da seguinte maneira:
 
-1. Select **Function Keys**.
-1. Choose **+ New Function Key**.
-1. Enter the *Name* and *Value* of the API Key you created before.
-1. Click **OK.**
+1. Selecione **as teclas de função**.
+1. Escolha **+ nova chave de função**.
+1. Insira o *nome* e o *valor* da chave de API que você criou anteriormente.
+1. Clique em **OK.**
 
-    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Screenshot of Add Sangrid Key.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-key.png" alt-text="Captura de tela de adicionar chave Sangrid.":::
 
 
-## Configure HttpTrigger function to use SendGrid
+## <a name="configure-httptrigger-function-to-use-sendgrid"></a>Configurar a função HttpTrigger para usar SendGrid
 
-To send emails with SendGrid, you need to configure the bindings for your function as follows:
+Para enviar emails com o SendGrid, você precisa configurar as associações para a função da seguinte maneira:
 
-1. Select **Integrate**.
-1. Choose **Add Output** under **HTTP ($return)**.
-1. Select **Delete.**
-1. Choose **+ New Output**.
-1. For Binding Type, then choose **SendGrid**.
-1. For SendGrid API Key Setting Type, click New.
-1. Enter the *Name* and *Value* of your SendGrid API key.
-1. Add the following information:
+1. Selecione **Integrar**.
+1. Escolha **adicionar saída** em **http ($Return)**.
+1. Selecione **excluir.**
+1. Escolha **+ nova saída**.
+1. Para tipo de associação, escolha **SendGrid**.
+1. Para tipo de configuração de chave de API SendGrid, clique em novo.
+1. Insira o *nome* e o *valor* da sua chave de API do SendGrid.
+1. Adicione as seguintes informações:
 
-| Setting | Value |
+| Configuração | Valor |
 | ------- | ----- |
-| Message parameter name | Choose your name |
-| To address | Choose the name of your To Address |
-| From address | Choose the name of your From Address |
-| Message subject | Enter your subject header |
-| Message text | Enter the message from your integration |
+| Nome do parâmetro de mensagem | Escolha seu nome |
+| Para resolver | Escolha o nome do seu endereço para |
+| Do endereço | Escolha o nome do seu endereço |
+| Assunto da mensagem | Insira o cabeçalho do assunto |
+| Texto da mensagem | Insira a mensagem da sua integração |
 
-1. Select **OK**.
+1. Selecione **OK**.
 
-    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Screenshot of Add SandGrid Output.":::
+    :::image type="content" source="media/howto-create-custom-rules/add-output.png" alt-text="Captura de tela de adicionar saída de SandGrid.":::
 
 
-### Test the function works
+### <a name="test-the-function-works"></a>Testar a função Works
 
-To test the function in the portal, first choose **Logs** at the bottom of the code editor. Then choose **Test** to the right of the code editor. Use the following JSON as the **Request body**:
+Para testar a função no portal, primeiro escolha **logs** na parte inferior do editor de código. Em seguida, escolha **teste** à direita do editor de códigos. Use o JSON a seguir como o **corpo da solicitação**:
 
 ```json
 [{"deviceid":"test-device-1","time":"2019-05-02T14:23:39.527Z"},{"deviceid":"test-device-2","time":"2019-05-02T14:23:50.717Z"},{"deviceid":"test-device-3","time":"2019-05-02T14:24:28.919Z"}]
@@ -228,9 +230,9 @@ To test the function in the portal, first choose **Logs** at the bottom of the c
 
 As mensagens de log de função aparecem no painel de **logs** :
 
-```:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Function log output":::
+:::image type="content" source="media/howto-create-custom-rules/function-app-logs.png" alt-text="Saída de log de função":::
 
-After a few minutes, the **To** email address receives an email with the following content:
+Após alguns minutos, o endereço de email **para** recebe um email com o seguinte conteúdo:
 
 ```txt
 The following device(s) have stopped sending telemetry:
@@ -306,7 +308,7 @@ Essa solução usa uma consulta Stream Analytics para detectar quando um disposi
         RightSide.deviceid2 is NULL
     ```
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para iniciar o trabalho de Stream Analytics, escolha **visão geral**, **Iniciar**, **agora** e **Iniciar**:
 
     :::image type="content" source="media/howto-create-custom-rules/stream-analytics.png" alt-text="Captura de tela de Stream Analytics.":::
@@ -323,7 +325,7 @@ Nesta seção, você configura o aplicativo para transmitir a telemetria de seus
     | Configuração | Valor |
     | ------- | ----- |
     | Nome de Exibição | Exportar para hubs de eventos |
-    | habilitado | Ativado |
+    | habilitado | Por |
     | Tipo de dados a serem exportados | Telemetria |
     | Aprimoramentos | Insira a chave/valor desejado de como você deseja que os dados exportados sejam organizados | 
     | Destino | Criar novas e inserir informações para o local em que os dados serão exportados |

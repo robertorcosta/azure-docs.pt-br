@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 10/18/2018
-ms.openlocfilehash: 7dde05e02421ef8d2ea46fd0d50687ede6e5d884
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ff8c549f74b59706de5203f2d2e46867d6cb1d0a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727764"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177771"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento de armazenamento
 
@@ -26,7 +26,6 @@ Para uma introdução de dez minutos e demonstração desse recurso, assista ao 
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Event-based-data-integration-with-Azure-Data-Factory/player]
 
-
 > [!NOTE]
 > A integração descrita neste artigo depende na [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/). Verifique se a assinatura está registrada no provedor de recursos da Grade de Eventos. Para obter mais informações, confira [Provedores e tipos de recursos](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal). Você deve ser capaz de fazer a ação *Microsoft. EventGrid/eventSubscriptions/**. Esta ação faz parte da função interna de colaborador do EventGrid EventSubscription.
 
@@ -34,11 +33,11 @@ Para uma introdução de dez minutos e demonstração desse recurso, assista ao 
 
 Esta seção mostra como criar um gatilho de evento de armazenamento dentro da interface do usuário do Azure Data Factory.
 
-1. Acesse a **Tela de criação**
+1. Alterne para a guia **Editar** , mostrada com um símbolo de lápis. 
 
-1. No canto inferior esquerdo, clique no botão **Gatilhos**
+1. Selecione **gatilho** no menu e, em seguida, selecione **novo/editar**. 
 
-1. Clique em **+ Novo**, e isso abrirá a navegação lateral do gatilho criar
+1. Na página **Adicionar gatilhos** , selecione **escolher gatilho...** e, em seguida, selecione **+ novo**. 
 
 1. Selecionar evento de **armazenamento** de tipo de gatilho
 
@@ -107,4 +106,5 @@ Esta seção fornece exemplos de configurações de gatilho de evento de armazen
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações detalhadas sobre gatilhos, consulte [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Para obter mais informações detalhadas sobre gatilhos, consulte [Gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md#trigger-execution).
+* Saiba como referenciar metadados de gatilho no pipeline, consulte [metadados de gatilho de referência em execuções de pipeline](how-to-use-trigger-parameterization.md)

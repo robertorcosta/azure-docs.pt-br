@@ -6,12 +6,12 @@ ms.topic: include
 ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
-ms.openlocfilehash: 57f504b15c0a9c72a2cb0f17b486846f44171a25
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101682383"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178058"
 ---
 Nesta etapa, você criará um [servidor SQL lógico](../database/logical-servers.md) e um [banco de dados individual](../database/single-database-overview.md) que usa os dados de exemplo da AdventureWorksLT. Você pode criar o banco de dados usando os menus e as telas do portal do Azure ou um script da CLI do Azure ou do PowerShell no Azure Cloud Shell.
 
@@ -151,11 +151,11 @@ O código anterior usa estes comandos da CLI do Azure:
 
 | Comando | Descrição |
 |---|---|
-| [az account set](/cli/azure/account?view=azure-cli-latest#az-account-set&preserve-view=true) | Define uma assinatura como a assinatura ativa atual. |
+| [az account set](/cli/azure/account#az-account-set) | Define uma assinatura como a assinatura ativa atual. |
 | [az group create](/cli/azure/group#az-group-create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [az sql server create](/cli/azure/sql/server#az-sql-server-create) | Cria um servidor que hospeda bancos de dados e pools elásticos. |
 | [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule##az-sql-server-firewall-rule-create) | Cria uma regra de firewall no nível do servidor. |
-| [az sql db create](/cli/azure/sql/db#az-sql-db-create?view=azure-cli-latest&preserve-view=true) | Cria um banco de dados. |
+| [az sql db create](/cli/azure/sql/db#az-sql-db-create) | Cria um banco de dados. |
 
 Para obter mais exemplos da CLI do Azure do Banco de Dados SQL do Azure, confira [Exemplos da CLI do Azure](../database/az-cli-script-samples-content-guide.md).
 

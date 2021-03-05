@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: jingwang
-ms.openlocfilehash: 151f4352ce7c845050c899792fd7285c97f844bc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bd8fc3383d6d9a0afb7733cb94643623e6879d23
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049977"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178534"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Obter atividade de metadados no Azure Data Factory
 
@@ -83,8 +83,14 @@ Você pode especificar os seguintes tipos de metadados na lista de campos de ati
 | ColumnCount | Número de colunas no arquivo ou na tabela relacional. |
 | exists| Se existe um arquivo, uma pasta ou uma tabela. Se `exists` for especificado na lista de campos obter metadados, a atividade não falhará mesmo que o arquivo, a pasta ou a tabela não exista. Em vez disso, `exists: false` é retornado na saída. |
 
->[!TIP]
->Quando você quiser validar que existe um arquivo, pasta ou tabela, especifique `exists` na lista de campos de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.
+> [!TIP]
+> Quando você quiser validar que existe um arquivo, pasta ou tabela, especifique `exists` na lista de campos de atividade obter metadados. Em seguida, você pode verificar o `exists: true/false` resultado na saída da atividade. Se `exists` não for especificado na lista de campos, a atividade obter metadados falhará se o objeto não for encontrado.
+
+> [!NOTE]
+> Quando você obtém metadados de repositórios de arquivos e configura `modifiedDatetimeStart` ou `modifiedDatetimeEnd` , o `childItems` na saída inclui apenas os arquivos no caminho especificado que têm uma hora da última modificação dentro do intervalo especificado. Os itens nas subpastas não são incluídos.
+
+> [!NOTE]
+> Para que a lista de campos de **estrutura** forneça a estrutura de dados real para o texto delimitado e os DataSets de formato do Excel, você deve habilitar a `First Row as Header` propriedade, que tem suporte apenas para essas fontes de dados.
 
 ## <a name="syntax"></a>Sintaxe
 

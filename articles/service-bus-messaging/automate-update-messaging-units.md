@@ -2,13 +2,13 @@
 title: Barramento de Serviço do Azure – Atualizar automaticamente as unidades do sistema de mensagens
 description: Este artigo mostra como você pode usar atualizar automaticamente as unidades de mensagens de um namespace do barramento de serviço.
 ms.topic: how-to
-ms.date: 09/15/2020
-ms.openlocfilehash: 594f9987bfa5a7a439fb862a0345d0004785b189
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/03/2021
+ms.openlocfilehash: 7fc3aca82b8f01d70dec4fc2dac7842895417ec9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720589"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102177948"
 ---
 # <a name="automatically-update-messaging-units-of-an-azure-service-bus-namespace"></a>Atualizar automaticamente as unidades do sistema de mensagens de um namespace do Barramento de Serviço do Azure 
 O dimensionamento automático permite ter a quantidade certa de recursos em execução para lidar com a carga em seu aplicativo. Ele permite adicionar recursos para lidar com os aumentos de carga e também economizar dinheiro removendo os recursos que estão ociosos. Consulte [visão geral do dimensionamento automático em Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md) para saber mais sobre o recurso de dimensionamento automático do Azure monitor. 
@@ -136,8 +136,14 @@ A seção anterior mostra como adicionar uma condição padrão para a configura
     
     :::image type="content" source="./media/automate-update-messaging-units/repeat-specific-days-2.png" alt-text="dimensionar para unidades de mensagens específicas – repetir dias específicos":::
 
-> [!IMPORTANT]
-> Para saber mais sobre como funcionam as configurações de dimensionamento automático, especialmente como ela escolhe um perfil ou condição e avalia várias regras, consulte [entender as configurações de dimensionamento automático](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+    
+    Para saber mais sobre como funcionam as configurações de dimensionamento automático, especialmente como ela escolhe um perfil ou condição e avalia várias regras, consulte [entender as configurações de dimensionamento automático](../azure-monitor/autoscale/autoscale-understanding-settings.md).          
+
+    > [!NOTE]
+    > - As métricas que você revisa para tomar decisões sobre o dimensionamento automático podem ser de 5-10 minutos. Quando você estiver lidando com cargas de trabalho do com picos, recomendamos que você tenha durações menores para escalar verticalmente e durações mais longas para reduzir horizontalmente (> 10 minutos) para garantir que haja unidades de mensagens suficientes para processar cargas de trabalho do com picos. 
+    > 
+    > - Se você encontrar falhas devido à falta de capacidade (nenhuma unidade de mensagens disponível), gere um tíquete de suporte conosco.  
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre as unidades do sistema de mensagens, consulte o [Mensagens premium](service-bus-premium-messaging.md)

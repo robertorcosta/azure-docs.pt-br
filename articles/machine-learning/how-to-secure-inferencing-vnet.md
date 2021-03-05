@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, devx-track-azurecli
-ms.openlocfilehash: 80abe036ef4a08f7ed6f0f19cffc2abde70a6ea9
-ms.sourcegitcommit: 706e7d3eaa27f242312d3d8e3ff072d2ae685956
+ms.openlocfilehash: 190f44e95c96a2aee60e1b28f8817a74d3e06e3f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99981299"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178653"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteger um ambiente Azure Machine Learning inferência com redes virtuais
 
@@ -34,7 +34,6 @@ Neste artigo, você aprenderá a proteger os seguintes recursos do inferência e
 > - Cluster AKS privado
 > - Cluster AKS com link privado
 > - ACI (Instâncias de Contêiner do Azure)
-
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -58,7 +57,6 @@ Para usar um cluster AKS em uma rede virtual, os requisitos de rede a seguir dev
 > [!div class="checklist"]
 > * Siga os pré-requisitos em [Configurar a rede avançada no AKs (serviço de kubernetes do Azure)](../aks/configure-azure-cni.md#prerequisites).
 > * A instância AKS e a rede virtual devem estar na mesma região. Se você proteger as contas de armazenamento do Azure usadas pelo espaço de trabalho em uma rede virtual, elas deverão estar na mesma rede virtual que a instância AKS também.
-
 
 Para adicionar o AKS em uma rede virtual ao seu espaço de trabalho, use as seguintes etapas:
 
@@ -274,7 +272,7 @@ Se você não quiser usar as regras de saída padrão e quiser limitar o acesso 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo é a parte três de uma série de redes virtuais de quatro partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
+Este artigo é a parte quatro de uma série de redes virtuais de cinco partes. Consulte o restante dos artigos para saber como proteger uma rede virtual:
 
 * [Parte 1: visão geral da rede virtual](how-to-network-security-overview.md)
 * [Parte 2: proteger os recursos do espaço de trabalho](how-to-secure-workspace-vnet.md)

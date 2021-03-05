@@ -5,15 +5,15 @@ services: virtual-machines
 author: albecker1
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/12/2021
+ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: 54c29d76757916a8eea54af16babdae21b809a19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750405"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102178301"
 ---
 ## <a name="disk-level-bursting"></a>Intermitência em nível de disco
 
@@ -63,15 +63,14 @@ Você pode consultar a [página de preços do Managed disks](https://azure.micro
 
 A intermitência baseada em crédito está disponível para tamanhos de disco P20 e menor em todas as regiões nas nuvens pública, governamental e China do Azure. Por padrão, a intermitência de disco está habilitada em todas as implantações novas e existentes de tamanhos de disco com suporte. A intermitência no nível da VM usa apenas a intermitência baseada em crédito.
 
-### <a name="virtual-machine-level-bursting"></a>Intermitência no nível da máquina virtual
-O suporte à intermitência no nível da VM está habilitado em todas as regiões na nuvem pública nesses tamanhos com suporte: 
-- [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
+## <a name="virtual-machine-level-bursting"></a>Intermitência no nível da máquina virtual
 
-A intermitência no nível da VM também está disponível na EUA Central ocidental para os seguintes tamanhos com suporte:
+A intermitência no nível da VM usa apenas o modelo baseado em crédito para intermitência, ela é habilitada por padrão para todas as VMs que dão suporte a ela.
+
+A intermitência no nível da VM está habilitada em todas as regiões na nuvem pública do Azure nesses tamanhos com suporte: 
+- [Lsv2-series](../articles/virtual-machines/lsv2-series.md)
 - [Séries Dv3 e DSv3](../articles/virtual-machines/dv3-dsv3-series.md)
 - [Séries Ev3 e Esv3](../articles/virtual-machines/ev3-esv3-series.md)
-
-Por padrão, a intermitência está habilitada para máquinas virtuais que dão suporte a ela.
 
 ## <a name="bursting-flow"></a>Fluxo de intermitência
 
