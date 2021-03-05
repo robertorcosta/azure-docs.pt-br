@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 5dd960dde72b879515bd948c4731ead135bef4b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6adc3a8af90f6f05f640de97b8fa74c8d40e0329
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102035043"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175526"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Como usar o portal para criar um aplicativo e uma entidade de serviço do Azure AD que possa acessar recursos
 
@@ -55,7 +55,7 @@ Para verificar suas permissões de assinatura:
 
 1. Pesquise e selecione **assinaturas**, ou selecione **assinaturas** na **Home** Page do.
 
-   ![Pesquisar](./media/howto-create-service-principal-portal/select-subscription.png)
+   ![Search](./media/howto-create-service-principal-portal/select-subscription.png)
 
 1. Selecione a assinatura na qual você deseja criar a entidade de serviço.
 
@@ -84,6 +84,9 @@ Vamos diretamente para a criação da identidade. Se você encontrar um problema
    ![Digite um nome para seu aplicativo](./media/howto-create-service-principal-portal/create-app.png)
 
 Você criou o aplicativo e a entidade de serviço do Azure AD.
+
+> [!NOTE]
+> Você pode registrar vários aplicativos com o mesmo nome no Azure AD, mas os aplicativos devem ter IDs de aplicativo (cliente) diferentes.
 
 ## <a name="assign-a-role-to-the-application"></a>Atribuir uma função ao aplicativo
 

@@ -7,12 +7,12 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 12/03/2020
-ms.openlocfilehash: 5c33ef9559d9ce67eea62ee7f78425d18010c1cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d96c467807af868c07be12f52d913f881b82f732
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101727950"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175865"
 ---
 # <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF 
 
@@ -182,7 +182,7 @@ Para pequenas e médias soluções, um único modelo é mais fácil de entender 
 
 ##### <a name="issue"></a>Problema
 
-Você não pode se conectar ao GIT Enterprise devido a problemas de permissão. Você pode ver um erro como **422-entidade não processável.**
+Não é possível se conectar ao GIT Enterprise devido a problemas de permissão. Você pode ver um erro como **422-entidade não processável.**
 
 #### <a name="cause"></a>Causa
 
@@ -190,7 +190,7 @@ Você não configurou o OAuth para ADF. A URL está configurada incorretamente.
 
 ##### <a name="resolution"></a>Resolução
 
-Você concede acesso OAuth ao ADF primeiro. Em seguida, você precisa usar a URL correta para se conectar ao GIT Enterprise. A configuração deve ser definida para as organizações do cliente, pois o serviço ADF primeiro tentará https://hostname/api/v3/search/repositories?q=user%3 <customer credential> .... e falha. Em seguida, ele experimentará https://hostname/api/v3/orgs/ <vaorg> / <repo> e terá sucesso. 
+Você concede acesso OAuth ao ADF primeiro. Em seguida, você precisa usar a URL correta para se conectar ao GIT Enterprise. A configuração deve ser definida para as organizações do cliente. Por exemplo, o ADF tentará primeiro *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ...* e falhará. Em seguida, ele tentará *https://hostname/api/v3/orgs/ <org> / <repo> ...* e terá sucesso. 
  
 ### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de um data factory excluído
 
@@ -203,7 +203,8 @@ O cliente excluiu o data Factory ou o grupo de recursos que contém o Data Facto
 
 Se não houver nenhum controle do código-fonte, a recuperação de um Data Factory excluído do back-end não será possível porque, uma vez que o serviço recebe o comando excluído, a instância é excluída e nenhum backup foi armazenado.
 
-#### <a name="resoloution"></a>Resoloution
+#### <a name="resolution"></a>Resolução
+
 Para recuperar o Data Factory excluído que tem o controle do código-fonte, consulte as etapas abaixo:
 
  * Crie um novo Azure Data Factory.

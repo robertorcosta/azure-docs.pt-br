@@ -8,15 +8,13 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: b720e98fc83fd12744c289cb99814748b469b15d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123676"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175696"
 ---
-# <a name="azure-instance-metadata-service"></a>Serviço de metadados de instância do Azure
-
 O serviço de metadados de instância do Azure (IMDS) fornece informações sobre as instâncias de máquina virtual em execução no momento. Você pode usá-lo para gerenciar e configurar suas máquinas virtuais.
 Essas informações incluem a SKU, o armazenamento, as configurações de rede e os próximos eventos de manutenção. Para obter uma lista completa dos dados disponíveis, consulte o [Resumo de categorias de ponto de extremidade](#endpoint-categories).
 

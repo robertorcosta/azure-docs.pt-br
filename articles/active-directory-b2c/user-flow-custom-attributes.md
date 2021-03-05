@@ -7,17 +7,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2020
+ms.date: 03/04/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5552c93c1c65f08f70ed8929d81126035aa2a357
-ms.sourcegitcommit: 52e3d220565c4059176742fcacc17e857c9cdd02
+ms.openlocfilehash: c9453f2fc5803fb6ce09d8749cbf7fa1c7c2ec46
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98661197"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174811"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definir atributos personalizados no Azure Active Directory B2C
 
@@ -25,7 +25,7 @@ ms.locfileid: "98661197"
 
 No artigo [adicionar declarações e personalizar a entrada do usuário usando políticas personalizadas](configure-user-input.md) , você aprende a usar os [atributos de perfil do usuário](user-profile-attributes.md)interno. Neste artigo, você habilita um atributo personalizado em seu diretório Azure Active Directory B2C (Azure AD B2C). Posteriormente, você pode usar o novo atributo como uma declaração personalizada em [fluxos de usuário](user-flow-overview.md) ou [políticas personalizadas](custom-policy-get-started.md) simultaneamente.
 
-Seu diretório de Azure AD B2C é fornecido com um [conjunto interno de atributos](user-profile-attributes.md). No entanto, geralmente você precisa criar seus próprios atributos para gerenciar seu cenário específico, por exemplo, quando:
+Seu diretório do Microsoft Azure Active Directory B2C é fornecido com um [conjunto interno de atributos](user-profile-attributes.md). No entanto, geralmente você precisa criar seus próprios atributos para gerenciar seu cenário específico, por exemplo, quando:
 
 * Um aplicativo voltado para o cliente precisa manter um atributo de **fidelidadeid** .
 * Um provedor de identidade tem um identificador de usuário exclusivo, **uniqueUserGUID**, que deve ser persistido.
@@ -83,7 +83,7 @@ Os termos *propriedade de extensão*, *atributo personalizado* e *declaração p
 
 ## <a name="using-custom-attribute-with-ms-graph-api"></a>Usando o atributo personalizado com MS API do Graph
 
-A API do Microsoft Graph dá suporte à criação e à atualização de um usuário com atributos de extensão. Os atributos de extensão no API do Graph são nomeados usando a Convenção `extension_ApplicationClientID_attributename` , em que o `ApplicationClientID` é a ID do aplicativo **(cliente)** do `b2c-extensions-app` aplicativo. Observe que a **ID do aplicativo (cliente)** , como é representada no nome do atributo de extensão, não inclui hifens. Por exemplo:
+A API do Microsoft Graph dá suporte à criação e à atualização de um usuário com atributos de extensão. Os atributos de extensão no API do Graph são nomeados usando a Convenção `extension_ApplicationClientID_attributename` , em que o `ApplicationClientID` é a ID do aplicativo **(cliente)** do `b2c-extensions-app` aplicativo. Observe que a **ID do aplicativo (cliente)** , como é representada no nome do atributo de extensão, não inclui hifens. Por exemplo: 
 
 ```json
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"
@@ -97,22 +97,27 @@ Para habilitar atributos personalizados em sua política, forneça a **ID do apl
 
 1. Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalAccounts/`**`TrustFrameworkExtensions.xml`**</em>.
 1. Localize o elemento ClaimsProviders. Adicione um novo Claimprovider ao elemento ClaimsProviders.
-1. Substitua `ApplicationObjectId` pela ID de objeto que você registrou anteriormente. Em seguida, substitua `ClientId` pela ID do aplicativo que você registrou anteriormente no trecho abaixo.
+1. Insira a **ID do aplicativo** que você registrou anteriormente, entre os elementos de abertura `<Item Key="ClientId">` e fechamento `</Item>` .
+1. Insira o **ObjectID do aplicativo** que você registrou anteriormente, entre os elementos de abertura `<Item Key="ApplicationObjectId">` e fechamento `</Item>` .
 
     ```xml
-    <ClaimsProvider>
-      <DisplayName>Azure Active Directory</DisplayName>
-      <TechnicalProfiles>
-        <TechnicalProfile Id="AAD-Common">
-          <Metadata>
-            <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
-            <Item Key="ClientId"></Item>
-            <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
-            <Item Key="ApplicationObjectId"></Item>
-          </Metadata>
-        </TechnicalProfile>
-      </TechnicalProfiles> 
-    </ClaimsProvider>
+    <!-- 
+    <ClaimsProviders> -->
+      <ClaimsProvider>
+        <DisplayName>Azure Active Directory</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="AAD-Common">
+            <Metadata>
+              <!--Insert b2c-extensions-app application ID here, for example: 11111111-1111-1111-1111-111111111111-->  
+              <Item Key="ClientId"></Item>
+              <!--Insert b2c-extensions-app application ObjectId here, for example: 22222222-2222-2222-2222-222222222222-->
+              <Item Key="ApplicationObjectId"></Item>
+            </Metadata>
+          </TechnicalProfile>
+        </TechnicalProfiles> 
+      </ClaimsProvider>
+    <!-- 
+    </ClaimsProviders> -->
     ```
 
 ## <a name="upload-your-custom-policy"></a>Carregar sua política personalizada

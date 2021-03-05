@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 03/03/2021
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: e01f44d363d038bd2ea4b985e12c9afc200f2c20
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c587705041b8fb3d37e02142fa10ae5a1d73f9f
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046424"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102173840"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Auditoria do banco de dados SQL do Azure e do Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -60,7 +60,7 @@ Uma política de auditoria pode ser definida para um banco de dados específico 
 
 - Quando a política de auditoria é definida no nível do banco de dados para um Log Analytics espaço de trabalho ou um destino do hub de eventos, as seguintes operações não manterão a política de auditoria no nível do banco de dados de origem:
     - [Cópia do banco de dados](database-copy.md)
-    - [Restauração point-in-time](recovery-using-backups.md)
+    - [Restauração em um momento determinado](recovery-using-backups.md)
     - [Replicação geográfica](active-geo-replication-overview.md) (o banco de dados secundário não terá auditoria no nível do banco de dados)
 
 - Habilitar a auditoria no banco de dados, além de habilitá-lo no servidor, *não substitui nem* altera as configurações da auditoria do servidor. Ambas as auditorias existirão lado a lado. Em outras palavras, o banco de dados é auditado duas vezes em paralelo: uma vez pela política de servidor e outra, pela política de banco de dados.
@@ -284,8 +284,8 @@ Diretiva estendida com suporte em que a cláusula de filtragem adicional:
 
 ### <a name="using-azure-cli"></a>Usando a CLI do Azure
 
-- [Gerenciar a política de auditoria de um servidor](/cli/azure/sql/server/audit-policy?view=azure-cli-latest)
-- [Gerenciar a política de auditoria de um banco de dados](/cli/azure/sql/db/audit-policy?view=azure-cli-latest)
+- [Gerenciar a política de auditoria de um servidor](/cli/azure/sql/server/audit-policy)
+- [Gerenciar a política de auditoria de um banco de dados](/cli/azure/sql/db/audit-policy)
 
 ### <a name="using-azure-resource-manager-templates"></a>Usar modelos do Azure Resource Manager
 

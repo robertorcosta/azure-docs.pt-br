@@ -107,7 +107,7 @@
 - name: Referência
   items:
     - name: CLI do Azure
-      href: /cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+      href: /cli/azure/cognitiveservices#az_cognitiveservices_list
     - name: Azure PowerShell
       href: /powershell/module/azurerm.cognitiveservices/
     - name: Versão prévia da API da Pesquisa Visual Computacional v3.2

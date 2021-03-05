@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a70b8be6c034f002f0e387b5d3b4ba5deafa1a5e
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e3d3a41e4100e36ae2400c8076d4c5b713b899d6
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120497"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174862"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -555,7 +555,7 @@ O perfil técnico de referência do elemento **UseTechnicalProfileForSessionMana
 
 ## <a name="enabled-for-user-journeys"></a>Habilitado para viagens do usuário
 
-O [ClaimsProviderSelections](userjourneys.md#identity-provider-selection) em um percurso do usuário define a lista de opções de seleção de provedor de declarações e sua ordem. Com o elemento **EnabledForUserJourneys**, você filtra qual provedor de declarações está disponível para o usuário. O elemento **EnabledForUserJourneys** contém um dos seguintes valores:
+O [ClaimsProviderSelections](userjourneys.md#claims-provider-selection) em um percurso do usuário define a lista de opções de seleção de provedor de declarações e sua ordem. Com o elemento **EnabledForUserJourneys**, você filtra qual provedor de declarações está disponível para o usuário. O elemento **EnabledForUserJourneys** contém um dos seguintes valores:
 
 - **Always**, executar o perfil técnico.
 - **Never**, ignorar o perfil técnico.

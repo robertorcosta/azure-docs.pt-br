@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aac75e7876ce59b90e27f9e87c96240755d26235
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 05307fe2ad9e0a59fa11c30f2dc7154ba5076603
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120735"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174649"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -119,18 +119,23 @@ O elemento **Preconditions** contém o seguinte elemento:
 
 #### <a name="precondition"></a>Pré-condição
 
+As etapas de orquestração podem ser executadas condicionalmente com base nas pré-condições definidas na etapa de orquestração. Há dois tipos de pré-condições:
+ 
+- **Existem declarações** -especifica que as ações devem ser executadas se as declarações especificadas existirem no recipiente de declarações atual do usuário.
+- **Declaração Equals** -especifica que as ações devem ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. A verificação executa uma comparação ordinal que diferencia maiúsculas de minúsculas. Ao verificar o tipo de declaração booliana, use `True` ou `False` .
+
 O elemento de **pré-condição** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
 | `Type` | Sim | O tipo de verificação ou consulta ser executada para essa pré-condição. O valor poderá ser **ClaimsExist**, que especifica que as ações deverão ser executadas se as declarações especificadas existirem no conjunto de declarações do usuário atual, ou **ClaimEquals**, que especifica que as ações deverão ser executadas se a declaração especificada existir e seu valor for igual ao valor especificado. |
-| `ExecuteActionsIf` | Sim | Use um teste de verdadeiro ou falso para decidir se as ações na pré-condição devem ser executadas. |
+| `ExecuteActionsIf` | Sim | Use um `true` `false` teste ou para decidir se as ações na pré-condição devem ser executadas. |
 
 O elemento **Precondition** contém os seguintes elementos:
 
 | Elemento | Ocorrências | Descrição |
 | ------- | ----------- | ----------- |
-| Valor | 1:n | Um ClaimTypeReferenceId a ser consultado. Outro elemento de valor contém o valor a ser verificado.</li></ul>|
+| Valor | 1:2 | O identificador de um tipo de declaração. A declaração já está definida na seção esquema de declarações no arquivo de política ou no arquivo de política pai. Quando a pré-condição é do tipo de `ClaimEquals` , um segundo `Value` elemento contém o valor a ser verificado. |
 | Ação | 1:1 | A ação que deverá ser executada se a verificação de pré-condição dentro de uma etapa de orquestração for verdadeira. Se o valor de `Action` estiver definido como `SkipThisOrchestrationStep`, o `OrchestrationStep` associado não deverá ser executado. |
 
 #### <a name="preconditions-examples"></a>Exemplos de pré-condições
@@ -189,7 +194,7 @@ As pré-condições podem verificar várias pré-condições. O exemplo a seguir
 </OrchestrationStep>
 ```
 
-## <a name="identity-provider-selection"></a>Seleção do provedor de identidade
+## <a name="claims-provider-selection"></a>Seleção do provedor de declarações
 
 A seleção do provedor de identidade permite que os usuários selecionem uma ação em uma lista de opções. A seleção do provedor de identidade consiste em um par de duas etapas de orquestração: 
 
@@ -215,7 +220,7 @@ O elemento **ClaimsProviderSelection** contém os seguintes atributos:
 | TargetClaimsExchangeId | Não | O identificador da troca de declarações, que é executado na próxima etapa de orquestração da seleção do provedor de declarações. Esse atributo ou o atributo ValidationClaimsExchangeId deve ser especificado, mas não ambos. |
 | ValidationClaimsExchangeId | Não | O identificador da troca de declarações, que é executado na etapa de orquestração atual para validar a seleção do provedor de declarações. Esse atributo ou o atributo TargetClaimsExchangeId deve ser especificado, mas não ambos. |
 
-### <a name="claimsproviderselection-example"></a>Exemplo de ClaimsProviderSelection
+### <a name="claims-provider-selection-example"></a>Exemplo de seleção de provedor de declarações
 
 Na etapa de orquestração a seguir, o usuário pode optar por entrar com o Facebook, LinkedIn, Twitter, Google ou uma conta local. Se o usuário selecionar um dos provedores de identidade social, a segunda etapa de orquestração será executada com a troca de declaração selecionada especificada no atributo `TargetClaimsExchangeId`. A segunda etapa de orquestração redireciona o usuário para o provedor de identidade social para concluir o processo de conexão. Se o usuário optar por se conectar com a conta local, o Azure AD B2C permanecerá na mesma etapa de orquestração (a mesma página de conexão ou de entrada) e ignorará a segunda etapa de orquestração.
 

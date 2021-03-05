@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/03/2020
+ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4e74c33a18baff3e1cb39328ce265f16975ef1b5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "95994835"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175083"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -149,6 +149,42 @@ Use essa transformação de declarações para definir um valor de ClaimType de 
     - **value**: termos de serviço da Contoso…
 - Declarações de saída:
     - **createdClaim**: o ClaimType de TOS contém o valor "Termos de serviço da Contoso...".
+
+## <a name="copyclaimifpredicatematch"></a>CopyClaimIfPredicateMatch
+
+Copie o valor de uma declaração para outra se o valor da declaração de entrada corresponder ao predicado de declaração de saída. 
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | InputClaim | string | O tipo de declaração, que deve ser copiado. |
+| OutputClaim | outputClaim | string | O tipo de declaração que é produzido após essa transformação de declarações foi invocado. O valor da declaração de entrada é verificado em relação a este predicado de declaração. |
+
+O exemplo a seguir copia o valor de declaração signInName para a declaração phoneNumber, somente se signInName for um número de telefone. Para obter o exemplo completo, consulte o [número de telefone ou](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/blob/master/scenarios/phone-number-passwordless/Phone_Email_Base.xml) a política de inicialização do pacote inicial de entrada de email.
+
+```xml
+<ClaimsTransformation Id="SetPhoneNumberIfPredicateMatch" TransformationMethod="CopyClaimIfPredicateMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="signInName" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example-1"></a>Exemplo 1
+
+- Declarações de entrada:
+    - **inputClaim**: bob@contoso.com
+- Declarações de saída:
+    - **outputClaim**: a declaração de saída não será alterada de seu valor original.
+
+### <a name="example-2"></a>Exemplo 2
+
+- Declarações de entrada:
+    - **inputClaim**: + 11234567890
+- Declarações de saída:
+    - **outputClaim**: +11234567890
 
 ## <a name="compareclaims"></a>CompareClaims
 

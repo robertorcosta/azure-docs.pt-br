@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/25/2021
+ms.date: 03/04/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbe69967d84777091aec0bbbf1626b98f5018d0e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692988"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175304"
 ---
 # <a name="authentication-methods-activity"></a>Atividade de métodos de autenticação 
 
@@ -26,10 +26,17 @@ O painel de atividade novos métodos de autenticação permite que os administra
 
 ## <a name="permissions-and-licenses"></a>Permissões e licenças
 
-As funções a seguir podem acessar o uso e as informações:
+As funções internas e personalizadas com as seguintes permissões podem acessar a folha de atividade de métodos de autenticação e as APIs:
+
+- Microsoft. Directory/auditLogs/myproperties/Read
+- Microsoft. Directory/signInReports/myproperties/Read
+
+As funções a seguir têm as permissões necessárias:
 
 - Leitor de Relatórios
 - Leitor de segurança
+- Leitor global
+- Operador de segurança
 - Administrador de Segurança
 - Administrador Global
 
@@ -100,7 +107,7 @@ Usando os controles na parte superior da lista, você pode pesquisar um usuário
 O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
 - Nome UPN
-- Name
+- Nome
 - Compatível com MFA (capaz, sem capacidade)
 - Com capacidade de senha (capaz, sem capacidade)
 - SSPR registrado (registrado, não registrado)
@@ -122,11 +129,12 @@ O relatório detalhes do registro mostra as seguintes informações para cada us
 - Status (êxito, falha)
 - Motivo da falha (explicação)
 
-  ![Captura de tela da página de uso](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
+  ![Captura de tela de eventos de registro e redefinição](media/how-to-authentication-methods-usage-insights/registration-and-reset-logs.png)
 
 ## <a name="limitations"></a>Limitações
 
-Os registros de passagem de acesso temporário (TAP) não são refletidos na guia registro do relatório porque eles só são válidos por um curto período de tempo.
+- Os dados no relatório não são atualizados em tempo real e podem refletir uma latência de até algumas horas.
+- Os registros de aprovação de acesso temporário não são refletidos na guia registro do relatório, pois eles só são válidos por um curto período de tempo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
