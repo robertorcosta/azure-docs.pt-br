@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3d2e01b645c1661d4b44520193b9c4557cbc1ea0
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100652149"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218835"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com o servidor de inferência de Triton (visualização) 
 
@@ -36,7 +36,7 @@ Triton é uma estrutura *otimizada para inferência*. Ele fornece melhor utiliza
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiaridade com [como e onde implantar um modelo](how-to-deploy-and-where.md) com Azure Machine Learning.
-* O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/?view=azure-ml-py) **ou** a extensão de [CLI do Azure](/cli/azure/?view=azure-cli-latest) e [Machine Learning](reference-azure-machine-learning-cli.md).
+* O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/?view=azure-ml-py) **ou** a extensão de [CLI do Azure](/cli/azure/) e [Machine Learning](reference-azure-machine-learning-cli.md).
 * Uma instalação funcional do Docker para teste local. Para obter informações sobre como instalar e validar o Docker, consulte [orientação e configuração](https://docs.docker.com/get-started/) na documentação do Docker.
 
 ## <a name="architectural-overview"></a>Visão geral da arquitetura
@@ -331,7 +331,7 @@ print(local_service.scoring_uri)
 
 ---
 
-Após a conclusão da implantação, o URI de pontuação é exibido. Para essa implantação local, será `http://localhost:6789/score` . Se você implantar na nuvem, poderá usar o comando [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI para obter o URI de pontuação.
+Após a conclusão da implantação, o URI de pontuação é exibido. Para essa implantação local, será `http://localhost:6789/score` . Se você implantar na nuvem, poderá usar o comando [AZ ml Service show](/cli/azure/ext/azure-cli-ml/ml/service#ext_azure_cli_ml_az_ml_service_show) CLI para obter o URI de pontuação.
 
 Para obter informações sobre como criar um cliente que envia solicitações de inferência para o URI de pontuação, consulte [consumir um modelo implantado como um serviço Web](how-to-consume-web-service.md).
 

@@ -8,12 +8,12 @@ ms.date: 5/11/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.openlocfilehash: f307380114acd4f98d68b580333c4dccc2a7340b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 97ccbd0858a7b85c4b5d1e460f67416d8139e49a
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201593"
+ms.locfileid: "102218597"
 ---
 # <a name="configuring-azure-file-sync-network-endpoints"></a>Configurar pontos de extremidade de rede da Sincronização de Arquivos do Azure
 Os Arquivos do Azure e a Sincronização de Arquivos do Azure fornecem dois tipos principais de pontos de extremidade para acessar compartilhamentos de arquivo do Azure: 
@@ -34,7 +34,7 @@ Este artigo supõe que:
 
 Adicionalmente:
 - Se pretende usar o Azure PowerShell, [instale a versão mais recente](/powershell/azure/install-az-ps).
-- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+- Se pretende usar a CLI do Azure, [instale a versão mais recente](/cli/azure/install-azure-cli).
 
 ## <a name="create-the-private-endpoints"></a>Criar os pontos de extremidade privados
 Quando você cria um ponto de extremidade privado para um recurso do Azure, os seguintes recursos são implantados:

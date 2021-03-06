@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/29/2020
 ms.author: irenehua
-ms.openlocfilehash: 952889777e4236d7fa03fad5b1bdbf98499f7066
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 52f2a2ed301bf734ad605a2ee68a0ab672a97014
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721303"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102218716"
 ---
 # <a name="update-or-delete-a-load-balancer-used-by-virtual-machine-scale-sets"></a>Atualizar ou excluir um balanceador de carga usado por conjuntos de dimensionamento de máquinas virtuais
 
@@ -30,7 +30,7 @@ Ao trabalhar com conjuntos de dimensionamento de máquinas virtuais e uma instâ
 
 ## <a name="set-up-a-load-balancer-for-scaling-out-virtual-machine-scale-sets"></a>Configurar um balanceador de carga para dimensionar conjuntos de dimensionamento de máquinas virtuais
 
-Certifique-se de que a instância do Azure Load Balancer tenha um [pool de NAT de entrada](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest) configurado e que o conjunto de dimensionamento de máquinas virtuais seja colocado no pool de back-end do balanceador de carga. Load Balancer criará automaticamente novas regras NAT de entrada no pool de NAT de entrada quando novas instâncias de máquina virtual forem adicionadas ao conjunto de dimensionamento de máquinas virtuais.
+Certifique-se de que a instância do Azure Load Balancer tenha um [pool de NAT de entrada](/cli/azure/network/lb/inbound-nat-pool) configurado e que o conjunto de dimensionamento de máquinas virtuais seja colocado no pool de back-end do balanceador de carga. Load Balancer criará automaticamente novas regras NAT de entrada no pool de NAT de entrada quando novas instâncias de máquina virtual forem adicionadas ao conjunto de dimensionamento de máquinas virtuais.
 
 Para verificar se o pool de NAT de entrada está configurado corretamente:
 
@@ -44,7 +44,7 @@ Não é possível adicionar regras de NAT de entrada individuais. Mas você pode
 
 Para adicionar um conjunto completo de regras de NAT de entrada para os conjuntos de dimensionamento de máquinas virtuais, primeiro crie um pool de NAT de entrada no balanceador de carga. Em seguida, faça referência ao pool de NAT de entrada do perfil de rede do conjunto de dimensionamento de máquinas virtuais. É mostrado um exemplo completo usando a CLI.
 
-O novo pool de NAT de entrada não deve ter um intervalo de portas de front-end sobrepostos com pools NAT de entrada existentes. Para exibir os pools NAT de entrada existentes que estão configurados, use este [comando da CLI](/cli/azure/network/lb/inbound-nat-pool?view=azure-cli-latest#az_network_lb_inbound_nat_pool_list):
+O novo pool de NAT de entrada não deve ter um intervalo de portas de front-end sobrepostos com pools NAT de entrada existentes. Para exibir os pools NAT de entrada existentes que estão configurados, use este [comando da CLI](/cli/azure/network/lb/inbound-nat-pool#az_network_lb_inbound_nat_pool_list):
   
 ```azurecli-interactive
   az network lb inbound-nat-pool create 
