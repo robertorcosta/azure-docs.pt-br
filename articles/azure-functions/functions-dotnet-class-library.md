@@ -4,12 +4,12 @@ description: Entenda como usar o C# para desenvolver e publicar código que é e
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: e29b250b25bdafb2b3af26f5669f2ae5ed485457
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041188"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428381"
 ---
 # <a name="develop-c-functions-using-azure-functions"></a>Desenvolver funções C# usando Azure Functions
 
@@ -23,24 +23,40 @@ Este artigo é uma introdução ao desenvolvimento do Azure Functions usando o s
 Como desenvolvedor de C#, você também pode estar interessado em um dos seguintes artigos:
 
 | Introdução | Conceitos| Aprendizado guiado/amostras |
-| -- | -- | -- | 
+|--| -- |--| 
 | <ul><li>[Usando o Visual Studio](functions-create-your-first-function-visual-studio.md)</li><li>[Usando Visual Studio Code](create-first-function-vs-code-csharp.md)</li><li>[Usando ferramentas de linha de comando](create-first-function-cli-csharp.md)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[&nbsp;Considerações sobre desempenho](functions-best-practices.md)</li><li>[Desenvolvimento do Visual Studio](functions-develop-vs.md)</li><li>[Injeção de dependência](functions-dotnet-dependency-injection.md)</li></ul> | <ul><li>[Criar aplicativos sem servidor](/learn/paths/create-serverless-applications/)</li><li>[Exemplos do C#](/samples/browse/?products=azure-functions&languages=csharp)</li></ul> |
 
 O Azure Functions oferece suporte às linguagens de programação C# e script C#. Se estiver procurando diretrizes sobre [como usar C# no portal do Azure](functions-create-function-app-portal.md), consulte [Referência do desenvolvedor de script C# (.csx)](functions-reference-csharp.md).
 
 ## <a name="supported-versions"></a>Versões com suporte
 
-As versões do tempo de execução do Functions funcionam com versões específicas do .NET. A tabela a seguir mostra o nível mais alto de .NET Core e .NET Framework e .NET Core que podem ser usados com uma versão específica de funções em seu projeto. 
+As versões do tempo de execução do Functions funcionam com versões específicas do .NET. Para saber mais sobre as versões do functions, consulte [visão geral das versões do Azure Functions Runtime](functions-versions.md)
+
+A tabela a seguir mostra o nível mais alto de .NET Core ou .NET Framework que pode ser usado com uma versão específica do functions. 
 
 | Versão de tempo de execução do Functions | Versão máxima do .NET |
 | ---- | ---- |
-| Funções 3. x | .NET Core 3.1<br/>.NET 5,0<sup>*</sup> |
-| Funções 2.x | .NET Core 2.2 |
+| Funções 3. x | .NET Core 3.1<br/>.NET 5,0<sup>1</sup> |
+| Funções 2.x | .NET Core 2,2<sup>2</sup> |
 | Funções 1.x | .NET Framework 4.7 |
 
-<sup>*</sup> Deve executar [fora do processo](dotnet-isolated-process-guide.md).
+<sup>1</sup> deve executar [fora do processo](dotnet-isolated-process-guide.md).  
+<sup>2</sup> para obter detalhes, consulte [Considerações sobre funções v2. x](#functions-v2x-considerations).   
 
-Para saber mais, consulte [visão geral das versões do Azure Functions Runtime](functions-versions.md)
+Para obter as notícias mais recentes sobre as versões de Azure Functions, incluindo a remoção de versões secundárias específicas mais antigas, monitore os [comunicados de serviço Azure app](https://github.com/Azure/app-service-announcements/issues).
+
+### <a name="functions-v2x-considerations"></a>Considerações sobre funções v2. x
+
+Os aplicativos de funções direcionados à versão 2. x mais recente ( `~2` ) são atualizados automaticamente para execução no .NET Core 3,1. Devido a alterações significativas entre as versões do .NET Core, nem todos os aplicativos desenvolvidos e compilados no .NET Core 2,2 podem ser atualizados com segurança para o .NET Core 3,1. Você pode recusar essa atualização fixando seu aplicativo de funções ao `~2.0` . O Functions também detecta APIs incompatíveis e pode fixar seu aplicativo no `~2.0` para evitar a execução incorreta no .NET Core 3,1. 
+
+>[!NOTE]
+>Se seu aplicativo de funções for fixado `~2.0` e você alterar esse destino de versão para `~2` , seu aplicativo de funções poderá ser interrompido. Se você implantar o usando modelos ARM, verifique a versão em seus modelos. Se isso ocorrer, altere sua versão de volta para destino `~2.0` e corrija os problemas de compatibilidade. 
+
+Os aplicativos de funções direcionados `~2.0` continuam a ser executados no .NET Core 2,2. Esta versão do .NET Core não recebe mais segurança e outras atualizações de manutenção. Para saber mais, confira [esta página de anúncio](https://github.com/Azure/app-service-announcements/issues/266). 
+
+Você deve trabalhar para tornar suas funções compatíveis com o .NET Core 3,1 assim que possível. Depois de resolver esses problemas, altere sua versão de volta `~2` ou atualize para o `~3` . Para saber mais sobre como direcionar versões do tempo de execução do functions, confira [como direcionar Azure Functions versões de tempo de execução](set-runtime-version.md).
+
+Ao ser executado no Linux em um plano Premium ou dedicado (serviço de aplicativo), você fixa sua versão, em vez de direcionar a uma imagem específica, definindo a `linuxFxVersion` configuração do site como `DOCKER|mcr.microsoft.com/azure-functions/dotnet:2.0.14786-appservice` para saber como definir `linuxFxVersion` , consulte [atualizações de versão manual no Linux](set-runtime-version.md#manual-version-updates-on-linux).
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
@@ -90,14 +106,14 @@ O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a 
 
 ## <a name="method-signature-parameters"></a>Parâmetros de assinatura do método
 
-A assinatura do método pode conter parâmetros diferentes daquela usada com o atributo de gatilho. Aqui estão alguns dos parâmetros adicionais que você pode incluir:
+A assinatura do método pode conter parâmetros diferentes daquela usada com o atributo de gatilho. Aqui estão alguns dos outros parâmetros que você pode incluir:
 
 * [Associações de entrada e saída](functions-triggers-bindings.md) marcadas como tal, decorando-os com atributos.  
 * Um `ILogger` ou `TraceWriter` ([versão 1. x somente](functions-versions.md#creating-1x-apps)) parâmetro para [log](#logging).
 * Um parâmetro `CancellationToken` para [desligamento normal](#cancellation-tokens).
 * Parâmetros de [expressões de associação](./functions-bindings-expressions-patterns.md) para obter metadados de gatilho.
 
-Não importa a ordem dos parâmetros na assinatura de função. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
+A ordem dos parâmetros na assinatura da função não importa. Por exemplo, você pode inserir os parâmetros de gatilho antes ou depois de outras associações e inserir o parâmetro do agente antes ou depois dos parâmetros de gatilho ou associação.
 
 ### <a name="output-bindings"></a>Associações de saída
 
@@ -147,7 +163,7 @@ public static class BindingExpressionsExample
 
 O processo de compilação cria um arquivo *function.json* em uma pasta de função na pasta de compilação. Conforme observado anteriormente, esse arquivo não deve ser editado diretamente. Você não pode alterar a configuração de associação ou desabilitar a função por meio da edição desse arquivo. 
 
-A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](event-driven-scaling.md). Por esse motivo, o arquivo não tem informações de associações de entrada ou saída, apenas de gatilho.
+A finalidade desse arquivo é fornecer informações para o controlador de escala a ser usado para as [decisões de dimensionamento no plano de consumo](event-driven-scaling.md). Por esse motivo, o arquivo tem apenas informações de gatilho, não associações de entrada/saída.
 
 O arquivo *function.json* gerado inclui uma propriedade `configurationSource` que indica o runtime a ser usado em atributos .NET para associações, em vez da configuração do *function.json*. Aqui está um exemplo:
 
@@ -172,7 +188,7 @@ O arquivo *function.json* gerado inclui uma propriedade `configurationSource` qu
 
 A geração do arquivo *function.json* é realizada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). 
 
-O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Estas são as partes relevantes dos arquivos *.csproj*, mostrando estruturas de destino diferentes e o mesmo pacote `Sdk`:
+O mesmo pacote é usado para a versão 1.x e 2.x do runtime do Functions. A estrutura de destino é o que diferencia um projeto de 1.x de um projeto de 2.x. Aqui estão as partes relevantes de arquivos *. csproj* , mostrando estruturas de destino diferentes com o mesmo `Sdk` pacote:
 
 # <a name="v2x"></a>[v2. x +](#tab/v2)
 
@@ -625,7 +641,7 @@ public static class IBinderExample
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](/dotnet/api/system.io.textwriter) é um tipo de associação de saída com suporte.
 
-### <a name="multiple-attribute-example"></a>Exemplo de atributo múltiplo
+### <a name="multiple-attributes-example"></a>Exemplo de vários atributos
 
 O exemplo anterior obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Use um parâmetro `Binder`, não `IBinder`.  Por exemplo:
 

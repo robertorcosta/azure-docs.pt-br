@@ -3,12 +3,12 @@ title: Visão geral de informações de contêiner | Microsoft Docs
 description: Este artigo descreve as informações de contêiner que monitoram a solução de informações de contêiner AKS e o valor que ele fornece monitorando a integridade dos clusters do AKS e das instâncias de contêiner no Azure.
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 1055e2228c6625ae24e6bf388cf297e3e3363666
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a29890f569c47c48aae7d5d61badee7edeef58a0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723377"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441509"
 ---
 # <a name="container-insights-overview"></a>Visão geral do contêiner de informações
 
@@ -58,7 +58,7 @@ As principais diferenças no monitoramento de um cluster do Windows Server em co
 
 Confira o vídeo a seguir fornecendo um aprofundamento no nível intermediário para ajudá-lo a saber mais sobre como monitorar o cluster do AKS com informações de contêiner.
 
-> [!VIDEO https://youtu.be/XEdwGvS2AwA]
+> [!VIDEO https://www.youtube.com/embed/XEdwGvS2AwA]
 
 ## <a name="how-do-i-access-this-feature"></a>Como acessar esse recurso?
 

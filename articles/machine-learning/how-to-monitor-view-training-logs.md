@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 8b2a61a92a25e1c0da9f85439438e75969fcfbf0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e86ea0d90ea267b1c9ceecc8fed6c3d7e5102eaf
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661011"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443566"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorar e exibir os logs e as métricas de execução de ML
 
@@ -78,20 +78,23 @@ Quando você usa **ScriptRunConfig**, pode usar ```run.wait_for_completion(show_
 
 <a id="queryrunmetrics"></a>
 
-### <a name="logging-run-metrics"></a>Métricas de execução de log 
+## <a name="view-run-metrics"></a>Exibir métricas de execução
 
-Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas. Observe os [limites de serviço](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) para essas métricas registradas. 
+## <a name="via-the-sdk"></a>Por meio do SDK
+Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Veja o exemplo abaixo. 
 
-|Valor conectado|Código de exemplo| Formato no portal|
-|----|----|----|
-|Registrar uma matriz de valores numéricos| `run.log_list(name='Fibonacci', value=[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89])`|gráfico de linhas de variável único|
-|Registre um único valor numérico com o mesmo nome de métrica usado repetidamente (como em um loop for)| `for i in tqdm(range(-10, 10)):    run.log(name='Sigmoid', value=1 / (1 + np.exp(-i))) angle = i / 2.0`| Gráfico de linhas de variável-único|
-|Faça uma linha com colunas numéricas 2 repetidamente|`run.log_row(name='Cosine Wave', angle=angle, cos=np.cos(angle))   sines['angle'].append(angle)      sines['sine'].append(np.sin(angle))`|Gráfico de linhas de duas variáveis|
-|Tabela de log com 2 colunas numéricas|`run.log_table(name='Sine Wave', value=sines)`|Gráfico de linhas de duas variáveis|
+```python
+from azureml.core import Run
+run = Run.get_context()
+run.log('metric-name', metric_value)
 
-## <a name="query-run-metrics"></a>Métricas de execução de consulta
+metrics = run.get_metrics()
+# metrics is of type Dict[str, List[float]] mapping mertic names
+# to a list of the values for that metric in the given run.
 
-Você pode exibir as métricas de um modelo treinado usando ```run.get_metrics()```. Por exemplo, você pode usar isso com o exemplo acima para determinar o melhor modelo procurando o modelo com o valor do MSE (erro de quadrado médio) mais baixo.
+metrics.get('metric-name')
+# list of metrics in the order they were recorded
+```
 
 <a name="view-the-experiment-in-the-web-portal"></a>
 

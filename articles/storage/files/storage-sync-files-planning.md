@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 197bd1ab63093a18bd7838349acb3aed11a98e16
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102202375"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441934"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -242,6 +242,16 @@ Se a opção de camadas em nuvem estiver habilitada em um ponto de extremidade d
 
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Outras soluções de HSM (Gerenciamento de Armazenamento Hierárquico)
 Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos do Azure.
+
+## <a name="performance-and-scalability"></a>Desempenho e escalabilidade
+
+Como o agente do Azure File Sync é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização efetivo depende de vários fatores em sua infraestrutura: Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o Azure armazenamento, tamanho do arquivo, tamanho total do conjunto de dados e atividade no conjunto de dados. Desde que a sincronização de arquivos do Azure funciona no nível de arquivo, as características de desempenho de uma solução de sincronização de arquivos do Azure melhor é medido em número de objetos (arquivos e diretórios) processado por segundo.
+
+As alterações feitas ao compartilhamento de Arquivos do Azure usando o Portal do Azure ou SMB não são detectadas e replicadas imediatamente como as alterações no Ponto de extremidade do servidor são. Os Arquivos do Azure ainda não têm notificações/diário de alteração, portanto, não há nenhuma maneira de iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados. No Windows Server, Sincronização de Arquivos do Azure usa o [diário de USN do Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados
+
+Para detectar alterações para o compartilhamento de arquivos do Azure, a sincronização de arquivos do Azure tem um trabalho agendado chamado um alterar o trabalho de detecção. Um trabalho de detecção de alteração enumera todos os arquivos no compartilhamento de arquivos e, em seguida, compara a versão de sincronização para esse arquivo. Quando o trabalho de detecção de alteração determina que os arquivos foram alterados, a sincronização de Arquivos do Azure inicia uma sessão de sincronização. O trabalho de detecção de alteração é iniciado a cada 24 horas. Como o trabalho de detecção de alteração funciona enumerando todos os arquivos no compartilhamento de Arquivos do Azure, a detecção de troca demora mais nos namespaces grandes do que namespaces menores. Para esses namespaces, pode levar mais de uma vez a cada 24 horas para determinar quais arquivos foram alterados.
+
+Para obter mais informações, consulte [métricas de desempenho sincronização de arquivos do Azure](storage-files-scale-targets.md#azure-file-sync-performance-metrics) e [destinos de escala de sincronização de arquivos do Azure](storage-files-scale-targets.md#azure-file-sync-scale-targets)
 
 ## <a name="identity"></a>Identidade
 A Sincronização de Arquivos do Azure trabalha com sua identidade padrão baseada em AD sem qualquer configuração especial além da configuração da sincronização. Quando você está usando a Sincronização de Arquivos do Azure, a expectativa geral é que a maioria dos acessos percorra os servidores de cache de Sincronização de Arquivos do Azure, em vez de usar o compartilhamento de arquivo do Azure. Como os pontos de extremidade do servidor estão localizados no Windows Server e o Windows Server é compatível com ACLs de estilo do AD e do Windows há muito tempo, não é necessário nada além de garantir que os servidores de arquivo do Windows registrados com o Serviço de Sincronização de Armazenamento sejam ingressados no domínio. A Sincronização de Arquivos do Azure armazenará ACLs nos arquivos do compartilhamento de arquivo do Azure e os replicará para todos os pontos de extremidade do servidor.
