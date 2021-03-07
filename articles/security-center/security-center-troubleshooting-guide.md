@@ -1,19 +1,18 @@
 ---
 title: Guia de solução de problemas da Central de Segurança do Azure | Microsoft Docs
 description: Este guia destina-se aos profissionais de Ti, analistas de segurança e administradores de nuvem que precisam solucionar problemas relacionados à Central de Segurança do Azure.
-services: security-center
-author: v-miegge
-manager: dcscontentpm
+author: memildin
+manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e49d8bcc55036b21f53720aab17be02edb114d4b
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 9822dfe50fa50fdd70f4e09e188188cad0f9b8f0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100246"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438209"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guia de solução de problemas da Central de Segurança do Azure
 

@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 558df115043d76acf865f19611e8c4cd322e00a7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679014"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102441084"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Como configurar a indexação do SharePoint Online no Pesquisa Cognitiva (versão prévia)
 
@@ -23,6 +23,9 @@ ms.locfileid: "101679014"
 > A funcionalidade de versão prévia é fornecida sem um Contrato de Nível de Serviço e, portanto, não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
 > A [API REST versão 2020-06-30-Preview](search-api-preview.md) fornece esse recurso. No momento, não há suporte para Portal ou SDK.
+
+> [!NOTE]
+> O SharePoint Online dá suporte a um modelo de autorização granular que determina o acesso por usuário no nível do documento. O indexador do SharePoint Online não recebe essas permissões no índice de pesquisa e Pesquisa Cognitiva não oferece suporte à autorização em nível de documento. Quando um documento é indexado do SharePoint Online em um serviço de pesquisa, o conteúdo fica disponível para qualquer pessoa que tenha acesso de leitura ao índice. Se você precisar de permissões em nível de documento, investigue os filtros de segurança para cortar os resultados de conteúdo não autorizado. Para obter mais informações, consulte [remoção de segurança usando identidades de Active Directory](search-security-trimming-for-azure-search-with-aad.md).
 
 Este artigo descreve como usar o Pesquisa Cognitiva do Azure para indexar documentos (como PDFs, Microsoft Office documentos e vários outros formatos comuns) armazenados em bibliotecas de documentos do SharePoint Online em um índice de Pesquisa Cognitiva do Azure. Primeiro, ele explica as noções básicas de configuração e configuração do indexador. Em seguida, ele explora mais profundamente os comportamentos e cenários que você pode encontrar.
 
@@ -251,7 +254,7 @@ Se você tiver definido o indexador para indexar metadados de documento, os meta
 > [!NOTE]
 > Os metadados personalizados não estão incluídos na versão atual da visualização.
 
-| Identificador | Tipo | Descrição | 
+| Identificador | Type | Descrição | 
 | ------------- | -------------- | ----------- |
 | metadata_spo_site_library_item_id | Edm.String | A chave de combinação da ID do site, ID da biblioteca e ID do item que identifica exclusivamente um item em uma biblioteca de documentos para um site. |
 | metadata_spo_site_id | Edm.String | A ID do site do SharePoint Online. |
@@ -287,7 +290,7 @@ A propriedade de *consulta* é composta por pares de palavra-chave/valor. A segu
 > [!NOTE]
 > Para obter o valor de uma palavra-chave específica, é recomendável abrir o SharePoint Online em um navegador, navegar até a biblioteca de documentos que você está tentando incluir/excluir e copiar o URI do navegador. Essa é a maneira mais fácil de obter o valor a ser usado com uma palavra-chave na consulta.
 
-| Palavra-chave | Descrição da consulta | Exemplo |
+| Palavra-chave | Descrição da consulta | Exemplo:  |
 | ------------- | -------------- | ----------- |
 | nulo | Se for nulo ou vazio, indexe a biblioteca de documentos padrão ou todas as bibliotecas de documentos, dependendo do nome do contêiner. | Indexar todo o conteúdo da biblioteca de sites padrão: <br><br>  ``` "container" : { "name" : "defaultSiteLibrary", "query" : null } ``` |
 | includeLibrariesInSite | Indexe o conteúdo de todas as bibliotecas no site definido na cadeia de conexão. Eles são limitados a subsites do seu site <br><br> O valor da *consulta* para essa palavra-chave deve ser o URI do site ou subsite. | Indexe todo o conteúdo de todas as bibliotecas de documentos no meusite. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |

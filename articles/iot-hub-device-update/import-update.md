@@ -6,15 +6,15 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: c83221743e0566d783c38c40aaf92111a0cd80f7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030725"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442937"
 ---
 # <a name="import-new-update"></a>Importar nova atualização
-Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT.
+Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT. Se você ainda não tiver feito isso, não se esqueça de se familiarizar com os conceitos básicos de [importação](import-concepts.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,9 +59,9 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
     | --------- | ----------- |
     | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso
     | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira
-    | updateprovider | Parte do provedor da identidade de atualização, por exemplo, fabrikam
-    | updatename | Nome parte da identidade de atualização, por exemplo, ImageUpdate
-    | updateVersion | Versão de atualização, por exemplo, 2,0
+    | updateprovider | Entidade que está criando ou diretamente responsável pela atualização. Em geral, ele será um nome de empresa.
+    | updatename | Identificador para uma classe de atualizações. A classe pode ser qualquer coisa que você escolher. Em geral, ele será um nome de dispositivo ou modelo.
+    | updateVersion | Número de versão que distingue essa atualização de outras que têm o mesmo nome e provedor. Pode ou não corresponder a uma versão de um componente de software individual no dispositivo.
     | updateType | <ul><li>Especificar `microsoft/swupdate:1` para atualização de imagem</li><li>Especificar `microsoft/apt:1` para a atualização do pacote</li></ul>
     | installedCriteria | <ul><li>Especificar o valor de SWVersion para o `microsoft/swupdate:1` tipo de atualização</li><li>Especifique o valor recomendado para o `microsoft/apt:1` tipo de atualização.
     | updateFilePath (s) | Caminho para os arquivos de atualização no computador
@@ -126,19 +126,19 @@ Exemplo:
 
    :::image type="content" source="media/import-update/import-new-update-2.png" alt-text="Importar nova atualização" lightbox="media/import-update/import-new-update-2.png":::
 
-5. Selecione o ícone de pasta ou caixa de texto em "selecionar um arquivo de manifesto de importação". Você verá uma caixa de diálogo Seletor de arquivos. Selecione o manifesto de importação criado anteriormente usando o cmdlet do PowerShell. Em seguida, selecione o ícone de pasta ou caixa de texto em "selecionar um ou mais arquivos de atualização". Você verá uma caixa de diálogo Seletor de arquivos. Selecione o arquivo (s) de atualização.
+5. Selecione o ícone de pasta ou caixa de texto em "Selecionar um arquivo de manifesto de importação". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o manifesto de importação criado anteriormente usando o cmdlet do PowerShell. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecionar um ou mais arquivos de atualização". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o arquivo (s) de atualização.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Selecionar arquivos de atualização" lightbox="media/import-update/select-update-files.png":::
 
-6. Selecione o ícone de pasta ou caixa de texto em "selecionar um contêiner de armazenamento". Em seguida, selecione a conta de armazenamento apropriada. O contêiner de armazenamento é usado para preparar temporariamente os arquivos de atualização.
+6. Selecione o ícone de pasta ou a caixa de texto em "Selecionar um contêiner de armazenamento". Em seguida, selecione a conta de armazenamento apropriada. O contêiner de armazenamento é usado para preparar temporariamente os arquivos de atualização.
 
    :::image type="content" source="media/import-update/storage-account.png" alt-text="Conta de armazenamento" lightbox="media/import-update/storage-account.png":::
 
-7. Se você já tiver criado um contêiner, poderá reutilizá-lo. (Caso contrário, selecione "+ contêiner" para criar um novo contêiner de armazenamento para atualizações.).  Selecione o contêiner que você deseja usar e clique em "selecionar".
+7. Caso já tenha criado um contêiner, você pode reutilizá-lo. (Caso contrário, selecione "+ Contêiner" para criar um novo contêiner de armazenamento para atualizações.)  Selecione o contêiner que você deseja usar e clique em "Selecionar".
 
    :::image type="content" source="media/import-update/container.png" alt-text="Selecionar contêiner" lightbox="media/import-update/container.png":::
 
-8. Selecione "enviar" para iniciar o processo de importação.
+8. Selecione "Enviar" para iniciar o processo de importação.
 
    :::image type="content" source="media/import-update/publish-update.png" alt-text="Publicar atualização" lightbox="media/import-update/publish-update.png":::
 
@@ -146,7 +146,7 @@ Exemplo:
 
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Atualizar sequenciamento de importação" lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-10. Quando a coluna status indicar que a importação foi bem-sucedida, selecione o cabeçalho "pronto para implantar". Você deve ver a atualização importada na lista agora.
+10. Quando a coluna Status indicar que a importação foi bem-sucedida, selecione o cabeçalho "Pronto para implantar". Agora a atualização importada deve estar presente na lista.
 
    :::image type="content" source="media/import-update/update-ready.png" alt-text="Status do Trabalho" lightbox="media/import-update/update-ready.png":::
 

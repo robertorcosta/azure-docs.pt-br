@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 15e2d7a144b54f443b8298b20dbfacf78a50f9e1
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: 4a159f7fa384a6899fb3cbb4db3bba9e0ed02d52
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96447551"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438857"
 ---
 # <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configurar o TLS 1,2 em clientes Windows que acessam Azure Stack dispositivo pro Edge
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Se você estiver usando um cliente Windows para acessar seu dispositivo Azure Stack Edge pro, será necessário configurar o TLS 1,2 em seu cliente. Este artigo fornece recursos e diretrizes para configurar o TLS 1,2 em seu cliente Windows. 
 
@@ -41,7 +41,7 @@ Se você quiser definir o TLS 1,2 de todo o sistema para o seu ambiente, siga as
 - [Geral-como habilitar o TLS 1,2](/windows-server/security/tls/tls-registry-settings#tls-12)
 - [Como habilitar o TLS 1.2 em clientes](/configmgr/core/plan-design/security/enable-tls-1-2-client)
 - [Como habilitar o TLS 1.2 nos servidores do site e nos sistemas de sites remotos](/configmgr/core/plan-design/security/enable-tls-1-2-server)
-- [Protocolos em TLS/SSL (Schannel SSP)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
+- [Protocolos em TLS/SSL (SSP Schannel)](/windows-server/security/tls/manage-tls#configuring-tls-ecc-curve-order)
 - [Conjuntos de codificação](/windows-server/security/tls/tls-registry-settings#tls-12): [Configurando especificamente a ordem do conjunto de criptografia TLS](/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order) , certifique-se de listar seus conjuntos de codificação atuais e preceder qualquer falta da seguinte lista:
 
     - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384

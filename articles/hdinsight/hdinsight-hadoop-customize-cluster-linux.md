@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 09/02/2020
-ms.openlocfilehash: d85aa1b66170acb25bd88435b83b1d28cda954f0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: ed1277df0ebfa42d6ee95d58fa568241b291656b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101093591"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434671"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalização de clusters do HDInsight através de ações de script
 
@@ -125,7 +125,7 @@ Scripts de ação de script podem ser usados por meio dos utilitários a seguir:
 
 O HDInsight fornece scripts para instalar os seguintes componentes nos clusters do HDInsight:
 
-| Nome | Script |
+| Name | Script |
 | --- | --- |
 | Adicionar uma conta de Armazenamento do Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Confira [Adicionar outras contas de armazenamento ao HDInsight](hdinsight-hadoop-add-storage.md). |
 | Instalar o Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Confira [Instalar e usar o Hue em clusters Hadoop do HDInsight](hdinsight-hadoop-hue-linux.md). |
@@ -150,7 +150,7 @@ Esta seção explica as diferentes maneiras de usar ações de script ao criar u
     | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __Personalizado__. Caso contrário, selecione um dos scripts fornecidos. |
-    | Nome |Especifique um nome para a ação de script. |
+    | Name |Especifique um nome para a ação de script. |
     | URI do script Bash |Especificar o URI do script. |
     | Cabeçalho/trabalhador/ZooKeeper |Especifique os nós em que o script é executado: **cabeçalho**, **trabalho** ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se exigido pelo script. |
@@ -198,7 +198,7 @@ Pode levar alguns minutos até que o cluster seja criado.
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-hdinsight-net-sdk"></a>Usar uma ação de script durante a criação do cluster no SDK do .NET do HDInsight
 
-O SDK .NET do HDInsight fornece bibliotecas de cliente que facilitam o trabalho com o HDInsight por meio de um aplicativo .NET. Para obter um exemplo de código, consulte [ações de script](/dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true#script-actions).
+O SDK .NET do HDInsight fornece bibliotecas de cliente que facilitam o trabalho com o HDInsight por meio de um aplicativo .NET. Para obter um exemplo de código, consulte [ações de script](/dotnet/api/overview/azure/hdinsight#script-actions).
 
 ## <a name="script-action-to-a-running-cluster"></a>Ação de script para um cluster em execução
 
@@ -223,7 +223,7 @@ Esta seção explica como aplicar ações de script em um cluster em execução.
     | Propriedade | Valor |
     | --- | --- |
     | Selecionar um script | Para usar seu próprio script, selecione __personalizado__. Caso contrário, selecione um script fornecido. |
-    | Nome |Especifique um nome para a ação de script. |
+    | Name |Especifique um nome para a ação de script. |
     | URI do script Bash |Especificar o URI do script. |
     | Cabeçalho/Trabalho/Zookeeper |Especifique os nós em que o script é executado: **cabeçalho**, **trabalho** ou **ZooKeeper**. |
     | Parâmetros |Especifique os parâmetros, se exigido pelo script. |

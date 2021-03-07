@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/26/2021
+ms.date: 03/03/2021
 ms.author: alkohli
-ms.openlocfilehash: 6c9e8938feb3c3444d01f9d37476589776707425
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb11d7d3b2da9ab793cb18814e4021ea7afeb806
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703177"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443583"
 ---
 # <a name="return-your-azure-stack-edge-pro-device"></a>Retornar seu dispositivo pro Edge Azure Stack
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como apagar os dados e, em seguida, retornar o dispositivo pro Edge Azure Stack. Depois de retornar o dispositivo, você também pode excluir o recurso associado ao dispositivo.
 
@@ -38,8 +40,7 @@ Você pode iniciar o dispositivo retornar mesmo antes de o dispositivo ser redef
 
 Você pode redefinir seu dispositivo na interface do usuário da Web local ou no PowerShell. Para obter instruções sobre o PowerShell, consulte [redefinir seu dispositivo](./azure-stack-edge-connect-powershell-interface.md#reset-your-device).
 
-
-[! INCLUIR] [Redefinir dados do dispositivo](../../includes/azure-stack-edge-device-reset.md)
+[!INCLUDE [Reset data from the device](../../includes/azure-stack-edge-device-reset.md)]
 
 > [!NOTE]
 > - Se estiver trocando ou atualizando para um novo dispositivo, recomendamos definir seu dispositivo somente depois de receber o novo dispositivo.

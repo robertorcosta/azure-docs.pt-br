@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fe6fa5c9b05afd5479818fe9bb25e471665cb867
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fe3f2328bb1ec9e7bb2ef79c09a821412ce7f7e1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171459"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102423978"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar blocos de anotações do Jupyter em seu espaço de trabalho
 
@@ -273,7 +273,7 @@ Usando os atalhos de tecla a seguir, você pode navegar e executar o código com
 
 * Se você não puder se conectar a um bloco de anotações, verifique se a comunicação de soquete da Web **não** está desabilitada. Para a funcionalidade de Jupyter da instância de computação funcionar, a comunicação de soquete da Web deve ser habilitada. Verifique se a sua rede permite conexões WebSocket com *. instances.azureml.net e *. instances.azureml.ms. 
 
-* Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser [acessada de dentro da rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para <nome da instância>. <region> . instances.azureml.ms com endereço IP privado do ponto de extremidade particular do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli) .
+* Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser [acessada de dentro da rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para < nome da instância >. < região >. instances.azureml.ms com endereço IP privado do ponto de extremidade privado do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Próximas etapas
 

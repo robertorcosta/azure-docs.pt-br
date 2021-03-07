@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 2b29f6b400ba7b500e215caec4a2115a12b369fe
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 7836e791f8515c2df89228c81419738adf27e47f
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91952192"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438908"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Desenvolver um módulo de IoT Edge em C# para mover arquivos no Azure Stack Edge pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo explica como criar um módulo IoT Edge para implantação com seu dispositivo Azure Stack Edge pro. O Azure Stack Edge pro é uma solução de armazenamento que permite processar dados e enviá-los pela rede para o Azure.
 
