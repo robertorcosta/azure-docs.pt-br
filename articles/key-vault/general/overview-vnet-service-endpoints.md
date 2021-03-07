@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 4f615ed44594379c79f179a467888652c597e286
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217169"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431050"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -27,7 +27,7 @@ Há uma exceção importante para essa restrição. Se um usuário tiver optado 
 Por padrão, é possível configurar [redes virtuais e firewalls do Key Vault](network-security.md) para negar acesso ao tráfego de todas as redes (incluindo o tráfego de Internet). É possível conceder acesso ao tráfego de redes virtuais específicas do Azure e intervalos de endereços IP públicos de Internet, permitindo criar um limite de rede seguro para os aplicativos.
 
 > [!NOTE]
-> As regras da rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault. Operações do plano de controle do Key Vault (como criar, excluir, modificar operações, definir políticas de acesso, configurar firewalls e regras da rede virtual) não são afetadas por regras da rede virtual e firewalls.
+> As regras da rede virtual e os firewalls do Key Vault aplicam-se somente ao [plano de dados](secure-your-key-vault.md#data-plane-access-control) do Key Vault. Key Vault operações de plano de controle (como operações de criação, exclusão e modificação, definição de políticas de acesso, configuração de firewalls e regras de rede virtual e implantação de segredos ou chaves por meio de modelos de ARM) não são afetadas por firewalls e regras de rede virtual.
 
 Seguem alguns exemplos de como é possível usar pontos de extremidade de serviço:
 
