@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 9d8d3cb4bf68f7da2bddabd21272d1011ce92f66
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/05/2021
+ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715200"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102442733"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
@@ -118,9 +118,13 @@ Esta tabela especifica o comportamento do fluxo de trabalho filho com base em se
 
 A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais e adicionais, por exemplo:
 
-* Crie aplicativos lógicos e seus fluxos de trabalho por meio de [conectores 390 +](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicativos de software como serviço (SaaS) e plataforma como serviço (PaaS) e serviços mais conectores para sistemas locais.
+* Crie aplicativos lógicos e seus fluxos de trabalho de [400 + conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicativos de software como um serviço (SaaS) e de plataforma como serviço (PaaS) e serviços mais conectores para sistemas locais.
 
-  * Alguns conectores gerenciados, como o barramento de serviço do Azure, os hubs de eventos do Azure e SQL Server executados de forma semelhante aos gatilhos e ações internos que são nativos do tempo de execução de visualização dos aplicativos lógicos do Azure, por exemplo, o gatilho de solicitação e a ação HTTP. Para obter mais informações, consulte [aplicativos lógicos do Azure que executam extensibilidade de conector interno em qualquer lugar](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+  * Alguns conectores gerenciados, como o barramento de serviço do Azure, hubs de eventos do Azure, SQL Server e MQ, são executados de forma semelhante aos gatilhos e ações internos que são nativos para o tempo de execução da visualização dos aplicativos lógicos do Azure, por exemplo, o gatilho de solicitação e a ação HTTP.
+
+  * Crie seus próprios conectores internos para qualquer serviço que você precise usando a [estrutura de extensibilidade da versão de visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhante a conectores internos, como o barramento de serviço do Azure e o SQL Server, mas ao contrário dos [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) que atualmente não têm suporte para visualização, esses conectores fornecem maior taxa de transferência, baixa latência, conectividade local e execução nativa no mesmo processo que o tempo de execução de visualização.
+
+    No momento, a capacidade de criação está disponível apenas no Visual Studio Code, mas não está habilitada por padrão. Para criar esses conectores, [alterne seu projeto de extensão com base em pacote (Node.js) para baseado em pacote NuGet (.net)](create-stateful-stateless-workflows-visual-studio-code.md#enable-built-in-connector-authoring). Para obter mais informações, consulte [aplicativos lógicos do Azure que executam extensibilidade de conector interno em qualquer lugar](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
   * Você pode usar as ações B2B para operações de Liquid e operações XML sem uma conta de integração. Para usar essas ações, você precisa ter mapas líquidos, mapas XML ou esquemas XML que você pode carregar por meio das respectivas ações no portal do Azure ou adicionar à pasta de **artefatos** do seu projeto de Visual Studio Code usando as respectivas pastas **mapas** e **esquemas** .
 
@@ -148,7 +152,7 @@ A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais
 * Regenerar chaves de acesso para conexões gerenciadas usadas por fluxos de trabalho individuais em um recurso de **aplicativo lógico (versão prévia)** . Para essa tarefa, [siga as mesmas etapas para o recurso de **aplicativos lógicos** , mas no nível de fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não no nível de recurso do aplicativo lógico.
 
 * Adicione ramificações paralelas no novo designer seguindo as mesmas etapas que o designer sem visualização.
- 
+
 Para obter mais informações, consulte [recursos alterados, limitados, indisponíveis e sem suporte](#limited-unavailable-unsupported) e a [página de problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
 <a name="pricing-model"></a>
@@ -193,8 +197,6 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
 
     * [Os *gatilhos* do gateway de dados local](../connectors/apis-list.md#on-premises-connectors) não estão disponíveis, mas as ações de gateway *estão* disponíveis.
 
-    * Os [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) não estão disponíveis.
-
     * A ação interna, [Azure Functions escolher uma função do Azure](logic-apps-azure-functions.md) agora é **operações do Azure function – chamar uma função do Azure**. Essa ação atualmente funciona apenas para funções que são criadas a partir do modelo de **gatilho http** .
 
       No portal do Azure, você pode selecionar uma função de gatilho HTTP onde você tem acesso criando uma conexão por meio da experiência do usuário. Se você inspecionar a definição de JSON da ação da função na exibição de código ou na **workflow.jsno** arquivo, a ação se referirá à função usando uma `connectionName` referência. Essa versão abstrai as informações da função como uma conexão, que pode ser encontrada naconnections.jsdo seu projeto **no** arquivo, que está disponível depois que você cria uma conexão.
@@ -217,6 +219,8 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
     * Alguns [gatilhos e ações B2B internos para contas de integração](../connectors/apis-list.md#integration-account-connectors) não estão disponíveis, por exemplo, as ações codificação de **arquivo simples** e decodificação.
 
     * A ação interna, [aplicativos lógicos do Azure-escolher um fluxo de trabalho de aplicativo lógico](logic-apps-http-endpoint.md) agora é **operações de fluxo de trabalho – invocar um fluxo de trabalho neste aplicativo de fluxo de trabalho**.
+
+* Atualmente, não há suporte para os [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) para visualização.
 
 * **Disponibilidade do plano de hospedagem**: se você criar um novo tipo de recurso de **aplicativo lógico (versão prévia)** no portal do Azure ou implantar do Visual Studio Code, você só poderá usar o plano de hospedagem do serviço de aplicativo ou Premium no Azure. Os planos de Hospedagem de consumo estão indisponíveis e não têm suporte para a implantação deste tipo de recurso. Você pode implantar de Visual Studio Code para um contêiner do Docker, mas não para um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 

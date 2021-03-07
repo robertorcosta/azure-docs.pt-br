@@ -1,6 +1,6 @@
 ---
 title: Suporte do sistema de arquivos de rede 3,0 no armazenamento de BLOBs do Azure (visualização) | Microsoft Docs
-description: O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que os clientes Windows e Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador que é executado no local.
+description: O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte permite que clientes Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador que é executado no local.
 author: normesta
 ms.subservice: blobs
 ms.service: storage
@@ -9,16 +9,16 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: a49c51d2afd464e7bea910ae0abe3dd02e939dbc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718481"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428432"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
-O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte fornece compatibilidade do sistema de arquivos do Linux em escala e preços de armazenamento de objetos e permite que os clientes Windows ou Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. 
+O armazenamento de BLOBs agora dá suporte ao protocolo NFS (Network File System) 3,0. Esse suporte fornece compatibilidade do sistema de arquivos do Linux em escala e preços de armazenamento de objetos e permite que os clientes Linux montem um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. 
 
 > [!NOTE]
 > O suporte ao protocolo NFS 3,0 no armazenamento de BLOBs do Azure está em visualização pública. Ele dá suporte a contas de armazenamento GPV2 com desempenho de camada Standard nas seguintes regiões: leste da Austrália, centro da Coreia e EUA Central do Sul. A visualização também dá suporte ao blob de blocos com o nível de desempenho premium em todas as regiões públicas.
@@ -46,7 +46,7 @@ Quando seu aplicativo faz uma solicitação usando o protocolo NFS 3,0, essa sol
 
 ## <a name="general-workflow-mounting-a-storage-account-container"></a>Fluxo de trabalho geral: montando um contêiner de conta de armazenamento
 
-Seus clientes Windows ou Linux podem montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. Para montar um contêiner de conta de armazenamento, você precisará fazer essas coisas.
+Seus clientes Linux podem montar um contêiner no armazenamento de blobs de uma VM (máquina virtual) do Azure ou um computador local. Para montar um contêiner de conta de armazenamento, você precisará fazer essas coisas.
 
 1. Registre o recurso de protocolo NFS 3,0 com sua assinatura.
 

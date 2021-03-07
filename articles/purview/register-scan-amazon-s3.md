@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 01/19/2021
+ms.date: 03/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 7d3fd0b1ffb87a84772000702b958c52ed1cc47c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679064"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102438721"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector do Azure alcance para Amazon S3
 
@@ -61,8 +61,8 @@ A tabela a seguir mapeia as regiões em que os dados são armazenados na região
 | Pacífico Asiático (Sydney)           | Europa (Frankfurt)                    |
 | Pacífico Asiático (Tóquio)            | Europa (Frankfurt)                    |
 | Canadá (central)                | Leste dos EUA (Ohio)                        |
-| China (Pequim)                 | Europa (Frankfurt)                    |
-| China (Ningxia)                 | Europa (Frankfurt)                    |
+| China (Pequim)                 | Sem suporte                    |
+| China (Ningxia)                 | Sem suporte                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
 | Europa (Irlanda)                | Europa (Frankfurt)                    |
 | Europa (Londres)                 | Europa (Frankfurt)                    |
@@ -130,7 +130,7 @@ Para obter mais informações sobre as credenciais do alcance, consulte a [docum
     > Você pode encontrar os valores para a **ID da conta da Microsoft** e para a **ID externa** na área de credenciais do **centro de gerenciamento** do alcance  >   , em que você [criou suas credenciais do alcance](#create-a-purview-credential-for-your-aws-bucket-scan).
     >
 
-    Por exemplo: 
+    Por exemplo:
 
     ![Adicione a ID da conta da Microsoft à sua conta do AWS.](./media/register-scan-amazon-s3/aws-create-role-amazon-s3.png)
 
@@ -152,7 +152,7 @@ Para obter mais informações sobre as credenciais do alcance, consulte a [docum
 
     Em seguida, selecione **criar função** para concluir o processo.
 
-    Por exemplo: 
+    Por exemplo:
 
     ![Examine os detalhes antes de criar sua função.](./media/register-scan-amazon-s3/review-role.png)
 
@@ -177,7 +177,7 @@ Os buckets AWS dão suporte a vários tipos de criptografia. Para buckets que us
 
     - Se o Bucket selecionado estiver configurado para criptografia **AWS-kms** , continue conforme descrito abaixo para adicionar uma nova política que permita a verificação de um Bucket com criptografia **AWS-kms** personalizada.
 
-    Por exemplo: 
+    Por exemplo:
 
     ![Exibir um Bucket S3 do Amazon configurado com criptografia AWS-KMS](./media/register-scan-amazon-s3/default-encryption-buckets.png)
 
@@ -242,7 +242,7 @@ Você precisará do nome do seu Bucket do Amazon S3 para copiá-lo para alcance 
 
 1. Procure e selecione seu Bucket para exibir a página de detalhes do Bucket e, em seguida, copie o nome do Bucket para a área de transferência.
 
-    Por exemplo: 
+    Por exemplo:
 
     ![Recupere e copie a URL do Bucket S3.](./media/register-scan-amazon-s3/retrieve-bucket-url-amazon.png)
 
@@ -260,7 +260,7 @@ Você precisará de sua ID de conta do AWS para registrar sua conta do AWS como 
 
 Sua ID de conta do AWS é a ID que você usa para fazer logon no console do AWS. Você também pode encontrá-lo quando estiver conectado no painel IAM, à esquerda, sob as opções de navegação, e na parte superior, como a parte numérica da URL de entrada:
 
-Por exemplo: 
+Por exemplo:
 
 ![Recupere sua ID da conta do AWS.](./media/register-scan-amazon-s3/aws-locate-account-id.png)
 
@@ -380,13 +380,13 @@ Quando uma verificação de alcance for concluída em seus buckets do Amazon S3,
 Selecione uma fonte de dados para exibir seus detalhes e, em seguida, selecione a guia **verificações** para exibir qualquer verificação em execução ou concluída no momento.
 Se você tiver adicionado uma conta do AWS com vários buckets, o histórico de verificação de cada bucket será mostrado na conta.
 
-Por exemplo: 
+Por exemplo:
 
 ![Mostre as verificações de Bucket AWS S3 na origem da conta do AWS.](./media/register-scan-amazon-s3/account-scan-history.png)
 
 Use as outras áreas do alcance para descobrir detalhes sobre o conteúdo em seu estado de dados, incluindo os buckets do Amazon S3:
 
-- **Pesquise o catálogo de dados alcance** e filtre um Bucket específico. Por exemplo: 
+- **Pesquise o catálogo de dados alcance** e filtre um Bucket específico. Por exemplo:
 
     ![Pesquise os ativos AWS S3 no catálogo.](./media/register-scan-amazon-s3/search-catalog-screen-aws.png)
 

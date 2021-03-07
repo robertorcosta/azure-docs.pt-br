@@ -1,15 +1,15 @@
 ---
 title: Definições de políticas internas para os Hubs de Eventos do Azure
 description: Lista as definições de políticas internas do Azure Policy para os Hubs de Eventos do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 26006c6d6dde7750060de06650d90d2c0497b62f
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 861c521415b22dbb8ad4ffe641642e0d5a5135f2
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100097205"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102434774"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-event-hubs"></a>Definições internas do Azure Policy para os Hubs de Eventos do Azure
 

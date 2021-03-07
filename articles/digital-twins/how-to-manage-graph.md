@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: a2732c3979998ea3429833f96056b88bc2dccf75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050929"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102433311"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
 
 O coração do Azure digital gêmeos é o [grafo de entrelaçamento](concepts-twins-graph.md) que representa todo o seu ambiente. O gráfico de entrelaçamento é feito de gêmeos digitais individuais conectados por meio de **relações**. 
 
-Depois que você tiver uma [instância do gêmeos do Azure digital](how-to-set-up-instance-portal.md) em funcionamento e tiver configurado o código de [autenticação](how-to-authenticate-client.md) em seu aplicativo cliente, poderá usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e excluir gêmeos digitais e suas relações em uma instância do gêmeos digital do Azure. Você também pode usar o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
+Depois que você tiver uma [instância do gêmeos do Azure digital](how-to-set-up-instance-portal.md) em funcionamento e tiver configurado o código de [autenticação](how-to-authenticate-client.md) em seu aplicativo cliente, poderá usar as [**APIs do DigitalTwins**](/rest/api/digital-twins/dataplane/twins) para criar, modificar e excluir gêmeos digitais e suas relações em uma instância do gêmeos digital do Azure. Você também pode usar o [SDK do .net (C#)](/dotnet/api/overview/azure/digitaltwins/client)ou a [CLI do gêmeos digital do Azure](how-to-use-cli.md).
 
 Este artigo se concentra no gerenciamento de relações e no grafo como um todo; para trabalhar com gêmeos digitais individuais, consulte [*como gerenciar o digital gêmeos*](how-to-manage-twin.md).
 
@@ -97,7 +97,7 @@ Você pode usar as relações recuperadas para navegar para outros gêmeos em se
 O gêmeos digital do Azure também tem uma API para localizar todas as relações de **entrada** para um determinado. Isso geralmente é útil para navegação reversa ou ao excluir um "r".
 
 >[!NOTE]
-> `IncomingRelationship` as chamadas não retornam o corpo completo da relação. Para obter mais informações sobre a `IncomingRelationship` classe, consulte a [documentação de referência](/dotnet/api/azure.digitaltwins.core.incomingrelationship?view=azure-dotnet&preserve-view=true).
+> `IncomingRelationship` as chamadas não retornam o corpo completo da relação. Para obter mais informações sobre a `IncomingRelationship` classe, consulte a [documentação de referência](/dotnet/api/azure.digitaltwins.core.incomingrelationship).
 
 O exemplo de código na seção anterior concentrou-se na localização de relações de saída de um tenda. O exemplo a seguir é estruturado da mesma forma, mas localiza as relações de *entrada* para a. Este exemplo também usa a chamada do SDK (realçada) dentro de um método personalizado que pode aparecer no contexto de um programa maior.
 
@@ -157,7 +157,7 @@ O trecho de código usa o [*Room.js*](https://github.com/Azure-Samples/digital-t
 Antes de executar o exemplo, faça o seguinte:
 1. Baixe os arquivos de modelo, coloque-os em seu projeto e substitua os `<path-to>` espaços reservados no código abaixo para informar o programa onde encontrá-los.
 2. Substitua o espaço reservado `<your-instance-hostname>` pelo nome de host da instância do gêmeos digital do Azure.
-3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. A primeira é o pacote do [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), e a segunda fornece ferramentas para ajudar com a autenticação no Azure.
+3. Adicione duas dependências ao seu projeto que serão necessárias para trabalhar com o gêmeos digital do Azure. A primeira é o pacote do [SDK dos Gêmeos Digitais do Azure para .NET](/dotnet/api/overview/azure/digitaltwins/client), e a segunda fornece ferramentas para ajudar com a autenticação no Azure.
 
       ```cmd/sh
       dotnet add package Azure.DigitalTwins.Core
@@ -188,8 +188,8 @@ Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e rela�
 
 |  ID do Modelo    | ID de entrelaça (deve ser exclusivo) | Nome da Relação  | ID do entrelaçado de destino  | Dados de inicialização de entrelaçamento |
 | --- | --- | --- | --- | --- |
-| dtmi: exemplo: Floor; 1    | Floor1 | contém | Room1 | |
-| dtmi: exemplo: Floor; 1    | Floor0 | contém | Room0 | |
+| dtmi: exemplo: Floor; 1    | Floor1 | contains | Room1 | |
+| dtmi: exemplo: Floor; 1    | Floor0 | contains | Room0 | |
 | dtmi: exemplo: sala; 1    | Room1 | | | {"Temperatura": 80} |
 | dtmi: exemplo: sala; 1    | Room0 | | | {"Temperatura": 70} |
 

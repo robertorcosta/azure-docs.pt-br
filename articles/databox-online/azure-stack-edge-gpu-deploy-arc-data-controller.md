@@ -6,17 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/08/2021
+ms.date: 03/05/2021
 ms.author: alkohli
-ms.openlocfilehash: 9e56e37135c2ff73fb64d8afd5a852fd757f3e21
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 3ff07c773a2976a296d13510a3ddd7b41217aaa2
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989261"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437614"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implantar os serviços de dados do Azure em seu dispositivo do Azure Stack Edge pro GPU
 
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve o processo de criação de um controlador de dados de arco do Azure e, em seguida, a implantação dos serviços de dados do Azure em seu dispositivo de GPU pro Azure Stack Edge. 
 
@@ -59,7 +60,7 @@ Antes de começar, verifique se:
 1. Aplique as configurações e esses novos IPs entrarão em vigor imediatamente em um cluster kubernetes já existente. 
 
 
-## <a name="deploy-azure-arc-data-controller"></a>Implantar o controlador de dados de arco do Azure
+## <a name="deploy-azure-arc-data-controller"></a>Implantar o Controlador de Dados do Azure Arc
 
 Antes de implantar um controlador de dados, você precisará criar um namespace.
 

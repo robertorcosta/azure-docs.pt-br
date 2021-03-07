@@ -3,21 +3,25 @@ title: Configurar permissões de serviço do construtor de imagem do Azure usand
 description: Configurar requisitos para o serviço do construtor de imagem de VM do Azure, incluindo permissões e privilégios usando o PowerShell
 author: danielsollondon
 ms.author: danis
-ms.date: 03/02/2021
+ms.date: 03/05/2021
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b9cf3ffdb1fc6db9604098e8e5782317a8eb431
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8793b6ea0ba454b66c525c2d53c1de2197d539
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695389"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440200"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-powershell"></a>Configurar permissões de serviço do construtor de imagem do Azure usando o PowerShell
 
-O serviço do construtor de imagens do Azure requer a configuração de permissões e privilégios antes de criar uma imagem. As seções a seguir detalham como configurar possíveis cenários usando o PowerShell.
+Quando você se registra no (AIB), o serviço AIB recebe permissão para criar, gerenciar e excluir um grupo de recursos de preparo (IT_*), bem como direitos para adicionar a ele recursos necessários para o build da imagem. Para que isso ocorra, um SPN (nome da entidade de serviço) do AIB é disponibilizado em sua assinatura durante um registro bem-sucedido.
+
+Para permitir que o Construtor de Imagens de VM do Azure distribua imagens para as imagens gerenciadas ou para uma Galeria de Imagens Compartilhadas, você precisará criar uma identidade atribuída pelo usuário do Azure que tenha permissões para ler e gravar imagens. Se você estiver acessando o armazenamento do Azure, isso precisará de permissões para ler contêineres privados ou públicos.
+
+Você deve configurar permissões e privilégios antes de criar uma imagem. As seções a seguir detalham como configurar possíveis cenários usando o PowerShell.
 
 > [!IMPORTANT]
 > O Construtor de Imagens do Azure está atualmente em versão prévia pública.

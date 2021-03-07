@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2020
 ms.author: Zhchia
-ms.openlocfilehash: c3384effc961c6c588bc2d7f4f75bc386d63076b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0a9615e6bcb350732ccd7b2cf27dad3b46a7e4b3
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651560"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102427004"
 ---
 # <a name="tutorial-configure-github-ae-for-automatic-user-provisioning"></a>Tutorial: configurar o GitHub AE para provisionamento automático de usuário
 
@@ -32,6 +32,7 @@ Este tutorial descreve as etapas que você precisa executar no GitHub AE e Azure
 > * Criar usuários na AE do GitHub
 > * Remover usuários no GitHub AE quando eles não exigem mais acesso
 > * Manter os atributos de usuário sincronizados entre o Azure AD e o GitHub AE
+> * Provisionar grupos e associações de grupo no GitHub AE
 > * Logon único no [GITHUB AE](./github-ae-tutorial.md) (recomendado)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -59,7 +60,7 @@ Adicione o GitHub AE da Galeria de aplicativos do Azure AD para começar a geren
 
 O serviço de provisionamento do Azure AD permite o escopo que será provisionado com base na atribuição ao aplicativo e ou com base em atributos do usuário e/ou grupo. Se você optar por definir o escopo que será provisionado em seu aplicativo com base na atribuição, poderá usar as [etapas](../manage-apps/assign-user-or-group-access-portal.md) a seguir para atribuir usuários e/ou grupos ao aplicativo. Se você escolher o escopo que será provisionado com base apenas em atributos do usuário e/ou grupo, você poderá usar um filtro de escopo conforme descrito [aqui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Ao atribuir usuários ao GitHub AE, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
+* Ao atribuir usuários e grupos ao GitHub AE, você deve selecionar uma função diferente de **acesso padrão**. Os usuários com a função Acesso Padrão são excluídos do provisionamento e serão marcados como "Não qualificado efetivamente" nos logs de provisionamento. Se a única função disponível no aplicativo for a de acesso padrão, você poderá [atualizar o manifesto do aplicativo](../develop/howto-add-app-roles-in-azure-ad-apps.md) para adicionar outras funções. 
 
 * Comece pequeno. Teste com um pequeno conjunto de usuários e/ou grupos antes de distribuir para todos. Quando o escopo para provisionamento é definido como usuários e/ou grupos atribuídos, você pode controlar isso atribuindo um ou dois usuários e/ou grupos ao aplicativo. Quando o escopo é definido para todos os usuários e grupos, é possível especificar um [atributo com base no filtro de escopo](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
