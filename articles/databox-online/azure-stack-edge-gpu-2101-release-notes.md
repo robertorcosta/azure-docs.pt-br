@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/08/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: eb01ae5e9c7e134e33460674eb2c44b710671a4a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99833347"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443787"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de versão do Azure Stack Edge 2101
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 As notas de versão a seguir identificam os problemas críticos abertos e os problemas resolvidos para a versão 2101 para seus dispositivos Azure Stack Edge. Essas notas de versão são aplicáveis para o Azure Stack Edge pro GPU, o Azure Stack Edge pro R e o Azure Stack dispositivos mini R do Edge. Os recursos e problemas que correspondem a um modelo específico são chamados sempre que aplicável.
 
@@ -64,7 +66,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos transmitidos das ve
 |**3.**|Limitação|Durante a limitação, se novas gravações no dispositivo não forem permitidas, as gravações pelo cliente NFS falharão com um erro "permissão negada".| O erro será mostrado como abaixo:<br>`hcsuser@ubuntu-vm:~/nfstest$ mkdir test`<br>mkdir: não é possível criar o diretório ' test ': permissão negada|
 |**4.**|Ingestão de armazenamento de BLOBs|Ao usar o AzCopy versão 10 para ingestão de armazenamento de BLOBs, execute AzCopy com o seguinte argumento: `Azcopy <other arguments> --cap-mbps 2000`| Se esses limites não forem fornecidos para AzCopy, ele poderá enviar um grande número de solicitações para o dispositivo, resultando em problemas com o serviço.|
 |**5.**|Contas de armazenamento em camadas|O seguinte se aplica ao usar contas de armazenamento em camadas:<ul><li> Somente há suporte para BLOBs de blocos. Blobs de página não têm suporte.</li><li>Não há suporte para instantâneo ou API de cópia.</li><li> Não há suporte para a ingestão de carga de trabalho do Hadoop `distcp` , pois ela usa a operação de cópia de forma intensiva.</li></ul>||
-|**6.**|Conexão de compartilhamento NFS|Se vários processos estiverem sendo copiados para o mesmo compartilhamento e o `nolock` atributo não for usado, você poderá ver erros durante a cópia.|O `nolock` atributo deve ser passado para o comando mount para copiar arquivos para o compartilhamento NFS. Por exemplo, `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
+|**6.**|Conexão de compartilhamento NFS|Se vários processos estiverem sendo copiados para o mesmo compartilhamento e o `nolock` atributo não for usado, você poderá ver erros durante a cópia.|O `nolock` atributo deve ser passado para o comando mount para copiar arquivos para o compartilhamento NFS. Por exemplo: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Cluster do Kubernetes|Ao aplicar uma atualização em seu dispositivo que está executando um cluster kubernetes, as máquinas virtuais kubernetes serão reiniciadas e reiniciadas. Nessa instância, somente os pods implantados com réplicas especificadas são automaticamente restaurados após uma atualização.  |Se você criou pods individuais fora de um controlador de replicação sem especificar um conjunto de réplicas, esses pods não serão restaurados automaticamente após a atualização do dispositivo. Você precisará restaurar esses pods.<br>Um conjunto de réplicas substitui os pods que são excluídos ou encerrados por qualquer motivo, como falha de nó ou atualização de nó de interrupção. Por esse motivo, recomendamos que você use um conjunto de réplicas mesmo que seu aplicativo exija apenas um único Pod.|
 |**8.**|Cluster do Kubernetes|Só há suporte para kubernetes no Azure Stack Edge pro com o Helm V3 ou posterior. Para obter mais informações, acesse as perguntas frequentes [: remoção do gaveta](https://v3.helm.sh/docs/faq/).|
 |**9.**|Kubernetes habilitado para Azure Arc |Para a versão GA, o kubernetes habilitado para Arc do Azure é atualizado da versão 0.1.18 para 0.2.9. Como a atualização kubernetes habilitada para o Arc do Azure não tem suporte no dispositivo Azure Stack Edge, você precisará reimplantar o kubernetes habilitado para Arc do Azure.|Siga estas etapas:<ol><li>[Aplique o software do dispositivo e as atualizações do kubernetes](azure-stack-edge-gpu-install-update.md).</li><li>Conecte-se à [interface do PowerShell do dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md).</li><li>Remova o agente de arco do Azure existente. Digite: `Remove-HcsKubernetesAzureArcAgent`.</li><li>Implante [o arco do Azure em um novo recurso](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). Não use um recurso de arco do Azure existente.</li></ol>|

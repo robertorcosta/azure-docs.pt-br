@@ -6,12 +6,12 @@ ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
-ms.openlocfilehash: 27b47cbd8eed60ccc2dc1c4a8dd397cca53a9d35
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 3e72aea657b82c2111bea1493b5654ec667c491b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098410"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102425270"
 ---
 # <a name="azure-percept-audio-datasheet"></a>Folha de dados do áudio do Azure Percept
 
@@ -24,8 +24,8 @@ ms.locfileid: "102098410"
 |Dimensões externas             |90mm x170mm x 25mm   |
 |Peso do produto                  |0,42 kg   |
 |Plano de controle de gerenciamento        |ADU (atualização de dispositivo do Azure)          |
-|Software e serviços com suporte |Palavras-chave e comandos personalizáveis <br> SDK de dispositivos de fala do Azure <br> [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) |
-|Processamento de áudio                 |XMOS XUF208 codec        |
+|Software e serviços com suporte |Palavras-chave e comandos personalizáveis <br> SDK de fala do Azure <br> [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) <br> [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) |
+|Codec de áudio                     |XMOS XUF208 codec        |
 |Sensores, indicadores visuais e componentes   |4x MSM261D3526Z1CM (microfones de detecção de memória de MEM) <br> Botões 2x <br> Hub USB <br> DAC <br> LEDs de 3x <br> Driver de LED          |
 |Crypto-Controller de segurança      |ST-Microelectronics STM32L462CE       |
 |Portas                           |1x USB 2,0 tipo micro B <br> Saída de áudio de 3,5 mm     |

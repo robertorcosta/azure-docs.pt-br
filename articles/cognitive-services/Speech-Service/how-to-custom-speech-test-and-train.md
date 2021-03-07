@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
-ms.openlocfilehash: f7e29fab542db79b22a9ace7371bc22d3526ac33
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 15f0b01304f3333b8650ab2079cd56271d0095db
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710491"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424488"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
 
@@ -55,7 +55,7 @@ Ao treinar um novo modelo, comece com o [texto relacionado](#related-text-data-f
 Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como um arquivo. zip. Cada conjunto de dados só pode conter um único tipo de dado.
 
 > [!TIP]
-> Para começar rapidamente, considere o uso de dados de exemplo. Consulte este repositório GitHub para obter <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">dados <span class="docon docon-navigate-external x-hidden-focus"></span> de fala personalizada de exemplo</a>
+> Para começar rapidamente, considere o uso de dados de exemplo. Consulte este repositório GitHub para obter <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/sampledata/customspeech" target="_target">dados de fala personalizada de exemplo </a>
 
 > [!NOTE]
 > Nem todos os modelos de base dão suporte ao treinamento com áudio. Se um modelo base não oferecer suporte a ele, o serviço de fala usará apenas o texto das transcrições e ignorará o áudio. Consulte [suporte a idiomas](language-support.md#speech-to-text) para obter uma lista de modelos de base que dão suporte ao treinamento com dados de áudio. Mesmo que um modelo base dê suporte ao treinamento com dados de áudio, o serviço poderá usar apenas parte do áudio. Ainda assim, ele usará todas as transcrições.
@@ -69,7 +69,7 @@ Os arquivos devem ser agrupados por tipo em um conjunto de um e carregados como 
 
 ## <a name="upload-data"></a>Carregar dados
 
-Para carregar seus dados, navegue até o <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. No portal, clique em **carregar dados** para iniciar o assistente e criar o seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
+Para carregar seus dados, navegue até o <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. No portal, clique em **carregar dados** para iniciar o assistente e criar o seu primeiro conjunto. Você será solicitado a selecionar um tipo de dados de fala para o seu conjunto, antes de permitir que você carregue seus dados.
 
 ![Captura de tela que realça a opção de carregamento de áudio do portal de fala.](./media/custom-speech/custom-speech-select-audio.png)
 
@@ -101,7 +101,7 @@ Use esta tabela para garantir que os arquivos de áudio estejam formatados corre
 > [!TIP]
 > Ao carregar dados de treinamento e teste, o tamanho do arquivo. zip não pode exceder 2 GB. Se você precisar de mais dados para treinamento, divida-os em vários arquivos. zip e carregue-os separadamente. Posteriormente, você pode optar por treinar a partir de *vários* conjuntos de valores. No entanto, você só pode testar a partir de um *único* conjunto de uma.
 
-Use <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">o <span class="docon docon-navigate-external x-hidden-focus"></span> Sox</a> para verificar as propriedades de áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando SoX:
+Use o <a href="http://sox.sourceforge.net" target="_blank" rel="noopener">Sox </a> para verificar as propriedades de áudio ou converter o áudio existente nos formatos apropriados. Abaixo estão alguns exemplos de como cada uma dessas atividades pode ser feita por meio da linha de comando SoX:
 
 | Atividade | Descrição | Comando SoX |
 |----------|-------------|-------------|
@@ -131,7 +131,7 @@ Os arquivos de áudio podem ter silêncio no início e no final da gravação. S
 
 Para resolver problemas como exclusão ou substituição de palavras, uma quantidade significativa de dados é necessária para melhorar o reconhecimento. Em geral, é recomendável fornecer transcrições de palavras por palavra de 1 a 20 horas de áudio. No entanto, até 30 minutos podem ajudar a melhorar os resultados de reconhecimento. As transcrições para todos os arquivos WAV devem estar contidas em um único arquivo de texto sem formatação. Cada linha do arquivo de transcrição deve conter o nome de um dos arquivos de áudio, seguido pela transcrição correspondente. O nome do arquivo e transcrição devem ser separados por uma tabulação (\t).
 
-Por exemplo: 
+Por exemplo:
 
 <!-- The following example contains tabs. Don't accidentally convert these into spaces. -->
 
@@ -146,7 +146,7 @@ speech03.wav    the lazy dog was not amused
 
 As transcrições são normalizadas para texto para processamento pelo sistema. No entanto, há algumas normalizações importantes que devem ser feitas antes de carregar os dados no Speech Studio. Para o idioma apropriado a ser usado ao preparar suas transcrições, consulte [como criar uma transcrição rotulada por pessoas](how-to-custom-speech-human-labeled-transcriptions.md)
 
-Depois de coletar os arquivos de áudio e as transcrições correspondentes, empacote-os como um único arquivo. zip antes de carregar no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>. Veja abaixo um exemplo de conjunto de exemplos com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
+Depois de coletar os arquivos de áudio e as transcrições correspondentes, empacote-os como um único arquivo. zip antes de carregar no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>. Veja abaixo um exemplo de conjunto de exemplos com três arquivos de áudio e um arquivo de transcrição com rótulo humano:
 
 > [!div class="mx-imgBorder"]
 > ![Selecionar áudio no portal de fala](./media/custom-speech/custom-speech-audio-transcript-pairs.png)
@@ -164,7 +164,7 @@ Os nomes de produtos ou recursos que são exclusivos devem incluir dados de text
 | Sentenças (declarações) | Melhore a precisão ao reconhecer nomes de produtos ou vocabulário específico do setor dentro do contexto de uma frase. |
 | Pronúncias | Melhore a pronúncia de termos, acrônimos ou outras palavras incomuns, com pronúncias indefinidas. |
 
-As frases podem ser fornecidas como um único arquivo de texto ou vários arquivos de texto. Para melhorar a precisão, use dados de texto que estejam mais próximos do declarações falado esperado. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+As frases podem ser fornecidas como um único arquivo de texto ou vários arquivos de texto. Para melhorar a precisão, use dados de texto que estejam mais próximos do declarações falado esperado. As pronúncias devem ser fornecidas como um único arquivo de texto. Tudo pode ser empacotado como um único arquivo zip e carregado no <a href="https://speech.microsoft.com/customspeech" target="_blank">Speech Studio </a>.
 
 O treinamento com texto relacionado geralmente é concluído em alguns minutos.
 
@@ -207,7 +207,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês ( `en-US` ) e alemão ( `de-DE` ). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Idioma | Locale | Characters |
+| Linguagem | Locale | Characters |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

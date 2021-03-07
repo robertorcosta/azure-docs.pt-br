@@ -6,18 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/04/2021
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: d172ce98ba93360c621a91fb0e2a55d022470943
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: dfae1a9b02db7e7b9577acdb47a1ba089f1609e8
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97935539"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439044"
 ---
 # <a name="configure-and-run-a-module-on-gpu-on-azure-stack-edge-pro-device"></a>Configurar e executar um módulo na GPU no dispositivo Azure Stack Edge pro
 
-O dispositivo pro Edge Azure Stack contém uma ou mais GPU (unidade de processamento gráfico). As GPUs são uma opção popular para cálculos de ia, pois oferecem recursos de processamento paralelo e são mais rápidas na renderização de imagens do que nas CPUs (unidades de processamento central). Para obter mais informações sobre a GPU contida em seu dispositivo Azure Stack Edge pro, acesse [Azure Stack especificações técnicas do dispositivo do Edge pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
+[!INCLUDE [applies-to-GPU-and-pro-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-sku.md)]
+
+O dispositivo pro Edge Azure Stack contém uma ou mais GPU (unidade de processamento gráfico). As GPUs são uma opção popular para cálculos de IA, pois oferecem recursos de processamento paralelo e são mais rápidas na renderização de imagens do que as CPUs (unidades de processamento central). Para obter mais informações sobre a GPU contida em seu dispositivo Azure Stack Edge pro, acesse [Azure Stack especificações técnicas do dispositivo do Edge pro](azure-stack-edge-gpu-technical-specifications-compliance.md).
 
 Este artigo descreve como configurar e executar um módulo na GPU em seu dispositivo Azure Stack Edge pro. Neste artigo, você usará os **dígitos** do módulo de contêiner disponíveis publicamente escritos para GPUs NVIDIA T4. Esse procedimento pode ser usado para configurar outros módulos publicados pela NVIDIA para essas GPUs.
 
@@ -38,28 +40,28 @@ Para configurar um módulo para usar a GPU em seu dispositivo Azure Stack Edge p
 
     ![Configurar o módulo para usar a GPU 1](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-1.png)
 
-3. Em **habilitar IOT Edge serviço**, selecione **Adicionar**.
+3. Em **Habilitar o serviço do IoT Edge**, selecione **Adicionar**.
 
    ![Configurar o módulo para usar a GPU 2](media/azure-stack-edge-j-series-configure-gpu-modules/configure-compute-2.png)
 
-4. Em **criar IOT Edge serviço**, insira as configurações para o recurso do Hub IOT:
+4. Em **Criar um serviço do IoT Edge**, insira as configurações para o recurso do Hub IoT:
 
    |Campo   |Valor    |
    |--------|---------|
-   |Subscription      | Assinatura usada pelo recurso de Azure Stack Edge. |
-   |Grupo de recursos    | Grupo de recursos usado pelo Azure Stack recurso do Edge. |
-   |Hub IoT           | Escolha **criar novo** ou **usar existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Azure Stack Edge.     |
+   |Subscription      | Assinatura usada pelo recurso do Azure Stack Edge. |
+   |Grupo de recursos    | Grupo de recursos usado pelo recurso do Azure Stack Edge. |
+   |Hub IoT           | Escolha entre **Criar** ou **Usar existente**. <br> Por padrão, uma camada Standard (S1) é usada para criar um recurso de IoT. Para usar um recurso de IoT de Camada gratuita, crie um e, em seguida, selecione o recurso existente. <br> Em cada caso, o recurso do Hub IoT usa a mesma assinatura e o mesmo grupo de recursos usados pelo recurso do Azure Stack Edge.     |
    |Nome              | Se você não quiser usar o nome padrão fornecido para um novo recurso do Hub IoT, insira um nome diferente. |
 
-   Ao concluir as configurações, selecione **revisar + criar**. Examine as configurações do recurso do Hub IoT e selecione **criar**.
+   Ao concluir as configurações, selecione **Examinar + Criar**. Examine as configurações do recurso do Hub IoT e selecione **Criar**.
 
    ![Introdução à computação 2](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-3.png)
 
-   A criação de recursos para um recurso do Hub IoT leva vários minutos. Depois que o recurso for criado, a **visão geral** indicará que o serviço de IOT Edge está em execução.
+   A criação de um recurso do Hub IoT leva vários minutos. Depois que o recurso é criado, a **Visão geral** indica que o serviço IoT Edge está sendo executado agora.
 
    ![Introdução à computação 3](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-4.png)
 
-5. Para confirmar se a função de computação de borda foi configurada, selecione **Propriedades**.
+5. Para confirmar se a função de Computação de borda foi configurada, selecione **Propriedades**.
 
    ![Introdução à computação 4](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 

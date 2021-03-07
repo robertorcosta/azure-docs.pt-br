@@ -6,16 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 10/06/2020
+ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: 27af230f8fa157f76865bd38a48c17640491d7db
-ms.sourcegitcommit: 100390fefd8f1c48173c51b71650c8ca1b26f711
+ms.openlocfilehash: 1404dfd25f4e80e0e05c0071da649cacfa45dac0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98896182"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437750"
 ---
 # <a name="manage-an-azure-stack-edge-pro-gpu-device-via-windows-powershell"></a>Gerenciar um dispositivo do Azure Stack Edge pro GPU por meio do Windows PowerShell
+
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Azure Stack solução do Edge Pro permite processar dados e enviá-los pela rede para o Azure. Este artigo descreve algumas das tarefas de configuração e gerenciamento para seu dispositivo Azure Stack Edge pro. Você pode usar o portal do Azure, a interface do usuário da Web local ou a interface do Windows PowerShell para gerenciar seu dispositivo.
 
@@ -121,7 +123,7 @@ Se a função de computação estiver configurada em seu dispositivo, você tamb
     - `FullLogCollection`: Esse parâmetro garante que o pacote de log conterá todos os logs de computação. Por padrão, o pacote de log contém apenas um subconjunto de logs.
 
 
-## <a name="change-kubernetes-pod-and-service-subnets"></a>Alterar o Pod kubernetes e as sub-redes de serviço
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Mudar o pod do Kubernetes e as sub-redes de serviço
 
 Por padrão, o kubernetes em seu dispositivo Azure Stack Edge usa sub-redes 172.27.0.0/16 e 172.28.0.0/16 para Pod e serviço, respectivamente. Se essas sub-redes já estiverem em uso em sua rede, você poderá executar o `Set-HcsKubeClusterNetworkInfo` cmdlet para alterar essas sub-redes.
 

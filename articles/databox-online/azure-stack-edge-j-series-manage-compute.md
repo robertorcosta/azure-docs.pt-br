@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 01/27/2021
+ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: bd49edcfaca781ac3d36fbf871ec146b32c64ae3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 99068a68c5d35bc6a501c5860d0bbc9ea3e3f368
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101733407"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436952"
 ---
 # <a name="manage-compute-on-your-azure-stack-edge-pro-gpu"></a>Gerenciar a computação em sua GPU do Azure Stack Edge pro
 
-<!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
+[!INCLUDE [applies-to-GPU-and-pro-r-and-mini-r-skus](../../includes/azure-stack-edge-applies-to-gpu-pro-r-mini-r-sku.md)]
 
 Este artigo descreve como gerenciar a computação por meio do serviço de IoT Edge em seu dispositivo Azure Stack Edge pro GPU. É possível gerenciar a computação pelo portal do Azure ou pela IU da Web local. Use o portal do Azure para gerenciar módulos, gatilhos e IoT Edge configuração e a interface do usuário da Web local para gerenciar as configurações de rede de computação.
 
@@ -37,7 +37,7 @@ Siga estas etapas no portal do Azure para criar um gatilho.
 
 1. Na portal do Azure, vá para o recurso de borda do Azure Stack e, em seguida, vá para **IOT Edge**. Vá para **gatilhos** e selecione **+ Adicionar gatilho** na barra de comandos.
 
-    ![Selecione adicionar gatilho](media/azure-stack-edge-j-series-manage-compute/add-trigger-1m.png)
+    ![Selecione adicionar gatilho](media/azure-stack-edge-j-series-manage-compute/add-trigger-1-m.png)
 
 2. Na folha **Adicionar gatilho**, forneça um nome exclusivo para o gatilho.
     
@@ -139,7 +139,7 @@ Os IPs de serviço externo kubernetes são usados para acessar os serviços que 
 
     ![Alterar IPs do serviço kubernetes](media/azure-stack-edge-j-series-manage-compute/change-service-ips-1.png)
 
-1. Escolha **Aplicar**. Depois que os IPs forem aplicados, o dispositivo não precisará de uma reinicialização ou reinicialização. Os novos IPs entram em vigor imediatamente.
+1. Selecione **Aplicar**. Depois que os IPs forem aplicados, o dispositivo não precisará de uma reinicialização ou reinicialização. Os novos IPs entram em vigor imediatamente.
 
 
 ## <a name="next-steps"></a>Próximas etapas

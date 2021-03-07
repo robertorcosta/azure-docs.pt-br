@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
-ms.openlocfilehash: e5f62456b85791bad5bb66f3abf67e523558d76e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 9fa7f586db5a32640c16db5802b56d6481e8889d
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650381"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102439282"
 ---
 # <a name="access-control-model-in-azure-data-lake-storage-gen2"></a>Modelo de controle de acesso no Azure Data Lake Storage Gen2
 
@@ -106,7 +106,7 @@ A tabela a seguir mostra como combinar funções do Azure e entradas de ACL para
 
 
 > [!NOTE] 
-> Para exibir o conteúdo de um contêiner em Gerenciador de Armazenamento do Azure, as entidades de segurança devem [entrar no Gerenciador de armazenamento usando o Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#add-a-resource-via-azure-ad)e (no mínimo) ter acesso de leitura (R--) para a pasta raiz ( `\` ) de um contêiner. Esse nível de permissão fornece a eles a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz fique visível, você poderá atribuí-los à função de [leitor](../../role-based-access-control/built-in-roles.md#reader) . Com essa função, eles poderão listar os contêineres na conta, mas não o conteúdo do contêiner. Você pode conceder acesso a diretórios e arquivos específicos usando ACLs.   
+> Para exibir o conteúdo de um contêiner em Gerenciador de Armazenamento do Azure, as entidades de segurança devem [entrar no Gerenciador de armazenamento usando o Azure ad](../../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows#attach-to-an-individual-resource)e (no mínimo) ter acesso de leitura (R--) para a pasta raiz ( `\` ) de um contêiner. Esse nível de permissão fornece a eles a capacidade de listar o conteúdo da pasta raiz. Se não quiser que o conteúdo da pasta raiz fique visível, você poderá atribuí-los à função de [leitor](../../role-based-access-control/built-in-roles.md#reader) . Com essa função, eles poderão listar os contêineres na conta, mas não o conteúdo do contêiner. Você pode conceder acesso a diretórios e arquivos específicos usando ACLs.   
 
 ## <a name="security-groups"></a>Grupos de segurança
 
