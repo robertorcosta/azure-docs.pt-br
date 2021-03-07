@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 03/05/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 047b4fdf1c46ae0d9caf3780e0d4d2736f2ef320
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: b91b7aca53574791fe6b1b9b3ea436761c2d0b90
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100099007"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102431782"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -18,6 +18,8 @@ ms.locfileid: "100099007"
 |[Todo o tráfego da Internet deve ser roteado por meio do Firewall do Azure implantado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffc5e4038-4584-4632-8c85-c0448d374b2c) |A Central de Segurança do Azure identificou que algumas de suas sub-redes não estão protegidas com um firewall de última geração. Proteja suas sub-redes de ameaças potenciais restringindo o acesso a elas com o Firewall do Azure ou um firewall de última geração compatível |AuditIfNotExists, desabilitado |[3.0.0 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/ASC_All_Internet_traffic_should_be_routed_via_Azure_Firewall.json) |
 |[A Proteção contra DDoS do Azure Standard deve estar habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa7aca53f-2ed4-4466-a25e-0b45ade68efd) |A proteção contra DDoS padrão deve ser habilitada para todas as redes virtuais com uma sub-rede que é parte de um gateway de aplicativo com um IP público. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_EnableDDoSProtection_Audit.json) |
 |[Os gateways de VPN do Azure não devem usar o SKU 'básico'](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe345b6c3-24bd-4c93-9bbb-7e5e49a17b78) |Essa política garante que os gateways de VPN não usem o SKU "básico". |Audit, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/VPNGateways_BasicSKU_Audit.json) |
+|[Implantar – configurar domínios da grade de eventos do Azure para usar zonas DNS privadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd389df0a-e0d7-4607-833c-75a6fdac2c2d) |Use zonas DNS privadas para substituir a resolução DNS para um ponto de extremidade privado. Saiba mais em: [https://aka.ms/privatednszone](https://aka.ms/privatednszone). |deployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Domains_PrivateDNSZone_DeployIfNotExists.json) |
+|[Implantar – configurar tópicos da grade de eventos do Azure para usar zonas DNS privadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbaf19753-7502-405f-8745-370519b20483) |Use zonas DNS privadas para substituir a resolução DNS para um ponto de extremidade privado. Saiba mais em: [https://aka.ms/privatednszone](https://aka.ms/privatednszone). |deployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Event%20Grid/Topics_PrivateDNSZone_DeployIfNotExists.json) |
 |[Implantar um recurso de log de fluxo com o grupo de segurança de rede de destino](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0db34a60-64f4-4bf6-bd44-f95c16cf34b9) |Configura o log de fluxo para um grupo de segurança de rede específico. Isso permitirá registrar informações sobre o tráfego IP que flui por meio de um grupo de segurança de rede. O log de fluxo ajuda a identificar um tráfego desconhecido ou indesejado, verificar o isolamento de rede e a conformidade com as regras de acesso corporativo e analisar fluxos de rede de IPs e interfaces de rede comprometidos. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkSecurityGroup_FlowLog_Deploy.json) |
 |[Implantar configurações de diagnóstico para Grupos de Segurança de Rede](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |Essa política implanta automaticamente configurações de diagnóstico em grupos de segurança de rede. Uma conta de armazenamento com o nome "{storagePrefixParameter} {NSGLocation}" será criada automaticamente. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
 |[Implantar o observador de rede quando redes virtuais são criadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa9b99dd8-06c5-4317-8629-9d86a3c6e7d9) |Essa política cria um recurso de observador de rede em regiões com redes virtuais. Você precisa garantir a existência de um grupo de recursos chamado networkWatcherRG, que será usado para implantar instâncias do observador de rede. |DeployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Deploy.json) |

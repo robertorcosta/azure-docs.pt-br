@@ -9,12 +9,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 04813b9d70557314e619fded5294644f5f6fadf5
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: dce309b955882f6236f285ee6bd20a79201e43fb
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99831239"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429928"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticar e solucionar problemas ao usar o SDK . NET para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -91,7 +91,7 @@ Se seu aplicativo for implantado em [máquinas virtuais do Azure sem um endereç
 * Atribua um [IP público à sua VM do Azure](../load-balancer/troubleshoot-outbound-connection.md#assignilpip).
 
 ### <a name="high-network-latency"></a><a name="high-network-latency"></a>Alta latência de rede
-Alta latência de rede pode ser identificada usando a [cadeia de caracteres de diagnóstico](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring?preserve-view=true&view=azure-dotnet) no SDK v2 ou [diagnóstico](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics?preserve-view=true&view=azure-dotnet#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) no SDK v3.
+Alta latência de rede pode ser identificada usando a [cadeia de caracteres de diagnóstico](/dotnet/api/microsoft.azure.documents.client.resourceresponsebase.requestdiagnosticsstring) no SDK v2 ou [diagnóstico](/dotnet/api/microsoft.azure.cosmos.responsemessage.diagnostics#Microsoft_Azure_Cosmos_ResponseMessage_Diagnostics) no SDK v3.
 
 Se nenhum [tempo limite](troubleshoot-dot-net-sdk-request-timeout.md) estiver presente e o diagnóstico mostrar solicitações únicas em que a alta latência é evidente na diferença entre `ResponseTime` e `RequestStartTime` , assim como (>300 milissegundos neste exemplo):
 

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: eab1ebb3bf66b28bae80fbf16eaf24dbbc63bfb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 588c6548afb07fb8ee3de5152c240ddd9ea2293b
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690525"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430183"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migração de tráfego do banco de dados SQL do Azure para gateways mais recentes
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,6 +29,18 @@ As informações mais atualizadas serão mantidas na tabela [endereços IP do ga
 ## <a name="status-updates"></a>Atualizações de status
 
 # <a name="in-progress"></a>[Em Andamento](#tab/in-progress-ip)
+
+## <a name="april-2021"></a>Abril de 2021
+Novos gateways do SQL estão sendo adicionados às seguintes regiões:
+- Leste da Noruega: 51.120.96.33
+- Ásia Oriental do Sul: 13.67.16.193
+- Norte da África do Sul: 102.133.152.32
+- Sul da Coreia: 52.231.151.96
+- Centro-Norte: US 52.162.105.9
+- Sudeste da Austrália: 13.77.49.32 
+
+Esses gateways do SQL devem começar a aceitar o tráfego do cliente em 5 de abril de 2021.
+
 ## <a name="march-2021"></a>Março de 2021
 Os seguintes gateways SQL em várias regiões estão no processo de serem desativados:
 

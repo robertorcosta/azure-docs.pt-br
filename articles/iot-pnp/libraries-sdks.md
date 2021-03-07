@@ -8,12 +8,12 @@ ms.topic: reference
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 2957bc759577f4eba02b598aad410f662a52cf1d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e8320c0b482daa6371736588250ad0bd8d9b7491
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218342"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102435368"
 ---
 # <a name="microsoft-sdks-for-iot-plug-and-play"></a>Microsoft SDKs para IoT Plug and Play
 
@@ -24,7 +24,7 @@ As bibliotecas e SDKs do IoT Plug and Play permitem que os desenvolvedores criem
 | Linguagem | Pacote | Repositório de código | Exemplos | Guia de Início Rápido | Referência |
 |---|---|---|---|---|---|
 | Dispositivo C | [vcpkg 1.3.9](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/setting_up_vcpkg.md) | [GitHub](https://github.com/Azure/azure-iot-sdk-c) | [Amostras](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/pnp) | [Conectar ao Hub IoT](quickstart-connect-device.md) | [Referência](/azure/iot-hub/iot-c-sdk-ref/) |
-| .NET-dispositivo | [1.31.0 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/) | [Amostras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples) | [Conectar ao Hub IoT](quickstart-connect-device.md) | [Referência](/dotnet/api/microsoft.azure.devices.client?preserve-view=true&view=azure-dotnet) |
+| .NET-dispositivo | [1.31.0 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/) | [Amostras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/device/PnpDeviceSamples) | [Conectar ao Hub IoT](quickstart-connect-device.md) | [Referência](/dotnet/api/microsoft.azure.devices.client) |
 | Dispositivo Java | [1.26.0 Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-device-client) | [GitHub](https://github.com/Azure/azure-iot-sdk-java/tree/master/) | [Amostras](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/pnp-device-sample) | [Conectar ao Hub IoT](quickstart-connect-device.md) | [Referência](/java/api/com.microsoft.azure.sdk.iot.device) |
 | Python-dispositivo | [2.3.0 Pip](https://pypi.org/project/azure-iot-device/) | [GitHub](https://github.com/Azure/azure-iot-sdk-python/tree/master/) | [Amostras](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/pnp) | [Conectar ao Hub IoT](quickstart-connect-device.md) | [Referência](/python/api/azure-iot-device/azure.iot.device?preserve-view=true&view=azure-python) |
 | Nó-dispositivo | [NPM 1.17.2](https://www.npmjs.com/package/azure-iot-device)  | [GitHub](https://github.com/Azure/azure-iot-sdk-node/tree/master/) | [Amostras](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp) | [Conectar ao Hub IoT](quickstart-connect-device.md) | [Referência](/javascript/api/azure-iot-device/) |
@@ -34,7 +34,7 @@ As bibliotecas e SDKs do IoT Plug and Play permitem que os desenvolvedores criem
 
 | Plataforma  | Pacote | Repositório de código | Exemplos | Guia de Início Rápido | Referência |
 |---|---|---|---|---|---|
-| .NET-serviço de Hub IoT | [1.27.1 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [Amostras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) | N/D | [Referência](/dotnet/api/microsoft.azure.devices?preserve-view=true&view=azure-dotnet) |
+| .NET-serviço de Hub IoT | [1.27.1 NuGet](https://www.nuget.org/packages/Microsoft.Azure.Devices ) | [GitHub](https://github.com/Azure/azure-iot-sdk-csharp) | [Amostras](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/iot-hub/Samples/service/PnpServiceSamples) | N/D | [Referência](/dotnet/api/microsoft.azure.devices) |
 | Java-serviço de Hub IoT | [1.26.0 Maven](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot/iot-service-client/1.26.0) | [GitHub](https://github.com/Azure/azure-iot-sdk-java) | [Amostras](https://github.com/Azure/azure-iot-sdk-java/tree/master/service/iot-service-samples/pnp-service-sample) | N/D | [Referência](/java/api/com.microsoft.azure.sdk.iot.service) |
 | Nó-serviço de Hub IoT | [NPM 1.13.0](https://www.npmjs.com/package/azure-iothub) | [GitHub](https://github.com/Azure/azure-iot-sdk-node) | [Amostras](https://github.com/Azure/azure-iot-sdk-node/tree/master/service/samples) | N/D | [Referência](/javascript/api/azure-iothub/) |
 | Python – serviço gêmeos digital | [2.2.3 Pip](https://pypi.org/project/azure-iot-hub) | [GitHub](https://github.com/Azure/azure-iot-sdk-python) | [Amostras](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-hub/samples) | [Interagir com a API gêmeos digital do Hub IoT](quickstart-service.md) | N/D |
