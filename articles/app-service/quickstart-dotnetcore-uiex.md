@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e6675dbc4381a3a21e9daa651948af17f1d70d7d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4e2e34d73bc3048c587d7c0505f4978dd638370a
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747251"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102180268"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Início Rápido: Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -266,7 +266,7 @@ az login
     <ul>
     <li>Criar um grupo de recursos padrão.</li>
     <li>Criar um plano do Serviço de Aplicativo padrão.</li>
-    <li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Criar um aplicativo do Serviço de Aplicativo</a> com o nome especificado.</li>
+    <li><a href="/cli/azure/webapp#az-webapp-create">Criar um aplicativo do Serviço de Aplicativo</a> com o nome especificado.</li>
     <li>Faz a <a href="/azure/app-service/deploy-zip">implantação de Zip</a> dos arquivos do diretório de trabalho atual para o aplicativo.</li>
     <li>Durante a execução, ele fornece mensagens sobre a criação de recursos, o registro em log e a implantação do ZIP.</li>
     </ul>

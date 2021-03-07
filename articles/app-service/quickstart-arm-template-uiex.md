@@ -9,12 +9,12 @@ ms.date: 10/16/2020
 ms.custom: subject-armqs, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 6e0368abcca5f0c38a7b143386d666e7908f30b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7437a5208f94b435576b8a38dc65a6e798303a72
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747361"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102179078"
 ---
 # <a name="quickstart-create-app-service-app-using-an-arm-template"></a>Início Rápido: Criar um aplicativo do Serviço de Aplicativo usando um modelo do ARM
 
@@ -53,7 +53,7 @@ Há dois recursos do Azure definidos no modelo:
 * [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms): criar um plano do Serviço de Aplicativo.
 * [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites): criar um aplicativo do Serviço de Aplicativo.
 
-A tabela a seguir detalha os parâmetros padrão e suas descrições:
+A seguinte tabela detalha os parâmetros padrão e suas descrições:
 
 | Parâmetros | Type    | Valor padrão                | DESCRIPTION |
 |------------|---------|------------------------------|-------------|
@@ -133,7 +133,7 @@ az deployment group create --resource-group myResourceGroup --parameters webAppN
 <ul>
 <li>Criar um padrão <abbr title="Um contêiner lógico para recursos do Azure relacionados que você pode gerenciar como uma unidade.">grupo de recursos</abbr>.</li>
 <li>Criar um padrão <abbr title="O plano que especifica o local, o tamanho e os recursos do farm de servidores Web que hospeda o aplicativo.">Plano do Serviço de Aplicativo</abbr>.</li>
-<li><a href="/cli/azure/webapp?view=azure-cli-latest#az-webapp-create">Criar um <abbr title="A representação do aplicativo Web, que contém o código do aplicativo, os nomes de host DNS, os certificados e os recursos relacionados.">Aplicativo do Serviço de Aplicativo</abbr></a> com o nome especificado.</li>
+<li><a href="/cli/azure/webapp#az-webapp-create">Criar um <abbr title="A representação do aplicativo Web, que contém o código do aplicativo, os nomes de host DNS, os certificados e os recursos relacionados.">Aplicativo do Serviço de Aplicativo</abbr></a> com o nome especificado.</li>
 </ul>
 </details>
 

@@ -5,13 +5,13 @@ ms.topic: tutorial
 ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
-author: faneerde
-ms.openlocfilehash: 8679e3d2fc2459e5775c525a0d5dadd4ba42ebb0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+author: fvneerden
+ms.openlocfilehash: 282ab76c34405f19e7f81b2a8069c178b17ee0c1
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742751"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102124407"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analisar vídeo ao vivo usando o OpenVINO™ DL Streamer – Extensão de IA do Edge da Intel 
 
@@ -327,7 +327,8 @@ Para usar um modelo diferente, você precisará alterar o modelo de implantaçã
 "PIPELINE_VERSION=vehicle_attributes_recognition"
 ],
 ```
-> [!TIP] Copie o armazene o modelo com um novo nome para cada pipeline possível. Dessa forma, você pode alternar entre modelos criando uma implantação com base em um desses modelos.
+> [!TIP]
+> Copie o armazene o modelo com um novo nome para cada pipeline possível. Dessa forma, você pode alternar entre modelos criando uma implantação com base em um desses modelos.
 
 Depois de alterar as variáveis, você pode implantar o modelo novamente no dispositivo. Agora, você pode repetir as etapas acima para executar o programa de exemplo novamente, com o novo pipeline. Os resultados da inferência serão semelhantes (no esquema), mas mostrarão mais ou menos informações dependendo do modelo de pipeline escolhido.
 
