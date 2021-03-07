@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: daeb0d666c0dfb8306663da1d8d59dfba6adc359
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 43e503105eb9d59de5de2fe26e024cc473c61af6
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100516916"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102430489"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento com Azure Databricks e AutoML no Azure Machine Learning 
 
@@ -50,7 +50,7 @@ Crie um [cluster do databricks](/azure/databricks/scenarios/quickstart-create-da
 
 Use estas configurações:
 
-| Setting |Aplica-se a| Valor |
+| Configuração |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
 | Versão do Databricks Runtime |always| Tempo de execução 7,1 (escala de 2,21, Spark 3.0.0) – não ML|
@@ -122,6 +122,16 @@ Experimente:
 + Saiba como [criar um pipeline com o databricks como a computação de treinamento](./how-to-create-machine-learning-pipelines.md).
 
 ## <a name="troubleshooting"></a>Solução de problemas
+
+* **Databricks cancelar uma execução automatizada do Machine Learning**: quando você usa recursos automatizados de aprendizado de máquina no Azure Databricks, para cancelar uma execução e iniciar uma nova execução de experimento, reinicie o cluster Azure Databricks.
+
+* **Databricks >10 iterações para o aprendizado de máquina automatizado**: em configurações automatizadas do Machine Learning, se você tiver mais de 10 iterações, defina `show_output` como `False` ao enviar a execução.
+
+* **Widget do databricks para o SDK do Azure Machine Learning e o aprendizado de máquina automatizado**: o widget do sdk do Azure Machine Learning não tem suporte em um bloco de anotações do databricks porque os notebooks não podem analisar widgets HTML. Você pode exibir o widget no portal usando este código Python na célula Azure Databricks notebook:
+
+    ```
+    displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+    ```
 
 * **Falha ao instalar pacotes**
 

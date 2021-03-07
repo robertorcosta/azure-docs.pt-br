@@ -5,13 +5,13 @@ author: lfittl-msft
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7e9268f69b0ec8d06cd86fe5aec19a46b20a3a76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 03/05/2021
+ms.openlocfilehash: 70f54fc111bfd9443f988619cb2b86303fd3f07b
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710576"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102443379"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -53,6 +53,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[ltree](https://www.postgresql.org/docs/12/ltree.html)                        | 1,1             | tipo de dados para estruturas hierárquicas como de árvore|
 > |[pageinspect](https://www.postgresql.org/docs/12/pageinspect.html)                        | 1.7             | Inspecione o conteúdo das páginas do banco de dados em um nível baixo|
 > |[pg_buffercache](https://www.postgresql.org/docs/12/pgbuffercache.html)               | 1,3             | examinar o cache de buffer compartilhado|
+> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | Agendador de trabalhos para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/12/pgfreespacemap.html)               | 1.2             | examinar o mapa de espaço livre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/12/pgprewarm.html)                   | 1.2             | dados de relações prequentes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/12/pgstatstatements.html)           | 1.7             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
@@ -60,6 +61,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examinar o mapa de visibilidade (VM) e as informações de visibilidade no nível da página|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | fornece funcionalidade de auditoria|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1,3             | funções criptográficas|
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replicação lógica do PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | Linguagem de procedimento PL/pgSQL|
@@ -102,6 +104,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1,1             | tipo de dados para estruturas hierárquicas como de árvore|
 > |[pageinspect](https://www.postgresql.org/docs/11/pageinspect.html)                        | 1.7             | Inspecione o conteúdo das páginas do banco de dados em um nível baixo|
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1,3             | examinar o cache de buffer compartilhado|
+> |[pg_cron](https://github.com/citusdata/pg_cron)                        | 1.2             | Agendador de trabalhos para PostgreSQL|
 > |[pg_freespacemap](https://www.postgresql.org/docs/11/pgfreespacemap.html)               | 1.2             | examinar o mapa de espaço livre (FSM)|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | dados de relações prequentes|
 > |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | acompanhar estatísticas de execução de todas as instruções SQL executadas|
@@ -109,6 +112,7 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examinar o mapa de visibilidade (VM) e as informações de visibilidade no nível da página|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fornece funcionalidade de auditoria|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1,3             | funções criptográficas|
+> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replicação lógica do PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | Linguagem de procedimento PL/pgSQL|
