@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 0850830e6f8101feae80154a0e245196a690f276
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/05/2021
+ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050232"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440854"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com e sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -280,6 +280,7 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
    1. Substitua o `AzureWebJobsStorage` valor da propriedade pela cadeia de conexão da conta de armazenamento que você salvou anteriormente, por exemplo:
 
       Antes:
+
       ```json
       {
          "IsEncrypted": false,
@@ -291,6 +292,7 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
       ```
 
       Após:
+
       ```json
       {
          "IsEncrypted": false,
@@ -302,6 +304,22 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
       ```
 
    1. Quando terminar, certifique-se de salvar suas alterações.
+
+<a name="enable-built-in-connector-authoring"></a>
+
+## <a name="enable-built-in-connector-authoring"></a>Habilitar a criação de conectores internos
+
+Você pode criar seus próprios conectores internos para qualquer serviço que precisar usando a estrutura de [extensibilidade da versão de visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhante a conectores internos, como o barramento de serviço do Azure e o SQL Server, esses conectores fornecem maior taxa de transferência, baixa latência, conectividade local e execução nativa no mesmo processo que o tempo de execução de visualização.
+
+No momento, a capacidade de criação está disponível apenas no Visual Studio Code, mas não está habilitada por padrão. Para criar esses conectores, primeiro você precisa converter seu projeto do baseado em pacote de extensão (Node.js) para o baseado em pacote NuGet (.NET).
+
+1. No painel do Explorer, na raiz do seu projeto, mova o ponteiro do mouse sobre qualquer área em branco abaixo de todos os outros arquivos e pastas, abra o menu de atalho e selecione **converter em projeto de aplicativo lógico baseado em NuGet**.
+
+   ![Captura de tela que mostra que mostra o painel do Explorer com o menu de atalho do projeto aberto de uma área em branco na janela do projeto.](./media/create-stateful-stateless-workflows-visual-studio-code/convert-logic-app-project.png)
+
+1. Quando o prompt for exibido, confirme a conversão do projeto.
+
+1. Para continuar, examine e siga as etapas no artigo [aplicativos lógicos do Azure que executam extensibilidade de conector interno em qualquer lugar](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
 
 <a name="open-workflow-definition-designer"></a>
 
@@ -1348,6 +1366,7 @@ Ao tentar iniciar uma sessão de depuração, você obtém o erro "o **erro exis
 1. Na tarefa a seguir, exclua a linha, `"dependsOn: "generateDebugSymbols"` , junto com a vírgula que termina a linha anterior, por exemplo:
 
    Antes:
+
    ```json
     {
       "type": "func",
@@ -1359,6 +1378,7 @@ Ao tentar iniciar uma sessão de depuração, você obtém o erro "o **erro exis
    ```
 
    Após:
+
    ```json
     {
       "type": "func",

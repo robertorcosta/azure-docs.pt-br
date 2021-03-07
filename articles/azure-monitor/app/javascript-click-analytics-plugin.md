@@ -8,12 +8,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
-ms.openlocfilehash: 5ad3e1a5a4ff47fe3d5fee8b8bc79235838995b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593624"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102429843"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique em plug-in de coleta automática de análise para Application Insights SDK do JavaScript
 
@@ -101,7 +101,7 @@ appInsights.loadAppInsights();
 
 ### <a name="icustomdatatags"></a>ICustomDataTags
 
-| Nome                      | Type    | Padrão   | Marca padrão a ser usada no HTML |   Description                                                                                |
+| Nome                      | Type    | Padrão   | Marca padrão a ser usada no HTML |   Descrição                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
 | useDefaultContentNameOrId | booleano | false     | N/D         |Coleta o atributo HTML padrão para contentname quando um determinado elemento não está marcado com customDataPrefix padrão ou quando customDataPrefix não é fornecido pelo usuário. |
 | customDataPrefix          | string  | `data-`   | `data-*`| Nome e valor de conteúdo de captura automática de elementos que são marcados com o prefixo fornecido. Por exemplo, `data-*-id` , `data-<yourcustomattribute>` pode ser usado nas marcas HTML.   |
@@ -315,4 +315,4 @@ appInsights.loadAppInsights();
 - Confira o [repositório do GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) e o [pacote NPM](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) para o plug-in do clique de coleção de análise automática.
 - Use a [análise de eventos na experiência de uso](usage-segmentation.md) para analisar os principais cliques e a fatia por dimensões disponíveis.
 - Localize clique em dados no campo conteúdo no atributo customDimensions na tabela CustomEvents em [log Analytics](../logs/log-analytics-tutorial.md#write-a-query). Consulte [aplicativo de exemplo](https://go.microsoft.com/fwlink/?linkid=2152871) para obter diretrizes adicionais.
-- Crie uma [pasta de trabalho](../visualize/workbooks-overview.md) para criar visualizações personalizadas de clicar em dados.
+- Crie uma [pasta de trabalho](../visualize/workbooks-overview.md) ou [exporte para Power bi](../logs/log-powerbi.md#integrating-queries) para criar visualizações personalizadas de clicar em dados.

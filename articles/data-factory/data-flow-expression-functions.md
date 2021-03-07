@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 02/04/2021
-ms.openlocfilehash: 8b63565457498663250eb6ab5dc1361e43bbffaf
-ms.sourcegitcommit: 2817d7e0ab8d9354338d860de878dd6024e93c66
+ms.date: 03/04/2021
+ms.openlocfilehash: ec1ea7d727278076944b8cc11f47a1af587e6591
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99585000"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102440149"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Expressões de transformação de dados no fluxo de dados de mapeamento
 
@@ -1196,7 +1196,74 @@ ___
 
 ## <a name="conversion-functions"></a>Funções de conversão
 
-Funções de conversão são usadas para converter dados e tipos de dados
+Funções de conversão são usadas para converter dados e testar para tipos de dados
+
+<code>isBoolean</code>
+<code><b>isBoolean(<value1> : string) => boolean</b></code><br/><br/>
+Verifica se o valor da cadeia de caracteres é um valor booliano de acordo com as regras de ``toBoolean()``
+* ``isBoolean('true') -> true``
+* ``isBoolean('no') -> true``
+* ``isBoolean('microsoft') -> false``
+
+<code>isByte</code>
+<code><b>isByte(<value1> : string) => boolean</b></code><br/><br/>
+Verifica se o valor da cadeia de caracteres é um valor de byte fornecido com um formato opcional de acordo com as regras de ``toByte()``
+* ``isByte('123') -> true``
+* ``isByte('chocolate') -> false``
+
+<code>isDate</code>
+<code><b>isDate (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Verifica se a cadeia de caracteres de data de entrada é uma data usando um formato de data de entrada opcional. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. Se o formato de data de entrada for omitido, o formato padrão será ``yyyy-[M]M-[d]d`` . Os formatos aceitos são ``[ yyyy, yyyy-[M]M, yyyy-[M]M-[d]d, yyyy-[M]M-[d]dT* ]``
+* ``isDate('2012-8-18') -> true``
+* ``isDate('12/18--234234' -> 'MM/dd/yyyy') -> false``
+
+<code>isShort</code>
+<code><b>isShort (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+As verificações do valor da cadeia de caracteres são um valor curto dado um formato opcional de acordo com as regras de ``toShort()``
+* ``isShort('123') -> true``
+* ``isShort('$123' -> '$###') -> true``
+* ``isShort('microsoft') -> false``
+
+<code>isInteger</code>
+<code><b>isInteger (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+As verificações do valor da cadeia de caracteres são um valor inteiro dado um formato opcional de acordo com as regras de ``toInteger()``
+* ``isInteger('123') -> true``
+* ``isInteger('$123' -> '$###') -> true``
+* ``isInteger('microsoft') -> false``
+
+<code>isLong</code>
+<code><b>isLong (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+As verificações do valor da cadeia de caracteres são um valor longo dado um formato opcional de acordo com as regras de ``toLong()``
+* ``isLong('123') -> true``
+* ``isLong('$123' -> '$###') -> true``
+* ``isLong('gunchus') -> false``
+
+<code>isFloat</code>
+<code><b>isFloat (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+As verificações do valor da cadeia de caracteres são um valor flutuante dado um formato opcional de acordo com as regras de ``toFloat()``
+* ``isFloat('123') -> true``
+* ``isFloat('$123.45' -> '$###.00') -> true``
+* ``isFloat('icecream') -> false``
+
+<code>isDouble</code>
+<code><b>isDouble (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+As verificações do valor da cadeia de caracteres são um valor duplo dado um formato opcional de acordo com as regras de ``toDouble()``
+* ``isDouble('123') -> true``
+* ``isDouble('$123.45' -> '$###.00') -> true``
+* ``isDouble('icecream') -> false``
+
+<code>isDecimal</code>
+<code><b>isDecimal (<value1> : string) => boolean</b></code><br/><br/>
+As verificações do valor da cadeia de caracteres são um valor decimal dado um formato opcional de acordo com as regras de ``toDecimal()``
+* ``isDecimal('123.45') -> true``
+* ``isDecimal('12/12/2000') -> false``
+
+<code>isTimestamp</code>
+<code><b>isTimestamp (<value1> : string, [<format>: string]) => boolean</b></code><br/><br/>
+Verifica se a cadeia de caracteres de data de entrada é um carimbo de hora usando um formato de carimbo de hora de entrada opcional. Consulte SimpleDateFormat do Java para obter os formatos disponíveis. Se o carimbo de data/hora for omitido, o padrão ``yyyy-[M]M-[d]d hh:mm:ss[.f...]`` será usado. Você pode passar um fuso horário opcional na forma de 'GMT', 'PST', 'UTC', 'America/Cayman'. O carimbo de data/hora dá suporte à precisão de até milissegundos com o valor de 999 consulte o SimpleDateFormat do Java para obter os formatos disponíveis.
+* ``isTimestamp('2016-12-31 00:12:00') -> true``
+* ``isTimestamp('2016-12-31T00:12:00' -> 'yyyy-MM-dd\\'T\\'HH:mm:ss' -> 'PST') -> true``
+* ``isTimestamp('2012-8222.18') -> false``
 
 ### <code>toBase64</code>
 <code><b>toBase64(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>

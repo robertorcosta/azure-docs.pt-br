@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: b985399eb89ae7bbf73d280775157207498f0080
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: dcfc19700d24ca51d6e28aa511197c1c9e79e521
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100645535"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102428160"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -67,7 +67,7 @@ Digite `spx` para ver a ajuda da CLI de Fala.
 
 Siga estas etapas para instalar a CLI de Fala em um contêiner do Docker:
 
-1. <a href="https://www.docker.com/get-started" target="_blank">Instale o Docker Desktop<span class="docon docon-navigate-external x-hidden-focus"></span></a> para sua plataforma, se ainda não estiver instalado.
+1. <a href="https://www.docker.com/get-started" target="_blank">Instale o Docker Desktop</a> para sua plataforma, se ainda não estiver instalado.
 2. Em um novo prompt de comando ou terminal, digite este comando: 
    ```console   
    docker pull msftspeech/spx

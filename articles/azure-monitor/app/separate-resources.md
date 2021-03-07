@@ -3,12 +3,12 @@ title: Como projetar sua implantação do Application Insights – Um vs. muitos
 description: Direcione a telemetria para diferentes recursos para stamps de desenvolvimento, teste e produção.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 3964cddcf27a4b2c7397b508ccb3cc8928bd04ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9a60981e692a45dd3630073300b206289cfd2a30
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100589530"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424658"
 ---
 # <a name="how-many-application-insights-resources-should-i-deploy"></a>Quantos recursos do Application Insights devo implantar?
 
@@ -32,6 +32,9 @@ Cada recurso do Application Insights vem com métricas que estão disponíveis p
 -   Se não for necessário gerenciar cobrança/cotas de maneira diferente entre os componentes.
 -   Tenha o mesmo acesso aos dados de todos os componentes se não tiver problema em ter uma chave de API. 10 chaves de API são suficientes para as necessidades em todas elas.
 -   Se não tiver problema em ter as mesmas configurações de detecção inteligente e de integração de itens de trabalho em todas as funções.
+
+> [!NOTE]
+> Se você quiser consolidar vários recursos de Application Insights, poderá apontar seus componentes de aplicativo existentes para um novo recurso de Application Insights consolidado. A telemetria armazenada no recurso antigo não será transferida para o novo recurso, portanto, exclua apenas o recurso antigo quando você tiver telemetria suficiente no novo recurso para continuidade dos negócios.
 
 ### <a name="other-things-to-keep-in-mind"></a>Outras coisas a ter em mente
 
