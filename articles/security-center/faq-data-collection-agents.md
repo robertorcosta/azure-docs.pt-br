@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
-ms.openlocfilehash: dc277d71f8f39b342095d0ac14b592eb866984d5
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 4ef01045d1ca16d0101cdd9ccfcd118231cd28de
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100518"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102456106"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
 
@@ -111,7 +111,7 @@ Para selecionar um espaço de trabalho do Log Analytics existente:
 
 1. No menu da Central de Segurança, selecione **Preço e configurações**.
 1. Selecione a assinatura relevante.
-1. Abra a página de **provisionamento automático** , s
+1. Abra a página **provisionamento automático** .
 1. Para o agente de Log Analytics, selecione **Editar configuração**. 
 
     :::image type="content" source="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png" alt-text="A configuração do agente de Log Analytics para usar ao usar a implantação automática" lightbox="./media/security-center-enable-data-collection/edit-configuration-auto-deploy-agent.png":::

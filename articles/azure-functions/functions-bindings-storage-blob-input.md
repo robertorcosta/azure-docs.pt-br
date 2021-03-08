@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/13/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 678b6f02245e463870fc5b2c4bfc8b5ffa50de60
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cd69e89954fab2256ffc7c23e22d3b8d44ab2a11
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381675"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455866"
 ---
 # <a name="azure-blob-storage-input-binding-for-azure-functions"></a>Associação de entrada do armazenamento de BLOBs do Azure para Azure Functions
 
@@ -379,7 +379,7 @@ Acesse os dados de blob por meio de um parâmetro que corresponde ao nome design
 
 # <a name="python"></a>[Python](#tab/python)
 
-Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream?view=azure-python&preserve-view=true). Consulte o [exemplo de entrada](#example) para obter detalhes.
+Acessar dados de blob por meio do parâmetro digitado como [InputStream](/python/api/azure-functions/azure.functions.inputstream). Consulte o [exemplo de entrada](#example) para obter detalhes.
 
 ---
 

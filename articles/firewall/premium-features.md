@@ -1,20 +1,20 @@
 ---
-title: Recursos do Azure firewall Premium Preview
+title: Recursos de versão prévia do Firewall do Azure Premium
 description: O firewall Premium do Azure é um serviço de segurança de rede gerenciado baseado em nuvem que protege os recursos de rede virtual do Azure.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/25/2021
+ms.date: 03/08/2021
 ms.author: victorh
-ms.openlocfilehash: ff5c6961e64deddc8e52dc92a7c34b5b369a44ed
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a3f72d235d6c52ce91ae351c2606ee6cf4285159
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715557"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453420"
 ---
-# <a name="azure-firewall-premium-preview-features"></a>Recursos do Azure firewall Premium Preview
+# <a name="azure-firewall-premium-preview-features"></a>Recursos de versão prévia do Firewall do Azure Premium
 
 Logotipo da:::image type="content" source="media/premium-features/pci-logo.png" alt-text="certificação PCI" border="false"::: do :::image type="content" source="media/premium-features/icsa-cert-firewall-small.png" alt-text="logotipo de certificação ICSA" border="false":::
 
@@ -39,9 +39,8 @@ O Azure firewall Premium Preview inclui os seguintes recursos:
 - **Filtragem de URL** – estende a capacidade de filtragem de FQDN do firewall do Azure para considerar uma URL inteira. Por exemplo, `www.contoso.com/a/c` em vez de `www.contoso.com` .
 - **Categorias da Web** -os administradores podem permitir ou negar o acesso do usuário a categorias de sites, como sites de jogos de azar, sites de mídia social e outros.
 
-## <a name="features"></a>Recursos
 
-### <a name="tls-inspection"></a>Inspeção TLS
+## <a name="tls-inspection"></a>Inspeção TLS
 
 O firewall Premium do Azure encerra as conexões TLS de saída e leste do oeste. Há suporte para a inspeção TLS de entrada com [aplicativo Azure gateway](../web-application-firewall/ag/ag-overview.md) permitindo criptografia de ponta a ponta. O Firewall do Azure faz as funções de segurança de valor agregado necessárias e criptografa novamente o tráfego que é enviado para o destino original.
 
@@ -50,23 +49,30 @@ O firewall Premium do Azure encerra as conexões TLS de saída e leste do oeste.
 
 Para saber mais sobre os requisitos de certificado de AC intermediária do Azure firewall Premium Preview, confira [certificados do Azure firewall Premium Preview](premium-certificates.md).
 
-### <a name="idps"></a>IDPS
+## <a name="idps"></a>IDPS
 
 Um IDPS (sistema de detecção e prevenção de intrusão de rede) permite monitorar a sua rede em busca de atividades mal-intencionadas, registrar informações sobre essa atividade, relatá-las e, opcionalmente, tentar bloqueá-las. 
 
 O Azure firewall Premium Preview fornece IDPS baseadas em assinatura para permitir a detecção rápida de ataques procurando padrões específicos, como sequências de bytes no tráfego de rede ou sequências de instruções mal-intencionadas conhecidas usadas por malware. As assinaturas do IDPS são totalmente gerenciadas e atualizadas continuamente.
 
+As assinaturas/conjuntos de regras do firewall do Azure incluem:
+- Ênfase na impressão digital de malware, comando e controle, kits de exploração e na atividade mal-intencionada intencionada perdida por métodos de prevenção tradicionais.
+- Mais de 35.000 regras em mais de 50 categorias.
+    - As categorias incluem comando e controle de malware, ataques de DoS, botnets, eventos informativos, explorações, vulnerabilidades, protocolos de rede SCADA, atividade de kit de exploração e muito mais.
+- 20 a 40 + novas regras são lançadas todos os dias.
+- Baixa classificação de falsos positivos usando a área restrita de malware de última geração e o loop de comentários de rede do sensor global.
+
 O IDPS permite que você detecte ataques em todas as portas e protocolos para tráfego não criptografado. No entanto, quando o tráfego HTTPS precisa ser inspecionado, o Firewall do Azure pode usar seu recurso de inspeção TLS para descriptografar o tráfego e detectar melhor as atividades mal-intencionadas.  
 
-A lista de bypass IDPS permite que você não filtre o tráfego para nenhum dos endereços IP, intervalos e sub-redes especificados na lista de bypass.  
+A lista de bypass IDPS permite que você não filtre o tráfego para nenhum dos endereços IP, intervalos e sub-redes especificados na lista de bypass. 
 
-### <a name="url-filtering"></a>Filtragem de URL
+## <a name="url-filtering"></a>Filtragem de URL
 
 A filtragem de URL estende a capacidade de filtragem de FQDN do firewall do Azure para considerar uma URL inteira. Por exemplo, `www.contoso.com/a/c` em vez de `www.contoso.com` .  
 
 A filtragem de URL pode ser aplicada em tráfego HTTP e HTTPS. Quando o tráfego HTTPS é inspecionado, o Azure firewall Premium Preview pode usar seu recurso de inspeção TLS para descriptografar o tráfego e extrair a URL de destino para validar se o acesso é permitido. A inspeção TLS requer aceitação no nível de regra do aplicativo. Uma vez habilitado, você pode usar URLs para filtragem com HTTPS. 
 
-### <a name="web-categories"></a>Categorias da Web
+## <a name="web-categories"></a>Categorias da Web
 
 As categorias da Web permitem que os administradores permitam ou neguem acesso de usuário a categorias de sites, como sites de jogos de azar, sites de mídia social e outros. As categorias da Web também serão incluídas no Azure firewall Standard, mas serão mais ajustadas no Azure firewall Premium Preview. Ao contrário do recurso de categorias da Web no SKU padrão que corresponde à categoria com base em um FQDN, a SKU Premium corresponde à categoria de acordo com a URL inteira para o tráfego HTTP e HTTPS. 
 
@@ -78,11 +84,11 @@ Por exemplo, se o Firewall do Azure interceptar uma solicitação HTTPS para `ww
 
 As categorias são organizadas com base na gravidade sob **responsabilidade**, **alta largura de banda**, **uso comercial**, **perda de produtividade**, **navegação geral** e não **Categorizado**.
 
-#### <a name="category-exceptions"></a>Exceções de categoria
+### <a name="category-exceptions"></a>Exceções de categoria
 
 Você pode criar exceções para suas regras de categoria da Web. Crie uma coleção de regras Allow ou Deny separada com prioridade mais alta dentro do grupo de coleta de regras. Por exemplo, você pode configurar uma coleção de regras que permita `www.linkedin.com` com prioridade 100, com uma coleção de regras que nega a **rede social** com prioridade 200. Isso cria a exceção para a categoria da Web de **rede social** predefinida.
 
-#### <a name="categorization-change"></a>Alteração de categorização
+### <a name="categorization-change"></a>Alteração de categorização
 
 Você pode solicitar uma alteração de categorização se:
 
@@ -119,5 +125,5 @@ Certificados assinados de cliente não confiáveis|Os certificados assinados pel
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais sobre os certificados do firewall Premium do Azure](premium-certificates.md)
-- [Implantar e configurar o Azure firewall Premium Preview](premium-deploy.md)
+- [Implantar e configurar a versão prévia do Firewall do Azure Premium](premium-deploy.md)
 - [Migrar para o Azure firewall Premium Preview](premium-migrate.md)

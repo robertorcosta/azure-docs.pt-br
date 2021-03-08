@@ -9,13 +9,13 @@ ms.author: laobri
 author: lobrien
 ms.date: 03/04/2021
 ms.topic: conceptual
-ms.custom: how-to
-ms.openlocfilehash: ea7dc30d0aed1350a8c9275d786ea22fa52c77bf
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.custom: how-to, synapse-azureml
+ms.openlocfilehash: 1dc4e0b70b0d39d01bada26992eb2213c1e855c5
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102203684"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455052"
 ---
 # <a name="how-to-use-apache-spark-powered-by-azure-synapse-analytics-in-your-machine-learning-pipeline-preview"></a>Como usar Apache Spark (da plataforma Azure Synapse Analytics) em seu pipeline do Machine Learning (versão prévia)
 
@@ -31,7 +31,7 @@ Neste artigo, você aprenderá a usar os pools de Apache Spark fornecidos pelo A
 
 ## <a name="link-your-azure-machine-learning-workspace-and-azure-synapse-analytics-workspace"></a>Vincular seu espaço de trabalho do Azure Machine Learning e o espaço de trabalho do Azure Synapse Analytics 
 
-Você cria e administra seus pools de Apache Spark em um espaço de trabalho do Azure Synapse Analytics. Para integrar um pool de Apache Spark com um espaço de trabalho do Azure Machine Learning, você deve vincular ao espaço de trabalho do Azure Synapse Analytics. 
+Você cria e administra seus pools de Apache Spark em um espaço de trabalho do Azure Synapse Analytics. Para integrar um pool de Apache Spark com um espaço de trabalho do Azure Machine Learning, você deve [vincular ao espaço de trabalho do Azure Synapse Analytics](how-to-link-synapse-ml-workspaces.md). 
 
 Você pode anexar um pool de Apache Spark por meio da interface do usuário do Azure Machine Learning Studio usando a página **Serviços vinculados** . Você também pode fazer isso por meio da página de **computação** com a opção **anexar computação** .
 

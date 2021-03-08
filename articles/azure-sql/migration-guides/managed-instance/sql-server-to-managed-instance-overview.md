@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 1f619e1eac58f70642117dabafc266d1bc250609
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 59c000a816d55d248febb841b695d366cb9979cc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101690406"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455222"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ Saiba mais sobre as diferentes opções de migração e considerações para mig
 
 Você pode migrar SQL Server em execução no local ou em: 
 
-- SQL Server em Máquinas Virtuais  
+- SQL Server em máquinas virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)  
@@ -63,7 +63,7 @@ Algumas diretrizes gerais para ajudá-lo a escolher a camada de serviço e as ca
 Você pode escolher recursos de computação e armazenamento durante a implantação e, em seguida, alterá-los depois de usar o [portal do Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para seu aplicativo. 
 
 > [!IMPORTANT]
-> Qualquer discrepância nos requisitos de [rede virtual de instância gerenciada](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novas instâncias ou usar aquelas existentes. Saiba mais sobre como [criar novas](../../managed-instance/virtual-network-subnet-create-arm-template.md)   e [configurar redes existentes](../../managed-instance/vnet-existing-add-subnet.md?branch=release-ignite-arc-data)   . 
+> Qualquer discrepância nos requisitos de [rede virtual de instância gerenciada](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novas instâncias ou usar aquelas existentes. Saiba mais sobre como [criar novas](../../managed-instance/virtual-network-subnet-create-arm-template.md)   e [configurar redes existentes](../../managed-instance/vnet-existing-add-subnet.md)   . 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa de VM SQL Server
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b3ae2986b49cf6854e0d9a6b99aabdfc2dd6b713
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 29ac6976b6248f066f18f0ffcc8e03061ee74f77
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102436644"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454408"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-stack-edge-pro-gpu"></a>Usar o portal do Azure para gerenciar agendamentos de largura de banda em sua GPU do Azure Stack Edge pro 
 
@@ -44,7 +44,7 @@ Para adicionar um agendamento, siga as etapas a seguir no portal do Azure.
 
    1. Forneça o **dia de início**, o **dia de término**, a hora de **início** e a **hora de término** da agenda.
    2. Marque a opção **todos os dias** se essa agenda deve ser executada o dia inteiro.
-   3. A **taxa de largura de banda** é a largura de banda em megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvem a nuvem (tanto carregamentos quanto downloads). Forneça um número entre 20 e 2.147.483.647 para este campo.
+   3. A **taxa de largura de banda** é a largura de banda em megabits por segundo (Mbps) usada pelo seu dispositivo em operações que envolvem a nuvem (tanto carregamentos quanto downloads). Forneça um número entre 64 e 2.147.483.647 para este campo.
    4. Selecione **largura de banda ilimitada** se você não quiser limitar a data de carregamento e download.
    5. Selecione **Adicionar**.
 

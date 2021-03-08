@@ -7,14 +7,14 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 tags: connectors
-ms.openlocfilehash: 2820fe9d885187071924386ef71eb12fd42bbf01
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3e98dc36b3d58ce5289fccde7b5f5a49973c9de6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426443"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102454219"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -30,7 +30,7 @@ Este artigo explica como você pode acessar seus recursos SAP de aplicativos ló
 
     * Se você estiver executando seu aplicativo lógico em vários locatários do Azure, consulte os [pré-requisitos de multilocatário](#multi-tenant-azure-prerequisites).
 
-    * Se você estiver executando seu aplicativo lógico em um ambiente do serviço de integração de nível Premium[ (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), consulte os [pré-requisitos do ISE](#ise-prerequisites).
+    * Se você estiver executando seu aplicativo lógico em um ambiente do serviço de integração de nível Premium [(ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), consulte os [pré-requisitos do ISE](#ise-prerequisites).
 
 * Um [servidor de aplicativos SAP](https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server) ou [servidor de mensagens SAP](https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm) que você deseja acessar de aplicativos lógicos. Para obter informações sobre quais servidores SAP e ações SAP você pode usar com o conector do, consulte [compatibilidade do SAP](#sap-compatibility).
 
@@ -633,6 +633,14 @@ Para enviar IDocs do SAP para seu aplicativo lógico, você precisará da seguin
     * Para o **destino RFC**, insira um nome.
     
     * Na guia **configurações técnicas** , para **tipo de ativação**, selecione **programa de servidor registrado**. Para a **ID do programa**, insira um valor. No SAP, o gatilho do aplicativo lógico será registrado usando esse identificador.
+
+    > [!IMPORTANT]
+    > A **ID do programa** SAP diferencia maiúsculas de minúsculas. Certifique-se de usar consistentemente o mesmo formato de caso para a **ID do programa** ao configurar o aplicativo lógico e o servidor SAP. Caso contrário, você pode receber os seguintes erros no monitor tRFC (T-Code SM58) ao tentar enviar um IDoc para o SAP:
+    >
+    > * **Função não IDOC_INBOUND_ASYNCHRONOUS encontrada**
+    > * **Não há suporte para cliente RFC não ABAP (tipo de parceiro)**
+    >
+    > Para obter mais informações do SAP, consulte as observações a seguir (logon obrigatório) <https://launchpad.support.sap.com/#/notes/2399329> e <https://launchpad.support.sap.com/#/notes/353597> .
     
     * Na guia **Unicode** , para **tipo de comunicação com sistema de destino**, selecione **Unicode**.
 
@@ -745,6 +753,14 @@ Você pode configurar o SAP para [Enviar IDocs em pacotes](https://help.sap.com/
 Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usando a [ `xpath()` função](./workflow-definition-language-functions-reference.md#xpath):
 
 1. Antes de começar, você precisa de um aplicativo lógico com um gatilho SAP. Se você ainda não tiver esse aplicativo lógico, siga as etapas anteriores neste tópico para [configurar um aplicativo lógico com um gatilho do SAP](#receive-message-from-sap).
+
+    > [!IMPORTANT]
+    > A **ID do programa** SAP diferencia maiúsculas de minúsculas. Certifique-se de usar consistentemente o mesmo formato de caso para a **ID do programa** ao configurar o aplicativo lógico e o servidor SAP. Caso contrário, você pode receber os seguintes erros no monitor tRFC (T-Code SM58) ao tentar enviar um IDoc para o SAP:
+    >
+    > * **Função não IDOC_INBOUND_ASYNCHRONOUS encontrada**
+    > * **Não há suporte para cliente RFC não ABAP (tipo de parceiro)**
+    >
+    > Para obter mais informações do SAP, consulte as observações a seguir (logon obrigatório) <https://launchpad.support.sap.com/#/notes/2399329> e <https://launchpad.support.sap.com/#/notes/353597> .
 
    Por exemplo:
 
@@ -1313,11 +1329,18 @@ Se você tiver um problema com IDocs duplicados sendo enviado ao SAP de seu apli
 
 ## <a name="known-issues-and-limitations"></a>Limitações e problemas conhecidos
 
-Aqui estão os problemas e limitações atualmente conhecidos para o conector SAP gerenciado (não ISE):
+Aqui estão os problemas e limitações atualmente conhecidos para o conector SAP gerenciado (não ISE): 
 
-* O gatilho do SAP não dá suporte a clusters de gateway de dados. Em alguns casos de failover, o nó do gateway de dados que se comunica com o sistema SAP pode ser diferente do nó ativo, o que resulta em um comportamento inesperado. Para cenários de envio, há suporte para clusters de gateway de dados.
+* Em geral, o gatilho SAP não dá suporte a clusters de gateway de dados. Em alguns casos de failover, o nó do gateway de dados que se comunica com o sistema SAP pode ser diferente do nó ativo, o que resulta em um comportamento inesperado.
+
+  * Para cenários de envio, há suporte para clusters de gateway de dados no modo de failover. 
+
+  * Os clusters de gateway de dados no modo de balanceamento de carga não têm suporte em ações SAP com estado. Essas ações incluem **criar sessão com estado**, **confirmar transação BAPI**, **Reverter transação BAPI**, **fechar sessão com estado** e todas as ações que especificam um valor de ID de **sessão** . As comunicações com estado devem permanecer no mesmo nó de cluster do gateway de dados. 
+
+  * Para ações SAP com estado, use o gateway de dados no modo não cluster ou em um cluster que esteja configurado apenas para failover.
 
 * No momento, o conector do SAP não é compatível com cadeia de caracteres do roteador do SAP. O gateway de dados local deve existir na mesma LAN que o sistema SAP que você deseja conectar.
+
 
 ## <a name="connector-reference"></a>Referência de conector
 

@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 8c2ea69d38f354455b7957ddc7b6ff41da30100b
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f4477a09f151695b826d0becf28e92ceaf3f9e85
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210760"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453199"
 ---
 # <a name="azure-queue-storage-trigger-for-azure-functions"></a>Gatilho de armazenamento de filas do Azure para Azure Functions
 
@@ -419,7 +419,7 @@ Acesse a mensagem da fila por meio do parâmetro de cadeia de caracteres que cor
 
 # <a name="python"></a>[Python](#tab/python)
 
-Acesse a mensagem da fila por meio do parâmetro digitado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage?view=azure-python&preserve-view=true).
+Acesse a mensagem da fila por meio do parâmetro digitado como [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 
 ---
 
@@ -427,7 +427,7 @@ Acesse a mensagem da fila por meio do parâmetro digitado como [QueueMessage](/p
 
 O gatilho de fila fornece várias propriedades de [metadados](./functions-bindings-expressions-patterns.md#trigger-metadata). Essas propriedades podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros em seu código. As propriedades são membros da classe [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) .
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |`QueueTrigger`|`string`|Conteúdo da fila (se for uma cadeia de caracteres válida). Se a carga da mensagem da fila for uma cadeia de caracteres, `QueueTrigger` o terá o mesmo valor que a variável nomeada pela `name` propriedade em *function.js*.|
 |`DequeueCount`|`int`|O número de vezes que essa mensagem foi removida da fila.|

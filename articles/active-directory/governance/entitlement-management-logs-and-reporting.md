@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7f0d937d41ee42bf0fe678eb2f49e78882f881
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b635a83c5ea1378a525ff607e5c6f2725337ad1a
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100577871"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453029"
 ---
 # <a name="archive-logs-and-reporting-on-azure-ad-entitlement-management-in-azure-monitor"></a>Arquivar logs e relatórios no gerenciamento de direitos do Azure Active Directory no Azure Monitor
 
@@ -158,8 +158,7 @@ $subs = Get-AzSubscription
 $subs | ft
 ```
  
-Você pode autenticar e associar sua sessão do PowerShell a essa assinatura usando um comando como `Connect-AzAccount –Subscription $subs[0].id`. Para saber mais sobre como autenticar o Azure do PowerShell, inclusive não interativamente, consulte [Entrar com Azure PowerShell](/powershell/azure/authenticate-azureps?view=azps-3.3.0&viewFallbackFrom=azps-2.5.0
-).
+Você pode autenticar e associar sua sessão do PowerShell a essa assinatura usando um comando como `Connect-AzAccount –Subscription $subs[0].id`. Para saber mais sobre como autenticar o Azure do PowerShell, inclusive não interativamente, consulte [Entrar com Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 Se você tiver vários workspaces do Log Analytics nessa assinatura, o cmdlet [Get-AzOperationalInsightsWorkspace](/powershell/module/Az.OperationalInsights/Get-AzOperationalInsightsWorkspace) retornará a lista de workspaces. Em seguida, você poderá encontrar aquele que tem os logs do Azure AD. O campo `CustomerId` retornado por esse cmdlet é o mesmo que o valor da “ID do workspace” exibido no portal do Azure na visão geral do workspace do Log Analytics.
  

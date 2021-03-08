@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python
-ms.openlocfilehash: 778424cbb81f8fe51a57dd41d94aa9015ffad94e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5d94625e3eb121e556b28038cf59626be1332966
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381504"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102455798"
 ---
 # <a name="azure-queue-storage-output-bindings-for-azure-functions"></a>Associações de saída do armazenamento de filas do Azure para Azure Functions
 
@@ -424,12 +424,12 @@ Em C# e script C#, grave várias mensagens de fila usando um dos seguintes tipos
 
 ### <a name="additional-types"></a>Tipos adicionais
 
-Os aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem usar tipos do [SDK do Azure para .net](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para os `CloudQueue` tipos herdados e `CloudQueueMessage` em favor dos seguintes tipos:
+Os aplicativos que usam a [versão 5.0.0 ou posterior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também poderão usar tipos do [SDK do Azure para .NET](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para os `CloudQueue` tipos herdados e `CloudQueueMessage` em favor dos seguintes tipos:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 - [QueueClient](/dotnet/api/azure.storage.queues.queueclient) para gravar várias mensagens da fila
 
-Para obter exemplos de como usar esses tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+Para obter exemplos de como usar esses tipos, confira [o repositório GitHub da extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="c-script"></a>[Script do C#](#tab/csharp-script)
 
@@ -451,12 +451,12 @@ Em C# e script C#, grave várias mensagens de fila usando um dos seguintes tipos
 
 ### <a name="additional-types"></a>Tipos adicionais
 
-Os aplicativos que usam a [versão 5.0.0 ou superior da extensão de armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também podem usar tipos do [SDK do Azure para .net](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para os `CloudQueue` tipos herdados e `CloudQueueMessage` em favor dos seguintes tipos:
+Os aplicativos que usam a [versão 5.0.0 ou posterior da extensão de Armazenamento](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) também poderão usar tipos do [SDK do Azure para .NET](/dotnet/api/overview/azure/storage.queues-readme). Essa versão descarta o suporte para os `CloudQueue` tipos herdados e `CloudQueueMessage` em favor dos seguintes tipos:
 
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 - [QueueClient](/dotnet/api/azure.storage.queues.queueclient) para gravar várias mensagens da fila
 
-Para obter exemplos de como usar esses tipos, consulte [o repositório GitHub para a extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+Para obter exemplos de como usar esses tipos, confira [o repositório GitHub da extensão](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 # <a name="java"></a>[Java](#tab/java)
 
@@ -480,7 +480,7 @@ Há duas opções para a saída de uma mensagem de fila de uma função:
 
 - **Valor retornado**: defina a propriedade `name` no *function.json* como `$return`. Com essa configuração, o valor de retorno da função é persistido como uma mensagem de armazenamento de fila.
 
-- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out?view=azure-python&preserve-view=true). O valor passado para `set` é persistido como uma mensagem de armazenamento de fila.
+- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out). O valor passado para `set` é persistido como uma mensagem de armazenamento de fila.
 
 ---
 

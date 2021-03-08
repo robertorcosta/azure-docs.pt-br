@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: aec26c0109b4aa8e0819e7f5e9b3c69db7f74648
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 28abe5dbd9064fb0a6bc1b3f167830672deacdcc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726896"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452689"
 ---
 # <a name="service-fabric-releases"></a>Versões Service Fabric
 
@@ -71,7 +71,7 @@ Também publicamos atualizações na data de fim do suporte para versões princi
       -  Reduzir os custos gerais (os discos são gratuitos e não incorrem nenhum custo de armazenamento adicional)
 - Suporte para declaração de [**certificados de ponto de extremidade de serviço de aplicativos Service Fabric por nome comum de assunto**](./service-fabric-service-manifest-resources.md).
 - [**Suporte para investigações de integridade para serviços em contêineres**](./probes-codepackage.md): suporte para mecanismo de teste de vida para aplicativos em contêineres. A teste de vida ajuda a anunciar a vida do aplicativo em contêiner e quando eles não respondem em tempo hábil, isso resultará em uma reinicialização. 
-- [**Suporte para pacotes de códigos inicializadores**](./initializer-codepackages.md) para [contêineres](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-containers-overview) e aplicativos [executáveis de convidado](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-guest-executables-introduction) . Isso permite a execução de pacotes de código (por exemplo, contêineres), em uma ordem especificada, para executar a inicialização do pacote de serviço.
+- [**Suporte para pacotes de códigos inicializadores**](./initializer-codepackages.md) para [contêineres](/azure/service-fabric/service-fabric-containers-overview) e aplicativos [executáveis de convidado](/azure/service-fabric/service-fabric-guest-executables-introduction) . Isso permite a execução de pacotes de código (por exemplo, contêineres), em uma ordem especificada, para executar a inicialização do pacote de serviço.
 - **FabricObserver e ClusterObserver** são aplicativos sem estado que capturam Service Fabric telemetria relacionada a diferentes aspectos de um cluster do it. Ambos os aplicativos estão prontos para implantação em clusters de produção do Windows para capturar telemetria avançada com suporte implementado para ApplicationInsights, EventSource e LogAnalytics.
     - [**FabricObserver (fo) 2,0**](https://github.com/microsoft/service-fabric-observer)– é executado em todos os nós, gera eventos de integridade, emite telemetria quando os limites de uso de recursos configurados pelo usuário são atingidos. Esta versão contém vários aprimoramentos em monitoramento, gerenciamento de dados, detalhes do evento de integridade, telemetria estruturada.
      - [**ClusterObserver (co) 1,1**](https://github.com/microsoft/service-fabric-observer/tree/master/ClusterObserver) -executa em um nó, captura a telemetria de integridade no nível do cluster. Nesta versão, o ClusterObserver também monitora o status do nó e emite telemetria quando o nó está inativo/desabilitando/desabilitado por mais tempo do que o período especificado pelo usuário.
