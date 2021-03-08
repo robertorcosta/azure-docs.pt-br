@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 941d866fbdea0efc5775bccd08e0235b1629fae0
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440854"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449723"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com e sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -312,6 +312,9 @@ Antes de criar seu aplicativo lógico, crie um projeto local para que você poss
 Você pode criar seus próprios conectores internos para qualquer serviço que precisar usando a estrutura de [extensibilidade da versão de visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhante a conectores internos, como o barramento de serviço do Azure e o SQL Server, esses conectores fornecem maior taxa de transferência, baixa latência, conectividade local e execução nativa no mesmo processo que o tempo de execução de visualização.
 
 No momento, a capacidade de criação está disponível apenas no Visual Studio Code, mas não está habilitada por padrão. Para criar esses conectores, primeiro você precisa converter seu projeto do baseado em pacote de extensão (Node.js) para o baseado em pacote NuGet (.NET).
+
+> [!IMPORTANT]
+> Essa ação é uma operação unidirecional que não pode ser desfeita.
 
 1. No painel do Explorer, na raiz do seu projeto, mova o ponteiro do mouse sobre qualquer área em branco abaixo de todos os outros arquivos e pastas, abra o menu de atalho e selecione **converter em projeto de aplicativo lógico baseado em NuGet**.
 

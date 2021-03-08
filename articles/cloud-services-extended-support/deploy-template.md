@@ -8,38 +8,42 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: eb59bb43d493609ae408a402eaea2dcc9c6fab29
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548770"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101706955"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implantar um Serviço de Nuvem (suporte estendido) usando modelos do ARM
 
-Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azure/azure-resource-manager/templates/overview) para criar uma implantação do Serviço de Nuvem (suporte estendido). 
+Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templates/overview.md) para criar uma implantação do Serviço de Nuvem (suporte estendido). 
 
 > [!IMPORTANT]
 > No momento, os Serviços de Nuvem (suporte estendido) estão em versão prévia pública.
-> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
+> Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 ## <a name="before-you-begin"></a>Antes de começar
-1. Examine os [pré-requisitos de implantação](deploy-prerequisite.md) dos Serviços de Nuvem (suporte estendido) e crie os recursos associados. 
 
-2. Crie um grupo de recursos usando o [portal do Azure](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-portal) ou o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/management/manage-resource-groups-powershell). Essa etapa é opcional se você está usando um grupo de recursos existente. 
+1. Examine os [pré-requisitos de implantação](deploy-prerequisite.md) dos Serviços de Nuvem (suporte estendido) e crie os recursos associados.
+
+2. Crie um grupo de recursos usando o [portal do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) ou o [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Essa etapa é opcional se você está usando um grupo de recursos existente.
  
-3. Crie uma conta de armazenamento usando o [portal do Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-portal) ou o [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-account-create?tabs=azure-powershell). Essa etapa é opcional se você está usando uma conta de armazenamento existente. 
+3. Crie uma conta de armazenamento usando o [portal do Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) ou o [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Essa etapa é opcional se você está usando uma conta de armazenamento existente.
 
-4. Carregue os arquivos de Definição de Serviço (.csdef) e de Configuração de Serviço (.cscfg) para a conta de armazenamento usando o [portal do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou o [PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenha os URIs de SAS dos dois arquivos a serem adicionados ao modelo do ARM posteriormente neste tutorial. 
+4. Carregue os arquivos de Definição de Serviço (.csdef) e de Configuração de Serviço (.cscfg) para a conta de armazenamento usando o [portal do Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou o [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenha os URIs de SAS dos dois arquivos a serem adicionados ao modelo do ARM posteriormente neste tutorial.
 
-5. (Opcional) Criar um cofre de chaves e carregar um certificado. 
-    -  Certificados podem ser anexados aos serviços de nuvem para habilitar a comunicação segura com o serviço. Para usar certificados, suas impressões digitais devem ser especificadas no arquivo de Configuração do Serviço (.cscfg) e carregadas em um cofre de chaves. Um Key Vault pode ser criado por meio do [portal do Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal) ou do [PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell). 
-    - O Key Vault associado precisa estar localizado na mesma região e assinatura que o serviço de nuvem.   
+5. (Opcional) Criar um cofre de chaves e carregar um certificado.
+
+    -  Certificados podem ser anexados aos serviços de nuvem para habilitar a comunicação segura com o serviço. Para usar certificados, suas impressões digitais devem ser especificadas no arquivo de Configuração do Serviço (.cscfg) e carregadas em um Key Vault. Um Key Vault pode ser criado por meio do [portal do Azure](/azure/key-vault/general/quick-create-portal) ou do [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    - O Key Vault associado precisa estar localizado na mesma região e assinatura que o serviço de nuvem.
     - O Key Vault associado deve receber as permissões apropriadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado dele. Para saber mais, confira [Certificados e o Key Vault](certificates-and-key-vault.md)
     - O Key Vault precisa ser referenciado na seção OsProfile do modelo do ARM mostrado nas etapas a seguir.
 
-## <a name="deploy-a-cloud-service-extended-support"></a>Implantar um Serviço de Nuvem (suporte estendido) 
+## <a name="deploy-a-cloud-service-extended-support"></a>Implantar um Serviço de Nuvem (suporte estendido)
+
 1. Crie a rede virtual. O nome da rede virtual deve corresponder às referências no arquivo de Configuração de Serviço (.cscfg). Se estiver usando uma rede virtual existente, omita esta seção do modelo do ARM.
 
     ```json
@@ -68,7 +72,7 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
     ] 
     ```
     
-     Se estiver criando uma rede virtual, adicione o código abaixo à seção `dependsOn` para garantir que a plataforma crie a rede virtual antes de criar o serviço de nuvem. 
+     Se estiver criando uma rede virtual, adicione o código abaixo à seção `dependsOn` para garantir que a plataforma crie a rede virtual antes de criar o serviço de nuvem.
 
     ```json
     "dependsOn": [ 
@@ -100,7 +104,7 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
     ] 
     ```
      
-     Se estiver criando um endereço IP, adicione o código abaixo à seção `dependsOn` para garantir que a plataforma crie o endereço IP antes de criar o serviço de nuvem. 
+     Se estiver criando um endereço IP, adicione o código abaixo à seção `dependsOn` para garantir que a plataforma crie o endereço IP antes de criar o serviço de nuvem.
     
     ```json
     "dependsOn": [ 
@@ -108,7 +112,7 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
           ] 
     ```
  
-3. Crie um objeto de perfil de rede e associe o endereço IP público ao front-end do balanceador de carga. Um balanceador de carga é criado automaticamente pela plataforma.  
+3. Crie um objeto de perfil de rede e associe o endereço IP público ao front-end do balanceador de carga. Um balanceador de carga é criado automaticamente pela plataforma.
 
     ```json
     "networkProfile": { 
@@ -154,71 +158,70 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
     ```
   
     > [!NOTE]
-    > SourceVault é a ID de recurso do ARM para seu Key Vault. Você pode encontrar essas informações localizando a ID do Recurso na seção de propriedades de seu Key Vault. 
+    > SourceVault é a ID de recurso do ARM para seu Key Vault. Você pode encontrar essas informações localizando a ID do Recurso na seção de propriedades de seu Key Vault.
     > - certificateUrl pode ser encontrado navegando até o certificado no cofre de chaves rotulado como **Identificador Secreto**.  
    >  - certificateUrl deve estar no formato https://{keyvault-endpoin}/secrets/{secretname}/{secret-id}
 
-5. Crie um Perfil de Função. Verifique se o número de funções, nomes de função, número de instâncias em cada função e tamanhos são os mesmos nas seções Configuração de Serviço (.cscfg), Definição de Serviço (.csdef) e Perfil de Função no modelo do ARM. 
+5. Crie um Perfil de Função. Verifique se o número de funções, nomes de função, número de instâncias em cada função e tamanhos são os mesmos nas seções Configuração de Serviço (.cscfg), Definição de Serviço (.csdef) e Perfil de Função no modelo do ARM.
     
     ```json
-    "roleProfile": { 
-          "roles": { 
-          "value": [ 
-            { 
-              "name": "WebRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
-            }, 
-            { 
-              "name": "WorkerRole1", 
-              "sku": { 
-                "name": "Standard_D1_v2", 
-                "capacity": "1" 
-              } 
+    "roleProfile": {
+      "roles": {
+        "value": [
+          {
+            "name": "WebRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
+            }
+          },
+          {
+            "name": "WorkerRole1",
+            "sku": {
+              "name": "Standard_D1_v2",
+              "capacity": "1"
             } 
-        }
+          } 
+        ]
+      }
     }   
     ```
 
-6. (Opcional) Crie um perfil de extensão para adicionar extensões ao serviço de nuvem. Para este exemplo, estamos adicionando a Área de Trabalho Remota e a extensão de diagnóstico do Microsoft Azure. 
+6. (Opcional) Crie um perfil de extensão para adicionar extensões ao serviço de nuvem. Para este exemplo, estamos adicionando a Área de Trabalho Remota e a extensão de diagnóstico do Microsoft Azure.
     
     ```json
         "extensionProfile": {
-              "extensions": [
-                {
-                  "name": "RDPExtension",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Windows.Azure.Extensions",
-                    "type": "RDP",
-                    "typeHandlerVersion": "1.2.1",
-                    "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
-                    "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
-                  }
-                },
-                {
-                  "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
-                  "properties": {
-                    "autoUpgradeMinorVersion": true,
-                    "publisher": "Microsoft.Azure.Diagnostics",
-                    "type": "PaaSDiagnostics",
-                    "typeHandlerVersion": "1.5",
-                    "settings": "[parameters('wadPublicConfig_WebRole1')]",
-                    "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
-                    "rolesAppliedTo": [
-                      "WebRole1"
-              ]
+          "extensions": [
+            {
+              "name": "RDPExtension",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Windows.Azure.Extensions",
+                "type": "RDP",
+                "typeHandlerVersion": "1.2.1",
+                "settings": "<PublicConfig>\r\n <UserName>[Insert Username]</UserName>\r\n <Expiration>1/21/2022 12:00:00 AM</Expiration>\r\n</PublicConfig>",
+                "protectedSettings": "<PrivateConfig>\r\n <Password>[Insert Password]</Password>\r\n</PrivateConfig>"
+              }
+            },
+            {
+              "name": "Microsoft.Insights.VMDiagnosticsSettings_WebRole1",
+              "properties": {
+                "autoUpgradeMinorVersion": true,
+                "publisher": "Microsoft.Azure.Diagnostics",
+                "type": "PaaSDiagnostics",
+                "typeHandlerVersion": "1.5",
+                "settings": "[parameters('wadPublicConfig_WebRole1')]",
+                "protectedSettings": "[parameters('wadPrivateConfig_WebRole1')]",
+                "rolesAppliedTo": [
+                  "WebRole1"
+                ]
+              }
             }
-          }
-        ]
-      }
+          ]
+        }
+    ```
 
-  
-    ```    
-
-7. Examine o modelo completo. 
+7. Examine o modelo completo.
 
     ```json
     {
@@ -266,12 +269,12 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
           "metadata": {
              "description": "Public configuration of Windows Azure Diagnostics extension"
           }
-         },
+        },
         "wadPrivateConfig_WebRole1": {
           "type": "securestring",
           "metadata": {
             "description": "Private configuration of Windows Azure Diagnostics extension"
-         }
+          }
         },
         "vnetName": {
           "type": "string",
@@ -411,7 +414,7 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
                 }
               ]
             },
-        "extensionProfile": {
+            "extensionProfile": {
               "extensions": [
                 {
                   "name": "RDPExtension",
@@ -445,14 +448,15 @@ Este tutorial explica como usar [modelos do ARM](https://docs.microsoft.com/azur
       ]
     }
     ```
- 
+
 8. Implante o modelo e o arquivo de parâmetro (definindo parâmetros no arquivo de modelo) para criar a implantação do serviço de nuvem (suporte estendido). Veja estes [modelos de exemplo](https://github.com/Azure-Samples/cloud-services-extended-support), conforme necessário.
 
     ```powershell
-    New-AzResourceGroupDeployment -ResourceGroupName “ContosOrg"  -TemplateFile "file path to your template file” -TemplateParameterFile "file path to your parameter file"
+    New-AzResourceGroupDeployment -ResourceGroupName "ContosOrg" -TemplateFile "file path to your template file" -TemplateParameterFile "file path to your parameter file"
     ```
- 
+
 ## <a name="next-steps"></a>Próximas etapas 
+
 - Examine as [perguntas frequentes](faq.md) sobre os Serviços de Nuvem (suporte estendido).
 - Implante um Serviço de Nuvem (suporte estendido) usando o [portal do Azure](deploy-portal.md), o [PowerShell](deploy-powershell.md), o [Modelo](deploy-template.md) ou o [Visual Studio](deploy-visual-studio.md).
 - Visite o [repositório de exemplos dos Serviços de Nuvem (suporte estendido)](https://github.com/Azure-Samples/cloud-services-extended-support)

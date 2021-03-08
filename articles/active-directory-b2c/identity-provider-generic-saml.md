@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/08/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 71d51c4303dbc4c0c2668dbfcf388b0d6c6bcffe
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 357ea903ed4bbc87717dfefc1c542722f5bd40c0
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107268"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448397"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-saml-identity-provider-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com o provedor de identidade SAML usando Azure Active Directory B2C
 
@@ -222,6 +222,7 @@ Abra um navegador e navegue até a URL. Certifique-se de digitar a URL correta e
 1. Selecione a política de terceira parte confiável, por exemplo `B2C_1A_signup_signin` .
 1. Para **aplicativo**, selecione um aplicativo Web que você [registrou anteriormente](troubleshoot-custom-policies.md#troubleshoot-the-runtime). A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar agora** .
+1. Na página inscrever-se ou entrar, selecione **contoso** para entrar com a conta contoso.
 
 Se o processo de entrada for bem-sucedido, seu navegador será redirecionado para `https://jwt.ms` , que exibe o conteúdo do token retornado por Azure ad B2C.
 

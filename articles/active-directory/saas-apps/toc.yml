@@ -39,6 +39,8 @@
           href: aclp-tutorial.md
         - name: AcquireIO
           href: acquireio-tutorial.md
+        - name: Acunetix 360
+          href: acunetix-360-tutorial.md
         - name: Adaptive Insights
           href: adaptivesuite-tutorial.md
         - name: Adobe Captivate Prime
@@ -177,7 +179,7 @@
           href: awarego-tutorial.md
         - name: AWS ClientVPN
           href: aws-clientvpn-tutorial.md
-        - name: Logon Único do AWS
+        - name: Logon Único da AWS
           href: aws-single-sign-on-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
@@ -993,7 +995,7 @@
           href: kantegassoforjira-tutorial.md
         - name: Gerenciador de senhas e cofre digital Keeper
           href: keeperpasswordmanager-tutorial.md
-        - name: Integração do Azure AD com o Kemp LoadMaster
+        - name: Kemp LoadMaster – Integração com o Azure AD
           href: kemp-tutorial.md
         - name: Kendis – Integração com o Azure AD
           href: kendis-scaling-agile-platform-tutorial.md
@@ -1273,6 +1275,8 @@
           href: onetrust-tutorial.md
         - name: Onit
           href: onit-tutorial.md
+        - name: Onshape
+          href: onshape-tutorial.md
         - name: OnTrack
           href: ontrack-tutorial.md
         - name: Opal
@@ -1713,7 +1717,7 @@
           href: softeon-tutorial.md
         - name: Software AG Cloud
           href: software-ag-cloud-tutorial.md
-        - name: Central de Serviços do SolarWinds
+        - name: Central de Serviços SolarWinds
           href: samanage-tutorial.md
         - name: Soloinsight-CloudGate SSO
           href: soloinsight-cloudgate-sso-tutorial.md
@@ -1857,6 +1861,8 @@
           href: topdesk-secure-tutorial.md
         - name: TrackVia
           href: trackvia-tutorial.md
+        - name: Tradeshift
+          href: tradeshift-tutorial.md
         - name: Trakopolis
           href: trakopolis-tutorial.md
         - name: Trakstar
@@ -2096,7 +2102,7 @@
           href: atlassian-cloud-provisioning-tutorial.md
         - name: Conector SCIM do Azure Databricks
           href: /azure/databricks/administration-guide/users-groups/scim/aad?bc=%2fazure%2factive-directory%2fsaas-apps%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fsaas-apps%2ftoc.json
-        - name: Logon Único do AWS
+        - name: Logon Único da AWS
           href: aws-single-sign-on-provisioning-tutorial.md
         - name: BitaBIZ
           href: bitabiz-provisioning-tutorial.md

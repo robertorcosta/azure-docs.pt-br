@@ -1,17 +1,18 @@
 ---
 title: Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 description: Log Analytics exportação de dados permite que você exporte continuamente os dados das tabelas selecionadas do seu espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure, conforme ele é coletado.
+ms.subservice: logs
 ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli
 author: bwren
 ms.author: bwren
 ms.date: 02/07/2021
-ms.openlocfilehash: f0bbe02576323342376ad155878d575c6403cf70
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 556570b02664a0afd01137f939bea67a1014b680
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048804"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449485"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics exportar dados de espaço de trabalho no Azure Monitor (versão prévia)
 Log Analytics exportação de dados de espaço de trabalho no Azure Monitor permite que você exporte continuamente os dados de tabelas selecionadas no espaço de trabalho Log Analytics para uma conta de armazenamento do Azure ou hubs de eventos do Azure conforme ele é coletado. Este artigo fornece detalhes sobre esse recurso e as etapas para configurar a exportação de dados em seus espaços de trabalho.
@@ -52,7 +53,7 @@ Log Analytics exportação de dados de espaço de trabalho exporta dados continu
 ## <a name="data-completeness"></a>Integridade dos dados
 A exportação de dados continuará a tentar enviar dados por até 30 minutos caso o destino não esteja disponível. Se ainda não estiver disponível após 30 minutos, os dados serão descartados até que o destino fique disponível.
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 No momento, não há encargos adicionais para o recurso de exportação de dados. Os preços para exportação de dados serão anunciados no futuro e um aviso fornecido antes do início da cobrança. Se você optar por continuar usando a exportação de dados após o período de aviso, você será cobrado na taxa aplicável.
 
 ## <a name="export-destinations"></a>Destinos de exportação
@@ -75,7 +76,7 @@ Log Analytics exportação de dados pode gravar blobs de acréscimo em contas de
 Os dados são enviados ao seu hub de eventos quase em tempo real à medida que atingem Azure Monitor. Um hub de eventos é criado para cada tipo de dados que você exporta com o nome *am-* seguido pelo nome da tabela. Por exemplo, a tabela *SecurityEvent* seria enviada a um hub de eventos chamado *am-SecurityEvent*. Se você quiser que os dados exportados atinjam um hub de eventos específico ou se tiver uma tabela com um nome que exceda o limite de 47 caracteres, você poderá fornecer seu próprio nome de Hub de eventos e exportar todos os dados para tabelas definidas para ele.
 
 > [!IMPORTANT]
-> O [número de hubs de eventos com suporte por namespace é 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se você exportar mais de 10 tabelas, forneça seu próprio nome de Hub de eventos para exportar todas as tabelas para esse Hub de eventos. 
+> O [número de hubs de eventos com suporte por namespace é 10](../../event-hubs/event-hubs-quotas.md#common-limits-for-all-tiers). Se você exportar mais de 10 tabelas, forneça seu próprio nome de Hub de eventos para exportar todas as tabelas para esse Hub de eventos.
 
 Considerações:
 1. A SKU do hub de eventos ' Basic ' dá suporte ao [limite](../../event-hubs/event-hubs-quotas.md#basic-vs-standard-tiers) de tamanho de evento inferior e alguns logs em seu espaço de trabalho podem excedê-lo e ser Descartado. É recomendável usar o Hub de eventos ' Standard ' ou ' dedicado ' como destino de exportação.
@@ -113,12 +114,16 @@ Se você tiver configurado sua conta de armazenamento para permitir o acesso de 
 
 [![Firewalls e redes virtuais da conta de armazenamento](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
-
 ### <a name="create-or-update-data-export-rule"></a>Criar ou atualizar regra de exportação de dados
-Uma regra de exportação de dados define os dados a serem exportados para um conjunto de tabelas para um único destino. Você pode criar uma única regra para cada destino.
+Uma regra de exportação de dados define as tabelas para as quais os dados são exportados e o destino. Você pode criar uma única regra para cada destino no momento.
 
+Se você precisar de uma lista de tabelas em seu workapce para a configuração de regras de exportação, execute esta consulta em seu espaço de trabalho.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+```kusto
+find where TimeGenerated > ago(24h) | distinct Type
+```
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -127,12 +132,6 @@ N/D
 N/D
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
-
-Use o comando da CLI a seguir para exibir tabelas em seu espaço de trabalho. Ele pode ajudar a copiar as tabelas que você deseja e incluir na regra de exportação de dados.
-
-```azurecli
-az monitor log-analytics workspace table list --resource-group resourceGroupName --workspace-name workspaceName --query [].name --output table
-```
 
 Use o comando a seguir para criar uma regra de exportação de dados para uma conta de armazenamento usando a CLI.
 
@@ -400,7 +399,7 @@ Use o comando a seguir para criar uma regra de exportação de dados para um hub
 
 ## <a name="view-data-export-rule-configuration"></a>Exibir configuração da regra de exportação de dados
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -432,7 +431,7 @@ N/D
 
 ## <a name="disable-an-export-rule"></a>Desabilitar uma regra de exportação
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -479,7 +478,7 @@ As regras de exportação podem ser desabilitadas para permitir que você interr
 
 ## <a name="delete-an-export-rule"></a>Excluir uma regra de exportação
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -511,7 +510,7 @@ N/D
 
 ## <a name="view-all-data-export-rules-in-a-workspace"></a>Exibir todas as regras de exportação de dados em um espaço de trabalho
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 

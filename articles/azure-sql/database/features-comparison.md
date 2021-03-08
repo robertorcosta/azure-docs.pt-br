@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
-ms.date: 02/21/2021
-ms.openlocfilehash: 75fc4166614862c5ac48a72bacb6b7b19019d003
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: 56f7a233e7098f18b727da3ce56c5fbe30a328a1
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691902"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447462"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de recursos: banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -30,7 +30,11 @@ O banco de dados SQL do Azure e o SQL Instância Gerenciada compartilham uma bas
 - Recursos de segurança – [funções de aplicativo](/sql/relational-databases/security/authentication-access/application-roles), máscara de [dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking) (consulte o guia de[introdução](dynamic-data-masking-overview.md)), [segurança em nível de linha](/sql/relational-databases/security/row-level-security)e detecção de ameaças-consulte guias de introdução para o banco de dados [SQL](threat-detection-configure.md) e [SQL instância gerenciada](../managed-instance/threat-detection-configure.md).
 - Funcionalidades de vários modelos – [processamento de grafo](/sql/relational-databases/graphs/sql-graph-overview), [dados JSON](/sql/relational-databases/json/json-data-sql-server) ([consulte Guia de introdução](json-features.md)), [OPENXML](/sql/t-sql/functions/openxml-transact-sql), [Spatial](/sql/relational-databases/spatial/spatial-data-sql-server), [OPENJSON](/sql/t-sql/functions/openjson-transact-sql)e [índices XML](/sql/t-sql/statements/create-xml-index-transact-sql).
 
-O Azure gerencia seus bancos de dados e garante sua alta disponibilidade. Alguns recursos que podem afetar a alta disponibilidade ou que não podem ser usados no ambiente de PaaS têm funcionalidades limitadas no banco de dados SQL e no SQL Instância Gerenciada. Esses recursos são descritos nas tabelas abaixo. Se precisar de mais detalhes sobre as diferenças, você poderá encontrá-las nas páginas separadas do [banco de dados SQL do Azure](../managed-instance/transact-sql-tsql-differences-sql-server.md) ou [do Azure SQL instância gerenciada](../managed-instance/transact-sql-tsql-differences-sql-server.md).
+O Azure gerencia seus bancos de dados e garante sua alta disponibilidade. Alguns recursos que podem afetar a alta disponibilidade ou que não podem ser usados no ambiente de PaaS têm funcionalidades limitadas no banco de dados SQL e no SQL Instância Gerenciada. Esses recursos são descritos nas tabelas abaixo.
+
+Se precisar de mais detalhes sobre as diferenças, você poderá encontrá-las nas páginas separadas:
+- [Banco de Dados SQL do Azure](transact-sql-tsql-differences-sql-server.md)
+- [Instância Gerenciada do SQL do Azure](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Recursos do banco de dados SQL e SQL Instância Gerenciada
 
@@ -179,7 +183,7 @@ Você pode usar diferentes métodos de migração para mover seus dados entre SQ
 | --- | --- | --- |
 | SQL Server (local, AzureVM, Amazon RDS) | **Online:** [serviço de migração de dados (DMS)](/sql/dma/dma-overview), [replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [arquivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Online:** [serviço de migração de dados (DMS)](/sql/dma/dma-overview), [replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** Backup/restauração nativos, [arquivo BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](../managed-instance/replication-transactional-overview.md) |
 | Banco de dados individual | **Offline:** [arquivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp | **Offline:** [arquivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp |
-| Instância Gerenciada de SQL | **Online:** [replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [arquivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](../managed-instance/replication-transactional-overview.md) | **Online:** [replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** Restauração pontual de instância cruzada ([Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) ou [CLI do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [backup/restauração nativo](../managed-instance/restore-sample-database-quickstart.md), [arquivo BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](../managed-instance/replication-transactional-overview.md) |
+| Instância Gerenciada do SQL | **Online:** [replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** [arquivo BACPAC (importar)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](../managed-instance/replication-transactional-overview.md) | **Online:** [replicação transacional](../managed-instance/replication-transactional-overview.md) <br/> **Offline:** Restauração pontual de instância cruzada ([Azure PowerShell](/powershell/module/az.sql/restore-azsqlinstancedatabase#examples) ou [CLI do Azure](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Cross-instance-point-in-time-restore-in-Azure-SQL-Database/ba-p/386208)), [backup/restauração nativo](../managed-instance/restore-sample-database-quickstart.md), [arquivo BACPAC (importação)](/sql/relational-databases/data-tier-applications/import-a-bacpac-file-to-create-a-new-user-database), bcp, [replicação de instantâneo](../managed-instance/replication-transactional-overview.md) |
 
 ## <a name="next-steps"></a>Próximas etapas
 

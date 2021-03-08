@@ -2,18 +2,18 @@
 title: Visão geral de servidores habilitados para Azure Arc
 description: Saiba como usar servidores habilitados para Azure Arc para gerenciar servidores hospedados fora do Azure como um recurso do Azure.
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
-ms.date: 11/12/2020
+ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: be5955e9bf02e591fdbba3f080d034c126379c2f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100584784"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101686216"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores habilitados para Azure Arc?
 
-Os servidores habilitados para Azure Arc permitem que você gerencie os computadores Windows e Linux hospedados fora do Azure, na sua rede corporativa, ou em outro provedor de nuvem consistente com a maneira como você gerencia as máquinas virtuais nativas do Azure. Quando um computador híbrido é conectado ao Azure, ele se torna um computador conectado e é tratado como um recurso no Azure. Cada computador conectado tem uma ID de Recurso, está incluído em um grupo de recursos e se beneficia de constructos padrão do Azure, como o Azure Policy e aplicação de marcações. Os provedores de serviços que gerenciam a infraestrutura local de um cliente podem gerenciar seus computadores híbridos, assim como eles fazem hoje com recursos nativos do Azure, em vários ambientes de clientes, usando o [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) com o Azure Arc.
+Os servidores habilitados para Azure Arc permitem que você gerencie servidores físicos e máquinas virtuais Windows e Linux hospedados *fora* do Azure, em sua rede corporativa ou em outro provedor de nuvem. Essa experiência de gerenciamento foi projetada para ser consistente com a maneira como você gerencia máquinas virtuais nativas do Azure. Quando um computador híbrido é conectado ao Azure, ele se torna um computador conectado e é tratado como um recurso no Azure. Cada computador conectado tem uma ID de Recurso, está incluído em um grupo de recursos e se beneficia de constructos padrão do Azure, como o Azure Policy e aplicação de marcações. Os provedores de serviços que gerenciam a infraestrutura local de um cliente podem gerenciar seus computadores híbridos, assim como eles fazem hoje com recursos nativos do Azure, em vários ambientes de clientes, usando o [Azure Lighthouse](../../lighthouse/how-to/manage-hybrid-infrastructure-arc.md) com o Azure Arc.
 
 Para oferecer essa experiência com seus computadores híbridos hospedados fora do Azure, o agente do Azure Connected Machine precisa ser instalado em cada computador que você planeja conectar ao Azure. Esse agente não oferece nenhuma outra funcionalidade e não substitui o [agente do Azure Log Analytics](../../azure-monitor/agents/log-analytics-agent.md). O agente do Log Analytics para Windows e Linux é necessário quando você deseja monitorar proativamente o sistema operacional e as cargas de trabalho em execução no computador, o gerencia usando os runbooks de automação ou soluções como o Gerenciamento de Atualizações ou usa outros serviços do Azure como a [Central de Segurança do Azure](../../security-center/security-center-introduction.md).
 
@@ -44,7 +44,7 @@ Os dados de log coletados e armazenados em um workspace do Log Analytics do comp
 
 Para obter uma lista definitiva de regiões com suporte com servidores habilitados para o Azure Arc, confira a página [Produtos do Azure por região](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
 
-Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso são armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua preferência de região, caso você tenha requisitos de residência de dados. Se a região do Azure a que seu computador está conectado for afetada por uma interrupção, o computador conectado não será afetado, mas talvez não seja possível concluir as operações de gerenciamento que usam o Azure. No caso de uma interrupção regional, se houver várias localizações que dão suporte a um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
+Na maioria dos casos, o local selecionado durante a criação do script de instalação deve ser a região do Azure mais próxima à localização do seu computador. Os dados em repouso são armazenados na geografia do Azure que contém a região especificada por você, o que também pode afetar sua preferência de região, caso você tenha requisitos de residência de dados. Se a região do Azure a que seu computador está conectado for afetada por uma interrupção, o computador conectado não será afetado, mas talvez não seja possível concluir as operações de gerenciamento que usam o Azure. Caso haja uma interrupção regional e várias localizações que dão suporte a um serviço com redundância geográfica, será melhor conectar os computadores em cada localização a uma região diferente do Azure.
 
 As seguintes informações de metadados sobre o computador conectado são coletadas e armazenadas na região em que o recurso de computador do Azure Arc está configurado:
 
@@ -54,6 +54,13 @@ As seguintes informações de metadados sobre o computador conectado são coleta
 - Versão do agente do Connected Machine
 
 Por exemplo, se o computador estiver registrado no Azure Arc na região Leste dos EUA, esses dados serão armazenados na região dos EUA.
+
+### <a name="supported-environments"></a>Ambientes compatíveis
+
+Os servidores habilitados para Arc dão suporte ao gerenciamento de servidores físicos e de máquinas virtuais hospedados *fora* do Azure. Para obter detalhes específicos sobre para quais ambientes de nuvem híbrida hospedam VMs há suporte, confira [Pré-requisitos do agente do computador conectado](agent-overview.md#supported-environments).
+
+> [!NOTE]
+> Os servidores habilitados para Arc não são projetados nem têm suporte para habilitar o gerenciamento de máquinas virtuais em execução no Azure.
 
 ### <a name="agent-status"></a>Status do agente
 

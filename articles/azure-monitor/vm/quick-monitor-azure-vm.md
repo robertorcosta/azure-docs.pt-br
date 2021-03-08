@@ -2,39 +2,38 @@
 title: Monitorar uma máquina virtual do Azure com o Azure Monitor
 description: Saiba como coletar e analisar dados para uma máquina virtual do Azure no Azure Monitor.
 ms.service: azure-monitor
-ms. subservice: logs
 ms.topic: quickstart
 author: bwren
 ms.author: bwren
 ms.date: 03/10/2020
-ms.openlocfilehash: defeeb42340cbc3203141561aa33a2b4b7b00bb1
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 7efd8baf54aeacbd2f55640240a15f2517dcd904
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100626028"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046917"
 ---
 # <a name="quickstart-monitor-an-azure-virtual-machine-with-azure-monitor"></a>Monitorar uma máquina virtual do Azure com o Azure Monitor.
-O [Azure Monitor](../overview.md) inicia a coleta de dados das máquinas virtuais do Azure no momento em que elas são criadas. Neste guia de início rápido você obterá uma breve explicação dos dados que são coletados automaticamente para uma VM do Azure e como exibi-los no portal do Azure. Em seguida, você habilitará o [Azure Monitor para VMs](../vm/vminsights-overview.md) para sua VM, o que permitirá que os agentes na VM coletem e analisem dados do sistema operacional convidado, incluindo processos e suas dependências.
+O [Azure Monitor](../overview.md) inicia a coleta de dados das máquinas virtuais do Azure no momento em que elas são criadas. Neste guia de início rápido você obterá uma breve explicação dos dados que são coletados automaticamente para uma VM do Azure e como exibi-los no portal do Azure. Em seguida, você habilitará os [insights da VM](../vm/vminsights-overview.md) para sua VM, o que permitirá que os agentes na VM coletem e analisem dados do sistema operacional convidado, incluindo processos e suas dependências.
 
 Este guia de início rápido pressupõe que você tenha uma máquina virtual do Azure existente. Se não tiver, crie uma [VM do Windows](../../virtual-machines/windows/quick-create-portal.md) ou uma [VM do Linux](../../virtual-machines/linux/quick-create-cli.md) seguindo nossos inícios rápidos de VM.
 
-Para obter descrições mais detalhadas dos dados de monitoramento coletados de recursos do Azure, confira [Como monitorar máquinas virtuais do Azure com o Azure Monitor](../insights/monitor-vm-azure.md).
+Para obter descrições mais detalhadas dos dados de monitoramento coletados de recursos do Azure, confira [Como monitorar máquinas virtuais do Azure com o Azure Monitor](./monitor-vm-azure.md).
 
 
 ## <a name="complete-the-monitor-an-azure-resource-quickstart"></a>Conclua o início rápido Monitorar um recurso do Azure.
-Conclua o [Monitorar um recurso do Azure com o Azure Monitor](../learn/quick-monitor-azure-resource.md) para exibir a página de visão geral, o log de atividades e as métricas para uma VM em sua assinatura. As VMs do Azure coletam os mesmos dados de monitoramento que qualquer outro recurso do Azure, mas isso serve apenas para a VM do host. O restante deste guia de início rápido se concentrará no monitoramento do sistema operacional convidado e de suas cargas de trabalho.
+Conclua o [Monitorar um recurso do Azure com o Azure Monitor](../essentials/quick-monitor-azure-resource.md) para exibir a página de visão geral, o log de atividades e as métricas para uma VM em sua assinatura. As VMs do Azure coletam os mesmos dados de monitoramento que qualquer outro recurso do Azure, mas isso serve apenas para a VM do host. O restante deste guia de início rápido se concentrará no monitoramento do sistema operacional convidado e de suas cargas de trabalho.
 
 
-## <a name="enable-azure-monitor-for-vms"></a>Habilitar o Azure Monitor para VMs
-Embora os logs de atividades e as métricas sejam coletados para a VM do host, você precisa de um agente e de alguma configuração para coletar e analisar dados de monitoramento do sistema operacional convidado e de suas cargas de trabalho. O Azure Monitor para VMs instala esses agentes e fornece recursos avançados adicionais para monitoramento de suas máquinas virtuais.
+## <a name="enable-vm-insights"></a>Habilitar insights da VM
+Embora os logs de atividades e as métricas sejam coletados para a VM do host, você precisa de um agente e de alguma configuração para coletar e analisar dados de monitoramento do sistema operacional convidado e de suas cargas de trabalho. Os insights da VM instalam esses agentes e fornece recursos avançados adicionais para monitoramento de suas máquinas virtuais.
 
 1. Acesse o menu da sua máquina virtual.
 2. Clique em **Acessar o Insights** no bloco da página **Visão geral** ou clique em **Insights** no menu **Monitoramento**.
 
     ![Página de visão geral](media/quick-monitor-azure-vm/overview-insights.png)
 
-3. Se o Azure Monitor para VMs ainda não tiver sido habilitado para a máquina virtual, clique em **Habilitar**. 
+3. Se os insights da VM ainda não foram habilitados para a máquina virtual, clique em **Habilitar**. 
 
     ![Habilitar o Insights](media/quick-monitor-azure-vm/enable-insights.png)
 
@@ -42,7 +41,7 @@ Embora os logs de atividades e as métricas sejam coletados para a VM do host, v
 
     ![Selecione o workspace](media/quick-monitor-azure-vm/select-workspace.png)
 
-5. A integração levará alguns minutos, pois as extensões serão habilitadas e os agentes serão instalados em sua máquina virtual. Quando estiver concluído, você receberá uma mensagem informando que o Insights foi implantado com êxito. Clique em **Azure Monitor** para abrir o Azure Monitor para VMs.
+5. A integração levará alguns minutos, pois as extensões serão habilitadas e os agentes serão instalados em sua máquina virtual. Quando estiver concluído, você receberá uma mensagem informando que o Insights foi implantado com êxito. Clique em **Azure Monitor** para abrir os insights da VM.
 
     ![Abrir o Azure Monitor](media/quick-monitor-azure-vm/azure-monitor.png)
 
@@ -65,7 +64,7 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
 
 2. Selecione **Dados** e, em seguida, **Logs de Eventos do Windows**.
 
-3. Adicione um log de eventos digitando o nome do log.  Digite **Sistema** e, em seguida, selecione o sinal de adição **+**.
+3. Adicione um log de eventos digitando o nome do log.  Digite **Sistema** e, em seguida, selecione o sinal de adição **+** .
 
 4. Na tabela, verifique as severidades **Erro** e **Aviso**.
 
@@ -75,7 +74,7 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
 
 1. Selecione **Dados** e **Syslog**.
 
-2. Adicione um log de eventos digitando o nome do log.  Digite **Syslog** e, em seguida, selecione o sinal de adição **+**.  
+2. Adicione um log de eventos digitando o nome do log.  Digite **Syslog** e, em seguida, selecione o sinal de adição **+** .  
 
 3. Na tabela, anule a seleção das gravidades **Informações**, **Aviso** e **Depuração**. 
 
@@ -104,7 +103,7 @@ Quando você cria um workspace do Log Analytics, ele precisa ser configurado par
     ![Log Analytics](media/quick-monitor-azure-vm/log-analytics.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você habilitou o Azure Monitor para VMs para uma máquina virtual e configurou o workspace do Log Analytics para coletar eventos para o sistema operacional convidado. Para saber como exibir e analisar os dados, continue lendo o tutorial.
+Neste guia de início rápido, você habilitou os insights da VM para uma máquina virtual e configurou o workspace do Log Analytics para coletar eventos para o sistema operacional convidado. Para saber como exibir e analisar os dados, continue lendo o tutorial.
 
 > [!div class="nextstepaction"]
-> [Exibir ou analisar dados no Log Analytics](../log-query/log-analytics-tutorial.md)
+> [Exibir ou analisar dados no Log Analytics](../logs/log-analytics-tutorial.md)

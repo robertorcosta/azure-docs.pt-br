@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: ''
-ms.openlocfilehash: 0791ccf10c76f2a1781bf373c674f606ca365fff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 9218886ded7827d4b7a1e2413f1470ee5cd1563d
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100597194"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101733951"
 ---
 # <a name="resource-manager-template-samples-for-azure-monitor"></a>Amostras de modelo do Resource Manager para o Azure Monitor
 
@@ -54,7 +54,7 @@ az deployment group create \
 - [Consultas de log](logs/resource-manager-log-queries.md) – Crie consultas de log salvas em um workspace do Log Analytics.
 - [Workspace do Log Analytics](logs/resource-manager-workspace.md) – Crie um workspace do Log Analytics e configure a coleta de diferentes fontes de dados do agente do Log Analytics.
 - [Pastas de trabalho](visualize/resource-manager-workbooks.md) – Crie pastas de trabalho.
-- [Azure Monitor para contêineres](containers/resource-manager-container-insights.md) – Integre os clusters ao Azure Monitor para contêineres.
+- [Insights do contêiner](containers/resource-manager-container-insights.md) – Integrar clusters aos insights do contêiner.
 - [Azure Monitor para VMs](vm/resource-manager-vminsights.md) – Integre máquinas virtuais ao Azure Monitor para VMs.
 
 

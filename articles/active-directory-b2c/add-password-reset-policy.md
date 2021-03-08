@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: b82d573b7d8a65447d75aa8f017c87795bbef6cd
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171647"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447921"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de redefinição de senha no Azure Active Directory B2C
 
@@ -203,6 +203,24 @@ No percurso do usuário, você pode representar a subjornada de senha esquecida 
     ```xml
     <ClaimsExchange Id="ForgotPasswordExchange" TechnicalProfileReferenceId="ForgotPassword" />
     ```
+    
+1. Adicione a seguinte etapa de orquestração entre a etapa atual e a próxima etapa. A nova etapa de orquestração adicionada verifica se a `isForgotPassword` declaração existe. Se a declaração existir, ela invocará a [sub-rotina de redefinição de senha](#add-the-password-reset-sub-journey). 
+
+    ```xml
+    <OrchestrationStep Order="3" Type="InvokeSubJourney">
+      <Preconditions>
+        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
+          <Value>isForgotPassword</Value>
+          <Action>SkipThisOrchestrationStep</Action>
+        </Precondition>
+      </Preconditions>
+      <JourneyList>
+        <Candidate SubJourneyReferenceId="PasswordReset" />
+      </JourneyList>
+    </OrchestrationStep>
+    ```
+    
+1. Depois de adicionar a nova etapa de orquestração, renumere as etapas sequencialmente sem ignorar nenhum inteiro de 1 a N.
 
 ### <a name="set-the-user-journey-to-be-executed"></a>Definir a jornada do usuário a ser executada
 
@@ -262,7 +280,7 @@ No diagrama a seguir:
 1. O usuário seleciona o link **esqueceu sua senha?** . Azure AD B2C retorna o código de erro AADB2C90118 para o aplicativo.
 1. O aplicativo manipula o código de erro e inicia uma nova solicitação de autorização. A solicitação de autorização especifica o nome da política de redefinição de senha, como **B2C_1_pwd_reset**.
 
-![Fluxo de redefinição de senha](./media/add-password-reset-policy/password-reset-flow-legacy.png)
+![Fluxo de usuário herdado de redefinição de senha](./media/add-password-reset-policy/password-reset-flow-legacy.png)
 
 Para ver um exemplo, dê uma olhada em um exemplo [simples de ASP.net](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI), que demonstra a vinculação de fluxos de usuário.
 

@@ -10,21 +10,21 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: d861f6bfbe38ad73715ef521a36cc097b8538c9b
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99819990"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101691766"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Início Rápido: Criar e gerenciar recursos dos Serviços de Comunicação
  
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
-Comece a usar os Serviços de Comunicação do Azure provisionando o seu primeiro recurso dos Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser provisionados por meio do portal do Azure ou com a biblioteca de clientes de gerenciamento do .NET. A biblioteca de clientes de gerenciamento permite criar, configurar, atualizar e excluir o recurso e as interfaces com o [Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implantação e gerenciamento do Azure. Todas as funcionalidades disponíveis nas bibliotecas de clientes estão disponíveis no portal do Azure. 
+Comece a usar os Serviços de Comunicação do Azure provisionando o seu primeiro recurso dos Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser provisionados por meio do [portal do Azure](https://portal.azure.com) ou com a biblioteca de clientes de gerenciamento do .NET. A biblioteca de clientes de gerenciamento e o portal do Azure permitem criar, configurar, atualizar e excluir os recursos e a interface com o [Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implantação e gerenciamento do Azure. Todas as funcionalidades disponíveis nas bibliotecas de clientes estão disponíveis no portal do Azure. 
 
 > [!WARNING]
-> Observe que a disponibilidade dos Serviços de Comunicação é restrita à geografia dos EUA durante a versão prévia pública. Observe também que os recursos de comunicação não podem ser transferidos para uma assinatura diferente durante a versão prévia pública.
+> Observe que, embora os Serviços de Comunicação estejam disponíveis em várias regiões geográficas, para obter um número de telefone, o recurso deve ter um local de dados definido como "EUA". Observe também que os recursos de comunicação não podem ser transferidos para uma assinatura diferente durante a versão prévia pública.
 
 ::: zone pivot="platform-azp"
 [!INCLUDE [Azure portal](./includes/create-resource-azp.md)]

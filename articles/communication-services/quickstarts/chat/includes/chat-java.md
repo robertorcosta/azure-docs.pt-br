@@ -10,12 +10,12 @@ ms.date: 9/1/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 6a075ae721d767faf25e4774dd545d36eedfaef4
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: b402dec76f88bfdb0bc4758f94cc6e8e279d8040
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379636"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101749998"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -84,6 +84,8 @@ As classes e as interfaces a seguir lidam com alguns dos principais recursos da 
 ## <a name="create-a-chat-client"></a>Criar um cliente de chat
 Para criar um cliente de chat, você usará o ponto de extremidade do Serviço de Comunicação e o token de acesso que foi gerado como parte das etapas de pré-requisito. Os tokens de acesso do usuário permitem que você crie aplicativos cliente que se autenticam diretamente nos Serviços de Comunicação do Azure. Depois de gerar esses tokens no servidor, transmita-os novamente para um dispositivo cliente. Você precisa usar a classe CommunicationTokenCredential da biblioteca de clientes comum para passar o token para seu cliente de chat. 
 
+Saiba mais sobre a [Arquitetura de Chat](../../../concepts/chat/concepts.md)
+
 Ao adicionar as instruções de importação, lembre-se de adicionar somente importações dos namespaces com.azure.communication.chat e com.azure.communication.chat.models, e não do namespace com.azure.communication.chat.implementation. No arquivo App.java que foi gerado pelo Maven, você pode usar o seguinte código para começar:
 
 ```Java
@@ -139,11 +141,11 @@ A resposta `chatThreadClient` é usada para executar operações no thread de ch
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(firstUser)
+    .setCommunicationIdentifier(firstUser)
     .setDisplayName("Participant Display Name 1");
     
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(secondUser)
+    .setCommunicationIdentifier(secondUser)
     .setDisplayName("Participant Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -205,13 +207,15 @@ chatThreadClient.listMessages().iterableByPage().forEach(resp -> {
 
 `listMessages` retorna diferentes tipos de mensagens que podem ser identificadas por `chatMessage.getType()`. Esses tipos são:
 
-- `Text`: mensagem de chat regular enviada por um participante do thread.
+- `text`: mensagem de chat regular enviada por um participante do thread.
 
-- `ThreadActivity/TopicUpdate`: mensagem do sistema que indica que o tópico foi atualizado.
+- `html`: mensagem de chat em HTML enviada por um participante da conversa.
 
-- `ThreadActivity/AddMember`: mensagem do sistema que indica que um ou mais membros foram adicionados à conversa de chat.
+- `topicUpdated`: mensagem do sistema que indica que o tópico foi atualizado.
 
-- `ThreadActivity/DeleteMember`: mensagem do sistema que indica que um membro foi removido da conversa de chat.
+- `participantAdded`: mensagem do sistema que indica que um ou mais participantes foram adicionados ao thread do chat.
+
+- `participantRemoved`: mensagem do sistema que indica que um participante foi removido do thread de chat.
 
 Para obter mais detalhes, confira [Tipos de mensagem](../../../concepts/chat/concepts.md#message-types).
 
@@ -222,7 +226,7 @@ Depois que uma conversa de chat é criada, você pode adicionar e remover usuár
 Use o método `addParticipants` para adicionar participantes do thread identificado por threadId.
 
 - Use `listParticipants` para listar os participantes a serem adicionados ao thread de chat.
-- `user`, obrigatório, é o CommunicationUserIdentifier que você criou por CommunicationIdentityClient no início rápido do [Token de Acesso do Usuário](../../access-tokens.md).
+- `communicationIdentifier`, obrigatório, é o CommunicationIdentifier que você criou por CommunicationIdentityClient no início rápido do [Token de Acesso do Usuário](../../access-tokens.md).
 - `display_name`, opcional, é o nome de exibição do participante do thread.
 - `share_history_time`, opcional, é a hora a partir da qual o histórico de chats é compartilhado com o participante. Para compartilhar o histórico desde o início da conversa de chat, defina essa propriedade como qualquer data igual ou inferior à hora de criação da conversa. Para não compartilhar nenhum histórico anterior ao momento em que o participante foi adicionado, defina-a como a data atual. Para compartilhar o histórico parcial, defina-o como a data necessária.
 
@@ -230,11 +234,11 @@ Use o método `addParticipants` para adicionar participantes do thread identific
 List<ChatParticipant> participants = new ArrayList<ChatParticipant>();
 
 ChatParticipant firstThreadParticipant = new ChatParticipant()
-    .setUser(user1)
+    .setCommunicationIdentifier(identity1)
     .setDisplayName("Display Name 1");
 
 ChatParticipant secondThreadParticipant = new ChatParticipant()
-    .setUser(user2)
+    .setCommunicationIdentifier(identity2)
     .setDisplayName("Display Name 2");
 
 participants.add(firstThreadParticipant);
@@ -245,14 +249,14 @@ AddChatParticipantsOptions addChatParticipantsOptions = new AddChatParticipantsO
 chatThreadClient.addParticipants(addChatParticipantsOptions);
 ```
 
-## <a name="remove-user-from-a-chat-thread"></a>Remover um usuário de uma conversa de chat
+## <a name="remove-participant-from-a-chat-thread"></a>Remover um participante de uma conversa de chat
 
-De modo semelhante à adição de um usuário a uma conversa, você pode remover usuários de uma conversa de chat. Para fazer isso, você precisa acompanhar as identidades de usuário dos participantes que você adicionou.
+Assim como adicionar um participante a uma conversa, você pode remover participantes de uma conversa de chat. Para isso, você precisa acompanhar as identidades dos participantes que você adicionou.
 
-Use `removeParticipant`, em que `user` é o CommunicationUserIdentifier criado.
+Use `removeParticipant`, em que `identifier` é o CommunicationIdentifier que você criou.
 
 ```Java
-chatThreadClient.removeParticipant(user);
+chatThreadClient.removeParticipant(identity);
 ```
 
 ## <a name="run-the-code"></a>Executar o código

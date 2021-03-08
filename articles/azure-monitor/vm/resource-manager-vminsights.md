@@ -1,26 +1,25 @@
 ---
-title: Amostras de modelo do Resource Manager para o Azure Monitor para VMs
-description: Realize amostragem de modelos do Azure Resource Manager para implantar e configurar o Azure Monitor para VMs.
-ms.subservice: logs
+title: Amostras de modelo do Resource Manager para insights da VM
+description: Realize amostragem de modelos do Azure Resource Manager para implantar e configurar insights da VM.
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2020
-ms.openlocfilehash: 91c8396795a85cd63fa502c4b091b7ca9a42865b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 2ee447b1e5f72ce916808a5832f999eea493994c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596973"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102046832"
 ---
-# <a name="resource-manager-template-samples-for-azure-monitor-for-vms"></a>Amostras de modelo do Resource Manager para o Azure Monitor para VMs
-Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para habilitar o Azure Monitor para VMs em máquinas virtuais. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
+# <a name="resource-manager-template-samples-for-vm-insights"></a>Amostras de modelo do Resource Manager para insights da VM
+Este artigo inclui [modelos do Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) de amostra para habilitar os insights da VM em máquinas virtuais. Cada amostra inclui um arquivo de modelo e um arquivo de parâmetros com valores de amostra para fornecer ao modelo.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 
 
 ## <a name="configure-workspace"></a>Configurar o workspace
-A amostra a seguir habilita o Azure Monitor para VMs para um workspace do Log Analytics.
+A amostra a seguir habilita os insights da VM para um workspace do Log Analytics.
 
 
 ### <a name="template-file"></a>Arquivo de modelo
@@ -98,7 +97,7 @@ A amostra a seguir habilita o Azure Monitor para VMs para um workspace do Log An
 
 
 ## <a name="onboard-an-azure-virtual-machine"></a>Integrar uma máquina virtual do Azure
-A amostra a seguir adiciona uma máquina virtual do Azure ao Azure Monitor para VMs.
+A amostra a seguir adiciona uma máquina virtual do Azure aos insights da VM.
 
 
 ### <a name="template-file"></a>Arquivo de modelo
@@ -219,7 +218,7 @@ A amostra a seguir adiciona uma máquina virtual do Azure ao Azure Monitor para 
 
 
 ## <a name="onboard-an-azure-virtual-machine-scale-set"></a>Integrar um conjunto de dimensionamento de máquinas virtuais do Azure
-A amostra a seguir adiciona um conjunto de dimensionamento de máquinas virtuais do Azure ao Azure Monitor para VMs.
+A amostra a seguir adiciona um conjunto de dimensionamento de máquinas virtuais do Azure aos insights da VM.
 
 
 ### <a name="template-file"></a>Arquivo de modelo
@@ -340,5 +339,5 @@ A amostra a seguir adiciona um conjunto de dimensionamento de máquinas virtuais
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Obtenha outros modelos de amostra do Azure Monitor](../samples/resource-manager-samples.md).
-* [Saiba mais sobre o Azure Monitor para VMs](../vm/vminsights-overview.md).
+* [Obtenha outros modelos de amostra do Azure Monitor](../resource-manager-samples.md).
+* [Saiba mais](vminsights-overview.md) sobre os insights da VM.

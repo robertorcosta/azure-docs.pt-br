@@ -6,18 +6,20 @@ ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/18/2021
-ms.openlocfilehash: 9ad2566188256dd23b0f479c2576636750e33b02
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23fa3e93565066ce4b897bffe63164486efc179e
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101715098"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449876"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql-single-server"></a>Entendendo as alterações na autoridade de certificação raiz para o banco de dados do Azure para MySQL servidor único
 
 O banco de dados do Azure para MySQL servidor único concluiu com êxito a alteração do certificado raiz em **15 de fevereiro de 2021 (02/15/2021)** como parte das práticas recomendadas de manutenção e segurança padrão. Este artigo fornece mais detalhes sobre as alterações, os recursos afetados e as etapas necessárias para garantir que seu aplicativo mantenha a conectividade com o servidor de banco de dados.
 
 > [!NOTE]
+> Este artigo se aplica ao [banco de dados do Azure para MySQL-somente servidor único](single-server-overview.md) . Para o [banco de dados do Azure para MySQL-servidor flexível](flexible-server/overview.md), o certificado necessário para se comunicar por SSL é a [AC raiz global DigiCert](https://dl.cacerts.digicert.com/DigiCertGlobalRootCA.crt.pem)
+> 
 > Este artigo contém referências ao termo _subordinado_, um termo que a Microsoft não usa mais. Quando o termo for removido do software, também o removeremos deste artigo.
 >
 

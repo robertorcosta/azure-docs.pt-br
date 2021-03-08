@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/25/2021
 ms.author: jeedes
-ms.openlocfilehash: 1b65191e97402f2fb352c56664dad085c448242c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 84d50d19a8356418a5cbf1f93784e5b8816d4be5
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101650612"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101689344"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>Tutorial: integração do Azure Active Directory com o TalentLMS
 
@@ -170,11 +170,11 @@ Para permitir que os usuários do Azure AD entre no TalentLMS, eles devem ser pr
 
     ![Adicionar Usuário](./media/talentlms-tutorial/IC777299.png "Adicionar usuário")  
 
-    a. Na caixa de texto **Nome**, digite o nome do usuário, como **Brenda**.
+    a. Na caixa de texto **Nome**, insira o nome do usuário como `Britta`.
 
-    b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como **Fernandes**.
+    b. Na caixa de texto **Sobrenome**, digite o sobrenome do usuário como `Simon`.
  
-    c. Na caixa de texto **Endereço de email**, insira o email do usuário como `brittasimon\@contoso.com`.
+    c. Na caixa de texto **Endereço de email**, insira o email do usuário como `brittasimon@contoso.com`.
 
     d. Clique em **Adicionar Usuário**.
 

@@ -143,10 +143,10 @@
         - name: Usar a licença integrada do Microsoft Defender para Ponto de Extremidade
           displayName: 'ATP, mdatp, wdatp'
           href: security-center-wdatp.md
-        - name: Definir listas de aplicativos seguros para seus computadores
+        - name: Definir listas de aplicativos seguros para computadores
           displayName: 'aac, whitelist, allowlist, reviewgroup, adaptive application controls'
           href: security-center-adaptive-application.md
-        - name: Controlar alterações em arquivos e registros com monitoramento de integridade de arquivo
+        - name: Controlar alterações em arquivos e registros
           items:
             - name: Visão geral do monitoramento de integridade de arquivo
               displayName: 'fim, change'
@@ -154,8 +154,8 @@
             - name: Comparar linhas de base usando o monitoramento de integridade de arquivo
               displayName: 'fim, change'
               href: security-center-file-integrity-monitoring-baselines.md
-        - name: Melhorar sua postura de segurança de rede com o fortalecimento de rede adaptável
-          displayName: anh
+        - name: Aprimorar a postura de segurança de rede
+          displayName: 'anh, adaptive network hardening'
           href: security-center-adaptive-network-hardening.md
         - name: Proteger os hosts do Docker
           displayName: containers
@@ -209,7 +209,7 @@
         - name: Visão geral do Azure Defender para Key Vault
           displayName: 'KV, akv'
           href: defender-for-key-vault-introduction.md
-        - name: Responder a alertas do Azure Defender para Key Vault
+        - name: Lidar com alertas do Azure Defender para Key Vault
           displayName: 'akv, kv'
           href: defender-for-key-vault-usage.md
     - name: Monitorar suas operações de gerenciamento de recursos
@@ -217,7 +217,7 @@
         - name: Visão geral do Azure Defender para Resource Manager
           displayName: ARM
           href: defender-for-resource-manager-introduction.md
-        - name: Responder a alertas do Azure Defender para Resource Manager
+        - name: Lidar com alertas do Azure Defender para Resource Manager
           displayName: arm
           href: defender-for-resource-manager-usage.md
     - name: Monitorar consultas DNS de seus recursos do Azure
