@@ -11,12 +11,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
 adobe-target-content: ./app-service-web-tutorial-custom-domain-uiex
-ms.openlocfilehash: b3ff1b344852d57f0effbd978c06aa617682ea4f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 79599ce04b93409c67342be73cf88d5e20621c1d
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720301"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102182563"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>Tutorial: Mapear um nome DNS personalizado existente para o Serviço de Aplicativo do Azure
 
@@ -77,7 +77,7 @@ A página de gerenciamento do aplicativo do Serviço de Aplicativo é exibida.
 
 1. A camada atual do aplicativo é realçada por uma borda azul. Verifique se o aplicativo não está na camada **F1**. Não há suporte para o DNS personalizado na camada **F1**.
 
-   ![Captura de tela que mostra Tipos de preço recomendados.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
+   ![Captura de tela que mostra tipos de preço recomendados.](./media/app-service-web-tutorial-custom-domain/check-pricing-tier.png)
 
 1. Se o Plano do Serviço de Aplicativo não estiver na camada **F1**, feche a página **Aumentar** e acesse [Mapear um registro CNAME](#map-a-cname-record).
 
@@ -308,10 +308,7 @@ Procure os nomes DNS configurados anteriormente (por exemplo, `contoso.com`, `ww
 
 ## <a name="resolve-404-not-found"></a>Resolver 404 "Não Encontrado"
 
-Se você receber um erro HTTP 404 (Não Encontrado) ao navegar para a URL do seu domínio personalizado, verifique se o domínio é resolvido para o endereço IP do aplicativo usando <a href="https://www.whatsmydns.net/" target="_blank">WhatsmyDNS.net</a>. Caso contrário, isso poderá ocorrer devido a um dos seguintes motivos:
-
-- O domínio personalizado configurado não tem um registro A ou um registro CNAME.
-- O cliente do navegador armazenou em cache o endereço IP antigo do seu domínio. Desmarque o cache e teste a resolução DNS novamente. Em um computador Windows, limpe o cache com o `ipconfig /flushdns`.
+Se você receber um erro HTTP 404 (Não Encontrado) ao navegar para a URL do seu domínio personalizado, verifique se o domínio é resolvido para o endereço IP do aplicativo usando <a href="https://www.nslookup.io/" target="_blank">nslookup.io</a>. Caso contrário, verifique se os registros A e CNAME estão configurados corretamente usando o mesmo site. Se resolver o IP corretamente, mas você ainda estiver recebendo um 404, o navegador poderá ter armazenado em cache o endereço IP antigo do seu domínio. Desmarque o cache e teste a resolução DNS novamente. Em um computador Windows, limpe o cache com o `ipconfig /flushdns`.
 
 ## <a name="migrate-an-active-domain"></a>Migrar um domínio ativo
 

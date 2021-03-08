@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: d6db6c366ae51dbdc5bf062e79358f752e4a05f5
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ab89c012c985afa8d7375ff94d0f55b0ea6941cc
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425899"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449451"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções no .NET 5,0 no Azure
 
@@ -63,18 +63,18 @@ Os pacotes a seguir são necessários para executar as funções do .NET em um p
 Como as funções que são executadas em um processo isolado do .NET usam tipos de associação diferentes, elas exigem um conjunto exclusivo de pacotes de extensão de associação. 
 
 Você encontrará esses pacotes de extensão em [Microsoft. Azure. Functions. Worker. Extensions](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions).
- 
+
 ## <a name="start-up-and-configuration"></a>Inicialização e configuração 
 
 Ao usar funções isoladas do .NET, você tem acesso à inicialização do seu aplicativo de funções, que geralmente está em Program.cs. Você é responsável por criar e iniciar sua própria instância de host. Assim, você também tem acesso direto ao pipeline de configuração para seu aplicativo. Você pode injetar dependências e executar middleware com mais facilidade ao executar fora do processo. 
 
 O código a seguir mostra um exemplo de um `HostBuilder` pipeline:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="20-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_startup":::
 
 Um `HostBuilder` é usado para compilar e retornar uma instância totalmente inicializada `IHost` , que você executa de forma assíncrona para iniciar seu aplicativo de funções. 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="35":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_host_run":::
 
 ### <a name="configuration"></a>Configuração
 
@@ -82,9 +82,9 @@ Ter acesso ao pipeline do host Builder significa que você pode definir qualquer
 
 O exemplo a seguir mostra como adicionar a configuração `args` , que são lidas como argumentos de linha de comando: 
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="21-24" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_configure_app" :::
 
-O `ConfigureAppConfiguration` método é usado para configurar o restante do processo de compilação e do aplicativo. Este exemplo também usa um [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), que facilita a adição de vários itens de configuração. Como `ConfigureAppConfiguration` o retorna a mesma instância do [`IConfiguration `](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) , você também pode apenas chamá-lo várias vezes para adicionar vários itens de configuração. Você pode acessar o conjunto completo de configurações do [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) e do [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
+O `ConfigureAppConfiguration` método é usado para configurar o restante do processo de compilação e do aplicativo. Este exemplo também usa um [IConfigurationBuilder](/dotnet/api/microsoft.extensions.configuration.iconfigurationbuilder?view=dotnet-plat-ext-5.0&preserve-view=true), que facilita a adição de vários itens de configuração. Como `ConfigureAppConfiguration` o retorna a mesma instância do [`IConfiguration`](/dotnet/api/microsoft.extensions.configuration.iconfiguration?view=dotnet-plat-ext-5.0&preserve-view=true) , você também pode apenas chamá-lo várias vezes para adicionar vários itens de configuração. Você pode acessar o conjunto completo de configurações do [`HostBuilderContext.Configuration`](/dotnet/api/microsoft.extensions.hosting.hostbuildercontext.configuration?view=dotnet-plat-ext-5.0&preserve-view=true) e do [`IHost.Services`](/dotnet/api/microsoft.extensions.hosting.ihost.services?view=dotnet-plat-ext-5.0&preserve-view=true) .
 
 Para saber mais sobre a configuração, confira [configuração no ASP.NET Core](/aspnet/core/fundamentals/configuration/?view=aspnetcore-5.0&preserve-view=true). 
 
@@ -94,7 +94,7 @@ A injeção de dependência é simplificada, em comparação com as bibliotecas 
 
 O exemplo a seguir injeta uma dependência de serviço singleton:  
  
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="29-32" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_dependency_injection" :::
 
 Para saber mais, confira [injeção de dependência em ASP.NET Core](/aspnet/core/fundamentals/dependency-injection?view=aspnetcore-5.0&preserve-view=true).
 
@@ -104,7 +104,7 @@ O .NET isolado também dá suporte ao registro de middleware, novamente usando u
 
 Embora o conjunto de registro de middleware completo de APIs ainda não esteja exposto, o registro de middleware tem suporte e adicionamos um exemplo ao aplicativo de exemplo na pasta middleware.
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" range="25-28" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Program.cs" id="docsnippet_middleware" :::
 
 ## <a name="execution-context"></a>Contexto de execução
 
@@ -114,7 +114,7 @@ O .NET isolado passa um `FunctionContext` objeto para seus métodos de função.
 
 As associações são definidas usando atributos em métodos, parâmetros e tipos de retorno. Um método de função é um método com um `Function` e um atributo de gatilho aplicado a um parâmetro de entrada, conforme mostrado no exemplo a seguir:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-14" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo anterior é disparada por uma mensagem da fila e a mensagem da fila é passada para o método no `myQueueItem` parâmetro.
 
@@ -132,13 +132,13 @@ Uma função pode ter zero ou mais associações de entrada que podem passar dad
 
 Para gravar em uma associação de saída, você deve aplicar um atributo de associação de saída ao método de função, que definiu como gravar no serviço associado. O valor retornado pelo método é gravado na associação de saída. Por exemplo, o exemplo a seguir grava um valor de cadeia de caracteres em uma fila de mensagens chamada `functiontesting2` usando uma associação de saída:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" range="11-21" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Várias associações de saída
 
 Os dados gravados em uma associação de saída são sempre o valor de retorno da função. Se você precisar gravar em mais de uma associação de saída, deverá criar um tipo de retorno personalizado. Esse tipo de retorno deve ter o atributo de associação de saída aplicado a uma ou mais propriedades da classe. O exemplo a seguir grava em uma resposta HTTP e em uma associação de saída de fila:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" range="14-33":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/FunctionApp/Function1/Function1.cs" id="docsnippet_multiple_outputs":::
 
 ### <a name="http-trigger"></a>Gatilho HTTP
 
@@ -148,7 +148,7 @@ Da mesma forma, a função retorna um `HttpReponseData` objeto, que fornece dado
 
 O código a seguir é um gatilho HTTP 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="13-27" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Registro em log
 
@@ -156,7 +156,7 @@ No .NET isolado, você pode gravar em logs usando uma [`ILogger`](/dotnet/api/mi
 
 O exemplo a seguir mostra como obter um `ILogger` e gravar logs dentro de uma função:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" range="17-18" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 Use vários métodos do `ILogger` para gravar vários níveis de log, como `LogWarning` ou `LogError` . Para saber mais sobre os níveis de log, consulte o [artigo monitoramento](functions-monitoring.md#log-levels-and-categories).
 
@@ -174,7 +174,7 @@ Esta seção descreve o estado atual das diferenças funcionais e comportamentai
 | Registro em log | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) passado para a função | [`ILogger`](/dotnet/api/microsoft.extensions.logging.ilogger?view=dotnet-plat-ext-5.0&preserve-view=true) Obtido de `FunctionContext` |
 | Tokens de cancelamento | [Com suporte](functions-dotnet-class-library.md#cancellation-tokens) | Sem suporte |
 | Associações de saída | Parâmetros de saída | Valores retornados |
-| Tipos de associação de saída |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)e outros tipos específicos do cliente | Tipos simples, tipos serializáveis JSON e matrizes. |
+| Tipos de associação de saída |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)e outros tipos específicos do cliente | Tipos simples, tipos serializáveis JSON e matrizes. |
 | Várias associações de saída | Com suporte | [Com suporte](#multiple-output-bindings) |
 | Gatilho HTTP | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | Funções duráveis | [Com suporte](durable/durable-functions-overview.md) | Sem suporte | 

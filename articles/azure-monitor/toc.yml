@@ -1078,7 +1078,7 @@
           href: insights/container-insights-reports.md
         - name: Exibir dados dinâmicos
           items:
-            - name: Visão geral de Dados Dinâmicos (versão prévia)
+            - name: Visão geral dos dados dinâmicos
               href: containers/container-insights-livedata-overview.md
             - name: Instalação
               href: containers/container-insights-livedata-setup.md

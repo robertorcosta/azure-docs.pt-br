@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/03/2021
-ms.openlocfilehash: 6a71999f0896a5d056b7d0b38be4d494c347e9f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049365"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449604"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -123,12 +123,12 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 | Banco de dados SQL do Azure \* | Sim | 
 | Instância Gerenciada do SQL do Azure \* | Sim | 
 | Análise de Synapse do Azure \* | Sim | 
-| Armazenamento de tabelas do Azure \* | Sim |
-| SQL Server \* | Sim | 
+| Armazenamento de Tabelas do Azure | Sim |
 | Amazon S3 | Sim | 
 | Sessão \* | Sim | 
 | SAP ECC \* | Sim |
-| Tabela SAP \* | Sim |
+| Tabela SAP | Sim |
+| SQL Server \* | Sim | 
 | Teradata \* | Sim |
 
 *\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
@@ -144,6 +144,7 @@ Atualmente, se você usar os seguintes recursos de atividade de cópia, ainda n�
 - Copie dados para a análise de Synapse do Azure usando o polybase ou a instrução de cópia.
 - Configuração de compactação para arquivos binários, de texto delimitado, Excel, JSON e XML.
 - Opções de partição de origem para o banco de dados SQL do Azure, Azure SQL Instância Gerenciada, Azure Synapse Analytics, SQL Server e tabela SAP.
+- Opção de descoberta de partição de origem para repositórios baseados em arquivo.
 - Copiar dados para o coletor baseado em arquivo com a configuração de máximo de linhas por arquivo.
 - Adicione colunas adicionais durante a cópia.
 

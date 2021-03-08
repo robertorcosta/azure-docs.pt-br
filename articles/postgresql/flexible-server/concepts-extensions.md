@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 70f54fc111bfd9443f988619cb2b86303fd3f07b
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 0d3a593e51dd2bc84d816c8c46bf7769fd9cfe24
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443379"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449587"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---flexible-server"></a>Extensões PostgreSQL no banco de dados do Azure para PostgreSQL – servidor flexível
 
@@ -61,7 +61,6 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[pg_visibility](https://www.postgresql.org/docs/12/pgvisibility.html)                      | 1.2             | examinar o mapa de visibilidade (VM) e as informações de visibilidade no nível da página|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.4             | fornece funcionalidade de auditoria|
 > |[pgcrypto](https://www.postgresql.org/docs/12/pgcrypto.html)                     | 1,3             | funções criptográficas|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replicação lógica do PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/12/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/12/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/12/plpgsql.html)                      | 1,0             | Linguagem de procedimento PL/pgSQL|
@@ -112,7 +111,6 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 > |[pg_visibility](https://www.postgresql.org/docs/11/pgvisibility.html)                      | 1.2             | examinar o mapa de visibilidade (VM) e as informações de visibilidade no nível da página|
 > |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | fornece funcionalidade de auditoria|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1,3             | funções criptográficas|
-> |[pglogical](https://github.com/2ndQuadrant/pglogical)                        | 2.3.2             | Replicação lógica do PostgreSQL|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Mostrar informações de bloqueio em nível de linha|
 > |[pgstattuple](https://www.postgresql.org/docs/11/pgstattuple.html)                  | 1.5             | Mostrar estatísticas de nível de tupla|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1,0             | Linguagem de procedimento PL/pgSQL|
@@ -134,6 +132,27 @@ As seguintes extensões estão disponíveis no banco de dados do Azure para Post
 
 É recomendável implantar seus servidores com [integração VNet](concepts-networking.md) se você planeja usar essas duas extensões. Por padrão, a integração VNet permite conexões entre servidores na VNET. Você também pode optar por usar [grupos de segurança de rede de VNet](../../virtual-network/manage-network-security-group.md) para personalizar o acesso.
 
+## <a name="pg_cron"></a>pg_cron
+
+o [pg_cron](https://github.com/citusdata/pg_cron) é um Agendador de trabalhos simples e baseado em cron para PostgreSQL que é executado dentro do banco de dados como uma extensão. A extensão pg_cron pode ser usada para executar tarefas de manutenção agendadas em um banco de dados PostgreSQL. Por exemplo, você pode executar uma aspiração periódica de uma tabela ou remover trabalhos de dados antigos.
+
+`pg_cron` pode executar vários trabalhos em paralelo, mas ele executa no máximo uma instância de um trabalho por vez. Se uma segunda execução deve começar antes da primeira ser concluída, a segunda execução é enfileirada e iniciada assim que a primeira execução é concluída. Isso garante que os trabalhos sejam executados exatamente quantas vezes forem agendadas e não sejam executadas simultaneamente.
+
+Alguns exemplos:
+
+Para excluir dados antigos no sábado às 3: às 9h30 (GMT)
+```
+SELECT cron.schedule('30 3 * * 6', $$DELETE FROM events WHERE event_time < now() - interval '1 week'$$);
+```
+Para executar aspiração diária a 10:10:00 (GMT)
+```
+SELECT cron.schedule('0 10 * * *', 'VACUUM');
+```
+
+Para desagendar todas as tarefas de pg_cron
+```
+SELECT cron.unschedule(jobid) FROM cron.job;
+```
 
 ## <a name="pg_prewarm"></a>pg_prewarm
 

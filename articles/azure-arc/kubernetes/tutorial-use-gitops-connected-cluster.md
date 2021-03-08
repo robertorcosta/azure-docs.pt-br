@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: cf079c009e5f6c3ef1ba6f8b22636b9a53b51348
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 64299bd05e82cf6f5452cde3f3da5622eff25e56
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101689225"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102121466"
 ---
 # <a name="tutorial-deploy-configurations-using-gitops-on-an-azure-arc-enabled-kubernetes-cluster"></a>Tutorial: Implantar configurações usando o GitOps em um cluster do Kubernetes habilitado para Azure Arc 
 
@@ -358,6 +358,6 @@ az k8s-configuration delete --name cluster-config --cluster-name AzureArcTest1 -
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Prossiga para o próximo artigo para saber como usar o Helm com as configurações.
+Avance para o próximo tutorial para saber como implementar CI/CD com GitOps.
 > [!div class="nextstepaction"]
-> [Usar o Helm com as configurações](./use-gitops-with-helm.md)
+> [Implementar CI/CD com GitOps](./tutorial-gitops-ci-cd.md)

@@ -10,12 +10,12 @@ ms.date: 2/11/2020
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 7833656b9b9be45aa3a0f0a8aa45cd70f925ce73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5c79ea68e648cd3d78f94eb2272b6f32e3c4806f
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100379637"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101750156"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, é preciso:
@@ -53,9 +53,11 @@ pod 'AzureCommunicationChat', '~> 1.0.0-beta.8'
 
 Instale as dependências, o que também criará um workspace do Xcode: `pod install`
 
+**Depois de executar a instalação do pod, reabra o projeto no Xcode selecionando o `.xcworkspace` recém-criado.**
+
 ### <a name="setup-the-placeholders"></a>Configurar os espaços reservados
 
-Abra o arquivo do workspace `ChatQuickstart.xcworkspace` no Xcode e, em seguida, abra `ViewController.swift`.
+Abra o workspace `ChatQuickstart.xcworkspace` no Xcode e depois abra `ViewController.swift`.
 
 Neste início rápido, adicionaremos nosso código a `viewController` e veremos a saída no console do Xcode. Este guia de início rápido não aborda a criação de uma interface do usuário no iOS. 
 
@@ -120,6 +122,10 @@ let endpoint = "<ACS_RESOURCE_ENDPOINT>"
 
 Substitua `<ACS_RESOURCE_ENDPOINT>` pelo ponto de extremidade do Recurso do ACS.
 Substitua `<ACCESS_TOKEN>` por um token de acesso ACS válido.
+
+Este guia de início rápido não abrange a criação de uma camada de serviço para gerenciar tokens no seu aplicativo de chat, embora isso seja recomendado. Confira a documentação a seguir para obter mais detalhes sobre a [Arquitetura de Chat](../../../concepts/chat/concepts.md)
+
+Saiba mais sobre os [tokens de acesso do usuário](../../access-tokens.md).
 
 ## <a name="object-model"></a>Modelo de objeto 
 As classes e as interfaces a seguir lidam com alguns dos principais recursos da biblioteca de clientes de Chat dos Serviços de Comunicação do Azure para JavaScript.

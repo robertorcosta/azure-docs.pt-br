@@ -1,19 +1,19 @@
 ---
 title: Opções de suporte e ajuda para os Serviços de Comunicação do Azure
 description: Saiba mais sobre as várias opções de ajuda e suporte disponíveis para os Serviços de Comunicação do Azure.
-author: rifox
+author: ProbablePrime
 manager: chpalm
 services: azure-communication-services
 ms.author: rifox
 ms.date: 02/23/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fb53fb98d36250c3cfa161180208ed8c6ce96315
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d34f816a89091ecbdf3893a377c999a3c46869c
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693330"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102043806"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Opções de ajuda e suporte para os Serviços de Comunicação do Azure
 

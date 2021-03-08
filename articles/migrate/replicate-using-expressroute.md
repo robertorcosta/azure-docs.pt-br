@@ -6,12 +6,12 @@ ms.author: deseelam
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.openlocfilehash: b52d61c2828ddf5c04ab943d73964d236c9017c1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 5dd27e4502ac70ef10f2623ed6dfb2f62de37f06
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098835"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102448754"
 ---
 # <a name="replicate-data-over-expressroute-with-azure-migrate-server-migration"></a>Replicar dados por meio do ExpressRoute com migrações para Azure: migração de servidor
 
@@ -72,6 +72,7 @@ Para criar e localizar a conta de armazenamento:
 ![Exibição do grupo de recursos](./media/replicate-using-expressroute/storage-account-name.png)
 
 > [!Tip]
+>  
 > Se você tiver mais de uma conta de armazenamento com o prefixo **"LSA"** em seu grupo de recursos, poderá verificar a conta de armazenamento navegando até o menu configurações de replicação e configuração de destino para qualquer uma das VMs de replicação no projeto. <br/> 
 > ![Visão geral das configurações de replicação](./media/replicate-using-expressroute/storage-account.png)
 
@@ -125,8 +126,9 @@ Se você não selecionou a opção de integração com uma zona DNS privada no m
 
     ![createprivatedns](./media/replicate-using-expressroute/create-private-dns.png)
 
-    a.  Na página **zonas de DNS privado** , selecione o botão **+ Adicionar** para começar a criar uma nova zona.  
-    b.  Na página **criar zona DNS privada** , preencha os detalhes necessários. Insira o nome da zona DNS privada como _privatelink_. blob.Core.Windows.net. c. Continue na guia **revisar + criar** para examinar e criar a zona DNS.
+    a. Na página **zonas de DNS privado** , selecione o botão **+ Adicionar** para começar a criar uma nova zona.  
+    b. Na página **criar zona DNS privada** , preencha os detalhes necessários. Insira o nome da zona DNS privada como _privatelink_. blob.Core.Windows.net.  
+    c. Continue na guia **revisar + criar** para examinar e criar a zona DNS.   
 
 2. Vincule a zona DNS privada à sua rede virtual.  
 
