@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 6008304ea7c1d17363587a4fa5bf6017cb0903f9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 44e18be9d66131ad5f4a3ebcc039621ec9e9dbe6
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049229"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452247"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar log de diagnósticos para aplicativos no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -108,9 +108,9 @@ Os dois tipos de logs são armazenados no sistema de arquivos do serviço de apl
 
 ## <a name="add-log-messages-in-code"></a>Adicionar mensagens de log no código
 
-No código do aplicativo, você usa os recursos de log usuais para enviar mensagens de log aos logs do aplicativo. Por exemplo: 
+No código do aplicativo, você usa os recursos de log usuais para enviar mensagens de log aos logs do aplicativo. Por exemplo:
 
-- Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](/dotnet/api/system.diagnostics.trace) para registrar informações no log de diagnóstico do aplicativo. Por exemplo: 
+- Os aplicativos ASP.NET podem usar a classe [Rastreamento.de.Diagnóstico.de.Sistema](/dotnet/api/system.diagnostics.trace) para registrar informações no log de diagnóstico do aplicativo. Por exemplo:
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -134,19 +134,17 @@ Para transmitir logs no [portal do Azure](https://portal.azure.com), navegue at�
 
 Para transmitir logs ao vivo em [Cloud Shell](../cloud-shell/overview.md), use o seguinte comando:
 
+> [!IMPORTANT]
+> Este comando pode não funcionar com aplicativos Web hospedados em um plano do serviço de aplicativo do Linux.
+
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-Para filtrar eventos específicos como erros, use o parâmetro **-Filtro** . Por exemplo: 
+Para filtrar tipos de log específicos, como HTTP, use o parâmetro **--Provider** . Por exemplo:
 
 ```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --filter Error
-```
-Para filtrar tipos específicos de log como HTTP, use o parâmetro **-Caminho** . Por exemplo: 
-
-```azurecli-interactive
-az webapp log tail --name appname --resource-group myResourceGroup --path http
+az webapp log tail --name appname --resource-group myResourceGroup --provider http
 ```
 
 ### <a name="in-local-terminal"></a>No terminal local

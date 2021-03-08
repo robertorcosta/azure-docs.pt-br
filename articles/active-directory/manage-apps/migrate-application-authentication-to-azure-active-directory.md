@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1a0be0b7834632ba79af7dfe6c3a4fa25c0316
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ac3ea7ea6b3ed0bb8e1e9f7575b34f9dbf116a04
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645504"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453247"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrar a autenticação de aplicativo para o Azure Active Directory
 
@@ -196,7 +196,7 @@ Os Estados de migração que você pode considerar usar são os seguintes:
 
 Isso garantirá que os proprietários do aplicativo saibam o que é a migração de aplicativo e o agendamento de teste quando seus aplicativos estão para migração e quais são os resultados de outros aplicativos que já foram migrados. Você também pode considerar o fornecimento de links para o seu banco de dados do rastreador de bugs para que os proprietários possam arquivar e exibir problemas de aplicativos que estão sendo migrados.
 
-### <a name="best-practices"></a>Melhores práticas
+### <a name="best-practices"></a>Práticas recomendadas
 
 A seguir estão as histórias de sucesso de nossos clientes e parceiros e as melhores práticas sugeridas:
 
@@ -234,10 +234,10 @@ No ambiente de nuvem, você precisa de visibilidade avançada, controle sobre a 
 
 - **APIs** – para aplicativos conectados à infraestrutura de nuvem, você pode usar as APIs e ferramentas nesses sistemas para começar a fazer um inventário dos aplicativos hospedados. No ambiente do Azure:
 
-  - Use o cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure/get-azurewebsite?view=azuresmps-4.0.0&redirectedfrom=MSDN&preserve-view=true)para obter informações sobre os sites do Azure.
+  - Use o cmdlet [Get-AzureWebsite](/powershell/module/servicemanagement/azure.service/get-azurewebsite) para obter informações sobre os sites do Azure.
 
-  - Use o cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp?view=azurermps-6.13.0&viewFallbackFrom=azurermps-6.2.0&preserve-view=true)para obter informações sobre seus aplicativos Web do Azure.
-
+  - Use o cmdlet [Get-AzureRMWebApp](/powershell/module/azurerm.websites/get-azurermwebapp) para obter informações sobre seus aplicativos Web do Azure.
+D
   - Você pode encontrar todos os aplicativos em execução no Microsoft IIS na linha de comando do Windows usando [AppCmd.exe](/iis/get-started/getting-started-with-iis/getting-started-with-appcmdexe#working-with-sites-applications-virtual-directories-and-application-pools).
 
   - Use [aplicativos](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#application-entity) e [entidades de serviço](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity) para obter informações sobre uma instância de aplicativo e aplicativo em um diretório no Azure AD.
@@ -501,7 +501,7 @@ Depois de migrar os aplicativos, acesse o [portal do Azure](https://aad.portal.a
 
 Dependendo de como você configura seu aplicativo, verifique se o SSO funciona corretamente.
 
-| Tipo de autenticação      | Teste                                             |
+| Tipo de autenticação      | Testando                                             |
 | ------------------------ | --------------------------------------------------- |
 | **OAuth/OpenID Connect** | Selecione **&gt; permissões de aplicativos empresariais** e verifique se você consentiu com o aplicativo a ser usado em sua organização nas configurações de usuário para seu aplicativo. |
 | **SSO baseado em SAML** | Use o botão [testar configurações de SAML](./debug-saml-sso-issues.md) encontrado em **logon único.** |

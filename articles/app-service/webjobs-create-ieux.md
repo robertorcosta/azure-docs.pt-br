@@ -10,16 +10,16 @@ ms.reviewer: msangapu;suwatch;pbatum;naren.soni
 ms.custom: seodec18
 zone_pivot_groups: app-service-webjob
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4737f0f19acf199190df02386ecb2ece65fa571e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0d49323e2bc3c0522b1fb9ad49ffcc14f476e2dc
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744209"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452791"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Executar tarefas em segundo plano com trabalhos Web no serviço Azure App
 
-O conceito de [tarefas em segundo plano](./webjobs-create-ieux-conceptual.md) do Runn no Azure é fornecido com Azure app trabalhos Web do serviço. Saiba como implantar <abbr title="Um programa ou script na mesma instância que um aplicativo Web, aplicativo de API ou aplicativo móvel.">WebJobs</abbr> usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou script. 
+O conceito de execução de [tarefas em segundo plano](./webjobs-create-ieux-conceptual.md) no Azure é fornecido com Azure app trabalhos Web do serviço. Saiba como implantar <abbr title="Um programa ou script na mesma instância que um aplicativo Web, aplicativo de API ou aplicativo móvel.">WebJobs</abbr> usando o [portal do Azure](https://portal.azure.com) para carregar um executável ou script. 
 
 Três trabalhos Web com suporte incluem:
 

@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/15/2021
+ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 475c7671636d3aac036e3da1392fc2da9b0a001f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176460"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453760"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -38,7 +38,7 @@ O Microsoft defender for Endpoint é uma solução de segurança de ponto de ext
 | Estado da versão:                  | GA (em disponibilidade geral)                                                                                                                                                                                                                                                                                      |
 | Preço:                        | Requer [Azure Defender para Servidores](defender-for-servers-introduction.md)                                                                                                                                                                                                                                             |
 | Plataformas compatíveis:            |  • Máquinas do Azure executando o Windows<br> • Computadores do Arc do Azure executando o Windows|
-| Versões do Windows com suporte:  |  • **GA (disponibilidade geral)-** detecção no Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • Detecção **de visualização** no windows Server 2019, [área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)e [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para desktops virtuais (EVD)<br>O monitoramento do ponto de extremidade do servidor usando essas integrações foi desabilitado para clientes do Office 365 GCC|
+| Versões do Windows com suporte:  |  • **GA (disponibilidade geral)-** detecção no Windows Server 2016, 2012 r2 e 2008 R2 SP1<br> • Detecção **de visualização** no windows Server 2019, [área de trabalho virtual do Windows (WVD)](../virtual-desktop/overview.md)e [Windows 10 Enterprise Multi-Session](../virtual-desktop/windows-10-multisession-faq.md) (anteriormente Enterprise para desktops virtuais (EVD)|
 | Sistemas operacionais sem suporte:  |  • Windows 10 (diferente de EVD ou WVD)<br> • Linux|
 | Funções e permissões necessárias: | Para habilitar/desabilitar a integração: **administrador de segurança** ou **proprietário**<br>Para exibir alertas do MDATP na central de segurança: **leitor de segurança**, **leitor**, colaborador do **grupo de recursos**, proprietário do **grupo de recursos**, administrador de **segurança**, **proprietário da assinatura** ou colaborador da **assinatura**|
 | Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Gov dos EUA<br>![Não](./media/icons/no-icon.png) Governo da China e outros governos                                                        |

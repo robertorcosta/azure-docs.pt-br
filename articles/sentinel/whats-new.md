@@ -7,13 +7,13 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: c466d7717dd1dad0ea9ee3f44088d1400cee083f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/08/2021
+ms.openlocfilehash: c24512ad38f9397c9a40a85489c45fcb0de906b3
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102048175"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102453794"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>O que há de novo no Azure Sentinel
 
@@ -32,9 +32,26 @@ Os recursos indicados estão atualmente em versão prévia. Os [termos suplement
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
+- [Pasta de trabalho de certificação do modelo de maturidade segurança cibernética (CMMC)](#cybersecurity-maturity-model-certification-cmmc-workbook)
 - [Conectores de dados de terceiros](#third-party-data-connectors)
 - [UEBA insights na página de entidade](#ueba-insights-in-the-entity-page)
 - [Pesquisa de incidente aprimorada](#improved-incident-search)
+
+### <a name="cybersecurity-maturity-model-certification-cmmc-workbook"></a>Pasta de trabalho de certificação do modelo de maturidade segurança cibernética (CMMC)
+
+A pasta de trabalho do Azure Sentinel CMMC fornece um mecanismo para exibir as consultas de log alinhadas aos controles CMMC no portfólio da Microsoft, incluindo as ofertas de segurança da Microsoft, o Office 365, as equipes, o Intune, a área de trabalho virtual do Windows e muito mais.
+
+A pasta de trabalho CMMC permite que arquitetos de segurança, engenheiros, analistas de operações de segurança, gerentes e profissionais de ti tenham visibilidade de reconhecimento de situação para a postura de segurança das cargas de trabalho de nuvem. Também há recomendações para selecionar, projetar, implantar e configurar ofertas da Microsoft para alinhamento com os respectivos requisitos e práticas de CMMC.
+
+Mesmo que você não precise estar em conformidade com o CMMC, a pasta de trabalho do CMMC é útil na criação de centros de operações de segurança, no desenvolvimento de alertas, na visualização de ameaças e no fornecimento de conscientização da situação de cargas de trabalho.
+
+Acesse a pasta de trabalho CMMC na área de **pastas de trabalho** do Azure Sentinel. Selecione **modelo** e, em seguida, procure **CMMC**.
+
+Para obter mais informações, consulte:
+
+- [Pasta de trabalho CMMC (certificação do modelo de maturidade segurança cibernética) do Azure Sentinel](https://techcommunity.microsoft.com/t5/public-sector-blog/azure-sentinel-cybersecurity-maturity-model-certification-cmmc/ba-p/2110524)
+- [Tutorial: Visualização e monitoramento dos dados](tutorial-monitor-your-data.md)
+
 
 ### <a name="third-party-data-connectors"></a>Conectores de dados de terceiros
 
@@ -44,7 +61,7 @@ Nossa coleção de integrações de terceiros continua crescendo, com trinta con
 - [Akamai Security Events](connect-akamai-security-events.md)
 - [Alsid para Active Directory](connect-alsid-active-directory.md)
 - [Apache HTTP Server](connect-apache-http-server.md)
-- [ClearPass de Aruba](connect-aruba-clearpass.md)
+- [Aruba ClearPass](connect-aruba-clearpass.md)
 - [CylancePROTECT BlackBerry](connect-data-sources.md)
 - [Broadcom Symantec DLP](connect-broadcom-symantec-dlp.md)
 - [Cisco potência eStreamer](connect-data-sources.md)
@@ -64,7 +81,7 @@ Nossa coleção de integrações de terceiros continua crescendo, com trinta con
 - [Base de dados de conhecimento do gerenciamento de vulnerabilidades Qualys](connect-data-sources.md)
 - [Nuvem de serviço Salesforce](connect-salesforce-service-cloud.md)
 - [Firewall do SonicWall](connect-data-sources.md)
-- [Optix de nuvem do Sophos](connect-sophos-cloud-optix.md)
+- [Sophos Cloud Optix](connect-sophos-cloud-optix.md)
 - [Proxy da Squid](connect-squid-proxy.md)
 - [Endpoint Protection da Symantec](connect-data-sources.md)
 - [Servidor secreto Thycotic](connect-thycotic-secret-server.md)

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/08/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9cd5a62cd85687767497b142a30d31aa6dd00b77
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 85574b7d33af6d9abfe25f5af4d811255f08ce4b
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175083"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102452230"
 ---
 # <a name="string-claims-transformations"></a>Transformações de declarações de cadeias de caracteres
 
@@ -326,6 +326,77 @@ O exemplo a seguir gera um valor de inteiro aleatório entre 0 e 1.000. O valor 
     - **outputClaim**: OTP_853
 
 
+## <a name="formatlocalizedstring"></a>FormatLocalizedString
+
+Formate várias declarações de acordo com uma cadeia de caracteres de formato localizada fornecida. Essa transformação usa o método C# `String.Format`.
+
+
+| Item | TransformationClaimType | Tipo de Dados | Observações |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaims |  |string | A coleção de declarações de entrada que atua como formato de cadeia de caracteres {0} , {1} , {2} parâmetros. |
+| InputParameter | stringFormatId | string |  O `StringId` de uma [cadeia de caracteres localizada](localization.md).   |
+| OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
+
+> [!NOTE]
+> O tamanho máximo permitido do formato da cadeia de caracteres é 4000.
+
+Para usar a transformação de declarações FormatLocalizedString:
+
+1. Defina uma [cadeia de caracteres de localização](localization.md)e associe-a a um [perfil técnico autodeclarado](self-asserted-technical-profile.md).
+1. O `ElementType` do elemento `LocalizedString` precisa ser configurado como `FormatLocalizedStringTransformationClaimType`.
+1. O `StringId` é um identificador exclusivo que você define e usá-lo mais tarde em sua transformação de declarações `stringFormatId` .
+1. Na transformação de declarações, especifique a lista de declarações a serem definidas com a cadeia de caracteres localizada. Em seguida, defina o `stringFormatId` para o `StringId` do elemento de cadeia de caracteres localizado. 
+1. Em um [perfil técnico autodeclarado](self-asserted-technical-profile.md) ou uma transformação de declaração de entrada ou saída de [controle de exibição](display-controls.md), faça uma referência à transformação de declarações.
+
+
+O exemplo a seguir gera uma mensagem de erro quando uma conta já está no diretório. O exemplo define cadeias de caracteres localizadas para inglês (padrão) e espanhol.
+
+```xml
+<Localization Enabled="true">
+  <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+    <SupportedLanguage>en</SupportedLanguage>
+    <SupportedLanguage>es</SupportedLanguage>
+   </SupportedLanguages>
+
+  <LocalizedResources Id="api.localaccountsignup.en">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      </LocalizedStrings>
+    </LocalizedResources>
+  <LocalizedResources Id="api.localaccountsignup.es">
+    <LocalizedStrings>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+    </LocalizedStrings>
+  </LocalizedResources>
+</Localization>
+```
+
+A transformação declarações cria uma mensagem de resposta com base na cadeia de caracteres localizada. A mensagem contém o endereço de email do usuário inserido no *ResponseMessge_EmailExists* de Stinger localizado.
+
+```xml
+<ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>Exemplo
+
+- Declarações de entrada:
+    - **inputClaim**: sarah@contoso.com
+- Parâmetros de entrada:
+    - **StringFormat**: ResponseMessge_EmailExists
+- Declarações de saída:
+  - **outputClaim**: o email ' sarah@contoso.com ' já é uma conta nesta organização. Clique em avançar para entrar com essa conta.
+
+
 ## <a name="formatstringclaim"></a>FormatStringClaim
 
 Formate uma declaração de acordo com a cadeia de caracteres de formato fornecida. Essa transformação usa o método C# `String.Format`.
@@ -335,6 +406,9 @@ Formate uma declaração de acordo com a cadeia de caracteres de formato forneci
 | InputClaim | InputClaim |string |O ClaimType que atua como o parâmetro {0} do formato da cadeia de caracteres. |
 | InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo o parâmetro {0}. Esse parâmetro de entrada dá suporte a [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).  |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
+
+> [!NOTE]
+> O tamanho máximo permitido do formato da cadeia de caracteres é 4000.
 
 Use essa transformação de declarações para formatar qualquer cadeia de caracteres com um parâmetro {0}. O exemplo a seguir cria um **userPrincipalName**. Todos os perfis técnicos do provedor de identidade social, como `Facebook-OAUTH` chama **CreateUserPrincipalName** para gerar um **userPrincipalName**.
 
@@ -371,6 +445,9 @@ Formate duas declarações de acordo com a cadeia de caracteres de formato forne
 | InputClaim | InputClaim | string | O ClaimType que atua como o parâmetro {1} do formato da cadeia de caracteres. |
 | InputParameter | stringFormat | string | O formato da cadeia de caracteres, incluindo os parâmetros {0} e {1}. Esse parâmetro de entrada dá suporte a [expressões de transformação de declarações de cadeia de caracteres](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | O ClaimType que é produzido depois de invocar esta transformação de declarações. |
+
+> [!NOTE]
+> O tamanho máximo permitido do formato da cadeia de caracteres é 4000.
 
 Use essa transformação de declarações para formatar qualquer cadeia de caracteres com dois parâmetros, {0} e {1}. O exemplo a seguir cria um **displayName** com o formato especificado:
 

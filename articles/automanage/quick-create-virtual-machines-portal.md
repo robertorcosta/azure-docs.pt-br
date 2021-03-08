@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: jushiman
-ms.openlocfilehash: d00a9c6012da7ad8d1566ef82bce628c7d47e7a7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5f5f1e70d9ae309c90291ccac1e6dd61e7a9d056
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686965"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102038353"
 ---
 # <a name="quickstart-enable-azure-automanage-for-virtual-machines-in-the-azure-portal"></a>Início Rápido: Habilitar o gerenciamento do Azure para máquinas virtuais no portal do Azure
 
@@ -88,7 +88,7 @@ Entre no portal do Azure [aqui](https://aka.ms/AzureAutomanagePreview) para cria
 1. Preencha a guia **Informações Básicas** com os detalhes da VM.
 
 > [!NOTE]
-> Verifique as [regiões com suporte](automanage-virtual-machines#supported-regions) do Gerenciamento Automatizado e as [distribuições Linux](automanage-linux.md#supported-linux-distributions-and-versions) e [versões do Windows Server](automanage-windows-server.md#supported-windows-server-versions) com suporte do Gerenciamento Automatizado.
+> Verifique as [regiões com suporte](automanage-virtual-machines.md#supported-regions) do Gerenciamento Automatizado e as [distribuições Linux](automanage-linux.md#supported-linux-distributions-and-versions) e [versões do Windows Server](automanage-windows-server.md#supported-windows-server-versions) com suporte do Gerenciamento Automatizado.
 
 2. Procure a guia **Gerenciamento** e escolha seu **Ambiente de Gerenciamento Automatizado**.
 
