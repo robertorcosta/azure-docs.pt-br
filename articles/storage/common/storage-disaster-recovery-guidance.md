@@ -10,12 +10,12 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e00e22862121f2f974f9531a9892e32e115d6041
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737640"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506694"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e failover da conta de armazenamento
 
@@ -132,7 +132,7 @@ Como o provedor de recursos de armazenamento do Azure não faz failover, a propr
 
 ### <a name="azure-virtual-machines"></a>Máquinas virtuais do Azure
 
-As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/manage-availability.md) e [recuperação de desastres](../../virtual-machines/backup-recovery.md) específicas para máquinas virtuais no Azure.
+As máquinas virtuais (VMs) do Azure não realizarão o failover como parte de um failover de conta. Se a região primária ficar indisponível, e você fizer o failover para a região secundária, será preciso recriar todas as VMs após o failover. Além disso, há uma possível perda de dados associada ao failover da conta. A Microsoft recomenda as seguintes diretrizes de [alta disponibilidade](../../virtual-machines/availability.md) e [recuperação de desastres](../../virtual-machines/backup-recovery.md) específicas para máquinas virtuais no Azure.
 
 ### <a name="azure-unmanaged-disks"></a>Discos não gerenciados do Azure
 
@@ -171,7 +171,7 @@ Se sua conta de armazenamento estiver configurada para acesso de leitura para o 
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
 - [Iniciar um failover da conta](storage-initiate-account-failover.md)

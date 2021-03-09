@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 22adccfc4adbb7f8b1c72d8b5705ec8fcdb9a375
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 5a44c40838b7f7fa9ca499ade49317ff9ce828fe
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441084"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498890"
 ---
 # <a name="how-to-configure-sharepoint-online-indexing-in-cognitive-search-preview"></a>Como configurar a indexação do SharePoint Online no Pesquisa Cognitiva (versão prévia)
 
@@ -166,7 +166,16 @@ Há algumas etapas para criar o indexador:
         {
           "name" : "sharepoint-indexer",
           "dataSourceName" : "sharepoint-datasource",
-          "targetIndexName" : "sharepoint-index"
+          "targetIndexName" : "sharepoint-index",
+          "fieldMappings" : [
+            { 
+              "sourceFieldName" : "metadata_spo_site_library_item_id", 
+              "targetFieldName" : "id", 
+              "mappingFunction" : { 
+                "name" : "base64Encode" 
+              } 
+            }
+          ]
         }
     
     ```
@@ -275,7 +284,7 @@ O indexador do SharePoint Online também dá suporte a metadados específicos pa
 ## <a name="controlling-which-documents-are-indexed"></a>Controlando quais documentos são indexados
 Um único indexador do SharePoint Online pode indexar conteúdo de uma ou mais bibliotecas de documentos. Use o parâmetro de *contêiner* ao criar sua fonte de dados para indicar as bibliotecas de documentos que você deseja indexar. O *contêiner* de fonte de dados tem duas propriedades: *nome* e *consulta*. 
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 A propriedade *Name* é necessária e deve ter um destes três valores:
 + *defaultSiteLibrary*
     + Indexe todo o conteúdo da biblioteca de documentos padrão de sites.
@@ -290,7 +299,7 @@ A propriedade de *consulta* é composta por pares de palavra-chave/valor. A segu
 > [!NOTE]
 > Para obter o valor de uma palavra-chave específica, é recomendável abrir o SharePoint Online em um navegador, navegar até a biblioteca de documentos que você está tentando incluir/excluir e copiar o URI do navegador. Essa é a maneira mais fácil de obter o valor a ser usado com uma palavra-chave na consulta.
 
-| Palavra-chave | Descrição da consulta | Exemplo:  |
+| Palavra-chave | Descrição da consulta | Exemplo |
 | ------------- | -------------- | ----------- |
 | nulo | Se for nulo ou vazio, indexe a biblioteca de documentos padrão ou todas as bibliotecas de documentos, dependendo do nome do contêiner. | Indexar todo o conteúdo da biblioteca de sites padrão: <br><br>  ``` "container" : { "name" : "defaultSiteLibrary", "query" : null } ``` |
 | includeLibrariesInSite | Indexe o conteúdo de todas as bibliotecas no site definido na cadeia de conexão. Eles são limitados a subsites do seu site <br><br> O valor da *consulta* para essa palavra-chave deve ser o URI do site ou subsite. | Indexe todo o conteúdo de todas as bibliotecas de documentos no meusite. <br><br> ``` "container" : { "name" : "useQuery", "query" : "includeLibrariesInSite=https://mycompany.sharepoint.com/mysite" } ``` |

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: df94bb5e6066b83afd566181debbc0872dc1a5b4
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: b15c63545c71d4513abe9102b4de165e2ab5857a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120255"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499842"
 ---
 # <a name="page-layout-versions"></a>Versões do layout da página
 
@@ -73,6 +73,9 @@ Os pacotes de layout de página são atualizados periodicamente para incluir cor
 - Versão inicial
 
 ## <a name="unified-sign-in-sign-up-page-with-password-reset-link-unifiedssp"></a>Página de inscrição de entrada unificada com link de redefinição de senha (unifiedssp)
+
+> [!TIP]
+> Se você localizar sua página para dar suporte a várias localidades ou idiomas em um fluxo de usuário. O artigo [IDs de localização](localization-string-ids.md) fornece a lista de IDs de localização que você pode usar para a versão de página selecionada.
 
 **2.1.2**
 - Correção do problema de codificação de localização para idiomas como espanhol e francês.

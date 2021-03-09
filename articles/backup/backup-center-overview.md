@@ -3,12 +3,12 @@ title: Visão geral do centro de backup
 description: Este artigo fornece uma visão geral do centro de backup do Azure.
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: fee7bf41d0c72238231d9c4aba52a26cac9fb960
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b42bb2719d03108212f62428dc97ed814899c63c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099991"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102506031"
 ---
 # <a name="overview-of-backup-center"></a>Visão geral do centro de backup
 
