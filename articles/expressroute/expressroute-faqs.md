@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 03/07/2021
 ms.author: duau
-ms.openlocfilehash: 59194f8d7b1783867ab1422597b361aa3a4a2a60
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449859"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522284"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -60,7 +60,7 @@ O gateway de ExpressRoute anunciará os *espaços de endereço* da VNet do Azure
 
 ### <a name="how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering"></a>Quantos prefixos podem ser anunciados de uma VNet para o local no emparelhamento privado do ExpressRoute?
 
-Há no máximo 200 prefixos anunciados em uma única conexão de ExpressRoute ou por meio do emparelhamento de VNet usando o trânsito de gateway. Por exemplo, se você tiver 199 espaços de endereço em uma única VNet conectada a um circuito do ExpressRoute, todos os 199 desses prefixos serão anunciados no local. Como alternativa, se você tiver uma VNet habilitada para permitir o trânsito de gateway com 1 espaço de endereço e 150 VNets de spoke habilitadas usando a opção "Permitir gateway remoto", a VNet implantada com o gateway anunciará 151 prefixos no local.
+Há um máximo de 1000 prefixos anunciados em uma única conexão de ExpressRoute ou por meio de emparelhamento VNet usando o trânsito de gateway. Por exemplo, se você tiver 199 espaços de endereço em uma única VNet conectada a um circuito do ExpressRoute, todos os 199 desses prefixos serão anunciados no local. Como alternativa, se você tiver uma VNet habilitada para permitir o trânsito de gateway com 1 espaço de endereço e 150 VNets de spoke habilitadas usando a opção "Permitir gateway remoto", a VNet implantada com o gateway anunciará 151 prefixos no local.
 
 ### <a name="what-happens-if-i-exceed-the-prefix-limit-on-an-expressroute-connection"></a>O que acontece se eu exceder o limite de prefixo em uma conexão de ExpressRoute?
 

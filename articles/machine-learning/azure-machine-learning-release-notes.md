@@ -9,18 +9,49 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: ebd4aed284869eb74760de8612a76139d26d47f5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502341"
+ms.locfileid: "102521196"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
 Neste artigo, saiba mais sobre as versões de Azure Machine Learning.  Para obter o conteúdo completo de referência do SDK, visite a página de referência do [**SDK principal do Azure Machine Learning para Python**](/python/api/overview/azure/ml/intro) .
 
 __Feed RSS__: Receba uma notificação quando esta página for atualizada copiando e colando a seguinte URL em seu leitor de feed: `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+
+
+## <a name="2021-03-08"></a>2021-03-08
+
+### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK para Python v 1.24.0
++ **Novos recursos**
+  + **azureml-automl-core**
+    + Removidas as importações compatíveis com versões anteriores do `azureml.automl.core.shared` . O módulo não encontrou erros no `azureml.automl.core.shared` namespace pode ser resolvido pela importação de `azureml.automl.runtime.shared` .
+  + **azureml-contrib-automl-DNN-Vision**
+    + Modelo de Yolo de detecção de objeto exposto.
+  + **azureml-contrib-dataset**
+    + Funcionalidade adicionada para filtrar conjuntos de tabelas de tabela por valores de coluna e conjuntos de arquivos de arquivo por metadados.
+  + **azureml-contrib-fairness**
+    + Incluir esquema JSON na roda para `azureml-contrib-fairness`
+  + **azureml-contrib-K8S**
+    + Agora, é necessário fornecer resource_id para anexar em vez do grupo de recursos e do nome do cluster.
+  + **azureml-contrib-Mir**
+    + Com a configuração show_output como true ao implantar modelos, a configuração de inferência e a configuração de implantação serão reproduzidas antes de enviar a solicitação ao servidor.
+  + **azureml-core**
+    + Funcionalidade adicionada para filtrar conjuntos de tabelas de tabela por valores de coluna e conjuntos de arquivos de arquivo por metadados.
+    + Anteriormente, era possível que os usuários criassem configurações de provisionamento para ComputeTarget que não satisfazem os requisitos de força de senha para o `admin_user_password` campo (ou seja, que eles devem conter pelo menos três dos seguintes: 1 letra minúscula, 1 letra maiúscula, 1 dígito e 1 caractere especial do seguinte conjunto: ``\`~!@#$%^&*()=+_[]{}|;:./'",<>?`` ). Se o usuário criou uma configuração com uma senha fraca e executou um trabalho usando essa configuração, o trabalho falha em tempo de execução. Agora, a chamada para `AmlCompute.provisioning_configuration` emitirá um `ComputeTargetException` com uma mensagem de erro que o acompanha, explicando os requisitos de força de senha. 
+    + Além disso, também era possível, em alguns casos, especificar uma configuração com um número negativo de nós máximos. Não é mais possível fazer isso. Agora, `AmlCompute.provisioning_configuration` gerará um `ComputeTargetException` se o `max_nodes` argumento for um inteiro negativo.
+    + Com a configuração show_output como true ao implantar modelos, a configuração de inferência e a configuração de implantação serão exibidas.
+    + Com a configuração show_output como true ao aguardar a conclusão da implantação do modelo, o progresso da operação de implantação será exibido.
+    + Permitir o diretório de configuração do AzureML auth especificado pelo cliente por meio da variável de ambiente: AZUREML_AUTH_CONFIG_DIR
+    + Anteriormente, era possível criar uma configuração de provisionamento com a contagem de nós mínima menor que a contagem máxima de nós. O trabalho seria executado, mas falha em tempo de execução. Esse bug agora foi corrigido. Se agora você tentar criar uma configuração de provisionamento com `min_nodes < max_nodes` o SDK, o irá gerar um `ComputeTargetException` .
+  + **azureml-interpret**
+    + corrigir o painel de explicação não mostrando as importâncias do recurso agregado para explicações de engenharia esparsa
+    + uso otimizado de memória do ExplanationClient no pacote azureml-interpret
+  + **azureml-train-automl-client**
+    +  Fixed show_output = false para retornar o controle ao usuário ao executar usando o Spark.
 
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de fevereiro)
@@ -39,6 +70,7 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
   + Velocidade aprimorada e confiabilidade do kernel
   + Roda giratória adicionada para mostrar o progresso de todas as [operações de instância de computação](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)em andamento.
   + Clique com o botão direito do mouse no explorador de arquivos. Clicar com o botão direito do mouse em qualquer arquivo agora abrirá as operações de arquivo. 
+
 
 ## <a name="2021-02-16"></a>2021-02-16
 

@@ -9,12 +9,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 06/22/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: a4adb5bff80f1ab216a39fa773e027670b9e6509
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 3e073310d62bfb772ea1120bd379cdc277137da0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212681"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519105"
 ---
 # <a name="install--use-the-cli-extension-for-azure-machine-learning"></a>Instalar e usar a extensão CLI do Azure Machine Learning
 
@@ -242,7 +242,7 @@ Gerenciar instâncias de computação.  Em todos os exemplos abaixo, o nome da i
     > [!TIP]
     > O comando `az ml folder attach` cria um subdiretório `.azureml`, que contém dois arquivos de exemplo de runconfig. 
     >
-    > Se você tiver um script Python que cria um objeto de configuração de execução programaticamente, poderá usar [RunConfig.save()](/python/api/azureml-core/azureml.core.runconfiguration?preserve-view=true&view=azure-ml-py#&preserve-view=truesave-path-none--name-none--separate-environment-yaml-false-) para salvá-lo como um arquivo runconfig.
+    > Se você tiver um script Python que cria um objeto de configuração de execução programaticamente, poderá usar [RunConfig.save()](/python/api/azureml-core/azureml.core.runconfiguration#save-path-none--name-none--separate-environment-yaml-false-) para salvá-lo como um arquivo runconfig.
     >
     > O esquema runconfig completo pode ser encontrado neste [arquivo JSON](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json). O esquema está autodocumentando por meio da chave `description` de cada objeto. Além disso, há enumerações para valores possíveis e um snippet de modelo no final.
 
@@ -362,7 +362,7 @@ Os seguintes comandos demonstram como criar, registrar e listar [ambientes](how-
 
 ### <a name="environment-configuration-schema"></a>Esquema de configuração de ambiente
 
-Se você usou o comando `az ml environment scaffold`, ele gera um arquivo `azureml_environment.json` de modelo que pode ser modificado e usado para criar configurações de ambiente personalizadas com a CLI. O objeto de nível superior é mapeado de modo flexível para a classe [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py) no SDK do Python. 
+Se você usou o comando `az ml environment scaffold`, ele gera um arquivo `azureml_environment.json` de modelo que pode ser modificado e usado para criar configurações de ambiente personalizadas com a CLI. O objeto de nível superior é mapeado de modo flexível para a classe [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29) no SDK do Python. 
 
 ```json
 {
@@ -406,17 +406,17 @@ Se você usou o comando `az ml environment scaffold`, ele gera um arquivo `azure
 }
 ```
 
-A tabela a seguir detalha cada campo de nível superior no arquivo JSON, bem como o tipo e uma descrição. Se um tipo de objeto estiver vinculado a uma classe do SDK do Python, haverá uma correspondência de 1:1 flexível entre cada campo JSON e o nome da variável pública na classe Python. Em alguns casos, o campo pode ser mapeado para um argumento de construtor em vez de uma variável de classe. Por exemplo, o campo `environmentVariables` é mapeado para a variável `environment_variables` na classe [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29?preserve-view=true&view=azure-ml-py).
+A tabela a seguir detalha cada campo de nível superior no arquivo JSON, bem como o tipo e uma descrição. Se um tipo de objeto estiver vinculado a uma classe do SDK do Python, haverá uma correspondência de 1:1 flexível entre cada campo JSON e o nome da variável pública na classe Python. Em alguns casos, o campo pode ser mapeado para um argumento de construtor em vez de uma variável de classe. Por exemplo, o campo `environmentVariables` é mapeado para a variável `environment_variables` na classe [`Environment`](/python/api/azureml-core/azureml.core.environment%28class%29).
 
 | Campo JSON | Type | Descrição |
 |---|---|---|
 | `name` | `string` | Nome do ambiente. Não inicie o nome com **Microsoft** ou **AzureML**. |
 | `version` | `string` | Versão do ambiente. |
 | `environmentVariables` | `{string: string}` | Um mapa de hash de valores e nomes de variável de ambiente. |
-| `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection?preserve-view=true&view=azure-ml-py)o Hat define o ambiente e o intérprete do Python para usar no recurso de computação de destino. |
-| `docker` | [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection?preserve-view=true&view=azure-ml-py) | Define as configurações para personalizar a imagem do Docker criada para as especificações do ambiente. |
-| `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection?preserve-view=true&view=azure-ml-py) | A seção define as configurações do Spark. Ela só é usada quando a estrutura é definida como PySpark. |
-| `databricks` | [`DatabricksSection`](/python/api/azureml-core/azureml.core.databricks.databrickssection?preserve-view=true&view=azure-ml-py) | Configura as dependências da biblioteca do Databricks. |
+| `python` | [`PythonSection`](/python/api/azureml-core/azureml.core.environment.pythonsection)o Hat define o ambiente e o intérprete do Python para usar no recurso de computação de destino. |
+| `docker` | [`DockerSection`](/python/api/azureml-core/azureml.core.environment.dockersection) | Define as configurações para personalizar a imagem do Docker criada para as especificações do ambiente. |
+| `spark` | [`SparkSection`](/python/api/azureml-core/azureml.core.environment.sparksection) | A seção define as configurações do Spark. Ela só é usada quando a estrutura é definida como PySpark. |
+| `databricks` | [`DatabricksSection`](/python/api/azureml-core/azureml.core.databricks.databrickssection) | Configura as dependências da biblioteca do Databricks. |
 | `inferencingStackVersion` | `string` | Especifica a versão da pilha de inferência adicionada à imagem. Para evitar a adição de uma pilha de inferência, deixe esse campo `null`. Valor válido: "latest". |
 
 ## <a name="ml-pipeline-management"></a>Gerenciamento de pipeline do ML

@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502409"
+ms.locfileid: "102521740"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Visualização: modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure 
 
@@ -128,7 +128,7 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Alertas do Azure  |            Não  |            Sim  |            Sim  |
 |         VM Insights  |            Não  |            Sim  |            Sim  |
 |         Serviço de Backup do Azure  |            Sim  |            Sim  |            Sim  |
-|         Azure Site Recovery  |            Sim, somente PowerShell  |            Sim  |            Sim  |
+|         Azure Site Recovery  |            Não  |            Não  |            Sim  |
 |         Adicionar/remover VM existente para o grupo  |            Não  |            Não  |            Não  | 
 
 

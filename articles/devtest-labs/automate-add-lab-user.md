@@ -3,12 +3,12 @@ title: Automatizar a adição de um usuário de laboratório no Azure DevTest La
 description: Este artigo mostra como automatizar a adição de um usuário a um laboratório no Azure DevTest Labs usando modelos de Azure Resource Manager, o PowerShell e a CLI.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 6dddf06289da79e16cbd7e64869fa77f0a40dd22
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: dc5522cfe694f193b9bbeeb3145808a367a62c12
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102508819"
+ms.locfileid: "102519394"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Automatize a adição de um usuário de laboratório a um laboratório no Azure DevTest Labs
 Azure DevTest Labs permite criar rapidamente ambientes de desenvolvimento e teste de autoatendimento usando o portal do Azure. No entanto, se você tiver várias equipes e várias instâncias do DevTest Labs, a automatização do processo de criação poderá poupar tempo. Os [modelos de Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) permitem criar laboratórios, VMS de laboratório, imagens personalizadas, fórmulas e adicionar usuários de maneira automatizada. Este artigo se concentra especificamente na adição de usuários a uma instância do DevTest Labs.
@@ -161,7 +161,7 @@ New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -Resou
 
 É importante observar que o nome da implantação do grupo e o GUID de atribuição de função precisam ser exclusivos. Se você tentar implantar uma atribuição de recurso com um GUID não exclusivo, receberá um `RoleAssignmentUpdateNotPermitted` erro.
 
-Se você planeja usar o modelo várias vezes para adicionar vários objetos Active Directory à função de usuário do DevTest Labs para seu laboratório, considere o uso de objetos dinâmicos no comando do PowerShell. O exemplo a seguir usa o cmdlet [New-GUID](/powershell/module/Microsoft.PowerShell.Utility/New-Guid?view=powershell-5.0) para especificar o nome da implantação do grupo de recursos e o GUID de atribuição de função dinamicamente.
+Se você planeja usar o modelo várias vezes para adicionar vários objetos Active Directory à função de usuário do DevTest Labs para seu laboratório, considere o uso de objetos dinâmicos no comando do PowerShell. O exemplo a seguir usa o cmdlet [New-GUID](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) para especificar o nome da implantação do grupo de recursos e o GUID de atribuição de função dinamicamente.
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateFile .\azuredeploy.json -roleAssignmentGuid "$(New-Guid)" -labName "MyLab" -principalId "11111111-1111-1111-1111-111111111111"
