@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/05/2020
 ms.author: sttsinar
 ms.custom: include file
-ms.openlocfilehash: e22c2b7cb561e30e84ea5ede5481fbdc35be8cdf
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 3d78441e56e23cf49b09073fdf88bef4b3434da9
+ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100515026"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102473760"
 ---
 A Computação do Azure oferece tamanhos de máquina virtual Isolada, para um tipo de hardware específico e dedicada a um único cliente. Os tamanhos isolados residem e operam em uma geração de hardware específica e serão preteridos quando a geração de hardware for desativada.
 
@@ -42,24 +42,26 @@ Os tamanhos de VM isolados têm um ciclo de vida limitado por hardware. O Azure 
 
 | Tamanho | Data de retirada do isolamento | 
 | --- | --- |
-| Standard_DS15_v2<sup>1</sup> | 15 de maio de 2020 |
-| Standard_D15_v2<sup>1</sup>  | 15 de maio de 2020 |
-
-<sup>1</sup>  para obter detalhes sobre o Standard_DS15_v2 e Standard_D15_v2 programa de desativação de isolamento, consulte FAQs
+| Standard_DS15_v2 | 15 de maio de 2020 |
+| Standard_D15_v2  | 15 de maio de 2020 |
+| Standard_G5  | 15 de fevereiro de 2021 |
+| Standard_GS5  | 15 de fevereiro de 2021 |
+| Standard_E64i_v3  | 15 de fevereiro de 2021 |
+| Standard_E64is_v3  | 15 de fevereiro de 2021 |
 
 
 ## <a name="faq"></a>Perguntas frequentes
 ### <a name="q-is-the-size-going-to-get-retired-or-only-its-isolation-feature"></a>P: o tamanho será desativado ou apenas seu recurso de "isolamento"?
-**R**: se o tamanho da máquina virtual não tiver o subscript "i", somente o recurso "isolamento" será desativado. Se o isolamento não for necessário, não haverá nenhuma ação a ser tomada e a VM continuará funcionando conforme o esperado. Os exemplos incluem Standard_DS15_v2, Standard_D15_v2, Standard_M128ms etc. Se o tamanho da máquina virtual incluir o subscript "i", o tamanho será desativado.
+**R**: atualmente, somente o recurso de isolamento dos tamanhos de VM está sendo desativado. Os tamanhos isolados preteridos continuarão a existir no estado não isolado. Se o isolamento não for necessário, não haverá nenhuma ação a ser tomada e a VM continuará funcionando conforme o esperado.
 
 ### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>P: há um tempo de inatividade quando minha VM chega em um hardware não isolado?
-**R**: se não houver necessidade de isolamento, nenhuma ação será necessária e não haverá nenhum tempo de inatividade.
+**R**: se não houver necessidade de isolamento, nenhuma ação será necessária e não haverá nenhum tempo de inatividade. Ao contrário se o isolamento for necessário, nosso comunicado incluirá o tamanho de substituição recomendado. A seleção do tamanho de substituição exigirá que nossos clientes redimensionem suas VMs.  
 
 ### <a name="q-is-there-any-cost-delta-for-moving-to-a-non-isolated-virtual-machine"></a>P: há algum Delta de custo para mover para uma máquina virtual não isolada?
 **R**: não
 
 ### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>P: quando os outros tamanhos isolados serão desativados?
-**R**: forneceremos lembretes 12 meses antes da reprovação oficial do tamanho isolado.
+**R**: forneceremos lembretes 12 meses antes da reprovação oficial do tamanho isolado. Nosso anúncio mais recente inclui desativação de recursos de isolamento de Standard_G5, Standard_GS5, Standard_E64i_v3 e Standard_E64i_v3.  
 
 ### <a name="q-im-an-azure-service-fabric-customer-relying-on-the-silver-or-gold-durability-tiers-does-this-change-impact-me"></a>P: sou um cliente do Azure Service Fabric contando com as camadas de durabilidade prata ou ouro. Essa alteração me afeta?
 **R**: não. As garantias fornecidas pelas camadas de [durabilidade](../articles/service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) de Service Fabric continuarão a funcionar mesmo após essa alteração. Se você precisar de isolamento de hardware físico por outros motivos, talvez ainda precise executar uma das ações descritas acima. 
@@ -69,11 +71,20 @@ Os tamanhos de VM isolados têm um ciclo de vida limitado por hardware. O Azure 
  
 | Data | Ação |
 |---|---| 
-| 18 de novembro de 2019 | Disponibilidade de D/DS15i_v2 (PAYG, RI de 1 ano) | 
-| 14 de maio de 2020 | Último dia para comprar D/DS15i_v2 RI de 1 ano | 
-| 15 de maio de 2020 | Garantia de isolamento D/DS15_v2 removida | 
-| 15 de maio de 2021 | Desativar D/DS15i_v2 (todos os clientes exceto quem comprou a RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019)| 
-| 17 de novembro de 2022 | Desativar D/DS15i_v2 quando o RIs de 3 anos for concluído (para clientes que compraram uma RI de 3 anos de D/DS15_v2 antes de 18 de novembro de 2019) |
+| 15 de maio de 2019<sup>1</sup> | Aviso de desativação de isolamento D/DS15_v2| 
+| 15 de maio de 2020 | Garantia de isolamento D/DS15_v2 removida| 
+
+<sup>1</sup> o cliente existente usando esses tamanhos receberá um email de comunicado com instruções detalhadas sobre as próximas etapas.  
+
+### <a name="q-what-are-the-milestones-for-g5-gs5-e64i_v3-and-e64is_v3-isolation-retirement"></a>P: quais são as etapas para o G5, o Gs5, o E64i_v3 e a desativação do isolamento de E64is_v3? 
+**A**: 
+ 
+| Data | Ação |
+|---|---|
+| 15 de fevereiro de 2020<sup>1</sup> | Notificação de desativação do isolamento G5/GS5/E64i_v3/E64is_v3 |
+| 15 de fevereiro de 2021 | G5/GS5/E64i_v3/E64is_v3 garantia de isolamento removido |
+
+<sup>1</sup> o cliente existente usando esses tamanhos receberá um email de comunicado com instruções detalhadas sobre as próximas etapas.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
