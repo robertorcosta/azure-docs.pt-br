@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 02/16/2021
+ms.date: 03/09/2021
 ms.author: victorh
-ms.openlocfilehash: 31948d5e98ea3024c838bf0fa4b05609a5662ec5
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 621bf6138e4336c63ca137a6a8c54f77a4a99d61
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485513"
+ms.locfileid: "102520278"
 ---
 # <a name="azure-firewall-premium-preview-certificates"></a>Certificados da versão prévia do Firewall do Azure Premium 
 
@@ -96,7 +96,7 @@ Para configurar um certificado de autoridade de certificação na política Prem
 Para ajudá-lo a testar e verificar a inspeção de TLS, você pode usar os scripts a seguir para criar sua própria AC raiz autoassinada e autoridade de certificação intermediária.
 
 > [!IMPORTANT]
-> Para produção, você deve usar sua PKI corporativa para criar um certificado de autoridade de certificação intermediário. Uma PKI corporativa aproveita a infraestrutura existente e manipula a distribuição da AC raiz para todos os computadores de ponto de extremidade.
+> Para produção, você deve usar sua PKI corporativa para criar um certificado de autoridade de certificação intermediário. Uma PKI corporativa aproveita a infraestrutura existente e manipula a distribuição da AC raiz para todos os computadores de ponto de extremidade. Para obter mais informações, consulte [implantar e configurar certificados de autoridade de certificação corporativa para a versão prévia do firewall do Azure](premium-deploy-certificates-enterprise-ca.md).
 
 Há duas versões deste script:
 - um script bash `cert.sh` 

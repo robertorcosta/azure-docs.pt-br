@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: fe3f2328bb1ec9e7bb2ef79c09a821412ce7f7e1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423978"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518714"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar blocos de anotações do Jupyter em seu espaço de trabalho
 
@@ -115,7 +115,7 @@ Somente você pode ver e usar as instâncias de computação que criar.  Seus **
 
 ### <a name="view-logs-and-output"></a>Exibir logs e saída
 
-Use [widgets de bloco de anotações](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) para exibir o progresso da execução e dos logs. Um widget é assíncrono e fornece atualizações até que o treinamento seja concluído. Os widgets do Azure Machine Learning também têm suporte no Jupyter e no JupterLab.
+Use [widgets de bloco de anotações](/python/api/azureml-widgets/azureml.widgets) para exibir o progresso da execução e dos logs. Um widget é assíncrono e fornece atualizações até que o treinamento seja concluído. Os widgets do Azure Machine Learning também têm suporte no Jupyter e no JupterLab.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/jupyter-widget.png" alt-text="Captura de tela: widget Jupyter Notebook ":::
 

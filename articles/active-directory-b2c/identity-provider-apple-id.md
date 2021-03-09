@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/09/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 072bb7841db10351bd1a98f4bc7a1d57e67f6c24
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448533"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518102"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar a inscrição e a entrada com uma ID da Apple usando Azure Active Directory B2C (versão prévia)
 
@@ -86,7 +86,7 @@ Para habilitar a entrada para usuários com uma ID da Apple no Azure Active Dire
 1. Insira a **ID de serviço da Apple (ID do cliente)**.
 1. Insira a **ID da chave da Apple**.
 1. Selecione e carregue os **dados de certificado da Apple**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 
 > [!IMPORTANT] 
@@ -101,7 +101,7 @@ Para permitir que os usuários entrem usando uma ID da Apple, você precisa adic
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione um fluxo de usuário para o qual você deseja adicionar o provedor de identidade da Apple. 
 1. Em **provedores de identidade social**, selecione **Apple (versão prévia)**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .
@@ -120,7 +120,7 @@ Use o arquivo. P8 baixado anteriormente para assinar o segredo do cliente em um 
 1. Crie uma [função do Azure](../azure-functions/functions-create-function-app-portal.md).
 1. Em **desenvolvedor**, selecione **código + teste**. 
 1. Copie o conteúdo do arquivo [Run. CSX](https://github.com/azure-ad-b2c/samples/blob/master/policies/sign-in-with-apple/azure-function/run.csx) e cole-o no editor.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Faça uma `POST` solicitação HTTP e forneça as seguintes informações:
 
     - **appleTeamId**: sua ID da equipe de desenvolvedores da Apple
@@ -195,7 +195,7 @@ Você pode definir uma ID da Apple como um provedor de declarações adicionando
             <Item Key="response_types">code</Item>
             <Item Key="external_user_identity_claim_id">sub</Item>
             <Item Key="response_mode">form_post</Item>
-            <Item Key="ReadBodyClaimsOnIdpRedirect">user.name.firstName user.name.lastName user.email</Item>
+            <Item Key="ReadBodyClaimsOnIdpRedirect">user.firstName user.lastName user.email</Item>
             <Item Key="client_id">You Apple ID</Item>
             <Item Key="UsePolicyInRedirectUri">false</Item>
           </Metadata>
@@ -206,8 +206,8 @@ Você pode definir uma ID da Apple como um provedor de declarações adicionando
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

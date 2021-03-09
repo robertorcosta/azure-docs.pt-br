@@ -10,12 +10,12 @@ ms.author: gopalv
 ms.date: 11/25/2020
 ms.topic: troubleshooting
 ms.custom: contperf-fy20q4, devx-track-python, deploy, contperf-fy21q2
-ms.openlocfilehash: 1a7116f0edbed8270a3345bc924bf50872615b04
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 8bec083e62bec6a0311487c1e64e780ad14f451b
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217152"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518256"
 ---
 # <a name="troubleshooting-remote-model-deployment"></a>Solucionando problemas de implantação de modelo remoto 
 
@@ -32,7 +32,7 @@ Saiba como solucionar problemas e resolver, ou contornar, erros comuns que você
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * Uma **assinatura do Azure**. Experimente a [versão gratuita ou paga do Azure Machine Learning](https://aka.ms/AMLFree).
-* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* O [SDK do Azure Machine Learning](/python/api/overview/azure/ml/install).
 * O [CLI do Azure](/cli/azure/install-azure-cli).
 * A [Extensão da CLI do Azure Machine Learning](reference-azure-machine-learning-cli.md).
 
@@ -99,7 +99,7 @@ Use as informações no artigo [inspecionar o log do Docker](how-to-troubleshoot
 
 ## <a name="function-fails-get_model_path"></a>Falha de função: get_model_path()
 
-Geralmente, na função `init()` no script de pontuação, a função [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se o arquivo ou pasta do modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
+Geralmente, na função `init()` no script de pontuação, a função [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) é chamada para localizar um arquivo de modelo ou uma pasta de arquivos de modelo no contêiner. Se o arquivo ou pasta do modelo não puder ser encontrado, a função falhará. A maneira mais fácil para depurar esse erro é executar o código do Python no shell do contêiner abaixo:
 
 ```python
 from azureml.core.model import Model
@@ -177,7 +177,7 @@ As duas ações a seguir podem evitar códigos de status 503:
     > [!NOTE]
     > Se você receber picos de solicitação maiores do que as novas réplicas mínimas podem suportar, você poderá receber códigos 503 novamente. Por exemplo, à medida que o tráfego para o serviço aumenta, talvez seja necessário aumentar as réplicas mínimas.
 
-Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, confira a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py).
+Para obter mais informações sobre como definir `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, confira a referência do módulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice).
 
 ## <a name="http-status-code-504"></a>Código de status HTTP 504
 

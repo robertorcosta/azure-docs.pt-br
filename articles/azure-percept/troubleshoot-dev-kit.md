@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: c8027b62c0c463e134817f589ba3e1957cea5b39
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a6d099e8d267c9fe03e0bb676276e7a4ab8157ab
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101678984"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521519"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Solução de problemas do Azure Percept DK (Kit de desenvolvimento)
 
@@ -95,7 +95,7 @@ Há três LEDs pequenos na parte superior do invólucro da placa da operadora. U
 |LED             |Estado      |Descrição                      |
 |----------------|-----------|---------------------------------|
 |LED 1 (Hub IoT) |Ligado (sólido) |O dispositivo está conectado a um hub IoT. |
-|LED 2 (Wi-Fi)   |Piscar lentamente |Autenticação de dispositivo em andamento. |
+|LED 2 (Wi-Fi)   |Piscar lentamente |O dispositivo está pronto para ser configurado pelo Wi-Fi Easy Connect e está anunciando sua presença para um configurador. |
 |LED 2 (Wi-Fi)   |Piscar rapidamente |A autenticação foi bem-sucedida, a associação de dispositivo está em andamento. |
 |LED 2 (Wi-Fi)   |Ligado (sólido) |A autenticação e a Associação foram bem-sucedidas; o dispositivo está conectado a uma rede Wi-Fi. |
 |LED 3           |NA         |O LED não está em uso. |

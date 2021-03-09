@@ -10,18 +10,18 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fba7fd9faed9a587aebc198c7038b13e26d2ceac
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b61050db29ff960b7923f2211b2f09649608b37e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218257"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102520312"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Criar, executar e excluir recursos do Azure ML usando REST
 
 
 
-Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](/cli/azure)ou o SDK do [python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
+Há várias maneiras de gerenciar seus recursos do Azure ML. Você pode usar o [portal](https://portal.azure.com/), a [interface de linha de comando](/cli/azure)ou o SDK do [python](/python/api/overview/azure/ml/intro). Ou, você pode escolher a API REST. A API REST usa verbos HTTP de uma maneira padrão para criar, recuperar, atualizar e excluir recursos. A API REST funciona com qualquer linguagem ou ferramenta que possa fazer solicitações HTTP. A estrutura direta do REST geralmente o torna uma boa opção nos ambientes de script e na automação de MLOps. 
 
 Neste artigo, você aprenderá como:
 

@@ -8,12 +8,12 @@ ms.date: 01/22/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 778d82cd36e1f7389a443630f0982dd8774fe3ee
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b085b9991175d8cd43e2dac0db80c5af4e703c34
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509193"
+ms.locfileid: "102521230"
 ---
 # <a name="how-to-create-an-nfs-share"></a>Como criar um compartilhamento NFS
 Os compartilhamentos de arquivos do Azure são compartilhamentos de arquivos totalmente gerenciados que residem na nuvem. Este artigo aborda a criação de um compartilhamento de arquivos que usa o protocolo NFS. Para obter mais informações sobre ambos os protocolos, consulte [protocolos de compartilhamento de arquivos do Azure](storage-files-compare-protocols.md).
@@ -192,7 +192,7 @@ Agora que você criou uma conta de armazenamento de arquivo e configurou a rede,
    echo $PSVersionTable.PSVersion.ToString() 
    ```
     
-   Para atualizar sua versão do PowerShell, consulte [atualizando o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell?view=powershell-6&preserve-view=true#upgrading-existing-windows-powershell)
+   Para atualizar sua versão do PowerShell, consulte [atualizando o Windows PowerShell existente](/powershell/scripting/install/installing-windows-powershell#upgrading-existing-windows-powershell)
     
 1. Instale a versão mais recente do módulo PowershellGet.
 

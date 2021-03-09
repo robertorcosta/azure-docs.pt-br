@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
-ms.openlocfilehash: f9f25ec2dd8fb8b859f7863c1e695e22cb9a9cec
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575076"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521332"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorando a referência de dados do Azure Machine Learning
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre o que são dimensões de métrica, confira [
 
 Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 
-| Dimensão | Description |
+| Dimensão | Descrição |
 | ---- | ---- |
 | Nome do cluster | O nome do recurso de cluster de computação. Disponível para todas as métricas de cota. |
 | Nome da família de VMs | O nome da família de VMs usada pelo cluster. Disponível para porcentagem de utilização de cota. |
@@ -88,7 +88,7 @@ Azure Machine Learning tem as seguintes dimensões associadas a suas métricas.
 | NodeId | ID do nó criado onde o trabalho está em execução. Disponível somente para CpuUtilization e GpuUtilization. |
 | RunId | ID da execução/trabalho. Disponível somente para CpuUtilization e GpuUtilization. |
 | ComputeType | O tipo de computação usado pela execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
-| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?preserve-view=true&view=azure-ml-py) usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
+| PipelineStepType | O tipo de [PipelineStep](/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep) usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 | PublishedPipelineId | A ID do pipeline publicado usado na execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 | RunType | O tipo de execução. Somente disponível para execuções concluídas, execuções com falha e iniciados é executado. |
 
@@ -229,7 +229,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | TotalE2ETimeInSeconds | O nó de tempo total estava ativo |
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
 - Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

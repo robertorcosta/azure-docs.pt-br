@@ -11,16 +11,16 @@ author: jpe316
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, devx-track-python, deploy
-ms.openlocfilehash: 39c7d980bf9a90e5f72dfc9366d0ec44204b1ed2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e6a58a6555602af2494683037721a1f83e7ea33c
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212783"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519309"
 ---
 # <a name="deploy-ml-models-to-field-programmable-gate-arrays-fpgas-with-azure-machine-learning"></a>Implantar modelos de ML em FPGAs (matrizes de porta programável por campo) com Azure Machine Learning 
 
-Neste artigo, você aprenderá sobre o FPGAs e como implantar seus modelos de ML em um FPGA do Azure usando o [pacote de Python dos modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py) da [Azure Machine Learning](overview-what-is-azure-ml.md).
+Neste artigo, você aprenderá sobre o FPGAs e como implantar seus modelos de ML em um FPGA do Azure usando o [pacote de Python dos modelos acelerados por hardware](/python/api/azureml-accel-models/azureml.accel) da [Azure Machine Learning](overview-what-is-azure-ml.md).
 
 ## <a name="what-are-fpgas"></a>O que são FPGAs?
 As FPGAs contêm uma matriz de blocos lógicos programáveis e uma hierarquia de interconexões reconfiguráveis. As interconexões permitem que esses blocos sejam configurados de várias maneiras após a fabricação. Comparado a outros chips, as FPGAs fornecem uma combinação de programação e desempenho. 
@@ -56,7 +56,7 @@ A **família PBS de VMs do Azure** contém o Intel Arria 10 FPGAs. Ele será mos
 
 ## <a name="deploy-models-on-fpgas"></a>Implantar modelos em FPGAs
 
-Você pode implantar um modelo como um serviço Web no FPGAs com [Azure Machine Learning modelos de aceleração de hardware](/python/api/azureml-accel-models/azureml.accel?preserve-view=true&view=azure-ml-py). O uso de FPGAs fornece inferência de latência ultra baixa, mesmo com um único tamanho de lote. 
+Você pode implantar um modelo como um serviço Web no FPGAs com [Azure Machine Learning modelos de aceleração de hardware](/python/api/azureml-accel-models/azureml.accel). O uso de FPGAs fornece inferência de latência ultra baixa, mesmo com um único tamanho de lote. 
 
 Neste exemplo, você cria um grafo TensorFlow para pré-processar a imagem de entrada, torna-o um featurizer usando ResNet 50 em um FPGA e, em seguida, executa os recursos por meio de um classificador treinado no conjunto de dados ImageNet. Em seguida, o modelo é implantado em um cluster AKS.
 
@@ -80,7 +80,7 @@ Neste exemplo, você cria um grafo TensorFlow para pré-processar a imagem de en
 
 ### <a name="define-the-tensorflow-model"></a>Definir o modelo TensorFlow
 
-Comece usando o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) para criar uma definição de serviço. Uma definição de serviço é um arquivo que descreve um pipeline de grafos (entrada, recursos e classificador) com base no TensorFlow. O comando de implantação compacta a definição e os grafos em um arquivo ZIP e carrega o ZIP para o armazenamento de BLOBs do Azure. O DNN já está implantado para ser executado no FPGA.
+Comece usando o [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro) para criar uma definição de serviço. Uma definição de serviço é um arquivo que descreve um pipeline de grafos (entrada, recursos e classificador) com base no TensorFlow. O comando de implantação compacta a definição e os grafos em um arquivo ZIP e carrega o ZIP para o armazenamento de BLOBs do Azure. O DNN já está implantado para ser executado no FPGA.
 
 1. Carregar Azure Machine Learning espaço de trabalho
 

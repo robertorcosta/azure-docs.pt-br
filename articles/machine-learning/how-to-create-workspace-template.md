@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 98ea51957014a4e9d83f27adefd86d8d0708b500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9df8a67fd3dfbf23986f1cc5ed18392463fc7ecb
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503174"
+ms.locfileid: "102522199"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usar um modelo do Azure Resource Manager para criar um workspace para o Azure Machine Learning
 
@@ -32,12 +32,7 @@ Para saber mais, confira [Implantar um aplicativo com o modelo do Gerenciador de
 
 * Para usar um modelo a partir de uma CLI, você precisará do [Azure PowerShell](/powershell/azure/) ou da [CLI do Azure](/cli/azure/install-azure-cli).
 
-* Alguns cenários exigem que você abra um tíquete de suporte. Esses cenários são:
-
-    * __Workspace habilitado para link privado com uma chave gerenciada pelo cliente__
-    * __Registro de Contêiner do Azure para o workspace atrás da rede virtual__
-
-    Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+* Alguns cenários exigem que você abra um tíquete de suporte. Por exemplo, usando um espaço de trabalho habilitado para link privado com uma chave gerenciada pelo cliente. Para obter mais informações, consulte [gerenciar e aumentar cotas](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
 ## <a name="limitations"></a>Limitações
 

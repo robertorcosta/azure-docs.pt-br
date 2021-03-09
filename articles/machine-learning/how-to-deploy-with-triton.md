@@ -11,12 +11,12 @@ ms.date: 02/16/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 47d2c8865109e8ef43317b3c4a19c36e692aff91
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 2966b685e1904102467bf16994ea781556544047
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218835"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102519190"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Serviço de alto desempenho com o servidor de inferência de Triton (visualização) 
 
@@ -36,7 +36,7 @@ Triton é uma estrutura *otimizada para inferência*. Ele fornece melhor utiliza
 
 * Uma **assinatura do Azure**. Se você não tiver uma, experimente a [versão paga ou gratuita do Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiaridade com [como e onde implantar um modelo](how-to-deploy-and-where.md) com Azure Machine Learning.
-* O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/?view=azure-ml-py) **ou** a extensão de [CLI do Azure](/cli/azure/) e [Machine Learning](reference-azure-machine-learning-cli.md).
+* O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/) **ou** a extensão de [CLI do Azure](/cli/azure/) e [Machine Learning](reference-azure-machine-learning-cli.md).
 * Uma instalação funcional do Docker para teste local. Para obter informações sobre como instalar e validar o Docker, consulte [orientação e configuração](https://docs.docker.com/get-started/) na documentação do Docker.
 
 ## <a name="architectural-overview"></a>Visão geral da arquitetura
@@ -134,7 +134,7 @@ model = Model.register(
 )
 
 ```
-Para obter mais informações, consulte a documentação da [classe Model](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
+Para obter mais informações, consulte a documentação da [classe Model](/python/api/azureml-core/azureml.core.model.model).
 
 ---
 
@@ -276,7 +276,7 @@ Uma configuração de inferência permite que você use um script de entrada, be
 > [!IMPORTANT]
 > Você deve especificar o `AzureML-Triton` [ambiente organizado](./resource-curated-environments.md).
 >
-> O exemplo de código Python é clonado `AzureML-Triton` em outro ambiente chamado `My-Triton` . O código de CLI do Azure também usa esse ambiente. Para obter mais informações sobre a clonagem de um ambiente, consulte a referência de [Environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) .
+> O exemplo de código Python é clonado `AzureML-Triton` em outro ambiente chamado `My-Triton` . O código de CLI do Azure também usa esse ambiente. Para obter mais informações sobre a clonagem de um ambiente, consulte a referência de [Environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment#clone-new-name-) .
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azcli)
 
@@ -337,7 +337,7 @@ Para obter informações sobre como criar um cliente que envia solicitações de
 
 ### <a name="setting-the-number-of-workers"></a>Definindo o número de trabalhadores
 
-Para definir o número de trabalhadores em sua implantação, defina a variável de ambiente `WORKER_COUNT` . Dado que você tem um objeto de [ambiente](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py) chamado `env` , você pode fazer o seguinte:
+Para definir o número de trabalhadores em sua implantação, defina a variável de ambiente `WORKER_COUNT` . Dado que você tem um objeto de [ambiente](/python/api/azureml-core/azureml.core.environment.environment) chamado `env` , você pode fazer o seguinte:
 
 ```{py}
 env.environment_variables["WORKER_COUNT"] = "1"

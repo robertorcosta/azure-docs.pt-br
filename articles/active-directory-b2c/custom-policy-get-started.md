@@ -12,12 +12,12 @@ ms.date: 02/28/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9612a26d7ac2e7a059655636fc1a2a7a43e3b8d7
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.openlocfilehash: 2d6c76a15ee62c26e0d0261c6b0d2d1e27443a40
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100526231"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518034"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introdução às políticas personalizadas no Azure Active Directory B2C
 
@@ -30,6 +30,10 @@ As [políticas personalizadas](custom-policy-overview.md) são arquivos de confi
 - Se ainda não tiver um, você precisará [criar um locatário do Azure AD B2C](tutorial-create-tenant.md) que esteja vinculado à sua assinatura do Azure.
 - [Registre seu aplicativo](tutorial-register-applications.md) no locatário que você criou para que ele possa se comunicar com Azure AD B2C.
 - Conclua as etapas em [Configurar a inscrição e entrada com a conta do Facebook](identity-provider-facebook.md) para configurar um aplicativo do Facebook. Embora não seja necessário um aplicativo do Facebook para o uso de políticas personalizadas, é usado neste tutorial para demonstrar a habilitação do logon social em uma política personalizada.
+
+> [!TIP]
+> Este artigo explica como configurar seu locatário manualmente. Você pode automatizar todo o processo deste artigo. A automação implantará o Azure AD B2C o [pacote de início do SocialAndLocalAccountsWithMFA](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack), que fornecerá as jornadas de inscrição e entrada, redefinição de senha e edição de perfil. Para automatizar o passo a passos abaixo, visite o [aplicativo de instalação do IEF](https://aka.ms/iefsetup) e siga as instruções.
+
 
 ## <a name="add-signing-and-encryption-keys"></a>Adicionar chaves de criptografia e de assinatura
 

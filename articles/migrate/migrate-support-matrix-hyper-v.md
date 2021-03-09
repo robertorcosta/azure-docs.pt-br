@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/14/2020
-ms.openlocfilehash: 4407f9544a7d3a19e3ff7d404669fdb27b881d30
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fc7be5c6c5dda8c5065330f819f646f4abd08994
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590643"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521349"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
@@ -39,7 +39,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 | :-------------------       | :------------------- |
 | **Host do Hyper-V**       | O host Hyper-V pode ser autônomo ou implantado em um cluster.<br/><br/> O host Hyper-V pode executar o Windows Server 2019, o Windows Server 2016 ou o Windows Server 2012 R2. Também há suporte para a instalação do Server Core desses sistemas operacionais. <br/>Não é possível avaliar as VMs localizadas em hosts Hyper-V que executam o Windows Server 2012.
 | **Permissões**           | Você precisa de permissões de administrador no host do Hyper-V. <br/> Se você não quiser atribuir permissões de administrador, crie uma conta de usuário local ou de domínio e adicione a conta de usuário a esses grupos – usuários de gerenciamento remoto, administradores do Hyper-V e usuários de monitor de desempenho. |
-| **Comunicação remota do PowerShell**   | A [comunicação remota do PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting?view=powershell-7) deve ser habilitada em cada host Hyper-V. |
+| **Comunicação remota do PowerShell**   | A [comunicação remota do PowerShell](/powershell/module/microsoft.powershell.core/enable-psremoting) deve ser habilitada em cada host Hyper-V. |
 | **Réplica do Hyper-V**       | Se você usar a réplica do Hyper-V (ou se tiver várias VMs com os mesmos identificadores de VM) e descobrir as VMs originais e replicadas usando as migrações para Azure, a avaliação gerada pelas migrações para Azure pode não ser precisa. |
 
 
@@ -49,7 +49,7 @@ Para configurar a avaliação de VM do Hyper-V, você cria um projeto de migraç
 | :----------------------------- | :------------------- |
 | **Sistema operacional** | Todos os sistemas operacionais podem ser avaliados quanto à migração.  |
 | **Serviços de Integração**       | Os [Integration Services do Hyper-V](/virtualization/hyper-v-on-windows/reference/integration-services) devem estar em execução em VMs que você avaliar, a fim de capturar informações do sistema operacional. |
-| **Armazenamento** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
+| **Storage** | Disco local, DAS, JBOD, espaços de armazenamento, CSV, SMB. Há suporte para esse armazenamento de host Hyper-V no qual VHD/VHDX são armazenados. <br/> Há suporte para os controladores virtuais IDE e SCSI| 
 
 ## <a name="azure-migrate-appliance-requirements"></a>Requisitos de dispositivo para as Migrações para Azure
 

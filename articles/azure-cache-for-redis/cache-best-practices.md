@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: joncole
-ms.openlocfilehash: 4e209bfe5e3856f3847b0c24852c487a92c8f182
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 84a6bba390b0f6b101bd8243cf47b79af9618999
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102454729"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102521638"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Melhores práticas para o Cache do Azure para Redis 
 Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempenho e o uso econômico de seu cache do Azure para a instância Redis.
@@ -30,6 +30,8 @@ Ao seguir essas práticas recomendadas, você pode ajudar a maximizar o desempen
  * **Localize sua instância de cache e seu aplicativo na mesma região.**  Conectar-se a um cache em uma região diferente pode aumentar significativamente a latência e reduzir a confiabilidade.  Embora você possa se conectar de fora do Azure, isso não é recomendado *especialmente ao usar Redis como um cache*.  Se você estiver usando Redis como apenas um repositório de chave/valor, a latência poderá não ser a principal preocupação. 
 
  * **Reutilizar conexões.**  A criação de novas conexões é cara e aumenta a latência. portanto, reutilize as conexões o máximo possível. Se você optar por criar novas conexões, certifique-se de fechar as conexões antigas antes de liberá-las (mesmo em linguagens de memória gerenciada como .NET ou Java).
+
+* **Use o pipeline.**  Tente escolher um cliente Redis que dê suporte ao [pipeline Redis](https://redis.io/topics/pipelining) para fazer uso mais eficiente da rede para obter a melhor taxa de transferência possível.
 
  * **Configure sua biblioteca de cliente para usar um *tempo limite de conexão* de, pelo menos, 15 segundos**, dando à hora do sistema a conexão, mesmo sob condições de CPU mais altas.  Um valor de tempo limite de conexão pequeno não garante que a conexão seja estabelecida nesse período de tempo.  Se algo der errado (alta CPU de cliente, alta CPU de servidor e assim por diante), um valor de tempo limite de conexão curto causará falha na tentativa de conexão. Esse comportamento geralmente resulta em uma situação pior.  Em vez de ajudar, tempos limite mais curtos aggravatem o problema ao forçar o sistema a reiniciar o processo de tentativa de reconexão, o que pode levar a um loop de *repetição de falha > de > conexão* . Geralmente, é recomendável deixar o tempo limite de conexão em 15 segundos ou superior. É melhor permitir que sua tentativa de conexão seja bem-sucedida após 15 ou 20 segundos do que fazer com que ela falhe rapidamente apenas para tentar novamente. Esse loop de repetição pode fazer com que a interrupção seja mais longa do que se você deixar que o sistema simplesmente demore mais tempo inicialmente.  
      > [!NOTE]
