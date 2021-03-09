@@ -6,12 +6,12 @@ ms.author: lichris
 ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub
-ms.openlocfilehash: cf05d5f93180db91658d0e94a23359edd5b0f7ad
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 86b2dbe6a28d1440f93788eb40e133d9b62d3f0c
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661928"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489422"
 ---
 # <a name="device-update-security-model"></a>Modelo de segurança de atualização de dispositivo
 
@@ -54,7 +54,7 @@ Ter chaves raiz e de assinatura permite que a Microsoft lance periodicamente a c
 
 ### <a name="json-web-signature-jws"></a>Assinatura da Web JSON (JWS)
 
-O `updateManifestSignature` é usado para garantir que as informações contidas no `updateManifest` não tenham sido adulteradas. O `updateManifestSignature` é produzido usando uma assinatura Web JSON com chaves Web JSON, permitindo a verificação de origem. A assinatura é uma cadeia de caracteres codificada Base64Url com três seções delineada por ".".  Consulte os métodos auxiliares jws_util. h para analisar e verificar chaves e tokens JSON.
+O `updateManifestSignature` é usado para garantir que as informações contidas no `updateManifest` não tenham sido adulteradas. O `updateManifestSignature` é produzido usando uma assinatura Web JSON com chaves Web JSON, permitindo a verificação de origem. A assinatura é uma cadeia de caracteres codificada Base64Url com três seções delineada por ".".  Consulte os [métodos auxiliares jws_util. h](https://github.com/Azure/iot-hub-device-update/tree/main/src/utils/jws_utils) para analisar e verificar chaves e tokens JSON.
 
 A assinatura da Web JSON é um [padrão de IETF proposto](https://tools.ietf.org/html/rfc7515) amplamente usado para assinar conteúdo usando estruturas de dados baseadas em JSON. É uma maneira de garantir a integridade dos dados, verificando a assinatura dos dados. Mais informações podem ser encontradas na [RFC 7515](https://www.rfc-editor.org/info/rfc7515)(assinatura Web JSON) do JWS.
 

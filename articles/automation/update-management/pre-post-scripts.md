@@ -3,14 +3,14 @@ title: Gerenciar pré-scripts e pós-scripts na implantação do Gerenciamento d
 description: Este artigo informa como configurar e gerenciar pré-scripts e pós-scripts para implantações de atualizações.
 services: automation
 ms.subservice: update-management
-ms.date: 12/17/2020
+ms.date: 03/08/2021
 ms.topic: conceptual
-ms.openlocfilehash: 3ca1dec1b6139f3192edb09f8748c8f23a9d399e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ce60c773626d951062de3cc830b898e3b875f3cb
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701494"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485530"
 ---
 # <a name="manage-pre-scripts-and-post-scripts"></a>Gerenciar pré-scripts e pós-scripts
 
@@ -19,6 +19,8 @@ Pré-scripts e pós-scripts são runbooks para execução na sua conta da Automa
 ## <a name="pre-script-and-post-script-requirements"></a>Requisitos de pré-script e pós-script
 
 Para que um runbook seja usado como pré-script ou pós-script, você deve importá-lo para sua conta da Automação e [publicar o runbook](../manage-runbooks.md#publish-a-runbook).
+
+Atualmente, somente os runbooks do PowerShell e do Python 2 têm suporte como scripts de pré/pós. Outros tipos de runbook como o Python 3, o fluxo de trabalho do PowerShell, fluxo de trabalho gráfico do PowerShell atualmente não têm suporte como scripts de pré/pós.
 
 ## <a name="pre-script-and-post-script-parameters"></a>Parâmetros de pré-script e pós-script
 
@@ -91,9 +93,6 @@ Um exemplo completo com todas as propriedades pode ser encontrado em: [Obter con
 > [!NOTE]
 > O objeto `SoftwareUpdateConfigurationRunContext` pode conter entradas duplicadas para computadores. Isso pode fazer com que os pré-scripts e os pós-scripts sejam executados várias vezes no mesmo computador. Para contornar esse comportamento, use `Sort-Object -Unique` para selecionar apenas nomes de VM exclusivos.
 
-> [!NOTE]
-> Atualmente, somente os runbooks do PowerShell têm suporte como scripts de pré/pós. Outros tipos de runbook como Python, gráfico, fluxo de trabalho do PowerShell, fluxo de trabalho gráfico do PowerShell atualmente não têm suporte como scripts de pré/pós.
-
 ## <a name="use-a-pre-script-or-post-script-in-a-deployment"></a>Usar um pré-script ou pós-script em uma implantação
 
 Para usar um pré-script ou um pós-script em uma implantação de atualização, comece criando uma implantação de atualização. Selecione **Pré-Scripts + Pós-scripts**. Essa ação abre a página **Selecionar Pré-scripts + Pós-scripts**.
@@ -120,7 +119,7 @@ Ao selecionar a execução da implantação de atualizações, você verá detal
 
 ## <a name="stop-a-deployment"></a>Interromper uma implantação
 
-Se você deseja interromper uma implantação com base em um pré-script, [lance](../automation-runbook-execution.md#throw) uma exceção. Se não, a implantação e o post-script ainda serão executados. O snippet de código a seguir mostra como lançar uma exceção.
+Se você deseja interromper uma implantação com base em um pré-script, [lance](../automation-runbook-execution.md#throw) uma exceção. Se não, a implantação e o post-script ainda serão executados. O trecho de código a seguir mostra como lançar uma exceção usando o PowerShell.
 
 ```powershell
 #In this case, we want to terminate the patch job if any run fails.
@@ -134,6 +133,8 @@ foreach($summary in $finalStatus)
     }
 }
 ```
+
+No Python 2, a manipulação de exceção é gerenciada em um bloco [try](https://www.python-course.eu/exception_handling.php) .
 
 ## <a name="interact-with-machines"></a>Interação com computadores
 
@@ -169,6 +170,13 @@ if (<My custom error logic>)
     #Throw an error to fail the patch deployment.
     throw "There was an error, abort deployment"
 }
+```
+
+No Python 2, se você quiser gerar um erro quando uma determinada condição ocorrer, use uma instrução [Raise](https://docs.python.org/2.7/reference/simple_stmts.html#the-raise-statement) .
+
+```python
+If (<My custom error logic>)
+   raise Exception('Something happened.')
 ```
 
 ## <a name="samples"></a>Exemplos

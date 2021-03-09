@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/14/2020
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: baba35bd29ec6708aca77bd9c6d74401a365014a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 9a5bc0620468980da68e1b92f758d5f3862ac7d3
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101091893"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487246"
 ---
 # <a name="shared-image-galleries-overview"></a>Visão geral das Galerias de Imagens Compartilhadas
 
@@ -104,7 +104,7 @@ As VMs especializadas não passaram por um processo para remover informações e
 
 ## <a name="regional-support"></a>Suporte regional
 
-Todas as regiões públicas podem ser regiões de destino, mas, para replicar para a Austrália Central e a Austrália Central 2, é necessário adicionar a assinatura à lista de permissões. Para solicitar que uma assinatura seja adicionada à lista de permissões, acesse: https://azure.microsoft.com/global-infrastructure/australia/contact/
+Todas as regiões públicas podem ser regiões de destino, mas, para replicar para a Austrália Central e a Austrália Central 2, é necessário adicionar a assinatura à lista de permissões. Para solicitar que uma assinatura seja adicionada à lista de permissões, acesse: https://docs.microsoft.com/azure/virtual-machines/shared-image-galleries#regional-support
 
 ## <a name="limits"></a>limites 
 
@@ -325,4 +325,3 @@ Além disso, você pode postar e marcar sua pergunta com `azure-virtual-machines
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba como implantar imagens compartilhadas usando o [CLI do Azure](shared-images-cli.md) ou o [PowerShell](shared-images-powershell.md).
-

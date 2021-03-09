@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 2d97d02aec84fec92e29e971cd5c667c847b2541
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 733b2375a26b0157f88bc148b52932e2f3e3f2e2
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100368040"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488266"
 ---
 # <a name="migration-overview-sql-server-to-sql-database"></a>Visão geral da migração: SQL Server para o banco de dados SQL
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
@@ -24,7 +24,7 @@ Saiba mais sobre as diferentes opções de migração e considerações para mig
 
 Você pode migrar SQL Server em execução no local ou em: 
 
-- SQL Server em Máquinas Virtuais  
+- SQL Server em máquinas virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)  
@@ -104,6 +104,7 @@ A tabela a seguir lista as ferramentas de migração recomendadas:
 
 |Tecnologia | Descrição|
 |---------|---------|
+| [Migrações para Azure](/azure/migrate/how-to-create-azure-sql-assessment) | As migrações para Azure para SQL do Azure permitem que você descubra e avalie seu espaço de dados SQL em escala quando estiver no VMware, fornecendo recomendações de implantação do Azure SQL, dimensionamento de destino e estimativas mensais. | 
 |[AMD (Assistente de Migração de Dados)](/sql/dma/dma-migrateonpremsqltosqldb)|O Assistente de Migração de Dados é uma ferramenta de área de trabalho que fornece avaliações diretas de SQL Server e migrações para o banco de dados SQL do Azure (tanto o esquema quanto o Data). A ferramenta pode ser instalada em um servidor local ou no computador que tem conectividade com seus bancos de dados de origem. O processo de migração é uma movimentação de dados lógica entre objetos no banco de dados de origem e de destino. </br> -Migrar bancos de dados individuais (esquema e data)|
 |[DMS (Serviço de Migração de Banco de Dados do Azure)](../../../dms/tutorial-sql-server-to-azure-sql.md)|Um serviço do Azure de terceiros que pode migrar seus bancos de dados do SQL Server para o Azure SQL usando o portal do Azure ou automatizado com o PowerShell. O Azure DMS exige que você selecione uma rede virtual (VNet) do Azure preferencial durante o provisionamento para garantir que haja conectividade com seus bancos de dados de SQL Server de origem. </br> -Migre bancos de dados individuais ou em escala. |
 | | |

@@ -12,12 +12,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: bonova, sstein, danil
 ms.date: 03/08/2021
-ms.openlocfilehash: 56f7a233e7098f18b727da3ce56c5fbe30a328a1
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 8c98ce661e7bb753d4e62d1eaf98702de91c5106
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447462"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489762"
 ---
 # <a name="features-comparison-azure-sql-database-and-azure-sql-managed-instance"></a>Comparação de recursos: banco de dados SQL do Azure e Azure SQL Instância Gerenciada
 
@@ -33,8 +33,8 @@ O banco de dados SQL do Azure e o SQL Instância Gerenciada compartilham uma bas
 O Azure gerencia seus bancos de dados e garante sua alta disponibilidade. Alguns recursos que podem afetar a alta disponibilidade ou que não podem ser usados no ambiente de PaaS têm funcionalidades limitadas no banco de dados SQL e no SQL Instância Gerenciada. Esses recursos são descritos nas tabelas abaixo.
 
 Se precisar de mais detalhes sobre as diferenças, você poderá encontrá-las nas páginas separadas:
-- [Banco de Dados SQL do Azure](transact-sql-tsql-differences-sql-server.md)
-- [Instância Gerenciada do SQL do Azure](../managed-instance/transact-sql-tsql-differences-sql-server.md)
+- [Diferenças do banco de dados SQL do Azure versus SQL Server](transact-sql-tsql-differences-sql-server.md)
+- [Diferenças do SQL Instância Gerenciada do Azure versus SQL Server](../managed-instance/transact-sql-tsql-differences-sql-server.md)
 
 ## <a name="features-of-sql-database-and-sql-managed-instance"></a>Recursos do banco de dados SQL e SQL Instância Gerenciada
 

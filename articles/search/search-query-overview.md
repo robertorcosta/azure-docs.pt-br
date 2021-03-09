@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 234a0137f0a9487a56b3e0343eaea375d2f9a1af
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043007"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487110"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultando no Azure Pesquisa Cognitiva
 
@@ -24,10 +24,11 @@ No Pesquisa Cognitiva, uma consulta é uma especificação completa de uma opera
 ```http
 POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30
 {
-    "queryType": "simple"
-    "search": "`New York` +restaurant",
-    "searchFields": "Description, Address/City, Tags",
-    "select": "HotelId, HotelName, Description, Rating, Address/City, Tags",
+    "queryType": "simple",
+    "searchMode": "all",
+    "search": "restaurant +view",
+    "searchFields": "HotelName, Description, Address/City, Address/StateProvince, Tags",
+    "select": "HotelName, Description, Address/City, Address/StateProvince, Tags",
     "top": "10",
     "count": "true",
     "orderby": "Rating desc"
@@ -38,9 +39,11 @@ Os parâmetros usados durante a execução da consulta incluem:
 
 + **`queryType`** define o analisador, que é o [analisador de consulta simples padrão](search-query-simple-examples.md) (ideal para pesquisa de texto completo) ou o [analisador de consulta Lucene completo](search-query-lucene-examples.md) usado para constructos de consulta avançada, como expressões regulares, pesquisa de proximidade, pesquisa difusa e de curinga, para citar alguns.
 
++ **`searchMode`** Especifica se as correspondências se baseiam em critérios "todos" ou em "qualquer" na expressão. O padrão é Any.
+
 + **`search`** fornece os critérios de correspondência, geralmente os termos ou frases inteiras, com ou sem operadores. Qualquer campo atribuído como *pesquisável* no esquema de índice é um candidato para esse parâmetro.
 
-+ **`searchFields`** restringe a execução da consulta a campos pesquisáveis específicos.
++ **`searchFields`** restringe a execução da consulta a campos pesquisáveis específicos. Durante o desenvolvimento, é útil usar a mesma lista de campos para Select e Search. Caso contrário, uma correspondência pode ser baseada em valores de campo que você não pode ver nos resultados, criando incertezas sobre por que o documento foi retornado.
 
 Parâmetros usados para formatar a resposta:
 
@@ -114,4 +117,4 @@ Para uma análise mais detalhada da implementação da consulta, examine os exem
 
 + [Exemplos de consulta simples](search-query-simple-examples.md)
 + [Exemplos de consulta de sintaxe Lucene para criar consultas avançadas](search-query-lucene-examples.md)
-+ [Como funciona a pesquisa de texto completo no Azure Cognitive Search](search-lucene-query-architecture.md)
++ [Como a pesquisa de texto completo funciona no Azure pesquisa cognitiva](search-lucene-query-architecture.md)git

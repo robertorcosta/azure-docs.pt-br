@@ -5,14 +5,14 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: how-to
-ms.date: 06/21/2018
+ms.date: 03/08/2021
 ms.custom: seodec18
-ms.openlocfilehash: 3356e0bdd45b6a213ef5ef4a814e64585d8e8924
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d3558511721a91c3a195cb510a1a00d5d8a9a51
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726760"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487871"
 ---
 # <a name="understand-stream-analytics-job-monitoring-and-how-to-monitor-queries"></a>Noções básicas sobre o monitoramento de trabalhos do Stream Analytics e como monitorar consultas
 
@@ -30,7 +30,7 @@ A janela será exibida conforme mostrado:
 | ---------------------- | ---------------------------------------- |
 | Eventos de Entrada Acumulados       | Número de eventos de entrada com lista de pendências. Um valor diferente de zero nessa métrica indica que seu trabalho não consegue acompanhar o número de eventos de entrada. Se esse valor for aumentando lentamente ou for consistentemente diferente de zero, escale horizontalmente seu trabalho. Você pode aprender mais visitando [Compreender e ajustar as Unidades de Streaming](stream-analytics-streaming-unit-consumption.md). |
 | Erros de conversão de dados | Número de eventos de saída que não pôde ser convertido para o esquema de saída esperado. A política de erro pode ser alterada para 'Remover' a fim de remover os eventos que encontram esse cenário. |
-| % De utilização da CPU (versão prévia)       | A porcentagem da CPU utilizada pelo seu trabalho. Se essa métrica for consistentemente maior do que 80%, isso pode significar que seu trabalho está afunilado no uso da CPU e provavelmente causará eventos de entrada para obter o log posterior. Você pode aumentar o número de SUs alocados para seu trabalho para atenuar esses problemas. |
+| % De utilização da CPU (versão prévia)       | A porcentagem da CPU utilizada pelo seu trabalho. Mesmo que esse valor seja muito alto (90% ou superior), você não deve aumentar o número de SUs com base nessa métrica sozinho. Se o número de eventos de entrada de pendências ou o atraso de marca d' água aumentar, você poderá usar essa métrica% de utilização da CPU para determinar se a CPU é o afunilamento. É possível que essa métrica tenha picos intermitentes. É recomendável fazer testes de escala para determinar o limite superior de seu trabalho após o qual as entradas obtêm registro posterior ou atraso de marca d' água aumenta devido ao afunilamento da CPU. |
 | Eventos de Entrada Antecipados       | Eventos cujos carimbos de data/hora do aplicativo sejam anteriores à hora de chegada por mais de cinco minutos. |
 | Solicitações de função com falha | Número de chamadas à função Azure Machine Learning com falha (se presente). |
 | Eventos de função        | Número de eventos enviados à função Azure Machine Learning (se presente). |

@@ -7,12 +7,12 @@ ms.topic: guide
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/15/2020
-ms.openlocfilehash: 88ec58ca9bcfa5c64036d3b65e77f3248e26357d
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: d045af3b170d585b4bf1f8c57b7ba924c6b30695
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124944"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102489779"
 ---
 # <a name="common-questions-about-vm-in-azure-marketplace"></a>Perguntas comuns sobre a VM no Azure Marketplace
 
@@ -49,6 +49,19 @@ Para obter mais informações, consulte estes artigos:
 Sempre que estou tento criar uma imagem de minhas VHDs, recebo o erro "O VHD já está registrado no repositório de imagens como o recurso" no Azure PowerShell. Eu não criei uma imagem antes, nem encontrei uma imagem com esse nome no Azure. Como resolver isso?
 
 Esse problema geralmente aparece quando você cria uma VM de um VHD que tem um bloqueio. Confirme se não há VM alocada desse VHD e, em seguida, repita a operação. Se o problema persistir, abra um tíquete de suporte. Confira [Suporte do Partner Center](support.md).
+
+## <a name="how-do-i-test-a-hidden-preview-image"></a>Como fazer testar uma imagem de visualização oculta?
+
+Você pode implantar imagens de visualização ocultas usando modelos de início rápido.
+Para implantar uma imagem de visualização do Linux, 
+1. Ir para este [modelo de início rápido](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux), selecione "implantar no Azure". Isso deve levá-lo a portal do Azure
+2. Em portal do Azure, selecione "Editar modelo".
+3. No modelo JSON, pesquise imageReference e atualize o PublisherID, o OfferId, o SkuID e a versão da imagem. Para testar a imagem de visualização, acrescente "-PREVIEW" à OfferId.
+ ![imagem](https://user-images.githubusercontent.com/79274470/110191995-71c7d500-7de0-11eb-9f3c-6a42f55d8f03.png)
+4. Clique em Salvar
+5. Preencha o restante dos detalhes. Examinar e criar
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 
