@@ -5,19 +5,19 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 03/02/2021
+ms.date: 03/08/2021
 ms.author: duau
-ms.openlocfilehash: 994fdf3f929f1f64ab4a064d7f2bd24c19322629
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6eed0ed3e936b0e9a534c82a3105c2ed37cab3d5
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679011"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102485412"
 ---
 # <a name="azure-route-server-preview-faq"></a>FAQ do servidor de rota do Azure (visualização)
 
 > [!IMPORTANT]
-> O servidor de rota do Azure (visualização) está atualmente em visualização pública.
+> No momento, o Servidor de Rota do Azure (versão prévia) está na versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -70,7 +70,7 @@ O servidor de rota do Azure tem os seguintes limites (por implantação).
 | Número de rotas que cada par de BGP pode anunciar para o servidor de rota do Azure | 200 |
 | Número de rotas que o servidor de rota do Azure pode anunciar para o ExpressRoute ou gateway de VPN | 200 |
 
-Para obter mais informações, consulte [diagnosticar um problema de roteamento de máquina virtual do Azure](../virtual-network/diagnose-network-routing-problem.md).
+Se o seu NVA anunciar mais rotas do que o limite, a sessão BGP será descartada. Se isso acontecer com o gateway e o servidor de rota do Azure, você perderá a conectividade de sua rede local para o Azure. Para obter mais informações, consulte [diagnosticar um problema de roteamento de máquina virtual do Azure](../virtual-network/diagnose-network-routing-problem.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

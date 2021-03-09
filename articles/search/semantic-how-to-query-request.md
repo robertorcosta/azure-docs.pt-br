@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/05/2021
-ms.openlocfilehash: 8fdb6a53ed0fd64953b75238c3ba3df62c4b644e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7f7a09b9e20b461a8a1e448bf4a7b0747a35fbb1
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432937"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487127"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Criar uma consulta semântica no Pesquisa Cognitiva
 
@@ -177,7 +177,7 @@ A tabela a seguir resume os parâmetros de consulta usados em uma consulta semâ
 | queryType | String | Os valores válidos incluem simples, completo e semântico. Um valor de "Semantic" é necessário para consultas semânticas. |
 | queryLanguage | String | Necessário para consultas semânticas. Atualmente, apenas "en-US" é implementado. |
 | searchFields | String | Uma lista delimitada por vírgulas de campos pesquisáveis. Opcional, mas recomendado. Especifica os campos em que a classificação semântica ocorre. </br></br>Em contraste com tipos de consulta simples e completos, a ordem na qual os campos são listados determina a precedência.|
-| respectivas |String | Campo opcional para especificar se as respostas semânticas são incluídas no resultado. Atualmente, apenas "extração" é implementada. As respostas podem ser configuradas para retornar um máximo de cinco. Este exemplo "extração|Count3 "' mostra uma contagem de três respostas. O padrão é 1.|
+| respectivas |String | Campo opcional para especificar se as respostas semânticas são incluídas no resultado. Atualmente, apenas "extração" é implementada. As respostas podem ser configuradas para retornar um máximo de cinco. O padrão é um. Este exemplo mostra uma contagem de três respostas: "extracçãoy \| Count3". |
 
 ## <a name="query-with-search-explorer"></a>Consultar com o Gerenciador de pesquisa
 
@@ -186,7 +186,7 @@ A consulta a seguir destina-se ao índice de exemplo interno de hotéis, usando 
 ### <a name="with-querytypesemantic"></a>Com QueryType = semântico
 
 ```json
-search=I want a nice hotel on the water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
+search=nice hotel on water with a great restaurant&$select=HotelId,HotelName,Description,Tags&queryType=semantic&queryLanguage=english&searchFields=Description,Tags
 ```
 
 Os primeiros resultados são os seguintes.

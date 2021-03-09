@@ -10,14 +10,17 @@ ms.date: 03/18/2020
 ms.topic: conceptual
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: e99af324e02e81e4b6888ee0e054ef466df899c1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 60e1b75ee8d8da9a7696ad4f7074207597ec2d0b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661505"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486232"
 ---
 # <a name="quickstart-use-the-communication-services-calling-client-library"></a>Início rápido: usar a biblioteca de cliente de chamada dos serviços de comunicação
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
 
 Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de chamada dos Serviços de Comunicação para adicionar chamada de vídeo e de voz ao seu aplicativo.
 
