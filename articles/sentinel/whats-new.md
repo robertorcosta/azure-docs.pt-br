@@ -8,12 +8,12 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.date: 03/08/2021
-ms.openlocfilehash: 66294e3c59c2252042e30864dd220683106cd574
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 88ac8bb1bc804604b96d5c90025b8325a6ce4962
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485377"
+ms.locfileid: "102503106"
 ---
 # <a name="whats-new-in-azure-sentinel"></a>O que há de novo no Azure Sentinel
 
@@ -72,6 +72,9 @@ A pasta de trabalho CMMC permite que arquitetos de segurança, engenheiros, anal
 Mesmo que você não precise estar em conformidade com o CMMC, a pasta de trabalho do CMMC é útil na criação de centros de operações de segurança, no desenvolvimento de alertas, na visualização de ameaças e no fornecimento de conscientização da situação de cargas de trabalho.
 
 Acesse a pasta de trabalho CMMC na área de **pastas de trabalho** do Azure Sentinel. Selecione **modelo** e, em seguida, procure **CMMC**.
+
+:::image type="content" source="media/whats-new/cmmc-guide-toggle.gif" alt-text="Ativar e desativar o guia de pasta de trabalho do CMMC" lightbox="media/whats-new/cmmc-guide-toggle.gif":::
+
 
 Para obter mais informações, consulte:
 

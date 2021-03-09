@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 11ad3bdcaa40c479c9358fd623edf0e6fdafa0d6
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: dadd86521a7b6c20dab2ed036555b798b869344c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96002061"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102511070"
 ---
 Use a associação de saída dos Hubs de Eventos para gravar eventos em um fluxo de eventos. É necessário ter permissão de envio para que um hub de eventos grave eventos nele.
 
@@ -274,7 +274,7 @@ Há duas opções para gerar uma mensagem do Hub de Eventos de uma função:
 
 - **Valor retornado**: defina a propriedade `name` no *function.json* como `$return`. Com essa configuração, o valor retornado da função será mantido como uma mensagem do Hub de Eventos.
 
-- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out?view=azure-python). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
+- **Imperativo**: passe um valor para [definir](/python/api/azure-functions/azure.functions.out#set-val--t-----none) o método do parâmetro declarado como um tipo de [Saída](/python/api/azure-functions/azure.functions.out). O valor passado para `set` será mantido como uma mensagem do Hub de Eventos.
 
 # <a name="java"></a>[Java](#tab/java)
 

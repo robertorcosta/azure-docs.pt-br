@@ -5,18 +5,18 @@ services: container-service
 manager: gwallace
 ms.topic: article
 ms.date: 01/08/2021
-ms.openlocfilehash: fd599c69b3072831461acc94827d97c4520292e9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 19ece696dabc81e643e8a904d506d22e40eaa099
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182444"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499145"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autenticar com o Registro de Contêiner do Azure do Serviço de Kubernetes do Azure
 
 Quando você estiver usando o ACR (Registro de Contêiner do Azure) com o AKS (Serviço de Kubernetes do Azure), um mecanismo de autenticação precisará ser estabelecido. Essa operação é implementada como parte da experiência da CLI e do portal, concedendo as permissões necessárias ao seu ACR. Este artigo fornece exemplos para configurar a autenticação entre esses dois serviços do Azure. 
 
-Você pode configurar o AKS para a integração de ACR em alguns comandos simples com o CLI do Azure. Essa integração atribui a função AcrPull à entidade de serviço associada ao cluster AKS.
+Você pode configurar o AKS para a integração de ACR em alguns comandos simples com o CLI do Azure. Essa integração atribui a função AcrPull à identidade gerenciada associada ao cluster AKS.
 
 > [!NOTE]
 > Este artigo aborda a autenticação automática entre AKS e ACR. Se você precisar efetuar pull de uma imagem de um registro externo privado, use um [segredo de extração de imagem][Image Pull Secret].
@@ -28,11 +28,11 @@ Esses exemplos precisam de:
 * Função de **administrador da conta do Azure** ou **proprietário** na **assinatura do Azure**
 * CLI do Azure versão 2.7.0 ou posterior
 
-Para evitar a necessidade de uma função de **administrador de conta do Azure** ou **proprietário** , você pode configurar uma entidade de serviço manualmente ou usar uma entidade de serviço existente para autenticar o ACR de AKs. Para obter mais informações, confira [Autenticação do ACR com entidades de serviço](../container-registry/container-registry-auth-service-principal.md) ou [Autenticar do Kubernetes com um segredo de pull](../container-registry/container-registry-auth-kubernetes.md).
+Para evitar a necessidade de uma função de **administrador de conta do Azure** ou **proprietário** , você pode configurar uma identidade gerenciada manualmente ou usar uma identidade gerenciada existente para autenticar o ACR de AKs. Para obter mais informações, consulte [usar uma identidade gerenciada do Azure para autenticar em um registro de contêiner do Azure](../container-registry/container-registry-authentication-managed-identity.md).
 
 ## <a name="create-a-new-aks-cluster-with-acr-integration"></a>Criar um novo cluster AKS com integração com ACR
 
-Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma **entidade de serviço** Azure Active Directory. O comando da CLI a seguir permite autorizar um ACR existente em sua assinatura e configurar a função **ACRPull** apropriada para a entidade de serviço. Forneça valores válidos para os parâmetros abaixo.
+Você pode configurar a integração de AKS e ACR durante a criação inicial do cluster AKS.  Para permitir que um cluster AKS interaja com o ACR, é usada uma Azure Active Directory **identidade gerenciada** . O comando da CLI a seguir permite autorizar um ACR existente em sua assinatura e configurar a função **ACRPull** apropriada para a identidade gerenciada. Forneça valores válidos para os parâmetros abaixo.
 
 ```azurecli
 # set this to the name of your Azure Container Registry.  It must be globally unique

@@ -8,12 +8,12 @@ ms.date: 01/04/2021
 ms.author: chhenk
 ms.reviewer: azmetadatadev
 ms.custom: references_regions
-ms.openlocfilehash: e18c09130fcbcdbb470abc19d76bdf2ccfef0775
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 554730919d4226c07e099d5e457cd0fd20dbad30
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175696"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102510831"
 ---
 O serviço de metadados de instância do Azure (IMDS) fornece informações sobre as instâncias de máquina virtual em execução no momento. Você pode usá-lo para gerenciar e configurar suas máquinas virtuais.
 Essas informações incluem a SKU, o armazenamento, as configurações de rede e os próximos eventos de manutenção. Para obter uma lista completa dos dados disponíveis, consulte o [Resumo de categorias de ponto de extremidade](#endpoint-categories).
@@ -96,7 +96,7 @@ Os pontos de extremidade podem dar suporte a parâmetros obrigatórios e/ou opci
 
 ### <a name="query-parameters"></a>Parâmetros de consulta
 
-Os pontos de extremidade IMDS dão suporte a parâmetros de cadeia de caracteres de consulta HTTP. Por exemplo:  
+Os pontos de extremidade IMDS dão suporte a parâmetros de cadeia de caracteres de consulta HTTP. Por exemplo: 
 
 ```
 http://169.254.169.254/metadata/instance/compute?api-version=2019-06-04&format=json
@@ -345,8 +345,8 @@ Divisão de esquema:
 | `osType` | Linux ou Windows | 2017-04-02
 | `placementGroupId` | [Grupo de Posicionamento](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) do conjunto de dimensionamento da sua Máquina Virtual | 2017-08-01
 | `plan` | O [Plano](/rest/api/compute/virtualmachines/createorupdate#plan) que contém o nome, produto e editor de uma VM, se for uma imagem do Azure Marketplace | 2018-04-02
-| `platformUpdateDomain` |  [Domínio de atualização](../articles/virtual-machines/manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
-| `platformFaultDomain` | [Domínio de falha](../articles/virtual-machines/manage-availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
+| `platformUpdateDomain` |  [Domínio de atualização](../articles/virtual-machines/availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
+| `platformFaultDomain` | [Domínio de falha](../articles/virtual-machines/availability.md) no qual a máquina virtual está sendo executada | 2017-04-02
 | `priority` | Prioridade da VM. Consulte [detectar VMs](../articles/virtual-machines/spot-vms.md) para obter mais informações | 2020-12-01
 | `provider` | Provedor da VM | 01-10-2018
 | `publicKeys` | [Coleção de Chaves Públicas](/rest/api/compute/virtualmachines/createorupdate#sshpublickey) atribuídas à VM e aos caminhos | 2018-04-02
@@ -1174,7 +1174,7 @@ As chamadas de metadados devem ser feitas a partir do endereço IP primário atr
 
 #### <a name="windows"></a>[Windows](#tab/windows/)
 
-1. Despeje sua tabela de roteamento local e procure a entrada IMDS. Por exemplo: 
+1. Despeje sua tabela de roteamento local e procure a entrada IMDS. Por exemplo:
     ```console
     > route print
     IPv4 Route Table

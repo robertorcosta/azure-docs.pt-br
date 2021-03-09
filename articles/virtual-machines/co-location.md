@@ -1,24 +1,20 @@
 ---
-title: Co-localizar VMs
-description: Saiba mais sobre como colocalizar recursos de VM do Azure para melhorar a latência.
+title: Grupos de posicionamento de proximidade
+description: Saiba mais sobre como usar grupos de posicionamento de proximidade no Azure.
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.topic: conceptual
-ms.date: 12/07/2020
+ms.date: 3/07/2021
 ms.reviewer: zivr
-ms.openlocfilehash: e193b7d084723ad50ddc0d1a40e0b6c8a111af73
-ms.sourcegitcommit: fec60094b829270387c104cc6c21257826fccc54
+ms.openlocfilehash: 584d98c93083bc0b203276c8eda2801841da3ad7
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2020
-ms.locfileid: "96924151"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507850"
 ---
-# <a name="co-locate-resources-for-improved-latency"></a>Colocalizar recursos para maior latência
-
-Ao implantar seu aplicativo no Azure, a difusão de instâncias entre regiões ou zonas de disponibilidade cria a latência de rede, o que pode afetar o desempenho geral do seu aplicativo. 
-
-## <a name="proximity-placement-groups"></a>Grupos de posicionamento de proximidade
+# <a name="proximity-placement-groups"></a>Grupos de posicionamento de proximidade
 
 Colocar VMs em uma única região reduz a distância física entre as instâncias. Colocá-los em uma única zona de disponibilidade também os colocará fisicamente juntos. No entanto, à medida que a superfície do Azure cresce, uma única zona de disponibilidade pode abranger vários data centers físicos, o que pode resultar em uma latência de rede impactando seu aplicativo. 
 

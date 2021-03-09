@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 02/09/2021
-ms.openlocfilehash: 752f38c0a44d40f2bf7e7b5961dca7743fbf4b76
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6fd497e0bc0fd282d57779c483f1e39e8f5ab60a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488028"
+ms.locfileid: "102505470"
 ---
 # <a name="configure-azure-private-link-for-an-azure-machine-learning-workspace"></a>Configurar o link privado do Azure para um espaço de trabalho Azure Machine Learning
 
@@ -48,7 +48,7 @@ Use um dos métodos a seguir para criar um espaço de trabalho com um ponto de e
 
 # <a name="python"></a>[Python](#tab/python)
 
-O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) , que pode ser usada com [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) para criar um espaço de trabalho com um ponto de extremidade privado. Essa classe requer uma rede virtual existente.
+O SDK do Azure Machine Learning Python fornece a classe [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) , que pode ser usada com [Workspace. Create ()](/python/api/azureml-core/azureml.core.workspace.workspace#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---tags-none--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--adb-workspace-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--private-endpoint-config-none--private-endpoint-auto-approval-true--exist-ok-false--show-output-true-) para criar um espaço de trabalho com um ponto de extremidade privado. Essa classe requer uma rede virtual existente.
 
 ```python
 from azureml.core import Workspace
@@ -112,7 +112,7 @@ ws = Workspace.from_config()
 ws.add_private_endpoint(private_endpoint_config=pe, private_endpoint_auto_approval=True, show_output=True)
 ```
 
-Para obter mais informações sobre as classes e os métodos usados neste exemplo, consulte [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig?view=azure-ml-py) e [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
+Para obter mais informações sobre as classes e os métodos usados neste exemplo, consulte [PrivateEndpointConfig](/python/api/azureml-core/azureml.core.privateendpointconfig) e [Workspace.add_private_endpoint](/python/api/azureml-core/azureml.core.workspace(class)#add-private-endpoint-private-endpoint-config--private-endpoint-auto-approval-true--location-none--show-output-true--tags-none-).
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
@@ -140,7 +140,7 @@ Use um dos seguintes métodos para remover um ponto de extremidade privado de um
 
 # <a name="python"></a>[Python](#tab/python)
 
-Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
+Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
 
 ```python
 from azureml.core import Workspace
@@ -181,7 +181,7 @@ Para habilitar o acesso público a um espaço de trabalho habilitado para víncu
 
 # <a name="python"></a>[Python](#tab/python)
 
-Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
+Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-) para remover um ponto de extremidade privado.
 
 ```python
 from azureml.core import Workspace

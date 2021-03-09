@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: d5cf5cd4c2667af3064b74ab2b1c5cd5bd347446
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: f2d3b6b40a7b258da682d36260f6292d10635095
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434280"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498712"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -144,7 +144,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Para obter mais informações, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>consulte.
+Para obter mais informações, <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` </a>consulte.
 
 ```python
 speech_config.set_property_by_name(
@@ -395,7 +395,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 
 | Atributo | Descrição | Obrigatório/Opcional |
 |-----------|-------------|---------------------|
-| `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>none</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
+| `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
 | Segurança                      | Descrição |

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/20/2020
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: 470b6b0c871d91a2a8a584a6efd04605e0afcf88
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e978baa556f1bc1cfea0ccd5abbbf92dc77b1622
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666837"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504007"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Considerações para Implantação do DBMS de Máquinas de Virtuais do Azure para carga de trabalho do SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -265,7 +265,7 @@ Há outros métodos de redundância. Para obter mais informações, consulte [Re
 
 
 ## <a name="vm-node-resiliency"></a>Resiliência de nó de VM
-O Azure oferece vários SLAs diferentes para VMs. Para obter mais informações, veja a versão mais recente do [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Como a camada DBMS é essencial para a disponibilidade em um sistema SAP, você precisa entender os conjuntos de disponibilidade, Zonas de Disponibilidade e eventos de manutenção. Para obter mais informações sobre esses conceitos, confira [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../manage-availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../manage-availability.md).
+O Azure oferece vários SLAs diferentes para VMs. Para obter mais informações, veja a versão mais recente do [SLA de máquinas virtuais](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/). Como a camada DBMS é essencial para a disponibilidade em um sistema SAP, você precisa entender os conjuntos de disponibilidade, Zonas de Disponibilidade e eventos de manutenção. Para obter mais informações sobre esses conceitos, confira [Gerenciar a disponibilidade de máquinas virtuais do Windows no Azure](../../availability.md) e [Gerenciar a disponibilidade de máquinas virtuais do Linux no Azure](../../availability.md).
 
 A recomendação mínima para cenários de DBMS de produção com carga de trabalho do SAP é:
 

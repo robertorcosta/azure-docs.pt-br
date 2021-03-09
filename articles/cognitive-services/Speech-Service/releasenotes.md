@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/27/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: 2010551252331f6d3721c7f8293ad247764a8f3b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 6b03458ce5ea4286e59de8d0e4b35b860088ca91
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102432104"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500760"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
 
@@ -35,7 +35,7 @@ ms.locfileid: "102432104"
 - O recurso de avaliação de pronúncia agora está mais amplamente disponível.
 - Várias correções de bugs para resolver problemas que você, nossos clientes valorizados, foram sinalizadas no GitHub! Obrigado! Continue os comentários!
 
-**Aprimoramentos**
+**Na**
 - O SDK de fala agora é mais eficiente e leve. Iniciamos um esforço de várias versões para reduzir o uso de memória e a superfície de disco do SDK de fala. Como primeira etapa, fizemos reduções significativas de tamanho de arquivo em bibliotecas compartilhadas na maioria das plataformas. Em comparação com a versão 1,14:
   - as bibliotecas do Windows compatíveis com o UWP de 64 bits são aproximadamente 30% menores.
   - as bibliotecas do Windows de 32 bits ainda não estão vendo melhorias de tamanho.
@@ -44,7 +44,7 @@ ms.locfileid: "102432104"
 
 **Novos recursos**
 - **Todos**: novos formatos de saída do 48kHz disponíveis para a visualização privada da voz neural personalizada por meio da API de síntese de fala TTS: Audio48Khz192KBitRateMonoMp3, Audio-48kHz-192kbitrate-mono-mp3, Audio48Khz96KBitRateMonoMp3, Audio-48kHz-96kbitrate-mono-mp3, Raw48Khz16BitMonoPcm, RAW-48kHz-16 bits-mono-PCM, Riff48Khz16BitMonoPcm, riff-48kHz-16 bits-mono-PCM.
-- **Tudo**: a voz personalizada também é mais fácil de usar. Adicionado suporte para configuração de voz personalizada `EndpointId` via ([C++](/cpp/cognitive-services/speech/speechconfig#setendpointid), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#endpointId), [Objective-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#endpoint-id)). Antes dessa alteração, os usuários de voz personalizados precisavam definir a URL do ponto de extremidade por meio do `FromEndpoint` método. Agora, os clientes podem usar o `FromSubscription` método como vozes públicas e, em seguida, fornecer a ID de implantação por meio da configuração `EndpointId` . Isso simplifica a configuração de vozes personalizadas. 
+- **Tudo**: a voz personalizada também é mais fácil de usar. Adicionado suporte para configuração de voz personalizada `EndpointId` via ([C++](/cpp/cognitive-services/speech/speechconfig#setendpointid), [C#](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.endpointid#Microsoft_CognitiveServices_Speech_SpeechConfig_EndpointId), [Java](/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setendpointid#com_microsoft_cognitiveservices_speech_SpeechConfig_setEndpointId_String_), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig#endpointId), [Objective-C](/objectivec/cognitive-services/speech/spxspeechconfiguration#endpointid), [Python](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig#endpoint-id)). Antes dessa alteração, os usuários de voz personalizados precisavam definir a URL do ponto de extremidade por meio do `FromEndpoint` método. Agora, os clientes podem usar o `FromSubscription` método como vozes públicas e, em seguida, fornecer a ID de implantação por meio da configuração `EndpointId` . Isso simplifica a configuração de vozes personalizadas. 
 - **C++/c #/Java/Objective-C/python**: Obtenha mais do que a principal intenção de `IntentRecognizer` . Agora, ele dá suporte à configuração do resultado JSON que contém todas as intenções e não apenas à principal intenção de pontuação por meio do `LanguageUnderstandingModel FromEndpoint` método usando o `verbose=true` parâmetro Uri. Isso resolve o [problema do GitHub #880](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/880). Consulte a documentação atualizada [aqui](./quickstarts/intent-recognition.md#add-a-languageunderstandingmodel-and-intents).
 - **C++/c #/Java**: faça com que seu assistente de voz ou bot pare de escutar de forma imcorretiva. `DialogServiceConnector` ([C++](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [C#](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector)) agora tem um `StopListeningAsync()` método a ser acompanhado `ListenOnceAsync()` . Isso interromperá imediatamente a captura de áudio e aguardará normalmente um resultado, tornando-o perfeito para uso com o botão "parar agora" – Pressione os cenários.
 - **C++/c #/Java/JavaScript**: faça com que seu assistente de voz ou bot reaja melhor aos erros de sistema subjacentes. `DialogServiceConnector` ([C++](/cpp/cognitive-services/speech/dialog-dialogserviceconnector), [C#](/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [Java](/java/api/com.microsoft.cognitiveservices.speech.dialog.dialogserviceconnector), [JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/dialogserviceconnector)) agora tem um novo `TurnStatusReceived` manipulador de eventos. Esses eventos opcionais correspondem a cada [`ITurnContext`](/dotnet/api/microsoft.bot.builder.iturncontext?view=botbuilder-dotnet-stable) resolução no bot e relatarão as falhas de execução quando ocorrerem, por exemplo, como resultado de uma exceção sem tratamento, tempo limite ou queda de rede entre a fala de linha direta e o bot. `TurnStatusReceived` torna mais fácil responder às condições de falha. Por exemplo, se um bot levar muito tempo em uma consulta de banco de dados de back-end (por exemplo, pesquisar um produto), `TurnStatusReceived` permite que o cliente saiba como solicitar novamente "Desculpe, eu não consegui isso, poderia tentar novamente" ou algo semelhante.
@@ -352,7 +352,7 @@ Mantenha-se íntegro!
 
 * Precisão de pronúncia de nível de palavra aprimorada em cinco idiomas.
 
-    | Linguagem | Redução de erros de pronúncia |
+    | Idioma | Redução de erros de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -365,7 +365,7 @@ Mantenha-se íntegro!
 * Leitura de moeda
     * Corrigido o problema com a leitura de moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após aperfeiçoamento |
+    | Idioma | Entrada | Leitura após aperfeiçoamento |
     |---|---|---|
     | `es-MX` | $1.58 | un peso Cincuenta y Ocho centavos |
     | `es-ES` | $1.58 | Dólar Cincuenta y Ocho centavos |
@@ -785,7 +785,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 - Android
   - Suporte do ProGuard habilitado durante a geração de APK.
 
-**Aprimoramentos**
+**Na**
 
 - Melhorias no uso de thread interno, reduzindo o número de threads, bloqueios e exclusões mútuas.
 - Relatório/informações de erros aprimorados. Em vários casos, as mensagens de erro não foram propagadas até o fim.
@@ -817,7 +817,7 @@ Esta é uma versão somente em JavaScript. Nenhum recurso foi adicionado. Foram 
 - Suporte a proxy: no `SpeechConfig` objeto, agora você pode chamar uma função para definir as informações de proxy (nome do host, porta, nome de usuário e senha). Este recurso ainda não está disponível no iOS.
 - Melhor código de erro e mensagens. Se um reconhecimento retornou um erro, isso já definiu `Reason` (no evento cancelado) ou `CancellationDetails` (no resultado do reconhecimento) para `Error`. O evento cancelado agora contém dois membros adicionais, `ErrorCode` e `ErrorDetails`. Se o servidor retornou informações de erro adicionais com o erro relatado, agora ele estará disponível nos novos membros.
 
-**Aprimoramentos**
+**Na**
 
 - Adicionada verificação adicional na configuração do reconhecedor e adicionada outra mensagem de erro.
 - Manipulação aprimorada de silêncio de longa duração no meio de um arquivo de áudio.

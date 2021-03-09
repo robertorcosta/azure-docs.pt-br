@@ -3,12 +3,12 @@ title: Obtenha informações usando o centro de backup
 description: Saiba como analisar tendências históricas e obter informações mais aprofundadas sobre seus backups com o centro de backup.
 ms.topic: conceptual
 ms.date: 09/01/2020
-ms.openlocfilehash: 47158e53e6248b2b9cef4ff6fd6b5da5972786eb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c48173749a9b47be7eeb906e9f8eec716e0cb200
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719450"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102505997"
 ---
 # <a name="obtain-insights-using-backup-center"></a>Obtenha informações usando o centro de backup
 
@@ -44,17 +44,19 @@ A seguir estão as exibições disponíveis:
 
 1. **Resumo** – Use esta guia para obter uma visão geral de alto nível do seu espaço de backup. [Saiba mais](./configure-reports.md#summary)
 
-1. **Itens de backup** -Use esta guia para ver informações e tendências sobre o armazenamento em nuvem consumidos em um nível de item de backup. [Saiba mais](./configure-reports.md#backup-items)
+2. **Itens de backup** -Use esta guia para ver informações e tendências sobre o armazenamento em nuvem consumidos em um nível de item de backup. [Saiba mais](./configure-reports.md#backup-items)
 
-1. **Uso** -Use essa guia para exibir os parâmetros de cobrança de chave para seus backups. [Saiba mais](./configure-reports.md#usage)
+3. **Uso** -Use essa guia para exibir os parâmetros de cobrança de chave para seus backups. [Saiba mais](./configure-reports.md#usage)
 
-1. **Trabalhos** – Use essa guia para exibir tendências de longa execução em trabalhos, como o número de trabalhos com falha por dia e as principais causas de falha do trabalho. [Saiba mais](./configure-reports.md#jobs)
+4. **Trabalhos** – Use essa guia para exibir tendências de longa execução em trabalhos, como o número de trabalhos com falha por dia e as principais causas de falha do trabalho. [Saiba mais](./configure-reports.md#jobs)
 
-1. **Políticas** – Use essa guia para exibir informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento em nuvem total consumido por itens de backup em uma determinada política. [Saiba mais](./configure-reports.md#policies)
+5. **Políticas** – Use essa guia para exibir informações sobre todas as suas políticas ativas, como o número de itens associados e o armazenamento em nuvem total consumido por itens de backup em uma determinada política. [Saiba mais](./configure-reports.md#policies)
 
-1. **Otimizar** – Use essa guia para obter visibilidade de possíveis oportunidades de otimização de custos para seus backups. [Saiba mais](./configure-reports.md#optimize)
+6. **Otimizar** – Use essa guia para obter visibilidade de possíveis oportunidades de otimização de custos para seus backups. [Saiba mais](./configure-reports.md#optimize)
 
-1. **Adesão à política** – Use essa guia para obter visibilidade sobre se cada instância de backup teve pelo menos um backup bem-sucedido por dia.
+7. **Adesão à política** – Use essa guia para obter visibilidade sobre se cada instância de backup teve pelo menos um backup bem-sucedido por dia. [Saiba mais](./configure-reports.md#policy-adherence)
+
+Você também pode configurar emails para esses relatórios usando o recurso de [relatório de email](backup-reports-email.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

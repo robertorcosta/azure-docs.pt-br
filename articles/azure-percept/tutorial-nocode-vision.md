@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 54d4f1fe983cf20b734351754bb8eba191894dbc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101677996"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102097900"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Criar uma solução de pesquisa visual sem código no Azure Percept Studio
 
@@ -23,6 +23,7 @@ O Azure Percept Studio permite que você crie e implante soluções personalizad
 - Rotular as imagens de treinamento na [Visão Personalizada](https://www.customvision.ai/)
 - Treinar o modelo personalizado de detecção ou classificação de objetos
 - Implantar o modelo no devkit
+- Configure o retreinamento para aprimorar seu modelo
 
 Este tutorial é adequado para desenvolvedores com pouca ou nenhuma experiência de IA e aqueles que estão apenas começando a usar o Azure Percept.
 
@@ -30,15 +31,13 @@ Este tutorial é adequado para desenvolvedores com pouca ou nenhuma experiência
 
 - Azure Percept DK (kit de desenvolvimento)
 - [Assinatura do Azure](https://azure.microsoft.com/free/)
-- OOBE (experiência de uso imediato): você conectou o devkit a uma rede Wi-Fi, criou um Hub IoT e conectou o devkit ao Hub IoT
+- Experiência de instalação do Azure Percept DK: você conectou o kit de desenvolvimento a uma rede Wi-Fi, criou um Hub IoT e conectou o kit de desenvolvimento ao Hub IoT
 
 ## <a name="create-a-vision-prototype"></a>Criar um protótipo de pesquisa visual
 
 1. Inicie o navegador e vá para o [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
 
-1. Na página de visão geral, clique na guia **Demonstrações e tutoriais**.
-
-    :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Tela de visão geral do Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
+1. Na página de visão geral, clique na guia **Demonstrações e tutoriais**. :::image type="content" source="./media/tutorial-nocode-vision/percept-studio-overview-inline.png" alt-text="Tela de visão geral do Azure Percept Studio." lightbox="./media/tutorial-nocode-vision/percept-studio-overview.png":::
 
 1. Em **Tutoriais e demonstrações de pesquisa visual**, clique em **Criar um protótipo de pesquisa**.
 
@@ -142,11 +141,23 @@ Depois de fechar esta janela, você pode voltar e editar seu projeto de pesquisa
 
 :::image type="content" source="./media/tutorial-nocode-vision/vision-project-inline.png" alt-text="Página do projeto de pesquisa visual." lightbox="./media/tutorial-nocode-vision/vision-project.png":::
 
+## <a name="improve-your-model-by-setting-up-retraining"></a>Configure o retreinamento para aprimorar seu modelo
+
+Depois de treinar e implantar seu modelo no dispositivo, você poderá melhorar o desempenho dele por meio da configuração dos parâmetros de readaptação para capturar mais dados de treinamento. Esse recurso é usado para melhorar o desempenho de um modelo treinado, dando a você a capacidade de capturar imagens com base em um intervalo de probabilidade. Por exemplo, você pode definir seu dispositivo para capturar imagens de treinamento apenas quando a probabilidade for baixa. Eis algumas [diretrizes adicionais](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sobre como adicionar mais imagens e equilibrar dados de treinamento.
+
+1. Para configurar o retreinamento, volte ao seu **Projeto** e, depois, vá para **Resumo do Projeto**
+1. Na guia **Captura de imagem**, selecione **Captura automática de imagem** e **Configure o retreinamento**.
+1. Configure a captura de imagem automatizada para coletar uma grande quantidade de imagens por vez, marcando a caixa **Captura de imagem automática**.
+1. Selecione a taxa de geração de imagens de sua preferência em **Taxa de captura** e o número total de imagens que você gostaria de coletar em **Destino**.
+1. Na seção **Configurar o retreinamento**, selecione a iteração para a qual você gostaria de capturar mais dados de treinamento e selecione o intervalo de probabilidade. Somente imagens que atendam à taxa de probabilidade serão carregadas em seu projeto.
+
+    :::image type="content" source="./media/tutorial-nocode-vision/vision-image-capture.png" alt-text="captura de imagem.":::
+
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
 Se você criou um recurso do Azure para este tutorial e não deseja mais desenvolver nem usar sua solução de pesquisa visual, execute as seguintes etapas para excluir o recurso:
 
-1. Acesse o [portal do Azure](https://ms.portal.azure.com/#home).
+1. Acesse o [portal do Azure](https://ms.portal.azure.com/).
 1. Clique em **Todos os recursos**.
 1. Clique na caixa de seleção ao lado do recurso criado durante este tutorial. O tipo de recurso será listado como **Serviços Cognitivos**.
 1. Clique no ícone **Excluir** próximo à parte superior da tela.
