@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: b58d96adba690084580fe11b42253a1e77370379
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: fb0b976c8759eb77aa2240f95fadbd41e5d9596a
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100595601"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504909"
 ---
 # <a name="azure-security-baseline-for-customer-lockbox-for-microsoft-azure"></a>Linha de base de segurança do Azure para Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -525,7 +525,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 * [Como criar consultas com o Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Entender o controle de acesso baseado em função do Azure (RBAC do Azure)](../../role-based-access-control/overview.md)
 

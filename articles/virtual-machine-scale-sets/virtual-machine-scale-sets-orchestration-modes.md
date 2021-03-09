@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3350ff7aa05232173e5fd3b21451a76a0a40683d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 71ddb1217be7fe3e1254e0d49e1f40c43a55a3f0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102043704"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502409"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Visualização: modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure 
 
@@ -102,7 +102,7 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Tipo de máquina virtual  | VM IaaS do Azure padrão (Microsoft. Compute/VirtualMachines)  | VMs específicas do conjunto de dimensionamento (Microsoft. Compute/virtualmachinescalesets/VirtualMachines)  | VM IaaS do Azure padrão (Microsoft. Compute/VirtualMachines)  |
 |         SKUs compatíveis  |            Série D, série E, série F, série A, série B, Intel, AMD  |            Todos os SKUs  |            Todos os SKUs  |
 |         Zonas de Disponibilidades  |            Opcionalmente, especifique todas as instâncias que se esterram em uma única zona de disponibilidade |            Especificar instâncias que se esterram entre 1, 2 ou 3 zonas de disponibilidade  |            Sem suporte  |
-|         Controle total sobre VM, NICs, discos  |            Sim  |            Controle limitado com a API de VM dos conjuntos de dimensionamento de máquinas virtuais  |            Sim  |
+|         Controle total sobre VM, NICs, discos  |            Yes  |            Controle limitado com a API de VM dos conjuntos de dimensionamento de máquinas virtuais  |            Yes  |
 |         Dimensionamento automático  |            Não  |            Sim  |            Não  |
 |         Atribuir uma VM a um domínio de falha específico  |            Sim  |             Não   |            Não  |
 |         Remover NICs e discos ao excluir instâncias de VM  |            Não  |            Sim  |            Não  |
@@ -115,8 +115,8 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Instâncias e preços especiais   |            Sim, você pode ter instâncias de prioridade regular e especial  |            Sim, as instâncias devem ser todas pontuais ou regulares  |            Não, somente instâncias de prioridade regular  |
 |         Misturar sistemas operacionais  |            Sim, o Linux e o Windows podem residir no mesmo conjunto de dimensionamento flexível |            Não, as instâncias são o mesmo sistema operacional  |               Sim, o Linux e o Windows podem residir no mesmo conjunto de dimensionamento flexível |
 |         Monitorar a integridade do aplicativo  |            Extensão de integridade do aplicativo  |            Extensão de integridade do aplicativo ou investigação do Azure Load Balancer  |            Extensão de integridade do aplicativo  |
-|         Discos UltraSSD   |            Sim  |            Sim, somente para implantações zonais  |            Não  |
-|         Infiniband   |            Não  |            Sim, somente grupo de posicionamento único  |            Sim  |
+|         Discos UltraSSD   |            Yes  |            Sim, somente para implantações zonais  |            Não  |
+|         Infiniband   |            Não  |            Sim, somente grupo de posicionamento único  |            Yes  |
 |         Acelerador de Gravação   |            Não  |            Sim  |            Sim  |
 |         Grupos de posicionamento de proximidade   |            Sim  |            Sim  |            Sim  |
 |         Hosts dedicados do Azure   |            Não  |            Sim  |            Sim  |
@@ -322,7 +322,7 @@ InvalidParameter. The specified fault domain count 2 must fall in the range 1 to
 
 **Causa:** O `platformFaultDomainCount` parâmetro é inválido para a região ou zona selecionada. 
 
-**Solução:** Você deve selecionar um `platformFaultDomainCount` valor válido. Para implantações zonais, o `platformFaultDomainCount` valor máximo é 1. Para implantações regionais em que nenhuma zona é especificada, o máximo `platformFaultDomainCount` varia dependendo da região. Consulte [gerenciar a disponibilidade de VMs para scripts](../virtual-machines/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) para determinar a contagem máxima de domínios de falha por região. 
+**Solução:** Você deve selecionar um `platformFaultDomainCount` valor válido. Para implantações zonais, o `platformFaultDomainCount` valor máximo é 1. Para implantações regionais em que nenhuma zona é especificada, o máximo `platformFaultDomainCount` varia dependendo da região. Consulte [gerenciar a disponibilidade de VMs para scripts](../virtual-machines/availability.md) para determinar a contagem máxima de domínios de falha por região. 
 
 ```
 OperationNotAllowed. Deletion of Virtual Machine Scale Set is not allowed as it contains one or more VMs. Please delete or detach the VM(s) before deleting the Virtual Machine Scale Set.

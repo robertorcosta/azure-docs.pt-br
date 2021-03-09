@@ -17,12 +17,12 @@ ms.date: 1/29/2021
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 284b554581534a8493225fba0b70b074fb7dd982
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 7d8c4876faf9ebc2619309aa0095a8ffe1e9e93d
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651930"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500539"
 ---
 # <a name="overview-of-provisioning-logs-in-the-azure-portal-preview"></a>Visão geral do provisionamento de logs no portal do Azure (versão prévia)
 
@@ -162,7 +162,7 @@ Além dos filtros da exibição padrão, você pode definir os filtros a seguir.
 
 Ao selecionar um item no modo de exibição de lista de provisionamento, você obtém mais detalhes sobre esse item. Os detalhes são agrupados nas guias a seguir.
 
-![Captura de tela que mostra quatro guias que contêm detalhes de provisionamento.](./media/concept-provisioning-logs/provisioning-tabs.png "Tabulações")
+![Captura de tela que mostra quatro guias que contêm detalhes de provisionamento.](./media/concept-provisioning-logs/provisioning-tabs.png "Guias")
 
 - **Etapas**: descreve as etapas executadas para provisionar um objeto. O provisionamento de um objeto pode consistir em quatro etapas:
   
@@ -207,7 +207,7 @@ O arquivo JSON é baixado no formato reduzidos para reduzir o tamanho do downloa
 
 Aqui estão alguns comandos de exemplo para trabalhar com o arquivo JSON usando o PowerShell. Você pode usar qualquer linguagem de programação com a qual esteja familiarizado.  
 
-Primeiro, [Leia o arquivo JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json?view=powershell-7.1) executando este comando:
+Primeiro, [Leia o arquivo JSON](/powershell/module/microsoft.powershell.utility/convertfrom-json) executando este comando:
 
 ` $JSONContent = Get-Content -Path "<PATH TO THE PROVISIONING LOGS FILE>" | ConvertFrom-JSON`
 

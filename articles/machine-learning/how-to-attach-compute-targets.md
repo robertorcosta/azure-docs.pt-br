@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/02/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 850b590ae8aeab822367714fb9a56661306c2387
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.openlocfilehash: 318afced85f3cca0a450d77f8be7b2a1d6c388ed
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100518684"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504926"
 ---
 # <a name="set-up-compute-targets-for-model-training-and-deployment"></a>Configurar destinos de computação para treinamento e implantação do modelo
 
@@ -43,7 +43,7 @@ Para usar destinos de computação gerenciados pelo Azure Machine Learning, cons
 
 * Um Workspace do Azure Machine Learning. Para obter mais informações, consulte [criar um Azure Machine Learning espaço de trabalho](how-to-manage-workspace.md).
 
-* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
+* A [extensão CLI do Azure para o serviço Machine Learning](reference-azure-machine-learning-cli.md), o [SDK do Azure Machine Learning Python](/python/api/overview/azure/ml/intro)ou a [extensão Azure Machine Learning Visual Studio Code](tutorial-setup-vscode-extension.md).
 
 ## <a name="limitations"></a>Limitações
 
@@ -60,7 +60,7 @@ Com o Azure Machine Learning, você pode treinar seu modelo em uma variedade de 
 
 Quando você usa seu computador local para **treinamento**, não é necessário criar um destino de computação.  Basta [enviar a execução de treinamento](how-to-set-up-training-targets.md) do computador local.
 
-Ao usar seu computador local para **inferência**, você deve ter o Docker instalado. Para executar a implantação, use [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#deploy-configuration-port-none-) para definir a porta que será usada pelo serviço Web. Em seguida, use o processo de implantação normal, conforme descrito em [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
+Ao usar seu computador local para **inferência**, você deve ter o Docker instalado. Para executar a implantação, use [LocalWebservice.deploy_configuration ()](/python/api/azureml-core/azureml.core.webservice.local.localwebservice#deploy-configuration-port-none-) para definir a porta que será usada pelo serviço Web. Em seguida, use o processo de implantação normal, conforme descrito em [implantar modelos com Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Máquinas virtuais remotas
 
@@ -325,7 +325,7 @@ Para obter um exemplo mais detalhado, consulte um [exemplo de bloco de anotaçõ
 > Não crie vários anexos simultâneos para o mesmo ADLA do seu espaço de trabalho. Cada novo anexo interromperá os anexos existentes anteriores.
 
 > [!TIP]
-> Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?preserve-view=true&view=azure-ml-py) para copiar os dados antes do treinamento.
+> Os pipelines do Azure Machine Learning só podem funcionar com dados armazenados no armazenamento de dados padrão da conta do Data Lake Analytics. Se os dados com os quais você precisa trabalhar estiverem em um repositório não padrão, você poderá usar um [`DataTransferStep`](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep) para copiar os dados antes do treinamento.
 
 ## <a name="azure-container-instance"></a><a id="aci"></a>Instância de contêiner do Azure
 

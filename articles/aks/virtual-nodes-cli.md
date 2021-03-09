@@ -6,12 +6,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: af8403f80f7282207ee1bc6b2f81da0d83d264e0
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: d1021352f3555f49b165eed60214e11b1a8d07d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180931"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102508173"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Criar e configurar um cluster do AKS (Serviços de Kubernetes do Azure) para usar os nós virtuais com a CLI do Azure
 
@@ -86,7 +86,7 @@ az network vnet subnet create \
 
 ## <a name="create-a-service-principal-or-use-a-managed-identity"></a>Criar uma entidade de serviço ou usar uma identidade gerenciada
 
-Para permitir a interação de um cluster AKS com outros recursos do Azure, usamos uma entidade de serviço do Azure Active Directory. Essa entidade de serviço pode ser criada automaticamente pelo portal ou pela CLI do Azure, ou você pode criar previamente um e atribuir permissões adicionais. Como alternativa, é possível usar uma identidade gerenciada para permissões em vez de uma entidade de serviço. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md).
+Para permitir que um cluster AKS interaja com outros recursos do Azure, uma identidade de cluster é usada. Essa identidade de cluster pode ser criada automaticamente pelo CLI do Azure ou pelo portal, ou você pode criar previamente uma e atribuir permissões adicionais. Por padrão, essa identidade de cluster é uma identidade gerenciada. Para obter mais informações, confira [Usar identidades gerenciadas](use-managed-identity.md). Você também pode usar uma entidade de serviço como sua identidade de cluster. As etapas a seguir mostram como criar e atribuir manualmente a entidade de serviço ao cluster.
 
 Use o comando [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] para criar uma entidade de serviço. O parâmetro `--skip-assignment` limita a atribuição de outras permissões.
 

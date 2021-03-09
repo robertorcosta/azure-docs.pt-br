@@ -1,5 +1,5 @@
 ---
-title: Perguntas frequentes
+title: Perguntas frequentes (FAQ)
 titleSuffix: Azure SQL Managed Instance
 description: Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 services: sql-database
@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: 9e8ef5bf9d5d8000bfdd581cd7e9ae1a1a775fc9
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 17e97503996b53868f12e74ed5a38dba63285426
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178126"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503191"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Perguntas frequentes (FAQ) sobre a Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -102,7 +102,7 @@ Sim, você pode. Para obter instruções, consulte [mover recursos entre regiõe
 
 **Como posso excluir meu Instância Gerenciada?**
 
-Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-delete) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
+Você pode excluir instâncias gerenciadas por meio de APIs REST portal do Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance), [CLI do Azure](/cli/azure/sql/mi#az-sql-mi-delete) ou [Resource Manager](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo leva para criar ou atualizar uma instância, ou para restaurar um banco de dados?**
 

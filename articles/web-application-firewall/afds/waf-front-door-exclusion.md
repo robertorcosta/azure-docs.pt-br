@@ -7,16 +7,16 @@ ms.service: web-application-firewall
 ms.date: 11/10/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 1b94a3d8675461779fa9d543bf0153b165ab4fb4
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: a92679bb3114c4a60870424f3ec68a8de7b303da
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217577"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102499910"
 ---
 # <a name="web-application-firewall-waf-with-front-door-service-exclusion-lists"></a>WAF (firewall do aplicativo Web) com listas de exclusão de serviço de porta frontal 
 
-Às vezes, o Firewall do aplicativo Web (WAF) pode bloquear uma solicitação que você deseja permitir para seu aplicativo. Por exemplo, Active Directory insere tokens que são usados para autenticação. Esses tokens podem conter caracteres especiais que podem disparar um falso positivo das regras WAF. As listas de exclusões do WAF permitem a você omitir certos atributos de solicitação de uma avaliação do WAF.  Uma lista de exclusão pode ser configurada usando o  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject?view=azps-3.5.0), [CLI do Azure](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal do Azure. O exemplo a seguir mostra a configuração de portal do Azure. 
+Às vezes, o Firewall do aplicativo Web (WAF) pode bloquear uma solicitação que você deseja permitir para seu aplicativo. Por exemplo, Active Directory insere tokens que são usados para autenticação. Esses tokens podem conter caracteres especiais que podem disparar um falso positivo das regras WAF. As listas de exclusões do WAF permitem a você omitir certos atributos de solicitação de uma avaliação do WAF.  Uma lista de exclusão pode ser configurada usando o  [PowerShell](/powershell/module/az.frontdoor/New-AzFrontDoorWafManagedRuleExclusionObject), [CLI do Azure](/cli/azure/ext/front-door/network/front-door/waf-policy/managed-rules/exclusion#ext-front-door-az-network-front-door-waf-policy-managed-rules-exclusion-add), [API REST](/rest/api/frontdoorservice/webapplicationfirewall/policies/createorupdate)ou o portal do Azure. O exemplo a seguir mostra a configuração de portal do Azure. 
 ## <a name="configure-exclusion-lists-using-the-azure-portal"></a>Configurar listas de exclusão usando o portal do Azure
 **Gerenciar exclusões** é acessível no portal do WAF em **regras gerenciadas**
 

@@ -1,6 +1,6 @@
 ---
-title: Criar uma VM do Windows zoneada usando Azure PowerShell
-description: Crie uma máquina virtual do Windows em uma zona de Disponibilidade com o Azure PowerShell
+title: Criar uma VM zoneada usando Azure PowerShell
+description: Criar uma máquina virtual em uma zona de disponibilidade com Azure PowerShell
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: conceptual
@@ -8,14 +8,14 @@ ms.workload: infrastructure
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 95d97605f00a3a80c097eb16695c9d296e17c33d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02897add4f3ca51fa7e172bc200af2c7b9065ed4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87825235"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102502630"
 ---
-# <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Crie uma máquina virtual do Windows em uma zona de Disponibilidade com o PowerShell
+# <a name="create-a-virtual-machine-in-an-availability-zone-using-azure-powershell"></a>Criar uma máquina virtual em uma zona de disponibilidade usando Azure PowerShell
 
 Este artigo detalha usando o Azure PowerShell para criar uma máquina virtual do Azure em execução no Windows Server 2016 em uma região de disponibilidade do Azure. Uma [zona de disponibilidade](../../availability-zones/az-overview.md) é uma zona fisicamente separada em uma região do Azure. Use zonas de disponibilidade para proteger seus aplicativos e dados de uma improvável falha ou perda de um datacenter inteiro.
 

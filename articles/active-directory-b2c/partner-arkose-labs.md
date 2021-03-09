@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 04492abc0f235c2dc6139adbe543bcce82f7f7b3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 46f117b13909c2d9624b88e9f5d9a62c4c646e51
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101646836"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500285"
 ---
 # <a name="tutorial-configure-arkose-labs-with-azure-active-directory-b2c"></a>Tutorial: configurar o arkose Labs com o Azure Active Directory B2C
 
-Neste tutorial, saiba como integrar a autenticação B2C do Azure Active Directory (AD) com o [arkose Labs](https://www.arkoselabs.com/). O arkose Labs ajuda as organizações contra ataques de bot, ataques de tomada de conta e aberturas de contas fraudulentas.  
+Neste tutorial de exemplo, saiba como integrar a autenticação B2C do Azure Active Directory (AD) com o [arkose Labs](https://www.arkoselabs.com/). O arkose Labs ajuda as organizações contra ataques de bot, ataques de tomada de conta e aberturas de contas fraudulentas.  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -196,7 +196,7 @@ Consulte [Este artigo](https://docs.microsoft.com/azure/azure-functions/function
 
 [Crie um conector de API](https://docs.microsoft.com/azure/active-directory-b2c/add-api-connector) e habilite-o para seu fluxo de usuário. A configuração do conector de API deve ser semelhante a:
 
-![Imagem mostra a pesquisa por ID do aplicativo](media/partner-arkose-labs/configure-api-connector.png)
+![Imagem mostra como configurar o conector de API](media/partner-arkose-labs/configure-api-connector.png)
 
 - **URL do ponto de extremidade** -é a URL da função que você copiou anteriormente enquanto implantou o Azure function.
 

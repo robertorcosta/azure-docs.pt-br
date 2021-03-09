@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce8aa5108b6998424b35e3f4ecac6b51e78f276b
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424114"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500505"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planejar uma implantação de redefinição de senha self-service do Azure Active Directory
 
@@ -25,7 +25,7 @@ ms.locfileid: "102424114"
 >
 > **Se você for um usuário final e precisar voltar à sua conta, vá para [https://aka.ms/sspr](https://aka.ms/sspr)**.
 
-A [SSPR (redefinição de senha self-service)](https://www.youtube.com/watch?v=tnb2Qf4hTP8) é um recurso do Azure Active Directory (AD) que permite que os usuários redefinam suas senhas sem entrar em contato com a equipe de TI para obter ajuda. Os usuários podem rapidamente se desbloquear e continuar trabalhando independentemente de onde estiverem ou da hora do dia. Ao permitir que os funcionários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
+A [SSPR (redefinição de senha self-service)](https://www.youtube.com/watch?v=pS3XwfxJrMo) é um recurso do Azure Active Directory (AD) que permite que os usuários redefinam suas senhas sem entrar em contato com a equipe de TI para obter ajuda. Os usuários podem rapidamente se desbloquear e continuar trabalhando independentemente de onde estiverem ou da hora do dia. Ao permitir que os funcionários se desbloqueiem, sua organização pode reduzir o tempo não produtivo e os altos custos de suporte para os problemas mais comuns relacionados a senhas.
 
 O SSPR tem os seguintes recursos principais:
 

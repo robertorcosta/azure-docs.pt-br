@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 7f2353d9e87c35f01a9fd514df7cfb090a98bf27
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442937"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507272"
 ---
 # <a name="import-new-update"></a>Importar nova atualização
 Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT. Se você ainda não tiver feito isso, não se esqueça de se familiarizar com os conceitos básicos de [importação](import-concepts.md).
@@ -57,8 +57,8 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
 
     | Parâmetro | Descrição |
     | --------- | ----------- |
-    | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso
-    | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira
+    | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso. Deve corresponder à [Propriedade do dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) do _fabricante_
+    | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira. Deve corresponder à [propriedade de dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) de _modelo_
     | updateprovider | Entidade que está criando ou diretamente responsável pela atualização. Em geral, ele será um nome de empresa.
     | updatename | Identificador para uma classe de atualizações. A classe pode ser qualquer coisa que você escolher. Em geral, ele será um nome de dispositivo ou modelo.
     | updateVersion | Número de versão que distingue essa atualização de outras que têm o mesmo nome e provedor. Pode ou não corresponder a uma versão de um componente de software individual no dispositivo.

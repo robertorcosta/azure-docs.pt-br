@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: f945699256b4de9bd87ee4ab7500268302e93089
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 44604f910b3ee6e6ce1b21c736c6ad1f0443e996
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880162"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500029"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -30,7 +30,7 @@ Além disso, Azure Resource Manager tem a capacidade de exportar o modelo no Jav
 
 Você também pode usar recomendações da central de segurança do Azure como uma linha de base de configuração segura para seus recursos do Azure.
 
-- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Tutorial: Criar e gerenciar políticas para impor a conformidade](../../governance/policy/tutorials/create-and-manage.md)
 
@@ -96,7 +96,7 @@ Além disso, observe que as imagens de máquina virtual do Azure Marketplace pub
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 7,5 | 5,3 | Cliente |
+| 7.5 | 5,3 | Cliente |
 
 Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure, modelos de Azure Resource Manager e scripts de configuração de estado desejado. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.
 

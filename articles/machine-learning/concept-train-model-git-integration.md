@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 11/16/2020
-ms.openlocfilehash: 53459ad766ffcf156d2906a38666a14c4883b5e8
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 461c50bca53286cedcbb9ac21fc44467885e3d18
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215928"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102500437"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integração do git para Azure Machine Learning
 
@@ -178,7 +178,7 @@ As informações registradas em log contêm texto semelhante ao JSON a seguir:
 
 ### <a name="python-sdk"></a>SDK do Python
 
-Depois de enviar uma execução de treinamento, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) é retornado. O `properties` atributo desse objeto contém as informações do git registradas. Por exemplo, o código a seguir recupera o hash de confirmação:
+Depois de enviar uma execução de treinamento, um objeto [Run](/python/api/azureml-core/azureml.core.run%28class%29) é retornado. O `properties` atributo desse objeto contém as informações do git registradas. Por exemplo, o código a seguir recupera o hash de confirmação:
 
 ```python
 run.properties['azureml.git.commit']

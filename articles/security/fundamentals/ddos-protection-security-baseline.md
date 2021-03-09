@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 21ae8986761483658f5ac4254e4bb378e0bc4ba9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 09654ddafba6c60db0290a8c7ce08d4b1b168f6c
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575060"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102504875"
 ---
 # <a name="azure-security-baseline-for-azure-ddos-protection-standard"></a>Linha de base de segurança do Azure para a proteção contra DDoS do Azure Standard
 
@@ -294,7 +294,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do grafo 
 
 - [Como criar consultas com o Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription)
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -386,7 +386,7 @@ Use o Azure Resource Graph para consultar e descobrir recursos dentro das assina
 
 **Diretrizes**: defina e implemente configurações de segurança padrão para a proteção contra DDoS do Azure com Azure Policy. Use Azure Policy aliases no namespace "Microsoft. Network" para criar políticas personalizadas para auditar ou impor a configuração de seus cofres dos serviços de recuperação.
 
-- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+- [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
