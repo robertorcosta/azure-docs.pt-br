@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/07/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 55d110501d5e0273ebf8cbc666920cacb87cf5cf
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 455fdc7615e0909189f311755571d02a9acca24e
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434977"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501984"
 ---
 # <a name="azure-cosmos-db-attachments"></a>Azure Cosmos DB anexos
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-mongodb-api.md)]
 
 Azure Cosmos DB anexos são itens especiais que contêm referências a um metadado associado com um blob externo ou arquivo de mídia.
 
@@ -40,6 +40,11 @@ Os anexos gerenciados do Azure Cosmos DB são diferentes de seu suporte para ite
 - Não há suporte para anexos em todas as versões dos SDKs do Azure Cosmos DB.
 - Os anexos gerenciados são limitados a 2 GB de armazenamento por conta de banco de dados.
 - Os anexos gerenciados não são compatíveis com a distribuição global do Azure Cosmos DB e não são replicados entre regiões.
+
+> [!NOTE]
+> Azure Cosmos DB API para MongoDB versão 3,2 utiliza anexos gerenciados para GridFS, que estão sujeitos às mesmas limitações que os anexos gerenciados de Azure Cosmos DB.
+>
+> Recomendamos que os desenvolvedores que usam o conjunto de recursos do MongoDB GridFS sejam atualizados para Azure Cosmos DB API para MongoDB versão 3,6 ou superior, que é dissociada de anexos e fornece uma experiência mais forte e mais robusta. Como alternativa, os desenvolvedores que usam o conjunto de recursos MongoDB GridFS também devem considerar o uso do armazenamento de BLOBs do Azure, que é criado especificamente para armazenar conteúdo de BLOB e oferece funcionalidade expandida a um custo menor em comparação com GridFS.
 
 ## <a name="migrating-attachments-to-azure-blob-storage"></a>Migrando anexos para o armazenamento de BLOBs do Azure
 

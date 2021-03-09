@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 10/21/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 43e503105eb9d59de5de2fe26e024cc473c61af6
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9bf167f5be9aeb65f0d7c1d69e6687589ebea8a4
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430489"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498872"
 ---
 # <a name="set-up-a-development-environment-with-azure-databricks-and-automl-in-azure-machine-learning"></a>Configurar um ambiente de desenvolvimento com Azure Databricks e AutoML no Azure Machine Learning 
 
@@ -50,7 +50,7 @@ Crie um [cluster do databricks](/azure/databricks/scenarios/quickstart-create-da
 
 Use estas configurações:
 
-| Configuração |Aplica-se a| Valor |
+| Setting |Aplica-se a| Valor |
 |----|---|---|
 | Nome do cluster |always| nomedoseucluster |
 | Versão do Databricks Runtime |always| Tempo de execução 7,1 (escala de 2,21, Spark 3.0.0) – não ML|
@@ -172,4 +172,4 @@ Experimente:
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Treinar um modelo](tutorial-train-models-with-aml.md) em Azure Machine Learning com o conjunto de MNIST.
-- Consulte a [referência do SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
+- Consulte a [referência do SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro).

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: damendo
-ms.openlocfilehash: ac1550e34c09429eb9778a5256972fcb60861950
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 6e330d2595487366ff7b8979490cb8a897f89520
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102217696"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102503140"
 ---
 # <a name="introduction-to-effective-security-rules-view-in-azure-network-watcher"></a>Introdução à exibição de regras de segurança em vigor no observador de rede do Azure
 
@@ -36,7 +36,7 @@ As regras podem ser selecionadas e uma nova folha é aberta para mostrar o Grupo
 
 Você também pode usar o recurso *grupos de segurança efetivos* por meio de outros métodos listados abaixo:
 * [REST API](/rest/api/virtualnetwork/NetworkInterfaces/ListEffectiveNetworkSecurityGroups)
-* [PowerShell](/powershell/module/az.network/get-azeffectivenetworksecuritygroup?view=azps-4.4.0)
+* [PowerShell](/powershell/module/az.network/get-azeffectivenetworksecuritygroup)
 * [CLI do Azure](/cli/azure/network/nic#az-network-nic-list-effective-nsg)
 
 Saiba como fazer a auditoria das configurações do Grupo de Segurança da Rede visitando [Auditar as configurações do Grupo de Segurança da Rede com o PowerShell](network-watcher-nsg-auditing-powershell.md)
