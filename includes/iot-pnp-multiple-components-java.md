@@ -4,12 +4,12 @@ ms.author: dobett
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 11/20/2020
-ms.openlocfilehash: bece0f95f3cd87bcf803637835ef1854606b088b
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 32a2ef82888e61c18c298c61c9b7ad268e7db797
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99834114"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102244982"
 ---
 Este tutorial mostra como criar um aplicativo de exemplo de dispositivo de vários componentes do IoT Plug and Play, conectá-lo ao hub IoT e usar a CLI do Azure para exibir a telemetria que ele envia. O aplicativo de exemplo é escrito no Java e é incluído no SDK do dispositivo de IoT do Azure para Java. Um construtor de soluções pode usar a CLI do Azure para compreender as funcionalidades de um dispositivo IoT Plug and Play sem a necessidade de ver nenhum código de dispositivo.
 
@@ -29,7 +29,7 @@ Neste tutorial, você:
 
 Para realizar este tutorial no Windows, instale o seguinte software em um ambiente Windows local:
 
-* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/?preserve-view=true&view=azure-java-stable), em **Suporte de longo prazo**, selecione **Java 8**.
+* Java SE Development Kit 8. Em [Suporte de longo prazo do Java para o Azure e o Azure Stack](/java/azure/jdk/), em **Suporte de longo prazo**, selecione **Java 8**.
 * [Apache Maven 3](https://maven.apache.org/download.cgi).
 
 ## <a name="download-the-code"></a>Baixar o código
