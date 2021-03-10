@@ -3,17 +3,19 @@ title: Configuração de driver de GPU AMD da série N do Azure para Windows
 description: Como configurar drivers de GPU AMD para VMs da série N executando Windows Server ou Windows no Azure
 author: vikancha-MSFT
 manager: jkabat
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: vm-sizes-gpu
+ms.collection: windows
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 12/4/2019
 ms.author: vikancha
-ms.openlocfilehash: 1e08d54b9467231233c62635dafc5135456a3843
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 62723a0fee6a3f696c517bc642fdac8cfa80a6b9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695406"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557413"
 ---
 # <a name="install-amd-gpu-drivers-on-n-series-vms-running-windows"></a>Instalação de drivers de GPU AMD em VMs da série N executando Windows
 

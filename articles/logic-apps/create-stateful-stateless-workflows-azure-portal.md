@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/02/2021
-ms.openlocfilehash: 3cf5047dbb79f6d8b35b0fe089069a20ab4a50a6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/08/2021
+ms.openlocfilehash: ff938d29d998b6fcf0b2cfae72a9a9e685a10dc5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736316"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563924"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-the-azure-portal-with-azure-logic-apps-preview"></a>Criar fluxos de trabalho com e sem estado no portal do Azure com o aplicativo lógico do Azure versão prévia
 
@@ -79,7 +79,7 @@ Este artigo mostra como criar seu aplicativo lógico e fluxo de trabalho no port
    | **Assinatura** | Sim | <*Azure-subscription-name*> | A assinatura do Azure a ser usada para seu aplicativo lógico. |
    | **Grupo de recursos** | Sim | <*Azure-resource-group-name*> | O grupo de recursos do Azure em que você cria seu aplicativo lógico e os recursos relacionados. Esse nome de recurso deve ser exclusivo entre regiões e pode conter apenas letras, números, hifens ( **-** ), sublinhados (**_**), parênteses (**()**) e pontos (**.**). <p><p>Este exemplo cria um grupo de recursos denominado `Fabrikam-Workflows-RG` . |
    | **Nome do aplicativo lógico** | Sim | <*logic-app-name*> | O nome a ser usado para o aplicativo lógico. Esse nome de recurso deve ser exclusivo entre regiões e pode conter apenas letras, números, hifens ( **-** ), sublinhados (**_**), parênteses (**()**) e pontos (**.**). <p><p>Este exemplo cria um aplicativo lógico chamado `Fabrikam-Workflows` . <p><p>**Observação**: o nome do aplicativo lógico obtém automaticamente o sufixo, `.azurewebsites.net` , porque o recurso **aplicativo lógico (versão prévia)** é alimentado por Azure functions, que usa a mesma convenção de nomenclatura do aplicativo. |
-   | **Publicar** | Sim | <*implantação-ambiente*> | O destino de implantação para seu aplicativo lógico. Você pode implantar no Azure selecionando **fluxo de trabalho** ou **contêiner do Docker**. <p><p>Este exemplo usa o **fluxo de trabalho**, que implanta o recurso de **aplicativo lógico (versão prévia)** no portal do Azure. <p><p>**Observação**: antes de selecionar o **contêiner do Docker**, certifique-se de criar sua imagem de contêiner do Docker. Por exemplo, você pode criar essa imagem por meio [do registro de contêiner do Azure, do](../container-registry/container-registry-intro.md)serviço de [aplicativo](../app-service/overview.md)ou da [instância de contêiner do Azure](../container-instances/container-instances-overview.md). Dessa forma, depois de selecionar o **contêiner do Docker**, você poderá [especificar o contêiner que deseja usar nas configurações do aplicativo lógico](#set-docker-container). |
+   | **Publicar** | Yes | <*implantação-ambiente*> | O destino de implantação para seu aplicativo lógico. Você pode implantar no Azure selecionando **fluxo de trabalho** ou **contêiner do Docker**. <p><p>Este exemplo usa o **fluxo de trabalho**, que implanta o recurso de **aplicativo lógico (versão prévia)** no portal do Azure. <p><p>**Observação**: antes de selecionar o **contêiner do Docker**, certifique-se de criar sua imagem de contêiner do Docker. Por exemplo, você pode criar essa imagem por meio [do registro de contêiner do Azure, do](../container-registry/container-registry-intro.md)serviço de [aplicativo](../app-service/overview.md)ou da [instância de contêiner do Azure](../container-instances/container-instances-overview.md). Dessa forma, depois de selecionar o **contêiner do Docker**, você poderá [especificar o contêiner que deseja usar nas configurações do aplicativo lógico](#set-docker-container). |
    | **Região** | Sim | <*Azure-region*> | A região do Azure a ser usada ao criar o grupo de recursos e os recursos. <p><p>Este exemplo usa **Oeste dos EUA**. |
    |||||
 
@@ -92,9 +92,9 @@ Este artigo mostra como criar seu aplicativo lógico e fluxo de trabalho no port
    | Propriedade | Obrigatório | Valor | Descrição |
    |----------|----------|-------|-------------|
    | **Conta de armazenamento** | Sim | <*Azure-storage-account-name*> | A [conta de armazenamento do Azure](../storage/common/storage-account-overview.md) a ser usada para transações de armazenamento. Esse nome de recurso deve ser exclusivo entre regiões e ter de 3-24 caracteres com apenas números e letras minúsculas. Selecione uma conta existente ou crie uma nova conta. <p><p>Este exemplo cria uma conta de armazenamento denominada `fabrikamstorageacct` . |
-   | **Tipo de plano** | Sim | <*Azure – plano de hospedagem*> | O [plano de hospedagem](../app-service/overview-hosting-plans.md) a ser usado para implantar seu aplicativo lógico, que é o [**Functions Premium**](../azure-functions/functions-premium-plan.md) ou o [ **plano do serviço de aplicativo** (dedicado)](../azure-functions/dedicated-plan.md). Sua escolha afeta os recursos e as camadas de preço mais tarde disponíveis para você. <p><p>Este exemplo usa o **plano do serviço de aplicativo**. <p><p>**Observação**: semelhante a Azure functions, o tipo de recurso de **aplicativo lógico (versão prévia)** requer um plano de hospedagem e uma camada de preços. Os planos de consumo não têm suporte nem estão disponíveis para este tipo de recurso. Para obter mais informações, consulte estes tópicos: <p><p>- [Escala e Hospedagem de Azure Functions](../azure-functions/functions-scale.md) <br>- [Detalhes de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Por exemplo, o plano Premium do Functions fornece acesso a recursos de rede, como conectar e integrar de forma privada com redes virtuais do Azure, semelhante a Azure Functions quando você cria e implanta seus aplicativos lógicos. Para obter mais informações, consulte estes tópicos: <p><p>- [Opções de rede Azure Functions](../azure-functions/functions-networking-options.md) <br>- [Aplicativos lógicos do Azure executando possibilidades de rede em qualquer lugar com os aplicativos lógicos do Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
-   | **Plano do Windows** | Sim | <*nome do plano*> | O nome do plano a ser usado. Selecione um plano existente ou forneça o nome para um novo plano. <p><p>Este exemplo usa o nome `Fabrikam-Service-Plan`. |
-   | **SKU e tamanho** | Sim | <*preço-camada*> | O [tipo de preço](../app-service/overview-hosting-plans.md) a ser usado para hospedar seu aplicativo lógico. Suas opções são afetadas pelo tipo de plano que você escolheu anteriormente. Para alterar a camada padrão, selecione **alterar tamanho**. Em seguida, você pode selecionar outros tipos de preço, com base na carga de trabalho necessária. <p><p>Este exemplo usa o **tipo de preço F1** grátis para cargas de trabalho de **desenvolvimento/teste** . Para obter mais informações, examine os [detalhes de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/). |
+   | **Tipo de plano** | Yes | <*Azure – plano de hospedagem*> | O [plano de hospedagem](../app-service/overview-hosting-plans.md) a ser usado para implantar seu aplicativo lógico, que é o [**Functions Premium**](../azure-functions/functions-premium-plan.md) ou o [ **plano do serviço de aplicativo** (dedicado)](../azure-functions/dedicated-plan.md). Sua escolha afeta os recursos e as camadas de preço mais tarde disponíveis para você. <p><p>Este exemplo usa o **plano do serviço de aplicativo**. <p><p>**Observação**: semelhante a Azure functions, o tipo de recurso de **aplicativo lógico (versão prévia)** requer um plano de hospedagem e uma camada de preços. Os planos de consumo não têm suporte nem estão disponíveis para este tipo de recurso. Para obter mais informações, consulte estes tópicos: <p><p>- [Escala e Hospedagem de Azure Functions](../azure-functions/functions-scale.md) <br>- [Detalhes de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/) <p><p>Por exemplo, o plano Premium do Functions fornece acesso a recursos de rede, como conectar e integrar de forma privada com redes virtuais do Azure, semelhante a Azure Functions quando você cria e implanta seus aplicativos lógicos. Para obter mais informações, consulte estes tópicos: <p><p>- [Opções de rede Azure Functions](../azure-functions/functions-networking-options.md) <br>- [Aplicativos lógicos do Azure executando possibilidades de rede em qualquer lugar com os aplicativos lógicos do Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047) |
+   | **Plano do Windows** | Yes | <*nome do plano*> | O nome do plano a ser usado. Selecione um plano existente ou forneça o nome para um novo plano. <p><p>Este exemplo usa o nome `Fabrikam-Service-Plan`. |
+   | **SKU e tamanho** | Yes | <*preço-camada*> | O [tipo de preço](../app-service/overview-hosting-plans.md) a ser usado para hospedar seu aplicativo lógico. Suas opções são afetadas pelo tipo de plano que você escolheu anteriormente. Para alterar a camada padrão, selecione **alterar tamanho**. Em seguida, você pode selecionar outros tipos de preço, com base na carga de trabalho necessária. <p><p>Este exemplo usa o **tipo de preço F1** grátis para cargas de trabalho de **desenvolvimento/teste** . Para obter mais informações, examine os [detalhes de preços do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/). |
    |||||
 
 1. Em seguida, se as configurações de criação e implantação dão suporte ao uso de [Application insights](../azure-monitor/app/app-insights-overview.md), você pode opcionalmente habilitar o log e o rastreamento de diagnóstico para seu aplicativo lógico.
@@ -105,7 +105,7 @@ Este artigo mostra como criar seu aplicativo lógico e fluxo de trabalho no port
 
 1. Depois que o Azure valida as configurações do aplicativo lógico, na guia **revisar + criar** , selecione **criar**.
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Captura de tela que mostra a portal do Azure e novas configurações de recurso de aplicativo lógico.](./media/create-stateful-stateless-workflows-azure-portal/check-logic-app-resource-settings.png)
 
@@ -236,7 +236,33 @@ Antes de adicionar um gatilho a um fluxo de trabalho em branco, verifique se o d
 
 1. Salve seu trabalho. Selecione **Salvar** na barra de ferramentas do designer.
 
-Em seguida, para testar o fluxo de trabalho, acione manualmente uma execução.
+1. Se o ambiente tiver requisitos estritos de rede ou firewalls que limitam o tráfego, você precisará configurar permissões para qualquer conexão de gatilho ou ação que exista em seu fluxo de trabalho. Para encontrar o totalmente qualificado 
+
+   Caso contrário, para testar o fluxo de trabalho, [acione manualmente uma execução](#trigger-workflow).
+
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Localizar nomes de domínio para acesso ao firewall
+
+Antes de implantar seu aplicativo lógico e executar o fluxo de trabalho no portal do Azure, se o ambiente tiver requisitos de rede estritos ou firewalls que limitem o tráfego, você precisará configurar as permissões de rede ou firewall para qualquer conexão de gatilho ou ação nos fluxos de trabalho que existem em seu aplicativo lógico.
+
+Para localizar os FQDNs (nomes de domínio totalmente qualificados) para essas conexões, siga estas etapas:
+
+1. No menu do aplicativo lógico, em **fluxos de trabalho**, selecione **conexões**. Na guia **conexões de API** , selecione o nome do recurso da conexão, por exemplo:
+
+   ![Captura de tela que mostra o portal do Azure e o menu do aplicativo lógico com o nome do recurso de conexão "conexões" e "offic365" selecionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connections.png)
+
+1. Expanda o navegador para todo o suficiente para que, quando a **exibição JSON** aparecer no canto superior direito do navegador, selecione **modo de exibição JSON**.
+
+   ![Captura de tela que mostra a portal do Azure e o painel de conexão de API com a "exibição JSON" selecionada.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-view-json.png)
+
+1. Localize, copie e salve o `connectionRuntimeUrl` valor da propriedade em um local seguro para que você possa configurar o firewall com essas informações.
+
+   ![Captura de tela que mostra o valor da propriedade "connectionRuntimeUrl" selecionado.](./media/create-stateful-stateless-workflows-azure-portal/logic-app-connection-runtime-url.png)
+
+1. Para cada conexão, repita as etapas relevantes.
+
+<a name="trigger-workflow"></a>
 
 ## <a name="trigger-the-workflow"></a>Disparar um fluxo de trabalho
 
@@ -405,7 +431,7 @@ Para depurar um fluxo de trabalho sem estado com mais facilidade, você pode hab
 
 1. Na caixa **valor** , insira o seguinte valor: `WithStatelessRunHistory`
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Captura de tela que mostra o portal do Azure e o recurso de aplicativo lógico (versão prévia) com a "configuração" > "nova configuração de aplicativo" < painel "Adicionar/Editar configuração de aplicativo" aberto e os "fluxos de trabalho. {yourWorkflowName}. Operationoptions ", opção definida como" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-azure-portal/stateless-operation-options-run-history.png)
 

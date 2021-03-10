@@ -2,18 +2,18 @@
 title: Solucionar problemas usando Cloud-init
 description: Solucionar problemas de provisionamento de uma VM do Azure usando Cloud-init.
 author: danielsollondon
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.subservice: imaging
 ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: a18899ffc6b19be6226d9e0a3efd9a9519434601
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 6c5922137b5d3ee14461adb88fba2e8b2cf41e16
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666220"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102558960"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Solucionando problemas de provisionamento de VM com Cloud-init
 
@@ -89,7 +89,7 @@ Aqui estão mais detalhes sobre o que procurar em cada log de inicialização de
 
 Por padrão, todos os eventos Cloud-init com uma prioridade de debug ou superior são gravados no `/var/log/cloud-init.log` . Isso fornece logs detalhados de cada evento ocorrido durante a inicialização de Cloud-init. 
 
-Por exemplo: 
+Por exemplo:
 
 ```console
 2019-10-10 04:51:25,321 - util.py[DEBUG]: Failed mount of '/dev/sr0' as 'auto': Unexpected error while running command.
@@ -124,7 +124,7 @@ Se ainda não for possível isolar por que a Cloud-init falhou ao provisionar, v
 
 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Etapa 4: investigar por que a configuração não está sendo aplicada
-Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por exemplo, se você estiver usando o `runcmd` módulo em uma configuração de inicialização de nuvem, um código de saída diferente de zero do comando que está sendo executado fará com que o provisionamento da VM falhe. Isso ocorre porque ele é executado após a funcionalidade de provisionamento principal que ocorre nos três primeiros estágios de Cloud-init. Para solucionar problemas por que a configuração não foi aplicada, examine os logs nos módulos etapa 3 e Cloud-init manualmente. Por exemplo: 
+Nem toda falha em Cloud-init resulta em uma falha de provisionamento fatal. Por exemplo, se você estiver usando o `runcmd` módulo em uma configuração de inicialização de nuvem, um código de saída diferente de zero do comando que está sendo executado fará com que o provisionamento da VM falhe. Isso ocorre porque ele é executado após a funcionalidade de provisionamento principal que ocorre nos três primeiros estágios de Cloud-init. Para solucionar problemas por que a configuração não foi aplicada, examine os logs nos módulos etapa 3 e Cloud-init manualmente. Por exemplo:
 
 - `runcmd` -os scripts são executados sem erros? Execute a configuração manualmente do terminal para garantir que elas sejam executadas conforme o esperado.
 - Instalando pacotes – a VM tem acesso aos repositórios de pacotes?

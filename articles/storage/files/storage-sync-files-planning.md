@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 171e858ef06228f2bf5ef5dea662de00143a0567
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102441934"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564213"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -206,7 +206,7 @@ A Sincronização de Arquivos do Azure não é compatível com a Eliminação de
 - Se a Eliminação de Duplicação de Dados estiver habilitada em um volume depois que a camada de nuvem estiver habilitada, o trabalho de otimização de eliminação de duplicação inicial otimizará os arquivos do volume que ainda não estiverem em camadas e terá o seguinte impacto na camada de nuvem:
     - A política de espaço livre continuará a colocar arquivos em camada de acordo com o espaço livre no volume usando o mapa de calor.
     - A política de data ignorará a camada de arquivos que, de outra forma, poderia ter sido qualificada para camada devido ao trabalho de otimização da eliminação de duplicação que acessa os arquivos.
-- Para trabalhos de otimização de eliminação de duplicação em andamento, a camada de nuvem com a política de data será atrasada pela configuração [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume?view=win10-ps&preserve-view=true) da Eliminação de Duplicação de Dados, se o arquivo ainda não estiver em camada. 
+- Para trabalhos de otimização de eliminação de duplicação em andamento, a camada de nuvem com a política de data será atrasada pela configuração [MinimumFileAgeDays](/powershell/module/deduplication/set-dedupvolume) da Eliminação de Duplicação de Dados, se o arquivo ainda não estiver em camada. 
     - Exemplo: Se a configuração MinimumFileAgeDays for de sete dias e a política de data da camada de nuvem for de 30 dias, a política de data colocará os arquivos em camada após 37 dias.
     - Observação: Quando um arquivo é colocado em camadas pela Sincronização de Arquivos do Azure, o trabalho de otimização da eliminação de duplicação ignorará o arquivo.
 - Se um servidor que executa o Windows Server 2012 R2 com o agente da Sincronização de Arquivos do Azure instalado for atualizado para o Windows Server 2016 ou o Windows Server 2019, as seguintes etapas deverão ser executadas para dar suporte à Eliminação de Duplicação de Dados e à camada de nuvem no mesmo volume:  

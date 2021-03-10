@@ -1,28 +1,28 @@
 ---
 title: Visão geral da versão prévia dos Aplicativos Lógicos do Azure
-description: A visualização dos aplicativos lógicos do Azure é uma solução de nuvem para a criação de fluxos de trabalho com estado e sem estado automatizados que integram aplicativos, dados, serviços e sistemas com o mínimo de código para cenários de nível empresarial.
+description: A versão prévia dos aplicativos lógicos do Azure é uma solução de nuvem para a criação de fluxos de trabalho automatizados, de locatário único, com e sem estado que integram aplicativos, dados, serviços e sistemas com o mínimo de código para cenários de nível empresarial.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ad059931d87603c957e446e82b894731dca984dd
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.date: 03/08/2021
+ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442733"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561850"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
 > [!IMPORTANT]
 > Essa versão preliminar está na versão prévia pública, e é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho em produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Com a visualização dos aplicativos lógicos do Azure, você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos que incluem [fluxos de trabalho com e *sem*](#stateful-stateless) estado usando o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Com esse novo tipo de aplicativo lógico, você pode criar vários fluxos de trabalho que são alimentados pelo tempo de execução da visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, não apenas no Azure, mas também em contêineres do Docker.
+Com a visualização dos aplicativos lógicos do Azure, você pode criar soluções de automação e integração entre aplicativos, dados, serviços de nuvem e sistemas criando e executando aplicativos lógicos de locatário único com o novo tipo de recurso de **aplicativo lógico (versão prévia)** . Usando esse tipo de aplicativo lógico de locatário único, o pode [ *criar vários* fluxos de trabalho com e *sem*](#stateful-stateless) estado que são compatíveis com o tempo de execução de visualização dos aplicativos lógicos do Azure reprojetados, que fornece portabilidade, melhor desempenho e flexibilidade para implantação e execução em vários ambientes de hospedagem, incluindo não apenas o Azure, mas também contêineres do Docker.
 
-Como isso é possível? O tempo de execução reprojetado usa o [modelo de extensibilidade Azure Functions](../azure-functions/functions-bindings-register.md) e é hospedado como uma extensão no tempo de execução de Azure functions. Essa arquitetura significa que você pode executar o novo tipo de aplicativo lógico em qualquer lugar que Azure Functions é executado. Você pode hospedar o tempo de execução reprojetado em praticamente qualquer topologia de rede e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária exigida pelos seus fluxos de trabalho. Para obter mais informações, consulte [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
+Como isso é possível? O tempo de execução reprojetado usa o [modelo de extensibilidade Azure Functions](../azure-functions/functions-bindings-register.md) e é hospedado como uma extensão no tempo de execução de Azure functions. Essa arquitetura significa que você pode executar o tipo de aplicativo lógico de locatário único em qualquer lugar que Azure Functions é executado. Você pode hospedar o tempo de execução reprojetado em praticamente qualquer topologia de rede e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária exigida pelos seus fluxos de trabalho. Para obter mais informações, consulte [Introduction to Azure Functions](../azure-functions/functions-overview.md) and [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md).
 
-Você pode criar o recurso de **aplicativo lógico (versão prévia)** [iniciando na portal do Azure](create-stateful-stateless-workflows-azure-portal.md) ou [criando um projeto no Visual Studio Code com a extensão aplicativos lógicos do Azure (versão prévia)](create-stateful-stateless-workflows-visual-studio-code.md). Além disso, no Visual Studio Code, você pode criar *e executar localmente* seus fluxos de trabalho em seu ambiente de desenvolvimento. Se você usar o portal ou Visual Studio Code, poderá implantar e executar o novo tipo de aplicativo lógico nos mesmos tipos de ambientes de hospedagem.
+Você pode criar o recurso de **aplicativo lógico (versão prévia)** [iniciando na portal do Azure](create-stateful-stateless-workflows-azure-portal.md) ou [criando um projeto no Visual Studio Code com a extensão aplicativos lógicos do Azure (versão prévia)](create-stateful-stateless-workflows-visual-studio-code.md). Além disso, no Visual Studio Code, você pode criar *e executar localmente* seus fluxos de trabalho em seu ambiente de desenvolvimento. Se você usar o portal ou Visual Studio Code, poderá implantar e executar o tipo de aplicativo lógico de locatário único nos mesmos tipos de ambientes de hospedagem.
 
 Esta visão geral aborda as seguintes áreas:
 
@@ -48,7 +48,7 @@ Para obter mais informações, consulte estes outros tópicos:
 
 ## <a name="how-does-azure-logic-apps-preview-differ"></a>Como a visualização dos aplicativos lógicos do Azure é diferente?
 
-O tempo de execução de visualização dos aplicativos lógicos do Azure usa [Azure Functions](../azure-functions/functions-overview.md) extensibilidade e é hospedado como uma extensão no tempo de execução de Azure functions. Essa arquitetura significa que você pode executar o novo tipo de aplicativo lógico em qualquer lugar que Azure Functions é executado. Você pode hospedar o tempo de execução de visualização dos aplicativos lógicos do Azure em praticamente qualquer topologia de rede desejada e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária que seu fluxo de trabalho precisa. Para obter mais informações sobre a extensibilidade de Azure Functions, consulte [SDK de trabalhos Web: Criando associações de entrada e saída personalizadas](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
+O tempo de execução de visualização dos aplicativos lógicos do Azure usa [Azure Functions](../azure-functions/functions-overview.md) extensibilidade e é hospedado como uma extensão no tempo de execução de Azure functions. Essa arquitetura significa que você pode executar o tipo de aplicativo lógico de locatário único em qualquer lugar que Azure Functions é executado. Você pode hospedar o tempo de execução de visualização dos aplicativos lógicos do Azure em praticamente qualquer topologia de rede desejada e escolher qualquer tamanho de computação disponível para lidar com a carga de trabalho necessária que seu fluxo de trabalho precisa. Para obter mais informações sobre a extensibilidade de Azure Functions, consulte [SDK de trabalhos Web: Criando associações de entrada e saída personalizadas](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
 Com essa nova abordagem, o tempo de execução de visualização dos aplicativos lógicos do Azure e seus fluxos de trabalho fazem parte de seu aplicativo que você pode empacotar juntos. Essa funcionalidade permite que você implante e execute seus fluxos de trabalho simplesmente copiando artefatos para o ambiente de hospedagem e iniciando seu aplicativo. Essa abordagem também fornece uma experiência mais padronizada para criar pipelines de implantação em todos os projetos de fluxo de trabalho para executar os testes e validações necessários antes de implantar alterações em ambientes de produção. Para obter mais informações, consulte [aplicativos lógicos do Azure executando aprofundamentos em tempo de execução](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564).
 
@@ -57,15 +57,17 @@ A tabela a seguir resume brevemente as diferenças no modo como os fluxos de tra
 | Ambiente | Compartilhamento de recursos e consumo |
 |-------------|----------------------------------|
 | Aplicativos lógicos do Azure (multilocatário) | Os fluxos *de trabalho de clientes em vários locatários* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
-| Aplicativos lógicos do Azure (visualização) | Os fluxos de trabalho *no mesmo aplicativo lógico* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
+| Aplicativos lógicos do Azure (visualização, único locatário) | Os fluxos de trabalho *no mesmo aplicativo lógico e um único locatário* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
 | Ambiente do serviço de integração (não disponível na versão prévia) | Os fluxos de trabalho no *mesmo ambiente* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
 ||||
 
-Enquanto isso, você ainda pode criar o tipo de aplicativo lógico original na portal do Azure e no Visual Studio Code usando a extensão original de aplicativos lógicos do Azure. Embora as experiências de desenvolvimento sejam diferentes entre os tipos de aplicativo lógico original e novo, sua assinatura do Azure pode incluir ambos os tipos. Você pode exibir e acessar todos os aplicativos lógicos implantados em sua assinatura do Azure, mas os aplicativos são organizados em suas próprias categorias e seções.
+Enquanto isso, você ainda pode criar o tipo de aplicativo lógico multilocatário no portal do Azure e no Visual Studio Code usando a extensão de aplicativos lógicos do Azure multilocatário. Embora as experiências de desenvolvimento sejam diferentes entre os tipos de aplicativo lógico multilocatário e de locatário único, sua assinatura do Azure pode incluir ambos os tipos. Você pode exibir e acessar todos os aplicativos lógicos implantados em sua assinatura do Azure, mas os aplicativos são organizados em suas próprias categorias e seções.
 
 <a name="stateful-stateless"></a>
 
 ## <a name="stateful-and-stateless-workflows"></a>Fluxos de trabalho com e sem estado
+
+Com o tipo de aplicativo lógico de locatário único, você pode criar esses tipos de fluxo de trabalho dentro do mesmo aplicativo lógico:
 
 * *Com estado*
 
@@ -149,9 +151,9 @@ A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais
 
   * [Aplicativos lógicos do Azure executando possibilidades de rede em qualquer lugar com os aplicativos lógicos do Azure Preview](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
 
-* Regenerar chaves de acesso para conexões gerenciadas usadas por fluxos de trabalho individuais em um recurso de **aplicativo lógico (versão prévia)** . Para essa tarefa, [siga as mesmas etapas para o recurso de **aplicativos lógicos** , mas no nível de fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não no nível de recurso do aplicativo lógico.
+* Regenerar chaves de acesso para conexões gerenciadas usadas por fluxos de trabalho individuais no recurso de aplicativo lógico de locatário único **(versão prévia)** . Para essa tarefa, [siga as mesmas etapas para o recurso **aplicativos lógicos** multilocatários, mas no nível de fluxo de trabalho individual](logic-apps-securing-a-logic-app.md#regenerate-access-keys), não no nível de recurso do aplicativo lógico.
 
-* Adicione ramificações paralelas no novo designer seguindo as mesmas etapas que o designer sem visualização.
+* Adicione ramificações paralelas no designer de locatário único seguindo as mesmas etapas do designer multilocatário.
 
 Para obter mais informações, consulte [recursos alterados, limitados, indisponíveis e sem suporte](#limited-unavailable-unsupported) e a [página de problemas conhecidos da visualização pública de aplicativos lógicos no GitHub](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md).
 
@@ -159,14 +161,14 @@ Para obter mais informações, consulte [recursos alterados, limitados, indispon
 
 ## <a name="pricing-model"></a>Modelo de preços
 
-Ao criar o novo tipo de aplicativo lógico no portal do Azure ou implantar do Visual Studio Code, você deve escolher um plano de hospedagem, o [serviço de aplicativo ou Premium](../azure-functions/functions-scale.md), para que seu aplicativo lógico seja usado. Este plano determina o modelo de preços que se aplica à execução do aplicativo lógico. Se você selecionar o plano do serviço de aplicativo, também deverá escolher um [tipo de preço](../app-service/overview-hosting-plans.md).
+Ao criar o tipo de aplicativo lógico de locatário único no portal do Azure ou implantar do Visual Studio Code, você deve escolher um plano de hospedagem, o [serviço de aplicativo ou Premium](../azure-functions/functions-scale.md), para que seu aplicativo lógico use. Este plano determina o modelo de preços que se aplica à execução do aplicativo lógico. Se você selecionar o plano do serviço de aplicativo, também deverá escolher um [tipo de preço](../app-service/overview-hosting-plans.md).
 
 Fluxos de trabalho com *estado* usam [armazenamento externo](../azure-functions/storage-considerations.md#storage-account-requirements), portanto, o [preço do armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) se aplica às transações de armazenamento que o tempo de execução de visualização do aplicativo lógico do Azure executa. Por exemplo, as filas são usadas para agendamento, enquanto tabelas e BLOBs são usados para armazenar Estados de fluxo de trabalho.
 
 > [!NOTE]
 > Durante a visualização pública, a execução de aplicativos lógicos no serviço de aplicativo não incorre em encargos *adicionais* na parte superior do plano selecionado.
 
-Para obter mais informações sobre os modelos de preços que se aplicam a esse novo tipo de recurso, consulte estes tópicos:
+Para obter mais informações sobre os modelos de preços que se aplicam ao tipo de recurso de locatário único, examine estes tópicos:
 
 * [Escala e hospedagem do Azure Functions](../azure-functions/functions-scale.md)
 * [Escalar verticalmente um aplicativo no Serviço de Aplicativo do Azure](../app-service/manage-scale-up.md)
@@ -202,9 +204,9 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
       No portal do Azure, você pode selecionar uma função de gatilho HTTP onde você tem acesso criando uma conexão por meio da experiência do usuário. Se você inspecionar a definição de JSON da ação da função na exibição de código ou na **workflow.jsno** arquivo, a ação se referirá à função usando uma `connectionName` referência. Essa versão abstrai as informações da função como uma conexão, que pode ser encontrada naconnections.jsdo seu projeto **no** arquivo, que está disponível depois que você cria uma conexão.
 
       > [!NOTE]
-      > Na versão de visualização, a ação de função dá suporte apenas à autenticação de cadeia de caracteres de consulta. A visualização dos aplicativos lógicos do Azure Obtém a chave padrão da função ao fazer a conexão, armazena essa chave nas configurações do aplicativo e usa a chave para autenticação ao chamar a função.
+      > Na versão de locatário único, a ação de função dá suporte apenas à autenticação de cadeia de caracteres de consulta. A visualização dos aplicativos lógicos do Azure Obtém a chave padrão da função ao fazer a conexão, armazena essa chave nas configurações do aplicativo e usa a chave para autenticação ao chamar a função.
       >
-      > Assim como acontece com a versão original, se você renovar essa chave, por exemplo, por meio da experiência de Azure Functions no portal, a ação da função não funcionará mais devido à chave inválida. Para corrigir esse problema, você precisa recriar a conexão com a função que deseja chamar ou atualizar as configurações do aplicativo com a nova chave.
+      > Assim como ocorre com a versão multilocatário, se você renovar essa chave, por exemplo, por meio da experiência de Azure Functions no portal, a ação de função não funcionará mais devido à chave inválida. Para corrigir esse problema, você precisa recriar a conexão com a função que deseja chamar ou atualizar as configurações do aplicativo com a nova chave.
 
     * A ação interna, código [embutido-executar código JavaScript](logic-apps-add-run-inline-code.md) agora é **operações de código embutidas-executar JavaScript em linha**.
 
@@ -222,7 +224,7 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
 
 * Atualmente, não há suporte para os [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) para visualização.
 
-* **Disponibilidade do plano de hospedagem**: se você criar um novo tipo de recurso de **aplicativo lógico (versão prévia)** no portal do Azure ou implantar do Visual Studio Code, você só poderá usar o plano de hospedagem do serviço de aplicativo ou Premium no Azure. Os planos de Hospedagem de consumo estão indisponíveis e não têm suporte para a implantação deste tipo de recurso. Você pode implantar de Visual Studio Code para um contêiner do Docker, mas não para um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+* **Disponibilidade do plano de hospedagem**: se você criar o tipo de recurso de aplicativo lógico de locatário único **(versão prévia)** no portal do Azure ou implantar do Visual Studio Code, você só poderá usar o plano de hospedagem do serviço de aplicativo ou Premium no Azure. Os planos de Hospedagem de consumo estão indisponíveis e não têm suporte para a implantação deste tipo de recurso. Você pode implantar de Visual Studio Code para um contêiner do Docker, mas não para um [ambiente do serviço de integração (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Depuração de ponto de interrupção no Visual Studio Code**: embora você possa adicionar e usar pontos de interrupção dentro do **workflow.jsno** arquivo para um fluxo de trabalho, os pontos de interrupção têm suporte apenas para ações no momento, não gatilhos. Para obter mais informações, consulte [criar fluxos de trabalho com estado e sem estado no Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#manage-breakpoints).
 
@@ -233,6 +235,17 @@ Na visualização dos aplicativos lógicos do Azure, esses recursos foram altera
    * Para exibir o histórico de execuções, abra o fluxo de trabalho em seu aplicativo lógico. No menu fluxo de trabalho, em **desenvolvedor**, selecione **Monitor**.
 
    * Para examinar o histórico do gatilho, abra o fluxo de trabalho em seu aplicativo lógico. No menu fluxo de trabalho, em **desenvolvedor**, selecione **históricos de gatilho**.
+
+<a name="firewall-permissions"></a>
+
+## <a name="permit-traffic-in-strict-network-and-firewall-scenarios"></a>Permitir o tráfego em cenários estritos de rede e firewall
+
+Se o seu ambiente tiver requisitos estritos de rede ou firewalls que limitam o tráfego, você precisará permitir o acesso para qualquer conexão de gatilho ou ação em seus fluxos de trabalho de aplicativo lógico.
+
+Para localizar os FQDNs (nomes de domínio totalmente qualificados) para essas conexões, examine as seções correspondentes nestes tópicos:
+
+* [Permissões de firewall para aplicativos lógicos de locatário único-Visual Studio Code](create-stateful-stateless-workflows-visual-studio-code.md#firewall-setup)
+* [Permissões de firewall para aplicativos lógicos de locatário único-portal do Azure](create-stateful-stateless-workflows-azure-portal.md#firewall-setup)
 
 <a name="limits"></a>
 
