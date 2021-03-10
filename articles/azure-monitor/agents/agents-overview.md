@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: b8cfb483f2b06c072707c57ff45b7ad995a22eb4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034431"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551463"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
 
@@ -37,7 +37,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
 | **Dados coletados** | Logs de eventos<br>Desempenho | Logs de eventos<br>eventos ETW<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Logs do aplicativo .NET<br>Despejos de memória<br>Logs de diagnóstico do agente | Logs de eventos<br>Desempenho<br>Logs baseados em arquivo<br>Logs IIS<br>Insights e soluções<br>Outros serviços | Dependências de processo<br>Métricas de conexão de rede |
 | **Dados enviados para** | Logs do Azure Monitor<br>Métricas do Azure Monitor | Armazenamento do Azure<br>Métricas do Azure Monitor<br>Hub de evento | Logs do Azure Monitor | Logs do Azure Monitor<br>(por meio do agente de Log Analytics) |
-| **Serviços e**<br>**recursos**<br>**porta** | Log Analytics<br>Metrics Explorer | Metrics Explorer | Informações de VM<br>Log Analytics<br>Automação do Azure<br>Central de Segurança do Azure<br>Azure Sentinel | Informações de VM<br>Mapa do Serviço |
+| **Serviços e**<br>**Features**<br>**porta** | Log Analytics<br>Metrics Explorer | Metrics Explorer | Insights da VM<br>Log Analytics<br>Automação do Azure<br>Central de Segurança do Azure<br>Azure Sentinel | Insights da VM<br>Mapa do Serviço |
 
 ### <a name="linux-agents"></a>Agentes do Linux
 
@@ -47,7 +47,7 @@ As tabelas a seguir fornecem uma comparação rápida dos agentes de Azure Monit
 | **Requisitos do agente**  | Nenhum | Nenhum | Nenhum | Nenhum | Requer agente de Log Analytics |
 | **Dados coletados** | syslog<br>Desempenho | syslog<br>Desempenho | Desempenho | syslog<br>Desempenho| Dependências de processo<br>Métricas de conexão de rede |
 | **Dados enviados para** | Logs do Azure Monitor<br>Métricas do Azure Monitor | Armazenamento do Azure<br>Hub de evento | Métricas do Azure Monitor | Logs do Azure Monitor | Logs do Azure Monitor<br>(por meio do agente de Log Analytics) |
-| **Serviços e**<br>**recursos**<br>**porta** | Log Analytics<br>Metrics Explorer | | Metrics Explorer | Informações de VM<br>Log Analytics<br>Automação do Azure<br>Central de Segurança do Azure<br>Azure Sentinel | Informações de VM<br>Mapa do Serviço |
+| **Serviços e**<br>**Features**<br>**porta** | Log Analytics<br>Metrics Explorer | | Metrics Explorer | Insights da VM<br>Log Analytics<br>Automação do Azure<br>Central de Segurança do Azure<br>Azure Sentinel | Insights da VM<br>Mapa do Serviço |
 
 
 ## <a name="azure-monitor-agent-preview"></a>Agente do Azure Monitor (versão prévia)
@@ -131,7 +131,7 @@ A extensão de Log Analytics para [Windows](../../virtual-machines/extensions/om
 
 Em computadores híbridos, use os [servidores habilitados para Arc do Azure](../../azure-arc/servers/manage-vm-extensions.md) para implantar o Log Analytics e Azure monitor as extensões de VM de dependência.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes de Azure Monitor. Consulte a documentação de cada agente para obter considerações exclusivas e sobre o processo de instalação. Consulte a documentação do Telegraf para seus sistemas operacionais com suporte. Todos os sistemas operacionais são considerados x64. Não há suporte para x86 em nenhum sistema operacional.
 
@@ -152,10 +152,10 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 
 ### <a name="linux"></a>Linux
 
-| Sistema operacional | Agente do Azure Monitor | Agente do Log Analytics | Agente de dependência | Extensão de diagnóstico | 
+| Sistema operacional | Agente de Azure Monitor <sup>1</sup> | Agente de Log Analytics <sup>1</sup> | Agente de dependência | Extensão de diagnóstico <sup>2</sup>| 
 |:---|:---:|:---:|:---:|:---:
 | Amazon Linux 2017.09                                        |   | X |   |   |
-| CentOS Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X | X |   |
+| CentOS Linux 8                                              | X <sup>3</sup> | X | X |   |
 | CentOS Linux 7                                              | X | X | X | X |
 | CentOS Linux 6                                              |   | X |   |   |
 | CentOS Linux 6.5 +                                           |   | X | X | X |
@@ -164,26 +164,28 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Debian 8                                                    |   | X | X |   |
 | Debian 7                                                    |   |   |   | X |
 | OpenSUSE 13.1+                                              |   |   |   | X |
-| Oracle Linux 8 <sup>1</sup> <sup>2</sup>                    | X | X |   |   |
+| Oracle Linux 8                                              | X <sup>3</sup> | X |   |   |
 | Oracle Linux 7                                              | X | X |   | X |
 | Oracle Linux 6                                              |   | X |   |   |
 | Oracle Linux 6.4+                                           |   | X |   | X |
-| Red Hat Enterprise Linux Server 8 <sup>1</sup> <sup>2</sup> | X | X | X |   |
+| Red Hat Enterprise Linux Server 8                           | X <sup>3</sup> | X | X |   |
 | Red Hat Enterprise Linux Server 7                           | X | X | X | X |
 | Red Hat Enterprise Linux Server 6                           |   | X | X |   |
 | Red Hat Enterprise Linux Server 6.7 +                        |   | X | X | X |
-| SUSE Linux Enterprise Server 15,2 <sup>1</sup> <sup>2</sup> | X |   |   |   |
-| SUSE Linux Enterprise Server 15,1 <sup>1</sup> <sup>2</sup> | X | X |   |   |
+| SUSE Linux Enterprise Server 15,2                           | X <sup>3</sup> |   |   |   |
+| SUSE Linux Enterprise Server 15,1                           | X <sup>3</sup> | X |   |   |
 | SUSE Linux Enterprise Server 15                             | X | X | X |   |
 | SUSE Linux Enterprise Server 12                             | X | X | X | X |
-| Ubuntu 20, 4 LTS <sup>1</sup>                               | X | X | X |   |
+| Ubuntu 20.04 LTS                                            | X | X | X |   |
 | Ubuntu 18.04 LTS                                            | X | X | X | X |
 | Ubuntu 16.04 LTS                                            | X | X | X | X |
 | Ubuntu 14, 4 LTS                                            |   | X |   | X |
 
-<sup>1</sup> requer que o Python 3 seja instalado no computador.
+<sup>1</sup> requer que o Python (2 ou 3) seja instalado no computador.
 
-<sup>2</sup> problema conhecido ao coletar eventos de syslog. Atualmente, há suporte apenas para dados de desempenho.
+<sup>2</sup> requer que o Python 2 seja instalado no computador.
+
+<sup>3</sup> problema conhecido ao coletar eventos de syslog. Atualmente, há suporte apenas para dados de desempenho.
 #### <a name="dependency-agent-linux-kernel-support"></a>Agente de dependência suporte a kernel do Linux
 
 Como o Dependency Agent funciona no nível do kernel, o suporte também depende da versão do kernel. A tabela a seguir lista a versão principal e secundária do sistema operacional Linux e as versões de kernel com suporte para o Dependency Agent.

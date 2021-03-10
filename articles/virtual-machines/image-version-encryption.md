@@ -3,17 +3,17 @@ title: Versão prévia - Crie uma versão da imagem criptografada com suas próp
 description: Crie uma versão de imagem em uma galeria de imagens compartilhadas usando chaves de criptografia gerenciadas pelo cliente.
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: imaging
+ms.subservice: shared-image-gallery
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f8ea2224020e6fa6c5dae135dc575cc77510efd5
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 258d8ab6ab23a95d73b8ed0c2549f373cf097674
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123931"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554081"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Visualização: Use chaves gerenciadas pelo cliente para criptografar imagens
 

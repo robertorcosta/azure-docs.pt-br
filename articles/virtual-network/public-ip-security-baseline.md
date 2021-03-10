@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a5c6545c634d14b5bd1d6dbb47f878f6f4f5f0b6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 3dfb2cd445edf33ed8db4807efcc2e6326f838ab
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102502817"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102548998"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Linha de base de segurança do Azure para o IP público do Azure
 
@@ -114,9 +114,9 @@ O IP público em si não gera logs relacionados ao tráfego de rede que não sej
 
 As funções internas do Azure inventariadas ou de consulta existem para determinados recursos por meio de ferramentas como CLI do Azure, Azure PowerShell ou a portal do Azure.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 
