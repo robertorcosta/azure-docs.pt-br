@@ -366,7 +366,7 @@
           href: monitor-azure-backup-with-backup-explorer.md
         - name: Usando o portal do Azure
           href: backup-azure-monitoring-built-in-monitor.md
-        - name: Como usar o Azure Monitor
+        - name: Como usar os logs do Azure Monitor
           href: backup-azure-monitoring-use-azuremonitor.md
     - name: Relatórios
       items:
@@ -374,10 +374,14 @@
           items:
             - name: Configurar relatórios de Backup do Azure
               href: configure-reports.md
+            - name: Enviar relatórios de Backup do Azure por email
+              href: backup-reports-email.md
         - name: Configurar Eventos de Diagnóstico para Cofres dos Serviços de Recuperação
           items:
             - name: Usar configurações de diagnóstico para os Cofres dos Serviços de Recuperação
               href: backup-azure-diagnostic-events.md
+            - name: Usando as funções do sistema
+              href: backup-reports-system-functions.md
             - name: Modelo de dados de Log Analytics para eventos de diagnóstico específicos a um recurso
               href: backup-azure-reports-data-model.md
             - name: Modelo de dados do Log Analytics para o Backup do Azure (modo de Diagnóstico do Azure)

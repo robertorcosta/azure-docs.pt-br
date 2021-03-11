@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/04/2020
 ms.topic: conceptual
-ms.openlocfilehash: e58f63b6ed7fb26a4e3b3069773810c5e5b7cdc3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: e9a5427f7c3a057f291067ac83d3d9032d7e693d
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732268"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102559351"
 ---
 # <a name="startstop-vms-during-off-hours-overview"></a>Visão geral do recurso Iniciar/Parar VMs fora do horário comercial
 
-O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/alerts/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários. 
+O recurso Iniciar/Parar VMs fora do horário comercial inicia ou para as VMs do Azure habilitadas. Ele inicia ou interrompe computadores conforme agendamentos definidos pelo usuário, fornece informações por meio de logs de Azure Monitor e envia emails opcionais usando [grupos de ações](../azure-monitor/alerts/action-groups.md). O recurso pode ser habilitado em VMs clássicas e do Azure Resource Manager na maioria dos cenários.
 
 Esse recurso usa o cmdlet [Start-AzVm](/powershell/module/az.compute/start-azvm) para iniciar as VMs. Ele usa [Stop-AzVM](/powershell/module/az.compute/stop-azvm) para parar as VMs.
 
@@ -34,6 +34,9 @@ A seguir estão as limitações do recurso atual:
 
 - Ele gerencia VMs em qualquer região, mas só pode ser usado na mesma assinatura que sua conta da Automação do Azure.
 - Ela está disponível no Azure e no Azure Governamental para qualquer região que ofereça suporte a um workspace do Log Analytics, uma conta da Automação do Azure e alertas. As regiões do Azure Governamental não dão suporte à funcionalidade de email no momento.
+
+> [!NOTE]
+> Antes de instalar esta versão, gostaríamos de saber mais sobre a [próxima versão](https://github.com/microsoft/startstopv2-deployments), que está em visualização no momento.  Essa nova versão (v2) oferece a mesma funcionalidade que esta, mas foi projetada para tirar proveito da tecnologia mais recente no Azure. Ele adiciona alguns dos recursos mais solicitados dos clientes, como suporte a várias assinaturas de uma única instância de iniciar/parar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

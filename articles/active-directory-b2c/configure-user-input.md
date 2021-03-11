@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e76fe1c26f428403a79a3605b7a41f761fe2a4bb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 4e709719d56aacacf61e247a5dbe215f766a891a
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102171613"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607944"
 ---
 #  <a name="add-user-attributes-and-customize-user-input-in-azure-active-directory-b2c"></a>Adicionar atributos de usuário e personalizar a entrada do usuário no Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Neste artigo, você coleta um novo atributo durante a sua jornada de inscrição
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
 1. Selecione **atributos de usuário** e, em seguida, selecione o atributo de usuário (por exemplo, "cidade"). 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="provide-optional-claims-to-your-app"></a>Fornecer declarações opcionais para seu aplicativo
 
@@ -52,7 +52,7 @@ As declarações de aplicativo são valores que são retornados para o aplicativ
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
 1. Selecione **Declarações do aplicativo**.
 1. Selecione os atributos que você deseja enviar de volta para seu aplicativo (por exemplo, "cidade")..
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
  
 ## <a name="configure-user-attributes-input-type"></a>Configurar tipo de entrada de atributos de usuário
 
@@ -62,7 +62,7 @@ As declarações de aplicativo são valores que são retornados para o aplicativ
 1. Em **atributos de usuário**, selecione **cidade**.
     1. Na lista suspensa **tipo de entrada do usuário** , selecione **DropdownSingleSelect**.
     1. Na lista suspensa **opcional** , selecione **não**.
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
 ### <a name="provide-a-list-of-values-by-using-localized-collections"></a>Forneça uma lista de valores usando coleções localizadas
 
@@ -156,16 +156,22 @@ Abra o arquivo de extensões da sua política. Por exemplo, <em>`SocialAndLocalA
 1. Adicione a declaração de cidade ao elemento **ClaimsSchema** .  
 
 ```xml
-<ClaimType Id="city">
-  <DisplayName>City where you work</DisplayName>
-  <DataType>string</DataType>
-  <UserInputType>DropdownSingleSelect</UserInputType>
-  <Restriction>
-    <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
-    <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
-    <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
-  </Restriction>
-</ClaimType>
+<!-- 
+<BuildingBlocks>
+  <ClaimsSchema> -->
+    <ClaimType Id="city">
+      <DisplayName>City where you work</DisplayName>
+      <DataType>string</DataType>
+      <UserInputType>DropdownSingleSelect</UserInputType>
+      <Restriction>
+        <Enumeration Text="Bellevue" Value="bellevue" SelectByDefault="false" />
+        <Enumeration Text="Redmond" Value="redmond" SelectByDefault="false" />
+        <Enumeration Text="Kirkland" Value="kirkland" SelectByDefault="false" />
+      </Restriction>
+    </ClaimType>
+  <!-- 
+  </ClaimsSchema>
+</BuildingBlocks>-->
 ```
 
 ## <a name="add-a-claim-to-the-user-interface"></a>Adicionar uma declaração à interface do usuário
@@ -261,14 +267,20 @@ Substitua esses perfis técnicos no arquivo de extensão. Localize o elemento **
         <PersistedClaim ClaimTypeReferenceId="city"/>
       </PersistedClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a local account. -->
+    <!-- Read data after user resets the password. -->
     <TechnicalProfile Id="AAD-UserReadUsingEmailAddress">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>
     </TechnicalProfile>
-    <!-- Read data after user authenticates with a federated account. -->
+    <!-- Read data after user authenticates with a local account. -->
     <TechnicalProfile Id="AAD-UserReadUsingObjectId">
+      <OutputClaims>  
+        <OutputClaim ClaimTypeReferenceId="city" />
+      </OutputClaims>
+    </TechnicalProfile>
+    <!-- Read data after user authenticates with a federated account. -->
+    <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
       <OutputClaims>  
         <OutputClaim ClaimTypeReferenceId="city" />
       </OutputClaims>

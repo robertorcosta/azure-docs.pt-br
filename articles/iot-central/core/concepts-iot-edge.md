@@ -10,12 +10,12 @@ services: iot-central
 ms.custom:
 - device-developer
 - iot-edge
-ms.openlocfilehash: 1a464b9e039f256fae52c32d828b1ec39a20a228
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: e0f3464420c5cb429f780999bf5983b2ab142567
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123268"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608624"
 ---
 # <a name="connect-azure-iot-edge-devices-to-an-azure-iot-central-application"></a>Conectar dispositivos Azure IoT Edge a um aplicativo do Azure IoT Central
 
@@ -74,8 +74,6 @@ O diagrama a seguir mostra as conexões com um dispositivo IoT Edge Gateway por 
 Os dispositivos downstream podem se conectar a um dispositivo de gateway IoT Edge por meio de vários módulos personalizados. O diagrama a seguir mostra os dispositivos downstream que se conectam por meio de um módulo personalizado MODBUS, um módulo personalizado BLE e o módulo *hub IOT Edge*  :
 
 :::image type="content" source="media/concepts-iot-edge/gateway-two-modules-transparent.png" alt-text="Diagrama de conexão usando vários módulos personalizados" border="false":::
-
-<!-- To do: add link to how to configure gateway article? -->
 
 ## <a name="iot-edge-devices-and-iot-central"></a>Dispositivos IoT Edge e IoT Central
 
@@ -286,7 +284,7 @@ Você também pode instalar o IoT Edge Runtime nos seguintes ambientes:
 
 Se você selecionou um dispositivo de IoT Edge para ser um dispositivo de gateway, poderá adicionar relações de downstream a modelos de dispositivo para dispositivos que você deseja conectar ao dispositivo de gateway.
 
-<!-- TODO - add link to Edge Gateway how-to -->
+Para saber mais, consulte [como conectar dispositivos por meio de um gateway IOT Edge transparente](how-to-connect-iot-edge-transparent-gateway.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

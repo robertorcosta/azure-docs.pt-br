@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: b61337f29eac11ca3fb45056b9348fbc70956b53
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521196"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102608675"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -59,7 +59,7 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
   + [Terminal nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do terminal integrado.
   + [Trechos de bloco de anotações (visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Trechos de código comuns do Azure ML agora estão disponíveis ao seu alcance. Navegue até o painel trechos de código, acessível por meio da barra de ferramentas ou ative o menu de trechos no código usando Ctrl + espaço.  
   + [Atalhos de teclado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Paridade completa com atalhos de teclado disponíveis no Jupyter. 
-  + Indicar parâmetros de célula. Mostra que os usuários com célula em um bloco de anotações são célula de parâmetro e podem executar blocos de anotações com parâmetros via [Papermill](https://github.com/nteract/papermill) na instância de computação.
+  + Indicar parâmetros de célula. Mostra os usuários quais células em um bloco de anotações são células de parâmetro e podem executar blocos de anotações com parâmetros via [Papermill](https://github.com/nteract/papermill) na instância de computação.
   + Gerenciador de sessão de terminal e kernel: os usuários poderão gerenciar todos os kernels e sessões de terminal em execução em sua computação.
   + Botão de compartilhamento. Agora, os usuários podem compartilhar qualquer arquivo no explorador de arquivos do bloco de anotações clicando com o botão direito do mouse no arquivo e usando o botão compartilhar.
 

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 5b40cfcde7aa1771c8a4b9025d35b2dc0c728676
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e302cb9da410487dbea4ec5c5b256c4cb5dd186f
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039777"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102566372"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Início rápido: criar e configurar o Servidor de Rota usando o Azure PowerShell
 
@@ -35,7 +35,7 @@ Este artigo ajuda a configurar o Servidor de Rota do Azure para ser emparelhado 
 
 [!INCLUDE [sign in](../../includes/expressroute-cloud-shell-connect.md)]
 
-### <a name="create-a-resource-group-and-virtual-network"></a>Crie um grupo de recursos e uma rede virtual
+### <a name="create-a-resource-group-and-virtual-network"></a>Criar um grupo de recursos e uma rede virtual
 
 Para criar um Servidor de Rota do Azure, você precisa de uma rede virtual para hospedar a implantação. Use o comando a seguir para criar um grupo de recursos e uma rede virtual. Se você já tiver uma rede virtual, pode pular para a próxima seção.
 
@@ -130,9 +130,9 @@ Você pode exibir as rotas anunciadas e recebidas pelo Servidor de Rota do Azure
 Get-AzRouteServerPeerAdvertisedRoute
 Get-AzRouteServerPeerLearnedRoute
 ```
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up-resources"></a>Limpar os recursos
 
-Se você não precisar mais do Servidor de Rota do Azure, use estes comandos para remover o emparelhamento via protocolo BGP e, em seguida, remova o Servidor de Rota. 
+Se você não precisar mais do Servidor de Rota do Azure, use estes comandos para remover o emparelhamento via BGP e, em seguida, remova o Servidor de Rota. 
 
 1. Remova o emparelhamento via protocolo BGP entre o Servidor de Rota do Azure e uma NVA usando este comando:
 
@@ -151,4 +151,4 @@ Remove-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServ
 Depois de criar o Servidor de Rota do Azure, continue a aprender como o Servidor de Rota do Azure interage com os gateways de VPN e ExpressRoute: 
 
 > [!div class="nextstepaction"]
-> [Suporte a VPN do Azure e Azure ExpressRoute](expressroute-vpn-support.md)
+> [Suporte à VPN do Azure e ao Azure ExpressRoute](expressroute-vpn-support.md)

@@ -1,7 +1,7 @@
 ---
 title: Estender IoT Central do Azure com análise personalizada | Microsoft Docs
 description: Como desenvolvedor de soluções, configure um aplicativo IoT Central para realizar análises e visualizações personalizadas. Essa solução usa Azure Databricks.
-author: TheJasonAndrew
+author: TheRealJasonAndrew
 ms.author: v-anjaso
 ms.date: 02/18/2020
 ms.topic: how-to
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 86f94b8059d85b892a87c82537b1e9b02552f8f7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 11e5ba3c0700cc9b29b8a11c0f9aa20cb5adb132
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101741646"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102551310"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda o IoT Central do Azure com análises personalizadas usando Azure Databricks
 
@@ -84,7 +84,7 @@ Quando você criou os recursos necessários, o grupo de recursos **IoTCentralAna
 
 ![Grupo de recursos de análise de IoT Central](media/howto-create-custom-analytics/resource-group.png)
 
-## <a name="create-an-event-hub"></a>Criar um hub de eventos
+## <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
 Você pode configurar um aplicativo de IoT Central para exportar continuamente a telemetria para um hub de eventos. Nesta seção, você cria um hub de eventos para receber telemetria do seu aplicativo IoT Central. O Hub de eventos fornece a telemetria para seu trabalho de Stream Analytics para processamento.
 
@@ -103,16 +103,16 @@ O namespace dos hubs de eventos é semelhante à captura de tela a seguir:
 
 No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , navegue até o aplicativo IOT central que você criou por meio do modelo da contoso. Nesta seção, você configura o aplicativo para transmitir a telemetria de seus dispositivos simulados para o Hub de eventos. Para configurar a exportação:
 
-1. Navegue até a página **exportação de dados (herdada)** , selecione **+ novo** e os **hubs de eventos do Azure**.
+1. Navegue até a página **exportação de dados** , selecione **+ novo** e os **hubs de eventos do Azure**.
 1. Use as configurações a seguir para configurar a exportação e, em seguida, selecione **salvar**:
 
     | Configuração | Valor |
     | ------- | ----- |
     | Nome de Exibição | Exportar para hubs de eventos |
-    | habilitado | Por |
+    | habilitado | Ativado |
     | Namespace do Hubs de Eventos | Nome do namespace de seus hubs de eventos |
     | Hub de Eventos | centralexport |
-    | Medidas | Por |
+    | Medidas | Ativado |
     | Dispositivos | Desativado |
     | Modelos de Dispositivo | Desativado |
 
