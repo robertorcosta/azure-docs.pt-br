@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f3eff6f5660089472ef431bad9a4f05be1fffe24
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: f76469af1d36ae9e9e01357fb72e8f607912a572
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100104138"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610069"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
 
@@ -55,9 +55,9 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
     Use os filtros na parte superior da janela para procurar um aplicativo específico.
 1. Na página **visão geral** do aplicativo, em **gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
-### <a name="app-registration"></a>Registro de aplicativo
+### <a name="app-registration"></a>Registro do aplicativo
 
 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
@@ -67,7 +67,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 1. Na página **visão geral** do aplicativo, selecione o link **aplicativo gerenciado no diretório local** na seção **Essentials** .
 1. Em **Gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Atribuir usuários e grupos ao aplicativo
 
@@ -87,6 +87,6 @@ Após configurar seu aplicativo para habilitar a atribuição de usuários, pros
 
 - [Como: adicionar funções de aplicativo em seu aplicativo](./howto-add-app-roles-in-azure-ad-apps.md)
 - [Adicionar autorização usando funções de aplicativo e declarações de funções a um aplicativo Web ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/5-WebApp-AuthZ/5-1-Roles)
-- [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=V8VUPixLSiM)
+- [Usando grupos de segurança e funções de aplicativo em seus aplicativos (vídeo)](https://www.youtube.com/watch?v=LRoc-na27l0)
 - [Azure Active Directory, agora com declarações de grupo e funções de aplicativo](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-Active-Directory-now-with-Group-Claims-and-Application/ba-p/243862)
 - [Manifesto de aplicativo do Azure Active Directory](./reference-app-manifest.md)

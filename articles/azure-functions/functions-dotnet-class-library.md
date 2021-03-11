@@ -1,17 +1,17 @@
 ---
-title: Desenvolver funções C# usando Azure Functions
-description: Entenda como usar o C# para desenvolver e publicar código que é executado em processo com o tempo de execução de Azure Functions.
+title: Desenvolver funções de biblioteca de classes C# usando Azure Functions
+description: Entenda como usar o C# para desenvolver e publicar código como bibliotecas de classes que são executadas em processo com o tempo de execução de Azure Functions.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 07/24/2020
-ms.openlocfilehash: 748b4a2a6af1c0183e28af8da732bc90531bee29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: c7d14599ec1ebbcb94e0c0f3985a3b857f9353dc
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428381"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563873"
 ---
-# <a name="develop-c-functions-using-azure-functions"></a>Desenvolver funções C# usando Azure Functions
+# <a name="develop-c-class-library-functions-using-azure-functions"></a>Desenvolver funções de biblioteca de classes C# usando Azure Functions
 
 <!-- When updating this article, make corresponding changes to any duplicate content in functions-reference-csharp.md -->
 
@@ -337,7 +337,7 @@ public static class CancellationTokenExample
 }
 ```
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Registrando em log
 
 No seu código de função, você pode gravar a saída em logs que aparecem como rastreamentos no Application Insights. A maneira recomendada para gravar nos logs é incluir um parâmetro do tipo [ILogger](/dotnet/api/microsoft.extensions.logging.ilogger), que normalmente é nomeado `log` . Versão 1. x do tempo de execução do Functions usado `TraceWriter` , que também grava em Application insights, mas não dá suporte a logs estruturados. Não use `Console.Write` o para gravar seus logs, pois esses dados não são capturados pelo Application insights. 
 

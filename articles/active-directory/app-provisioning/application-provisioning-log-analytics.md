@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 0593d2b675da533035a70c66784812543909c9db
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: f656f55b0c74103053f110b8c66645d353db9fbf
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574199"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561561"
 ---
 # <a name="understand-how-provisioning-integrates-with-azure-monitor-logs"></a>Entenda como o provisionamento se integra aos logs de Azure Monitor
 
@@ -45,7 +45,7 @@ O fluxo de dados subjacente que o provisionamento envia para os visualizadores d
 |activityDateTime |TimeGenerated |TimeGenerated |
 
 
-## <a name="azure-monitor-workbooks"></a>Pastas de trabalho do Azure Monitor
+## <a name="azure-monitor-workbooks"></a>Azure Monitor pastas de trabalho
 
 Azure Monitor pastas de trabalho fornecem uma tela flexível para análise de dados. Eles também fornecem a criação de relatórios visuais avançados dentro do portal do Azure. Para saber mais, consulte [visão geral de Azure monitor pastas de trabalho](../../azure-monitor/visualize/workbooks-overview.md).
 
@@ -121,4 +121,4 @@ Estamos adotando uma abordagem de software livre e baseada na Comunidade para co
 - [Introdução às consultas de log do Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
 - [Criar e gerenciar grupos de alertas no portal do Azure](../../azure-monitor/alerts/action-groups.md)
 - [Instalar e usar os modos de exibição do Log Analytics do Azure Active Directory](../reports-monitoring/howto-install-use-log-analytics-views.md)
-- [API de logs de provisionamento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta.md)
+- [API de logs de provisionamento](/graph/api/resources/provisioningobjectsummary?preserve-view=true&view=graph-rest-beta)

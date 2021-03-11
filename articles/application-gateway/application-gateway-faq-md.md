@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 90c20c1f463cf5143460510b9a409ad5ed3ba9f7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83779dcd319614ae15de6b7e3e4e3abfd9599089
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100576124"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619147"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Perguntas frequentes sobre o Gateway de Aplicativo
 
@@ -470,9 +470,9 @@ Normalmente, você vê um status desconhecido quando o acesso ao back-end é blo
 
 Devido às limitações da plataforma atual, se você tiver um NSG na sub-rede do gateway de aplicativo v2 (Standard_v2, WAF_v2) e se tiver habilitado logs de fluxo do NSG nele, você verá um comportamento não determinístico e esse cenário não tem suporte no momento.
 
-### <a name="does-application-gateway-store-customer-data"></a>O gateway de aplicativo armazena dados do cliente?
+### <a name="where-does-application-gateway-store-customer-data"></a>Onde o gateway de aplicativo armazena dados do cliente?
 
-Não, o gateway de aplicativo não armazena dados do cliente.
+O gateway de aplicativo não move nem armazena os dados do cliente fora da região em que ele está implantado.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -4,12 +4,12 @@ description: Saiba como girar seus certificados em um cluster do AKS (serviço k
 services: container-service
 ms.topic: article
 ms.date: 11/15/2019
-ms.openlocfilehash: 1871a8deed4d189534915a9b46b6ace071c1126c
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: fa26762c54ad54835b174b8d814a2e77cb38b885
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102181764"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102619028"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Girar certificados no serviço kubernetes do Azure (AKS)
 
@@ -28,8 +28,6 @@ O AKS gera e usa os seguintes certificados, autoridades de certificação e cont
 * O servidor de API AKS cria uma autoridade de certificação (CA) chamada de AC do cluster.
 * O servidor de API tem uma AC de cluster, que assina certificados para uma comunicação unidirecional do servidor de API para kubelets.
 * Cada kubelet também cria uma solicitação de assinatura de certificado (CSR), que é assinada pela AC do cluster, para a comunicação do kubelet com o servidor de API.
-* O repositório de valor de chave etcd tem um certificado assinado pela AC do cluster para comunicação do etcd com o servidor de API.
-* O armazenamento de valor de chave etcd cria uma autoridade de certificação que assina certificados para autenticar e autorizar a replicação de dados entre réplicas do etcd no cluster AKS.
 * O agregador de API usa a AC do cluster para emitir certificados para comunicação com outras APIs. O agregador de API também pode ter sua própria AC para emitir esses certificados, mas atualmente usa a AC do cluster.
 * Cada nó usa um token de conta de serviço (SA), que é assinado pela AC do cluster.
 * O `kubectl` cliente tem um certificado para se comunicar com o cluster AKs.
@@ -62,7 +60,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > Pode levar até 30 minutos para `az aks rotate-certs` ser concluído. Se o comando falhar antes de concluir, use `az aks show` para verificar se o status do cluster é de *rotação de certificado*. Se o cluster estiver em um estado de falha, execute novamente `az aks rotate-certs` para girar os certificados novamente.
 
-Verifique se os certificados antigos não são mais válidos executando um `kubectl` comando. Como você não atualizou os certificados usados pelo `kubectl` , verá um erro.  Por exemplo: 
+Verifique se os certificados antigos não são mais válidos executando um `kubectl` comando. Como você não atualizou os certificados usados pelo `kubectl` , verá um erro.  Por exemplo:
 
 ```console
 $ kubectl get no
@@ -75,7 +73,7 @@ Atualize o certificado usado pelo `kubectl` executando `az aks get-credentials` 
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-Verifique se os certificados foram atualizados executando um `kubectl` comando, que agora terá sucesso. Por exemplo: 
+Verifique se os certificados foram atualizados executando um `kubectl` comando, que agora terá sucesso. Por exemplo:
 
 ```console
 kubectl get no
