@@ -273,9 +273,9 @@
         - name: Azure PowerShell
           href: /powershell/module/az.hdinsight
         - name: SDK para .NET
-          href: /dotnet/api/overview/azure/hdinsight?view=azure-dotnet&preserve-view=true
+          href: /dotnet/api/overview/azure/hdinsight
         - name: SDK para Python
-          href: /python/api/overview/azure/hdinsight?view=azure-python&preserve-view=true
+          href: /python/api/overview/azure/hdinsight
         - name: SDK para Java
           href: /java/api/overview/azure/hdinsight
         - name: SDK para linguagem Go

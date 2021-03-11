@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: ef90a21ab8fad0e18542c1c88ee808237ff150c5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 3/08/2021
+ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032578"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563771"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Visão geral de venda com equipes e parceiros de vendas da Microsoft
 
@@ -37,11 +37,16 @@ Uma oportunidade de venda conjunta é qualquer tipo de colaboração com as equi
 
 ## <a name="co-sell-statuses"></a>Revenda de status
 
-Há quatro níveis de status de venda conjunta que podem ser aplicados a uma oferta:
+Estes são os níveis de status de venda conjunta que podem ser aplicados a uma oferta.
+
+Revenda de status para o Azure:
 
 - Não está pronto para venda
 - Co-venda pronta
 - Incentivados de venda de IP do Azure
+
+Co-vender status para aplicativos de negócios
+- Padrão de conexão ISV de aplicativos do Biz
 - Aplicativos do Biz ISV Connect Premium  
 
 Para obter detalhes sobre os requisitos para atingir esses status de venda conjunta, consulte [requisitos de venda conjunta](co-sell-requirements.md).
@@ -54,7 +59,7 @@ Para saber como obter o status de venda de covenda pronta e de IP do Azure, conf
 
 ## <a name="benefits-of-co-sell-incentivized-status"></a>Benefícios do incentivados de venda de status de cooperação
 
-_Covenda_ o status do incentivados, inclui o _Azure IP co-vender incentivados_ e o _biz apps ISV Connect Premium incentivo_. Esses status incentivize parceiros para vender sua oferta. Para obter esse status, você também deve obter o status pronto para venda. O status da incentivados de venda cruzada ganha todos os benefícios das soluções prontas para venda e pode ganhar incentivos adicionais para as equipes de vendas da Microsoft e estar qualificado para obter mais benefícios do Marketplace comercial.
+_Co-revenda_ o status do incentivados, inclui o _IP do Azure co-venda incentivados_ e o _biz apps ISV Connect Standard ou o incentivo Premium_. Esses status incentivize as equipes de vendas da Microsoft para vender sua oferta. Para obter esse status, você também deve obter o status pronto para venda. O status da incentivados de venda cruzada ganha todos os benefícios do status pronto para venda e pode ganhar incentivos adicionais para as equipes de vendas da Microsoft e estar qualificado para obter mais benefícios do Marketplace comercial.
 
 O status de incentivados de venda de IP do Azure pode ser aplicado a esses tipos de oferta:
 
@@ -64,18 +69,17 @@ O status de incentivados de venda de IP do Azure pode ser aplicado a esses tipos
 - Módulo do IoT Edge
 - SaaS (software como serviço)
 
-O status de incentivo do Biz apps ISV Connect Premium pode ser aplicado a esses tipos de oferta:
+O status de incentivo do Biz apps ISV Connect Standard ou Premium pode ser aplicado a esses tipos de oferta:
 
-- Dynamics 365 Business central
 - Dynamics 365 para compromisso com o cliente & PowerApps
 - Dynamics 365 para operações
 
-Ofertas que atingem o status de _incentivados de venda de IP do Azure para_ obter esses benefícios do Marketplace comercial:
+As ofertas que obtêm o status de incentivos _do incentivados ou do_ _biz apps ISV Connect Standard ou Premium_ do Azure obtêm esses benefícios do Marketplace comercial:
 
 - A taxa de serviço do Marketplace é reduzida de 20% a 10%. Esse desconto se aplica à solução de infraestrutura como serviço (IaaS) ou a uma solução de software como serviço (SaaS) vendida por meio do Marketplace comercial. Para obter mais informações, consulte [tarifas de serviço do Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Os parceiros do CSP (provedor de soluções na nuvem) recebem um incentivo de 10% para vender sua solução de IaaS ou oferta de SaaS. Para saber mais sobre o programa CSP, confira [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
 - As vendas de sua oferta por meio do Marketplace comercial irão contribuir para os compromissos de consumo do Azure dos clientes. Os clientes qualificados verão a oferta marcada como **benefício do Azure qualificada** em portal do Azure. Para obter mais informações, consulte [benefício de compromisso de consumo do Azure](azure-consumption-commitment-benefit.md).
-- Ofertas que obtêm o status de incentivo _do Azure IP co-revenda incentivados_ ou _biz apps Premium do Cordova_ receberão um selo de **soluções preferenciais** na página de listagem da oferta nas lojas online. A notificação promove a qualidade, o desempenho e a capacidade da oferta de atender às necessidades do cliente em uma determinada área vertical ou de solução do setor. Para saber mais, consulte [soluções preferenciais no Microsoft AppSource e no Azure Marketplace](preferred-solutions.md).
+- Ofertas que obtêm o status de incentivo _do incentivados ou do_ _biz apps ISV Connect Standard ou Premium_ do Azure receberão um selo de **soluções preferenciais da Microsoft** na página de listagem da oferta nas lojas online. A notificação promove a qualidade, o desempenho e a capacidade da oferta de atender às necessidades do cliente em uma determinada área vertical ou de solução do setor.
 
 Para saber como obter o status de incentivados de venda pronta e de venda conjunta, confira [requisitos de venda prontos e de incentivados](co-sell-requirements.md)de venda.
 

@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: d76db6830839902a46aaf6515f816fdcc36d0df5
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523933"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618246"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerenciar o console de gerenciamento local
 
@@ -415,7 +415,21 @@ O procedimento a seguir descreve como atualizar a versão do software do console
 
 1. Selecione o arquivo que você baixou da página de **atualizações** do defender for IOT.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="mail-server-settings"></a>Configurações do servidor de email
+
+Defina as configurações do servidor de email SMTP para o console de gerenciamento local.
+
+Para definir:
+
+1. Entre na CLI para o gerenciamento local com credenciais administrativas.
+1. Digite ```nano /var/cyberx/properties/remote-interfaces.properties```.
+1. Selecione enter. Os prompts a seguir são exibidos.
+```mail.smtp_server= ```
+```mail.port=25 ```
+```mail.sender=```
+1. Insira o nome do servidor SMTP e o remetente e selecione Enter.
+
+## <a name="see-also"></a>Consulte também
 
 [Gerenciar sensores do console de gerenciamento](how-to-manage-sensors-from-the-on-premises-management-console.md)
 

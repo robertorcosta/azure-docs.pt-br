@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b447873df882847f052125254ea52b5ae6ab9ec4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644860"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609967"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento
 
@@ -89,7 +89,7 @@ Agora você adicionará os conectores de API a um fluxo de usuário de inscriç�
 
    ![Adicionar APIs ao fluxo do usuário](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Controlar o fluxo de inscrição com respostas de API
 
@@ -156,7 +156,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your access request is already processing. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-PENDING"
 }
 ```
 
@@ -168,7 +167,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-DENIED"
 }
 ```
 
@@ -244,7 +242,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your account is now waiting for approval. You'll be notified when your request has been approved.",
-    "code": "CONTOSO-APPROVAL-REQUESTED"
 }
 ```
 
@@ -256,7 +253,6 @@ Content-type: application/json
     "version": "1.0.0",
     "action": "ShowBlockPage",
     "userMessage": "Your sign up request has been denied. Please contact an administrator if you believe this is an error",
-    "code": "CONTOSO-APPROVAL-AUTO-DENIED"
 }
 ```
 
@@ -268,12 +264,12 @@ O `userMessage` na resposta é exibido para o usuário, por exemplo:
 
 Depois de obter a aprovação manual, o sistema de aprovação personalizado cria uma conta de [usuário](/graph/azuread-users-concept-overview) usando [Microsoft Graph](/graph/use-the-api). A maneira como seu sistema de aprovação provisiona a conta de usuário depende do provedor de identidade que foi usado pelo usuário.
 
-### <a name="for-a-federated-google-or-facebook-user"></a>Para um usuário federado do Google ou do Facebook
+### <a name="for-a-federated-google-or-facebook-user-and-email-one-time-passcode"></a>Para um usuário federado do Google ou Facebook e um email de senha de uso único
 
 > [!IMPORTANT]
-> O sistema de aprovação deve verificar explicitamente `identities` isso `identities[0]` e `identities[0].issuer` estar presente e `identities[0].issuer` igual a ' Facebook ' ou ' Google ' para usar esse método.
+> O sistema de aprovação deve verificar explicitamente se `identities` , `identities[0]` e `identities[0].issuer` está presente, se `identities[0].issuer` é igual a ' Facebook ', ' Google ' ou ' mail ' para usar esse método.
 
-Se o usuário tiver entrado com uma conta do Google ou do Facebook, você poderá usar a [API de criação de usuário](/graph/api/user-post-users?tabs=http).
+Se o usuário tiver entrado com uma conta do Google ou Facebook ou uma senha de uso único de email, você poderá usar a [API de criação de usuário](/graph/api/user-post-users?tabs=http).
 
 1. O sistema de aprovação usa o recebe a solicitação HTTP do fluxo do usuário.
 
@@ -331,9 +327,9 @@ Content-type: application/json
 | \<otherBuiltInAttribute>                            | Não       | Outros atributos internos como `displayName` , `city` e outros. Os nomes de parâmetro são os mesmos que os parâmetros enviados pelo conector de API.                            |
 | \<extension\_\{extensions-app-id}\_CustomAttribute> | Não       | Atributos personalizados sobre o usuário. Os nomes de parâmetro são os mesmos que os parâmetros enviados pelo conector de API.                                                            |
 
-### <a name="for-a-federated-azure-active-directory-user"></a>Para um usuário federado Azure Active Directory
+### <a name="for-a-federated-azure-active-directory-user-or-microsoft-account-user"></a>Para um usuário federado Azure Active Directory ou conta Microsoft usuário
 
-Se um usuário entrar com uma conta de Azure Active Directory federada, você deverá usar a [API de convite](/graph/api/invitation-post) para criar o usuário e, opcionalmente, a [API de atualização do usuário](/graph/api/user-update) para atribuir mais atributos ao usuário.
+Se um usuário entrar com uma conta de Azure Active Directory federada ou uma conta Microsoft, você deverá usar a [API de convite](/graph/api/invitation-post) para criar o usuário e, opcionalmente, a [API de atualização de usuário](/graph/api/user-update) para atribuir mais atributos ao usuário.
 
 1. O sistema de aprovação recebe a solicitação HTTP do fluxo do usuário.
 

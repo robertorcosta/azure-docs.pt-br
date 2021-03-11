@@ -5,20 +5,18 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 377b7fd44b4f5afa2fd3892d9cb920484bc11c0b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509431"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563329"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD
 
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 Este artigo mostra como configurar a autenticação para Azure App serviço ou Azure Functions para que seu aplicativo Conecte os usuários com Azure Active Directory (Azure AD) como o provedor de autenticação.
-
-Este recurso não está disponível no momento no plano de consumo do Linux para Azure Functions.
 
 ## <a name="configure-with-express-settings"></a><a name="express"> </a>Configurar com configurações expressas
 
