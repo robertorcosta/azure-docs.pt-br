@@ -32,7 +32,7 @@
       href: device-update-agent-overview.md
     - name: Arquivo de configuração da atualização de dispositivo
       href: device-update-configuration-file.md
-    - name: Manifesto da atualização de dispositivo
+    - name: Atualizar manifesto
       href: update-manifest.md
     - name: Como a atualização de dispositivo é protegida
       href: device-update-security.md
@@ -40,7 +40,9 @@
       href: connected-cache-disconnected-device-update.md
     - name: Configurar o Cache Conectado da Microsoft para atualização de dispositivo no Hub IoT
       href: connected-cache-configure.md
-    - name: Importar o esquema relacionado e outras informações
+    - name: Importação de atualização de dispositivo
+      href: import-concepts.md
+    - name: Esquema relacionado à importação
       href: import-schema.md
 - name: Guias de instruções
   items:

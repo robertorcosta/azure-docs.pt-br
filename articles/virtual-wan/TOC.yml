@@ -13,6 +13,9 @@
         - name: Roteamento de qualquer ponto a qualquer ponto
           displayName: Resource Manager Any-to-any routing
           href: quickstart-any-to-any-template.md
+        - name: Rotear para VNets de serviços compartilhados
+          displayName: Resource Manager route to shared services VNets
+          href: quickstart-route-shared-services-vnet-template.md
 - name: Tutoriais
   expanded: true
   items:

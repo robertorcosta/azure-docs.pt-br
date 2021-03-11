@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 0d4f014db85a40819b178b23caa89b90d08026af
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 188df9564905443b8f975eb743b24885b5d03c32
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522267"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618195"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
@@ -24,7 +24,7 @@ Neste artigo, você aprenderá a criar e executar [pipelines de Machine Learning
 
 Este artigo não é um tutorial. Para obter orientação sobre como criar seu primeiro pipeline, consulte [tutorial: criar um pipeline de Azure Machine Learning para a pontuação de lote](tutorial-pipeline-batch-scoring-classification.md) ou [usar o ml automatizado em um pipeline de Azure Machine Learning no Python](how-to-use-automlstep-in-pipelines.md). 
 
-Embora você possa usar um tipo diferente de pipeline chamado de [pipeline do Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&preserve-view=true&tabs=yaml&view=azure-devops) para a automação de CI/CD de tarefas do ml, esse tipo de pipeline não é armazenado em seu espaço de trabalho. [Compare esses pipelines diferentes](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+Embora você possa usar um tipo diferente de pipeline chamado de [pipeline do Azure](/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2fmachine-learning%2fservice%2fcontext%2fml-context&tabs=yaml) para a automação de CI/CD de tarefas do ml, esse tipo de pipeline não é armazenado em seu espaço de trabalho. [Compare esses pipelines diferentes](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Os pipelines de ML que você cria são visíveis para os membros do seu [espaço de trabalho](how-to-manage-workspace.md)Azure Machine Learning. 
 

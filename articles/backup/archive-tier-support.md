@@ -3,12 +3,12 @@ title: Suporte à camada de arquivo morto (versão prévia)
 description: Saiba mais sobre o suporte de camada de arquivo morto para o backup do Azure
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 30a7915332d1d7ecab87b0db1ddc6dacc0fa69c9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050592"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609845"
 ---
 # <a name="archive-tier-support-preview"></a>Suporte à camada de arquivo morto (versão prévia)
 
@@ -40,7 +40,12 @@ Clientes com suporte:
 
 ## <a name="get-started-with-powershell"></a>Introdução ao PowerShell
 
-1. Baixe o [módulo mais recente do PowerShell (versão](https://github.com/Azure/azure-powershell/tree/Az.RecoveryServices-preview) prévia).
+1. Execute o seguinte comando no PowerShell:
+  
+    ```azurepowershell
+    install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
+    ```
+
 1. Conecte-se ao Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
 1. Entre em sua assinatura:
 

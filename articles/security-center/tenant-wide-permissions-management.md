@@ -6,20 +6,17 @@ ms.author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/25/2021
-ms.openlocfilehash: b3ddbdf04dc736b6f78a04dc6bb2bc484e67f70f
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.date: 03/11/2021
+ms.openlocfilehash: 0a24546579df020dcb7c7a9b01ee3d181226d2df
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107300"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617481"
 ---
 # <a name="grant-and-request-tenant-wide-visibility"></a>Conceder e solicitar visibilidade em todo o locatário
 
 Um usuário com a função de Azure Active Directory (AD) do **administrador global** pode ter responsabilidades em todo o locatário, mas não tem as permissões do Azure para exibir as informações de toda a organização na central de segurança do Azure. A elevação de permissões é necessária porque as atribuições de função do Azure AD não concedem acesso aos recursos do Azure. 
-
-> [!TIP]
-> Saiba mais sobre a elevação de permissões para a função de administrador global em [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 ## <a name="grant-tenant-wide-permissions-to-yourself"></a>Conceder permissões em todo o locatário para você mesmo
 
@@ -45,6 +42,14 @@ Para atribuir permissões em nível de locatário:
 1. Faça logoff do portal do Azure e, em seguida, faça logon novamente.
 
 1. Após elevar o acesso, abra ou atualize a Central de Segurança do Azure para verificar se você tem visibilidade de todas as assinaturas do locatário do Azure AD. 
+
+O processo simples acima executa várias operações automaticamente para você:
+
+1. As permissões do usuário são temporariamente elevadas.
+1. Usando as novas permissões, o usuário é atribuído à função de RBAC do Azure desejada no grupo de gerenciamento raiz.
+1. As permissões elevadas são removidas.
+
+Para obter mais detalhes sobre o processo de elevação do Azure AD, consulte [elevar o acesso para gerenciar todas as assinaturas e grupos de gerenciamento do Azure](../role-based-access-control/elevate-access-global-admin.md).
 
 
 ## <a name="request-tenant-wide-permissions-when-yours-are-insufficient"></a>Solicitar permissões em todo o locatário quando as suas não forem suficientes

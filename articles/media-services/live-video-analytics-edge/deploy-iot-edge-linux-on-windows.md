@@ -3,16 +3,16 @@ title: Implantar em um IoT Edge para Linux no Windows – Azure
 description: Este artigo fornece orientação sobre como implantar o em um IoT Edge para Linux no dispositivo Windows.
 ms.topic: how-to
 ms.date: 02/18/2021
-ms.openlocfilehash: b635070d6a4834da2c6d82cc768684b6cde9cd71
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9ec28c62ca804137ede3cd60d1980e55fbaa2807
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102042174"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618127"
 ---
 # <a name="deploy-to-an-iot-edge-for-linux-on-windows-eflow-device"></a>Implantar em um dispositivo IoT Edge para Linux no Windows (EFLOW)
 
-Neste artigo, você aprenderá a implantar a análise de vídeo ao vivo em um dispositivo de borda que tem [IOT Edge para Linux no Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows?view=iotedge-2018-06). Depois de concluir as etapas deste documento, você poderá executar um [grafo de mídia](media-graph-concept.md) que detecta o movimento em um vídeo e emite esses eventos para o Hub IOT na nuvem. Em seguida, você pode desativar o grafo de mídia para cenários avançados e trazer o poder da análise de vídeo ao vivo para seu dispositivo de IoT Edge baseado em Windows.
+Neste artigo, você aprenderá a implantar a análise de vídeo ao vivo em um dispositivo de borda que tem [IOT Edge para Linux no Windows (EFLOW)](https://docs.microsoft.com/azure/iot-edge/iot-edge-for-linux-on-windows). Depois de concluir as etapas deste documento, você poderá executar um [grafo de mídia](media-graph-concept.md) que detecta o movimento em um vídeo e emite esses eventos para o Hub IOT na nuvem. Em seguida, você pode desativar o grafo de mídia para cenários avançados e trazer o poder da análise de vídeo ao vivo para seu dispositivo de IoT Edge baseado em Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
