@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: kgremban
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9d6bb9da67f66f46e5c72d5d64b8b6c111c98e08
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 63538661cceb7e1bdd4151a3592ccbd4de0033b0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215350"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612007"
 ---
 # <a name="what-is-azure-iot-edge-for-linux-on-windows-preview"></a>O que é o Azure IoT Edge para Linux no Windows (versão prévia)
 
@@ -52,13 +52,11 @@ Para obter exemplos que demonstram a comunicação entre os aplicativos do Windo
 
 O IoT Edge para Linux no Windows está atualmente em [Visualização pública](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Os processos de instalação e gerenciamento podem ser diferentes dos recursos disponíveis para o público geral.
 
-Atualmente, IoT Edge para Linux no Windows usa a versão prévia do Windows Insider do centro de administração do Windows. Para obter mais informações sobre o programa Windows Insider e registrá-lo, consulte [o que é o programa Windows Insider?](https://insider.windows.com/about-windows-insider-program).
-
 ## <a name="support"></a>Suporte
 
 Use os canais de suporte e comentários do IoT Edge para obter assistência com o IoT Edge para Linux no Windows.
 
-Relatando **bugs** – os bugs podem ser relatados na [página problemas](https://github.com/azure/iotedge/issues) do IOT Edge projeto de software livre. 
+Relatando **bugs** – os bugs podem ser relatados na [página problemas](https://github.com/azure/iotedge/issues) do IOT Edge projeto de software livre. Bugs relacionados a Azure IoT Edge para Linux no Windows podem ser relatados na [página problemas do iotedge-eFlow](https://github.com/azure/iotedge-eflow/issues).
 
 **Equipe de suporte ao Cliente Microsoft** – Usuários que tenham um [plano de suporte](https://azure.microsoft.com/support/plans/) podem acionar a equipe de suporte ao Cliente Microsoft, criando um tíquete de suporte diretamente do [portal do Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 

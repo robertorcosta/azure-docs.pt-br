@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações ao
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.custom: references_regions
-ms.openlocfilehash: 2536ae0d33767de5ad53740407622e67c582cc37
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 82de73944bd833ec5f921e07a29960ac6d175f8d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710661"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609780"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de suporte para backup de VM do Azure
 
@@ -72,6 +72,7 @@ Veja a seguir os itens compatíveis, caso deseje fazer backup de computadores Li
 Backup de VMs do Azure no Linux com o agente de VM do Azure para Linux | Backup consistente de arquivos.<br/><br/> Backup consistente com aplicativo usando [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Durante a restauração, você pode criar uma VM, restaurar um disco e usá-lo para criar uma VM ou restaurar um disco e usá-lo para substituir um disco em uma VM existente. Você também pode restaurar arquivos e pastas individuais.
 Backup de VMs do Azure no Linux com o agente MARS | Sem suporte.<br/><br/> O agente do MARS só pode ser instalado em computadores Windows.
 Backup de VMs do Azure no Linux com DPM/MABS | Sem suporte.
+Fazer backup de VMs do Azure do Linux com pontos de montagem do Docker | Atualmente, o backup do Azure não dá suporte à exclusão de pontos de montagem do Docker, pois eles são montados em caminhos diferentes a cada vez.
 
 ## <a name="operating-system-support-linux"></a>Suporte do sistema operacional (Linux)
 
@@ -150,7 +151,7 @@ Restaurar VMs fixadas por zona | Com suporte (para uma VM submetida a backup dep
 VMs Gen2 | Com suporte <br> O Backup do Azure dá suporte ao backup e à restauração de [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/). Quando essas VMs são restauradas do ponto de recuperação, elas são restauradas como [VMs Gen2](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/).
 Backup de VMs do Azure com bloqueios | Sem suporte para VMs não gerenciadas. <br><br> Com suporte para VMs gerenciadas.
 [VMs do Spot](../virtual-machines/spot-vms.md) | Sem suporte. As restaurações de backup do Azure identificam VMs como VMs regulares do Azure.
-[Host dedicado do Azure](../virtual-machines/dedicated-hosts.md) | Com suporte
+[Host Dedicado do Azure](../virtual-machines/dedicated-hosts.md) | Com suporte
 Configuração de espaços de armazenamento do Windows de VMs autônomas do Azure | Com suporte
 
 ## <a name="vm-storage-support"></a>Suporte ao armazenamento de VM
@@ -170,6 +171,7 @@ Armazenamento compartilhado| Não há suporte para o backup de VMs usando Volume
 [Discos compartilhados](../virtual-machines/disks-shared-enable.md) | Sem suporte.
 Discos SSD Ultra | Sem suporte. Para obter mais informações, consulte essas [limitações](selective-disk-backup-restore.md#limitations).
 [Discos temporários](../virtual-machines/managed-disks-overview.md#temporary-disk) | Os discos temporários não são submetidos a backup pelo backup do Azure.
+Discos NVMe/efêmeras | Sem suporte.
 
 ## <a name="vm-network-support"></a>Suporte de rede de VM
 

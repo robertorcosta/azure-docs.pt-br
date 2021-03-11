@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b9804e119f5b5cfbee1a61eabf217dad7dbf5500
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: cab32a6c2835dc283a169f58c79ff54e7925467b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507221"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554234"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usar as APIs e os SDKs dos Gêmeos Digitais do Azure
 
@@ -122,18 +122,21 @@ Você também pode encontrar exemplos adicionais no [repositório do GitHub para
 Os auxiliares de serialização são funções auxiliares disponíveis no SDK para criar ou desserializar rapidamente dados de entrelaçamento para acesso a informações básicas. Como os métodos principais do SDK retornam dados de vertical como JSON por padrão, pode ser útil usar essas classes auxiliares para dividir os dados em cima.
 
 As classes auxiliares disponíveis são:
-* `BasicDigitalTwin`: Representa os dados principais de um teledigital
-* `BasicRelationship`: Representa os dados principais de uma relação
-* `UpdateOperationUtility`: Representa informações de patch JSON usadas em chamadas de atualização
-* `WriteableProperty`: Representa metadados de propriedade
+* `BasicDigitalTwin`: Representa genericamente os dados principais de um teledigital
+* `BasicDigitalTwinComponent`: Representa genericamente um componente nas `Contents` Propriedades de um `BasicDigitalTwin`
+* `BasicRelationship`: Representa genericamente os dados principais de uma relação
+* `DigitalTwinsJsonPropertyName`: Contém as constantes de cadeia de caracteres para uso em serialização JSON e desserialização para tipos de texto digital personalizados
 
 ##### <a name="deserialize-a-digital-twin"></a>Desserializar um r digital
 
-Você sempre pode desserializar dados de entrelaçamento usando a biblioteca JSON de sua escolha, como `System.Test.Json` ou `Newtonsoft.Json` . Para acesso básico a um número de bits, as classes auxiliares tornam isso um pouco mais conveniente.
+Você sempre pode desserializar dados de entrelaçamento usando a biblioteca JSON de sua escolha, como `System.Text.Json` ou `Newtonsoft.Json` . Para acesso básico a um número de informações, as classes auxiliares podem torná-las mais convenientes.
 
 A `BasicDigitalTwin` classe auxiliar também fornece acesso a propriedades definidas em o "My", por meio de a `Dictionary<string, object>` . Para listar as propriedades de myQuery, você pode usar:
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="GetTwin":::
+
+> [!NOTE]
+> `BasicDigitalTwin` usa `System.Text.Json` atributos. Para usar `BasicDigitalTwin` com seu [DigitalTwinsClient](/dotnet/api/azure.digitaltwins.core.digitaltwinsclient?view=azure-dotnet&preserve-view=true), você deve inicializar o cliente com o construtor padrão ou, se desejar personalizar a opção de serializador, use o [JsonObjectSerializer](/dotnet/api/azure.core.serialization.jsonobjectserializer?view=azure-dotnet&preserve-view=true).
 
 ##### <a name="create-a-digital-twin"></a>Criar um teledigital
 
