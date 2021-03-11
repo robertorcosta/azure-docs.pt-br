@@ -11,6 +11,10 @@
   items:
     - name: Criar Front Door Standard/Premium – Portal
       href: create-front-door-portal.md
+- name: Exemplos
+  items:
+    - name: Modelos do Gerenciador de Recursos
+      href: resource-manager-template-samples.md
 - name: Conceitos
   items:
     - name: Perguntas frequentes sobre o Front Door

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.custom: devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.openlocfilehash: 9dc787c57ef3ab84d9a2b90cfe059594b0a31d08
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 0e8565615cdbac63b0526b5cd87dd9d92d5aa4f1
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100102505"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102216676"
 ---
 # <a name="quickstart-call-an-aspnet-web-api-thats-protected-by-microsoft-identity-platform"></a>Início Rápido: chamar uma ASP.NET Web API protegida pela plataforma de identidade da Microsoft
 
@@ -178,7 +178,7 @@ Você pode restringir o acesso de entrada ao aplicativo às contas de usuário q
 
 ### <a name="option-2-use-a-custom-method-to-validate-issuers"></a>Opção 2: Usar um método personalizado para validar emissores
 
-É possível implementar um método personalizado para validar emissores usando o parâmetro `IssuerValidator`. Para obter mais informações sobre como usar esse parâmetro, confira a [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet&preserve-view=true).
+É possível implementar um método personalizado para validar emissores usando o parâmetro `IssuerValidator`. Para obter mais informações sobre como usar esse parâmetro, confira a [classe TokenValidationParameters](/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
