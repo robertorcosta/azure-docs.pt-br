@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 6e81b3d62fb5b208c88257d7660f74ac25f099b8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102047909"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612058"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Dimensionar a migração sem agente de máquinas virtuais VMware para o Azure
 
@@ -147,10 +147,10 @@ Para concluir o registro do dispositivo de expansão, clique em **importar** par
 1. Na janela pop-up aberta na etapa anterior, selecione o local do arquivo zip de configuração copiado e clique em **salvar**.
 
 Depois que os arquivos tiverem sido importados com êxito, o registro do dispositivo de expansão será concluído e mostrará o carimbo de data/hora da última importação bem-sucedida. Você também pode ver os detalhes do registro clicando em **Exibir detalhes**.
-:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Importação bem-sucedida":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/import-success.png" alt-text="Captura de tela mostra o registro do dispositivo de expansão com o projeto de migrações para Azure.":::
 
 Neste ponto, você deve revalidar que o dispositivo de expansão é capaz de se conectar ao seu servidor do vCenter. Clique em **revalidar** para validar vCenter Server conectividade do dispositivo de expansão.
-:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Importação bem-sucedida":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/view-sources.png" alt-text="Captura de tela mostra as credenciais de exibição e as fontes de descoberta a serem validadas.":::
 
 > [!IMPORTANT]
 > Se você editar as credenciais de vCenter Server no dispositivo primário, certifique-se de importar os arquivos de configuração novamente para o dispositivo de expansão para obter a configuração mais recente e continuar com as replicações em andamento.<br/> Se você não precisar mais do dispositivo de expansão, certifique-se de desabilitar o dispositivo de expansão. [**Saiba mais**](./common-questions-appliance.md) sobre como desabilitar o dispositivo de expansão quando não for necessário.

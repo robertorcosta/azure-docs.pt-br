@@ -99,6 +99,8 @@
       href: firewall-workbook.md
     - name: Implantar e configurar o Firewall Premium
       href: premium-deploy.md
+    - name: Implantar certificados de AC corporativa para o Premium
+      href: premium-deploy-certificates-enterprise-ca.md
     - name: Migrar para o Firewall do Azure Premium
       href: premium-migrate.md
 - name: Referência

@@ -10,18 +10,21 @@ ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-azp-net
-ms.openlocfilehash: f40da8b2c9f64da424d43a6679977cda5bf111df
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9324ca3b347550c2514a506c5a143b6e963e116f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691766"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487314"
 ---
 # <a name="quickstart-create-and-manage-communication-services-resources"></a>Início Rápido: Criar e gerenciar recursos dos Serviços de Comunicação
- 
+
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Comece a usar os Serviços de Comunicação do Azure provisionando o seu primeiro recurso dos Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser provisionados por meio do [portal do Azure](https://portal.azure.com) ou com a biblioteca de clientes de gerenciamento do .NET. A biblioteca de clientes de gerenciamento e o portal do Azure permitem criar, configurar, atualizar e excluir os recursos e a interface com o [Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implantação e gerenciamento do Azure. Todas as funcionalidades disponíveis nas bibliotecas de clientes estão disponíveis no portal do Azure. 
+
+
+Comece a usar os Serviços de Comunicação do Azure provisionando o seu primeiro recurso dos Serviços de Comunicação. Os recursos dos serviços de comunicação podem ser provisionados por meio do [portal do Azure](https://portal.azure.com) ou com a biblioteca de clientes de gerenciamento do .NET. A biblioteca de clientes de gerenciamento e o portal do Azure permitem criar, configurar, atualizar e excluir os recursos e a interface com o [Azure Resource Manager](../../azure-resource-manager/management/overview.md), o serviço de implantação e gerenciamento do Azure. Todas as funcionalidades disponíveis nas bibliotecas de clientes estão disponíveis no portal do Azure.
 
 > [!WARNING]
 > Observe que, embora os Serviços de Comunicação estejam disponíveis em várias regiões geográficas, para obter um número de telefone, o recurso deve ter um local de dados definido como "EUA". Observe também que os recursos de comunicação não podem ser transferidos para uma assinatura diferente durante a versão prévia pública.
@@ -40,7 +43,7 @@ Comece a usar os Serviços de Comunicação do Azure provisionando o seu primeir
 
 ## <a name="access-your-connection-strings-and-service-endpoints"></a>Acessar as suas cadeias de conexão e pontos de extremidade de serviço
 
-As cadeias de conexão permitem que as bibliotecas de clientes dos Serviços de Comunicação se conectem com o Azure e sejam autenticadas nele. Você pode acessar as suas cadeias de conexão dos Serviços de Comunicação e pontos de extremidade de serviço no portal do Azure ou de maneira programática com as APIs do Azure Resource Manager. 
+As cadeias de conexão permitem que as bibliotecas de clientes dos Serviços de Comunicação se conectem com o Azure e sejam autenticadas nele. Você pode acessar as suas cadeias de conexão dos Serviços de Comunicação e pontos de extremidade de serviço no portal do Azure ou de maneira programática com as APIs do Azure Resource Manager.
 
 Depois de navegar até o recurso dos Serviços de Comunicação, selecione **Chaves** no menu de navegação e copie os valores **Cadeia de conexão** ou **Ponto de extremidade** para uso pelas bibliotecas de clientes dos Serviços de Comunicação. Observe que você tem acesso a chaves primárias e secundárias. Isso pode ser útil em cenários em que você gostaria de fornecer acesso temporário aos seus recursos dos Serviços de Comunicação para um ambiente de preparo ou de terceiros.
 
@@ -49,7 +52,7 @@ Depois de navegar até o recurso dos Serviços de Comunicação, selecione **Cha
 Acesse também as informações de chave usando a CLI do Azure:
 
 ```azurecli
-az communication list --resource-group "<resourceGroup>"    
+az communication list --resource-group "<resourceGroup>"
 
 az communication list-key --name "<communicationName>" --resource-group "<resourceGroup>"
 ```
@@ -103,7 +106,7 @@ Depois de adicionar a variável de ambiente, execute `source ~/.bash_profile` a 
 
 Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua o recurso ou o grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele.
 
-Se você tiver números de telefone atribuídos ao recurso na exclusão de recursos, os números de telefone serão liberados do recurso automaticamente ao mesmo tempo. 
+Se você tiver números de telefone atribuídos ao recurso na exclusão de recursos, os números de telefone serão liberados do recurso automaticamente ao mesmo tempo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
-ms.openlocfilehash: cc0028a8c7d6d15277c3789118b13b80ed4306ea
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100596643"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102612517"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
 
@@ -53,7 +53,7 @@ Conclua as seguintes tarefas antes de concluir as etapas em qualquer seção des
      > Se uma rede virtual tiver intervalos de endereços que se sobrepõem a outra rede virtual ou rede local, as duas redes não poderão ser conectadas. Antes de definir um intervalo de endereços, considere se você deseja conectar a rede virtual a outras redes virtuais ou redes locais no futuro. A Microsoft recomenda a configuração de intervalos de endereços de rede virtual com espaço de endereço privado ou espaço de endereço público de propriedade de sua organização.
      >
 
-     - **Nome da sub-rede**: O nome da sub-rede deve ser exclusivo na rede virtual. Você não pode alterar o nome da sub-rede após a criação da sub-rede. O portal requer que você defina uma sub-rede ao criar uma rede virtual, mesmo que uma rede virtual não precise ter nenhuma sub-rede. No portal, você pode definir apenas uma sub-rede ao criar uma rede virtual. Você pode adicionar mais sub-redes na rede virtual mais tarde, depois de criar a rede virtual. Para adicionar uma sub-rede a uma rede virtual, consulte [Gerenciar sub-redes](virtual-network-manage-subnet.md). Você pode criar uma rede virtual que tem várias sub-redes usando a CLI do Azure ou o PowerShell.
+     - **Nome da sub-rede**: O nome da sub-rede deve ser exclusivo na rede virtual. Você não pode alterar o nome da sub-rede após a criação da sub-rede. O portal requer que você defina uma sub-rede ao criar uma rede virtual, mesmo que uma rede virtual não precise ter nenhuma sub-rede. No portal, você pode definir uma ou mais sub-redes ao criar uma rede virtual. Você pode adicionar mais sub-redes na rede virtual mais tarde, depois de criar a rede virtual. Para adicionar uma sub-rede a uma rede virtual, consulte [Gerenciar sub-redes](virtual-network-manage-subnet.md). Você pode criar uma rede virtual que tem várias sub-redes usando a CLI do Azure ou o PowerShell.
 
        >[!TIP]
        >Às vezes, administradores criam sub-redes diferentes para filtrar ou controlar o roteamento de tráfego entre as sub-redes. Antes de definir sub-redes, considere como você deseja filtrar e rotear o tráfego entre suas sub-redes. Para saber mais sobre a filtragem de tráfego entre sub-redes, consulte [Grupos de segurança de rede](./network-security-groups-overview.md). O Azure faz o roteamento de tráfego entre as sub-redes automaticamente, mas você pode substituir as rotas padrão do Azure. Para saber mais sobre o roteamento de tráfego de sub-rede padrão do Azure, consulte [Visão geral do roteamento](virtual-networks-udr-overview.md).

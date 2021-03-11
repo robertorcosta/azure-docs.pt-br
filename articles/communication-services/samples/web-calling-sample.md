@@ -9,12 +9,12 @@ ms.author: mariusu
 ms.date: 10/15/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 5752f20cb433a417a684076338214cd2ea80bc8b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: aadecd3c57f5a145efd43058a5113205d7517c0b
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658090"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102486396"
 ---
 # <a name="get-started-with-the-web-calling-sample"></a>Introdução ao exemplo de chamada da Web
 
@@ -23,6 +23,9 @@ O exemplo de chamada da Web é um aplicativo da Web que serve como uma explicaç
 Este exemplo foi criado para desenvolvedores e facilita o início do uso dos Serviços de Comunicação. Sua interface do usuário é dividida em várias seções, cada uma apresentando um botão "mostrar código" que permite copiar o código diretamente do navegador para seu próprio aplicativo de Serviços de Comunicação.
 
 ## <a name="get-started-with-the-web-calling-sample"></a>Introdução ao exemplo de chamada da Web
+
+[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
+
 
 > [!IMPORTANT]
 > [Este exemplo está disponível em Github](https://github.com/Azure-Samples/communication-services-web-calling-tutorial/).

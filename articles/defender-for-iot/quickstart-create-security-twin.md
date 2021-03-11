@@ -1,5 +1,5 @@
 ---
-title: Criar um módulo gêmeo de segurança
+title: 'Início Rápido: Criar um módulo gêmeo de segurança'
 description: Neste guia de início rápido, saiba como criar um módulo gêmeo do Defender para IoT para uso com o Azure Defender para IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,16 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/21/2021
 ms.author: shhazam
-ms.openlocfilehash: 68d137caeed91e9dea2dbf3883929d85c25382aa
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 832c8e426b57e6b447ef805f2868a6d42abe3d9d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523253"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449689"
 ---
-# <a name="create-an-azureiotsecurity-module-twin"></a>Criar um módulo gêmeo azureiotsecurity
+# <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Início Rápido: Criar um módulo gêmeo azureiotsecurity
 
 Este Início Rápido explica como criar módulos gêmeos individuais _azureiotsecurity_ para novos dispositivos ou criar módulos gêmeos em lote para todos os dispositivos em um Hub IoT.
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Nenhum
 
 ## <a name="understanding-azureiotsecurity-module-twins"></a>Noções básicas sobre módulos gêmeos azureiotsecurity
 

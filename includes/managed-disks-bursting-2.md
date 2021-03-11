@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: albecker1
 ms.custom: include file
-ms.openlocfilehash: a2f6a3fd8d36bb54773db21e3d36dab0060bae57
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3035b5d2803ff91e84bc6b47a99963185f9195d3
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178301"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102623293"
 ---
 ## <a name="disk-level-bursting"></a>Intermitência em nível de disco
 
@@ -147,7 +147,7 @@ Quando a VM for iniciada, ela será intermitente para solicitar seu limite de in
 
 Após a inicialização, você inicia um aplicativo que tem uma carga de trabalho não crítica. Esse aplicativo requer 15 MB/s que é distribuído uniformemente em todos os discos.
 
-![O aplicativo envia a solicitação de 15 MB/s de taxa de transferência para a VM, a VM recebe solicitação e envia a cada um de seus discos uma solicitação de 5 MB/s, cada disco retorna 5 MB/s, a VM retorna 15 MB/s para o aplicativo.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
+![O aplicativo envia a solicitação de 15 MB/s de taxa de transferência para a VM, a VM recebe solicitação e envia a cada um de seus discos uma solicitação de 5 MB/s, cada disco retorna respostas de 5 MB/s, a VM retorna 15 MB/s para o aplicativo.](media/managed-disks-bursting/bursting-vm-bursting-disk/burst-vm-burst-disk-idling.jpg)
 
 Em seguida, o aplicativo precisa processar um trabalho em lote que requer 360 MB/s. O Standard_L8s_v2 é intermitente para atender a essa demanda e, em seguida, solicitações. Apenas 20 MB/s são necessários para o disco do sistema operacional. Os 340 MB/s restantes são tratados pelos discos de dados de intermitência P4.
 

@@ -11,12 +11,12 @@ author: knicholasa
 manager: martinco
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7e5eb77a27a7c74ad9738a0e1784066a6a859e43
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3f90edd5729ff5229be09bc3798082c33bdeead2
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175361"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632094"
 ---
 # <a name="browser-support-of-fido2-passwordless-authentication"></a>Suporte ao navegador de autenticação FIDO2 sem senha
 
@@ -26,7 +26,7 @@ Azure Active Directory permite que [as chaves de segurança FIDO2](./concept-aut
 
 Esta tabela mostra o suporte para autenticar Azure Active Directory (Azure AD) e o MSA (contas da Microsoft). As contas da Microsoft são criadas por consumidores para serviços como Xbox, Skype ou Outlook.com. Os tipos de dispositivo com suporte incluem **USB**, a **NFC**(comunicação Near-campo) e o Bluetooth de baixa energia (**ble**).
 
-| Sistema operacional | Chrome | Chrome  | Chrome | Edge | Edge | Edge | Firefox | Firefox | Firefox |
+| SO | Chrome | Chrome  | Chrome | Microsoft Edge | Microsoft Edge | Microsoft Edge | Firefox | Firefox | Firefox |
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | | USB | NFC | BLE | USB | NFC | BLE | USB | NFC | BLE |
 | **Windows**  | ![O Chrome dá suporte a USB no Windows para contas do AAD.][y] | ![O Chrome dá suporte a NFC no Windows para contas do AAD.][y] | ![O Chrome dá suporte a BLE no Windows para contas do AAD.][y] | ![O Edge dá suporte a USB no Windows para contas do AAD.][y] | ![O Edge dá suporte a NFC no Windows para contas do AAD.][y] | ![O Edge dá suporte a BLE no Windows para contas do AAD.][y] | ![O Firefox dá suporte a USB no Windows para contas do AAD.][y] | ![O Firefox oferece suporte a NFC no Windows para contas do AAD.][y] | ![O Firefox dá suporte a BLE no Windows para contas do AAD.][y] |
@@ -53,9 +53,8 @@ A seguir estão os requisitos mínimos de versão do navegador.
 | Navegador | Versão mínima |
 | ---- | ---- |
 | Chrome | 76 |
-| Edge | Windows 10 versão 1903<sup>1</sup> |
-| Firefox | Chrome |
-| ChromeOS | 66 |
+| Microsoft Edge | Windows 10 versão 1903<sup>1</sup> |
+| Firefox | 66 |
 
 <sup>1</sup> Todas as versões do novo Microsoft Edge com base em Chromium dão suporte a Fido2. O suporte no Microsoft Edge herdado foi adicionado em 1903.
 
