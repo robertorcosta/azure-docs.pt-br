@@ -1,26 +1,27 @@
 ---
 title: Tutorial – Gerenciar a configuração de máquina virtual do Linux no Azure
 description: Neste tutorial, você aprenderá a identificar alterações e a gerenciar atualizações de pacote em uma máquina virtual do Linux
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: virtual-machines
 author: mgoedtel
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
+ms.collection: linux
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: de038fe087e479ef1e9212c21197fbe1844d5e3b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 979cac8fd3d2c09443d52c9142a5e7c44127713a
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101670367"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102552519"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Monitorar alterações e atualizar uma máquina virtual do Linux no Azure
 

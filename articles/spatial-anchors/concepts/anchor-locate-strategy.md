@@ -1,5 +1,5 @@
 ---
-title: Estratégia de localização da âncora
+title: Estratégia de localização de âncora
 description: Saiba mais sobre as diferentes estratégias ao chamar a API localizar
 author: pamistel
 manager: MehranAzimi-msft
@@ -8,18 +8,18 @@ ms.author: pamistel
 ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 409498201ac94882f1a28917693ffd3a65631fc7
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583661"
+ms.locfileid: "102617396"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Compreendendo a classe AnchorLocateCriteria
 Neste artigo, você aprenderá as diferentes opções que você pode usar ao consultar uma âncora. Vamos examinar a classe AnchorLocateCriteria, suas opções e combinações de opções válidas.
 
 ## <a name="anchor-locate-criteria"></a>Critérios de localização de âncora
-A [classe AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria?view=spatialanchors-dotnet) ajuda a consultar o serviço para âncoras criadas anteriormente. Um objeto AnchorLocateCriteria pode ser usado por Inspetor a qualquer momento. Cada objeto AnchorLocateCriteria deve incluir **exatamente uma** das seguintes propriedades: [identificadores](#identifiers), [NearAnchor](#nearanchor)ou [NearDevice](#neardevice). Propriedades adicionais, como [Strategy](#strategy), [BypassCache](#bypasscache)e [RequestedCategories](#requestedcategories) , podem ser definidas, se desejado. 
+A [classe AnchorLocateCriteria](https://docs.microsoft.com/dotnet/api/microsoft.azure.spatialanchors.anchorlocatecriteria) ajuda a consultar o serviço para âncoras criadas anteriormente. Um objeto AnchorLocateCriteria pode ser usado por Inspetor a qualquer momento. Cada objeto AnchorLocateCriteria deve incluir **exatamente uma** das seguintes propriedades: [identificadores](#identifiers), [NearAnchor](#nearanchor)ou [NearDevice](#neardevice). Propriedades adicionais, como [Strategy](#strategy), [BypassCache](#bypasscache)e [RequestedCategories](#requestedcategories) , podem ser definidas, se desejado. 
 
 ### <a name="properties"></a>Propriedades
 Defina **exatamente uma** das seguintes propriedades no Inspetor:

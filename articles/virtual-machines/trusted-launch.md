@@ -4,17 +4,17 @@ description: Saiba mais sobre o lançamento confiável para máquinas virtuais d
 author: khyewei
 ms.author: khwei
 ms.service: virtual-machines
-ms.subservice: security
+ms.subservice: trusted-launch
 ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: bc1afa72a0eebd2bb467616237641222b790923c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101679041"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102609083"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Inicialização confiável para máquinas virtuais do Azure (versão prévia)
 
@@ -40,7 +40,6 @@ O Azure oferece uma inicialização confiável como uma maneira simples de melho
 
 **Suporte a tamanho**: todos os tamanhos de VM de [geração 2](generation-2.md) , exceto:
 
-- HBv3 
 - Série Lsv2 
 - Série M 
 - Série Mv2 
@@ -55,7 +54,7 @@ O Azure oferece uma inicialização confiável como uma maneira simples de melho
 - Windows Server 2019
 - Windows Server 2016
 - Windows 10 Pro
-- Windows 10 Enterprise
+- Windows 10 Enterprise
 
 **Regiões**: 
 - Centro-Sul dos Estados Unidos
@@ -123,7 +122,7 @@ Perguntas frequentes sobre a inicialização confiável.
 
 ### <a name="why-should-i-use-trusted-launch-what-does-trusted-launch-guard-against"></a>Por que devo usar o lançamento confiável? Em que proteção de inicialização confiável?
 
-As proteções de inicialização confiáveis contra kits de inicialização, rootkits e malware de nível de kernel. Esses tipos sofisticados de malware são executados no modo kernel e permanecem ocultos dos usuários. Por exemplo: 
+As proteções de inicialização confiáveis contra kits de inicialização, rootkits e malware de nível de kernel. Esses tipos sofisticados de malware são executados no modo kernel e permanecem ocultos dos usuários. Por exemplo:
 - Rootkits de firmware: Esses kits substituem o firmware do BIOS da máquina virtual, portanto, o rootkit pode ser iniciado antes do sistema operacional. 
 - Kits de inicialização: Esses kits substituem o carregador de inicialização do sistema operacional, de forma que a máquina virtual carregue o boot kit antes do sistema operacional.
 - Rootkits de kernel: Esses kits substituem uma parte do kernel do sistema operacional para que o rootkit possa ser iniciado automaticamente quando o sistema operacional for carregado.

@@ -280,28 +280,26 @@
           href: ./linux/spot-template.md
         - name: Códigos do Erro
           href: error-codes-spot.md
-    - name: Opções de compra
+    - name: Benefício Híbrido do Azure
       items:
-        - name: Benefício Híbrido do Azure
+        - name: Linux
+          href: ./linux/azure-hybrid-benefit-linux.md
+        - name: Windows
           items:
-            - name: Linux
-              href: ./linux/azure-hybrid-benefit-linux.md
-            - name: Windows
-              items:
-                - name: Use a licença de Benefício Híbrido do Azure
-                  href: ./windows/hybrid-use-benefit-licensing.md
-                - name: Usar Direitos de Hospedagem de Multilocatários para Windows 10
-                  href: ./windows/windows-desktop-multitenant-hosting-deployment.md
-        - name: Instâncias reservadas
-          items:
-            - name: Pagar antecipadamente por VMs
-              href: ./prepay-reserved-vm-instances.md
-            - name: Pagar antecipadamente por Hosts Dedicados
-              href: prepay-dedicated-hosts-reserved-instances.md
-            - name: O que são as reservas do Azure?
-              href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
-            - name: Flexibilidade do tamanho da instância
-              href: reserved-vm-instance-size-flexibility.md
+            - name: Use a licença de Benefício Híbrido do Azure
+              href: ./windows/hybrid-use-benefit-licensing.md
+            - name: Usar Direitos de Hospedagem de Multilocatários para Windows 10
+              href: ./windows/windows-desktop-multitenant-hosting-deployment.md
+    - name: Instâncias reservadas
+      items:
+        - name: Pagar antecipadamente por VMs
+          href: ./prepay-reserved-vm-instances.md
+        - name: Pagar antecipadamente por Hosts Dedicados
+          href: prepay-dedicated-hosts-reserved-instances.md
+        - name: O que são as reservas do Azure?
+          href: ../cost-management-billing/reservations/save-compute-costs-reservations.md?context=/azure/virtual-machines/context/context
+        - name: Flexibilidade do tamanho da instância
+          href: reserved-vm-instance-size-flexibility.md
     - name: Criar VMs do Linux
       items:
         - name: Distribuições endossadas
@@ -783,41 +781,52 @@
           href: ./windows/build-image-with-packer.md
 - name: Disponibilidade e escala
   items:
-    - name: Conjuntos de dimensionamento
-      href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
-    - name: Disponibilidade
+    - name: Visão geral
       href: availability.md
-    - name: Colocalização
-      href: co-location.md
-    - name: Desempenho de rede
-      href: ../virtual-network/virtual-network-optimize-network-bandwidth.md?context=/azure/virtual-machines/context/context
-    - name: Estados e ciclo de vida
-      href: states-lifecycle.md
-    - name: Autoscale
-      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
-    - name: Alta disponibilidade
-      href: manage-availability.md
     - name: Conjuntos de disponibilidade
       items:
-        - name: Linux
+        - name: Visão geral
+          href: availability-set-overview.md
+        - name: CLI
           href: ./linux/tutorial-availability-sets.md
-        - name: Windows
-          items:
-            - name: Criar um conjunto de disponibilidade
-              href: ./windows/tutorial-availability-sets.md
-            - name: Como alterar o conjunto de disponibilidade
-              href: ./windows/change-availability-set.md
-    - name: Criar um grupo de posicionamento de proximidade
-      displayName: PPG aligned colocation co-location
+        - name: PowerShell
+          href: ./windows/tutorial-availability-sets.md
+        - name: Alterar um conjunto de disponibilidade
+          href: ./windows/change-availability-set.md
+    - name: Zonas de disponibilidade
       items:
+        - name: Visão geral
+          href: ../availability-zones/az-overview.md?context=/azure/virtual-machines/context/context
+        - name: CLI
+          href: ./linux/create-cli-availability-zone.md
+        - name: PowerShell
+          href: ./windows/create-powershell-availability-zone.md
+        - name: Portal
+          href: ./windows/create-portal-availability-zone.md
+    - name: Grupos de posicionamento de proximidade
+      items:
+        - name: Visão geral
+          href: co-location.md
         - name: CLI
           href: ./linux/proximity-placement-groups.md
-        - name: Portal
-          href: ./windows/proximity-placement-groups-portal.md
         - name: PowerShell
           href: ./windows/proximity-placement-groups.md
-    - name: Criar VM em zona de disponibilidade
-      href: ./linux/create-cli-availability-zone.md
+        - name: Portal
+          href: ./windows/proximity-placement-groups-portal.md
+    - name: Conjuntos de Dimensionamento de Máquinas Virtuais
+      items:
+        - name: Visão geral
+          href: ../virtual-machine-scale-sets/overview.md?context=/azure/virtual-machines/context/context
+        - name: Autoscale
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md?context=/azure/virtual-machines/context/context
+        - name: Modos de orquestração
+          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md?context=/azure/virtual-machines/context/context
+    - name: Entender as reinicializações de VM
+      href: understand-vm-reboots.md
+    - name: Estados e cobrança
+      href: states-billing.md
+    - name: Regiões do Azure
+      href: regions.md
 - name: Discos
   items:
     - name: Introdução aos discos gerenciados
@@ -1346,7 +1355,7 @@
             - name: Perguntas frequentes sobre disponibilidade geral
               href: ../azure-monitor/vm/vminsights-ga-release-faq.md?context=%2fazure%2fvirtual-machines%2fcontext%2fcontext
             - name: Perguntas frequentes
-              href: ../azure-monitor/faq.md
+              href: ../azure-monitor/faq.md?context=/azure/virtual-machines/context/context
             - name: Habilitar o monitoramento
               items:
                 - name: Habilitar a visão geral de monitoramento
