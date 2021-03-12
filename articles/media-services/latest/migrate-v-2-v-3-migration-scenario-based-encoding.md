@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: media
 ms.date: 1/14/2020
 ms.author: inhenkel
-ms.openlocfilehash: 671991a936fd0330c31017dd5f64e7b5eca9b3f4
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: e093e22e2f1db3b432fdf328a077e56a8e56d92b
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563652"
+ms.locfileid: "102612483"
 ---
 # <a name="encoding-scenario-based-migration-guidance"></a>Diretrizes de migração baseadas em cenário de codificação
 
@@ -58,7 +58,7 @@ Clique na imagem abaixo para ver uma versão maior.
 
 ### <a name="v3-encoding-workflow"></a>Fluxo de trabalho de codificação v3
 
-[![Fluxo de trabalho de codificação para v3 ](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
+[![Fluxo de trabalho de codificação para v3](./media/migration-guide/V3-pretty.svg)](./media/migration-guide/V3-pretty.svg#lightbox)
 
 1. Configuração
     1. Crie um ativo ou use um ativo existente. Se estiver usando um novo ativo, carregue o conteúdo para esse ativo. Se estiver usando um ativo existente, você deve estar codificando arquivos que já existem no ativo. Você não *deve carregar mais conteúdo para esse ativo.*

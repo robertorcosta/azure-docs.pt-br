@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 6502728a14ea825fadfde107e61f235db5619ae0
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b9d40848abdd85beeca592001b697e3c50b7cd59
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507272"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008555"
 ---
 # <a name="import-new-update"></a>Importar nova atualização
 Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT. Se você ainda não tiver feito isso, não se esqueça de se familiarizar com os conceitos básicos de [importação](import-concepts.md).
@@ -33,9 +33,9 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
 
 1. Verifique se o arquivo de imagem de atualização ou o arquivo de manifesto APT está localizado em um diretório acessível do PowerShell.
 
-2. Clonar [atualização de dispositivo para o repositório do Hub IOT](https://github.com/azure/iot-hub-device-update)ou baixá-lo como um arquivo. zip para um local acessível do PowerShell (depois que o arquivo zip for baixado, clique com o botão direito do mouse para obter a `Properties`  >  `General` guia > faça check- `Unblock` in na `Security` seção para evitar prompts de aviso de segurança do PowerShell).
+2. Crie um arquivo de texto chamado **AduUpdate. psm1** no diretório em que está localizado o arquivo de imagem de atualização ou o nome de manifesto do apt. Em seguida, abra o cmdlet do PowerShell [AduUpdate. psm1](https://github.com/Azure/iot-hub-device-update/tree/main/tools/AduCmdlets) , copie o conteúdo para o arquivo de texto e salve o arquivo de texto.
 
-3. No PowerShell, navegue até o `tools/AduCmdlets` diretório e execute:
+3. No PowerShell, navegue até o diretório em que você criou o cmdlet do PowerShell na etapa 2. Em seguida, execute:
 
     ```powershell
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
@@ -57,11 +57,11 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
 
     | Parâmetro | Descrição |
     | --------- | ----------- |
-    | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso. Deve corresponder à [Propriedade do dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) do _fabricante_
-    | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira. Deve corresponder à [propriedade de dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties) de _modelo_
+    | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso. Deve corresponder à [Propriedade do dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)do _fabricante_ .
+    | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira. Deve corresponder à [Propriedade do dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)de _modelo_ .
     | updateprovider | Entidade que está criando ou diretamente responsável pela atualização. Em geral, ele será um nome de empresa.
     | updatename | Identificador para uma classe de atualizações. A classe pode ser qualquer coisa que você escolher. Em geral, ele será um nome de dispositivo ou modelo.
-    | updateVersion | Número de versão que distingue essa atualização de outras que têm o mesmo nome e provedor. Pode ou não corresponder a uma versão de um componente de software individual no dispositivo.
+    | updateVersion | Número de versão que distingue essa atualização de outras que têm o mesmo nome e provedor. Não corresponde a uma versão de um componente de software individual no dispositivo (mas pode se você escolher).
     | updateType | <ul><li>Especificar `microsoft/swupdate:1` para atualização de imagem</li><li>Especificar `microsoft/apt:1` para a atualização do pacote</li></ul>
     | installedCriteria | <ul><li>Especificar o valor de SWVersion para o `microsoft/swupdate:1` tipo de atualização</li><li>Especifique o valor recomendado para o `microsoft/apt:1` tipo de atualização.
     | updateFilePath (s) | Caminho para os arquivos de atualização no computador
@@ -111,6 +111,9 @@ Exemplo:
 ```
 
 ## <a name="import-update"></a>Importar atualização
+
+[!NOTE]
+As instruções a seguir mostram como importar uma atualização por meio da interface do usuário do portal do Azure. Você também pode usar a [atualização do dispositivo para APIs do Hub IOT](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para importar uma atualização. 
 
 1. Faça logon no [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT com a atualização do dispositivo.
 

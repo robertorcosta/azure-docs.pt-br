@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 9074480f44e75a90c202f0d0813c43aed1f7ba95
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488198"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561986"
 ---
 # <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -24,7 +24,7 @@ Saiba mais sobre as diferentes opções de migração e considerações para mig
 
 Você pode migrar SQL Server em execução no local ou em: 
 
-- SQL Server em máquinas virtuais  
+- SQL Server em Máquinas Virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)  
@@ -64,6 +64,8 @@ Você pode escolher recursos de computação e armazenamento durante a implanta�
 
 > [!IMPORTANT]
 > Qualquer discrepância nos requisitos de [rede virtual de instância gerenciada](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novas instâncias ou usar aquelas existentes. Saiba mais sobre como [criar novas](../../managed-instance/virtual-network-subnet-create-arm-template.md)   e [configurar redes existentes](../../managed-instance/vnet-existing-add-subnet.md)   . 
+
+Outra consideração importante na seleção da camada de serviço de destino no Azure SQL Instância Gerenciada (Uso Geral vs Comercialmente Crítico) é a disponibilidade de determinados recursos, como In-Memory OLTP que está disponível apenas na camada Comercialmente Crítico. 
 
 ### <a name="sql-server-vm-alternative"></a>Alternativa de VM SQL Server
 
@@ -191,6 +193,26 @@ Ao migrar bancos de dados protegidos por  [Transparent Data Encryption](../../
 #### <a name="system-databases"></a>Bancos de dados do sistema
 
 Não há suporte para restauração de bancos de dados do sistema. Para migrar objetos de nível de instância (armazenados em bancos de dados mestre ou msdb), crie scripts usando Transact-SQL (T-SQL) e, em seguida, recriá-los na instância gerenciada de destino. 
+
+#### <a name="in-memory-oltp-memory-optimized-tables"></a>In-Memory OLTP (tabelas com otimização de memória)
+
+O SQL Server fornece In-Memory recurso OLTP que permite o uso de tabelas com otimização de memória, tipos de tabela com otimização de memória e módulos do SQL compilados nativamente para executar cargas de trabalho que têm requisitos de processamento transacional de alta taxa de transferência e baixa latência. 
+
+> [!IMPORTANT]
+> In-Memory OLTP só tem suporte na camada de Comercialmente Crítico no Azure SQL Instância Gerenciada (e sem suporte na camada Uso Geral).
+
+Se você tiver tabelas com otimização de memória ou tipos de tabela com otimização de memória em sua SQL Server local e estiver procurando migrar para o SQL do Azure Instância Gerenciada, você deve:
+
+- Escolha Comercialmente Crítico camada para o Instância Gerenciada de destino do Azure SQL que dá suporte ao OLTP In-Memory ou
+- Se você quiser migrar para Uso Geral camada no Instância Gerenciada SQL do Azure, remova tabelas com otimização de memória, tipos de tabela com otimização de memória e módulos SQL compilados nativamente que interagem com objetos com otimização de memória antes de migrar seus bancos de dados. A seguinte consulta T-SQL pode ser usada para identificar todos os objetos que precisam ser removidos antes da migração para Uso Geral camada:
+
+```tsql
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
+
+Para saber mais sobre as tecnologias na memória, consulte [otimizar o desempenho usando tecnologias na memória no banco de dados SQL do Azure e Azure sql instância gerenciada](https://docs.microsoft.com/azure/azure-sql/in-memory-oltp-overview)
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 
 

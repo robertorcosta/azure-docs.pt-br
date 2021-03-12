@@ -4,14 +4,14 @@ description: Conheça os conectores com suporte no Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/28/2020
+ms.date: 03/10/2021
 ms.author: jingwang
-ms.openlocfilehash: 9dff36704fc0e3163da0439d55452fa82cb40e55
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: cfd3376174ec0f7789389988245f7377b9896a00
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100381300"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015906"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Visão geral do conector do Azure Data Factory
 
@@ -54,5 +54,5 @@ O Azure Data Factory é compatível com os formatos de arquivo a seguir. Confira
 - [Atividade de cópia](copy-activity-overview.md)
 - [Fluxo de dados de mapeamento](concepts-data-flow-overview.md)
 - [Atividade de pesquisa](control-flow-lookup-activity.md)
-- [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md)
+- [Atividade obter metadados](control-flow-get-metadata-activity.md)
 - [Excluir atividade](delete-activity.md)

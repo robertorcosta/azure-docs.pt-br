@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/05/2021
-ms.openlocfilehash: ab2d7c23e69c73c78c852de722733e8f0d09fcec
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/08/2021
+ms.openlocfilehash: f7f8082cc9120345336610d5cb49741140d3b606
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449723"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557005"
 ---
 # <a name="create-stateful-and-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Criar fluxos de trabalho com e sem estado no Visual Studio Code com a extensão de aplicativos lógicos do Azure (versão prévia)
 
@@ -33,6 +33,8 @@ Este artigo mostra como criar seu aplicativo lógico e um fluxo de trabalho no V
 * Adicionar um gatilho e uma ação.
 
 * Execute, teste, depure e examine o histórico de execução localmente.
+
+* Localize os detalhes do nome de domínio para acesso ao firewall.
 
 * Implante no Azure, que inclui, opcionalmente, a Application Insights.
 
@@ -576,7 +578,7 @@ Para adicionar um ponto de interrupção, siga estas etapas:
 
 1. Para examinar as informações disponíveis quando um ponto de interrupção atinge, no modo de exibição de execução, examine o painel **variáveis** .
 
-1. Para continuar a execução do fluxo de trabalho, na barra de ferramentas depurar, selecione **continuar** (botão reproduzir). 
+1. Para continuar a execução do fluxo de trabalho, na barra de ferramentas depurar, selecione **continuar** (botão reproduzir).
 
 Você pode adicionar e remover pontos de interrupção a qualquer momento durante a execução do fluxo de trabalho. No entanto, se você atualizar o **workflow.jsno** arquivo depois que a execução for iniciada, os pontos de interrupção não atualizarão automaticamente. Para atualizar os pontos de interrupção, reinicie o aplicativo lógico.
 
@@ -759,6 +761,55 @@ Depois de fazer atualizações em seu aplicativo lógico, você pode executar ou
 
 1. Para interromper a sessão de depuração, no menu **executar** , selecione **parar depuração** (Shift + F5).
 
+<a name="firewall-setup"></a>
+
+##  <a name="find-domain-names-for-firewall-access"></a>Localizar nomes de domínio para acesso ao firewall
+
+Antes de implantar e executar o fluxo de trabalho do aplicativo lógico no portal do Azure, se o ambiente tiver requisitos estritos de rede ou firewalls que limitem o tráfego, você precisará configurar permissões para qualquer conexão de gatilho ou ação que exista em seu fluxo de trabalho.
+
+Para localizar os FQDNs (nomes de domínio totalmente qualificados) para essas conexões, siga estas etapas:
+
+1. No seu projeto de aplicativo lógico, abra o **connections.jsno** arquivo, que é criado depois de adicionar o primeiro gatilho ou ação baseado em conexão ao seu fluxo de trabalho e localizar o `managedApiConnections` objeto.
+
+1. Para cada conexão que você criou, localize, copie e salve o `connectionRuntimeUrl` valor da propriedade em um local seguro para que você possa configurar o firewall com essas informações.
+
+   Este exemplo **connections.jsno** arquivo contém duas conexões, uma conexão AS2 e uma conexão do Office 365 com estes `connectionRuntimeUrl` valores:
+
+   * AS2 `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba`
+
+   * Office 365: `"connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f`
+
+   ```json
+   {
+      "managedApiConnections": {
+         "as2": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/as2"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/as2/11d3fec26c87435a80737460c85f42ba,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         },
+         "office365": {
+            "api": {
+               "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/office365"
+            },
+            "connection": {
+               "id": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{Azure-resource-group}/providers/Microsoft.Web/connections/{connection-resource-name}"
+            },
+            "connectionRuntimeUrl": https://9d51d1ffc9f77572.00.common.logic-{Azure-region}.azure-apihub.net/apim/office365/668073340efe481192096ac27e7d467f,
+            "authentication": {
+               "type":"ManagedServiceIdentity"
+            }
+         }
+      }
+   }
+   ```
+
 <a name="deploy-azure"></a>
 
 ## <a name="deploy-to-azure"></a>Implantar no Azure
@@ -886,7 +937,7 @@ Você pode publicar seu aplicativo lógico como um novo recurso, que cria automa
          | Crítico | Logs que descrevem uma Falha irrecuperável em seu aplicativo lógico. |
          | Depurar | Logs que você pode usar para investigação durante o desenvolvimento, por exemplo, chamadas HTTP de entrada e saída. |
          | Erro | Logs que indicam uma falha na execução do fluxo de trabalho, mas não uma falha geral em seu aplicativo lógico. |
-         | Informações | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
+         | Informações do | Logs que acompanham a atividade geral em seu aplicativo lógico ou fluxo de trabalho, por exemplo: <p><p>-Quando um gatilho, uma ação ou uma execução é iniciada e termina. <br>-Quando o aplicativo lógico é iniciado ou encerrado. |
          | Trace | Logs que contêm as mensagens mais detalhadas, por exemplo, solicitações de armazenamento ou atividade do Dispatcher, além de todas as mensagens relacionadas à atividade de execução do fluxo de trabalho. |
          | Aviso | Logs que realçam um estado anormal em seu aplicativo lógico, mas não impedem sua execução. |
          |||
