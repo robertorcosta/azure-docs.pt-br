@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mqtt
-ms.openlocfilehash: e5b1950935e6279995b44c2e07931519e82359d2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9b066dfd260a18f35149822b4107ea2c37db931c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102040627"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200248"
 ---
 # <a name="understand-how-azure-iot-edge-uses-certificates"></a>Entender como Azure IoT Edge usa certificados
 
@@ -90,7 +90,7 @@ Como os processos de fabricação e operação são separados, considere as segu
 
 ## <a name="devtest-implications"></a>Implicações de desenvolvimento/teste
 
-Para facilitar o desenvolvimento e os cenários de teste, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente. Para obter exemplos de como os scripts funcionam, consulte [criar certificados de demonstração para testar IOT Edge recursos do dispositivo](how-to-create-test-certificates.md).
+Para facilitar o desenvolvimento e os cenários de teste, a Microsoft fornece um conjunto de [scripts de conveniência](https://github.com/Azure/iotedge/tree/master/tools/CACertificates) para gerar certificados de não produção adequados para o IoT Edge no cenário de gateway transparente. Para obter exemplos de como os scripts funcionam, consulte [criar certificados de demonstração para testar IOT Edge recursos do dispositivo](how-to-create-test-certificates.md).
 
 >[!Tip]
 > Para conectar seus dispositivos e aplicativos "folha" de IoT do dispositivo que usam nosso SDK de dispositivo de IoT por meio do IoT Edge, você deve adicionar o parâmetro GatewayHostName opcional ao final da string de conexão do dispositivo. Quando o certificado do servidor do Hub do Edge é gerado, ele se baseia em uma versão em letras minúsculas do nome do host do arquivo de configuração, portanto, para que os nomes correspondam e a verificação do certificado TLS seja bem sucedido, você deve inserir o parâmetro GatewayHostName em letras minúsculas.

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 2ed6c0c20869e31c0ef664d15305c5aa85ca4c6c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215571"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199924"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
 
@@ -119,7 +119,7 @@ A propriedade **AllowSharedKeyAccess** não é definida por padrão e não retor
 > [!WARNING]
 > Se algum cliente estiver acessando dados em sua conta de armazenamento com a chave compartilhada, a Microsoft recomendará que você migre esses clientes para o Azure AD antes de não permitir o acesso à chave compartilhada à conta de armazenamento.
 
-# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
 
 Para não permitir a autorização de chave compartilhada para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -143,28 +143,15 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> `
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com CLI do Azure, instale CLI do Azure versão 2.9.1 ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Em seguida, configure a propriedade **allowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
+Para não permitir a autorização de chave compartilhada para uma conta de armazenamento com CLI do Azure, instale CLI do Azure versão 2.20.0 ou posterior. Para obter mais informações, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli). Em seguida, configure a propriedade **allowSharedKeyAccess** para uma conta de armazenamento nova ou existente.
 
 O exemplo a seguir mostra como impedir o acesso com chave compartilhada para uma conta de armazenamento existente com CLI do Azure. Lembre-se de substituir os valores de espaço reservado entre colchetes por seus próprios valores:
 
 ```azurecli-interactive
-$storage_account_id=$(az resource show \
+az storage account update \
     --name <storage-account> \
     --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query id \
-    --output tsv)
-
-az resource update \
-    --ids $storage_account_id \
-    --set properties.allowSharedKeyAccess=false
-
-az resource show \
-    --name <storage-account> \
-    --resource-group <resource-group> \
-    --resource-type Microsoft.Storage/storageAccounts \
-    --query properties.allowSharedKeyAccess \
-    --output tsv
+    --allow-shared-key-access false
 ```
 
 ---
@@ -179,7 +166,7 @@ Para verificar se a autorização de chave compartilhada não é mais permitida,
 az storage container create \
     --account-name <storage-account> \
     --name sample-container \
-    --account-key <key>
+    --account-key <key> \
     --auth-mode key
 ```
 

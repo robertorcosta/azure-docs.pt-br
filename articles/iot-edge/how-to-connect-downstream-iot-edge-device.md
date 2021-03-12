@@ -12,14 +12,16 @@ ms.custom:
 - amqp
 - mqtt
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: 709b986cc06aada45a0f541142b89fc3537f8ba8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 382cdf87016044748685e5e64ff04ebac53f018d
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046084"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199130"
 ---
 # <a name="connect-a-downstream-iot-edge-device-to-an-azure-iot-edge-gateway-preview"></a>Conectar um dispositivo de IoT Edge downstream a um gateway de Azure IoT Edge (versão prévia)
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Este artigo fornece instruções para estabelecer uma conexão confiável entre um gateway de IoT Edge e um dispositivo de IoT Edge downstream.
 
@@ -207,7 +209,7 @@ Embora esse recurso esteja em visualização pública, você precisa configurar 
 
 1. Configure as seguintes variáveis de ambiente para o módulo edgeHub:
 
-   | Name | Valor |
+   | Nome | Valor |
    | - | - |
    | `experimentalFeatures__enabled` | `true` |
    | `experimentalFeatures__nestedEdgeEnabled` | `true` |
@@ -329,7 +331,7 @@ O módulo de proxy de API foi projetado para ser personalizado para lidar com os
 
 1. Selecione **Adicionar** para adicionar o módulo à implantação.
 1. Selecione **Avançar: rotas** para ir para a próxima etapa.
-1. Para habilitar mensagens do dispositivo para a nuvem de dispositivos downstream para acessar o Hub IoT, inclua uma rota que passe todas as mensagens para o Hub IoT. Por exemplo: 
+1. Para habilitar mensagens do dispositivo para a nuvem de dispositivos downstream para acessar o Hub IoT, inclua uma rota que passe todas as mensagens para o Hub IoT. Por exemplo:
     1. **Nome**: `Route`
     1. **Valor**: `FROM /messages/* INTO $upstream`
 1. Selecione **revisar + criar** para ir para a etapa final.
@@ -359,7 +361,7 @@ O agente de IoT Edge é o primeiro componente de tempo de execução a ser inici
 
 Quando você entra no arquivo de configuração em um dispositivo IoT Edge para fornecer suas informações de autenticação, certificados e nome do host pai, também atualiza a imagem de contêiner edgeAgent.
 
-Se o dispositivo de gateway de nível superior estiver configurado para lidar com solicitações de imagem de contêiner, substitua `mcr.microsoft.com` pelo nome de host pai e pela porta de escuta de proxy de API. No manifesto de implantação, você pode usar `$upstream` como um atalho, mas isso requer que o módulo edgeHub manipule o roteamento e esse módulo não tenha começado neste ponto. Por exemplo: 
+Se o dispositivo de gateway de nível superior estiver configurado para lidar com solicitações de imagem de contêiner, substitua `mcr.microsoft.com` pelo nome de host pai e pela porta de escuta de proxy de API. No manifesto de implantação, você pode usar `$upstream` como um atalho, mas isso requer que o módulo edgeHub manipule o roteamento e esse módulo não tenha começado neste ponto. Por exemplo:
 
 ```toml
 [agent]
@@ -435,7 +437,7 @@ O módulo de proxy de API foi projetado para ser personalizado para lidar com os
 
 1. Selecione **salvar** para salvar as alterações nas configurações de tempo de execução.
 1. Selecione **Avançar: rotas** para ir para a próxima etapa.
-1. Para habilitar mensagens do dispositivo para a nuvem de dispositivos downstream para acessar o Hub IoT, inclua uma rota que passe todas as mensagens para `$upstream` . O parâmetro upstream aponta para o dispositivo pai no caso de dispositivos de camada inferior. Por exemplo: 
+1. Para habilitar mensagens do dispositivo para a nuvem de dispositivos downstream para acessar o Hub IoT, inclua uma rota que passe todas as mensagens para `$upstream` . O parâmetro upstream aponta para o dispositivo pai no caso de dispositivos de camada inferior. Por exemplo:
     1. **Nome**: `Route`
     1. **Valor**: `FROM /messages/* INTO $upstream`
 1. Selecione **revisar + criar** para ir para a etapa final.

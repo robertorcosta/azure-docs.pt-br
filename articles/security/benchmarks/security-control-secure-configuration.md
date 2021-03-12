@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 44604f910b3ee6e6ce1b21c736c6ad1f0443e996
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b13cc6f8bb50a3c9ec3cae519db387f9f32c950d
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500029"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615271"
 ---
 # <a name="security-control-secure-configuration"></a>Controle de segurança: configuração segura
 
@@ -100,7 +100,7 @@ Além disso, observe que as imagens de máquina virtual do Azure Marketplace pub
 
 Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure, modelos de Azure Resource Manager e scripts de configuração de estado desejado. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.
 
-- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 

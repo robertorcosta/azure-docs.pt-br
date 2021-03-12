@@ -9,28 +9,16 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1c2b608107beff2a4f34325f8a6e5be3a0551053
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7e8d1b13dfd802df820bea4015e411dbb85540ba
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051898"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011418"
 ---
-# <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Obtenha uma resposta com a API e os metadados do GenerateAnswer
+# <a name="get-an-answer-with-the-generateanswer-api"></a>Obter uma resposta com a API do GenerateAnswer
 
 Para obter a resposta prevista para a pergunta de um usuário, use a API GenerateAnswer. Ao publicar uma base de dados de conhecimento, você pode ver informações sobre como usar essa API na página **publicar** . Você também pode configurar a API para filtrar as respostas com base nas marcas de metadados e testar a base de dados de conhecimento do ponto de extremidade com o parâmetro de cadeia de caracteres de consulta de teste.
-
-QnA Maker permite adicionar metadados, na forma de pares de chave e valor, aos seus pares de perguntas e respostas. Você pode usar essas informações para filtrar os resultados para consultas de usuário e armazenar informações adicionais que podem ser usadas em conversas de acompanhamento. Para mais informações, consulte a [Base de dados de conhecimento](../index.yml).
-
-<a name="qna-entity"></a>
-
-## <a name="store-questions-and-answers-with-a-qna-entity"></a>Armazenar perguntas e respostas com uma entidade QnA
-
-É importante entender como QnA Maker armazena os dados de pergunta e resposta. A ilustração a seguir mostra uma entidade QnA:
-
-![Ilustração de uma entidade QnA](../media/qnamaker-how-to-metadata-usage/qna-entity.png)
-
-Cada entidade QnA tem uma ID exclusiva e persistente. Você pode usar a ID para fazer atualizações em uma entidade QnA específica.
 
 <a name="generateanswer-api"></a>
 
@@ -134,6 +122,21 @@ A [resposta](/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer#
 
 O JSON anterior respondeu com uma resposta com uma pontuação de 38,5%.
 
+## <a name="match-questions-only-by-text"></a>Somente correspondência de perguntas, por texto
+
+Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da postagem da solicitação GenerateAnswer.
+
+Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste usando `isTest=true` .
+
+```json
+{
+  "question": "Hi",
+  "top": 30,
+  "isTest": true,
+  "RankerType":"QuestionOnly"
+}
+
+```
 ## <a name="use-qna-maker-with-a-bot-in-c"></a>Usar QnA Maker com um bot em C #
 
 A estrutura de bot fornece acesso às propriedades do QnA Maker com a [API getrespondi](/dotnet/api/microsoft.bot.builder.ai.qna.qnamaker.getanswersasync#Microsoft_Bot_Builder_AI_QnA_QnAMaker_GetAnswersAsync_Microsoft_Bot_Builder_ITurnContext_Microsoft_Bot_Builder_AI_QnA_QnAMakerOptions_System_Collections_Generic_Dictionary_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_Double__):
@@ -170,108 +173,6 @@ var qnaResults = await this.qnaMaker.getAnswers(stepContext.context, qnaMakerOpt
 ```
 
 O JSON anterior solicitou apenas respostas com 30% ou acima da Pontuação de limite.
-
-<a name="metadata-example"></a>
-
-## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Usar metadados para filtrar respostas por marcas de metadados personalizadas
-
-A adição de metadados permite filtrar as respostas por essas marcas de metadados. Adicione a coluna de metadados do menu de **Opções de exibição** . Adicione metadados à sua base de dados de conhecimento selecionando o ícone de metadados **+** para adicionar um par de metadados. Esse par consiste em uma chave e um valor.
-
-![Captura de tela da adição de metadados](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
-
-<a name="filter-results-with-strictfilters-for-metadata-tags"></a>
-
-## <a name="filter-results-with-strictfilters-for-metadata-tags"></a>Filtrar resultados com strictFilters para marcas de metadados
-
-Considere a pergunta do usuário "quando este hotel é fechado?", em que a intenção é implícita para o restaurante "Paradise".
-
-Como os resultados são necessários apenas para o restaurante "Paradise", você pode definir um filtro na chamada GenerateAnswer nos metadados "nome do restaurante". O exemplo a seguir mostra isso:
-
-```json
-{
-    "question": "When does this hotel close?",
-    "top": 1,
-    "strictFilters": [ { "name": "restaurant", "value": "paradise"}]
-}
-```
-
-### <a name="logical-and-by-default"></a>AND lógico por padrão
-
-Para combinar vários filtros de metadados na consulta, adicione os filtros de metadados adicionais à matriz da `strictFilters` propriedade. Por padrão, os valores são logicamente combinados (e). Uma combinação lógica requer que todos os filtros correspondam aos pares de QnA para que o par seja retornado na resposta.
-
-Isso é equivalente a usar a `strictFiltersCompoundOperationType` propriedade com o valor de `AND` .
-
-### <a name="logical-or-using-strictfilterscompoundoperationtype-property"></a>OR lógico usando a propriedade strictFiltersCompoundOperationType
-
-Ao combinar vários filtros de metadados, se você estiver preocupado apenas com um ou alguns dos filtros correspondentes, use a `strictFiltersCompoundOperationType` propriedade com o valor de `OR` .
-
-Isso permite que sua base de dados de conhecimento retorne respostas quando qualquer filtro corresponder, mas não retornará respostas que não têm metadados.
-
-```json
-{
-    "question": "When do facilities in this hotel close?",
-    "top": 1,
-    "strictFilters": [
-      { "name": "type","value": "restaurant"},
-      { "name": "type", "value": "bar"},
-      { "name": "type", "value": "poolbar"}
-    ],
-    "strictFiltersCompoundOperationType": "OR"
-}
-```
-
-### <a name="metadata-examples-in-quickstarts"></a>Exemplos de metadados em guias de início rápido
-
-Saiba mais sobre metadados no início rápido do portal QnA Maker para obter os metadados:
-* [Criação – adicionar metadados ao par de pergunta e resposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Previsão de consulta – filtrar respostas por metadados](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
-
-<a name="keep-context"></a>
-
-## <a name="use-question-and-answer-results-to-keep-conversation-context"></a>Usar resultados de perguntas e respostas para manter o contexto da conversa
-
-A resposta para o GenerateAnswer contém as informações de metadados correspondentes do par de perguntas e respostas correspondentes. Você pode usar essas informações em seu aplicativo cliente para armazenar o contexto da conversa anterior para uso em conversas posteriores.
-
-```json
-{
-    "answers": [
-        {
-            "questions": [
-                "What is the closing time?"
-            ],
-            "answer": "10.30 PM",
-            "score": 100,
-            "id": 1,
-            "source": "Editorial",
-            "metadata": [
-                {
-                    "name": "restaurant",
-                    "value": "paradise"
-                },
-                {
-                    "name": "location",
-                    "value": "secunderabad"
-                }
-            ]
-        }
-    ]
-}
-```
-
-## <a name="match-questions-only-by-text"></a>Somente correspondência de perguntas, por texto
-
-Por padrão, QnA Maker pesquisa perguntas e respostas. Se você quiser pesquisar apenas as perguntas, para gerar uma resposta, use o `RankerType=QuestionOnly` no corpo da postagem da solicitação GenerateAnswer.
-
-Você pode pesquisar os KB publicados, usando `isTest=false` ou na KB de teste usando `isTest=true` .
-
-```json
-{
-  "question": "Hi",
-  "top": 30,
-  "isTest": true,
-  "RankerType":"QuestionOnly"
-}
-```
 
 ## <a name="return-precise-answers"></a>Retornar respostas precisas
 

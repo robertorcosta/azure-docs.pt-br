@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: b0e51d11797bc5767f19b25a92a2d29a66ea1bb2
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176715"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199360"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -106,7 +106,7 @@ A **região de residência** é onde o balanceador de carga entre regiões é im
 * Leste da Ásia
 
 > [!NOTE]
-> Você só pode implantar o balanceador de carga entre regiões em uma das 8 regiões acima.
+> Você só pode implantar o balanceador de carga entre regiões em uma das sete regiões acima.
 
 Uma **região participante** é onde o IP público global do balanceador de carga está disponível. 
 

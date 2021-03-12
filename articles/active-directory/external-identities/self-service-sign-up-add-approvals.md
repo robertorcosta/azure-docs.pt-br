@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95274f42da7f6cac9b193504df834232d7c0eb90
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 68ac8eab22054099a6ba6735c020f0ba70d1037f
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609967"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634237"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Adicionar um fluxo de trabalho de aprovação personalizado à inscrição de autoatendimento
 
@@ -89,7 +89,7 @@ Agora você adicionará os conectores de API a um fluxo de usuário de inscriç�
 
    ![Adicionar APIs ao fluxo do usuário](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Controlar o fluxo de inscrição com respostas de API
 

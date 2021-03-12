@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 2/24/2021
-ms.openlocfilehash: 9fb86b3d4a46a70d71aa0c3fe9fd1b4a1ea6f298
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.date: 3/12/2021
+ms.openlocfilehash: fa8f2b5e952ddd188f99d130c2154d4602191c2b
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120123"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225057"
 ---
 # <a name="co-sell-requirements"></a>Requisitos de venda conjunta
 
@@ -24,7 +24,7 @@ Esta tabela mostra todos os status de televenda possíveis:
 | ------------ | ------------- |
 | Não está pronto para venda | Os requisitos mínimos [para o status pronto para revenda](#requirements-for-co-sell-ready-status) não foram atendidos. |
 | Co-venda pronta | Todos os [requisitos para o status pronto para venda conjunta](#requirements-for-co-sell-ready-status) foram atendidos. |
-| Incentivados de venda de IP do Azure | Os requisitos prontos para venda foram atendidos além [desses requisitos adicionais](#requirements-for-ip-co-sell-incentivized-status). |
+| Incentivados de venda de IP do Azure | Os requisitos prontos para venda foram atendidos além [desses requisitos adicionais](#requirements-for-azure-ip-co-sell-incentivized-status). |
 | Incentivo Premium do Biz apps ISV Connect  | Esse status se aplica ao Dynamics 365 e ao Power apps offers e indica que todos os [requisitos para esse status](#requirements-for-biz-apps-isv-connect-premium-incentive-status) foram atendidos. |
 |||
 
@@ -35,7 +35,7 @@ Para obter uma oferta para obter o status pronto para venda, você deve atender 
 **Todos os parceiros**:
 
 - Ter uma ID do MPN e uma [conta do Marketplace comercial ativa no Partner Center](./partner-center-portal/create-account.md).
-- Verifique se você tem um [perfil comercial](/partner-center/create-a-marketing-profile.md) completo no Partner Center. Como um parceiro qualificado da Microsoft, seu perfil de negócios ajuda a demonstrar seus negócios aos clientes que estão procurando suas soluções e experiência exclusivas para atender às suas necessidades de negócios, resultando em [referências](/partner-center/referrals.md).
+- Verifique se você tem um [perfil comercial](/partner-center/create-a-marketing-profile) completo no Partner Center. Como um parceiro qualificado da Microsoft, seu perfil de negócios ajuda a demonstrar seus negócios aos clientes que estão procurando suas soluções e experiência exclusivas para atender às suas necessidades de negócios, resultando em [referências](/partner-center/referrals).
 - Conclua a guia **co-venda com a Microsoft** e publique a oferta no Marketplace comercial.
 - Forneça um contato de vendas para cada área geográfica qualificada para venda e a lista de materiais necessária.
 
@@ -60,7 +60,7 @@ Fornecemos modelos para ajudá-lo a criar esses documentos. Para obter mais info
 
 Para se qualificar para o status pronto para venda, sua oferta ou solução deve ser publicada ao vivo em pelo menos uma das lojas online do Marketplace comercial: Azure Marketplace ou Microsoft AppSource. Para obter informações sobre como publicar ofertas no Marketplace comercial, consulte [Guia de publicação por tipo de oferta](publisher-guide-by-offer-type.md). Se você ainda não publicou uma oferta no Marketplace comercial antes, verifique se você tem uma [conta do Marketplace comercial](./partner-center-portal/create-account.md).
 
-## <a name="requirements-for-ip-co-sell-incentivized-status"></a>Requisitos para covenda de IP incentivados status do produto
+## <a name="requirements-for-azure-ip-co-sell-incentivized-status"></a>Requisitos para o IP do Azure co-venda de status do incentivados
 
 O status de incentivados de venda de IP do Azure se aplica aos seguintes tipos de oferta:
 

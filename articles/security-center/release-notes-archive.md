@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 3766f29f26a6b2ffeb385cffc971b1ac7a1556cb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a00c11924d2c0f6860c297ab7e58da21da5e1975
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102182569"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634695"
 ---
 # <a name="archive-for-whats-new-in-azure-security-center"></a>Arquivos de novidades na Central de Segurança do Azure?
 
@@ -759,13 +759,13 @@ Se você tiver assinaturas no tipo de preço gratuito, suas classificações de 
 
 Saiba mais sobre [recomendações de identidade e acesso](recommendations-reference.md#recs-identityandaccess).
 
-Saiba mais sobre o [monitoramento de identidade e acesso](security-center-identity-access.md).
+Saiba mais sobre como [gerenciar a imposição de MFA (autenticação multifator) em suas assinaturas](security-center-identity-access.md).
 
 
 
 ## <a name="march-2020"></a>Março de 2020
 
-As atualizações em março incluem:
+As atualizações de março incluem:
 
 - [A automação do fluxo de trabalho já está em disponibilidade geral](#workflow-automation-is-now-generally-available)
 - [Integração da Central de Segurança do Azure ao Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)

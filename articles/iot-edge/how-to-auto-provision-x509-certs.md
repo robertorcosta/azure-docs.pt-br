@@ -10,14 +10,16 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: f4b33b0156f1a5e27f71509cad637684a0332413
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 44ea6546eb2099165071fd493ec8f890820c0688
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046152"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199828"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Criar e provisionar um dispositivo IoT Edge usando certificados X. 509
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Com o [DPS (serviço de provisionamento de dispositivos) do Hub IOT do Azure](../iot-dps/index.yml), você pode provisionar automaticamente IOT Edge dispositivos usando certificados X. 509. Se você não estiver familiarizado com o processo de provisionamento automático, examine a visão geral de [provisionamento](../iot-dps/about-iot-dps.md#provisioning-process) antes de continuar.
 
@@ -108,7 +110,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
 
    * **Selecione os hubs IOT aos quais este dispositivo pode ser atribuído**: escolha o Hub IOT vinculado ao qual você deseja conectar o dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
-   * **Estado inicial do dispositivo** r: Adicione um valor de marca a ser adicionado ao dispositivo "d" se desejar. Você pode usar marcas para direcionar grupos de dispositivos para implantação automática. Por exemplo: 
+   * **Estado inicial do dispositivo** r: Adicione um valor de marca a ser adicionado ao dispositivo "d" se desejar. Você pode usar marcas para direcionar grupos de dispositivos para implantação automática. Por exemplo:
 
       ```json
       {
@@ -121,7 +123,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
       }
       ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue na seção [instalar o IOT Edge Runtime](#install-the-iot-edge-runtime) para configurar o dispositivo de IOT Edge.
 
@@ -147,7 +149,7 @@ Ao criar um grupo de registros, você tem a opção de usar um certificado verif
 
    Se você estiver usando os certificados de demonstração, carregue o `<wrkdir>/certs/azure-iot-test-only.root.ca.cert.pem` certificado.
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 1. O certificado agora deve estar listado na página **certificados** . Selecione-o para abrir os detalhes do certificado.
 
@@ -193,7 +195,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
 
    * **Selecione os hubs IOT aos quais este dispositivo pode ser atribuído**: escolha o Hub IOT vinculado ao qual você deseja conectar o dispositivo. Você pode escolher vários hubs e o dispositivo será atribuído a um deles de acordo com a política de alocação selecionada.
 
-   * **Estado inicial do dispositivo** r: Adicione um valor de marca a ser adicionado ao dispositivo "d" se desejar. Você pode usar marcas para direcionar grupos de dispositivos para implantação automática. Por exemplo: 
+   * **Estado inicial do dispositivo** r: Adicione um valor de marca a ser adicionado ao dispositivo "d" se desejar. Você pode usar marcas para direcionar grupos de dispositivos para implantação automática. Por exemplo:
 
       ```json
       {
@@ -206,7 +208,7 @@ Para obter mais informações sobre registros no serviço de provisionamento de 
       }
       ```
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Agora que um registro existe para esse dispositivo, o tempo de execução do IoT Edge pode provisionar automaticamente o dispositivo durante a instalação. Continue na próxima seção para configurar o dispositivo IoT Edge.
 
@@ -261,7 +263,7 @@ Tenha as seguintes informações prontas:
 
 1. Atualize os valores de `scope_id` , `identity_cert` e `identity_pk` com suas informações de dispositivo e DPS.
 
-   Quando você adiciona o certificado X. 509 e as informações de chave ao arquivo config. YAML, os caminhos devem ser fornecidos como URIs de arquivo. Por exemplo: 
+   Quando você adiciona o certificado X. 509 e as informações de chave ao arquivo config. YAML, os caminhos devem ser fornecidos como URIs de arquivo. Por exemplo:
 
    `file:///<path>/identity_certificate_chain.pem`
    `file:///<path>/identity_key.pem`
@@ -296,7 +298,7 @@ Tenha as seguintes informações prontas:
    sudo nano /etc/aziot/config.toml
    ```
 
-1. Localize a seção de **provisionamento** do arquivo. Remova a marca de comentário das linhas para o provisionamento de DPS com o certificado X. 509 e verifique se todas as outras linhas de provisionamento foram comentadas.
+1. Localize a seção **Provisionamento** do arquivo. Remova a marca de comentário das linhas para o provisionamento de DPS com o certificado X. 509 e verifique se todas as outras linhas de provisionamento foram comentadas.
 
    ```toml
    # DPS provisioning with X.509 certificate

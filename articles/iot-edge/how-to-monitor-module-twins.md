@@ -9,14 +9,16 @@ ms.topic: conceptual
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d968fb066e68fe1bb6986c63ce750c5de5c98cf9
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 0b7013979199eefa873a651d99e87dc8b2c47856
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633171"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201594"
 ---
 # <a name="monitor-module-twins"></a>Monitorar módulos gêmeos
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Módulo gêmeos no Hub IoT do Azure habilite o monitoramento da conectividade e da integridade de suas implantações de IoT Edge. O módulo gêmeos armazena informações úteis em seu hub IoT sobre o desempenho de seus módulos em execução. O [agente de IOT Edge](iot-edge-runtime.md#iot-edge-agent) e os módulos de tempo de execução de [IOT Edge Hub](iot-edge-runtime.md#iot-edge-hub) mantêm o módulo gêmeos e `$edgeAgent` `$edgeHub` , respectivamente:
 

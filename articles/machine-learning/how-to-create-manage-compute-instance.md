@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 5aaaf2000fb8310a5208447f8eaf8546feda90fb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102509312"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009956"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -108,7 +108,7 @@ Você também pode criar uma instância de computação com um [modelo de Azure 
 ### <a name="create-on-behalf-of-preview"></a>Criar em nome de (visualização)
 
 Como administrador, você pode criar uma instância de computação em nome de um cientista de dados e atribuir a instância a elas com:
-* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
+* [Modelo de Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-computeinstance).  Para obter detalhes sobre como encontrar a Tenantid e o ObjectID necessários neste modelo, consulte [Localizar IDs de objeto de identidade para configuração de autenticação](../healthcare-apis/fhir/find-identity-object-ids.md).  Você também pode encontrar esses valores no portal de Azure Active Directory.
 * API REST
 
 O cientista de dados para o qual você cria a instância de computação precisa das seguintes permissões do [Azure RBAC (controle de acesso baseado em função)](../role-based-access-control/overview.md) : 
