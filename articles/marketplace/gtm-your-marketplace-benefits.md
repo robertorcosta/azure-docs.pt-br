@@ -4,15 +4,15 @@ description: Go-To-Market Services – os recursos da Microsoft que os publicado
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/09/2021
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 06f98a8e303d2ff692c0f84314e639c2a51cbcc1
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 58e55527c84db0c368e676f2bf1314dca32e78db
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489440"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631008"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>Benefícios do marketplace comercial
 
@@ -50,18 +50,16 @@ Descrições detalhadas de todos os benefícios do programa podem ser encontrada
     1. Depois de atualizar o contato de marketing, selecione **Ativar** para obter o benefício que você deseja começar a usar. Depois de ativar um benefício, seu contato de marketing será contatado por um membro da equipe de recompensas dentro de uma semana.
 
 > [!NOTE]
-> Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, verifique em sua organização quem é o proprietário da oferta em questão, examinando o Partner Center. Eles devem conter a comunicação e as próximas etapas.
-
-Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, você poderá gerar um tíquete de suporte em [Ajuda e Suporte](https://aka.ms/marketplacepublishersupport).
+> Se sua oferta esteve ativa por mais de quatro semanas e você não recebeu uma mensagem, verifique em sua organização quem é o proprietário da oferta em questão, examinando o Partner Center. Eles devem conter a comunicação e as próximas etapas.<br><br>Se você não puder determinar o proprietário ou se o proprietário tiver deixado sua empresa, gere um tíquete de suporte em [ajuda e suporte](https://aka.ms/marketplacepublishersupport).
 
 O escopo das atividades disponíveis se expande à medida que você cresce suas ofertas no mercado comercial. Todas as listagens recebem um nível básico de recomendações de otimização e promoção como parte de um email de recursos de autoatendimento e melhores práticas.
 
 ## <a name="list-trial-and-consulting-benefits"></a>Benefícios de lista, avaliação e consultoria
 
-Toda vez que publicar no Microsoft AppSource ou no Azure Marketplace, você terá acesso a um novo conjunto de benefícios. Depois que sua oferta ficar ativa, vá para o [Partner Center](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Fdashboard%2Fmpn%2Fmembership%2Fbenefits%2Fcommercialmarketplace&data=04%7C01%7Cv-kilieb%40microsoft.com%7C3b13a8a6e41a47d6d96008d8c7cb3b50%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637479022971578374%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=MF1ZlPX9M5JiJZE2e%2B6kXEsRX1klB5hTcSqcHYDjZq8%3D&reserved=0) para ativar seus benefícios técnicos, de marketing e vendas qualificados.
+Toda vez que publicar no Microsoft AppSource ou no Azure Marketplace, você terá acesso a um novo conjunto de benefícios. Depois que sua oferta ficar ativa, vá para o [Partner Center](https://partner.microsoft.com/dashboard) para ativar seus benefícios técnicos, de marketing e vendas qualificados.
 
-> [!NOTE]
-> Todos os benefícios de avaliação e consultoria expiram após 3 meses.
+> [!IMPORTANT]
+> Todos os benefícios de avaliação e consultoria expiram após três meses.
 
 A tabela a seguir resume os requisitos de qualificação para as ofertas de lista, avaliação e consultoria:
 
@@ -71,7 +69,7 @@ Descrições detalhadas de todos os esses benefícios podem ser encontradas no [
 
 ## <a name="marketplace-rewards-for-transact-partners"></a>Recompensas do Marketplace para parceiros de transação
 
-Quando você entra em funcionamento com sua oferta do Microsoft AppSource ou do Azure Marketplace, é possível acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial.
+Quando você entra em funcionamento com sua oferta do Microsoft AppSource ou do Azure Marketplace, pode acessar benefícios adicionais à medida que você aumenta suas transações de vendas cobradas ou estações vendidas por meio do Marketplace comercial.
 
 >[!NOTE]
 >O limite de estações vendidas só se aplica a aplicativos Microsoft 365 (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ter sido concluídos até 30 de junho de 2021.
@@ -80,13 +78,19 @@ Esses benefícios foram criados para dar suporte a você com marketing, vendas e
 
 Todos os parceiros que têm uma oferta ativa têm de trabalhar com um gerente de envolvimento dedicado para escolher as atividades de maior valor para seu portfólio de ofertas do Marketplace comercial. Esse envolvimento dura pelo tempo da oferta, o que significa que você pode escolher suas atividades e o tempo de duração delas de acordo com a duração das estratégias de marketing e vendas mais amplas de sua empresa.
 
+### <a name="marketing-benefits-for-transact-offers"></a>Benefícios de marketing para ofertas do Transact
+
 ![Benefícios de marketing](./media/marketplace-publishers-guide/marketing-benefit.png)
+
+### <a name="sales-benefits-for-transact-offers"></a>Benefícios de vendas para ofertas do Transact
 
 ![Benefícios de vendas](./media/marketplace-publishers-guide/sales-benefit.png)
 
+### <a name="technical-benefits-for-transact-offers"></a>Benefícios técnicos para ofertas do Transact
+
 ![Benefícios técnicos](./media/marketplace-publishers-guide/technical-benefit.png)
 
-\* O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2021.
+O limite de estações vendidas aplica-se somente a aplicativos Microsoft 365s (aplicativos SaaS que têm integrações com Microsoft Teams, Office, Outlook ou SharePoint) e os benefícios devem ser concluídos até 30 de junho de 2021.
 
 Descrições detalhadas de todos os esses benefícios podem ser encontradas no [Conjunto do programa de Recompensas do Marketplace](https://aka.ms/marketplacerewards).
 
