@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: fc3ba062f4995e975015d7c4db145ccde0c3f701
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101705204"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614914"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -73,7 +73,7 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 **IPv6** | Sem suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
 **Replicação simultânea** | 500 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 500.
-**Instalação automática do agente de VM do Azure (agente do Windows)** | Com suporte para o Windows Server 2008 R2 em diante.
+**Instalação automática do agente de VM do Azure (agente do Windows e Linux)** | Com suporte para o Windows Server 2008 R2 em diante. <br/> Com suporte para RHEL6, RHEL7, CentOS7, Ubuntu 14, 4, Ubuntu 16, 4, Ubuntu 18.04. Examine a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) para esses sistemas operacionais Linux.
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos de dispositivo (sem agente)
 
@@ -159,7 +159,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 Todas as VMs locais replicadas para o Azure (com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
 
-**Componente** | **Requisitos** 
+**Componente** | **Requirements** 
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. 
 Arquitetura do sistema operacional convidado | 64 bits. 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/22/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: e8005bbf0373c91cf9f3515059544b9af3d52384
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102443787"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102630360"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de versão do Azure Stack Edge 2101
 
@@ -29,7 +29,7 @@ Este artigo se aplica à versão do **Azure Stack Edge 2101** , que é mapeada p
 
 Os novos recursos a seguir estão disponíveis na versão do Azure Stack Edge 2101. 
 
-- **Disponibilidade geral do Azure Stack Edge pro r e Azure Stack dispositivos mini r** do Edge – começando com esta versão, os dispositivos do Azure Stack Edge pro r e do Azure Stack Edge da borda estarão disponíveis. Para obter mais informações, consulte [o que é o Azure Stack Edge pro r](azure-stack-edge-j-series-overview.md) e [o que é Azure Stack a borda do Edge r](azure-stack-edge-k-series-overview.md).  
+- **Disponibilidade geral do Azure Stack Edge pro r e Azure Stack dispositivos mini r** do Edge – começando com esta versão, os dispositivos do Azure Stack Edge pro r e do Azure Stack Edge da borda estarão disponíveis. Para obter mais informações, consulte [o que é o Azure Stack Edge pro r](azure-stack-edge-pro-r-overview.md) e [o que é Azure Stack a borda do Edge r](azure-stack-edge-mini-r-overview.md).  
 - **Gerenciamento de nuvem de máquinas virtuais** -iniciando esta versão, você pode criar e gerenciar as máquinas virtuais em seu dispositivo por meio do portal do Azure. Para obter mais informações, consulte [implantar VMs por meio do portal do Azure](azure-stack-edge-gpu-deploy-virtual-machine-portal.md).
 - **Integração com o Azure monitor** – agora você pode usar Azure monitor para monitorar contêineres dos aplicativos de computação executados em seu dispositivo. Não há suporte para o repositório de métricas Azure Monitor nesta versão. Para obter mais informações, consulte como [habilitar o Azure monitor em seu dispositivo](azure-stack-edge-gpu-enable-azure-monitor.md).
 - **Registro de contêiner de borda** – nesta versão, um registro de contêiner de borda está disponível para fornecer um repositório na borda do seu dispositivo. Você pode usar esse registro para armazenar e gerenciar imagens de contêiner. Para obter mais informações, consulte [habilitar registro de contêiner de borda](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md). 

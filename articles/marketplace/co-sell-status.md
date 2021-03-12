@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 02/24/2021
-ms.openlocfilehash: 114e52884ca220635085bdbb8ab19b4f9cf810c0
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 9c788109b014be244560fb652de830ba14a44d68
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102120089"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225006"
 ---
 # <a name="verify-co-sell-status-of-a-commercial-marketplace-offer"></a>Verificar o status de venda de uma oferta de Marketplace comercial
 
@@ -32,7 +32,7 @@ A tabela a seguir mostra todos os status de covenda possíveis. Para saber mais 
 | ------------ | ------------- |
 | Não está pronto para venda | Os requisitos mínimos [para o status pronto para revenda](co-sell-requirements.md#requirements-for-co-sell-ready-status) não foram atendidos. |
 | Co-venda pronta | Todos os [requisitos para o status pronto para venda conjunta](co-sell-requirements.md#requirements-for-co-sell-ready-status) foram atendidos. |
-| Incentivados de venda de IP do Azure | Os requisitos prontos para venda foram atendidos além [desses requisitos adicionais](co-sell-requirements.md#requirements-for-ip-co-sell-incentivized-status). |
+| Incentivados de venda de IP do Azure | Os requisitos prontos para venda foram atendidos além [desses requisitos adicionais](co-sell-requirements.md#requirements-for-azure-ip-co-sell-incentivized-status). |
 | Incentivo Premium do Biz apps ISV Connect  | Esse status se aplica ao Dynamics 365 e ao Power apps offers e indica que todos os [requisitos para esse status](co-sell-requirements.md#requirements-for-biz-apps-isv-connect-premium-incentive-status) foram atendidos. |
 |||
 

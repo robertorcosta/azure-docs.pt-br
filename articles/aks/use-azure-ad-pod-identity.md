@@ -3,13 +3,13 @@ title: Usar Azure Active Directory identidades gerenciadas por pod no serviço k
 description: Saiba como usar identidades gerenciadas gerenciadas pelo Pod do AAD no serviço de kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 12/01/2020
-ms.openlocfilehash: e7c8a96ad012afdcd724a4a242c27018563f3a10
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 3/12/2021
+ms.openlocfilehash: 8b94c859800c3757842ad56df6e20f215bb13a7d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176307"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103233489"
 ---
 # <a name="use-azure-active-directory-pod-managed-identities-in-azure-kubernetes-service-preview"></a>Usar Azure Active Directory identidades gerenciadas por pod no serviço kubernetes do Azure (versão prévia)
 
@@ -24,13 +24,13 @@ Azure Active Directory identidades gerenciadas pelo Pod usam primitivos kubernet
 
 Você deve ter o seguinte recurso instalado:
 
-* O CLI do Azure, versão 2.8.0 ou posterior
-* A `azure-preview` versão de extensão 0.4.68 ou posterior
+* O CLI do Azure, versão 2.20.0 ou posterior
+* A `azure-preview` versão de extensão 0.5.5 ou posterior
 
 ### <a name="limitations"></a>Limitações
 
-* Um máximo de 50 identidades de Pod são permitidas para um cluster.
-* Um máximo de 50 exceções de identidade de Pod são permitidas para um cluster.
+* Um máximo de 200 identidades de Pod são permitidas para um cluster.
+* Um máximo de 200 exceções de identidade de Pod são permitidas para um cluster.
 * As identidades gerenciadas por Pod estão disponíveis somente em pools de nós do Linux.
 
 ### <a name="register-the-enablepodidentitypreview"></a>Registrar o `EnablePodIdentityPreview`
@@ -66,6 +66,21 @@ Use [AZ AKs Get-Credentials][az-aks-get-credentials] para entrar no seu cluster 
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
+```
+## <a name="create-an-aks-cluster-with-kubenet-network-plugin"></a>Criar um cluster AKS com o plug-in de rede Kubenet
+
+Crie um cluster AKS com o plug-in de rede Kubenet e a identidade gerenciada por Pod habilitada.
+
+```azurecli-interactive
+az aks create -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
+```
+
+## <a name="update-an-existing-aks-cluster-with-kubenet-network-plugin"></a>Atualizar um cluster AKS existente com o plug-in de rede Kubenet
+
+Atualize um cluster AKS existente com o plug-in de rede Kubnet para incluir a identidade gerenciada por Pod.
+
+```azurecli-interactive
+az aks update -g $MY_RESOURCE_GROUP -n $MY_CLUSTER --enable-pod-identity --enable-pod-identity-with-kubenet
 ```
 
 ## <a name="create-an-identity"></a>Criar uma identidade
@@ -171,7 +186,7 @@ successfully made GET on instance metadata
 ...
 ```
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para remover a identidade gerenciada pelo Pod do AAD do cluster, remova o aplicativo de exemplo e a identidade do Pod do cluster. Em seguida, remova a identidade.
 

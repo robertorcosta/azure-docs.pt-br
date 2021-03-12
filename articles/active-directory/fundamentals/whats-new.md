@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9abed17f5a3d23f811c7cec0d4fd31e4433f651d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177005"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633420"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -211,7 +211,7 @@ Para obter mais informações, leia [automatizar o provisionamento de usuário p
  
 10 funções internas do Azure AD foram renomeadas para que elas fiquem alinhadas no centro de [administração Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), no [portal do AD do Azure](https://portal.azure.com/)e no [Microsoft Graph](https://developer.microsoft.com/graph/). Para saber mais sobre as novas funções, consulte [permissões de função de administrador no Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
-![Tabela de novos nomes de função](media/whats-new/roles-table-rbac.png)
+![Tabela mostrando nomes de função em MS API do Graph e o portal do Azure e o nome final proposto na API, portal do Azure e Mac.](media/whats-new/roles-table-rbac.png)
 
 ---
 
@@ -968,7 +968,7 @@ Agora você pode permitir que os proprietários do aplicativo monitorem a ativid
  
 Algumas funções internas do Azure Active Directory (AD) têm nomes que diferem daqueles que aparecem no centro de administração Microsoft 365, no portal do AD do Azure e Microsoft Graph. Essa inconsistência pode causar problemas em processos automatizados. Com essa atualização, estamos renomeando 10 nomes de função para torná-los consistentes. A tabela a seguir tem os novos nomes de função:
 
-![Tabela de novos nomes de função](media/whats-new/azure-role.png)
+![Tabela mostrando nomes de função no MS API do Graph e no portal do Azure e o novo nome de função proposto no centro de administração do M365, portal do Azure e API.](media/whats-new/azure-role.png)
 
 ---
 
