@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: facdb99a49c3778a75e733abf1fc72eed67549ab
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611600"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008426"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicionar um conector de API a um fluxo de usuário de inscrição (versão prévia)
 
@@ -61,9 +61,9 @@ Para Azure App serviço e Azure Functions, consulte [Configurar a autenticação
 É recomendável definir alertas de lembrete para quando seu certificado expirar. Para carregar um novo certificado em um conector de API existente, selecione o conector de API em **conectores de API (versão prévia)** e clique em **carregar novo certificado**. O certificado carregado mais recentemente que não está expirado e ultrapassado a data de início será usado automaticamente pelo Azure AD B2C.
 
 ### <a name="api-key"></a>Chave de API
-Alguns serviços usam um mecanismo de "chave de API" para tornar mais difícil acessar seus pontos de extremidade HTTP durante o desenvolvimento. Por [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), você pode fazer isso incluindo o `code` como um parâmetro de consulta na **URL do ponto de extremidade**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
+Alguns serviços usam um mecanismo de "chave de API" para ofuscar o acesso aos pontos de extremidade HTTP durante o desenvolvimento. Por [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), você pode fazer isso incluindo o `code` como um parâmetro de consulta na **URL do ponto de extremidade**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
 
-Esse não é um mecanismo que deve ser usado sozinha na produção. Portanto, a configuração para a autenticação básica ou de certificado é sempre necessária. Se você quiser implementar qualquer método de autenticação (não recomendado) para fins de desenvolvimento, poderá escolher a autenticação básica e usar valores temporários `username` para `password` o e que sua API possa ignorar enquanto você implementa a autorização em sua API.
+Esse não é um mecanismo que deve ser usado sozinha na produção. Portanto, a configuração para a autenticação básica ou de certificado é sempre necessária. Se você não quiser implementar nenhum método de autenticação (não recomendado) para fins de desenvolvimento, poderá escolher a autenticação básica e usar valores temporários `username` para `password` o e que sua API possa ignorar enquanto você implementa a autorização em sua API.
 
 ## <a name="the-request-sent-to-your-api"></a>A solicitação enviada à sua API
 Um conector de API se materializa como uma solicitação **http post** , enviando atributos de usuário (' declarações ') como pares de chave-valor em um corpo JSON. Os atributos são serializados da mesma forma para [Microsoft Graph](/graph/api/resources/user#properties) Propriedades de usuário. 
@@ -254,7 +254,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Necessária | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
 | \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
@@ -274,7 +274,7 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Necessária | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
@@ -298,7 +298,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Necessária | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da sua API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |

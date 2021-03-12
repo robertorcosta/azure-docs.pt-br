@@ -3,15 +3,15 @@ title: Perguntas frequentes sobre área de trabalho virtual do Windows-Azure
 description: Perguntas frequentes e práticas recomendadas para a área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 3bdb38b8a9590cf6191c75fdef024543c2b1c190
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720266"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102613962"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -23,7 +23,7 @@ Se você quiser criar pools de hosts e outros objetos, deverá ser atribuída a 
 
 Você deve ser atribuído à função de administrador de acesso do usuário em um grupo de aplicativos para publicar grupos de aplicativos para usuários ou grupos de usuários.
 
-Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo: 
+Para restringir um administrador a gerenciar apenas sessões de usuário, como enviar mensagens para usuários, desconectar usuários e assim por diante, você pode criar funções personalizadas. Por exemplo:
 
 ```powershell
 "actions": [
@@ -56,7 +56,7 @@ Os espaços de trabalho também devem estar no mesmo local que seus grupos de ap
 
 Ao executar um cmdlet do PowerShell, você verá apenas o nome do recurso e o local.
 
-Por exemplo: 
+Por exemplo:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg
@@ -68,7 +68,7 @@ westus   0224hp Microsoft.DesktopVirtualization/hostpools
 
 Para ver todas as propriedades de um recurso, adicione um `format-list` ou `fl` ao final do cmdlet.
 
-Por exemplo: 
+Por exemplo:
 
 ```powershell
 Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
@@ -76,7 +76,7 @@ Get-AzWvdHostPool -Name 0224hp -ResourceGroupName 0224rg |fl
 
 Para ver propriedades específicas, adicione os nomes de propriedade específicos após `format-list` ou `fl` .
 
-Por exemplo: 
+Por exemplo:
 
 ```powershell
 Get-AzWvdHostPool -Name demohp -ResourceGroupName 0414rg |fl CustomRdpProperty
@@ -112,7 +112,7 @@ As limitações ou cotas no FSLogix dependem da malha de armazenamento usada par
 
 A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix precisam dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil.
 
-| Recurso | Requisito |
+| Resource | Requisito |
 |---|---|
 | IOPS de estado estável | 10 |
 | Entrar/sair do IOPS | 50 |
@@ -140,3 +140,22 @@ Por fim, se você habilitou o provedor de recursos da conta do proprietário do 
 ## <a name="how-often-should-i-turn-my-vms-on-to-prevent-registration-issues"></a>Com que frequência devo ativar minhas VMs para evitar problemas de registro?
 
 Depois de registrar uma VM em um pool de hosts no serviço de área de trabalho virtual do Windows, o agente atualiza regularmente o token da VM sempre que a VM está ativa. O certificado para o token de registro é válido por 90 dias. Por causa desse limite de 90 dias, recomendamos que você inicie suas VMs a cada 90 dias. Ativar sua VM dentro desse limite de tempo impedirá que seu token de registro expire ou se torne inválido. Se você tiver iniciado sua VM após 90 dias e estiver enfrentando problemas de registro, siga as instruções no [Guia de solução de problemas do agente de área de trabalho virtual do Windows](troubleshoot-agent.md#your-issue-isnt-listed-here-or-wasnt-resolved) para remover a VM do pool de hosts, reinstalar o agente e registrá-lo novamente no pool.
+
+## <a name="can-i-set-availability-options-when-creating-host-pools"></a>Posso definir opções de disponibilidade ao criar pools de hosts?
+
+Sim. Os pools de hosts da área de trabalho virtual do Windows têm uma opção para selecionar um conjunto de disponibilidade ou zonas de disponibilidade quando você cria uma VM. Essas opções de disponibilidade são as mesmas que as usadas pelo Azure COMPUTE. Se você selecionar uma zona para a VM criada em um pool de hosts, a configuração se aplicará automaticamente a todas as VMs que você criar nessa zona. Se preferir distribuir suas VMs do pool de hosts entre várias zonas, você precisará seguir as instruções em [Adicionar máquinas virtuais com o portal do Azure](expand-existing-host-pool.md#add-virtual-machines-with-the-azure-portal) para selecionar manualmente uma nova zona para cada nova VM que você criar.
+
+## <a name="which-availability-option-is-best-for-me"></a>Qual é a melhor opção de disponibilidade para mim?
+
+A opção de disponibilidade que você deve usar para suas VMs depende do local de sua imagem e de seus campos de disco gerenciado. A tabela a seguir explica o relacionamento que cada configuração tem com essas variáveis para ajudá-lo a descobrir qual é a melhor opção para sua implantação. 
+
+| Opção de disponibilidade | Local da imagem | Botão de opção usar disco gerenciado (botão de opção) |
+|---|---|---|
+| Nenhum | Galeria | Desabilitado com "Sim" como padrão |
+| Nenhum | Armazenamento de blob | Habilitado com "não" como padrão |
+| Zona de disponibilidade | Galeria (opção de armazenamento de BLOBs desabilitada) | Desabilitado com "Sim" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Galeria | Desabilitado com "Sim" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de blob | Habilitado com "não" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de BLOBs (opção de galeria desabilitada) | Desabilitado com "não" como padrão |
+| Conjunto de disponibilidade (criado recentemente pelo usuário) | Galeria | Desabilitado com "Sim" como padrão |
+| Conjunto de disponibilidade (criado recentemente pelo usuário) | Armazenamento de blob | Habilitado com "não" como padrão |
