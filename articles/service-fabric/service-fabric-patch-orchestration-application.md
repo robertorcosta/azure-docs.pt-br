@@ -14,20 +14,79 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
-ms.openlocfilehash: 7d52d49ab5d3a47dd69fdc1708f9e52f4f796a92
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100390633"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614404"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
-> [!IMPORTANT]
-> A partir de 30 de abril de 2019, o aplicativo de orquestração de patch versão 1,2. * não é mais suportado. Certifique-se de atualizar para a versão mais recente. Atualizações de VM em que "Windows Update" aplica patches de sistema operacional sem substituir o disco do sistema operacional não têm suporte. 
+## <a name="automatic-os-image-upgrades"></a>Atualizações automáticas de imagem do sistema operacional
 
-> [!NOTE]
-> Obter [atualizações automáticas de imagem do sistema operacional em seu conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter seu sistema operacional corrigido no Azure. O conjunto de dimensionamento de máquinas virtuais baseado em atualizações automáticas de imagem de so exigirá uma durabilidade prateada ou maior em uma escala. Em tipos de nó com nível de durabilidade bronze, isso não tem suporte, nesse caso, use o aplicativo de orquestração de patch.
+Obter [atualizações automáticas de imagem do sistema operacional em seus conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) é a melhor prática para manter seu sistema operacional corrigido no Azure. O conjunto de dimensionamento de máquinas virtuais baseado em atualizações automáticas de imagem de so exigirá uma durabilidade prateada ou maior em uma escala.
+
+Requisitos para atualizações automáticas de imagem de so por conjuntos de dimensionamento de máquinas virtuais
+-   Service Fabric [nível de durabilidade](../service-fabric/service-fabric-cluster-capacity.md#durability-characteristics-of-the-cluster) é prata ou ouro, e não bronze.
+-   A extensão de Service Fabric na definição do modelo do conjunto de dimensionamento deve ter TypeHandlerVersion 1,1 ou superior.
+-   O nível de durabilidade deve ser o mesmo no Cluster Service Fabric e na extensão Service Fabric na definição do modelo do conjunto de dimensionamento.
+- Uma investigação de integridade adicional ou o uso da extensão de integridade do aplicativo para conjuntos de dimensionamento de máquinas virtuais não é necessário.
+
+Verifique se as configurações de durabilidade não são correspondentes no Cluster Service Fabric e na extensão de Service Fabric, pois uma incompatibilidade resultará em erros de atualização. Os níveis de durabilidade podem ser modificados de acordo com as diretrizes descritas nesta [página](../service-fabric/service-fabric-cluster-capacity.md#changing-durability-levels).
+
+Com durabilidade de bronze, a atualização automática da imagem do sistema operacional não está disponível. Embora o [aplicativo de orquestração de patch](#patch-orchestration-application ) (destinado apenas a clusters não hospedados no Azure) não seja *recomendado* para níveis de durabilidade prata ou maior, é sua única opção para automatizar atualizações do Windows com relação a Service Fabric domínios de atualização.
+
+> [!IMPORTANT]
+> As atualizações na VM em que "Windows Update" aplica patches do sistema operacional sem substituir o disco do sistema operacional não têm suporte no Service Fabric do Azure.
+
+Há duas etapas necessárias para habilitar o recurso com desabilitação Windows Update no sistema operacional corretamente.
+
+1. Habilitando a atualização automática da imagem do so, desabilitando o Windows Updates ARM 
+    ```json
+    "virtualMachineProfile": { 
+        "properties": {
+          "upgradePolicy": {
+            "automaticOSUpgradePolicy": {
+              "enableAutomaticOSUpgrade":  true
+            }
+          }
+        }
+      }
+    ```
+    
+    ```json
+    "virtualMachineProfile": { 
+        "osProfile": { 
+            "windowsConfiguration": { 
+                "enableAutomaticUpdates": false 
+            }
+        }
+    }
+    ```
+
+    Azure PowerShell
+    ```azurepowershell-interactive
+    Update-AzVmss -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -AutomaticOSUpgrade $true -EnableAutomaticUpdate $false
+    ``` 
+    
+1. Atualizar modelo do conjunto de dimensionamento após essa configuração alterar uma reimagem de todas as máquinas é necessária para atualizar o modelo do conjunto de dimensionamento para que a alteração tenha efeito.
+    
+    Azure PowerShell
+    ```azurepowershell-interactive
+    $scaleSet = Get-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName
+    $instances = foreach($vm in $scaleSet)
+    {
+        Set-AzVmssVM -ResourceGroupName $resourceGroupName -VMScaleSetName $scaleSetName -InstanceId $vm.InstanceID -Reimage
+    }
+    ``` 
+    
+Consulte as [atualizações automáticas de imagem do sistema operacional por conjuntos de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) para obter mais instruções.
+
+## <a name="patch-orchestration-application"></a>Aplicativo de orquestração de patch
+
+> [!IMPORTANT]
+> A partir de 30 de abril de 2019, o aplicativo de orquestração de patch versão 1,2. * não é mais suportado. Certifique-se de atualizar para a versão mais recente.
 
 O POA (aplicativo de orquestração de patch) é um wrapper em todo o serviço de Gerenciador de Reparos Service Fabric do Azure, que permite o agendamento de patches de so baseado em configuração para clusters não hospedados no Azure. O POA não é necessário para clusters não hospedados no Azure, mas o agendamento de instalação de patch por domínio de atualização é necessário para patches Service Fabric hosts de cluster sem incorrer em tempo de inatividade.
 

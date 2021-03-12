@@ -9,12 +9,12 @@ ms.date: 02/19/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: 22f4db04f37985e49065f80da6e4578ed71c5db1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428432"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224587"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
@@ -112,7 +112,7 @@ Os recursos de armazenamento do Azure a seguir não têm suporte quando você ha
   
 ## <a name="nfs-30-features-not-yet-supported"></a>Recursos do NFS 3,0 ainda não suportados
 
-Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake Storage Gen2.
+Os seguintes recursos de NFS 3,0 ainda não têm suporte.
 
 - NFS 3,0 sobre UDP. Somente o NFS 3,0 sobre TCP tem suporte.
 
@@ -128,7 +128,13 @@ Os seguintes recursos do NFS 3,0 ainda não têm suporte com o Azure Data Lake S
 
 - Exportando um contêiner como somente leitura
 
-## <a name="pricing"></a>Preços
+## <a name="nfs-30-clients-not-yet-supported"></a>Clientes NFS 3,0 ainda não suportados
+
+Os seguintes clientes NFS 3,0 ainda não têm suporte.
+
+- Cliente do Windows para NFS
+
+## <a name="pricing"></a>Preço
 
 Durante a visualização, os dados armazenados em sua conta de armazenamento são cobrados com a mesma taxa de capacidade que o armazenamento de BLOBs cobra por GB por mês. 
 

@@ -9,12 +9,12 @@ ms.date: 11/11/2020
 ms.topic: article
 ms.service: storage
 ms.subservice: blobs
-ms.openlocfilehash: f340a06f3b6b7c8fc0d78051fb0496dcab11fb5d
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: bc5bcca394fa66cea9cbf6bc20ac7d164c671cf7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102122741"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632944"
 ---
 # <a name="back-up-to-azure-with-commvault"></a>Fazer backup para o Azure com CommVault
 
@@ -161,11 +161,11 @@ Esta seção fornece um breve guia para adicionar o armazenamento do Azure a uma
 
 9. Em seguida, navegue para "Storage"--> "Cloud" no centro de comando do CommVault. Escolha "Adicionar". Insira um nome amigável para a conta de armazenamento e, em seguida, selecione "Armazenamento do Microsoft Azure" na lista "tipo". Selecione um servidor de agente de mídia a ser usado para transferir backups para o armazenamento do Azure. Adicione o contêiner que você criou, escolha a camada de armazenamento para aproveitar na conta de armazenamento do Azure e selecione as credenciais criadas na etapa #8. Por fim, escolha se deseja ou não transferir backups com eliminação de duplicação ou não e um local para o banco de dados de eliminação de duplicação.
     
-     ![Adicionar armazenamento do CommVault](../media/commvault-add-storage.png)
+     ![Captura de tela da interface Adicionar usuário de nuvem. No menu suspenso arquivo morto, * * arquivo * * está selecionado.](../media/commvault-add-storage.png)
 
 10. Por fim, adicione seu novo recurso de armazenamento do Azure a um plano novo ou existente no centro de comando do CommVault por meio de "gerenciar"--> "planos" como um "destino de backup".
 
-    ![Adicionar armazenamento do CommVault](../media/commvault-plan.png)
+    ![Captura de tela da interface do usuário do COMMVAULT Command Center. No painel de navegação esquerdo, em * * gerenciar * *, * * planos * * está selecionado.](../media/commvault-plan.png)
 
 11. ***(Opcional)*** Se você planeja aproveitar o Azure como um site de recuperação ou o CommVault para migrar servidores e aplicativos para o Azure, é uma prática recomendada implantar um proxy de VSA no Azure. Você pode encontrar instruções detalhadas [aqui](https://documentation.commvault.com/commvault/v11/article?p=106208.htm).  
 

@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 3193c5c00789b793a5b5beaf662f94ab9525888a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: d9088e5c6302c41c64f2a2e9034e7c3d659e37eb
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102107276"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615628"
 ---
 # <a name="use-private-endpoints-for-your-purview-account"></a>Usar pontos de extremidade privados para sua conta do alcance
 
@@ -24,15 +24,15 @@ Você pode usar pontos de extremidade privados para suas contas do alcance para 
 
 1. Preencha as informações básicas e defina o método de conectividade como ponto de extremidade privado na guia **rede** . Configure seus pontos de extremidade privados de ingestão fornecendo detalhes de **assinatura, vnet e sub-rede** que você deseja emparelhar com seu ponto de extremidades privado.
 
-    :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Criação de PE durante a criação da conta":::
+    :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Criar um ponto de extremidade privado no portal do Azure":::
 
 1. Opcionalmente, você também pode optar por configurar uma **zona de DNS privado** para cada ponto de extremidade particular de ingestão.
 
 1. Clique em Adicionar para adicionar um ponto de extremidade privado para sua conta do alcance.
 
-1. Na folha criar ponto de extremidade privado, defina o subrecurso alcance como **conta**, escolha sua rede virtual e sub-rede e selecione a zona de DNS privado onde o DNS será registrado (você também pode utilizar seus servidores DNS ganhos ou criar registros DNS usando arquivos de host em suas máquinas virtuais).
+1. Na página criar ponto de extremidade privado, defina alcance sub-recurso como **conta**, escolha sua rede virtual e sub-rede e selecione a zona de DNS privado onde o DNS será registrado (você também pode utilizar seus servidores DNS ganhos ou criar registros DNS usando arquivos de host em suas máquinas virtuais).
 
-    :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Criação de PE durante a criação da conta":::
+    :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Seleções de criação de ponto de extremidade particular":::
 
 1. Selecione **OK**.
 
@@ -45,7 +45,7 @@ Você pode usar pontos de extremidade privados para suas contas do alcance para 
 ## <a name="create-a-private-endpoint-for-the-purview-web-portal"></a>Criar um ponto de extremidade privado para o portal da Web do alcance
 
 1. Navegue até a conta do alcance que você acabou de criar, selecione as conexões de ponto de extremidade privado na seção Configurações.
-    
+
 1. Clique em + privado ponto de extremidade para criar um novo ponto de extremidade privado.
 
     :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Criar ponto de extremidade privado do portal":::
@@ -68,31 +68,32 @@ As instruções abaixo são para acessar o alcance com segurança de uma VM do A
 
 1. Navegue até sua VM no portal do Azure, selecione a guia rede na seção Configurações. Em seguida, selecione regras de porta de saída e clique em Adicionar regra de porta de saída.
 
-    :::image type="content" source="media/catalog-private-link/outbound-rule-add.png" alt-text="Adicionando regra de saída":::
+   :::image type="content" source="media/catalog-private-link/outbound-rule-add.png" alt-text="Adicionando regra de saída":::
 
 2. Na folha Adicionar regra de porta de saída, selecione *destino* como marca de serviço, marca de serviço de destino a ser **AzureActiveDirectory**, intervalos de portas de destino para serem *, ação a ser permitida, **prioridade deve ser maior do que a regra que negou todo o tráfego da Internet**. Crie a regra.
 
-    :::image type="content" source="media/catalog-private-link/outbound-rule-details.png" alt-text="Adicionando detalhes da regra de saída":::
- 
+   :::image type="content" source="media/catalog-private-link/outbound-rule-details.png" alt-text="Adicionando detalhes da regra de saída":::
+
 3. Siga as mesmas etapas para criar outra regra para permitir a marca de serviço '**AzureResourceManager**'. Se você precisar acessar o portal do Azure, também poderá adicionar uma regra para a marca de serviço '*AzurePortal*'.
 
 4. Conecte-se à VM, abra o navegador, navegue até o console do navegador (Ctrl + Shift + J) e alterne para a guia rede para monitorar as solicitações de rede. Insira web.purview.azure.com na caixa URL e tente fazer logon usando suas credenciais do AAD. O logon pode provavelmente falhar e, na guia rede do console, você pode ver o AAD tentando acessar o aadcdn.msauth.net, mas está sendo bloqueado.
 
-    :::image type="content" source="media/catalog-private-link/login-fail.png" alt-text="Detalhes de falha de logon":::
- 
+   :::image type="content" source="media/catalog-private-link/login-fail.png" alt-text="Detalhes de falha de logon":::
+
 5. Nesse caso, abra um prompt de comando na VM e execute o ping nesta URL (aadcdn.msauth.net), obtenha seu IP e, em seguida, adicione uma regra de porta de saída para o IP nas regras de segurança de rede da VM. Defina o destino para o endereço IP e defina os endereços IP de destino como IP do aadcdn. Devido ao balanceador de carga e ao Gerenciador de tráfego, o IP da CDN do AAD pode ser dinâmico. Depois de obter seu IP, é melhor adicioná-lo ao arquivo de host da VM para forçar o navegador a visitar esse IP para obter a CDN do AAD.
 
-    :::image type="content" source="media/catalog-private-link/ping.png" alt-text="Testar ping":::
+   :::image type="content" source="media/catalog-private-link/ping.png" alt-text="Testar ping":::
 
-    :::image type="content" source="media/catalog-private-link/aadcdn-rule.png" alt-text="Regra de CDN do AAD":::
- 
+   :::image type="content" source="media/catalog-private-link/aadcdn-rule.png" alt-text="Regra de CDN do AAD":::
+
 6. Depois que a nova regra for criada, navegue de volta para a VM e tente fazer logon usando suas credenciais do AAD novamente. Se o logon for executado com sucesso, o portal do alcance estará pronto para uso. Mas, em alguns casos, o AAD será redirecionado para outros domínios para logon com base no tipo de conta do cliente. Por exemplo, para uma conta do live.com, o AAD será redirecionado para o live.com para logon, então essas solicitações serão bloqueadas novamente. Para contas de funcionários da Microsoft, o AAD acessará o msft.sts.microsoft.com para obter informações de logon. Verifique as solicitações de rede na guia rede do navegador para ver quais solicitações de domínio estão sendo bloqueadas, refaça a etapa anterior para obter seu IP e adicionar regras de porta de saída no grupo de segurança de rede para permitir solicitações para esse IP (se possível, adicione a URL e o IP ao arquivo de host da VM para corrigir a resolução de DNS). Se você souber os intervalos de IP do domínio de logon exato, também poderá adicioná-los diretamente às regras de rede.
 
 7. Agora, o logon no AAD deve ser bem-sucedido. O portal do alcance será carregado com êxito, mas a listagem de todas as contas do alcance não funcionará, pois ela só pode acessar uma conta alcance específica. Insira *Web. alcance. Azure. com/Resource/{PurviewAccountName}* para visitar diretamente a conta alcance para a qual você configurou com êxito um ponto de extremidade privado para.
 
-##  <a name="enable-private-endpoint-on-existing-purview-accounts"></a>Habilitar ponto de extremidade privado em contas de alcance existentes
+## <a name="enable-private-endpoint-on-existing-purview-accounts"></a>Habilitar ponto de extremidade privado em contas de alcance existentes
 
 Há duas maneiras de adicionar pontos de extremidade privados do alcance depois de criar sua conta do alcance:
+
 - Usando o portal do Azure (conta alcance)
 - Usando o centro de links privado
 
@@ -101,16 +102,16 @@ Há duas maneiras de adicionar pontos de extremidade privados do alcance depois 
 1. Navegue até a conta alcance da portal do Azure, selecione as conexões de ponto de extremidade privado na seção **rede** de **configurações**.
 
 :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Criar ponto de extremidade privado do portal":::
-    
-2. Clique em + privado ponto de extremidade para criar um novo ponto de extremidade privado.
 
-3. Preencha as informações básicas.
+1. Clique em + privado ponto de extremidade para criar um novo ponto de extremidade privado.
 
-4. Na guia recurso, selecione tipo de recurso para ser **Microsoft. alcance/accounts**.
+1. Preencha as informações básicas.
 
-5. Selecione o recurso para ser a conta alcance e selecione subrecurso de destino como **conta**.
+1. Na guia recurso, selecione tipo de recurso para ser **Microsoft. alcance/accounts**.
 
-6. Selecione a **rede virtual** e a **zona de DNS privado** na guia configuração. Navegue até a página Resumo e clique em **criar** para criar o ponto de extremidade privado do Portal.
+1. Selecione o recurso para ser a conta alcance e selecione subrecurso de destino como **conta**.
+
+1. Selecione a **rede virtual** e a **zona de DNS privado** na guia configuração. Navegue até a página Resumo e clique em **criar** para criar o ponto de extremidade privado do Portal.
 
 > [!NOTE]
 > Você precisará seguir as mesmas etapas acima para o subrecurso de destino selecionado como **portal** também.
@@ -123,7 +124,7 @@ Há duas maneiras de adicionar pontos de extremidade privados do alcance depois 
 
 3. Clique em ' + Adicionar ' e preencha os detalhes básicos.
 
-    :::image type="content" source="media/catalog-private-link/private-link-center.png" alt-text="Criar PE do centro de links privado":::
+   :::image type="content" source="media/catalog-private-link/private-link-center.png" alt-text="Criar PE do centro de links privado":::
 
 4. Selecione o recurso que será a conta do alcance já criada e selecione subrecurso de destino como **conta**.
 
@@ -135,4 +136,5 @@ Há duas maneiras de adicionar pontos de extremidade privados do alcance depois 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Procurar o catálogo de dados do Azure alcance](how-to-browse-catalog.md)
-- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)  
+
+- [Pesquisar no Catálogo de Dados do Azure Purview](how-to-search-catalog.md)

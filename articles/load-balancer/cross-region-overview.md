@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: 1d435c3b15433b7fec00d5dfa80970c04323e635
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 8e14b22895c4734f1efd8688a5b20c946422a080
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199360"
+ms.locfileid: "103225618"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Balanceador de carga entre regiões (visualização)
 
@@ -94,7 +94,7 @@ O pool de back-end do balanceador de carga entre regiões contém um ou mais bal
 
 Adicione suas implantações de balanceador de carga existentes a um balanceador de carga entre regiões para uma implantação de alta disponibilidade entre regiões.
 
-A **região de residência** é onde o balanceador de carga entre regiões é implantado. Essa região não afeta como o tráfego será roteado. Se uma região de residência falhar, o fluxo de tráfego não será afetado.
+A **região de residência** é onde o balanceador de carga entre regiões ou o endereço IP público da camada global é implantado. Essa região não afeta como o tráfego será roteado. Se uma região de residência falhar, o fluxo de tráfego não será afetado.
 
 ### <a name="home-regions"></a>Regiões residenciais
 * Leste dos EUA 2
@@ -106,7 +106,7 @@ A **região de residência** é onde o balanceador de carga entre regiões é im
 * Leste da Ásia
 
 > [!NOTE]
-> Você só pode implantar o balanceador de carga entre regiões em uma das sete regiões acima.
+> Você só pode implantar o balanceador de carga entre regiões ou o IP público na camada global em uma das sete regiões acima.
 
 Uma **região participante** é onde o IP público global do balanceador de carga está disponível. 
 

@@ -5,19 +5,19 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
-ms.openlocfilehash: 1dc8e3a78e681947a70ad96638d1d6e09f0bbc88
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8b3b1d39766d556b820f21c1775210611b995d92
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050657"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199894"
 ---
 # <a name="log-analytics-agent-overview"></a>Visão geral do Agente do Log Analytics
 
 O agente de Log Analytics do Azure coleta a telemetria de máquinas virtuais Windows e Linux em qualquer nuvem, máquinas locais e aquelas monitoradas pelo [System Center Operations Manager](/system-center/scom/) e envia dados coletados para o espaço de trabalho Log Analytics no Azure monitor. O agente de Log Analytics também dá suporte a informações e outros serviços em Azure Monitor como o [VM insights](../vm/vminsights-enable-overview.md), a [central de segurança do Azure](../../security-center/index.yml)e a [automação do Azure](../../automation/automation-intro.md). Este artigo fornece uma visão geral detalhada dos requisitos do agente, do sistema e da rede e dos métodos de implantação.
 
 > [!NOTE]
-> Você também pode ver o Agente do Log Analytics mencionado como MMA (Microsoft Monitoring Agent) ou Agente do OMS para Linux.
+> Você também pode ver o agente de Log Analytics referido como o Microsoft Monitoring Agent (MMA).
 
 ## <a name="comparison-to-azure-diagnostics-extension"></a>Comparação com a extensão de Diagnóstico do Azure
 A [extensão de Diagnóstico do Azure](./diagnostics-extension-overview.md) no Azure Monitor também pode ser usada para coletar dados de monitoramento do sistema operacional convidado de máquinas virtuais do Azure. Você pode optar por usar um ou ambos, dependendo dos requisitos. Confira [Visão geral dos agentes do Azure Monitor](../agents/agents-overview.md) para obter uma comparação detalhada dos agentes do Azure Monitor. 
@@ -32,7 +32,7 @@ As principais diferenças a serem consideradas são:
 
 Não há nenhum custo para o Agente do Log Analytics, mas você pode incorrer em encargos por conta dos dados ingeridos. Confira [Gerenciar o uso e os custos com os Logs do Azure Monitor](../logs/manage-cost-storage.md) para obter informações detalhadas sobre os preços dos dados coletados em um workspace do Log Analytics.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
  Consulte [sistemas operacionais com suporte](../agents/agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte pelo agente de log Analytics. 
 

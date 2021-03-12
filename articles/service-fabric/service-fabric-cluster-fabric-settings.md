@@ -3,12 +3,12 @@ title: Alterar configurações de cluster do Azure Service Fabric
 description: Este artigo descreve as configurações de malha e as políticas de atualização de malha que você pode personalizar.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: fed66c1a1908977fbe9769c1aec77945bc38c3dc
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 78d83faea802862d3cd6d1b1a9cf9f1016245065
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102183396"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232044"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Saiba como personalizar algumas das configurações de cluster do Service Fabric
 Este artigo descreve as várias configurações de malha para o cluster do Service Fabric que você pode personalizar. Para clusters hospedados no Azure, você pode personalizá-los através do [portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager. Para obter mais informações, consulte [Atualizar a configuração de um cluster do Azure](service-fabric-cluster-config-upgrade-azure.md). Para clusters independentes, você customiza as configurações atualizando o arquivo *ClusterConfig.json* e executando uma atualização de configuração em seu cluster. Para obter mais informações, consulte [atualizar a configuração de um cluster autônomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -349,6 +349,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |DisableContainers|bool, o padrão é FALSE|Estático|Configuração para desabilitar contêineres – usada em vez de DisableContainerServiceStartOnContainerActivatorOpen que é a config preterida |
 |DisableDockerRequestRetry|bool, o padrão é FALSE |Dinâmico| Por padrão, o SF comunica-se com DD (daemon do docker) com um tempo limite do 'DockerRequestTimeout' para cada solicitação http enviada a ele. Se o DD não responder dentro desse período, o SF reenviará a solicitação se a operação de nível superior ainda tiver tempo restante.  Com contêiner do Hyper-V, às vezes o DD demora muito mais tempo para abrir o contêiner ou desativá-lo. Nesses casos, a solicitação de DD atinge o tempo limite da perspectiva de SF e o SF tenta novamente a operação. Às vezes, isso parece adicionar mais pressão sobre o DD. Essa configuração permite desabilitar a repetição e aguardar a resposta do DD. |
 |DnsServerListTwoIps | Bool, o padrão é FALSE | Estático | Esses sinalizadores adicionam o servidor DNS local duas vezes para ajudar a aliviar problemas de resolução intermitente. |
+| DockerTerminateOnLastHandleClosed | bool, o padrão é FALSE | Estático | Por padrão, se FabricHost estiver gerenciando o ' dockerd ' (baseado em: SkipDockerProcessManagement = = false), essa configuração definirá o que acontece quando FabricHost ou dockerd falha. Quando definido como `true` se o processo falhar, todos os contêineres em execução serão automaticamente encerrados pelo HCS. Se definido para `false` os contêineres continuarão a ser executados. Observação: anterior a 8,0, esse comportamento não era intencionalmente o equivalente de `false` . A configuração padrão de `true` aqui é o que esperamos que aconteça por padrão avançando para que nossa lógica de limpeza seja efetiva na reinicialização desses processos. |
 | DoNotInjectLocalDnsServer | bool, o padrão é FALSE | Estático | Impede que o tempo de execução insira o IP local como servidor DNS para contêineres. |
 |EnableActivateNoWindow| bool, o padrão é FALSE|Dinâmico| O processo de ativação é criado em segundo plano sem nenhum console. |
 |EnableContainerServiceDebugMode|bool, o padrão é TRUE|Estático|Habilitar/desabilitar o registro em log para contêineres do Docker.  Somente Windows.|

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 16fecf5ce0d4551125ded4ba05fcbc41530efaf1
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 7329962d547fcb0635e3a9af3d80e562da59f7f2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430557"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199782"
 ---
 # <a name="manage-instances-in-durable-functions-in-azure"></a>Gerenciar instâncias em Durable Functions no Azure
 
@@ -202,6 +202,9 @@ O método retorna um objeto com as seguintes propriedades:
   * **Failed**: a instância falhou com um erro.
   * **Terminated**: a instância foi interrompida abruptamente.
 * **Histórico**: O histórico de execução de orquestração. Este campo é preenchido somente se `showHistory` é definido como `true`.
+
+> [!NOTE]
+> Um orquestrador não é marcado como `Completed` até que todas as suas tarefas agendadas tenham sido concluídas _e_ o orquestrador tenha retornado. Em outras palavras, não é suficiente para um orquestrador alcançar sua `return` declaração para que ele seja marcado como `Completed` . Isso é particularmente relevante para casos em que `WhenAny` é usado; esses orquestradores geralmente `return` antes de todas as tarefas agendadas terem sido executadas.
 
 Esse método retornará `null` (.net), `undefined` (JavaScript) ou `None` (Python) se a instância não existir.
 
