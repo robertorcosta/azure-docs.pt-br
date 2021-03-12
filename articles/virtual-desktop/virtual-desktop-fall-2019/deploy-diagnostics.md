@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 12/15/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c73f6884a0bf9dc1e12e97439166c8aeabe6e35a
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 9bdba36e2ff4721bd024369788c7dc04f066e9a5
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504551"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102565573"
 ---
 # <a name="deploy-the-windows-virtual-desktop-classic-diagnostics-tool"></a>Implantar a ferramenta de diagnóstico da área de trabalho virtual do Windows (clássico)
 
@@ -39,7 +39,7 @@ Você precisa criar um registro de aplicativo Azure Active Directory e um espaç
 Você também precisa instalar esses dois módulos do PowerShell antes de começar:
 
 - [Módulo do Azure PowerShell](/powershell/azure/install-az-ps)
-- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0&preserve-view=true)
+- [Módulo do AD do Azure](/powershell/azure/active-directory/install-adv2)
 
 Verifique se sua ID de assinatura está pronta para quando você entrar.
 

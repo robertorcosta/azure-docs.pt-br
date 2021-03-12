@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
-ms.date: 02/22/2021
-ms.openlocfilehash: 21edde3eba76b565332acb9c67225f3bbb0fe803
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/09/2021
+ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177276"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102556376"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
 
@@ -933,7 +933,7 @@ Esta tabela identifica os tipos de autenticação que estão disponíveis nos ga
 | [Certificado do Cliente](#client-certificate-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, HTTP, HTTP + Swagger, Webhook HTTP |
 | [OAuth do Active Directory](#azure-active-directory-oauth-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
 | [Bruta](#raw-authentication) | Gerenciamento de API do Azure, Serviços de Aplicativos do Azure, Azure Functions, HTTP, HTTP + Swagger, Webhook HTTP |
-| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Log Analytics do Azure, logs de Azure Monitor, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
+| [Identidade gerenciada](#managed-identity-authentication) | **Gatilhos e ações internas** <p><p>Gerenciamento de API do Azure, serviços Azure Apps, Azure Functions, HTTP, webhook HTTP <p><p>**Conectores gerenciados** <p><p>Azure AD Identity Protection, automação do Azure, instância de contêiner do Azure, Data Explorer do Azure, Azure Data Factory, Azure Data Lake, grade de eventos do Azure, Azure IoT Central v3, Azure Key Vault, Azure Resource Manager, Azure Sentinel, HTTP com o Azure AD <p><p>**Observação**: o suporte para conectores gerenciados está atualmente em visualização. |
 |||
 
 <a name="basic-authentication"></a>
@@ -1132,8 +1132,8 @@ Quando a opção de [identidade gerenciada](../active-directory/managed-identiti
 
    | Propriedade (designer) | Obrigatório | Valor | Descrição |
    |---------------------|----------|-------|-------------|
-   | **Nome da conexão** | Sim | <*nome da conexão*> ||
-   | **Identidade gerenciada** | Sim | **Identidade gerenciada atribuída pelo sistema** <br>ou <br> <*nome-de-identidade gerenciado pelo usuário*> | O tipo de autenticação a ser usado |
+   | **Nome da conexão** | Yes | <*nome da conexão*> ||
+   | **Identidade gerenciada** | Yes | **Identidade gerenciada atribuída pelo sistema** <br>ou <br> <*nome-de-identidade gerenciado pelo usuário*> | O tipo de autenticação a ser usado |
    |||||
 
 

@@ -10,14 +10,16 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 ms.custom: devx-track-azurecli
 services: iot-edge
-ms.openlocfilehash: 65d95533e4cff02866111881f036225f9f544852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c06120d1a2e8aa6aa0c006c6f40fed6fab44c5b7
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101719008"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200706"
 ---
 # <a name="retrieve-logs-from-iot-edge-deployments"></a>Recuperar logs de implantações IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Recupere logs de suas implantações IoT Edge sem precisar de acesso físico ou SSH ao dispositivo usando os métodos diretos incluídos no módulo IoT Edge Agent. Os métodos diretos são implementados no dispositivo e, em seguida, podem ser invocados na nuvem. O agente de IoT Edge inclui métodos diretos que ajudam a monitorar e gerenciar seus dispositivos de IoT Edge remotamente. Os métodos diretos discutidos neste artigo estão geralmente disponíveis com a versão 1.0.10.
 
@@ -74,7 +76,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | itens | Matriz JSON | Uma matriz com `id` e `filter` tuplas. |
@@ -93,7 +95,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
 
 Uma recuperação bem-sucedida de logs retorna um **"status": 200** seguido por uma carga que contém os logs recuperados do módulo, filtrados pelas configurações que você especificar em sua solicitação.
 
-Por exemplo: 
+Por exemplo:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetModuleLogs' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -134,7 +136,7 @@ Na portal do Azure, invoque o método com o nome do método `GetModuleLogs` e o 
 
 ![Invocar o método direto ' GetModuleLogs ' no portal do Azure](./media/how-to-retrieve-iot-edge-logs/invoke-get-module-logs.png)
 
-Você também pode canalizar a saída da CLI para utilitários do Linux, como [gzip](https://en.wikipedia.org/wiki/Gzip), para processar uma resposta compactada. Por exemplo: 
+Você também pode canalizar a saída da CLI para utilitários do Linux, como [gzip](https://en.wikipedia.org/wiki/Gzip), para processar uma resposta compactada. Por exemplo:
 
 ```azurecli
 az iot hub invoke-module-method \
@@ -183,7 +185,7 @@ Esse método aceita um conteúdo JSON semelhante a **GetModuleLogs**, com a adi�
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer). |
 
@@ -197,13 +199,13 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
 | correlationId | string   | ID para consultar o status da solicitação de upload. |
 
-Por exemplo: 
+Por exemplo:
 
 A seguinte invocação carrega as últimas 100 linhas de log de todos os módulos, em formato JSON compactado:
 
@@ -300,7 +302,7 @@ Esse método aceita uma carga JSON com o esquema a seguir:
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | schemaVersion | string | Definida como `1.0` |
 | sasURL | Cadeia de caracteres (URI) | [URL de assinatura de acesso compartilhado com acesso de gravação ao contêiner de armazenamento de BLOBs do Azure](/archive/blogs/jpsanders/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer) |
@@ -321,13 +323,13 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
 | correlationId | string   | ID para consultar o status da solicitação de upload. |
 
-Por exemplo: 
+Por exemplo:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'UploadSupportBundle' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
@@ -379,13 +381,13 @@ Uma solicitação bem-sucedida para carregar logs retorna um **"status": 200** s
     }
 ```
 
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 |-|-|-|
 | status | string | Um dos `NotStarted` , `Running` , `Completed` , `Failed` ou `Unknown` . |
 | message | string | Mensagem se houver erro, Cadeia de caracteres vazia, caso contrário. |
 | correlationId | string   | ID para consultar o status da solicitação de upload. |
 
-Por exemplo: 
+Por exemplo:
 
 ```azurecli
 az iot hub invoke-module-method --method-name 'GetTaskStatus' -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \

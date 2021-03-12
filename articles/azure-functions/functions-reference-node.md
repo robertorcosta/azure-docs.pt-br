@@ -3,14 +3,14 @@ title: Referência do desenvolvedor de JavaScript para Azure Functions
 description: Entenda como desenvolver funções usando JavaScript.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 11/17/2020
+ms.date: 03/07/2021
 ms.custom: devx-track-js
-ms.openlocfilehash: 71fe2d342f928c9d50a3fcf3f5367c21d7fba2ff
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100591040"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614897"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
 
@@ -507,20 +507,20 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 
 | Versão do Functions | Versão do nó (Windows) | Versão do nó (Linux) |
 |---|---| --- |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
-| 2. x  | `~8`<br/>`~10` aconselhável<br/>`~12` | `node|8`<br/>`node|10` aconselhável  |
-| 3.x | `~10`<br/>`~12` aconselhável<br/>`~14` (versão prévia)  | `node|10`<br/>`node|12` aconselhável<br/>`node|14` (versão prévia) |
+| 3. x (recomendado) | `~14` aconselhável<br/>`~12`<br/>`~10` | `node|14` aconselhável<br/>`node|12`<br/>`node|10` |
+| 2. x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
 
 Você pode ver a versão atual que o tempo de execução está usando registrando-se `process.version` em qualquer função.
 
 ### <a name="setting-the-node-version"></a>Configurando a versão do nó
 
-Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~12` .
+Para aplicativos de funções do Windows, direcione a versão no Azure definindo a `WEBSITE_NODE_DEFAULT_VERSION` [configuração do aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) como uma versão do LTS com suporte, como `~14` .
 
 Para aplicativos de funções do Linux, execute o seguinte comando CLI do Azure para atualizar a versão do nó.
 
 ```bash
-az functionapp config set --linux-fx-version "node|12" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
+az functionapp config set --linux-fx-version "node|14" --name "<MY_APP_NAME>" --resource-group "<MY_RESOURCE_GROUP_NAME>"
 ```
 
 ## <a name="dependency-management"></a>Gerenciamento de dependência
@@ -597,6 +597,23 @@ module.exports = async function (context, myTimer) {
 
     context.log("AzureWebJobsStorage: " + process.env["AzureWebJobsStorage"]);
     context.log("WEBSITE_SITE_NAME: " + process.env["WEBSITE_SITE_NAME"]);
+};
+```
+
+## <a name="ecmascript-modules-preview"></a><a name="ecmascript-modules"></a>Módulos ECMAScript (versão prévia)
+
+> [!NOTE]
+> Como os módulos ECMAScript são atualmente rotulados como *experimentais* no Node.js 14, eles estão disponíveis como um recurso de visualização no Node.js 14 Azure functions. Até Node.js 14 suporte para módulos ECMAScript se tornar *estável*, espere possíveis alterações em sua API ou comportamento.
+
+Os [módulos do ECMAScript](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (módulos es) são o novo sistema oficial de módulo padrão para Node.js. Até agora, os exemplos de código neste artigo usam a sintaxe CommonJS. Ao executar Azure Functions no Node.js 14, você pode optar por gravar suas funções usando a sintaxe dos módulos ES.
+
+Para usar os módulos ES em uma função, altere seu nome de arquivo para usar uma `.mjs` extensão. O exemplo de arquivo *index. MJS* a seguir é uma função disparada por http que usa a sintaxe de módulos es para importar a `uuid` biblioteca e retornar um valor.
+
+```js
+import { v4 as uuidv4 } from 'uuid';
+
+export default async function (context, req) {
+    context.res.body = uuidv4();
 };
 ```
 

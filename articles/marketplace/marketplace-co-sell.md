@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 3/08/2021
-ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.date: 3/12/2021
+ms.openlocfilehash: 47f8f4ec3b5c5dd2d4545fc67561487d4f5a465c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199881"
+ms.locfileid: "103225295"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Visão geral de venda com equipes e parceiros de vendas da Microsoft
 
@@ -33,7 +33,7 @@ Uma oportunidade de venda conjunta é qualquer tipo de colaboração com as equi
 - **Covenda com as equipes de vendas da Microsoft** – trabalhe com uma ou mais equipes de vendas da Microsoft para atender ativamente às necessidades dos clientes. Isso pode incluir a venda de suas ofertas, ofertas da Microsoft ou ambas. Você e as equipes de vendas da Microsoft podem identificar e compartilhar oportunidades de clientes nas quais suas soluções podem ser uma boa opção.
 - **Parceiro a parceiro (P2P)** – trabalhe com outro parceiro da Microsoft para resolver ativamente um problema do cliente.
 - **Negócio particular** – Compartilhe o que você está trabalhando de forma independente com a Microsoft para que ele se reflita no sistema de relatórios da Microsoft para análise e previsão.
-- **Avaliação de solução (SA)** – trabalhe com parceiros que são verificadosdos pela equipe de negócios de avaliações de solução para acessar as necessidades tecnológicas de clientes que usam ou planejam usar as tecnologias da Microsoft.
+- **Avaliação de solução (SA)** – trabalhe com parceiros que são verificadosdos pela equipe de negócios de avaliações de solução para avaliar as necessidades de tecnologia dos clientes que estão usando ou planejando usar as tecnologias da Microsoft.
 
 ## <a name="co-sell-statuses"></a>Revenda de status
 

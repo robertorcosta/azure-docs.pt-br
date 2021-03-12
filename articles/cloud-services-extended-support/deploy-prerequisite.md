@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 1473305d7da57d1216ef05c0b88a0f69d586784b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728103"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232521"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de serviços de nuvem do Azure (suporte estendido)
 
@@ -87,7 +87,7 @@ Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se v
 | Nome do tamanho anterior | Nome do tamanho atualizado | 
 |---|---|
 | ExtraSmall | Standard_A0 | 
-| Pequeno | Standard_A1 |
+| Small | Standard_A1 |
 | Médio | Standard_A2 | 
 | Grande | Standard_A3 | 
 | ExtraLarge | Standard_A4 | 
@@ -120,7 +120,7 @@ As implantações que utilizaram os plugins de área de trabalho remota antigos 
 
 ## <a name="key-vault-creation"></a>Criação de Key Vault 
 
-O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. Key Vault pode ser criado por meio do [portal do Azure](../key-vault/general/quick-create-portal.md)e do  [PowerShell](../key-vault/general/quick-create-powershell.md). O Key Vault deve ser criado na mesma região e assinatura que o serviço de nuvem. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
+O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. Você pode criar um cofre de chaves no [portal do Azure](../key-vault/general/quick-create-portal.md) ou usando o [PowerShell](../key-vault/general/quick-create-powershell.md). O cofre de chaves deve ser criado na mesma região e assinatura que o serviço de nuvem. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).

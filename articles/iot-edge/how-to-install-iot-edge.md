@@ -9,14 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: kgremban
-ms.openlocfilehash: 3a2d048bfd3b47cd5a3cb93763aa27fac1b89649
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6a64bb2801830440dc49e72786c9c00a6e4796b3
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044911"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201614"
 ---
 # <a name="install-or-uninstall-azure-iot-edge-for-linux"></a>Instalar ou desinstalar o Azure IoT Edge para Linux
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 O runtime do Azure IoT Edge é o que transforma um dispositivo em um dispositivo do IoT Edge. O runtime pode ser implantado em dispositivos pequenos como um Raspberry Pi ou grandes como um servidor industrial. Após um dispositivo ser configurado com o runtime do IoT Edge, você pode começar a implantar a lógica de negócios nele da nuvem. Para saber mais, confira [entender o tempo de execução de Azure IOT Edge e sua arquitetura](iot-edge-runtime.md).
 
@@ -68,7 +70,7 @@ Este artigo lista as etapas para instalar o Azure IoT Edge Runtime em dispositiv
   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
   ```
 
-Azure IoT Edge pacotes de software estão sujeitos aos termos de licença localizados em cada pacote ( `usr/share/doc/{package-name}` ou no `LICENSE` diretório). Leia os termos de licença antes de usar um pacote. A instalação e o uso de um pacote constitui sua aceitação desses termos. Se você não concordar com os termos de licença, não use esse pacote.
+Azure IoT Edge pacotes de software estão sujeitos aos termos de licença localizados em cada pacote ( `usr/share/doc/{package-name}` ou no `LICENSE` diretório). Leia os termos da licença antes de usar o pacote. A instalação e o uso do pacote constitui a aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
 
 ## <a name="install-a-container-engine"></a>Instalar um mecanismo de contêiner
 
