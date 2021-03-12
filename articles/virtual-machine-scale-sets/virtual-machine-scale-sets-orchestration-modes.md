@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 8805b3c4947311a3054066b3378d881d673c2b14
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102521740"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225023"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Visualização: modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure 
 
@@ -102,7 +102,7 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Tipo de máquina virtual  | VM IaaS do Azure padrão (Microsoft. Compute/VirtualMachines)  | VMs específicas do conjunto de dimensionamento (Microsoft. Compute/virtualmachinescalesets/VirtualMachines)  | VM IaaS do Azure padrão (Microsoft. Compute/VirtualMachines)  |
 |         SKUs compatíveis  |            Série D, série E, série F, série A, série B, Intel, AMD  |            Todos os SKUs  |            Todos os SKUs  |
 |         Zonas de Disponibilidades  |            Opcionalmente, especifique todas as instâncias que se esterram em uma única zona de disponibilidade |            Especificar instâncias que se esterram entre 1, 2 ou 3 zonas de disponibilidade  |            Sem suporte  |
-|         Controle total sobre VM, NICs, discos  |            Yes  |            Controle limitado com a API de VM dos conjuntos de dimensionamento de máquinas virtuais  |            Yes  |
+|         Controle total sobre VM, NICs, discos  |            Sim  |            Controle limitado com a API de VM dos conjuntos de dimensionamento de máquinas virtuais  |            Sim  |
 |         Dimensionamento automático  |            Não  |            Sim  |            Não  |
 |         Atribuir uma VM a um domínio de falha específico  |            Sim  |             Não   |            Não  |
 |         Remover NICs e discos ao excluir instâncias de VM  |            Não  |            Sim  |            Não  |
@@ -115,8 +115,8 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Instâncias e preços especiais   |            Sim, você pode ter instâncias de prioridade regular e especial  |            Sim, as instâncias devem ser todas pontuais ou regulares  |            Não, somente instâncias de prioridade regular  |
 |         Misturar sistemas operacionais  |            Sim, o Linux e o Windows podem residir no mesmo conjunto de dimensionamento flexível |            Não, as instâncias são o mesmo sistema operacional  |               Sim, o Linux e o Windows podem residir no mesmo conjunto de dimensionamento flexível |
 |         Monitorar a integridade do aplicativo  |            Extensão de integridade do aplicativo  |            Extensão de integridade do aplicativo ou investigação do Azure Load Balancer  |            Extensão de integridade do aplicativo  |
-|         Discos UltraSSD   |            Yes  |            Sim, somente para implantações zonais  |            Não  |
-|         Infiniband   |            Não  |            Sim, somente grupo de posicionamento único  |            Yes  |
+|         Discos UltraSSD   |            Sim  |            Sim, somente para implantações zonais  |            Não  |
+|         Infiniband   |            Não  |            Sim, somente grupo de posicionamento único  |            Sim  |
 |         Acelerador de Gravação   |            Não  |            Sim  |            Sim  |
 |         Grupos de posicionamento de proximidade   |            Sim  |            Sim  |            Sim  |
 |         Hosts dedicados do Azure   |            Não  |            Sim  |            Sim  |
@@ -128,12 +128,22 @@ A tabela a seguir compara o modo de orquestração flexível, o modo de orquestr
 |         Alertas do Azure  |            Não  |            Sim  |            Sim  |
 |         VM Insights  |            Não  |            Sim  |            Sim  |
 |         Serviço de Backup do Azure  |            Sim  |            Sim  |            Sim  |
-|         Azure Site Recovery  |            Não  |            Não  |            Sim  |
+|         Azure Site Recovery  |     Não  |            Não  |            Sim  |
 |         Adicionar/remover VM existente para o grupo  |            Não  |            Não  |            Não  | 
 
 
 ## <a name="register-for-flexible-orchestration-mode"></a>Registrar-se para o modo de orquestração flexível
 Antes de implantar conjuntos de dimensionamento de máquinas virtuais no modo de orquestração flexível, você deve primeiro registrar sua assinatura para o recurso de visualização. O registro pode levar vários minutos para ser concluído. Você pode usar os comandos a seguir Azure PowerShell ou CLI do Azure para se registrar.
+
+### <a name="azure-portal"></a>Portal do Azure
+Navegue até a página de detalhes da assinatura que você gostaria de criar um conjunto de dimensionamento no modo de orquestração flexível e selecione recursos de visualização no menu. Selecione os dois recursos do Orchestrator a serem habilitados: _VMOrchestratorSingleFD_ e _VMOrchestratorMultiFD_ e pressione o botão registrar. O registro de recursos pode levar até 15 minutos.
+
+![Registro de recurso.](https://user-images.githubusercontent.com/157768/110361543-04d95880-7ff5-11eb-91a7-2e98f4112ae0.png)
+
+Depois que os recursos tiverem sido registrados para sua assinatura, conclua o processo de aceitação propagando a alteração no provedor de recursos de computação. Navegue até a guia provedores de recursos para sua assinatura, selecione Microsoft. Compute e clique em registrar novamente.
+
+![Registrar novamente](https://user-images.githubusercontent.com/157768/110362176-cd1ee080-7ff5-11eb-8cc8-36aa967e267a.png)
+
 
 ### <a name="azure-powershell"></a>Azure PowerShell 
 Use o cmdlet [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) para habilitar a visualização para sua assinatura. 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 3ff07c773a2976a296d13510a3ddd7b41217aaa2
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 57633df8c6482a9b0645813519991282bdbf22c1
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102437614"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633505"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implantar os serviços de dados do Azure em seu dispositivo do Azure Stack Edge pro GPU
 
@@ -87,7 +87,7 @@ Crie um novo namespace dedicado no qual você implantará o controlador de dados
 
 1. O arquivo de configuração deve residir na `.kube` pasta do seu perfil de usuário no computador local. Copie o arquivo para essa pasta em seu perfil de usuário.
 
-    ![Local do arquivo de configuração no cliente](media/azure-stack-edge-j-series-create-kubernetes-cluster/location-config-file.png)
+    ![Local do arquivo de configuração no cliente](media/azure-stack-edge-gpu-create-kubernetes-cluster/location-config-file.png)
 1. Conceda ao usuário acesso ao namespace que você criou. Tipo: 
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace <Name of namespace> -UserName <User name>`

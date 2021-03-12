@@ -10,14 +10,16 @@ ms.date: 11/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 monikerRange: '>=iotedge-2020-11'
-ms.openlocfilehash: e4043fd8b7c9571b62cbf65d7398754b27375efd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 730680b0cb6e8a728ed3072419674346de649368
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633964"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200682"
 ---
 # <a name="publish-and-subscribe-with-azure-iot-edge"></a>Publicar e assinar com Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-202011](../../includes/iot-edge-version-202011.md)]
 
 Você pode usar Azure IoT Edge agente MQTT para publicar e assinar mensagens. Este artigo mostra como se conectar a esse agente, publicar e assinar mensagens em tópicos definidos pelo usuário e usar primitivos de mensagens do Hub IoT. O agente do MQTT IoT Edge é interno do hub de IoT Edge. Para obter mais informações, consulte [os recursos de agente do hub de IOT Edge](iot-edge-runtime.md).
 

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan, has-adal-ref
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a555d2813030daeca1f2abcdc4b7787444bd0614
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 74bfd0fe8cf1d26ccf96a8a27985e456b4e0e67c
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453012"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102633471"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Arquivar as Novidades no Azure Active Directory?
 
@@ -2106,7 +2106,7 @@ Se precisar de permissões ou recursos adicionais com suporte indisponíveis no 
 Novos logs de provisionamento estão disponíveis para ajudar a monitorar e solucionar problemas de implantação de provisionamento de usuários e grupos. Esses novos arquivos de log contêm informações sobre:
 
 - Quais grupos foram criados com êxito no [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)
-- Quais funções foram importadas do [Amazon Web Services (AWS)](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-amazon-web-services-aws)
+- Quais funções foram importadas do [AWS Single-Account Access](../saas-apps/amazon-web-service-tutorial.md#configure-and-test-azure-ad-sso-for-aws-single-account-access)
 - Quais funcionários não foram importados do [Workday](../saas-apps/workday-inbound-tutorial.md)
 
 Para obter mais informações, consulte [Relatórios de provisionamento no portal do Azure Active Directory portal (versão prévia)](../reports-monitoring/concept-provisioning-logs.md).

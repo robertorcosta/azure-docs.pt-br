@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: 2c86086a636ea667cff4fc8a853c4ef20fa6ae04
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dae9ab56ca1349d288aee02f7e2dfa4eccf1508c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041834"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199153"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Instalar o Agente do Log Analytics em computadores Linux
 Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em computadores Linux usando os seguintes métodos:
@@ -23,7 +23,7 @@ Este artigo fornece detalhes sobre como instalar o agente de Log Analytics em co
 
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 Consulte [visão geral dos agentes de Azure monitor](agents-overview.md#supported-operating-systems) para obter uma lista de distribuições do Linux com suporte pelo agente de log Analytics.
 
@@ -41,7 +41,7 @@ Começando com versões lançadas depois de agosto de 2018, estamos fazendo as s
 * As versões que passaram a data de fim de suporte do fabricante não são suportadas.
 * Suporte apenas a imagens de VM; os contêineres, mesmo aqueles derivados de imagens oficiais do distribuição Publishers, não têm suporte.
 * Não há suporte para novas versões do AMI.  
-* Apenas versões que executam o SSL 1.x por padrão são suportadas.
+* Há suporte apenas para versões que executam OpenSSL 1. x por padrão.
 
 >[!NOTE]
 >Se você estiver usando uma distribuição ou versão que não é suportada no momento e não se alinha ao nosso modelo de suporte, recomendamos que você distribua esse repositório, reconhecendo que o suporte da Microsoft não fornecerá assistência com as versões do agente bifurcado.
@@ -189,7 +189,7 @@ O agente de Log Analytics para Linux é fornecido em um pacote de script de Shel
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    Se a autenticação for necessária, você precisará especificar o nome de usuário e a senha. Por exemplo:  
+    Se a autenticação for necessária, você precisará especificar o nome de usuário e a senha. Por exemplo: 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

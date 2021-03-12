@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
-ms.openlocfilehash: b32757dddf745e7aaa0ea8276a3527fa464cc0d4
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: b1bfbda007619bf5bd94d47297845881758037bc
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102442155"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636633"
 ---
 # <a name="recover-from-a-failed-azure-stack-edge-pro-gpu-device"></a>Recuperar de um dispositivo de GPU pro de Azure Stack de borda com falha 
 
@@ -52,10 +52,10 @@ Agora você está pronto para implantar as cargas de trabalho que estavam execut
 
 Siga estas etapas para restaurar os dados nos compartilhamentos de nuvem do Edge em seu dispositivo:
 
-1. [Adicione compartilhamentos](azure-stack-edge-j-series-manage-shares.md#add-a-share) com os mesmos nomes de compartilhamento criados anteriormente no dispositivo com falha. Verifique se, ao criar compartilhamentos, **Selecionar o contêiner de blobs** está definido com a opção **Usar existente** e selecione o contêiner que foi usado com o dispositivo anterior.
-1. [Adicione usuários](azure-stack-edge-j-series-manage-users.md#add-a-user) que tinham acesso ao dispositivo anterior.
-1. [Adicione contas de armazenamento](azure-stack-edge-j-series-manage-storage-accounts.md#add-an-edge-storage-account) associadas aos compartilhamentos anteriormente no dispositivo. Ao criar contas de armazenamento de borda, selecione um contêiner existente e aponte para o contêiner que foi mapeado para a conta de armazenamento do Azure mapeada no dispositivo anterior. Todos os dados do dispositivo que foram gravados na conta de armazenamento de borda no dispositivo anterior foram carregados para o contêiner de armazenamento selecionado na conta de armazenamento do Azure mapeada.
-1. [Atualize os dados do compartilhamento](azure-stack-edge-j-series-manage-shares.md#refresh-shares) do Azure. Isso efetua pull de todos os dados de nuvem do contêiner existente para os compartilhamentos.
+1. [Adicione compartilhamentos](azure-stack-edge-gpu-manage-shares.md#add-a-share) com os mesmos nomes de compartilhamento criados anteriormente no dispositivo com falha. Verifique se, ao criar compartilhamentos, **Selecionar o contêiner de blobs** está definido com a opção **Usar existente** e selecione o contêiner que foi usado com o dispositivo anterior.
+1. [Adicione usuários](azure-stack-edge-gpu-manage-users.md#add-a-user) que tinham acesso ao dispositivo anterior.
+1. [Adicione contas de armazenamento](azure-stack-edge-gpu-manage-storage-accounts.md#add-an-edge-storage-account) associadas aos compartilhamentos anteriormente no dispositivo. Ao criar contas de armazenamento de borda, selecione um contêiner existente e aponte para o contêiner que foi mapeado para a conta de armazenamento do Azure mapeada no dispositivo anterior. Todos os dados do dispositivo que foram gravados na conta de armazenamento de borda no dispositivo anterior foram carregados para o contêiner de armazenamento selecionado na conta de armazenamento do Azure mapeada.
+1. [Atualize os dados do compartilhamento](azure-stack-edge-gpu-manage-shares.md#refresh-shares) do Azure. Isso efetua pull de todos os dados de nuvem do contêiner existente para os compartilhamentos.
 
 ## <a name="restore-edge-local-shares"></a>Restaurar compartilhamentos locais de borda
 
@@ -73,7 +73,7 @@ Depois que o dispositivo de substituição estiver totalmente configurado, habil
 Siga estas etapas para recuperar os dados de compartilhamentos locais:
 
 1. [Configure a computação no dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. [Adicione um compartilhamento local de](azure-stack-edge-j-series-manage-shares.md#add-a-local-share) volta.
+1. [Adicione um compartilhamento local de](azure-stack-edge-gpu-manage-shares.md#add-a-local-share) volta.
 1. Execute o procedimento de recuperação fornecido pela solução de proteção de dados escolhida. Consulte referências da tabela anterior.
 
 ## <a name="restore-vm-files-and-folders"></a>Restaurar arquivos e pastas da VM
