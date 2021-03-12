@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/20/2020
-ms.openlocfilehash: 2ef80d26336ddbe3c015dfcde0c5ed29b762f39b
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.openlocfilehash: 5c01b1965c38811e78909f27ca4ab65614bc7f0e
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
-ms.locfileid: "94629709"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102629969"
 ---
 # <a name="how-to-create-a-virtual-machine-offer-on-azure-marketplace"></a>Como criar uma oferta de máquina virtual no Azure Marketplace
 
@@ -38,7 +38,7 @@ Se você ainda não tiver feito isso, examine [planejar uma oferta de máquina v
 Insira uma **ID da oferta**. Esse é um identificador exclusivo para cada oferta em sua conta.
 
 - Essa ID é visível para os clientes no endereço web para a oferta do Azure Marketplace e no Azure PowerShell e na CLI do Azure, se aplicável.
-- Use apenas letras minúsculas e números. A ID pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1** , o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Use apenas letras minúsculas e números. A ID pode incluir hifens e sublinhados, mas sem espaços, e está limitada a 50 caracteres. Por exemplo, se você inserir **test-offer-1**, o endereço web da oferta será `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 - A ID da oferta não pode ser alterada depois que você seleciona **Criar**.
 
 Insira um **Alias da oferta**. O alias da oferta é o nome usado para a oferta no Partner Center.
@@ -60,7 +60,7 @@ Para habilitar uma test drive, marque a caixa de seleção **habilitar um test d
 
 Quando você estiver publicando uma oferta no Marketplace comercial com o Partner Center, conecte-o ao seu sistema de gerenciamento de relacionamento com o cliente (CRM). Isso permite que você receba informações de contato do cliente assim que alguém expressar interesse em seu produto ou usá-lo. Se você quiser habilitar uma test drive (consulte a seção anterior), será necessário conectar-se a um CRM. Caso contrário, a conexão a um CRM será opcional.
 
-1. Em **clientes potenciais do cliente** , selecione o link **conectar** .
+1. Em **clientes potenciais do cliente**, selecione o link **conectar** .
 1. Na caixa de diálogo **detalhes da conexão** , selecione um destino de cliente potencial.
 1. Preencha os campos que aparecem. Para obter etapas detalhadas, consulte os seguintes artigos:
 

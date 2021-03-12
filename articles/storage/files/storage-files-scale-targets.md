@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: ffc5f49e357591b41a18ae15c5551c1f447095fb
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102440302"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149453"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio dos protocolos de sistema de arquivos SMB e NFS. Este artigo discute as metas de escalabilidade e desempenho dos arquivos do Azure e do Azure File Sync.
@@ -138,9 +138,9 @@ Embora a sincronização carregue dados no compartilhamento de arquivos do Azure
 
 A sincronização inicial normalmente é limitada pela taxa de carregamento inicial de 20 arquivos por segundo por grupo de sincronização. Os clientes podem estimar o tempo para carregar todos os seus dados no Azure usando a fórmula a seguir para obter tempo em dias:  
 
-   **Tempo (em dias) para carregar arquivos em um grupo de sincronização = (número de objetos no ponto de extremidade de nuvem)/(20 * 60 * 60 * 24)**
+   **Tempo (em dias) para carregar arquivos em um grupo de sincronização = (número de objetos no ponto de extremidade do servidor)/(20 * 60 * 60 * 24)**
 
-Dividir seus dados em vários pontos de extremidade de servidor e grupos de sincronização pode acelerar esse carregamento de dados inicial, pois o upload pode ser feito em paralelo para vários grupos de sincronização a uma taxa de 20 itens por segundo. Portanto, dois grupos de sincronização seriam executados em uma taxa combinada de 40 itens por segundo. O tempo total a ser concluído seria a estimativa de tempo para o grupo de sincronização com a maioria dos arquivos a serem sincronizados
+Dividir seus dados em vários pontos de extremidade de servidor e grupos de sincronização pode acelerar esse carregamento de dados inicial, pois o upload pode ser feito em paralelo para vários grupos de sincronização a uma taxa de 20 itens por segundo. Portanto, dois grupos de sincronização seriam executados em uma taxa combinada de 40 itens por segundo. O tempo total a ser concluído seria a estimativa de tempo para o grupo de sincronização com a maioria dos arquivos a serem sincronizados.
 
 **Taxa de transferência de download de namespace** Quando um novo ponto de extremidade do servidor é adicionado a um grupo de sincronização existente, o agente de Sincronização de Arquivos do Azure não baixa nenhum conteúdo do arquivo do ponto de extremidade da nuvem. Sincronizar primeiro namespace completo e, em seguida, os gatilhos em segundo plano Lembre-se de fazer o download dos arquivos, em sua totalidade ou, se camadas na nuvem está habilitado para a política de camadas de nuvem definido no ponto de extremidade do servidor.
 

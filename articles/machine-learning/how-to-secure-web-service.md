@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: aashishb
 author: aashishb
-ms.date: 01/04/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: e0e25a804ac66ca33715906ce4d397b80887037d
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 71cb2e9e112c49d77a2a0b47c24c49cabfa86589
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518544"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149011"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Use o TLS para proteger um serviço Web por meio do Azure Machine Learning
 
@@ -97,7 +97,7 @@ Você pode habilitar o TLS com o certificado da Microsoft ou com um certificado 
     provisioning_config = AksCompute.provisioning_configuration()
 
     # Leaf domain label generates a name using the formula
-    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
     #  where "######" is a random series of characters
     provisioning_config.enable_ssl(leaf_domain_label = "contoso")
 
@@ -107,7 +107,7 @@ Você pode habilitar o TLS com o certificado da Microsoft ou com um certificado 
                                           cluster_name = cluster_name)
 
     # Leaf domain label generates a name using the formula
-    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.net"
+    #  "<leaf-domain-label>######.<azure-region>.cloudapp.azure.com"
     #  where "######" is a random series of characters
     attach_config.enable_ssl(leaf_domain_label = "contoso")
     ```
@@ -173,7 +173,7 @@ Se o certificado foi originalmente gerado pela Microsoft (ao usar o *leaf_domain
 
 > [!IMPORTANT]
 > * Se o certificado existente ainda for válido, use `renew=True` (SDK) ou `--ssl-renew` (CLI) para forçar a configuração a renová-la. Por exemplo, se o certificado existente ainda for válido por 10 dias e você não usar `renew=True` , o certificado poderá não ser renovado.
-> * Quando o serviço foi implantado originalmente, o `leaf_domain_label` é usado para criar um nome DNS usando o padrão `<leaf-domain-label>######.<azure-region>.cloudapp.azure.net` . Para preservar o nome existente (incluindo os 6 dígitos originalmente gerados), use o `leaf_domain_label` valor original. Não inclua os 6 dígitos que foram gerados.
+> * Quando o serviço foi implantado originalmente, o `leaf_domain_label` é usado para criar um nome DNS usando o padrão `<leaf-domain-label>######.<azure-region>.cloudapp.azure.com` . Para preservar o nome existente (incluindo os 6 dígitos originalmente gerados), use o `leaf_domain_label` valor original. Não inclua os 6 dígitos que foram gerados.
 
 **Usar o SDK**
 

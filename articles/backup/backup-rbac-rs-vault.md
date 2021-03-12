@@ -4,12 +4,12 @@ description: Use o controle de acesso baseado em função do Azure para gerencia
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.openlocfilehash: 179cb6efcff4bcf50a64a6d58f861622e853b02b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0b321a5f33bd75ce8615d6d2a90442a83d9fff67
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553401"
+ms.locfileid: "102613435"
 ---
 # <a name="use-azure-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usar o controle de acesso baseado em função do Azure para gerenciar pontos de recuperação do backup do Azure
 
@@ -39,7 +39,7 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função mí
 | | Colaborador de Máquina Virtual | Recurso de VM |  Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
 | Backup sob demanda de VM | Operador de Backup | Cofre dos Serviços de Recuperação |   |
 | Restaurar VM | Operador de Backup | Cofre dos Serviços de Recuperação |   |
-| | Colaborador | Grupo de recursos no qual a VM será implantada |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/Domains/Write, Microsoft. Compute/virtualMachines/Write Microsoft. Network/virtualNetworks/Read Microsoft. Network/virtualNetworks/sub-redes/junção/ação | 
+| | Colaborador | Grupo de recursos no qual a VM será implantada |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Resources/subscriptions/resourceGroups/Write Microsoft. DomainRegistration/Domains/Write, Microsoft. Compute/virtualMachines/Write Microsoft. Network/virtualNetworks/Read Microsoft. Network/virtualNetworks/sub-redes/junção/ação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup |   Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
 | Restaurar backup de VM de discos não gerenciados | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup | Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
@@ -50,6 +50,7 @@ A tabela a seguir captura as ações de gerenciamento de backup e a função mí
 | | Colaborador | Grupo de recursos para o qual o disco gerenciado, ou discos, será restaurado | Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Resources/subscriptions/resourceGroups/Write|
 | Restaurar arquivos individuais do backup da VM | Operador de Backup | Cofre dos Serviços de Recuperação |
 | | Colaborador de Máquina Virtual | VM de origem que foi submetida a backup | Como alternativa, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: Microsoft. Compute/virtualMachines/Write |
+| Restauração entre regiões | Operador de Backup | Assinatura do cofre dos serviços de recuperação | Isso é uma adição das permissões de restauração mencionadas acima. Especificamente para CRR, em vez de uma função interna, você pode considerar uma função personalizada que tem as seguintes permissões: "Microsoft. Recoveryservices/Locations/backupAadProperties/Read" "Microsoft. Recoveryservices/Locations/backupCrrJobs/Action" "Microsoft. Recoveryservices/Locations/backupCrrJob/Action" "Microsoft. Recoveryservices/Locations/backupCrossRegionRestore/Action" "Microsoft. Recoveryservices/Locations/backupCrrOperationResults/Read" "Microsoft. Recoveryservices/Locations/backupCrrOperationsStatus/Read" |
 | Criar política de backup para backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | Modificar a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
 | Excluir a política de backup da VM do Azure | Colaborador de Backup | Cofre dos Serviços de Recuperação |
