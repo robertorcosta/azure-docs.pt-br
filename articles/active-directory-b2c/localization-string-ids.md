@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/08/2021
+ms.date: 03/10/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e867fee753fb9db530db2b2015c3aea9280bc16f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: b60b447d8302b89813ca462c3220603ef926eb26
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448637"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102631176"
 ---
 # <a name="localization-string-ids"></a>IDs de cadeia de caracteres de localização
 
@@ -356,7 +356,7 @@ Veja a seguir as IDs de um [controle de exibição de verificação](display-con
 
 | ID | Valor padrão |
 | -- | ------------- |
-|intro_msg| A verificação é necessária. Clique no botão Enviar.|
+|intro_msg <sup>*</sup>| A verificação é necessária. Clique no botão Enviar.|
 |success_send_code_msg | O código de verificação foi enviado. Copie-o para a caixa de entrada abaixo.|
 |failure_send_code_msg | Estamos com problemas para verificar seu endereço de email. Insira um endereço de email válido e tente novamente.|
 |success_verify_code_msg | Endereço de email verificado. Agora, você pode continuar.|
@@ -365,6 +365,12 @@ Veja a seguir as IDs de um [controle de exibição de verificação](display-con
 |but_verify_code | Verificar o código|
 |but_send_new_code | Enviar novo código|
 |but_change_claims | Alterar email|
+
+Observação: o `intro_msg` elemento está oculto e não é mostrado na página autodeclarada. Para torná-lo visível, use o [Customiztion HTML](customize-ui-with-html.md) com folhas de estilos em cascata. Por exemplo:
+    
+```css
+.verificationInfoText div{display: block!important}
+```
 
 ### <a name="verification-display-control-example"></a>Exemplo de controle de exibição de verificação
 

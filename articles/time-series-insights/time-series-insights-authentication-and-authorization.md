@@ -11,19 +11,16 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: 02d9edd555566f86fd8bb09cf4acef4956ae53e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041205"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103009259"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
-Dependendo das suas necessidades de negócios, sua solução pode incluir um ou mais aplicativos cliente que você usa para interagir com as [APIs](/rest/api/time-series-insights/reference-data-access-overview)do seu ambiente de Azure Time Series insights. Azure Time Series Insights executa a autenticação usando [tokens de segurança do Azure AD com base no OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar seus clientes, você precisará obter um token de portador com as permissões corretas e passá-lo junto com suas chamadas à API. Este documento descreve vários métodos de obtenção de credenciais que você pode usar para obter um token de portador e autenticar.
-
-
-  como registrar um aplicativo no Azure Active Directory usando a folha novo Azure Active Directory. Os aplicativos registrados no Azure Active Directory permitem que os usuários se autentiquem no e estejam autorizados a usar a API do Azure Time Series Insight associada a um ambiente de Azure Time Series Insights.
+Dependendo das suas necessidades de negócios, sua solução pode incluir um ou mais aplicativos cliente que você usa para interagir com as [APIs](/rest/api/time-series-insights/reference-data-access-overview)do seu ambiente de Azure Time Series insights. Azure Time Series Insights executa a autenticação usando [tokens de segurança do Azure AD com base no OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-and-claims). Para autenticar seus clientes, você precisará obter um token de portador com as permissões corretas e passá-lo junto com suas chamadas à API. Este documento descreve vários métodos para obter credenciais que você pode usar para obter um token de portador e autenticar, incluindo o uso de identidade gerenciada e o registro de aplicativo Azure Active Directory.
 
 ## <a name="managed-identities"></a>Identidades gerenciadas
 
@@ -39,7 +36,7 @@ Você pode usar identidades gerenciadas do seu:
 
 - VMs do Azure
 - Serviços de Aplicativo do Azure
-- Funções do Azure
+- Azure Functions
 - Instâncias de contêiner do Azure
 - e muito mais...
 
@@ -108,10 +105,7 @@ Depois que a identidade gerenciada ou o registro do aplicativo tiver sido provis
 
 Ao acessar de Azure App serviço ou funções, siga as orientações em [obter tokens para recursos do Azure](../app-service/overview-managed-identity.md).
 
-> [!TIP]
-> Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio da [biblioteca de cliente de identidade do Azure](/dotnet/api/overview/azure/identity-readme) para .net. 
-
-Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio do pacote Microsoft.Azure.Services.AppAuthentication. Este pacote é popular devido a seus benefícios de simplicidade e de segurança. Os desenvolvedores podem escrever código uma vez e permitir que a biblioteca de cliente determine como autenticar com base no ambiente de aplicativo – seja em uma estação de trabalho de desenvolvedor usando a conta de um desenvolvedor ou implantada no Azure usando uma identidade de serviço gerenciada. Para obter diretrizes de migração da biblioteca predecessora AppAuthentication, leia [AppAuthentication para o Azure. diretrizes de migração de identidade](/dotnet/api/overview/azure/app-auth-migration).
+Para aplicativos e funções .NET, a maneira mais simples de trabalhar com uma identidade gerenciada é por meio da [biblioteca de cliente de identidade do Azure](/dotnet/api/overview/azure/identity-readme) para .net. Essa biblioteca de cliente é popular devido a seus benefícios de simplicidade e de segurança. Os desenvolvedores podem escrever código uma vez e permitir que a biblioteca de cliente determine como autenticar com base no ambiente de aplicativo – seja em uma estação de trabalho de desenvolvedor usando a conta de um desenvolvedor ou implantada no Azure usando uma identidade de serviço gerenciada. Para obter diretrizes de migração da biblioteca predecessora AppAuthentication, leia [AppAuthentication para o Azure. diretrizes de migração de identidade](/dotnet/api/overview/azure/app-auth-migration).
 
 Solicite um token para Azure Time Series Insights usando C# e a biblioteca de cliente de identidade do Azure para .NET:
 

@@ -1,19 +1,19 @@
 ---
-title: Habilitar visão geral de informações de VM
+title: Visão geral de habilitação de insights da VM
 description: Saiba como implantar e configurar o VM insights. Descubra os requisitos do sistema.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7aa8221c960685149a5d475665be105acaf7aa15
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046662"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634151"
 ---
-# <a name="enable-vm-insights-overview"></a>Habilitar visão geral de informações de VM
+# <a name="enable-vm-insights-overview"></a>Visão geral de habilitação de insights da VM
 
 Este artigo fornece uma visão geral das opções disponíveis para habilitar o Revisions de VM para monitorar a integridade e o desempenho do seguinte:
 
@@ -47,13 +47,14 @@ As informações de VM estão disponíveis para servidores habilitados para Arc 
 | Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../agents/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
 | Grupo de gerenciamento do System Center Operations Manager | Não | |
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 
 O Revisions de VM dá suporte a qualquer sistema operacional que dê suporte ao agente de Log Analytics e ao agente de dependência. Consulte [visão geral de agentes de Azure monitor ](../agents/agents-overview.md#supported-operating-systems) para obter uma lista completa.
 
 > [!IMPORTANT]
 > O recurso de integridade de convidado do insights de VM tem suporte de sistema operacional mais limitado enquanto está em visualização pública. Consulte [habilitar integridade do convidado do insights de VM (versão prévia)](../vm/vminsights-health-enable.md) para obter uma lista detalhada.
 
+### <a name="linux-considerations"></a>Considerações sobre o Linux
 Consulte a seguinte lista de considerações sobre o suporte do Linux do agente de dependência que dá suporte a informações de VM:
 
 - Somente as versões de kernel padrão e Linux SMP têm suporte.
@@ -61,7 +62,22 @@ Consulte a seguinte lista de considerações sobre o suporte do Linux do agente 
 - Não há suporte para kernels personalizados, incluindo recompilações de kernels padrão.
 - Para Debian distribuições que não seja a versão 9,4, o recurso de mapa não tem suporte e o recurso de desempenho está disponível apenas no menu Azure Monitor. Ele não está disponível diretamente no painel esquerdo da VM do Azure.
 - Há suporte para o kernel CentOSPlus.
-- O kernel do Linux deve ser corrigido para a vulnerabilidade Spectre. Consulte seu fornecedor de distribuição do Linux para obter mais detalhes.
+
+O kernel do Linux deve ser corrigido para as vulnerabilidades Spectre e Meltdown. Consulte seu fornecedor de distribuição do Linux para obter mais detalhes. Execute o seguinte comando para verificar se o Spectre/Meltdown foi mitigado:
+
+```
+$ grep . /sys/devices/system/cpu/vulnerabilities/*
+```
+
+A saída desse comando será semelhante ao seguinte e especificará se um computador está vulnerável a qualquer um dos problemas. Se esses arquivos estiverem ausentes, o computador não será corrigido.
+
+```
+/sys/devices/system/cpu/vulnerabilities/meltdown:Mitigation: PTI
+/sys/devices/system/cpu/vulnerabilities/spectre_v1:Vulnerable
+/sys/devices/system/cpu/vulnerabilities/spectre_v2:Vulnerable: Minimal generic ASM retpoline
+```
+
+
 ## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
 O Revisions da VM requer um espaço de trabalho Log Analytics. Consulte [Configurar o espaço de trabalho log Analytics para o Revisions da VM](vminsights-configure-workspace.md) para obter detalhes e requisitos deste espaço de trabalho.
 ## <a name="agents"></a>Agentes
@@ -78,7 +94,7 @@ A seguir estão vários métodos para implantar esses agentes.
 | Método | Descrição |
 |:---|:---|
 | [Azure portal](../vm/vminsights-enable-portal.md) | Instale os dois agentes em uma única máquina virtual, conjunto de dimensionamento de máquinas virtuais ou máquinas virtuais híbridas conectadas com o arco do Azure. |
-| [Modelos do Gerenciador de Recursos](../vm/vminsights-enable-resource-manager.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
+| [Modelos do Resource Manager](../vm/vminsights-enable-resource-manager.md) | Instale ambos os agentes usando qualquer um dos métodos com suporte para implantar um modelo do Resource Manager, incluindo a CLI e o PowerShell. |
 | [Azure Policy](../vm/vminsights-enable-policy.md) | Atribua Azure Policy Initiative para instalar automaticamente os agentes quando uma máquina virtual ou um conjunto de dimensionamento de máquinas virtuais for criado. |
 | [Instalação manual](../vm/vminsights-enable-hybrid.md) | Instale os agentes no sistema operacional convidado em computadores hospedados fora do Azure, incluindo em seu datacenter ou em outros ambientes de nuvem. |
 

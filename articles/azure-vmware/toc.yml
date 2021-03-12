@@ -4,6 +4,8 @@
   items:
     - name: Sobre a Solução VMware no Azure
       href: introduction.md
+    - name: Atualizações da plataforma
+      href: azure-vmware-solution-platform-updates.md
 - name: Início rápido
   items:
     - name: 0 – Planejar a implantação
@@ -72,6 +74,8 @@
       href: public-ip-usage.md
     - name: Criar um túnel IPSec
       href: create-ipsec-tunnel.md
+    - name: Cluster de failover do Windows Server
+      href: windows-server-failover-cluster.md
     - name: Integração nativa do Azure
       items:
         - name: Gerenciamento de API

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 12/15/2017
 ms.author: cynthn
-ms.openlocfilehash: d09f27eebba5db2edb56185b658c8ae2b06e42d3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 21038a8d1eabfcca21329c093b866607f0343070
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552262"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199997"
 ---
 # <a name="use-windows-client-in-azure-for-devtest-scenarios"></a>Usar o cliente do Windows no Azure para cenários de desenvolvimento/teste
 Use o Windows 7, Windows 8 ou Windows 10 Enterprise (x64) no Azure para cenários de desenvolvimento/teste, desde que você tenha uma assinatura apropriada do Visual Studio (anteriormente MSDN). 
@@ -41,10 +41,10 @@ A tabela a seguir detalha as IDs de oferta qualificadas para implantar imagens d
 | [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) |0148P | Windows 10 Enterprise N (x64) <br> Windows 8.1 Enterprise N (x64) <br> Windows 7 Enterprise N com SP1 (x64) |
 
 ## <a name="check-your-azure-subscription"></a>Verificar sua assinatura do Azure
-Se você não souber sua ID de oferta, poderá obtê-la por meio do portal do Azure ou de uma destas duas maneiras:  
+Se você não souber sua ID de oferta, poderá obtê-la por meio do portal do Azure.  
 - Na janela *assinaturas* : ![ detalhes da ID da oferta do portal do Azure](./media/client-images/offer-id-azure-portal.png) 
-- Ou, clique em **Cobrança** e, em seguida, clique em sua ID de assinatura. A ID da oferta aparece na janela *Cobrança*.
-Você também pode exibir a ID da oferta na [guia ' assinaturas '](https://account.windowsazure.com/Subscriptions) do portal da conta do Azure: ![ detalhes da ID da oferta no portal da conta do Azure](./media/client-images/offer-id-azure-account-portal.png) 
+- Ou, clique em **Cobrança** e, em seguida, clique em sua ID de assinatura. A ID da oferta aparece na janela *Cobrança*. 
+- Você também pode exibir a ID da oferta na [guia ' assinaturas '](https://account.windowsazure.com/Subscriptions) do portal da conta do Azure: ![ detalhes da ID da oferta no portal da conta do Azure](./media/client-images/offer-id-azure-account-portal.png) 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode implantar suas VMs usando o [PowerShell](quick-create-powershell.md), os [modelos do Resource Manager](ps-template.md) ou o [Visual Studio](../../azure-resource-manager/templates/create-visual-studio-deployment-project.md).
