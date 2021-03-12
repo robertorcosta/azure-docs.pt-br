@@ -9,12 +9,12 @@ ms.date: 02/23/2021
 ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
-ms.openlocfilehash: f8a780afba1f5703fbe457e113ed1b455f1e9b64
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3b596d14ea770bfcd7560903a234d2ab77b66201
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744141"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614319"
 ---
 # <a name="network-file-system-nfs-30-performance-considerations-in-azure-blob-storage-preview"></a>Considerações de desempenho do NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
 
@@ -35,7 +35,7 @@ O gráfico a seguir mostra como a largura de banda aumenta conforme você adicio
 O gráfico a seguir mostra esse mesmo efeito quando aplicado a uma conta que usa o nível de desempenho premium.
 
 > [!div class="mx-imgBorder"]
-> ![Desempenho padrão](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
+> ![Desempenho premium](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
 ## <a name="use-premium-performance-tier-for-small-scale-applications"></a>Usar o nível de desempenho premium para aplicativos de pequena escala
 

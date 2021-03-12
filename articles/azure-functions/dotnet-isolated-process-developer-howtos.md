@@ -4,14 +4,14 @@ description: Saiba como criar e depurar funções C# usando o .NET 5,0 e, em seg
 ms.date: 03/03/2021
 ms.topic: how-to
 zone_pivot_groups: development-environment-functions
-ms.openlocfilehash: 70eacc5ec7f6adb65ba6e01c55acc6c6e3075ca9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 9751d5d354d738a64d6b02e8153464491d78ec14
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102583716"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201359"
 ---
-# <a name="develop-and-publish-net-5-function-using-azure-functions"></a>Desenvolver e publicar a função do .NET 5 usando o Azure Functions 
+# <a name="develop-and-publish-net-5-functions-using-azure-functions"></a>Desenvolver e publicar funções do .NET 5 usando o Azure Functions 
 
 Este artigo mostra como trabalhar com funções C# usando o .NET 5,0, que é executado fora do processo do tempo de execução de Azure Functions. Você aprenderá a criar, depurar localmente e publicar essas funções de processo isolado do .NET no Azure. No Azure, essas funções são executadas em um processo isolado que dá suporte ao .NET 5,0. Para saber mais, consulte o [guia para executar funções no .net 5,0 no Azure](dotnet-isolated-process-guide.md).
 
@@ -152,7 +152,7 @@ Neste ponto, você pode executar o `func start` comando da raiz da pasta do proj
  
 1. Na saída do Azure Functions Runtime, anote a ID do processo do host, à qual você anexará um depurador. Observe também a URL de sua função local.
 
-1. No menu **depurar** no Visual Studio, selecione **anexar ao processo...**, localize o dotnet.exe processo que corresponde à ID do processo e selecione **anexar**. 
+1. No menu **depurar** no Visual Studio, selecione **anexar ao processo...**, localize o processo que corresponde à ID do processo e selecione **anexar**. 
     
     :::image type="content" source="media/dotnet-isolated-process-developer-howtos/attach-to-process.png" alt-text="Anexar o depurador ao processo de host do Functions":::    
 

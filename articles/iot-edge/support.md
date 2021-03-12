@@ -8,12 +8,12 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 75beb214682536b996cf4896588ea32d568579f1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: edca5a278414288ceb3c3d13f5d49e723e0ee5c2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045982"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615917"
 ---
 # <a name="azure-iot-edge-supported-systems"></a>Sistemas compatíveis com o Azure IoT Edge
 
@@ -23,7 +23,7 @@ Este artigo fornece detalhes sobre quais sistemas e componentes têm suporte pel
 
 Se você tiver problemas ao usar o serviço de Azure IoT Edge, há várias maneiras de buscar o suporte. Experimente um dos seguintes canais para obter suporte:
 
-**Relatar bugs** – a maior parte do desenvolvimento que entra no Azure IOT Edge produto ocorre no IOT Edge projeto de código-fonte aberto. Bugs podem ser relatados na [página de problemas](https://github.com/azure/iotedge/issues) do projeto. As correções passam rapidamente do projeto para as atualizações do produto.
+**Relatar bugs** – A maioria do desenvolvimento direcionado ao produto Azure IoT Edge ocorre no projeto de software livre do IoT Edge. Bugs podem ser relatados na [página de problemas](https://github.com/azure/iotedge/issues) do projeto. Bugs relacionados a Azure IoT Edge para Linux no Windows podem ser relatados na [página problemas do iotedge-eFlow](https://github.com/azure/iotedge-eflow/issues). As correções fazem seu caminho rapidamente dos projetos para atualizações de produto.
 
 **Equipe de suporte ao Cliente Microsoft** – Usuários que tenham um [plano de suporte](https://azure.microsoft.com/support/plans/) podem acionar a equipe de suporte ao Cliente Microsoft, criando um tíquete de suporte diretamente do [portal do Azure](https://ms.portal.azure.com/signin/index/?feature.settingsportalinstance=mpac).
 
@@ -71,7 +71,7 @@ O [IOT Edge para Linux no Windows](iot-edge-for-linux-on-windows.md) está atual
 | Stretch do sistema operacional Raspberry Pi |  | ![Raspberry Pi OS Stretch + ARM32v7](./media/tutorial-c-module/green-check.png) |  |
 | Ubuntu Server 18.04 | ![Ubuntu Server 18.04 + AMD64](./media/tutorial-c-module/green-check.png) |  | Versão prévia pública |
 | Windows 10 Pro | Versão prévia pública |  |  |
-| Windows 10 Enterprise | Versão prévia pública |  |  |
+| Windows 10 Enterprise | Versão prévia pública |  |  |
 | Windows 10 IoT Enterprise | Versão prévia pública |  |  |
 | Windows Server 2019 | Versão prévia pública |  |  |
 

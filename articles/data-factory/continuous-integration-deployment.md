@@ -6,13 +6,13 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: maghan
 ms.topic: conceptual
-ms.date: 02/18/2021
-ms.openlocfilehash: 2fd8911ca11ee6dfcf795347e1fe7f2c36a2b636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/11/2021
+ms.openlocfilehash: 4f03236176acea14bed2dfaac53b1a1e6cf7a1e2
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716510"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103197863"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -333,6 +333,10 @@ Esta é uma explicação de como o modelo anterior é construído, dividido por 
 #### <a name="datasets"></a>Conjunto de dados
 
 * Embora a personalização específica de tipo esteja disponível para conjuntos de dados, você pode fornecer uma configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades de conjunto de dados em `typeProperties` são parametrizadas.
+
+> [!NOTE]
+> Os **alertas e as matrizes do Azure** , se configurados para um pipeline, não têm suporte atualmente como parâmetros para implantações do ARM. Para reaplicar os alertas e as matrizes em um novo ambiente, siga [Data Factory monitoramento, alertas e matrizes.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> 
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão
 
@@ -678,6 +682,8 @@ Se você está usando a integração do Git ao seu data factory e tem um pipelin
 -   Não é possível publicar de branches particulares.
 
 -   No momento, você não pode hospedar projetos no Bitbucket.
+
+-   Atualmente, não é possível exportar e importar alertas e matrizes como parâmetros. 
 
 ## <a name="sample-pre--and-post-deployment-script"></a><a name="script"></a> Script pré e pós-implantação de exemplo
 

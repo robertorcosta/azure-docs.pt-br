@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e20cd09ce3d9eb1937819da79cea17bdd14a07dc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433260"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149696"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
 
@@ -127,13 +127,15 @@ O resultado da chamada `object result = await client.GetDigitalTwinAsync("my-moo
 }
 ```
 
-As propriedades definidas de 10 digitais são retornadas como propriedades de nível superior no digital. Metadados ou informações do sistema que não fazem parte da definição DTDL são retornados com um `$` prefixo. As propriedades de metadados incluem:
-* A ID do cópia digital nesta instância de gêmeos digital do Azure, como `$dtId` .
-* `$etag`, um campo HTTP padrão atribuído pelo servidor Web.
-* Outras propriedades em uma `$metadata` seção. Estão incluídos:
-    - O DTMI do modelo do teledigital.
-    - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
-    - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
+As propriedades definidas de 10 digitais são retornadas como propriedades de nível superior no digital. Metadados ou informações do sistema que não fazem parte da definição DTDL são retornados com um `$` prefixo. As propriedades de metadados incluem os seguintes valores:
+* `$dtId`: A ID da cópia digital nesta instância de gêmeos digital do Azure
+* `$etag`: Um campo HTTP padrão atribuído pelo servidor Web. Isso é atualizado para um novo valor sempre que a atualização de dados é atualizada, o que pode ser útil para determinar se o dado do entrelaçamento foi atualizado no servidor desde uma verificação anterior. Ele também pode ser usado em cabeçalhos HTTP das seguintes maneiras:
+  - com operações de leitura para evitar a busca de conteúdo que não foi alterado
+  - com operações de gravação para dar suporte à simultaneidade otimista
+* `$metadata`: Um conjunto de outras propriedades, incluindo:
+  - O DTMI do modelo do teledigital.
+  - Status de sincronização para cada propriedade gravável. Isso é mais útil para dispositivos, em que é possível que o serviço e o dispositivo tenham status divergente (por exemplo, quando um dispositivo estiver offline). Atualmente, essa propriedade só se aplica a dispositivos físicos conectados ao Hub IoT. Com os dados na seção de metadados, é possível entender o status completo de uma propriedade, bem como os últimos carimbos de data/hora modificados. Para obter mais informações sobre o status de sincronização, consulte [este tutorial do Hub IOT](../iot-hub/tutorial-device-twins.md) sobre como sincronizar o estado do dispositivo.
+  - Metadados específicos do serviço, como do Hub IoT ou do gêmeos digital do Azure. 
 
 Você pode ler mais sobre as classes auxiliares de `BasicDigitalTwin` serialização [*, como em How-to: Use the Azure digital gêmeos APIs and SDKs*](how-to-use-apis-sdks.md).
 

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df867059a7d4020952f71ca8d663a644ee2428fd
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 4cd0febe5ffbc1b17718043d5fc97b804f87cc46
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199621"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199738"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Resgate do convite de colaboração do Azure Active Directory B2B
 
@@ -65,7 +65,7 @@ Quando um usuário clica no link **Aceitar convite** em um [email de convite](in
 
 ![Captura de tela que mostra o diagrama de fluxo de resgate](media/redemption-experience/invitation-redemption-flow.png)
 
-**Se o nome UPN do usuário corresponder a uma conta do Azure AD e de MSA pessoal, o usuário será solicitado a escolher a conta que deseja resgatar.*
+**Se o UPN (nome principal de usuário) do usuário corresponder a uma conta existente do Azure AD e do MSA pessoal, o usuário será solicitado a escolher a conta que deseja resgatar.*
 
 1. O Azure AD executa a descoberta baseada no usuário para determinar se ele existe em um [locatário do Azure AD](./what-is-b2b.md#easily-invite-guest-users-from-the-azure-ad-portal).
 

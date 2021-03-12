@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: d8ef616ef059424846d5c42a91262881b8f6d30b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4d75e60d0e497dcdd2aa121f8da73f11a7e2af5b
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701800"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015207"
 ---
 # <a name="access-control-lists-acls-in-azure-data-lake-storage-gen2"></a>ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2
 
@@ -285,7 +285,7 @@ As atribuições de função do Azure herdam. As atribuições fluem de assinatu
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>O Azure Data Lake Storage Gen2 dá suporte à herança de ACLs?
 
-As ACLs padrão podem ser usadas para definir ACLs para novos subdiretórios filho e arquivos criados no diretório pai. Para atualizar ACLs para itens filho existentes, você precisará adicionar, atualizar ou remover ACLs recursivamente para a hierarquia de diretório desejada. Para obter mais informações, consulte [definir listas de controle de acesso (ACLs) recursivamente para Azure data Lake Storage Gen2](#set-access-control-lists). 
+As ACLs padrão podem ser usadas para definir ACLs para novos subdiretórios filho e arquivos criados no diretório pai. Para atualizar ACLs para itens filho existentes, você precisará adicionar, atualizar ou remover ACLs recursivamente para a hierarquia de diretório desejada. Para obter diretrizes, consulte a seção [como definir ACLs](#set-access-control-lists) deste artigo. 
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-directory-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente um diretório e seu conteúdo?
 
@@ -346,6 +346,6 @@ A API REST do armazenamento do Azure contém uma operação denominada [set cont
 * [POSIX ACL no Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL usando listas de controle de acesso no Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 - [Modelo de controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

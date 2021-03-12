@@ -308,6 +308,48 @@
       href: partner-center-portal/downloads-dashboard.md
     - name: Painel de classificações e opiniões
       href: partner-center-portal/ratings-reviews.md
+    - name: Acesso programático a análises
+      items:
+        - name: Introdução
+          href: analytics-get-started.md
+        - name: Pré-requisitos do acesso programático
+          href: analytics-prerequisites.md
+        - name: Paradigma do acesso programático
+          href: analytics-programmatic-access.md
+        - name: Faça sua primeira chamada à API
+          href: analytics-make-your-first-api-call.md
+        - name: Lista de consultas do sistema
+          href: analytics-system-queries.md
+        - name: Consultas de exemplo
+          href: analytics-sample-queries.md
+        - name: Aplicativo de exemplo
+          href: analytics-sample-application.md
+        - name: Especificação de consulta personalizada
+          href: analytics-custom-query-specification.md
+        - name: Perguntas frequentes sobre análise programática
+          href: analytics-programmatic-faq.md
+        - name: Referência da API de análise
+          items:
+            - name: Lista de APIs
+              href: analytics-available-apis.md
+            - name: Obter todos os conjuntos de dados
+              href: analytics-api-get-all-datasets.md
+            - name: Obter API de consultas de relatório
+              href: analytics-api-get-report-queries.md
+            - name: Excluir API de consultas de relatório
+              href: analytics-api-delete-report-queries.md
+            - name: Experimentar API de consultas de relatório
+              href: analytics-api-try-report-queries.md
+            - name: Obter API de relatório
+              href: analytics-api-get-report.md
+            - name: Atualizar API de relatório
+              href: analytics-api-update-report.md
+            - name: Excluir API de relatório
+              href: analytics-api-delete-report.md
+            - name: Pausar API de execuções de relatório
+              href: analytics-api-pause-report-executions.md
+            - name: Retomar API de execuções de relatório
+              href: analytics-api-resume-report-executions.md
     - name: Gerenciar anomalias de cobrança limitadas
       href: anomaly-detection.md
     - name: Perguntas comuns sobre a análise

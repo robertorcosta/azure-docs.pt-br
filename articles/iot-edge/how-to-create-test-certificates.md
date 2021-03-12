@@ -8,14 +8,16 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d82f1cac6e437663fa0b1c3e21c65036f3c1d4eb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d8cf3dbe9d1dc2ad329a0b5ab8fa9554c85ae55c
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046033"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199091"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Criar certificados de demonstração para testar recursos do dispositivo do IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 IoT Edge dispositivos exigem certificados para comunicação segura entre o tempo de execução, os módulos e os dispositivos downstream.
 Se você não tiver uma autoridade de certificação para criar os certificados necessários, poderá usar os certificados de demonstração para experimentar IoT Edge recursos em seu ambiente de teste.
@@ -297,7 +299,7 @@ O dispositivo IoT também precisa de uma cópia de seus certificados de disposit
 
 1. Navegue até o diretório de trabalho que tem os scripts de geração de certificado e o certificado de autoridade de certificação raiz.
 
-2. Crie dois certificados (primário e secundário) para o dispositivo downstream. Uma Convenção de nomenclatura fácil de usar é criar os certificados com o nome do dispositivo IoT e, em seguida, o rótulo primário ou secundário. Por exemplo: 
+2. Crie dois certificados (primário e secundário) para o dispositivo downstream. Uma Convenção de nomenclatura fácil de usar é criar os certificados com o nome do dispositivo IoT e, em seguida, o rótulo primário ou secundário. Por exemplo:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -327,7 +329,7 @@ O dispositivo IoT também precisa de uma cópia de seus certificados de disposit
 
 1. Navegue até o diretório de trabalho que tem os scripts de geração de certificado e o certificado de autoridade de certificação raiz.
 
-2. Crie dois certificados (primário e secundário) para o dispositivo downstream. Uma Convenção de nomenclatura fácil de usar é criar os certificados com o nome do dispositivo IoT e, em seguida, o rótulo primário ou secundário. Por exemplo: 
+2. Crie dois certificados (primário e secundário) para o dispositivo downstream. Uma Convenção de nomenclatura fácil de usar é criar os certificados com o nome do dispositivo IoT e, em seguida, o rótulo primário ou secundário. Por exemplo:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

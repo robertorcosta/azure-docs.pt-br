@@ -1,20 +1,20 @@
 ---
 title: Monitorar alterações de delegação no seu locatário de gerenciamento
 description: Saiba como monitorar a atividade de delegação de locatários do cliente para seu locatário de gerenciamento.
-ms.date: 01/27/2021
+ms.date: 02/18/2021
 ms.topic: how-to
-ms.openlocfilehash: 3bf6cc044d807d0c830b15c6d9c9a6d507f1a54f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8bd9e89039c114f3d1088df44198fe00c69bbf82
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100593128"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199052"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorar alterações de delegação no seu locatário de gerenciamento
 
 Como um provedor de serviços, talvez você queira estar atento quando os grupos de recursos ou assinaturas de clientes são delegados para seu locatário por meio [do Azure Lighthouse](../overview.md)ou quando os recursos previamente delegados são removidos.
 
-No locatário de gerenciamento, o [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md) rastreia a atividade de delegação no nível do locatário. Essa atividade registrada inclui todas as delegações adicionadas ou removidas de todos os locatários do cliente.
+No locatário de gerenciamento, o [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md) rastreia a atividade de delegação no nível do locatário. Essa atividade registrada inclui todas as delegações adicionadas ou removidas dos locatários do cliente.
 
 Este tópico explica as permissões necessárias para monitorar a atividade de delegação para seu locatário (em todos os seus clientes). Ele também inclui um script de exemplo que mostra um método para consultar e relatar esses dados.
 

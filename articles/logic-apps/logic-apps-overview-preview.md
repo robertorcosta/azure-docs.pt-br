@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: d53a36d99c9a54fdfef7baceb50edb4e8f5ae4c8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.date: 03/10/2021
+ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561850"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636328"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
 
@@ -59,7 +59,7 @@ A tabela a seguir resume brevemente as diferenças no modo como os fluxos de tra
 | Aplicativos lógicos do Azure (multilocatário) | Os fluxos *de trabalho de clientes em vários locatários* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
 | Aplicativos lógicos do Azure (visualização, único locatário) | Os fluxos de trabalho *no mesmo aplicativo lógico e um único locatário* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
 | Ambiente do serviço de integração (não disponível na versão prévia) | Os fluxos de trabalho no *mesmo ambiente* compartilham o mesmo processamento (computação), armazenamento, rede e assim por diante. |
-||||
+|||
 
 Enquanto isso, você ainda pode criar o tipo de aplicativo lógico multilocatário no portal do Azure e no Visual Studio Code usando a extensão de aplicativos lógicos do Azure multilocatário. Embora as experiências de desenvolvimento sejam diferentes entre os tipos de aplicativo lógico multilocatário e de locatário único, sua assinatura do Azure pode incluir ambos os tipos. Você pode exibir e acessar todos os aplicativos lógicos implantados em sua assinatura do Azure, mas os aplicativos são organizados em suas próprias categorias e seções.
 
@@ -122,7 +122,10 @@ A visualização dos aplicativos lógicos do Azure inclui muitos recursos atuais
 
 * Crie aplicativos lógicos e seus fluxos de trabalho de [400 + conectores](/connectors/connector-reference/connector-reference-logicapps-connectors) para aplicativos de software como um serviço (SaaS) e de plataforma como serviço (PaaS) e serviços mais conectores para sistemas locais.
 
-  * Alguns conectores gerenciados, como o barramento de serviço do Azure, hubs de eventos do Azure, SQL Server e MQ, são executados de forma semelhante aos gatilhos e ações internos que são nativos para o tempo de execução da visualização dos aplicativos lógicos do Azure, por exemplo, o gatilho de solicitação e a ação HTTP.
+  * Alguns conectores gerenciados agora estão disponíveis como versões internas, que são executadas de forma semelhante aos gatilhos e ações internos, como o gatilho de solicitação e a ação HTTP, que são executados nativamente no tempo de execução de visualização dos aplicativos lógicos do Azure. Por exemplo, esses novos conectores internos incluem o barramento de serviço do Azure, hubs de eventos do Azure, SQL Server e MQ.
+
+    > [!NOTE]
+    > Para o conector de SQL Server interno, somente a ação **Executar consulta** pode se conectar diretamente às redes virtuais do Azure sem exigir o [Gateway de dados local](logic-apps-gateway-connection.md).
 
   * Crie seus próprios conectores internos para qualquer serviço que você precise usando a [estrutura de extensibilidade da versão de visualização](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Semelhante a conectores internos, como o barramento de serviço do Azure e o SQL Server, mas ao contrário dos [conectores personalizados](../connectors/apis-list.md#custom-apis-and-connectors) que atualmente não têm suporte para visualização, esses conectores fornecem maior taxa de transferência, baixa latência, conectividade local e execução nativa no mesmo processo que o tempo de execução de visualização.
 

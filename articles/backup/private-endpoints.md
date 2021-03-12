@@ -3,12 +3,12 @@ title: Pontos de extremidade privados
 description: Entenda o processo de criação de pontos de extremidade privados para o backup do Azure e os cenários em que o uso de pontos de extremidade privados ajuda a manter a segurança de seus recursos.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 9363aaf45a7c092d8a773a07803c8c1bce1eedd7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7423157abbc0833394af055f5e31f724caa10b46
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101728205"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103224700"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Pontos de extremidade privados para o backup do Azure
 
@@ -24,7 +24,7 @@ Este artigo o ajudará a entender o processo de criação de pontos de extremida
 - Uma conexão de ponto de extremidade privada para backup usa um total de 11 IPs privados em sua sub-rede, incluindo aqueles usados pelo backup do Azure para armazenamento. Esse número pode ser maior (até 25) para determinadas regiões do Azure. Portanto, sugerimos que você tenha IPs privados suficientes disponíveis ao tentar criar pontos de extremidade privados para backup.
 - Embora um cofre dos serviços de recuperação seja usado pelo (ambos) backup e Azure Site Recovery do Azure, este artigo aborda o uso de pontos de extremidade privados somente para o backup do Azure.
 - No momento, o Azure Active Directory não dá suporte a pontos de extremidade privados. Portanto, os IPs e FQDNs necessários para Azure Active Directory trabalhar em uma região precisarão ter acesso de saída da rede protegida ao executar o backup de bancos de dados em VMs do Azure e fazer backup usando o agente MARS. Você também pode usar marcas NSG e marcas de firewall do Azure para permitir o acesso ao Azure AD, conforme aplicável.
-- As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará desabilitar as políticas de rede antes de continuar.
+- As redes virtuais com políticas de rede não têm suporte para pontos de extremidade privados. Você precisará [desabilitar as políticas de rede](https://docs.microsoft.com/azure/private-link/disable-private-endpoint-network-policy) antes de continuar.
 - Você precisa registrar novamente o provedor de recursos dos serviços de recuperação com a assinatura se o tiver registrado antes de maio de 1 2020. Para registrar novamente o provedor, acesse sua assinatura no portal do Azure, navegue até provedor de **recursos** na barra de navegação à esquerda, selecione **Microsoft. recoveryservices** e selecione **registrar novamente**.
 - Não há suporte para a [restauração entre regiões](backup-create-rs-vault.md#set-cross-region-restore) para SQL e SAP Hana backups de banco de dados se o cofre tiver pontos de extremidade privados habilitados.
 - Ao mover um cofre dos serviços de recuperação que já usa pontos de extremidade privados para um novo locatário, você precisará atualizar o cofre dos serviços de recuperação para recriar e reconfigurar a identidade gerenciada do cofre e criar novos pontos de extremidade privados, conforme necessário (o que deve estar no novo locatário). Se isso não for feito, as operações de backup e restauração começarão a falhar. Além disso, qualquer permissão de RBAC (controle de acesso baseado em função) configurada na assinatura precisará ser reconfigurada.
@@ -297,6 +297,10 @@ Ao usar o agente MARS para fazer backup de seus recursos locais, verifique se su
 
 Mas se você remover pontos de extremidade privados para o cofre depois que um agente MARS tiver sido registrado nele, você precisará registrar novamente o contêiner com o cofre. Você não precisa interromper a proteção para eles.
 
+## <a name="deleting-private-endpoints"></a>Excluindo pontos de extremidade privados
+
+Consulte [esta seção](https://docs.microsoft.com/rest/api/virtualnetwork/privateendpoints/delete) para saber como excluir pontos de extremidade privados.
+
 ## <a name="additional-topics"></a>Tópicos adicionais
 
 ### <a name="create-a-recovery-services-vault-using-the-azure-resource-manager-client"></a>Criar um cofre dos serviços de recuperação usando o cliente Azure Resource Manager
@@ -554,4 +558,4 @@ a. Depois de seguir o processo detalhado neste artigo, você não precisa fazer 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre todos os [recursos de segurança no backup do Azure](security-overview.md)
+- Leia sobre todos os [recursos de segurança no backup do Azure](security-overview.md).

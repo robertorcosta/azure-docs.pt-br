@@ -3,12 +3,12 @@ title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: cc9793bfc0ca6cc0afbede241534453209685d94
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198924"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008698"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
@@ -98,7 +98,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.HanaOnAzure | [SAP HANA em Instâncias Grandes do Azure](../../virtual-machines/workloads/sap/hana-overview-architecture.md) |
 | Microsoft.HardwareSecurityModules | [HSM Dedicado do Azure](../../dedicated-hsm/index.yml) |
 | Microsoft.HDInsight | [HDInsight](../../hdinsight/index.yml) |
-| Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/index.yml) |
+| Microsoft.HealthcareApis | [API do Azure para FHIR](../../healthcare-apis/fhir/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
 | Microsoft. HybridNetwork  | [Zonas de borda privada](../../networking/edge-zones-overview.md) |
@@ -138,7 +138,7 @@ Os provedores de recursos marcados com **-Registered** são registrados por padr
 | Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
 | Microsoft.Peering | [Serviço de Emparelhamento do Azure](../../peering-service/index.yml) |
 | Microsoft.PolicyInsights | [Azure Policy](../../governance/policy/index.yml) |
-| Microsoft. Portal- [registrado](#registration) | [Azure portal](../../azure-portal/index.yml) |
+| Microsoft. Portal- [registrado](#registration) | [Portal do Azure](../../azure-portal/index.yml) |
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |

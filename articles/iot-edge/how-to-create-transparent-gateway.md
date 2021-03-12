@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 431c116fee22da27ed0487fc6d2fe3644575491f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: f7f05fb84ff6cbe320e8f479912bdcdefdc41021
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102046016"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201647"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configurar um dispositivo IoT Edge para agir como gateway transparente
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Este artigo fornece instruções detalhadas para configurar um IoT Edge dispositivo para funcionar como um gateway transparente para outros dispositivos se comunicarem com o Hub IoT. Este artigo usa o termo *IOT Edge gateway* para se referir a um dispositivo de IOT Edge configurado como um gateway transparente. Para obter mais informações, consulte [como um dispositivo de IOT Edge pode ser usado como um gateway](./iot-edge-as-gateway.md).
 
@@ -142,10 +144,10 @@ Se você criou os certificados em um computador diferente, copie-os para o dispo
 
 1. Salve e feche o arquivo.
 
-1. Reinicie IoT Edge.
+1. Aplique suas alterações.
 
    ```bash
-   sudo iotedge system restart
+   sudo iotedge config apply
    ```
 
 :::moniker-end
@@ -175,7 +177,7 @@ Para implantar o módulo Hub de IoT Edge e configurá-lo com rotas para lidar co
 
 5. Selecione **Avançar: rotas**.
 
-6. Na página **rotas** , verifique se há uma rota para tratar as mensagens provenientes de dispositivos downstream. Por exemplo: 
+6. Na página **rotas** , verifique se há uma rota para tratar as mensagens provenientes de dispositivos downstream. Por exemplo:
 
    * Uma rota que envia todas as mensagens, seja de um módulo ou de um dispositivo downstream, para o Hub IoT:
        * **Nome**: `allMessagesToHub`

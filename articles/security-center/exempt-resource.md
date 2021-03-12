@@ -3,16 +3,16 @@ title: Isentar uma recomendação da central de segurança do Azure de um recurs
 description: Saiba como criar regras para isentar recomendações de segurança de assinaturas ou grupos de gerenciamento e impedir que elas afetem sua pontuação segura
 author: memildin
 ms.author: memildin
-ms.date: 03/10/2021
+ms.date: 03/11/2021
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7a010b1014181ed325500fa501212579ef67d26
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: d3627f6bcda7a18204c24fc2a1347c4a512c5369
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102617566"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149725"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Isentando recursos e recomendações de sua pontuação segura 
 
@@ -35,7 +35,7 @@ Nesses casos, você pode criar uma isenção para uma recomendação para:
 | Estado da versão:                  | Versão Prévia<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Preço:                        | Essa é uma funcionalidade de política do Azure Premium que é oferecida para clientes do Azure defender sem custo adicional. Para outros usuários, os encargos podem ser aplicados no futuro.                                                                                                                                                                 |
 | Funções e permissões necessárias: | **Proprietário da assinatura** ou **colaborador da política** para criar uma isenção<br>Para criar uma regra, você precisa de permissões para editar políticas no Azure Policy.<br>Saiba mais em [permissões de RBAC do Azure no Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
-| Limitações:                    | As isenções podem ser criadas somente para recomendações incluídas na iniciativa padrão da central de segurança, o benchmark de segurança do Azure. As recomendações que são geradas de iniciativas personalizadas não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações](security-policy-concept.md). |
+| Limitações:                    | As isenções podem ser criadas somente para recomendações incluídas na iniciativa padrão da central de segurança, no benchmark de segurança do Azure ou em qualquer uma das iniciativas de regulamentação padrão fornecidas. As recomendações que são geradas de iniciativas personalizadas não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações](security-policy-concept.md). |
 | Nuvens:                         | ![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Não](./media/icons/no-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)                                                                                                                                                                                         |
 |                                 |                                                                                                                                                                                                                                                                                                                                    |
 
@@ -47,7 +47,7 @@ Para ajustar as recomendações de segurança que a central de segurança faz pa
 - Marque **um ou mais recursos** como "mitigado" ou "risco aceito" para obter uma recomendação específica.
 
 > [!NOTE]
-> As isenções podem ser criadas somente para recomendações incluídas na iniciativa padrão da central de segurança, o benchmark de segurança do Azure. As recomendações geradas por meio de iniciativas personalizadas atribuídas às suas assinaturas não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações](security-policy-concept.md).
+> As isenções podem ser criadas somente para recomendações incluídas na iniciativa padrão da central de segurança, no benchmark de segurança do Azure ou em qualquer uma das iniciativas de regulamentação padrão fornecidas. As recomendações geradas por meio de iniciativas personalizadas atribuídas às suas assinaturas não podem ser isentas. Saiba mais sobre as relações entre [políticas, iniciativas e recomendações](security-policy-concept.md).
 
 > [!TIP]
 > Você também pode criar isenções usando a API. Para um exemplo de JSON e uma explicação das estruturas relevantes, consulte [Azure Policy estrutura de isenção](../governance/policy/concepts/exemption-structure.md).
