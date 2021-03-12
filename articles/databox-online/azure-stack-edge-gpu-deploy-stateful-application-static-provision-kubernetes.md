@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 02/22/2021
+ms.date: 03/09/2021
 ms.author: alkohli
-ms.openlocfilehash: 51c4a873ca0f4d8c3013e77399f0f9b948875fb6
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 01ba8e1f22deb376fd461be24d3f66f0a7f5e1ae
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520703"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102610477"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-pro-device"></a>Use kubectl para executar um aplicativo com estado kubernetes com um PersistentVolume no dispositivo pro Edge Azure Stack
 
@@ -21,7 +21,7 @@ ms.locfileid: "102520703"
 
 Este artigo mostra como implantar um aplicativo com estado de instância única no kubernetes usando um PersistentVolume (PV) e uma implantação. A implantação usa `kubectl` comandos em um cluster kubernetes existente e implanta o aplicativo MySQL. 
 
-Esse procedimento destina-se a aqueles que revisaram o [armazenamento kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-storage.md) e estão familiarizados com os conceitos do [armazenamento kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Esse procedimento destina-se a aqueles que revisaram o [armazenamento kubernetes no dispositivo Azure Stack Edge pro](azure-stack-edge-gpu-kubernetes-storage.md) e estão familiarizados com os conceitos do [armazenamento kubernetes](https://kubernetes.io/docs/concepts/storage/). 
 
 O Azure Stack Edge pro também dá suporte à execução de contêineres do Azure SQL Edge e eles podem ser implantados de forma semelhante, conforme detalhado aqui para o MySQL. Para obter mais informações, consulte [Azure SQL Edge](../azure-sql-edge/overview.md).
 
@@ -62,7 +62,8 @@ Você está pronto para implantar um aplicativo com estado em seu dispositivo Az
 Para provisionar estaticamente um PV, você precisa criar um compartilhamento em seu dispositivo. Siga estas etapas para provisionar um VP em relação ao compartilhamento SMB. 
 
 > [!NOTE]
-> O exemplo específico usado neste artigo de instruções não funciona com compartilhamentos NFS. Em geral, os compartilhamentos NFS podem ser provisionados em seu dispositivo de borda Azure Stack com aplicativos que não são de banco de dados.
+> - O exemplo específico usado neste artigo de instruções não funciona com compartilhamentos NFS. Em geral, os compartilhamentos NFS podem ser provisionados em seu dispositivo de borda Azure Stack com aplicativos que não são de banco de dados.
+> - Para implantar aplicativos com estado que usam volumes de armazenamento para fornecer armazenamento persistente, recomendamos que você use o `StatefulSet` . Este exemplo usa `Deployment` com apenas uma réplica e é adequado para desenvolvimento e teste. 
 
 1. Escolha se deseja criar um compartilhamento de borda ou um compartilhamento local de borda. Siga as instruções em [Adicionar um compartilhamento](azure-stack-edge-manage-shares.md#add-a-share) para criar um compartilhamento. Certifique-se de marcar a caixa de seleção para **usar o compartilhamento com a computação de borda**.
 

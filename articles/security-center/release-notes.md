@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.author: memildin
-ms.openlocfilehash: da2201931c92939029724b1086589803845109a7
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 7080f79ca85a401ddcd3d421bb4a0292994508dd
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439622"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102636667"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
 
@@ -36,6 +36,7 @@ As atualizações de março incluem:
 - [Pastas de Trabalho do Azure Monitor integradas à Central de Segurança e três modelos fornecidos](#azure-monitor-workbooks-integrated-into-security-center-and-three-templates-provided)
 - [Agora o painel de conformidade regulatória inclui os relatórios de auditoria do Azure (versão prévia)](#regulatory-compliance-dashboard-now-includes-azure-audit-reports-preview)
 - [Atualizações das políticas para implantar a automação do fluxo de trabalho](#updates-to-the-policies-for-deploying-workflow-automation)
+- [Duas recomendações herdadas não gravam mais dados diretamente no log de atividades do Azure](#two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log)
 
 
 ### <a name="azure-firewall-management-integrated-into-security-center"></a>Gerenciamento de Firewall do Azure integrado à Central de Segurança
@@ -113,6 +114,19 @@ Há duas atualizações para os recursos dessas políticas:
 Introdução aos [modelos de automação de fluxo de trabalho](https://github.com/Azure/Azure-Security-Center/tree/master/Workflow%20automation).
 
 Saiba mais sobre como [Automatizar respostas para os gatilhos da Central de Segurança](workflow-automation.md).
+
+
+### <a name="two-legacy-recommendations-no-longer-write-data-directly-to-azure-activity-log"></a>Duas recomendações herdadas não gravam mais dados diretamente no log de atividades do Azure 
+
+A Central de Segurança transmite os dados de quase todas as recomendações de segurança para o Assistente do Azure, que, por sua vez, grava no [log de atividades do Azure](../azure-monitor/essentials/activity-log.md).
+
+Para duas recomendações, os dados são gravados de modo simultâneo diretamente no log de atividades do Azure. Com essa alteração, a Central de Segurança para de gravar dados para essas recomendações de segurança herdadas diretamente no log de atividades. Em vez disso, os dados são exportados para o Assistente do Azure, assim como todas as outras recomendações.
+
+As duas recomendações herdadas são:
+- Os problemas de integridade do Endpoint protection devem ser resolvidos nos seus computadores
+- As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
+
+Se você estiver acessando informações dessas duas recomendações na categoria "Recomendação do tipo TaskDiscovery" do log de atividades, isso não estará mais disponível.
 
 
 

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.date: 3/08/2021
-ms.openlocfilehash: d3759590cdd926b5e144cdc11761630a0aba4e29
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 7d1d4a1a89931e3ded8274a4731aa3606695771b
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563771"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199881"
 ---
 # <a name="co-sell-with-microsoft-sales-teams-and-partners-overview"></a>Visão geral de venda com equipes e parceiros de vendas da Microsoft
 
@@ -46,8 +46,8 @@ Revenda de status para o Azure:
 - Incentivados de venda de IP do Azure
 
 Co-vender status para aplicativos de negócios
-- Padrão de conexão ISV de aplicativos do Biz
-- Aplicativos do Biz ISV Connect Premium  
+- Padrão de incentivo do Biz apps ISV Connect Standard ou Premium
+- O biz apps ISV Connect Standard ou o incentivo Premium Premium  
 
 Para obter detalhes sobre os requisitos para atingir esses status de venda conjunta, consulte [requisitos de venda conjunta](co-sell-requirements.md).
 
@@ -74,12 +74,12 @@ O status de incentivo do Biz apps ISV Connect Standard ou Premium pode ser aplic
 - Dynamics 365 para compromisso com o cliente & PowerApps
 - Dynamics 365 para operações
 
-As ofertas que obtêm o status de incentivos _do incentivados ou do_ _biz apps ISV Connect Standard ou Premium_ do Azure obtêm esses benefícios do Marketplace comercial:
+Ofertas que atingem o status de _incentivados de venda de IP do Azure para_ obter esses benefícios do Marketplace comercial:
 
 - A taxa de serviço do Marketplace é reduzida de 20% a 10%. Esse desconto se aplica à solução de infraestrutura como serviço (IaaS) ou a uma solução de software como serviço (SaaS) vendida por meio do Marketplace comercial. Para obter mais informações, consulte [tarifas de serviço do Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md#commercial-marketplace-service-fees).
 - Os parceiros do CSP (provedor de soluções na nuvem) recebem um incentivo de 10% para vender sua solução de IaaS ou oferta de SaaS. Para saber mais sobre o programa CSP, confira [programa do provedor de soluções na nuvem](cloud-solution-providers.md).
 - As vendas de sua oferta por meio do Marketplace comercial irão contribuir para os compromissos de consumo do Azure dos clientes. Os clientes qualificados verão a oferta marcada como **benefício do Azure qualificada** em portal do Azure. Para obter mais informações, consulte [benefício de compromisso de consumo do Azure](azure-consumption-commitment-benefit.md).
-- Ofertas que obtêm o status de incentivo _do incentivados ou do_ _biz apps ISV Connect Standard ou Premium_ do Azure receberão um selo de **soluções preferenciais da Microsoft** na página de listagem da oferta nas lojas online. A notificação promove a qualidade, o desempenho e a capacidade da oferta de atender às necessidades do cliente em uma determinada área vertical ou de solução do setor.
+- Ofertas que alcançam o _IP do Azure covenda o incentivados_ ou o _biz apps ISV Connect Standard ou o incentivo Premium._ o status receberá um selo de **soluções preferenciais da Microsoft** na página de listagem de ofertas nas lojas online. A notificação promove a qualidade, o desempenho e a capacidade da oferta de atender às necessidades do cliente em uma determinada área vertical ou de solução do setor.
 
 Para saber como obter o status de incentivados de venda pronta e de venda conjunta, confira [requisitos de venda prontos e de incentivados](co-sell-requirements.md)de venda.
 

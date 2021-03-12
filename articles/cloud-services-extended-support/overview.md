@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 8ed21d8689bf5340c1bde0a7f782bb8614f7cf11
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ecf115b7ce902fcd8b50f0eca32ffda6ef47e068
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101700194"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102618467"
 ---
 # <a name="about-azure-cloud-services-extended-support"></a>Sobre os serviços de nuvem do Azure (suporte estendido)
 
@@ -57,7 +57,7 @@ As principais diferenças entre os serviços de nuvem (clássicos) e os serviço
 
 ## <a name="migration-to-azure-resource-manager"></a>Migração para Azure Resource Manager
 
-Serviços de nuvem (suporte estendido) fornece dois caminhos para migrar do [Azure Service Manager](/powershell/azure/servicemanagement/overview?preserve-view=true&view=azuresmps-4.0.0) para [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
+Serviços de nuvem (suporte estendido) fornece dois caminhos para migrar do [Azure Service Manager](/powershell/azure/servicemanagement/overview) para [Azure Resource Manager](../azure-resource-manager/management/overview.md). 
 1) Os clientes implantam serviços de nuvem diretamente no Azure Resource Manager e, em seguida, excluem o serviço de nuvem antigo no Service Manager do Azure. 
 2) A migração in-loco oferece suporte à capacidade de migrar serviços de nuvem (clássicos) com mínimo de sem tempo de inatividade para serviços de nuvem (suporte estendido). 
 

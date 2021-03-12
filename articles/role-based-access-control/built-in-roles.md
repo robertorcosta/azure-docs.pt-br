@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 02/25/2021
 ms.custom: generated
-ms.openlocfilehash: 90c0be8e6df3e489595bdafed1f29d1ed0ef00f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baa783d0dfb54e0e606e3f6c6d5397941ae7b7bc
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724499"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103011622"
 ---
 # <a name="azure-built-in-roles"></a>Funções internas do Azure
 
@@ -6702,7 +6702,7 @@ Permite que você gerencie operações de assinatura de evento EventGrid. [Saiba
 
 ### <a name="fhir-data-contributor"></a>Colaborador de dados do FHIR
 
-A função permite acesso completo de usuário ou principal aos dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite acesso completo de usuário ou principal aos dados do FHIR [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6741,7 +6741,7 @@ A função permite acesso completo de usuário ou principal aos dados do FHIR [s
 
 ### <a name="fhir-data-exporter"></a>Exportador de dados FHIR
 
-A função permite que o usuário ou a entidade de segurança Leia e exporte dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite que o usuário ou a entidade de segurança Leia e exporte dados do FHIR [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6782,7 +6782,7 @@ A função permite que o usuário ou a entidade de segurança Leia e exporte dad
 
 ### <a name="fhir-data-reader"></a>Leitor de dados do FHIR
 
-A função permite que o usuário ou a entidade de segurança Leia FHIR dados [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite que o usuário ou a entidade de segurança Leia FHIR dados [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
@@ -6821,7 +6821,7 @@ A função permite que o usuário ou a entidade de segurança Leia FHIR dados [s
 
 ### <a name="fhir-data-writer"></a>Gravador de dados FHIR
 
-A função permite que o usuário ou a entidade de segurança Leia e grave dados do FHIR [saiba mais](../healthcare-apis/configure-azure-rbac.md)
+A função permite que o usuário ou a entidade de segurança Leia e grave dados do FHIR [saiba mais](../healthcare-apis/fhir/configure-azure-rbac.md)
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |
