@@ -3,12 +3,12 @@ title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 07d179f557671a515a7933b64a25e6d41f75219b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045608"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015991"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -61,19 +61,25 @@ Primeiro, escolha o escopo (assinatura do Azure, grupo de recursos ou recurso de
 
 ### <a name="filter-criteria"></a>Critérios de filtragem
 
-Além disso, você pode definir filtros para limitá-los a um subconjunto específico de alertas.
+Opcionalmente, você pode definir filtros para que a regra seja aplicada a um subconjunto específico de alertas ou a eventos específicos em cada alerta (por exemplo, apenas "disparado" ou apenas "resolvido").
 
 Os filtros disponíveis são:
 
-* **Severidade**: a opção para selecionar uma ou mais severidades de alerta. **Severity = Sev1** significa que a regra de ação é aplicável a todos os alertas definidos como Sev1.
-* **Monitorar serviço**: um filtro baseado no serviço de monitoramento de origem. Esse filtro também é de seleção múltipla. Por exemplo, **Monitor Service = "Application insights"** significa que a regra de ação é aplicável a todos os alertas baseados em Application insights.
-* **Tipo de recurso**: um filtro com base em um tipo de recurso específico. Esse filtro também é de seleção múltipla. Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra de ação é aplicável para todas as máquinas virtuais.
-* **ID da regra de alerta**: uma opção para filtrar regras de alerta específicas usando a ID do Gerenciador de recursos da regra de alerta.
-* **Condição do monitor**: um filtro para instâncias de alerta  com disparado ou **resolvido** como a condição do monitor.
-* **Descrição**: uma correspondência de Regex (expressão regular) que define uma correspondência de cadeia de caracteres com a descrição, definida como parte da regra de alerta. Por exemplo, a **Descrição contém ' prod '** corresponderá a todos os alertas que contêm a cadeia de caracteres "Prod" em suas descrições.
-* **Contexto de alerta (carga)**: uma correspondência Regex que define uma correspondência de cadeia de caracteres em relação aos campos de contexto de alerta da carga de um alerta. Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** que corresponderá a todos os alertas cujas cargas contenham a cadeia de caracteres "computador-01".
+* **Severidade**: essa regra será aplicada somente a alertas com as severidades selecionadas.  
+Por exemplo, **Severity = Sev1** significa que a regra será aplicada somente a alertas com severidade Sev1.
+* **Monitorar serviço**: essa regra será aplicada somente a alertas provenientes dos serviços de monitoramento selecionados.  
+Por exemplo, **Monitor Service = "backup do Azure"** significa que a regra será aplicada somente a alertas de backup (provenientes do backup do Azure).
+* **Tipo de recurso**: essa regra será aplicada somente a alertas nos tipos de recursos selecionados.  
+Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra será aplicada somente a alertas em máquinas virtuais.
+* **ID da regra de alerta**: essa regra será aplicada somente aos alertas provenientes de uma regra de alerta específica. O valor deve ser a ID do Gerenciador de recursos da regra de alerta.  
+Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.insights/metricalerts/MyAPI-highLatency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "MyAPI-highLatency".
+* **Condição do monitor**: essa regra será aplicada somente a eventos de alerta com a condição de monitor  especificada – disparados ou **resolvidos**.
+* **Descrição**: essa regra será aplicada somente a alertas que contenham uma cadeia de caracteres específica no campo Descrição do alerta. Esse campo contém a descrição da regra de alerta.  
+Por exemplo, a **Descrição contém ' prod '** significa que a regra só corresponderá a alertas que contenham a cadeia de caracteres "Prod" em sua descrição.
+* **Contexto de alerta (carga)**: essa regra será aplicada somente a alertas que contêm qualquer um ou mais valores específicos nos campos de contexto de alerta.  
+Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** significa que a regra só se aplicará a alertas cuja carga contenha a cadeia de caracteres "computador-01".
 
-Esses filtros são aplicados em conjunto um com o outro. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, você filtrou para todos os alertas do **Sev0** somente em suas VMs.
+Se você definir vários filtros em uma regra, todos eles serão aplicados. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, a regra será aplicada somente para alertas do Sev0 em máquinas virtuais.
 
 ![Filtros de regra de ação](media/alerts-action-rules/action-rules-new-rule-creation-flow-filters.png)
 
@@ -102,7 +108,7 @@ Se você selecionar **grupo de ações** na alternância, adicione um grupo de a
 ### <a name="action-rule-details"></a>Detalhes da regra de ação
 
 Por fim, configure os seguintes detalhes para a regra de ação:
-* Name
+* Nome
 * Grupo de recursos no qual ele foi salvo
 * Descrição
 
@@ -250,7 +256,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 * * *
 
-## <a name="best-practices"></a>Melhores práticas
+## <a name="best-practices"></a>Práticas recomendadas
 
 Os alertas de log que você cria com a opção [número de resultados](./alerts-unified-log.md) geram uma única instância de alerta usando o resultado da pesquisa inteiro (que pode se estender por vários computadores). Nesse cenário, se uma regra de ação usar o filtro de **contexto de alerta (carga)** , ela agirá na instância de alerta contanto que haja uma correspondência. No cenário 2, descrito anteriormente, se os resultados da pesquisa para o alerta de log gerado contiverem o **computador-01** e o **computador-02**, toda a notificação será suprimida. Não há nenhuma notificação gerada para o **computador-02** .
 

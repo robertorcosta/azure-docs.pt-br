@@ -9,14 +9,16 @@ ms.date: 04/01/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 055b89858fde901ab014e409fbe30c3438efce12
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9ee5536562eb3f2008908a36ff296ef2cfa337ea
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732982"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103200612"
 ---
 # <a name="how-to-configure-container-create-options-for-iot-edge-modules"></a>Como configurar opções de criação de contêiner para módulos de IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O parâmetro **CreateOptions** no manifesto de implantação permite que você configure os contêineres de módulo em tempo de execução. Esse parâmetro expande o controle sobre os módulos e permite tarefas como permitir ou restringir o acesso do módulo aos recursos do dispositivo host ou configurar a rede.
 
@@ -52,13 +54,13 @@ O manifesto de implantação do IoT Edge aceita opções de criação formatadas
 
 Este exemplo de edgeHub usa o parâmetro **HostConfig. PortBindings** para mapear portas expostas no contêiner para uma porta no dispositivo host.
 
-Se você usar as extensões das ferramentas do Azure IoT para Visual Studio ou Visual Studio Code, poderá escrever as opções de criação no formato JSON na **deployment.template.jsno** arquivo. Em seguida, quando você usar a extensão para criar a solução de IoT Edge ou gerar o manifesto de implantação, ela stringifyá o JSON para você no formato que o tempo de execução IoT Edge espera. Por exemplo: 
+Se você usar as extensões das ferramentas do Azure IoT para Visual Studio ou Visual Studio Code, poderá escrever as opções de criação no formato JSON na **deployment.template.jsno** arquivo. Em seguida, quando você usar a extensão para criar a solução de IoT Edge ou gerar o manifesto de implantação, ela stringifyá o JSON para você no formato que o tempo de execução IoT Edge espera. Por exemplo:
 
 ```json
 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
 ```
 
-Uma dica para escrever opções de criação é usar o `docker inspect` comando. Como parte do seu processo de desenvolvimento, execute o módulo localmente usando `docker run <container name>` . Depois que o módulo estiver funcionando da maneira desejada, execute `docker inspect <container name>` . Esse comando gera os detalhes do módulo no formato JSON. Localize os parâmetros que você configurou e copie o JSON. Por exemplo: 
+Uma dica para escrever opções de criação é usar o `docker inspect` comando. Como parte do seu processo de desenvolvimento, execute o módulo localmente usando `docker run <container name>` . Depois que o módulo estiver funcionando da maneira desejada, execute `docker inspect <container name>` . Esse comando gera os detalhes do módulo no formato JSON. Localize os parâmetros que você configurou e copie o JSON. Por exemplo:
 
 [![Resultados da inspeção de edgeHub do Docker](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png)](./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png#lightbox)
 

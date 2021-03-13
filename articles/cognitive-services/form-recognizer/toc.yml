@@ -20,6 +20,8 @@
       href: ../../search/cognitive-search-custom-skill-form.md
     - name: Usar o Reconhecimento de Formulários com o AI Builder
       href: tutorial-ai-builder.md
+    - name: Usar o Reconhecimento de Formulários com o Azure Functions
+      href: tutorial-azure-function.md
     - name: Extrair dados de formulário em massa
       href: tutorial-bulk-processing.md
 - name: Conceitos

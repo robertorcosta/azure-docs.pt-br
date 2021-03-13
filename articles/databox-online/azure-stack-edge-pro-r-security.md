@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 10/14/2020
 ms.author: alkohli
-ms.openlocfilehash: 922ef24bff7d6e60a3ba3b91113003f8206b8177
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: bd90a16c09dce65115cea2f097d18f2e0ced931a
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100548634"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632026"
 ---
 # <a name="security-and-data-protection-for-azure-stack-edge-pro-r-and-azure-stack-edge-mini-r"></a>Segurança e proteção de dados para o Azure Stack Edge pro R e Azure Stack o mini R Edge
 
@@ -133,7 +133,7 @@ Quando o dispositivo passa por uma redefinição de hardware, um apagamento segu
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-protect-data-storage-accounts.md)]
 
-- Gire e [sincronize suas chaves de conta de armazenamento](azure-stack-edge-j-series-manage-storage-accounts.md) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
+- Gire e [sincronize suas chaves de conta de armazenamento](azure-stack-edge-gpu-manage-storage-accounts.md) regularmente para ajudar a proteger sua conta de armazenamento de usuários não autorizados.
 
 ## <a name="manage-personal-information"></a>Gerenciar informações pessoais
 
@@ -141,7 +141,7 @@ O serviço do Azure Stack Edge coleta informações pessoais nos seguintes cená
 
 [!INCLUDE [azure-stack-edge-gateway-data-rest](../../includes/azure-stack-edge-gateway-manage-personal-data.md)]
 
-Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos na borda de Azure Stack](azure-stack-edge-j-series-manage-shares.md).
+Para exibir a lista de usuários que podem acessar ou excluir um compartilhamento, siga as etapas em [gerenciar compartilhamentos na borda de Azure Stack](azure-stack-edge-gpu-manage-shares.md).
 
 Para obter mais informações, examine a política de privacidade da Microsoft na [central de confiabilidade](https://www.microsoft.com/trustcenter).
 
