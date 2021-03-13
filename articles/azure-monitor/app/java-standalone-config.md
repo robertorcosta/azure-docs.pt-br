@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: 4ed3b3d60be0e5e4bedcb604ce021f6a64002120
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/12/2021
-ms.locfileid: "103201268"
+ms.locfileid: "103224649"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração-Azure Monitor Application Insights para Java
 
@@ -184,9 +184,11 @@ Para obter mais informações, confira a documentação do [processador de telem
 
 Log4J, Logback e Java. util. Logging são instrumentados automaticamente e o registro em log realizado por meio dessas estruturas de log é automaticamente coletado.
 
-O registro em log só será capturado se ele atender primeiro ao limite configurado da estrutura de registro em log e o segundo também atender ao limite configurado Application Insights.
+O registro em log só será capturado se ele atender primeiro ao nível configurado para a estrutura de registro em log e, segundo, também atender ao nível configurado para Application Insights.
 
-O limite de Application Insights padrão é `INFO` . Se você quiser alterar este nível:
+Por exemplo, se sua estrutura de registro em log estiver configurada para registrar `WARN` (e acima) do pacote `com.example` e Application insights estiver configurada para capturar `INFO` (e acima), Application insights só capturará `WARN` (e acima) do pacote `com.example` .
+
+O nível padrão configurado para Application Insights é `INFO` . Se você quiser alterar este nível:
 
 ```json
 {

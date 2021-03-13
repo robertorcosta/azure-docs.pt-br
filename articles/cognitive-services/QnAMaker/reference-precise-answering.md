@@ -5,22 +5,22 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: reference
 ms.date: 11/09/2020
-ms.openlocfilehash: 6c597e8fd48eb157b69c918ae5fd5f699611ad75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9c7b265118e395dde2b4b5f3959ba397d75ddac5
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101703398"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232181"
 ---
 # <a name="precise-answering"></a>Resposta precisa
 
 O recurso de resposta preciso introduzido no QnA Maker gerenciado (versão prévia) permite que você obtenha a resposta curta exata da melhor passagem de resposta de candidato presente na base de dados de conhecimento para qualquer consulta de usuário. Esse recurso usa um modelo de aprendizado profundo que, em tempo de execução, compreende a intenção da consulta do usuário e detecta a resposta curta precisa da passagem de resposta, se houver uma resposta curta presente como fato na passagem da resposta. 
 
-Esse recurso está ativado por padrão no painel de teste, para que você possa testar a funcionalidade específica para seu cenário. Esse recurso é extremamente benéfico para os desenvolvedores de conteúdo, bem como para os usuários finais. Agora, os desenvolvedores de conteúdo não precisam organizar manualmente os pares QnA específicos para cada fato presente na base de dados de conhecimento, e o usuário final não precisa examinar toda a passagem de resposta retornada do serviço para encontrar o fato real que responde à consulta do usuário. 
+Esse recurso está ativado por padrão no painel de teste, para que você possa testar a funcionalidade específica para seu cenário. Esse recurso é extremamente benéfico para os desenvolvedores de conteúdo, bem como para os usuários finais. Agora, os desenvolvedores de conteúdo não precisam organizar manualmente os pares QnA específicos para cada fato presente na base de dados de conhecimento, e o usuário final não precisa examinar toda a passagem de resposta retornada do serviço para encontrar o fato real que responde à consulta do usuário. Você pode buscar [respostas precisas por meio da API de geração de resposta](How-To/metadata-generateanswer-usage.md#get-precise-answers-with-generateanswer-api).
 
 ## <a name="precise-answering-on-qna-maker-portal"></a>Resposta precisa no portal de QnA Maker
 
-No portal de QnA Maker, ao abrir o painel de teste, você verá uma opção para exibir a **resposta curta** na parte superior. Essa opção será selecionada por padrão. Ao inserir uma consulta no painel de teste, você verá uma resposta curta junto com a passagem de resposta, se houver uma resposta curta presente na passagem de resposta. 
+No portal de QnA Maker, ao abrir o painel de teste, você verá uma opção para exibir a **resposta curta** na parte superior. Essa opção será selecionada por padrão. Ao inserir uma consulta no painel de teste, você verá uma resposta curta junto com a passagem de resposta, se houver uma resposta curta presente na passagem de resposta.
  
 ![Painel de teste gerenciado habilitado](../QnAMaker/media/conversational-context/test-pane-with-managed.png)
 

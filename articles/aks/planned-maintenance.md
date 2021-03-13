@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2021
 ms.author: qpetraroia
 author: qpetraroia
-ms.openlocfilehash: f5c85f371dbe0fe3488c1ca6ff806f114153d3a7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 307183292b60a6556df69a4e5541cbfb5e13098f
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102637891"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103201574"
 ---
 # <a name="use-planned-maintenance-to-schedule-maintenance-windows-for-your-azure-kubernetes-service-aks-cluster-preview"></a>Usar a manutenção planejada para agendar janelas de manutenção para seu cluster do AKS (serviço kubernetes do Azure) (versão prévia)
 
@@ -28,8 +28,8 @@ Este artigo considera que já existe um cluster do AKS. Se precisar de um cluste
 
 Ao usar a manutenção planejada, as seguintes restrições se aplicam:
 
-- AKS reserva o direito de dividir essas janelas para correções e patches urgentes ou críticos.
-- Executar operações de manutenção são considerados *de melhor esforço* e não há garantia de que ocorram em uma janela especificada.
+- AKS reserva o direito de dividir essas janelas para operações de manutenção não planejadas/reativas que são urgentes ou críticas.
+- Atualmente, a execução de operações de manutenção é considerada *somente o melhor esforço* e não é garantido que ocorra dentro de uma janela especificada.
 - As atualizações não podem ser bloqueadas por mais de sete dias.
 
 ### <a name="install-aks-preview-cli-extension"></a>Instalar a extensão da CLI aks-preview

@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - device-developer
-ms.openlocfilehash: 828f0ff81048ca0b6f07b7fdee9ed29c87991db4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: dc0655aba424d29a4055f0d50a20057f22d084ed
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032629"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103015447"
 ---
 # <a name="get-connected-to-azure-iot-central"></a>Conectar-se ao Azure IoT Central
 
@@ -178,7 +178,7 @@ Essa abordagem é útil quando você estiver experimentando o IoT Central ou dis
 
 ## <a name="associate-a-device-with-a-device-template"></a>Associar um dispositivo a um modelo de dispositivo
 
-IoT Central automaticamente associa um dispositivo a um modelo de dispositivo quando o dispositivo se conecta. Um dispositivo envia uma [ID de modelo](../../iot-pnp/iot-plug-and-play-glossary.md#model-id) quando ele se conecta. IoT Central usa a ID do modelo para identificar o modelo de dispositivo para esse modelo de dispositivo específico. O processo de descoberta funciona da seguinte maneira:
+IoT Central automaticamente associa um dispositivo a um modelo de dispositivo quando o dispositivo se conecta. Um dispositivo envia uma [ID de modelo](../../iot-fundamentals/iot-glossary.md?toc=/azure/iot-central/toc.json&bc=/azure/iot-central/breadcrumb/toc.json#model-id) quando ele se conecta. IoT Central usa a ID do modelo para identificar o modelo de dispositivo para esse modelo de dispositivo específico. O processo de descoberta funciona da seguinte maneira:
 
 1. Caso modelo de dispositivo já esteja publicado no aplicativo IoT Central, o dispositivo será associado ao modelo de dispositivo.
 1. Se o modelo de dispositivo ainda não estiver publicado no aplicativo IoT Central, IoT Central procurará o modelo de dispositivo no [repositório de modelos públicos](https://github.com/Azure/iot-plugandplay-models). Se IoT Central encontrar o modelo, ele o usará para gerar um modelo de dispositivo básico.
