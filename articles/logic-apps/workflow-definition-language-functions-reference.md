@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
-ms.date: 02/18/2021
-ms.openlocfilehash: 484ee9e67aa2adc11529f8a2239a813b3b12f7b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/12/2021
+ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101702480"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103420027"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
 
@@ -1136,7 +1136,7 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
+| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
@@ -4708,16 +4708,22 @@ workflow().<property>
 
 | Parâmetro | Obrigatório | Type | Descrição |
 | --------- | -------- | ---- | ----------- |
-| <*property*> | Não | String | O nome da propriedade de fluxo de trabalho cujo valor você deseja <p>Um objeto de fluxo de trabalho tem estas propriedades: **name**, **type**, **id**, **location** e **run**. O valor da propriedade **run** também é um objeto que tem estas propriedades: **name**, **type** e **id**. |
+| <*property*> | Não | String | O nome da propriedade de fluxo de trabalho cujo valor você deseja <p><p>Por padrão, um objeto de fluxo de trabalho tem estas propriedades:,,,, `name` `type` `id` `location` `run` e `tags` . <p><p>-O `run` valor da propriedade é um objeto JSON que inclui essas propriedades: `name` , `type` e `id` . <p><p>-A `tags` propriedade é um objeto JSON que inclui [marcas associadas ao seu aplicativo lógico em aplicativos lógicos do Azure ou fluxo no Power Automate](../azure-resource-manager/management/tag-resources.md) e os valores para essas marcas. Para obter mais informações sobre marcas nos recursos do Azure, examine [recursos de marca, grupos de recursos e assinaturas para a organização lógica no Azure](../azure-resource-manager/management/tag-resources.md). <p><p>**Observação**: por padrão, um aplicativo lógico não tem marcas, mas um fluxo de automatização de energia tem as `flowDisplayName` `environmentName` marcas e. |
 |||||
 
-*Exemplo*
+*Exemplo 1*
 
 Esse exemplo retorna o nome da execução atual de um fluxo de trabalho:
 
-```
-workflow().run.name
-```
+`workflow().run.name`
+
+*Exemplo 2*
+
+Se você usar a automatização de energia, poderá criar uma `@workflow()` expressão que usa a `tags` Propriedade Output para obter os valores da `flowDisplayName` propriedade ou do fluxo `environmentName` .
+
+Por exemplo, você pode enviar notificações de email personalizadas do próprio fluxo que vincula de volta ao seu fluxo. Essas notificações podem incluir um link HTML que contém o nome de exibição do fluxo no título do email e segue esta sintaxe:
+
+`<a href=https://flow.microsoft.com/manage/environments/@{workflow()['tags']['environmentName']}/flows/@{workflow()['name']}/details>Open flow @{workflow()['tags']['flowDisplayName']}</a>`
 
 <a name="xml"></a>
 

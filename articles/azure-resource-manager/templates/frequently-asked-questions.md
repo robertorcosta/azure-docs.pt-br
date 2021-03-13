@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 24baa0dc7444f632040ddaf9fcc2266f9e4ccae5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: e64253aa79cfaeb2655bb091d038dc7c98b198bd
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036133"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419397"
 ---
 # <a name="frequently-asked-questions-about-arm-templates"></a>Perguntas frequentes sobre modelos do ARM
 
@@ -100,7 +100,7 @@ Este artigo responde a perguntas frequentes sobre modelos de Azure Resource Mana
 
 * **Você oferecerá uma ferramenta para converter meus modelos JSON para o novo idioma do modelo?**
 
-  Sim. Consulte [descompilar JSON para bicep](compare-template-syntax.md#decompile-json-to-bicep).
+  Sim. Consulte [convertendo modelos de ARM entre JSON e bicep](bicep-decompile.md).
 
 ## <a name="template-specs"></a>Especificações de Modelo
 

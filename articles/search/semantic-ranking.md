@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: a008551ac6f149617feedd01e256b637f83e975d
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: e3078c8f71f8862cacad552bb3176c08530e79bb
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103234973"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418837"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classificação semântica no Azure Pesquisa Cognitiva
 
@@ -30,9 +30,9 @@ Para classificação semântica, o modelo usa a compreensão de leitura do compu
 
 1. Para cada documento, o classificador semântico avalia os campos no parâmetro searchFields em ordem, consolidando o conteúdo em uma grande cadeia de caracteres.
 
-1. Em seguida, a cadeia de caracteres é cortada para garantir que o comprimento geral não tenha mais de 20.000 tokens. Se você tiver documentos muito grandes, com um campo de conteúdo ou campo de merged_content que tenha muitas páginas de conteúdo, somente os primeiros 20.000 tokens serão usados.
+1. Em seguida, a cadeia de caracteres é cortada para garantir que o comprimento geral não tenha mais de 8.000 tokens. Se você tiver documentos muito grandes, com um campo de conteúdo ou campo de merged_content que tenha muitas páginas de conteúdo, qualquer coisa após o limite de token será ignorada.
 
-1. Cada um dos documentos 50 agora é representado por uma única cadeia de caracteres longa que tem até 20.000 tokens. Essa cadeia de caracteres é enviada para o modelo de resumo. O modelo de resumo produz legendas (e respostas), usando a compreensão da leitura do computador para identificar passagens que aparecem para resumir o conteúdo ou responder à pergunta. A saída do modelo de resumo é uma cadeia de caracteres mais reduzida, que tem no máximo 128 tokens.
+1. Cada um dos documentos 50 agora é representado por uma única cadeia de caracteres longa. Essa cadeia de caracteres é enviada para o modelo de resumo. O modelo de resumo produz legendas (e respostas), usando a compreensão da leitura do computador para identificar passagens que aparecem para resumir o conteúdo ou responder à pergunta. A saída do modelo de resumo é uma cadeia de caracteres mais reduzida, que tem no máximo 128 tokens.
 
 1. A cadeia de caracteres menor se torna a legenda do documento e representa as passagens mais relevantes encontradas na cadeia de caracteres maior. O conjunto de 50 (ou menos) legendas é classificado em ordem de relevância. 
 

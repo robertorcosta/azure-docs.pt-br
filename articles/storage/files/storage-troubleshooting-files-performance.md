@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 11/16/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 388a4f06d79116c42bf80cb25d0b133474c02192
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f858549f36d196c6412aec549d0ab2e2d864145
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101737623"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417664"
 ---
 # <a name="troubleshoot-azure-file-shares-performance-issues"></a>Solucionar problemas de desempenho de compartilhamento de arquivos do Azure
 
@@ -39,7 +39,8 @@ Para confirmar se o compartilhamento está sendo limitado, você pode acessar e 
     Para compartilhamentos de arquivos padrão, os seguintes tipos de resposta serão registrados se uma solicitação for limitada:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Para compartilhamentos de arquivos premium, os seguintes tipos de resposta serão registrados se uma solicitação for limitada:
 
@@ -244,7 +245,8 @@ Para confirmar, você pode usar as métricas do Azure no portal-
     Para compartilhamentos de arquivos padrão, selecione os seguintes tipos de resposta:
 
     - SuccessWithThrottling
-    - ClientThrottlingError
+    - SuccessWithShareIopsThrottling
+    - ClientShareIopsThrottlingError
 
     Para compartilhamentos de arquivos premium, selecione os seguintes tipos de resposta:
 

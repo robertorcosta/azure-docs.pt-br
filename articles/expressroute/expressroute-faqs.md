@@ -5,14 +5,14 @@ services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/07/2021
+ms.date: 03/12/2021
 ms.author: duau
-ms.openlocfilehash: 7819aaa1af588b0a74bb960cf47ea1feeeff8b3b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 89c754c0fc70273a81eb047d695b1cae20f99376
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522284"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418684"
 ---
 # <a name="expressroute-faq"></a>Perguntas Frequentes sobre ExpressRoute
 
@@ -104,6 +104,7 @@ Se o circuito do ExpressRoute estiver habilitado para o emparelhamento da Micros
 * [Área de Trabalho Virtual do Windows](https://azure.microsoft.com/services/virtual-desktop/)
 * Servidor de Autenticação Multifator (herdado)
 * Gerenciador de Tráfego
+* Aplicativos Lógicos
 
 ### <a name="public-peering"></a>Emparelhamento público
 

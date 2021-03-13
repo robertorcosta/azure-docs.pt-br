@@ -2,26 +2,24 @@
 title: 'SQL Server do Azure Synapse Analytics: guia de migração'
 description: Siga este guia para migrar seus bancos de dados SQL para o pool do SQL do Azure Synapse Analytics.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: 09914b409c7d8412f6ba30d4412e28e264bd50f6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 9a7888d3ccf7e033f15f184227c65c746780aa12
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225698"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418021"
 ---
 # <a name="migration-guide-sql-server-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guia de migração: SQL Server a um pool SQL dedicado no Azure Synapse Analytics 
-As seções a seguir fornecem uma visão geral do que está envolvido na migração de uma solução de data warehouse de SQL Server existente para o pool do SQL do Azure Synapse Analytics
+As seções a seguir fornecem uma visão geral do que está envolvido na migração de uma solução de data warehouse de SQL Server existente para o pool do SQL do Azure Synapse Analytics.
 
 ## <a name="overview"></a>Visão geral
-Antes de migrar, você deve verificar se o Azure Synapse Analytics é a melhor solução para sua carga de trabalho. O Azure Synapse Analytics é um sistema distribuído projetado para executar análises em grandes volumes de dados. Migrar para o Azure Synapse Analytics requer algumas alterações de design que não são difíceis de entender, mas que podem levar algum tempo para implementar. Se sua empresa exige um data warehouse corporativo, os benefícios valem a pena. No entanto, se você não precisar do poder da análise de Synapse do Azure, será mais econômico usar [SQL Server](https://docs.microsoft.com/sql/sql-server/) ou o [banco de dados SQL do Azure](https://docs.microsoft.com/azure/azure-sql/).
+Antes de migrar, você deve verificar se o Azure Synapse Analytics é a melhor solução para sua carga de trabalho. O Azure Synapse Analytics é um sistema distribuído projetado para executar análises em grandes volumes de dados. Migrar para o Azure Synapse Analytics requer algumas alterações de design que não são difíceis de entender, mas que podem levar algum tempo para implementar. Se sua empresa exige um data warehouse corporativo, os benefícios valem a pena. No entanto, se você não precisar do poder da análise de Synapse do Azure, será mais econômico usar [SQL Server](/sql/sql-server/) ou o [banco de dados SQL do Azure](/azure/azure-sql/database/sql-database-paas-overview).
 
 Considere o uso do Azure Synapse Analytics quando você:
 - Ter um ou mais terabytes de dados.
@@ -47,7 +45,7 @@ Para migrar seu SQL Server para o Azure Synapse Analytics, verifique se você te
 Depois de tomar a decisão de migrar uma solução existente para o Azure Synapse Analytics, é importante planejar a migração antes de começar. Um objetivo principal do planejamento é garantir que os dados, os esquemas de tabela e o código sejam compatíveis com a análise de Synapse do Azure. Há algumas diferenças de compatibilidade entre o sistema atual e SQL Data Warehouse que você precisará solucionar. Além disso, a migração de grandes quantidades de dados para o Azure leva tempo. O planejamento cuidadoso acelerará o processo de obtenção de seus dados para o Azure. Outro objetivo importante do planejamento é ajustar seu design para garantir que sua solução Aproveite ao máximo o alto desempenho de consulta que o Azure Synapse Analytics foi projetado para fornecer. A criação de data warehouses para escala apresenta padrões de design exclusivos, portanto, as abordagens tradicionais nem sempre são as melhores. Embora alguns ajustes de design possam ser feitos após a migração, fazer alterações no início do processo irá poupar tempo mais tarde.
 
 ## <a name="azure-synapse-pathway"></a>Azure Synapse Pathway
-Um dos clientes de bloqueadores críticos enfrentam a tradução de seu código SQL ao migrar de um sistema para outro. O [Azure Synapse Pathway](https://docs.microsoft.com/sql/tools/synapse-pathway/azure-synapse-pathway-overview) ajudará você a executar uma atualização para uma plataforma moderna do data warehouse, automatizando a conversão de código do data warehouse existente. Ele é uma ferramenta gratuita, intuitiva e fácil de usar que automatiza a conversão de código, permitindo executar uma migração mais rápida para o Azure Synapse Analytics.
+Um dos clientes de bloqueadores críticos enfrentam a tradução de seu código SQL ao migrar de um sistema para outro. O [Azure Synapse Pathway](/sql/tools/synapse-pathway/azure-synapse-pathway-overview) ajudará você a executar uma atualização para uma plataforma moderna do data warehouse, automatizando a conversão de código do data warehouse existente. Ele é uma ferramenta gratuita, intuitiva e fácil de usar que automatiza a conversão de código, permitindo executar uma migração mais rápida para o Azure Synapse Analytics.
 
 ## <a name="migrate"></a>Migrar
 A execução de uma migração bem-sucedida exige que você migre os esquemas, o código e os dados da tabela. Para obter diretrizes mais detalhadas sobre esses tópicos, consulte:
@@ -73,6 +71,6 @@ Para obter assistência adicional com a conclusão deste cenário de migração,
 > [!NOTE]
 > Esses recursos acima foram desenvolvidos como parte do programa de início de migração de dados (DM JumpStart), que é patrocinado pela equipe de engenharia do grupo de dados do Azure. A principal responsabilidade do DM JumpStart é desbloquear e acelerar as oportunidades complexas de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft. Se você acredita que sua organização estaria interessada em participar do programa DM JumpStart, entre em contato com sua equipe de conta e peça que eles enviem uma indicação.
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 - Para obter uma visão geral do guia de migração de banco de dados do Azure e das informações que ele contém, consulte o vídeo [como usar o guia de migração de banco de dados](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/).
 - Para obter uma orientação sobre as fases do processo de migração e detalhes sobre as ferramentas e os serviços específicos recomendados para executar a avaliação e a migração, consulte a [visão geral em vídeo da jornada de migração e as ferramentas/serviços recomendados para executar a avaliação e a migração](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).

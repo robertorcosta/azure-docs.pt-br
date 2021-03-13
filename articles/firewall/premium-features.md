@@ -5,14 +5,15 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 03/12/2021
 ms.author: victorh
-ms.openlocfilehash: a3f72d235d6c52ce91ae351c2606ee6cf4285159
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.custom: references_regions
+ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453420"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419942"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Recursos de versão prévia do Firewall do Azure Premium
 
@@ -100,6 +101,44 @@ ou
 
 Você é bem-vindo a enviar uma solicitação em [https://aka.ms/azfw-webcategories-request](https://aka.ms/azfw-webcategories-request) .
  
+## <a name="supported-regions"></a>Regiões com suporte
+
+O Azure firewall Premium Preview tem suporte nas seguintes regiões:
+
+- Europa Ocidental (pública/Europa)
+- Leste dos EUA (público/Estados Unidos)
+- Leste da Austrália (pública/Austrália)
+- Sudeste Asiático (público/Pacífico Asiático)
+- Sul do Reino Unido (público/Reino Unido)
+- Europa Setentrional (pública/Europa)
+- Leste dos EUA 2 (público/Estados Unidos)
+- EUA Central do Sul (pública/Estados Unidos)
+- Oeste dos EUA 2 (público/Estados Unidos)
+- Oeste dos EUA (público/Estados Unidos)
+- EUA Central (pública/Estados Unidos)
+- EUA Central Norte (pública/Estados Unidos)
+- Leste do Japão (público/Japão)
+- Ásia Oriental (pública/Pacífico Asiático)
+- Centro do Canadá (público/Canadá)
+- França central (pública/França)
+- Norte da África do Sul (África pública/sul)
+- Norte dos EAU (pública/dos EAU)
+- Norte da Suíça (pública/Suíça)
+- Sul do Brasil (público/Brasil)
+- Leste da Noruega (público/Noruega)
+- Austrália Central (pública/Austrália)
+- Austrália Central 2 (pública/Austrália)
+- Sudeste da Austrália (pública/Austrália)
+- Leste do Canadá (público/Canadá)
+- EUA Central EUAP (pública/canário (EUA))
+- Sul da França (público/França)
+- Oeste do Japão (público/Japão)
+- Sul da Coreia (público/Coreia)
+- EAU Central (pública/dos EAU)
+- Oeste do Reino Unido (público/Reino Unido)
+- EUA Central ocidental (pública/Estados Unidos)
+- Índia ocidental (pública/Índia)
+
 
 ## <a name="known-issues"></a>Problemas conhecidos
 

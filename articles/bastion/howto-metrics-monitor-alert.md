@@ -6,14 +6,14 @@ services: bastion
 author: mialdrid
 ms.service: bastion
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/12/2021
 ms.author: mialdrid
-ms.openlocfilehash: dc16b9007c381f1bb0dce9332243842d8d4af9cd
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 3a5beba3938b5a845a378ede155f2f64e6baac7a
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202510"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103417936"
 ---
 # <a name="how-to-configure-monitoring-and-metrics-for-azure-bastion-using-azure-monitor"></a>Como configurar o monitoramento e as métricas para a bastiões do Azure usando o Azure Monitor
 
@@ -72,7 +72,7 @@ Você pode exibir a utilização de memória em cada instância de bastiões, di
 
 #### <a name="session-count"></a>Contagem de sessões
 
-Você pode exibir a contagem de sessões ativas por instância de bastiões, agregadas em cada tipo de sessão (RDP e SSH). Cada bastiões do Azure pode dar suporte a uma variedade de sessões ativas de RDP e SSH. O monitoramento dessa métrica ajudará você a entender se precisa ajustar o número de instâncias que executam o serviço de bastiões. Para obter mais informações sobre a contagem de sessões que o Azure bastiões pode dar suporte, consulte as [perguntas frequentes](bastion-faq.md)sobre a bastiões do Azure. Para obter mais informações sobre quais SKUs de bastiões dão suporte ao dimensionamento de instância, consulte [sobre as SKUs de bastiões](bastion-connect-vm-scale-set.md).
+Você pode exibir a contagem de sessões ativas por instância de bastiões, agregadas em cada tipo de sessão (RDP e SSH). Cada bastiões do Azure pode dar suporte a uma variedade de sessões ativas de RDP e SSH. O monitoramento dessa métrica ajudará você a entender se precisa ajustar o número de instâncias que executam o serviço de bastiões. Para obter mais informações sobre a contagem de sessões que o Azure bastiões pode dar suporte, consulte as [perguntas frequentes](bastion-faq.md)sobre a bastiões do Azure.
 
 :::image type="content" source="./media/metrics-monitor-alert/session-count.png" alt-text="Captura de tela mostrando a contagem de sessão.":::
 

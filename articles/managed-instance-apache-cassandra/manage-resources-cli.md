@@ -1,32 +1,32 @@
 ---
-title: Gerenciar Instância Gerenciada do Azure para recursos do Apache Cassandra usando CLI do Azure
+title: Gerenciar recursos da Instância Gerenciada do Azure para Apache Cassandra usando a CLI do Azure
 description: Saiba mais sobre os comandos comuns para automatizar o gerenciamento do seu Instância Gerenciada do Azure para Apache Cassandra usando o CLI do Azure.
 author: TheovanKraay
 ms.service: managed-instance-apache-cassandra
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: thvankra
-ms.openlocfilehash: 3cd5fdbf6cdc504a1290c8fbd80cf89cf85ce714
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 68b1ca625b5c8bd7ec195b89de63485c542e6691
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744220"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419058"
 ---
 # <a name="manage-azure-managed-instance-for-apache-cassandra-resources-using-azure-cli-preview"></a>Gerenciar Instância Gerenciada do Azure para recursos do Apache Cassandra usando CLI do Azure (versão prévia)
 
 Este artigo descreve os comandos comuns para automatizar o gerenciamento de Instância Gerenciada do Azure para clusters Apache Cassandra usando CLI do Azure.
 
 > [!IMPORTANT]
-> O Azure Instância Gerenciada para Apache Cassandra está atualmente em visualização pública.
+> A Instância Gerenciada do Azure para Apache Cassandra está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artigo requer o CLI do Azure versão 2.12.1 ou superior. Se você estiver usando o Azure Cloud Shell, a versão mais recente já estará instalada.
-
 > [!IMPORTANT]
+> Este artigo exige a CLI do Azure versão 2.12.1 ou posterior. Se você está usando o Azure Cloud Shell, a última versão já está instalada.
+>
 > Não é possível renomear o Instância Gerenciada do Azure para recursos do Apache Cassandra, pois isso viola como o Azure Resource Manager funciona com URIs de recursos.
 
 ## <a name="azure-managed-instance-for-apache-cassandra-clusters"></a>Instância Gerenciada do Azure para clusters Apache Cassandra
@@ -218,5 +218,5 @@ az managed-cassandra datacenter list \
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Criar um cluster de instância gerenciada do portal do Azure](create-cluster-portal.md)
-* [Implantar um cluster Apache Spark gerenciado com Azure Databricks](deploy-cluster-databricks.md)
+* [Criar um cluster de instância gerenciada a partir do portal do Azure](create-cluster-portal.md)
+* [Implantar um cluster do Apache Spark gerenciado com o Azure Databricks](deploy-cluster-databricks.md)

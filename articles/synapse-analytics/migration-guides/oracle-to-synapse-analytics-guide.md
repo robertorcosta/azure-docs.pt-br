@@ -2,19 +2,17 @@
 title: 'Oracle para o Azure Synapse Analytics: guia de migração'
 description: As seções a seguir fornecem uma visão geral do que está envolvido na migração de uma solução de banco de dados Oracle existente para o Azure Synapse Analytics.
 ms.service: synapse-analytics
-ms.subservice: ''
-ms.custom: ''
-ms.devlang: ''
+ms.subservice: sql
 ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 6b5412b24ce6da3476e0c80f31fb07e3647fe5a2
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: bcabb11d67e621ebd2449f2148a0a86ba32d27d9
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225699"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419194"
 ---
 # <a name="migration-guide-migrate-oracle-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Guia de migração: migrar o Oracle data warehouse para um pool SQL dedicado no Azure Synapse Analytics
 As seções a seguir fornecem uma visão geral do que está envolvido na migração de uma solução existente do Oracle data warehouse para o Azure Synapse Analytics.
@@ -74,6 +72,6 @@ Para obter assistência adicional com a conclusão deste cenário de migração,
 > [!NOTE]
 > Esses recursos acima foram desenvolvidos como parte do programa de início de migração de dados (DM JumpStart), que é patrocinado pela equipe de engenharia do grupo de dados do Azure. A principal responsabilidade do DM JumpStart é desbloquear e acelerar as oportunidades complexas de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft. Se você acredita que sua organização estaria interessada em participar do programa DM JumpStart, entre em contato com sua equipe de conta e peça que eles enviem uma indicação.
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 - Para obter uma visão geral do guia de migração de banco de dados do Azure e das informações que ele contém, consulte o vídeo [como usar o guia de migração de banco de dados](https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/).
 - Para obter uma orientação sobre as fases do processo de migração e detalhes sobre as ferramentas e os serviços específicos recomendados para executar a avaliação e a migração, consulte a [visão geral em vídeo da jornada de migração e as ferramentas/serviços recomendados para executar a avaliação e a migração](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).

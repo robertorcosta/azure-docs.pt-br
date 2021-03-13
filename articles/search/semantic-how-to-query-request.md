@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 621cfa8977d4d0ed987b7d38407bbf5bbb370950
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232725"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418871"
 ---
 # <a name="create-a-semantic-query-in-cognitive-search"></a>Criar uma consulta semântica no Pesquisa Cognitiva
 
@@ -141,7 +141,7 @@ Siga estas diretrizes para garantir os resultados ideais quando dois ou mais sea
 
 + Siga esses campos por campos descritivos em que a resposta a consultas semânticas pode ser encontrada, como o conteúdo principal de um documento.
 
-Se apenas um campo for especificado, use um campo descritivo em que a resposta a consultas semânticas possa ser encontrada, como o conteúdo principal de um documento. Escolha um campo que forneça conteúdo suficiente. Para garantir o processamento oportuno, somente os primeiros 20.000 tokens do conteúdo coletivo do searchFields passam pela avaliação semântica e classificação.
+Se apenas um campo for especificado, use um campo descritivo em que a resposta a consultas semânticas possa ser encontrada, como o conteúdo principal de um documento. Escolha um campo que forneça conteúdo suficiente. Para garantir o processamento oportuno, apenas cerca de 8.000 tokens do conteúdo coletivo do searchFields passam pela avaliação semântica e classificação.
 
 #### <a name="step-3-remove-orderby-clauses"></a>Etapa 3: remover cláusulas orderBy
 

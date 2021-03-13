@@ -3,12 +3,12 @@ title: Evento de filtragem para a Grade de Eventos do Azure
 description: Descreve como filtrar eventos durante a criação de uma assinatura de Grade de Eventos do Azure.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: 94445341891149d5d02c7f33caef20bf45123e9b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102197768"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419840"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
 
@@ -61,7 +61,7 @@ Para filtrar por valores nos campos de dados e especificar o operador de compara
 Chave é o campo nos dados de evento que você está usando para filtragem. Pode ser um dos seguintes tipos:
 
 - Número
-- Boolean
+- Booliano
 - String
 - Matriz. Você precisa definir a `enableAdvancedFilteringOnArrays` propriedade como true para usar esse recurso. Atualmente, o portal do Azure não dá suporte à habilitação desse recurso. 
 
@@ -355,6 +355,7 @@ FOR_EACH filter IN (a, b, c)
         IF key CONTAINS filter
             FAIL_MATCH
 ```
+Consulte a seção [limitações](#limitations) para obter a limitação atual deste operador.
 
 ## <a name="stringbeginswith"></a>StringBeginsWith
 O operador **StringBeginsWith** será avaliado como true se o valor da **chave** **começar com** qualquer um dos valores de **filtro** especificados. No exemplo a seguir, ele verifica se o valor do `key1` atributo na `data` seção começa com `event` ou `grid` . Por exemplo, `event hubs` começa com `event` .  
@@ -634,6 +635,7 @@ No entanto, o MakeCert tem as seguintes limitações:
 * 5 filtros avançados e 25 valores de filtro em todos os filtros por assinatura de grade de eventos
 * 512 caracteres por valor de cadeia de caracteres
 * Cinco valores para **em** e **não está nos** operadores
+* O `StringNotContains` operador não está disponível no portal no momento.
 * Chaves com um caractere **`.` (ponto)** . Por exemplo: `http://schemas.microsoft.com/claims/authnclassreference` ou `john.doe@contoso.com`. No momento, não há suporte para caracteres de escape em chaves. 
 
 A mesma chave pode ser usada em mais de um filtro.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 02/1/2021
 ms.author: miwithro
-ms.openlocfilehash: ca8b9a511de1b71e5d03b8aac7631fc8f524500f
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2cf72da8f7ca82c37088cd6456f094ada2580982
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177929"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418956"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integração de Azure Active Directory gerenciados pelo AKS
 
@@ -36,7 +36,7 @@ Saiba mais sobre o fluxo de integração do Azure AD na [documentação de conce
 * Se você estiver usando o [Helm](https://github.com/helm/helm), a versão mínima do Helm 3,3.
 
 > [!Important]
-> Você deve usar Kubectl com uma versão mínima de 1.18.1 ou kubelogin. Se você não usar a versão correta, observará problemas de autenticação.
+> Você deve usar Kubectl com uma versão mínima de 1.18.1 ou kubelogin. A diferença entre as versões secundárias de kubernetes e kubectl não deve ser superior a 1 versão. Se você não usar a versão correta, observará problemas de autenticação.
 
 Para instalar o kubectl e o kubelogin, use os seguintes comandos:
 
@@ -262,7 +262,7 @@ Para integrar solicitações de acesso just-in-time com um cluster AKS usando a 
 1. Escolha um tipo de atribuição *ativo*, a duração desejada e forneça uma justificativa. Quando você estiver pronto para continuar, selecione *atribuir*. Para obter mais informações sobre tipos de atribuição, consulte [atribuir qualificação para um grupo de acesso privilegiado (versão prévia) em Privileged Identity Management][aad-assignments].
     :::image type="content" source="./media/managed-aad/jit-set-active-assignment-details.png" alt-text="A tela de configuração adicionar atribuições do portal do Azure é mostrada. Um tipo de atribuição ' ativo ' está selecionado e uma justificação de exemplo foi fornecida. A opção ' Assign ' é realçada.":::
 
-Depois que as atribuições forem feitas, verifique se o acesso just-in-time está funcionando acessando o cluster. Por exemplo: 
+Depois que as atribuições forem feitas, verifique se o acesso just-in-time está funcionando acessando o cluster. Por exemplo:
 
 ```azurecli-interactive
  az aks get-credentials --resource-group myResourceGroup --name myManagedCluster

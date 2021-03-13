@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 1bccfa4d36ad39aec79a50c8a6b6c50260370223
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103234979"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418888"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Retornar uma resposta semântica no Azure Pesquisa Cognitiva
 
@@ -63,7 +63,7 @@ O parâmetro "searchFields" é essencial para retornar uma resposta de alta qual
 
 + Uma cadeia de caracteres de consulta não deve ser nula e deve ser formulada como uma pergunta. Nesta visualização, o "QueryType" e "queryLanguage" devem ser definidos exatamente como mostrado no exemplo.
 
-+ O parâmetro "searchFields" determina quais campos fornecem tokens para o modelo de extração. Um máximo de 20.000 tokens é usado durante a entrada do token, portanto, inicie a lista de campos com campos concisos e, em seguida, o progresso para campos Rich Text. Para obter orientações precisas sobre como definir esse campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
++ O parâmetro "searchFields" determina quais campos fornecem tokens para o modelo de extração. Certifique-se de definir esse parâmetro. Você deve ter pelo menos um campo de cadeia de caracteres, mas inclua qualquer campo de cadeia de caracteres que você ache útil ao fornecer uma resposta. Apenas cerca de 8.000 tokens por documento são passados para o modelo. Inicie a lista de campos com campos concisos e, em seguida, progresso para campos Rich Text. Para obter orientações precisas sobre como definir esse campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + Para "respostas", a construção do parâmetro básico é `"answers": "extractive"` , em que o número padrão de respostas retornadas é um. Você pode aumentar o número de respostas adicionando uma contagem, até um máximo de cinco.  A necessidade de mais de uma resposta depende da experiência do usuário do seu aplicativo e de como você deseja renderizar os resultados.
 

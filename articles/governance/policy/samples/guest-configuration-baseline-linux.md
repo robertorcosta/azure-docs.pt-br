@@ -1,19 +1,19 @@
 ---
 title: Referência-Azure Policy linha de base de configuração de convidado para Linux
 description: Detalhes da linha de base do Linux no Azure implementadas por meio da configuração de convidado do Azure Policy.
-ms.date: 02/26/2021
+ms.date: 03/12/2021
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: 20f589b02f2a43bb3feb954dc4eac2dd6a9c3925
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 6b1d3048fdc0945e1ee64e211d2f7b1f9de5e6e6
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103234968"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419857"
 ---
 # <a name="azure-policy-guest-configuration-baseline-for-linux"></a>Linha de base de configuração de convidado Azure Policy para Linux
 
-O artigo a seguir detalha o que os **\[ \] computadores Linux de visualização devem atender aos requisitos para as** auditorias da iniciativa de configuração de convidado da linha de base de segurança do Azure. Para obter mais informações, consulte [Azure Policy configuração de convidado](../concepts/guest-configuration.md) e [visão geral do benchmark de segurança do Azure (v2)](../../../security/benchmarks/overview.md).
+O artigo a seguir detalha quais **\[ \] computadores Linux de visualização devem atender aos requisitos para as** auditorias de definição de política de configuração de convidado de linha de base de segurança do Azure. Para obter mais informações, consulte [Azure Policy configuração de convidado](../concepts/guest-configuration.md) e [visão geral do benchmark de segurança do Azure (v2)](../../../security/benchmarks/overview.md).
 
 ## <a name="general-security-controls"></a>Controles de segurança gerais
 

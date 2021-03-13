@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4311d0acc7c417bf31c71f46e6c25c65312b894d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034517"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418174"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Governando contas de serviço do Azure AD
 
@@ -41,7 +41,7 @@ Antes de criar uma conta de serviço ou registrar um aplicativo, documente as in
 | Avaliação de risco| Risco e impacto nos negócios se a conta fosse comprometida.| Use essas informações para restringir o escopo de permissões e determinar quem deve ter acesso às informações da conta. |
 | Período para revisão| O agendamento no qual a conta de serviço deve ser revisada pelo proprietário.| Use isso para agendar análises e comunicações de revisão. Documente o que deve acontecer se uma revisão não for executada por um horário específico após o período de revisão agendado. |
 | Tempo de vida| Tempo de vida máximo previsto da conta.| Use isso para agendar comunicações com o proprietário e, por fim, desabilitar as contas. Sempre que possível, defina uma data de validade para as credenciais, em que as credenciais não podem ser transferidas automaticamente. |
-| Name| Nome padronizado da conta| Crie um esquema de nomeação para todas as contas de serviço para que você possa Pesquisar, classificar e filtrar facilmente as contas de serviço. |
+| Nome| Nome padronizado da conta| Crie um esquema de nomeação para todas as contas de serviço para que você possa Pesquisar, classificar e filtrar facilmente as contas de serviço. |
 
 
 ## <a name="use-the-principle-of-least-privileges"></a>Usar o princípio de privilégios mínimos
@@ -172,7 +172,7 @@ Estabeleça um processo de revisão para garantir que as contas de serviço seja
 
 **Os processos de desprovisionamento devem incluir as tarefas a seguir.**
 
-1. Depois que o aplicativo ou script associado for desprovisionado, [monitore as entradas](../reports-monitoring/concept-all-sign-ins.md#sign-ins-report) e o acesso aos recursos pela conta de serviço.
+1. Depois que o aplicativo ou script associado for desprovisionado, [monitore as entradas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) e o acesso aos recursos pela conta de serviço.
 
    * Se a conta ainda estiver ativa, determine como ela está sendo usada antes de tomar as etapas subsequentes.
  
@@ -187,7 +187,7 @@ Para obter mais informações sobre como proteger contas de serviço do Azure, c
 
 [Introdução às contas de serviço do Azure](service-accounts-introduction-azure.md)
 
-[Protegendo identidades gerenciadas](service-accounts-managed-identities.md)
+[Proteção de identidades gerenciadas](service-accounts-managed-identities.md)
 
 [Protegendo os princípios de serviço](service-accounts-principal.md)
 

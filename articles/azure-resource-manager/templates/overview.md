@@ -2,13 +2,13 @@
 title: Visão geral de modelos
 description: Descreve os benefícios usando modelos de Azure Resource Manager (modelos ARM) para a implantação de recursos.
 ms.topic: conceptual
-ms.date: 03/08/2021
-ms.openlocfilehash: 3a144b69f69c90b997b17d9526c9c3e0f259c554
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.date: 03/12/2021
+ms.openlocfilehash: 14bcbbd7a7ae7315dbb8e9d3e7e44ce0ffe0a4b4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102455728"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103419976"
 ---
 # <a name="what-are-arm-templates"></a>O que são modelos ARM?
 
@@ -19,6 +19,10 @@ Para atender a esses desafios, você pode automatizar implantações e usar a pr
 Para implementar a infraestrutura como código para suas soluções do Azure, use modelos de Azure Resource Manager (modelos ARM). O modelo é um arquivo JavaScript Object Notation (JSON) que define a infraestrutura e a configuração do seu projeto. O modelo usa a sintaxe declarativa, que permite declarar o que você pretende implantar sem precisar gravar a sequência de comandos de programação para criá-lo. No modelo, você especifica os recursos a serem implantados e as propriedades desses recursos.
 
 Apresentamos uma nova linguagem para o desenvolvimento de modelos ARM. O idioma é denominado bicep e está em visualização no momento. Os modelos bicep e JSON oferecem os mesmos recursos. Você pode converter o modelo entre os dois idiomas. O bicep fornece uma sintaxe que é mais fácil de usar para a criação de modelos. Para obter mais informações, consulte [o que é bicep (versão prévia)?](bicep-overview.md).
+
+Para saber mais sobre como você pode começar a usar os modelos do ARM, consulte o vídeo a seguir.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Enablement/How-and-why-to-learn-about-ARM-templates/player]
 
 ## <a name="why-choose-arm-templates"></a>Por que escolher modelos de ARM?
 
