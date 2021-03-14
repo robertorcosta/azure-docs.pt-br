@@ -3,12 +3,12 @@ title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 1a86493b4b478e8ebc75545bf80dafa425132fe4
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103015991"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463061"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -65,18 +65,25 @@ Opcionalmente, você pode definir filtros para que a regra seja aplicada a um su
 
 Os filtros disponíveis são:
 
-* **Severidade**: essa regra será aplicada somente a alertas com as severidades selecionadas.  
+* **Gravidade**  
+Esta regra será aplicada somente a alertas com as severidades selecionadas.  
 Por exemplo, **Severity = Sev1** significa que a regra será aplicada somente a alertas com severidade Sev1.
-* **Monitorar serviço**: essa regra será aplicada somente a alertas provenientes dos serviços de monitoramento selecionados.  
+* **Monitorar Serviço**  
+Esta regra será aplicada somente aos alertas provenientes dos serviços de monitoramento selecionados.  
 Por exemplo, **Monitor Service = "backup do Azure"** significa que a regra será aplicada somente a alertas de backup (provenientes do backup do Azure).
-* **Tipo de recurso**: essa regra será aplicada somente a alertas nos tipos de recursos selecionados.  
+* **Tipo de Recurso**  
+Esta regra será aplicada somente a alertas nos tipos de recursos selecionados.  
 Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra será aplicada somente a alertas em máquinas virtuais.
-* **ID da regra de alerta**: essa regra será aplicada somente aos alertas provenientes de uma regra de alerta específica. O valor deve ser a ID do Gerenciador de recursos da regra de alerta.  
-Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.insights/metricalerts/MyAPI-highLatency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "MyAPI-highLatency".
-* **Condição do monitor**: essa regra será aplicada somente a eventos de alerta com a condição de monitor  especificada – disparados ou **resolvidos**.
-* **Descrição**: essa regra será aplicada somente a alertas que contenham uma cadeia de caracteres específica no campo Descrição do alerta. Esse campo contém a descrição da regra de alerta.  
+* **ID da regra de alerta**  
+Esta regra será aplicada somente a alertas provenientes de uma regra de alerta específica. O valor deve ser a ID do Gerenciador de recursos da regra de alerta.  
+Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.insights/metricalerts/API-Latency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "API-latência".
+* **Monitorar condição**  
+Esta regra será aplicada somente a eventos de alerta com a condição de monitor especificada  – disparados ou **resolvidos**.
+* **Descrição**  
+Esta regra será aplicada somente a alertas que contenham uma cadeia de caracteres específica no campo Descrição do alerta. Esse campo contém a descrição da regra de alerta.  
 Por exemplo, a **Descrição contém ' prod '** significa que a regra só corresponderá a alertas que contenham a cadeia de caracteres "Prod" em sua descrição.
-* **Contexto de alerta (carga)**: essa regra será aplicada somente a alertas que contêm qualquer um ou mais valores específicos nos campos de contexto de alerta.  
+* **Contexto de alerta (carga)**  
+Essa regra será aplicada somente a alertas que contêm um de um ou mais valores específicos nos campos de contexto de alerta.  
 Por exemplo, o **contexto de alerta (carga) contém ' computador-01 '** significa que a regra só se aplicará a alertas cuja carga contenha a cadeia de caracteres "computador-01".
 
 Se você definir vários filtros em uma regra, todos eles serão aplicados. Por exemplo, se você definir o **tipo de recurso ' = máquinas virtuais** e **severidade ' = Sev0**, a regra será aplicada somente para alertas do Sev0 em máquinas virtuais.

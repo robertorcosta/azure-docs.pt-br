@@ -5,12 +5,12 @@ author: cachai2
 ms.topic: conceptual
 ms.date: 1/21/2021
 ms.author: cachai
-ms.openlocfilehash: f826c947b1e47c1c996a8e9102492e85adafa326
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 0267184a921c92c3dc092908a09467ef3a090175
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215146"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463027"
 ---
 # <a name="azure-functions-networking-options"></a>Opções de rede do Azure Functions
 
@@ -87,7 +87,7 @@ Para obter mais detalhes, confira [Pontos de extremidade de serviço de rede vir
 
 ## <a name="restrict-your-storage-account-to-a-virtual-network"></a>Restringir a sua conta de armazenamento a uma rede virtual 
 
-Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas. Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular. Esse recurso funciona atualmente para todas as SKUs com suporte de rede virtual que incluem Standard e Premium, exceto para carimbos flexíveis em que as redes virtuais estão disponíveis somente para o SKU Premium. Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
+Quando você cria um aplicativo de funções, é necessário criar ou vincular uma conta de Armazenamento do Azure de uso geral que dá ao armazenamento de Tabelas, Blobs e Filas. Você pode substituir essa conta de armazenamento por uma que seja protegida por pontos de extremidade de serviço ou ponto de extremidades particular. Esse recurso atualmente funciona para todas as SKUs com suporte da rede virtual do Windows, que inclui Standard e Premium, exceto para carimbos flexíveis em que as redes virtuais estão disponíveis somente para o SKU Premium. Para configurar uma função com uma conta de armazenamento restrita a uma rede privada:
 
 1. Crie uma função com uma conta de armazenamento que não tenha pontos de extremidade de serviço habilitados.
 1. Configure a função para se conectar à sua rede virtual.

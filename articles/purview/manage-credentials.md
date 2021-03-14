@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/11/2021
-ms.openlocfilehash: 1857eab485e8651c05959f82cf11e69b6353c575
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3802d25ebd8f21ab5b8991a66ceb6650f2f276a9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101673525"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461701"
 ---
 # <a name="credentials-for-source-authentication-in-azure-purview"></a>Credenciais para autenticação de origem no Azure alcance
 
@@ -41,7 +41,7 @@ Se você estiver usando a identidade gerenciada do alcance para configurar verif
 
 Antes de criar uma credencial, primeiro associe uma ou mais das instâncias de Azure Key Vault existentes à sua conta do Azure alcance.
 
-1. Na [portal do Azure](https://portal.azure.com), selecione sua conta do Azure alcance. Navegue até o **centro de gerenciamento** e, em seguida, navegue até **credenciais**.
+1. Na [portal do Azure](https://portal.azure.com), selecione sua conta do Azure alcance e abra o Azure alcance Studio. Navegue até o **centro de gerenciamento** no Azure alcance Studio e, em seguida, navegue até **credenciais**.
 
 2. Na página **credenciais** , selecione **gerenciar conexões de Key Vault**.
 

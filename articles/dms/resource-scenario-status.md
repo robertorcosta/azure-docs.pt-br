@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: troubleshooting
 ms.date: 07/08/2020
-ms.openlocfilehash: 719dcecf3091e03fbcbe6a82d4c618f54243c4e1
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: fc2ab86a318086750b11780a7802aa3591065264
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102215333"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463503"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Status dos cenários de migração com suporte pelo serviço de migração de banco de dados do Azure
 
@@ -69,11 +69,11 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 
 | Destino  | Fonte | Suporte | Status |
 | ------------- | ------------- |:-------------:|:-------------:|
-| **BD SQL do Azure** | SQL Server | X | GA |
-|   | SQL para RDS | X | GA |
+| **BD SQL do Azure** | SQL Server | X |  |
+|   | SQL para RDS | X |  |
 |   | Oracle | X |  |
 | **SQL do Azure para MI do BD** | SQL Server | ✔ | GA |
-|   | SQL para RDS | X | GA |
+|   | SQL para RDS | X |  |
 |   | Oracle | X |  |
 | **VM do SQL do Azure** | SQL Server | X |   |
 |   | Oracle  | X |  |
@@ -88,7 +88,7 @@ A tabela a seguir mostra o suporte para o Serviço de Migração de Banco de Dad
 |   | PostgreSQL para RDS | ✔ | GA |
 
 > [!IMPORTANT]
-> O cenário de migração "Oracle para banco de dados do Azure para PostgreSQL" (atualmente em visualização) não estará mais disponível após 1º de maio de 2021. Continuaremos a fornecer suporte por meio de ferramentas alternativas (como Ora2pg) e proporcionar a melhor experiência de migração para migrações Oracle para PostgreSQL. Para obter as práticas recomendadas de migração, consulte [guia de migração do Oracle para o banco de dados do Azure para PostgreSQL] ( https://aka.ms/OracletoPGguide) .
+> O cenário de migração "Oracle para Banco de Dados do Azure para PostgreSQL" (em versão prévia, no momento) não estará mais disponível após 1º de maio de 2021. Continuaremos a fornecer suporte por meio de ferramentas alternativas (como Ora2pg) e proporcionar a melhor experiência de migração para migrações do Oracle para o PostgreSQL. Para obter práticas recomendadas de migração, consulte [Guia de migração do Oracle para o banco de dados do Azure para PostgreSQL](https://aka.ms/OracletoPGguide).
 
 
 ## <a name="next-steps"></a>Próximas etapas

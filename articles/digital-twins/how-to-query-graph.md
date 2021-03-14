@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: a38af4c942de280e7b1c094885a1ede6774ead56
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 3fd504ec36abae3f00cd2a7eb4e1f7b639be0cea
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102433209"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462670"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Consultar o grafo gêmeos do Azure digital
 
@@ -36,8 +36,10 @@ Obter gêmeos digital por **Propriedades** (incluindo a ID e os metadados):
 
 :::code language="sql" source="~/digital-twins-docs-samples/queries/queries.sql" id="QueryByProperty1":::
 
-> [!NOTE]
-> A ID de um gêmeo digital é consultada usando o campo de metadados `$dtId`.
+Conforme mostrado na consulta acima, a ID de uma pesquisa digital é consultada usando o campo de metadados `$dtId` .
+
+>[!TIP]
+> Se você estiver usando Cloud Shell para executar uma consulta com campos de metadados que começam com `$` o, você deverá escapar o `$` com um acento grave para permitir que Cloud Shell saiba que não é uma variável e deve ser consumida como um literal no texto da consulta.
 
 Você também pode obter gêmeos com base no **fato de uma determinada propriedade ser definida**. Aqui está uma consulta que obtém gêmeos que têm uma propriedade *Location* definida:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.author: terrylan
 manager: rkarlin
 ms.date: 02/19/2021
-ms.openlocfilehash: b39b1d33885de46607cd55acee9919473fab7733
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 0146e4fcaf70d37975dc587a266c47bf4b3f4601
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102051422"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103461667"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Sistema de Proteção de Dados do Cliente para Microsoft Azure
 
@@ -24,7 +24,7 @@ O Sistema de Proteção de Dados do Cliente para Microsoft Azure fornece uma int
 
 Este artigo aborda como habilitar Sistema de Proteção de Dados do Cliente e como as solicitações de lockbox são iniciadas, controladas e armazenadas para revisões e auditorias posteriores.
 
-<a name='supported-services-and-scenarios-in-general-availability'><a name='supported-services-and-scenarios-in-preview'>
+<a name='supported-services-and-scenarios-in-general-availability'></a><a name='supported-services-and-scenarios-in-preview'></a>
 ## <a name="supported-services-and-scenarios-general-availability"></a>Serviços e cenários com suporte (disponibilidade geral)
 
 Os serviços a seguir agora estão disponíveis para o público geral para Sistema de Proteção de Dados do Cliente:
@@ -95,7 +95,7 @@ As etapas a seguir descrevem um fluxo de trabalho típico para uma solicitação
 
     ![Sistema de Proteção de Dados do Cliente do Azure – exibir a solicitação pendente](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. O aprovador designado também pode selecionar a **ID de solicitação de serviço** para exibir a solicitação de tíquete de suporte que foi criada pelo usuário original. Essas informações fornecem contexto sobre por que Suporte da Microsoft está envolvido e o histórico do problema relatado. Por exemplo: 
+10. O aprovador designado também pode selecionar a **ID de solicitação de serviço** para exibir a solicitação de tíquete de suporte que foi criada pelo usuário original. Essas informações fornecem contexto sobre por que Suporte da Microsoft está envolvido e o histórico do problema relatado. Por exemplo:
 
     ![Sistema de Proteção de Dados do Cliente do Azure – exibir a solicitação de tíquete de suporte](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 

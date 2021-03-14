@@ -1,27 +1,26 @@
 ---
-title: Opções de suporte e ajuda para desenvolvedores de aplicativos do Azure AD
-description: Saiba como obter ajuda e suporte para problemas e dúvidas relacionados ao desenvolvimento ao criar aplicativos que se integram com as identidades da Microsoft (conta Azure Active Directory e Microsoft)
+title: Opções de suporte e ajuda para os desenvolvedores da plataforma Microsoft Identity | Azure
+description: Saiba onde obter ajuda e encontre respostas para suas perguntas ao criar soluções de IAM (gerenciamento de acesso e identidade) que se integram ao Azure Active Directory (Azure AD) e a outros componentes da plataforma de identidade da Microsoft.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/23/2019
-ms.author: ryanwi
+ms.date: 03/09/2021
+ms.author: marsma
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev
-ms.openlocfilehash: 43990952f6cbe90c729ac2df421c682fe8d42b1b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 8b0d6ffc00a140073c2dfb5789fbf9760e1767c9
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102517916"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462755"
 ---
 # <a name="support-and-help-options-for-developers"></a>Opções de suporte e ajuda para desenvolvedores
 
-Se começar a integração ao Azure AD (Azure Active Directory), identidades da Microsoft ou API do Microsoft Graph ou quando estiver implementando um novo recurso no aplicativo, haverá vezes em que você precisará ter a ajuda da comunidade ou entender as opções de suporte que tem como desenvolvedor. Aqui estão sugestões para onde você pode obter ajuda ao desenvolver suas soluções de plataforma de identidade da Microsoft.
+Se você precisar de uma resposta para uma pergunta ou ajuda para resolver um problema não abordado em nossa documentação, talvez seja hora de entrar em contato com especialistas para obter ajuda. Aqui estão várias sugestões para obter respostas para suas perguntas ao desenvolver aplicativos que se integram à plataforma de identidade da Microsoft.
 
 ## <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
@@ -33,9 +32,10 @@ Explore a variedade de [opções de suporte do Azure e escolha o plano](https://
 
 - Se você já tiver um plano de suporte do Azure, [abra uma solicitação de suporte aqui](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-- Se você não for um cliente do Azure, também poderá abrir uma solicitação de suporte com a Microsoft por meio do [nosso suporte comercial](https://support.serviceshub.microsoft.com/supportforbusiness).
+- Se você não for um cliente do Azure, poderá abrir uma solicitação de suporte com o [suporte da Microsoft for Business](https://support.serviceshub.microsoft.com/supportforbusiness).
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Postar uma pergunta em Microsoft Q&A
+
 <div class='icon is-large'>
     <img alt='Microsoft Q&A' src='./media/common/question-mark-icon.png'>
 </div>             
@@ -46,7 +46,7 @@ Obtenha respostas para suas perguntas de desenvolvimento de aplicativos de ident
 
 Se você não encontrar uma resposta para o problema pesquisando o Microsoft Q&A, envie uma nova pergunta. Use uma das seguintes marcas quando você fizer sua [pergunta de alta qualidade](https://docs.microsoft.com/answers/articles/24951/how-to-write-a-quality-question.html):
 
-| Componente/área| Marcações  |
+| Componente/área| Marcas  |
 |------------|---------------------------|
 | ADAL (Biblioteca de Autenticação do Active Directory)                              | [Adal](https://docs.microsoft.com/answers/topics/azure-ad-adal-deprecation.html)                |
 | MSAL (Biblioteca de Autenticação da Microsoft)                                     | [MSAL](https://docs.microsoft.com/answers/topics/azure-ad-msal.html)                            |

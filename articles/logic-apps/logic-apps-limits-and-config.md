@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 03/03/2021
-ms.openlocfilehash: 39d7516b9cec1a3b9aa4484c2ff93564bd5772da
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/18/2021
+ms.openlocfilehash: f4336350af92c27760369d668c6babddc4d4ea30
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034278"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462909"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informações de limites e configuração para os Aplicativos Lógicos do Azure
 
@@ -50,7 +50,7 @@ Estes são os limites de execução de um único aplicativo lógico:
 | Nome | Limite de multilocatários | Limite do ambiente do serviço de integração | Observações |
 |------|--------------------|---------------------------------------|-------|
 | Duração da execução | 90 dias | 366 dias | A duração da execução é calculada usando a hora de início de uma execução e o limite especificado na configuração do fluxo de trabalho, [**retenção do histórico de execução em dias**](#change-duration) na hora de início. <p><p>Para alterar o limite padrão, consulte [duração da execução de alteração e retenção de histórico no armazenamento](#change-duration). |
-| Retenção de histórico de execução no armazenamento | 90 dias | 366 dias | Se a duração de uma execução exceder o limite de retenção do histórico de execução atual, a execução será removida do histórico de execuções no armazenamento. Se a execução for concluída ou expirar, a retenção do histórico de execução será sempre calculada usando a hora de início da execução e o limite atual especificado na configuração de fluxo de trabalho, [**retenção de histórico de execução em dias**](#change-retention). Não importa o limite anterior, o limite atual é sempre usado para calcular a retenção. <p><p>Para alterar o limite padrão e obter mais informações, consulte [alterar duração e retenção do histórico de execução no armazenamento](#change-retention). Para aumentar o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappsemail@microsoft.com) para ter ajuda com seus requisitos. |
+| Retenção de histórico de execução no armazenamento | 90 dias | 366 dias | Se a duração de uma execução exceder o limite de retenção do histórico de execução atual, a execução será removida do histórico de execuções no armazenamento. Se a execução for concluída ou expirar, a retenção do histórico de execução será sempre calculada usando a hora de início da execução e o limite atual especificado na configuração de fluxo de trabalho, [**retenção de histórico de execução em dias**](#change-retention). Não importa o limite anterior, o limite atual é sempre usado para calcular a retenção. <p><p>Para alterar o limite padrão e obter mais informações, consulte [alterar duração e retenção do histórico de execução no armazenamento](#change-retention). Para aumentar o limite máximo, [entre em contato com a equipe de Aplicativos Lógicos](mailto://logicappspm@microsoft.com) para ter ajuda com seus requisitos. |
 | Intervalo de recorrência mínimo | 1 segundo | 1 segundo ||
 | Intervalo de recorrência máximo | 500 dias | 500 dias ||
 |||||
@@ -203,8 +203,8 @@ Para obter mais informações sobre a definição de recurso de aplicativo lógi
 
   | Nome | Limite | Observações |
   |------|-------|-------|
-  | Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês | |
-  | Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês | |
+  | Limite de execução da unidade base | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Fornece ~4.000 execuções de ação por minuto, que são ~160 milhões execuções de ação por mês |
+  | Limite de execução da unidade de escala | Sistema limitado quando a capacidade da infraestrutura atinge 80% | Cada unidade de escala pode fornecer ~2.000 execuções de ação adicionais por minuto, que são mais ~80 milhões de execuções de ação por mês |
   | Unidades de escala máximas que você pode adicionar | 10 | |
   ||||
 
@@ -244,11 +244,11 @@ Algumas operações de conector fazem chamadas assíncronas ou escutam solicita�
 
 #### <a name="character-limits"></a>Limites de caractere
 
-| Nome | Observações |
-|------|-------|
+| Nome | Limite | Observações |
+|------|-------|-------|
 | Limite de avaliação da expressão | 131.072 caracteres | As expressões `@concat()`, `@base64()`, `@string()` não podem ser maiores do que esse limite. |
-| Limite de caracteres da URL de solicitação | 16.384 caracteres |
-|||
+| Limite de caracteres da URL de solicitação | 16.384 caracteres | |
+||||
 
 <a name="retry-policy-limits"></a>
 
