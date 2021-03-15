@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2021
 ms.author: memildin
-ms.openlocfilehash: b82f0ca0624fcbd64f1c23f87f8f21f96d8e4d4c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: a91329d3bd0247932614233ef5b1ec71bf4d2a6b
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100569"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465456"
 ---
 # <a name="enable-azure-defender-for-sql-servers-on-machines"></a>Habilitar o Azure defender para SQL Servers em computadores 
 
@@ -47,7 +47,7 @@ Para habilitar este plano:
 
 ### <a name="step-1-provision-the-log-analytics-agent-on-your-sql-servers-host"></a>Etapa 1. Provisione o agente de Log Analytics no host do SQL Server:
 
-- **SQL Server na VM do Azure** – se o seu computador SQL estiver hospedado em uma VM do Azure, você poderá [habilitar o provisionamento automático do agente <a name="auto-provision-mma"></a> de log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Como alternativa, você pode seguir o procedimento manual para integrar [suas VMs de Azure Stack](quickstart-onboard-machines.md#onboard-your-azure-stack-vms).
+- **SQL Server na VM do Azure** – se o seu computador SQL estiver hospedado em uma VM do Azure, você poderá [habilitar o provisionamento automático do agente <a name="auto-provision-mma"></a> de log Analytics](security-center-enable-data-collection.md#auto-provision-mma). Como alternativa, você pode seguir o procedimento manual para [carregar suas VMs de Hub de Azure Stack](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms).
 - **SQL Server no arco do Azure** – se sua SQL Server for gerenciada por servidores habilitados para [Arc do Azure](../azure-arc/index.yml) , você poderá implantar o agente de log Analytics usando a recomendação da central de segurança "log Analytics Agent deve ser instalado em suas máquinas de arco do Azure baseadas no Windows (versão prévia)". Como alternativa, você pode seguir os métodos de instalação descritos na [documentação do Arc do Azure](../azure-arc/servers/manage-vm-extensions.md).
 
 - **SQL Server local** – se o SQL Server estiver hospedado em um computador Windows local sem o Arc do Azure, você terá duas opções para conectá-lo ao Azure:
