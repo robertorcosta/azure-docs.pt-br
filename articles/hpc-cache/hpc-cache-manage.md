@@ -4,14 +4,14 @@ description: Como gerenciar e atualizar o cache HPC do Azure usando o portal do 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 08/31/2020
+ms.date: 03/08/2021
 ms.author: v-erkel
-ms.openlocfilehash: 40d091782f37a32b75659cd274e49798dbe527cb
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: b34beb65bb8c4136887651d8365c937b17718572
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590787"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471890"
 ---
 # <a name="manage-your-cache"></a>Gerenciar seu cache
 
@@ -254,6 +254,20 @@ A página Visão geral mostra grafos para algumas estatísticas básicas de cach
 ![captura de tela de três gráficos de linha mostrando as estatísticas mencionadas acima para um cache de exemplo](media/hpc-cache-overview-stats.png)
 
 Esses gráficos fazem parte das ferramentas internas de monitoramento e análise do Azure. Ferramentas e alertas adicionais estão disponíveis nas páginas no cabeçalho **monitoramento** na barra lateral do Portal. Saiba mais na seção portal da documentação de [monitoramento do Azure](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-in-the-azure-portal).
+
+## <a name="view-warnings"></a>Exibir avisos
+
+Se o cache entrar em um estado não íntegro, verifique a página de **avisos** . Esta página mostra notificações do software de cache que podem ajudá-lo a entender seu estado.
+
+Essas notificações não aparecem no log de atividades porque não são controladas pelo portal do Azure. Eles são frequentemente associados a configurações personalizadas que você pode ter feito.
+
+Os tipos de avisos que você pode ver aqui incluem:
+
+* O cache não pode acessar seu servidor NTP
+* O cache não pôde baixar informações de nome de usuário de grupos estendidos
+* As configurações personalizadas de DNS foram alteradas em um destino de armazenamento
+
+![captura de tela da página monitoramento > avisos mostrando uma mensagem informando que não foi possível baixar os nomes de email de grupos estendidos](media/warnings-page.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

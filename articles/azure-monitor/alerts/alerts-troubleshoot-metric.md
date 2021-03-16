@@ -4,13 +4,13 @@ description: Problemas comuns com Azure Monitor alertas de métrica e possíveis
 author: harelbr
 ms.author: harelbr
 ms.topic: troubleshooting
-ms.date: 01/21/2021
-ms.openlocfilehash: 2bd82d18d6647e47d9838702af45cff68f2bc6cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/15/2021
+ms.openlocfilehash: f14142632f6ded9f598d6e94fd1e91ec17f6d0a7
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102037856"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466490"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Solucionando problemas em alertas de métrica do Azure Monitor 
 
@@ -138,11 +138,9 @@ Para evitar a falha da implantação ao tentar validar as definições da métri
 ## <a name="export-the-azure-resource-manager-template-of-a-metric-alert-rule-via-the-azure-portal"></a>Exportar o modelo de Azure Resource Manager de uma regra de alerta de métrica por meio do portal do Azure
 
 Exportar o modelo do Resource Manager de uma regra de alerta de métrica ajuda a entender sua sintaxe e propriedades JSON e pode ser usado para automatizar implantações futuras.
-1. Navegue até a seção **grupos de recursos** no portal e selecione o grupo de recursos que contém a regra.
-2. Na seção visão geral, marque a caixa de seleção **Mostrar tipos ocultos** .
-3. No filtro de **tipo** , selecione *Microsoft. insights/metricalerts*.
-4. Selecione a regra de alerta relevante para exibir seus detalhes.
-5. Em **configurações**, selecione **Exportar modelo**.
+1. Na portal do Azure, abra a regra de alerta para exibir seus detalhes.
+2. Clique em **Propriedades**.
+3. Em **automação**, selecione **Exportar modelo**.
 
 ## <a name="metric-alert-rules-quota-too-small"></a>Cota de regras de alerta de métrica muito pequena
 
@@ -252,7 +250,7 @@ Considere as seguintes restrições ao usar dimensões em uma regra de alerta qu
 - Você só pode selecionar um valor por dimensão dentro de cada condição.
 - Você não pode usar a opção "selecionar todos os valores atuais e futuros" (selecione \* ).
 - Quando as métricas que são configuradas em condições diferentes dão suporte à mesma dimensão, um valor de dimensão configurado deve ser definido explicitamente da mesma forma para todas essas métricas (nas condições relevantes).
-Por exemplo: 
+Por exemplo:
     - Considere uma regra de alerta de métrica que é definida em uma conta de armazenamento e monitora duas condições:
         * Total de **transações** > 5
         * Média de **SuccessE2ELatency** > 250 MS

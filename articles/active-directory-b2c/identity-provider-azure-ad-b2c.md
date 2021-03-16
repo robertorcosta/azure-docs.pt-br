@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c9a20305f05b285b29d4a5eaf75116c862f3a6d4
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 4b357213f4e552fd791fb575d8b7a287b924c7f9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448482"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489063"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-azure-ad-b2c-account-from-another-azure-ad-b2c-tenant"></a>Configurar a inscrição e a entrada com uma conta de Azure AD B2C de outro locatário Azure AD B2C
 
@@ -64,6 +64,8 @@ Para criar um aplicativo.
 
     Por exemplo, `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
+    Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-domain-name` pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu locatário.
+
 1. Em permissões, marque a caixa de seleção **conceder consentimento de administrador às permissões OpenID e offline_access** .
 1. Selecione **Registrar**.
 1. Na página **Azure AD B2C registros de aplicativo** , selecione o aplicativo que você criou, por exemplo *ContosoApp*.
@@ -105,14 +107,14 @@ Para criar um aplicativo.
     - **Sobrenome**: *family_name*
     - **Email**: *email*
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="add-azure-ad-b2c-identity-provider-to-a-user-flow"></a>Adicionar Azure AD B2C provedor de identidade a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade Azure AD B2C.
 1. Em **provedores de identidade social**, selecione **Fabrikam**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .

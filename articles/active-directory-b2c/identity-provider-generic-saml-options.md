@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 075b04414c752ce87365d03212fcdabab6eaa7dd
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102119817"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488866"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configurar opções do provedor de identidade SAML com Azure Active Directory B2C
 
@@ -170,7 +170,7 @@ Você pode usar [declarações de contexto](claim-resolver-overview.md), como `{
 
 Por padrão, a solicitação de autorização SAML especifica a `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified` política. Isso indica que qualquer tipo de identificador suportado pelo provedor de identidade para o assunto solicitado pode ser usado.
 
-Para alterar esse comportamento, consulte a documentação do provedor de identidade para obter orientação sobre quais políticas de ID de nome têm suporte. Em seguida, adicione os `NameIdPolicyFormat` metadados no formato de política correspondente. Por exemplo: 
+Para alterar esse comportamento, consulte a documentação do provedor de identidade para obter orientação sobre quais políticas de ID de nome têm suporte. Em seguida, adicione os `NameIdPolicyFormat` metadados no formato de política correspondente. Por exemplo:
 
 ```xml
 <Metadata>
@@ -372,7 +372,7 @@ Após uma solicitação de logout do aplicativo, Azure AD B2C tenta sair do seu 
 
 Para ajudar a configurar e depurar a Federação com um provedor de identidade SAML, você pode usar uma extensão de navegador para o protocolo SAML, como a [extensão devtools SAML](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) para Chrome, o [rastreador SAML](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) para Firefox [ou as ferramentas de desenvolvedor do Edge ou do IE](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
 
-Usando essas ferramentas, você pode verificar a integração entre Azure AD B2C e seu provedor de identidade SAML. Por exemplo: 
+Usando essas ferramentas, você pode verificar a integração entre Azure AD B2C e seu provedor de identidade SAML. Por exemplo:
 
 * Verifique se a solicitação SAML contém uma assinatura e determine qual algoritmo é usado para entrar na solicitação de autorização.
 * Obtenha as declarações (asserções) na `AttributeStatement` seção.

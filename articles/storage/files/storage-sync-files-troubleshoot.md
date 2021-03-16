@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 2/1/2021
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f54156ed8cc4c049e10bada77a66eee084f7c5fb
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 4439346a065f17f5b2136f51fd5e8b990fa1b914
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102453267"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491292"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solucionar problemas da Sincronização de Arquivos do Azure
 Use a Sincronização de Arquivos do Azure para centralizar os compartilhamentos de arquivos da sua organização em Arquivos do Azure enquanto mantém a flexibilidade, o desempenho e a compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -113,7 +113,7 @@ Esse erro ocorre se o compartilhamento de arquivo do Azure já está em uso por 
 Se essa mensagem aparecer e o compartilhamento de arquivos do Azure não estiver sendo usado por um ponto de extremidade de nuvem no momento, conclua as seguintes etapas para limpar os metadados da Sincronização de arquivos do Azure no compartilhamento de arquivos do Azure:
 
 > [!Warning]  
-> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. 
+> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. Se você usar esse compartilhamento de arquivos para sincronização em um grupo de sincronização diferente, a perda de dados para arquivos no grupo de sincronização antigo será quase certa.
 
 1. Navegue até o seu compartilhamento de arquivos do Azure no Portal do Azure.  
 2. Clique com botão direito no compartilhamento de arquivos do Azure e selecione **Editar metadados**.

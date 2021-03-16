@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: nolavime
 ms.date: 01/18/2021
-ms.openlocfilehash: 5cc3c4a07cc698f3592a2ff2fd76e9f4bbef441b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 727e744c59d0a8d90cf320e1ee2e2a17e10ff847
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036445"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471530"
 ---
 # <a name="connector-status-errors-in-the-itsmc-dashboard"></a>Erros de status do conector no painel do ITSMC
 
@@ -88,3 +88,11 @@ As seções a seguir descrevem os erros comuns que aparecem na seção status do
 
 * Quando uma nova instância de ITSMC é criada, ela inicia a sincronização de informações do sistema ITSM, como modelos de item de trabalho e itens de trabalho. [Sincronize o ITSMC para gerar um novo token de atualização](./itsmc-resync-servicenow.md).
 * [Examine os detalhes da conexão em ITSMC](./itsmc-connections-servicenow.md#create-a-connection) e verifique se o ITSMC pode ser [sincronizado](./itsmc-resync-servicenow.md)com êxito.
+
+
+## <a name="ip-restrictions"></a>Restrições de IP
+**Erro**: "falha ao adicionar a conexão de ITSM chamada" XXX "devido a uma solicitação inadequada. Erro: solicitação inadequada. Parâmetros inválidos fornecidos para conexão. Exceção http: código de status proibido. "
+
+**Causa**: o endereço IP do aplicativo de ITSM não permite conexões de ITSM das ferramentas de ITSM de parceiros.
+
+**Resolução**: para listar os endereços IP de ITSM a fim de permitir conexões de ITSM das ferramentas de ITSM de parceiros, recomendamos que o liste todo o intervalo de IPS públicos da região do Azure em que seu espaço de trabalho LogAnalytics pertence. [detalhes aqui](https://www.microsoft.com/download/details.aspx?id=56519) Para regiões EUS/WEU/EUS2/WUS2/centro-sul dos EUA, o cliente pode listar somente a marca de rede do usuário.

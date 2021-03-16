@@ -8,12 +8,12 @@ ms.date: 11/19/2020
 ms.topic: conceptual
 ms.service: digital-twins
 ms.custom: contperf-fy21q2
-ms.openlocfilehash: 9549e6ea30be0cd9eb1a8c200a5af4a4721793a6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: fc9cd95063f84a9af7f989af9a65ce8f99852dc1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034669"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490969"
 ---
 # <a name="about-the-query-language-for-azure-digital-twins"></a>Sobre a linguagem de consulta para o gêmeos digital do Azure
 
@@ -85,7 +85,7 @@ Esta seção descreve as limitações da linguagem de consulta.
 * Nenhuma subconsulta é suportada na `FROM` instrução.
 * `OUTER JOIN` Não há suporte para semântica, o que significa que, se a relação tiver uma classificação igual a zero, a "linha" inteira será eliminada do conjunto de resultados de saída.
 * A profundidade de percurso do grafo é restrita a cinco `JOIN` níveis por consulta.
-* A origem das `JOIN` operações é restrita: a consulta deve declarar o gêmeos onde a consulta começa.
+* As relações no Azure digital gêmeos não podem ser consultadas como entidades independentes; Você também precisa fornecer informações sobre a fonte de dados de origem de los da qual a relação vem. Isso significa que há algumas restrições na `JOIN` operação, que é usada para consultar relações, para certificar-se de que a consulta declarará a (s) teleposição (ões) onde a consulta começa. Para obter exemplos disso, consulte [*consultar por relação*](how-to-query-graph.md#query-by-relationship) no artigo *como: consultar o gráfico de entrelaçamento* .
 
 ## <a name="next-steps"></a>Próximas etapas
 
