@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 543fb7474c0a9efc41667945c89489054a44d657
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724482"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614880"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -111,11 +111,12 @@ Defina essa configuração manualmente da seguinte maneira:
 
 As Migrações para Azure concluem essas ações automaticamente para estas versões
 
-- Red Hat Enterprise Linux  7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x
-- Cent OS 7.7, 7.6, 7.5, 7.4, 6.x
+- Red Hat Enterprise Linux 6.x, 7.0, 7.4, 7.5, 7.6, 7.7 e 7.8 (o agente de VM do Linux do Azure também será instalado de modo automático durante a migração)
+- CentOS 6.x, 7.4, 7.5, 7.6 e 7.7 (o agente de VM do Linux do Azure também será instalado de modo automático durante a migração)
 - SUSE Linux Enterprise Server 12 SP1+
 - SUSE Linux Enterprise Server 15 SP1
-- Ubuntu 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS
+- Ubuntu 14.04 LTS, 16.04LTS, 18.04LTS, 19.04 e 19.10 (o agente de VM do Linux do Azure também será instalado de modo automático durante a migração)
+- Ubuntu 16.04LTS e 18.04LTS
 - Debian 9, 8, 7
 - Oracle Linux 7.7, 7.7-CI
 
@@ -147,6 +148,7 @@ A tabela a seguir resume as etapas executadas automaticamente para os sistemas o
 
 Saiba mais sobre as etapas para [executar uma VM do Linux no Azure](../virtual-machines/linux/create-upload-generic.md) e obtenha instruções para algumas distribuições populares do Linux.
 
+Examine a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) para instalar o agente de VM do Linux. As Migrações para Azure instalarão o agente de VM do Linux de modo automático para versões que incluem: RHEL6, RHEL7, CentOS7 (a versão 6 deverá ter suporte semelhante ao RHEL), Ubuntu 14.04, Ubuntu 16.04 e Ubuntu 18.04 ao usar um método sem agente de migração do VMware.
 
 ## <a name="check-azure-vm-requirements"></a>Verificar os requisitos de VM do Azure
 

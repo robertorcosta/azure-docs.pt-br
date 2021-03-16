@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/10/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7fdf1f8a433b6e88aff9a3670ea483f8d72681b4
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 86f40944af9fb49b0402a33e5009b99d60be61f0
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631193"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489178"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificação de email personalizada com SendGrid
 
@@ -224,17 +224,17 @@ Adicione a transformação de declarações a seguir ao `<ClaimsTransformations>
 
 ## <a name="add-datauri-content-definition"></a>Adicionar definição de conteúdo DataUri
 
-Abaixo das transformações de declarações no `<BuildingBlocks>` , adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência ao URI de dados da versão 2.1.0:
+Abaixo das transformações de declarações no `<BuildingBlocks>` , adicione o seguinte [ContentDefinition](contentdefinitions.md) para fazer referência ao URI de dados da versão 2.1.2:
 
 ```xml
 <!--
 <BuildingBlocks> -->
   <ContentDefinitions>
    <ContentDefinition Id="api.localaccountsignup">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
     <ContentDefinition Id="api.localaccountpasswordreset">
-      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+      <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
     </ContentDefinition>
   </ContentDefinitions>
 <!--
@@ -489,14 +489,14 @@ Para localizar o email, você deve enviar cadeias de caracteres localizadas para
     <BuildingBlocks> -->
       <ContentDefinitions>
         <ContentDefinition Id="api.localaccountsignup">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />
           </LocalizedResourcesReferences>
         </ContentDefinition>
         <ContentDefinition Id="api.localaccountpasswordreset">
-          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.0</DataUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:contract:selfasserted:2.1.2</DataUri>
           <LocalizedResourcesReferences MergeBehavior="Prepend">
             <LocalizedResourcesReference Language="en" LocalizedResourcesReferenceId="api.custom-email.en" />
             <LocalizedResourcesReference Language="es" LocalizedResourcesReferenceId="api.custom-email.es" />

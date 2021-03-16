@@ -3,12 +3,12 @@ title: Nós e pools no Lote do Azure
 description: Saiba mais sobre nós e pools de computação e como eles são usados em um fluxo de trabalho do Lote do Azure do ponto de vista de desenvolvimento.
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: e1edcc805e0e8c59d189a4622e494101fb31bb6d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 7d4c2d45849deb011498efe4c8a1ae91724b9acd
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200217"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563888"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nós e pools no Lote do Azure
 
@@ -208,3 +208,4 @@ Se adicionar um certificado a um pool existente, você deve reinicializar seus n
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [trabalhos e tarefas](jobs-and-tasks.md).
+- Saiba como [detectar e evitar falhas em operações de segundo plano do pool e do nó ](batch-pool-node-error-checking.md).

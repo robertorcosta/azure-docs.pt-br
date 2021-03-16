@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/08/2020
-ms.openlocfilehash: 816c9ae25034382763e18ea61055a2a18ccc03d6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.date: 03/16/2021
+ms.openlocfilehash: c18a48f8e72c28fd39f839566b18528806e7245d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100388831"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561576"
 ---
 # <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copie e transforme dados em floco de neve usando Azure Data Factory
 
@@ -57,11 +57,7 @@ As propriedades a seguir têm suporte para um serviço vinculado a floco de neve
     "properties": {
         "type": "Snowflake",
         "typeProperties": {
-            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&db=<database>&warehouse=<warehouse>&role=<myRole>",
-            "password": {
-                "type": "SecureString",
-                "value": "<password>"
-            }
+            "connectionString": "jdbc:snowflake://<accountname>.snowflakecomputing.com/?user=<username>&password=<password>&db=<database>&warehouse=<warehouse>&role=<myRole>"
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
@@ -404,7 +400,7 @@ Ao transformar dados no fluxo de dados de mapeamento, você pode ler e gravar em
 
 A tabela abaixo lista as propriedades com suporte pela fonte floco de neve. Você pode editar essas propriedades na guia **Opções de origem** . O conector utiliza a [transferência de dados interna](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)de floco de neve.
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Tabela | Se você selecionar tabela como entrada, o fluxo de dados irá buscar todos os dados da tabela especificada no conjunto de informações do floco de neve ou nas opções de origem ao usar o conjunto de dados embutido. | Não | String | *(somente para conjunto de linhas embutido)*<br>tableName<br>schemaName |
 | Consulta | Se você selecionar consulta como entrada, insira uma consulta para buscar dados do floco de neve. Essa configuração substitui qualquer tabela que você escolheu no conjunto de um.<br>Se os nomes do esquema, tabela e colunas contiverem letras minúsculas, citar o identificador de objeto na consulta, por exemplo, `select * from "schema"."myTable"` . | Não | String | Consulta |
@@ -434,7 +430,7 @@ source(allowSchemaDrift: true,
 
 A tabela abaixo lista as propriedades com suporte pelo coletor de floco de neve. Você pode editar essas propriedades na guia **configurações** . Ao usar o conjunto de linhas embutido, você verá configurações adicionais, que são iguais às propriedades descritas na seção [Propriedades do conjunto](#dataset-properties) de cores. O conector utiliza a [transferência de dados interna](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)de floco de neve.
 
-| Nome | Descrição | Necessária | Valores permitidos | Propriedade de script de fluxo de dados |
+| Nome | Descrição | Obrigatório | Valores permitidos | Propriedade de script de fluxo de dados |
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Método Update | Especifique quais operações são permitidas em seu destino de floco de neve.<br>Para atualizar, upsertr ou excluir linhas, uma [transformação ALTER Row](data-flow-alter-row.md) é necessária para marcar linhas para essas ações. | Sim | `true` ou `false` | pode ser excluído <br/>Insertable <br/>atualizável <br/>upsertable |
 | Colunas de chaves | Para atualizações, upserts e exclusões, é necessário selecionar uma coluna de chave ou colunas para determinar qual linha alterar. | Não | Array | chaves |

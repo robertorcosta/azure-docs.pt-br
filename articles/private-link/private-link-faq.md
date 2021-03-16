@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 4e81d8f88a7c01b6d302bcdaa88559159bed04ea
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d06e90a691389b99d8f439364203b921f49b2305
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101709391"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103496466"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o link privado do Azure
 
@@ -54,6 +54,11 @@ Sim. Pontos de extremidade privados podem se conectar aos recursos de PaaS do Az
 
 ### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>Posso modificar minha NIC (interface de rede de ponto de extremidade) privada?
 Quando um ponto de extremidade privado é criado, uma NIC somente leitura é atribuída. Isso não pode ser modificado e permanecerá para o ciclo de vida do ponto de extremidade privado.
+
+### <a name="how-do-i-achieve-availability-while-using-private-endpoints-in-case-of-regional-failures-"></a>Como fazer obter disponibilidade ao usar pontos de extremidade privados em caso de falhas regionais?
+
+Pontos de extremidade privados são recursos altamente disponíveis com SLA de 99,99% [[SLA para o link privado do Azure]](https://azure.microsoft.com/support/legal/sla/private-link/v1_0/). No entanto, como são recursos regionais, qualquer interrupção de região do Azure pode afetar a disponibilidade. Para obter disponibilidade em caso de falhas regionais, várias PEs conectadas ao mesmo recurso de destino podem ser implantadas em regiões diferentes. Dessa forma, se uma região ficar inativa, você ainda poderá rotear o tráfego para seus cenários de recuperação por meio do PE em uma região diferente para acessar o recurso de destino. Para obter informações sobre como as falhas regionais são tratadas no lado do serviço de destino, consulte a documentação do serviço em failover e recuperação. O tráfego de link privado segue a resolução de DNS do Azure para o ponto de extremidade de destino. 
+
 
 ## <a name="private-link-service"></a>Serviço de Link Privado
  

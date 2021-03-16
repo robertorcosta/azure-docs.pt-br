@@ -5,19 +5,19 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: how-to
-ms.date: 03/02/2021
+ms.date: 03/15/2021
 ms.author: duau
-ms.openlocfilehash: 9fa0f73d06bda02d784628823ee70bc538b375e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 83f1e83653c5674988cadcb5b54d3c675ae0b8b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695797"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489433"
 ---
 # <a name="troubleshooting-azure-route-server-issues"></a>Solucionando problemas do servidor de rota do Azure
 
 > [!IMPORTANT]
-> O servidor de rota do Azure (visualização) está atualmente em visualização pública.
+> No momento, o Servidor de Rota do Azure (versão prévia) está na versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -31,7 +31,7 @@ Quando o NVA anuncia a rota padrão, o servidor de rota do Azure o programa para
 | 0.0.0.0/0 | Internet |
 
 
-### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-goes-down"></a>Por que posso executar ping do meu NVA para o IP do par de BGP no servidor de rota do Azure, mas depois de configurar o emparelhamento via protocolo BGP entre eles, não é mais possível executar ping no mesmo IP? Por que o emparelhamento via protocolo BGP fica inativo?
+### <a name="why-can-i-ping-from-my-nva-to-the-bgp-peer-ip-on-azure-route-server-but-after-i-set-up-the-bgp-peering-between-them-i-cant-ping-the-same-ip-anymore-why-does-the-bgp-peering-go-down"></a>Por que posso executar ping do meu NVA para o IP do par de BGP no servidor de rota do Azure, mas depois de configurar o emparelhamento via protocolo BGP entre eles, não é mais possível executar ping no mesmo IP? Por que o emparelhamento via protocolo BGP fica inativo?
 
 Em algumas NVA, você precisa adicionar uma rota estática para a sub-rede do servidor de rota do Azure. Por exemplo, se o servidor de rota do Azure estiver em 10.0.255.0/27 e seu NVA estiver em 10.0.1.0/24, você precisará adicionar a rota a seguir à tabela de roteamento no NVA:
 

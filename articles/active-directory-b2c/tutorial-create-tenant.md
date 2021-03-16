@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cb680221447594b4784f61112655d507397b1c00
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101648842"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102518000"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
@@ -23,6 +23,8 @@ Antes que os aplicativos possam interagir com o Azure Active Directory B2C (Azur
 
 > [!NOTE]
 > Você pode criar até 20 locatários por assinatura. Esse limite ajuda a proteger contra ameaças aos seus recursos, como ataques de negação de serviço, e é imposto tanto no portal do Azure quanto na API de criação de locatários subjacente. Se precisar criar mais de 20 locatários, entre em contato com o [Suporte da Microsoft](support-options.md).
+> 
+> Caso queira reutilizar um nome de locatário que você tentou excluir anteriormente, porém receba a mensagem de erro "Em uso por outro diretório" ao inserir o nome de domínio, será preciso [seguir estas etapas primeiro para excluir completamente o locatário](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). É necessário obter pelo menos uma função de Administrador da Assinatura. Depois de excluir o locatário, talvez seja preciso sair e entrar novamente antes de reutilizar o nome de domínio.
 
 Neste artigo, você aprenderá como:
 

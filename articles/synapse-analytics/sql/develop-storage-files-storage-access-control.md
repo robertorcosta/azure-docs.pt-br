@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 06/11/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1ee631e3e4a13a18bb61ee6237ff67a49f663179
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 545331fdea56aef3d7b9dac8062d4fc2d6891254
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693893"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102501559"
 ---
 # <a name="control-storage-account-access-for-serverless-sql-pool-in-azure-synapse-analytics"></a>Controlar o acesso à conta de armazenamento para o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -84,7 +84,7 @@ Você pode usar as seguintes combinações de autorização e tipos de Armazenam
 | Tipo de autorização  | Armazenamento de Blobs   | ADLS Gen1        | ADLS Gen2     |
 | ------------------- | ------------   | --------------   | -----------   |
 | [SAS](?tabs=shared-access-signature#supported-storage-authorization-types)    | Com suporte\*      | Não compatível   | Com suporte\*     |
-| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Com suporte        | Suportado     |
+| [Identidade gerenciada](?tabs=managed-identity#supported-storage-authorization-types) | Com suporte      | Suportado        | Suportado     |
 | [Identidade do Usuário](?tabs=user-identity#supported-storage-authorization-types)    | Suportado\*      | Suportado\*        | Suportado\*     |
 
 \* O token SAS e a Identidade do Azure AD podem ser usados para acessar um armazenamento que não está protegido pelo firewall.
@@ -104,14 +104,14 @@ Para acessar o armazenamento protegido com o firewall por meio da identidade do 
 
 Siga estas etapas para configurar o firewall da conta de armazenamento e adicionar uma exceção para o workspace do Synapse.
 
-1. Abra o PowerShell ou [instale o PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows?preserve-view=true&view=powershell-7.1)
-2. Instale o módulo Az.Storage 3.0.1 e Az.Synapse 0.7.0: 
+1. Abra o PowerShell ou [instale o PowerShell](/powershell/scripting/install/installing-powershell-core-on-windows)
+2. Instale os módulos Az.Storage 3.4.0 e Az.Synapse 0.7.0: 
     ```powershell
-    Install-Module -Name Az.Storage -RequiredVersion 3.0.1-preview -AllowPrerelease
+    Install-Module -Name Az.Storage -RequiredVersion 3.4.0
     Install-Module -Name Az.Synapse -RequiredVersion 0.7.0
     ```
     > [!IMPORTANT]
-    > Use a **versão 3.0.1**. Você pode verificar sua versão do Az.Storage executando este comando:  
+    > Lembre-se de usar a **versão 3.4.0**. Você pode verificar sua versão do Az.Storage executando este comando:  
     > ```powershell 
     > Get-Module -ListAvailable -Name  Az.Storage | select Version
     > ```
