@@ -6,13 +6,13 @@ author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 2f716fd7723f35fb5e7071afb15cfa8dab4ce5d2
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.date: 03/15/2021
+ms.openlocfilehash: d64b1413267a62daa46a112e706a4381189baf77
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225278"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564330"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Copiar e transformar dados no banco de dados SQL do Azure usando Azure Data Factory
 
@@ -643,7 +643,12 @@ As configurações específicas para o banco de dados SQL do Azure estão dispon
 
 **Consulta**: se você selecionar Consulta no campo de entrada, insira uma consulta SQL para sua origem. Essa configuração substitui qualquer tabela que você tenha escolhido no conjunto de dados. Cláusulas **Order By** não são compatíveis aqui, mas você pode definir uma instrução SELECT FROM completa. Também pode usar funções de tabela definidas pelo usuário. **select * from udfGetData()** é um UDF no SQL que retorna uma tabela. Essa consulta produzirá uma tabela de origem que você pode usar em seu fluxo de dados. O uso de consultas também é uma ótima maneira de reduzir linhas para testes ou pesquisas.
 
+**Procedimento armazenado**: escolha esta opção se desejar gerar uma projeção e dados de origem de um procedimento armazenado que é executado do seu banco de dado de origem. Você pode digitar o esquema, o nome do procedimento e os parâmetros, ou clicar em atualizar para solicitar que o ADF Descubra os esquemas e os nomes dos procedimentos. Em seguida, você pode clicar em importar para importar todos os parâmetros de procedimento usando o formulário ``@paraName`` .
+
+![Procedimento armazenado](media/data-flow/stored-procedure-2.png "Procedimento armazenado")
+
 - Exemplo do SQL: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+- Exemplo de SQL com parâmetros: ``"select * from {$tablename} where orderyear > {$year}"``
 
 **Tamanho do lote**: insira um tamanho de lote para dividir dados grandes em leituras.
 
@@ -734,14 +739,14 @@ Quando os dados são copiados do ou para o banco de dados SQL do Azure, os segui
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Objeto |
-| text |String, Char[] |
+| texto |String, Char[] |
 | time |TimeSpan |
 |  timestamp |Byte[] |
 | TINYINT |Byte |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Cadeia de caracteres |
+| Xml |String |
 
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, a atividade de cópia atualmente dá suporte à precisão de até 28. Se você tiver dados com precisão maior que 28, considere converter para uma cadeia de caracteres na consulta SQL.

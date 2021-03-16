@@ -13,17 +13,14 @@ ms.date: 03/31/2020
 ms.author: marsma
 ms.reviewer: hahamil
 ms.custom: aaddev, identitypla | Azuretformtop40
-ms.openlocfilehash: ea902b8b609d226f6bb9e61ec0bfd60f75a3825d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a67e0d851ab544f737097eff9a884752cff9f5fc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102038570"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491530"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Modo de dispositivo compartilhado para dispositivos Android
-
->[!IMPORTANT]
-> Este recurso [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 Os funcionários de primeira a, como Retail Associates, membros da equipe de voo e funcionários de serviço de campo, geralmente usam um dispositivo móvel compartilhado para realizar seu trabalho. Isso se torna problemático quando começa a compartilhar senhas ou números de PIN para acessar dados de clientes e negócios no dispositivo compartilhado.
 
@@ -84,7 +81,7 @@ As seguintes diferenças se aplicam dependendo se seu aplicativo está em execu�
 | **Contas**     | Conta única | Várias contas |
 | **Entrar** | Global | Global |
 | **Sair** | Global | Cada aplicativo pode controlar se a saída é local para o aplicativo ou para a família de aplicativos. |
-| **Tipos de conta com suporte** | Somente contas corporativas | Contas pessoais e corporativas com suporte  |
+| **Tipos de conta compatíveis** | Somente contas corporativas | Contas pessoais e corporativas com suporte  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>Por que você talvez queira dar suporte apenas ao modo de conta única
 

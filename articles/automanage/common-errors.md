@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: df5133ad4bb3155afdc9d43e595591d9cfda4ea0
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644435"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561848"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Solucionar erros comuns de integração de autogerenciamento
 O autogerenci pode falhar ao carregar um computador no serviço. Este documento explica como solucionar problemas de falhas de implantação, compartilha alguns motivos comuns pelos quais as implantações podem falhar e descreve as próximas etapas potenciais na mitigação.
@@ -21,7 +21,7 @@ O autogerenci pode falhar ao carregar um computador no serviço. Este documento 
 ## <a name="troubleshooting-deployment-failures"></a>Solucionando problemas de falhas de implantação
 A integração de um computador com o autogerencio resultará na criação de uma Azure Resource Manager implantação. Se a integração falhar, poderá ser útil consultar a implantação para obter mais detalhes sobre o motivo da falha. Há links para as implantações no submenu de detalhes da falha, mostrado abaixo.
 
-:::image type="content" source="media\automanage-common-errors\failure-flyout.png" alt-text="Submenu de detalhes de falha de autogerenciamento.":::
+:::image type="content" source="media\common-errors\failure-flyout.png" alt-text="Submenu de detalhes de falha de autogerenciamento.":::
 
 ### <a name="check-the-deployments-for-the-resource-group-containing-the-failed-vm"></a>Verificar as implantações do grupo de recursos que contém a VM com falha
 O submenu de falha conterá um link para as implantações dentro do grupo de recursos que contém o computador que falhou na integração e um nome de prefixo que você pode usar para filtrar as implantações com o. Clicar no link levará você para a folha implantações, na qual você pode filtrar implantações para ver as implantações de gerenciamento automático em seu computador. Se você estiver implantando em várias regiões, certifique-se de clicar na implantação na região correta.
@@ -34,10 +34,11 @@ Se você não vir nenhuma implantação com falha no grupo de recursos ou assina
 
 ## <a name="common-deployment-errors"></a>Erros de implantação comuns
 
-Erro |  Atenuação
+Erro do |  Atenuação
 :-----|:-------------|
 Erro de permissões insuficientes na conta de autogerenciamento | Isso pode acontecer se você tiver movido recentemente uma assinatura que contém uma nova conta de autogerenciamento para um novo locatário. As etapas para resolver isso estão localizadas [aqui](./repair-automanage-account.md).
 A região do espaço de trabalho não corresponde aos requisitos de mapeamento de região | O autogerenci não conseguiu carregar seu computador, mas o espaço de trabalho Log Analytics ao qual o computador está vinculado não está mapeado para uma região de automação com suporte. Verifique se o espaço de trabalho Log Analytics existente e a conta de automação estão localizados em um [mapeamento de região com suporte](../automation/how-to/region-mappings.md).
+"Acesso negado devido à atribuição de negação com o nome ' atribuição de negação do sistema criada pelo aplicativo gerenciado '" | Um [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) foi criado em seu recurso, o que impediu o autogerenciamento de acessar seu recurso. Isso pode ter sido causado por um [plano gráfico](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) ou um [aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
 "A atribuição falhou; Não há informações adicionais disponíveis " | Abra um caso com suporte Microsoft Azure.
 
 ## <a name="next-steps"></a>Próximas etapas

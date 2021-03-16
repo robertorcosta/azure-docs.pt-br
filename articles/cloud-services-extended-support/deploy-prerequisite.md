@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6e5994f05187cd25996bcc007d27a7e10eb76427
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232521"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472312"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de serviços de nuvem do Azure (suporte estendido)
 
@@ -78,6 +78,11 @@ Remova as configurações antigas da área de trabalho remota do arquivo de conf
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2021-12-17T23:59:59.0000000+05:30" /> 
 <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" /> 
 ```
+Remova as configurações de diagnóstico antigas para cada função no arquivo de configuração de serviço (. cscfg).
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+```
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Atualizações necessárias do arquivo de definição de serviço (. csdef)
 
@@ -87,7 +92,7 @@ Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se v
 | Nome do tamanho anterior | Nome do tamanho atualizado | 
 |---|---|
 | ExtraSmall | Standard_A0 | 
-| Small | Standard_A1 |
+| Pequeno | Standard_A1 |
 | Médio | Standard_A2 | 
 | Grande | Standard_A3 | 
 | ExtraLarge | Standard_A4 | 
@@ -116,6 +121,11 @@ As implantações que utilizaram os plugins de área de trabalho remota antigos 
 <Import moduleName="RemoteAccess" /> 
 <Import moduleName="RemoteForwarder" /> 
 </Imports> 
+```
+As implantações que utilizaram os plug-ins antigos de diagnóstico precisam das configurações removidas para cada função do arquivo de definição de serviço (. csdef)
+
+```xml
+<Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" />
 ```
 
 ## <a name="key-vault-creation"></a>Criação de Key Vault 

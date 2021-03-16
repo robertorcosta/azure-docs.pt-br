@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: cfef510646489e65f5cbc5d0d3e14c468301f48e
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103199946"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561814"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções no .NET 5,0 no Azure
 
@@ -18,7 +18,7 @@ Este artigo é uma introdução ao uso do C# para desenvolver funções de proce
 
 | Introdução | Conceitos| Exemplos |
 |--|--|--| 
-| <ul><li>[Usando Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Usando ferramentas de linha de comando](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Usando o Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Exemplos de referência](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
+| <ul><li>[Usar o Visual Studio Code](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vscode)</li><li>[Usando ferramentas de linha de comando](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-cli)</li><li>[Usando o Visual Studio](dotnet-isolated-process-developer-howtos.md?pivots=development-environment-vs)</li></ul> | <ul><li>[Opções de hospedagem](functions-scale.md)</li><li>[Monitoring](functions-monitoring.md)</li> | <ul><li>[Exemplos de referência](https://github.com/Azure/azure-functions-dotnet-worker/tree/main/samples)</li></ul> |
 
 Se você não precisar dar suporte ao .NET 5,0 ou executar suas funções fora do processo, convém [desenvolver funções de biblioteca de classes C#](functions-dotnet-class-library.md).
 
@@ -122,7 +122,7 @@ O .NET isolado passa um `FunctionContext` objeto para seus métodos de função.
 
 As associações são definidas usando atributos em métodos, parâmetros e tipos de retorno. Um método de função é um método com um `Function` e um atributo de gatilho aplicado a um parâmetro de entrada, conforme mostrado no exemplo a seguir:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 O atributo de gatilho especifica o tipo de gatilho e associa dados de entrada a um parâmetro de método. A função de exemplo anterior é disparada por uma mensagem da fila e a mensagem da fila é passada para o método no `myQueueItem` parâmetro.
 
@@ -140,7 +140,7 @@ Uma função pode ter zero ou mais associações de entrada que podem passar dad
 
 Para gravar em uma associação de saída, você deve aplicar um atributo de associação de saída ao método de função, que definiu como gravar no serviço associado. O valor retornado pelo método é gravado na associação de saída. Por exemplo, o exemplo a seguir grava um valor de cadeia de caracteres em uma fila de mensagens chamada `functiontesting2` usando uma associação de saída:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 ### <a name="multiple-output-bindings"></a>Várias associações de saída
 
@@ -156,7 +156,7 @@ Da mesma forma, a função retorna um `HttpReponseData` objeto, que fornece dado
 
 O código a seguir é um gatilho HTTP 
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
 ## <a name="logging"></a>Registro em log
 
@@ -164,7 +164,7 @@ No .NET isolado, você pode gravar em logs usando uma [`ILogger`](/dotnet/api/mi
 
 O exemplo a seguir mostra como obter um `ILogger` e gravar logs dentro de uma função:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/SampleApp/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_logging" ::: 
 
 Use vários métodos do `ILogger` para gravar vários níveis de log, como `LogWarning` ou `LogError` . Para saber mais sobre os níveis de log, consulte o [artigo monitoramento](functions-monitoring.md#log-levels-and-categories).
 

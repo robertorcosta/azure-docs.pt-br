@@ -4,14 +4,14 @@ description: Descreve os diferentes modelos de uso de cache e como escolher entr
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 856f2c15d2bd0b39212e8962a92b1df50cada29e
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: b23afb17b9b7152e82049ca4f6127e2811913296
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472813"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563446"
 ---
 # <a name="understand-cache-usage-models"></a>Entender os modelos de uso de cache
 
@@ -29,7 +29,7 @@ O cache de arquivos é como o cache HPC do Azure acelera as solicitações do cl
 
   Se o cache de gravação estiver desabilitado, o cache não armazenará o arquivo alterado e o gravará imediatamente no sistema de armazenamento de back-end.
 
-* **Atraso de write-back** -para um cache com cache de gravação ativado, o atraso de write-back é a quantidade de tempo que o cache espera por alterações de arquivo adicionais antes de mover o arquivo para o sistema de armazenamento de back-end.
+* **Atraso de write-back** -para um cache com cache de gravação ativado, o atraso de write-back é a quantidade de tempo que o cache espera por alterações de arquivo adicionais antes de copiar o arquivo para o sistema de armazenamento de back-end.
 
 * **Verificação de back-end** – a configuração de verificação de back-end determina com que frequência o cache compara sua cópia local de um arquivo com a versão remota no sistema de armazenamento de back-end. Se a cópia de back-end for mais recente do que a cópia armazenada em cache, o cache buscará a cópia remota e a armazenará para solicitações futuras.
 
@@ -43,7 +43,7 @@ Você deve escolher um modelo de uso para cada destino de armazenamento montado 
 
 Os modelos de uso do cache HPC permitem que você escolha como balancear a resposta rápida com o risco de obter dados obsoletos. Se você quiser otimizar a velocidade de leitura de arquivos, talvez não se importa se os arquivos no cache são verificados em relação aos arquivos de back-end. Por outro lado, se você quiser ter certeza de que os arquivos estão sempre atualizados com o armazenamento remoto, escolha um modelo que verifica com frequência.
 
-Há várias opções:
+Estas são as opções de modelo de uso:
 
 * **Ler gravações pesadas e frequentes** – Use essa opção se você quiser acelerar o acesso de leitura para arquivos que são estáticos ou raramente alterados.
 
@@ -53,13 +53,16 @@ Há várias opções:
 
   Não use essa opção se houver um risco de que um arquivo possa ser modificado diretamente no sistema de armazenamento sem primeiro gravá-lo no cache. Se isso acontecer, a versão em cache do arquivo estará fora de sincronia com o arquivo de back-end.
 
-* **Mais de 15% de gravações** – essa opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos por meio do cache HPC do Azure em vez de montar o armazenamento de back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que não são armazenadas no back-end.
+* **Mais de 15% de gravações** – essa opção acelera o desempenho de leitura e gravação. Ao usar essa opção, todos os clientes devem acessar arquivos por meio do cache HPC do Azure em vez de montar o armazenamento de back-end diretamente. Os arquivos armazenados em cache terão alterações recentes que ainda não foram copiadas para o back-end.
 
   Nesse modelo de uso, os arquivos no cache só são verificados em relação aos arquivos no armazenamento de back-end a cada oito horas. Pressupõe-se que a versão em cache do arquivo seja mais atual. Um arquivo modificado no cache é gravado no sistema de armazenamento de back-end depois que ele está no cache por 20 minutos<!-- an hour --> sem alterações adicionais.
 
 * **Os clientes gravam no destino NFS, ignorando o cache** -escolha esta opção se algum cliente em seu fluxo de trabalho gravar dados diretamente no sistema de armazenamento sem primeiro gravar no cache ou se você quiser otimizar a consistência dos dados. Os arquivos que os clientes solicitam são armazenados em cache (leituras), mas quaisquer alterações nesses arquivos do cliente (gravações) não são armazenadas em cache. Eles são passados diretamente para o sistema de armazenamento de back-end.
 
-  Com esse modelo de uso, os arquivos no cache são verificados frequentemente em relação às versões de back-end para atualizações. Essa verificação permite que os arquivos sejam alterados fora do cache enquanto mantêm a consistência dos dados.
+  Com esse modelo de uso, os arquivos no cache são verificados frequentemente em relação às versões de back-end para atualizações-a cada 30 segundos. Essa verificação permite que os arquivos sejam alterados fora do cache enquanto mantêm a consistência dos dados.
+
+  > [!TIP]
+  > Esses três primeiros modelos de uso básico podem ser usados para lidar com a maioria dos fluxos de trabalho de cache do Azure HPC. As próximas opções são para cenários menos comuns.
 
 * **Mais de 15% de gravações, verificando o servidor de backup em busca de alterações a cada 30 segundos** e **maior que 15% de gravações, verificando o servidor de backup em busca de alterações a cada 60 segundos** -essas opções são criadas para fluxos de trabalho onde você deseja acelerar as leituras e gravações, mas há uma chance de que outro usuário grave diretamente no sistema de armazenamento de back-end Por exemplo, se vários conjuntos de clientes estiverem trabalhando nos mesmos arquivos de locais diferentes, esses modelos de uso podem fazer sentido balancear a necessidade de acesso rápido a arquivos com baixa tolerância a um conteúdo obsoleto da origem.
 
@@ -71,16 +74,18 @@ Há várias opções:
 
 Esta tabela resume as diferenças do modelo de uso:
 
-| Modelo de uso                   | Modo de cache | Verificação de back-end | Atraso máximo de write-back |
-|-------------------------------|--------------|-----------------------|--------------------------|
-| Leia gravações pesadas e frequentes | Ler         | Nunca                 | Nenhum                     |
-| Mais de 15% de gravações       | Leitura/gravação   | 8 horas               | 20 minutos               |
-| Clientes ignoram o cache      | Ler         | 30 segundos            | Nenhum                     |
-| Mais de 15% de gravações, verificação de back-end frequente (30 segundos) | Leitura/gravação | 30 segundos | 20 minutos |
-| Mais de 15% de gravações, verificação de back-end frequente (60 segundos) | Leitura/gravação | 60 segundos | 20 minutos |
-| Mais de 15% de gravações, write-back frequente | Leitura/gravação | 30 segundos | 30 segundos |
-| Leia pesado, verificando o servidor de backup a cada 3 horas | Ler | 3 horas | Nenhum |
+[!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
 
+<!-- | Usage model                   | Caching mode | Back-end verification | Maximum write-back delay |
+|-------------------------------|--------------|-----------------------|--------------------------|
+| Read heavy, infrequent writes | Read         | Never                 | None                     |
+| Greater than 15% writes       | Read/write   | 8 hours               | 20 minutes               |
+| Clients bypass the cache      | Read         | 30 seconds            | None                     |
+| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
+| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
+| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
+| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None |
+-->
 Se você tiver dúvidas sobre o melhor modelo de uso para o fluxo de trabalho do cache HPC do Azure, fale com seu representante do Azure ou abra uma solicitação de suporte para obter ajuda.
 
 ## <a name="next-steps"></a>Próximas etapas

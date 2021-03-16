@@ -1,6 +1,6 @@
 ---
 title: 'SQL Server Instância Gerenciada SQL: guia de migração'
-description: Siga este guia para migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
+description: Este guia ensina a migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 67f5665225bc1297d0eb1b1e1da954fb47660dee
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488946"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564483"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -197,10 +197,6 @@ A abordagem de teste para a migração de banco de dados consiste nas seguintes 
 1. **Configurar ambiente de teste**: O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
 1. **Executar testes de validação**: Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
-
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação após a migração, considere a Solução de Qualidade de Dados disponibilizada pelo parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
-
 
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 

@@ -1,6 +1,6 @@
 ---
-title: SQL Server para SQL Server em VMs do Azure (guia de migração)
-description: Siga este guia para migrar seus bancos de dados SQL Server individuais para SQL Server em VMs (máquinas virtuais) do Azure.
+title: 'SQL Server para SQL Server em VMs do Azure: guia de migração'
+description: Este guia ensina a migrar seus bancos de dados SQL Server individuais para SQL Server em VMs do Azure.
 ms.custom: ''
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
@@ -9,13 +9,13 @@ ms.topic: how-to
 author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
-ms.date: 11/06/2020
-ms.openlocfilehash: d95da29b732e2d520b3413628c9b4a1c403abed6
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.date: 03/19/2021
+ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102488216"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563208"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: do SQL Server para o SQL Server nas VMs do Azure 
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -195,7 +195,7 @@ A abordagem de teste para a migração de banco de dados consiste em executar as
 
 > [!TIP]
 > Use o [Assistente para experimentos de banco de dados (DEA)](/sql/dea/database-experimentation-assistant-overview) para auxiliar na avaliação do desempenho de SQL Server de destino.
->
+
 
 ### <a name="optimize"></a>Otimizar
 

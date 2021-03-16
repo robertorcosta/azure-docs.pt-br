@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2021
-ms.openlocfilehash: 3e12bef7569110084cd059b0dfde8562bd914823
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 5b906bdbd07d59d2acc88f6b30f0db6b6cbc961a
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102030759"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562239"
 ---
 # <a name="standard-columns-in-azure-monitor-logs"></a>Colunas padrão em logs de Azure Monitor
 Os dados em logs de Azure Monitor são [armazenados como um conjunto de registros em um espaço de trabalho log Analytics ou Application insights aplicativo](../logs/data-platform-logs.md), cada um com um tipo de dados específico que tem um conjunto exclusivo de colunas. Muitos tipos de dados terão colunas padrão comuns em vários tipos. Este artigo descreve essas colunas e fornece exemplos de como você pode usá-las em consultas.
@@ -132,7 +132,7 @@ Use estas consultas `union withsource = tt *` com moderação como verificaçõe
 
 É sempre mais eficiente usar a \_ coluna SubscriptionId do que extraí-la analisando a \_ coluna ResourceId.
 
-## <a name="_substriptionid"></a>\_SubstriptionId
+## <a name="_subscriptionid"></a>\_SubscriptionId
 A coluna **\_ SubscriptionId** contém a ID da assinatura do recurso ao qual o registro está associado. Isso lhe dá uma coluna padrão a ser usada para fazer o escopo da consulta somente para registros de uma assinatura específica ou para comparar assinaturas diferentes.
 
 Para recursos do Azure, o valor de **__SubscriptionId** é a parte da assinatura da [URL da ID de recurso do Azure](../../azure-resource-manager/templates/template-functions-resource.md). A coluna é limitada aos recursos do Azure, incluindo os recursos de [arco do Azure](../../azure-arc/overview.md) ou a logs personalizados que indicaram a ID do recurso durante a ingestão.

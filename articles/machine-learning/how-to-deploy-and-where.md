@@ -12,12 +12,12 @@ ms.date: 01/13/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: fa68db4bd166ebe1acd1ae85fca2d7e51236a4c4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522046"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561933"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implantar modelos de aprendizado de máquina no Azure
 
@@ -145,6 +145,7 @@ Para obter mais informações sobre `az ml model register` o, consulte a [docume
 
     Para obter mais informações, consulte a documentação do [AutoMLRun.register_model](/python/api/azureml-train-automl-client/azureml.train.automl.run.automlrun#register-model-model-name-none--description-none--tags-none--iteration-none--metric-none-) .
 
+    Para implantar um modelo registrado de um `AutoMLRun` , é recomendável fazer isso por meio do [botão implantar com um clique no estúdio de aprendizado de máquina do Azure](how-to-use-automated-ml-for-ml-models.md#deploy-your-model). 
 ### <a name="register-a-model-from-a-local-file"></a>Registrar um modelo de um arquivo local
 
 Você pode registrar um modelo fornecendo o caminho local do modelo. Você pode fornecer o caminho de uma pasta ou de um único arquivo. Você pode usar esse método para registrar modelos treinados com Azure Machine Learning e, em seguida, baixados. Você também pode usar esse método para registrar modelos treinados fora do Azure Machine Learning.
@@ -320,8 +321,8 @@ A tabela a seguir descreve os diferentes Estados de serviço:
 | Transição | O serviço está em processo de implantação. | Não |
 | Unhealthy | O serviço foi implantado, mas está inacessível no momento.  | Não |
 | Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
-| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Yes |
-| Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Yes |
+| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
+| Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
 
 > [!TIP]
 > Durante a implantação, as imagens do Docker para destinos de computação são criadas e carregadas do ACR (registro de contêiner do Azure). Por padrão, Azure Machine Learning cria um ACR que usa a camada de serviço *básica* . Alterar o ACR para o seu espaço de trabalho para a camada Standard ou Premium pode reduzir o tempo necessário para criar e implantar imagens em seus destinos de computação. Para obter mais informações, confira [Níveis de serviço do Registro de Contêiner do Azure](../container-registry/container-registry-skus.md).
@@ -368,6 +369,7 @@ Para obter mais informações, consulte a documentação de [WebService. Delete 
 * [Criar aplicativos cliente para consumir serviços Web](how-to-consume-web-service.md)
 * [Atualizar serviço Web](how-to-deploy-update-web-service.md)
 * [Como implantar um modelo usando uma imagem personalizada do Docker](how-to-deploy-custom-docker-image.md)
+* [Uma implantação de um clique para as execuções de ML automatizadas no Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md#deploy-your-model)
 * [Use o TLS para proteger um serviço Web por meio do Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitore seus modelos de Azure Machine Learning com Application Insights](how-to-enable-app-insights.md)
 * [Coletar dados para modelos em produção](how-to-enable-data-collection.md)

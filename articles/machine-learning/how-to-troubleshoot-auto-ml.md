@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, automl, references_regions
-ms.openlocfilehash: b66c768011c05e1105f1351ebe4ed7c3c9700b70
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 28aac830326d60161f54d7ad5fa03326c1d66462
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519156"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563667"
 ---
 # <a name="troubleshoot-automated-ml-experiments-in-python"></a>Solucionar testes de ML automatizados em Python
 
@@ -166,6 +166,10 @@ Se esse padrão for esperado em sua série temporal, você poderá alternar a m�
   1. Baixar o pacote de modelo
   1. Descompactar o pacote
   1. Implantar usando os ativos descompactados
+
+## <a name="azure-functions-application"></a>Azure Functions aplicativo
+  
+  No momento, o ML automatizado não oferece suporte a aplicativos Azure Functions. 
 
 ## <a name="sample-notebook-failures"></a>Falhas de notebook de exemplo
 

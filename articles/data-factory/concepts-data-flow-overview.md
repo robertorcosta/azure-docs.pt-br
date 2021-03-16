@@ -8,16 +8,16 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 12/10/2020
-ms.openlocfilehash: 01ee890fe77abebfdec8d3d643773b42cb54187e
-ms.sourcegitcommit: e15c0bc8c63ab3b696e9e32999ef0abc694c7c41
+ms.openlocfilehash: 1529d2d546227880fee71d1823482e040d2e57c1
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
-ms.locfileid: "97606174"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564313"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapeando fluxos de dados em Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 ## <a name="what-are-mapping-data-flows"></a>O que são os fluxos de dados de mapeamento?
 

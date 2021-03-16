@@ -8,12 +8,12 @@ ms.author: bobazile
 ms.date: 02/09/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 432a9dab851bda65ecf8736d725b08c5e726ac16
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: a94aa0a0deea14cca2b558c602ff7e35ca0ba81f
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659249"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487366"
 ---
 # <a name="sip-interface-infrastructure-requirements"></a>Requisitos de infraestrutura da interface SIP 
 
@@ -158,12 +158,12 @@ O intervalo de portas dos Processadores de Mídia é mostrado na seguinte tabela
 
 ## <a name="media-traffic-media-processors-geography"></a>Tráfego de mídia: geografia dos processadores de mídia
 
-O tráfego de mídia flui por meio de componentes denominados processadores de mídia. Os processadores de mídia são colocados nos mesmos datacenters que os proxies SIP. Além disso, há processadores de mídia adicionais para otimizar o fluxo de mídia. Por exemplo, não temos um componente de proxy SIP agora na Austrália (fluxos SIP via Singapura ou Hong Kong), mas temos o processador de mídia localmente na Austrália. A necessidade dos processadores de mídia localmente é determinada pela latência que experimentamos enviando tráfego de longa distância, por exemplo, da Austrália para Singapura ou Hong Kong. Embora a latência no exemplo de tráfego que flui da Austrália para Hong Kong ou Singapura seja aceitável para preservar a boa qualidade de chamada para o tráfego SIP, para o tráfego de mídia em tempo real ele não é.
+O tráfego de mídia flui por meio de componentes denominados processadores de mídia. Os processadores de mídia são colocados nos mesmos datacenters que os proxies SIP. Além disso, há processadores de mídia adicionais para otimizar o fluxo de mídia. Por exemplo, não temos no momento um componente de proxy SIP na Austrália (o SIP flui via Singapura ou RAE de Hong Kong), mas temos o processador de mídia localmente na Austrália. A necessidade dos processadores de mídia localmente é determinada pela latência que experimentamos ao enviar o tráfego para longas distâncias, por exemplo, da Austrália para Singapura ou para a RAE de Hong Kong. Embora a latência no exemplo de tráfego que flui da Austrália para Singapura ou para a RAE de Hong Kong seja aceitável para preservar a boa qualidade da chamada no tráfego SIP, no tráfego de mídia em tempo real ela não é.
 
 Locais em que os componentes de proxy SIP e processador de mídia estão implantados:
 - EUA (dois nos datacenters das regiões Oeste dos EUA e Leste dos EUA)
 - Europa (datacenters de Amsterdã e Dublin)
-- Ásia (datacenters de Singapura e Hong Kong)
+- Ásia (datacenters de Singapura e da RAE de Hong Kong)
 - Austrália (datacenters das regiões Leste e Sudeste da Austrália)
 
 Locais em que apenas os processadores de mídia são implantados (o SIP flui por meio do datacenter mais próximo listado acima):

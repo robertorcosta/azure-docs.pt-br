@@ -4,14 +4,14 @@ description: Como configurar serviços de diretório para acesso de cliente a de
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: fd5dce0760953bf19c72e1a1062a9c03ffe861e7
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472075"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563361"
 ---
 # <a name="configure-directory-services"></a>Configurar serviços de diretório
 
@@ -81,7 +81,7 @@ Na seção **acesso seguro** , você pode habilitar a criptografia e a validaç�
 
 * **Certificado de download automático** – escolha **Sim** se quiser tentar baixar um certificado assim que enviar essas configurações.
 
-Preencha a seção de **credenciais** se quiser usar credenciais estáticas para segurança LDAP.
+Preencha a seção de **credenciais** se quiser usar credenciais estáticas para segurança LDAP. Essas informações são criptografadas quando armazenadas e não podem ser consultadas.
 
 * **Associar DN** – Insira o nome distinto do associado a ser usado para autenticar no servidor LDAP. (Use o formato DN.)
 * **Associar senha** – forneça a senha para o DN de ligação.

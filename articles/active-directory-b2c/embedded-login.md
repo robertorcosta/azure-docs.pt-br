@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 526d8bfa0124fba75eb33518acd83169ff020698
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103555178"
+ms.locfileid: "103561508"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiência de entrada inserida
 
@@ -31,7 +31,7 @@ O elemento de quadro embutido `<iframe>` é usado para inserir um documento em u
 Ao usar o iframe, considere o seguinte:
 
 - A entrada inserida só dá suporte a contas locais. A maioria dos provedores de identidade social (por exemplo, Google e Facebook) bloqueiam suas páginas de entrada de serem renderizadas em quadros embutidos.
-- Como Azure AD B2C cookies de sessão em um iframe são considerados cookies de terceiros, determinados navegadores (por exemplo, Safari ou Chrome no modo Incognito) bloqueiam ou desmarcam esses cookies, resultando em uma experiência de usuário indesejável. Para evitar esse problema, verifique se o nome de domínio do aplicativo e seu domínio Azure AD B2C têm a *mesma origem*. Por exemplo, um aplicativo hospedado no https://app.contoso.com tem a mesma origem que Azure ad B2C em execução https://login.contoso.com .
+- Como Azure AD B2C cookies de sessão em um iframe são considerados cookies de terceiros, determinados navegadores (por exemplo, Safari ou Chrome no modo Incognito) bloqueiam ou desmarcam esses cookies, resultando em uma experiência de usuário indesejável. Para evitar esse problema, verifique se o nome de domínio do aplicativo e seu domínio Azure AD B2C têm a *mesma origem*. Para usar a mesma origem, [habilite domínios personalizados](custom-domain.md) para Azure ad B2C locatário e, em seguida, configure seu aplicativo Web com a mesma origem. Por exemplo, um aplicativo hospedado no https://app.contoso.com tem a mesma origem que Azure ad B2C em execução https://login.contoso.com .
  
 ## <a name="configure-your-policy"></a>Configurar sua política
 

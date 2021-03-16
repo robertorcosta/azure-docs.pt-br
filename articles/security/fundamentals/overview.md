@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: a62326d99eee8407b65c0c640b4db8a6f051c758
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101181"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564504"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 
@@ -50,7 +50,7 @@ Dependendo do modelo de serviço de nuvem, a responsabilidade de quem gerencia a
 
 Os recursos internos são organizados em seis áreas funcionais: operações, aplicativos, armazenamento, rede, computação e identidade. Detalhes adicionais sobre os recursos e funcionalidades disponíveis na plataforma do Azure nessas seis áreas são fornecidos por meio de informações de resumo.
 
-## <a name="operations"></a>Operations
+## <a name="operations"></a>Operações
 
 Esta seção fornece outras informações sobre os principais recursos em operações de segurança, e informações de resumo sobre esses recursos.
 
@@ -202,6 +202,14 @@ A rede do Azure dá suporte a vários cenários de acesso remoto seguro. Entre e
 
 - [Conectar Redes Virtuais do Azure entre si](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
+### <a name="azure-private-link"></a>Link Privado do Azure
+
+O [link privado do Azure](https://azure.microsoft.com/services/private-link/) permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços de parceiro/cliente hospedados no Azure de forma privada em sua rede virtual por um [ponto de extremidade privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). A configuração e o consumo usando o Link Privado do Azure são consistentes entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados. O tráfego da sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
+
+Os [pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) permitem que você proteja seus recursos críticos de serviço do Azure apenas para suas redes virtuais. O ponto de extremidade privado do Azure usa um endereço IP privado de sua VNet para conectar você de forma privada e segura a um serviço fornecido pelo link privado do Azure, efetivamente colocando o serviço em sua VNet. Expor sua rede virtual à Internet pública não é mais necessário para consumir serviços no Azure. 
+
+Você também pode criar seu próprio serviço de vínculo privado em sua rede virtual. O [serviço de vínculo privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-service-overview) é a referência para seu próprio serviço que é alimentado pelo link privado do Azure. Seu serviço que está sendo executado por trás do Azure Standard Load Balancer pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada de suas próprias redes virtuais. Seus clientes podem criar um ponto de extremidade privado dentro de sua rede virtual e mapeá-lo para esse serviço. Expor seu serviço para a Internet pública não é mais necessário para processar serviços no Azure. 
+
 ### <a name="vpn-gateway"></a>Gateway de VPN
 
 Para enviar o tráfego de rede entre sua Rede Virtual do Azure e seu site local, será necessário criar um gateway de VPN para sua Rede Virtual do Azure. Um [gateway de VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) é um tipo de gateway de rede virtual que envia o tráfego criptografado em uma conexão pública. Você também pode usar gateways de VPN para enviar o tráfego entre as Redes Virtuais do Azure pela malha de rede do Azure.
@@ -318,7 +326,7 @@ As atualizações de patch fornecem a base para encontrar e corrigir problemas e
 ### <a name="security-policy-management-and-reporting"></a>Gerenciamento de política de segurança e emissão de relatórios
 A [central de segurança](../../security-center/security-center-introduction.md) ajuda você a prevenir, detectar e responder a ameaças, além de oferecer maior visibilidade e controle sobre a segurança de seus recursos do Azure. Ela permite o gerenciamento de políticas e o monitoramento da segurança integrada entre suas assinaturas do Azure, ajuda a detectar ameaças que poderiam passar despercebidas e funciona com uma enorme variedade de soluções de segurança.
 
-## <a name="identity-and-access-management"></a>Gerenciamento de identidade e de acesso
+## <a name="identity-and-access-management"></a>Gerenciamento de identidade e acesso
 A proteção de sistemas, aplicativos e dados começa com controles de acesso baseados em identidade. Os recursos de gerenciamento de identidades e acesso integrados aos produtos e serviços comerciais da Microsoft ajudam a proteger as informações pessoais e corporativas contra o acesso não autorizado, mas as disponibilizam aos usuários legítimos, quando e onde eles precisarem.
 
 ### <a name="secure-identity"></a>Proteção da identidade

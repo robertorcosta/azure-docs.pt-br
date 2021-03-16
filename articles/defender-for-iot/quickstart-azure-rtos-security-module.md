@@ -1,6 +1,6 @@
 ---
 title: 'Início Rápido: Configurar e habilitar o Módulo de Segurança para o Azure RTOS'
-description: Saiba como integrar e habilitar o Módulo de Segurança para o serviço do Azure RTOS em seu Hub IoT do Azure.
+description: Neste início rápido, você aprenderá como integrar e habilitar o Módulo de Segurança para o serviço Azure RTOS no Hub IoT do Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2021
 ms.author: shhazam
-ms.openlocfilehash: a11a8ec2d8eb82950cf0ab55eb6ca1913b41c84a
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 19a439ec48d4a8705ffb46db7ca037b51449083d
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522930"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102447292"
 ---
-# <a name="quickstart-security-module-for-azure-rtos-preview"></a>Início Rápido: Módulo de Segurança para o Azure RTOS (versão prévia)
+# <a name="quickstart-security-module-for-azure-rtos"></a>Início rápido: Módulo de Segurança para o Azure RTOS 
 
 Este artigo fornece uma explicação dos pré-requisitos antes de começar e explica como habilitar o Módulo de Segurança para o serviço do Azure RTOS em um Hub IoT. Se você não tiver, no momento, um Hub IoT, confira [Criar um Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md) para começar a usar.
 

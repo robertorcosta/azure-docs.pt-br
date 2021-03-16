@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 15ff46ad74c4c48c6b5f320622bc364adf59d4cc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103496279"
+ms.locfileid: "103561831"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -238,6 +238,6 @@ A limpeza automatizada para o diretório de trabalho será bloqueada se você ex
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Crie uma conta do Lote do Azure usando o portal do Azure](batch-account-create-portal.md).
 - Saiba mais sobre o [Fluxo de trabalho e recursos primários do serviço de lote](batch-service-workflow-features.md) como pools, nós, trabalhos e tarefas.
 - Saiba mais sobre as [cotas, os limites e as restrições do lote do Azure padrão e como solicitar aumentos de cota](batch-quota-limit.md).
+- Saiba como [detectar e evitar falhas em operações de segundo plano do pool e do nó ](batch-pool-node-error-checking.md).

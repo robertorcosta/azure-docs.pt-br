@@ -3,14 +3,14 @@ title: Verificar erros no pool e nos nós
 description: Este artigo aborda as operações em segundo plano que podem ocorrer, além de erros a verificar e como evitá-los ao criar pools e nós.
 author: mscurrell
 ms.author: markscu
-ms.date: 02/03/2020
+ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 2b67eada5dfa89f95e2c9ae045c6bbe3fa0bb1ce
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576305"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564398"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -62,6 +62,13 @@ Ao excluir um pool que contém nós, o primeiro lote exclui os nós. Isso pode d
 
 O lote define o [estado do pool](/rest/api/batchservice/pool/get#poolstate) será definido como **excluindo** durante o processo de exclusão. O aplicativo de chamada pode detectar se a exclusão do pool está demorando demais usando as propriedades **state** e **stateTransitionTime**.
 
+Se o pool estiver demorando mais do que o esperado, o lote tentará periodicamente até que o pool possa ser excluído com êxito. Em alguns casos, o atraso é devido a uma interrupção do serviço do Azure ou a outros problemas temporários. Outros fatores que podem impedir que um pool seja excluído com êxito podem exigir que você execute ações para corrigir o problema. Esses fatores incluem o seguinte:
+
+- Os bloqueios de recursos foram colocados em recursos criados em lote ou nos recursos de rede usados pelo lote.
+- Os recursos que você criou têm uma dependência em um recurso criado em lote. Por exemplo, se você [criar um pool em uma rede virtual](batch-virtual-network.md), o lote criará um NSG (grupo de segurança de rede), um endereço IP público e um balanceador de carga. Se você usar esses recursos fora do pool, o pool não poderá ser excluído até que essa dependência seja removida.
+- O provedor de recursos Microsoft.Batch tinha o registro cancelado da assinatura que contém o pool.
+- "Lote do Microsoft Azure" não tem mais a [função colaborador ou proprietário](batch-account-create-portal.md#allow-azure-batch-to-access-the-subscription-one-time-operation) para a assinatura que contém o pool (para contas do lote do modo de assinatura do usuário).
+
 ## <a name="node-errors"></a>Erros de nó
 
 Mesmo quando o Lote aloca com êxito os nós em um pool, diversos problemas podem fazer com que alguns dos nós sejam não íntegros e não consigam executar tarefas. Esses nós ainda incorrem em encargos, portanto, é importante detectar problemas para evitar o pagamento de nós que não podem ser usados. Além dos erros de nós comuns, é útil saber qual o [estado atual](/rest/api/batchservice/job/get#jobstate) do trabalho ao solucionar problemas.
@@ -105,15 +112,10 @@ Se o lote poder determinar a causa, a propriedade do nó [erros](/rest/api/batch
 Alguns outros exemplos de causas para nós **inutilizáveis** incluem:
 
 - A imagem de VM personalizada é inválida. Por exemplo, uma imagem que não é preparada corretamente.
-
 - Uma VM é movida devido a uma falha de infraestrutura ou de uma atualização de nível baixo. O lote recupera o nó.
-
 - Uma imagem de VM foi implantada em hardware que não dá suporte a ela. Por exemplo, tentar executar uma imagem do CentOS HPC em uma VM [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md).
-
 - As VMs estão em uma [rede virtual do Azure](batch-virtual-network.md) e o tráfego para as principais portas foi bloqueado.
-
 - As VMs estão em uma rede virtual, mas o tráfego de saída para o armazenamento do Azure está bloqueado.
-
 - As VMs estão em uma rede virtual com uma configuração de DNS do cliente e o servidor DNS não consegue resolver o armazenamento do Azure.
 
 ### <a name="node-agent-log-files"></a>Arquivos de log do agente de nó

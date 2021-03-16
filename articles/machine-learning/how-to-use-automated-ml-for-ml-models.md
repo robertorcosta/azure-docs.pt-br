@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 12/20/2020
 ms.topic: conceptual
 ms.custom: how-to, automl
-ms.openlocfilehash: a91a4f3a2e686c8d502093dc41520df32b313209
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 2e06375441d6540d6630cfe9d4d8c3beec558879
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102520619"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562715"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Criar, revisar e implantar modelos de machine learning automatizado com o Azure Machine Learning
 
@@ -37,7 +37,7 @@ Para uma experiência baseada em códigos Python, [configure seus experimentos d
 
 ## <a name="get-started"></a>Introdução
 
-1. Entre no Azure Machine Learning em https://ml.azure.com. 
+1. Entre no [Estúdio do Azure Machine Learning](https://ml.azure.com). 
 
 1. Selecione sua assinatura e seu espaço de trabalho. 
 
@@ -198,6 +198,11 @@ Para obter explicações para um modelo específico,
 ## <a name="deploy-your-model"></a>Implantar o seu modelo
 
 Assim que você tiver o melhor modelo em mãos, é hora de implantá-lo como um serviço Web para prever novos dados.
+
+>[!TIP]
+> Se você pretende implantar um modelo que foi gerado por meio do `automl` pacote com o SDK do Python, você deve [registrar seu modelo](how-to-deploy-and-where.md?tabs=python#register-a-model-from-an-azure-ml-training-run-1) no espaço de trabalho. 
+>
+> Depois que o modelo estiver registrado, encontre-o no estúdio selecionando **modelos** no painel esquerdo. Depois de abrir seu modelo, você pode selecionar o botão **implantar** na parte superior da tela e, em seguida, seguir as instruções, conforme descrito na **etapa 2** da seção **implantar seu modelo** .
 
 O ML automatizado ajuda a implantar o modelo sem escrever códigos:
 

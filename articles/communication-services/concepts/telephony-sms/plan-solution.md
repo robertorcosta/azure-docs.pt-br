@@ -10,18 +10,31 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b7d780ce6362e34c801b4da25332bff90f0b7515
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 380792db21932ed2c6cffb4227df09b27f0cdf5e
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659266"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487468"
 ---
 # <a name="phone-number-types-in-azure-communication-services"></a>Tipos de número de telefone nos Serviços de Comunicação do Azure
 
-[!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
+
+
+[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
+
+> [!IMPORTANT]
+> A disponibilidade do número de telefone atualmente está restrita a assinaturas pagas do Azure que têm um endereço para cobrança nos Estados Unidos e a recursos dos Serviços de Comunicação que têm um local de dados nos EUA. Números de telefone não podem ser adquiridos em contas de avaliação ou usando créditos gratuitos do Azure. Para obter mais informações, visite a seção [qualificação para assinatura](#azure-subscriptions-eligibility) deste documento.
+
 
 Os Serviços de Comunicação do Azure permitem que você use números de telefone para fazer chamadas de voz e enviar mensagens SMS com a PSTN (Rede Telefônica Pública Comutada). Neste documento, examinaremos os tipos de número de telefone, as opções de configuração e a disponibilidade de região para planejar sua solução de telefonia e SMS usando os Serviços de Comunicação.
+
+## <a name="azure-subscriptions-eligibility"></a>Qualificação das assinaturas do Azure
+
+Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação ou por créditos gratuitos do Azure. 
+
+A disponibilidade do número de telefone atualmente está restrita a assinaturas do Azure que têm um endereço para cobrança nos Estados Unidos e a recursos dos Serviços de Comunicação que têm um local de dados nos EUA.
+
 
 ## <a name="number-types-and-features"></a>Tipos de número e recursos
 Os Serviços de Comunicação oferecem dois tipos de números de telefone: **local** e **gratuito**.
@@ -69,11 +82,6 @@ A tabela a seguir mostra em que local você pode adquirir diferentes tipos de n�
 
 *Para obter mais detalhes sobre os destinos e os preços das chamadas, veja a [página de preços](../pricing.md).
 
-## <a name="azure-subscriptions-eligibility"></a>Qualificação das assinaturas do Azure
-
-Para adquirir um número de telefone, você precisa ter uma assinatura paga do Azure. Os números de telefone não podem ser adquiridos em contas de avaliação ou por créditos gratuitos do Azure.
-
-Atualmente, a disponibilidade do número de telefone é restrita às assinaturas do Azure que têm um endereço para cobrança nos Estados Unidos.
 
 ## <a name="next-steps"></a>Próximas etapas
 
