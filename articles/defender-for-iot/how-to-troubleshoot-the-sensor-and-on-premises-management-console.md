@@ -4,15 +4,15 @@ description: Solucione problemas do seu sensor e do console de gerenciamento loc
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/3/2021
+ms.date: 03/14/2021
 ms.topic: article
 ms.service: azure
-ms.openlocfilehash: 624f60441f56646c3633a2afa79d326c92ba1a37
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523712"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465769"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solucionar problemas do sensor e do console de gerenciamento local
 
@@ -54,7 +54,7 @@ Para recuperar sua senha:
 1. Selecione **Avançar** e seu usuário, e a senha gerada pelo sistema para o console de gerenciamento será exibida.
 
     > [!NOTE]
-    > Quando você entra em um sensor ou em um console de gerenciamento local pela primeira vez, ele será vinculado à assinatura à qual você o conectou. Se você precisar redefinir a senha para o CyberX ou o usuário de suporte, precisará selecionar essa assinatura. Para obter mais informações sobre como recuperar uma senha de usuário de CyberX ou de suporte, consulte [redefinindo a senha de um usuário para o sensor ou o console de gerenciamento local](how-to-create-and-manage-users.md#resetting-a-users-password-for-the-sensor-or-on-premises-management-console)
+    > Quando você entra em um sensor ou em um console de gerenciamento local pela primeira vez, ele será vinculado à assinatura à qual você o conectou. Se você precisar redefinir a senha para o CyberX ou o usuário de suporte, precisará selecionar essa assinatura. Para obter mais informações sobre como recuperar uma senha de usuário de CyberX ou de suporte, consulte [redefinindo senhas](how-to-create-and-manage-users.md#resetting-passwords).
 
 ### <a name="investigate-a-lack-of-traffic"></a>Investigue a falta de tráfego
 
@@ -283,7 +283,7 @@ Os logs exportados são adicionados à lista de **logs arquivados** . Envie a OT
 
 A lista de logs arquivados pode conter até cinco itens. Se o número de itens na lista ultrapassar esse número, o item mais antigo será excluído.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Consulte também
 
 - [Exibir alertas](how-to-view-alerts.md)
 

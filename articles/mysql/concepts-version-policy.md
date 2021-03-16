@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/03/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9f34e1ff7134788d064a82ec7b646df915dbe24e
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 8ad79f2f27864b4fbc78b7c104828230ff7f93bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462551"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103465650"
 ---
 # <a name="azure-database-for-mysql-version-support-policy"></a>Política de suporte da versão do banco de dados do Azure para MySQL
 
@@ -29,10 +29,11 @@ Atualmente, o banco de dados do Azure para MySQL dá suporte às seguintes vers�
 
 | Versão | Servidor único <br/> Versão secundária atual |Servidor Flexível (versão prévia) <br/> Versão secundária atual  |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|
-|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html) | Sem suporte|
+|MySQL Versão 5.6 |  [5.6.47](https://dev.mysql.com/doc/relnotes/mysql/5.6/en/news-5-6-47.html)(desativado) | Sem suporte|
 |MySQL Versão 5.7 | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html) | [5.7.29](https://dev.mysql.com/doc/relnotes/mysql/5.7/en/news-5-7-29.html)|
 |MySQL versão 8,0 | [8.0.15](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-15.html) | [8.0.21](https://dev.mysql.com/doc/relnotes/mysql/8.0/en/news-8-0-21.html)|
 
+Leia a política de suporte de versão para versões desativadas na [documentação da política de suporte de versão.](concepts-version-policy.md#retired-mysql-engine-versions-not-supported-in-azure-database-for-mysql)
 
 ## <a name="major-version-support"></a>Suporte de versão principal
 Cada versão principal do MySQL terá suporte do banco de dados do Azure para MySQL a partir da data em que o Azure começa a dar suporte à versão até que a versão seja desativada pela Comunidade do MySQL, conforme fornecido na [política de controle de versão](https://www.mysql.com/support/eol-notice.html).

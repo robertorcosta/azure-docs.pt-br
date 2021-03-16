@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e94b14584f8eece3d772f67b680df4a2ffb8b5cd
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: aafeb7ebd939805ae18e29670f359660db12e2e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102603210"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103555892"
 ---
 Por enquanto, ultra discos têm limitações adicionais, como a seguir:
 
@@ -26,7 +26,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 
 |Regiões  |Opções de redundância  |
 |---------|---------|
-|Sul do Brasil     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
+|Brazil South     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Índia Central     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Leste da Ásia     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
 |Centro-Oeste da Alemanha     |Somente VMs únicas (conjuntos de disponibilidade e conjuntos de dimensionamento de máquinas virtuais não têm suporte)|
@@ -44,7 +44,7 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
 |Leste dos EUA     |Três zonas de disponibilidade          |
 |Leste dos EUA 2     |Três zonas de disponibilidade         |
 |França Central    |Duas zonas de disponibilidade        |
-|Leste do Japão    |Três zonas de disponibilidade        |
+|Japan East    |Três zonas de disponibilidade        |
 |Norte da Europa    |Três zonas de disponibilidade        |
 |Sul do Reino Unido    |Três zonas de disponibilidade        |
 |Europa Ocidental    | Três zonas de disponibilidade|
@@ -65,11 +65,11 @@ A tabela a seguir descreve as regiões em que os ultra discos estão disponívei
     - [Mv2](../articles/virtual-machines/workloads/sap/hana-vm-operations-storage.md)
 - Nem todo tamanho de VM está disponível em todas as regiões com suporte com ultra discos.
 - Estão disponíveis somente como discos de dados. 
-- Suporte ao tamanho de setor físico de 4K por padrão. o tamanho do setor 512E está disponível como uma oferta geralmente disponível (nenhuma inscrição é necessária), mas só está disponível no momento usando a CLI ou o PowerShell. A maioria dos aplicativos é compatível com tamanhos de setor de 4K, mas alguns exigem tamanhos de setor de 512 bytes. Um exemplo seria Oracle Database, que requer a versão 12,2 ou posterior para dar suporte aos discos nativos de 4K. Para versões mais antigas do Oracle DB, é necessário o tamanho do setor de 512 bytes.
+- Suporte ao tamanho de setor físico de 4K por padrão. o tamanho do setor de 512E está disponível como uma oferta geralmente disponível (nenhuma inscrição é necessária). A maioria dos aplicativos é compatível com tamanhos de setor de 4K, mas alguns exigem tamanhos de setor de 512 bytes. Um exemplo seria Oracle Database, que requer a versão 12,2 ou posterior para dar suporte aos discos nativos de 4K. Para versões mais antigas do Oracle DB, é necessário o tamanho do setor de 512 bytes.
 - Só pode ser criado como discos vazios.
 - Atualmente, o não oferece suporte a instantâneos de disco, imagens de VM, conjuntos de disponibilidade, hosts dedicados do Azure ou Azure Disk Encryption.
 - Atualmente, o não oferece suporte à integração com o backup do Azure ou Azure Site Recovery.
 - Dá suporte apenas a leituras não armazenadas em cache e gravações não armazenadas em cache.
 - O limite máximo atual para IOPS em VMs GA é 80.000.
 
-Os ultra discos do Azure oferecem até 16 TiB por região por assinatura por padrão, mas os ultra discos oferecem suporte à maior capacidade por solicitação. Para solicitar um aumento na capacidade, entre em contato com o suporte do Azure.
+Os ultra discos do Azure oferecem até 32 TiB por região por assinatura por padrão, mas os ultra discos oferecem suporte à maior capacidade por solicitação. Para solicitar um aumento na capacidade, solicite um aumento de cota ou entre em contato com o suporte do Azure.

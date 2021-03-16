@@ -10,16 +10,25 @@ ms.subservice: computer-vision
 ms.topic: overview
 ms.date: 01/13/2021
 ms.author: pafarley
-ms.openlocfilehash: 4f5ea68102e98a9abc3e5a0a31d3153bc1bd1663
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 78746e7623f58af5ae9df829b48245295dc39f01
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738218"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102487093"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novidades na Pesquisa Visual Computacional
 
 Conheça o que há de novo no serviço. Esses itens podem ser notas sobre a versão, vídeos, postagens no blog e outros tipos de informações. Marque esta página para se manter atualizado quanto ao serviço.
+
+## <a name="march-2021"></a>Março de 2021
+
+### <a name="computer-vision-32-public-preview-update"></a>Atualização da Versão Prévia Pública da Pesquisa Visual Computacional 3.2
+
+A Versão Prévia Pública da API da Pesquisa Visual Computacional v3.2 foi atualizada. A versão prévia tem todos os recursos da Pesquisa Visual Computacional, juntamente com APIs de Leitura e Análise atualizadas.
+
+> [!div class="nextstepaction"]
+> [Confira a Pesquisa Visual Computacional v3.2, versão prévia pública 3](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 ## <a name="february-2021"></a>Fevereiro de 2021
 
@@ -34,7 +43,7 @@ A versão prévia pública da API de Leitura v3.2 da Pesquisa Visual Computacion
 [Saiba mais](concept-recognizing-text.md) sobre a API de Leitura.
 
 > [!div class="nextstepaction"]
-> [Use a Versão Prévia Pública da API de Leitura v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-2/operations/5d986960601faab4bf452005)
+> [Use a Versão Prévia Pública da API de Leitura v3.2](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-2-preview-3/operations/5d986960601faab4bf452005)
 
 
 ## <a name="january-2021"></a>Janeiro de 2021

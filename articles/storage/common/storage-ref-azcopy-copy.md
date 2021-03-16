@@ -4,16 +4,16 @@ description: Este artigo fornece informações de referência para o comando azc
 author: normesta
 ms.service: storage
 ms.topic: reference
-ms.date: 12/11/2020
+ms.date: 03/08/2021
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: c4e85195ace0a24aa11d4a03b8f429f2714399b0
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: c676b92fd07c6e444aa22f25c48fdb1b1957ca7a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98879149"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493757"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -31,6 +31,7 @@ Copia os dados de origem para um local de destino. As instruções com suporte s
   - Arquivos do Azure (SAS)-> arquivos do Azure (SAS)
   - Arquivos do Azure (SAS)-> blob do Azure (autenticação SAS ou OAuth)
   - Amazon Web Services (AWS) S3 (chave de acesso)-> blob de blocos do Azure (autenticação SAS ou OAuth)
+  - Google Cloud Storage (chave de conta de serviço)-> blob de blocos do Azure (autenticação SAS ou OAuth) [Preview]
 
 Para obter mais informações, consulte a seção exemplos deste artigo.
 
@@ -229,6 +230,36 @@ Transfira arquivos e diretórios para a conta de armazenamento do Azure e defina
 - Chaves e valores são codificados em URL e os pares chave-valor são separados por um e comercial (' & ')
     
 - Ao definir marcas nos BLOBs, há permissões adicionais (' T' para marcas) em SAS sem a qual o serviço dará erro de autorização.
+
+Copie um único objeto para o armazenamento de BLOBs do Google Cloud Storage usando uma chave de conta de serviço e um token SAS. Primeiro, defina a variável de ambiente GOOGLE_APPLICATION_CREDENTIALS para a fonte de armazenamento do Google Cloud.
+  
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket]/[object]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/blob]?[SAS]"
+```
+
+Copie um diretório inteiro para o armazenamento de BLOBs do Google Cloud Storage usando uma chave de conta de serviço e um token SAS. Primeiro, defina a variável de ambiente GOOGLE_APPLICATION_CREDENTIALS para a fonte de armazenamento do Google Cloud.
+ 
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/[bucket]/[folder]" "https://[destaccount].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive=true
+```
+
+Copie um Bucket inteiro no armazenamento de BLOBs do Google Cloud Storage usando uma chave de conta de serviço e um token SAS. Primeiro, defina a variável de ambiente GOOGLE_APPLICATION_CREDENTIALS para a fonte de armazenamento do Google Cloud.
+
+```azcopy 
+azcopy cp "https://storage.cloud.google.com/[bucket]" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copie todos os buckets no armazenamento de BLOBs do Google Cloud Storage usando uma chave de conta de serviço e um token SAS. Primeiro, defina as variáveis de ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT =<Project-ID> para a origem de GCS
+
+```azcopy
+  - azcopy cp "https://storage.cloud.google.com/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
+
+Copie um subconjunto de buckets usando um símbolo curinga (*) no nome do Bucket do armazenamento em nuvem do Google usando uma chave de conta de serviço e um token SAS para o destino. Primeiro, defina as variáveis de ambiente GOOGLE_APPLICATION_CREDENTIALS e GOOGLE_CLOUD_PROJECT =<Project-ID> para a fonte de armazenamento do Google Cloud.
+ 
+```azcopy
+azcopy cp "https://storage.cloud.google.com/[bucket*name]/" "https://[destaccount].blob.core.windows.net/?[SAS]" --recursive=true
+```
 
 ## <a name="options"></a>Opções
 

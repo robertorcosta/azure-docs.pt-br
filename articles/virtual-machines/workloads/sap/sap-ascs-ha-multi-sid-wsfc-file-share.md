@@ -13,15 +13,15 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/24/2020
+ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30f2e0e96f11203633b756a320d3da503686ed9f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8b1a29b0f94c5009d0535ca92363c25ad5c6c884
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504483"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493485"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-file-share-on-azure"></a>Alta disponibilidade de vários SIDs da instância do SAP ASCS com clustering de failover do Windows Server e compartilhamento de arquivos no Azure
 
@@ -59,6 +59,7 @@ _**Figura 1:** Uma instância do SAP ASCS/SCS e SOFS implantadas em dois cluster
 > A instalação deve atender às seguintes condições:
 > * As instâncias do SAP ASCS/SCS deverão compartilhar o mesmo cluster WSFC.
 > * Diferentes compartilhamentos de arquivos de Hosts Globais do SAP que pertencem a diferentes SIDs do SAP precisam compartilhar o mesmo cluster SOFS.
+> * As instâncias do SAP ASCS/SCS e os compartilhamentos SOFS não devem ser combinados no mesmo cluster. 
 > * Cada SID do DBMS (sistema de gerenciamento de banco de dados) deve ter seu próprio cluster WSFC dedicado.
 > * Os servidores de aplicativos SAP que pertencem a um SID do sistema SAP deverão ter suas próprias VMs dedicadas.
 > * Não há suporte para uma combinação do servidor de replicação de enfileiramento 1 e do servidor de replicação de enfileiramento 2 no mesmo cluster.  

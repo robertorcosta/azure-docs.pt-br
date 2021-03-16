@@ -8,14 +8,16 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 517bcdab375db819b0942306df82e7285b9473b1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041372"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487693"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o ambiente de desenvolvimento e teste para o IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 O Azure IoT Edge move a lógica de negócios existente para dispositivos operando na borda. Para preparar seus aplicativos e cargas de trabalho para executar como [Módulos do IoT Edge](iot-edge-modules.md), você precisa criá-los como contêineres. Este artigo fornece orientação sobre como configurar seu ambiente de desenvolvimento para que você possa criar uma solução IoT Edge com êxito. Depois de configurar seu ambiente de desenvolvimento, em seguida, você pode aprender como [Desenvolver seus próprios módulos do IoT Edge](module-development.md).
 
@@ -55,7 +57,7 @@ Os modelos de módulo para algumas linguagens e serviços têm os pré-requisito
 
 | Modelo do módulo | Pré-requisito |
 | --------------- | ------------ |
-| Azure Functions | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
+| Funções do Azure | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Defina a variável de ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
