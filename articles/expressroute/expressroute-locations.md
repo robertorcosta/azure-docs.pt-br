@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 02/10/2021
 ms.author: duau
-ms.openlocfilehash: 5fedb9d09e61540d0ee8a1fe21fbd25f31390f5d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0133d6cc54038a56847556a83242114c78e09321
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742442"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574401"
 ---
 # <a name="expressroute-connectivity-partners-and-peering-locations"></a>Locais de emparelhamento e parceiros de conectividade do ExpressRoute
 
@@ -115,6 +115,7 @@ A tabela a seguir mostra locais pelo provedor de serviços. Se você quiser exib
 | **[GlobalConnect]()** | Com suporte |Com suporte | Oslo, Stavanger | 
 | **GTT** |Com suporte |Com suporte |London2 |
 | **[Global Cloud Exchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Com suporte| Com suporte | Chennai, Mumbai |
+| **[iAdvantage](https://www.scx.sunevision.com/)** | Com suporte | Com suporte | Hong Kong2 |
 | **Intelsat** | Com suporte | Com suporte | Washington D.C. 2 |
 | **[InterCloud](https://www.intercloud.com/)** |Com suporte |Com suporte |Amsterdã, Chicago, Frankfurt, Hong Kong, Londres, Nova York, Paris, vale do silício, Cingapura, Washington, D.c. |
 | **[Internet2](https://internet2.edu/services/cloud-connect/#service-cloud-connect)** |Com suporte |Com suporte |Chicago, Dallas, Vale do Silício, Washington D.C. |

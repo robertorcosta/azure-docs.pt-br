@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 03/06/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 15ec8417ba5e2858b45176f0a214f6126209f942
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3b6ed39c11e3f90b986ef904ff3f8e9ff3158d0d
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449740"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574162"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-using-powershell"></a>Configurar conexões coexistentes Site a Site e ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -250,9 +250,9 @@ Você pode seguir as etapas abaixo para adicionar a configuração ponto a ponto
 
    ```azurepowershell-interactive
    $azureVpn = Get-AzVirtualNetworkGateway -Name "VPNGateway" -ResourceGroupName $resgrp.ResourceGroupName
-   Set-AzVirtualNetworkGatewayVpnClientConfig -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
+   Set-AzVirtualNetworkGateway -VirtualNetworkGateway $azureVpn -VpnClientAddressPool "10.251.251.0/24"
    ```
-2. Carregue o certificado-raiz da VPN para Azure para seu gateway de VPN. Neste exemplo, supõe-se que o certificado raiz está armazenado no computador local em que os seguintes cmdlets do PowerShell são executados e que você está executando o PowerShell localmente. Você também pode carregar o certificado usando o portal do Azure.
+2. Carregue o [certificado raiz](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md#Certificates) de VPN no Azure para o gateway de VPN. Neste exemplo, supõe-se que o certificado raiz está armazenado no computador local em que os seguintes cmdlets do PowerShell são executados e que você está executando o PowerShell localmente. Você também pode carregar o certificado usando o portal do Azure.
 
    ```powershell
    $p2sCertFullName = "RootErVpnCoexP2S.cer" 

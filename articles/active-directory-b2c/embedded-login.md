@@ -11,16 +11,18 @@ ms.topic: how-to
 ms.date: 03/16/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: fd4724fc19814a5ffd35380c0b326e035a340ef2
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 9e248c10c15ba0318c6b23fcbf88be04dd9896a2
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561508"
+ms.locfileid: "103573057"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiência de entrada inserida
 
 Para uma experiência de entrada mais simples, você pode evitar o redirecionamento de usuários para uma página de entrada separada ou a geração de uma janela pop-up. Usando o elemento de quadro embutido `<iframe>` , você pode inserir a interface do usuário de entrada do Azure ad B2C diretamente em seu aplicativo Web.
+
+[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
 ## <a name="web-application-embedded-sign-in"></a>Entrada inserida do aplicativo Web
 
@@ -32,7 +34,12 @@ Ao usar o iframe, considere o seguinte:
 
 - A entrada inserida só dá suporte a contas locais. A maioria dos provedores de identidade social (por exemplo, Google e Facebook) bloqueiam suas páginas de entrada de serem renderizadas em quadros embutidos.
 - Como Azure AD B2C cookies de sessão em um iframe são considerados cookies de terceiros, determinados navegadores (por exemplo, Safari ou Chrome no modo Incognito) bloqueiam ou desmarcam esses cookies, resultando em uma experiência de usuário indesejável. Para evitar esse problema, verifique se o nome de domínio do aplicativo e seu domínio Azure AD B2C têm a *mesma origem*. Para usar a mesma origem, [habilite domínios personalizados](custom-domain.md) para Azure ad B2C locatário e, em seguida, configure seu aplicativo Web com a mesma origem. Por exemplo, um aplicativo hospedado no https://app.contoso.com tem a mesma origem que Azure ad B2C em execução https://login.contoso.com .
- 
+
+## <a name="perquisites"></a>Pré-requisitos
+
+* Conclua as etapas em [Introdução às políticas personalizadas no Active Directory B2C](custom-policy-get-started.md).
+* [Habilite domínios personalizados](custom-domain.md) para suas políticas.
+
 ## <a name="configure-your-policy"></a>Configurar sua política
 
 Para permitir que a interface do usuário do Azure AD B2C seja inserida em um iframe, uma política de segurança de conteúdo `Content-Security-Policy` e opções de quadro `X-Frame-Options` devem ser incluídas nos cabeçalhos de resposta http Azure ad B2C. Esses cabeçalhos permitem que a interface do usuário do Azure AD B2C seja executada sob o nome de domínio do aplicativo.

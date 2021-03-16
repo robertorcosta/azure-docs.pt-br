@@ -11,12 +11,12 @@ author: peterclu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
-ms.openlocfilehash: fcb678efe29178784c9233e79b307f705c40e3f7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518663"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573465"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
 
@@ -31,12 +31,11 @@ Estes são os outros artigos desta série:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
-+ [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
++ [Redes virtuais do Azure](../virtual-network/virtual-networks-overview.md)
 + [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
 + [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)
 + [Firewalls de rede](../firewall/overview.md)
-
 ## <a name="example-scenario"></a>Cenário de exemplo
 
 Nesta seção, você aprenderá como um cenário de rede comum é configurado para proteger Azure Machine Learning comunicação com endereços IP privados.
@@ -62,8 +61,8 @@ As próximas cinco seções mostram como proteger o cenário de rede descrito ac
 1. Proteja o [**ambiente de treinamento**](#secure-the-training-environment).
 1. Proteja o [**ambiente inferência**](#secure-the-inferencing-environment).
 1. Opcionalmente: [**habilitar a funcionalidade do estúdio**](#optional-enable-studio-functionality).
-1. Definir [ **configurações de firewall**](#configure-firewall-settings)
-
+1. Defina [**as configurações de firewall**](#configure-firewall-settings).
+1. Configurar a [resolução de nomes DNS](#custom-dns).
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteger o espaço de trabalho e os recursos associados
 
 Use as etapas a seguir para proteger seu espaço de trabalho e os recursos associados. Essas etapas permitem que seus serviços se comuniquem na rede virtual.
@@ -186,3 +185,5 @@ Este artigo faz parte de uma série de redes virtuais de cinco partes. Consulte 
 * [Parte 3: proteger o ambiente de treinamento](how-to-secure-training-vnet.md)
 * [Parte 4: proteger o ambiente inferência](how-to-secure-inferencing-vnet.md)
 * [Parte 5: habilitar a funcionalidade do estúdio](how-to-enable-studio-virtual-network.md)
+
+Consulte também o artigo sobre como usar o [DNS personalizado](how-to-custom-dns.md) para a resolução de nomes.

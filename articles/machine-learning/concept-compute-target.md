@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 3b1e102385f43dd9a1ba6996e657f49d435038a2
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503599"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574638"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
 
@@ -98,30 +98,30 @@ Há algumas exceções e limitações para escolher um tamanho de VM:
 
 Consulte a tabela a seguir para saber mais sobre as restrições e as séries com suporte.
 
-| **Série de VMs com suporte**  | **Restrições** |
-|------------|------------|
-| D | Nenhum. |
-| DDSv4 | Nenhum. |
-| Dv2 | Nenhum. |  
-| Dv3 | Nenhum.|
-| DSv2 | Nenhum. | 
-| DSv3 | Nenhum.|
-| EAv4 | Nenhum. |
-| Ev3 | Nenhum. |
-| FSv2 | Nenhum. | 
-| H | Nenhum. |
-| HB | Requer aprovação. |
-| HBv2 | Requer aprovação. |  
-| HCS | Requer aprovação. |  
-| M | Requer aprovação. |
-| NC | Nenhum. |  
-| Promoção de NC | Nenhum. |
-| NCsv2 | Requer aprovação. |
-| NCsv3 | Requer aprovação. |  
-| NDs | Requer aprovação. |
-| NDv2 | Requer aprovação. |
-| NV | Nenhum. |
-| NVv3 | Requer aprovação. | 
+| **Série de VMs com suporte**  | **Restrições** | **Categoria** | **Com suporte por** |
+|------------|------------|------------|------------|
+| D | Nenhum. | Propósito geral | Clusters e instância de computação |
+| DDSv4 | Nenhum. | Propósito geral | Clusters e instância de computação |
+| Dv2 | Nenhum. | Propósito geral | Clusters e instância de computação |
+| Dv3 | Nenhum.| Propósito geral | Clusters e instância de computação |
+| DSv2 | Nenhum. | Propósito geral | Clusters e instância de computação |
+| DSv3 | Nenhum.| Propósito geral | Clusters e instância de computação |
+| EAv4 | Nenhum. | Otimizado para memória | Clusters e instância de computação |
+| Ev3 | Nenhum. | Otimizado para memória | Clusters e instância de computação |
+| FSv2 | Nenhum. | Otimizado para computação | Clusters e instância de computação |
+| H | Nenhum. | Computação de alto desempenho | Clusters e instância de computação |
+| HB | Requer aprovação. | Computação de alto desempenho | Clusters e instância de computação |
+| HBv2 | Requer aprovação. |  Computação de alto desempenho | Clusters e instância de computação |
+| HCS | Requer aprovação. |  Computação de alto desempenho | Clusters e instância de computação |
+| M | Requer aprovação. | Otimizado para memória | Clusters e instância de computação |
+| NC | Nenhum. |  GPU | Clusters e instância de computação |
+| Promoção de NC | Nenhum. | GPU | Clusters e instância de computação |
+| NCsv2 | Requer aprovação. | GPU | Clusters e instância de computação |
+| NCsv3 | Requer aprovação. | GPU | Clusters e instância de computação |  
+| NDs | Requer aprovação. | GPU | Clusters e instância de computação | 
+| NDv2 | Requer aprovação. | GPU | Clusters e instância de computação | 
+| NV | Nenhum. | GPU | Clusters e instância de computação | 
+| NVv3 | Requer aprovação. | GPU | Clusters e instância de computação | 
 
 
 Embora Azure Machine Learning ofereça suporte a essas séries de VMs, elas podem não estar disponíveis em todas as regiões do Azure. Para verificar se a série de VMs está disponível, consulte [produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines).

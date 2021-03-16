@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 1e361ad14f79ea32d83e8cff9dd9bb8607b7c766
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470692"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574655"
 ---
 # <a name="defender-for-iot-installation"></a>Instalação do defender para IoT
 
@@ -697,9 +697,9 @@ Para instalar:
 
 1. As credenciais de entrada são geradas e apresentadas automaticamente. Copie o nome de usuário e a senha em um local seguro, pois eles são necessários para a entrada e a administração.
 
-    - **Suporte**: o usuário administrativo para gerenciamento de usuários.
+      - **Suporte**: o usuário administrativo para gerenciamento de usuários.
 
-    - **CyberX**: o equivalente de raiz para acessar o dispositivo.
+      - **CyberX**: o equivalente de raiz para acessar o dispositivo.
 
 1. O dispositivo é reiniciado.
 
@@ -851,9 +851,10 @@ Para instalar o software:
 
 1. As credenciais de entrada são geradas e apresentadas automaticamente. Mantenha essas credenciais em um local seguro, pois elas são necessárias para a entrada e a administração.
 
-  - **Suporte**: o usuário administrativo para gerenciamento de usuários.
-
-  - **CyberX**: o equivalente de raiz para acessar o dispositivo.
+    | Nome de Usuário | Description |
+    |--|--|
+    | Suporte | O usuário administrativo do gerenciamento de usuários. |
+    | CyberX | O equivalente de raiz para acessar o dispositivo. |
 
 1. O dispositivo é reiniciado.
 

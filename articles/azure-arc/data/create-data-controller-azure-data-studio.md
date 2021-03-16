@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
-ms.openlocfilehash: 2b35abf7f318d4db6166dd48c4f7bd35aaf4d98a
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: f2d44cc769e9673eeb75828126f806d2b2308a17
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644401"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573873"
 ---
 # <a name="create-data-controller-in-azure-data-studio"></a>Criar controlador de dados no Azure Data Studio
 
@@ -36,8 +36,8 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 2. Clique no botão **...** na parte superior do painel conexões e escolha **nova implantação...**
 3. No assistente de nova implantação, escolha **controlador de dados de arco do Azure** e, em seguida, clique no botão **selecionar** na parte inferior.
 4. Verifique se as ferramentas de pré-requisito estão disponíveis e atenda às versões necessárias. **Clique em Avançar**.
-5. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Avançar**.
-6. Escolha um contexto de cluster kubernetes. Clique em **Avançar**.
+5. Use o arquivo kubeconfig padrão ou selecione outro.  Clique em **Próximo**.
+6. Escolha um contexto de cluster kubernetes. Clique em **Próximo**.
 7. Escolha um perfil de configuração de implantação dependendo do cluster kubernetes de destino. **Clique em Avançar**.
 8. Se você estiver usando a plataforma de contêiner do Azure Red Hat OpenShift ou Red Hat OpenShift, aplique restrições de contexto de segurança. Siga as instruções em [aplicar uma restrição de contexto de segurança para serviços de dados habilitados para o Azure Arc no OpenShift](how-to-apply-security-context-constraint.md).
 
@@ -47,7 +47,7 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 1. Escolha a assinatura e o grupo de recursos desejados.
 1. Selecione um local do Azure.
    
-   O local do Azure selecionado aqui é o local no Azure, no qual os *metadados* sobre o controlador de dados e as instâncias de banco que ele gerencia serão armazenados. As instâncias do controlador de dados e do banco de dados serão realmente crewted no cluster do kubernetes, onde quer que possa ser.
+   O local do Azure selecionado aqui é o local no Azure, no qual os *metadados* sobre o controlador de dados e as instâncias de banco que ele gerencia serão armazenados. As instâncias do controlador de dados e do banco de dado serão realmente criadas no cluster kubernetes onde quer que possa ser.
 
 10. Selecione o modo de conectividade apropriado. Saiba mais sobre [modos de conectividade](./connectivity.md). **Clique em Avançar**.
 
@@ -61,7 +61,7 @@ Siga estas etapas para criar um controlador de dados de arco do Azure usando o a
 
 
 12. Selecione a classe de armazenamento na qual o controlador de dados será implantado. 
-13.  Insira um nome de usuário e uma senha e confirme a senha da conta do administrador do controlador de dados. Clique em **Avançar**.
+13.  Insira um nome de usuário e uma senha e confirme a senha da conta do administrador do controlador de dados. Clique em **Próximo**.
 
 14. Examine a configuração de implantação.
 15. Clique em **implantar** para implantar a configuração desejada ou o **script para o bloco de anotações** para examinar as instruções de implantação ou fazer as alterações necessárias, como os nomes de classe de armazenamento ou tipos de serviço. Clique em **executar tudo** na parte superior do bloco de anotações.

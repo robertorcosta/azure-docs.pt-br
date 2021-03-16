@@ -4,16 +4,16 @@ description: Para criar aplicativos altamente disponíveis e resilientes no Azur
 author: prsandhu
 ms.service: azure
 ms.topic: conceptual
-ms.date: 01/26/2021
+ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: fee000009be90a083406725fe7f1e8c4382af3e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101701443"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573023"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
@@ -50,12 +50,13 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Américas           | Europa               | África              | Pacífico Asiático   |
 |--------------------|----------------------|---------------------|----------------|
 |                    |                      |                     |                |
-| Canadá Central     | França Central       | Norte da África do Sul * | Japan East     |
-| Centro dos EUA         | Centro-Oeste da Alemanha |                     | Sudeste Asiático |
-| Leste dos EUA            | Norte da Europa         |                     | Leste da Austrália |
-| Leste dos EUA 2          | Sul do Reino Unido             |                     |                |
-| EUA Central do Sul | Europa Ocidental          |                     |                |
-| Gov. dos EUA – Virgínia    |                      |                     |                |
+| Brazil South       | França Central       | Norte da África do Sul * | Japan East     |
+| Canadá Central     | Centro-Oeste da Alemanha |                     | Sudeste Asiático |
+| Centro dos EUA         | Norte da Europa         |                     | Leste da Austrália |
+| Leste dos EUA            | Sul do Reino Unido             |                     |                |
+| Leste dos EUA 2          | Europa Ocidental          |                     |                |
+| EUA Central do Sul |                      |                     |                |
+| Gov. dos EUA – Virgínia     |                      |                     |                |
 | Oeste dos EUA 2        |                      |                     |                |
 
 
@@ -125,6 +126,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | Banco de dados do Azure para MySQL – servidor flexível      |      : large_blue_diamond:  |
 | Banco de dados do Azure para PostgreSQL – servidor flexível |      : large_blue_diamond:  |
 | Proteção contra DDoS do Azure                           |      : large_blue_diamond:  |
+| Azure Disk Encryption                           |      : large_blue_diamond:  |
 | Firewall do Azure                                  |      : large_blue_diamond:  |
 | Gerenciador de Firewall do Azure                          |      : large_blue_diamond:  |
 | AKS (Serviço de Kubernetes do Azure)                  |      : large_blue_diamond:  |
@@ -169,6 +171,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     Assistente do Azure                             |     : globe_with_meridians:             |
 |     Azure Blueprints                          |     : globe_with_meridians:             |
 |     Serviços de Bot do Azure                        |     : globe_with_meridians:             |
+|     Porta da frente do Azure                          |     : globe_with_meridians:             |
 |     Azure defender para IoT                  |     : globe_with_meridians:             |
 |     Porta da frente do Azure                           |     : globe_with_meridians:             |
 |     Proteção de informações do Azure            |     : globe_with_meridians:             |
@@ -178,7 +181,7 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 |     Azure Policy                              |     : globe_with_meridians:             |
 |     Grafo de recursos do Azure                    |     : globe_with_meridians:             |
 |     Azure Sentinel                            |     : globe_with_meridians:             |
-|     Azure Stack                               |     : globe_with_meridians:             |
+|     Azure Stack Hub                               |     : globe_with_meridians:             |
 |     Borda do Azure Stack                        |     : globe_with_meridians:             |
 |     Cloud Shell                               |     : globe_with_meridians:             |
 |     Rede de Distribuição de Conteúdo                  |     : globe_with_meridians:             |

@@ -5,19 +5,19 @@ services: front-door
 author: duongau
 ms.service: frontdoor
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 03/15/2021
 ms.author: duau
-ms.openlocfilehash: 6a1cf3112cd936ec842c755eb90b2c7b094aa781
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 531f4a9c9f535779e451ca316a8a5867f6cdaba5
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098322"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573890"
 ---
 # <a name="azure-front-door-standardpremium-preview-logging"></a>Registro em log do Standard/Premium da porta do Azure (versão prévia)
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 A porta frontal do Azure fornece registro em log diferente para ajudá-lo a acompanhar, monitorar e depurar sua porta frontal. 
 
@@ -83,7 +83,7 @@ Atualmente, a porta frontal do Azure fornece solicitações de API individuais c
 | UserAgent | O tipo de navegador que o cliente usou. |
 | ClientIp | O endereço IP do cliente que fez a solicitação original. Se houver um cabeçalho X-Forwardd-for na solicitação, o IP do cliente será escolhido do mesmo. |
 | SocketIp | O endereço IP da conexão direta com a borda de AFD. Se o cliente usou um proxy HTTP ou um balanceador de carga para enviar a solicitação, o valor de SocketIp será o endereço IP do balanceador de carga ou proxy. |
-| Latency | O período de tempo desde o momento em que o servidor de borda de AFD recebe a solicitação de um cliente até o momento em que o AFD envia o último byte de resposta para o cliente, em milissegundos. Esse campo não leva em conta a latência de rede e o buffer de TCP. |
+| Latência | O período de tempo desde o momento em que o servidor de borda de AFD recebe a solicitação de um cliente até o momento em que o AFD envia o último byte de resposta para o cliente, em milissegundos. Esse campo não leva em conta a latência de rede e o buffer de TCP. |
 | RequestProtocol | O protocolo que o cliente especificou na solicitação: HTTP, HTTPS. |
 | SecurityProtocol | A versão do protocolo TLS/SSL usada pela solicitação ou NULL se não houver criptografia. Os valores possíveis incluem: SSLv3, TLSv1, TLSv 1.1, TLSv 1.2 |
 | SecurityCipher | Quando o valor do protocolo de solicitação é HTTPS, esse campo indica a codificação TLS/SSL negociada pelo cliente e o AFD para criptografia. |
@@ -118,7 +118,7 @@ Cada log de investigação de integridade tem o esquema a seguir.
 | HealthProbeId  | Uma ID exclusiva para identificar a solicitação. |
 | Hora | Tempo de conclusão da investigação |
 | HttpMethod | Método HTTP usado pela solicitação de investigação de integridade. Os valores incluem GET e HEAD, com base nas configurações de investigação de integridade. |
-| Resultado | Status da investigação de integridade para origem, valor inclui êxito e outro texto de erro. |
+| Result | Status da investigação de integridade para origem, valor inclui êxito e outro texto de erro. |
 | HttpStatusCode  | O código de status HTTP retornado da origem. |
 | ProbeURL (destino) | A URL completa da origem em que as solicitações estão sendo enviadas. Composto pelo esquema, cabeçalho de host, caminho e cadeia de caracteres de consulta. |
 | Origem do  | A origem em que as solicitações estão sendo enviadas. Esse campo ajuda a localizar origens de interesse se a origem estiver configurada para FDQN. |

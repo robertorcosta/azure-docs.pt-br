@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 86c8943531171094600bc7d93b8694bdd1c6e051
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225701"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573737"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
 
@@ -292,7 +292,7 @@ Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais f
 
 | Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Yes      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto de extremidade do WebSocket interativo de serviços cognitivas local v1  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | O ponto de extremidade do WebSocket v1 da conversa local de serviços cognitivas |     |          |
@@ -344,20 +344,6 @@ Apenas para esclarecer o assunto interativo, a conversa e o ditado; Essa é uma 
 - Para o MIC, ele estará em 1x real time. O uso geral deve ser de cerca de 1 núcleo para um único reconhecimento.
 
 Isso pode ser verificado nos logs do Docker. Na verdade, despejamos a linha com estatísticas de sessão e frase/expressão e que inclui os números RTF.
-
-
-<br>
-</details>
-
-<details>
-<summary>
-<b>É comum dividir arquivos de áudio em Chucks para uso de contêiner de fala?</b>
-</summary>
-
-Meu plano atual é pegar um arquivo de áudio existente e dividi-lo em partes de 10 segundos e enviá-los por meio do contêiner. É um cenário aceitável?  Há uma maneira melhor de processar arquivos de áudio maiores com o contêiner?
-
-**Resposta:** Basta usar o SDK de fala e dar a ele o arquivo, ele fará a coisa certa. Por que você precisa dividir o arquivo?
-
 
 <br>
 </details>
