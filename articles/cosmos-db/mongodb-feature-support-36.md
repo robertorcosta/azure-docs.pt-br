@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 03/02/2021
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: ce79b450e5eaed04150ffafd88528a131417044a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0b6f85a675dc98928309870ea177629203db39e7
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692293"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102557328"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>API do Azure Cosmos DB para MongoDB (versão 3.6): sintaxe e recursos compatíveis
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -142,7 +142,7 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 | $limit | Sim |
 | $listLocalSessions | Não |
 | $listSessions | Não |
-| $lookup | Sim |
+| $lookup | Parcial |
 | $match | Sim |
 | $out | Sim |
 | $project | Sim |
@@ -154,6 +154,9 @@ A API do Azure Cosmos DB para MongoDB é compatível com os seguintes comandos d
 | $sort | Sim |
 | $sortByCount | Sim |
 | $unwind | Sim |
+
+> [!NOTE]
+> O `$lookup` ainda não é compatível com um recurso de [subconsultas não correlacionadas](https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#join-conditions-and-uncorrelated-sub-queries) que foi introduzido na versão 3.6 do servidor. Você receberá uma mensagem de erro contendo `let is not supported`, caso tente usar o operador `$lookup` com os campos `let` e `pipeline`.
 
 ### <a name="boolean-expressions"></a>Expressões boolianas
 

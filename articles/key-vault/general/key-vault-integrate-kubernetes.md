@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: fd40ad41bda50d93943a514cd9cc3aeeab4ac948
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: b130fd3f85b676f0a394ad95730181ff499dac96
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198873"
+ms.locfileid: "102216489"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -107,7 +107,7 @@ Para criar seu próprio cofre de chaves e definir seus segredos, siga as instru�
 
 ## <a name="create-your-own-secretproviderclass-object"></a>Criar seu próprio objeto SecretProviderClass
 
-Para criar seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do provedor para o driver da Secrets Store CSI, [use este modelo](https://raw.githubusercontent.com/Azure/secrets-store-csi-driver-provider-azure/master/examples/pod-identity/v1alpha1_secretproviderclass_pod_identity.yaml). Esse objeto fornecerá acesso de identidade ao seu cofre de chaves.
+Para criar seu próprio objeto SecretProviderClass personalizado com parâmetros específicos do provedor para o driver da Secrets Store CSI, [use este modelo](https://github.com/Azure/secrets-store-csi-driver-provider-azure/blob/master/examples/service-principal/v1alpha1_secretproviderclass_service_principal.yaml). Esse objeto fornecerá acesso de identidade ao seu cofre de chaves.
 
 No arquivo YAML SecretProviderClass de exemplo, preencha os parâmetros ausentes. Os seguintes parâmetros são necessários:
 

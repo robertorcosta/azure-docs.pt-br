@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.custom: project-no-code
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 5880b6f44caec053aef292960cecbf64f25c6743
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 3e1eaf4f97b9b04ed02aeb3c6de65b90bf4947e1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448567"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489144"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com a conta da Amazon usando o Azure Active Directory B2C
 
@@ -38,12 +38,17 @@ ms.locfileid: "102448567"
 
 Para habilitar a entrada para usuários com uma conta da Amazon no Azure Active Directory B2C (Azure AD B2C), você precisa criar um aplicativo em [tecnologias e serviços de desenvolvedor da Amazon](https://developer.amazon.com). Para obter mais informações, consulte [registrar-se para fazer logon com o Amazon](https://developer.amazon.com/docs/login-with-amazon/register-web.html). Se você ainda não tiver uma conta do Amazon, poderá se inscrever em [https://www.amazon.com/](https://www.amazon.com/) .
 
-> [!NOTE]  
-> Use as URLs a seguir na **etapa 8** abaixo, substituindo `your-tenant-name` pelo nome do seu locatário. Ao inserir o nome do locatário, use todas as letras minúsculas, mesmo que o locatário seja definido com letras maiúsculas no Azure AD B2C.
-> - Para **origens permitidas**, insira `https://your-tenant-name.b2clogin.com` 
-> - Para **URLs de retorno permitidas**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`
-
-[!INCLUDE [identity-provider-amazon-idp-register.md](../../includes/identity-provider-amazon-idp-register.md)]
+1. Entre no console do [desenvolvedor do Amazon](https://developer.amazon.com/dashboard) com suas credenciais de conta do Amazon.
+1. Se você ainda não tiver feito isso, selecione **inscrever-** se, siga as etapas de registro do desenvolvedor e aceite a política.
+1. No painel, selecione **logon com Amazon**.
+1. Selecione **Criar um Perfil de Segurança**.
+1. Insira um **nome de perfil de segurança**, uma **Descrição do perfil de segurança** e uma URL de aviso de privacidade de **consentimento**, por exemplo, `https://www.contoso.com/privacy` a URL de aviso de privacidade é uma página que você gerencia que fornece informações de privacidade aos usuários. Em seguida, clique em **Salvar**.
+1. Na seção **logon com as configurações do Amazon** , selecione **o nome do perfil de segurança** que você criou, selecione o ícone **gerenciar** e, em seguida, selecione **configurações da Web**.
+1. Na seção **Configurações da Web**, copie os valores de **ID do cliente**. Selecione **Mostrar segredo** para obter o segredo do cliente e, em seguida, copie-o. Você precisa de ambos os valores para configurar uma conta do Amazon como um provedor de identidade em seu locatário. O **segredo do cliente** é uma credencial de segurança importante.
+1. Na seção **configurações da Web** , selecione **Editar**. 
+    1. Em **origens permitidas**, digite `https://your-tenant-name.b2clogin.com` . Substitua `your-tenant-name` pelo nome do seu locatário. Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name` .
+    1.  **URLs de retorno permitidas** , Enter `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` .  Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado.
+1. Selecione **Salvar**.
 
 ::: zone pivot="b2c-user-flow"
 
@@ -56,14 +61,14 @@ Para habilitar a entrada para usuários com uma conta da Amazon no Azure Active 
 1. Insira um **Nome**. Por exemplo, *Amazon*.
 1. Para a **ID do cliente**, insira a ID do cliente do aplicativo Amazon que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="add-amazon-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade da Amazon a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Amazon.
 1. Em **provedores de identidade social**, selecione **Amazon**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .

@@ -1,7 +1,7 @@
 ---
 title: Criar um recurso dos Serviços Cognitivos com a CLI do Azure
 titleSuffix: Azure Cognitive Services
-description: Comece a usar os Serviços Cognitivos do Azure criando e assinando um recurso usando a interface de linha de comando do Azure.
+description: Comece a usar os Serviços Cognitivos do Azure criando e inscrevendo-se em um recurso usando a interface de linha de comando do Azure.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ keywords: serviços cognitivos, inteligência cognitiva, soluções cognitivas, 
 ms.topic: quickstart
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: 95d74601ca912647eadd1bd4e1045108be6b2adb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: c1e8b260f6c06d8f26f5ba99b4fb02edfa5e8656
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102050062"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472099"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Início Rápido: criar um recurso dos Serviços Cognitivos usando a CLI (interface de linha de comando) do Azure
 
@@ -99,16 +99,6 @@ Ao criar um recurso, você precisará saber qual "tipo" de serviço deseja usar,
 | Reconhecimento de Formulários            | `FormRecognizer`          |
 | Reconhecimento de Tinta Digital             | `InkRecognizer`           |
 
-### <a name="search"></a>Search
-
-| Serviço            | Tipo                  |
-|--------------------|-----------------------|
-| Sugestão Automática do Bing   | `Bing.Autosuggest.v7` |
-| Pesquisa Personalizada do Bing | `Bing.CustomSearch`   |
-| Pesquisa de Entidade do Bing | `Bing.EntitySearch`   |
-| Pesquisa do Bing        | `Bing.Search.v7`      |
-| Verificação Ortográfica do Bing   | `Bing.SpellCheck.v7`  |
-
 ### <a name="speech"></a>Fala
 
 | Serviço            | Tipo                 |
@@ -181,7 +171,7 @@ Use o comando [az cognitiveservices account keys list](/cli/azure/cognitiveservi
 Os tipos de preço (e o valor que é cobrado de você) são baseados no número de transações que você envia usando suas informações de autenticação. Cada tipo de preço especifica:
 * o número máximo de transações permitidas por segundo (TPS).
 * os recursos de serviço habilitados no tipo de preço.
-* o custo de um número predefinido de transações. Se essa quantidade é excedida, um encargo extra é gerado, conforme especificado nos [detalhes de preço](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) do serviço.
+* O custo de um número predefinido de transações. Se essa quantidade é excedida, um encargo extra é gerado, conforme especificado nos [detalhes de preço](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) do serviço.
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>Obter o uso de cota atual para o recurso
 

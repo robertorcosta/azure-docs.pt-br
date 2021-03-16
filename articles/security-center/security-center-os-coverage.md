@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 65f383b37b6fb5c89fb987f179d7900eb667d76e
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: 88dc0760f320a99b0cbc99b7637dc34dd11dfecc
+ms.sourcegitcommit: 33ac5cd254c33659f668a76a2e295fddcd5d194d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102438277"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103465439"
 ---
 # <a name="supported-platforms"></a>Plataformas compatíveis 
 
@@ -51,7 +51,7 @@ As máquinas virtuais também são criadas em uma assinatura de cliente como par
 
 Máquinas virtuais que são executadas em um serviço de nuvem também são compatíveis. Apenas funções Web e de trabalho de serviços de nuvem que são executadas em slots de produção são monitorados. Para saber mais sobre os serviços de nuvem, confira [Visão geral dos Serviços de Nuvem do Azure](../cloud-services/cloud-services-choose-me.md).
 
-Também é compatível a proteção para VMs que residem no Azure Stack. Para obter mais informações sobre a integração da Central de Segurança com o Azure Stack, confira [Integrar suas máquinas virtuais do Azure Stack à Central de Segurança](quickstart-onboard-machines.md). 
+Também é compatível a proteção para VMs que residem no Azure Stack Hub. Para obter mais informações sobre a integração da Central de Segurança com o Azure Stack hub, confira [Integrar suas máquinas virtuais do Azure Stack Hub à Central de Segurança](quickstart-onboard-machines.md?pivots=azure-portal#onboard-your-azure-stack-hub-vms). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

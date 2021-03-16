@@ -10,16 +10,23 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: wellsi
-ms.openlocfilehash: af66f2ec56551a5177cd9323d216e9bf4b0c41be
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.openlocfilehash: 1b2418b248e995b0f64eec82ccb477b15583c81e
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
-ms.locfileid: "95021840"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103562324"
 ---
 # <a name="release-notes-speech-devices-sdk"></a>Notas de versão: SDK de dispositivos de fala
 
 As seções a seguir listam as alterações nas versões mais recentes.
+
+## <a name="speech-devices-sdk-1150"></a>SDK de dispositivos de fala 1.15.0:
+
+- Atualizado para uma nova pilha de áudio da Microsoft (MAS) com beamforming e redução de ruído aprimoradas para fala.
+- Reduziu o tamanho binário até 70%, dependendo do destino.
+- Suporte para [áudio do Azure Percept](https://docs.microsoft.com/azure/azure-percept/overview-azure-percept-audio) com [liberação binária](https://aka.ms/sdsdk-download-APAudio).
+- Atualizado o componente [SDK de fala](./speech-sdk.md) para a versão 1.15.0. Para obter mais informações, consulte [notas de versão](./releasenotes.md).
 
 ## <a name="speech-devices-sdk-1110"></a>SDK de dispositivos de fala 1.11.0:
 
@@ -63,7 +70,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 - A nova tecnologia de palavra-chave traz melhorias significativas de qualidade, consulte alterações significativas.
 - Novo pipeline de processamento de áudio para um reconhecimento de campo aprimorado.
 
-**Alterações da falha**
+**Alterações interruptivas**
 
 - Devido à nova palavra-chave Technology, todas as palavras-chave devem ser recriadas em nosso portal de palavra-chave aprimorado. Para remover totalmente as palavras-chave antigas do dispositivo, desinstale o aplicativo antigo.
   - desinstalação de ADB com. Microsoft. cognitivaservices. Speech. Samples. sdsdkstarterapp
@@ -78,7 +85,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 - Tratamento de palavra-chave atualizado, consulte alterações significativas.
 - O aplicativo de exemplo adiciona a opção de linguagem para reconhecimento de fala e tradução.
 
-**Alterações da falha**
+**Alterações interruptivas**
 
 - [A instalação de uma palavra-chave](./custom-keyword-basics.md) foi simplificada, agora faz parte do aplicativo e não precisa de instalação separada no dispositivo.
 - O reconhecimento de palavra-chave foi alterado e há suporte para dois eventos.
@@ -97,7 +104,7 @@ As seções a seguir listam as alterações nas versões mais recentes.
 - A precisão do reconhecimento de fala será aprimorada com nosso algoritmo de processamento de áudio aprimorada
 - Um bug da sessão de áudio de reconhecimento contínuo é corrigido.
 
-**Alterações da falha**
+**Alterações interruptivas**
 
 - Com essa versão, várias alterações significativas foram introduzidas. Confira [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para obter detalhes das APIs.
 - Os arquivos de modelo KWS não são compatíveis com Dispositivos de Fala SDK 1.0.1. Os arquivos de palavra-chave existentes serão excluídos depois que os novos arquivos de palavra-chave forem gravados no dispositivo.

@@ -9,12 +9,12 @@ ms.author: ericg
 ms.service: app-service
 ms.workload: web
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: 4534a315429a120af45dfd495df4a8c29b233de7
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 8d471b680a6ff97b4b96a9c5f90f5548488dd35f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98763032"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563604"
 ---
 # <a name="using-private-endpoints-for-azure-web-app"></a>Uso de pontos de extremidade privados para Aplicativo Web do Azure
 
@@ -121,6 +121,8 @@ Você pode conectar até 100 pontos de extremidade privados a um aplicativo Web 
 Os slots não podem usar o ponto de extremidade privado.
 
 A funcionalidade de depuração remota não está disponível quando o ponto de extremidade privado está habilitado para o aplicativo Web. A recomendação é implantar o código em um slot e depurá-lo remotamente.
+
+O acesso ao FTP é fornecido por meio do endereço IP público de entrada. O ponto de extremidade privado não dá suporte ao acesso FTP ao aplicativo Web.
 
 Estamos melhorando o recurso de link privado e o ponto de extremidade privado regularmente, marque [este artigo][pllimitations] para obter informações atualizadas sobre as limitações.
 

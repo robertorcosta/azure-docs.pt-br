@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 24cc7773d281d98b6a0943f5e0a61b6f547991ee
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032816"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103564381"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -28,7 +28,7 @@ As APIs REST de conversão de fala em texto são:
 
 ## <a name="speech-to-text-rest-api-v30"></a>API REST de conversão de fala em texto v 3.0
 
-A API REST de fala em texto v 3.0 é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . Se você precisar se comunicar com a transcrição OnLine via REST, use a [API REST de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
+A API REST de fala em texto v 3.0 é usada para a transcrição e a [fala personalizada](custom-speech-overview.md)do [lote](batch-transcription.md) . Se você precisar se comunicar com a transcrição online via REST, use a [API REST de fala em texto para áudio curto](#speech-to-text-rest-api-for-short-audio).
 
 Use a API REST v 3.0 para:
 - Copie modelos para outras assinaturas caso você queira que os colegas tenham acesso a um modelo que você criou ou nos casos em que você deseja implantar um modelo em mais de uma região

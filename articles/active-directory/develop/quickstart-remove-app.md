@@ -13,12 +13,12 @@ ms.date: 11/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: marsma, aragra, lenalepa, sureshja
-ms.openlocfilehash: a0543905f41abc9c21327159d63f7adaa5b025dc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: e04884c078bd9a5693ddcbc4e71470bb23e13d60
+ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101645884"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103199805"
 ---
 # <a name="how-to-remove-an-application-registered-with-the-microsoft-identity-platform"></a>Como remover um aplicativo registrado na plataforma de identidade da Microsoft
 
@@ -47,7 +47,8 @@ Para excluir um aplicativo, você precisa estar listado como proprietário do ap
 1. Pesquise e selecione o **Azure Active Directory**. 
 1. Em **Gerenciar**, selecione **Registros de aplicativo** e escolha o aplicativo que deseja configurar. Depois de selecionar o aplicativo, você verá a página **Visão Geral** do aplicativo.
 1. Na página **Visão Geral**, selecione **Excluir**.
-1. Selecione **Sim** para confirmar que você deseja excluir o aplicativo.
+1. Leia as consequências da exclusão.  Se uma caixa for exibida na parte inferior do painel, marque-a.
+1. Selecione **Excluir** para confirmar que você deseja excluir o aplicativo.
 
 ## <a name="remove-an-application-authored-by-another-organization"></a>Remover um aplicativo criado por outra organização
 

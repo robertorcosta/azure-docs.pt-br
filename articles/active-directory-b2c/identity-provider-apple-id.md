@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: cc385c3a7ceb0245e3a4acbedb037b1b28bde7b3
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518102"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489127"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar a inscrição e a entrada com uma ID da Apple usando Azure Active Directory B2C (versão prévia)
 
@@ -57,8 +57,8 @@ Para habilitar a entrada para usuários com uma ID da Apple no Azure Active Dire
 1. Em **identificadores**, selecione o identificador que você criou.
 1. Selecione **entrar com a Apple** e, em seguida, selecione **Configurar**.
     1. Selecione a **ID do aplicativo primário** com a qual você deseja configurar a entrada com a Apple.
-    1. Em **domínios e subdomínios**, digite `your-tenant-name.b2clogin.com` . Substitua nome-do-seu-locatário pelo nome do seu locatário.
-    1. Em **URLs de retorno**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua nome-do-seu-locatário pelo nome do seu locatário.
+    1. Em **domínios e subdomínios**, digite `your-tenant-name.b2clogin.com` . Substitua nome-do-seu-locatário pelo nome do seu locatário. Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name` .
+    1. Em **URLs de retorno**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado.
     1. Selecione **Avançar** e, em seguida, selecione **concluído**.
     1. Quando a janela pop-up for fechada, selecione **continuar** e, em seguida, selecione **salvar**.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 01/28/2021
+ms.date: 02/17/2021
 ms.author: jeedes
-ms.openlocfilehash: c5bdab2038f2f41c7240addaff99bd831d29f489
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: d4c9d2e290f6a8f07878a019b755c8add2ab69ea
+ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101643806"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102488353"
 ---
 # <a name="tutorial-integrate-dropbox-business-with-azure-active-directory"></a>Tutorial: Integrar o Dropbox Business ao Azure Active Directory
 
@@ -38,9 +38,9 @@ Para começar, você precisará dos seguintes itens:
 
 ## <a name="scenario-description"></a>Descrição do cenário
 
-* Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Dropbox Business dá suporte ao SSO iniciado por **SP**
+* Neste tutorial, você configurará e testará o SSO do Azure AD em um ambiente de teste. O Dropbox Business é compatível com o SSO iniciado por **SP**.
 
-* O Dropbox Business é compatível com [provisionamento e desprovisionamento de usuário automatizados](dropboxforbusiness-tutorial.md)
+* O Dropbox Business é compatível com o [provisionamento e o desprovisionamento automatizado de usuário](dropboxforbusiness-tutorial.md).
 
 > [!NOTE]
 > O identificador desse aplicativo é um valor de cadeia de caracteres fixo; portanto apenas uma instância pode ser configurada em um locatário.
@@ -82,11 +82,11 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 1. Na página **Configuração Básica de SAML**, insira os valores nos seguintes campos:
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://www.dropbox.com/sso/<id>`
-
-    b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor: `Dropbox`
-
+    
+     b. Na caixa de texto **Identificador (ID da Entidade)** , digite o valor: `Dropbox`
+    
     > [!NOTE]
-    > O valor da URL de entrada anterior não é um valor real. Você atualizará o valor com a URL de entrada real, que é explicada no tutorial posteriormente.
+    > A **ID de SSO de sinal do Dropbox** pode ser encontrada no site do Dropbox em Dropbox > Console de administração > Configurações > Logon único > URL de entrada de SSO.
 
 1. Na página **Configurar logon único com SAML**, na seção **Certificado de Autenticação SAML**, clique em **Fazer o download** para fazer o download do **Certificado (Base64)** usando as opções fornecidas de acordo com seus requisitos e salve-o no computador.
 
@@ -137,23 +137,23 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
 4. Clique na guia **ícone do usuário** e selecione **configurações**.
 
-    ![Captura de tela que mostra a ação "ÍCONE DO USUÁRIO" e "Configurações" selecionado.](./media/dropboxforbusiness-tutorial/configure1.png "Configurar o logon único")
+    ![Captura de tela que mostra a ação "ÍCONE DO USUÁRIO" e "Configurações" selecionado.](./media/dropboxforbusiness-tutorial/configure-1.png "Configurar o logon único")
 
 5. No painel de navegação à esquerda, clique em **console de administração**.
 
-    ![Captura de tela que mostra "Console de administração" selecionado.](./media/dropboxforbusiness-tutorial/configure2.png "Configurar o logon único")
+    ![Captura de tela que mostra "Console de administração" selecionado.](./media/dropboxforbusiness-tutorial/configure-2.png "Configurar o logon único")
 
 6. Sobre o **console de administração**, clique em **configurações** no painel de navegação à esquerda.
 
-    ![Captura de tela que mostra "Configurações" selecionado.](./media/dropboxforbusiness-tutorial/configure3.png "Configurar o logon único")
+    ![Captura de tela que mostra "Configurações" selecionado.](./media/dropboxforbusiness-tutorial/configure-3.png "Configurar o logon único")
 
 7. Selecione a opção **Conexão única** na seção **Autenticação**.
 
-    ![Captura de tela que mostra a seção "Autenticação" com "Logon único" selecionado.](./media/dropboxforbusiness-tutorial/configure4.png "Configurar o logon único")
+    ![Captura de tela que mostra a seção "Autenticação" com "Logon único" selecionado.](./media/dropboxforbusiness-tutorial/configure-4.png "Configurar o logon único")
 
 8. Na seção **Conexão única**, execute as seguintes etapas:  
 
-    ![Captura de tela que mostra as definições de configuração de "Logon único".](./media/dropboxforbusiness-tutorial/configure5.png "Configurar o logon único")
+    ![Captura de tela que mostra as definições de configuração de "Logon único".](./media/dropboxforbusiness-tutorial/configure-5.png "Configurar o logon único")
 
     a. Selecione **Obrigatório** como uma opção no menu suspenso para o **Logon único**.
 
@@ -174,7 +174,7 @@ Nesta seção, será criado um usuário chamado B.Fernandes no Dropbox Business.
 >[!Note]
 >Se você precisar criar um usuário manualmente, contate a [equipe de suporte ao Cliente do Dropbox Business](https://www.dropbox.com/business/contact)
 
-### <a name="test-sso"></a>Testar o SSO
+## <a name="test-sso"></a>Testar o SSO
 
 Nesta seção, você testará a configuração de logon único do Azure AD com as opções a seguir. 
 
@@ -186,4 +186,4 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Dropbox Business, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o Dropbox Business, você poderá impor um controle de sessão, que fornece proteção contra o vazamento e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).

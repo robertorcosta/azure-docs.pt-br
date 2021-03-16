@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aea468c64f70bd7f35dd25206faa9ea33459999
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101688902"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103561644"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -169,6 +169,10 @@ Você deve receber uma das seguintes funções para exibir ou gerenciar as confi
 
 > [!NOTE]
 > Os **dispositivos que devem ser ingressados no Azure ad ou no Azure ad registrados exigem a configuração de autenticação multifator** se aplicam a dispositivos que são associados ao Azure AD (com algumas exceções) ou ao AD do Azure registrado. Essa configuração não se aplica a dispositivos adicionados ao Azure AD híbrido, [VMs Unidas do Azure AD no Azure](./howto-vm-sign-in-azure-ad-windows.md#enabling-azure-ad-login-in-for-windows-vm-in-azure) e dispositivos ingressados no Azure ad usando o [modo de Autoimplantação do Windows AutoPilot](/mem/autopilot/self-deploying).
+
+> [!IMPORTANT]
+> - É recomendável usar a [ação do usuário "registrar ou unir dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) no acesso condicional para impor a autenticação multifator para ingressar ou registrar um dispositivo. 
+> - Você deve definir essa configuração como **não** se estiver usando a política de acesso condicional para exigir autenticação multifator. 
 
 - **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**.
 

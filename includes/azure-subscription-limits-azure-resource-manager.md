@@ -5,19 +5,19 @@ services: azure-resource-manager
 author: tfitzmac
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 01/25/2021
+ms.date: 03/15/2021
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ad0c532c2ac80fd8a3bb3e68431ff7fc274d73e0
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.openlocfilehash: 97d80e999ac61a2c2f8f561dc19213419014beb8
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98792272"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471001"
 ---
 | Recurso | Limite |
 | --- | --- |
-| Assinaturas por locatário do Azure Active Directory | Ilimitado |
+| Assinaturas [associadas a um locatário do Azure Active Directory](../articles/active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) | Ilimitado |
 | [Coadministradores](../articles/cost-management-billing/manage/add-change-subscription-administrator.md) por assinatura |Ilimitado |
 | [Grupos de recursos](../articles/azure-resource-manager/management/overview.md) por assinatura |980 |
 | Tamanho da solicitação de API do Azure Resource Manager |4.194.304 bytes |

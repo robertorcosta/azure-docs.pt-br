@@ -7,14 +7,14 @@ ms.service: cache
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/08/2021
-ms.openlocfilehash: 50535ab9ac2a3541ade7b9abd8f355bbeaf6d4b3
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 63daa7cda2f10448e9a0f8e250412137dc2af892
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100364997"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102563890"
 ---
-# <a name="quickstart-create-a-redis-enterprise-cache-preview"></a>Início rápido: Criar um cache Redis Enterprise (versão prévia)
+# <a name="quickstart-create-a-redis-enterprise-cache"></a>Início rápido: Criar um cache Redis Enterprise
 
 As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](https://redislabs.com/redis-enterprise/) totalmente integrado e gerenciado no Azure. No momento, elas estão disponíveis como uma versão prévia. Há duas novas camadas nessa versão prévia:
 * Enterprise, que usa DRAM (memória volátil) em uma máquina virtual para armazenar dados
@@ -22,7 +22,7 @@ As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](h
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-É necessário ter uma assinatura do Azure antes de começar. Caso não tenha uma, crie uma [conta](https://azure.microsoft.com/). Para obter mais informações, confira [Requisitos da camada Enterprise](cache-overview.md#enterprise-and-enterprise-flash-tier-requirements).
+É necessário ter uma assinatura do Azure antes de começar. Caso não tenha uma, crie uma [conta](https://azure.microsoft.com/). Para obter mais informações, confira [considerações especiais para camadas Enterprise](cache-overview.md#special-considerations-for-enterprise-tiers).
 
 ## <a name="create-a-cache"></a>Criar um cache
 1. Para criar um cache, entre no portal do Azure usando o link em seu convite de versão prévia e selecione **Criar um recurso**.
@@ -41,7 +41,7 @@ As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](h
    | **Localidade** | Clique na lista suspensa e selecione uma localização. | Os níveis Enterprise estão disponíveis em regiões do Azure limitadas durante a versão prévia. |
    | **Tipo de cache** | Selecione no menu suspenso um nível *Enterprise* ou *Enterprise Flash* e um tamanho. |  A camada determina o tamanho, o desempenho e os recursos disponíveis para o cache. |
    
-   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Noções básicas da camada Enterprise":::
+   :::image type="content" source="media/cache-create/enterprise-tier-basics.png" alt-text="Guia Básico da camada Enterprise":::
 
    > [!NOTE] 
    > Lembre-se de marcar a caixa em "Termos" antes de continuar.
@@ -49,25 +49,15 @@ As camadas Enterprise do Cache do Azure para Redis fornecem [Redis Enterprise](h
 
 1. Selecione **Avançar: Rede** e ignore.
 
-   > [!NOTE] 
-   > A opção de link privado está sendo distribuída e pode não estar disponível imediatamente em sua região.
-   >
+1. Selecione **Avançar: Avançado** e defina **Política de cluster** como **Enterprise**. Habilite a opção **Somente acesso não TLS**, caso planeje se conectar a um novo cache sem usar o TLS. No entanto, não recomendamos executar essa ação.
 
-1. Selecione **Avançar: Avançado** e defina **Política de cluster** como **Enterprise**.
-   
-   Você pode manter as configurações padrão ou alterá-las conforme apropriado. Ao ativar **Permitir acesso somente via TLS**, você deve usar o TLS para acessar o novo cache do aplicativo.
+   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Guia Avançado da camada Enterprise":::
 
-   :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Noções avançadas da camada Enterprise":::
-
-   > [!NOTE] 
-   > Os Módulos Redis ainda não são compatíveis com a camada Enterprise Flash. Se você planeja usar um Módulo Redis, não se esqueça de escolher um cache de camada Enterprise.
-   >
-   
 1. Selecione **Avançar: Marcas** e ignore.
 
 1. Selecione **Avançar: Revisar + criar**.
 
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Resumo da camada Enterprise":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Guia Examinar + Criar da camada Enterprise":::
 
 1. Examine as configurações e clique em **Criar**.
    

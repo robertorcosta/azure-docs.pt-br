@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit, project-no-code
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: dc824c7e4caa2a634a60f7d8a69870ddd961998c
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 497b171cad956dee23139bcfb0ec76fad82bfb33
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448458"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488961"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Configurar assinatura para uma organização do Active Directory do Azure específica no Azure Active Directory B2C
 
@@ -53,6 +53,8 @@ Para habilitar a entrada para usuários com uma conta do Azure AD de uma organiz
     ```
 
     Por exemplo, `https://fabrikam.b2clogin.com/fabrikam.onmicrosoft.com/oauth2/authresp`.
+
+    Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-domain-name` pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu locatário.
 
 1. Selecione **Registrar**. Registre a **ID do aplicativo (cliente)** para uso em uma etapa posterior.
 1. Selecione **certificados & segredos** e, em seguida, selecione **novo segredo do cliente**.
@@ -101,14 +103,14 @@ Se quiser obter as declarações `family_name` e `given_name` do Azure Active Di
     - **Sobrenome**: *family_name*
     - **Email**: *preferred_username*
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="add-azure-ad-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Azure AD a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário que você deseja adicionar ao provedor de identidade do Azure AD.
 1. Em **provedores de identidade social**, selecione **contoso Azure ad**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .

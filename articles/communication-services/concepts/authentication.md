@@ -9,31 +9,45 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: b3cd0643a74ccadb8390ce906eb391420de15a29
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 83976ed9d6f80b6c785cb84e74a0755472f9579f
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490782"
+ms.locfileid: "103561797"
 ---
 # <a name="authenticate-to-azure-communication-services"></a>Autenticar nos serviços de comunicação do Azure
 
-Cada interação do cliente com os serviços de comunicação do Azure precisa ser autenticada. Em uma arquitetura típica, consulte [arquitetura de cliente e servidor](./client-and-server-architecture.md), *chaves de acesso* ou *identidade gerenciada* é usada no serviço de acesso de usuário confiável para criar usuários e emitir tokens. E o *token de acesso do usuário* emitido pelo serviço de acesso de usuário confiável é usado para que aplicativos cliente acessem outros serviços de comunicação, por exemplo, chat ou serviço de chamada.
+Cada interação do cliente com os serviços de comunicação do Azure precisa ser autenticada. Em uma arquitetura típica, consulte [arquitetura de cliente e servidor](./client-and-server-architecture.md), *chaves de acesso* ou *identidades gerenciadas* são usadas para autenticação.
 
-O serviço SMS de serviços de comunicação do Azure também aceita *chaves de acesso* ou *identidade gerenciada* para autenticação. Isso normalmente acontece em um aplicativo de serviço em execução em um ambiente de serviço confiável.
+Outro tipo de autenticação usa *tokens de acesso do usuário* para se autenticar em serviços que exigem a participação do usuário. Por exemplo, o serviço de chat ou de chamada utiliza *tokens de acesso do usuário* para permitir que os usuários sejam adicionados em um thread e tenham conversas entre si.
+
+## <a name="authentication-options"></a>Opções de autenticação:
+
+A tabela a seguir mostra as bibliotecas de cliente dos serviços de comunicação do Azure e suas opções de autenticação:
+
+| Biblioteca de cliente    | Opção de autenticação                               |
+| ----------------- | ----------------------------------------------------|
+| Identidade          | Chave de acesso ou identidade gerenciada                      |
+| sms               | Chave de acesso ou identidade gerenciada                      |
+| Números de telefone     | Chave de acesso ou identidade gerenciada                      |
+| Chamando           | Token de acesso do usuário                                   |
+| Chat              | Token de acesso do usuário                                   |
 
 Cada opção de autorização é descrita brevemente abaixo:
 
-- Autenticação de **chave de acesso** para operações de SMS e de identidade. A autenticação de chave de acesso é adequada para aplicativos de serviço em execução em um ambiente de serviço confiável. A chave de acesso pode ser encontrada no portal dos serviços de comunicação do Azure. Para autenticar com uma chave de acesso, um aplicativo de serviço usa a chave de acesso como credencial para inicializar as bibliotecas de cliente de identidade ou SMS correspondentes, consulte [criar e gerenciar tokens de acesso](../quickstarts/access-tokens.md). Como a chave de acesso faz parte da cadeia de conexão do recurso, consulte [criar e gerenciar recursos dos serviços de comunicação](../quickstarts/create-communication-resource.md), a autenticação com a cadeia de conexão é equivalente à autenticação com a chave de acesso.
-- Autenticação de **identidade gerenciada** para operações de SMS e de identidade. Identidade gerenciada, consulte [identidade gerenciada](../quickstarts/managed-identity.md), é adequada para aplicativos de serviço em execução em um ambiente de serviço confiável. Para autenticar com uma identidade gerenciada, um aplicativo de serviço cria uma credencial com a ID e um segredo da identidade gerenciada e, em seguida, inicializa as bibliotecas de cliente de identidade ou SMS correspondentes, consulte [criar e gerenciar tokens de acesso](../quickstarts/access-tokens.md).
-- Autenticação de **token de acesso do usuário** para chat e chamada. Os tokens de acesso do usuário permitem que seus aplicativos cliente se autentiquem no chat de comunicação do Azure e serviços de chamada. Esses tokens são gerados em um "serviço de acesso de usuário confiável" que você cria. Em seguida, eles são fornecidos aos dispositivos cliente que usam o token para inicializar o chat e chamar as bibliotecas de cliente. Para obter mais informações, consulte [Adicionar chat ao seu aplicativo](../quickstarts/chat/get-started.md) por exemplo.
+- A autenticação de **chave de acesso** é adequada para aplicativos de serviço em execução em um ambiente de serviço confiável. A chave de acesso pode ser encontrada no portal dos serviços de comunicação do Azure e o aplicativo de serviço a usa como a credencial para inicializar as bibliotecas de cliente correspondentes. Veja um exemplo de como ele é usado na [biblioteca de cliente de identidade](../quickstarts/access-tokens.md). Como a chave de acesso faz parte da cadeia de conexão do recurso, a autenticação com uma cadeia de conexão é equivalente à autenticação com uma chave de acesso.
+
+- A autenticação de **identidade gerenciada** fornece segurança superior e facilidade de uso sobre outras opções de autorização. Por exemplo, usando o Azure AD, você evita ter que armazenar a chave de acesso da conta com seu código, como você faz com a autorização de chave de acesso. Embora você possa continuar a usar a autorização de chave de acesso com aplicativos de serviços de comunicação, a Microsoft recomenda migrar para o Azure AD sempre que possível. Para configurar uma identidade gerenciada, [crie um aplicativo registrado do CLI do Azure](../quickstarts/managed-identity-from-cli.md). Em seguida, o ponto de extremidade e as credenciais podem ser usados para autenticar as bibliotecas de cliente. Veja exemplos de como a [identidade gerenciada](../quickstarts/managed-identity.md) é usada.
+
+- Os **tokens de acesso do usuário** são gerados usando a biblioteca de cliente de identidade e são associados a usuários criados na biblioteca de cliente de identidade. Consulte um exemplo de como [criar usuários e gerar tokens](../quickstarts/access-tokens.md). Em seguida, os tokens de acesso do usuário são usados para autenticar os participantes adicionados às conversas no chat ou no SDK de chamada. Para obter mais informações, consulte [Adicionar chat ao seu aplicativo](../quickstarts/chat/get-started.md). A autenticação de token de acesso do usuário é diferente em comparação com a chave de acesso e a autenticação de identidade gerenciada, pois ela é usada para autenticar um usuário em vez de um recurso protegido do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Criar e gerenciar recursos](../quickstarts/create-communication-resource.md) 
 >  de serviços de comunicação [Criar um aplicativo de identidade gerenciada Azure Active Directory do CLI do Azure](../quickstarts/managed-identity-from-cli.md) 
->  [Criando tokens de acesso do usuário](../quickstarts/access-tokens.md)
+>  [Criar tokens de acesso do usuário](../quickstarts/access-tokens.md)
 
 Para obter mais informações, consulte os seguintes artigos:
 - [Saber mais sobre a arquitetura cliente e servidor](../concepts/client-and-server-architecture.md)

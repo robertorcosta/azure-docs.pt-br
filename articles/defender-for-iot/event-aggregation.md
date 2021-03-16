@@ -1,5 +1,5 @@
 ---
-title: Agregação de evento clássico do módulo de segurança
+title: Agregação de eventos clássicos do defender-IoT-micro-Agent
 description: Saiba mais sobre o defender para agregação de eventos de IoT.
 services: defender-for-iot
 ms.service: defender-for-iot
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 0718c2637658e5519760a68f29c7a816b2aa61a1
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: 01333da3041cc93154c46fb45a39bb209fd30f91
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809211"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493060"
 ---
-# <a name="security-module-classic-event-aggregation"></a>Agregação de evento clássico do módulo de segurança
+# <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agregação de eventos clássicos do defender-IoT-micro-Agent
 
 Os agentes de segurança do defender para IoT coletam dados e eventos do sistema do seu dispositivo local e enviam esses dados para a nuvem do Azure para processamento e análise. O agente de segurança coleta muitos tipos de eventos de dispositivo, incluindo novo processo e novos eventos de conexão. Os novos eventos de processo e de conexão podem ocorrer legitimamente com frequência em um dispositivo em um segundo e, embora sejam importantes para segurança robusta e abrangente, o número de mensagens que os agentes de segurança são forçados a enviar pode atingir rapidamente ou exceder a cota e os limites de custos do Hub IoT. No entanto, esses eventos contêm informações de segurança altamente valiosas que são cruciais para proteger seu dispositivo.
 
@@ -69,11 +69,11 @@ Faça alterações na configuração do defender para agregação de eventos de 
 
 | Nome da configuração | Valores possíveis | Detalhes | Comentários |
 |:-----------|:---------------|:--------|:--------|
-| aggregationEnabledProcessCreate | boolean | Habilitar/desabilitar a agregação de eventos para processar eventos de criação |
+| aggregationEnabledProcessCreate | booleano | Habilitar/desabilitar a agregação de eventos para processar eventos de criação |
 | aggregationIntervalProcessCreate | Cadeia de caracteres TimeSpan ISO8601 | Intervalo de agregação para processo cria eventos |
-| aggregationEnabledConnectionCreate | boolean| Habilitar/desabilitar a agregação de eventos para conexão criar eventos |
+| aggregationEnabledConnectionCreate | booleano| Habilitar/desabilitar a agregação de eventos para conexão criar eventos |
 | aggregationIntervalConnectionCreate | Cadeia de caracteres TimeSpan ISO8601 | Intervalo de agregação para conexão cria eventos |
-| aggregationEnabledProcessTerminate | boolean | Habilitar/desabilitar a agregação de eventos para processar eventos de término | Somente Windows|
+| aggregationEnabledProcessTerminate | booleano | Habilitar/desabilitar a agregação de eventos para processar eventos de término | Somente Windows|
 | aggregationIntervalProcessTerminate | Cadeia de caracteres TimeSpan ISO8601 | Intervalo de agregação para eventos de término de processo | Somente Windows|
 |
 

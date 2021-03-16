@@ -1,6 +1,6 @@
 ---
-title: Integrar à solução baseada em agente do Defender para IoT
-description: Saiba como integrar e habilitar o serviço de segurança Defender para IoT no seu Hub IoT do Azure.
+title: 'Início rápido: integrar o Defender para IoT a uma solução baseada em agente'
+description: Neste início rápido você aprenderá como integrar e habilitar o serviço de segurança do Defender para IoT no Hub IoT do Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
-ms.openlocfilehash: 127e439a7740cb97cbe126071aaaa5245cd85782
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.openlocfilehash: d30a03aa7b7715a8792e7b70a0571270c6ad7b37
+ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99809109"
+ms.lasthandoff: 03/08/2021
+ms.locfileid: "102449672"
 ---
-# <a name="onboard-to-defender-for-iot-agent-based-solution"></a>Integrar à solução baseada em agente do Defender para IoT
+# <a name="quickstart-onboard-defender-for-iot-to-an-agent-based-solution"></a>Início rápido: integrar o Defender para IoT a uma solução baseada em agente
 
 Este artigo explica como habilitar o serviço Defender para IoT no Hub IoT existente. Se você não tiver, no momento, um Hub IoT, confira [Criar um Hub IoT usando o portal do Azure](../iot-hub/iot-hub-create-through-portal.md) para começar a usar.
 
@@ -35,7 +35,11 @@ Você pode gerenciar a segurança da IoT por meio do Hub IoT no Defender para Io
 > [!NOTE]
 > O Defender para IoT atualmente dá suporte apenas ao nível standard dos Hubs IoT.
 
-## <a name="onboard-to-defender-for-iot-in-iot-hub"></a>Integração ao Defender para IoT no Hub IoT
+## <a name="prerequisites"></a>Pré-requisitos
+
+Nenhum
+
+## <a name="onboard-defender-for-iot-to-an-iot-hub"></a>Integrar o Defender para IoT a um Hub IoT
 
 Para todos os novos hubs IoT, o Defender para IoT é definido como **Ativado** por padrão. Verifique se o Defender para IoT foi alternado para **Ativado** durante o processo de criação do Hub IoT.
 
@@ -55,14 +59,23 @@ Para verificar se a alternância está definida como **Ativado**:
 
 ## <a name="onboard-defender-for-iot-to-an-existing-iot-hub"></a>Integrar o Defender para IoT a um Hub IoT existente
 
-Monitore o gerenciamento de identidades do dispositivo e os padrões de comunicação da nuvem para o dispositivo e do dispositivo para a nuvem. Faça o seguinte para iniciar o serviço: 
+Você pode integrar o Defender para IoT a um Hub IoT existente, no qual você pode monitorar os padrões de comunicação de gerenciamento de identidade do dispositivo, dispositivo para nuvem e nuvem para dispositivo.
 
-1. Procure o Hub IoT. 
+Para Integrar o Defender para IoT a um Hub IoT existente:
 
-1. Selecione o menu  **Visão geral de segurança** . 
+1. Navegue até o Hub IoT. 
 
-1. Clique em Proteger sua solução de IoT e conclua o formulário de integração. 
+1. Selecione o Hub IoT a ser integrado.
 
+1. Selecione qualquer opção na seção **Segurança**.
+
+1. Clique em **Proteger sua solução de IoT** e preencha o formulário de integração. 
+
+    :::image type="content" source="media/quickstart-onboard-iot-hub/secure-your-iot-solution.png" alt-text="Selecione o botão Proteger solução de IoT para proteger a solução.":::
+
+O botão **Proteger solução de IoT** só aparecerá se o Hub IoT ainda não tiver sido integrado ou se ao realizar a integração você tiver deixado o botão de alternância Defender para IoT como **Desl**.
+
+:::image type="content" source="media/quickstart-onboard-iot-hub/toggle-is-off.png" alt-text="Se o botão de alternância tiver sido definido como desligado durante a integração.":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

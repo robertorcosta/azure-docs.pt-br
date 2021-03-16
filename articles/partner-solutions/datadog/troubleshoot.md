@@ -6,16 +6,26 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: a8bb28892fe42215876b5cc8771ae73c7d2aab7f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e3c82f711de4cd9710c9aafe798a986e3403ed4
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101744296"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563701"
 ---
 # <a name="troubleshooting-datadog-on-azure"></a>Solução de problemas do Datadog no Azure
 
 Este documento contém informações sobre como solucionar problemas de suas soluções que usam o Datadog.
+
+## <a name="purchase-errors"></a>Erros de compra
+
+* A compra falha porque um cartão de crédito válido não está conectado à assinatura do Azure ou um método de pagamento não está associado à assinatura.
+
+  Use uma assinatura do Azure diferente. Ou então, adicione ou atualize o cartão de crédito ou o método de pagamento da assinatura. Para obter mais informações, consulte [atualizando o método de crédito e pagamento](../../cost-management-billing/manage/change-credit-card.md).
+
+* A assinatura do EA não permite compras do Marketplace.
+
+  Use uma assinatura diferente. Ou então, verifique se sua assinatura do EA está habilitada para compra do Marketplace. Para obter mais informações, consulte [habilitar compras do Marketplace](../../cost-management-billing/manage/ea-azure-marketplace.md#enabling-azure-marketplace-purchases). Se essas opções não resolverem o problema, entre em contato com o [suporte do Datadog](https://www.datadoghq.com/support).
 
 ## <a name="unable-to-create-datadog-resource"></a>Não é possível criar o recurso Datadog
 

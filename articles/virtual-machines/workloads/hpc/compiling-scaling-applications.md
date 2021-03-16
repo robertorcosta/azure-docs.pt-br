@@ -5,19 +5,47 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: d560b261e058d01040616f3c59ede60e5986c672
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101666971"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470746"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos HPC
 
 O desempenho ideal de expansão e escalabilidade horizontal de aplicativos HPC no Azure requer testes de desempenho e de otimização para a carga de trabalho específica. Esta seção e as páginas específicas da série de VMs oferecem diretrizes gerais para dimensionar seus aplicativos.
+
+## <a name="optimally-scaling-mpi"></a>Dimensionamento de MPI de maneira ideal 
+
+As sugestões a seguir se aplicam à eficiência, ao desempenho e à consistência de dimensionamento de aplicativos:
+
+- Para trabalhos de escala menores (ou seja, < conexões de 256K), use a opção:
+   ```bash
+   UCX_TLS=rc,sm
+   ```
+
+- Para trabalhos de escala maiores (ou seja, > conexões de 256K), use a opção:
+   ```bash
+   UCX_TLS=dc,sm
+   ```
+
+- No acima, para calcular o número de conexões para seu trabalho MPI, use:
+   ```bash
+   Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
+   ```
+
+## <a name="process-pinning"></a>Fixação de processo
+
+- Fixe processos em núcleos usando uma abordagem de fixação sequencial (em oposição a uma abordagem de autoequilíbrio). 
+- A associação por numa/Core/HwThread é melhor que a associação padrão.
+- Para aplicativos paralelos híbridos (OpenMP + MPI), use 4 threads e uma classificação MPI por CCX nos tamanhos de VM HB e HBv2.
+- Para aplicativos MPI puros, experimente com 1-4 classificações MPI por CCX para obter um desempenho ideal nos tamanhos de VM HB e HBv2.
+- Alguns aplicativos com extrema sensibilidade à largura de banda da memória podem se beneficiar do uso de um número reduzido de núcleos por CCX. Para esses aplicativos, usar 3 ou 2 núcleos por CCX pode reduzir a contenção de largura de banda de memória e gerar um desempenho do mundo real maior ou uma escalabilidade mais consistente. Em particular, a MPI irreduza pode se beneficiar dessa abordagem.
+- Para execuções de escala significativamente maiores, é recomendável usar transportes UD ou RC do UD híbrido. Muitas bibliotecas MPI/bibliotecas de tempo de execução fazem isso internamente (como UCX ou MVAPICH2). Verifique suas configurações de transporte para execuções em larga escala.
 
 ## <a name="compiling-applications"></a>Compilando aplicativos
 
@@ -68,17 +96,6 @@ Para HPC, a AMD recomenda o compilador GCC 7,3 ou mais recente. As versões mais
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
-
-## <a name="scaling-applications"></a>Dimensionamento de aplicativos 
-
-As sugestões a seguir se aplicam à eficiência, ao desempenho e à consistência de dimensionamento de aplicativos:
-
-* Fixe processos em núcleos 0-59 usando uma abordagem de fixação sequencial (em oposição a uma abordagem de balanceamento automático). 
-* A associação por numa/Core/HwThread é melhor que a associação padrão.
-* Para aplicativos paralelos híbridos (OpenMP + MPI), use 4 threads e uma classificação MPI por CCX.
-* Para aplicativos MPI puros, experimente a 1-4 classificações MPI por CCX para obter um desempenho ideal.
-* Alguns aplicativos com extrema sensibilidade à largura de banda da memória podem se beneficiar do uso de um número reduzido de núcleos por CCX. Para esses aplicativos, usar 3 ou 2 núcleos por CCX pode reduzir a contenção de largura de banda de memória e gerar um desempenho do mundo real maior ou uma escalabilidade mais consistente. Em particular, a MPI irreduza pode se beneficiar disso.
-* Para execuções de escala significativamente maiores, é recomendável usar transportes UD ou RC do UD híbrido. Muitas bibliotecas MPI/bibliotecas de tempo de execução fazem isso internamente (como UCX ou MVAPICH2). Verifique suas configurações de transporte para execuções em larga escala.
 
 ## <a name="next-steps"></a>Próximas etapas
 

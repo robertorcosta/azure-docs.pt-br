@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: 731d94aa76146bf06a03842e8f3907d1762eeca3
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225601"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467537"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
@@ -22,8 +22,7 @@ Você pode adicionar IPs à lista de permissões do serviço de aplicativo para 
 
 #### <a name="add-ips-to-app-service-allow-list"></a>Adicionar IPs à lista de permissões do serviço de aplicativo
 
-1. 
-tráfego somente de IPs de serviços cognitivas. Eles já estão incluídos na marca de serviço `CognitiveServicesManagement` . Isso é necessário para criar APIs (criar/atualizar KB) para invocar o serviço de aplicativo e atualizar o serviço de Azure Search de acordo. Confira [mais informações sobre marcas de serviço.](../../../virtual-network/service-tags-overview.md)
+1. Permitir tráfego somente de IPs de serviços cognitivas. Eles já estão incluídos na marca de serviço `CognitiveServicesManagement` . Isso é necessário para criar APIs (criar/atualizar KB) para invocar o serviço de aplicativo e atualizar o serviço de Azure Search de acordo. Confira [mais informações sobre marcas de serviço.](../../../virtual-network/service-tags-overview.md)
 2. Certifique-se de também permitir outros pontos de entrada, como o serviço de bot do Azure, QnA Maker portal, etc. para acesso à API de previsão "GenerateAnswer".
 3. Siga estas etapas para adicionar os intervalos de endereços IP a uma lista de permissões:
 

@@ -1,6 +1,6 @@
 ---
 title: 'Instância Gerenciada do DB2 para o SQL: guia de migração'
-description: Siga este guia para migrar seus bancos de dados DB2 para o Azure SQL Instância Gerenciada.
+description: Este guia ensina a migrar seus bancos de dados DB2 para o Azure SQL Instância Gerenciada usando o Assistente de Migração do SQL Server para DB2.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
 ms.custom: ''
@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 3902661553bbb390e6e999e0f67cd043eee8df09
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.openlocfilehash: 9ad838b8c5f54d3ecdd5c8ce56b197cdb6cec1ba
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
-ms.locfileid: "97359176"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103563854"
 ---
 # <a name="migration-guide-db2-to-sql-managed-instance"></a>Guia de migração: DB2 para SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -142,9 +142,6 @@ A abordagem de teste para a migração de banco de dados consiste nas seguintes 
 1. **Configurar ambiente de teste**: O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
 1. **Executar testes de validação**: Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 1. **Executar testes de desempenho**: Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
-
-   > [!NOTE]
-   > Para obter assistência para desenvolver e executar testes de validação após a migração, considere a Solução de Qualidade de Dados disponibilizada pelo parceiro [QuerySurge](https://www.querysurge.com/company/partners/microsoft). 
 
 
 ## <a name="leverage-advanced-features"></a>Aproveite os recursos avançados 

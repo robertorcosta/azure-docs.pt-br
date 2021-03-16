@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 81a5f28f0bf2f7f7ea005a4d9fe8d42337f6d0b9
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 02dc2b4e86c9d0bad0c8274967aa4da77440ec01
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103389"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102498754"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Início Rápido: Adquirir um token e chamar a API do Microsoft Graph de um aplicativo da área de trabalho do Windows
 
@@ -54,12 +54,12 @@ Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustraç�
 > 1. Selecione **Registrar** para criar o aplicativo.
 > 1. Em **Gerenciar**, selecione **Autenticação**.
 > 1. Selecione **Adicionar uma plataforma** > **Aplicativos móveis e de área de trabalho**.
-> 1. Na seção **URIs de Redirecionamento**, selecione `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> 1. Na seção **URI de Redirecionamento**, clique em `https://login.microsoftonline.com/common/oauth2/nativeclient`. Além disso, em **URI de redirecionamento personalizado** adicione `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`, desse modo `{client_id}` será a ID do aplicativo (cliente) do seu aplicativo (o mesmo GUID que será exibido na caixa de seleção `msal{client_id}://auth`).
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
-> Para que o exemplo de código deste guia de início rápido funcione, adicione um **URI de Redirecionamento** igual a `https://login.microsoftonline.com/common/oauth2/nativeclient`.
+> Para que o exemplo de código funcione neste guia de início rápido, adicione um **URI de Redirecionamento** de `https://login.microsoftonline.com/common/oauth2/nativeclient` e `ms-appx-web://microsoft.aad.brokerplugin/{client_id}`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
 >
