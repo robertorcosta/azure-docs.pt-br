@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 0d8ba3fc578580e6eee02f435272f4ea53523586
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: db6793389df0df169745ddd50551f836d06cf08c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448210"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488747"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta da Microsoft usando o Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Para habilitar a entrada para usuários com um conta Microsoft no Azure Active D
 1. Em **Tipos de conta com suporte**, selecione **Contas em qualquer diretório organizacional (Qualquer diretório do Azure AD – Multilocatário) e contas Microsoft pessoais (por exemplo, Skype, Xbox)** .
 
    Confira mais informações sobre as diferentes seleções de tipo de conta em [Início Rápido: registrar um aplicativo na plataforma de identidade da Microsoft](../active-directory/develop/quickstart-register-app.md).
-1. Em **URI de redirecionamento (opcional)** , selecione **Web** e insira `https://<tenant-name>.b2clogin.com/<tenant-name>.onmicrosoft.com/oauth2/authresp` na caixa de texto. Substitua `<tenant-name>` pelo nome de seu locatário do Azure AD B2C.
+1. Em **URI de redirecionamento (opcional)**, selecione **Web** e digite `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado.
 1. Escolha **Registrar**
 1. Registre a **ID do Aplicativo (do cliente)** mostrada na página Visão Geral do aplicativo. Você precisa da ID do cliente ao configurar o provedor de identidade na próxima seção.
 1. Escolha **Certificados e Segredos**
@@ -72,7 +72,7 @@ Para habilitar a entrada para usuários com um conta Microsoft no Azure Active D
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade da Microsoft.
 1. Em **provedores de identidade social**, selecione **conta da Microsoft**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .

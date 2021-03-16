@@ -1,6 +1,6 @@
 ---
-title: Configurar e personalizar o módulo de segurança para os RTOS do Azure
-description: Saiba mais sobre como configurar e personalizar seu módulo de segurança para os RTOS do Azure.
+title: Configurar e personalizar o defender-IoT-micro-Agent para RTOS do Azure
+description: Saiba mais sobre como configurar e personalizar seu defender-IoT-micro-Agent para os RTOS do Azure.
 services: defender-for-iot
 ms.service: defender-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/07/2021
 ms.author: shhazam
-ms.openlocfilehash: 524286fa7a923485d0085fb63f3ef9669db1a4d5
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 874a783763882a28f2fe7078e3a264d09107808a
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449808"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495089"
 ---
-# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-ga"></a>Configurar e personalizar o defender-IoT-micro-Agent para os RTOS do Azure GA
+# <a name="configure-and-customize-defender-iot-micro-agent-for-azure-rtos-preview"></a>Configurar e personalizar o defender-IoT-micro-Agent para RTOS do Azure (versão prévia)
 
 Este artigo descreve como configurar o defender-IoT-micro-Agent para seu dispositivo RTOS do Azure, para atender aos requisitos de rede, largura de banda e memória.
 
@@ -89,5 +89,6 @@ Você pode habilitar e configurar Log Analytics para investigar eventos e ativid
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Examinar e personalizar o módulo de segurança para [alertas e recomendações de segurança](concept-rtos-security-alerts-recommendations.md) dos RTOs do Azure
-- Consulte o [módulo de segurança para a API dos RTOs do Azure](azure-rtos-security-module-api.md) , conforme necessário.
+
+- Examinar e personalizar o defender-IoT-micro-Agent para [alertas e recomendações de segurança](concept-rtos-security-alerts-recommendations.md) dos RTOs do Azure
+- Consulte o [defender-IOT-micro-Agent para a API de RTOs do Azure](azure-rtos-security-module-api.md) , conforme necessário.

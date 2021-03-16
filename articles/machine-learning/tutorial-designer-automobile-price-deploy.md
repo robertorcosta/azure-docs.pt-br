@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/15/2021
 ms.custom: designer
-ms.openlocfilehash: e93f912915303ce903a32ceba4f079593657a4ac
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.openlocfilehash: ec563371ab505113117707f56c31f506f7fdf377
+ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
-ms.locfileid: "99576051"
+ms.lasthandoff: 03/02/2021
+ms.locfileid: "101659488"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Tutorial: Implantar um modelo de machine learning com o designer
 
@@ -42,7 +42,7 @@ Para implantar o pipeline, primeiro, converta o pipeline de treinamento em um pi
 
 1. Acima da tela do pipeline, selecione **Criar pipeline de inferência** > **Pipeline de inferência em tempo real**.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png"alt-text="Captura de tela mostrando onde encontrar o botão criar pipeline":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/tutorial2-create-inference-pipeline.png" alt-text="Captura de tela mostrando onde encontrar o botão criar pipeline":::
 
     Agora, seu pipeline deve ter esta aparência: 
 
@@ -97,13 +97,13 @@ Após o provisionamento do serviço do AKS, volte para o pipeline de inferência
 
 1. Selecione o cluster do AKS que você criou.
 
-    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png"alt-text="Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real":::
+    :::image type="content" source="./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png" alt-text="Captura de tela mostrando como configurar um novo ponto de extremidade em tempo real":::
 
     Altere também a configuração **Avançada** do ponto de extremidade em tempo real.
     
     |Configuração avançada|Descrição|
     |---|---|
-    |Habilitar o diagnóstico e a coleta de dados do Application Insights| Indica se o Azure Application Ingishts deve ser habilitado para coletar dados dos pontos de extremidade implantados. </br> Por padrão: falso |
+    |Habilitar o diagnóstico e a coleta de dados do Application Insights| Indica se o Azure Application Insights deve ou não ser habilitado para coletar dados dos pontos de extremidade implantados. </br> Por padrão: falso |
     |Tempo limite de pontuação| Um tempo limite em milissegundos para impor as chamadas de pontuação ao serviço Web.</br>Por padrão: 60000|
     |Dimensionamento automático habilitado|   Habilitar o dimensionamento automático para o serviço Web.</br>Por padrão: verdadeiro|
     |Número mínimo de réplicas| O número mínimo de contêineres a serem usados no dimensionamento automático desse serviço Web.</br>Por padrão: 1|
@@ -137,6 +137,22 @@ Após a conclusão da implantação, veja o ponto de extremidade em tempo real a
 1. Para testar o seu ponto de extremidade, acesse a guia **Testar**. Nela, você pode inserir os dados de teste e selecionar **Testar** para verificar a saída do seu ponto de extremidade.
 
 Para obter mais informações sobre como consumir seu serviço Web, confira [Consumir um modelo implantado como um webservice](how-to-consume-web-service.md)
+
+## <a name="limitations"></a>Limitações
+
+Se você fizer algumas modificações em seu pipeline de treinamento, deverá reenviar o pipeline de treinamento, **Atualizar** o pipeline de inferência e executar o pipeline de inferência novamente.
+
+Observe que apenas modelos treinados serão atualizados no pipeline de inferência, enquanto a transformação de dados não será atualizada.
+
+Para usar a transformação atualizada no pipeline de inferência, você precisa registrar a saída da transformação do módulo de transformação como um conjunto de dados.
+
+![Captura de tela mostrando como registrar o conjunto de dados de transformação](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
+
+Em seguida, substitua manualmente o módulo **td** no pipeline de inferência com o conjunto de dados registrado.
+
+![Captura de tela mostrando como substituir o módulo de transformação](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+
+Em seguida, você pode enviar o pipeline de inferência com o modelo e a transformação atualizados e implantar.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

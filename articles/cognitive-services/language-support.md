@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/31/2020
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 8d518d540e50d96486fa98eea3c3267685776668
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c2c2b57ebf4e2a5cd96efce49da87cf42929e96c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706275"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472055"
 ---
 # <a name="natural-language-support-for-azure-cognitive-services"></a>Suporte a linguagem natural nos Serviços Cognitivos do Azure
 
@@ -35,7 +35,7 @@ Esses serviços cognitivas são independentes de idioma e não têm limitações
 * [Reconhecimento de Tinta Digital (versão prévia)](/previous-versions/azure/cognitive-services/Ink-Recognizer/language-support)
 * [Video Indexer](../media-services/video-indexer/language-identification-model.md#guidelines-and-limitations)
 
-## <a name="language"></a>Idioma
+## <a name="language"></a>Linguagem
 
 * [Leitura Avançada](./immersive-reader/language-support.md)
 * [Reconhecimento Vocal (LUIS)](./luis/luis-language-support.md)
@@ -48,16 +48,6 @@ Esses serviços cognitivas são independentes de idioma e não têm limitações
 * [Serviço de Fala: conversão de fala em texto](./speech-service/language-support.md#speech-to-text)
 * [Serviço de Fala: conversão de texto em fala](./speech-service/language-support.md#text-to-speech)
 * [Serviço de Fala: tradução de fala](./speech-service/language-support.md#speech-translation)
-
-## <a name="search"></a>Pesquisar
-
-* [Pesquisa Personalizada do Bing](./bing-custom-search/language-support.md)
-* [Pesquisa de Imagem do Bing](./bing-image-search/language-support.md)
-* [Pesquisa de Notícias do Bing](./bing-news-search/language-support.md)
-* [Sugestão Automática do Bing](./bing-autosuggest/language-support.md)
-* [Verificação de Ortografia do Bing](./bing-spell-check/language-support.md)
-* [Pesquisa Visual do Bing](./bing-visual-search/language-support.md)
-* [Pesquisa na Web do Bing](./bing-web-search/language-support.md)
 
 ## <a name="decision"></a>Decisão
 

@@ -14,16 +14,16 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 310dd82f9a5f7f98fbca720b48212b7963e25a63
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: f56f8ac42f0db3d2cd27453cd023a2e869b0cde0
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551497"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466075"
 ---
 # <a name="roles-for-microsoft-365-services-in-azure-active-directory"></a>Funções para serviços de Microsoft 365 no Azure Active Directory
 
-Todos os produtos no Microsoft 365 podem ser gerenciados com funções administrativas no Azure Active Directory (AD do Azure). Alguns produtos também fornecem funções adicionais que são específicas a esse produto. Para obter informações sobre as funções compatíveis com cada produto, veja a tabela a seguir. Discussões gerais sobre problemas de delegação podem ser encontradas no [Planejamento de delegação de função no Azure Active Directory](concept-delegation.md).
+Todos os produtos no Microsoft 365 podem ser gerenciados com funções administrativas no Azure Active Directory (AD do Azure). Alguns produtos também fornecem funções adicionais que são específicas a esse produto. Para obter informações sobre as funções compatíveis com cada produto, veja a tabela a seguir. Para obter diretrizes sobre o planejamento de segurança de função, consulte [protegendo o acesso privilegiado para implantações híbridas e na nuvem no Azure ad](security-planning.md).
 
 ## <a name="where-to-find-content"></a>Onde encontrar conteúdo
 

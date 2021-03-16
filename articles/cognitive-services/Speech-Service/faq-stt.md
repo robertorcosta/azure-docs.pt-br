@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.author: panosper
-ms.openlocfilehash: 1ebba3231a7b3a86b98bcc14d1257412d1557ff3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: bcb4408df08f3854b067c8b805b78433a3d5075c
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101738184"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491241"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Perguntas frequentes sobre Conversão de Fala em Texto
 
@@ -57,7 +57,7 @@ Os outros resultados provavelmente são piores e podem não ter total maiúscula
 
 **P: por que existem modelos de base diferentes?**
 
-**R**: você pode escolher entre mais de um modelo base no serviço de fala. Cada nome de modelo contém a data em que foi adicionado. Ao começar a treinar um modelo personalizado, use o modelo mais recente para obter a melhor precisão. Modelos básicos mais antigos ainda estão disponíveis por algum tempo quando um novo modelo é disponibilizado. Você pode continuar usando o modelo com o qual trabalhou até que ele seja desativado (consulte o [ciclo de vida do modelo](custom-speech-overview.md#model-lifecycle)). Ainda é recomendável mudar para o modelo base mais recente para obter uma maior precisão.
+**R**: você pode escolher entre mais de um modelo base no serviço de fala. Cada nome de modelo contém a data em que foi adicionado. Ao começar a treinar um modelo personalizado, use o modelo mais recente para obter a melhor precisão. Modelos básicos mais antigos ainda estão disponíveis por algum tempo quando um novo modelo é disponibilizado. Você pode continuar usando o modelo com o qual trabalhou até que ele seja desativado (consulte o [ciclo de vida do modelo e do ponto de extremidade](./how-to-custom-speech-model-and-endpoint-lifecycle.md)). Ainda é recomendável mudar para o modelo base mais recente para obter uma maior precisão.
 
 **P: Posso atualizar meu modelo existente (modelo de empilhamento)?**
 
@@ -71,7 +71,7 @@ O conjunto de dados antigo e o novo devem ser combinados em um único arquivo .z
 
 Se você tiver adaptado e implantado um modelo, essa implantação permanecerá como está. Você pode encerrar o modelo implantado, readaptação usando a versão mais recente do modelo base e reimplantar para obter maior precisão.
 
-Os modelos básicos e os modelos personalizados serão desativados após algum tempo (consulte o [ciclo de vida do modelo](custom-speech-overview.md#model-lifecycle)).
+Os modelos básicos e os modelos personalizados serão desativados após algum tempo (consulte o [ciclo de vida do modelo e do ponto de extremidade](./how-to-custom-speech-model-and-endpoint-lifecycle.md)).
 
 **Pergunta: Posso baixar meu modelo e executá-lo localmente?**
 

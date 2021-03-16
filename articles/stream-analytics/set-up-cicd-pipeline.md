@@ -7,12 +7,12 @@ ms.author: sujie
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: b601a3586cfa971b2e8337a914f4e10bb0178ba0
-ms.sourcegitcommit: 42a4d0e8fa84609bec0f6c241abe1c20036b9575
+ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/08/2021
-ms.locfileid: "98014239"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466381"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usar o Azure DevOps para criar um pipeline de CI/CD para um trabalho Stream Analytics
 
@@ -55,6 +55,22 @@ Nesta seção, você aprenderá a criar um pipeline de compilação. Você pode 
    ```
 
    :::image type="content" source="media/set-up-cicd-pipeline/npm-config.png" alt-text="Inserir configurações para a tarefa NPM":::
+
+Use as etapas a seguir se precisar usar o agente do Linux hospedado:
+1.  Selecione a **especificação do agente**
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/select-linux-agent.png" alt-text="Captura de tela de seleção da especificação do agente.":::
+
+2.  Na página **tarefas** , selecione o sinal de adição ao lado do **trabalho do agente 1**. Insira a *linha de comando* na pesquisa de tarefas e selecione linha de **comando**.
+   
+    :::image type="content" source="media/set-up-cicd-pipeline/cmd-search.png" alt-text="Captura de tela da pesquisa de tarefa de linha de comando. ":::
+
+3.  Dê um nome de **exibição** à tarefa. Insira o comando a seguir no **script**. Deixe as opções padrão restantes.
+
+      ```bash
+      sudo npm install -g azure-streamanalytics-cicd --unsafe-perm=true --allow-root
+      ```
+      :::image type="content" source="media/set-up-cicd-pipeline/cmd-scripts.png" alt-text="Captura de tela da inserção de script para a tarefa cmd.":::
 
 ## <a name="add-a-build-task"></a>Adicionar uma tarefa de compilação
 
@@ -166,7 +182,7 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
    |Nome de exibição| *Implantar myASAProject*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
-   |Resource group| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
+   |Grupo de recursos| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
    |Localização|Escolha o local do seu grupo de recursos de teste.|
    |Local do modelo| Artefato vinculado|
    |Modelo| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cICD-demo-CI-Deployment/drop/myASAProject.JobTemplate.json |
@@ -183,7 +199,7 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
    |Nome de exibição| *Implantar myASAProject*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
-   |Resource group| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
+   |Grupo de recursos| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
    |Localização|Escolha o local do seu grupo de recursos de produção.|
    |Local do modelo| *Artefato vinculado*|
    |Modelo| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cICD-demo-CI-Deployment/drop/myASAProject.JobTemplate.json |

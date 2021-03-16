@@ -11,33 +11,39 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/08/2021
+ms.date: 03/14/2021
 ms.author: shhazam
-ms.openlocfilehash: f15c4ed6bb7da5cd33eca96c171bfada68092b35
-ms.sourcegitcommit: 2501fe97400e16f4008449abd1dd6e000973a174
+ms.openlocfilehash: ef72be60b6294ad4e1fca2ce9c0e3c66b64ac687
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99820663"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493944"
 ---
 # <a name="whats-new-in-azure-defender-for-iot"></a>O que há de novo no Azure defender para IoT?
 
 Este artigo lista os novos recursos e aprimoramentos de recurso do defender para IoT.
 
 Os recursos indicados estão em versão prévia. Os [termos suplementares de versão prévia do Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) incluem termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, versão prévia ou que, de outra forma, ainda não foram lançados em disponibilidade geral.
-## <a name="february-2021"></a>Fevereiro de 2021
+## <a name="march-2021"></a>Março de 2021
 
-### <a name="sensor---enhanced-custom-alert-rules"></a>Sensor-regras de alerta personalizadas aprimoradas
+### <a name="sensor---enhanced-custom-alert-rules-public-preview"></a>Sensor-regras de alerta personalizadas aprimoradas (visualização pública)
 
 Agora você pode criar regras de alerta personalizadas com base no dia, grupo de dias e a atividade de rede de período de tempo foi detectada.  Trabalhar com condições de regra de dia e hora é útil, por exemplo, nos casos em que a severidade do alerta é derivada pela hora em que o evento de alerta ocorre. Por exemplo, crie uma regra personalizada que dispara um alerta de severidade alta quando a atividade de rede é detectada em um fim de semana ou à noite.
 
-Esse recurso está disponível no sensor com o lançamento da versão 10,1.
+Esse recurso está disponível no sensor com o lançamento da versão 10,2.
 
-### <a name="on-premises-management-console---export-alerts"></a>Console de gerenciamento local – alertas de exportação
+### <a name="on-premises-management-console---export-alerts-public-preview"></a>Console de gerenciamento local – alertas de exportação (visualização pública)
 
 As informações de alerta agora podem ser exportadas para um arquivo. csv do console de gerenciamento local. Você pode exportar informações de todos os alertas detectados ou exportar informações com base na exibição filtrada.
 
-Esse recurso está disponível no console de gerenciamento local com o lançamento da versão 10,1.
+Esse recurso está disponível no console de gerenciamento local com o lançamento da versão 10,2.
+
+### <a name="add-second-network-interface-to-on-premises-management-console-public-preview"></a>Adicionar segunda interface de rede ao console de gerenciamento local (visualização pública)
+
+Agora você pode aprimorar a segurança de sua implantação adicionando uma segunda interface de rede ao seu console de gerenciamento local. Esse recurso permite que seu gerenciamento local tenha seus sensores conectados em uma rede segura, permitindo que os usuários acessem o console de gerenciamento local por meio de uma segunda interface de rede separada.
+
+Esse recurso está disponível no console de gerenciamento local com o lançamento da versão 10,2.
 ### <a name="device-builder---new-micro-agent-public-preview"></a>Device Builder-novo micro Agent (visualização pública)
 
 Um novo módulo do Device Builder está disponível. O módulo, chamado de micro agente, permite:
@@ -48,7 +54,7 @@ Um novo módulo do Device Builder está disponível. O módulo, chamado de micro
 - **Gerenciamento de postura de segurança** – monitore proativamente a postura de segurança de seus dispositivos IOT.
 - **Detecção de ameaças de IOT/OT contínuas e em tempo real** – Detecte ameaças como botnets, tentativas de força bruta, criptografia mineradores e atividade de rede suspeita
 
-A documentação do módulo de segurança preterida será movida para a *solução baseada em agente para criadores de dispositivos>pasta clássica* .
+A documentação do defender-IoT-micro-Agent preterida será movida para a *solução baseada em agente para criadores de dispositivos>pasta clássica* .
 
 Esse conjunto de recursos está disponível com a versão de nuvem de visualização pública atual.
 

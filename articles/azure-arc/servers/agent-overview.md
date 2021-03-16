@@ -1,14 +1,14 @@
 ---
-title: Visão geral do agente do Connected Machine do Windows
+title: Visão geral do agente do computador conectado
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 02/18/2021
+ms.date: 03/15/2021
 ms.topic: conceptual
-ms.openlocfilehash: ebd9412849b4a0b3081e892d7472e598ca6e8365
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101651086"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470482"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -90,9 +90,11 @@ Há suporte oficial para as seguintes versões do sistema operacional Windows e 
 
 ### <a name="required-permissions"></a>Permissões necessárias
 
-* Para os computadores de integração, você é membro da função **Integração do Azure Connected Machine**.
+* Para carregar computadores, você é membro da função de [colaborador](../../role-based-access-control/built-in-roles.md#contributor) ou **integração do computador conectado do Azure** no grupo de recursos.
 
-* Para ler, modificar e excluir um computador, você é membro da função de **administrador de recursos do computador conectado do Azure** . 
+* Para ler, modificar e excluir um computador, você é membro da função de **administrador de recursos do computador conectado do Azure** no grupo de recursos.
+
+* Para selecionar um grupo de recursos na lista suspensa ao usar o método **Generate script** , no mínimo você é um membro da função [leitor](../../role-based-access-control/built-in-roles.md#reader) para esse grupo de recursos.
 
 ### <a name="azure-subscription-and-service-limits"></a>Limites de serviço e assinatura do Azure
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: cff40385edc89c0f6d2d105d089b66c046b0c04b
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
-ms.locfileid: "100545931"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424539"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -48,7 +48,7 @@ Para trabalhar com o cenário, você vai interagir com os componentes do aplicat
 
 Estes são os componentes implementados pelo aplicativo de exemplo *AdtSampleApp* do cenário de construção:
 * Autenticação de dispositivo 
-* Exemplos de uso do [SDK do .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true) (encontrados em *CommandLoop.cs*)
+* Exemplos de uso do [SDK do .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client) (encontrados em *CommandLoop.cs*)
 * Interface de console para chamar a API dos Gêmeos Digitais do Azure
 * *SampleClientApp* – uma solução de exemplo dos Gêmeos Digitais do Azure
 * *SampleFunctionsApp* – um aplicativo do Azure Functions que atualiza seu gráfico dos Gêmeos Digitais do Azure como resultado da telemetria do Hub IoT e de eventos dos Gêmeos Digitais do Azure
@@ -107,7 +107,7 @@ De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está ab
 
 Antes de publicar o aplicativo, é uma boa ideia verificar se suas dependências estão atualizadas garantindo que você tenha a versão mais recente de todos os pacotes incluídos.
 
-No painel *Gerenciador de Soluções*, expanda *SampleFunctionsApp > Dependências*. Selecione com o botão direito do mouse *Pacotes* e escolha *Gerenciar Pacotes do NuGet...* .
+No painel *Gerenciador de Soluções*, expanda _**SampleFunctionsApp** > Dependências_. Selecione com o botão direito do mouse *Pacotes* e escolha *Gerenciar Pacotes do NuGet...* .
 
 :::image type="content" source="media/tutorial-end-to-end/update-dependencies-1.png" alt-text="Visual Studio: Gerenciar pacotes do NuGet para o projeto SampleFunctionsApp" border="false":::
 
@@ -131,15 +131,17 @@ No Azure Cloud Shell, use o comando a seguir para definir uma configuração de 
 az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
 ```
 
-A saída é a lista de configurações para a Função do Azure, que agora deve conter uma entrada chamada *ADT_SERVICE_URL*.
+A saída é a lista de configurações para a Função do Azure, que agora deve conter uma entrada chamada **ADT_SERVICE_URL**.
 
-Use o comando a seguir para criar a identidade gerenciada pelo sistema. Anote o campo *principalId* na saída.
+Use o comando a seguir para criar a identidade gerenciada pelo sistema. Procure o campo **principalId** na saída.
 
 ```azurecli-interactive
 az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
 ```
 
-Use o valor *principalId* da saída no seguinte comando a fim de atribuir a identidade do aplicativo de funções à função de *Proprietário de Dados dos Gêmeos Digitais do Azure*  para sua instância dos Gêmeos Digitais do Azure:
+Use o valor **principalId** da saída no comando a seguir a fim de atribuir a identidade do aplicativo de funções à função de *Proprietário de Dados dos Gêmeos Digitais do Azure* para sua instância dos Gêmeos Digitais do Azure.
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 ```azurecli-interactive
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
@@ -176,7 +178,7 @@ az iot hub create --name <name-for-your-IoT-hub> -g <your-resource-group> --sku 
 
 A saída desse comando são informações sobre o Hub IoT que foi criado.
 
-Salve o nome que você deu ao hub IoT. Você o usará mais tarde.
+Salve o **nome** que você deu ao hub IoT. Você o usará mais tarde.
 
 ### <a name="connect-the-iot-hub-to-the-azure-function"></a>Conectar o hub IoT à função do Azure
 
@@ -269,7 +271,10 @@ Na janela do console do projeto que é aberta, execute o seguinte comando para o
 ObserveProperties thermostat67 Temperature
 ```
 
-Você deve ver as temperaturas atualizadas de maneira dinâmica *de sua instância dos Gêmeos Digitais do Azure* sendo registradas no console a cada 10 segundos.
+Você deve ver as temperaturas atualizadas de maneira dinâmica *de sua instância dos Gêmeos Digitais do Azure* sendo registradas no console a cada dois segundos.
+
+>[!NOTE]
+> Pode levar alguns segundos para que os dados do dispositivo se propaguem até o gêmeo. As primeiras leituras de temperatura podem aparecer como 0 antes que os dados comecem a chegar.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry.png" alt-text="Saída do console mostrando o log de mensagens de temperatura do gêmeo digital thermostat67":::
 
@@ -327,7 +332,7 @@ Procure o campo `provisioningState` na saída e verifique se o valor é "Êxito"
 
 :::image type="content" source="media/tutorial-end-to-end/output-endpoints.png" alt-text="Resultado da consulta do ponto de extremidade, mostrando o ponto de extremidade com o provisioningState igual a Êxito":::
 
-Salve os nomes que você deu ao tópico e ao ponto de extremidade da Grade de Eventos nos Gêmeos Digitais do Azure. Você os usará mais tarde.
+Salve os nomes que você deu ao **tópico** e ao **ponto de extremidade** da Grade de Eventos nos Gêmeos Digitais do Azure. Você os usará mais tarde.
 
 ### <a name="set-up-route"></a>Configurar rota
 
@@ -346,7 +351,7 @@ A saída desse comando são algumas informações sobre a rota que você criou.
 
 Em seguida, assine a função do Azure *ProcessDTRoutedData* para o tópico da grade de eventos que você criou anteriormente, para que os dados de telemetria possam fluir do gêmeo *thermostat67*, pelo tópico da grade de eventos, até a função, que volta aos Gêmeos Digitais do Azure e atualiza *room21* de modo adequado.
 
-Para fazer isso, você criará uma **assinatura da Grade de Eventos** do tópico da grade de eventos para sua função do Azure *ProcessDTRoutedData* como um ponto de extremidade.
+Para fazer isso, você criará uma **assinatura da Grade de Eventos** que enviará dados do **tópico da Grade de Eventos** que você criou anteriormente para a sua função do Azure *ProcessDTRoutedData*.
 
 No [portal do Azure](https://portal.azure.com/), navegue até o tópico da grade de eventos pesquisando pelo nome dele na barra de pesquisa superior. Selecione *+ Assinatura de Evento*.
 
@@ -381,7 +386,7 @@ Na janela do console do projeto que é aberta, execute o seguinte comando para o
 ObserveProperties thermostat67 Temperature room21 Temperature
 ```
 
-Você deve ver as temperaturas atualizadas de maneira dinâmica *de sua instância dos Gêmeos Digitais do Azure* sendo registradas no console a cada 10 segundos. Observe que a temperatura de *room21* está sendo atualizada de maneira a corresponder às atualizações de *thermostat67*.
+Você deve ver as temperaturas atualizadas de maneira dinâmica *de sua instância dos Gêmeos Digitais do Azure* sendo registradas no console a cada dois segundos. Observe que a temperatura de *room21* está sendo atualizada de maneira a corresponder às atualizações de *thermostat67*.
 
 :::image type="content" source="media/tutorial-end-to-end/console-digital-twins-telemetry-b.png" alt-text="Saída do console mostrando o log de mensagens de temperatura de um termostato e de uma sala":::
 
@@ -403,9 +408,9 @@ Após concluir este tutorial, você poderá escolher quais recursos gostaria de 
 
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-* **Se você quiser continuar usando a instância dos Gêmeos Digitais do Azure configurada neste artigo, mas limpar alguns ou todos os modelos, gêmeos e relações dela**, poderá usar os comandos da CLI [az dt](/cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true) em uma janela do [Azure Cloud Shell](https://shell.azure.com) para excluir os elementos que deseja remover.
+* **Se você quiser continuar usando a instância dos Gêmeos Digitais do Azure configurada neste artigo, mas limpar alguns ou todos os modelos, gêmeos e relações dela**, poderá usar os comandos da CLI [az dt](/cli/azure/ext/azure-iot/dt) em uma janela do [Azure Cloud Shell](https://shell.azure.com) para excluir os elementos que deseja remover.
 
-    Essa opção não removerá nenhum dos outros recursos do Azure criados neste tutorial (Hub IoT, aplicativo do Azure Functions etc.). Você pode exclui-los individualmente usando os [comandos dt](/cli/azure/reference-index?view=azure-cli-latest&preserve-view=true) apropriados para cada tipo de recurso.
+    Essa opção não removerá nenhum dos outros recursos do Azure criados neste tutorial (Hub IoT, aplicativo do Azure Functions etc.). Você pode exclui-los individualmente usando os [comandos dt](/cli/azure/reference-index) apropriados para cada tipo de recurso.
 
 Talvez seja interessante excluir a pasta do projeto do computador local.
 

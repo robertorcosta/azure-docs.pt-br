@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 36bdda4165c7307eaa7837d6208952da7f1d115f
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e2c82858b9f4b9846ff5371da347be942eed0a4f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448362"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488849"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do GitHub usando o Azure Active Directory B2C
 
@@ -43,7 +43,7 @@ Para habilitar a entrada com uma conta do GitHub no Azure Active Directory B2C (
 1. Entre no desenvolvedor do [GitHub](https://github.com/settings/developers) com suas credenciais do github.
 1. Selecione **Aplicativos do OAuth** e, em seguida, selecione **Novo Aplicativo do OAuth**.
 1. Insira um **nome do Aplicativo** e **URL da home page**.
-1. Insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` em **URL de retorno de chamada de autorização**. Substitua `your-tenant-name` pelo nome de seu locatário do Azure AD B2C. Use todas as letras minúsculas, ao inserir o nome do locatário, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
+1. Para a **URL de retorno de chamada da autorização**, insira `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-domain-name` pelo seu domínio personalizado e `your-tenant-name` pelo nome do seu locatário. Use todas as letras minúsculas, ao inserir o nome do locatário, mesmo se o locatário estiver definido com letras maiúsculas no Azure AD B2C.
 1. Clique em **Registrar aplicativo**.
 1. Copie os valores da **ID do cliente** e do **segredo do cliente**. Você precisará delas para adicionar o provedor de identidade ao locatário.
 
@@ -58,14 +58,14 @@ Para habilitar a entrada com uma conta do GitHub no Azure Active Directory B2C (
 1. Insira um **Nome**. Por exemplo, *GitHub*.
 1. Para a **ID do cliente**, insira a ID do cliente do aplicativo GitHub que você criou anteriormente.
 1. Para o **segredo do cliente**, insira o segredo do cliente que você registrou.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ## <a name="add-github-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do GitHub a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do GitHub.
 1. Em **provedores de identidade social**, selecione **GitHub**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .
