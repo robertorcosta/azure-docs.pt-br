@@ -3,15 +3,15 @@ title: configurar uma implantação contínua
 description: Saiba como habilitar o CI/CD para Azure App serviço do GitHub, BitBucket, Azure Repos ou outros repositórios. Selecione o pipeline de compilação que atenda às suas necessidades.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 03/03/2021
+ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 5af8294518759181326e7736ef755f0a83581014
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564945"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470261"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
 
@@ -50,7 +50,7 @@ Escolha a guia que corresponde à sua seleção para as etapas.
     > [!NOTE]
     > O serviço de aplicativo detecta a [configuração de pilha de idiomas](configure-common.md#configure-language-stack-settings) do seu aplicativo e seleciona o modelo de fluxo de trabalho mais apropriado. Se você escolher um modelo diferente, ele poderá implantar um aplicativo que não seja executado corretamente. Para obter mais informações, consulte [como funciona o provedor de compilação de ações do GitHub](#how-the-github-actions-build-provider-works).
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
    
     Novas confirmações no repositório e no branch selecionados agora são implantadas continuamente em seu aplicativo do Serviço de Aplicativo. Você pode acompanhar as confirmações e implantações na guia **logs** .
 
@@ -62,7 +62,7 @@ A integração do BitBucket usa os serviços de compilação do serviço de apli
 
 1. Para bitbucket, selecione a **equipe** do bitbucket, o **repositório** e a **ramificação** que você deseja implantar continuamente.
 
-1. Clique em **Save** (Salvar).
+1. Clique em **Salvar**.
    
     Novas confirmações no repositório e no branch selecionados agora são implantadas continuamente em seu aplicativo do Serviço de Aplicativo. Você pode acompanhar as confirmações e implantações na guia **logs** .
    
@@ -116,6 +116,8 @@ Você pode personalizar o provedor de compilação de ações do GitHub das segu
 - Em vez de um perfil de publicação, implante usando uma [entidade de serviço](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) no Azure Active Directory.
 
 #### <a name="authenticate-with-a-service-principal"></a>Autenticar com uma entidade de serviço
+
+Essa configuração opcional substitui a autenticação padrão por perfis de publicação no arquivo de fluxo de trabalho gerado.
 
 1. Gere uma entidade de serviço com o comando [AZ ad SP Create-for-RBAC](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) na [CLI do Azure](/cli/azure/). No exemplo a seguir, substitua *\<subscription-id>* , *\<group-name>* e *\<app-name>* pelos seus próprios valores:
 

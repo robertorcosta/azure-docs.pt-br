@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: adfe5318949ffa624ebe3548944b558bd0dda9e1
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 09cfdd026105a34db976118f38b011e2c4578a24
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198465"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470785"
 ---
 # <a name="options-for-registering-a-saml-application-in-azure-ad-b2c"></a>Opções para registrar um aplicativo SAML no Azure AD B2C
 
@@ -279,11 +279,24 @@ Exemplo:
 
 Você pode gerenciar a sessão entre Azure AD B2C e o aplicativo de terceira parte confiável SAML usando o `UseTechnicalProfileForSessionManagement` elemento e o [SamlSSOSessionProvider](custom-policy-reference-sso.md#samlssosessionprovider).
 
+## <a name="force-users-to-re-authenticate"></a>Forçar os usuários a autenticar novamente 
+
+Para forçar os usuários a autenticar novamente, o aplicativo pode incluir o `ForceAuthn` atributo na solicitação de autenticação SAML. O `ForceAuthn` atributo é um valor booliano. Quando definido como true, a sessão de usuários será invalidada em Azure AD B2C e o usuário será forçado a autenticar novamente. A solicitação de autenticação SAML a seguir demonstra como definir o `ForceAuthn` atributo como true. 
+
+
+```xml
+<samlp:AuthnRequest 
+       Destination="https://contoso.b2clogin.com/contoso.onmicrosoft.com/B2C_1A_SAML2_signup_signin/samlp/sso/login"
+       ForceAuthn="true" ...>
+    ...
+</samlp:AuthnRequest>
+```
+
 ## <a name="debug-the-saml-protocol"></a>Depurar o protocolo SAML
 
 Para ajudar a configurar e depurar a integração com seu provedor de serviços, você pode usar uma extensão de navegador para o protocolo SAML, por exemplo, [extensão devtools SAML](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) para Chrome, [SAML-Tracer](https://addons.mozilla.org/es/firefox/addon/saml-tracer/) para Firefox [ou ferramentas de desenvolvedor do Edge ou IE](https://techcommunity.microsoft.com/t5/microsoft-sharepoint-blog/gathering-a-saml-token-using-edge-or-ie-developer-tools/ba-p/320957).
 
-Usando essas ferramentas, você pode verificar a integração entre seu aplicativo e Azure AD B2C. Por exemplo: 
+Usando essas ferramentas, você pode verificar a integração entre seu aplicativo e Azure AD B2C. Por exemplo:
 
 * Verifique se a solicitação SAML contém uma assinatura e determine qual algoritmo é usado para entrar na solicitação de autorização.
 * Verifique se Azure AD B2C retorna uma mensagem de erro.

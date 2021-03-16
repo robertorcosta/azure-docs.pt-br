@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/16/2021
 ms.author: shhazam
-ms.openlocfilehash: c7407db1460c2d0a83f2262a3348c81b4de300a7
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100642328"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491258"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Recomendações de segurança para dispositivos IoT
 
@@ -34,11 +34,11 @@ As recomendações de dispositivo fornecem ideias e sugestões para melhorar a p
 
 | Severidade | Nome | fonte de dados | Descrição |
 |--|--|--|--|
-| Média | Abrir portas no dispositivo | Módulo de segurança clássico | Um ponto de extremidade de escuta foi encontrado no dispositivo. |
-| Média | Política de firewall permissiva encontrada em uma das cadeias. | Módulo de segurança clássico | Política de firewall permitida encontrada (entrada/saída). A política de firewall deve negar todo o tráfego por padrão e definir regras para permitir a comunicação necessária de/para o dispositivo. |
-| Média | A regra de firewall permissiva na cadeia de entrada foi encontrada | Módulo de segurança clássico | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas. |
-| Média | A regra de firewall permissiva na cadeia de saída foi encontrada | Módulo de segurança clássico | Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas. |
-| Média | Falha na validação da linha de base do sistema operacional | Módulo de segurança clássico | O dispositivo não está em conformidade com os [benchmarks Linux do CIS](https://www.cisecurity.org/cis-benchmarks/). |
+| Médio | Abrir portas no dispositivo | Defender clássico-IoT-micro-Agent| Um ponto de extremidade de escuta foi encontrado no dispositivo. |
+| Médio | Política de firewall permissiva encontrada em uma das cadeias. | Defender clássico-IoT-micro-Agent| Política de firewall permitida encontrada (entrada/saída). A política de firewall deve negar todo o tráfego por padrão e definir regras para permitir a comunicação necessária de/para o dispositivo. |
+| Médio | A regra de firewall permissiva na cadeia de entrada foi encontrada | Defender clássico-IoT-micro-Agent| Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas. |
+| Médio | A regra de firewall permissiva na cadeia de saída foi encontrada | Defender clássico-IoT-micro-Agent| Foi encontrada uma regra no firewall que contém um padrão permissivo para uma grande variedade de endereços IP ou portas. |
+| Médio | Falha na validação da linha de base do sistema operacional | Defender clássico-IoT-micro-Agent| O dispositivo não está em conformidade com os [benchmarks Linux do CIS](https://www.cisecurity.org/cis-benchmarks/). |
 
 ### <a name="agent-based-operational-recommendations"></a>Recomendações operacionais baseadas em agente
 
@@ -46,9 +46,9 @@ As recomendações operacionais fornecem informações e sugestões para melhora
 
 | Severidade | Nome | fonte de dados | Descrição |
 |--|--|--|--|
-| Baixo | O Agent envia mensagens não utilizadas | Módulo de segurança clássico | 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas. |
-| Baixo | Configuração de configurações de segurança não ideal | Módulo de segurança clássico | A configuração de configurações de segurança não é ideal. |
-| Baixo | Conflito de configuração de configurações de segurança | Módulo de segurança clássico | Os conflitos foram identificados na configuração de configurações de segurança. |  |
+| Baixo | O Agent envia mensagens não utilizadas | Defender clássico-IoT-micro-Agent| 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas. |
+| Baixo | Configuração de configurações de segurança não ideal | Defender clássico-IoT-micro-Agent| A configuração de configurações de segurança não é ideal. |
+| Baixo | Conflito de configuração de configurações de segurança | Defender clássico-IoT-micro-Agent| Os conflitos foram identificados na configuração de configurações de segurança. |  |
 
 ## <a name="next-steps"></a>Próximas etapas
 

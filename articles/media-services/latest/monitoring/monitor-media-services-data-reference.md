@@ -7,12 +7,12 @@ manager: femila
 ms.topic: reference
 ms.service: media-services
 ms.date: 03/11/2021
-ms.openlocfilehash: c5545ead3e4d40c7a0642aee6273c4df241bd394
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 461c998aa85d70d69cb267fdbeabd7eabcfb5854
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103464398"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471537"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Monitorando a referência de dados dos serviços de mídia
 
@@ -61,7 +61,7 @@ As métricas de [pontos de extremidade de streaming](/rest/api/media/streamingen
 
 Para obter mais informações sobre o que são dimensões de métrica, confira [Métricas multidimensionais](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
 
-**Espaço reservado** para tabela de dimensões.
+<!--**PLACEHOLDER** for dimensions table.-->
 
 ## <a name="resource-logs"></a>Logs de recursos
 

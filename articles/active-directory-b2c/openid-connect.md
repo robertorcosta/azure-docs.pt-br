@@ -7,20 +7,23 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/10/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5095e077ad1f2259c227c37f789dbcaf1f6d1cd7
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 608017c15d039be940d1d67b8f9e1bf7618134b7
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102611854"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491480"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Entrada na Web com o OpenID Connect no Azure Active Directory B2C
 
 O OpenID Connect é um protocolo de autenticação criado com base em OAuth 2.0 que pode ser usado para conectar com segurança os usuários em aplicativos Web. Ao usar a implementação do Azure AD B2C (Azure Active Directory B2C) do OpenID Connect, você pode terceirizar a inscrição, a entrada e outras experiências de gerenciamento de identidade em seus aplicativos Web para o Azure AD (Azure Active Directory). Este guia mostra como fazer isso de maneira independente da linguagem. Ele descreve como enviar e receber mensagens HTTP sem usar qualquer uma das nossas bibliotecas de software livre.
+
+> [!NOTE]
+> A maioria das bibliotecas de autenticação de código aberto adquire e valida os tokens JWT para seu aplicativo. É recomendável explorar essas opções, em vez de implementar seu próprio código. Para obter mais informações, consulte [visão geral da biblioteca de autenticação da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)e [biblioteca de autenticação da Web do Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
 
 O [OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) estende o protocolo de *autorização* do OAuth 2.0 a ser usado como um protocolo de *autenticação*. Esse protocolo de autenticação permite que você execute o logon único. Ele apresenta o conceito de *token de ID*, que permite ao cliente verificar a identidade do usuário e obter informações básicas de perfil sobre o usuário.
 
@@ -97,7 +100,10 @@ error=access_denied
 
 ## <a name="validate-the-id-token"></a>Validar o token de ID
 
-Apenas o recebimento de um tokend de ID não é suficiente para autenticar o usuário. Valide a assinatura do token de ID e verifique as declarações no token de acordo com os requisitos do seu aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos. Há muitas bibliotecas de software livre para validar JWTs dependendo do idioma de preferência. Recomendamos que você explore essas opções em vez de implementar a sua própria lógica de validação.
+Apenas o recebimento de um tokend de ID não é suficiente para autenticar o usuário. Valide a assinatura do token de ID e verifique as declarações no token de acordo com os requisitos do seu aplicativo. O Azure AD B2C usa [JWTs (Tokens Web JSON)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) e criptografia de chave pública para assinar tokens e verificar se eles são válidos. 
+
+> [!NOTE]
+> A maioria das bibliotecas de autenticação de código aberto valida os tokens JWT para seu aplicativo. É recomendável explorar essas opções, em vez de implementar sua própria lógica de validação. Para obter mais informações, consulte [visão geral da biblioteca de autenticação da Microsoft (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)e [biblioteca de autenticação da Web do Microsoft Identity](https://docs.microsoft.com/azure/active-directory/develop/microsoft-identity-web).
 
 Azure AD B2C tem um ponto de extremidade de metadados do OpenID Connect, que permite que um aplicativo Obtenha informações sobre Azure AD B2C em tempo de execução. Essas informações incluem pontos de extremidade, conteúdos de token e chaves de assinatura de token. Há um documento de metadados JSON para cada fluxo de usuário no locatário B2C. Por exemplo, o documento de metadados para o fluxo de usuário `b2c_1_sign_in` em `fabrikamb2c.onmicrosoft.com` está localizado em:
 
@@ -129,7 +135,7 @@ Também há várias outras validações que devem ser realizadas. As validaçõe
 - A garantia de que o usuário tenha a autorização/os privilégios adequados.
 - Garantindo que uma determinada força de autenticação tenha ocorrido, como a autenticação multifator do Azure AD.
 
-Depois de validar o token de ID, você pode iniciar uma sessão com o usuário. Você pode usar as declarações no token de ID para obter informações sobre o usuário em seu aplicativo. Os usos para essas informações incluem exibição, registros e autorização.
+Depois que o token de ID for validado, você poderá iniciar uma sessão com o usuário. Você pode usar as declarações no token de ID para obter informações sobre o usuário em seu aplicativo. Os usos para essas informações incluem exibição, registros e autorização.
 
 ## <a name="get-a-token"></a>Obter um token
 

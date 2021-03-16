@@ -6,15 +6,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 02/28/2021
-ms.author: anfeldma
+ms.date: 03/15/2021
+ms.author: kuthapar
 ms.custom: devx-track-java
-ms.openlocfilehash: 9c3209895902a11ad0b9f29ff28e9ac7f845b101
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3c740aa00b158c7ddbca3e4f61d79e37978223c2
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692718"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493604"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB V3 para a API de núcleo (SQL): notas de versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +40,13 @@ ms.locfileid: "101692718"
 
 O Spring data Azure Cosmos DB versão 3 for Core (SQL) permite que os desenvolvedores usem Azure Cosmos DB em aplicativos Spring. O Spring data Azure Cosmos DB expõe a interface Spring data para manipular bancos de dados e coleções, trabalhar com documentos e emitir consultas. As APIs de sincronização e assíncrona (reativa) têm suporte no mesmo artefato Maven. 
 
-O Spring data Azure Cosmos DB tem uma dependência da estrutura Spring Data. A equipe do SDK do Azure Cosmos DB lança artefatos do Maven para versões 2,2 e 2,3 do Spring Data.
+> [!IMPORTANT]
+> O Spring data Azure Cosmos DB tem uma dependência da estrutura Spring Data.
+> 
+> as versões do Azure-Spring-data-Cosmos do 3.0.0 para o 3.4.0 dão suporte às versões de Spring data 2,2 e 2,3.
+> 
+> Azure-Spring-data-Cosmos versões 3.5.0 e posteriores dão suporte às versões de Spring data 2.4.3 e posteriores.
+>
 
 O [Spring Framework](https://spring.io/projects/spring-framework) é um modelo de programação e configuração que simplifica o desenvolvimento de aplicativos Java. O Spring simplifica o "encanamento" de aplicativos usando a injeção de dependência. Muitos desenvolvedores gostam do Spring, pois tornam a criação e o teste de aplicativos mais simples. O [Spring boot](https://spring.io/projects/spring-boot) estende essa manipulação da estrutura com um olho voltado para o desenvolvimento de aplicativos e microserviços da Web. [Spring data](https://spring.io/projects/spring-data) é um modelo de programação e estrutura para acessar armazenamentos de dados como Azure Cosmos DB do contexto de um aplicativo Spring ou Spring boot. 
 

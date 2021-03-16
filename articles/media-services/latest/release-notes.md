@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: fc48c9b8a0a7510dd8792c959c1f63a0340f89ce
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 5a36b5c8b0c8f24d093d887ad788c4ce9857d355
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103011197"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492667"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -312,7 +312,7 @@ Agora você pode usar o Azure Monitor para exibir dados de telemetria emitidos p
 * Use os logs de diagnóstico Azure Monitor para monitorar solicitações enviadas pelo ponto de extremidade de entrega de chave dos Serviços de Mídia. 
 * Monitore as métricas emitidas pelos [pontos de extremidade de streaming](streaming-endpoint-concept.md) dos Serviços de Mídia.   
 
-Para obter mais detalhes, confira [Monitorar logs de diagnóstico e métricas dos Serviços de Mídia](media-services-metrics-diagnostic-logs.md).
+Para obter mais detalhes, confira [Monitorar logs de diagnóstico e métricas dos Serviços de Mídia](monitoring/monitor-media-services-data-reference.md).
 
 ### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Suporte a múltiplas faixas de áudio no Empacotamento Dinâmico 
 

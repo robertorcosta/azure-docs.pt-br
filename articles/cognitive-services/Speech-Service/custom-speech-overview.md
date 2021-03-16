@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.custom: contperf-fy21q2; references_regions
-ms.openlocfilehash: 39370659e71a7d281914b360eea83eb0b68b25ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 13bf0f2430e0d58dd9ef28061aad897acf94ac3f
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101716560"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493043"
 ---
 # <a name="what-is-custom-speech"></a>O que é a Fala Personalizada?
 
@@ -79,43 +79,9 @@ Para criar seu primeiro projeto, selecione **fala-para-texto/fala personalizada*
 > [!IMPORTANT]
 > O [Speech Studio](https://aka.ms/custom-speech) , anteriormente conhecido como "portal de fala personalizada", foi atualizado recentemente! Se você criou dados, modelos, testes e pontos de extremidade publicados anteriores no portal do CRIS.ai ou com APIs, você precisa criar um novo projeto no novo portal para se conectar a essas entidades antigas.
 
-## <a name="model-lifecycle"></a>Ciclo de vida do modelo
+## <a name="model-and-endpoint-lifecycle"></a>Ciclo de vida de modelo e ponto de extremidade
 
-Fala Personalizada usa *modelos de base* e *modelos personalizados*. Cada idioma tem um ou mais modelos de base. Geralmente, quando um novo modelo de fala é liberado para o serviço de fala regular, ele também é importado para o serviço de Fala Personalizada como um novo modelo de base. Eles são atualizados a cada três a 6 meses. Modelos mais antigos normalmente se tornam menos úteis ao longo do tempo porque o modelo mais recente geralmente tem maior precisão.
-
-Por outro lado, modelos personalizados são criados adaptando um modelo de base escolhido para um cenário de cliente específico. Você pode continuar usando um modelo personalizado específico por um longo período depois de ter um que atenda às suas necessidades. Mas é recomendável que você atualize periodicamente para o modelo base mais recente e retreine-o ao longo do tempo com dados adicionais. 
-
-Outros termos principais relacionados ao ciclo de vida do modelo incluem:
-
-* **Adaptação**: pegar um modelo base e personalizá-lo para seu domínio/cenário usando dados de texto e/ou dados de áudio.
-* **Decodificação**: usando um modelo e executando o reconhecimento de fala (decodificando áudio em texto).
-* **Ponto de extremidade**: uma implantação específica do usuário de um modelo base ou de um modelo personalizado que é acessível *somente* para um determinado usuário.
-
-### <a name="expiration-timeline"></a>Linha do tempo de expiração
-
-Conforme novos modelos e novas funcionalidades se tornam disponíveis e modelos mais antigos e menos precisos são desativados, consulte as seguintes linhas do tempo para expiração de modelo e ponto de extremidade:
-
-**Modelos de base** 
-
-* Adaptação: disponível por um ano. Depois que o modelo for importado, ele estará disponível por um ano para criar modelos personalizados. Após um ano, novos modelos personalizados devem ser criados a partir de uma versão mais recente do modelo base.  
-* Decodificação: disponível por dois anos após a importação. Portanto, você pode criar um ponto de extremidade e usar a transcrição do lote por dois anos com esse modelo. 
-* Pontos de extremidade: disponíveis na mesma linha do tempo que a decodificação.
-
-**Modelos personalizados**
-
-* Decodificação: disponível por dois anos após a criação do modelo. Portanto, você pode usar o modelo personalizado por dois anos (lote/tempo real/teste) após sua criação. Depois de dois anos, *você deve treinar novamente seu modelo* porque o modelo base normalmente terá sido preterido para adaptação.  
-* Pontos de extremidade: disponíveis na mesma linha do tempo que a decodificação.
-
-Quando um modelo de base ou modelo personalizado expira, ele sempre retorna para a *versão mais recente do modelo base*. Portanto, sua implementação nunca será interrompida, mas poderá se tornar menos precisa para *seus dados específicos se os* modelos personalizados atingirem a expiração. Você pode ver a expiração de um modelo nos seguintes locais na área de Fala Personalizada do Speech Studio:
-
-* Resumo do treinamento de modelo
-* Detalhes de treinamento do modelo
-* Resumo de implantação
-* Detalhes da implantação
-
-Você também pode verificar as datas de expiração por meio das [`GetModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetModel) [`GetBaseModel`](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/GetBaseModel) APIs de fala personalizadas e sob a `deprecationDates` Propriedade na resposta JSON.
-
-Observe que você pode atualizar o modelo em um ponto de extremidade de fala personalizado sem tempo de inatividade alterando o modelo usado pelo ponto de extremidade na seção de implantação do Speech Studio ou por meio da API de fala personalizada.
+Modelos mais antigos normalmente se tornam menos úteis ao longo do tempo porque o modelo mais recente geralmente tem maior precisão. Portanto, modelos de base, bem como modelos personalizados e pontos de extremidade criados por meio do portal, estão sujeitos à expiração após 1 ano para adaptação e 2 anos para decodificação. Consulte uma descrição detalhada no artigo [modelo e ciclo de vida do ponto de extremidade](./how-to-custom-speech-model-and-endpoint-lifecycle.md) .
 
 ## <a name="next-steps"></a>Próximas etapas
 

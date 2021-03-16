@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: f819440001180a3c446f366e61e3ac0f983fa67f
-ms.sourcegitcommit: fc8ce6ff76e64486d5acd7be24faf819f0a7be1d
+ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98806638"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467622"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -66,7 +66,14 @@ Não há suporte para a exportação de dados diretamente do cofre dos serviços
 
 No caso de um cofre [grs](azure-backup-glossary.md#grs) sem recurso de [CRR](azure-backup-glossary.md#cross-region-restore-crr) habilitado, os dados na região secundária não podem ser acessados até que o Azure declare um desastre na região primária. Nesse cenário, a restauração ocorre da região secundária. Quando a CRR estiver habilitada, mesmo que a região primária esteja em funcionamento, você poderá disparar uma restauração na região secundária.
 
-## <a name="azure-backup-agent"></a>Agente de Backup do Azure
+### <a name="can-i-move-a-subscription-that-contains-a-vault-to-a-different-azure-active-directory"></a>Posso mover uma assinatura que contém um cofre para um Azure Active Directory diferente?
+
+Sim. Para mover uma assinatura (que contém um cofre) para um Azure Active Directory diferente (AD), consulte [transferir assinatura para um diretório diferente](../role-based-access-control/transfer-subscription.md).
+
+>[!IMPORTANT]
+>Certifique-se de executar as seguintes ações depois de mover a assinatura:<ul><li>As permissões de controle de acesso baseado em função e as funções personalizadas não são transferíveis. Você deve recriar as permissões e as funções no novo Azure AD.</li><li>Você deve recriar a identidade gerenciada (MI) do cofre desabilitando-a e habilitando-a novamente. Além disso, você deve avaliar e recriar as permissões de MI.</li><li>Se o cofre usar recursos que aproveitam MI, como [pontos de extremidade privados](private-endpoints.md#before-you-start) e [chaves gerenciadas pelo cliente](encryption-at-rest-with-cmk.md#before-you-start), você deverá reconfigurar os recursos.</li></ul>
+
+## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 
 ### <a name="where-can-i-find-common-questions-about-the-azure-backup-agent-for-azure-vm-backup"></a>Onde posso encontrar perguntas comuns sobre o agente do Backup do Azure para o backup da VM do Azure?
 

@@ -3,12 +3,12 @@ title: Matriz de suporte para recuperação de desastres do VMware/físico no Az
 description: Resume o suporte para recuperação de desastre de VMs VMware e servidor físico para o Azure usando Azure Site Recovery.
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: e025b1681306a3bb837a338655dc561e897226c2
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: c7f2d6ecd01959e239a1ab048018452b2ae5fc20
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102449247"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495208"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matriz de suporte para recuperação de desastre de VMs VMware e servidores físicos para o Azure
 
@@ -29,7 +29,7 @@ Recuperação de desastre de servidores físicos | Replicação de servidores f�
 
 ## <a name="on-premises-virtualization-servers"></a>Servidores de virtualização locais
 
-**Servidor** | **Requirements** | **Detalhes**
+**Servidor** | **Requisitos** | **Detalhes**
 --- | --- | ---
 vCenter Server | A versão 7,0 & atualizações subsequentes nesta versão, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que você use um servidor vCenter em sua implantação de recuperação de desastre.
 Hosts vSphere | A versão 7,0 & atualizações subsequentes nesta versão, 6,7, 6,5, 6,0 ou 5,5 | Recomendamos que os hosts vSphere e os servidores vCenter estejam localizados na mesma rede que o servidor de processo. Por padrão, o servidor de processo é executado no servidor de configuração. [Saiba mais](vmware-physical-azure-config-process-server-overview.md).
@@ -41,7 +41,7 @@ O servidor de configuração é um computador local que executa componentes do S
 - Para VMs VMware, você define o servidor de configuração baixando um modelo OVF para criar uma VM VMware.
 - Para servidores físicos, você configura manualmente o computador do servidor de configuração.
 
-**Componente** | **Requirements**
+**Componente** | **Requisitos**
 --- |---
 Núcleos de CPU | 8
 RAM | 16 GB
@@ -250,6 +250,7 @@ MPIO (Múltiplos caminhos) de convidado/servidor | Não
 Partições do convidado/servidor GPT | Há suporte para cinco partições do [pacote cumulativo de atualizações 37](https://support.microsoft.com/help/4508614/) (versão 9,25 do serviço de mobilidade) em diante. Quatro eram suportados anteriormente.
 ReFS | O sistema de arquivos resiliente tem suporte com o serviço de mobilidade versão 9,23 ou superior
 Inicialização de EFI/servidor do convidado/UEFI | -Há suporte para todos os [sistemas operacionais UEFI do Azure Marketplace](../virtual-machines/generation-2.md#generation-2-vm-images-in-azure-marketplace) com site Recovery o agente de mobilidade versão 9,30 em diante. <br/> -Não há suporte para o tipo de inicialização UEFI segura. [Saiba mais.](../virtual-machines/generation-2.md#on-premises-vs-azure-generation-2-vms)
+Disco RAID| Não
 
 ## <a name="replication-channels"></a>Canais de replicação
 
@@ -291,7 +292,7 @@ Discos gerenciados | Sim
 
 As VMs locais replicadas para o Azure devem atender aos requisitos de VM do Azure resumidos nesta tabela. Quando Site Recovery executar uma verificação de pré-requisitos para replicação, a verificação falhará se alguns dos requisitos não forem atendidos.
 
-**Componente** | **Requirements** | **Detalhes**
+**Componente** | **Requisitos** | **Detalhes**
 --- | --- | ---
 Sistema operacional convidado | Verificar [sistemas operacionais com suporte](#replicated-machines) para computadores replicados. | A verificação falha se não tiver suporte.
 Arquitetura do sistema operacional convidado | 64 bits. | A verificação falha se não tiver suporte.

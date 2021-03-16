@@ -6,26 +6,27 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 19be3b141fb663ea0f4f11d811bf6ffc33252504
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ea9d893f825822638803394e678e6e68f57a32d9
+ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658658"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102507289"
 ---
-# <a name="device-update-for-azure-iot-hub-tutorial-using-the-ubuntu-server-1804-x64-package-agent"></a>Atualização de dispositivo para o tutorial do Hub IoT do Azure usando o agente de pacote Ubuntu Server 18.04 x64
+# <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Atualização de dispositivo para o tutorial do Hub IoT do Azure usando um agente de pacote no Ubuntu Server 18.04 x64
 
 A atualização de dispositivo para o Hub IoT é compatível com duas formas de atualizações – de acordo com a imagem e o pacote.
 
 As atualizações baseadas em pacote são atualizações de destino que alteram apenas um componente ou aplicativo específico no dispositivo. Isso leva a um menor consumo de largura de banda e ajuda a reduzir o tempo para baixar e instalar a atualização. As atualizações de pacote geralmente permitem menos tempo de inatividade dos dispositivos ao aplicar uma atualização e evitam a sobrecarga de criação de imagens.
 
-Este tutorial orienta você pelas etapas para concluir uma atualização de ponta a ponta baseada em pacote por meio da atualização de dispositivo para o Hub IoT. Usaremos um agente de pacote de exemplo para o Ubuntu Server 18.04 x64 para este tutorial. Mesmo se você planeja usar uma configuração de plataforma de sistema operacional diferente, este tutorial ainda é útil para aprender sobre as ferramentas e os conceitos na atualização de dispositivo para o Hub IoT. Conclua esta introdução a um processo de atualização de ponta a ponta e escolha a forma preferida de atualização e plataforma do sistema operacional, para aprofundar-se nos detalhes. Com este tutorial, você pode usar a atualização de dispositivo do Hub IoT para atualizar um dispositivo IoT ou Azure IoT Edge do Azure. 
+Este tutorial orienta você pelas etapas para concluir uma atualização de ponta a ponta baseada em pacote por meio da atualização de dispositivo para o Hub IoT. Para este tutorial, usaremos o Ubuntu Server 18.04 x64 executando o Azure IoT Edge e o agente de pacote de Atualização de Dispositivo. O tutorial demonstrará de que modo atualizar um pacote de exemplo. No entanto, usando etapas semelhantes, será possível atualizar outros pacotes, como o Azure IoT Edge ou o mecanismo de contêiner que ele usa.
+
+Caso planeje usar outra configuração de plataforma de sistema operacional, as ferramentas e os conceitos deste tutorial ainda poderão ser aplicados. Conclua esta introdução a um processo de atualização de ponta a ponta e escolha a forma preferida de atualização e plataforma do sistema operacional, para aprofundar-se nos detalhes.
 
 Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
-> * Configurar o repositório do pacote de atualização de dispositivo
-> * Baixar e instalar o agente de atualização de dispositivo e suas dependências
-> * Adicionar uma marca ao seu dispositivo IoT
+> * Baixar e instalar um agente de Atualização de Dispositivo e as respectivas dependências
+> * Adicionar uma marca ao seu dispositivo
 > * Importar uma atualização
 > * Criar um grupo de dispositivos
 > * Implantar uma atualização de pacote
@@ -34,214 +35,193 @@ Neste tutorial, você aprenderá a:
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Acesso a um Hub IoT. Recomendamos usar uma camada S1 (Standard) ou posterior.
-* Um dispositivo IoT ou Azure IoT Edge do Azure que executa o Ubuntu Server 18.04 x64, conectado ao Hub IoT.
-   * Se você estiver usando um dispositivo Azure IoT Edge, verifique se ele está na v1.2.0 do tempo de execução do Edge ou superior 
-* Se você não estiver usando um dispositivo Azure IoT Edge, [instale o pacote mais recente `aziot-identity-service` (versão prévia) em seu dispositivo IOT](https://github.com/Azure/iot-identity-service/actions/runs/575919358) 
-* [Conta e instância de atualização de dispositivo vinculadas ao mesmo Hub IoT acima.](create-device-update-account.md)
 
-## <a name="configure-device-update-package-repository"></a>Configurar o repositório do pacote de atualização de dispositivo
+* Acesso a um Hub IoT. É recomendável usar uma camada S1 (Standard) ou posterior.
+* Uma instância da Atualização de Dispositivo e uma conta vinculada ao Hub IoT.
+  * Siga o guia para [criar e vincular uma conta de atualização de dispositivo](create-device-update-account.md), caso não tenha feito isso anteriormente.
+* A [cadeia de conexão de um dispositivo do IoT Edge](../iot-edge/how-to-register-device.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-connection-strings).
 
-1. Instale a configuração do repositório que corresponde ao sistema operacional do seu dispositivo. Para este tutorial, este será o Ubuntu Server 18.04. 
-   
-   ```shell
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
-   ```
+## <a name="prepare-a-device"></a>Preparar uma dispositivo
+### <a name="using-the-automated-deploy-to-azure-button"></a>Como usar o botão de Implantação Automatizada no Azure
 
-2. Copie a lista gerada para o diretório sources.list.d.
+Por conveniência, este tutorial usará um [modelo do Azure Resource Manager](../virtual-machines/linux/using-cloud-init.md) baseado em [cloud-init](../azure-resource-manager/templates/overview.md) para ajudar você a configurar de modo rápido máquinas virtuais do Ubuntu 18.04 LTS. Ele vai instalar o runtime do Azure IoT Edge e o agente de pacote de Atualização de Dispositivo, depois configurar o dispositivo de modo automático com informações de provisionamento usando a cadeia de conexão do dispositivo para um dispositivo do IoT Edge (pré-requisito) que será fornecido. Isso evitará a necessidade de iniciar uma sessão SSH para concluir a instalação.
 
-   ```shell
-      sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-   
-3. Instale a chave pública do Microsoft GPG.
+1. Para começar, clique no botão abaixo:
 
-   ```shell
-      curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-      sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
-   ```
+   [![Botão Implantar no Azure para iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2F1.2.0-rc4%2FedgeDeploy.json)
 
-## <a name="install-device-update-deb-agent-packages"></a>Instalar os pacotes de agente .deb de atualização de dispositivo
+1. Na recém-criada janela, preencha os campos de formulário disponíveis:
 
-1. Atualizar as listas de pacotes no dispositivo
+    > [!div class="mx-imgBorder"]
+    > [![Captura de tela mostrando o modelo iotedge-vm-deploy](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
-   ```shell
-      sudo apt-get update
-   ```
+    **Assinatura**: uma assinatura ativa do Azure na qual a máquina virtual será implantada.
 
-2. Instalar o pacote deviceupdate-agent e suas dependências
+    **Grupo de recursos**: um Grupo de Recursos existente ou recém-criado para conter a máquina virtual e os recursos associados.
 
-   ```shell
-      sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt
+    **Prefixo do rótulo DNS**: um valor necessário de sua preferência que será usado para prefixar o nome do host da máquina virtual.
+
+    **Nome de usuário do administrador**: um nome de usuário que obterá privilégios de raiz na implantação.
+
+    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão do dispositivo](../iot-edge/how-to-register-device.md) para um dispositivo criado no [Hub IoT](../iot-hub/about-iot-hub.md) pretendido.
+
+    **Tamanho da VM**: o [tamanho](../cloud-services/cloud-services-sizes-specs.md) da máquina virtual que será implantada
+
+    **Versão do sistema operacional Ubuntu**: a versão do sistema operacional Ubuntu que será instalada na máquina virtual de base. Deixe o valor padrão inalterado, pois ele será definido como Ubuntu 18.04-LTS.
+
+    **Localização**: a [região geográfica](https://azure.microsoft.com/global-infrastructure/locations/) na qual a máquina virtual será implantada. Esse valor assumirá a localização do Grupo de Recursos selecionado como padrão.
+
+    **Tipo de autenticação**: escolha **sshPublicKey** ou **senha**, de acordo com sua preferência.
+
+    **Senha ou chave do administrador**: o valor da Chave Pública SSH ou o valor da senha, dependendo do Tipo de Autenticação escolhida.
+
+    Após preencher os campos, marque a caixa de seleção na parte inferior da página para aceitar os termos. Depois clique em **Comprar** para iniciar a implantação.
+
+1. Verifique se a implantação foi concluída com êxito. Aguarde alguns minutos após a conclusão da implantação para que a pós-instalação e a configuração concluam a instalação do IoT Edge e do agente de atualização de Pacote do Dispositivo.
+
+   Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador. Ele terá o formato `vm-0000000000000`. Além disso, anote o **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+
+    O **Nome DNS** pode ser obtido na seção **Visão geral** da máquina virtual implantada recentemente no portal do Azure.
+
+    > [!div class="mx-imgBorder"]
+    > [![Uma captura de tela mostrando o nome DNS da VM do IoT Edge](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](../iot-edge/media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+
+   > [!TIP]
+   > Caso queira usar o SSH nessa VM após a instalação, use o **Nome DNS** associado a este comando: `ssh <adminUsername>@<DNS_Name>`
+
+### <a name="optional-manually-prepare-a-device"></a>Preparar um dispositivo de modo manual (opcional)
+As etapas manuais mostradas abaixo para executar a instalação e a configuração de um dispositivo são equivalentes às que foram automatizados por este [script cloud-init](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt). Elas podem ser usadas para preparar um dispositivo físico.
+
+1. Siga as instruções para [Instalar o runtime do Azure IoT Edge](../iot-edge/how-to-install-iot-edge.md?view=iotedge-2020-11&preserve-view=true).
+   > [!NOTE]
+   > O agente de pacote de Atualização de Dispositivo não depende do IoT Edge. No entanto, ele dependerá do daemon do Serviço de Identidade da IoT que será instalado com o IoT Edge (1.2.0 e posterior) para obter uma identidade e se conectar ao Hub IoT.
+   >
+   > Embora não seja abordado neste tutorial, o [daemon do Serviço de Identidade da IoT poderá ser instalado de modo autônomo em dispositivos IoT baseados em Linux](https://azure.github.io/iot-identity-service/packaging.html). A sequência da instalação é importante. O agente de pacote de Atualização de Dispositivo deverá ser instalado _após_ o Serviço de Identidade da IoT. Caso contrário, o agente de pacote não será registrado como um componente autorizado a estabelecer uma conexão com o Hub IoT.
+
+1. Depois, instale pacotes .deb do agente de Atualização de Dispositivo.
+
+   ```bash
+   sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
 
 A atualização de dispositivo para pacotes de software do Hub IoT do Azure está sujeita aos seguintes termos de licença:
-   * [Licença de atualização de dispositivo para o Hub IoT](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-   * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
-   
+  * [Licença de atualização de dispositivo para o Hub IoT](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
+  * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+
 Leia os termos da licença antes de usar o pacote. A instalação e o uso do pacote constitui a aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
-
-## <a name="configure-device-update-agent-using-azure-iot-identity-service-preview"></a>Configurar o agente de atualização de dispositivo usando o serviço de Identidade do Azure IoT (versão prévia)
-
-Depois de instalar os pacotes necessários, você precisa provisionar o dispositivo com suas informações de autenticação e identidade de nuvem.
-
-1. Abrir o arquivo de configuração
-
-   ```shell
-      sudo nano /etc/aziot/config.toml
-   ```
-
-2. Localize a seção de configuração de provisionamento do arquivo. Remova a marca de comentário da seção "Provisionamento manual com a cadeia de conexão". Atualize o valor de connection_string com a cadeia de conexão do dispositivo IoT (Edge). Verifique se alguma outra seção de provisionamento foi comentada.
-
-
-   ```toml
-      # Manual provisioning configuration using a connection string
-      [provisioning]
-      source = "manual"
-      iothub_hostname = "<REQUIRED IOTHUB HOSTNAME>"
-      device_id = "<REQUIRED DEVICE ID PROVISIONED IN IOTHUB>"
-      dynamic_reprovisioning = false 
-   ```
-
-3. Salvar e fechar o arquivo usando Ctrl+X, Y
-
-4. Aplicar a configuração. 
-
-   Se você estiver usando um dispositivo IoT Edge, use o comando a seguir. 
-   
-   ```shell
-      sudo iotedge config apply
-   ```
-   
-   Se você estiver usando um dispositivo IoT, com o pacote `aziot-identity-service` instalado, use o comando a seguir. 
-      
-   ```shell
-      sudo aziotctl config apply
-   ```
-
-5. Opcionalmente, você pode verificar se os serviços estão sendo executados pelo
-
-    ```shell
-       sudo systemctl list-units --type=service | grep 'adu-agent\.service\|deliveryoptimization-agent\.service'
-    ```
-
-    A saída deverá ser como a seguinte:
-
-    ```markdown
-       adu-agent.service                   loaded active running Device Update for IoT Hub Agent daemon.
-
-       deliveryoptimization-agent.service               loaded active running deliveryoptimization-agent.service: Performs content delivery optimization tasks   `
-    ```
 
 ## <a name="add-a-tag-to-your-device"></a>Adicionar uma marca ao seu dispositivo
 
-1. Agora, entre no [portal do Azure](https://portal.azure.com) e navegue até Hub IoT.
+1. Entre no [portal do Azure](https://portal.azure.com) e navegue até Hub IoT.
 
-2. Em 'Dispositivos IoT ' ou 'IoT Edge' no painel de navegação esquerdo, localize seu dispositivo IoT e navegue até ele.
+2. Em "IoT Edge", no painel de navegação esquerdo, localize seu dispositivo do IoT Edge e acesse o Dispositivo Gêmeo.
 
-3. No dispositivo gêmeo, exclua qualquer valor de marca de atualização de dispositivo existente definindo-os como null.
+3. Em Dispositivo gêmeo, exclua todos os valores de marca existentes da Atualização de dispositivo definindo-os como null.
 
-4. Adicione um novo valor de marca de atualização de dispositivo, conforme mostrado abaixo.
+4. Adicione um novo valor de marca da Atualização de dispositivo, conforme mostrado abaixo.
 
 ```JSON
     "tags": {
             "ADUGroup": "<CustomTagValue>"
-            }
+            },
 ```
 
 ## <a name="import-update"></a>Importar atualização
 
-1. Baixe o [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json) a seguir e [importe-o](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). Esse manifesto apt instalará a versão mais recente disponível do `libcurl4-doc package` para seu dispositivo IOT. 
+1. Baixe o [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json) a seguir e [importe-o](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). Esse manifesto APT instalará a versão disponível mais recente do `libcurl4-doc package` em seu dispositivo.
 
-   Como alternativa, você pode baixar esse [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json) e [importá-lo](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). Isso instalará a versão específica v7.58.0 do `libcurl4-doc package` para seu dispositivo IOT. 
+   Como alternativa, você pode baixar esse [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json) e [importá-lo](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). Isso instalará a versão v7.58.0 específica do `libcurl4-doc package` em seu dispositivo.
 
 2. No portal do Azure, selecione a opção Atualizações do Dispositivo em Gerenciamento de Dispositivo Automático na barra de navegação à esquerda no Hub IoT.
 
 3. Selecione a guia Atualizações.
 
-4. Selecione "+ Importar Nova Atualização".
+4. Selecione "+ Importar nova atualização".
 
-5. Selecione o ícone de pasta ou caixa de texto em "Selecionar um arquivo de manifesto de importação". Você verá uma caixa de diálogo de seletor de arquivos. Selecione o Manifesto de Importação que você baixou anteriormente. Em seguida, selecione o ícone de pasta ou a caixa de texto em "Selecionar um ou mais arquivos de atualização". Você verá uma caixa de diálogo de seletor de arquivos. Selecione o arquivo de manifesto de importação que você baixou anteriormente.
-   
+5. Selecione o ícone de pasta ou caixa de texto em "Selecionar um arquivo de manifesto de importação". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o Manifesto de importação que você baixou anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecionar um ou mais arquivos de atualização". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o arquivo de manifesto de importação que você baixou anteriormente.
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Captura de tela mostrando a seleção do arquivo de atualização." lightbox="media/import-update/select-update-files.png":::
 
 6. Selecione o ícone de pasta ou a caixa de texto em "Selecionar um contêiner de armazenamento". Em seguida, selecione a conta de armazenamento apropriada.
 
-7. Se você já tiver criado um contêiner, poderá reutilizá-lo. (Caso contrário, selecione "+ Contêiner" para criar um novo contêiner de armazenamento para atualizações.).  Selecione o contêiner que você deseja usar e clique em "Selecionar".
+7. Caso já tenha criado um contêiner, você pode reutilizá-lo. (Caso contrário, selecione "+ Contêiner" para criar um novo contêiner de armazenamento para atualizações.)  Selecione o contêiner que você deseja usar e clique em "Selecionar".
 
    :::image type="content" source="media/import-update/container.png" alt-text="Captura de tela mostrando a seleção do contêiner." lightbox="media/import-update/container.png":::
 
 8. Selecione "Enviar" para iniciar o processo de importação.
 
-9. O processo de importação é iniciado e a tela é alterada para a seção "Importar Histórico". Selecione "Atualizar" para exibir o progresso até que o processo de importação seja concluído. Dependendo do tamanho da atualização, ela pode ser concluída em alguns minutos, mas pode levar mais tempo.
-   
-   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Captura de tela que mostra a sequência de importação de atualização." lightbox="media/import-update/update-publishing-sequence-2.png":::
+9. O processo de importação é iniciado, e a tela é alterada para a seção "Importar histórico". Selecione "Atualizar" para exibir o progresso até que o processo de importação seja concluído. Dependendo do tamanho da atualização, ela pode ser concluída em alguns minutos, mas também pode levar mais tempo.
 
-10. Quando a coluna Status indicar que a importação foi bem-sucedida, selecione o cabeçalho "Pronto para implantar". Você deve ver a atualização importada na lista agora.
+   :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Captura de tela mostrando a sequência de importação de atualização." lightbox="media/import-update/update-publishing-sequence-2.png":::
+
+10. Quando a coluna Status indicar que a importação foi bem-sucedida, selecione o cabeçalho "Pronto para implantar". Agora a atualização importada deve estar presente na lista.
 
 [Saiba mais](import-update.md) sobre a importação de atualizações.
 
 ## <a name="create-update-group"></a>Criar grupo de atualizações
 
-1. Vá para o Hub IoT que você conectou anteriormente à sua instância de Atualização do Dispositivo.
+1. Vá para o Hub IoT que você conectou anteriormente à sua instância de Atualização de dispositivo.
 
-2. Selecione a opção Atualizações do Dispositivo em Gerenciamento de Dispositivo Automático na barra de navegação à esquerda.
+1. Selecione a opção Atualizações de dispositivo em Gerenciamento de dispositivo automático na barra de navegação à esquerda.
 
-3. Selecione a guia Grupos na parte superior da página. 
+1. Selecione a guia Grupos na parte superior da página.
 
-4. Clique no botão Adicionar para criar um novo grupo.
+1. Clique no botão Adicionar para criar um novo grupo.
 
-5. Selecione o Hub IoT que você criou na etapa anterior com a lista. Selecione Criar grupo de atualizações.
+1. Selecione a marca do Hub IoT que você criou na etapa anterior com a lista. Selecione Criar grupo de atualizações.
 
-   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Captura de tela que mostra a seleção de marca." lightbox="media/create-update-group/select-tag.PNG":::
+   :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Captura de tela mostrando a seleção de marca." lightbox="media/create-update-group/select-tag.PNG":::
 
 [Saiba mais](create-update-group.md) sobre como adicionar marcas e criar grupos de atualização
 
-
 ## <a name="deploy-update"></a>Implantar atualização
 
-1. Depois que o grupo for criado, você verá uma nova atualização disponível para o grupo de dispositivos, juntamente com um link para a atualização em Atualizações Pendentes. Talvez seja necessário atualizar a página. 
+1. Após a criação do grupo, será possível conferir uma nova atualização disponível para o grupo de dispositivos, juntamente com um link para executar uma atualização na coluna _Atualizações disponíveis_. Talvez seja necessário atualizar a página.
 
-2. Clique na atualização disponível.
+1. Clique no link para acessar uma atualização disponível.
 
-3. Confirme se o grupo correto foi selecionado como o grupo de destino. Agende uma implantação e selecione Implantar atualização.
+1. Confirme se o grupo adequado foi selecionado como o grupo de destino e agende sua implantação
 
    :::image type="content" source="media/deploy-update/select-update.png" alt-text="Selecione Atualizar" lightbox="media/deploy-update/select-update.png":::
 
-4. Exiba um gráfico de conformidade. Será possível ver que a atualização está em andamento. 
+   > [!TIP]
+   > Por padrão, a data/hora de início será 24 horas do horário atual. Lembre-se de selecionar uma data/hora diferente caso deseje que a implantação comece mais cedo.
+
+1. Clique em Implantar atualização.
+
+1. Exiba o gráfico de conformidade. Será possível ver que a atualização está em andamento. 
 
    :::image type="content" source="media/deploy-update/update-in-progress.png" alt-text="Atualização em andamento" lightbox="media/deploy-update/update-in-progress.png":::
 
-5. Após atualizar seu dispositivo com êxito, será possível conferir o gráfico de conformidade e a atualização dos detalhes da implantação para refletir as mesmas informações. 
+1. Depois de atualizar seu dispositivo com êxito, será possível conferir o gráfico de conformidade e a atualização dos detalhes da implantação para refletir as mesmas informações. 
 
    :::image type="content" source="media/deploy-update/update-succeeded.png" alt-text="Atualização realizada com êxito" lightbox="media/deploy-update/update-succeeded.png":::
 
-## <a name="monitor-an-update-deployment"></a>Monitorar a implantação de atualizações
+## <a name="monitor-an-update-deployment"></a>Monitorar uma implantação de atualização
 
 1. Selecione a guia Implantações na parte superior da página.
 
-   :::image type="content" source="media/deploy-update/deployments-tab.png" alt-text="Guia de Implantações" lightbox="media/deploy-update/deployments-tab.png":::
+   :::image type="content" source="media/deploy-update/deployments-tab.png" alt-text="Guia Implantações" lightbox="media/deploy-update/deployments-tab.png":::
 
-2. Selecione a implantação criada para exibir os detalhes da implantação.
+1. Selecione a implantação criada para exibir os detalhes da implantação.
 
    :::image type="content" source="media/deploy-update/deployment-details.png" alt-text="Detalhes de implantação" lightbox="media/deploy-update/deployment-details.png":::
 
-3. Selecione Atualizar para exibir os detalhes do status mais recentes. Continue esse processo até que o status seja alterado para Realizado com êxito.
+1. Selecione Atualizar para exibir os detalhes mais recentes do status. Continue esse processo até que o status seja alterado para Realizado com êxito.
 
 Agora você concluiu com êxito uma atualização de pacote de ponta a ponta usando a atualização do dispositivo para o Hub IoT em um dispositivo Ubuntu Server 18.04 x64. 
 
 ## <a name="bonus-steps"></a>Etapas de bônus
 
-1. Baixe o [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json) a seguir e [importe-o](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). Esse manifesto de apt removerá o `libcurl4-doc package` instalado do seu dispositivo IoT. 
+1. Baixe o [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json) a seguir e [importe-o](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). Esse manifesto APT removerá o `libcurl4-doc package` instalado no dispositivo.
 
-2. Repita as seções "Importar atualização" e "Implantar atualização"
+1. Repita as seções "Importar atualização" e "Implantar atualização"
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Quando não for mais necessário, limpe a conta de atualização de dispositivo, a instância, o Hub IoT e o dispositivo IoT. Você pode fazer isso acessando cada recurso individual e selecionando "Excluir". Observe que você precisa limpar uma instância de atualização de dispositivo antes de limpar a conta de atualização de dispositivo. 
+Limpe a conta de atualização do dispositivo, a instância, o Hub IoT e o dispositivo do IoT Edge (caso tenha criado a VM por meio do botão Implantar no Azure) quando não precisar mais dos recursos. Você pode fazer isso acessando cada recurso individual e selecionando "Excluir". Observe que você precisa limpar uma instância de atualização de dispositivo antes de limpar a conta de atualização de dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
 > [Atualização de imagem no tutorial Raspberry Pi 3 B+](device-update-raspberry-pi.md)
-

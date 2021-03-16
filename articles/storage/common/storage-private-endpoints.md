@@ -10,12 +10,12 @@ ms.date: 03/12/2020
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 16d3d50d5ade298e2ca22f271466c70e74724381
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 67480786e963235d4d3c010bea72e551a8be7bbc
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613554"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493791"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usar pontos de extremidade privados para o armazenamento do Azure
 
@@ -91,20 +91,20 @@ Quando você resolve a URL do ponto de extremidade de armazenamento de fora da V
 
 Para o exemplo ilustrado acima, os registros de recurso de DNS para a conta de armazenamento ' StorageAccountA ', quando resolvidos de fora da VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
-| \<storage service public endpoint\>                   | Um     | \<storage service public IP address\>                 |
+| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 Conforme mencionado anteriormente, você pode negar ou controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o firewall de armazenamento.
 
 Os registros de recurso DNS para StorageAccountA, quando resolvido por um cliente na VNet que hospeda o ponto de extremidade privado, serão:
 
-| Nome                                                  | Tipo  | Valor                                                 |
+| Nome                                                  | Type  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Um     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 Essa abordagem habilita o acesso à conta de armazenamento **usando a mesma cadeia de conexão** para clientes na vnet que hospeda os pontos de extremidade privados, bem como clientes fora da vnet.
 
@@ -146,6 +146,12 @@ Essa restrição é um resultado das alterações de DNS feitas quando a conta a
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Regras de grupo de segurança de rede para sub-redes com pontos de extremidade privados
 
 No momento, não é possível configurar as regras do NSG ( [grupo de segurança de rede](../../virtual-network/network-security-groups-overview.md) ) e as rotas definidas pelo usuário para pontos de extremidade privados. As regras de NSG aplicadas à sub-rede que hospeda o ponto de extremidade privado não são aplicadas ao ponto de extremidade privado. Eles são aplicados somente a outros pontos de extremidade (por exemplo: controladores de interface de rede). Uma solução alternativa limitada para esse problema é implementar suas regras de acesso para pontos de extremidade privados nas sub-redes de origem, embora essa abordagem possa exigir uma sobrecarga de gerenciamento maior.
+
+### <a name="copying-blobs-between-storage-accounts"></a>Copiando BLOBs entre contas de armazenamento
+
+Você pode copiar BLOBs entre contas de armazenamento usando pontos de extremidade privados somente se usar a API REST do Azure ou ferramentas que usam a API REST. Essas ferramentas incluem AzCopy, Gerenciador de Armazenamento, Azure PowerShell, CLI do Azure e SDKs do armazenamento de BLOBs do Azure. 
+
+Somente pontos de extremidade privados destinados ao recurso de armazenamento de BLOBs têm suporte. Pontos de extremidade privados que destinam-se ao Data Lake Storage Gen2 ou ao recurso de arquivo ainda não têm suporte. Além disso, ainda não há suporte para a cópia entre contas de armazenamento usando o protocolo NFS (sistema de arquivos de rede). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

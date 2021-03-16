@@ -8,14 +8,16 @@ ms.date: 11/12/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d46ad8238faa42ca657b18b3997407d91a224537
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7b3b8078a03ef0e891306f056c604545cde71459
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045914"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489450"
 ---
 # <a name="troubleshoot-your-iot-edge-device"></a>Solucionar problemas de seu dispositivo IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Se você tiver problemas em execução Azure IoT Edge em seu ambiente, use este artigo como um guia para solução de problemas e diagnósticos.
 
@@ -307,7 +309,7 @@ Azure IoT Edge permite a comunicação de um servidor local para a nuvem do Azur
 
 Embora o IoT Edge forneça configuração avançada para proteger o runtime do Azure IoT Edge e os módulos implantados, ele ainda depende da configuração do computador e da rede subjacente. Portanto, é imperativo garantir que as regras adequadas de rede e firewall sejam configuradas para proteger a comunicação em nuvem. A tabela a seguir pode ser usada como uma diretriz quando as regras de firewall de configuração para os servidores subjacentes em que o tempo de execução Azure IoT Edge está hospedado:
 
-|Protocolo|Porta|Entrada|Saída|Diretrizes|
+|Protocolo|Porta|Entrada|Saída|Orientação|
 |--|--|--|--|--|
 |MQTT|8883|BLOQUEADO (padrão)|BLOQUEADO (padrão)|<ul> <li>Configure a Saída como Aberta ao usar o MQTT como o protocolo de comunicação.<li>Não há suporte para o 1883 para MQTT no IoT Edge. <li>As conexões de Entrada devem ser bloqueadas.</ul>|
 |AMQP|5671|BLOQUEADO (padrão)|ABERTO (padrão)|<ul> <li>Protocolo de comunicação padrão do IoT Edge. <li> Precisa ser configurado como Aberto, quando o Azure IoT Edge não está configurado para outros protocolos com suporte ou quando o AMQP é o protocolo de comunicação desejado.<li>Não há suporte para o 5672 para AMQP no IoT Edge.<li>Bloqueie essa porta quando o Azure IoT Edge usar outro protocolo do Hub IoT com suporte.<li>As conexões de Entrada devem ser bloqueadas.</ul></ul>|

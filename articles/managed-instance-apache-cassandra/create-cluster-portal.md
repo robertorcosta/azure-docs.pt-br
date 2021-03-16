@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: a05769c66c4b13de5c7197ef5612d64781574987
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d94bedad1ba7a2c6d814021b733404ccc58148ed
+ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747340"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102424675"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Guia de início rápido: criar uma Instância Gerenciada do Azure para o cluster do Apache Cassandra a partir do portal do Azure (versão prévia)
  
@@ -63,16 +63,10 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
    :::image type="content" source="./media/create-cluster-portal/networking.png" alt-text="Configure os detalhes da rede." lightbox="./media/create-cluster-portal/networking.png" border="true":::
 
-1. Caso tenha criado uma VNet na última etapa, pule para a Etapa 9. Caso tenha selecionado uma VNet existente, antes de criar o cluster, você precisará aplicar algumas permissões especiais à Rede Virtual e à sub-rede. Para isso, você precisa obter a ID do recurso para sua Rede Virtual existente. Execute o seguinte comando na [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli):
+1. Caso tenha criado uma VNet na última etapa, pule para a Etapa 8. Caso tenha selecionado uma VNet existente, antes de criar o cluster, você precisará aplicar algumas permissões especiais à Rede Virtual e à sub-rede. Para fazer isso, use o comando `az role assignment create`, substituindo `<subscription ID>`, `<resource group name>`, `<VNet name>` e `<subnet name>` pelos valores apropriados:
 
    ```azurecli-interactive
-   # get the resource ID of the Virtual Network
-   az network vnet show -n <VNet_name> -g <Resource_Group_Name> --query "id" --output tsv
-
-1. Now apply the special permissions by using the `az role assignment create` command. Replace `<Resource ID>` with the output of previous command:
-
-   ```azurecli-interactive
-   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope <Resource ID>
+   az role assignment create --assignee e5007d2c-4b13-4a74-9b6a-605d99f03501 --role 4d97b98b-1d4f-4787-a291-c67834d212e7 --scope /subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>
    ```
 
    > [!NOTE]
@@ -122,7 +116,7 @@ cqlsh $host 9042 -u cassandra -p cassandra --ssl
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
-Caso não vá continuar usando esse cluster de instância gerenciada, exclua-o seguindo estas etapas:
+Caso não vá continuar usando esse cluster da instância gerenciada, exclua-o seguindo estas etapas:
 
 1. No menu à esquerda do portal do Azure, selecione **Grupos de recursos**.
 1. Na lista, selecione o grupo de recursos criado neste início rápido.

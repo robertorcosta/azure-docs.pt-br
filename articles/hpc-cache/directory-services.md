@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 12/22/2020
 ms.author: v-erkel
-ms.openlocfilehash: 28265861c98cceaedf7d2662f6526a9f62fe68de
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.openlocfilehash: 4f1499c9a86999bac86fb7bf185f195e9ba5f690
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
-ms.locfileid: "97803758"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472075"
 ---
 # <a name="configure-directory-services"></a>Configurar serviços de diretório
 
@@ -75,7 +75,7 @@ O servidor e o DN de base são as únicas configurações necessárias para faze
 
 Na seção **acesso seguro** , você pode habilitar a criptografia e a validação de certificado para a conexão LDAP. Depois de clicar em **Sim** para habilitar a criptografia, você terá estas opções:
 
-* **Exigir certificado válido** -quando definido, o certificado do servidor LDAP é verificado em relação à autoridade de certificação no campo URI abaixo.
+* **Validar certificado** – quando isso é definido, o certificado do servidor LDAP é verificado em relação à autoridade de certificação no campo URI abaixo.
 
 * **URI do certificado de autoridade de certificação** – especifique o caminho para o certificado autoritativo. Isso pode ser um link para um certificado validado pela autoridade de certificação ou para um certificado autoassinado. Esse campo é necessário para usar a configuração de certificados validados externamente.
 

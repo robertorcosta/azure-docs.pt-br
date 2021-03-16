@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/15/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 63288bca124959463dc6ea16cb9d681c68ad00da
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: e740fdb9cd232892dadfe98c4d739759be66bf55
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102448176"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103488713"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-saml-protocol-in-azure-active-directory-b2c"></a>Configurar a entrada com um provedor de SAML do Salesforce usando o protocolo SAML no Azure Active Directory B2C
 
@@ -60,11 +60,24 @@ Este artigo mostra como habilitar a entrada para usuários de uma organização 
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
       ```
 
+      Ao usar um [domínio personalizado](custom-domain.md), use o seguinte formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase
+      ```
+
 6. No campo **URL ACS**, digite a URL a seguir. Substitua o valor de `your-tenant` pelo nome do seu locatário do Azure AD B2C.
 
       ```
       https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
       ```
+
+      Ao usar um [domínio personalizado](custom-domain.md), use o seguinte formato:
+
+      ```
+      https://your-domain-name/your-tenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase/samlp/sso/assertionconsumer
+      ```
+
 7. Role até a parte inferior da lista e, em seguida, clique em **Salvar**.
 
 ### <a name="get-the-metadata-url"></a>Obter a URL de metadados
@@ -77,7 +90,7 @@ Este artigo mostra como habilitar a entrada para usuários de uma organização 
 1. Na página **Gerenciar** do aplicativo conectado, clique em **Gerenciar Perfis**.
 2. Selecione os perfis (ou grupos de usuários) que você deseja federar com o Azure AD B2C. Como administrador do sistema, marque a caixa de seleção **Administrador do Sistema** para que você possa estabelecer a federação usando sua conta do Salesforce.
 
-## <a name="create-a-self-signed-certificate"></a>Crie um certificado autoassinado
+## <a name="create-a-self-signed-certificate"></a>Criará um certificado autoassinado
 
 [!INCLUDE [active-directory-b2c-create-self-signed-certificate](../../includes/active-directory-b2c-create-self-signed-certificate.md)]
 

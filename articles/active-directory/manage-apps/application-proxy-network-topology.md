@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a8f1f902b14dda7d95e3643c335e82ed7c7e5a3f
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 2873bd9668bfba887ad9add061e68f36a747d5b8
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232912"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492312"
 ---
 # <a name="optimize-traffic-flow-with-azure-active-directory-application-proxy"></a>Otimizar o fluxo de tráfego com Proxy de Aplicativo do Azure Active Directory
 
@@ -38,7 +38,7 @@ Quando você se inscreve em um locatário do Azure AD, a região do seu locatár
 
 Por exemplo, se o país ou a região do seu locatário do Azure AD for o Reino Unido, todos os conectores de proxy de aplicativo em **padrão** serão atribuídos para usar instâncias de serviço em data centers europeus. Quando os usuários acessam aplicativos publicados, seu tráfego passa pelas instâncias do serviço de nuvem do proxy de aplicativo neste local.
 
-Se você tiver conectores instalados em regiões diferentes da sua região padrão, pode ser benéfico alterar em qual região o grupo de conectores é otimizado para melhorar o desempenho do acesso a esses aplicativos. Depois que uma região for especificada para um grupo de conectores, ela será conectada aos serviços de nuvem do proxy de aplicativo na região designada.
+Se você tiver conectores instalados em regiões diferentes da sua região padrão, pode ser benéfico alterar em qual região o grupo de conectores é otimizado para melhorar o desempenho do acesso a esses aplicativos. Depois que uma região for especificada para um grupo de conectores, ela se conectará aos serviços de nuvem do proxy de aplicativo na região designada.
 
 Para otimizar o fluxo de tráfego e reduzir a latência para um grupo de conectores, atribua o grupo de conectores à região mais próxima. Para atribuir uma região:
 
@@ -181,7 +181,7 @@ O conector pode ser colocado no datacenter do Azure. Como o conector ainda tem u
 
 **Cenário:** O aplicativo está na rede de uma organização na Europa, a região de locatário padrão é US, com a maioria dos usuários na Europa.
 
-**Recomendação:** coloque o conector próximo ao aplicativo. Atualize o grupo de conectores para que ele seja otimizado para usar instâncias de serviço de proxy de aplicativo Europe. Para ver as etapas, [Otimize os grupos de conectores para usar o serviço de nuvem de proxy de aplicativo mais próximo](application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service).
+**Recomendação:** coloque o conector próximo ao aplicativo. Atualize o grupo de conectores para que ele seja otimizado para usar instâncias de serviço de proxy de aplicativo Europe. Para ver as etapas, [Otimize os grupos de conectores para usar o serviço de nuvem de proxy de aplicativo mais próximo](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview).
 
 Como os usuários da Europa estão acessando uma instância de proxy de aplicativo que ocorre na mesma região, o salto 1 não é caro. O salto 3 está otimizado. Considere a possibilidade de usar o ExpressRoute para otimizar o salto 2.
 
@@ -189,7 +189,7 @@ Como os usuários da Europa estão acessando uma instância de proxy de aplicati
 
 **Cenário:** O aplicativo está na rede de uma organização na Europa, a região de locatário padrão é US, com a maioria dos usuários nos EUA.
 
-**Recomendação:** coloque o conector próximo ao aplicativo. Atualize o grupo de conectores para que ele seja otimizado para usar instâncias de serviço de proxy de aplicativo Europe. Para ver as etapas, [Otimize os grupos de conectores para usar o serviço de nuvem de proxy de aplicativo mais próximo](/application-proxy-network-topology#Optimize connector-groups-to-use-closest-Application-Proxy-cloud-service). O salto 1 pode ser mais caro, pois todos os usuários dos EUA devem acessar a instância do proxy de aplicativo na Europa.
+**Recomendação:** coloque o conector próximo ao aplicativo. Atualize o grupo de conectores para que ele seja otimizado para usar instâncias de serviço de proxy de aplicativo Europe. Para ver as etapas, [Otimize os grupos de conectores para usar o serviço de nuvem de proxy de aplicativo mais próximo](application-proxy-network-topology.md#optimize-connector-groups-to-use-closest-application-proxy-cloud-service-preview). O salto 1 pode ser mais caro, pois todos os usuários dos EUA devem acessar a instância do proxy de aplicativo na Europa.
 
 Você também pode considerar o uso de uma outra variante nessa situação. Se a maioria dos usuários na organização estiver nos EUA, provavelmente sua rede se “estende” também para os EUA. Coloque o conector nos EUA, continue a usar a região padrão dos EUA para seus grupos de conectores e use a linha de rede corporativa interna dedicada para o aplicativo na Europa. Desta forma, os saltos 2 e 3 são otimizados.
 

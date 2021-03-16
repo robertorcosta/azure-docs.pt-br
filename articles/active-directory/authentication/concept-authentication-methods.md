@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/22/2021
+ms.date: 03/15/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
-ms.openlocfilehash: 0bbaf5fa4f3404b0e4fdb4dc016b703c58910457
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101652072"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471703"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
 
@@ -40,12 +40,12 @@ A tabela a seguir descreve as considerações de segurança para os métodos de 
 
 | Método de autenticação          | Segurança | Usabilidade | Disponibilidade |
 |--------------------------------|:--------:|:---------:|:------------:|
-| Windows Hello for Business     | Alto     | Alto      | Alto         |
+| Windows Hello para Empresas     | Alto     | Alto      | Alto         |
 | Aplicativo Microsoft Authenticator    | Alto     | Alto      | Alto         |
 | Chave de segurança do FIDO2             | Alto     | Alto      | Alto         |
-| Tokens de hardware OATH           | Médio   | Médio    | Alto         |
-| Tokens de software OATH           | Médio   | Médio    | Alto         |
-| SMS                            | Médio   | Alto      | Médio       |
+| Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alta         |
+| Tokens de software OATH           | Médio   | Médio    | Alta         |
+| sms                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
 | Senha                       | Baixo      | Alto      | Alto         |
 
@@ -65,12 +65,12 @@ A tabela a seguir descreve quando um método de autenticação pode ser usado du
 
 | Método                         | Autenticação primária | Autenticação secundária  |
 |--------------------------------|:----------------------:|:-------------------------:|
-| Windows Hello for Business     | Sim                    | MFA                       |
+| Windows Hello para Empresas     | Sim                    | MFA                       |
 | Aplicativo Microsoft Authenticator    | Sim                    | MFA e o SSPR              |
 | Chave de segurança do FIDO2             | Sim                    | MFA                       |
-| Tokens de hardware OATH           | Não                     | MFA                       |
+| Tokens de hardware OATH (versão prévia) | Não                     | MFA                       |
 | Tokens de software OATH           | Não                     | MFA                       |
-| SMS                            | Sim                    | MFA e o SSPR              |
+| sms                            | Sim                    | MFA e o SSPR              |
 | Chamada de voz                     | Não                     | MFA e o SSPR              |
 | Senha                       | Sim                    |                           |
 
@@ -78,10 +78,10 @@ Todos esses métodos de autenticação podem ser configurados no portal do Azure
 
 Para saber mais sobre como funciona cada método de autenticação, consulte os seguintes artigos conceituais separados:
 
-* [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-overview)
+* [Windows Hello para Empresas](/windows/security/identity-protection/hello-for-business/hello-overview)
 * [Aplicativo Microsoft Authenticator](concept-authentication-authenticator-app.md)
 * [Chave de segurança do FIDO2](concept-authentication-passwordless.md#fido2-security-keys)
-* [Tokens de hardware OATH](concept-authentication-oath-tokens.md#oath-hardware-tokens)
+* [Tokens de hardware OATH (versão prévia)](concept-authentication-oath-tokens.md#oath-hardware-tokens-preview)
 * [Tokens de software OATH](concept-authentication-oath-tokens.md#oath-software-tokens)
 * Entrada e [verificação](concept-authentication-phone-options.md#mobile-phone-verification) [do SMS](howto-authentication-sms-signin.md)
 * [Verificação de chamada de voz](concept-authentication-phone-options.md)

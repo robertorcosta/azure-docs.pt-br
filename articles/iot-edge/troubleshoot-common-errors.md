@@ -11,14 +11,16 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: a3e646f44978e8897c22d579639efcef0fcd2205
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: cc6d7491d9c38f1ddf4aba2adecad4aaee3c344b
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102045965"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489555"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas comuns e resoluções para o Azure IoT Edge
+
+[!INCLUDE [iot-edge-version-201806-or-202011](../../includes/iot-edge-version-201806-or-202011.md)]
 
 Use este artigo para encontrar etapas para resolver problemas comuns que podem ocorrer ao implantar soluções de IoT Edge. Se você precisar saber como encontrar logs e erros de seu dispositivo IoT Edge, consulte [solucionar problemas do dispositivo de IOT Edge](troubleshoot.md).
 
@@ -75,7 +77,7 @@ Por padrão, IoT Edge inicia os módulos em sua própria rede de contêiner isol
 
 **Opção 1: definir o servidor DNS em configurações do mecanismo de contêiner**
 
-Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo: 
+Especifique o servidor DNS para seu ambiente nas configurações do mecanismo de contêiner, que será aplicado a todos os módulos de contêiner iniciados pelo mecanismo. Crie um arquivo chamado `daemon.json` especificando o servidor DNS a ser usado. Por exemplo:
 
 ```json
 {
@@ -87,7 +89,7 @@ O exemplo acima define o servidor DNS para um serviço DNS acessível publicamen
 
 Coloque `daemon.json` no local certo para sua plataforma:
 
-| Plataforma | Local |
+| Plataforma | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
 | Host do Windows com contêineres do Windows | `C:\ProgramData\iotedge-moby\config` |
@@ -103,7 +105,7 @@ Reinicie o mecanismo de contêiner para que as atualizações entrem em vigor.
 
 **Opção 2: definir o servidor DNS na implantação IoT Edge por módulo**
 
-Você pode definir o servidor DNS para *criaroptions* de cada módulo na implantação do IOT Edge. Por exemplo: 
+Você pode definir o servidor DNS para *criaroptions* de cada módulo na implantação do IOT Edge. Por exemplo:
 
 ```json
 "createOptions": {

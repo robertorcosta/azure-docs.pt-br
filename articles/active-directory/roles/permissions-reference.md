@@ -14,39 +14,24 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a65b91e3dff3ef412dad8bbe57383a9dbf8c7765
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b7a0f50a7f84b89d7c048e57eadc85635df10f77
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032238"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467673"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções internas do Azure AD
 
-Usando o Azure Active Directory (Azure AD), você pode designar administradores limitados para gerenciar tarefas de identidade em funções com privilégios mínimos. Os administradores podem ser atribuídos para os fins de adicionar ou alterar os usuários, atribuir funções administrativas, redefinir senhas de usuário, gerenciar licenças de usuário e gerenciando nomes de domínio. As [permissões de usuário padrão](../fundamentals/users-default-permissions.md) podem ser alteradas somente nas configurações de usuário no Azure AD.
+No Azure Active Directory (AD do Azure), se outro administrador ou não administrador precisar gerenciar recursos do Azure AD, atribua a eles uma função do Azure AD que forneça as permissões necessárias. Por exemplo, você pode atribuir funções para permitir a adição ou alteração de usuários, a redefinição de senhas de usuário, o gerenciamento de licenças de usuário ou o gerenciamento de nomes de domínio.
+
+Este artigo lista as funções internas do Azure AD que você pode atribuir para permitir o gerenciamento de recursos do Azure AD. Para obter informações sobre como atribuir funções, consulte [atribuir funções do Azure ad aos usuários](manage-roles-portal.md).
 
 ## <a name="limit-use-of-global-administrator"></a>Limitar o uso do administrador global
 
 Os usuários atribuídos à função de administrador global podem ler e modificar cada configuração administrativa em sua organização do Azure AD. Por padrão, quando um usuário se inscreve em um serviço de nuvem da Microsoft, um locatário do Azure AD é criado e o usuário se torna membro da função de administradores globais. Quando você adiciona uma assinatura a um locatário existente, não é atribuída à função de administrador global. Somente administradores globais e administradores de função com privilégios podem delegar funções de administrador. Para reduzir o risco da sua empresa, recomendamos que você atribua essa função ao menor número possível de pessoas na sua organização.
 
 Como uma melhor prática, recomendamos que você atribua essa função a menos de cinco pessoas em sua organização. Caso você tenha mais de cinco administradores atribuídos à função de Administrador global em sua organização, aqui estão algumas maneiras de reduzir seu uso.
-
-### <a name="find-the-role-you-need"></a>Localizar a função necessária
-
-Caso seja frustrante para você encontrar a função de que precisa para uma lista de muitas funções, o Azure AD poderá mostrar subconjuntos das funções com base nas categorias de função. Confira nosso novo filtro **Tipo** para [Funções e administradores do Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) para mostrar apenas as funções do tipo selecionado.
-
-### <a name="a-role-exists-now-that-didnt-exist-when-you-assigned-the-global-administrator-role"></a>Já existe uma função que não existia quando você atribuiu a função de administrador global
-
-É possível que uma função ou funções tenham sido adicionadas ao Azure AD, que fornecem permissões mais granulares que não eram uma opção quando você elevou alguns usuários para o administrador global. Ao longo do tempo, estamos distribuindo funções adicionais que realizam tarefas que apenas a função de administrador global poderia fazer antes. Você pode ver isso refletido nas seguintes [funções](#all-roles).
-
-## <a name="assign-or-remove-administrator-roles"></a>Atribuir ou remover funções de administrador
-
-Para saber como atribuir funções administrativas a um usuário no Azure Active Directory, veja [Exibir e atribuir funções de administrador no Azure Active Directory](manage-roles-portal.md).
-
-> [!Note]
-> Se você tiver uma licença do Azure AD Premium P2 e já for um usuário Privileged Identity Management (PIM), todas as tarefas de gerenciamento de função serão executadas no gerenciamento de identidades de privilégio e não no Azure AD.
->
-> ![Funções do Azure AD gerenciadas no PIM para usuários que já usam o PIM e que têm uma licença Premium P2](./media/permissions-reference/pim-manages-roles-for-p2.png)
 
 ## <a name="all-roles"></a>Todas as funções
 
@@ -1879,6 +1864,6 @@ Leitor de relatórios de Resumo de uso | &nbsp; | :heavy_check_mark: | :heavy_ch
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para saber mais sobre como atribuir um usuário como administrador de uma assinatura do Azure, consulte [atribuir um usuário como administrador de uma assinatura do Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)
-* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, consulte [Noções básicas sobre funções diferentes](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Para obter detalhes sobre a relação entre assinaturas e um locatário do Azure AD, ou para obter instruções para associar ou adicionar uma assinatura, consulte [associar ou adicionar uma assinatura do Azure ao seu locatário de Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
+- [Atribuir funções do Azure AD a grupos](groups-assign-role.md)
+- [Entender as diferentes funções](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Atribuir a um usuário a função de administrador de uma assinatura do Azure](../../role-based-access-control/role-assignments-portal-subscription-admin.md)

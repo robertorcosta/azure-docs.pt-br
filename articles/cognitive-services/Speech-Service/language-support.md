@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: ebdb6a44a1f20ce0835fc5d7358d99c8224d3d77
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102044928"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470227"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Idioma                 | Localidade (BCP-47) | Personalizações  | [Detecção de idioma](how-to-automatic-language-detection.md) |
+| Linguagem                 | Localidade (BCP-47) | Personalizações  | [Detecção de idioma](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
 | Árabe (Bahrein), padrão moderno  | `ar-BH` | Texto                                   | Sim                           | 
 | Árabe (Egito)                     | `ar-EG` | Texto                                   | Sim                          |
@@ -152,7 +152,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 > Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
 
-| Idioma | Locale | Gênero | Nome da voz | Suporte de estilo |
+| Linguagem | Locale | Gênero | Nome da voz | Suporte de estilo |
 |---|---|---|---|---|
 | Árabe (Egito) | `ar-EG` | Feminino | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Egito) | `ar-EG` | Masculino | `ar-EG-ShakirNeural` <sup>Novo</sup> | Geral |
@@ -194,8 +194,8 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 | Inglês (Reino Unido) | `en-GB` | Feminino | `en-GB-MiaNeural` | Geral |
 | Inglês (Reino Unido) | `en-GB` | Masculino | `en-GB-RyanNeural` | Geral |
 | Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-AriaNeural` | Geral, vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
-| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-JennyNeural` | Geral |
-| Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-GuyNeural` | Geral |
+| Inglês (Estados Unidos) | `en-US` | Feminino | `en-US-JennyNeural` | Geral, vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
+| Inglês (Estados Unidos) | `en-US` | Masculino | `en-US-GuyNeural` | Geral, vários estilos de voz disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles)  |
 | Finlandês (Finlândia) | `fi-FI` | Feminino | `fi-FI-NooraNeural` | Geral |
 | Finlandês (Finlândia) | `fi-FI` | Feminino | `fi-FI-SelmaNeural` <sup>Novo</sup> | Geral |
 | Finlandês (Finlândia) | `fi-FI` | Masculino | `fi-FI-HarriNeural` <sup>Novo</sup> | Geral |
@@ -274,7 +274,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 
 As vozes neurais a seguir estão em visualização pública. 
 
-| Idioma                         | Locale  | Gênero | Nome da voz                             | Suporte de estilo |
+| Linguagem                         | Locale  | Gênero | Nome da voz                             | Suporte de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaohanNeural` | Geral, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaomoNeural` | Geral, vários estilos e execução de função disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -314,7 +314,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 > **As vozes en-US-AriaRUS** e **en-US-GuyRUS** também são criadas a partir de exemplos que usam uma taxa de amostra de 24 kHz.
 > Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
-| Idioma | Localidade (BCP-47) | Gênero | Nome da voz |
+| Linguagem | Localidade (BCP-47) | Gênero | Nome da voz |
 |--|--|--|--|
 | Árabe (árabe) | `ar-EG` | Feminino | `ar-EG-Hoda`|
 | Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-Naayf`|
@@ -404,7 +404,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 
 A voz personalizada está disponível na camada padrão e neural. Os idiomas com suporte são diferentes para essas duas camadas. 
 
-| Idioma | Locale | Standard | Neural |
+| Linguagem | Locale | Standard | Neural |
 |--|--|--|--|
 | Chinês (mandarim, simplificado) | `zh-CN` | Sim | Sim |
 | Chinês (mandarim, simplificado), bilíngüe inglês | `zh-CN` bilíngüe | Sim | Sim |
@@ -511,21 +511,21 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
 
-| Idioma | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+| Linguagem | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
 |Inglês (EUA)  |  en-US  |  sim  |  sim  |  sim |
-|Chinês (mandarim, simplificado) | zh-CN     |     n/a |     sim |     sim|
-|Inglês (Austrália)     | en-AU     | n/a     | sim     | sim|
-|Inglês (Canadá)     | en-CA     | n/a |     sim |     sim|
-|Inglês (Reino Unido)     | en-GB     | n/a     | sim     | sim|
-|Francês (Canadá)     | fr-CA     | n/a     | sim |     sim|
-|Francês (França)     | fr-FR     | n/a     | sim     | sim|
-|Alemão (Alemanha)     | de-DE     | n/a     | sim     | sim|
-|Italiano | it-IT     |     n/a     | sim |     sim|
-|Japonês     | ja-JP | n/a     | sim     | sim|
-|Português (Brasil) | pt-BR |     n/a |     sim |     sim|
-|Espanhol (México)     | es-MX     | n/a |     sim |     sim|
-|Espanhol (Espanha)     | es-ES | n/a     | sim |     sim|
+|Chinês (mandarim, simplificado) | zh-CN     |     n/d |     sim |     sim|
+|Inglês (Austrália)     | en-AU     | n/d     | sim     | sim|
+|Inglês (Canadá)     | en-CA     | n/d |     sim |     sim|
+|Inglês (Reino Unido)     | en-GB     | n/d     | sim     | sim|
+|Francês (Canadá)     | fr-CA     | n/d     | sim |     sim|
+|Francês (França)     | fr-FR     | n/d     | sim     | sim|
+|Alemão (Alemanha)     | de-DE     | n/d     | sim     | sim|
+|Italiano | it-IT     |     n/d     | sim |     sim|
+|Japonês     | ja-JP | n/d     | sim     | sim|
+|Português (Brasil) | pt-BR |     n/d |     sim |     sim|
+|Espanhol (México)     | es-MX     | n/d |     sim |     sim|
+|Espanhol (Espanha)     | es-ES | n/d     | sim |     sim|
 
 ## <a name="next-steps"></a>Próximas etapas
 

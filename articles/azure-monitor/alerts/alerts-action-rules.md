@@ -3,12 +3,12 @@ title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/15/2021
-ms.locfileid: "103466721"
+ms.locfileid: "103471685"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -76,8 +76,8 @@ Esta regra será aplicada somente a alertas nos tipos de recursos selecionados.
 Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra será aplicada somente a alertas em máquinas virtuais.
 * **ID da regra de alerta**  
 Esta regra será aplicada somente a alertas provenientes de uma regra de alerta específica. O valor deve ser a ID do Gerenciador de recursos da regra de alerta.  
-Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/Rg1/Providers/Microsoft.insights/metricalerts/API-Latency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "API-latência".
-Você pode obter a ID da regra de alerta apropriada listando suas regras de alerta da CLI ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades" e copiando o valor de "ID do recurso".
+Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/Rg1/Providers/Microsoft.insights/metricalerts/API-Latency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "API-latência".  
+_Observação: você pode obter a ID da regra de alerta apropriada listando suas regras de alerta da CLI ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades" e copiando o valor de "ID do recurso"._
 * **Condição do monitor**  
 Esta regra será aplicada somente a eventos de alerta com a condição de monitor especificada  – disparados ou **resolvidos**.
 * **Descrição**  

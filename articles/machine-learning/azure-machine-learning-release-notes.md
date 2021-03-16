@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 8c876a09c77a2ed5441a2f40acc2da508697febb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102608675"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103471750"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -26,7 +26,7 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
 ## <a name="2021-03-08"></a>2021-03-08
 
 ### <a name="azure-machine-learning-sdk-for-python-v1240"></a>Azure Machine Learning SDK para Python v 1.24.0
-+ **Novos recursos**
++ **Correções de bugs e melhorias**
   + **azureml-automl-core**
     + Removidas as importações compatíveis com versões anteriores do `azureml.automl.core.shared` . O módulo não encontrou erros no `azureml.automl.core.shared` namespace pode ser resolvido pela importação de `azureml.automl.runtime.shared` .
   + **azureml-contrib-automl-DNN-Vision**
@@ -75,7 +75,7 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
 ## <a name="2021-02-16"></a>2021-02-16
 
 ### <a name="azure-machine-learning-sdk-for-python-v1230"></a>Azure Machine Learning SDK para Python v 1.23.0
-+ **Novos recursos**
++ **Correções de bugs e melhorias**
   + **azureml-core**
     + [Recurso experimental] Adicionar suporte para vincular o espaço de trabalho Synapse ao AML como um serviço vinculado
     + [Recurso experimental] Adicionar suporte para anexar o pool do Synapse Spark ao AML como uma computação
