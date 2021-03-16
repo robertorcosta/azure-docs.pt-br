@@ -4,12 +4,12 @@ description: Aprenda a criar sua primeira Função do Azure para a execução se
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-csharp, mvc, devcenter, cc996988-fb4f-47
-ms.openlocfilehash: 8d394a6f71fc5d31bd72a67a876a24a500a7cf01
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6ca187181d68d7924f97ebfac08e81dec77251e9
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101732167"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492092"
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
@@ -42,13 +42,11 @@ Em seguida, crie uma função no novo aplicativo de funções.
 
 1. No menu esquerdo da janela **Funções**, selecione **Funções** e depois selecione **Adicionar** no menu superior. 
  
-1. Na janela **Nova Função**, selecione **Gatilho HTTP**.
+1. Na janela **Adicionar função** , selecione o modelo **gatilho http** .
 
     ![Escolher uma função de gatilho HTTP](./media/functions-create-first-azure-function/function-app-select-http-trigger.png)
 
-1. Na janela **Nova Função**, aceite o nome padrão para **Nova Função** ou insira um novo nome. 
-
-1. Escolha **Anônimo** na lista suspensa **Nível de autorização** e, em seguida, selecione **Criar Função**.
+1. Em **detalhes** do modelo `HttpExample` , use para **nova função**, escolha **anônimo** na lista suspensa **[nível de autorização](functions-bindings-http-webhook-trigger.md#authorization-keys)** e, em seguida, selecione **Adicionar**.
 
     O Azure cria a função de gatilho HTTP. Agora você pode executar a nova função enviando uma solicitação HTTP.
 

@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 09/13/2020
+ms.date: 03/15/2021
 ms.author: rogarana
-ms.openlocfilehash: 6098497e89ad66fad7659aa64c9a7849380f8c43
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 26932d05cd3d2ef7704b48463c895e05524d87f1
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102547485"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472144"
 ---
 # <a name="overview---on-premises-active-directory-domain-services-authentication-over-smb-for-azure-file-shares"></a>Visão geral-local Active Directory Domain Services autenticação sobre SMB para compartilhamentos de arquivos do Azure
 
@@ -33,7 +33,7 @@ Se você for novo nos compartilhamentos de arquivos do Azure, é recomendável l
 
 Quando você habilita AD DS para compartilhamentos de arquivos do Azure via SMB, seus computadores ingressados AD DS podem montar compartilhamentos de arquivos do Azure usando suas credenciais de AD DS existentes. Esse recurso pode ser habilitado com um ambiente de AD DS hospedado em computadores locais ou hospedado no Azure.
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 
 Para ajudá-lo a configurar a autenticação do AD dos arquivos do Azure para alguns casos de uso comuns, publicamos dois vídeos com orientações passo a passo para os seguintes cenários:
 
@@ -66,7 +66,7 @@ Antes de habilitar a autenticação AD DS para compartilhamentos de arquivos do 
 
 ## <a name="regional-availability"></a>Disponibilidade regional
 
-A autenticação de arquivos do Azure com o AD DS está disponível em [todas as regiões do Azure Public e gov](https://azure.microsoft.com/global-infrastructure/locations/).
+A autenticação de arquivos do Azure com o AD DS está disponível em [todas as regiões públicas, China e gov do Azure](https://azure.microsoft.com/global-infrastructure/locations/).
 
 ## <a name="overview"></a>Visão geral
 

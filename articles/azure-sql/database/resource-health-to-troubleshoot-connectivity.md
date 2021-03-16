@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: wiassaf, sstein
 ms.date: 02/26/2019
-ms.openlocfilehash: a51840daa2c8b19c323ad761ff6e6d1dcef15f75
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.openlocfilehash: 1a74a2f44ac9b03e39e9fea48a3428b82111a48c
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
-ms.locfileid: "96497955"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103472006"
 ---
 # <a name="use-resource-health-to-troubleshoot-connectivity-for-azure-sql-database-and-azure-sql-managed-instance"></a>Use Resource Health para solucionar problemas de conectividade do banco de dados SQL do Azure e do SQL Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -49,11 +49,11 @@ Um status **Indisponível** significa que o Resource Health detectou falhas de l
 
 ![Indisponível](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unavailable.jpg)
 
-### <a name="unknown"></a>Unknown
+### <a name="unknown"></a>Desconhecido
 
 O status de integridade de **Desconhecido** indica que o Resource Health não recebeu informações sobre esse recurso por mais de 10 minutos. Embora esse status não seja uma indicação definitiva sobre o estado do recurso, é um ponto de dados importante no processo de solução de problemas. Se o seu recurso permanecer nesse estado por um período prolongado, entre em contato com o suporte. Se você está tendo problemas com o recurso, o status de integridade Desconhecido pode sugerir que um evento na plataforma está afetando o recurso.
 
-![Unknown](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
+![Desconhecido](./media/resource-health-to-troubleshoot-connectivity/sql-resource-health-unknown.jpg)
 
 ## <a name="historical-information"></a>Informações de histórico
 
@@ -61,7 +61,7 @@ Você pode acessar até 14 dias de histórico de integridade na seção Históri
 
 ### <a name="downtime-reasons"></a>Motivos de tempo de inatividade
 
-Quando seu banco de dados apresentar tempo de inatividade, a análise é executada para determinar um motivo. Quando disponível, o motivo do tempo de inatividade é relatado na seção Histórico de Integridade do Resource Health. Razões de tempo de inatividade são normalmente publicadas 30 minutos após um evento.
+Quando seu banco de dados apresentar tempo de inatividade, a análise é executada para determinar um motivo. Quando disponível, o motivo do tempo de inatividade é relatado na seção Histórico de Integridade do Resource Health. Os motivos do tempo de inatividade são normalmente publicados em 45 minutos após um evento.
 
 #### <a name="planned-maintenance"></a>Manutenção planejada
 

@@ -4,14 +4,14 @@ description: Como criar caminhos voltados para o cliente para armazenamento de b
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 12/22/2020
+ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: 5549670dbd1f302bdb17b8b94cbd1fb5c4c1a1d9
-ms.sourcegitcommit: 6cca6698e98e61c1eea2afea681442bd306487a4
+ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
+ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/24/2020
-ms.locfileid: "97760513"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103470448"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o namespace agregado
 
@@ -132,6 +132,30 @@ Para atualizar o caminho do namespace do destino ou para adicionar outros caminh
 As opções usadas para o comando Update são semelhantes ao comando "Create", exceto que você não passa as informações do sistema de armazenamento (endereço IP ou hostname) e o modelo de uso é opcional. Leia [Adicionar um novo destino de armazenamento NFS](hpc-cache-add-storage.md?tabs=azure-cli#add-a-new-nfs-storage-target) para obter mais detalhes sobre a sintaxe da ``--junction`` opção.
 
 ---
+
+### <a name="adls-nfs-namespace-paths-preview"></a>Caminhos de namespace ADLS-NFS (visualização)
+
+Como um destino de armazenamento de BLOBs normal, um destino de armazenamento ADLS-NFS tem apenas uma exportação, portanto, só pode ter um caminho de namespace.
+
+Siga as instruções abaixo para definir ou alterar o caminho com o portal do Azure.
+
+Carregue a página Configurações de **namespace** .
+
+* **Adicionar um novo caminho:** Clique no botão **+ Adicionar** na parte superior e preencha as informações no painel de edição.
+
+  ![Captura de tela do adicionar campos de edição de namespace com um destino de armazenamento ADLS-NFS selecionado. Os caminhos de exportação e subdiretório são definidos como/e não editáveis.](media/namespace-add-adls.png)
+
+  * Insira o caminho que os clientes usarão para acessar esse destino de armazenamento.
+
+  * Selecione a política de acesso a ser usada para este caminho. Saiba mais sobre como personalizar o acesso do cliente em [usar políticas de acesso para cliente](access-policies.md).
+
+  * Selecione o destino de armazenamento na lista suspensa. Se um destino de armazenamento ADLS-NFS já tiver um caminho de namespace, ele não poderá ser selecionado.
+
+  * Para um destino de armazenamento ADLS-NFS, os caminhos de exportação e subdiretório são definidos automaticamente como ``/`` .
+
+* **Alterar um caminho existente:** Clique no caminho do namespace. O painel Editar é aberto. Você pode modificar o caminho e a política de acesso, mas não pode alterar para um destino de armazenamento diferente.
+
+* **Excluir um caminho de namespace:** Marque a caixa de seleção à esquerda do caminho e clique no botão **excluir** .
 
 ## <a name="next-steps"></a>Próximas etapas
 

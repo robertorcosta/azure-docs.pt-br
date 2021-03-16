@@ -2,13 +2,13 @@
 title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
 ms.topic: conceptual
-ms.date: 04/25/2019
-ms.openlocfilehash: bf254249f5b347d32255820da370a499c84da212
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.date: 03/15/2021
+ms.openlocfilehash: 2ad87cce668555ece0eba6479bf9d21db312bfcf
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463061"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466721"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
@@ -68,16 +68,17 @@ Os filtros disponíveis são:
 * **Gravidade**  
 Esta regra será aplicada somente a alertas com as severidades selecionadas.  
 Por exemplo, **Severity = Sev1** significa que a regra será aplicada somente a alertas com severidade Sev1.
-* **Monitorar Serviço**  
+* **Monitorar serviço**  
 Esta regra será aplicada somente aos alertas provenientes dos serviços de monitoramento selecionados.  
 Por exemplo, **Monitor Service = "backup do Azure"** significa que a regra será aplicada somente a alertas de backup (provenientes do backup do Azure).
-* **Tipo de Recurso**  
+* **Tipo de recurso**  
 Esta regra será aplicada somente a alertas nos tipos de recursos selecionados.  
 Por exemplo, **tipo de recurso = "máquinas virtuais"** significa que a regra será aplicada somente a alertas em máquinas virtuais.
 * **ID da regra de alerta**  
 Esta regra será aplicada somente a alertas provenientes de uma regra de alerta específica. O valor deve ser a ID do Gerenciador de recursos da regra de alerta.  
-Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/ResourceGroup1/Providers/Microsoft.insights/metricalerts/API-Latency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "API-latência".
-* **Monitorar condição**  
+Por exemplo, a **regra de alerta ID = "/subscriptions/SubId1/resourceGroups/Rg1/Providers/Microsoft.insights/metricalerts/API-Latency"** significa que esta regra será aplicada somente aos alertas provenientes da regra de alerta de métrica "API-latência".
+Você pode obter a ID da regra de alerta apropriada listando suas regras de alerta da CLI ou abrindo uma regra de alerta específica no portal, clicando em "Propriedades" e copiando o valor de "ID do recurso".
+* **Condição do monitor**  
 Esta regra será aplicada somente a eventos de alerta com a condição de monitor especificada  – disparados ou **resolvidos**.
 * **Descrição**  
 Esta regra será aplicada somente a alertas que contenham uma cadeia de caracteres específica no campo Descrição do alerta. Esse campo contém a descrição da regra de alerta.  

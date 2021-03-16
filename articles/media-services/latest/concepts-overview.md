@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2a1c0c0685ab5a908a89f4a43073f9f773cd58c3
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 2d388cf6c776e6d30a487ce9e14ba1601dce1d23
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631992"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103491598"
 ---
 # <a name="media-services-terminology-and-concepts"></a>Conceitos e terminologia dos serviços de mídia
 
@@ -47,7 +47,7 @@ Os conceitos fundamentais descritos nestes tópicos devem ser examinados antes d
 |Proteção de conteúdo|Com os serviços de mídia, você pode entregar seu conteúdo ao vivo e sob demanda criptografado dinamicamente com criptografia AES (AES-128) ou/e qualquer um dos três principais sistemas DRM: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. <br/><br/>Se especificar as opções de criptografia em seu fluxo, crie a **política de chave de conteúdo** e associe-a ao seu **localizador de streaming**. A **política de chave de conteúdo** permite que você configure como a chave de conteúdo é entregue aos clientes finais.<br/><br/> Tente reutilizar as políticas sempre que as mesmas opções forem necessárias.| [Políticas de chave de conteúdo](content-key-policy-concept.md)<br/><br/>[Proteção de conteúdo](content-protection-overview.md)|
 |Transmissão ao vivo|Os Serviços de Mídia permitem que você entregue eventos ao vivo para seus clientes na nuvem do Azure. **Eventos ao Vivo** são responsáveis pela ingestão e pelo processamento dos feeds de vídeo ao vivo. Quando você cria um **evento ao vivo**, é criado um ponto de extremidade de entrada que pode ser usado para enviar um sinal ao vivo de um codificador remoto. Depois que o fluxo fluir para o **evento ao vivo**, você poderá iniciar o evento de streaming criando um **ativo**, uma **saída ao vivo** e um **localizador de streaming**. A **saída ao vivo** arquivará o fluxo no **ativo** e o tornará disponível para os visualizadores por meio do ponto de **extremidade de streaming**. Um evento ao vivo pode ser definido como uma *passagem* (um codificador dinâmico local envia um fluxo de taxa de bits múltipla) ou uma *Codificação Ativa* (um codificador dinâmico local envia um fluxo de taxa de bits única). |[Visão geral da transmissão ao vivo](live-streaming-overview.md)<br/><br/>[Eventos ao Vivo e Saídas Dinâmicas](live-events-outputs-concept.md)|
 |Monitoramento com a grade de eventos|Para ver o progresso do trabalho, use a **grade de eventos**. Os serviços de mídia também emite os tipos de evento ao vivo. Com a Grade de Eventos, seus aplicativos podem escutar e reagir a eventos de praticamente todos os serviços do Azure, bem como de origens personalizadas. |[Lidando com os eventos da Grade de Eventos](reacting-to-media-services-events.md)<br/><br/>[Esquemas](media-services-event-schemas.md)|
-|Monitoramento com o Azure Monitor|Monitore métricas e logs de diagnóstico que ajudam você a entender como seus aplicativos estão sendo executados com o Azure Monitor.|[Métrica e logs de diagnóstico](media-services-metrics-diagnostic-logs.md)<br/><br/>[Esquemas de logs de diagnóstico](media-services-diagnostic-logs-schema.md)|
+|Monitoramento com o Azure Monitor|Monitore métricas e logs de diagnóstico que ajudam você a entender como seus aplicativos estão sendo executados com o Azure Monitor.|[Métrica e logs de diagnóstico](monitoring/monitor-media-services-data-reference.md)<br/><br/>[Esquemas de logs de diagnóstico](monitoring/monitor-media-services-data-reference.md)|
 |Clientes do Player|Você pode usar Player de Mídia do Azure para reproduzir conteúdo de mídia transmitido pelos serviços de mídia em uma ampla variedade de navegadores e dispositivos. O Player de Mídia do Azure usa padrões do setor, como HTML5, MSE (Media Source Extensions) e EME (Encrypted Media Extensions) para fornecer uma experiência avançada de streaming adaptável. |[Visão geral do Player de Mídia do Azure](use-azure-media-player.md)|
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações

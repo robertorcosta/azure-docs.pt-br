@@ -7,21 +7,21 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/04/2021
+ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcdc8c448a348bf067995bf92615ceab1ac19fb4
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 5374ce59d3a599e243684c168a8d84a6434059ee
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198431"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103492006"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-O elemento **RelyingParty** especifica o percurso do usuário a ser aplicado à solicitação atual para Azure Active Directory B2C (Azure ad B2C). Também especifica a lista de declarações de que o aplicativo de RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo de RP, como um aplicativo Web, móvel ou da área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. Vários aplicativos podem usar a mesma política RP e um único aplicativo pode usar várias políticas. Todos os aplicativos de RP recebem o mesmo token com declarações e o usuário passa pelo mesmo percurso do usuário.
+O elemento **RelyingParty** especifica o percurso do usuário a ser aplicada à solicitação atual para o Azure Active Directory B2C (Azure AD B2C). Também especifica a lista de declarações de que o aplicativo de RP (terceira parte confiável) precisa como parte do token emitido. Um aplicativo de RP, como um aplicativo Web, móvel ou da área de trabalho, chama o arquivo de política de RP. O arquivo de política de RP executa uma tarefa específica, como entrar, redefinir senha ou editar perfil. Vários aplicativos podem usar a mesma política RP e um único aplicativo pode usar várias políticas. Todos os aplicativos de RP recebem o mesmo token com declarações e o usuário passa pelo mesmo percurso do usuário.
 
 A exemplo a seguir mostra um elemento **RelyingParty** no arquivo de política *B2C_1A_signup_signin*:
 
@@ -93,7 +93,7 @@ O elemento de **ponto de extremidade** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | Um identificador exclusivo do ponto de extremidade.|
+| Id | Sim | Um identificador exclusivo do ponto de extremidade.|
 | UserJourneyReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md)  | 
 
 O exemplo a seguir mostra uma terceira parte confiável com o [ponto de extremidade UserInfo](userinfo-endpoint.md):
@@ -145,10 +145,11 @@ O elemento **UserJourneyBehaviors** contém os seguintes elementos:
 | JourneyInsights | 0:1 | A chave de instrumentação do Azure Application Insights a ser usada. |
 | ContentDefinitionParameters | 0:1 | A lista de pares chave-valor a serem acrescentados ao URI da carga de definição de conteúdo. |
 |ScriptExecution| 0:1| Os modos de execução de [JavaScript](javascript-and-page-layout.md) com suporte. Valores possíveis: `Allow` ou `Disallow` (padrão).
+| JourneyFraming | 0:1| Permite que a interface do usuário dessa política seja carregada em um iframe. |
 
 ### <a name="singlesignon"></a>SingleSignOn
 
-O elemento **SingleSignOn** contém o seguinte atributo:
+O elemento **logon único** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
@@ -165,7 +166,7 @@ O elemento **JourneyInsights** contém os seguintes atributos:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sim | O valor deve ser `ApplicationInsights`. |
 | InstrumentationKey | Sim | A cadeia de caracteres que contém a chave de instrumentação para o elemento de insights de aplicativo. |
-| DeveloperMode | Sim | Valores possíveis: `true` ou `false`. Se `true`, o Application Insights acelerará a telemetria pelo pipeline de processamento. Essa configuração é boa para o desenvolvimento, mas restrita em grandes volumes. Os logs de atividade detalhados são projetados apenas para auxiliar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção. Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento. Se for usado em produção, o desenvolvedor assumirá a responsabilidade pela PII (Informações de identificação particular) coletadas no log do App Insights que ele possui. Esses logs detalhados são coletados apenas quando esse valor é definido como `true`.|
+| DeveloperMode | Sim | Valores possíveis: `true` ou `false`. Se `true`, o Application Insights acelerará a telemetria pelo pipeline de processamento. Essa configuração é boa para o desenvolvimento, mas restrita em grandes volumes. Os logs de atividade detalhados são projetados apenas para auxiliar no desenvolvimento de políticas personalizadas. Não use o modo de desenvolvimento em produção. Os logs coletam todas as declarações enviadas entre os provedores de identidade durante o desenvolvimento. Se usado na produção, o desenvolvedor assume a responsabilidade por dados pessoais coletados no log do App insights que eles possuem. Esses logs detalhados são coletados apenas quando esse valor é definido como `true`.|
 | ClientEnabled | Sim | Valores possíveis: `true` ou `false`. Se `true`, enviará o script do lado do cliente do Application Insights para acompanhar erros de exibição de página e do lado do cliente. |
 | ServerEnabled | Sim | Valores possíveis: `true` ou `false`. Se `true`, enviará o JSON UserJourneyRecorder existente como um evento personalizado para o Application Insights. |
 | TelemetryVersion | Sim | O valor deve ser `1.0.0`. |
@@ -194,13 +195,22 @@ O elemento **ContentDefinitionParameter** contém o seguinte atributo:
 
 Para obter mais informações, confira [Configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas](customize-ui-with-html.md#configure-dynamic-custom-page-content-uri)
 
+### <a name="journeyframing"></a>JourneyFraming
+
+O elemento **JourneyFraming** contém os seguintes atributos:
+
+| Atributo | Obrigatório | Descrição |
+| --------- | -------- | ----------- |
+| habilitado | Sim | Permite que essa política seja carregada em um iframe. Valores possíveis: `false` (padrão) ou `true`. |
+| Origens | Sim | Contém os domínios que carregarão o iframe. Para obter mais informações, consulte [carregando o Azure B2C em um iframe](embedded-login.md). |
+
 ## <a name="technicalprofile"></a>TechnicalProfile
 
 O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| ID | Sim | O valor deve ser `PolicyProfile`. |
+| Id | Sim | O valor deve ser `PolicyProfile`. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 

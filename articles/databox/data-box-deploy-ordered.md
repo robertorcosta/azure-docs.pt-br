@@ -6,14 +6,14 @@ author: v-dalc
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/13/2021
+ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: f2bad214045710fe861040514beb3c536664d684
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 281b22db692087f2876b4011563fee8c56bd476e
+ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201882"
+ms.lasthandoff: 03/09/2021
+ms.locfileid: "102522386"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Tutorial: Solicitar o Azure Data Box
 
@@ -164,7 +164,7 @@ Você verá esta saída:
     WSManStackVersion              3.0
 ```
 
-Caso sua versão do Windows PowerShell seja inferior à 6.2.4, você precisará atualizá-la. Para instalar a última versão do PowerShell, confira [Instalar o Azure PowerShell](/powershell/scripting/install/installing-powershell?view=powershell-7&preserve-view=true).
+Caso sua versão do Windows PowerShell seja inferior à 6.2.4, você precisará atualizá-la. Para instalar a última versão do PowerShell, confira [Instalar o Azure PowerShell](/powershell/scripting/install/installing-powershell).
 
 **Instalar os módulos do Azure PowerShell e Data Box**
 
@@ -355,22 +355,34 @@ Execute as etapas a seguir no portal do Azure para solicitar um dispositivo.
     ![Opções de Traga a própria senha expandidas para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-02.png) 
 
    - Para usar a própria senha para o novo dispositivo, em **Definir preferência para a senha do dispositivo**, selecione **Usar a própria senha** e digite uma senha que atenda aos requisitos de segurança.
+     
+     A senha deverá ser alfanumérica e conter de 12 a 15 caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um caractere especial e um número. 
+
+     - Os caracteres especiais permitidos são: @ # - $ % ^ ! + = ; : _ ( )
+     - Estes caracteres não são permitidos: i L o O 0
    
      ![Opções para usar a própria senha do dispositivo na tela de Segurança para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-03.png)
 
  - Para usar as próprias senhas para compartilhamentos:
 
-   - Em **Definir preferência para senhas de compartilhamento**, selecione **Usar as próprias senhas** e **Selecionar senhas para os compartilhamentos**.
+   1. Em **Definir preferência para senhas de compartilhamento**, selecione **Usar as próprias senhas** e **Selecionar senhas para os compartilhamentos**.
      
-        ![Opções para usar as próprias senhas de compartilhamento na tela de Segurança para pedidos de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
+       ![Opções para usar as próprias senhas de compartilhamento na tela de Segurança para pedidos de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-04.png)
 
-    - Digite uma senha para cada conta de armazenamento no pedido. A senha será usada em todos os compartilhamentos para a conta de armazenamento.
-     
-        Para usar a mesma senha para todas as contas de armazenamento, selecione **Copiar para todos**. Quando terminar, selecione **Salvar**.
-     
-        ![Tela para inserir senhas de compartilhamento para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+    1. Digite uma senha para cada conta de armazenamento no pedido. A senha será usada em todos os compartilhamentos para a conta de armazenamento.
+    
+       A senha deverá ser alfanumérica e conter de 12 a 64 caracteres com pelo menos uma letra maiúscula, uma letra minúscula, um caractere especial e um número.
 
-       Na tela de **Segurança**, será possível usar a opção **Exibir ou alterar senhas** para alterar as senhas.
+       - Os caracteres especiais permitidos são: @ # - $ % ^ ! + = ; : _ ( )
+       - Estes caracteres não são permitidos: i L o O 0
+     
+    1. Para usar a mesma senha para todas as contas de armazenamento, selecione **Copiar para todos**. 
+
+    1. Quando terminar, selecione **Salvar**.
+     
+       ![Tela para inserir senhas de compartilhamento para um pedido de importação do Data Box](media/data-box-deploy-ordered/select-data-box-import-security-05.png)
+
+    Na tela de **Segurança**, será possível usar a opção **Exibir ou alterar senhas** para alterar as senhas.
 
 16. Em **Segurança**, caso queira habilitar uma criptografia dupla baseada em software, expanda **Criptografia dupla (para ambientes altamente seguros)** e selecione **Habilitar criptografia dupla para o pedido**.
 

@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: overview
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 099f9b3769179076491c7c2098ec56faff9847dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d868c064b96f58ab3febc1fd3b7f20b74d507cb0
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039828"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102437154"
 ---
 # <a name="what-is-azure-route-server-preview"></a>O que é o Servidor de Rota do Azure (versão prévia)? 
 
@@ -37,7 +37,7 @@ O Servidor de Rota do Azure simplifica a configuração, o gerenciamento e a imp
 
 * Você não precisa mais atualizar as [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) manualmente sempre que a NVA anunciar novas rotas ou retirar as antigas. 
 
-* Você não precisa mais configurar um balanceador de carga na frente da NVA para fins de resiliência ou desempenho. Ao emparelhar várias instâncias da NVA com o Servidor de Rota do Azure, você pode configurar os atributos BGP na NVA. Esses atributos BGP informarão ao Servidor de Rota do Azure qual instância de NVA deve estar ativa ou passiva. 
+* Você pode emparelhar várias instâncias do seu NVA com o Servidor de Rota do Azure. Você pode configurar os atributos de BGP no seu NVA e, dependendo do seu design (por exemplo, ativo-ativo para desempenho ou ativo-passivo para resiliência), informe ao Servidor de Rota do Azure qual instância NVA está ativa ou qual é passiva. 
 
 * A interface entre a NVA e o Servidor de Rota do Azure é baseada em um protocolo padrão comum. Contanto que a NVA dê suporte ao BGP, pode ser emparelhada com o Servidor de Rota do Azure. Para obter mais informações, confira [Protocolos de roteamento com suporte do Servidor de Rota](route-server-faq.md#protocol).
 

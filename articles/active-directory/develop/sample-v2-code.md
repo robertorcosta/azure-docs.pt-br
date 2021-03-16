@@ -12,12 +12,12 @@ ms.date: 11/04/2020
 ms.author: marsma
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 43a019c8bd3544b769a6b4346d8986bc8e01a4a1
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: d61ddee1ac510b6d3528a2221a52fd266a2dd5ad
+ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100560130"
+ms.lasthandoff: 03/07/2021
+ms.locfileid: "102436491"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Exemplos de código da plataforma de identidade da Microsoft (ponto de extremidade v2.0)
 
@@ -61,12 +61,24 @@ Os exemplos a seguir ilustram os aplicativos Web que iniciam sessão de usuário
 | ![Esta imagem mostra o logotipo do ASP.NET Core](media/sample-v2-code/logo_NETcore.png)</p>ASP.NET Core | [Tutorial WebApp do ASP.NET Core conecta usuários](https://aka.ms/aspnetcore-webapp-sign-in) | Mesmo exemplo na fase [aplicativo Web do ASP.NET Core chama Microsoft Graph](https://aka.ms/aspnetcore-webapp-call-msgraph)</p>Exemplo avançado [Acessar o cache de tokens do usuário conectado em aplicativos, APIs e serviços em segundo plano](https://github.com/Azure-Samples/ms-identity-dotnet-advanced-token-cache) |
 | ![Esta imagem mostra o logotipo do ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p>ASP.NET Core | [Guia estratégico para desenvolvedores para migração de aplicativos do AD FS para o Azure AD](https://github.com/Azure-Samples/ms-identity-dotnet-adfs-to-aad) para saber como migrar com segurança seus aplicativos integrados ao Serviços de Federação do Active Directory (AD FS) para o Azure AD (Azure Active Directory) | |
 | ![Esta imagem mostra o logotipo do ASP.NET Framework](media/sample-v2-code/logo_NETframework.png)</p> ASP.NET | [Início rápido do ASP.NET](https://github.com/AzureAdQuickstarts/AppModelv2-WebApp-OpenIDConnect-DotNet) </p> [dotnet-webapp-openidconnect-v2](https://github.com/azure-samples/active-directory-dotnet-webapp-openidconnect-v2)  |  [dotnet-admin-restricted-scopes-v2](https://github.com/azure-samples/active-directory-dotnet-admin-restricted-scopes-v2) </p> |[msgraph-training-aspnetmvcapp](https://github.com/microsoftgraph/msgraph-training-aspnetmvcapp)
-| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  |                   | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  |[Tutorial do servlet Java – Capítulo 1.1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Entrar com o AAD| |
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  |[Tutorial do servlet Java – Capítulo 1.2](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Entrar com o B2C |
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  | | [Tutorial do servlet Java – Capítulo 2.1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Entrar com o AAD e o grafo de chamadas|
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  |[Tutorial do servlet Java – Capítulo 3.1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Entrar com o AAD e controlar o acesso com a declaração Funções| |
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  | | [Tutorial do servlet Java – Capítulo 3.2](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Entrar com o AAD e controlar o acesso com a declaração Grupos|
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png) | |[Tutorial do servlet Java – Capítulo 4.1](https://github.com/Azure-Samples/ms-identity-java-servlet-webapp-authentication/blob/main/README.md) Implantar no Serviço de Aplicativo do Azure|
+| ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  | | [ms-identity-java-webapp](https://github.com/Azure-Samples/ms-identity-java-webapp) |
 | ![Esta imagem mostra o logotipo do Java](media/sample-v2-code/logo_java.png)  | [ms-identity-b2c-java-servlet-webapp-authentication](https://github.com/Azure-Samples/ms-identity-b2c-java-servlet-webapp-authentication)|  |
 | ![Esta imagem mostra o logotipo do Node.js](media/sample-v2-code/logo_nodejs.png)</p>Node.js (MSAL Node) | [Tutorial – Conectar usuários em um aplicativo Web Express](https://github.com/Azure-Samples/ms-identity-node) | |
-| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | [ms-identity-python-flask-webapp-authentication](https://github.com/Azure-Samples/ms-identity-python-flask-webapp-authentication) | [ms-identity-python-webapp](https://github.com/Azure-Samples/ms-identity-python-webapp) |
-| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | Tutorial – Um [aplicativo Web Python Flask](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) conecta os usuários                   | Tutorial – Um [aplicativo Web Python Flask](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) conecta os usuários e chama o Graph |
-| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | Um [aplicativo Web Python Flask](https://github.com/Azure-Samples/ms-identity-b2c-python-flask-webapp-authentication/blob/main/README.md) conecta os usuários com o B2C                    |  |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | [Tutorial do Python Flask – Capítulo 1.1](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Entrar com o AAD  |  |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | [Tutorial do Python Flask – Capítulo 1.2](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Entrar com o B2C                    |  |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | | [Tutorial do Python Flask – Capítulo 2.1](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Entrar com o AAD e o grafo de chamadas |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | |[Tutorial do Python Flask – Capítulo 3.1](https://github.com/Azure-Samples/ms-identity-python-flask-tutorial/blob/main/README.md) Implantar no Serviço de Aplicativo do Azure  |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | [Tutorial do Python Django – Capítulo 1.1](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md) Entrar com o AAD  | |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | [Tutorial do Python Django – Capítulo 1.2](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md) Entrar com o B2C                    |  |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | | [Tutorial do Python Django – Capítulo 2.1](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md) Entrar com o AAD e o grafo de chamadas|
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | | [Tutorial do Python Django – Capítulo 3.1](https://github.com/Azure-Samples/ms-identity-python-django-tutorial/blob/main/README.md) Implantar no Serviço de Aplicativo do Azure                    |
+| ![Esta imagem mostra o logotipo do Python](media/sample-v2-code/logo_python.png)  | | [Aplicativo Web Python Flask](https://github.com/Azure-Samples/ms-identity-python-webapp) |
 | ![Esta imagem mostra o logotipo do Ruby](media/sample-v2-code/logo_ruby.png) |                   | [msgraph-training-rubyrailsapp](https://github.com/microsoftgraph/msgraph-training-rubyrailsapp) |
 | ![Esta imagem mostra o logotipo do Blazor](media/sample-v2-code/logo-blazor.png)</p>Servidor Blazor | [Tutorial – Conexão de usuários no aplicativo Blazor Server](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-OIDC) | [Chamadas ao Microsoft Graph do aplicativo Blazor Server](https://github.com/Azure-Samples/ms-identity-blazor-server/tree/main/WebApp-graph-user/Call-MSGraph)</p>Tutorial em capítulos: [Aplicativo Blazor Server para conectar usuários e chamar APIs com o Azure Active Directory](https://github.com/Azure-Samples/ms-identity-blazor-server) |
 

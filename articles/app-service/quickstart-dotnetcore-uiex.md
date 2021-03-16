@@ -7,12 +7,12 @@ ms.date: 11/23/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4e2e34d73bc3048c587d7c0505f4978dd638370a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 2a789b4ca1261c79e8e6eb93a4ed44e7e8e9272e
+ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180268"
+ms.locfileid: "102214228"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Início Rápido: Criar um aplicativo Web ASP.NET Core no Azure
 
@@ -31,10 +31,12 @@ Quando terminar, você terá um grupo de recursos do Azure <abbr title="Um cont�
 
 <details>
 <summary>Já tem o Visual Studio 2019?</summary>
-  Se você já instalou o Visual Studio 2019:
+Se você já instalou o Visual Studio 2019:
 
-  - **Instale as atualizações mais recentes** no Visual Studio selecionando **Ajuda** > **Verificar Atualizações**. As atualizações mais recentes contêm o SDK do .NET 5.0.
-  - **Adicione a carga de trabalho** selecionando **Ferramentas** > **Obter Ferramentas e Recursos**.
+<ul>
+<li><strong>Instale as atualizações mais recentes</strong> no Visual Studio selecionando <strong>Ajuda</strong> &gt; <strong>Verificar Atualizações</strong>. As atualizações mais recentes contêm o SDK do .NET 5.0.</li>
+<li><strong>Adicione a carga de trabalho</strong> selecionando <strong>Ferramentas</strong> &gt; <strong>Obter Ferramentas e Recursos</strong>.</li>
+</ul>
 </details>
 
 <hr/> 
@@ -314,19 +316,19 @@ http://<app_name>.azurewebsites.net
 
 1. **Execute** `az webapp up` para reimplantar:
 
-```azurecli
-az webapp up --os-type linux
-```
-
-<details>
-<summary>O que está <code>az webapp up</code> fazendo desta vez?</summary>
-Na primeira vez que você executou o comando, ele salvou o nome do aplicativo, o grupo de recursos e o plano do Serviço de Aplicativo no arquivo <i>.azure/config</i> na raiz do projeto. Quando você o executa novamente na raiz do projeto, ele usa os valores salvos em <i>.azure/config</i>, detecta que os recursos do Serviço de Aplicativo já existem e executa a implantação do Zip novamente.
-</details>
-
+    ```azurecli
+    az webapp up --os-type linux
+    ```
+    
+    <details>
+    <summary>O que está <code>az webapp up</code> fazendo desta vez?</summary>
+    Na primeira vez que você executou o comando, ele salvou o nome do aplicativo, o grupo de recursos e o plano do Serviço de Aplicativo no arquivo <i>.azure/config</i> na raiz do projeto. Quando você o executa novamente na raiz do projeto, ele usa os valores salvos em <i>.azure/config</i>, detecta que os recursos do Serviço de Aplicativo já existem e executa a implantação do Zip novamente.
+    </details>
+    
 1. Após a conclusão da implantação, **clique em atualizar** na janela do navegador que foi aberta anteriormente.
 
-![Aplicativo de exemplo atualizado em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
-
+    ![Aplicativo de exemplo atualizado em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure-updated.png)
+    
 [Está com problemas? Fale conosco.](https://aka.ms/DotNetAppServiceLinuxQuickStart)
 
 <hr/> 
@@ -341,8 +343,8 @@ Na primeira vez que você executou o comando, ele salvou o nome do aplicativo, o
 
 1. Na página de visão geral, você pode executar tarefas básicas de gerenciamento como procurar, parar, iniciar, reiniciar e excluir. O menu à esquerda fornece páginas diferentes para configurar seu aplicativo. 
 
-![Página Serviço de Aplicativo no portal do Azure](media/quickstart-dotnetcore/portal-app-overview-up.png)
-
+    ![Página Serviço de Aplicativo no portal do Azure](media/quickstart-dotnetcore/portal-app-overview-up.png)
+    
 <hr/> 
 
 ## <a name="9-clean-up-resources"></a>9. Limpar os recursos

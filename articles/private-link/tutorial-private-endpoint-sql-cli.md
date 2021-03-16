@@ -1,5 +1,5 @@
 ---
-title: Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – CLI do Azure
+title: 'Tutorial: como se conectar a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – CLI do Azure'
 description: Use este tutorial para aprender como criar um SQL Server do Azure com um ponto de extremidade privado usando a CLI do Azure
 services: private-link
 author: asudbring
@@ -7,14 +7,15 @@ ms.service: private-link
 ms.topic: tutorial
 ms.date: 11/03/2020
 ms.author: allensu
-ms.openlocfilehash: 8cfe44b9433ee1daac028253aa45c97804c88ae5
-ms.sourcegitcommit: c95e2d89a5a3cf5e2983ffcc206f056a7992df7d
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 998b52a23894dcb7fa08b2c0fd42e4ef8e3678ae
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/24/2020
-ms.locfileid: "95544098"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102554982"
 ---
-# <a name="tutorial---connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial – Conectar-se a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – CLI do Azure
+# <a name="tutorial-connect-to-an-azure-sql-server-using-an-azure-private-endpoint---azure-cli"></a>Tutorial: como se conectar a um SQL Server do Azure usando um Ponto de Extremidade Privado do Azure – CLI do Azure
 
 Um ponto de extremidade privado do Azure é o bloco de construção básico para o Link Privado no Azure. Ele permite que os recursos do Azure, como VMs (máquinas virtuais), se comuniquem em modo privado com os recursos do Link Privado.
 
@@ -54,10 +55,10 @@ Nesta seção, você criará uma rede virtual, uma sub-rede e um bastion host.
 
 O bastion host será usado para se conectar com segurança à máquina virtual para testar o ponto de extremidade privado.
 
-Criar uma rede virtual com [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
+Criar uma rede virtual com o comando [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create)
 
 * Chamada **myVNet**.
-* Prefixo de endereço **10.0.0.0/16**.
+* Prefixo de endereço igual a **10.0.0.0/16**.
 * Sub-rede chamada **myBackendSubnet**.
 * Prefixo de sub-rede **10.0.0.0/24**.
 * No grupo de recursos **CreateSQLEndpointTutorial-rg**.
@@ -73,7 +74,7 @@ az network vnet create \
     --subnet-prefixes 10.0.0.0/24
 ```
 
-Atualize a sub-rede para desabilitar as políticas de rede de ponto de extremidade privado para o ponto de extremidade privado com [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
+Atualize a sub-rede para desabilitar as políticas de rede do ponto de extremidade privado para o ponto de extremidade privado com o comando [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -98,7 +99,7 @@ az network public-ip create \
 Use [az network vnet subnet create](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-create) para criar uma sub-rede do bastion:
 
 * Chamada **AzureBastionSubnet**.
-* Prefixo de endereço **10.0.1.0/24**.
+* Prefixo de endereço igual a **10.0.1.0/24**.
 * Na rede virtual **myVNet**.
 * No grupo de recursos **CreateSQLEndpointTutorial-rg**.
 
@@ -133,7 +134,7 @@ Levará alguns minutos para que o host do Azure Bastion seja implantado.
 
 Nesta seção, você criará uma máquina virtual que será usada para testar o ponto de extremidade privado.
 
-Crie uma VM com  [az vm create](/cli/azure/vm#az_vm_create). Quando solicitado, forneça uma senha a ser usada como as credenciais para a VM:
+Crie uma VM com o comando  [az vm create](/cli/azure/vm#az_vm_create). Quando solicitado, forneça uma senha para ser usada como as credenciais da VM:
 
 * Chamada **myVM**.
 * Em **CreateSQLEndpointTutorial-rg**.
@@ -217,9 +218,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configurar a zona DNS privada
 
-Nesta seção, você vai criar e configurar a zona DNS privada usando [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+Nesta seção, você vai criar e configurar a zona DNS privada usando o comando [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
-Você usará [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para criar o link de rede virtual para a zona DNS.
+Você usará o comando [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para criar o link da rede virtual para a zona DNS.
 
 Você criará um grupo de zona DNS com [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 
@@ -327,6 +328,6 @@ Neste tutorial, você criou:
 
 Você usou a máquina virtual para testar a conectividade seguramente com o SQL Server no ponto de extremidade privado.
 
-Saiba como criar um serviço de Link Privado:
+Como próxima etapa, talvez você também esteja interessado no cenário de arquitetura de um **aplicativo Web com conectividade privada com o banco de dados SQL do Azure**, que conecta um aplicativo Web fora da rede virtual ao ponto de extremidade privado de um banco de dados.
 > [!div class="nextstepaction"]
-> [Criar um serviço de Link Privado](create-private-link-service-portal.md)
+> [Aplicativo Web com conectividade privada com o banco de dados SQL do Azure](/azure/architecture/example-scenario/private-web-app/private-web-app)

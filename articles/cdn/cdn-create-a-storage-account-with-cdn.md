@@ -1,26 +1,19 @@
 ---
-title: Início Rápido – Integrar uma conta de Armazenamento do Azure à CDN do Azure
-description: Saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo com alta largura de banda armazenando em cache os blobs a partir do Armazenamento do Azure.
+title: 'Início Rápido: Integrar uma conta de Armazenamento do Azure à CDN do Azure'
+description: Neste guia de início rápido, saiba como usar a CDN (Rede de Distribuição de Conteúdo) do Azure para fornecer um conteúdo de alta largura de banda armazenando em cache blobs do Armazenamento do Azure.
 services: cdn
-documentationcenter: ''
 author: asudbring
-manager: danielgi
-editor: ''
-ms.assetid: cbc2ff98-916d-4339-8959-622823c5b772
 ms.service: azure-cdn
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: b80437fa1ac41bb240565923eb40e562c8cf8c5b
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.openlocfilehash: 7cd1c6b0b11ba291a36f49a2a9990a2755cdd74b
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
-ms.locfileid: "96018606"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102561918"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Início Rápido: Integrar uma conta de Armazenamento do Azure à CDN do Azure
 
@@ -123,9 +116,6 @@ Nas etapas anteriores, você criou um perfil CDN e um ponto de extremidade em um
 3. Para excluir sua conta de armazenamento, selecione-a no painel e selecione **Excluir** no menu superior.
 
 ## <a name="next-steps"></a>Próximas etapas
-
-> [!div class="nextstepaction"]
-> [Criar um perfil e um ponto de extremidade da CDN do Azure](cdn-create-new-endpoint.md)
 
 > [!div class="nextstepaction"]
 > [Tutorial: Usar a CDN para o conteúdo estático do servidor de um aplicativo Web](cdn-add-to-web-app.md)

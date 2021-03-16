@@ -4,12 +4,12 @@ description: Este artigo explica como recuperar arquivos e pastas de um ponto de
 ms.topic: conceptual
 ms.date: 03/12/2020
 ms.custom: references_regions
-ms.openlocfilehash: c5a027773a55347b71c1e6a66d24d7fdb99220d0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 63714773d1b6f84b88bd2207aca4196fa16f1a94
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725502"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493519"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Recuperar arquivos de um backup de máquina virtual do Azure
 
@@ -60,18 +60,18 @@ Para restaurar arquivos ou pastas do ponto de recuperação, vá para a máquina
 
 ## <a name="step-2-ensure-the-machine-meets-the-requirements-before-executing-the-script"></a>Etapa 2: Verifique se o computador atende aos requisitos antes de executar o script
 
-Depois que o script for baixado com êxito, verifique se você tem o computador certo para executar esse script. A VM em que você está planejando executar o script não deve ter nenhuma das seguintes configurações sem suporte. Se tiver, escolha uma máquina alternativa preferencialmente da mesma região que atenda aos requisitos.  
+Depois que o script for baixado com êxito, verifique se você tem o computador certo para executar esse script. A VM em que você está planejando executar o script não deve ter nenhuma das seguintes configurações sem suporte. **Se tiver, escolha uma máquina alternativa preferencialmente da mesma região que atenda aos requisitos**.  
 
 ### <a name="dynamic-disks"></a>Discos dinâmicos
 
-Você não pode executar o script executável na VM com qualquer uma das seguintes características:
+Você não pode executar o script executável na VM com qualquer uma das seguintes características: escolha um computador alternativo
 
 - Volumes que abrangem vários discos (volumes estendidos e distribuídos).
 - Volumes tolerantes a falhas (volumes espelhados e RAID-5) em discos dinâmicos.
 
 ### <a name="windows-storage-spaces"></a>Espaços de Armazenamento do Windows
 
-Não é possível executar o executável baixado na VM configurada para espaços de armazenamento do Windows.
+Você não poderá executar o executável baixado na mesma VM de backup se a VM com backup tiver espaços de armazenamento do Windows. Escolha um computador alternativo.
 
 ### <a name="virtual-machine-backups-having-large-disks"></a>Backups de máquina virtual com discos grandes
 
