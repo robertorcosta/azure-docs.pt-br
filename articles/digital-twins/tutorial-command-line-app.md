@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 54f3004c190c104f2f869b2878b50f5b6c88856b
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: c18366fd4bc510f32ac0ef255b27709797a3b626
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103463697"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103493690"
 ---
 # <a name="tutorial-create-an-azure-digital-twins-graph-using-a-sample-client-app"></a>Tutorial: criar um grafo dos Gêmeos Digitais do Azure usando um aplicativo cliente de exemplo
 
@@ -37,18 +37,17 @@ Neste tutorial, você vai...
 
 Agora que o aplicativo e a autenticação estão configurados, execute o projeto com este botão na barra de ferramentas:
 
-:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="O botão de início do Visual Studio (projeto SampleClientApp)":::
+:::image type="content" source="media/tutorial-command-line/app/start-button-sample.png" alt-text="Captura de tela do botão de início do Visual Studio (projeto SampleClientApp)." lightbox="media/tutorial-command-line/app/start-button-sample.png":::
 
 Uma janela de console será aberta, executará a autenticação e aguardará um comando. 
 * A autenticação é feita no navegador: seu navegador da Web padrão será aberto com um prompt de autenticação. Use esse prompt para entrar com suas credenciais do Azure. Em seguida, você pode fechar a guia ou a janela do navegador.
 
 Veja uma captura de tela mostrando a aparência do console do projeto:
 
-:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Mensagem de boas-vindas do aplicativo de linha de comando":::
+:::image type="content" source="media/tutorial-command-line/app/command-line-app.png" alt-text="Captura de tela da mensagem de boas-vindas do aplicativo de linha de comando." lightbox="media/tutorial-command-line/app/command-line-app.png":::
 
 > [!TIP]
 > Para obter uma lista de todos os comandos possíveis que você pode usar com este projeto, digite `help` no console do projeto e pressione retornar.
-> :::image type="content" source="media/tutorial-command-line/app/command-line-app-help.png" alt-text="Saída do comando de ajuda":::
 
 Mantenha o console do projeto em execução no restante das etapas deste tutorial.
 
@@ -83,7 +82,7 @@ Depois de criar modelos, você precisa carregá-los na instância dos Gêmeos Di
 
 1. Verifique se os modelos foram criados executando o comando `GetModels true`. Isso consultará a instância dos Gêmeos Digitais do Azure para todos os modelos que foram carregados e imprimirá suas informações completas. Procure pelo modelo *Room* editado nos resultados:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Resultados de GetModels, mostrando o modelo Room atualizado":::
+    :::image type="content" source="media/tutorial-command-line/app/output-get-models.png" alt-text="Captura de tela do resultado do GetModels mostrando o modelo Room atualizado." lightbox="media/tutorial-command-line/app/output-get-models.png":::
 
 ### <a name="errors"></a>Errors
 
@@ -128,7 +127,7 @@ Para criar um gêmeo digital, use o comando `CreateDigitalTwin`. Você precisa r
 
     A saída desses comandos deve indicar que os gêmeos foram criados com êxito. 
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Trecho dos resultados dos comandos CreateDigitalTwin, mostrando floor0, floor1, room0 e room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-digital-twin.png" alt-text="Captura de tela mostrando um trecho do resultado dos comandos CreateDigitalTwin, que inclui floor0, floor1, room0 e room1." lightbox="media/tutorial-command-line/app/output-create-digital-twin.png":::
 
 1. Você pode verificar se os gêmeos foram criados executando o comando `Query`. Esse comando consulta sua instância dos Gêmeos Digitais do Azure para todos os gêmeos digitais que ela contém. Procure pelos gêmeos *room0*, *room1*, *floor0* e *floor1* nos resultados.
 
@@ -180,7 +179,7 @@ Para adicionar uma relação, use o comando `CreateRelationship`. Especifique o 
     
     A saída desses comandos confirma que as relações foram criadas com êxito:
     
-    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Trecho dos resultados dos comandos CreateRelationship mostrando relationship0 e relationship1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-create-relationship.png" alt-text="Captura de tela de um trecho do resultado dos comandos CreateRelationship, que inclui relationship0 e relationship1." lightbox="media/tutorial-command-line/app/output-create-relationship.png":::
 
 1. Você pode verificar as relações com qualquer um dos comandos a seguir, que consultam as relações em sua instância dos Gêmeos Digitais do Azure.
     * Para ver todas as relações provenientes de cada andar (exibindo as relações de um lado):
@@ -201,7 +200,7 @@ Para adicionar uma relação, use o comando `CreateRelationship`. Especifique o 
 
 O gêmeos e as relações que você configurou neste tutorial formam o seguinte grafo conceitual:
 
-:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Um grafo mostrando floor0 conectado por meio de relationship0 a room0, e floor1 conectado por meio de relationship1 a room1" border="false":::
+:::image type="content" source="media/tutorial-command-line/app/sample-graph.png" alt-text="Um diagrama mostrando um grafo conceitual. floor0 está conectado por meio de relationship0 a room0 e floor1 está conectado por meio de relationship1 a room1." border="false" lightbox="media/tutorial-command-line/app/sample-graph.png":::
 
 ## <a name="query-the-twin-graph-to-answer-environment-questions"></a>Consultar o grafo de gêmeos para responder às perguntas sobre o ambiente
 
@@ -217,7 +216,7 @@ Execute os comandos a seguir no console do projeto em execução para responder 
 
     Isso permite que você faça um resumo rápido de seu ambiente e verifique se tudo está representado como você gostaria dentro dos Gêmeos Digitais do Azure. O resultado disso é uma saída que contém cada gêmeo digital com os detalhes. Veja um trecho:
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Resultados parciais da consulta de gêmeos, mostrando room0 e floor1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-all.png" alt-text="Captura de tela mostrando um resultado parcial da consulta de gêmeos, incluindo room0 e floor1.":::
 
     >[!NOTE]
     >No projeto de exemplo, o comando `Query` sem argumentos adicionais é o equivalente de `Query SELECT * FROM DIGITALTWINS`. Para consultar todos os gêmeos em sua instância usando as [APIs de Consulta](/rest/api/digital-twins/dataplane/query) ou os [comandos da CLI](how-to-use-cli.md), use a consulta mais longa (completa).
@@ -230,7 +229,7 @@ Execute os comandos a seguir no console do projeto em execução para responder 
 
     Você pode restringir a consulta aos gêmeos de um determinado tipo a fim de obter informações mais específicas sobre o que é representado. O resultado mostra *room0* e *room1*, mas **não** mostra *floor0* nem *floor1* (pois eles são andares, não salas).
     
-    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Resultados da consulta de modelo, mostrando apenas room0 e room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-model.png" alt-text="Captura de tela do resultado da consulta de modelo mostrando apenas room0 e room1.":::
 
 1. **Quais são as salas em *floor0*?** (consultar por relação)
 
@@ -240,7 +239,7 @@ Execute os comandos a seguir no console do projeto em execução para responder 
 
     Você pode consultar com base nas relações em seu grafo para obter informações sobre como os gêmeos estão conectados ou para restringir a consulta a uma determinada área. Somente *room0* está em *floor0* e, portanto, é a única sala no resultado.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Resultados da consulta de relação, mostrando room0":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-relationship.png" alt-text="Captura de tela do resultado da consulta de relação mostrando room0.":::
 
 1. **Quais são todos os gêmeos em meu ambiente com temperatura acima de 75?** (consultar por propriedade)
 
@@ -250,7 +249,7 @@ Execute os comandos a seguir no console do projeto em execução para responder 
 
     Você pode consultar o grafo com base nas propriedades para responder a uma variedade de perguntas, incluindo para localizar exceções no ambiente que podem precisar de atenção. Também há suporte para outros operadores de comparação ( *<* , *>* , *=* ou *!=* ). *room1* aparece nos resultados aqui porque tem uma temperatura de 80.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Resultados da consulta de propriedade, mostrando apenas room1":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-property.png" alt-text="Captura de tela do resultado da consulta de propriedade mostrando apenas room1.":::
 
 1. **Quais são as salas em *floor0* com temperatura acima de 75?** (consulta composta)
 
@@ -260,7 +259,7 @@ Execute os comandos a seguir no console do projeto em execução para responder 
 
     Você também pode combinar as consultas anteriores como faria no SQL, usando operadores de combinação como `AND`, `OR` e `NOT`. Essa consulta usa `AND` para deixar a consulta anterior sobre as temperaturas dos gêmeos mais específica. O resultado agora inclui apenas salas com temperaturas acima de 75 que estão em *floor0*– que, nesse caso, é nenhuma delas. O conjunto de resultados é vazio.
 
-    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Resultados da consulta composta, mostrando nenhum resultado":::
+    :::image type="content" source="media/tutorial-command-line/app/output-query-compound.png" alt-text="Captura de tela do resultado da consulta composta não mostrando nenhum resultado." lightbox="media/tutorial-command-line/app/output-query-compound.png":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
