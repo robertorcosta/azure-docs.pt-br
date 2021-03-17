@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 02/05/2021
-ms.openlocfilehash: ad981264a99bd48e27f745a789ebe857b7f17d80
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/02/2021
+ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750888"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622027"
 ---
 Use as respostas de tempo de execução do agente de IoT Edge para solucionar erros relacionados a computação. Aqui está uma lista das possíveis respostas:
 
@@ -22,7 +22,7 @@ Use as respostas de tempo de execução do agente de IoT Edge para solucionar er
 
 Para obter mais informações, consulte [IOT Edge Agent](../articles/iot-edge/iot-edge-runtime.md?preserve-view=true&view=iotedge-2018-06#iot-edge-agent).
 
-O erro a seguir está relacionado ao serviço de IoT Edge em seu Azure Stack Edge pro<!--/ Data Box Gateway--> dispositivo.
+O erro a seguir está relacionado ao serviço de IoT Edge em seu dispositivo do Azure Stack Edge pro.
 
 ### <a name="compute-modules-have-unknown-status-and-cant-be-used"></a>Os módulos de computação têm status desconhecido e não podem ser usados
 
@@ -33,3 +33,36 @@ Todos os módulos no dispositivo mostram o status desconhecido e não podem ser 
 #### <a name="suggested-solution"></a>Solução sugerida
 
 Exclua o serviço IoT Edge e reimplante os módulos. Para obter mais informações, consulte [remover IOT Edge Service](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#remove-iot-edge-service).
+
+
+### <a name="modules-show-as-running-but-are-not-working"></a>Os módulos são mostrados como em execução, mas não estão funcionando
+
+#### <a name="error-description"></a>Descrição do erro
+
+O status de tempo de execução do módulo é mostrado como executando, mas os resultados esperados não são vistos. 
+
+Essa condição pode ser devido a um problema com a configuração de rota de módulo que não está funcionando ou `edgehub` não está Roteando mensagens conforme o esperado. Você pode verificar os `edgehub` logs. Se você vir que há erros como a falha ao se conectar ao serviço do Hub IoT, o motivo mais comum são os problemas de conectividade. Os problemas de conectividade podem ocorrer porque a porta AMPQ usada como uma porta padrão pelo serviço de Hub IoT para comunicação está bloqueada ou o servidor proxy da Web está bloqueando essas mensagens.
+
+#### <a name="suggested-solution"></a>Solução sugerida
+
+Execute as seguintes etapas:
+1. Para resolver o erro, vá para o recurso de Hub IoT para seu dispositivo e, em seguida, selecione o dispositivo de borda. 
+1. Vá para **definir módulos > configurações de tempo de execução**. 
+1. Adicione a `Upstream protocol` variável de ambiente e atribua a ela um valor de `AMQPWS` . As mensagens configuradas nesse caso são enviadas por WebSockets pela porta 443.
+
+### <a name="modules-show-as-running-but-do-not-have-an-ip-assigned"></a>Os módulos são mostrados como em execução, mas não têm um IP atribuído
+
+#### <a name="error-description"></a>Descrição do erro
+
+O status de tempo de execução do módulo é mostrado como executando, mas o aplicativo em contêiner não tem um IP atribuído. 
+
+Essa condição é porque o intervalo de IPs que você forneceu para IPs de serviço externo kubernetes não é suficiente. Você precisa estender esse intervalo para garantir que cada contêiner ou VM implantado seja abordado.
+
+#### <a name="suggested-solution"></a>Solução sugerida
+
+Na interface do usuário da Web local do seu dispositivo, execute as seguintes etapas:
+1. Vá para a página de **computação** . Selecione a porta para a qual você habilitou a rede de computação. 
+1. Insira um intervalo estático e contíguo de IPs para **IPS de serviço externo kubernetes**. Você precisa de 1 IP para o `edgehub` serviço. Além disso, você precisa de um IP para cada módulo IoT Edge e para cada VM que será implantada. 
+1. Escolha **Aplicar**. O intervalo de IP alterado deve entrar em vigor imediatamente.
+
+Para obter mais informações, consulte [alterar IPS de serviço externo para contêineres](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).

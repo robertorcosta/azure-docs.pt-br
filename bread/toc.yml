@@ -212,7 +212,7 @@
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
       items:
-        - name: Visão geral do Azure Percept
+        - name: Azure Percept
           tocHref: /azure/azure-percept/
           topicHref: /azure/azure-percept/
         - name: Documentação da Atualização de dispositivo para o Hub IoT
@@ -271,7 +271,7 @@
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
-    - name: Azure Stack
+    - name: Azure Stack Hub
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
       items:
@@ -924,6 +924,9 @@
         - name: Reservas
           tocHref: /azure/cost-management-billing/reservations/
           topicHref: /azure/cost-management-billing/reservations/
+        - name: Contrato de Cliente da Microsoft
+          tocHref: /azure/cost-management-billing/microsoft-customer-agreement/
+          topicHref: /azure/cost-management-billing/microsoft-customer-agreement/
     - name: Purview
       tocHref: /azure/purview/
       topicHref: /azure/purview/

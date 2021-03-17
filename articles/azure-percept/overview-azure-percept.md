@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: overview
 ms.date: 02/18/2021
 ms.custom: template-overview
-ms.openlocfilehash: fd332ffbbca4987b52ce380c6fd893571e65fb1c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: eca0c28b016b2e57f6fe47495c90bf113f0179a6
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435453"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103490102"
 ---
 # <a name="introduction-to-azure-percept"></a>Introdução ao Azure Percept
 
@@ -35,6 +35,9 @@ Os componentes principais do Azure Percept são:
 2. Azure Percept DK (devkit).
 
     - Um kit de desenvolvimento que é flexível o suficiente para dar suporte a uma ampla variedade de cenários de criação de protótipos para criadores de dispositivos, criadores de soluções e clientes.
+
+        > [!div class="nextstepaction"]
+        > [Comprar agora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
 3. Serviços e fluxos de trabalho para acelerar o desenvolvimento de soluções e modelos de IA de borda.
 

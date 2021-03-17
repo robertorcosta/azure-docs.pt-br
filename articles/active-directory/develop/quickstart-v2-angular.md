@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 03/18/2020
 ms.author: janutter
-ms.openlocfilehash: 95747bb68a904212e7e075fc29b2497932d66e5f
-ms.sourcegitcommit: 126ee1e8e8f2cb5dc35465b23d23a4e3f747949c
+ms.openlocfilehash: 5ac6a19fc569d60f75f9da788629331a70b0a4c9
+ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100103848"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103225040"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-an-angular-single-page-application"></a>Início Rápido: Conectar usuários e obter um token de acesso em um aplicativo de página única Angular
 
@@ -102,8 +102,8 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 >|Enter_the_Redirect_Uri_Here|Substitua por **http://localhost:4200** .|
 >|cacheLocation  | (Opcional) Defina o armazenamento do navegador do estado de autenticação. O padrão é **sessionStorage**.   |
 >|storeAuthStateInCookie  | (Opcional) Identifique a biblioteca que armazena o estado de solicitação de autenticação. Esse estado é necessário para validar os fluxos de autenticação nos cookies do navegador. Esse cookie é definido para o Internet Explorer e o Microsoft Edge para acomodar esses dois navegadores. Para obter mais detalhes, confira os [problemas conhecidos](https://github.com/AzureAD/microsoft-authentication-library-for-js/wiki/Known-issues->on-IE-and-Edge-Browser#issues). |
-> > [!TIP]
-> > Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
+>
+> Para encontrar os valores de **ID do aplicativo (cliente)** , **ID de diretório (locatário)** e **Tipos de conta com suporte**, vá para a página **Visão Geral** do aplicativo no portal do Azure.
 
 Para saber mais sobre opções configuráveis disponíveis, confira [Inicializar aplicativos cliente](msal-js-initializing-client-applications.md).
 

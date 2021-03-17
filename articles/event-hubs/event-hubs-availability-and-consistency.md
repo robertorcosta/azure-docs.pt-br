@@ -2,14 +2,14 @@
 title: Disponibilidade e consistência – Hubs de Eventos do Azure | Microsoft Docs
 description: Como fornecer o máximo de disponibilidade e consistência com os Hubs de Eventos do Azure usando partições.
 ms.topic: article
-ms.date: 01/25/2021
+ms.date: 03/15/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 325cc80daba2a44dedbd5e09ac4858ae2815c1cd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 62249357f8c6aa8521924dceef26a6f2c1e9e296
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425916"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103600838"
 ---
 # <a name="availability-and-consistency-in-event-hubs"></a>Disponibilidade e consistência nos Hubs de Eventos
 Este artigo fornece informações sobre a disponibilidade e a consistência com suporte dos hubs de eventos do Azure. 
@@ -21,33 +21,28 @@ Se um namespace de hubs de eventos tiver sido criado com [zonas de disponibilida
 
 Quando um aplicativo cliente envia eventos para um hub de eventos sem especificar uma partição, os eventos são distribuídos automaticamente entre partições no Hub de eventos. Se uma partição não estiver disponível por algum motivo, os eventos serão distribuídos entre as partições restantes. Esse comportamento permite a maior quantidade possível de tempo de atividade. Para casos de uso que exigem o máximo de tempo de backup, esse modelo é preferencial em vez de enviar eventos para uma partição específica. 
 
-### <a name="availability-considerations-when-using-a-partition-id-or-key"></a>Considerações sobre disponibilidade ao usar uma ID de partição ou chave
-O uso de uma ID de partição ou chave de partição é opcional. Considere atentamente se deve ou não usar um. Se você não especificar uma ID de partição/chave ao publicar um evento, os hubs de eventos equilibrarão a carga entre partições. Quando você usa uma ID de partição/chave, essas partições exigem disponibilidade em um único nó e as interrupções podem ocorrer ao longo do tempo. Por exemplo, os nós de computação talvez precisem ser reinicializados ou corrigidos. Portanto, se você definir uma ID de partição/chave e essa partição ficar indisponível por algum motivo, haverá falha em uma tentativa de acessar os dados nessa partição. Se a alta disponibilidade for mais importante, não especifique uma ID de partição/chave. Nesse caso, os eventos são enviados para partições usando um algoritmo de balanceamento de carga interno. Nesse cenário, você está fazendo uma escolha explícita entre a disponibilidade (sem ID de partição/chave) e a consistência (fixação de eventos em uma partição específica). Usar a ID/chave de partição faz downgrade da disponibilidade de um hub de eventos para o nível de partição. 
-
-### <a name="availability-considerations-when-handling-delays-in-processing-events"></a>Considerações sobre disponibilidade ao lidar com atrasos no processamento de eventos
-Outra consideração é sobre um aplicativo de consumidor que está lidando com atrasos no processamento de eventos. Em alguns casos, pode ser melhor para o aplicativo de consumidor descartar dados e tentar novamente, em vez de tentar acompanhar o processamento, o que pode causar atrasos de processamento mais downstream. Por exemplo, com uma cotação de bolsa é melhor aguardar dados atualizados, mas em um bate-papo ao vivo ou um cenário de VOIP é melhor ter os dados rapidamente, mesmo se não estiverem completos.
-
-Devido a essas considerações de disponibilidade, nesses cenários, o aplicativo de consumidor pode escolher uma das seguintes estratégias de tratamento de erro:
-
-- Parar (interromper a leitura do hub de eventos até que os problemas sejam corrigidos)
-- Descartar (as mensagens não são importantes, descarte-as)
-- Tentar novamente (repete as mensagens como você achar adequado)
-
-
 ## <a name="consistency"></a>Consistência
 Em alguns cenários, a ordenação de eventos pode ser importante. Por exemplo, você pode desejar que seu sistema de back-end processe um comando update antes de processar um comando delete. Nesse cenário, um aplicativo cliente envia eventos para uma partição específica para que a ordem seja preservada. Quando um aplicativo de consumidor consome esses eventos da partição, eles são lidos em ordem. 
 
 Com essa configuração, tenha em mente que, se a partição específica para a qual você está enviando não estiver disponível, você receberá uma resposta de erro. Como um ponto de comparação, se você não tiver uma afinidade com uma única partição, o serviço de hubs de eventos enviará seu evento para a próxima partição disponível.
 
+Portanto, se a alta disponibilidade for mais importante, não direcione uma partição específica (usando a ID de partição/chave). Usar a ID/chave de partição faz downgrade da disponibilidade de um hub de eventos para o nível de partição. Nesse cenário, você está fazendo uma escolha explícita entre a disponibilidade (sem ID de partição/chave) e a consistência (fixação de eventos em uma partição específica). Para obter informações detalhadas sobre partições em hubs de eventos, consulte [partições](event-hubs-features.md#partitions).
 
 ## <a name="appendix"></a>Apêndice
 
+### <a name="send-events-without-specifying-a-partition"></a>Enviar eventos sem especificar uma partição
+É recomendável enviar eventos para um hub de eventos sem definir informações de partição para permitir que o serviço de hubs de eventos Equilibre a carga entre partições. Consulte o início rápido a seguir para saber como fazer isso em diferentes linguagens de programação. 
+
+- [Enviar eventos usando o .NET](event-hubs-dotnet-standard-getstarted-send.md)
+- [Enviar eventos usando Java](event-hubs-java-get-started-send.md)
+- [Enviar eventos usando JavaScript](event-hubs-python-get-started-send.md)
+- [Enviar eventos usando o Python](event-hubs-python-get-started-send.md)
+
+
 ### <a name="send-events-to-a-specific-partition"></a>Enviar eventos para uma partição específica
-Esta seção mostra como enviar eventos para uma partição específica usando C#, Java, Python e JavaScript. 
+Nesta seção, você aprenderá a enviar eventos para uma partição específica usando linguagens de programação diferentes. 
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
-Para obter o código de exemplo completo que mostra como enviar um lote de eventos para um hub de eventos (sem definir a ID/chave da partição), consulte [enviar eventos para e receber eventos de hubs de eventos do Azure – .net (Azure. Messaging. EventHubs)](event-hubs-dotnet-standard-getstarted-send.md).
-
 Para enviar eventos para uma partição específica, crie o lote usando o método [EventHubProducerClient. CreateBatchAsync](/dotnet/api/azure.messaging.eventhubs.producer.eventhubproducerclient.createbatchasync#Azure_Messaging_EventHubs_Producer_EventHubProducerClient_CreateBatchAsync_Azure_Messaging_EventHubs_Producer_CreateBatchOptions_System_Threading_CancellationToken_) especificando o `PartitionId` ou o `PartitionKey` em [createbatchoptions](//dotnet/api/azure.messaging.eventhubs.producer.createbatchoptions). O código a seguir envia um lote de eventos para uma partição específica, especificando uma chave de partição. 
 
 ```csharp
@@ -63,9 +58,8 @@ var sendEventOptions  = new SendEventOptions { PartitionKey = "cities" };
 producer.SendAsync(events, sendOptions)
 ```
 
-### <a name="java"></a>[Java](#tab/java)
-Para obter o código de exemplo completo que mostra como enviar um lote de eventos para um hub de eventos (sem definir a ID/chave da partição), consulte [usar o Java para enviar eventos ou receber eventos dos hubs de eventos do Azure (Azure-Messaging-Eventhubs)](event-hubs-java-get-started-send.md).
 
+### <a name="java"></a>[Java](#tab/java)
 Para enviar eventos para uma partição específica, crie o lote usando o método [CreateBatch](/java/api/com.azure.messaging.eventhubs.eventhubproducerclient.createbatch) ESPECIFICANDO a **ID da partição** ou a chave de **partição** em [createbatchoptions](/java/api/com.azure.messaging.eventhubs.models.createbatchoptions). O código a seguir envia um lote de eventos para uma partição específica, especificando uma chave de partição. 
 
 ```java
@@ -82,9 +76,8 @@ sendOptions.setPartitionKey("cities");
 producer.send(events, sendOptions);
 ```
 
-### <a name="python"></a>[Python](#tab/python) 
-Para obter o código de exemplo completo que mostra como enviar um lote de eventos para um hub de eventos (sem definir a ID/chave da partição), consulte [enviar eventos ou receber eventos de hubs de eventos usando o Python (Azure-eventhub)](event-hubs-python-get-started-send.md).
 
+### <a name="python"></a>[Python](#tab/python) 
 Para enviar eventos para uma partição específica, ao criar um lote usando o [`EventHubProducerClient.create_batch`](/python/api/azure-eventhub/azure.eventhub.eventhubproducerclient#create-batch---kwargs-) método, especifique o `partition_id` ou o `partition_key` . Em seguida, use o [`EventHubProducerClient.send_batch`](/python/api/azure-eventhub/azure.eventhub.aio.eventhubproducerclient#send-batch-event-data-batch--typing-union-azure-eventhub--common-eventdatabatch--typing-list-azure-eventhub-) método para enviar o lote para a partição do hub de eventos. 
 
 ```python
@@ -97,10 +90,7 @@ Você também pode usar o método [EventHubProducerClient.send_batch](/python/ap
 producer.send_batch(event_data_batch, partition_key="cities")
 ```
 
-
 ### <a name="javascript"></a>[JavaScript](#tab/javascript)
-Para obter o código de exemplo completo que mostra como enviar um lote de eventos para um hub de eventos (sem definir a ID de partição/chave), consulte [enviar eventos ou receber eventos de hubs de eventos usando JavaScript (Azure/hubs de eventos)](event-hubs-node-get-started-send.md).
-
 Para enviar eventos para uma partição específica, [crie um lote](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) usando o objeto [EventHubProducerClient. createbatchoptions](/javascript/api/@azure/event-hubs/eventhubproducerclient#createBatch_CreateBatchOptions_) especificando o `partitionId` ou o `partitionKey` . Em seguida, envie o lote para o Hub de eventos usando o método [EventHubProducerClient. SendBatch](/javascript/api/@azure/event-hubs/eventhubproducerclient#sendBatch_EventDataBatch__OperationOptions_) . 
 
 Veja o exemplo a seguir.
@@ -121,8 +111,9 @@ producer.sendBatch(events, sendBatchOptions);
 ---
 
 
+
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão geral do serviço dos Hubs de Eventos](./event-hubs-about.md)
-* [Criar um hub de eventos](event-hubs-create.md)
+- [Visão geral do serviço dos Hubs de Eventos](./event-hubs-about.md)
+- [Terminologia dos Hubs de Eventos](event-hubs-features.md)
