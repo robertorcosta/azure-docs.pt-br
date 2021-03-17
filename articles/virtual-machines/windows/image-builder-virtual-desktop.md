@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: a2c4e3c1079d488b9255fb1b9660ff5c4b0aad8f
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103422130"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103602011"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Criar uma imagem de área de trabalho virtual do Windows usando o Azure VM Builder e o PowerShell
 
@@ -39,7 +39,7 @@ Este artigo destina-se a ser um exercício de copiar e colar.
 ## <a name="tips-for-building-windows-images"></a>Dicas para criar imagens do Windows 
 
 - Tamanho da VM-o tamanho padrão da VM é um `Standard_D1_v2` , que não é adequado para o Windows. Use um `Standard_D2_v2` ou mais.
-- Este exemplo usa os [scripts de personalizador do PowerShell](../linux/image-builder-json.md). Você precisa usar essas configurações ou a compilação será travada.
+- Este exemplo usa os [scripts de personalizador do PowerShell](../linux/image-builder-json.md). Você precisa usar essas configurações ou a compilação irá parar de responder.
 
     ```json
       "runElevated": true,

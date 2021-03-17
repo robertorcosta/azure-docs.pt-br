@@ -8,12 +8,12 @@ ms.date: 03/16/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc, references_regions
-ms.openlocfilehash: 7aff8320186ada53772fc4ff2232e8cf55585a77
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: 5152b0ecf6eebe87031a2165d5d8ba11d99209cf
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573023"
+ms.locfileid: "103601178"
 ---
 # <a name="azure-services-that-support-availability-zones"></a>Serviços do Azure compatíveis com as zonas de disponibilidade
 
@@ -136,7 +136,6 @@ Para obter uma continuidade de negócios abrangente no Azure, compile a arquitet
 | SQL do Azure: máquina virtual                      |      : large_blue_diamond:  |
 | Azure Search                                    |      : large_blue_diamond:  |
 | Firewall do aplicativo Web do Azure                  |      : large_blue_diamond:  |
-| Serviços cognitivas: Análise de Texto              |      : large_blue_diamond:  |
 | Registro de Contêiner                              |      : large_blue_diamond:  |
 | Grade de Eventos                                      |      : large_blue_diamond:  |
 | Observador de Rede                                 |      : large_blue_diamond:  |

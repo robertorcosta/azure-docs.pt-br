@@ -2,19 +2,19 @@
 title: Tutorial – Gerenciar discos do Azure com o Azure CLI
 description: Neste tutorial, você aprenderá a usar a CLI do Azure para criar e gerenciar discos do Azure para máquinas virtuais
 author: cynthn
-ms.service: virtual-machines-linux
+ms.service: virtual-machines
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 948a4ae8c329d69e404ef8d0f609748b955b0ecc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 202125dfa1cd2760695672fb948fb47bfc3ca0c9
+ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89078842"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102564638"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial – Gerenciar discos do Azure com o Azure CLI
 

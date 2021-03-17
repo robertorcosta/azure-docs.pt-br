@@ -9,12 +9,12 @@ ms.workload: identity
 ms.author: kenwith
 author: kenwith
 manager: daveba
-ms.openlocfilehash: ebd8839fd17f79bc53b5093af83d457bb23712d9
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: cd46bb1c6905747ffb98c7e950f66e648c541534
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452043"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601756"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gerenciamento de aplicativos Azure Active Directory: o que há de novo
 
@@ -33,7 +33,6 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 - [Conceder consentimento de administrador em todo o locatário para um aplicativo](grant-admin-consent.md)
 - [Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Tutorial: Adicionar um aplicativo local para acesso remoto por meio do Proxy de Aplicativo no Azure Active Directory](application-proxy-add-on-premises-application.md)
-- [Problemas ao entrar em aplicativos configurados para logon único baseado em SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS](tenant-restrictions.md)
 
 ## <a name="january-2021"></a>Janeiro de 2021
@@ -84,7 +83,6 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 
 ### <a name="updated-articles"></a>Artigos atualizados
 - [Gerenciamento de aplicativos Azure Active Directory: o que há de novo](whats-new-docs.md)
-- [Problemas ao entrar em aplicativos configurados para logon único baseado em SAML](application-sign-in-problem-federated-sso-gallery.md)
 
 
 ## <a name="october-2020"></a>Outubro de 2020
@@ -99,7 +97,6 @@ Bem-vindo ao que há de novo na documentação de gerenciamento de aplicativos A
 
 ### <a name="updated-articles"></a>Artigos atualizados
 
-- [Problemas ao entrar em aplicativos configurados para logon único baseado em SAML](application-sign-in-problem-federated-sso-gallery.md)
 - [Problema ao instalar o conector de agente de Application Proxy](application-proxy-connector-installation-problem.md)
 - [Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory](migrate-adfs-apps-to-azure.md)
 - [Configurar como os usuários finais concordam com os aplicativos](configure-user-consent.md)

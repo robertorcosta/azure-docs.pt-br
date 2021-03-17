@@ -2,19 +2,19 @@
 title: 'Tutorial: Extrair dados de formulário em massa usando o Azure Data Factory – Reconhecimento de Formulários'
 titleSuffix: Azure Cognitive Services
 description: Configure atividades do Azure Data Factory para disparar o treinamento e a execução de modelos do Reconhecimento de Formulários e digitalize uma grande lista de pendências de documentos.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
 ms.date: 01/04/2021
-ms.author: pafarley
-ms.openlocfilehash: 5b220652009f54482c757f01232517569596c562
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.author: lajanuar
+ms.openlocfilehash: 0c009a87a5834997cdc489efc75ebb16f9459754
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102423889"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103467095"
 ---
 # <a name="tutorial-extract-form-data-in-bulk-by-using-azure-data-factory"></a>Tutorial: extrair dados de formulário em massa usando o Azure Data Factory
 
@@ -511,4 +511,4 @@ Se você adicionar novos formulários de um novo tipo, também precisará carreg
 
 Neste tutorial, você configurou pipelines do Azure Data Factory para acionar o treinamento e a execução de modelos do Reconhecimento de Formulários e digitalizar uma grande lista de pendências de arquivos. Em seguida, explore a API do Reconhecimento de Formulários para ver o que mais você pode fazer com ele.
 
-* [API REST do Reconhecimento de Formulários](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-2/operations/AnalyzeBusinessCardAsync)
+* [API REST do Reconhecimento de Formulários](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeBusinessCardAsync)
