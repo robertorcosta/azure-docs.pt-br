@@ -2,13 +2,13 @@
 title: Visão geral dos recursos - Hubs de Eventos do Azure | Microsoft Docs
 description: Este artigo fornece detalhes sobre os recursos e a terminologia dos Hubs de Eventos do Azure.
 ms.topic: article
-ms.date: 02/19/2021
-ms.openlocfilehash: 8bb63bfdbeb5b875b1e461fbd93fb48dcbb43054
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/15/2021
+ms.openlocfilehash: fbfc2a23a7cde50172b80769558c2dfd6fd5ec84
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101739068"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601297"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Recursos e terminologia em Hubs de Eventos do Azure
 
@@ -53,6 +53,13 @@ Os eventos publicados são removidos de um hub de eventos com base em uma polít
 - Para os hubs de eventos **Standard**, o período de retenção máximo é de **7 dias**. 
 - Para os hubs de eventos **dedicados**, o período de retenção máximo é de **90 dias**.
 - Se você alterar o período de retenção, ele se aplicará a todas as mensagens, incluindo mensagens que já estão no Hub de eventos. 
+
+Os Hubs de Eventos mantêm os eventos por um período de retenção configurado que se aplica a todas as partições. Os eventos são removidos automaticamente quando o período de retenção é atingido. Se você especificar um período de retenção de um dia, o evento ficará indisponível exatamente 24 horas depois de ser aceito. Não é possível excluir eventos explicitamente. 
+
+Se você precisar arquivar eventos além do período de retenção permitido, é possível tê-los [armazenados automaticamente no Armazenamento do Azure ou Azure Data Lake ativando o recurso de Captura dos Hubs de Eventos](event-hubs-capture-overview.md) e, se precisar pesquisar ou analisar esses arquivos detalhados, é possível [importá-los facilmente para o Azure Synapse](store-captured-data-data-warehouse.md) ou outras lojas semelhantes e plataformas de análise. 
+
+O motivo para o limite dos Hubs de Eventos na retenção de dados com base no tempo é evitar que grandes volumes de dados históricos do cliente sejam interceptados em um repositório profundo que está indexado apenas por um carimbo de data/hora e que permita acesso sequencial. A filosofia arquitetônica aqui é que os dados históricos precisam de indexação mais avançada e mais acesso direto do que a interface de eventos em tempo real que os Hubs de Eventos ou Kafka fornecem. Os mecanismos de fluxo de eventos não são adequados para desempenhar a função de data lakes ou arquivos de longo prazo para fornecimento de eventos. 
+ 
 
 > [!NOTE]
 > Os hubs de eventos são um mecanismo de fluxo de eventos em tempo real e não são projetados para serem usados em vez de um banco de dados e/ou como um armazenamento permanente para fluxos de eventos infinitamente mantidos. 

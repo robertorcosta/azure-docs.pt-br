@@ -6,16 +6,16 @@ author: tomaschladek
 manager: nmurav
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 08/20/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: tchladek
-ms.openlocfilehash: 89b89eec0375cec7d27189a10f46e7317573b98b
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: a0f8744061853e8bd81d3435c1f007e96a7d5783
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102510873"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495276"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -45,7 +45,7 @@ dotnet build
 Ainda no diretório do aplicativo, instale o pacote da biblioteca de identidade dos Serviços de Comunicação do Azure para .NET usando o comando `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Identity --version 1.0.0
+dotnet add package Azure.Communication.Identity --version 1.0.0-beta.5
 ```
 
 ### <a name="set-up-the-app-framework"></a>Configurar o framework de aplicativos
@@ -131,14 +131,18 @@ Os tokens de acesso são credenciais de curta duração que precisam ser reemiti
 
 ## <a name="create-an-identity-and-issue-an-access-token-within-the-same-request"></a>Criar uma identidade e emitir um token de acesso na mesma solicitação
 
-Use o método `createUserWithToken` para criar uma identidade dos Serviços de Comunicação e emitir um token de acesso para ela. O parâmetro `scopes` define o conjunto de primitivos, que autorizará esse token de acesso. Confira a [lista de ações compatíveis](../../concepts/authentication.md).
+Use o método `CreateUserAndTokenAsync` para criar uma identidade dos Serviços de Comunicação e emitir um token de acesso para ela. O parâmetro `scopes` define o conjunto de primitivos, que autorizará esse token de acesso. Confira a [lista de ações compatíveis](../../concepts/authentication.md).
 
-```csharp  
+```csharp
 // Issue an identity and an access token with the "voip" scope for the new identity
-var identityWithTokenResponse = await client.CreateUserWithTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
-var identity = identityWithTokenResponse.Value.user.Id;
-var token = identityWithTokenResponse.Value.token.Token;
-var expiresOn = identityWithTokenResponse.Value.token.ExpiresOn;
+var identityAndTokenResponse = await client.CreateUserAndTokenAsync(scopes: new[] { CommunicationTokenScope.VoIP });
+var identity = identityAndTokenResponse.Value.User;
+var token = identityAndTokenResponse.Value.AccessToken.Token;
+var expiresOn = identityAndTokenResponse.Value.AccessToken.ExpiresOn;
+
+Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
+Console.WriteLine($"\nIssued an access token with 'voip' scope that expires at {expiresOn}:");
+Console.WriteLine(token);
 ```
 
 ## <a name="refresh-access-tokens"></a>Tokens de acesso de atualização

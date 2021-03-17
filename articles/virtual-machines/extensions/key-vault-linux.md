@@ -10,25 +10,27 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: a674f4a2a31fd217307ff373cba2b883a4d129f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102557056"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601042"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
-A extensão de VM de Key Vault fornece a atualização automática dos certificados armazenados no cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão de VM do Key Vault é publicada e suportada pela Microsoft, no momento em VMs do Linux. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Linux. 
+A extensão de VM de Key Vault fornece a atualização automática dos certificados armazenados no cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão instalará a cadeia de certificados completo na VM. A extensão de VM do Key Vault é publicada e suportada pela Microsoft, no momento em VMs do Linux. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Linux. 
 
 ### <a name="operating-system"></a>Sistema operacional
 
 A extensão de VM do Key Vault dá suporte a essas distribuições do Linux:
 
-- Ubuntu-1604
 - Ubuntu-1804
-- Debian-9
 - Suse-15 
+
+> [!NOTE]
+> Para obter recursos de segurança estendidos, prepare-se para atualizar os sistemas Ubuntu-1604 e Debian-9, pois essas versões estão atingindo o fim do período de suporte designado.
+> 
 
 ### <a name="supported-certificate-content-types"></a>Tipos suportados de conteúdo de certificado
 
@@ -111,11 +113,11 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | Ele é ignorado no Linux | string |
 | linkOnRenewal | false | booleano |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
+| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | Cadeia de caracteres |
 | requireInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | Matriz de cadeia de caracteres
-| msiEndpoint | http://169.254.169.254/metadata/identity | string |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
+| msiEndpoint | http://169.254.169.254/metadata/identity | Cadeia de caracteres |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | Cadeia de caracteres |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
