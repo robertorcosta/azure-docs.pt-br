@@ -7,12 +7,12 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 1501153b73683081dfac0684d6714eb537c03380
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101658602"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102615373"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Exemplo de cenário de implantação de visualização do Cache Conectado da Microsoft: gateway do Azure IoT Edge aninhado de dois níveis com proxy não autenticado de saída
 
@@ -70,7 +70,7 @@ O diagrama a seguir descreve o cenário em que um gateway do Azure IoT Edge de a
 ## <a name="child-gateway-configuration"></a>Configuração do gateway filho
 
 >[!Note]
->Caso tenha replicado contêineres usados na configuração em seu próprio registro privado, você precisará modificar as configurações de config.toml e as configurações de tempo de execução na implantação do seu módulo. Para obter mais informações detalhadas, confira o [Tutorial – Criar uma hierarquia de dispositivos IoT Edge — Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal#deploy-modules-to-the-lower-layer-device&preserve-view=true).
+>Caso tenha replicado contêineres usados na configuração em seu próprio registro privado, você precisará modificar as configurações de config.toml e as configurações de tempo de execução na implantação do seu módulo. Para obter mais informações detalhadas, confira o [Tutorial – Criar uma hierarquia de dispositivos IoT Edge — Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device).
 
 1. Modifique o caminho da imagem para o agente do Edge, conforme demonstrado no exemplo abaixo:
 

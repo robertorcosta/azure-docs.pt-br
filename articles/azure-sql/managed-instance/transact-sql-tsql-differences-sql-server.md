@@ -9,14 +9,14 @@ ms.topic: reference
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
-ms.date: 3/5/2021
+ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 014140b9b9832bab3de4f71c0b5f164b564b3fe5
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102212715"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601348"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -466,11 +466,13 @@ Para obter informações sobre instruções de restauração, consulte [instruç
 
 ### <a name="service-broker"></a>Service Broker
 
-Não há suporte para agente de serviços entre instâncias:
+A troca de mensagens de instância cruzada do Service Broker só tem suporte entre instâncias gerenciadas do SQL do Azure:
 
-- `sys.routes`: Como pré-requisito, você deve selecionar o endereço de sys.routes. O endereço deve ser o LOCAL em cada rota. Confira [sys.routes](/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: não é possível usar `CREATE ROUTE` com `ADDRESS` além de `LOCAL`. Confira [CREATE ROUTE](/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: não é possível usar `ALTER ROUTE` com `ADDRESS` além de `LOCAL`. Confira [ALTER ROUTE](/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Você não pode usar `CREATE ROUTE` com `ADDRESS` outro `LOCAL` nome DNS ou de outro instância gerenciada do SQL.
+- `ALTER ROUTE`: Você não pode usar `ALTER ROUTE` com `ADDRESS` outro `LOCAL` nome DNS ou de outro instância gerenciada do SQL.
+
+A segurança de transporte tem suporte, a segurança da caixa de diálogo não é:
+- Não há suporte para `CREATE REMOTE SERVICE BINDING`.
 
 O Service Broker está habilitado por padrão e não pode ser desabilitado. Não há suporte para as seguintes opções ALTER bancos:
 - `ENABLE_BROKER`

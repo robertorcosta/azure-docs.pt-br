@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/06/2021
-ms.openlocfilehash: f10978107f80e7dea4e6d5ad40c078c55f225c2d
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: f4eec89aadee1966271286b9280916af973e4b1c
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491351"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102614336"
 ---
 # <a name="quickstart-connect-and-query-with-azure-cli--with-azure-database-for-postgresql---flexible-server"></a>Guia de início rápido: como se conectar ao Banco de Dados do Azure para PostgreSQL – Servidor Flexível e executar consultas nele usando a CLI do Azure
 
@@ -34,7 +34,7 @@ A primeira coisa que criaremos é um servidor PostgreSQL gerenciado. No [Azure C
 ```azurecli
 az postgres flexible-server create --public-access <your-ip-address>
 ```
-É possível fornecer argumentos adicionais para esse comando a fim de personalizá-lo. Confira todos os argumentos do comando [az postgres flexible-server create](/cli/azure/postgres/flexible-server?view=azure-cli-latest#az_postgres_flexible_server_create).
+É possível fornecer argumentos adicionais para esse comando a fim de personalizá-lo. Confira todos os argumentos do comando [az postgres flexible-server create](/cli/azure/postgres/flexible-server#az_postgres_flexible_server_create).
 
 ## <a name="view-all-the-arguments"></a>Exibir todos os argumentos
 É possível exibir todos os argumentos desse comando usando o argumento ```--help```. 

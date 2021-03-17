@@ -6,12 +6,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: 30be0343b7c3282e3ce4da165225ab8209d07f4a
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.openlocfilehash: 98f53ec1b6506a6d47146377e837576254f445e2
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102452400"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601059"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-solution"></a>Conectar o Azure às ferramentas de ITSM usando a solução de gerenciamento de serviço de ti
 
@@ -90,7 +90,7 @@ Os grupos de ação fornecem uma maneira modular e reutilizável para disparar a
 
 ## <a name="define-a-template"></a>Definir um modelo
 
-Determinados tipos de item de trabalho podem usar modelos que você define na ferramenta ITSM. Usando modelos, você pode definir campos que serão preenchidos automaticamente de acordo com os valores fixos de um grupo de ação. Você pode definir qual modelo deseja usar como parte da definição de um grupo de ações.
+Determinados tipos de item de trabalho podem usar modelos que você define na ferramenta ITSM. Usando modelos, você pode definir campos que serão preenchidos automaticamente de acordo com os valores fixos de um grupo de ação. Você pode definir qual modelo deseja usar como parte da definição de um grupo de ações. Você pode encontrar no ServiceNow documentos informações sobre como criar modelos – (aqui) [ https://docs.servicenow.com/bundle/paris-platform-administration/page/administer/form-administration/task/t_CreateATemplateUsingTheTmplForm.html ].
 
 Para criar um grupo de ação:
 
