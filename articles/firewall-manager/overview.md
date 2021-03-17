@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 01/12/2021
+ms.date: 03/16/2021
 ms.author: victorh
-ms.openlocfilehash: 63e2aac4c12ecc5d832cb037fda91bd2c6ad0bf1
-ms.sourcegitcommit: 431bf5709b433bb12ab1f2e591f1f61f6d87f66c
+ms.openlocfilehash: 506799f94676be007cf94320e3958bd305ce85f0
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98132436"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573448"
 ---
 # <a name="what-is-azure-firewall-manager"></a>O que é o Gerenciador de Firewall do Azure?
 
@@ -88,7 +88,6 @@ O Gerenciador de Firewall do Azure apresenta os seguintes problemas conhecidos:
 |Falha na adição de endereço IP em massa|O firewall do hub seguro entrará em um estado de falha se você adicionar vários endereços IP públicos.|Adicione incrementos menores de endereços IP públicos. Por exemplo, adicione 10 de cada vez.|
 |Não há suporte à Proteção contra DDoS Standard com hubs virtuais seguros|A Proteção contra DDoS Standard não está integrada aos vWANs.|Investigando|
 |Logs de atividade sem suporte completo|Atualmente, a política de firewall não dá suporte a logs de atividade.|Investigando|
-|Configurando intervalos de endereço IP privado SNAT|As [configurações de intervalo de IP privado](../firewall/snat-private-range.md) serão ignoradas se a política do Firewall do Azure estiver configurada. O comportamento padrão do Firewall do Azure é usado, em que ele não aceita regras de rede SNAT quando o endereço IP de destino está em um intervalo de endereços IP privado, de acordo com o [IANA RFC 1918](https://tools.ietf.org/html/rfc1918).|Investigando|
 |Algumas configurações de firewall não são migradas quando o firewall é migrado para usar a Política de Firewall|Os endereços privados de SNAT e Zonas de Disponibilidade não são migrados quando você faz a migração para a Política de Firewall do Azure.|Investigando| 
 
 ## <a name="next-steps"></a>Próximas etapas
