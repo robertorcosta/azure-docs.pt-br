@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 3f358bebc1cc4eb17b8c50b1e3a13366717ae98c
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: ab2ad15da9b1676924197d28e734f6baf59a02ef
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100705"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102176630"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introdução ao Azure Defender para registros de contêiner
 
@@ -68,7 +68,7 @@ Veja abaixo um diagrama de alto nível dos componentes e dos benefícios de prot
 ## <a name="faq-for-azure-container-registry-image-scanning"></a>Perguntas frequentes sobre a verificação de imagens do Registro de Contêiner do Azure
 
 ### <a name="how-does-security-center-scan-an-image"></a>Como a Central de Segurança examina uma imagem?
-A imagem é extraída do registro. Em seguida, ela é executada em uma área restrita isolada com o verificador Qualys, que extrai uma lista de vulnerabilidades conhecidas.
+A Central de Segurança extrai a imagem do registro e a executa em uma área restrita isolada com o verificador Qualys. O verificador extrai uma lista de vulnerabilidades conhecidas.
 
 A Central de Segurança filtra e classifica as descobertas do verificador. Quando uma imagem está íntegra, a Central de Segurança marca a imagem como tal. A Central de Segurança gera recomendações de segurança apenas para as imagens que têm problemas a serem resolvidos. Notificando você apenas quando há problemas, a Central de Segurança reduz o potencial de alertas informativos indesejados.
 
@@ -78,7 +78,7 @@ Sim. Os resultados ficam na [API REST de Subavaliações](/rest/api/securitycent
 ### <a name="what-registry-types-are-scanned-what-types-are-billed"></a>Quais tipos de registro são verificados? Quais tipos são cobrados?
 Para obter uma lista dos tipos de registros de contêiner compatíveis com o Azure Defender para registros de contêiner, confira [Disponibilidade](#availability).
 
-Se você conectar registros sem suporte à sua assinatura do Azure, eles não serão verificados e você não será cobrado por eles.
+Se você conecta Registros sem suporte à sua assinatura do Azure, o Azure Defender não os verifica nem cobra por eles.
 
 ### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>Posso personalizar as descobertas do verificador de vulnerabilidades?
 Sim. Caso você tenha uma necessidade organizacional para ignorar uma descoberta, em vez de corrigi-la, você pode opcionalmente desabilitá-la. As descobertas desabilitadas não afetam sua classificação de segurança nem geram um ruído indesejado.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2020
 ms.author: duau
-ms.openlocfilehash: ef7870363940a0db4ff09ae9ebd82eedb0e60495
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: e9d719a29bc9a4b3e0428913e5bc1a91bec16623
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282270"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183158"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
@@ -32,7 +32,7 @@ O Front Door funciona na Camada 7 (Camada HTTP/HTTPS) e usa o protocolo anycast 
 >[!NOTE]
 > O Azure fornece um conjunto de soluções de balanceamento de carga totalmente gerenciadas para seus cenários. 
 > * Se você quiser realizar um roteamento global baseado em DNS e **não** tiver os requisitos para encerramento de protocolo TLS ("descarregamento de SSL") ou para processamento de camada de aplicativo por solicitação HTTP/HTTPS, examine [Gerenciador de Tráfego](../traffic-manager/traffic-manager-overview.md). 
-> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine [Gateway de Aplicativo](../application-gateway/overview.md)
+> * Se você quiser balancear a carga entre os servidores em uma região na camada de aplicativo, examine o [Gateway de Aplicativo](../application-gateway/overview.md).
 > * Para fazer o balanceamento de carga de camada de rede, examine [Load Balancer](../load-balancer/load-balancer-overview.md). 
 > 
 > Os cenários de ponta a ponta podem se beneficiar da combinação dessas soluções, conforme necessário.

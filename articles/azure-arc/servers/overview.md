@@ -4,12 +4,12 @@ description: Saiba como usar servidores habilitados para Azure Arc para gerencia
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical, hybrid
 ms.date: 02/18/2021
 ms.topic: overview
-ms.openlocfilehash: 5692dfaceb15086b04ee951b8ecdf88f73c7d122
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 92de3b1a9cf07c25b13e2d038534e93318882bb1
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101686216"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175967"
 ---
 # <a name="what-is-azure-arc-enabled-servers"></a>O que são servidores habilitados para Azure Arc?
 
@@ -23,7 +23,7 @@ Quando você conecta seu computador a servidores habilitados para Azure Arc, ele
 
 - Atribua [configurações de convidado do Azure Policy](../../governance/policy/concepts/guest-configuration.md) usando a mesma experiência que a atribuição de política para máquinas virtuais do Azure. Hoje, a maioria das políticas de Configuração de Convidado não aplicam configurações, elas só auditam as configurações dentro do computador. Para entender o custo de usar políticas de Configuração de Convidado do Azure Policy com servidores habilitados para Arc, confira o [guia de preços](https://azure.microsoft.com/pricing/details/azure-policy/) do Azure Policy.
 
-- Relatar alterações de configuração sobre software instalado, serviços da Microsoft, Registro e arquivos do Windows e daemons do Linux em servidores monitorados usando a Automação do Azure [Controle de Alterações e Inventário](../../automation/change-tracking/overview.md).
+- Relate as alterações de configuração sobre o software instalado, os serviços da Microsoft, os arquivos e o Registro Windows e os daemons do Linux em servidores monitorados usando o [Controle de Alterações e Inventário](../../automation/change-tracking/overview.md) e o [Monitoramento de Integridade de Arquivo da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-file-integrity-monitoring) da Automação do Azure para servidores habilitados com o [Azure Defender para servidores](https://docs.microsoft.com/azure/security-center/defender-for-servers-introduction).
 
 - Monitore o desempenho do sistema operacional convidado do computador conectado e descubra os componentes do aplicativo para monitorar seus processos e dependências com outros recursos com os quais o aplicativo se comunica usando o [Azure Monitor para VMs](../../azure-monitor/vm/vminsights-overview.md).
 

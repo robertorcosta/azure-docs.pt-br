@@ -4,13 +4,13 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como proteger o tráfego de entrada e saída dos pods usando políticas de rede do Kubernetes no AKS (Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 05/06/2019
-ms.openlocfilehash: 4b72c5551d6ed33deb4df40a60215aed8071141d
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 17e14859ecdfe11872d5b0526d755d01bc1b034a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102178891"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577845"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Proteger o tráfego entre os pods usando as políticas de rede no Serviço de Kubernetes do Azure (AKS)
 
@@ -181,9 +181,13 @@ As políticas de rede Calico com nós do Windows estão atualmente em versão pr
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-```azurecli
-PASSWORD_WIN="P@ssw0rd1234"
+Crie um nome de usuário para usar como credenciais de administrador para seus contêineres do Windows Server em seu cluster. Os comandos a seguir solicitam um nome de usuário e os definem WINDOWS_USERNAME para uso em um comando posterior (Lembre-se de que os comandos neste artigo são inseridos em um shell BASH).
 
+```azurecli-interactive
+echo "Please enter the username to use as administrator credentials for Windows Server containers on your cluster: " && read WINDOWS_USERNAME
+```
+
+```azurecli
 az aks create \
     --resource-group $RESOURCE_GROUP_NAME \
     --name $CLUSTER_NAME \
@@ -195,15 +199,14 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --windows-admin-password $PASSWORD_WIN \
-    --windows-admin-username azureuser \
+    --windows-admin-username $WINDOWS_USERNAME \
     --vm-set-type VirtualMachineScaleSets \
     --kubernetes-version 1.20.2 \
     --network-plugin azure \
     --network-policy calico
 ```
 
-São necessários alguns minutos para criar o cluster. Por padrão, o cluster é criado apenas com um pool de nós do Linux. Se você quiser usar pools de nós do Windows, você pode adicionar um. Por exemplo: 
+São necessários alguns minutos para criar o cluster. Por padrão, o cluster é criado apenas com um pool de nós do Linux. Se você quiser usar pools de nós do Windows, você pode adicionar um. Por exemplo:
 
 ```azurecli
 az aks nodepool add \
@@ -222,7 +225,7 @@ az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAM
 
 ## <a name="deny-all-inbound-traffic-to-a-pod"></a>Negar todo o tráfego de entrada para um pod
 
-Antes de definir as regras para permitir o tráfego de rede específico, primeiro crie uma política para negar todo o tráfego de rede. Essa política fornece um ponto de partida para criar uma lista de permissões somente para o tráfego desejado. Você também pode ver claramente que o tráfego é removido quando a política de rede é aplicada.
+Antes de definir as regras para permitir o tráfego de rede específico, primeiro crie uma política para negar todo o tráfego de rede. Essa política oferece um ponto de partida para começar a criar umalist de permissão apenas para o tráfego desejado. Você também pode ver claramente que o tráfego é removido quando a política de rede é aplicada.
 
 Para o ambiente de aplicativo de exemplo e de regras de tráfego, primeiro vamos criar um namespace chamado *development* para executar os pods de exemplo:
 
@@ -234,13 +237,13 @@ kubectl label namespace/development purpose=development
 Crie um exemplo de pod de back-end que executa o NGINX. Este pod de back-end pode ser usado para simular um exemplo de aplicativo baseado na Web de back-end. Crie este pod no namespace *development* e abra a porta *80* para servir o tráfego da Web. Rotule o pod com *app=webapp,role=backend* para que possamos alcançá-lo com uma política de rede na próxima seção:
 
 ```console
-kubectl run backend --image=nginx --labels app=webapp,role=backend --namespace development --expose --port 80
+kubectl run backend --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine --labels app=webapp,role=backend --namespace development --expose --port 80
 ```
 
 Crie outro pod e anexe uma sessão de terminal para testar se você consegue acessar com êxito a página da Web padrão do NGINX:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 No prompt de shell, use `wget` para confirmar que você pode acessar a página da Web padrão do NGINX:
@@ -296,7 +299,7 @@ kubectl apply -f backend-policy.yaml
 Vamos ver se você pode usar a página da Web do NGINX no pod de back-end novamente. Crie outro pod de teste e anexe uma sessão de terminal:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 No prompt de shell, use `wget` para ver se você pode acessar a página Web padrão do NGINX. Desta vez, defina um valor de tempo limite em *2* segundos. A política de rede agora bloqueia todo o tráfego de entrada, portanto a página não pode ser carregada, conforme mostrado no exemplo a seguir:
@@ -353,7 +356,7 @@ kubectl apply -f backend-policy.yaml
 Agende um pod rotulado como *app=webapp,role=frontend* e anexe uma sessão de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 No prompt de shell, use `wget` para ver se você pode acessar a página Web padrão do NGINX:
@@ -383,7 +386,7 @@ exit
 A política de rede permite o tráfego dos pods rotulados com *app:webapp,role:frontend*, mas deve negar todos os outros tráfegos. Vamos testar para ver se outro pod sem esses rótulos pode acessar o pod NGINX de back-end. Crie outro pod de teste e anexe uma sessão de terminal:
 
 ```console
-kubectl run --rm -it --image=alpine network-policy --namespace development
+kubectl run --rm -it --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 network-policy --namespace development
 ```
 
 No prompt de shell, use `wget` para ver se você pode acessar a página Web padrão do NGINX. A política de rede bloqueia o tráfego de entrada, portanto a página não pode ser carregada, conforme mostrado no seguinte exemplo:
@@ -416,7 +419,7 @@ kubectl label namespace/production purpose=production
 Agende um pod de teste no namespace *production* que esteja rotulado como *app=webapp,role=frontend*. Anexe uma sessão de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 No prompt de shell, use `wget` para confirmar que você pode acessar a página da Web padrão do NGINX:
@@ -480,7 +483,7 @@ kubectl apply -f backend-policy.yaml
 Agende outro pod no namespace *production* e anexe uma sessão de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace production
 ```
 
 No prompt do shell, use `wget` para ver que a política de rede agora nega o tráfego:
@@ -502,7 +505,7 @@ exit
 Com o tráfego negado do namespace *production*, agende um pod de teste novamente no namespace *development* e anexe uma sessão de terminal:
 
 ```console
-kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development
+kubectl run --rm -it frontend --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11 --labels app=webapp,role=frontend --namespace development
 ```
 
 No prompt do shell, use `wget` para ver que a política de rede permite o tráfego:

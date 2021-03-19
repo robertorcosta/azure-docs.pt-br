@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: 5ee38fa4b005cf053890c223dfec9244c637bd00
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: b4cf3699243e990b5e7b7478ba643067ac456020
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561814"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584696"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções no .NET 5,0 no Azure
 
@@ -47,7 +47,7 @@ Um projeto de função isolado do .NET é basicamente um projeto de aplicativo d
 + [host.jsno](functions-host-json.md) arquivo.
 + [local.settings.jsno](functions-run-local.md#local-settings-file) arquivo.
 + Arquivo de projeto C# (. csproj) que define o projeto e as dependências.
-+ Arquivo Program.cs que é o ponto de entrada para o aplicativo.
++ Arquivo Program. cs que é o ponto de entrada para o aplicativo.
 
 ## <a name="package-references"></a>Referências de pacote
 
@@ -68,7 +68,7 @@ Você encontrará esses pacotes de extensão em [Microsoft. Azure. Functions. Wo
 
 ## <a name="start-up-and-configuration"></a>Inicialização e configuração 
 
-Ao usar funções isoladas do .NET, você tem acesso à inicialização do seu aplicativo de funções, que geralmente está em Program.cs. Você é responsável por criar e iniciar sua própria instância de host. Assim, você também tem acesso direto ao pipeline de configuração para seu aplicativo. Você pode injetar dependências e executar middleware com mais facilidade ao executar fora do processo. 
+Ao usar funções isoladas do .NET, você tem acesso à inicialização do seu aplicativo de funções, que geralmente está em Program. cs. Você é responsável por criar e iniciar sua própria instância de host. Assim, você também tem acesso direto ao pipeline de configuração para seu aplicativo. Você pode injetar dependências e executar middleware com mais facilidade ao executar fora do processo. 
 
 O código a seguir mostra um exemplo de um `HostBuilder` pipeline:
 
@@ -183,7 +183,7 @@ Esta seção descreve o estado atual das diferenças funcionais e comportamentai
 | Tokens de cancelamento | [Com suporte](functions-dotnet-class-library.md#cancellation-tokens) | Sem suporte |
 | Associações de saída | Parâmetros de saída | Valores retornados |
 | Tipos de associação de saída |  `IAsyncCollector`, [DocumentClient](/dotnet/api/microsoft.azure.documents.client.documentclient?view=azure-dotnet&preserve-view=true), [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet&preserve-view=true)e outros tipos específicos do cliente | Tipos simples, tipos serializáveis JSON e matrizes. |
-| Várias associações de saída | Com suporte | [Com suporte](#multiple-output-bindings) |
+| Várias associações de saída | Compatível | [Com suporte](#multiple-output-bindings) |
 | Gatilho HTTP | [`HttpRequest`](/dotnet/api/microsoft.aspnetcore.http.httprequest?view=aspnetcore-5.0&preserve-view=true)/[`ObjectResult`](/dotnet/api/microsoft.aspnetcore.mvc.objectresult?view=aspnetcore-5.0&preserve-view=true) | `HttpRequestData`/`HttpResponseData` |
 | Funções duráveis | [Com suporte](durable/durable-functions-overview.md) | Sem suporte | 
 | Associações imperativas | [Com suporte](functions-dotnet-class-library.md#binding-at-runtime) | Sem suporte |

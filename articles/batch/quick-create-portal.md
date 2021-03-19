@@ -4,12 +4,12 @@ description: Este guia de início rápido mostra como usar o portal do Azure par
 ms.topic: quickstart
 ms.date: 08/17/2020
 ms.custom: mvc
-ms.openlocfilehash: d8584ecea8ddd5934771dbe5945a6172a28c801c
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.openlocfilehash: 1234a932a732cdb6fda1c412a423ae0b1ea089e9
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
-ms.locfileid: "97106466"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102184008"
 ---
 # <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Início rápido: executar o primeiro trabalho do Lote no portal do Azure
 
@@ -69,7 +69,7 @@ Após alguns minutos, o estado de alocação mudará para **Constante** e os nó
 
 ## <a name="create-a-job"></a>Criar um trabalho
 
-Agora que você tem um pool, crie um trabalho para executar nele. Um trabalho do Lote é um grupo lógico para uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. Inicialmente, o trabalho não tem nenhuma tarefa.
+Agora que você tem um pool, crie um trabalho para executar nele. Um Trabalho em lotes é um grupo lógico de uma ou mais tarefas. Um trabalho inclui configurações comuns às tarefas, como prioridade e o pool onde elas devem ser executadas. Inicialmente, o trabalho não tem nenhuma tarefa.
 
 1. No modo de exibição de conta do Lote, selecione **Trabalhos** > **Adicionar**.
 

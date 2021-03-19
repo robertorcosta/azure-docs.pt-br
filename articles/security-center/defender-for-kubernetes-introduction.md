@@ -7,12 +7,12 @@ ms.date: 02/07/2021
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0878686e203960a0b7f33c19cc64e82319997684
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 83d0215ebca9d60d61937cb20bb82c7ccb30aac1
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100590451"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100620"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introdução ao Azure Defender para Kubernetes
 
@@ -29,7 +29,7 @@ A detecção de ameaças no nível de host para os nós do AKS do Linux estará 
 |Aspecto|Detalhes|
 |----|:----|
 |Estado da versão:|GA (Disponibilidade Geral)|
-|Preço:|O **Azure Defender para Kubernetes** é cobrado conforme mostrado na [página de preços](security-center-pricing.md)|
+|Preço:|O **Azure Defender para Kubernetes** é cobrado conforme mostrado em [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/)|
 |Funções e permissões necessárias:|O **Administrador de segurança** pode ignorar alertas.<br>**O leitor de segurança** pode exibir as conclusões.|
 |Nuvens:|![Sim](./media/icons/yes-icon.png) Nuvens comerciais<br>![Sim](./media/icons/yes-icon.png) Nacionais/soberanas (US Gov, China Gov, outros Gov)|
 |||
@@ -79,7 +79,7 @@ Se os clusters já estiverem executando o agente do Azure Monitor para contêine
 Neste artigo, você aprendeu sobre a proteção do Kubernetes da Central de Segurança, incluindo o Azure Defender para Kubernetes. 
 
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitar o Azure Defender](enable-azure-defender.md)
 
 Para obter material relacionado, consulte os seguintes artigos: 
 

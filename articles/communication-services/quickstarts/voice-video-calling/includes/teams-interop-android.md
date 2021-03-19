@@ -3,15 +3,15 @@ title: Início Rápido – Participar de uma reunião no Teams usando um aplicat
 description: Neste tutorial, você aprende a participar de uma reunião no Teams usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android
 author: chpalm
 ms.author: mikben
-ms.date: 02/18/2021
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: be68b8336861891c6704702379892460fd3b7400
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 82e64af5cec8641abacf5afa323fc38382a124c4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101660014"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487967"
 ---
 Neste início rápido, você aprenderá a participar de uma reunião no Teams usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para Android.
 

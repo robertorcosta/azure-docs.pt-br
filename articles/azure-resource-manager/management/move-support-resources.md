@@ -3,12 +3,12 @@ title: Mover suporte de operação por tipo de recurso
 description: Lista os tipos de recursos do Azure que podem ser movidos para um novo grupo de recursos ou assinatura.
 ms.topic: conceptual
 ms.date: 01/11/2021
-ms.openlocfilehash: ae59bcc65f296a10c68b88f5f6a1ecbc923f8856
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 3a15ddc62c19d74871de33003d46ec2fc5437f51
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232589"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104584679"
 ---
 # <a name="move-operation-support-for-resources"></a>Mover o suporte de operação para recursos
 
@@ -850,7 +850,7 @@ Pule para um namespace de provedor de recursos:
 > [!div class="mx-tableFixed"]
 > | Tipo de recurso | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | flexibleServers | Sim | Sim |
+> | flexibleServers | Não | Não |
 > | servers | Sim | Sim |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
