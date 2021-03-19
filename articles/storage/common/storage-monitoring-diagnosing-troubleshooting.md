@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: d28cfd533caaef3fb80a63aea932e6418dff7e55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5943a65d61dee4fcf610b8cc45139674362995cb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724244"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600710"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitoramento, diagnóstico e solução de problemas de Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -59,8 +59,8 @@ Para gerenciar esses aplicativos com êxito, monitore-os de forma proativa e ent
   * [Seu problema apareceu por usar o emulador de armazenamento para desenvolvimento ou teste]
   * [Você encontrou problemas ao instalar o SDK do Azure para .NET]
   * [Você tem um problema diferente com um serviço de armazenamento]
-  * [Solução de problemas de VHDs em máquinas virtuais Windows](../../virtual-machines/troubleshooting/index.yml)   
-  * [Solução de problemas de VHDs em máquinas virtuais Linux](../../virtual-machines/troubleshooting/index.yml)
+  * [Solução de problemas de VHDs em máquinas virtuais Windows](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)   
+  * [Solução de problemas de VHDs em máquinas virtuais Linux](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
   * [Solução de problemas do Arquivos do Azure com Windows](../files/storage-troubleshoot-windows-file-connection-problems.md)   
   * [Solução de problemas do Arquivos do Azure com Linux](../files/storage-troubleshoot-linux-file-connection-problems.md)
 * [Anexos]

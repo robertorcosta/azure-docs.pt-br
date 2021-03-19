@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 027d1bf005ac052bf48e2c0aa3a4a71fc29f36f2
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101647431"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102175423"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -40,7 +40,8 @@ Siga estas etapas para criar o registro do aplicativo:
 1. Se você tem acesso a vários locatários, no menu superior, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: para selecionar o locatário no qual você deseja registrar um aplicativo.
 1. Pesquise **Azure Active Directory** e selecione-o.
 1. Em **Gerenciar**, selecione **Registros de aplicativo** > **Novo registro**.
-1. Insira um **Nome** para seu aplicativo. Os usuários do seu aplicativo podem ver esse nome. Você pode alterá-lo posteriormente.
+1. Insira um **Nome** de exibição para o seu aplicativo. Os usuários do seu aplicativo podem ver o nome de exibição quando usam o aplicativo, por exemplo, durante a conexão.
+    Você pode alterar o nome de exibição a qualquer momento e vários registros de aplicativo podem compartilhar o mesmo nome. A ID do aplicativo (cliente) gerada automaticamente pelo registro do aplicativo, e não o nome de exibição, identifica exclusivamente o seu aplicativo dentro da plataforma de identidade.
 1. Especifique quem pode usar o aplicativo, às vezes, chamado do *público-alvo de entrada*.
 
     | Tipos de conta com suporte | Descrição |

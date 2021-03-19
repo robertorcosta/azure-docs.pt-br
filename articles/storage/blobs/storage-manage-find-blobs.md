@@ -3,18 +3,18 @@ title: Gerenciar e localizar dados de blob do Azure com marcas de índice de BLO
 description: Saiba como usar marcas de índice de BLOB para categorizar, gerenciar e consultar objetos de BLOB.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/05/2021
+ms.date: 03/18/2021
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: klaasl
 ms.custom: references_regions
-ms.openlocfilehash: bfaee493c25f882b8beeed565a155db93efd0083
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 540f6ca165c80dd90f5004fb53e1577cdc35d770
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102431747"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104656032"
 ---
 # <a name="manage-and-find-azure-blob-data-with-blob-index-tags-preview"></a>Gerenciar e localizar dados de blob do Azure com marcas de índice de BLOB (versão prévia)
 
@@ -30,7 +30,7 @@ As marcas de índice de blob permitem que você:
 Considere um cenário em que você tenha milhões de BLOBs em sua conta de armazenamento, acessados por vários aplicativos diferentes. Você deseja localizar todos os dados relacionados de um único projeto. Você não tem certeza do que está no escopo, pois os dados podem ser distribuídos em vários contêineres com diferentes convenções de nomenclatura. No entanto, seus aplicativos carregam todos os dados com marcas com base em seu projeto. Em vez de Pesquisar por milhões de BLOBs e comparar nomes e propriedades, você pode usar `Project = Contoso` como seus critérios de descoberta. O índice de blob filtrará todos os contêineres em toda a conta de armazenamento para localizar e retornar rapidamente apenas o conjunto de blobs de 50 de `Project = Contoso` .
 
 > [!IMPORTANT]
-> Marcas de índice de blob estão atualmente em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+> As marcas de índice de blob estão atualmente em **Visualização** e disponíveis em todas as regiões públicas. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 Para começar com exemplos de como usar o índice de BLOB, consulte [usar marcas de índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md).
 
@@ -227,7 +227,7 @@ Você pode autorizar o acesso a marcas de índice de BLOB usando uma das seguint
 
 As marcas de índice de blob são um subrecurso para os dados de BLOB. Um usuário com permissões ou um token SAS para ler ou gravar BLOBs pode não ter acesso às marcas de índice de BLOB.
 
-### <a name="role-based-access-control"></a>Controle de acesso baseado em função
+### <a name="role-based-access-control"></a>Controle de acesso baseado em funções
 
 Os chamadores usando uma [identidade do Azure ad](../common/storage-auth-aad.md) podem receber as seguintes permissões para operar em marcas de índice de BLOB.
 
@@ -289,12 +289,7 @@ As marcas de índice de blob estão disponíveis somente em contas Uso Geral v2 
 
 Não há suporte para marcas de índice em contas de armazenamento Premium. Para saber mais sobre as contas de armazenamento, confira [Visão geral da conta de armazenamento do Azure](../common/storage-account-overview.md).
 
-Na visualização pública, as marcas de índice de blob estão disponíveis apenas nas seguintes regiões:
-
-- Canadá Central
-- Leste do Canadá
-- França Central
-- Sul da França
+As marcas de índice de blob estão disponíveis atualmente em todas as regiões públicas.
 
 Para começar, consulte [usar marcas de índice de BLOB para gerenciar e localizar dados](storage-blob-index-how-to.md).
 

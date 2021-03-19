@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.author: mimart
 ms.subservice: B2C
 ms.date: 01/29/2021
-ms.openlocfilehash: 712a933276393890bf017a2517196031306233ad
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: bc1dea8121d7986b8394adf6545a0b2c30afb133
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100573006"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580174"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Monitorar Azure AD B2C com Azure Monitor
 
@@ -46,7 +46,7 @@ O diagrama a seguir ilustra os componentes que você configurará em seu Azure A
 
 ![Projeção do grupo de recursos](./media/azure-monitor/resource-group-projection.png)
 
-Durante essa implantação, você configurará seu locatário Azure AD B2C e o locatário do Azure AD onde o espaço de trabalho Log Analytics será hospedado. A conta usada para executar a implantação deve ser atribuída à função de [administrador global](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) em ambos os locatários. Também é importante verificar se você está conectado ao diretório correto ao concluir cada etapa, conforme descrito.
+Durante essa implantação, você configurará seu locatário Azure AD B2C e o locatário do Azure AD onde o espaço de trabalho Log Analytics será hospedado. A conta de Azure AD B2C deve ser atribuída à função de [administrador global](../active-directory/roles/permissions-reference.md#limit-use-of-global-administrator) no locatário Azure ad B2C. A conta do Azure AD usada para executar a implantação deve ser atribuída à função de [proprietário](../role-based-access-control/built-in-roles.md#owner) na assinatura do Azure AD. Também é importante verificar se você está conectado ao diretório correto ao concluir cada etapa, conforme descrito.
 
 ## <a name="1-create-or-choose-resource-group"></a>1. criar ou escolher grupo de recursos
 
@@ -97,7 +97,7 @@ Em seguida, você criará um modelo de Azure Resource Manager que concede Azure 
 2. Selecione o ícone **diretório + assinatura** na barra de ferramentas do portal e, em seguida, selecione o diretório que contém seu locatário **do Azure ad** .
 3. Use o botão **implantar no Azure** para abrir o portal do Azure e implantar o modelo diretamente no Portal. Para obter mais informações, consulte [criar um modelo de Azure Resource Manager](../lighthouse/how-to/onboard-customer.md#create-an-azure-resource-manager-template).
 
-   [![Implantar no Azure](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Lighthouse-samples%2Fmaster%2Ftemplates%2Frg-delegated-resource-management%2FrgDelegatedResourceManagement.json)
+   [![Implantar no Azure](https://aka.ms/deploytoazurebutton)](   https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure-ad-b2c%2Fsiem%2Fmaster%2Ftemplates%2FrgDelegatedResourceManagement.json)
 
 5. Na página **implantação personalizada** , insira as seguintes informações:
 

@@ -7,26 +7,27 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: eb08bb262806cb662822a75898196546a5c1058e
-ms.sourcegitcommit: 3c3ec8cd21f2b0671bcd2230fc22e4b4adb11ce7
+ms.openlocfilehash: 23bcfcb92a7fa642e111a67bf92c1306a606bb2a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/25/2021
-ms.locfileid: "98762546"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101704796"
 ---
 # <a name="claim-sets"></a>Conjuntos de declarações
 
 As declarações geradas no processo de atestado de enclaves por meio do Atestado do Microsoft Azure podem ser divididas nas categorias abaixo:
 
-- **Declarações de entrada**: declarações geradas pelo Atestado do Microsoft Azure após a análise da evidência do atestado e podem ser usadas por autores de política para definir regras de autorização em uma política personalizada
+- **Declarações de entrada**: as declarações geradas pelo Atestado do Microsoft Azure após a análise da evidência do atestado e podem ser usadas por autores de política para definir regras de autorização em uma política personalizada
 
-- **Declarações de saída**: declarações geradas pelo Atestado do Azure e contêm todas as declarações que terminam no token de atestado
+- **Declarações de saída**: as declarações geradas pelo Atestado do Azure e contêm todas as declarações que terminam no token de atestado
 
-- **Declarações de propriedade**: declarações criadas como uma saída pelo Atestado do Azure. Ela contém todas as declarações que representam as propriedades do token de atestado, como a codificação do relatório, a duração da validade do relatório etc.
+- **Declarações de propriedade**: as declarações criadas como uma saída pelo Atestado do Azure. Ela contém todas as declarações que representam as propriedades do token de atestado, como a codificação do relatório, a duração da validade do relatório etc.
 
 ### <a name="common-incoming-claims-across-all-attestation-types"></a>Declarações de entrada comuns em todos os tipos de atestado
 
-As declarações abaixo são geradas pelo Atestado do Azure e podem ser usadas para definir regras de autorização em uma política personalizada:
+As declarações abaixo são geradas pelo Atestado do Azure e podem ser usadas por autores de políticas para definir regras de autorização em uma política personalizada para todos os tipos de atestado.
+
 - **x-ms-ver**: versão do esquema JWT (deve ser "1.0")
 - **x-ms-attestation-type**: valor da cadeia de caracteres que representa o tipo de atestado 
 - **x-ms-policy-hash**: hash da política de avaliação do Atestado do Azure computada como BASE64URL(SHA256(UTF8(BASE64URL(UTF8(texto da política)))))
@@ -44,7 +45,9 @@ policy_signer | x-ms-policy-signer
 
 ### <a name="common-outgoing-claims-across-all-attestation-types"></a>Declarações de saída comuns em todos os tipos de atestado
 
-Veja abaixo as declarações definidas pelo [IETF JWT](https://tools.ietf.org/html/rfc7519) e usadas pelo Atestado do Azure no objeto de resposta:
+As declarações abaixo são incluídas no token de atestado para todos os tipos de atestado pelo serviço.
+
+Origem: conforme definido pelo [IETF JWT](https://tools.ietf.org/html/rfc7519)
 
 - **Declaração "jti" (ID JWT)**
 - **Declaração "iss" (Emissor)**
@@ -52,10 +55,12 @@ Veja abaixo as declarações definidas pelo [IETF JWT](https://tools.ietf.org/ht
 - **Declaração "exp" (Hora de expiração)**
 - **Declaração "nbf" (Não Anterior)**
 
-Veja abaixo as declarações definidas pelo [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9) e usadas pelo Atestado do Azure no objeto de resposta:
+Origem: conforme definido pelo [IETF EAT](https://tools.ietf.org/html/draft-ietf-rats-eat-03#page-9)
+
 - **"Declaração nonce" (nonce)**
 
-As declarações abaixo são geradas por padrão com base nas declarações de entrada
+As declarações abaixo são incluídas no token de atestado por padrão com base nas declarações de entrada:
+
 - **x-ms-ver**: versão do esquema JWT (deve ser "1.0")
 - **x-ms-attestation-type**: valor da cadeia de caracteres que representa o tipo de atestado 
 - **x-ms-policy-hash**: valor de cadeia de caracteres que contém o hash SHA256 do texto da política computado por BASE64URL(SHA256(UTF8(BASE64URL(UTF8(policy text)))))
@@ -65,7 +70,8 @@ As declarações abaixo são geradas por padrão com base nas declarações de e
 
 ### <a name="incoming-claims-specific-to-sgx-attestation"></a>Declarações de entrada específicas para o atestado SGX
 
-As declarações abaixo são geradas pelo serviço para o atestado SGX e podem ser usadas para definir regras de autorização em uma política personalizada:
+As declarações abaixo são geradas pelo Atestado do Azure e podem ser usadas por autores de políticas para definir regras de autorização em uma política personalizada para o atestado SGX.
+
 - **x-ms-sgx-is-debuggable**: um booliano que indica se o enclave tem ou não a depuração habilitada
 - **x-ms-sgx-product-id**
 - **x-ms-sgx-mrsigner**: valor codificado em hexa do campo “mrsigner” da cotação
@@ -74,7 +80,8 @@ As declarações abaixo são geradas pelo serviço para o atestado SGX e podem s
 
 ### <a name="outgoing-claims-specific-to-sgx-attestation"></a>Declarações de saída específicas para o atestado SGX
 
-As declarações abaixo são geradas pelo serviço e incluídas no objeto de resposta para o atestado SGX:
+As declarações abaixo são geradas e incluídas no token de atestado pelo serviço para o atestado SGX.
+
 - **x-ms-sgx-is-debuggable**: um booliano que indica se o enclave tem ou não a depuração habilitada
 - **x-ms-sgx-product-id**
 - **x-ms-sgx-mrsigner**: valor codificado em hexa do campo “mrsigner” da cotação

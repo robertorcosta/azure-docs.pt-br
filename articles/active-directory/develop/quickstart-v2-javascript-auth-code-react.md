@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 01/14/2021
 ms.author: jamesmantu
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: ae31265aee7b0919daf0fec9efbe4d5c6aa7cd91
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 3ffd739b12bdda577c3bc302635472768160f50f
+ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101653449"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102122656"
 ---
 # <a name="quickstart-sign-in-and-get-an-access-token-in-a-react-spa-using-the-auth-code-flow"></a>Início rápido: Conectar e obter um token de acesso em um SPA React usando o fluxo de código de autenticação
 
@@ -26,6 +26,9 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
 Este início rápido usa o MSAL React com o fluxo de código de autorização. Para ver um início rápido semelhante que usa o MSAL.js com o fluxo implícito, confira [Início rápido: Conectar usuários em aplicativos de página única JavaScript](./quickstart-v2-javascript.md).
+
+> [!IMPORTANT]
+> MSAL React [!INCLUDE [PREVIEW BOILERPLATE](../../../includes/active-directory-develop-preview.md)]
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

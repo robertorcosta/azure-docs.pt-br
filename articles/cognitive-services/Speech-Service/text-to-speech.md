@@ -12,12 +12,12 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de texto em fala
-ms.openlocfilehash: fec90b3257ffafaf2919d2f0a41c2ade6fbc1f64
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7722c9387e8d6475c6da4c771e9a0e355a4ac0af
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104597667"
+ms.locfileid: "104654842"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
@@ -37,11 +37,11 @@ Nesta visão geral, você aprenderá sobre os benefícios e capacidades do servi
 
 * Vozes padrão-criadas usando as técnicas de síntese paramétricas estatística e/ou síntese de concatenação. Essas vozes são altamente inteligível e sólidas. Você pode facilmente permitir que seus aplicativos falem em mais de 45 idiomas, com uma ampla gama de opções de voz. Essas vozes fornecem alta precisão de pronúncia, incluindo suporte para abreviações, expansões de acrônimo, interpretações de data/hora, telefones e muito mais. Para obter uma lista completa de vozes padrão, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
-* Vozes neurais-as redes neurais profundas são usadas para superar os limites da síntese de fala tradicional com relação a estresse e intonation na linguagem falada. A previsão de Prosody e a síntese de voz são executadas simultaneamente, o que resulta em saídas mais suaves e de som natural. As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos em Audiobooks, e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia. Para obter uma lista completa de vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
+* Vozes neurais-as redes neurais profundas são usadas para superar os limites de síntese de fala tradicional em relação a estresse e intonation na linguagem falada. A previsão de Prosody e a síntese de voz são executadas simultaneamente, o que resulta em saídas mais suaves e de som natural. As vozes neurais podem ser usadas para fazer interações com os assistentes de voz e chatbots mais naturais e envolventes, converter textos digitais, como livros eletrônicos em Audiobooks, e aprimorar os sistemas de navegação no carro. Com a Prosody natural humana e a clara Articulation de palavras, as vozes neurais reduzem significativamente a escuta de fadiga quando você interage com sistemas de ia. Para obter uma lista completa de vozes neurais, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 * Ajustar estilos de fala com o SSML-linguagem de marcação de síntese de fala (SSML) é uma linguagem de marcação baseada em XML usada para personalizar saídas de fala para texto. Com o SSML, você pode ajustar o timbre, adicionar pausas, melhorar a pronúncia, acelerar ou diminuir a taxa de fala, aumentar ou diminuir o volume e atribuir várias vozes a um único documento. Consulte o " [como](speech-synthesis-markup.md) " para ajustar estilos de fala.
 
-* Visemes- [visemes](how-to-speech-synthesis-viseme.md) são usados para representar as poses de chave na fala observada (ou seja, a posição dos Lips, Jaw e língua ao produzir um fonema específico). Ele tem uma forte correlação com vozes e fonemas. Usando o viseme no SDK de fala, você pode gerar dados de animação facial, que geralmente são usados para comunicação animada de leitura de Lip, educação, entretenimento e serviço de atendimento ao cliente. 
+* Visemes- [visemes](how-to-speech-synthesis-viseme.md) são as principais representam a fala observada, incluindo a posição dos Lips, a Jaw e a língua ao produzir um fonema específico. Visemes têm uma forte correlação com vozes e fonemas. Usando eventos viseme no SDK de fala, você pode gerar dados de animação facial, que podem ser usados para animar rostos em comunicação, educação, entretenimento e serviço de atendimento ao cliente do Lip. 
 
 ## <a name="get-started"></a>Introdução
 

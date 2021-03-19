@@ -7,12 +7,12 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: 119ecb3ec9c208340f09f513bf10b3ad24312cb5
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: a5d2043c29db87876cc0d5ddb5b3708abad033c5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201219"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591972"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema com suporte pelo Azure Data Factory
 
@@ -66,6 +66,20 @@ Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho
 | @triggerBody(). nome de arquivo  |Nome do arquivo cuja criação ou exclusão fez com que o gatilho fosse acionado.   |
 | @triggerBody(). nome_da_pasta  |Caminho para a pasta que contém o arquivo especificado por `@triggerBody().fileName` . O primeiro segmento do caminho da pasta é o nome do contêiner de armazenamento de BLOBs do Azure.  |
 | @trigger().startTime |Hora em que o gatilho foi acionado para invocar a execução do pipeline. |
+
+## <a name="custom-event-trigger-scope"></a>Escopo do gatilho de evento personalizado
+
+Essas variáveis de sistema podem ser referenciadas em qualquer lugar no gatilho JSON para gatilhos do tipo [CustomEventsTrigger](concepts-pipeline-execution-triggers.md#event-based-trigger).
+
+>[!NOTE]
+>Azure Data Factory espera que o evento personalizado seja formatado com o [esquema de evento da grade de eventos do Azure](../event-grid/event-schema.md).
+
+| Nome da variável | Descrição
+| --- | --- |
+| @triggerBody(). Event. eventType | Tipo de eventos que dispararam a execução do gatilho de evento personalizado. Tipo de evento é o campo definido pelo cliente e assume quaisquer valores de tipo de cadeia de caracteres. |
+| @triggerBody(). evento. Subject | Assunto do evento personalizado que fez com que o gatilho fosse acionado. |
+| @triggerBody(). Event. Data. _KeyName_ | O campo de dados no evento personalizado é um blob do JSON gratuito, que pode ser usado pelo cliente para enviar mensagens e dados. Use os dados. _KeyName_ para fazer referência a cada campo. Por exemplo, @triggerBody (). Event. Data. retorno de chamada retorna o valor para o campo de _retorno de chamada_ armazenado em _Data_. |
+| @trigger().startTime | Hora em que o gatilho foi acionado para invocar a execução do pipeline. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

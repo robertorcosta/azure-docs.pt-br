@@ -8,12 +8,12 @@ ms.collection: linux
 ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: cynthn
-ms.openlocfilehash: a4e0cee7a46e3f61f95e87f7cba1fb3595ace3c5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: adf6198cf12011c77fcf3f93d4b595ea433ddefd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102556801"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580378"
 ---
 # <a name="add-a-disk-to-a-linux-vm"></a>Adicionar um disco a uma VM do Linux
 
@@ -148,7 +148,7 @@ Neste exemplo, estamos usando o editor do nano, portanto, quando você terminar 
 >
 > A opção *nofail* garante que a VM inicie mesmo que o sistema de arquivos esteja corrompido ou que o disco não exista no momento da inicialização. Sem essa opção, você poderá encontrar um comportamento conforme descrito em [Não é possível conectar-se a uma VM Linux via SSH devido a erros no FSTAB](/archive/blogs/linuxonazure/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting)
 >
-> O console serial da VM do Azure pode ser usado para acesso ao console para sua VM se a modificação de fstab resultar em uma falha de inicialização. Mais detalhes estão disponíveis na [documentação do console serial](../troubleshooting/serial-console-linux.md).
+> O console serial da VM do Azure pode ser usado para acesso ao console para sua VM se a modificação de fstab resultar em uma falha de inicialização. Mais detalhes estão disponíveis na [documentação do console serial](/troubleshoot/azure/virtual-machines/serial-console-linux).
 
 ### <a name="trimunmap-support-for-linux-in-azure"></a>Suporte a TRIM/UNMAP para Linux no Azure
 Alguns kernels Linux permitem operações TRIM/UNMAP para descartar os blocos não utilizados no disco. Esse recurso é útil principalmente no Armazenamento Standard, para informar o Azure de que as páginas excluídas não são mais válidas e podem ser descartadas, podendo também economizar dinheiro se você criar arquivos grandes e depois excluí-los.

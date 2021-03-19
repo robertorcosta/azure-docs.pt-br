@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: error-reference
 ms.date: 02/12/2020
 ms.author: inhenkel
-ms.openlocfilehash: b3be465c488bdd3c5dbd62f757733939d1bee393
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100393506"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581075"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos dinâmicos dos serviços de mídia
 
@@ -28,9 +28,9 @@ As tabelas a seguir listam os códigos de erro de [evento ao vivo](live-events-o
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Ao assinar os eventos da [grade de eventos](../../event-grid/index.yml) para um evento ao vivo, você poderá ver um dos erros a seguir do evento [LiveEventConnectionRejected](media-services-event-schemas.md\#liveeventconnectionrejected) .
+Ao assinar os eventos da [grade de eventos](../../event-grid/index.yml) para um evento ao vivo, você poderá ver um dos erros a seguir do evento [LiveEventConnectionRejected](monitoring/media-services-event-schemas.md\#liveeventconnectionrejected) .
 > [!div class="mx-tdCol2BreakAll"]
->| Erro | Informações |
+>| Erro | Informações do |
 >|--|--|
 >|**MPE_RTMP_APPID_AUTH_FAILURE** ||
 >|Descrição | URL de ingestão incorreta |
@@ -68,10 +68,10 @@ Ao assinar os eventos da [grade de eventos](../../event-grid/index.yml) para um 
 
 ## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
-Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](media-services-event-schemas.md\#liveeventencoderdisconnected) .
+Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md\#liveeventencoderdisconnected) .
 
 > [!div class="mx-tdCol2BreakAll"]
->| Erro | Informações |
+>| Erro | Informações do |
 >|--|--|
 >|**MPE_RTMP_SESSION_IDLE_TIMEOUT** |
 >| Descrição|A sessão RTMP atingiu o tempo limite depois de ficar ociosa por um limite de tempo permitido. |
@@ -88,7 +88,7 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](me
 ## <a name="other-error-codes"></a>Outros códigos de erro
 
 > [!div class="mx-tdCol2BreakAll"]
->| Erro | Informações |Evento rejeitado/desconectado|
+>| Erro | Informações do |Evento rejeitado/desconectado|
 >|--|--|--|
 >|**ERROR_END_OF_MEDIA** ||Sim|
 >| Descrição|Esse é um erro geral. ||
@@ -109,7 +109,7 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](me
 >| Descrição| Há discontinuty em dados de entrada.||
 >|Solução sugerida| Esse é um aviso de que o codificador descarta dados devido a um problema de rede ou a um problema de recurso do sistema. Verifique o log do codificador ou do sistema. Monitore o recurso do sistema (CPU, memória ou rede) também. Se a CPU do sistema for muito alta, tente reduzir a taxa de bits ou use a opção de codificador H/W da placa gráfica do sistema.||
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Confira também
 
 [Códigos de erro de ponto de extremidade de streaming (origem)](streaming-endpoint-error-codes.md)
 
