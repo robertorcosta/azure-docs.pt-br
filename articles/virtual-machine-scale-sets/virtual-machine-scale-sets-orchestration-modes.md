@@ -9,12 +9,12 @@ ms.subservice: extensions
 ms.date: 02/12/2021
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: d1290b1dcc1e97d63dd41d5be8ca19b81e32f838
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: cc862759ce28c4d23dbc2197f63311e29ba82709
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225023"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607495"
 ---
 # <a name="preview-orchestration-modes-for-virtual-machine-scale-sets-in-azure"></a>Visualização: modos de orquestração para conjuntos de dimensionamento de máquinas virtuais no Azure 
 
@@ -85,7 +85,7 @@ Use os comandos padrão da VM para iniciar, parar, reiniciar, excluir instância
 O monitoramento de integridade do aplicativo permite que seu aplicativo forneça ao Azure uma pulsação para determinar se seu aplicativo está íntegro ou não íntegro. O Azure pode substituir automaticamente as instâncias de VM que não estão íntegras. Para instâncias do conjunto de dimensionamento flexível, você deve instalar e configurar a extensão de integridade do aplicativo na máquina virtual. Para instâncias do conjunto de dimensionamento uniforme, você pode usar a extensão de integridade do aplicativo ou medir a integridade com uma Azure Load Balancer investigação de integridade personalizada. 
 
 ### <a name="list-scale-sets-vm-api-changes"></a>Listar os conjuntos de dimensionamento da API de VM 
-Os conjuntos de dimensionamento de máquinas virtuais permitem listar as instâncias que pertencem ao conjunto de dimensionamento. Com a orquestração flexível, o comando listar conjuntos de dimensionamento de máquinas virtuais VM fornece uma lista de IDs de VM de conjuntos de dimensionamento. Em seguida, você pode chamar os comandos de VM obter conjuntos de dimensionamento de máquinas virtuais para obter mais detalhes sobre como o conjunto de dimensionamento está funcionando com a instância de VM. Para obter os detalhes completos da VM, use os comandos GET VM padrão ou o [grafo de recursos do Azure](https://docs.microsoft.com/azure/governance/resource-graph/overview). 
+Os conjuntos de dimensionamento de máquinas virtuais permitem listar as instâncias que pertencem ao conjunto de dimensionamento. Com a orquestração flexível, o comando listar conjuntos de dimensionamento de máquinas virtuais VM fornece uma lista de IDs de VM de conjuntos de dimensionamento. Em seguida, você pode chamar os comandos de VM obter conjuntos de dimensionamento de máquinas virtuais para obter mais detalhes sobre como o conjunto de dimensionamento está funcionando com a instância de VM. Para obter os detalhes completos da VM, use os comandos GET VM padrão ou o [grafo de recursos do Azure](../governance/resource-graph/overview.md). 
 
 ### <a name="retrieve-boot-diagnostics-data"></a>Recuperar dados de diagnóstico de inicialização 
 Use os comandos e as APIs de VM padrão para recuperar dados de diagnóstico de inicialização de instância e capturas de tela. Os comandos e as APIs de diagnóstico de inicialização da máquina virtual não são usados com instâncias do modo de orquestração flexível.
@@ -269,7 +269,7 @@ zones = ["1"]
 
 2. Adicione máquinas virtuais ao conjunto de dimensionamento.
     1. Atribua a `virtualMachineScaleSet` propriedade ao conjunto de dimensionamento que você criou anteriormente. É necessário especificar a `virtualMachineScaleSet` propriedade no momento da criação da VM. 
-    1. Você pode usar a função de modelo **Copy ()** Azure Resource Manager para criar várias VMs ao mesmo tempo. Consulte [iteração de recurso](https://docs.microsoft.com/azure/azure-resource-manager/templates/copy-resources#iteration-for-a-child-resource) em modelos de Azure Resource Manager. 
+    1. Você pode usar a função de modelo **Copy ()** Azure Resource Manager para criar várias VMs ao mesmo tempo. Consulte [iteração de recurso](../azure-resource-manager/templates/copy-resources.md#iteration-for-a-child-resource) em modelos de Azure Resource Manager. 
 
     ```json
     {

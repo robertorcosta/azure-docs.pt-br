@@ -10,16 +10,16 @@ ms.collection: linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 23a0d7cd45ceef8f97bb56d65f4807f8d60735dc
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 9032bfca30ead56c91d7904e18b76753cf3b6dfc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601042"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582163"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual de Key Vault para Linux
 
-A extensão de VM de Key Vault fornece a atualização automática dos certificados armazenados no cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão instalará a cadeia de certificados completo na VM. A extensão de VM do Key Vault é publicada e suportada pela Microsoft, no momento em VMs do Linux. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Linux. 
+A extensão de VM de Key Vault fornece a atualização automática dos certificados armazenados no cofre de chaves do Azure. Especificamente, a extensão monitora uma lista de certificados observados armazenados em cofres de chaves.  Após detectar uma alteração, a extensão recupera e instala os certificados correspondentes. A extensão de VM do Key Vault é publicada e suportada pela Microsoft, no momento em VMs do Linux. Este documento detalha as plataformas com opções de plataformas, configurações e implantação com suporte para a extensão da VM de Key Vault para Linux. 
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -36,6 +36,7 @@ A extensão de VM do Key Vault dá suporte a essas distribuições do Linux:
 
 - PKCS #12
 - PEM
+
 
 ## <a name="prerequisities"></a>Pré-requisitos
   - Key Vault instância com certificado. Consulte [criar um Key Vault](../../key-vault/general/quick-create-portal.md)
@@ -56,6 +57,20 @@ A extensão de VM do Key Vault dá suporte a essas distribuições do Linux:
                     "msiClientId": "[reference(parameters('userAssignedIdentityResourceId'), variables('msiApiVersion')).clientId]"
                   }
    `
+## <a name="key-vault-vm-extension-version"></a>Versão da extensão de VM Key Vault
+* Os usuários do Ubuntu-18, 4 e SUSE-15 podem optar por atualizar a versão da extensão de VM do cofre de chaves para o `V2.0` recurso de download completo da cadeia de certificados. Os certificados do emissor (intermediário e raiz) serão anexados ao certificado de folha no arquivo PEM.
+
+* Se preferir atualizar para o `v2.0` , você precisará excluir `v1.0` primeiro e depois instalar o `v2.0` .
+```
+  az vm extension delete --name KeyVaultForLinux --resource-group ${resourceGroup} --vm-name ${vmName}
+  az vm extension set -n "KeyVaultForLinux" --publisher Microsoft.Azure.KeyVault --resource-group "${resourceGroup}" --vm-name "${vmName}" –settings .\akvvm.json –version 2.0
+```  
+  O sinalizador--versão 2,0 é opcional porque a versão mais recente será instalada por padrão.   
+
+* Se a VM tiver certificados baixados por v 1.0, a exclusão da extensão AKVVM v 1.0 não excluirá os certificados baixados.  Depois de instalar o v 2.0, os certificados existentes não serão modificados.  Você precisará excluir os arquivos de certificado ou fazer o registro do certificado para obter o arquivo PEM com cadeia total na VM.
+
+
+
 
 ## <a name="extension-schema"></a>Esquema de extensão
 
@@ -72,7 +87,7 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
         "secretsManagementSettings": {
@@ -109,15 +124,15 @@ O JSON a seguir mostra o esquema para a extensão da VM de Key Vault. A extensã
 | apiVersion | 2019-07-01 | date |
 | publicador | Microsoft.Azure.KeyVault | string |
 | type | KeyVaultForLinux | string |
-| typeHandlerVersion | 1.0 | INT |
+| typeHandlerVersion | 2,0 | INT |
 | pollingIntervalInS | 3600 | string |
 | certificateStoreName | Ele é ignorado no Linux | string |
 | linkOnRenewal | false | booleano |
-| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | Cadeia de caracteres |
+| certificateStoreLocation  | /var/lib/waagent/Microsoft.Azure.KeyVault | string |
 | requireInitialSync | true | booleano |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate", "https://myvault.vault.azure.net/secrets/mycertificate2"] | Matriz de cadeia de caracteres
-| msiEndpoint | http://169.254.169.254/metadata/identity | Cadeia de caracteres |
-| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | Cadeia de caracteres |
+| msiEndpoint | http://169.254.169.254/metadata/identity | string |
+| msiClientId | c7373ae5-91c2-4165-8ab6-7381d6e75619 | string |
 
 
 ## <a name="template-deployment"></a>Implantação de modelo
@@ -142,7 +157,7 @@ A configuração JSON para uma extensão de máquina virtual deve ser aninhada d
       "properties": {
       "publisher": "Microsoft.Azure.KeyVault",
       "type": "KeyVaultForLinux",
-      "typeHandlerVersion": "1.0",
+      "typeHandlerVersion": "2.0",
       "autoUpgradeMinorVersion": true,
       "settings": {
           "secretsManagementSettings": {
@@ -189,7 +204,7 @@ O Azure PowerShell pode ser usado para implantar a extensão da VM do Diagnósti
        
     
         # Start the deployment
-        Set-AzVmExtension -TypeHandlerVersion "1.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
+        Set-AzVmExtension -TypeHandlerVersion "2.0" -ResourceGroupName <ResourceGroupName> -Location <Location> -VMName <VMName> -Name $extName -Publisher $extPublisher -Type $extType -SettingString $settings
     
     ```
 
@@ -209,7 +224,7 @@ O Azure PowerShell pode ser usado para implantar a extensão da VM do Diagnósti
         
         # Add Extension to VMSS
         $vmss = Get-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName>
-        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "1.0" -Setting $settings
+        Add-AzVmssExtension -VirtualMachineScaleSet $vmss  -Name $extName -Publisher $extPublisher -Type $extType -TypeHandlerVersion "2.0" -Setting $settings
 
         # Start the deployment
         Update-AzVmss -ResourceGroupName <ResourceGroupName> -VMScaleSetName <VmssName> -VirtualMachineScaleSet $vmss 
@@ -228,6 +243,7 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
          --publisher Microsoft.Azure.KeyVault `
          -g "<resourcegroup>" `
          --vm-name "<vmName>" `
+         --version 2.0 `
          --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 
@@ -239,6 +255,7 @@ A CLI do Azure pode ser usada para implantar a extensão da VM do Key Vault em u
         --publisher Microsoft.Azure.KeyVault `
         -g "<resourcegroup>" `
         --vmss-name "<vmssName>" `
+        --version 2.0 `
         --settings '{\"secretsManagementSettings\": { \"pollingIntervalInS\": \"<pollingInterval>\", \"certificateStoreName\": \"<certStoreName>\", \"certificateStoreLocation\": \"<certStoreLoc>\", \"observedCertificates\": [\" <observedCert1> \", \" <observedCert2> \"] }}'
     ```
 Por favor esteja ciente das seguintes restrições/exigências:

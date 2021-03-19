@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/16/2020
 ms.author: jhakulin
-ms.openlocfilehash: 42960c25c4124203b64646fdc5cbca833b246e21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+zone_pivot_groups: programming-languages-set-two
+ms.openlocfilehash: a6225fec30a87ca0bbe57e414733bc21489f87ad
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81683158"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577437"
 ---
 # <a name="configure-openssl-for-linux"></a>Configurar o OpenSSL para Linux
 
@@ -50,6 +51,97 @@ Defina a variável `SSL_CERT_FILE` de ambiente para apontar para esse arquivo an
 ```bash
 export SSL_CERT_FILE=/etc/pki/tls/certs/ca-bundle.crt
 ```
+
+## <a name="certificate-revocation-checks"></a>Verificações de revogação de certificado
+Ao se conectar ao serviço de fala, o SDK de fala verificará se o certificado TLS usado pelo serviço de fala não foi revogado. Para conduzir essa verificação, o SDK de fala precisará de acesso aos pontos de distribuição da CRL para autoridades de certificação usadas pelo Azure. Uma lista de possíveis locais de download de CRL pode ser encontrada neste [documento](https://docs.microsoft.com/azure/security/fundamentals/tls-certificate-changes). Se um certificado tiver sido revogado ou a CRL não puder ser baixada, o SDK de fala abortará a conexão e gerará o evento cancelado.
+
+No caso em que a rede na qual o SDK de fala está sendo usado está configurada de uma maneira que não permite acesso aos locais de download da CRL, a verificação da CRL pode ser desabilitada ou definida para não falhar se a CRL não puder ser recuperada. Essa configuração é feita por meio do objeto de configuração usado para criar um objeto de reconhecedor.
+
+Para continuar com a conexão quando uma CRL não puder ser recuperada, defina a propriedade OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE.
+
+::: zone pivot="programming-language-csharp"
+
+```csharp
+config.SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+config->SetProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "true")?
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```ObjectiveC
+[config setPropertyTo:@"true" byName:"OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE"];
+```
+
+::: zone-end
+Quando definido como "true", será feita uma tentativa de recuperar a CRL e, se a recuperação for bem-sucedida, o certificado será verificado quanto à revogação, se a recuperação falhar, a conexão terá permissão para continuar.
+
+Para desabilitar completamente as verificações de revogação de certificado, defina a propriedade OPENSSL_DISABLE_CRL_CHECK como "true".
+::: zone pivot="programming-language-csharp"
+
+```csharp
+config.SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-cpp"
+
+```C++
+config->SetProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-java"
+
+```java
+config.setProperty("OPENSSL_DISABLE_CRL_CHECK", "true");
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-python"
+
+```Python
+speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")?
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-more"
+
+```ObjectiveC
+[config setPropertyTo:@"true" byName:"OPENSSL_DISABLE_CRL_CHECK"];
+```
+
+::: zone-end
+
+
 > [!NOTE]
 > Também vale a pena observar que algumas distribuições do Linux não têm uma variável de ambiente TMP ou TMPDIR definida. Isso fará com que o SDK de fala Baixe a CRL (lista de certificados revogados) toda vez, em vez de armazenar em cache a CRL em disco para reutilização até que ela expire. Para melhorar o desempenho de conexão inicial, você pode [criar uma variável de ambiente chamada TMPDIR e defini-la como o caminho do diretório temporário escolhido.](https://help.ubuntu.com/community/EnvironmentVariables)
 

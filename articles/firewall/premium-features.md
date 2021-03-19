@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 22ee920c38a8cacaf37a1e3a6cfc5165dfa0bb44
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 4a8efff7ef53753e15a47e87a2bb82d0124ae997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419942"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590442"
 ---
 # <a name="azure-firewall-premium-preview-features"></a>Recursos de versão prévia do Firewall do Azure Premium
 
@@ -157,8 +157,7 @@ Certificados assinados de cliente não confiáveis|Os certificados assinados pel
 |Propagação de Certificado|Depois que um certificado de autoridade de certificação é aplicado no firewall, pode levar entre 5-10 minutos para que o certificado entre em vigor.|Correção agendada para GA.|
 |Bypass de IDPS|O bypass de IDPS não funciona para tráfego de protocolo TLS finalizado, e não há suporte para endereços IP de origem e grupos de IPS de origem.|Correção agendada para GA.|
 |Suporte a TLS 1,3|O TLS 1,3 tem suporte parcial. O túnel TLS do cliente para o firewall baseia-se no TLS 1,2 e o firewall para o servidor Web externo é baseado no TLS 1,3.|As atualizações estão sendo investigadas.|
-
-
+|Ponto de extremidade particular do keyvault|O keyvault dá suporte ao acesso de ponto de extremidade privado para limitar sua exposição à rede. Os serviços confiáveis do Azure podem ignorar essa limitação se uma exceção for configurada conforme descrito na [documentação do keyvault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). O Firewall do Azure não está listado atualmente como um serviço confiável e não pode acessar o Key Vault.|Correção agendada para GA.|
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 3fd3695490331a1f599db71bf5cafb25e957bf08
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0876dd00933203c943417d87978567cf555a3e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101710338"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598993"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Como usar o reconhecimento de entidade nomeada no Análise de Texto
 
@@ -35,7 +35,7 @@ O recurso PII faz parte do NER e pode identificar e redação entidades confiden
 
 ## <a name="named-entity-recognition-features-and-versions"></a>Recursos e versões de reconhecimento de entidade nomeada
 
-| Recurso                                                         | NER v 3.0 | NER v 3.1-Preview. 3 |
+| Recurso                                                         | NER v 3.0 | NER v 3.1-Preview. 4 |
 |-----------------------------------------------------------------|--------|----------|
 | Métodos para solicitações únicas e em lote                          | X      | X        |
 | Reconhecimento de entidade expandido em várias categorias           | X      | X        |
@@ -47,8 +47,8 @@ Consulte [suporte a idiomas](../language-support.md) para obter informações.
 
 O reconhecimento de entidade nomeada v3 fornece detecção expandida entre vários tipos. Atualmente, o NER v 3.0 pode reconhecer entidades na [categoria de entidade geral](../named-entity-types.md).
 
-Reconhecimento de entidade nomeada v 3.1-Preview. 3 inclui os recursos de detecção do v 3.0 e: 
-* A capacidade de detectar informações pessoais ( `PII` ) usando o `v3.1-preview.3/entities/recognition/pii` ponto de extremidade. 
+Reconhecimento de entidade nomeada v 3.1-Preview. 4 inclui os recursos de detecção do v 3.0 e: 
+* A capacidade de detectar informações pessoais ( `PII` ) usando o `v3.1-preview.4/entities/recognition/pii` ponto de extremidade. 
 * Um `domain=phi` parâmetro opcional para detectar informações de integridade confidencial ( `PHI` ).
 * [Operação assíncrona](text-analytics-how-to-call-api.md) usando o `/analyze` ponto de extremidade.
 
@@ -72,36 +72,40 @@ Crie uma solicitação POST. Você pode [usar o postmaster](text-analytics-how-t
 
 ### <a name="request-endpoints"></a>Pontos de extremidade de solicitação
 
-#### <a name="version-31-preview3"></a>[Versão 3.1-preview.3](#tab/version-3-preview)
+#### <a name="version-31-preview"></a>[Versão 3.1 – versão prévia](#tab/version-3-preview)
 
-O reconhecimento de entidade nomeada `v3.1-preview.3` usa pontos de extremidade separados para Ner, PII e solicitações de vinculação de entidade. Use um formato de URL abaixo com base em sua solicitação.
+O reconhecimento de entidade nomeada `v3.1-preview.4` usa pontos de extremidade separados para Ner, PII e solicitações de vinculação de entidade. Use um formato de URL abaixo com base em sua solicitação.
 
 **Vinculação de entidade**
-* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/linking`
+* `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/linking`
 
-[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesLinking)
+[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `Linking`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesLinking)
 
 **Reconhecimento de entidade nomeada**
-* Entidades gerais- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/general`
+* Entidades gerais- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/general`
 
-[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionGeneral)
+[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionGeneral)
 
 **PII (Informações de Identificação Pessoal)**
-* Informações pessoais ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii`
+* Informações pessoais ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii`
 
 Você também pode usar o `domain=phi` parâmetro opcional para detectar `PHI` informações de integridade () em texto. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/entities/recognition/pii?domain=phi`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?domain=phi`
 
-A partir do `v3.1-preview.3` , a resposta JSON inclui uma `redactedText` propriedade, que contém o texto de entrada modificado em que as entidades PII detectadas são substituídas por um `*` para cada caractere nas entidades.
+A partir do `v3.1-preview.4` , a resposta JSON inclui uma `redactedText` propriedade, que contém o texto de entrada modificado em que as entidades PII detectadas são substituídas por um `*` para cada caractere nas entidades.
 
-[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-3/operations/EntitiesRecognitionPii)
+[Versão de reconhecimento de entidade nomeada 3,1-referência de visualização para `PII`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-4/operations/EntitiesRecognitionPii)
+
+A API tentará detectar as [categorias de entidade listadas](../named-entity-types.md?tabs=personal) para uma determinada linguagem de documento. Se você quiser especificar quais entidades serão detectadas e retornadas, use o parâmetro PII-Categories opcional com as categorias de entidade apropriadas. Esse parâmetro também pode permitir que você detecte entidades que não estão habilitadas por padrão para o idioma do documento. Por exemplo, um número de licença de um driver em francês que pode ocorrer em texto em inglês.
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/entities/recognition/pii?piiCategories=[FRDriversLicenseNumber]`
 
 **Operação assíncrona**
 
-A partir do `v3.1-preview.3` , você pode enviar solicitações Ner de forma assíncrona usando o `/analyze` ponto de extremidade.
+A partir do `v3.1-preview.4` , você pode enviar solicitações de vinculação de Ner e de entidade de forma assíncrona usando o `/analyze` ponto de extremidade.
 
-* Operação assíncrona- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.3/analyze`
+* Operação assíncrona- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.4/analyze`
 
 Consulte [como chamar o API de análise de texto](text-analytics-how-to-call-api.md) para obter informações sobre como enviar solicitações assíncronas.
 

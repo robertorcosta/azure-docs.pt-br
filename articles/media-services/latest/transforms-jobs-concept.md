@@ -3,7 +3,7 @@
 Título: transformações e trabalhos nos serviços de mídia: descrição dos serviços de mídia do Azure: saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 08/19/2019 MS. Author: inhenkel
+MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 03/17/2021 MS. Author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e trabalhos nos serviços de mídia
@@ -77,7 +77,7 @@ Use o [ativo como entrada de trabalho](job-input-from-local-file-how-to.md) se o
 
 ### <a name="checking-job-progress"></a>Verificando o andamento do trabalho
 
-O progresso e o estado de trabalhos podem ser obtidos pelo monitoramento de eventos com a Grade de Eventos do Azure. Para obter mais informações, consulte [Monitorar eventos usando EventGrid](job-state-events-cli-how-to.md).
+O progresso e o estado de trabalhos podem ser obtidos pelo monitoramento de eventos com a Grade de Eventos do Azure. Para obter mais informações, consulte [Monitorar eventos usando EventGrid](monitoring/job-state-events-cli-how-to.md).
 
 ### <a name="updating-jobs"></a>Atualizando trabalhos
 

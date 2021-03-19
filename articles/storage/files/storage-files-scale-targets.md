@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: aa24989103cca5bb7031a21ca106b93ada0c3904
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 0ecfbb9053fde4ff332cbbcb6e14a84a5bbeb99a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149453"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593145"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Arquivos do Azure
 Os [arquivos do Azure](storage-files-introduction.md) oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem que são acessíveis por meio dos protocolos de sistema de arquivos SMB e NFS. Este artigo discute as metas de escalabilidade e desempenho dos arquivos do Azure e do Azure File Sync.
@@ -134,7 +134,7 @@ A taxa de desempenho é de 20 objetos por segundo. Os clientes podem estimar o t
 
 **Sincronização inicial de dados do Windows Server para o compartilhamento de arquivos do Azure**: muitas implantações sincronização de arquivos do Azure começam com um compartilhamento de arquivos do Azure vazio porque todos os dados estão no Windows Server. Nesses casos, a enumeração inicial de alteração de nuvem é rápida e a maior parte do tempo será gasta na sincronização de alterações do Windows Server para os compartilhamentos de arquivos do Azure. 
 
-Embora a sincronização carregue dados no compartilhamento de arquivos do Azure, não há nenhum tempo de inatividade no servidor de arquivos local, e os administradores podem [configurar limites de rede](https://docs.microsoft.com/azure/storage/files/storage-sync-files-server-registration#set-azure-file-sync-network-limits) para restringir a quantidade de largura de banda usada para carregamento de dados em segundo plano.
+Embora a sincronização carregue dados no compartilhamento de arquivos do Azure, não há nenhum tempo de inatividade no servidor de arquivos local, e os administradores podem [configurar limites de rede](./storage-sync-files-server-registration.md#set-azure-file-sync-network-limits) para restringir a quantidade de largura de banda usada para carregamento de dados em segundo plano.
 
 A sincronização inicial normalmente é limitada pela taxa de carregamento inicial de 20 arquivos por segundo por grupo de sincronização. Os clientes podem estimar o tempo para carregar todos os seus dados no Azure usando a fórmula a seguir para obter tempo em dias:  
 

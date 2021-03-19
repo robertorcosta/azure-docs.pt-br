@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 7/22/2020
 ms.author: mimckitt
 ms.custom: sttsinar
-ms.openlocfilehash: 98d35821c884ba25a109f929556087ff6ecba0ca
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 2fa362a56eb1246381fcc944e82ea85d31ff3d39
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102551007"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599894"
 ---
 # <a name="azure-virtual-machine-sizes-naming-conventions"></a>Convenções de nomenclatura de tamanhos de máquina virtual do Azure
 
@@ -28,7 +28,7 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 | Família | Indica a série da família de VMs| 
 | * Sub-família | Usado somente para diferenciações de VM especializadas|
 | n º de vCPUs| Denota o número de vCPUs da VM |
-| * VCPUs restrita| Usado somente para determinados tamanhos de VM. Denota o número de vCPUs para o [tamanho compatível com vCPU restrito](https://docs.microsoft.com/azure/virtual-machines/constrained-vcpu) |
+| * VCPUs restrita| Usado somente para determinados tamanhos de VM. Denota o número de vCPUs para o [tamanho compatível com vCPU restrito](./constrained-vcpu.md) |
 | Recursos aditivos | Uma ou mais letras minúsculas denotam recursos aditivos, como: <br> a = processador baseado em AMD <br> d = disco (o disco temporário local está presente); Isso é para VMs do Azure mais novas, consulte [Ddv4 e Ddsv4-Series](./ddv4-ddsv4-series.md) <br> h = capacidade de hibernação <br> i = tamanho isolado <br> l = memória insuficiente; uma quantidade menor de memória do que o tamanho intensivo de memória <br> m = uso intensivo de memória; a maior quantidade de memória em um determinado tamanho <br> t = memória mínima; a menor quantidade de memória em um determinado tamanho <br> r = compatível com RDMA <br> s = capacidade de armazenamento Premium, incluindo o uso possível de [SSD ultra](./disks-types.md#ultra-disk) (Observação: alguns tamanhos mais recentes Sem o atributo de s ainda podem dar suporte ao armazenamento Premium, por exemplo, m128, m64, etc.)<br> |
 | * Tipo de acelerador | Denota o tipo de acelerador de hardware nas SKUs especializadas/GPU. Somente os novos SKUs especializados/GPU iniciados do T3 2020 terão o acelerador de hardware no nome. |
 | Versão | Denota a versão da série da família de VMs |
@@ -79,4 +79,4 @@ Esta página descreve as convenções de nomenclatura usadas para VMs do Azure. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Saiba mais sobre os [tamanhos de VM](./sizes.md) disponíveis no Azure. 
+Saiba mais sobre os [tamanhos de VM](./sizes.md) disponíveis no Azure.

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/16/2020
 ms.author: sefriend
 manager: clarkn
-ms.openlocfilehash: 325502255e84e38a39ca5b90ee4126354c0d425b
-ms.sourcegitcommit: fc401c220eaa40f6b3c8344db84b801aa9ff7185
+ms.openlocfilehash: ecc4a5a17186eddd4223715462b14399bdf702df
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98601231"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601883"
 ---
 # <a name="get-started-with-the-windows-virtual-desktop-agent"></a>Introdução ao agente de área de trabalho virtual do Windows
 
@@ -32,7 +32,10 @@ Inicialmente, o agente de área de trabalho virtual do Windows é instalado de d
 
 ## <a name="agent-update-process"></a>Processo de atualização do agente
 
-O serviço de área de trabalho virtual do Windows atualiza automaticamente o agente sempre que uma atualização é disponibilizada. As atualizações de agente podem incluir nova funcionalidade ou corrigir problemas anteriores. Depois que a versão inicial do agente de área de trabalho virtual do Windows é instalada, o agente consulta regularmente o serviço de área de trabalho virtual do Windows para determinar se há uma versão mais recente do agente e de seus componentes disponíveis. Se houver uma nova versão, o carregador de borda do agente baixará automaticamente a versão mais recente do agente, a pilha lado a lado e o agente de monitoramento Geneva.
+O serviço de área de trabalho virtual do Windows atualiza o agente sempre que uma atualização é disponibilizada. As atualizações de agente podem incluir novas funcionalidades ou correções para problemas anteriores. Depois que a versão inicial do agente de área de trabalho virtual do Windows estiver instalada, o agente consultará regularmente o serviço de área de trabalho virtual do Windows para determinar se há uma versão mais recente do agente, pilha ou componente de monitoramento disponível. Se uma versão mais recente de qualquer um dos componentes já tiver sido implantada, o componente atualizado será instalado automaticamente.
+
+As novas versões do agente são implantadas em intervalos regulares em períodos de weeklong para todas as assinaturas do Azure. Esses períodos de atualização são chamados de "vôos". Quando ocorre um vôo, você pode ver que as VMs em seu pool de hosts recebem a atualização do agente em momentos diferentes. Todos os agentes de VM em todas as assinaturas serão atualizados no final do período de implantação. O sistema de comprovação de área de trabalho virtual do Windows aprimora a confiabilidade do serviço, garantindo a estabilidade e a qualidade da atualização do agente.
+
 
 >[!NOTE]
 >- Quando o agente de monitoramento Geneva atualiza para a versão mais recente, a tarefa antiga do GenevaTask está localizada e desabilitada antes de criar uma nova tarefa para o novo agente de monitoramento. A versão anterior do agente de monitoramento não é excluída caso a versão mais recente do agente de monitoramento tenha um problema que exija a reversão para a versão anterior para correção. Se a versão mais recente tiver um problema, o agente de monitoramento antigo será habilitado novamente para continuar a fornecer dados de monitoramento. Todas as versões do monitor anteriores ao último que você instalou antes da atualização serão excluídas da VM.

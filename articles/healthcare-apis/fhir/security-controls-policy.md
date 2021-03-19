@@ -1,19 +1,19 @@
 ---
 title: Azure Policy controles de conformidade regulatória para a API do Azure para FHIR
 description: Lista Azure Policy controles de conformidade regulatória disponíveis para a API do Azure para FHIR. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: matjazl
 ms.author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 424a1639e49cc3b1f63b3001b6db35882f3a6227
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 7042457d8d18d55eda48cc0742d9f0cfaaa4f6ad
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017550"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597005"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-api-for-fhir"></a>Azure Policy controles de conformidade regulatória para a API do Azure para FHIR
 

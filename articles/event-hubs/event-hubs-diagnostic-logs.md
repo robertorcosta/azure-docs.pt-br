@@ -3,12 +3,12 @@ title: Configurar logs de diagnóstico – Hub de Eventos do Azure | Microsoft D
 description: Saiba como configurar logs de atividade e de diagnóstico para Hubs de Eventos no Azure.
 ms.topic: article
 ms.date: 02/25/2021
-ms.openlocfilehash: 538ff86f1ef4c06bb5400af3fbd2394134aa17f3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 5067a2962693ee1c1955aa90e61b43358495585a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742527"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602597"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurar logs de diagnóstico para um hub de eventos do Azure
 
@@ -131,7 +131,7 @@ O nome do evento é preenchido como tipo de operação + tipo de recurso das enu
 
 | Tipo de operação | Tipo de recurso | 
 | -------------- | ------------- | 
-| <ul><li>Criar</li><li>Atualizar</li><li>Excluir</li><li>Recuperar</li><li>Unknown</li></ul> | <ul><li>Namespace</li><li>Fila</li><li>Tópico</li><li>Subscription</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regra</li>ConsumerGroup</li> |
+| <ul><li>Criar</li><li>Atualizar</li><li>Excluir</li><li>Recuperar</li><li>Desconhecido</li></ul> | <ul><li>Namespace</li><li>Fila</li><li>Tópico</li><li>Assinatura</li><li>EventHub</li><li>EventHubSubscription</li><li>NotificationHub</li><li>NotificationHubTier</li><li>SharedAccessPolicy</li><li>UsageCredit</li><li>NamespacePnsCredentials</li>Regra</li>ConsumerGroup</li> |
 
 ## <a name="autoscale-logs-schema"></a>Esquema dos logs de dimensionamento automático
 O JSON do log de dimensionamento automático incluem os elementos listados na seguinte tabela:
@@ -247,4 +247,4 @@ O JSON do log de usuário gerenciada pelo cliente inclui os elementos listados n
     - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
     - [Java](event-hubs-java-get-started-send.md)
     - [Python](event-hubs-python-get-started-send.md)
-    - [JavaScript](event-hubs-java-get-started-send.md)
+    - [JavaScript](event-hubs-node-get-started-send.md)
