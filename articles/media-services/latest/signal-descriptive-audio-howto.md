@@ -12,12 +12,12 @@ ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 5174cb584f2e8df236725f7427b423fda1a02c88
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 01854e7636f53ec1faab157b51cc84f3539582b4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630853"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596715"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Sinalizar faixas de áudio descritivas
 
@@ -80,7 +80,7 @@ Este trabalho levará algum tempo para concluir e quando você desejar ser notif
 
 O trabalho geralmente passa pelos seguintes Estados: **agendado**, em **fila**, **processamento**, **concluído** (o estado final). Se o trabalho encontrou um erro, você receberá o estado do **Erro**. Se o trabalho está no processo de ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 
-Para obter mais informações, consulte [lidando com eventos de grade de eventos](reacting-to-media-services-events.md).
+Para obter mais informações, consulte [lidando com eventos de grade de eventos](monitoring/reacting-to-media-services-events.md).
 
 ## <a name="upload-the-audio-only-mp4-file"></a>Carregar o arquivo MP4 somente de áudio
 

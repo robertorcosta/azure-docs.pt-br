@@ -1,22 +1,22 @@
 ---
 title: 'ExpressRoute: como configurar alertas personalizados para rotas anunciadas'
-description: Este artigo mostra como usar a automação do Azure e os aplicativos lógicos para monitorar o número de rotas anunciadas do gateway de ExpressRoute para redes locais a fim de evitar atingir o limite de rotas de 200.
+description: Este artigo mostra como usar a automação do Azure e os aplicativos lógicos para monitorar o número de rotas anunciadas do gateway de ExpressRoute para redes locais a fim de evitar atingir o limite de rotas de 1000.
 services: expressroute
 author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: fed7663e2342a708aee70b9a54e6e0a6b6f97e8c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 2291d1fa7f890296c59661060f5a823d8eb194ba
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504394"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654383"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurar alertas personalizados para monitorar rotas anunciadas
 
-Este artigo ajuda você a usar a automação do Azure e os aplicativos lógicos para monitorar constantemente o número de rotas anunciadas do gateway de ExpressRoute para redes locais. O monitoramento pode ajudar a evitar atingir o [limite de rotas de 200](expressroute-faqs.md#how-many-prefixes-can-be-advertised-from-a-vnet-to-on-premises-on-expressroute-private-peering).
+Este artigo ajuda você a usar a automação do Azure e os aplicativos lógicos para monitorar constantemente o número de rotas anunciadas do gateway de ExpressRoute para redes locais. O monitoramento pode ajudar a evitar o pressionamento do limite de rotas 1000] (expressroute-FAQs. MD # como-muitos-prefixos-can-out-from-a-vnet-to-on-local-on-expressroute-Private-emparelhamento).
 
 A **automação do Azure** permite automatizar a execução do script personalizado do PowerShell armazenado em um *runbook*. Ao usar a configuração neste artigo, o runbook contém um script do PowerShell que consulta um ou mais gateways do ExpressRoute. Ele coleta um conjunto de um DataSet que contém o grupo de recursos, o nome do gateway do ExpressRoute e o número de prefixos de rede anunciados no local.
 
@@ -48,7 +48,7 @@ Verifique se você atende aos seguintes critérios antes de iniciar a configura�
 
 * O alerta personalizado discutido neste artigo é um complemento para alcançar uma operação e um controle melhores. Não é uma substituição para os alertas nativos no ExpressRoute.
 * A coleta de dados para gateways de ExpressRoute é executada em segundo plano. O tempo de execução pode ser mais longo do que o esperado. Para evitar o enfileiramento de trabalhos, a recorrência do fluxo de trabalho deve ser configurada corretamente.
-* Implantações por scripts ou modelos de ARM podem ocorrer mais rápido do que o gatilho de alarme personalizado. Isso pode resultar em um aumento no número de prefixos de rede no gateway de ExpressRoute acima do limite de 200 rotas.
+* Implantações por scripts ou modelos de ARM podem ocorrer mais rápido do que o gatilho de alarme personalizado. Isso pode resultar em um aumento no número de prefixos de rede no gateway de ExpressRoute acima do limite de 1000 rotas.
 
 ## <a name="create-and-configure-accounts"></a><a name="accounts"></a>Criar e configurar contas
 
@@ -409,7 +409,7 @@ Depois que o JSON é analisado, a ação **analisar operações de dados JSON** 
 
    :::image type="content" source="./media/custom-route-alert-portal/peer-2.png" alt-text="numRoutesPeer2":::
 
-9. A condição lógica é verdadeira quando uma das duas variáveis dinâmicas, numRoute1 ou numRoute2, é maior que o limite. Neste exemplo, o limite é fixo para 160 (80% do valor máximo de rotas 200). Você pode alterar o valor do limite para atender às suas necessidades. Para consistência, o valor deve ser o mesmo valor usado no script do PowerShell do runbook.
+9. A condição lógica é verdadeira quando uma das duas variáveis dinâmicas, numRoute1 ou numRoute2, é maior que o limite. Neste exemplo, o limite é fixo para 800 (80% do valor máximo de rotas 1000). Você pode alterar o valor do limite para atender às suas necessidades. Para consistência, o valor deve ser o mesmo valor usado no script do PowerShell do runbook.
 
    :::image type="content" source="./media/custom-route-alert-portal/logic-condition.png" alt-text="Condição lógica":::
 
