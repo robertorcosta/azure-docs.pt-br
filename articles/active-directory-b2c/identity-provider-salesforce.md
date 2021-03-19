@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: d445a4e1d0fd39788c18f80b25ce02a7c5d0a243
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: f87ef03a3af110ec17b7d907d4c2eac1bc1ca58b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488679"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579919"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-salesforce-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e a entrada com uma conta do Salesforce usando Azure Active Directory B2C
 
@@ -54,7 +54,7 @@ Para habilitar a entrada para usuários com uma conta do Salesforce no Azure Act
 1. Selecione **Configurar token de ID** 
     1. Defina o **token válido por** 5 minutos.
     1. Selecione **incluir declarações padrão**.
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 1. Copie os valores da **chave do consumidor** e do **segredo do consumidor**. Você precisará de ambos para configurar o Salesforce como um provedor de identidade em seu locatário. **Segredo do cliente** é uma credencial de segurança importante.
 
 ::: zone pivot="b2c-user-flow"
@@ -87,6 +87,8 @@ Para habilitar a entrada para usuários com uma conta do Salesforce no Azure Act
 1. Selecione **Salvar**.
 
 ## <a name="add-salesforce-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do Salesforce a um fluxo de usuário 
+
+Neste ponto, o provedor de identidade do Salesforce foi configurado, mas ainda não está disponível em nenhuma das páginas de entrada. Para adicionar o provedor de identidade do Salesforce a um fluxo de usuário:
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do Salesforce.

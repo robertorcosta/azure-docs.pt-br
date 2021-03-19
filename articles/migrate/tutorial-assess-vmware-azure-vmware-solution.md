@@ -7,12 +7,12 @@ ms.manager: abhemraj
 ms.topic: tutorial
 ms.date: 09/14/2020
 ms.custom: MVC
-ms.openlocfilehash: e57084dab00210802edbd46e3380313e034eb036
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.openlocfilehash: c1c56edacbc777b5e8b53da588bc763201379964
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
-ms.locfileid: "98566772"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101718789"
 ---
 # <a name="tutorial-assess-vmware-vms-for-migration-to-avs"></a>Tutorial: Avaliar VMs do VMware para migração para a AVS
 
@@ -50,6 +50,9 @@ Decida se deseja executar uma avaliação usando critérios de dimensionamento c
 **No estado em que se encontra localmente** | Avaliar com base nos dados/metadados de configuração do computador.  | O tamanho do nó recomendado na AVS é baseado no tamanho da VM local, junto com as configurações que você especifica na avaliação para o tipo de nó, tipo de armazenamento e configuração de tolerância a falhas.
 **Com base no desempenho** | Avaliar com base nos dados de desempenho dinâmicos coletados. | O tamanho do nó recomendado na AVS é baseado nos dados de utilização da CPU e da memória, junto com as configurações que você especifica na avaliação para o tipo de nó, tipo de armazenamento e configuração de tolerância a falhas.
 
+> [!NOTE]
+> A avaliação da AVS (Solução VMware no Azure) pode ser criada apenas para VMs do VMware.
+
 ## <a name="run-an-assessment"></a>Ler uma avaliação
 
 Execute uma avaliação da seguinte maneira:
@@ -60,7 +63,7 @@ Execute uma avaliação da seguinte maneira:
 
 1. Em **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
 
-1. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **AVS (Solução VMware do Azure) (versão prévia)** .
+1. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **AVS (Solução VMware no Azure)** .
 
 1. Em **Origem da descoberta**:
 
@@ -76,14 +79,14 @@ Execute uma avaliação da seguinte maneira:
 
     - Em **Local de destino**, especifique a região do Azure para a qual você deseja migrar.
        - As recomendações de tamanho e custo são baseadas na localização especificada.
-       - Atualmente, você pode fazer a avaliação para quatro regiões (Leste da Austrália, Leste dos EUA, Oeste da Europa e Oeste dos EUA)
    - O **Tipo de armazenamento** usa **vSAN** como padrão. Esse é o tipo de armazenamento padrão para uma nuvem privada da AVS.
    - No momento, não há suporte para **Instâncias Reservadas** em nós da AVS.
 1. Em **Tamanho da VM**:
     - O **Tipo de nó** usa **AV36** como padrão. As Migrações para Azure recomendam o uso de nós necessários para migrar as VMs para a AVS.
     - Em **Configuração FTT, nível de RAID**, selecione a combinação RAID e Tolerância a Falhas.  A opção FTT selecionada, combinada com o requisito de disco de VM local, determina o total de armazenamento vSAN necessário na AVS.
     - Em **Excesso de Assinatura de CPU**, especifique a proporção de núcleos virtuais associados a um núcleo físico no nó da AVS. Um Excesso de Assinatura maior que 4:1 pode causar degradação do desempenho, mas pode ser usado para cargas de trabalho do tipo servidor Web.
-
+    - Em **Fator de memória para confirmação**, especifique a proporção de memória para confirmações no cluster. Um valor de 1 representa 100% de uso da memória; um valor de 0,5 representa 50% e um valor de 2 usaria 200% da memória disponível. Você só pode adicionar valores de 0,5 a 10, com até uma casa decimal.
+    - Em **Fator de eliminação de duplicação e compactação**, especifique o fator de eliminação de duplicação e compactação previstas para suas cargas de trabalho. O valor real pode ser obtido da configuração de armazenamento ou da vSAN local e pode variar por carga de trabalho. Um valor de 3 significaria 3x para, de modo que para um disco de 300 GB, somente 100 GB de armazenamento seriam usados. Um valor de 1 significaria que não há eliminação de duplicação ou compactação. Você só pode adicionar valores de 1 a 10, com até uma casa decimal.
 1. Em **Tamanho do Nó**: 
     - Em **Critério de Dimensionamento**, selecione se você deseja basear a avaliação em metadados estáticos ou em dados baseados em desempenho. Se você optar por usar dados de desempenho:
         - Em **Histórico de desempenho**, indique a duração dos dados em que você deseja basear a avaliação
@@ -127,7 +130,6 @@ Uma avaliação da AVS descreve:
 - Número de nós na AVS: número estimado de nós da AVS necessários para executar as VMs.
 - Utilização em nós da AVS: utilização de CPU, memória e armazenamento projetada em todos os nós.
     - A utilização inclui a fatoração inicial nas sobrecargas de gerenciamento de cluster a seguir, como o vCenter Server, o NSX Manager (tamanho grande), o NSX Edge, o HCX Manager (se o HCX for implantado também) e o dispositivo IX consumindo cerca de 44 vCPUs (11 CPUs), 75 GB de RAM e 722 GB de armazenamento antes da compactação e da eliminação de duplicação. 
-    - A memória, a eliminação de duplicados e a compactação estão atualmente definidas como 100% de utilização para memória e 1,5 de eliminação de duplicados e compactação, que será uma entrada definida pelo usuário nas versões futuras, permitindo que o usuário ajuste o dimensionamento necessário.
 - Estimativa de custo mensal: os custos mensais estimados para todos os nós da AVS (Solução VMware do Azure) que executam as VMs locais.
 
 ## <a name="view-an-assessment"></a>Exibir uma avaliação
@@ -155,7 +157,7 @@ Para exibir uma avaliação:
 
 3. Examine a ferramenta sugerida.
 
-    - VMware HCX ou Enterprise: Para computadores VMware, a ferramenta de migração sugerida para migrar sua carga de trabalho local para a nuvem privada da AVS (Solução VMware do Azure) é a solução de HCX (Extensão de Nuvem Híbrida) do VMware. Saiba mais.
+    - VMware HCX ou Enterprise: para computadores VMware, a ferramenta de migração sugerida para migrar sua carga de trabalho local para a nuvem privada da AVS (Solução VMware no Azure) é a solução de HCX (Extensão de Nuvem Híbrida) do VMware. Saiba mais.
     - Desconhecido: Para computadores importados por meio de um arquivo CSV, a ferramenta de migração padrão é desconhecida. No entanto, para computadores VMware, sugerimos usar a solução de HCX do VMware.
 4. Clique em um status de preparação para a AVS. Você pode exibir os detalhes de preparação da VM e fazer uma busca detalhada para ver os detalhes da VM, incluindo as configurações de computação, armazenamento e rede.
 
@@ -167,7 +169,7 @@ O resumo da avaliação mostra o custo estimado de computação e armazenamento 
 
     - As estimativas de custo são baseadas no número de nós da AVS necessários, considerando os requisitos de recursos de todas as VMs no total.
     - Como o preço da AVS é calculado por nó, o custo total não tem custo de computação e distribuição de custo de armazenamento.
-    - A estimativa de custo refere-se à execução das VMs locais na AVS. A Avaliação de Servidor das Migrações para Azure não considera os custos de PaaS ou SaaS.
+    - A estimativa de custo refere-se à execução das VMs locais na AVS. A avaliação da AVS não considera os custos de PaaS ou SaaS.
 
 2. Examinar as estimativas de armazenamento mensal. Essa exibição mostra os custos agregados de armazenamento para o grupo avaliado, divididos em diferentes tipos de discos de armazenamento. 
 3. Você pode fazer drill down para ver os detalhes de custo de VMs específicas.

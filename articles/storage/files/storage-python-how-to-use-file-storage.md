@@ -9,10 +9,10 @@ ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-python
 ms.openlocfilehash: 8bef69037fad8bf8ee9537e90f26ca967560b9d2
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91876090"
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
@@ -103,7 +103,7 @@ file_service = FileService(account_name='myaccount', account_key='mykey')
 
 ---
 
-## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivos do Azure
+## <a name="create-an-azure-file-share"></a>Criar um compartilhamento de arquivo do Azure
 
 # <a name="python-v12"></a>[Python V12](#tab/python)
 
@@ -133,7 +133,7 @@ O método a seguir cria um diretório na raiz do compartilhamento de arquivos es
 
 # <a name="python-v2"></a>[Python v2](#tab/python2)
 
-O código abaixo irá criar um subdiretório chamado * sampledir * sob o diretório raiz.
+O código abaixo irá criar um subdiretório chamado *sampledir* sob o diretório raiz.
 
 ```python
 file_service.create_directory('myshare', 'sampledir')

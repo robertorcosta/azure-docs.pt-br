@@ -4,15 +4,15 @@ description: Saiba como provisionar o runtime de integração do Azure SSIS no A
 ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
-ms.date: 10/13/2020
+ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
-ms.openlocfilehash: e0b84bb65e71b023121a5deae8295ddaf8879311
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 7c439d71806d2deba508ce35131f21ebfbd7a3ec
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100391347"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740402"
 ---
 # <a name="provision-the-azure-ssis-integration-runtime-in-azure-data-factory"></a>Provisionar o Azure-SSIS Integration Runtime no Azure Data Factory
 
@@ -149,6 +149,12 @@ Se marcar a caixa de seleção, conclua as etapas a seguir para trazer seu próp
    1. Para **Nome de Usuário do Administrador**, insira o nome de usuário de autenticação do SQL para o servidor de banco de dados para hospedar o SSISDB. 
 
    1. Para **Senha do Administrador**, insira a senha de autenticação do SQL para o servidor de banco de dados para hospedar o SSISDB. 
+
+   1. Marque a caixa de seleção **Usar par do Azure-SSIS Integration Runtime de espera duplo com failover de SSISDB** para configurar um par do Azure SSIS IR de espera duplo que funcione em sincronia com o grupo de failover do Banco de Dados SQL do Azure/Instância Gerenciada para BCDR (continuidade dos negócios e recuperação de desastres).
+   
+      Se você marcar a caixa de seleção, insira um nome para identificar seu par de Azure-SSIS IRs primário e secundário na caixa de texto **Nome de par de espera dupla**. Você precisa inserir o mesmo nome de par ao criar os Azure-SSIS IRs primário e secundário.
+
+      Para obter mais informações, confira [Configurar seu Azure-SSIS IR para BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Para **Camada de Serviço de Banco de Dados de Catálogo**, selecione a camada de serviço para o seu servidor de banco de dados na qual hospedar o SSISDB. Selecione a camada Básica, Standard ou Premium ou selecione um nome de pool elástico.
 

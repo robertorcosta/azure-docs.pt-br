@@ -4,12 +4,12 @@ description: Fornece uma visão geral do serviço de Backup do Azure e como impl
 ms.topic: overview
 ms.date: 04/24/2019
 ms.custom: mvc
-ms.openlocfilehash: 6a30e31dd1462e427faf64966a38c94f9fa56df6
-ms.sourcegitcommit: a0c1d0d0906585f5fdb2aaabe6f202acf2e22cfc
+ms.openlocfilehash: 2879d104d534733651ba76ab5521541adad0a51c
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/21/2021
-ms.locfileid: "98624465"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101725349"
 ---
 # <a name="what-is-the-azure-backup-service"></a>O que é o serviço de Backup do Azure?
 
@@ -26,6 +26,7 @@ O serviço de Backup do Azure fornece soluções simples, seguras e econômicas 
 - **SQL Server em VMs do Azure** -  [Faça backup de bancos de dados do SQL Server em execução nas VMs do Azure](backup-azure-sql-database.md)
 - **Bancos de dados do SAP HANA em VMs do Azure** - [Faça backup de bancos de dados do SAP HANA em execução nas VMs do Azure](backup-azure-sap-hana-database.md)
 - **Servidores do Banco de Dados do Azure para PostgreSQL (versão prévia)**  -  [Faça backup dos bancos de dados PostgreSQL do Azure e mantenha os backups por até 10 anos](backup-azure-database-postgresql.md)
+- **Blobs do Azure (versão prévia)**  - [Visão geral do backup operacional para Blobs do Azure (na versão prévia)](blob-backup-overview.md)
 
 ![Visão geral do Backup do Azure](./media/backup-overview/azure-backup-overview.png)
 

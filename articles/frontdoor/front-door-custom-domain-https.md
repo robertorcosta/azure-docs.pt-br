@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368308"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740776"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
 
@@ -59,11 +59,11 @@ Quando você usa um certificado gerenciado pelo Azure Front Door, o recurso HTTP
 
 Para habilitar HTTPS em um domínio personalizado, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil do **Front Door** .
+1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil do **Front Door**.
 
 2. Na lista de hosts de front-end, selecione o domínio personalizado para o qual deseja habilitar o HTTPS, contendo seu domínio personalizado.
 
-3. Na seção **HTTPS do domínio personalizado** , clique em **Habilitado** e selecione **gerenciado por Front Door** como a origem do certificado.
+3. Na seção **HTTPS do domínio personalizado**, clique em **Habilitado** e selecione **gerenciado por Front Door** como a origem do certificado.
 
 4. Clique em Salvar.
 
@@ -84,7 +84,7 @@ Você pode usar seu próprio certificado para habilitar o recurs HTTPS. Esse pro
 > [!WARNING]
 > No momento, o Azure Front Door oferece suporte apenas a contas do Key Vault na mesma assinatura que a configuração do Front Door. Se você escolher um Key Vault com uma assinatura diferente do Front Door, ocorrerá uma falha.
 
-2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra. Faça upload do certificado como um objeto **certificate** , em vez de um **secret** .
+2. Certificados do Azure Key Vault: se já tiver um certificado, poderá carregá-lo diretamente na sua conta do Azure Key Vault ou criar um certificado diretamente pelo Azure Key Vault por meio de uma das CAs de parceiros às quais o Azure Key Vault se integra. Faça upload do certificado como um objeto **certificate**, em vez de um **secret**.
 
 > [!NOTE]
 > Para seu certificado TLS/SSL, o Front Door não é compatível com certificados com algoritmos de criptografia de curva elíptica.
@@ -108,13 +108,13 @@ Conceda permissão ao Azure Front Door para acessar os certificados na sua conta
 
 1. Em sua conta do Key Vault, em CONFIGURAÇÕES, selecione **Políticas de acesso** e depois **Adicionar novo** para criar uma nova política.
 
-2. Em **Selecionar entidade de segurança** , pesquise por **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e escolha **Microsoft.Azure.Frontdoor** . Clique em **Selecionar** .
+2. Em **Selecionar entidade de segurança**, pesquise por **ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037** e escolha **Microsoft.Azure.Frontdoor**. Clique em **Selecionar**.
 
-3. Em **Permissões do segredo** , selecione **Obter** para permitir que o Front Door recupere o certificado.
+3. Em **Permissões do segredo**, selecione **Obter** para permitir que o Front Door recupere o certificado.
 
-4. Em **Permissões do certificado** , selecione **Obter** para permitir que o Front Door recupere o certificado.
+4. Em **Permissões do certificado**, selecione **Obter** para permitir que o Front Door recupere o certificado.
 
-5. Selecione **OK** . 
+5. Selecione **OK**. 
 
     Agora o Azure Front Door pode acessar este Key Vault e os certificados armazenados nele.
  
@@ -126,19 +126,14 @@ Conceda permissão ao Azure Front Door para acessar os certificados na sua conta
 
     A página de **Domínio personalizado** é exibida.
 
-3. Em Tipo de gerenciamento de certificado, selecione **Usar meu próprio certificado** . 
+3. Em Tipo de gerenciamento de certificado, selecione **Usar meu próprio certificado**. 
 
 4. O Azure Front Door exige que a assinatura da conta do Key Vault seja igual à do Front Door. Selecione um cofre de chaves, o certificado (segredo) e a versão do certificado.
 
     O Azure Front Door contém as informações a seguir: 
     - As contas do Key Vault para sua ID de assinatura. 
     - Os certificados (segredos) no cofre de chaves selecionado. 
-    - As versões de certificado disponíveis. 
-
-> [!NOTE]
-> Deixar a versão do certificado em branco resultaria em:
-> - A versão mais recente do certificado ser selecionada.
-> - Rotação automática dos certificados até a versão mais recente, quando uma versão mais recente do certificado estiver disponível em seu Key Vault.
+    - As versões de certificado disponíveis.
  
 5. Quando você usa seu próprio certificado, a validação de domínio não é necessária. Avance para a [Aguardar a propagação](#wait-for-propagation).
 
@@ -252,11 +247,11 @@ Nas etapas anteriores, você habilitou o protocolo HTTPS em seu domínio persona
 
 ### <a name="disable-the-https-feature"></a>Desabilitar o recurso HTTPS 
 
-1. No [portal do Azure](https://portal.azure.com), navegue até a configuração do **Azure Front Door** .
+1. No [portal do Azure](https://portal.azure.com), navegue até a configuração do **Azure Front Door**.
 
 2. Na lista de hosts de front-end, clique no domínio personalizado no qual deseja desabilitar o HTTPS.
 
-3. Clique em **Desabilitado** para desabilitar o HTTPS e, em seguida, clique em **Salvar** .
+3. Clique em **Desabilitado** para desabilitar o HTTPS e, em seguida, clique em **Salvar**.
 
 ### <a name="wait-for-propagation"></a>Aguardar a propagação
 
@@ -278,7 +273,7 @@ Neste tutorial, você aprendeu a:
 
 * Carregar um certificado no Key Vault.
 * Validar um domínio.
-* Habilitar o HTTPS para o domínio personalizado.
+* Habilitar HTTPS para seu domínio personalizado.
 
 Para saber como configurar uma política de filtragem geográfica para o Front Door, prossiga para o próximo tutorial.
 
