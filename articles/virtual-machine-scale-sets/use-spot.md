@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: b20a5bd9c06c3948097389d5439defa219a7931b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101694981"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596409"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais do Azure spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -46,7 +46,7 @@ Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.micros
 -   Contrato Enterprise
 -   Código de oferta pago conforme o uso 003P
 -   Patrocinado
-- Para o CSP (provedor de serviços de nuvem), consulte o [Partner Center](https://docs.microsoft.com/partner-center/azure-plan-get-started) ou contate seu parceiro diretamente.
+- Para o CSP (provedor de serviços de nuvem), consulte o [Partner Center](/partner-center/azure-plan-get-started) ou contate seu parceiro diretamente.
 
 ## <a name="eviction-policy"></a>Política de remoção
 
@@ -202,7 +202,7 @@ Para excluir a instância depois que ela tiver sido removida, altere o parâmetr
 
 ## <a name="simulate-an-eviction"></a>Simular uma remoção
 
-Você pode [simular uma remoção](https://docs.microsoft.com/rest/api/compute/virtualmachines/simulateeviction) de uma máquina virtual de ponto do Azure para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
+Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma máquina virtual de ponto do Azure para testar o quão bem seu aplicativo responderá a uma remoção repentina. 
 
 Substitua o seguinte pelas suas informações: 
 

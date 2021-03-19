@@ -1,18 +1,18 @@
 ---
 title: Definições de política internas para Azure Data Box
 description: Lista Azure Policy definições de política internas para Azure Data Box. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: reference
 ms.custom: subject-policy-reference
 ms.service: databox
 author: alkohli
 ms.author: alkohli
-ms.openlocfilehash: 9dabae2b0591627a5c31cca9f89d41a07d0d5607
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 9781c6cfffcf5f30b7dc04d7f10dd37383e0bb16
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102608641"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595288"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-data-box"></a>Azure Policy definições internas para Azure Data Box
 

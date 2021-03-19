@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: df9efef1000ab6a824c869e6684ab1424e8462f4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f01a1204aefbcaabe0ddac254b24bc014c3d5a64
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101708094"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654519"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
@@ -54,7 +54,7 @@ A solução inicia a coleta de dados sem a necessidade de configuração adicion
 
 ### <a name="configure-the-solution"></a>Configurar a solução
 
-No painel de solução, clique em **Configuração** para abrir a página Configuração de Análise de DNS. Há dois tipos de alteração de configuração que podem ser feitos:
+No Log Analytics espaço de trabalho na portal do Azure, selecione **Resumo do espaço de trabalho** e, em seguida, clique no bloco **análise de DNS** . No painel de solução, clique em **Configuração** para abrir a página Configuração de Análise de DNS. Há dois tipos de alteração de configuração que podem ser feitos:
 
 - **Allowlisted nomes de domínio**. A solução não processa todas as consultas de pesquisa. Ele mantém uma possívellist de sufixos de nome de domínio. As consultas de pesquisa que são resolvidas para os nomes de domínio que correspondem aos sufixos de nome de domínio nessa lista de permissões não são processadas pela solução. O não processamento de nomes de domínio allowlisted ajuda a otimizar os dados enviados para Azure Monitor. A permissão default inclui nomes de domínio públicos populares, como www.google.com e www.facebook.com. Você pode exibir a lista padrão completa com a barra de rolagem.
 

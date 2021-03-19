@@ -7,22 +7,22 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 9ff98a2613143474afd6041ccf52d4eb509d646b
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/18/2021
+ms.openlocfilehash: c33739124092a17acf0590f00b2f9c3c09bf894e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418871"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654655"
 ---
-# <a name="create-a-semantic-query-in-cognitive-search"></a>Criar uma consulta semântica no Pesquisa Cognitiva
+# <a name="create-a-query-for-semantic-captions-in-cognitive-search"></a>Criar uma consulta para legendas semânticas no Pesquisa Cognitiva
 
 > [!IMPORTANT]
-> O tipo de consulta semântica está em visualização pública, disponível por meio da API REST de visualização e portal do Azure. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
+> A pesquisa semântica está em visualização pública, disponível por meio da API REST de visualização e portal do Azure. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso complementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
-Neste artigo, saiba como formular uma solicitação de pesquisa que usa a classificação semântica. A solicitação retornará legendas semânticas e, opcionalmente, [respostas semânticas](semantic-answers.md), com destaques sobre os termos e frases mais relevantes.
+Neste artigo, saiba como formular uma solicitação de pesquisa que usa a classificação semântica e retorna legendas semânticas (e, opcionalmente, [respostas semânticas](semantic-answers.md)), com destaques sobre os termos e frases mais relevantes. As legendas e as respostas são retornadas em consultas formuladas usando o tipo de consulta "Semantic".
 
-As legendas e as respostas são extraídas textualmente do texto no documento de pesquisa. O subsistema semântico determina qual conteúdo tem as características de uma legenda ou resposta, mas não compõe novas frases ou frases. Por esse motivo, o conteúdo que inclui explicações ou definições funciona melhor para pesquisa semântica.
+As legendas e as respostas são extraídas textualmente do texto no documento de pesquisa. O subsistema semântico determina qual parte do seu conteúdo tem as características de uma legenda ou resposta, mas não compõe novas frases ou frases. Por esse motivo, o conteúdo que inclui explicações ou definições funciona melhor para pesquisa semântica.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -30,11 +30,11 @@ As legendas e as respostas são extraídas textualmente do texto no documento de
 
 + Acesso à visualização da pesquisa semântica: [inscrever-se](https://aka.ms/SemanticSearchPreviewSignup)
 
-+ Um índice de pesquisa existente, contendo conteúdo em inglês
++ Um índice de pesquisa existente que contém conteúdo em inglês
 
 + Um cliente de pesquisa para enviar consultas
 
-  O cliente de pesquisa deve dar suporte a APIs REST de visualização na solicitação de consulta. Você pode usar o [postmaster](search-get-started-rest.md), [Visual Studio Code](search-get-started-vs-code.md)ou código que você modificou para fazer chamadas REST para as APIs de visualização. Você também pode usar o [Gerenciador de pesquisa](search-explorer.md) no portal do Azure para enviar uma consulta semântica.
+  O cliente de pesquisa deve dar suporte a APIs REST de visualização na solicitação de consulta. Você pode usar o [postmaster](search-get-started-rest.md), o [Visual Studio Code](search-get-started-vs-code.md)ou o código que faz chamadas REST para as APIs de visualização. Você também pode usar o [Gerenciador de pesquisa](search-explorer.md) no portal do Azure para enviar uma consulta semântica.
 
 + Uma [solicitação de consulta](/rest/api/searchservice/preview-api/search-documents) deve incluir a opção semântica e outros parâmetros descritos neste artigo.
 
@@ -62,9 +62,13 @@ Somente as principais correspondências 50 dos resultados iniciais podem ser cla
 
 ## <a name="query-with-search-explorer"></a>Consultar com o Gerenciador de pesquisa
 
-O [Gerenciador de pesquisa](search-explorer.md) foi atualizado para incluir opções para consultas semânticas. Essas opções ficam visíveis no portal depois que você obtém acesso à visualização. As opções de consulta podem habilitar consultas semânticas, searchFields e correção ortográfica.
+O [Gerenciador de pesquisa](search-explorer.md) foi atualizado para incluir opções para consultas semânticas. Essas opções se tornam visíveis no portal depois de concluir as seguintes etapas:
 
-Você também pode colar os parâmetros de consulta necessários na cadeia de caracteres de consulta.
+1. [Inscreva-se](https://aka.ms/SemanticSearchPreviewSignup) e Admittance de seu serviço de pesquisa no programa de visualização
+
+1. Abra o portal com esta sintaxe: `https://portal.azure.com/?feature.semanticSearch=true`
+
+As opções de consulta incluem opções para habilitar consultas semânticas, searchFields e correção ortográfica. Você também pode colar os parâmetros de consulta necessários na cadeia de caracteres de consulta.
 
 :::image type="content" source="./media/semantic-search-overview/search-explorer-semantic-query-options.png" alt-text="Opções de consulta no Gerenciador de pesquisa" border="true":::
 
@@ -98,7 +102,7 @@ A tabela a seguir resume os parâmetros de consulta usados em uma consulta semâ
 |-----------|-------|-------------|
 | queryType | String | Os valores válidos incluem simples, completo e semântico. Um valor de "Semantic" é necessário para consultas semânticas. |
 | queryLanguage | String | Necessário para consultas semânticas. Atualmente, apenas "en-US" é implementado. |
-| searchFields | String | Uma lista delimitada por vírgulas de campos pesquisáveis. Opcional, mas recomendado. Especifica os campos em que a classificação semântica ocorre. </br></br>Em contraste com tipos de consulta simples e completos, a ordem na qual os campos são listados determina a precedência. Para obter mais instruções de uso, consulte [Step 2: Set searchFields](#searchfields). |
+| searchFields | String | Uma lista delimitada por vírgulas de campos pesquisáveis. Especifica os campos em que a classificação semântica ocorre, a partir da qual as legendas e as respostas são extraídas. </br></br>Em contraste com tipos de consulta simples e completos, a ordem na qual os campos são listados determina a precedência. Para obter mais instruções de uso, consulte [Step 2: Set searchFields](#searchfields). |
 | verificador ortográfico | String | Parâmetro opcional, não específico de consultas semânticas, que corrige termos incorretos de ortografia antes que eles atinjam o mecanismo de pesquisa. Para obter mais informações, consulte [Adicionar correção ortográfica a consultas](speller-how-to-add.md). |
 | respectivas |String | Parâmetros opcionais que especificam se as respostas semânticas são incluídas no resultado. Atualmente, apenas "extração" é implementada. As respostas podem ser configuradas para retornar um máximo de cinco. O padrão é um. Este exemplo mostra uma contagem de três respostas: "extracçãoy \| Count3". Para obter mais informações, consulte [retornar respostas semânticas](semantic-answers.md).|
 
@@ -125,13 +129,11 @@ Embora o conteúdo em um índice de pesquisa possa ser composto em vários idiom
 
 #### <a name="step-2-set-searchfields"></a>Etapa 2: definir searchFields
 
-Esse parâmetro é opcional, pois não há nenhum erro se você deixá-lo fora, mas fornecer uma lista ordenada de campos é altamente recomendável para legendas e respostas.
-
 O parâmetro searchFields é usado para identificar passagens a serem avaliadas para "similaridade semântica" para a consulta. Para a versão prévia, não recomendamos deixar searchFields em branco, pois o modelo requer uma dica sobre quais campos são os mais importantes para serem processados.
 
-A ordem de searchFields é fundamental. Se você já usa searchFields em consultas de Lucene simples ou completas existentes, certifique-se de revisitar esse parâmetro para verificar a ordem dos campos ao alternar para um tipo de consulta semântica.
+A ordem de searchFields é fundamental. Se você já usa searchFields no código existente para consultas do Lucene simples ou completas, visite novamente esse parâmetro para verificar a ordem dos campos ao alternar para um tipo de consulta semântica.
 
-Siga estas diretrizes para garantir os resultados ideais quando dois ou mais searchFields forem especificados:
+Para dois ou mais searchFields:
 
 + Inclua somente campos de cadeia de caracteres e campos de cadeia de caracteres de nível superior em coleções. Se você estiver incluindo campos que não são de cadeia de caracteres ou campos de nível inferior em uma coleção, não haverá erro, mas esses campos não serão usados na classificação semântica.
 
@@ -141,7 +143,7 @@ Siga estas diretrizes para garantir os resultados ideais quando dois ou mais sea
 
 + Siga esses campos por campos descritivos em que a resposta a consultas semânticas pode ser encontrada, como o conteúdo principal de um documento.
 
-Se apenas um campo for especificado, use um campo descritivo em que a resposta a consultas semânticas possa ser encontrada, como o conteúdo principal de um documento. Escolha um campo que forneça conteúdo suficiente. Para garantir o processamento oportuno, apenas cerca de 8.000 tokens do conteúdo coletivo do searchFields passam pela avaliação semântica e classificação.
+Se apenas um campo for especificado, use um campo descritivo em que a resposta a consultas semânticas possa ser encontrada, como o conteúdo principal de um documento. 
 
 #### <a name="step-3-remove-orderby-clauses"></a>Etapa 3: remover cláusulas orderBy
 
@@ -191,7 +193,7 @@ A resposta para a consulta de exemplo acima retorna a seguinte correspondência 
 Lembre-se de que a classificação semântica e as respostas são criadas sobre um conjunto de resultados inicial. Qualquer lógica que melhora a qualidade dos resultados iniciais será postergada para a pesquisa semântica. Como uma próxima etapa, examine os recursos que contribuem para resultados iniciais, incluindo analisadores que afetam como as cadeias de caracteres são indexadas, perfis de pontuação que podem ajustar os resultados e o algoritmo de relevância padrão.
 
 + [Analisadores para processamento de texto](search-analyzers.md)
-+ [Similaridade e pontuação em Pesquisa Cognitiva](index-similarity-and-scoring.md)
-+ [Adicionar perfis de pontuação](index-add-scoring-profiles.md)
++ [Algoritmo de classificação de similaridade](index-similarity-and-scoring.md)
++ [Perfis de pontuação](index-add-scoring-profiles.md)
 + [Visão geral da pesquisa semântica](semantic-search-overview.md)
-+ [Adicionar verificação ortográfica aos termos da consulta](speller-how-to-add.md)
++ [Algoritmo de classificação semântica](semantic-ranking.md)

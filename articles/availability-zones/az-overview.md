@@ -8,12 +8,12 @@ ms.date: 02/23/2021
 ms.author: prsandhu
 ms.reviewer: cynthn
 ms.custom: fasttrack-edit, mvc
-ms.openlocfilehash: 4adfb63ecab72eb42e188af472bb5387a0276a79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: dad8661de55fc90c9f3d3782c402deb519d16536
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723768"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596001"
 ---
 # <a name="regions-and-availability-zones-in-azure"></a>Regiões e Zonas de Disponibilidade no Azure
 
@@ -42,7 +42,7 @@ Uma região é um conjunto de data centers implantados em um perímetro definido
 
 ## <a name="availability-zones"></a>Zonas de Disponibilidades
 
-Uma zona de disponibilidade é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
+Uma Zona de Disponibilidade é uma oferta de alta disponibilidade que protege aplicativos e dados contra falhas de datacenter. As Zonas de Disponibilidade são locais físicos exclusivos em uma região do Azure. Cada zona é composta por um ou mais datacenters equipados com energia, resfriamento e rede independentes. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física das Zonas de Disponibilidade dentro de uma região protege os aplicativos e dados contra falhas do datacenter. Serviços com redundância de zona replicam os aplicativos e dados entre Zonas de Disponibilidade para proteger dos pontos únicos de falha. Com Zonas de Disponibilidade, o Azure oferece o melhor SLA de tempo de atividade da VM de 99,99% do setor. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explica a disponibilidade garantida do Azure como um todo.
 
 Uma Zona de Disponibilidade em uma região do Azure é uma combinação de um domínio de falha e um domínio de atualização. Por exemplo, se você criar três ou mais VMs em três zonas em uma região do Azure, as VMs serão efetivamente distribuídas em três domínios de falha e três domínios de atualização. A plataforma Azure reconhece essa distribuição entre domínios de atualização para garantir que as VMs em diferentes zonas não estejam agendadas para serem atualizadas ao mesmo tempo.
 
@@ -82,7 +82,7 @@ Se uma oferta de serviço não estiver disponível em uma região específica, v
 | Recomendadas | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | :heavy_check_mark: | :heavy_check_mark: |
 | Alternativo | :heavy_check_mark: | :heavy_check_mark: | Controlado por demanda | Controlado por demanda | N/D | :heavy_check_mark: |
 
-### <a name="services-by-category-with-availability-zones"></a>Serviços por categoria com Zonas de Disponibilidade
+### <a name="services-by-category"></a>Serviços por categoria
 
 Conforme mencionado anteriormente, o Azure classifica os serviços em três categorias: fundamental, predominante e especializado. As categorias de serviço são atribuídas em disponibilidade geral. Geralmente, os serviços iniciam seu ciclo de vida como um serviço especializado e, à medida que a demanda e a utilização aumentam, podem ser promovidas ao básico ou básico. A tabela a seguir lista a categoria de serviços como Fundação, o básico. Você deve observar o seguinte sobre a tabela:
 
@@ -101,7 +101,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Azure ExpressRoute                     | Azure Bastion                                     | 
 > | IP público do Azure                        | Cache Redis do Azure                             | 
 > | Banco de Dados SQL do Azure                     | Pesquisa Cognitiva do Azure                            | 
-> | SQL do Azure: Instância Gerenciada           | Serviços Cognitivos do Azure                          | 
+> | Instância Gerenciada do Azure SQL             | Serviços Cognitivos do Azure                          | 
 > | Armazenamento em Disco                           | Serviços Cognitivos do Azure: Pesquisa Visual Computacional         | 
 > | Hubs de Eventos                             | Serviços cognitivas do Azure: Content Moderator       | 
 > | Key Vault                              | Serviços cognitivas do Azure: rosto                    | 
@@ -117,7 +117,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Máquinas virtuais: Bs-Series            | Proteção contra DDoS do Azure                             | 
 > | Máquinas virtuais: DSv2-Series          | Firewall do Azure                                    | 
 > | Máquinas virtuais: DSv3-Series          | Gerenciador de Firewall do Azure                            | 
-> | Máquinas virtuais: Dv2-Series           | Funções do Azure                                   | 
+> | Máquinas virtuais: Dv2-Series           | Azure Functions                                   | 
 > | Máquinas virtuais: Dv3-Series           | Hub IoT do Azure                                     |     
 > | Máquinas virtuais: ESv3-Series          | AKS (Serviço de Kubernetes do Azure)                    | 
 > | Máquinas virtuais: Ev3-Series           | Azure Machine Learning                            | 
@@ -126,7 +126,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > |                                        | Link Privado do Azure                                | 
 > |                                        | Red Hat OpenShift no Azure                           | 
 > |                                        | Azure Site Recovery                               | 
-> |                                        | Stream Analytics do Azure                            | 
+> |                                        | Azure Stream Analytics                            | 
 > |                                        | Azure Synapse Analytics                           | 
 > |                                        | Lote                                             | 
 > |                                        | Serviços de nuvem: série M                          | 
@@ -172,7 +172,7 @@ Conforme mencionado anteriormente, o Azure classifica os serviços em três cate
 > | Serviço de Migração de Banco de Dados do Azure                     |
 > | HSM Dedicado do Azure                                  |
 > | Gêmeos Digitais do Azure                                  |
-> | Bot de integridade do Azure                                     |
+> | Azure Health Bot                                     |
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure NetApp Files                                   |
