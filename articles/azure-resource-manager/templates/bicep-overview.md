@@ -2,19 +2,23 @@
 title: Idioma bicep para modelos de Azure Resource Manager
 description: Descreve a linguagem bicep para implantar a infraestrutura no Azure por meio de modelos de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 599cb378da51c5d13e7db3cf45cacf750c5843cc
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.date: 03/17/2021
+ms.openlocfilehash: 6f706081d04c5337bb3def8088fe97b08c814ea2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419823"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594216"
 ---
 # <a name="what-is-bicep-preview"></a>O que é o bicep (versão prévia)?
 
 Bicep é uma linguagem para a implantação declarativa de recursos do Azure. Você pode usar bicep em vez de JSON para desenvolver seus modelos de Azure Resource Manager (modelos ARM). O bicep simplifica a experiência de criação fornecendo uma sintaxe concisa, melhor suporte à reutilização de código e à segurança de tipo aprimorada. Bicep é uma DSL (linguagem específica de domínio), o que significa que ele foi projetado para um determinado cenário ou domínio. Ele não é destinado a uma linguagem de programação geral para escrever aplicativos.
 
 A sintaxe JSON para criar o modelo pode ser detalhada e exigir uma expressão complicada. O bicep melhora essa experiência sem perder nenhum dos recursos de um modelo JSON. É uma abstração transparente sobre o JSON para modelos de ARM. Cada arquivo bicep é compilado em um modelo ARM padrão. Os tipos de recursos, as versões de API e as propriedades que são válidas em um modelo ARM são válidas em um arquivo bicep. Há algumas [limitações conhecidas](#known-limitations) na versão atual.
+
+Para saber mais sobre o bicep, consulte o vídeo a seguir.
+
+> [!VIDEO https://mediusprodstatic.studios.ms/asset-cccfdaf2-cdbe-49dd-9c58-91a4fe5ff0fd/OD340_1920x1080_AACAudio_5429.mp4?sv=2018-03-28&sr=b&sig=N3DuBaTrK3nt5TGwIagTbCqjVrzgwiJ9at80MXQJFwg%3D&st=2021-03-02T01%3A22%3A57Z&se=2026-03-02T01%3A27%3A57Z&sp=r&rscd=filename%3DIGFY21Q3-OD340-Learn%2Beverything%2Babout%2Bthe%2Bnext%2Bgeneration%2Bof%2BARM.mp4]
 
 ## <a name="get-started"></a>Introdução
 

@@ -4,13 +4,13 @@ description: Descreve como criar uma regra de coleta de dados para coletar dados
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/19/2020
-ms.openlocfilehash: 93e244706d6d478155ac001d20fa3ce74fa6a887
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101723632"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586362"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurar a coleta de dados para o agente de Azure Monitor (versão prévia)
 
@@ -68,6 +68,32 @@ Clique em **Adicionar fonte de dados** e **revise + criar** para examinar os det
 > [!NOTE]
 > Após a criação da regra de coleta de dados e das associações, pode levar até 5 minutos para que os dados sejam enviados aos destinos.
 
+## <a name="limit-data-collection-with-custom-xpath-queries"></a>Limitar a coleta de dados com consultas XPath personalizadas
+Como você é cobrado por todos os dados coletados em um espaço de trabalho Log Analytics, você deve coletar somente os dados necessários. Usando a configuração básica no portal do Azure, você só tem a capacidade limitada de filtrar eventos a serem coletados. Para logs do aplicativo e do sistema, esses são todos os logs com uma severidade específica. Para logs de segurança, esse é todo o êxito de auditoria ou todos os logs de falha de auditoria.
+
+Para especificar filtros adicionais, você deve usar a configuração personalizada e especificar um XPath que filtra os eventos que você não tem. As entradas XPath são gravadas no formulário `LogName!XPathQuery` . Por exemplo, talvez você queira retornar apenas eventos do log de eventos do aplicativo com uma ID de evento de 1035. O XPathQuery para esses eventos seria `*[System[EventID=1035]]` . Como você deseja recuperar os eventos do log de eventos do aplicativo, o XPath seria `Application!*[System[EventID=1035]]`
+
+> [!TIP]
+> Use o cmdlet do PowerShell `Get-WinEvent` com o `FilterXPath` parâmetro para testar a validade de um XPathQuery. O script a seguir mostra um exemplo.
+> 
+> ```powershell
+> $XPath = '*[System[EventID=1035]]'
+> Get-WinEvent -LogName 'Application' -FilterXPath $XPath
+> ```
+>
+> - Se os eventos forem retornados, a consulta será válida.
+> - Se você receber a mensagem *não foi encontrado nenhum evento que corresponda aos critérios de seleção especificados.* a consulta pode ser válida, mas não há eventos correspondentes no computador local.
+> - Se você receber a mensagem *a consulta especificada é inválida* , a sintaxe da consulta é inválida. 
+
+A tabela a seguir mostra exemplos de filtragem de eventos usando um XPath personalizado.
+
+| Descrição |  XPath |
+|:---|:---|
+| Coletar somente eventos do sistema com a ID do evento = 4648 |  `System!*[System[EventID=4648]]`
+| Coletar somente eventos do sistema com a ID do evento = 4648 e um nome de processo de consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Coletar todos os eventos críticos, de erro, de aviso e de informações do log de eventos do sistema, exceto a ID do evento = 6 (Driver carregado) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
+| Coletar todos os eventos de segurança de êxito e falha, exceto o ID de evento 4624 (logon bem-sucedido) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
+
 
 ## <a name="create-rule-and-association-using-rest-api"></a>Criar regra e Associação usando a API REST
 
@@ -83,6 +109,8 @@ Siga as etapas abaixo para criar uma regra de coleta de dados e associações us
 ## <a name="create-association-using-resource-manager-template"></a>Criar Associação usando o modelo do Resource Manager
 
 Você não pode criar uma regra de coleta de dados usando um modelo do Resource Manager, mas pode criar uma associação entre uma máquina virtual do Azure ou um servidor habilitado para Arc do Azure usando um modelo do Resource Manager. Consulte [exemplos de modelo do Resource Manager para regras de coleta de dados em Azure monitor](./resource-manager-data-collection-rules.md) para modelos de exemplo.
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

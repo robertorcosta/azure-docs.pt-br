@@ -5,16 +5,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: how-to
-ms.date: 03/05/2021
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 62f61549ffd6312b94589b9cabbc347edafd0ff2
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3d71a7ad2507909dacf54e7f1c49b6e768033113
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601960"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600472"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurar redes virtuais e firewalls do Armazenamento do Microsoft Azure
 
@@ -244,24 +244,31 @@ Você pode gerenciar as regras da rede virtual para contas de armazenamento atra
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Conceder acesso de um intervalo de IP de Internet
 
-Você pode configurar as contas de armazenamento para permitir acesso dos intervalos de endereço IP da Internet pública. Essa configuração garante acesso a serviços públicos baseados na Internet e redes locais e bloqueia o tráfego de Internet geral.
+Você pode usar regras de rede IP para permitir o acesso de intervalos de endereços IP de Internet pública específicos criando regras de rede IP. Cada conta de armazenamento dá suporte a até 200 regras. Essas regras concedem acesso a serviços específicos baseados na Internet e redes locais e bloqueia o tráfego geral da Internet.
 
-Forneça intervalos de endereços de Internet permitidos usando a [notação CIDR](https://tools.ietf.org/html/rfc4632) no formulário *16.17.18.0/24* ou como endereços IP individuas como *16.17.18.19*.
+As restrições a seguir se aplicam a intervalos de endereços IP.
 
-   > [!NOTE]
-   > Os intervalos de endereços pequenos usando o prefixo "/31" ou "/32" não têm suporte. Esses intervalos devem ser configurados usando regras de endereço IP individuais.
+- As regras de rede IP são permitidas somente para endereços IP **públicos da Internet** . 
 
-As regras de rede de IP são permitidas apenas para endereços IP de **Internet pública**. Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com _10.*_ , _172.16.*_  - _172.31.*_ , e _192.168.*_ .
+  Intervalos de endereços IP reservados para redes privadas (conforme definido em [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) não são permitidos nas regras de IP. Redes privadas incluem endereços que começam com _10.*_ , _172.16.*_  - _172.31.*_ , e _192.168.*_ .
 
-   > [!NOTE]
-   > As regras de rede IP não terão efeito sobre solicitações originadas da mesma região do Azure que a conta de armazenamento. Use as [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região.
+- Você deve fornecer intervalos de endereços de Internet permitidos usando a [notação CIDR](https://tools.ietf.org/html/rfc4632) no formato *16.17.18.0/24* ou como endereços IP individuais, como *16.17.18.19*. 
 
-  > [!NOTE]
-  > Os serviços implantados na mesma região que a conta de armazenamento usam endereços IP privados do Azure para comunicação. Portanto, você não pode restringir o acesso a serviços específicos do Azure com base nos respectivos intervalos de endereços IP de saída públicos.
+- Os intervalos de endereços pequenos usando o prefixo "/31" ou "/32" não têm suporte. Esses intervalos devem ser configurados usando regras de endereço IP individuais. 
 
-Somente endereços IPV4 são compatíveis com a configuração de regras de firewall de armazenamento.
+- Somente endereços IPV4 são compatíveis com a configuração de regras de firewall de armazenamento.
 
-Cada conta de armazenamento dá suporte a até 200 regras de rede IP.
+As regras de rede IP não podem ser usadas nos seguintes casos:
+
+- Para restringir o acesso a clientes na mesma região do Azure que a conta de armazenamento.
+  
+  As regras de rede IP não terão efeito sobre solicitações originadas da mesma região do Azure que a conta de armazenamento. Use as [regras de rede Virtual](#grant-access-from-a-virtual-network) para permitir solicitações da mesma região. 
+
+- Restringir o acesso a clientes em uma [região emparelhada](../../best-practices-availability-paired-regions.md) que está em uma VNet que tem um ponto de extremidade de serviço.
+
+- Para restringir o acesso aos serviços do Azure implantados na mesma região que a conta de armazenamento.
+
+  Os serviços implantados na mesma região que a conta de armazenamento usam endereços IP privados do Azure para comunicação. Portanto, você não pode restringir o acesso a serviços específicos do Azure com base em seu intervalo de endereços IP de saída público.
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configurando o acesso de redes locais
 

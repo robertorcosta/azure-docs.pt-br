@@ -3,12 +3,12 @@ title: Camadas Premium e Standard do barramento de serviço do Azure
 description: Este artigo descreve as camadas Standard e Premium do barramento de serviço do Azure. Compara essas camadas e fornece diferenças técnicas.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 0385526560e6aafaab66d9212ff54caff2362ebd
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: aa08a99009ef3d20e831e214ae5811059817d13c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636502"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607544"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Camadas de sistema de mensagens Premium e Standard do Barramento de Serviço
 
@@ -26,7 +26,7 @@ Algumas diferenças de alto nível são destacadas na tabela a seguir.
 | Capacidade de escalar a carga de trabalho verticalmente |N/D |
 | Tamanho da mensagem de até 1 MB. Esse limite pode ser gerado no futuro. Para obter atualizações importantes mais recentes para o serviço, consulte o [blog do sistema de mensagens no Azure](https://techcommunity.microsoft.com/t5/messaging-on-azure/bg-p/MessagingonAzureBlog). |Até 256 KB de tamanho de mensagem |
 
-O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos no nível de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recursos é chamado de *unidade de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode comprar 1, 2, 4 ou 8 unidades de mensagens para cada namespace Premium do barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado às. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
+O **Sistema de Mensagens Premium do Barramento de Serviço** fornece isolamento de recursos no nível de CPU e memória, de modo que a carga de trabalho do cliente seja executada isoladamente. Esse contêiner de recursos é chamado de *unidade de mensagens*. Cada namespace premium é alocado para pelo menos uma unidade do sistema de mensagens. Você pode comprar 1, 2, 4, 8 ou 16 unidades de mensagens para cada namespace Premium do barramento de serviço. Uma única carga de trabalho ou entidade pode abranger várias unidades de mensagens e o número de unidades de mensagens pode ser alterado às. O resultado é um desempenho previsível e repetível para sua solução baseada no Barramento de Serviço.
 
 Esse desempenho não é apenas o mais previsível e disponível, mas também o mais rápido. Com o Sistema de Mensagens Premium, o desempenho de pico é muito mais rápido do que com a camada Standard.
 

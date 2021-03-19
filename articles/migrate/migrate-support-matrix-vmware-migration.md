@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: cbb1db15eed53af1d0e4590e1b228e5e47680560
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102614914"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576774"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -27,14 +27,9 @@ Você pode migrar VMs VMware de duas maneiras:
 
 Examine [Este artigo](server-migrate-overview.md) para descobrir qual método você deseja usar.
 
-## <a name="migration-limitations"></a>Limitações da migração
-
-- Você pode selecionar até 10 VMs de uma vez para replicação por meio do portal do Azure. Se você quiser migrar mais máquinas, faça a replicação em grupos de 10. Não há limite para o número de VMs que podem ser replicadas por meio de cmdlets do PowerShell. Nossa recomendação é replicar não mais de 500 VMs por vez de um único vCenter por meio do PowerShell para garantir o desempenho ideal.
-- Para a migração sem agente do VMware, você pode executar até 500 replicações simultaneamente de cada vCenter Server.
-
 ## <a name="agentless-migration"></a>Migração sem agente 
 
-Esta seção resume os requisitos para a migração sem agente.
+Esta seção resume os requisitos de migração de VM do VMware sem agente para o Azure.
 
 ### <a name="vmware-requirements-agentless"></a>Requisitos do VMware (sem agente)
 
@@ -72,8 +67,11 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 **NICs agrupadas** | Sem suporte.
 **IPv6** | Sem suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
-**Replicação simultânea** | 500 VMs por vCenter Server. Se você tiver mais, migre-os em lotes de 500.
+**Replicação simultânea** | Até 300 replicando VMs simultaneamente por vCenter Server com 1 dispositivo. Até 500 replicando VMs simultaneamente por vCenter Server quando um dispositivo de [expansão](./how-to-scale-out-for-migration.md) adicional é implantado. 
 **Instalação automática do agente de VM do Azure (agente do Windows e Linux)** | Com suporte para o Windows Server 2008 R2 em diante. <br/> Com suporte para RHEL6, RHEL7, CentOS7, Ubuntu 14, 4, Ubuntu 16, 4, Ubuntu 18.04. Examine a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) para esses sistemas operacionais Linux.
+
+> [!TIP]
+>  Usando o portal do Azure você poderá selecionar até 10 VMs de cada vez para configurar a replicação. Para replicar mais VMs, você pode usar o portal e adicionar as VMs a serem replicadas em vários lotes de 10 VMs ou usar a interface do PowerShell de migrações para Azure para configurar a replicação. Verifique se você não configurou a replicação simultânea em mais do que o número máximo de VMs com suporte para replicações simultâneas.
 
 ### <a name="appliance-requirements-agentless"></a>Requisitos de dispositivo (sem agente)
 
@@ -131,7 +129,7 @@ A tabela resume o suporte de VM do VMware para VMs VMware que você deseja migra
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Com suporte.
 **E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Com suporte
+**VMotion de armazenamento** | Compatível
 **NICs agrupadas** | Sem suporte.
 **IPv6** | Sem suporte.
 
@@ -159,7 +157,7 @@ Servidor de processo | O servidor de processo recebe dados de replicação, otim
 
 Todas as VMs locais replicadas para o Azure (com migração baseada em agente ou sem agente) devem atender aos requisitos de VM do Azure resumidos nesta tabela. 
 
-**Componente** | **Requirements** 
+**Componente** | **Requisitos** 
 --- | --- | ---
 Sistema operacional convidado | Verifica os sistemas operacionais de VM VMware com suporte para migração.<br/> Você pode migrar qualquer carga de trabalho em execução em um sistema operacional com suporte. 
 Arquitetura do sistema operacional convidado | 64 bits. 

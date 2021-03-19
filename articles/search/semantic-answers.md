@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: b99cbf91d7fc1c5d90753dfa1461a58eda055180
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418888"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604297"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Retornar uma resposta semântica no Azure Pesquisa Cognitiva
 
@@ -63,7 +63,7 @@ O parâmetro "searchFields" é essencial para retornar uma resposta de alta qual
 
 + Uma cadeia de caracteres de consulta não deve ser nula e deve ser formulada como uma pergunta. Nesta visualização, o "QueryType" e "queryLanguage" devem ser definidos exatamente como mostrado no exemplo.
 
-+ O parâmetro "searchFields" determina quais campos fornecem tokens para o modelo de extração. Certifique-se de definir esse parâmetro. Você deve ter pelo menos um campo de cadeia de caracteres, mas inclua qualquer campo de cadeia de caracteres que você ache útil ao fornecer uma resposta. Apenas cerca de 8.000 tokens por documento são passados para o modelo. Inicie a lista de campos com campos concisos e, em seguida, progresso para campos Rich Text. Para obter orientações precisas sobre como definir esse campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
++ O parâmetro "searchFields" determina quais campos fornecem tokens para o modelo de extração. Certifique-se de definir esse parâmetro. Você deve ter pelo menos um campo de cadeia de caracteres, mas inclua qualquer campo de cadeia de caracteres que você ache útil ao fornecer uma resposta. Coletivamente em todos os campos em searchFields, apenas cerca de 8.000 tokens por documento são passados para o modelo. Inicie a lista de campos com campos concisos e, em seguida, progresso para campos Rich Text. Para obter orientações precisas sobre como definir esse campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
 
 + Para "respostas", a construção do parâmetro básico é `"answers": "extractive"` , em que o número padrão de respostas retornadas é um. Você pode aumentar o número de respostas adicionando uma contagem, até um máximo de cinco.  A necessidade de mais de uma resposta depende da experiência do usuário do seu aplicativo e de como você deseja renderizar os resultados.
 
@@ -115,15 +115,15 @@ Dada a consulta "como fazer nuvens Form", a seguinte resposta é retornada na re
 
 Para obter melhores resultados, retorne as respostas semânticas em um documento corpus com as seguintes características:
 
-+ "searchFields" deve incluir um ou mais campos que forneçam texto suficiente no qual uma resposta provavelmente será encontrada.
-
-+ A extração semântica e o resumo têm limites sobre a quantidade de conteúdo que pode ser analisada em tempo hábil. Coletivamente, apenas os primeiros 20.000 tokens são analisados. Qualquer coisa além disso será ignorada. Em termos práticos, se você tiver documentos grandes que são executados em centenas de páginas, deverá tentar dividir o conteúdo em partes gerenciáveis primeiro.
++ "searchFields" deve fornecer campos que oferecem texto suficiente no qual uma resposta provavelmente será encontrada. Somente texto textual de um documento pode ser exibido como uma resposta.
 
 + as cadeias de consulta não devem ser nulas (Search = `*` ) e a cadeia de caracteres deve ter as características de uma pergunta, em oposição a uma pesquisa de palavra-chave (uma lista seqüencial de termos ou frases arbitrárias). Se a cadeia de caracteres de consulta não parece ser uma resposta, o processamento de resposta é ignorado, mesmo que a solicitação especifique "respostas" como um parâmetro de consulta.
+
++ Extração e Resumo semânticos têm limites de quantos tokens por documento podem ser analisados em tempo hábil. Em termos práticos, se você tiver documentos grandes que são executados em centenas de páginas, deverá tentar dividir o conteúdo em documentos menores primeiro.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 + [Visão geral da pesquisa semântica](semantic-search-overview.md)
 + [Algoritmo de classificação semântica](semantic-ranking.md)
-+ [Algoritmo de similaridade](index-ranking-similarity.md)
++ [Algoritmo de classificação de similaridade](index-ranking-similarity.md)
 + [Criar uma consulta semântica](semantic-how-to-query-request.md)

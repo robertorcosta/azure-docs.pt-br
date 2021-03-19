@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 97b0a4ca3e4fb94a21cbd30a27a3037f45fed782
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102487110"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600795"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultando no Azure Pesquisa Cognitiva
 
@@ -71,7 +71,7 @@ No Pesquisa Cognitiva, a pesquisa de texto completo é criada no mecanismo de co
 
 Quando termos correspondentes são encontrados, o mecanismo de consulta reconstitui um documento de pesquisa que contém a correspondência usando a chave ou ID do documento para montar valores de campo, classifica os documentos em ordem de relevância e retorna os 50 principais (por padrão) na resposta ou em um número diferente, se você tiver especificado **`top`** .
 
-Se você estiver implementando a pesquisa de texto completo, entender como o conteúdo é indexado ajudará você a depurar quaisquer anomalias de consulta. As consultas em cadeias de caracteres hifenizadas ou especiais podem precisar usar um analisador diferente do padrão Lucene padrão para garantir que o índice contenha os tokens corretos. Você pode substituir o padrão por [analisadores de linguagem](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados](index-add-custom-analyzers.md#AnalyzerTable) que modificam a análise léxica. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. É útil para dados como códigos postais, IDs e alguns nomes de produtos. Para obter mais informações, consulte [pesquisa de termo parcial e padrões com caracteres especiais](search-query-partial-matching.md).
+Se você estiver implementando a pesquisa de texto completo, entender como o conteúdo é indexado ajudará você a depurar quaisquer anomalias de consulta. As consultas em cadeias de caracteres hifenizadas ou especiais podem precisar usar um analisador diferente do padrão Lucene padrão para garantir que o índice contenha os tokens corretos. Você pode substituir o padrão por [analisadores de linguagem](index-add-language-analyzers.md#language-analyzer-list) ou [analisadores especializados](index-add-custom-analyzers.md#built-in-analyzers) que modificam a análise léxica. Um exemplo é a [palavra-chave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) que trata todo o conteúdo de um campo como um único token. É útil para dados como códigos postais, IDs e alguns nomes de produtos. Para obter mais informações, consulte [pesquisa de termo parcial e padrões com caracteres especiais](search-query-partial-matching.md).
 
 Se você antecipar o uso intensivo de operadores boolianos, o que é mais provável em índices que contêm blocos de texto Grandes (um campo de conteúdo ou descrições longas), certifique-se de testar as consultas com o **`searchMode=Any|All`** parâmetro para avaliar o impacto dessa configuração na pesquisa booleana.
 

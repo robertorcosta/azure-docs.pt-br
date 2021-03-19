@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 634298952d990cd3639aa1c62592fde534b3e8b8
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.openlocfilehash: 443d6349aab68fd05edfe4c4007fd043c932f4f0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103232657"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604263"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT]
-> Os recursos de pesquisa semântica estão em visualização pública, disponíveis somente por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
+> A pesquisa semântica está em visualização pública, disponível apenas por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
 A pesquisa semântica é uma coleção de recursos relacionados à consulta que dão suporte a uma experiência de consulta mais natural e de alta qualidade. 
 
@@ -73,3 +73,5 @@ Um novo tipo de consulta permite a classificação de relevância e as estrutura
 + [Adicionar verificação ortográfica aos termos da consulta](speller-how-to-add.md)
 + [Retornar uma resposta semântica](semantic-answers.md)
 + [Classificação semântica](semantic-ranking.md)
++ [Introdução à pesquisa semântica (postagem de blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-semantic-search-bringing-more-meaningful-results-to/ba-p/2175636)
++ [Encontre informações significativas usando recursos semânticos (vídeo de exibição de ia)](https://channel9.msdn.com/Shows/AI-Show/Find-meaningful-insights-using-semantic-capabilities-in-Azure-Cognitive-Search)

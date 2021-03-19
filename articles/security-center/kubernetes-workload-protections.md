@@ -6,14 +6,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/16/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 6d0e660ecce1d45dab4d6003cdba391ba2eb4ee9
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: eacca5573c672e9f4485c26b1b580ee4c982c5d2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102095588"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580736"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteger as cargas de trabalho do Kubernetes
 
@@ -104,7 +104,7 @@ Para configurar as recomendações, instale o  **complemento Azure Policy para k
     1. Selecione "ASC padrão".
     1. Abra a guia **parâmetros** e modifique os valores conforme necessário.
     1. Selecione **Examinar + salvar**.
-    1. Clique em **Salvar**.
+    1. Selecione **Salvar**.
 
 
 1. Para impor qualquer uma das recomendações, 

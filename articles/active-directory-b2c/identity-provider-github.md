@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: e2c82858b9f4b9846ff5371da347be942eed0a4f
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0c0507f9206ebe69662090d7a00da6d5c9d0b90a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103488849"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104580004"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do GitHub usando o Azure Active Directory B2C
 
@@ -61,6 +61,9 @@ Para habilitar a entrada com uma conta do GitHub no Azure Active Directory B2C (
 1. Selecione **Salvar**.
 
 ## <a name="add-github-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade do GitHub a um fluxo de usuário 
+
+Neste ponto, o provedor de identidade do GitHub foi configurado, mas ainda não está disponível em nenhuma das páginas de entrada. Para adicionar o provedor de identidade do GitHub a um fluxo de usuário:
+
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade do GitHub.

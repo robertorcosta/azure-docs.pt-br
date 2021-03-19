@@ -11,12 +11,12 @@ author: barbaraselden
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94187f2f94581b4ff48ddb0cd014dc26268fcf15
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 55fc4c0b5f3e2bbf57c972ad4a7fd2c9bdd3810e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102500505"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579188"
 ---
 # <a name="plan-an-azure-active-directory-self-service-password-reset-deployment"></a>Planejar uma implantação de redefinição de senha self-service do Azure Active Directory
 
@@ -322,7 +322,7 @@ Os logs de auditoria para registro e redefinição de senha estão disponíveis 
 
 ### <a name="authentication-methods--usage-and-insights"></a>Métodos de autenticação – Uso e insights
 
-O [uso e as informações](./howto-authentication-methods-usage-insights.md) permitem que você entenda como os métodos de autenticação para recursos como o Azure ad MFA e SSPR estão trabalhando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos se registram e como usá-los.
+O [uso e as informações](./howto-authentication-methods-activity.md) permitem que você entenda como os métodos de autenticação para recursos como o Azure ad MFA e SSPR estão trabalhando em sua organização. Essa funcionalidade de relatório fornece à sua organização os meios para entender quais métodos se registram e como usá-los.
 
 ### <a name="troubleshoot"></a>Solucionar problemas
 

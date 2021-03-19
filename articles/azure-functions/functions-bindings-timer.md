@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 11/18/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: dbcd6d55ee921c7fabd8e746e0fdcd6f1427733c
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: f99f9d240a0a9220d3b7f57cddd0a4f8ba6b6101
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102210699"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595968"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Gatilho de temporizador para o Azure Functions
 
@@ -365,6 +365,16 @@ O gatilho de temporizador usa um bloqueio de armazenamento para garantir que haj
 ## <a name="retry-behavior"></a>Tentar comportamento novamente
 
 Ao contrário do gatilho de fila, o gatilho de temporizador não tenta novamente após a falha de uma função. Quando uma função falha, ele não é chamado novamente até a próxima vez na agenda.
+
+## <a name="manually-invoke-a-timer-trigger"></a>Invocar manualmente um gatilho de temporizador
+
+O gatilho de temporizador para Azure Functions fornece um webhook HTTP que pode ser invocado para disparar a função manualmente. Isso pode ser extremamente útil nos cenários a seguir.
+
+* Teste de integração
+* Trocas de slot como parte de uma atividade de smoke test ou aquecimento
+* Implantação inicial de uma função para popular imediatamente um cache ou uma tabela de pesquisa em um banco de dados
+
+Veja [executar manualmente uma função não disparada por http](./functions-manually-run-non-http.md) para obter detalhes sobre como invocar manualmente uma função disparada por temporizador.
 
 ## <a name="troubleshooting"></a>Solução de problemas
 

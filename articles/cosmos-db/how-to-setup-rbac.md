@@ -4,14 +4,14 @@ description: Saiba como configurar o controle de acesso baseado em função com 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.author: thweiss
-ms.openlocfilehash: 7c5497615ce71d0be713ef9ae28ab1e0f85b7ddb
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: efde86eac3e0830b36eabfc9e80df09daeed9f6f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102177225"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586022"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurar o controle de acesso baseado em função com Azure Active Directory para sua conta de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -325,13 +325,13 @@ A maneira como você cria uma `TokenCredential` instância está além do escopo
 
 - [no .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
 - [em Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
+- [em JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
 
 Os exemplos a seguir usam uma entidade de serviço com uma `ClientSecretCredential` instância do.
 
 ### <a name="in-net"></a>In .NET
 
-> [!NOTE]
-> Você deve usar a `preview` versão do SDK do .net Azure Cosmos DB para acessar esse recurso.
+No momento, há suporte para o RBAC Azure Cosmos DB na `preview` versão do [SDK do .net v3](sql-api-sdk-dotnet-standard.md).
 
 ```csharp
 TokenCredential servicePrincipal = new ClientSecretCredential(
@@ -342,6 +342,8 @@ CosmosClient client = new CosmosClient("<account-endpoint>", servicePrincipal);
 ```
 
 ### <a name="in-java"></a>No Java
+
+No momento, há suporte para o RBAC Azure Cosmos DB no [SDK do Java v4](sql-api-sdk-java-v4.md).
 
 ```java
 TokenCredential ServicePrincipal = new ClientSecretCredentialBuilder()
@@ -356,6 +358,21 @@ CosmosAsyncClient Client = new CosmosClientBuilder()
     .build();
 ```
 
+### <a name="in-javascript"></a>Em JavaScript
+
+Atualmente, há suporte para o RBAC Azure Cosmos DB no [SDK do JavaScript v3](sql-api-sdk-node.md).
+
+```javascript
+const servicePrincipal = new ClientSecretCredential(
+    "<azure-ad-tenant-id>",
+    "<client-application-id>",
+    "<client-application-secret>");
+const client = new CosmosClient({
+    "<account-endpoint>",
+    aadCredentials: servicePrincipal
+});
+```
+
 ## <a name="auditing-data-requests"></a>Auditando solicitações de dados
 
 Ao usar o Azure Cosmos DB RBAC, [os logs de diagnóstico](cosmosdb-monitor-resource-logs.md) são aumentados com informações de identidade e autorização para cada operação de dados. Isso permite que você execute a auditoria detalhada e recupere a identidade do AAD usada para cada solicitação de dados enviada à sua conta de Azure Cosmos DB.
@@ -365,7 +382,7 @@ Essas informações adicionais fluem na categoria de log **DataPlaneRequests** e
 - `aadPrincipalId_g` mostra a ID da entidade de segurança da identidade do AAD que foi usada para autenticar a solicitação.
 - `aadAppliedRoleAssignmentId_g` mostra a [atribuição de função](#role-assignments) que foi respeitada ao autorizar a solicitação.
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 
 - Você pode criar até 100 definições de função e 2.000 atribuições de função por Azure Cosmos DB conta.
 - Atualmente, a resolução de grupo do Azure AD não tem suporte para identidades que pertencem a mais de 200 grupos.
@@ -374,25 +391,25 @@ Essas informações adicionais fluem na categoria de log **DataPlaneRequests** e
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 
-### <a name="which-azure-cosmos-db-apis-are-supported-by-rbac"></a>Quais APIs do Azure Cosmos DB são compatíveis com o RBAC?
+### <a name="which-azure-cosmos-db-apis-are-supported-by-rbac"></a>Quais APIs do Azure Cosmos DB são compatíveis com RBAC?
 
-No momento, há suporte apenas para a API do SQL.
+No momento, há compatibilidade apenas com a API do SQL.
 
-### <a name="is-it-possible-to-manage-role-definitions-and-role-assignments-from-the-azure-portal"></a>É possível gerenciar definições de função e atribuições de função do portal do Azure?
+### <a name="is-it-possible-to-manage-role-definitions-and-role-assignments-from-the-azure-portal"></a>É possível gerenciar definições de função e atribuições de função pelo portal do Azure?
 
-Portal do Azure suporte para gerenciamento de função ainda não está disponível.
+A compatibilidade do portal do Azure com o gerenciamento de função ainda não está disponível.
 
 ### <a name="which-sdks-in-azure-cosmos-db-sql-api-support-rbac"></a>Quais SDKs no Azure Cosmos DB API do SQL dão suporte a RBAC?
 
 Os SDKs do [.net v3](sql-api-sdk-dotnet-standard.md) e do [Java v4](sql-api-sdk-java-v4.md) têm suporte no momento.
 
-### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>O token do Azure AD é atualizado automaticamente pelos SDKs de Azure Cosmos DB quando ele expira?
+### <a name="is-the-azure-ad-token-automatically-refreshed-by-the-azure-cosmos-db-sdks-when-it-expires"></a>O token do Microsoft Azure Active Directory é atualizado automaticamente pelos SDKs do Azure Cosmos DB quando ele expira?
 
 Sim.
 
 ### <a name="is-it-possible-to-disable-the-usage-of-the-account-primary-key-when-using-rbac"></a>É possível desabilitar o uso da chave primária da conta ao usar o RBAC?
 
-A desabilitação da chave primária da conta não é possível no momento.
+Não é possível desabilitar a chave primária da conta no momento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

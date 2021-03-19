@@ -8,12 +8,12 @@ ms.subservice: sizes
 ms.author: brbell
 ms.reviewer: mimckitt
 ms.date: 06/15/2020
-ms.openlocfilehash: 1937b8392ee3a73ed7c268897c532c643a9151eb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bd4dcbdc7ab13d18ef7f2d7102c56d1bd8d8758d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102565454"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582095"
 ---
 # <a name="azure-vm-sizes-with-no-local-temporary-disk"></a>Tamanhos de VM do Azure sem disco temporário local 
 Este artigo fornece respostas para perguntas frequentes sobre os tamanhos de VM do Azure que não têm um disco temporário local (ou seja, nenhum disco Temp local). Para obter mais informações sobre esses tamanhos de VM, consulte [especificações para dv4 e Dsv4 (cargas de trabalho uso geral)](dv4-dsv4-series.md) ou [especificações para as séries Ev4 e Esv4 (cargas de trabalho com otimização de memória)](ev4-esv4-series.md).
@@ -56,7 +56,7 @@ Você pode migrar seguindo estas etapas:
    > Siga as diretrizes na seção "mover temporariamente pagefile.sys para a unidade C" em usar a unidade D: como uma unidade de dados em uma VM do Windows para mover o arquivo de paginação do disco temporário local (D: Drive) para C: Drive. **O desvio das etapas descritas levará à mensagem de erro-"não é possível redimensionar a VM desde que a alteração do disco de recursos para o tamanho da VM do disco não recurso e vice-versa não seja permitida.**
 
 3. Tire um instantâneo da VM seguindo as etapas descritas em [criar um instantâneo usando o portal ou CLI do Azure](./linux/snapshot-copy-managed-disk.md). 
-4. Use o instantâneo para criar uma nova VM sem disco (como, DV4, Dsv4, Ev4, Esv4 Series) seguindo as etapas descritas em [criar uma máquina virtual de um instantâneo com a CLI](./scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md). 
+4. Use o instantâneo para criar uma nova VM sem disco (como, DV4, Dsv4, Ev4, Esv4 Series) seguindo as etapas descritas em [criar uma máquina virtual de um instantâneo com a CLI](/previous-versions/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot). 
 
 ## <a name="do-these-vm-sizes-support-both-linux-and-windows-operating-systems-os"></a>Esses tamanhos de VM dão suporte a sistemas operacionais Linux e Windows (SO)?
 Sim.

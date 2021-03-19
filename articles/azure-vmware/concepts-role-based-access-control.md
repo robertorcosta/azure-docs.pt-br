@@ -2,32 +2,32 @@
 title: Conceitos-controle de acesso baseado em função do vSphere (vSphere RBAC)
 description: Saiba mais sobre os principais recursos do vSphere controle de acesso baseado em função para a solução do Azure VMware
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: 1e49f219fba8317040bfa56f6576a7c1f5b1ae22
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.date: 03/18/2021
+ms.openlocfilehash: c2d27531f7a0acd36b4047e98aac994668f64a09
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573312"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586158"
 ---
 # <a name="vsphere-role-based-access-control-vsphere-rbac-for-azure-vmware-solution"></a>controle de acesso baseado em função do vSphere (vSphere RBAC) para a solução do Azure VMware
 
 Na solução Azure VMware, o vCenter tem um usuário local interno chamado cloudadmin e atribuído à função CloudAdmin interna. O usuário cloudadmin local é usado para configurar usuários no AD. Em geral, a função CloudAdmin cria e gerencia cargas de trabalho em sua nuvem privada. Na solução do Azure VMware, a função CloudAdmin tem privilégios de vCenter que diferem de outras soluções de nuvem VMware.     
 
 > [!NOTE]
-> A solução Azure VMware oferece funções personalizadas no vCenter, mas atualmente não as oferece no portal de solução do Azure VMware. Para obter mais informações, consulte a seção [criar funções personalizadas no vCenter](#create-custom-roles-on-vcenter) posteriormente neste artigo. 
+> A solução Azure VMware oferece funções personalizadas no vCenter não as oferece no portal de solução do Azure VMware. Para obter mais informações, consulte a seção [criar funções personalizadas no vCenter](#create-custom-roles-on-vcenter) posteriormente neste artigo. 
 
 Em uma implantação local do vCenter e ESXi, o administrador tem acesso à conta do vCenter administrator@vsphere.local . Eles também podem ter mais usuários/grupos de Active Directory (AD) atribuídos. 
 
 Em uma implantação de solução do Azure VMware, o administrador não tem acesso à conta de usuário administrador. Mas eles podem atribuir usuários e grupos do AD à função CloudAdmin no vCenter.  
 
-O usuário da nuvem privada não tem acesso ao e não pode configurar componentes de gerenciamento específicos com suporte e gerenciados pela Microsoft. Por exemplo, clusters, hosts, repositórios de armazenamento e comutadores virtuais distribuídos.
+O usuário da nuvem privada não tem acesso e não pode configurar componentes de gerenciamento específicos com suporte e gerenciados pela Microsoft. Por exemplo, clusters, hosts, repositórios de armazenamento e comutadores virtuais distribuídos.
 
 ## <a name="azure-vmware-solution-cloudadmin-role-on-vcenter"></a>Função CloudAdmin da solução VMware do Azure no vCenter
 
 Você pode exibir os privilégios concedidos à função CloudAdmin da solução VMware do Azure em sua nuvem privada da solução Azure VMware vCenter.
 
-1. Faça logon no cliente SDDC vSphere e vá para o **menu**  >  **Administração**.
+1. Faça logon no vCenter e vá para o **menu**  >  **Administração**.
 1. Em **controle de acesso**, selecione **funções**.
 1. Na lista de funções, selecione **CloudAdmin** e, em seguida, selecione **privilégios**. 
 
@@ -35,7 +35,7 @@ Você pode exibir os privilégios concedidos à função CloudAdmin da solução
 
 A função CloudAdmin na solução VMware do Azure tem os seguintes privilégios no vCenter. Consulte a [documentação do produto VMware](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-ED56F3C4-77D0-49E3-88B6-B99B8B437B62.html) para obter uma explicação detalhada de cada privilégio.
 
-| Privilege | Description |
+| Privilege | Descrição |
 | --------- | ----------- |
 | **Alarmes** | Reconhecer alerta<br />Criar alarme<br />Desabilitar ação de alarme<br />Modificar alarme<br />Remover alarme<br />Definir status do alarme |
 | **Permissões** | Modificar permissões<br />Modificar função |
@@ -62,7 +62,7 @@ A solução Azure VMware dá suporte ao uso de funções personalizadas com priv
 
 A função CloudAdmin pode criar, modificar ou excluir funções personalizadas que têm privilégios menores ou iguais à sua função atual. Você pode criar funções que têm privilégios maiores que CloudAdmin, mas não será possível atribuir a função a nenhum usuário ou grupo ou excluir a função.
 
-Para evitar a criação de funções que não podem ser atribuídas ou excluídas, a solução Azure VMware recomenda a clonagem da função CloudAdmin como a base para a criação de novas funções personalizadas.
+Para evitar a criação de funções que não podem ser atribuídas ou excluídas, recomenda-se clonar a função CloudAdmin como base para criar novas funções personalizadas.
 
 ### <a name="create-a-custom-role"></a>Criar uma função personalizada
 1. Entre no vCenter com cloudadmin \@ vSphere. local ou um usuário com a função cloudadmin.

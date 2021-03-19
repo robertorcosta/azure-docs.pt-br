@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 6fa8e2d9fb2270d53d8c0419ac7b4d88d79f30fd
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102425695"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595967"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -257,9 +257,17 @@ Usado somente ao implantar em um plano Premium ou em um plano de consumo em exec
 
 Ao usar um Azure Resource Manager para criar um aplicativo de funções durante a implantação, não inclua WEBSITE_CONTENTSHARE no modelo. Essa configuração de aplicativo é gerada durante a implantação. Para saber mais, confira [automatizar a implantação de recursos para seu aplicativo de funções](functions-infrastructure-as-code.md#windows).   
 
+## <a name="website_dns_server"></a>\_servidor DNS \_ do site
+
+Define o servidor DNS usado por um aplicativo ao resolver endereços IP. Essa configuração geralmente é necessária ao usar determinadas funcionalidades de rede, como [zonas privadas do DNS do Azure](functions-networking-options.md#azure-dns-private-zones) e [pontos de extremidade privados](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network).   
+
+|Chave|Valor de exemplo|
+|---|------------|
+|\_servidor DNS \_ do site|168.63.129.16|
+
 ## <a name="website_max_dynamic_application_scale_out"></a>WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
-O número máximo de instâncias que o aplicativo de funções pode alcançar. O padrão é sem limites.
+O número máximo de instâncias para as quais o aplicativo pode ser expandido. O padrão é sem limites.
 
 > [!IMPORTANT]
 > Essa configuração está em versão prévia.  Uma [propriedade de aplicativo para a função de expansão máxima](./event-driven-scaling.md#limit-scale-out) foi adicionada e é a maneira recomendada para limitar a escala horizontal.
@@ -297,6 +305,14 @@ Permite que você defina o fuso horário para seu aplicativo de funções.
 |\_fuso horário do site \_|Linux|América/New_York|
 
 [!INCLUDE [functions-timezone](../../includes/functions-timezone.md)]
+
+## <a name="website_vnet_route_all"></a>rota de VNET do site \_ \_ \_ todos
+
+Indica se todo o tráfego de saída do aplicativo é roteado por meio da rede virtual. Um valor de configuração `1` indica que todo o tráfego é roteado por meio da rede virtual. Você precisa usar essa configuração ao usar os recursos de [integração de rede virtual regional](functions-networking-options.md#regional-virtual-network-integration). Ele também é usado quando um [gateway NAT de rede virtual é usado para definir um endereço IP de saída estático](functions-how-to-use-nat-gateway.md). 
+
+|Chave|Valor de exemplo|
+|---|------------|
+|rota de VNET do site \_ \_ \_ todos|1|
 
 ## <a name="next-steps"></a>Próximas etapas
 

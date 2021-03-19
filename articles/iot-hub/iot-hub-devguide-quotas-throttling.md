@@ -6,17 +6,17 @@ ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 03/18/2021
 ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 5a5b20efbf804c2ea1097f905da1cfd62727ff15
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
-ms.locfileid: "94410684"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595253"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -43,7 +43,7 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Restrição | Gratuito, B1 e S1 | B2 e S2 | B3 e S3 | 
 | -------- | ------- | ------- | ------- |
 | [Operações de registro de identidade](#identity-registry-operations-throttle) (criar, recuperar, listar, atualizar, excluir) | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
-| [Novas conexões de dispositivo](#device-connections-throttle) (esse limite se aplica à taxa de _novas conexões_ , não ao número total de conexões) | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24 novas conexões/s, mas você tem pelo menos 100 novas conexões s em suas unidades. Com nove unidades S1 você tem 108/s novas conexões/s (9\*12) em suas uniddes. | 120 novas conexões/s/unidade | 6.000 novas conexões/s/unidade |
+| [Novas conexões de dispositivo](#device-connections-throttle) (esse limite se aplica à taxa de _novas conexões_, não ao número total de conexões) | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24 novas conexões/s, mas você tem pelo menos 100 novas conexões s em suas unidades. Com nove unidades S1 você tem 108/s novas conexões/s (9\*12) em suas uniddes. | 120 novas conexões/s/unidade | 6.000 novas conexões/s/unidade |
 | Envios do dispositivo para a nuvem | Mais alto de 100 operações de envio/s ou 12 operações de envio/s/unidade <br/> Por exemplo, duas unidades S1 são 2 \* 12 = 24/s, mas você tem pelo menos 100 operações de envio/s em suas unidades. Com nove unidades S1, você tem 108 operações de envio/s (9 \* 12) em suas unidades. | 120 operações de envio/s/unidade | 6.000 operações de envio/s/unidade |
 | Envios de nuvem para dispositivo<sup>1</sup> | 1,67 operações de envio/s/unidade (100 mensagens/min/unidade) | 1,67 operações de envio/s/unidade (100 operações de envio/min/unidade) | 83,33 operações de envio/s/unidade (5.000 operações de envio/min/unidade) |
 | Recebimentos de nuvem para dispositivo<sup>1</sup> <br/> (somente quando o dispositivo usar HTTPS)| 16,67 operações de recebimento/s/unidade (1.000 operações de recebimento/min/unidade) | 16,67 operações de recebimento/s/unidade (1.000 operações de recebimento/min/unidade) | 833,33 operações de recebimento/s/unidade (50.000 operações de recebimento/min/unidade) |
@@ -87,6 +87,8 @@ Por exemplo, você usa um dispositivo simulado para enviar mensagens de 200 do d
 
 As operações de registro de identidade do dispositivo são destinadas ao uso em tempo de execução em cenários de provisionamento e gerenciamento de dispositivos. Há suporte para leitura ou atualização de grandes números de identidades de dispositivo por meio de [trabalhos de importação e exportação](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
+Ao iniciar operações de identidade por meio de [operações de dispositivo em massa](iot-hub-bulk-identity-mgmt.md), os mesmos limites de limitação se aplicam. Por exemplo, se você quiser enviar a operação em massa para criar dispositivos 50, e tiver um hub IoT S1 com uma unidade, somente duas dessas solicitações em massa serão aceitas por minuto. Isso porque o limite de operação de identidade para para um hub IoT S1 com uma unidade é 100/min/unidade. Também nesse caso, uma terceira solicitação (e além) no mesmo minuto seria rejeitada porque o limite já tinha sido atingido. 
+
 ### <a name="device-connections-throttle"></a>Restrição de conexões de dispositivo
 
 As *conexões de dispositivo* controla a taxa em que novas conexões de dispositivo podem ser estabelecidas com um Hub IoT. A restrição de *conexões de dispositivo* não controla o número máximo de dispositivos conectados simultaneamente. A limitação da taxa de *conexões de dispositivo* depende do número de unidades provisionadas para o hub IoT.
@@ -120,7 +122,7 @@ IoT Hub impõe outros limites operacionais:
 
 A qualquer momento, você pode aumentar as cotas ou os limites de limitação [aumentando o número de unidades provisionadas em um hub IOT](iot-hub-upgrade.md).
 
-## <a name="latency"></a>Latency
+## <a name="latency"></a>Latência
 
 O Hub IoT busca oferecer baixa latência para todas as operações. No entanto, devido a condições de rede e outros fatores imprevisíveis, ele não pode garantir uma determinada latência. Ao projetar sua solução, você deve:
 

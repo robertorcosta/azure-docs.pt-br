@@ -4,13 +4,13 @@ description: Saiba como criar um cluster que distribui nós entre zonas de dispo
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 09/04/2020
-ms.openlocfilehash: 3eec8a6c331227d9d6298c46b272a5784080d342
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.date: 03/16/2021
+ms.openlocfilehash: 4c5b0ceb3f8e0b96f18a67ed0c7dbf1b56ac30da
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102180319"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583540"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>Criar um cluster do AKS (Serviço de Kubernetes do Azure) que usa zonas de disponibilidade
 
@@ -29,6 +29,7 @@ Você precisará da CLI do Azure versão 2.0.76 ou posterior instalada e configu
 Atualmente, os clusters do AKS podem ser criados usando zonas de disponibilidade nas seguintes regiões:
 
 * Leste da Austrália
+* Sul do Brasil
 * Canadá Central
 * Centro dos EUA
 * Leste dos EUA 
@@ -167,7 +168,7 @@ Name:       aks-nodepool1-28993262-vmss000004
 Agora temos dois nós adicionais nas zonas 1 e 2. Você pode implantar um aplicativo que consiste em três réplicas. Usaremos NGINX como exemplo:
 
 ```console
-kubectl create deployment nginx --image=nginx
+kubectl create deployment nginx --image=mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
 kubectl scale deployment nginx --replicas=3
 ```
 
