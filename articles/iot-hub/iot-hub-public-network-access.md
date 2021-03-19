@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: 539e420cb9085fad10ea3972ba0e9e5ffb9d0622
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: b225ad7e12a95b4dcbb8656f54f8a9e9562b2ee8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419755"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604688"
 ---
 # <a name="managing-public-network-access-for-your-iot-hub"></a>Gerenciando o acesso à rede pública para o Hub IoT
 
@@ -24,7 +24,7 @@ Para restringir o acesso somente ao [ponto de extremidade privado para o Hub IOT
 2. Navegue até o seu Hub IoT.
 3. Selecione **rede** no menu do lado esquerdo.
 4. Em "permitir acesso de rede pública a", selecione **desabilitado**
-5. Clique em **Salvar**.
+5. Selecione **Salvar**.
 
 :::image type="content" source="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png" alt-text="Imagem mostrando portal do Azure onde desativar o acesso à rede pública" lightbox="media/iot-hub-publicnetworkaccess/turn-off-public-network-access.png":::
 
@@ -32,7 +32,7 @@ Para ativar o acesso à rede pública, selecione **todas as redes** e, em seguid
 
 ## <a name="accessing-the-iot-hub-after-disabling-public-network-access"></a>Acessando o Hub IoT depois de desabilitar o acesso à rede pública
 
-Depois que o acesso à rede pública é desabilitado, o Hub IoT só é acessível por meio [de seu ponto de extremidade privado de VNet usando o link privado do Azure](virtual-network-support.md). Essa restrição inclui o acesso por meio de portal do Azure, porque as chamadas à API para o serviço do Hub IoT são feitas diretamente usando seu navegador com suas credenciais. 
+Depois que o acesso à rede pública é desabilitado, o Hub IoT só é acessível por meio [de seu ponto de extremidade privado de VNet usando o link privado do Azure](virtual-network-support.md).
 
 ## <a name="iot-hub-endpoint-ip-address-and-ports-after-disabling-public-network-access"></a>Ponto de extremidade do Hub IoT, endereço IP e portas depois de desabilitar o acesso à rede pública
 

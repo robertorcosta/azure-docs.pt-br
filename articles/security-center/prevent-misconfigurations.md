@@ -5,14 +5,14 @@ author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: how-to
-ms.date: 02/04/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 5d172a73674195e7f64f5ef02322e2bd2d6314df
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.openlocfilehash: fabbd255f64e5614ae052c9d7c8d65fc35d45856
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102439520"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600489"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Impedir configurações incorretas com as recomendações de Impor/Negar
 
@@ -68,6 +68,7 @@ Essas recomendações podem ser usadas com a opção **impor** :
 - A auditoria no SQL Server deve ser habilitada
 - O Backup do Azure deve ser habilitado para máquinas virtuais
 - O Azure Defender para SQL deverá ser habilitado em servidores SQL
+- Um complemento do Azure Policy para Kubernetes deverá estar instalado e habilitado nos clusters
 - Os logs de diagnóstico no Azure Stream Analytics devem ser habilitados
 - Os logs de diagnóstico em contas do Lote devem ser habilitados
 - Os logs de diagnóstico no Data Lake Analytics devem ser habilitados

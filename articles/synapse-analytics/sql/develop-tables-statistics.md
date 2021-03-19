@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 218803d0b7e1f5add2f033a7ce01e0a8f6ffc956
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 450a089c6cc1c77ac26cb0aa339277d5c49b41c8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101674102"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594777"
 ---
 # <a name="statistics-in-synapse-sql"></a>Estatísticas no SQL do Synapse
 
@@ -90,9 +90,9 @@ As estatísticas de uma coluna de país ou região em uma tabela de clientes tal
 
 No entanto, quando seu data warehouse contém apenas um país ou região e você traz dados de um novo país ou região, é necessário atualizar as estatísticas na coluna de país ou região.
 
-O seguinte são recomendações atualizando estatísticas:
+Veja a seguir as recomendações para atualizar as estatísticas:
 
-|||
+|Tipo|Recomendação|
 |-|-|
 | **Frequência de atualizações de estatísticas**  | Conservadora: Diário </br> Depois de carregar ou transformar os dados |
 | **Amostragem** |  Menos de 1 bilhão de linhas, usar a amostragem padrão (20%). </br> Com mais de 1 bilhão de linhas, use a amostragem de dois por cento. |
@@ -884,6 +884,6 @@ WHERE   st.[user_created] = 1
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para melhorar ainda mais o desempenho da consulta para o pool SQL dedicado, consulte [monitorar sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e [as práticas recomendadas para o pool SQL dedicado](best-practices-sql-pool.md#maintain-statistics).
+Para melhorar ainda mais o desempenho da consulta para o pool SQL dedicado, consulte [monitorar sua carga de trabalho](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) e [as práticas recomendadas para o pool SQL dedicado](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
-Para melhorar ainda mais o desempenho de consulta para o pool SQL sem servidor, consulte [práticas recomendadas para o pool SQL sem servidor](best-practices-sql-on-demand.md)
+Para melhorar ainda mais o desempenho de consulta para o pool SQL sem servidor, consulte [práticas recomendadas para o pool SQL sem servidor](best-practices-serverless-sql-pool.md)

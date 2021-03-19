@@ -5,12 +5,12 @@ author: noakup
 ms.author: noakuper
 ms.topic: conceptual
 ms.date: 10/05/2020
-ms.openlocfilehash: 65af5810152034fd7b6014041edd07835eebd194
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 76c6d7caf3c63779e12443304688192f7311720a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102101470"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594556"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usar o Link Privado do Azure para conectar redes com segurança ao Azure Monitor
 
@@ -51,14 +51,16 @@ Alguns serviços de Azure Monitor usam pontos de extremidade globais, o que sign
 Quando você configura uma conexão de link privado, o DNS é atualizado para mapear Azure Monitor pontos de extremidade para endereços IP privados do intervalo de IP de sua VNet. Essa alteração substitui qualquer mapeamento anterior desses pontos de extremidade, o que pode ter implicações significativas, revisado abaixo. 
 
 ### <a name="azure-monitor-private-link-applies-to-all-azure-monitor-resources---its-all-or-nothing"></a>Azure Monitor link privado se aplica a todos os Azure Monitor recursos – é tudo ou nada
-Como alguns pontos de extremidade Azure Monitor são globais, é impossível criar uma conexão de link privado para um componente ou espaço de trabalho específico. Em vez disso, quando você configura um link privado para um único componente de Application Insights, os registros DNS são atualizados para **todos os** componentes de Application insights. Qualquer tentativa de ingerir ou consultar um componente passará pelo link privado e possivelmente falhará. Da mesma forma, a configuração de um link privado para um único espaço de trabalho fará com que todas as Log Analytics consultas passem pelo ponto de extremidade de consulta de link privado (mas não por solicitações de ingestão, que têm pontos de extremidade específicos do espaço de trabalho).
+Como alguns pontos de extremidade Azure Monitor são globais, é impossível criar uma conexão de link privado para um componente ou espaço de trabalho específico. Em vez disso, quando você configura um link privado para um único componente de Application Insights ou Log Analytics espaço de trabalho, os registros DNS são atualizados para **todos os** componentes do Application insights. Qualquer tentativa de ingerir ou consultar um componente passará pelo link privado e possivelmente falhará. Com relação à Log Analytics, os pontos de extremidade de ingestão e configuração são específicos do espaço de trabalho, o que significa que a configuração de link privado será aplicada somente aos espaços de trabalho especificados. A ingestão e a configuração de outros espaços de trabalho serão direcionadas para os pontos de extremidade de Log Analytics públicos padrão.
 
 ![Diagrama de substituições de DNS em uma única VNet](./media/private-link-security/dns-overrides-single-vnet.png)
 
 Isso é verdade não apenas para uma VNet específica, mas para todos os VNets que compartilham o mesmo servidor DNS (consulte [o problema de substituições de DNS](#the-issue-of-dns-overrides)). Portanto, por exemplo, a solicitação para ingerir logs para qualquer Application Insights componente sempre será enviada por meio da rota de link privado. Os componentes que não estão vinculados ao AMPLS falharão na validação do link privado e não passarão por ele.
 
 > [!NOTE]
-> Para concluir: depois de configurar uma conexão de link privado com um único recurso, ela se aplica a todos os Azure Monitor recursos em sua rede. isso é tudo ou nada. Isso significa efetivamente que você deve adicionar todos os recursos de Azure Monitor na sua rede ao seu AMPLS ou a nenhum deles.
+> Para concluir: depois de configurar uma conexão de link privado com um único recurso, ela se aplica a Azure Monitor recursos em toda a rede. Para Application Insights recursos, isso é ' tudo ou nada '. Isso significa efetivamente que você deve adicionar todos os recursos de Application Insights na sua rede ao seu AMPLS ou a nenhum deles.
+> 
+> Para lidar com riscos de vazamento de dados, nossa recomendação é adicionar todos os Application Insights e Log Analytics recursos ao seu AMPLS e bloquear o tráfego de saída de suas redes o máximo possível.
 
 ### <a name="azure-monitor-private-link-applies-to-your-entire-network"></a>Azure Monitor link privado se aplica a toda a sua rede
 Algumas redes são compostas por vários VNets. Se o VNets usar o mesmo servidor DNS, ele substituirá os mapeamentos de DNS uns dos outros e poderá interromper a comunicação entre si com Azure Monitor (consulte [o problema de substituições de DNS](#the-issue-of-dns-overrides)). Por fim, somente a última VNet será capaz de se comunicar com Azure Monitor, já que o DNS mapeará Azure Monitor pontos de extremidade para IPs privados desse intervalo VNets (que talvez não possa ser acessado de outros VNets).

@@ -9,12 +9,12 @@ ms.subservice: trusted-launch
 ms.topic: how-to
 ms.date: 03/03/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f5e361d32cf2ab436f92ce2ca86a054a6dd3337e
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: dec9c7581bbcf55196b04e0a76e9e61f81a27244
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102553741"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582061"
 ---
 # <a name="deploy-a-vm-with-trusted-launch-enabled-preview"></a>Implantar uma VM com inicialização confiável habilitada (visualização)
 
@@ -134,13 +134,13 @@ Selecione o botão abaixo para implantar as políticas para sua assinatura:
 
 O modelo precisa ser implantado apenas uma vez por assinatura. Ele instala `GuestAttestation` e `AzureSecurity` extensões automaticamente em todas as VMs com suporte. Se você receber erros, tente reimplantar o modelo novamente.
 
-Para obter vTPM e recomendações de inicialização segura para VMs de inicialização confiáveis, consulte [Adicionar uma iniciativa personalizada à sua assinatura](https://docs.microsoft.com/azure/security-center/custom-security-policies#to-add-a-custom-initiative-to-your-subscription).
+Para obter vTPM e recomendações de inicialização segura para VMs de inicialização confiáveis, consulte [Adicionar uma iniciativa personalizada à sua assinatura](../security-center/custom-security-policies.md#to-add-a-custom-initiative-to-your-subscription).
  
 ## <a name="sign-things-for-secure-boot-on-linux"></a>Assinar coisas para inicialização segura no Linux
 
 Em alguns casos, talvez seja necessário assinar coisas para inicialização segura de UEFI.  Por exemplo, talvez seja necessário percorrer [como assinar coisas para inicialização segura](https://ubuntu.com/blog/how-to-sign-things-for-secure-boot) para o Ubuntu. Nesses casos, você precisa inserir as chaves de registro do utilitário MOK para sua VM. Para fazer isso, você precisa usar o console serial do Azure para acessar o utilitário MOK.
 
-1. Habilite o console serial do Azure para Linux. Para obter mais informações, consulte [console serial para Linux](https://docs.microsoft.com/troubleshoot/azure/virtual-machines/serial-console-linux).
+1. Habilite o console serial do Azure para Linux. Para obter mais informações, consulte [console serial para Linux](/troubleshoot/azure/virtual-machines/serial-console-linux).
 1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Pesquise **máquinas virtuais** e selecione sua VM na lista.
 1. No menu à esquerda, em **suporte + solução de problemas**, selecione **console serial**. Uma página será aberta à direita, com o console serial.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 2/16/2021
 ms.author: gasinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 06ed37b914c352d7162db7f8409ac09b7615da47
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: a793ebb6d2b58718a6ee42c69c38b9da1b124722
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102174420"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589388"
 ---
 # <a name="secure-hybrid-access-secure-legacy-apps-with-azure-active-directory"></a>Acesso híbrido seguro: proteger aplicativos herdados com o Azure Active Directory
 
@@ -44,15 +44,15 @@ Além do [proxy de aplicativo do AD do Azure](./what-is-application-proxy.md), p
 
 Os fornecedores de rede a seguir oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
 
-- [EAA (Akamai Enterprise Application Access)](https://docs.microsoft.com/azure/active-directory/saas-apps/akamai-tutorial)
+- [EAA (Akamai Enterprise Application Access)](../saas-apps/akamai-tutorial.md)
 
-- [ADC (Application Delivery Controller) Citrix](https://docs.microsoft.com/azure/active-directory/saas-apps/citrix-netscaler-tutorial)
+- [ADC (Application Delivery Controller) Citrix](../saas-apps/citrix-netscaler-tutorial.md)
 
-- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-integration)
+- [F5 Big-IP APM](./f5-aad-integration.md)
 
-- [Kemp](https://docs.microsoft.com/azure/active-directory/saas-apps/kemp-tutorial)
+- [Kemp](../saas-apps/kemp-tutorial.md)
 
-- [Gerenciador de tráfego virtual de Pulse Secure (VTM)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
+- [Gerenciador de tráfego virtual de Pulse Secure (VTM)](../saas-apps/pulse-secure-virtual-traffic-manager-tutorial.md)
 
 ### <a name="sha-through-vpn-and-sdp-applications"></a>SHA por meio de aplicativos VPN e SDP
 
@@ -62,24 +62,25 @@ Usando soluções VPN e SDP, você pode fornecer acesso seguro à sua rede corpo
 
 Os fornecedores de VPN a seguir oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
 
-- [Cisco AnyConnect](https://docs.microsoft.com/azure/active-directory/saas-apps/cisco-anyconnect)
+- [Cisco AnyConnect](../saas-apps/cisco-anyconnect.md)
 
-- [Fortinet](https://docs.microsoft.com/azure/active-directory/saas-apps/fortigate-ssl-vpn-tutorial)
+- [Fortinet](../saas-apps/fortigate-ssl-vpn-tutorial.md)
 
-- [F5 Big-IP APM](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-aad-password-less-vpn)
+- [F5 Big-IP APM](./f5-aad-password-less-vpn.md)
 
-- [Proteção global de redes Palo Alto](https://docs.microsoft.com/azure/active-directory/saas-apps/paloaltoadmin-tutorial)
+- [Proteção global de redes Palo Alto](../saas-apps/paloaltoadmin-tutorial.md)
 
-- [Proteção do Pulse Secure Pulse Connect (PCS)](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-pcs-tutorial)
+- [Proteção do Pulse Secure Pulse Connect (PCS)](../saas-apps/pulse-secure-pcs-tutorial.md)
 
 Os seguintes fornecedores de SDP oferecem soluções predefinidas e diretrizes detalhadas para a integração com o Azure AD.
 
-- [Agente de acesso do Datawiza](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
+- [Agente de acesso do Datawiza](./add-application-portal-setup-oidc-sso.md)
 
-- [Perimeter 81](https://docs.microsoft.com/azure/active-directory/saas-apps/perimeter-81-tutorial#:~:text=For%20SSO%20to%20work,%20you%20need%20to%20establish,to%20test%20Azure%20AD%20single%20sign-on%20with%20B.Simon.)
+- [Perimeter 81](../saas-apps/perimeter-81-tutorial.md)
 
-- [Plataforma de autenticação Silverfort](https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal-setup-oidc-sso)
 
-- [Strata](https://docs.microsoft.com/azure/active-directory/saas-apps/maverics-identity-orchestrator-saml-connector-tutorial)
+- [Plataforma de autenticação Silverfort](./add-application-portal-setup-oidc-sso.md)
 
-- [Zscaler Private Access (ZPA)](https://docs.microsoft.com/azure/active-directory/saas-apps/zscalerprivateaccess-tutorial)
+- [Strata](../saas-apps/maverics-identity-orchestrator-saml-connector-tutorial.md)
+
+- [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)

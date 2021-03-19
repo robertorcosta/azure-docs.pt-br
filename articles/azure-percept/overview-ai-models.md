@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: template-concept
-ms.openlocfilehash: d0cdabb3b22d642a7903810181106b09c549e1a2
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: e31a696dfb443c20566f13f5a228eefac7af5ecc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102218155"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595916"
 ---
 # <a name="azure-percept-ai-models"></a>Modelos de IA do Azure Percept
 
@@ -40,6 +40,10 @@ Uma [solução de referência de contagem de pessoas](https://github.com/microso
 Por meio do Azure Percept Studio, você pode desenvolver soluções personalizadas de [visão](./tutorial-nocode-vision.md) e fala, sem necessidade de codificação.
 
 Para soluções de visão personalizada, os modelos de ia de detecção e classificação de objetos estão disponíveis. Basta carregar e marcar suas imagens de treinamento, que podem ser tomadas diretamente com o SoM de visão do Azure Percept do Azure Percept DK, se desejado. O treinamento e a avaliação do modelo são facilmente executados em [visão personalizada](https://www.customvision.ai/), que faz parte dos [Serviços cognitivas do Azure](https://azure.microsoft.com/services/cognitive-services/#overview).
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
 
 Para soluções de fala personalizadas, os modelos de assistente de voz estão disponíveis atualmente para os seguintes aplicativos:
 

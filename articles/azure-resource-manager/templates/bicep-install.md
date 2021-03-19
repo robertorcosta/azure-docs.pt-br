@@ -2,13 +2,13 @@
 title: Configurar ambientes de desenvolvimento e implantação do bicep
 description: Como configurar ambientes de desenvolvimento e implantação do bicep
 ms.topic: conceptual
-ms.date: 03/09/2021
-ms.openlocfilehash: 0434c08a4427d2549a9adf4e4ab1e7e73a465ad8
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.date: 03/17/2021
+ms.openlocfilehash: d665a863affdec2009fc208f76b85a7f25de451d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102619977"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594386"
 ---
 # <a name="setup-bicep-development-and-deployment-environment"></a>Configurar o ambiente de desenvolvimento e implantação do bicep
 
@@ -18,7 +18,7 @@ Saiba como configurar ambientes de desenvolvimento e implantação do bicep.
 
 Para obter a melhor experiência de criação de bicep, você precisa de dois componentes:
 
-- **Extensão bicep para Visual Studio Code**. Para criar arquivos bicep, você precisa de um bom editor de bicep. É recomendável [Visual Studio Code](https://code.visualstudio.com/) com a [extensão bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Essas ferramentas fornecem suporte a idiomas e preenchimento automático de recursos. Eles ajudam a criar e validar arquivos bicep. Para obter mais informações, consulte [início rápido: criar arquivos bicep com Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+- **Extensão bicep para Visual Studio Code**. Para criar arquivos bicep, você precisa de um bom editor de bicep. É recomendável [Visual Studio Code](https://code.visualstudio.com/) com a [extensão bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Essas ferramentas fornecem suporte a idiomas e preenchimento automático de recursos. Eles ajudam a criar e validar arquivos bicep. Para obter mais informações sobre como usar Visual Studio Code e a extensão bicep, consulte [início rápido: criar arquivos bicep com Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
 - **BICEP CLI**. Use a CLI bicep para compilar arquivos bicep para modelos de JSON de ARM e descompilar modelos JSON de ARM para arquivos bicep. Para obter mais informações, consulte [install BICEP CLI](#install-bicep-cli).
 
 ## <a name="deployment-environment"></a>Ambiente de implantação

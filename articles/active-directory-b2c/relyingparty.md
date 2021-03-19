@@ -8,14 +8,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/15/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5374ce59d3a599e243684c168a8d84a6434059ee
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: b1c8bf5cb8944b990737d557326b2741716bab3d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492006"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579749"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -93,7 +94,7 @@ O elemento de **ponto de extremidade** contém os seguintes atributos:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | Um identificador exclusivo do ponto de extremidade.|
+| ID | Sim | Um identificador exclusivo do ponto de extremidade.|
 | UserJourneyReferenceId | Sim | Um identificador de percurso do usuário na política. Para obter mais informações, confira [percursos do usuário](userjourneys.md)  | 
 
 O exemplo a seguir mostra uma terceira parte confiável com o [ponto de extremidade UserInfo](userinfo-endpoint.md):
@@ -210,7 +211,7 @@ O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Sim | O valor deve ser `PolicyProfile`. |
+| ID | Sim | O valor deve ser `PolicyProfile`. |
 
 O **TechnicalProfile** contém os seguintes elementos:
 

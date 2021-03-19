@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 03/8/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: 0325dcf16c8e637a58365311a4ebd37a442d6b8c
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: c206cba3b23a0bf41ce32481980aa466e869bcde
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102522407"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596290"
 ---
 # <a name="states-and-billing-of-azure-virtual-machines"></a>Estados e cobrança de máquinas virtuais do Azure
 
@@ -82,6 +82,6 @@ OS Estados de provisionamento do so se aplicam somente a máquinas virtuais cria
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Examine a [documentação de cobrança e gerenciamento de custos do Azure](https://docs.microsoft.com/azure/cost-management-billing/)
+- Examine a [documentação de cobrança e gerenciamento de custos do Azure](../cost-management-billing/index.yml)
 - Use a [calculadora de preços do Azure](https://azure.microsoft.com/pricing/calculator/) para planejar suas implantações.
-- Saiba mais sobre como monitorar sua VM, consulte [monitorar máquinas virtuais no Azure](../azure-monitor/insights/monitor-vm-azure.md).
+- Saiba mais sobre como monitorar sua VM, consulte [monitorar máquinas virtuais no Azure](../azure-monitor/vm/monitor-vm-azure.md).

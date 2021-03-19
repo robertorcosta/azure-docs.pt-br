@@ -2,17 +2,17 @@
 title: Provedores de recursos pelos serviços do Azure
 description: Lista todos os namespaces do provedor de recursos para Azure Resource Manager e mostra o serviço do Azure para esse namespace.
 ms.topic: conceptual
-ms.date: 12/01/2020
-ms.openlocfilehash: 65fa6a690f05a61e54bae2d22f4889c3193bcb1a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.date: 03/16/2021
+ms.openlocfilehash: ee8cb054f3f10c3b33d5235b2b03cdfeac266139
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103008698"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592154"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provedores de recursos para serviços do Azure
 
-Este artigo mostra como os namespaces do provedor de recursos são mapeados para os serviços do Azure.
+Este artigo mostra como os namespaces do provedor de recursos são mapeados para os serviços do Azure. Se você não souber o provedor de recursos, consulte [Localizar provedor de recursos](#find-resource-provider).
 
 ## <a name="match-resource-provider-to-service"></a>Corresponder provedor de recursos ao serviço
 
@@ -192,6 +192,42 @@ Os provedores de recursos acima que são marcados com **-registrado** são regis
 
 > [!IMPORTANT]
 > Somente registre um provedor de recursos quando estiver pronto para usá-lo. A etapa de registro permite que você mantenha os privilégios mínimos em sua assinatura. Um usuário mal-intencionado não pode usar provedores de recursos que não estão registrados.
+
+## <a name="find-resource-provider"></a>Localizar provedor de recursos
+
+Se você tiver uma infraestrutura existente no Azure, mas não tiver certeza de qual provedor de recursos é usado, poderá usar o CLI do Azure ou o PowerShell para localizar o provedor de recursos. Especifique o nome do grupo de recursos que contém os recursos a serem localizados.
+
+O exemplo a seguir usa CLI do Azure:
+
+```azurecli-interactive
+az resource list -g examplegroup
+```
+
+Os resultados incluem o tipo de recurso. O namespace do provedor de recursos é a primeira parte do tipo de recurso. O exemplo a seguir mostra o provedor de recursos **Microsoft. keyvault** .
+
+```json
+[
+  {
+    ...
+    "type": "Microsoft.KeyVault/vaults"
+  }
+]
+```
+
+O exemplo a seguir usa o PowerShell:
+
+```azurepowershell-interactive
+Get-AzResource -ResourceGroupName examplegroup
+```
+
+Os resultados incluem o tipo de recurso. O namespace do provedor de recursos é a primeira parte do tipo de recurso. O exemplo a seguir mostra o provedor de recursos **Microsoft. keyvault** .
+
+```azurepowershell
+Name              : examplekey
+ResourceGroupName : examplegroup
+ResourceType      : Microsoft.KeyVault/vaults
+...
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -2,13 +2,13 @@
 title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
-ms.date: 03/16/2021
-ms.openlocfilehash: b14dc3622a6ad6519968bd2998aa354a850f2515
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.date: 03/18/2021
+ms.openlocfilehash: 79020e8e24cb43697a44ac9accd4e777bffe959e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601586"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594199"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -219,6 +219,14 @@ O exemplo a seguir cria um novo grupo de gerenciamento no grupo de gerenciamento
     }
 }
 ```
+
+## <a name="subscriptions"></a>Assinaturas
+
+Para usar um modelo ARM para criar uma nova assinatura do Azure em um grupo de gerenciamento, consulte:
+
+* [Criar programaticamente assinaturas do Azure Contrato Enterprise](../../cost-management-billing/manage/programmatically-create-subscription-enterprise-agreement.md)
+* [Criar programaticamente assinaturas do Azure para um contrato de cliente da Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-customer-agreement.md)
+* [Crie programaticamente assinaturas do Azure para um contrato de parceiro da Microsoft](../../cost-management-billing/manage/programmatically-create-subscription-microsoft-partner-agreement.md)
 
 Para implantar um modelo que move uma assinatura do Azure existente para um novo grupo de gerenciamento, consulte [mover assinaturas no modelo ARM](../../governance/management-groups/manage.md#move-subscriptions-in-arm-template)
 
