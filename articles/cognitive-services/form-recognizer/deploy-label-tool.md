@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/11/2021
 ms.author: lajanuar
 ms.openlocfilehash: 0f5f0714235ee23624b3a199eac744155d2bbdd1
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093394"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Implantar a ferramenta de rotulagem de exemplos
@@ -35,7 +35,7 @@ A maneira mais rápida de começar a rotular dados é executar a ferramenta de r
 Antes de começar, é importante observar que há duas maneiras de implantar a ferramenta de rotulamento de exemplo em uma instância de contêiner do Azure (ACI). Ambas as opções são usadas para executar a ferramenta de rotulagem de exemplo com ACI:
 
 * [Usando o portal do Azure](#azure-portal)
-* [Usando a CLI do Azure](#azure-cli)
+* [Usando o CLI do Azure](#azure-cli)
 
 ### <a name="azure-portal"></a>Portal do Azure
 

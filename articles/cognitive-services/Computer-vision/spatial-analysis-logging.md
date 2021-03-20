@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
 ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 0aec60c088f1dcb0f89eaad5faf5f2c815e53bf8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98186015"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e solução de problemas
@@ -216,9 +216,9 @@ Os logs são carregados sob demanda com o `getRTCVLogs` método IOT Edge, no `di
 
 
 1. Vá para a página do portal do Hub IoT, selecione **dispositivos de borda** e, em seguida, selecione o dispositivo e o módulo de diagnóstico. 
-2. Vá para a página de detalhes do módulo e clique na guia **_método direto_* _.
+2. Vá para a página de detalhes do módulo e clique na guia ***método direto*** .
 3. Digite `getRTCVLogs` o nome do método e uma cadeia de caracteres de formato JSON na carga. Você pode inserir `{}` , que é uma carga vazia. 
-4. Defina a conexão e os tempos limite do método e clique em _ * invocar método * *.
+4. Defina a conexão e os tempos limite do método e clique em **invocar método**.
 5. Selecione o contêiner de destino e crie uma cadeia de caracteres JSON de carga usando os parâmetros descritos na seção de **sintaxe de log** . Clique em **invocar método** para executar a solicitação.
 
 >[!NOTE]
@@ -245,7 +245,7 @@ A tabela a seguir lista os atributos na resposta da consulta.
 
 | Palavra-chave | Descrição|
 |--|--|
-|DoPost| *True* ou *false*. Indica se os logs foram carregados ou não. Quando você opta por não carregar logs, a API retorna informações * de forma **síncrona**. Quando você optar por carregar os logs, a API retornará 200, se a solicitação for válida, e iniciará o carregamento de logs de _*_forma assíncrona_*_.|
+|DoPost| *True* ou *false*. Indica se os logs foram carregados ou não. Quando você opta por não carregar logs, a API retorna informações * de forma **síncrona**. Quando você optar por carregar os logs, a API retornará 200, se a solicitação for válida e começará a carregar logs _ * de _forma assíncrona_* *.|
 |Filtro de time-| Filtro de tempo aplicado aos logs.|
 |ValueFilters| Filtros de palavras-chave aplicados aos logs. |
 |TimeStamp| Hora de início da execução do método. |
@@ -298,7 +298,7 @@ A tabela a seguir lista os atributos na resposta da consulta.
 }
 ```
 
-Verifique as linhas, os horários e os tamanhos do log de busca. se essas configurações forem boas, substitua _*_doPost_*_ para `true` e isso enviará por push os logs com os mesmos filtros para os destinos. 
+Verifique as linhas, os horários e os tamanhos do log de busca. se essas configurações forem boas, substitua ***doPost*** para `true` e isso enviará por push os logs com os mesmos filtros para os destinos. 
 
 Você pode exportar logs do armazenamento de BLOBs do Azure ao solucionar problemas. 
 
@@ -316,7 +316,7 @@ A seção a seguir é fornecida para obter ajuda com a depuração e a verifica�
 
 ### <a name="access-the-kubernetes-api-endpoint"></a>Acesse o ponto de extremidade da API do kubernetes. 
 
-1. Na interface do usuário local do seu dispositivo, vá para a página _ *dispositivos**. 
+1. Na interface do usuário local do seu dispositivo, vá para a página **dispositivos** . 
 2. Em **pontos** de extremidade do dispositivo, copie o ponto de extremidades do serviço API do kubernetes. Esse ponto de extremidade é uma cadeia de caracteres no seguinte formato: `https://compute..[device-IP-address]`.
 3. Salve a cadeia de caracteres do ponto de extremidade. Você o usará posteriormente ao configurar `kubectl` o para acessar o cluster kubernetes.
 
