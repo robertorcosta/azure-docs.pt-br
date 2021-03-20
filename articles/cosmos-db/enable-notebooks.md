@@ -9,10 +9,10 @@ ms.date: 02/22/2021
 ms.author: dech
 ms.custom: references_regions
 ms.openlocfilehash: 02e8ad5f2b5326f947ba0bca6456ce9d9d3c27d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692769"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Habilitar blocos de anotações para contas de Azure Cosmos DB (versão prévia)
@@ -25,7 +25,7 @@ Os notebooks Jupyter internos do Azure Cosmos DB permitem que você analise e vi
 
 ## <a name="create-a-new-cosmos-account"></a>Criar uma nova conta do cosmos
 A partir de 10 de fevereiro de 2021, novas contas do Azure Cosmos criadas em uma das [regiões com suporte](#supported-regions) terão automaticamente blocos de anotações habilitados. Não há nenhuma configuração adicional necessária para habilitar os blocos de anotações. Use as instruções a seguir para criar uma nova conta:
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Selecione **Criar um recurso** > **Bancos de dados** > **Azure Cosmos DB**.
 1. Insira as configurações básicas para a conta.
 

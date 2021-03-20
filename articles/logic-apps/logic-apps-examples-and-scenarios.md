@@ -7,10 +7,10 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/28/2020
 ms.openlocfilehash: 5f7afe044ab4f782f2028598c2c56e75edf95860
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92317388"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Cenários comuns, exemplos, tutoriais e instruções passo a passo para os Aplicativos Lógicos do Azure
@@ -31,7 +31,7 @@ Aqui estão exemplos que descrevem os gatilhos comumente usados:
 
 * Gatilhos de *sondagem* :
 
-  * O gatilho de [ **recorrência** ](../connectors/connectors-native-recurrence.md) permite que você defina a data e a hora de início mais a recorrência para disparar seu aplicativo lógico. Por exemplo, você pode selecionar os dias da semana e horas do dia para disparar seu aplicativo lógico. Para saber mais, consulte esses tópicos:<p>
+  * O gatilho de [ **recorrência**](../connectors/connectors-native-recurrence.md) permite que você defina a data e a hora de início mais a recorrência para disparar seu aplicativo lógico. Por exemplo, você pode selecionar os dias da semana e horas do dia para disparar seu aplicativo lógico. Para saber mais, consulte esses tópicos:<p>
 
     * [Agendar e executar tarefas automatizadas, processos e fluxos de trabalho recorrentes com Aplicativos Lógicos do Azure](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md)
     * [Tutorial: criar fluxos de trabalho recorrentes automatizados e baseados em agendamento usando aplicativos lógicos do Azure](../logic-apps/tutorial-build-schedule-recurring-logic-app-workflow.md)
@@ -46,13 +46,13 @@ Aqui estão exemplos que descrevem os gatilhos comumente usados:
     * [Tutorial: Criar fluxos de trabalho automatizados baseados em aprovação usando os Aplicativos Lógicos do Azure](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
     * [Tutorial: Automatizar tarefas para processar emails usando os Aplicativos Lógicos do Azure, o Azure Functions e o Armazenamento do Azure](../logic-apps/tutorial-process-email-attachments-workflow.md)
 
-  * O [gatilho **http** ](../connectors/connectors-native-http.md) pode chamar um ponto de extremidade de serviço por http ou HTTPS. Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho usando pontos de extremidade http](../logic-apps/logic-apps-http-endpoint.md).
+  * O [gatilho **http**](../connectors/connectors-native-http.md) pode chamar um ponto de extremidade de serviço por http ou HTTPS. Para obter mais informações, consulte [chamar, disparar ou aninhar fluxos de trabalho usando pontos de extremidade http](../logic-apps/logic-apps-http-endpoint.md).
 
 * Gatilhos *por push* :
 
-  * O [gatilho de **solicitação** ](../connectors/connectors-native-reqres.md) pode receber solicitações HTTPS de entrada.
+  * O [gatilho de **solicitação**](../connectors/connectors-native-reqres.md) pode receber solicitações HTTPS de entrada.
 
-  * O [**gatilho **Webhook HTTP](../connectors/connectors-native-webhook.md) inscreve em um ponto de extremidade de serviço, registrando um *URL de retorno de chamada* com esse serviço. Dessa forma, o serviço pode apenas notificar o gatilho quando o evento especificado ocorrer, para que o gatilho não precise sondar o serviço.
+  * O [**gatilho** Webhook HTTP](../connectors/connectors-native-webhook.md) inscreve em um ponto de extremidade de serviço, registrando um *URL de retorno de chamada* com esse serviço. Dessa forma, o serviço pode apenas notificar o gatilho quando o evento especificado ocorrer, para que o gatilho não precise sondar o serviço.
 
 Depois que o evento especificado ocorre, o gatilho é acionado, que cria uma nova instância de fluxo de trabalho do aplicativo lógico e executa as ações no fluxo de trabalho. Você pode acessar todos os dados do gatilho durante todo o fluxo de trabalho. Por exemplo, o Twitter **em um novo** disparador de tweets passa o conteúdo do tweet para a execução do aplicativo lógico. Para começar a usar os aplicativos lógicos do Azure, Experimente estes tópicos de início rápido:
 
