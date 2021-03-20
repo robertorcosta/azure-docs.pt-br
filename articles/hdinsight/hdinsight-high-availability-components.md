@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945305"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
@@ -50,7 +50,7 @@ A Microsoft fornece suporte para os quatro serviços Apache na tabela a seguir e
 
 | Serviço | Nós de cluster | Tipos de cluster | Finalidade |
 |---|---|---|---|
-| Servidor Apache Ambari| Cabeçalho ativo | Todos | Monitora e gerencia o cluster.|
+| Servidor Apache Ambari| Cabeçalho ativo | Tudo | Monitora e gerencia o cluster.|
 | Linha do Tempo do Aplicativo Server para Apache YARN | Cabeçalho ativo | Todos, exceto Kafka | Mantém informações de depuração sobre trabalhos do YARN em execução no cluster.|
 | Servidor de histórico de trabalho para o MapReduce do Hadoop | Cabeçalho ativo | Todos, exceto Kafka | Mantém dados de depuração para trabalhos MapReduce.|
 | Apache Livy | Cabeçalho ativo | Spark | Permite uma interação fácil com um cluster Spark em uma interface REST |
