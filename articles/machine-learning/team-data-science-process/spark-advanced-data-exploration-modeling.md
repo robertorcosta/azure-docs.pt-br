@@ -12,10 +12,10 @@ ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 4f4a8fb82a42c5121105ddf7bb9d3d886b531350
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93321337"
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados avançados com o Spark
@@ -764,7 +764,7 @@ Tempo necessário para executar a célula acima: 2,67 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results* , na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
 ```python
 # QUERY RESULTS                              
@@ -895,7 +895,7 @@ Tempo necessário para executar a célula acima: 107,98 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results* , na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
 ```python
 # QUERY RESULTS

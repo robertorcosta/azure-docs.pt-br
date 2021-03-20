@@ -7,10 +7,10 @@ ms.date: 04/25/2019
 ms.author: pepogors
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 32a9c26bb9e89cf4057cc753b02ad3c006d0bae6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100595071"
 ---
 # <a name="capacity-planning-and-scaling-for-azure-service-fabric"></a>Planejamento de capacidade e dimensionamento do Azure Service Fabric
@@ -42,7 +42,7 @@ Usar o dimensionamento automático por meio de conjuntos de dimensionamento de m
 
 ## <a name="vertical-scaling-considerations"></a>Considerações de dimensionamento vertical
 
-[Dimensionamento vertical](./virtual-machine-scale-set-scale-node-type-scale-out.md) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo: 
+[Dimensionamento vertical](./virtual-machine-scale-set-scale-node-type-scale-out.md) um tipo de nó no Azure Service Fabric requer várias etapas e considerações. Por exemplo:
 
 * O cluster deve estar íntegro antes do dimensionamento. Caso contrário, você desestabilizará o cluster.
 * O nível de durabilidade prateada ou maior é necessário para todos os Service Fabric tipos de nó de cluster que hospedam serviços com estado.
@@ -117,7 +117,7 @@ Para dimensionar manualmente, atualize a capacidade na propriedade SKU do recurs
 }
 ```
 
-Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo: 
+Você deve preparar o nó para que o desligamento seja reduzido de forma programática. Localize o nó a ser removido (o nó de instância mais alta). Por exemplo:
 
 ```csharp
 using (var client = new FabricClient())

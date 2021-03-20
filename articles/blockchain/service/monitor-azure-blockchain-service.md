@@ -5,10 +5,10 @@ ms.date: 01/08/2020
 ms.topic: how-to
 ms.reviewer: v-umha
 ms.openlocfilehash: 05147f48c4cde4cc97bf6cc9cae5c8220a389ebd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594919"
 ---
 # <a name="monitor-azure-blockchain-service-through-azure-monitor"></a>Monitorar o serviço Blockchain do Azure por meio do Azure Monitor  
@@ -131,11 +131,11 @@ Para obter uma lista de todas as Azure Monitor métricas com suporte (incluindo 
 A tabela a seguir especifica a lista de métricas Blockchain que são coletadas para o recurso de membro do serviço Blockchain do Azure.
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Description   |
+| Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
 | Transações Pendentes   | Contagem  |  Média | O número de transações que estão aguardando para serem extraídas.   |
-| Blocos Processados   | Contagem  | Somar  |  O número de blocos processados em cada intervalo de tempo. Atualmente, o tamanho do bloco é de 5 segundos, portanto, em um minuto, cada nó processará 12 blocos e 60 blocos em 5 minutos.   |
-|Transações Processadas    | Contagem  | Somar  | O número de transações processadas em um bloco.    |
+| Blocos Processados   | Contagem  | Soma  |  O número de blocos processados em cada intervalo de tempo. Atualmente, o tamanho do bloco é de 5 segundos, portanto, em um minuto, cada nó processará 12 blocos e 60 blocos em 5 minutos.   |
+|Transações Processadas    | Contagem  | Soma  | O número de transações processadas em um bloco.    |
 |Transações em Fila    |  Contagem | Média  | O número de transações que não podem ser imediatamente extraídas. Pode ser porque eles chegaram fora de ordem e o futuro está aguardando a chegada da transação anterior. Ou, pode ser que duas transações tenham o mesmo número usado apenas uma vez (nonce) e o mesmo valor de gás, portanto, o segundo não pode ser minado.   |
 
 ### <a name="connection-metrics"></a>Métricas de conexão  
@@ -143,12 +143,12 @@ A tabela a seguir especifica a lista de métricas Blockchain que são coletadas 
 A tabela a seguir lista as diferentes métricas de conexão que são coletadas para o recurso de membro do serviço Blockchain do Azure. Essas são as métricas de proxy NGINX.
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Description |
+| Nome da métrica | Unidade  |  Tipo de agregação| Descrição |
 |---|---|---|---|
-| Conexões Aceitas   | Contagem  |  Somar | O número total de conexões de cliente aceitas.   |
+| Conexões Aceitas   | Contagem  |  Soma | O número total de conexões de cliente aceitas.   |
 | Conexões ativas  | Contagem  | Média  |  O número atual de conexões de cliente ativas, incluindo a espera de conexões.    |
-|Conexões Manipuladas    | Contagem  | Somar  | O número total de conexões manipuladas. Em geral, o valor do parâmetro é o mesmo que as conexões aceitas, a menos que alguns limites de recursos tenham sido atingidos.     |
-|Solicitações Manipuladas     |  Contagem | Somar  | O número total de solicitações do cliente.  |
+|Conexões Manipuladas    | Contagem  | Soma  | O número total de conexões manipuladas. Em geral, o valor do parâmetro é o mesmo que as conexões aceitas, a menos que alguns limites de recursos tenham sido atingidos.     |
+|Solicitações Manipuladas     |  Contagem | Soma  | O número total de solicitações do cliente.  |
 
 
 ### <a name="performance-metrics"></a>Métricas de desempenho
@@ -156,14 +156,14 @@ A tabela a seguir lista as diferentes métricas de conexão que são coletadas p
 A tabela a seguir lista as métricas de desempenho que são coletadas para cada um dos nós do recurso de membro do Azure Blockchain.  
 
 
-| Nome da métrica | Unidade  |  Tipo de agregação| Description   |
+| Nome da métrica | Unidade  |  Tipo de agregação| Descrição   |
 |---|---|---|---|
-| Porcentagem de uso da CPU   | Porcentagem  |  Max | A porcentagem do uso da CPU.     |
-| Bytes de Leitura de E/S   | Quilobytes   | Somar  |  A soma de bytes de leitura de e/s em todos os nós do recurso de membro blockchain.      |
-|Bytes de Gravação de E/S     | Quilobytes   | Somar  | A soma da e/s grava bytes em todos os nós do recurso de membro blockchain.     |
+| Porcentagem de uso da CPU   | Percentual  |  Máx | A porcentagem do uso da CPU.     |
+| Bytes de Leitura de E/S   | Quilobytes   | Soma  |  A soma de bytes de leitura de e/s em todos os nós do recurso de membro blockchain.      |
+|Bytes de Gravação de E/S     | Quilobytes   | Soma  | A soma da e/s grava bytes em todos os nós do recurso de membro blockchain.     |
 |Limite de Memória       |  Gigabytes   | Média    | Memória máxima disponível para o processo blockchain por nó. |
 |Uso de Memória     | Gigabytes  |  Média | A quantidade de memória usada na média em todos os nós.  |
-| Percentual de Uso de Memória     | Porcentagem   | Média  |  A porcentagem da memória usada na média em todos os nós.       |
+| Percentual de Uso de Memória     | Percentual   | Média  |  A porcentagem da memória usada na média em todos os nós.       |
 |Uso de Armazenamento      | Gigabytes   | Média  | Os GB de armazenamento usados são medidos em média em todos os nós.       |
 
 
