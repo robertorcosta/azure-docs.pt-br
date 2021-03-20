@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d68f83bd042af6612b91807f2adeed54d24bfe01
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101648604"
 ---
 # <a name="add-facebook-as-an-identity-provider-for-external-identities"></a>Adicionar o Facebook como um provedor de identidade para identidades externas
@@ -36,7 +36,7 @@ Para usar uma conta do Facebook como [provedor de identidade](identity-providers
 
 > [!NOTE]  
 > Use as URLs a seguir nas etapas 9 e 16 abaixo.
-> - Para **URL do site** , insira o endereço do seu aplicativo, como `https://contoso.com` .
+> - Para **URL do site**, insira o endereço do seu aplicativo, como `https://contoso.com`.
 > - Para **URIs de redirecionamento do OAuth válidos**, insira `https://login.microsoftonline.com/te/<tenant-id>/oauth2/authresp`. Você encontra seu `<tenant-ID>` na folha Visão Geral do Azure Active Directory.
 
 

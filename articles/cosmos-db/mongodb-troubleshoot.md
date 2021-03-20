@@ -8,10 +8,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: chrande
 ms.openlocfilehash: de39aee73a6f4b422af4524d3302f8858f8b060b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692225"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Solucionar problemas comuns na API do Azure Cosmos DB para MongoDB
@@ -34,7 +34,7 @@ O artigo a seguir descreve erros comuns e soluções para implantações usando 
 | 61 | ShardKeyNotFound | O documento em sua solicitação não tinha a chave de fragmentação da coleção (chave de partição de Azure Cosmos DB). | Verifique se a chave de fragmentação da coleção está sendo usada na solicitação.|
 | 66 | ImmutableField | A solicitação está tentando mudar um campo imutável | os campos "_id" são imutáveis. A sua solicitação não deve tentar atualizar esse campo ou o campo de chave de fragmento. |
 | 67 | CannotCreateIndex | A solicitação para criar um índice não pode ser concluída. | Até 500 índices de campo único podem ser criados em um contêiner. Até oito campos podem ser incluídos em um índice composto (há suporte para índices compostos na versão 3.6+). |
-| 112 | WriteConflict | A transação de vários documentos falhou devido a uma transação de vários documentos conflitantes | Repita a transação de vários documentos até que tenha sucesso. |
+| 112 | WriteConflict | A transação de vários documentos falhou devido a uma transação com vários documentos conflitantes | Repita a transação de vários documentos até que ocorra corretamente. |
 | 115 | CommandNotSupported | Não há compatibilidade com a solicitação tentada. | Informações adicionais devem ser incluídas no erro. Se essa funcionalidade for importante para suas implantações, crie um tíquete de suporte na [portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) e a equipe de Azure Cosmos DB chegará a você. |
 | 11000 | DuplicateKey | A chave de fragmentação (chave de partição do Azure Cosmos DB) do documento que você está inserindo já existe na coleção, ou uma restrição de campo de índice exclusivo foi violada. | Use a função update() para atualizar um documento existente. Se a restrição de campo do índice exclusivo tiver sido violada, insira ou atualize o documento com um valor de campo que ainda não exista no fragmento/na partição. Outra opção seria usar um campo que tenha uma combinação dos campos de ID e chave de fragmento. |
 | 16500 | TooManyRequests  | O número total de unidades de solicitação consumidas é mais do que a taxa de unidades de solicitação provisionada para a coleção e foi limitado. | Considere a possibilidade de dimensionar a taxa de transferência atribuída a um contêiner ou um conjunto de contêineres do portal do Azure ou tentar a operação novamente. Se você habilitar SSR (repetição do lado do servidor), o Azure Cosmos DB repetirá automaticamente as solicitações que falham devido a esse erro. |
