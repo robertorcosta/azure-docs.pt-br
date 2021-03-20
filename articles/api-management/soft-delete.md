@@ -7,10 +7,10 @@ author: vladvino
 ms.author: apimpm
 ms.date: 11/27/2020
 ms.openlocfilehash: e2842f3e428abb4f0eb628dbb8e446f2714d5d89
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101652378"
 ---
 # <a name="api-management-soft-delete-preview"></a>Exclusão reversível do gerenciamento de API (versão prévia)
@@ -31,7 +31,7 @@ O recurso de exclusão reversível está disponível por meio da [API REST](/res
 |--|--|--|--|
 | [Criar ou atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) | Cria ou atualiza um serviço de gerenciamento de API.  | Serviço de gerenciamento de API | Qualquer |
 | [Criar ou atualizar](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/createorupdate) com `restore` a propriedade definida como **true** | O não excluirá o serviço de gerenciamento de API se ele tiver sido excluído anteriormente por software. Se `restore` for especificado e definido como `true` todas as outras propriedades será ignorado.  | Serviço de gerenciamento de API |  2020-06-01-visualização |
-| [Delete (excluir)](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Exclui um serviço de gerenciamento de API existente. | Serviço de gerenciamento de API | 2020-06-01-visualização|
+| [Excluir](/rest/api/apimanagement/2020-06-01-preview/apimanagementservice/delete) | Exclui um serviço de gerenciamento de API existente. | Serviço de gerenciamento de API | 2020-06-01-visualização|
 | [Obter por nome](/rest/api/apimanagement/2020-06-01-preview/deletedservices/getbyname) | Obtenha o serviço de gerenciamento de API com exclusão reversível por nome. | Serviços excluídos | 2020-06-01-visualização |
 | [Listar por assinatura](/rest/api/apimanagement/2020-06-01-preview/deletedservices/listbysubscription) | Lista todos os serviços excluídos de forma reversível disponíveis para a exclusão da assinatura especificada. | Serviços excluídos | 2020-06-01-visualização
 | [Limpar](/rest/api/apimanagement/2020-06-01-preview/deletedservices/purge) | Limpa o serviço de gerenciamento de API (exclui-o sem a opção de restaurar). | Serviços excluídos | 2020-06-01-visualização

@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/01/2021
 ms.author: victorh
 ms.openlocfilehash: bbf838cfa2a6addc665df4b62e2322d056778b49
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101741354"
 ---
 # <a name="configure-azure-firewall-rules"></a>Configurar regras de firewall do Azure
@@ -20,7 +20,7 @@ Você pode configurar regras de NAT, regras de rede e regras de aplicativos no f
 É melhor espaçar inicialmente os números de prioridade da coleção de regras em incrementos de 100 (100, 200, 300 e assim por diante) para que você tenha espaço para adicionar mais coleções de regras, se necessário.
 
 > [!NOTE]
-> Se você habilitar a filtragem baseada em inteligência contra ameaças, essas regras serão de prioridade mais alta e sempre serão processadas primeiro. A filtragem de inteligência de ameaças pode negar o tráfego antes que qualquer regra configurada seja processada. Para obter mais informações, consulte [filtragem baseada em inteligência contra ameaças do firewall do Azure](threat-intel.md).
+> Se você habilitar a filtragem baseada em inteligência contra ameaças, essas regras terão prioridade mais alta e sempre serão processadas primeiro. A filtragem de inteligência de ameaças pode negar o tráfego antes que qualquer regra configurada seja processada. Para obter mais informações, consulte [filtragem baseada em inteligência contra ameaças do firewall do Azure](threat-intel.md).
 
 ## <a name="outbound-connectivity"></a>Conectividade de saída
 
@@ -34,7 +34,7 @@ As regras de rede podem ser configuradas para **TCP**, **UDP**, **ICMP** ou **qu
 
 Antes de 9 de novembro de 2020, **qualquer** significava **TCP**, **UDP** ou **ICMP**. Portanto, você pode ter configurado uma regra antes dessa data com protocolo = qualquer e portas de destino = ' * '. Se você não pretende realmente permitir qualquer protocolo IP como definido atualmente, modifique a regra para configurar explicitamente os protocolos desejados (TCP, UDP ou ICMP).
 
-## <a name="inbound-connectivity"></a>Conectividade de entrada
+## <a name="inbound-connectivity"></a>Conexões de entrada
 
 ### <a name="nat-rules"></a>Regras de NAT
 
@@ -57,7 +57,7 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 
 |name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
-|Permitir-Web     |TCP|Endereço IP|*|Endereço IP|*|80.443
+|Allow-web     |TCP|Endereço IP|*|Endereço IP|*|80.443
 
 **Regra de aplicativo**
 
@@ -65,7 +65,7 @@ A conexão com o google.com é permitida devido a uma regra de rede corresponden
 
 |name  |Tipo de origem  |Fonte  |Protocolo:Porta|FQDNs de destino|
 |---------|---------|---------|---------|----------|----------|
-|Negar-Google     |Endereço IP|*|http: 80, https: 443|google.com
+|Negar-Google     |Endereço IP|*|http:80,https:443|google.com
 
 **Resultado**
 
@@ -77,7 +77,7 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 
 **Coleção de regras de rede 1**
 
-- Nome: permitir-coleção
+- Nome: Allow-collection
 - Prioridade: 200
 - Ação: Permitir
 
@@ -87,13 +87,13 @@ O tráfego SSH é negado porque uma coleção de regras de rede de *negação* d
 
 **Coleção de regras de rede 2**
 
-- Nome: Deny-Collection
+- Nome: Deny-collection
 - Prioridade: 100
 - Ação: Negar
 
 |name  |Protocolo  |Tipo de origem  |Fonte  |Tipo de destino  |Endereço de destino  |Portas de destino|
 |---------|---------|---------|---------|----------|----------|--------|
-|Negar-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
+|Deny-SSH     |TCP|Endereço IP|*|Endereço IP|*|22
 
 **Resultado**
 

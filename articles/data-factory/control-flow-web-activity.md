@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 12/19/2018
 ms.openlocfilehash: e4578b41e5cbb62c8a1bfa0c48d4fd60d042a506
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361512"
 ---
 # <a name="web-activity-in-azure-data-factory"></a>Atividade da Web no Azure Data Factory
@@ -102,7 +102,7 @@ Abaixo estão os tipos de autenticação com suporte na atividade da Web.
 
 Se a autenticação não for necessária, não inclua a propriedade "authentication".
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Basic
 
 Especifique o nome de usuário e senha a serem usados com a autenticação básica.
 

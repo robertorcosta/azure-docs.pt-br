@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: b-juche
 ms.openlocfilehash: 6ff87d046c60f588e133010895ec3e7ce08cb71f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740555"
 ---
 # <a name="configure-nfsv41-kerberos-encryption-for-azure-netapp-files"></a>Configurar criptografia do Kerberos do NFSv 4.1 para Azure NetApp Files
@@ -89,7 +89,7 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
 
 2. Selecione **instruções de montagem** do volume para exibir as instruções.
 
-    Por exemplo:  
+    Por exemplo: 
 
     ![Instruções de montagem para volumes Kerberos](../media/azure-netapp-files/mount-instructions-kerberos-volume.png)  
 
@@ -110,7 +110,7 @@ Siga as instruções em [configurar um cliente NFS para Azure NetApp files](conf
     * A `$ANFEXPORT` variável é o `host:/export` caminho encontrado nas instruções de montagem.
     * A `$ANFMOUNTPOINT` variável é a pasta criada pelo usuário no host do Linux.
 
-## <a name="performance-impact-of-kerberos-on-nfsv41"></a><a name="kerberos_performance"></a>Impacto no desempenho do Kerberos no NFSv 4.1 
+## <a name="performance-impact-of-kerberos-on-nfsv41"></a><a name="kerberos_performance"></a>Impacto no desempenho do Kerberos no NFSv4.1 
 
 Você deve compreender as opções de segurança disponíveis para os volumes do NFSv 4.1, os vetores de desempenho testados e o impacto de desempenho esperado do Kerberos. Consulte [impacto no desempenho do Kerberos em volumes do nfsv 4.1](performance-impact-kerberos.md) para obter detalhes.  
 
