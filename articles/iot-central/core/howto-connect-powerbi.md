@@ -8,10 +8,10 @@ ms.author: viviali
 ms.date: 10/4/2019
 ms.topic: conceptual
 ms.openlocfilehash: 191b57b08ba04844824dd5cf26875c21e494c5ef
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92123330"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualize e analise seus dados do Azure IoT Central em um painel do Power BI
@@ -47,7 +47,7 @@ A configuração da solução requer os seguintes recursos:
 
 ## <a name="install"></a>Instalar
 
-Para configurar o pipeline, navegue até a página [Power bi Solution para o Azure IOT central v3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site do **Microsoft AppSource** . Selecione **obter agora**e siga as instruções.
+Para configurar o pipeline, navegue até a página [Power bi Solution para o Azure IOT central v3](https://appsource.microsoft.com/product/web-apps/iot-central.power-bi-solution-iot-central) no site do **Microsoft AppSource** . Selecione **obter agora** e siga as instruções.
 
 Ao abrir o arquivo PBIX, certifique-se de ler e siga as instruções na página de rosto. Estas instruções descrevem como conectar seu relatório ao banco de dados SQL.
 
@@ -55,13 +55,13 @@ Ao abrir o arquivo PBIX, certifique-se de ler e siga as instruções na página 
 
 O arquivo PBIX contém o relatório de **dispositivos e telemetria** mostra uma exibição histórica da telemetria que foi enviada por dispositivos. Ele fornece uma análise dos diferentes tipos de telemetria e também mostra a telemetria mais recente enviada pelos dispositivos.
 
-:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Pipeline de solução do Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/report.png" alt-text="Power BI relatório de dispositivos e telemetria":::
 
 ## <a name="pipeline-resources"></a>Recursos de pipeline
 
 Você pode acessar todos os recursos do Azure que compõem o pipeline no portal do Azure. Todos os recursos estão no grupo de recursos que você criou quando configurou o pipeline.
 
-:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="Pipeline de solução do Power BI":::
+:::image type="content" source="media/howto-connect-powerbi/azure-deployment.png" alt-text="portal do Azure exibição do grupo de recursos":::
 
 A lista a seguir descreve a função de cada recurso no pipeline:
 

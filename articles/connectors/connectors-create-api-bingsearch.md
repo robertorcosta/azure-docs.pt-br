@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
 ms.openlocfilehash: 306298e4338665ef52add7f46d6da8675c97c3e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716543"
 ---
 # <a name="find-results-in-bing-search-by-using-azure-logic-apps"></a>Localizar resultados em Pesquisa do Bing usando os aplicativos lógicos do Azure
@@ -59,7 +59,7 @@ Ou, se a conexão já existir, forneça as informações necessárias para o gat
    | Deslocamento | Não | <*ignorar valor*> | O número de resultados para ignorar antes de retornar os resultados |
    |||||
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Configurar gatilho](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -155,7 +155,7 @@ Na lista de ações, selecione a ação desejada.
    | Chave de API | Sim | <*Chave de API*> | A chave da API de Pesquisa do Bing obtida anteriormente. Se você não tiver uma chave, obtenha a [Chave de API agora](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Criar conexão](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

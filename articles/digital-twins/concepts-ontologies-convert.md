@@ -1,5 +1,5 @@
 ---
-title: Convertendo ontologies
+title: Conversão de ontologias
 titleSuffix: Azure Digital Twins
 description: Entenda o processo de conversão de modelos padrão do setor em DTDL para o gêmeos digital do Azure
 author: baanders
@@ -8,10 +8,10 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: aa4dde51c077152dd5c8a938ad64ad0a051f89ad
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100561312"
 ---
 # <a name="convert-industry-standard-ontologies-to-dtdl-for-azure-digital-twins"></a>Converter ontologies padrão do setor em DTDL para o Azure digital gêmeos
@@ -33,7 +33,7 @@ A tabela a seguir é um exemplo de como as construções RDFS e OWL podem ser ma
 | Classes | `owl:Class`<br>Sufixo IRI<br>``rdfs:label``<br>``rdfs:comment`` | Interface | `@type:Interface`<br>`@id`<br>`displayName`<br>`comment` 
 | Subclasses | `owl:Class`<br>Sufixo IRI<br>`rdfs:label`<br>`rdfs:comment`<br>`rdfs:subClassOf` | Interface | `@type:Interface`<br>`@id`<br>`displayName`<br>`comment`<br>`extends` 
 | Propriedades de DataType | `owl:DatatypeProperty`<br>`rdfs:label` ou `INode`<br>`rdfs:label`<br>`rdfs:range` | Propriedades de interface | `@type:Property`<br>`name`<br>`displayName`<br>`schema` 
-| Propriedades de objeto | `owl:ObjectProperty`<br>`rdfs:label` ou `INode`<br>`rdfs:range`<br>`rdfs:comment`<br>`rdfs:label` | Relationship | `type:Relationship`<br>`name`<br>`target` (ou omitido se não `rdfs:range` )<br>`comment`<br>`displayName`<br>
+| Propriedades de objeto | `owl:ObjectProperty`<br>`rdfs:label` ou `INode`<br>`rdfs:range`<br>`rdfs:comment`<br>`rdfs:label` | Relação | `type:Relationship`<br>`name`<br>`target` (ou omitido se não `rdfs:range` )<br>`comment`<br>`displayName`<br>
 
 O trecho de código C# a seguir mostra como um arquivo de modelo RDF é carregado em um grafo e convertido em DTDL, usando a biblioteca [**dotNetRDF**](https://www.dotnetrdf.org/) . 
 
