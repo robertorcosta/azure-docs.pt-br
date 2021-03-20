@@ -9,15 +9,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/08/2021
+ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: fa34e8ea71c307b75a3f345861f8ed99d131b3fd
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447921"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581908"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de redefinição de senha no Azure Active Directory B2C
 
@@ -58,10 +59,10 @@ Para habilitar a redefinição de senha de autoatendimento para o fluxo de usuá
 1. Selecione um fluxo de usuário de inscrição ou entrada (do tipo **recomendado**) que você deseja personalizar.
 1. Em **configurações** no menu à esquerda, selecione **Propriedades**.
 1. Em **complexidade da senha**, selecione **redefinição de senha de autoatendimento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Em **Personalizar** no menu à esquerda, selecione **layouts de página**.
 1. Na **versão de layout da página**, escolha **2.1.2-Current** ou superior.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 ::: zone-end
 
