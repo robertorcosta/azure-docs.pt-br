@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 2c26931db617109c36c19b73bd3ec9263f4b40cc
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100096439"
 ---
 # <a name="connect-your-vmware-carbon-black-cloud-endpoint-standard-to-azure-sentinel-with-azure-function"></a>Conectar seu ponto de extremidade de nuvem do VMware carbono preto padrão ao Azure Sentinel com o Azure function
@@ -38,7 +38,7 @@ O conector padrão de ponto de extremidade de nuvem do VMware carbono preto perm
 Azure Functions pode integrar e efetuar pull de eventos e logs diretamente do padrão de ponto de extremidade de nuvem do VMware carbono preto e encaminhá-los para o Azure Sentinel.
 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione conector do **VMware carbono preto** .
-2. Selecione a **página abrir conector**.
+2. Clique em **Abrir página do conector**.
 3. Siga as instruções na página **preta do VMware carbono** .
 
 

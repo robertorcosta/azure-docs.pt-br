@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 01/22/2021
 ms.topic: conceptual
 ms.openlocfilehash: c95ccb5ea1a23e8173d58bd3a18490e9b8e630e4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100581259"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Visão geral do Hybrid Runbook Worker
@@ -20,7 +20,7 @@ Os runbooks na Automação do Azure talvez não tenham acesso aos recursos em ou
 
 Há dois tipos de runbook Workers-System e User. A tabela a seguir descreve a diferença entre eles.
 
-|Tipo | Descrição |
+|Type | Descrição |
 |-----|-------------|
 |**System** |O oferece suporte a um conjunto de runbooks ocultos usados pelo recurso de Gerenciamento de Atualizações que foram criados para instalar atualizações especificadas pelo usuário em computadores Windows e Linux.<br> Esse tipo de Hybrid Runbook Worker não é um membro de um grupo de Hybrid Runbook Worker e, portanto, não executa runbooks direcionados a um grupo de runbook Worker. |
 |**Usuário** |Dá suporte a runbooks definidos pelo usuário destinados a serem executados diretamente no computador Windows e Linux que são membros de um ou mais grupos do runbook Worker. |

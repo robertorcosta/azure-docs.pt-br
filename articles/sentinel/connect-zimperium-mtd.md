@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 02/20/2020
 ms.author: yelevin
 ms.openlocfilehash: 7cbf1c52af1d2902ae0726fc0dd98dbf12cecc44
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100097442"
 ---
 # <a name="connect-your-zimperium-mobile-threat-defense-to-azure-sentinel"></a>Conecte sua defesa contra ameaças móveis do Zimperium ao Azure Sentinel
@@ -38,7 +38,7 @@ O conector de defesa contra ameaças móveis do Zimperium oferece a capacidade d
 A defesa contra ameaças móveis do Zimperium pode integrar e exportar logs diretamente para o **Azure Sentinel**.
 
 1. No portal do Azure Sentinel, clique em conectores de dados e selecione **defesa contra ameaças móveis do Zimperium**.
-2. Selecione a **página abrir conector**.
+2. Clique em **Abrir página do conector**.
 3. Siga as instruções na página do conector de **defesa contra ameaças móveis do Zimperium** , resumido da seguinte maneira.
  1. Em zConsole, clique em **gerenciar** na barra de navegação.
  2. Clique na guia **Integrações** .

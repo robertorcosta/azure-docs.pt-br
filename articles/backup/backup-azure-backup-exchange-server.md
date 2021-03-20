@@ -5,10 +5,10 @@ ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.openlocfilehash: ee89af311619922fa6ca585381d70ca66955f36a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91271640"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>Fazer backup de um servidor do Exchange no Backup do Azure com o System Center 2012 R2 DPM
@@ -43,7 +43,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Criar um grupo de proteção do Exchange server
 
-1. No Console do Administrador do DPM, selecione **proteção**e, em seguida, selecione **novo** na faixa de opções da ferramenta para abrir o assistente para **criar novo grupo de proteção** .
+1. No Console do Administrador do DPM, selecione **proteção** e, em seguida, selecione **novo** na faixa de opções da ferramenta para abrir o assistente para **criar novo grupo de proteção** .
 2. Na tela de **boas-vindas** do assistente, selecione **Avançar**.
 3. Na tela **Selecionar tipo de grupo de proteção** , selecione **servidores** e selecione **Avançar**.
 4. Selecione o banco de dados do Exchange Server que você deseja proteger e selecione **Avançar**.
@@ -73,20 +73,20 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
    >
    >
 8. Selecione **Avançar**.
-9. Selecione o banco de dados para **backup de cópia**e, em seguida, selecione **Avançar**.
+9. Selecione o banco de dados para **backup de cópia** e, em seguida, selecione **Avançar**.
 
    > [!NOTE]
    > Se você não selecionar "backup completo" para pelo menos uma cópia DAG de um banco de dados, os logs não serão truncados.
    >
    >
-10. Configure as metas para **backup de curto prazo**e, em seguida, selecione **Avançar**.
+10. Configure as metas para **backup de curto prazo** e, em seguida, selecione **Avançar**.
 11. Examine o espaço em disco disponível e, em seguida, selecione **Avançar**.
 12. Selecione a hora em que o servidor DPM criará a replicação inicial e, em seguida, selecione **Avançar**.
 13. Selecione as opções de verificação de consistência e, em seguida, selecione **Avançar**.
 14. Escolha o banco de dados do qual você deseja fazer backup no Azure e, em seguida, selecione **Avançar**. Por exemplo:
 
     ![Especificar dados de proteção online](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. Defina o agendamento para o **backup do Azure**e, em seguida, selecione **Avançar**. Por exemplo:
+15. Defina o agendamento para o **backup do Azure** e, em seguida, selecione **Avançar**. Por exemplo:
 
     ![Especifique o cronograma do backup online](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 
@@ -94,7 +94,7 @@ Execute estas etapas para instalar o agente de proteção do DPM no servidor do 
     > Observe que os Pontos de recuperação online têm base nos pontos de recuperação completos expressos. Portanto, você deve agendar o ponto de recuperação online após o horário especificado para o ponto de recuperação completo expresso.
     >
     >
-16. Configure a política de retenção para o **backup do Azure**e, em seguida, selecione **Avançar**.
+16. Configure a política de retenção para o **backup do Azure** e, em seguida, selecione **Avançar**.
 17. Escolha uma opção de replicação online e selecione **Avançar**.
 
     Se você tiver um banco de dados de grande porte, talvez a criação do backup inicial na rede demore bastante. Para evitar esse problema, crie um backup offline.  

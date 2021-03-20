@@ -13,10 +13,10 @@ ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 683367251c220abe36660d61463bce9e5a0c52f9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577761"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Planejar uma Azure Active Directory a implantação de relatórios e monitoramento
@@ -97,7 +97,7 @@ Relatórios e monitoramento são usados para atender às suas necessidades de ne
 
 * Necessário para a solução atender às necessidades dos negócios
 * Bom para ter de atender às necessidades dos negócios
-* Não Aplicável
+* Não aplicável
 
 |Área |Descrição |
 |-|-|
