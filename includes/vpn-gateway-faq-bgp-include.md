@@ -9,10 +9,10 @@ ms.date: 09/17/2020
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 649c5805c600b6282be6d05fefb59cecaf249f4f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92526128"
 ---
 ### <a name="is-bgp-supported-on-all-azure-vpn-gateway-skus"></a>O BGP tem suporte em todas as SKUs de Gateway de VPN do Azure?
@@ -45,7 +45,7 @@ Esses ASNs não são reservados pela IANA nem pelo Azure para uso, portanto, pod
 
 ### <a name="what-address-does-vpn-gateway-use-for-bgp-peer-ip"></a>Qual endereço o Gateway de VPN usa para o IP do par no nível de protocolo BGP?
 
-Por padrão, o Gateway de VPN alocará um endereço IP do intervalo *GatewaySubnet* para gateways de VPN em espera ativos ou dois endereços IP para gateways de VPN ativos/ativos. Esses endereços são alocados automaticamente quando você cria o gateway de VPN. É possível obter o real endereço IP BGP alocado usando o PowerShell ou localizando-o no portal do Azure. No PowerShell, use **Get-AzVirtualNetworkGateway** e procure a propriedade **bgpPeeringAddress** . No portal do Azure, na página **Configuração de Gateway** , procure na propriedade da opção **Configurar BGP ASN** .
+Por padrão, o Gateway de VPN alocará um endereço IP do intervalo *GatewaySubnet* para gateways de VPN em espera ativos ou dois endereços IP para gateways de VPN ativos/ativos. Esses endereços são alocados automaticamente quando você cria o gateway de VPN. É possível obter o real endereço IP BGP alocado usando o PowerShell ou localizando-o no portal do Azure. No PowerShell, use **Get-AzVirtualNetworkGateway** e procure a propriedade **bgpPeeringAddress**. No portal do Azure, na página **Configuração de Gateway**, procure na propriedade da opção **Configurar BGP ASN**.
 
 Se os roteadores VPN locais usarem endereços IP **APIPA** (169.254.x.x) como os endereços IP BGP, você precisará especificar um **endereço IP BGP APIPA do Azure** adicional no gateway de VPN do Azure. O Gateway de VPN do Azure selecionará o endereço APIPA a ser usado com o par no nível de protocolo BGP APIPA local especificado no gateway de rede local ou o endereço IP privado para o par no nível de protocolo BGP local não pertencente ao APIPA. Para obter mais informações, confira [Configurar o BGP](../articles/vpn-gateway/bgp-howto.md).
 
@@ -56,7 +56,7 @@ O seu endereço do par no nível de protocolo BGP local não poderá ser igual a
 
 > [!IMPORTANT]
 >
->Essa é uma alteração do requisito documentado anteriormente. Caso use o BGP para uma conexão, deixe o campo **Espaço de endereços IP** vazio para o recurso de gateway de rede local correspondente. O Gateway de VPN do Azure adicionará de modo interno uma rota de host ao IP do par no nível de protocolo BGP local pelo túnel IPsec. Não adicione a rota /32 ao campo **Espaço de endereço** . Isso será redundante. Caso use um endereço APIPA como o IP BGP do dispositivo VPN local, ela não poderá ser adicionada a esse campo. Caso adicione outros prefixos ao campo **Espaço de endereços IP** , eles serão adicionados como rotas estáticas ao gateway de VPN do Azure, além das rotas obtidas por meio do BGP.
+>Essa é uma alteração do requisito documentado anteriormente. Caso use o BGP para uma conexão, deixe o campo **Espaço de endereços IP** vazio para o recurso de gateway de rede local correspondente. O Gateway de VPN do Azure adicionará de modo interno uma rota de host ao IP do par no nível de protocolo BGP local pelo túnel IPsec. Não adicione a rota /32 ao campo **Espaço de endereço**. Isso será redundante. Caso use um endereço APIPA como o IP BGP do dispositivo VPN local, ela não poderá ser adicionada a esse campo. Caso adicione outros prefixos ao campo **Espaço de endereços IP**, eles serão adicionados como rotas estáticas ao gateway de VPN do Azure, além das rotas obtidas por meio do BGP.
 >
 
 ### <a name="can-i-use-the-same-asn-for-both-on-premises-vpn-networks-and-azure-virtual-networks"></a>Posso usar o mesmo ASN para redes de VPN locais e redes virtuais do Azure?

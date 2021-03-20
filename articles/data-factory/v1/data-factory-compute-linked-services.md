@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.openlocfilehash: 07e13036a427ff7ff4f0cbbd2dfd6fbe272bf915
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100377186"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory-version-1"></a>Ambientes de computação com suporte do Azure Data Factory versão 1
@@ -384,7 +384,7 @@ Use a autenticação de entidade de serviço especificando as seguintes propried
 #### <a name="user-credential-authentication"></a>Autenticação de credenciais de usuário
 Para autenticação de credenciais de usuário para o Data Lake Analytics, especifique as seguintes propriedades:
 
-| Propriedade          | Descrição                              | Necessária |
+| Propriedade          | Descrição                              | Obrigatório |
 | :---------------- | :--------------------------------------- | :------- |
 | autorização | No Editor do Data Factory, selecione o botão **Autorizar**. Insira as credenciais que atribuem a URL de autorização gerada automaticamente para essa propriedade. | Sim      |
 | sessionID     | A ID de sessão OAuth da sessão de autorização OAuth. Cada ID da sessão é exclusiva e pode ser usada somente uma vez. Essa configuração é gerada automaticamente quando você usa o Editor do Data Factory. | Sim      |

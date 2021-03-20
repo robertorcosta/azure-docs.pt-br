@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 01/25/2019
 ms.author: duau
 ms.openlocfilehash: 907c03bd15463368def316e72f55ce214cb3e617
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100571053"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute
@@ -96,7 +96,7 @@ Criar um workspace na assinatura que tem o link das VNETs ao(s) circuito(s) do E
   >
 
 1. Execute a **Instalação** para instalar o agente em cada servidor que deseja usar para o monitoramento de ExpressRoute. O servidor utilizado no monitoramento pode ser uma VM ou local e deve ter acesso à Internet. É necessário instalar pelo menos um agente local e um agente em cada segmento de rede que você deseja monitorar no Azure.
-2. Na página **Bem-vindo** , clique em **Avançar**.
+2. Na página de **Boas-vindas**, clique em **Avançar**.
 3. Na página **termos de licença** , leia a licença e clique em **concordo**.
 4. Na página **pasta de destino** , altere ou mantenha a pasta de instalação padrão e clique em **Avançar**.
 5. Na página **Opções de instalação do agente** , você pode optar por conectar o agente a Azure monitor logs ou Operations Manager. Ou, você poderá deixar as opções em branco se quiser configurar o agente mais tarde. Após fazer suas seleções, clique em **Avançar**.

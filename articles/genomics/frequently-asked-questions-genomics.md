@@ -10,10 +10,10 @@ ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
 ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96018317"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: Perguntas frequentes
@@ -88,5 +88,5 @@ msgen compreende os arquivos de configuração no seguinte formato:
 
 Use os seguintes recursos para começar com o Microsoft Genomics:
 - Comece executando o seu primeiro fluxo de trabalho pelo serviço do Microsoft Genomics. [Executar um fluxo de trabalho por meio do serviço Microsoft Genomics](quickstart-run-genomics-workflow-portal.md)
-- Envie seus próprios dados para processamento pelo serviço de Microsoft Genomics: [FASTQ do Bam emparelhado](quickstart-input-pair-FASTQ.md)  |  [BAM](quickstart-input-BAM.md)  |  [vários FASTQ ou Bam](quickstart-input-multiple.md) 
+- Envie seus próprios dados para processamento pelo serviço de Microsoft Genomics: [FASTQ do Bam emparelhado](quickstart-input-pair-FASTQ.md)  |  [](quickstart-input-BAM.md)  |  [vários FASTQ ou Bam](quickstart-input-multiple.md) 
 

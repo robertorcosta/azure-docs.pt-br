@@ -4,10 +4,10 @@ description: Visão geral de alertas no Azure Monitor
 ms.topic: conceptual
 ms.date: 02/14/2021
 ms.openlocfilehash: 6785cfdf673e4c2da03ff26649c9336d57b699c8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038043"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Visão geral dos alertas no Microsoft Azure 
@@ -79,7 +79,7 @@ Os seguintes estados de alerta são compatíveis.
 |:---|:---|
 | Novo | O problema foi detectado e ainda não foi revisado. |
 | Confirmado | Um administrador examinou o alerta e começou a trabalhar nele. |
-| Fechado | O problema foi resolvido. Depois que um alerta for fechado, será possível reabri-lo, alterando-o para outro estado. |
+| Fechadas | O problema foi resolvido. Depois que um alerta for fechado, será possível reabri-lo, alterando-o para outro estado. |
 
 O *estado de alerta* é diferente e independente da *condição do monitor*. O estado de alerta é definido pelo usuário. A condição do monitor é definida pelo sistema. Quando um alerta é disparado, a condição de monitor do alerta é definida como ' disparado *'* e, quando a condição subjacente que fez com que o alerta fosse desativada, a condição do monitor é definida como *' resolvida '*. 
 

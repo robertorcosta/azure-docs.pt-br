@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
 ms.openlocfilehash: 8e2af73be0fc887b132f523133159472ce1d1f98
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570985"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usar a captura de pacotes para fazer um monitoramento de rede proativo com alertas e o Azure Functions
@@ -252,7 +252,7 @@ $Encryptedpassword
 
 1. Adicione as variáveis de ambiente e seus valores às configurações do aplicativo e selecione **Salvar**.
 
-    ![Configurações do aplicativo][functions12]
+    ![Configurações de aplicativo][functions12]
 
 ### <a name="add-powershell-to-the-function"></a>Adicione o PowerShell para a função
 

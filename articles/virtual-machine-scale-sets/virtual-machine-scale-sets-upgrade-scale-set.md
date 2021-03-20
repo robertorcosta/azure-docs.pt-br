@@ -10,10 +10,10 @@ ms.date: 03/10/2020
 ms.reviewer: mimckitt
 ms.custom: mimckitt, devx-track-azurecli
 ms.openlocfilehash: bd16f0ef330d1d4a33dd796af0ec3e94dda5acfc
-ms.sourcegitcommit: b39cf769ce8e2eb7ea74cfdac6759a17a048b331
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/22/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98684586"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificar um conjunto de dimensionamento de máquinas virtuais
@@ -340,7 +340,7 @@ Há um tipo de modificação das propriedades globais do conjunto de dimensionam
 ### <a name="create-time-properties"></a>Propriedades do momento da criação
 Algumas propriedades só podem ser definidas ao criar o conjunto de dimensionamento. Essas propriedades incluem:
 
-- Zonas de Disponibilidade
+- Zonas de Disponibilidades
 - Publicador de referência de imagem
 - Oferta de referência de imagem
 - Tipo de conta de armazenamento em disco de SO gerenciado
