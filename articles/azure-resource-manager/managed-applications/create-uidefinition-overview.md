@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
 ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89319553"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json para a experiência de criação do aplicativo gerenciado do Azure
@@ -105,7 +105,7 @@ A propriedade `config` é opcional. Use-o para substituir o comportamento padrã
 
 ### <a name="wizard"></a>Assistente
 
-A `isWizard` propriedade permite que você exija uma validação bem-sucedida de cada etapa antes de prosseguir para a próxima etapa. Quando a `isWizard` propriedade não é especificada, o padrão é **false**e a validação passo a passo não é necessária.
+A `isWizard` propriedade permite que você exija uma validação bem-sucedida de cada etapa antes de prosseguir para a próxima etapa. Quando a `isWizard` propriedade não é especificada, o padrão é **false** e a validação passo a passo não é necessária.
 
 Quando `isWizard` está habilitado, definido como **true**, a guia **noções básicas** está disponível e todas as outras guias estão desabilitadas. Quando o botão **Avançar** é selecionado, o ícone da guia indica se a validação de uma guia foi aprovada ou falhou. Depois que os campos obrigatórios de uma guia são concluídos e validados, o botão **Avançar** permite a navegação para a próxima guia. Quando todas as guias são aprovadas na validação, você pode ir para a página **revisar e criar** e selecionar o botão **criar** para iniciar a implantação.
 
@@ -129,7 +129,7 @@ Para `location` , especifique as propriedades para o controle de localização q
 
 A etapa **básico** é a primeira etapa gerada quando o portal do Azure analisa o arquivo. Por padrão, a etapa básico permite que os usuários escolham a assinatura, o grupo de recursos e o local para implantação.
 
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Assistente de guia":::
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Noções básicas padrão":::
 
 Você pode adicionar mais elementos nesta seção. Quando possível, adicione elementos que consultam parâmetros de toda a implantação, como o nome de um cluster ou credenciais de administrador.
 
@@ -164,7 +164,7 @@ A propriedade Steps contém zero ou mais etapas adicionais a serem exibidas apó
 ]
 ```
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Saídas
 
 O portal do Azure usa a propriedade `outputs` para mapear os elementos de `basics` e `steps` para os parâmetros do modelo de implantação do Azure Resource Manager. As chaves do dicionário são os nomes dos parâmetros do modelo, e os valores são propriedades dos objetos da saída dos elementos referenciados.
 
