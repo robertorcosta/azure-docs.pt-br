@@ -9,17 +9,17 @@ ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 6684c4269f14b91ded651dadff3f0a2e0878a4f2
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96028098"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>A política de IPsec/IKE personalizada tem suporte em todos os SKUs de Gateway de VPN do Azure?
 A política de IPsec/IKE personalizada tem suporte em todas as SKUs do Azure, exceto pela SKU básica.
 
 ### <a name="how-many-policies-can-i-specify-on-a-connection"></a>Quantas políticas eu posso especificar em uma conexão?
-Você só pode especificar ***uma** _ combinação de políticas para uma determinada conexão.
+Você só pode especificar ***uma*** combinação de políticas para uma determinada conexão.
 
 ### <a name="can-i-specify-a-partial-policy-on-a-connection-for-example-only-ike-algorithms-but-not-ipsec"></a>Eu posso especificar uma política parcial em uma conexão? (por exemplo, somente os algoritmos de IKE, mas não IPsec)
 Não, você deve especificar todos os algoritmos e parâmetros para IKE (modo principal) e IPsec (modo rápido). A especificação de política parcial não é permitida.
@@ -27,7 +27,7 @@ Não, você deve especificar todos os algoritmos e parâmetros para IKE (modo pr
 ### <a name="what-are-the-algorithms-and-key-strengths-supported-in-the-custom-policy"></a>Quais são os algoritmos e as restrições principais suportadas na política personalizada?
 A tabela a seguir lista os algoritmos de criptografia com suporte e restrições de chave configuráveis pelos clientes. Você deve selecionar uma opção para cada campo.
 
-| _ *IPsec/IKEv2**  | **Opções**                                                                   |
+| **IPsec/IKEv2**  | **Opções**                                                                   |
 | ---              | ---                                                                           |
 | Criptografia IKEv2 | AES256, AES192, AES128, DES3, DES                                             |
 | Integridade do IKEv2  | SHA384, SHA256, SHA1, MD5                                                     |

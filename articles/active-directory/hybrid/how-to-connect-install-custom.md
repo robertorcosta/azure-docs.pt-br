@@ -15,10 +15,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 3afeadff71bd373354b891bd6690d94d28fc0805
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92096344"
 ---
 # <a name="custom-installation-of-azure-active-directory-connect"></a>Instalação personalizada do Azure Active Directory Connect
@@ -260,7 +260,7 @@ Em um computador com ferramentas de gerenciamento de Política de Grupo:
 
 1.  Abra as ferramentas de gerenciamento de Política de Grupo.
 2.  Edite a política de grupo que será aplicada a todos os usuários. Por exemplo, a política de domínio padrão.
-3.  Vá para **configuração do usuário**  >  **modelos administrativos**  >  **componentes do Windows**  >  **Internet Explorer**  >  página segurança do**painel de controle Internet**do Internet Explorer  >  **Security Page**. Em seguida, selecione **Lista de atribuição de sites a zonas**.
+3.  Vá para **configuração do usuário**  >  **modelos administrativos**  >  **componentes do Windows**  >    >  página segurança do **painel de controle Internet** do Internet Explorer  >  . Em seguida, selecione **Lista de atribuição de sites a zonas**.
 4.  Habilite a política. Em seguida, na caixa de diálogo, insira um nome de valor `https://autologon.microsoftazuread-sso.com` e o valor de `1` . Sua configuração deve ser parecida com a imagem a seguir.
   
     ![Captura de tela mostrando zonas de intranet.](./media/how-to-connect-install-custom/sitezone.png)
