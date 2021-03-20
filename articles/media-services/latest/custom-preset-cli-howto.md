@@ -13,10 +13,10 @@ ms.custom: devx-track-azurecli
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: a91123b22eaef4cbaf2e96c93200777c8a85abab
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092381"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Como codificar com um CLI do Azure de transformação personalizado
@@ -140,6 +140,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Para que os serviços de mídia apliquem a transformação ao vídeo ou áudio especificado, você precisa enviar um trabalho sob essa transformação. Para obter um exemplo completo que mostra como enviar um trabalho em uma transformação, consulte [início rápido: transmitir arquivos de vídeo-CLI do Azure](stream-files-cli-quickstart.md).
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [CLI do Azure](/cli/azure/ams)

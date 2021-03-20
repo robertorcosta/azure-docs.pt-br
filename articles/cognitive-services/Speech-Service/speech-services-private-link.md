@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/04/2021
 ms.author: alexeyo
 ms.openlocfilehash: c9af0cda14261e8eab7f1ecc05c50a289d7ddfdb
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99559655"
 ---
 # <a name="use-speech-services-through-a-private-endpoint"></a>Usar os serviços de fala por meio de um ponto de extremidade privado
@@ -39,7 +39,7 @@ Pontos de extremidade privados exigem um [nome de subdomínio personalizado para
 >
 > Se o seu recurso de fala tiver muitos modelos personalizados e projetos associados criados por meio do [Speech Studio](https://speech.microsoft.com/), é altamente recomendável tentar a configuração com um recurso de teste antes de modificar o recurso usado na produção.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para criar um nome de domínio personalizado usando o portal do Azure, siga estas etapas:
 
@@ -144,7 +144,7 @@ Set-AzCognitiveServicesAccount -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../../includes/azure-cli-prepare-your-environment.md)]
 
-Esta seção requer a versão mais recente do CLI do Azure. Se você estiver usando Azure Cloud Shell, a versão mais recente já estará instalada.
+Esta seção requer a versão mais recente do CLI do Azure. Se você está usando o Azure Cloud Shell, a última versão já está instalada.
 
 ## <a name="verify-that-the-custom-domain-name-is-available"></a>Verifique se o nome de domínio personalizado está disponível
 

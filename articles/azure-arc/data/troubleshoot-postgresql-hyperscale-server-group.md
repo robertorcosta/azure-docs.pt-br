@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: caaab07200a8631935a2b5d5368a0c16ea9a60c5
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92320227"
 ---
 # <a name="troubleshooting-postgresql-hyperscale-server-groups"></a>Solucionando problemas de grupos de servidores de hiperescala PostgreSQL
@@ -97,7 +97,7 @@ Implemente as etapas descritas em  [033-Manage-postgres-with-AzureDataStudio.MD]
 
 :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook.jpg" alt-text="Bloco de notas de solução de problemas do Azure Data Studio Open PostgreSQL":::
 
-O **TSG100-o notebook de solução de problemas de hiperescala do PostgreSQL habilitado para o Azure Arc** abre: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Bloco de notas de solução de problemas do Azure Data Studio Open PostgreSQL":::
+O **TSG100-o notebook de solução de problemas de hiperescala do PostgreSQL habilitado para o Azure Arc** abre: :::image type="content" source="media/postgres-hyperscale/ads-controller-postgres-troubleshooting-notebook2.jpg" alt-text="Azure Data Studio-use o notebook de solução de problemas do PostgreSQL":::
 
 #### <a name="run-the-scripts"></a>Executar os scripts
 Selecione o botão ' executar tudo ' na parte superior para executar o bloco de anotações de uma só vez ou você pode percorrer e executar cada célula de código uma a uma.

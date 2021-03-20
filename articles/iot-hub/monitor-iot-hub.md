@@ -8,10 +8,10 @@ ms.service: iot-hub
 ms.custom: subject-monitoring
 ms.date: 11/06/2020
 ms.openlocfilehash: c9e6107e981d2bae96c5d9f368c8122d3ce245f0
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570943"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitorando o Hub IoT do Azure
@@ -120,7 +120,7 @@ Algumas operações nos logs de recursos do Hub IoT retornam uma `sdkVersion` pr
 
 A tabela a seguir mostra o nome do SDK usado para SDKs diferentes do Azure IoT:
 
-| Nome do SDK na propriedade sdkVersion | Language |
+| Nome do SDK na propriedade sdkVersion | Idioma |
 |----------|----------|
 | .NET | .NET (C#) |
 | Microsoft. Azure. Devices | SDK do serviço .NET (C#) |

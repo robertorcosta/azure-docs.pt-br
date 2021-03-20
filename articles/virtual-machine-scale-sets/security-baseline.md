@@ -8,10 +8,10 @@ ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 2d902bbdc03596fe246fc36813895e72c53da05a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100571408"
 ---
 # <a name="azure-security-baseline-for-virtual-machine-scale-sets"></a>Linha de base de segurança do Azure para conjuntos de dimensionamento de máquinas virtuais
@@ -612,7 +612,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Log da análise do Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
+* [Registro em log da Análise de Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
