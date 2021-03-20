@@ -9,15 +9,15 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 3bc97a932e622838315f717cc7b036a559787805
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97369150"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v2"></a>Visão geral do benchmark de segurança do Azure (v2)
 
-O ASB (benchmark de segurança do Azure) fornece recomendações e práticas recomendadas prescritivas para ajudar a melhorar a segurança de cargas de trabalho, dados e serviços no Azure.
+O parâmetro de comparação de segurança do Azure (ASB) fornece recomendações e melhores práticas prescritivas para ajudar a melhorar a segurança de cargas de trabalho, dados e serviços no Azure.
 
 Esse parâmetro de comparação faz parte de um conjunto de diretrizes de segurança holísticas que também incluem:
 
@@ -46,7 +46,7 @@ Os seguintes controles estão incluídos no benchmark de segurança do Azure:
 
 Cada recomendação inclui as seguintes informações:
 
-- **ID do Azure**: a ID de benchmark de segurança do Azure que corresponde à recomendação.
+- **ID do Azure**: a ID de parâmetro de comparação de segurança do Azure que corresponde à recomendação.
 - Os **controles do CIS v 7.1 ID (s)**: o cis controla os controles do v 7.1 que correspondem a essa recomendação.
 - **ID (s) do NIST sp 800-53 R4**: os controles nist SP 800-53 R4 (moderado) que correspondem a essa recomendação.
 - **Detalhes**: a lógica para a recomendação e links para orientação sobre como implementá-la. Se a recomendação for suportada pela central de segurança do Azure, essas informações também serão listadas.

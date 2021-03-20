@@ -10,17 +10,17 @@ services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
 ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100378699"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Mapas
 
 O Controle de Mapeamento biblioteca JavaScript do lado do cliente permite renderizar mapas e a funcionalidade do Azure Maps incorporada em seu aplicativo Web ou móvel.
 
-Esta documentação usa o SDK da Web do Azure Maps, no entanto, os serviços do Azure Maps podem ser usados com qualquer controle de mapa. [Aqui](open-source-projects.md#third-part-map-control-plugins) estão alguns controles populares de mapa de código-fonte aberto para os quais a equipe do Azure Maps criou plug-ins.
+Esta documentação usa o SDK da Web do Azure Maps, no entanto, os serviços do Azure Maps podem ser usados com qualquer controle de mapa. [Aqui](open-source-projects.md#third-part-map-control-plugins) estão alguns controles de mapa de software livre populares para os quais a equipe do Azure Mapas criou plug-ins.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

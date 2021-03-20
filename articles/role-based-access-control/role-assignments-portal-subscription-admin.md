@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 01/11/2021
 ms.author: rolyon
 ms.openlocfilehash: dec5888127ed1fc291bec244a44cfb71e343e3bb
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556844"
 ---
 # <a name="assign-a-user-as-an-administrator-of-an-azure-subscription"></a>Atribuir a um usuário a função de administrador de uma assinatura do Azure
@@ -42,7 +42,7 @@ Para tornar um usuário administrador de uma assinatura do Azure, atribua-o à f
 
 O **controle de acesso (iam)** é a página que você normalmente usa para atribuir funções para conceder acesso aos recursos do Azure. Ele também é conhecido como IAM (gerenciamento de identidades e acesso) e aparece em vários locais na portal do Azure.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
     Veja a seguir um exemplo da página de controle de acesso (IAM) para uma assinatura.
 
