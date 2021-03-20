@@ -4,10 +4,10 @@ description: Introdução ao Azure Advisor.
 ms.topic: article
 ms.date: 02/01/2019
 ms.openlocfilehash: e91049077502a6c0eedf0a4f979c073690c214da
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85117855"
 ---
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
@@ -27,7 +27,7 @@ Saiba como acessar o Assistente por meio do Portal do Azure e obter e implementa
 
 1. O painel Assistente exibirá um resumo das suas recomendações para todas as assinaturas selecionadas.  Você pode escolher as assinaturas para as quais você deseja que as recomendações sejam exibidas usando a lista suspensa de filtro de assinatura.
 
-1. Para obter recomendações para uma categoria específica, clique em uma das guias: **confiabilidade**, **segurança**, **desempenho**ou **custo**. 
+1. Para obter recomendações para uma categoria específica, clique em uma das guias: **confiabilidade**, **segurança**, **desempenho** ou **custo**. 
 
    ![Painel do Azure Advisor](./media/advisor-overview/advisor-dashboard.png)
 
