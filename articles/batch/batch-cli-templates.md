@@ -5,10 +5,10 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 845a32c2feda5a5a3b8d44d237c62db94cae1779
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91848714"
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer"></a>Usar modelos CLI do Azure de Lote e o arquivo de transferência
@@ -260,7 +260,7 @@ Para carregar um modelo:
 
 2. Selecione, ou arraste e solte, um pool local ou o modelo de trabalho.
 
-3. Selecione **Usar este modelo**e siga os prompts na tela.
+3. Selecione **Usar este modelo** e siga os prompts na tela.
 
 ## <a name="file-groups-and-file-transfer"></a>Transferência de arquivos e grupos de arquivo
 

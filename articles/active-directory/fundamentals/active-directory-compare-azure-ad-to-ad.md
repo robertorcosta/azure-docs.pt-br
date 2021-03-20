@@ -12,10 +12,10 @@ ms.subservice: fundamentals
 ms.date: 02/26/2020
 ms.author: martinco
 ms.openlocfilehash: 64a8dabaedc3922ebd8d163b1ea162b7d1584de2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92371912"
 ---
 # <a name="compare-active-directory-to-azure-active-directory"></a>Comparar o Active Directory ao Azure Active Directory
@@ -41,7 +41,7 @@ A maioria dos administradores de ti está familiarizada com os conceitos de Acti
 | Aplicativos LOB (linha de negócios) com autenticação moderna|As organizações podem usar AD FS com Active Directory para dar suporte a aplicativos LOB que exigem autenticação moderna.| Os aplicativos LOB que exigem autenticação moderna podem ser configurados para usar o Azure AD para autenticação. |
 | Serviços de camada intermediária/daemon|Os serviços em execução em ambientes locais normalmente usam contas de serviço do AD ou contas de serviço gerenciado de grupo (gMSA) para serem executados. Esses aplicativos herdarão as permissões da conta de serviço.| O Azure AD fornece [identidades gerenciadas](../managed-identities-azure-resources/index.yml) para executar outras cargas de trabalho na nuvem. O ciclo de vida dessas identidades é gerenciado pelo Azure AD e está vinculado ao provedor de recursos não pode ser usado para outras finalidades para obter acesso ao Backdoor.|
 | **Dispositivos**|||
-| Móvel|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
+| Dispositivos móveis|Active Directory não oferece suporte nativo a dispositivos móveis sem soluções de terceiros.| A solução de gerenciamento de dispositivo móvel da Microsoft, Microsoft Intune, é integrada ao Azure AD. Microsoft Intune fornece informações de estado do dispositivo ao sistema de identidade para avaliar durante a autenticação. |
 | Áreas de trabalho do Windows|Active Directory fornece a capacidade de ingressar no domínio em dispositivos Windows para gerenciá-los usando Política de Grupo, System Center Configuration Manager ou outras soluções de terceiros.|Os dispositivos Windows podem ser [ingressados no Azure ad](../devices/index.yml). O acesso condicional pode verificar se um dispositivo é ingressado no Azure AD como parte do processo de autenticação. Os dispositivos Windows também podem ser gerenciados com [Microsoft Intune](/intune/what-is-intune). Nesse caso, o acesso condicional, considerará se um dispositivo está em conformidade (por exemplo, patches de segurança atualizados e assinaturas de vírus) antes de permitir o acesso aos aplicativos.|
 | Servidores Windows| O Active Directory fornece recursos de gerenciamento robustos para servidores Windows locais usando Política de Grupo ou outras soluções de gerenciamento.| As máquinas virtuais do Windows Server no Azure podem ser gerenciadas com [Azure AD Domain Services](../../active-directory-domain-services/index.yml). [Identidades gerenciadas](../managed-identities-azure-resources/index.yml) podem ser usadas quando as VMs precisam acessar os recursos ou o diretório do sistema de identidade.|
 | Cargas de trabalho do Linux/Unix|O Active Directory não oferece suporte nativo a não-Windows sem soluções de terceiros, embora os computadores Linux possam ser configurados para autenticar com Active Directory como um realm do Kerberos.|As VMs Linux/Unix podem usar [identidades gerenciadas](../managed-identities-azure-resources/index.yml) para acessar o sistema de identidade ou os recursos. Algumas organizações, migram essas cargas de trabalho para tecnologias de contêiner de nuvem, que também podem usar identidades gerenciadas.|

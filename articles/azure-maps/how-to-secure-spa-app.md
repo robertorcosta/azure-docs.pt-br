@@ -11,10 +11,10 @@ services: azure-maps
 manager: timlt
 ms.custom: devx-track-js
 ms.openlocfilehash: 9d2af0bf731ab069a8512cb10feccf5ba18d3fa0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092731"
 ---
 # <a name="how-to-secure-a-single-page-application-with-non-interactive-sign-in"></a>Como proteger um aplicativo de página única com entrada não interativa
@@ -109,7 +109,7 @@ Conceda acesso ao Azure *RBAC (controle de acesso baseado em função)* atribuin
     > [!div class="mx-imgBorder"]
     > ![Conceder acesso usando o RBAC do Azure](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **atribuir acesso a**, selecione **aplicativo de funções**. Selecione a entidade de segurança por nome. Depois, selecione **Salvar**.
+2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **atribuir acesso a**, selecione **aplicativo de funções**. Selecione a entidade de segurança por nome. Em seguida, selecione **Salvar**.
 
    * Consulte os detalhes em [atribuir funções do Azure](../role-based-access-control/role-assignments-portal.md).
 

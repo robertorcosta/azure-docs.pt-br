@@ -12,10 +12,10 @@ ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
 ms.openlocfilehash: ad19c976cceab76d6eb0dbfbea5840d9764bffec
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101092938"
 ---
 # <a name="secure-a-dedicated-sql-pool-formerly-sql-dw-in-azure-synapse-analytics"></a>Proteger um pool SQL dedicado (anteriormente conhecido como SQL DW) no Azure Synapse Analytics
@@ -92,7 +92,7 @@ O exemplo a seguir concede acesso de leitura a um esquema definido pelo usuário
 GRANT SELECT ON SCHEMA::Test to ApplicationUser
 ```
 
-O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da API Azure Resource Manager é controlado pelas atribuições de função da sua conta de usuário do Portal. Para obter mais informações, consulte [atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+O gerenciamento de bancos de dados e servidores do portal do Azure ou do uso da API Azure Resource Manager é controlado pelas atribuições de função da sua conta de usuário do Portal. Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](../../role-based-access-control/role-assignments-portal.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 
 ## <a name="encryption"></a>Criptografia
 
