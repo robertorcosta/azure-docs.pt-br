@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c30ad26f079e6353dc4763b9ae968c33882d8ab6
-ms.sourcegitcommit: 2e9643d74eb9e1357bc7c6b2bca14dbdd9faa436
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96029340"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identidade do dispositivo e virtualização de área de trabalho
@@ -48,16 +48,16 @@ Antes de configurar as identidades de dispositivo no Azure AD para seu ambiente 
 
 | Tipo de identidade do dispositivo | Infraestrutura da identidade | Dispositivos Windows | Versão da plataforma VDI | Com suporte |
 | --- | --- | --- | --- | --- |
-| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
+| Adicionado ao Azure AD híbrido | Federado<sup>3</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
 |   |   | Atual do Windows | Não persistente | Sim<sup>5</sup> |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Yes |
-|   |   | Atual do Windows | Não persistente | No |
+|   | Gerenciado<sup>4</sup> | Windows atual e Windows de baixo nível | Persistente | Sim |
+|   |   | Atual do Windows | Não persistente | Não |
 |   |   | Nível inferior do Windows | Não persistente | Sim<sup>6</sup> |
-| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | No |
-|   |   |   | Não persistente | No |
-|   | Gerenciado | Atual do Windows | Persistente | No |
-|   |   |   | Não persistente | No |
+| Adicionado ao Azure AD | Federado | Atual do Windows | Persistente | Não |
+|   |   |   | Não persistente | Não |
+|   | Gerenciado | Atual do Windows | Persistente | Não |
+|   |   |   | Não persistente | Não |
 | Azure AD registrado | Federado/gerenciado | Nível inferior do Windows/atual | Persistente/não persistente | Não Aplicável |
 
 <sup>1</sup> os dispositivos **atuais do Windows** representam o Windows 10, o Windows Server 2016 v1803 ou superior e o Windows Server 2019.

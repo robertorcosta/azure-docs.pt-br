@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 04/20/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: cd0b9d1369fb1c0e662de83b7056da0ff7c83bd1
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 50b09fd82461221ae6cd008f6918ac2f3a26fd94
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090821"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588369"
 ---
 # <a name="integrate-azure-spring-cloud-with-azure-load-balance-solutions"></a>Integrar o Azure Spring Cloud com soluções de balanceamento de carga do Azure
 
@@ -76,6 +76,17 @@ Para integrar com o serviço de nuvem do Azure Spring, conclua as seguintes conf
 1.  **Usar investigação personalizada**: selecione *Sim* e escolha a investigação personalizada criada acima.
 
     ![Gateway de aplicativo 3](media/spring-cloud-load-balancers/app-gateway-3.png)
+
+### <a name="configure-rewrite-set"></a>Configurar conjunto de regravação
+1.  Selecione **regravar** e **regravar conjunto** para adicionar um conjunto de regravação.
+1.  Selecione as regras de roteamento que roteiam solicitações para pontos de extremidade públicos do Azure Spring Cloud.
+1.  Na guia **configuração de regra de regravação** , selecione **Adicionar regra de regravação**.
+1.  **Tipo de regravação**: selecione o **cabeçalho da solicitação**
+1.  **Tipo de ação**: selecione **excluir**
+1.  **Nome do cabeçalho**: selecione o **cabeçalho comum**
+1.  **Cabeçalho comum**: selecione **X-encaminhar-proto**
+
+    ![Gateway de aplicativo 4](media/spring-cloud-load-balancers/app-gateway-4.png)
 
 ## <a name="integrate-azure-spring-cloud-with-azure-front-door"></a>Integrar o Azure Spring Cloud com a porta frontal do Azure
 
