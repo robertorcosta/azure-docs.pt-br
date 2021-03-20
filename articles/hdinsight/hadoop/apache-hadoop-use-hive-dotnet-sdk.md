@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/24/2019
 ms.openlocfilehash: 17264fc2a7d0a51de545e329ccf12ad45ad49d46
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98927248"
 ---
 # <a name="run-apache-hive-queries-using-hdinsight-net-sdk"></a>Executar consultas do Apache Hive usando SDK do .NET do HDInsight
@@ -44,7 +44,7 @@ O SDK do .NET do HDInsight fornece bibliotecas de cliente .NET que facilitam o t
     Install-Package Microsoft.Azure.Management.HDInsight.Job
     ```
 
-1. Edite o código abaixo para inicializar os valores para variáveis: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Em seguida, use o código revisado como todo o conteúdo de **Program.cs** no Visual Studio.
+1. Edite o código abaixo para inicializar os valores para variáveis: `ExistingClusterName, ExistingClusterUsername, ExistingClusterPassword,DefaultStorageAccountName,DefaultStorageAccountKey,DefaultStorageContainerName` . Em seguida, use o código revisado como todo o conteúdo de **Program. cs** no Visual Studio.
 
     ```csharp
     using System.Collections.Generic;
@@ -139,7 +139,7 @@ A saída do aplicativo deve ser semelhante a:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu a enviar consultas de Apache Hive usando o SDK do .NET do HDInsight. Para saber mais, leia os seguintes artigos:
+Neste artigo, você aprendeu a enviar consultas de Apache Hive usando o SDK do .NET do HDInsight. Confira os seguintes artigos para saber mais:
 
 * [Introdução ao Azure HDInsight](apache-hadoop-linux-tutorial-get-started.md)
 * [Criar clusters do Apache Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
