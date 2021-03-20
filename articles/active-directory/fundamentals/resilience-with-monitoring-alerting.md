@@ -14,10 +14,10 @@ ms.date: 11/30/2020
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a834d4d30c40b618b1601a7f8901c68143ef4912
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101648510"
 ---
 # <a name="resilience-through-monitoring-and-analytics"></a>Resiliência por meio de monitoramento e análise
@@ -49,7 +49,7 @@ Por exemplo, acompanhe as métricas a seguir, uma vez que uma queda repentina em
 
    - **Período anterior**: criar gráficos temporais para mostrar alterações no total de solicitações e taxa de êxito (%) em um período anterior para fins de referência, por exemplo, última semana.
 
-- **Alerta**: usar o log Analytics define [alertas](../../azure-monitor/alerts/alerts-log.md) que são disparados quando há alterações súbitas nos indicadores de chave. Essas alterações podem afetar negativamente o SLOs. Os alertas usam várias formas de métodos de notificação, incluindo email, SMS e WebHooks. Comece definindo um critério que atue como um limite no qual o alerta será disparado. Por exemplo: 
+- **Alerta**: usar o log Analytics define [alertas](../../azure-monitor/alerts/alerts-log.md) que são disparados quando há alterações súbitas nos indicadores de chave. Essas alterações podem afetar negativamente o SLOs. Os alertas usam várias formas de métodos de notificação, incluindo email, SMS e WebHooks. Comece definindo um critério que atue como um limite no qual o alerta será disparado. Por exemplo:
   - Alerta contra queda abrupta em total de solicitações: disparar um alerta quando o número total de solicitações for descartado abruptamente. Por exemplo, quando há um descarte de 25% no número total de solicitações comparadas ao período anterior, gere um alerta.  
   - Alertar em relação à taxa de êxito de queda significativa (%): disparar um alerta quando a taxa de êxito da política selecionada for eliminada significativamente.
   - Após receber um alerta, solucione o problema usando [log Analytics](../reports-monitoring/howto-install-use-log-analytics-views.md), [Application insights](../../active-directory-b2c/troubleshoot-with-application-insights.md)e [extensão de vs Code](https://marketplace.visualstudio.com/items?itemName=AzureADB2CTools.aadb2c) para Azure ad B2C. Depois de resolver o problema e implantar um aplicativo ou uma política atualizada, ele continua a monitorar os principais indicadores até que eles retornem ao intervalo normal.

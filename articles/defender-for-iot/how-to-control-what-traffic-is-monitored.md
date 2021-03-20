@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: a7af817074400bedd8f07adaefc35309566dc931
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100522386"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar qual tráfego é monitorado
@@ -90,7 +90,7 @@ Para configurar sub-redes:
 
 10. Para exportar sub-redes configuradas, selecione **Exportar**. A tabela de sub-rede é baixada para sua estação de trabalho.
 
-11. Selecione **Salvar**.
+11. Clique em **Salvar**.
 
 ### <a name="importing-information"></a>Importando informações 
 
@@ -182,7 +182,7 @@ Para definir um intervalo de endereços DHCP:
     > [!NOTE]
     > Os intervalos que você importa de um arquivo CSV substituem as configurações de intervalo existentes.
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurar servidores DNS para resolução de pesquisa inversa
 
@@ -277,7 +277,7 @@ Para configurar uma verificação automática:
 
 7. Para remover um intervalo, selecione :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: ao lado do intervalo.
 
-8. Selecione **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
+8. Clique em **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
 
 Para executar uma verificação manual:
 
@@ -295,7 +295,7 @@ Para exibir os resultados da verificação:
 
 1. Quando a verificação for concluída, no painel **ações** , selecione **exibir resultados da verificação**. O arquivo CSV com os resultados da verificação é baixado em seu computador.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Investigar detecções de sensor em um inventário](how-to-investigate-sensor-detections-in-a-device-inventory.md) 
  de dispositivos [Investigar as detecções do sensor no mapa do dispositivo](how-to-work-with-the-sensor-device-map.md)

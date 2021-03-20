@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/14/2020
 ms.topic: reference
 ms.service: azure
-ms.openlocfilehash: ae7965dd319f2ff885f4329262ae4772452afd62
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 73c5d1f31d9e0651ee710593aa4e1b68fe972560
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523236"
 ---
 # <a name="defender-for-iot-sensor-and-management-console-apis"></a>Sensor do defender para IoT e APIs do console de gerenciamento
@@ -113,9 +113,9 @@ Matriz de objetos JSON que representam dispositivos.
 | **id** | Numérico | Não | - |
 | **ipAddresses** | Matriz JSON | Sim | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
 | **name** | String | Não | - |
-| **type** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
+| **tipo** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
 | **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
-| **operatingSystem** | String | Sim | - |
+| **Operacional** | String | Sim | - |
 | **engineeringStation** | Boolean | Não | Verdadeiro ou falso |
 | **detector** | Boolean | Não | Verdadeiro ou falso |
 | **autorizado** | Boolean | Não | Verdadeiro ou falso |
@@ -744,7 +744,7 @@ Matriz de objetos JSON que representam alertas.
 | **timestamp** | Numérico | Não | Época (UTC) |
 | **title** | String | Não | - |
 | **severity** | String | Não | INFORMAÇÕES, aviso ou alerta |
-| **owner** | String | Sim | Se o evento foi criado manualmente, esse campo incluirá o nome de usuário que criou o evento |
+| **proprietário** | String | Sim | Se o evento foi criado manualmente, esse campo incluirá o nome de usuário que criou o evento |
 | **content** | String | Não | - |
 
 #### <a name="response-example"></a>Exemplo de resposta
@@ -861,7 +861,7 @@ O objeto de dispositivo contém:
 | **firmwareVersion** | String | Sim | - |
 | **modelo** | String | Sim | - |
 | **isWirelessAccessPoint** | Boolean | Não | Verdadeiro ou falso |
-| **operatingSystem** | Objeto do sistema operacional | Sim | - |
+| **Operacional** | Objeto do sistema operacional | Sim | - |
 | **vulnerabilidades** | Objeto de vulnerabilidades | Sim | - |
 
 #### <a name="operating-system-fields"></a>Campos do sistema operacional
@@ -1832,9 +1832,9 @@ Matriz de objetos JSON que representam dispositivos.
 | **siteId** | Numérico | Sim | - |
 | **ipAddresses** | Matriz JSON | Sim | Endereços IP (podem ser mais de um endereço no caso de endereços da Internet ou um dispositivo com NICs duplas) |
 | **name** | String | Não | - |
-| **type** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
+| **tipo** | String | Não | Desconhecido, estação de engenharia, PLC, HMI, Historian, controlador de domínio, servidor de BD, ponto de acesso sem fio, roteador, comutador, servidor, estação de trabalho, câmera IP, impressora, firewall, estação de terminal, gateway de VPN, Internet ou multicast e difusão |
 | **macAddresses** | Matriz JSON | Sim | Endereços MAC (pode ser mais de um endereço no caso de um dispositivo com NICs duplas) |
-| **operatingSystem** | String | Sim | - |
+| **Operacional** | String | Sim | - |
 | **engineeringStation** | Boolean | Não | Verdadeiro ou falso |
 | **detector** | Boolean | Não | Verdadeiro ou falso |
 | **autorizado** | Boolean | Não | Verdadeiro ou falso |
@@ -2422,7 +2422,7 @@ Matriz de objetos JSON que representam operações de janela de manutenção.
 | **mecanismo** | Matriz de cadeia de caracteres | - | sim |
 | **sensorIds** | Matriz de cadeia de caracteres | - | sim |
 | **sub-redes** | Matriz de cadeia de caracteres | - | sim |
-| **ttl** | Numérico | - | sim |
+| **igual** | Numérico | - | sim |
 | **operationType** | String | Os valores são "OPEN", "UPDATE" e "CLOSE" | não |
 
 #### <a name="curl-command"></a>Comando de cURL
@@ -2654,6 +2654,6 @@ response:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Investigar as detecções do sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
+- [Investigar as detecções do sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)
 
-[Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
+- [Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
