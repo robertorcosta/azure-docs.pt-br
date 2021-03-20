@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94337909"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usar o rastreamento distribuído com o Azure Spring Cloud
@@ -37,7 +37,7 @@ Para Steeltoe 3.0.0, adicione o seguinte pacote NuGet:
 
 * [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 
-## <a name="update-startupcs"></a>Atualizar Startup.cs
+## <a name="update-startupcs"></a>Atualizar Startup. cs
 
 1. Para Steeltoe 2.4.4, chame `AddDistributedTracing` e `AddZipkinExporter` no `ConfigureServices` método.
 
@@ -79,7 +79,7 @@ Adicione as seguintes configurações à fonte de configuração que será usada
 
 1. Defina `management.tracing.alwaysSample` como true.
 
-2. Se você quiser ver as extensões de rastreamento enviadas entre o servidor Eureka, o servidor de configuração e os aplicativos de usuário: defina `management.tracing.egressIgnorePattern` como "/API/v2/spans |/v2/apps/. */Permissions |/Eureka/.* | /oauth/.*".
+2. Se você quiser ver as extensões de rastreamento enviadas entre o servidor Eureka, o servidor de configuração e os aplicativos de usuário: defina `management.tracing.egressIgnorePattern` como "/API/v2/spans |/v2/apps/.*/Permissions |/Eureka/.*| /oauth/.*".
 
 Por exemplo, *appsettings.jsno* incluiria as seguintes propriedades:
  
@@ -155,7 +155,7 @@ Caso já tenha criado e implantado um aplicativo, modifique a taxa de amostra. F
 ## <a name="enable-application-insights"></a>Habilitar o Application Insights
 
 1. Acesse sua página de serviços do Azure Spring Cloud no portal do Azure.
-1. Na página **Monitoramento** , selecione **Rastreamento Distribuído**.
+1. Na página **Monitoramento**, selecione **Rastreamento Distribuído**.
 1. Selecione **Editar configuração** para editar ou adicionar uma nova configuração.
 1. Crie uma consulta do Application Insights ou selecione uma existente.
 1. Escolha qual categoria de log deseja monitorar e especifique o tempo de retenção em dias.
@@ -167,7 +167,7 @@ Retorne à página **Rastreamento Distribuído** e selecione **Exibir mapa do ap
 
 ## <a name="use-search"></a>Usar a pesquisa
 
-Use a função de pesquisa para consultar outros itens de telemetria específicos. Na página de **Rastreamento Distribuído** , selecione **Pesquisar**. Para obter mais informações sobre como usar a função de pesquisa, confira [Como usar a pesquisa no Application Insights](../azure-monitor/app/diagnostic-search.md).
+Use a função de pesquisa para consultar outros itens de telemetria específicos. Na página de **Rastreamento Distribuído**, selecione **Pesquisar**. Para obter mais informações sobre como usar a função de pesquisa, confira [Como usar a pesquisa no Application Insights](../azure-monitor/app/diagnostic-search.md).
 
 ## <a name="use-application-insights"></a>Usar o Application insights
 
@@ -176,7 +176,7 @@ O Application Insights fornece funcionalidades de monitoramento além do mapa do
 ## <a name="disable-application-insights"></a>Desabilitar o Application Insights
 
 1. Acesse sua página de serviços do Azure Spring Cloud no portal do Azure.
-1. Em **Monitoramento** , selecione **Rastreamento Distribuído**.
+1. Em **Monitoramento**, selecione **Rastreamento Distribuído**.
 1. Selecione **Desabilitar** para desabilitar o Application Insights.
 
 ## <a name="next-steps"></a>Próximas etapas

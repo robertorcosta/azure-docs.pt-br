@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 25c87971455ed3c5f59c92748794720d61e599e3
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96339601"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar preenchimento automático e sugestões para aplicativos cliente usando o Azure Pesquisa Cognitiva
@@ -117,7 +117,7 @@ $(function () {
 });
 ```
 
-O `source` informa à função preenchimento automático da interface do usuário do jQuery onde obter a lista de itens a serem mostrados na caixa de pesquisa. Como esse projeto é um projeto do MVC, ele chama a função de **sugestão** em **HomeController.cs** que contém a lógica para retornar sugestões de consulta. Essa função também passa alguns parâmetros para controlar destaques, correspondências difusas e termos. A API JavaScript de preenchimento automático adiciona o parâmetro de termo.
+O `source` informa à função preenchimento automático da interface do usuário do jQuery onde obter a lista de itens a serem mostrados na caixa de pesquisa. Como esse projeto é um projeto do MVC, ele chama a função de **sugestão** em **HomeController. cs** que contém a lógica para retornar sugestões de consulta. Essa função também passa alguns parâmetros para controlar destaques, correspondências difusas e termos. A API JavaScript de preenchimento automático adiciona o parâmetro de termo.
 
 O `minLength: 3` garante que as recomendações serão mostradas apenas quando houver pelo menos três caracteres na caixa de pesquisa.
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Função de sugestão
 
-Se você estiver usando C# e um aplicativo MVC, o arquivo **HomeController.cs** no diretório de controladores será onde você poderá criar uma classe para os resultados sugeridos. No .NET, uma função de sugestão é baseada no [método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Para obter mais informações sobre o SDK do .NET, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](search-howto-dotnet-sdk.md).
+Se você estiver usando C# e um aplicativo MVC, o arquivo **HomeController. cs** no diretório de controladores será onde você poderá criar uma classe para os resultados sugeridos. No .NET, uma função de sugestão é baseada no [método SuggestAsync](/dotnet/api/azure.search.documents.searchclient.suggestasync). Para obter mais informações sobre o SDK do .NET, consulte [como usar o Azure pesquisa cognitiva de um aplicativo .net](search-howto-dotnet-sdk.md).
 
 O `InitSearch` método cria um cliente de índice http autenticado para o serviço de pesquisa cognitiva do Azure. As propriedades na classe [sugiraoptions](/dotnet/api/azure.search.documents.suggestoptions) determinam quais campos são pesquisados e retornados nos resultados, o número de correspondências e se a correspondência difusa é usada. 
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Função de preenchimento automático
 
-O preenchimento automático é baseado no [método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Assim como acontece com as sugestões, esse bloco de código ficaria no arquivo **HomeController.cs** .
+O preenchimento automático é baseado no [método AutocompleteAsync](/dotnet/api/azure.search.documents.searchclient.autocompleteasync). Assim como acontece com as sugestões, esse bloco de código ficaria no arquivo **HomeController. cs** .
 
 ```csharp
 public async Task<ActionResult> AutoCompleteAsync(string term)
