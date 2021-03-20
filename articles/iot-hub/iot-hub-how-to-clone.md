@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: robinsh
 ms.openlocfilehash: 370ea2f16632ae18142f0770742e5a52d3cabae0
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92151658"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Como clonar um hub IoT do Azure para outra região
@@ -107,7 +107,7 @@ Esta seção fornece instruções específicas para migrar o Hub.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>Localize o Hub original e exporte-o para um modelo de recurso.
 
-1. Entre no [portal do Azure](https://portal.azure.com). 
+1. Entre no [Portal do Azure](https://portal.azure.com). 
 
 1. Vá para **grupos de recursos** e selecione o grupo de recursos que contém o Hub que você deseja mover. Você também pode acessar **recursos** e encontrar o Hub dessa maneira. Selecione o Hub.
 
@@ -300,7 +300,7 @@ Ao exportar o modelo do Resource Manager para um Hub que tem o roteamento config
 
 1. Recupere as chaves necessárias para qualquer um dos recursos de roteamento e coloque-as no modelo. Você pode recuperar as chaves do recurso no [portal do Azure](https://portal.azure.com). 
 
-   Por exemplo, se você estiver Roteando mensagens para um contêiner de armazenamento, localize a conta de armazenamento no Portal. Na seção Configurações, selecione **chaves de acesso**e, em seguida, copie uma das chaves. Esta é a aparência da chave quando você exporta o modelo pela primeira vez:
+   Por exemplo, se você estiver Roteando mensagens para um contêiner de armazenamento, localize a conta de armazenamento no Portal. Na seção Configurações, selecione **chaves de acesso** e, em seguida, copie uma das chaves. Esta é a aparência da chave quando você exporta o modelo pela primeira vez:
 
    ```json
    "connectionString": "DefaultEndpointsProtocol=https;
@@ -347,7 +347,7 @@ Agora você tem um modelo que criará um novo hub que parece quase exatamente co
 
 Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteamento que serão movidos, os recursos deverão ser configurados no novo local e as referências no modelo serão atualizadas para corresponder. Se você não estiver movendo os recursos de roteamento, eles deverão estar no modelo com as chaves atualizadas.
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
 1. Selecione **Criar um recurso**. 
 
@@ -363,7 +363,7 @@ Crie o novo hub no novo local usando o modelo. Se você tiver recursos de roteam
 
    ![Captura de tela mostrando o comando para carregar um arquivo de modelo](./media/iot-hub-how-to-clone/iot-hub-upload-file.png)
 
-1. Procure o novo modelo que você editou e selecione-o e, em seguida, selecione **abrir**. Ele carrega seu modelo na janela Editar. Clique em **Salvar**. 
+1. Procure o novo modelo que você editou e selecione-o e, em seguida, selecione **abrir**. Ele carrega seu modelo na janela Editar. Selecione **Salvar**. 
 
    ![Captura de tela mostrando o carregamento do modelo](./media/iot-hub-how-to-clone/iot-hub-loading-template.png)
 
@@ -485,7 +485,7 @@ Agora você tem as variáveis de ambiente em um arquivo com os comandos SET e sa
 
 ### <a name="running-the-sample-application-and-using-command-line-arguments"></a>Executando o aplicativo de exemplo e usando argumentos de linha de comando
 
-1. Abra una janela de prompt de comando. Selecione Windows e digite `command prompt` para obter a janela do prompt de comando.
+1. Abra uma janela de prompt de comando. Selecione Windows e digite `command prompt` para obter a janela do prompt de comando.
 
 1. Copie os comandos que definem as variáveis de ambiente, um de cada vez, e cole-os na janela de prompt de comando e selecione Enter. Quando tiver terminado, digite `SET` na janela de prompt de comando para ver suas variáveis de ambiente e seus valores. Depois de copiá-los para a janela de prompt de comando, você não precisa copiá-los novamente, a menos que abra uma nova janela de prompt de comando.
 
@@ -526,7 +526,7 @@ Agora você tem as variáveis de ambiente em um arquivo com os comandos SET e sa
     
 1. Clique com o botão direito do mouse no projeto *ImportExportDevicesSample* e selecione **definir como projeto de inicialização**.    
     
-1. Defina as variáveis na parte superior de Program.cs na pasta ImportExportDevicesSample para as cinco opções.
+1. Defina as variáveis na parte superior de Program. cs na pasta ImportExportDevicesSample para as cinco opções.
 
    ``` csharp
    // Add randomly created devices to the source hub.

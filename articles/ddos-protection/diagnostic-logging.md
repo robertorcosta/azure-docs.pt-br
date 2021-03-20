@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
 ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591877"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Exibir e configurar o log de diagnóstico de DDoS
@@ -29,7 +29,7 @@ Os seguintes logs de diagnóstico estão disponíveis para a proteção contra D
 - **DDoSMitigationReports**: os relatórios de mitigação de ataques usam os dados do protocolo NetFlow que são agregados para fornecer informações detalhadas sobre o ataque em seu recurso. Sempre que um recurso IP público estiver sob ataque, a geração de relatórios começará assim que a atenuação for iniciada. Também será gerado um relatório de incremental a cada 5 minutos e um relatório de pós-atenuação para todo o período de mitigação. Isso é para garantir que, no caso de o ataque de DDoS continuar por mais tempo, você poderá exibir o instantâneo mais recentes do relatório de atenuação a cada 5 minutos e um resumo completo quando a mitigação de ataque estiver concluída. 
 - **Biometria: fornece** todas as métricas possíveis disponíveis durante a duração de um ataque de DDoS. 
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 
 > [!div class="checklist"]
 > * Configure os logs de diagnóstico de DDoS, incluindo notificações, relatórios de mitigação e logs de fluxo de mitigação. 
@@ -48,10 +48,10 @@ Se você quiser habilitar automaticamente o log de diagnóstico em todos os IPs 
 
 1. Selecione **Todos os serviços** na parte superior esquerda do portal.
 2. Digite *Monitor* na caixa **Filtro**. Selecione **Monitorar** quando aparecer nos resultados.
-3. Em **configurações**, selecione **configurações de diagnóstico**.
+3. Em **Configurações**, escolha **Configurações de diagnóstico**.
 4. Selecione a **Assinatura** e o **Grupo de recursos** que contêm o endereço IP público que você deseja registrar.
 5. Selecione **endereço IP público** para **tipo de recurso** e selecione o endereço IP público específico para o qual você deseja habilitar os logs.
-6. Selecione **Adicionar configuração de diagnóstico**. Em **detalhes da categoria**, selecione quantas opções forem necessárias e, em seguida, selecione **salvar**.
+6. Selecione **Adicionar configuração de diagnóstico**. Em **Detalhes da categoria**, escolha quantas opções forem necessárias e, depois, **Salvar**.
 
     ![Configurações de diagnóstico de DDoS](./media/ddos-attack-telemetry/ddos-diagnostic-settings.png)
 

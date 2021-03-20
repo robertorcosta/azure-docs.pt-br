@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 05/09/2019
 ms.author: grzuber
 ms.openlocfilehash: 400651b240f0518a85b9deb7a7293a77a88b0861
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100591705"
 ---
 # <a name="diagnose-common-code-package-errors-by-using-service-fabric"></a>Diagnosticar erros de pacote de código comum usando Service Fabric
@@ -41,7 +41,7 @@ Service Fabric pode ser responsável por encerrar seu pacote de códigos por vá
 >[!NOTE]
 > Se o processo ou o contêiner terminar com um código de saída diferente dos códigos na tabela a seguir, Service Fabric não será responsável por encerrá-lo.
 
-Código de saída | Description
+Código de saída | Descrição
 --------- | -----------
 7147 | Indica que Service Fabric desligam normalmente o processo ou o contêiner enviando-o um sinal CTRL + C.
 7148 | Indica que Service Fabric terminou o processo ou o contêiner. Às vezes, esse código de erro indica que o processo ou o contêiner não respondeu oportunamente depois de enviar um sinal CTRL + C e precisava ser encerrado.
