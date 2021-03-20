@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9ca8df21e0221d364f75eaeb26f0b2961d7e0b08
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: dcd58e966da7ca596a14ca1b2839cbeb6399a855
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204292"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576451"
 ---
-# <a name="cloud-tiering-overview"></a>Visão geral de camadas de nuvem
+# <a name="cloud-tiering-overview"></a>Visão geral da camada de nuvem
 A camada de nuvem, um recurso opcional do Sincronização de Arquivos do Azure, diminui a quantidade de armazenamento local necessária ao mesmo tempo em que mantém o desempenho de um servidor de arquivos local.
 
 Quando habilitado, esse recurso armazena somente os arquivos acessados com frequência (quente) no servidor local. Arquivos não acessados com pouca frequência (frio) são divididos em namespace (estrutura de arquivos e pastas) e conteúdo de arquivo. O namespace é armazenado localmente e o conteúdo do arquivo armazenado em um compartilhamento de arquivos do Azure na nuvem. 
@@ -39,7 +39,7 @@ Com a **política de data**, os arquivos interessantes são em camadas para a nu
 Para obter mais exemplos de como a política de data e o espaço livre do volume funcionam em conjunto, consulte [escolher sincronização de arquivos do Azure políticas de camadas de nuvem](storage-sync-choose-cloud-tiering-policies.md).
 
 ### <a name="windows-server-data-deduplication"></a>Eliminação de duplicação de dados do Windows Server
-A eliminação de duplicação de dados tem suporte em volumes que têm a camada de nuvem habilitada a partir do Windows Server 2016. Para obter mais detalhes, consulte [planejando uma implantação de sincronização de arquivos do Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication).
+A eliminação de duplicação de dados tem suporte em volumes que têm a camada de nuvem habilitada a partir do Windows Server 2016. Para obter mais detalhes, consulte [planejando uma implantação de sincronização de arquivos do Azure](./storage-sync-files-planning.md#data-deduplication).
 
 ### <a name="cloud-tiering-heatmap"></a>Calor em camadas de nuvem
 O Sincronização de Arquivos do Azure monitora o acesso aos arquivos (operações de leitura e gravação) ao longo do tempo e, com base no acesso frequente e recente, atribui uma pontuação de calor a cada arquivo. Ele usa essas pontuações para criar um "calor" de seu namespace em cada ponto de extremidade do servidor. Este calor é uma lista de todos os arquivos de sincronização em um local com camadas de nuvem habilitadas, ordenadas por sua pontuação de calor. Os arquivos acessados com frequência que foram abertos recentemente são considerados quentes, enquanto os arquivos que não foram pouco utilizados e não foram acessados por algum tempo são considerados interessantes. 
@@ -109,4 +109,3 @@ Também é possível que um arquivo esteja parcialmente em camadas (ou seja parc
 ## <a name="next-steps"></a>Próximas etapas
 * [Escolha Sincronização de Arquivos do Azure políticas de camadas de nuvem](storage-sync-choose-cloud-tiering-policies.md)
 * [Planejando uma implantação da Sincronização de Arquivos do Azure](storage-sync-files-planning.md)
-

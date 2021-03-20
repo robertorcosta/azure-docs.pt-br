@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 02/16/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: ecc9279b66f7dca431cc8c33a47b07a6349d8ed6
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100574478"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102100399"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -49,7 +49,7 @@ A classificação de segurança é baseada na quantidade de recomendações da C
 |Recomendação|Descrição e política relacionada|Severity|Correção rápida habilitada? ([Saiba mais](security-center-remediate-recommendations.md#quick-fix-remediation))|Tipo de recurso|
 |----|----|----|----|----|
 |**O acesso aos Serviços de Aplicativos deve ser restrito**|Restrinja o acesso aos Serviços de Aplicativos alterando a configuração de rede, para negar o tráfego de entrada de intervalos muito amplos.<br>(Política relacionada: [versão prévia]: O acesso aos Serviços de Aplicativos deve ser restrito)|Alta|N|serviço de aplicativo|
-|**As regras para aplicativos Web nos NSGs da IaaS devem ser fortalecidas**|Proteger o NSG (grupo de segurança de rede) de suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.<br>(Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser fortalecidas)|Alta|N|Máquina virtual|
+|**As regras para aplicativos Web nos NSGs da IaaS devem ser fortalecidas**|Proteger o NSG (grupo de segurança de rede) das suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.<br>(Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser fortalecidas)|Alta|N|Máquina virtual|
 |**As políticas de segurança de pods devem ser definidas para reduzir o vetor de ataque removendo privilégios de aplicativo desnecessários (versão prévia)**|Defina políticas de segurança de pods para reduzir o vetor de ataque removendo privilégios de aplicativo desnecessários. Recomendamos configurar políticas de segurança de pods para que apenas os pods possam acessar os recursos aos quais eles têm permissões de acesso.<br>(Política relacionada: [versão prévia]: as políticas de segurança de pods devem ser definidas nos Serviços de Kubernetes)|Médio|N|Recursos de computação (contêineres)|
 |**Instalar o módulo de segurança da Central de Segurança do Azure para IoT para obter mais visibilidade dos seus dispositivos IoT**|Instale o módulo de segurança da Central de Segurança do Azure para IoT para obter mais visibilidade dos seus dispositivos IoT.|Baixo|N|Dispositivo IoT|
 
@@ -57,5 +57,5 @@ A classificação de segurança é baseada na quantidade de recomendações da C
 
 Para saber mais sobre as recomendações, confira o seguinte:
 
-- [Recomendações de segurança na Central de Segurança do Azure](security-center-recommendations.md)
-- [Protegendo sua rede na Central de Segurança do Azure](security-center-network-recommendations.md)
+- [O que são políticas, iniciativas e recomendações de segurança?](security-policy-concept.md)
+- [Examine as suas recomendações de segurança](security-center-recommendations.md)
