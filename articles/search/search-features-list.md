@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 7615e1dbce040002d9d1a13502637f78100965fb
-ms.sourcegitcommit: 44188608edfdff861cc7e8f611694dec79b9ac7d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99538900"
 ---
 # <a name="features-of-azure-cognitive-search"></a>Recursos do Azure Pesquisa Cognitiva
@@ -70,7 +70,7 @@ O Azure Pesquisa Cognitiva fornece um mecanismo de pesquisa de texto completo, a
 | SDK do Azure para Python | [**Azure-Search-Documents**](/python/api/overview/azure/search-documents-readme) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure-MGMT-Search**](/python/api/overview/azure/search/management) é para a criação e limpeza de serviço por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
 | SDK do Azure para JavaScript/TypeScript | o [**Azure/Search-Documents**](/javascript/api/@azure/search-documents/) é para operações de plano de dados, incluindo todas as operações relacionadas à indexação, consultas e enriquecimento de ia. Você também pode usar essa biblioteca de cliente para recuperar informações e estatísticas do sistema. <br/><br/>[**Azure/ARM-a pesquisa destina-**](/javascript/api/@azure/arm-search/) se à criação e limpeza de serviços por meio de Azure Resource Manager. Você também pode usar essa API para gerenciar chaves e provisionar um serviço. |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Novidades no Cognitive Search](whats-new.md)
 

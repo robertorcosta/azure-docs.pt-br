@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/09/2020
 ms.author: rolyon
 ms.openlocfilehash: 7d53df4159c071c17657e8a8367da605b6a5dc9e
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556178"
 ---
 # <a name="list-azure-role-assignments-using-the-azure-portal"></a>Listar atribuições de função do Azure usando o portal do Azure
@@ -63,7 +63,7 @@ Os usuários aos quais foi atribuída a função de [proprietário](built-in-rol
 
 1. Clique no recurso específico.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 
@@ -159,7 +159,7 @@ Siga estas etapas para baixar atribuições de função em um escopo.
 
 1. Clique no recurso específico.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique em **baixar atribuições de função** para abrir o painel de atribuições de função de download.
 

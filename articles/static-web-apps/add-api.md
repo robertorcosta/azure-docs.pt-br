@@ -9,10 +9,10 @@ ms.date: 05/29/2020
 ms.author: wachegha
 ms.custom: devx-track-js
 ms.openlocfilehash: 8a42ca4cf69515c99bb2e0bd28bb62dfed0e18f8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100650670"
 ---
 # <a name="add-an-api-to-azure-static-web-apps-preview-with-azure-functions"></a>Adicionar uma API a aplicativos Web Estáticos do Azure com o Azure Functions
@@ -219,7 +219,7 @@ Ao usar o Visual Studio Code, confirme e envie por push suas alterações para o
 ## <a name="create-a-static-web-app"></a>Criar um aplicativo Web estático
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**.
+1. Clique em **Criar um Recurso**
 1. Pesquisar **aplicativo Web estático**
 1. Clique em **aplicativo Web estático (visualização)**
 1. Clique em **Criar**

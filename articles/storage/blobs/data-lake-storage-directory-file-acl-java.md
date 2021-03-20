@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: 10debe7bb870ddd9f8711e73ccb4b690d7011b62
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100650177"
 ---
 # <a name="use-java-to-manage-directories-and-files-in-azure-data-lake-storage-gen2"></a>Usar o Java para gerenciar diretórios e arquivos no Azure Data Lake Storage Gen2
@@ -148,11 +148,11 @@ Este exemplo, imprime os nomes de cada arquivo localizado em um diretório chama
 
 :::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/Java-v12/src/main/java/com/datalake/manage/CRUD_DataLake.java" id="Snippet_ListFilesInDirectory":::
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Documentação de referência da API](/java/api/overview/azure/storage-file-datalake-readme)
 * [Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 * [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 * [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Enviar comentários](https://github.com/Azure/azure-sdk-for-java/issues)
+* [Envie comentários](https://github.com/Azure/azure-sdk-for-java/issues)

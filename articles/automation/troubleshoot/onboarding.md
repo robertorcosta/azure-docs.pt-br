@@ -5,10 +5,10 @@ services: automation
 ms.date: 02/11/2021
 ms.topic: troubleshooting
 ms.openlocfilehash: 43bc367be9ad9bb32f33f94df774acb3e808182a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100651112"
 ---
 # <a name="troubleshoot-feature-deployment-issues"></a>Solucionar problemas de implantação de recurso
@@ -242,4 +242,4 @@ Se você não encontrar seu problema aqui ou não conseguir resolvê-lo, visite 
 
 * Obtenha respostas de especialistas do Azure nos [Fóruns do Azure](https://azure.microsoft.com/support/forums/).
 * Conecte-se com [@AzureSupport](https://twitter.com/azuresupport), a conta oficial do Microsoft Azure para melhorar a experiência do cliente. O Suporte do Azure conecta a Comunidade do Azure a respostas, suporte e especialistas.
-* Registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
+* Registrar um incidente de suporte do Azure. Acesse o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Obter suporte**.
