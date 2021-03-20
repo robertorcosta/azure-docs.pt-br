@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 03/09/2021
+ms.date: 03/18/2021
 ms.author: victorh
-ms.openlocfilehash: fba95214a6bbb0482166eab8f77f30911986fbb7
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: 38d83186c06eac0fc3a49834172c2a4b8542caff
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102525468"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590459"
 ---
 # <a name="deploy-and-configure-enterprise-ca-certificates-for-azure-firewall-preview"></a>Implantar e configurar certificados de AC corporativa para a versão prévia do firewall do Azure
 
@@ -42,7 +42,7 @@ Para usar uma AC corporativa para gerar um certificado a ser usado com o Azure f
 1. Acesse o site de registro da Web na AC raiz, normalmente, `https://<servername>/certsrv` e selecione **solicitar um certificado**.
 1. Selecione **solicitação avançada de certificado**.
 1. Selecione **criar e enviar uma solicitação para esta autoridade de certificação**.
-1. Preencha o formulário usando o modelo de autoridade de certificação subordinado, conforme mostrado:
+1. Preencha o formulário usando o modelo de autoridade de certificação subordinada.
 1. Envie a solicitação e instale o certificado.
 1. Supondo que essa solicitação seja feita de um Windows Server usando o Internet Explorer, abra **Opções da Internet**.
 1. Navegue até a guia **conteúdo** e selecione **certificados**.

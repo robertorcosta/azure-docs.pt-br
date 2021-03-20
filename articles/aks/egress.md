@@ -4,17 +4,17 @@ titleSuffix: Azure Kubernetes Service
 description: Saiba como criar e usar um endereço IP público estático para o tráfego de saída em um cluster do AKS (Serviço de Kubernetes do Azure)
 services: container-service
 ms.topic: article
-ms.date: 03/04/2019
-ms.openlocfilehash: 2eefeecfa550683dafcf66d936837e2a891c4c84
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.date: 03/16/2021
+ms.openlocfilehash: e1f81bf4c4d35108557449a8bebd126bdf744191
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726539"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592363"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-with-a-basic-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um endereço IP público estático para o tráfego de saída com um balanceador de carga de SKU *básico* no serviço kubernetes do Azure (AKs)
 
-Por padrão, o endereço IP de saída de um cluster do AKS (Serviço de Kubernetes do Azure) é atribuído aleatoriamente. Essa configuração não é ideal quando você precisa identificar um endereço IP para acesso a serviços externos, por exemplo. Em vez disso, talvez seja necessário atribuir um endereço IP estático a ser adicionado a uma lista de permissões para acesso ao serviço.
+Por padrão, o endereço IP de saída de um cluster do AKS (Serviço de Kubernetes do Azure) é atribuído aleatoriamente. Essa configuração não é ideal quando você precisa identificar um endereço IP para acesso a serviços externos, por exemplo. Em vez disso, talvez seja necessário atribuir um endereço IP estático a ser adicionado a umalist de permissão para acesso ao serviço.
 
 Este artigo mostra como criar e usar um endereço IP público estático para ser usado com o tráfego de saída em um cluster do AKS.
 
@@ -107,7 +107,7 @@ Para verificar se o endereço IP público estático está sendo usado, você pod
 Inicie e anexe a um pod *Debian* básico:
 
 ```console
-kubectl run -it --rm aks-ip --image=debian
+kubectl run -it --rm aks-ip --image=mcr.microsoft.com/aks/fundamental/base-ubuntu:v0.0.11
 ```
 
 Para acessar um site de dentro do contêiner, use `apt-get` para instalar o `curl` no contêiner.

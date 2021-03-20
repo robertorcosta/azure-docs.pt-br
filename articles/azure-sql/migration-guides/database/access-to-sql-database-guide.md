@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 9b64dc95c6ee00a834c2741b30026df7350780c0
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: e323b1c15d78da4e8c1a82ae8848df7f59b0dd87
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564783"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104657205"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guia de migração: acesso ao banco de dados SQL do Azure
 
@@ -42,17 +42,58 @@ Para criar uma avaliação, siga estas etapas:
 
 1. Abra Assistente de Migração do SQL Server para acesso. 
 1. Selecione **Arquivo** e, em seguida, escolha **Novo Projeto**. Forneça um nome para o projeto de migração. 
-1. Selecione **Adicionar bancos de dados** e escolha os bancos de dados a serem adicionados ao novo projeto
+
+   ![Escolher novo projeto](./media/access-to-sql-database-guide/new-project.png)
+
+1. Selecione **Adicionar bancos de dados** e escolha os bancos de dados a serem adicionados ao novo projeto. 
+
+   ![Escolha Adicionar bancos de dados](./media/access-to-sql-database-guide/add-databases.png)
+
 1. No **Gerenciador de metadados do Access**, clique com o botão direito do mouse no banco de dados e escolha **criar relatório**. 
+
+   ![Clique com o botão direito do mouse no banco de dados e escolha criar relatório](./media/access-to-sql-database-guide/create-report.png)
+
 1. Examine a avaliação de exemplo. Por exemplo: 
+
+   ![Examinar a avaliação do relatório de exemplo](./media/access-to-sql-database-guide/sample-assessment.png)
+
+### <a name="validate-data-types"></a>Validar tipos de dados
+
+Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisitos, se necessário. Para fazer isso, siga estas etapas:
+
+1. Selecione **Ferramentas** no menu. 
+1. Selecione **Configurações do Projeto**. 
+1. Selecione a guia **Mapeamentos de tipo**. 
+
+   ![Mapeamentos de tipo](./media/access-to-sql-database-guide/type-mappings.png)
+
+1. Você pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Gerenciador de metadados do Access**.
+
 
 ### <a name="convert-schema"></a>Converter esquema
 
 Para converter objetos de banco de dados, siga estas etapas: 
 
 1. Selecione **conectar-se ao banco de dados SQL do Azure** e fornecer detalhes de conexão.
-1. Clique com o botão direito do mouse no banco de dados no **Gerenciador de metadados do Access** e escolha **converter esquema**.  
-1. Adicional Para converter um objeto individual, clique com o botão direito do mouse no objeto e escolha **converter esquema**. Um objeto que foi convertido aparece em negrito no **Gerenciador de metadados do Access**: 
+
+   ![Conectar-se ao Banco de Dados SQL do Azure](./media/access-to-sql-database-guide/connect-to-sqldb.png)
+
+1. Clique com o botão direito do mouse no banco de dados no **Gerenciador de metadados do Access** e escolha **converter esquema**. Como alternativa, você pode escolher **converter esquema** na barra de navegação superior depois de selecionar o banco de dados.
+
+   ![Clique com o botão direito do mouse no banco de dados e escolha converter esquema](./media/access-to-sql-database-guide/convert-schema.png)
+
+   Comparar consultas convertidas em consultas originais: 
+
+   ![As consultas convertidas podem ser comparadas com o código-fonte](./media/access-to-sql-database-guide/query-comparison.png)
+
+   Comparar objetos convertidos com objetos originais: 
+
+   ![Os objetos convertidos podem ser comparados com a origem](./media/access-to-sql-database-guide/table-comparison.png)
+
+1. Adicional Para converter um objeto individual, clique com o botão direito do mouse no objeto e escolha **converter esquema**. Os objetos convertidos aparecem em negrito no **Gerenciador de metadados do Access**: 
+
+   ![Objetos em negrito no Gerenciador de metadados foram convertidos](./media/access-to-sql-database-guide/converted-items.png)
+ 
 1. Selecione **examinar resultados** no painel saída e examine os erros no painel **lista de erros** . 
 
 
@@ -64,9 +105,28 @@ Para migrar dados usando o SSMA para Access, siga estas etapas:
 
 1. Se você ainda não fez isso, selecione **conectar ao banco de dados SQL do Azure** e forneça detalhes de conexão. 
 1. Clique com o botão direito do mouse no banco de dados do **Gerenciador de metadados do banco de dados SQL do Azure** e escolha **sincronizar com o banco** Essa ação publica o esquema MySQL no banco de dados SQL do Azure.
+
+   ![Sincronizar com Banco de dados](./media/access-to-sql-database-guide/synchronize-with-database.png)
+
+   Examine o mapeamento entre seu projeto de origem e seu destino:
+
+   ![Examinar a sincronização com o banco de dados](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
+
 1. Use o **Gerenciador de metadados do Access** para marcar as caixas ao lado dos itens que você deseja migrar. Se você quiser migrar todo o banco de dados, marque a caixa ao lado do banco de dados. 
 1. Clique com o botão direito do mouse no banco de dados ou objeto que você deseja migrar e escolha **migrar data**. 
    Para migrar dados para um banco de dado inteiro, marque a caixa de seleção ao lado do nome do banco de dados. Para migrar dados de tabelas individuais, expanda o banco de dado, expanda tabelas e marque a caixa de seleção ao lado da tabela. Para omitir dados de tabelas individuais, desmarque a caixa de seleção.
+
+    ![Migrar dados](./media/access-to-sql-database-guide/migrate-data.png)
+
+    Examine os dados migrados: 
+
+    ![Migrar análise de dados](./media/access-to-sql-database-guide/migrate-data-review.png)
+
+1. Conecte-se ao banco de dados SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração revisando os data e o esquema.
+
+   ![Validar no SSMA](./media/access-to-sql-database-guide/validate-data.png)
+
+
 
 ## <a name="post-migration"></a>Pós-migração 
 
