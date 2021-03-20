@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 10/13/2019
 ms.author: harshacs
 ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89568771"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Conectar-se a VMs do Azure após o failover do local 
@@ -138,10 +138,10 @@ Para manter os endereços, veja o que eles fazem.
 Antes do failover, especifique as configurações de rede e o endereço IP para a VM do Azure de destino.
 
 1.  No cofre dos serviços de recuperação-> **itens replicados**, selecione o computador local.
-2. Na página **computação e rede** do computador, clique em **Editar**para definir as configurações de rede e adaptador para a VM do Azure de destino.
+2. Na página **computação e rede** do computador, clique em **Editar** para definir as configurações de rede e adaptador para a VM do Azure de destino.
 3. Em **Propriedades de rede**, selecione a rede de destino na qual a VM do Azure será localizada quando for criada após o failover.
 4. Em **interfaces de rede**, configure os adaptadores de rede na rede de destino. Por padrão Site Recovery mostra todas as NICs detectadas no computador local.
-    - Em **tipo de interface de rede de destino** , você pode definir cada NIC como **primária**, **secundária**ou **não criar** se não precisar dessa NIC específica na rede de destino. Um adaptador de rede deve ser definido como primário para o failover. Observe que a modificação da rede de destino afeta todas as NICs para a VM do Azure.
+    - Em **tipo de interface de rede de destino** , você pode definir cada NIC como **primária**, **secundária** ou **não criar** se não precisar dessa NIC específica na rede de destino. Um adaptador de rede deve ser definido como primário para o failover. Observe que a modificação da rede de destino afeta todas as NICs para a VM do Azure.
     - Clique no nome da NIC para especificar a sub-rede na qual a VM do Azure será implantada.
     - Substitua **Dynamic** pelo endereço IP privado que você deseja atribuir à VM do Azure de destino. Se um endereço IP não for especificado Site Recovery atribuirá o próximo endereço IP disponível na sub-rede à NIC no failover.
     - [Saiba mais](site-recovery-manage-network-interfaces-on-premises-to-azure.md) sobre como gerenciar NICs para o failover local no Azure.

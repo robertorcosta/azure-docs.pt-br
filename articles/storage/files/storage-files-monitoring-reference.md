@@ -10,10 +10,10 @@ ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
 ms.openlocfilehash: 4575709a4fa7067b02228036fb2e2b4a60844e21
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100592318"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Referência de dados de monitoramento de arquivos do Azure
@@ -85,7 +85,7 @@ A tabela a seguir lista as propriedades dos logs de recursos do armazenamento do
 
 [!INCLUDE [Account level capacity metrics](../../../includes/azure-storage-logs-properties-service.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitorando arquivos do Azure](storage-files-monitoring-reference.md) para obter uma descrição do monitoramento do armazenamento do Azure.
 - Confira [Como monitorar os recursos do Azure com o Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.
