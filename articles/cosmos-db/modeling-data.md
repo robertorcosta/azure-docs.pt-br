@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93333232"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modelagem de dados no Azure Cosmos DB
@@ -118,7 +118,7 @@ Veja este snippet de JSON.
 }
 ```
 
-Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada** , o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso pode se tornar um problema, pois o tamanho do item pode aumentar infinitamente grande.
+Uma entidade de postagem com comentários inseridos seria assim se estivéssemos modelando um sistema de blog comum, ou CMS. O problema com este exemplo é que a matriz de comentários é **ilimitada**, o que significa que não há limite (prático) para o número de comentários que qualquer postagem pode ter. Isso pode se tornar um problema, pois o tamanho do item pode aumentar infinitamente grande.
 
 Como o tamanho do item aumenta a capacidade de transmitir os dados pela conexão, bem como ler e atualizar o item, em escala, será afetado.
 

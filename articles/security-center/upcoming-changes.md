@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2021
+ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: a2c29049decc056f0d3c8083d21574456610c124
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: 6bec9f0a1c22691d818566cec3f59c1ec0f3d3bb
+ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99555145"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102051609"
 ---
 # <a name="important-upcoming-changes-to-azure-security-center"></a>Futuras alterações importantes na Central de Segurança do Azure
 
@@ -31,13 +31,47 @@ Se você estiver procurando as notas sobre a versão mais recentes, poderá enco
 
 ## <a name="planned-changes"></a>Alterações planejadas
 
+- [As recomendações da AWS serão lançadas em GA (disponibilidade geral)](#recommendations-from-aws-will-be-released-for-general-availability-ga)
+- [Duas recomendações herdadas deixarão de gravar dados diretamente no log de atividades do Azure](#two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log)
 - [Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido](#two-recommendations-from-apply-system-updates-security-control-being-deprecated)
 - [Aprimoramentos na recomendação de classificação de dados SQL](#enhancements-to-sql-data-classification-recommendation)
 - [Reprovação de 11 alertas do Azure Defender](#deprecation-of-11-azure-defender-alerts)
 
+
+### <a name="recommendations-from-aws-will-be-released-for-general-availability-ga"></a>As recomendações da AWS serão lançadas em GA (disponibilidade geral)
+
+**Data estimada da alteração:** abril de 2021
+
+A Central de Segurança do Azure protege as cargas de trabalho no Azure, na AWS (Amazon Web Services) e no GCP (Google Cloud Platform).
+
+As recomendações provenientes do AWS Security Hub estão em versão prévia desde que os conectores de nuvem foram introduzidos. As recomendações sinalizadas como **Versão prévia** não estão incluídas nos cálculos da sua classificação de segurança, mas ainda devem ser corrigidas sempre que possível, de modo que, quando o período de versão prévia terminar, elas contribuam para a sua classificação.
+
+Com essa alteração, dois conjuntos de recomendações da AWS passarão para GA:
+
+- [Controles do PCI DSS do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-pci-controls.html)
+- [Controles do CIS AWS Foundations Benchmark do Security Hub](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-cis-controls.html)
+
+Quando eles passarem para GA e as avaliações forem executadas nos seus recursos da AWS, os resultados afetarão sua classificação de segurança combinada referente a todos os seus recursos de nuvem híbrida e multinuvem. 
+
+
+
+### <a name="two-legacy-recommendations-will-no-longer-write-data-directly-to-azure-activity-log"></a>Duas recomendações herdadas deixarão de gravar dados diretamente no log de atividades do Azure 
+
+**Data estimada da alteração:** Março de 2021
+
+A Central de Segurança transmite os dados de quase todas as recomendações de segurança para o Assistente do Azure, que, por sua vez, grava no [log de atividades do Azure](../azure-monitor/essentials/activity-log.md).
+
+Para duas recomendações, os dados são gravados de modo simultâneo diretamente no log de atividades do Azure. Com essa alteração, a Central de Segurança interromperá a gravação de dados para essas recomendações de segurança herdadas diretamente no log de atividades. Em vez disso, exportaremos os dados para o Assistente do Azure, assim como para todas as outras recomendações. 
+
+As duas recomendações herdadas são:
+- Os problemas de integridade do Endpoint protection devem ser resolvidos nos seus computadores
+- As vulnerabilidades da configuração de segurança nas máquinas devem ser corrigidas
+
+Se você estiver acessando informações dessas duas recomendações na categoria "Recomendação do tipo TaskDiscovery" do log de atividades, isso não estará mais disponível.
+
 ### <a name="two-recommendations-from-apply-system-updates-security-control-being-deprecated"></a>Duas recomendações do controle de segurança "Aplicar atualizações do sistema" que está sendo preterido 
 
-**Data estimada da alteração:** Fevereiro de 2021
+**Data estimada da alteração:** Março de 2021
 
 As duas seguintes recomendações estão agendadas para serem preteridas em fevereiro de 2021:
 

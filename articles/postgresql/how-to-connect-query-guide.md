@@ -8,13 +8,13 @@ author: mksuni
 ms.author: sumuth
 ms.date: 09/21/2020
 ms.openlocfilehash: 413f5fc1f6579102b62042c1470816470c2e1449
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92546544"
 ---
-# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Visão geral de conexão e consulta do banco de dados do Azure para PostgreSQL-servidor único
+# <a name="connect-and-query-overview-for-azure-database-for-postgresql--single-server"></a>Conectar e consultar a visão geral para o banco de dados do Azure para PostgreSQL – Servidor Único
 
 O documento a seguir inclui links para exemplos que mostram como se conectar e consultar com o banco de dados do Azure para PostgreSQL servidor único. Este guia também inclui recomendações e extensões de TLS que você pode usar para se conectar ao servidor em idiomas com suporte abaixo.
 

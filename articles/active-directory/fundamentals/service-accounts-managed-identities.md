@@ -13,14 +13,14 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88a7600239d6e960fa2e635c9e7d9049a7c02db3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032341"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587824"
 ---
-# <a name="securing-managed-identities"></a>Protegendo identidades gerenciadas
+# <a name="securing-managed-identities"></a>Proteção de identidades gerenciadas
 
 Os desenvolvedores costumam ser desafiados pelo gerenciamento de segredos e credenciais usadas para proteger a comunicação entre diferentes serviços. Identidades gerenciadas são identidades de Azure Active Directory seguras (Azure AD) criadas para fornecer identidades para recursos do Azure.
 
@@ -50,11 +50,11 @@ O Azure tem um plano de controle e um plano de dados. No plano de controle, voc�
 
 Depois que o sistema de destino aceita o token para autenticação, ele pode dar suporte a diferentes mecanismos de autorização para seu plano de controle e plano de dados.
 
-Todas as operações do plano de controle do Azure são gerenciadas pelo [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) e usam o [controle de acesso baseado em função do Azure](https://docs.microsoft.com/azure/role-based-access-control/overview). No plano de dados,, cada sistema de destino tem seu próprio mecanismo de autorização. O armazenamento do Azure dá suporte ao RBAC do Azure no plano de dados. Por exemplo, os aplicativos que usam Azure App serviços podem ler dados do armazenamento do Azure, e os aplicativos que usam o serviço kubernetes do Azure podem ler segredos armazenados em Azure Key Vault.
+Todas as operações do plano de controle do Azure são gerenciadas pelo [Azure Resource Manager](../../azure-resource-manager/management/overview.md) e usam o [controle de acesso baseado em função do Azure](../../role-based-access-control/overview.md). No plano de dados,, cada sistema de destino tem seu próprio mecanismo de autorização. O armazenamento do Azure dá suporte ao RBAC do Azure no plano de dados. Por exemplo, os aplicativos que usam Azure App serviços podem ler dados do armazenamento do Azure, e os aplicativos que usam o serviço kubernetes do Azure podem ler segredos armazenados em Azure Key Vault.
 
-Para obter mais informações sobre os planos de controle e de dados, consulte [plano de controle e operações de plano de dados-Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/management/control-plane-and-data-plane).
+Para obter mais informações sobre os planos de controle e de dados, consulte [plano de controle e operações de plano de dados-Azure Resource Manager](../../azure-resource-manager/management/control-plane-and-data-plane.md).
 
-Todos os serviços do Azure eventualmente terão suporte a identidades gerenciadas. Para obter mais informações, consulte [serviços que dão suporte a identidades gerenciadas para recursos do Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities).
+Todos os serviços do Azure eventualmente terão suporte a identidades gerenciadas. Para obter mais informações, consulte [serviços que dão suporte a identidades gerenciadas para recursos do Azure](../managed-identities-azure-resources/services-support-managed-identities.md).
 
 ##  
 
@@ -116,7 +116,7 @@ Você pode fazer isso enumerando os membros de seus grupos altamente privilegiad
 
    `Get-AzureADGroupMember -ObjectId <String> [-All <Boolean>] [-Top <Int32>] [<CommonParameters>]`
 
-* [Verifique se você sabe quais recursos a identidade gerenciada está acessando](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-list-powershell).
+* [Verifique se você sabe quais recursos a identidade gerenciada está acessando](../../role-based-access-control/role-assignments-list-powershell.md).
 
 ## <a name="move-to-managed-identities"></a>Mover para identidades gerenciadas
 
@@ -126,19 +126,19 @@ Se você estiver usando uma entidade de serviço ou uma conta de usuário do Azu
 
 **Para obter informações sobre como criar identidades gerenciadas, consulte:** 
 
-[Crie uma identidade gerenciada atribuída pelo usuário](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). 
+[Crie uma identidade gerenciada atribuída pelo usuário](../managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 
 
-[Habilitar uma identidade gerenciada atribuída pelo sistema durante a criação do recurso](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Habilitar uma identidade gerenciada atribuída pelo sistema durante a criação do recurso](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
-[Habilitar a identidade gerenciada atribuída pelo sistema em um recurso existente](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm)
+[Habilitar a identidade gerenciada atribuída pelo sistema em um recurso existente](../managed-identities-azure-resources/qs-configure-portal-windows-vm.md)
 
 **Para obter mais informações sobre contas de serviço, consulte:**
 
 [Introdução às contas de serviço Azure Active Directory](service-accounts-introduction-azure.md)
 
-[Protegendo entidades de serviço](service-accounts-principal.md)
+[Proteção de entidades de serviço](service-accounts-principal.md)
 
-[Governando contas de serviço do Azure](service-accounts-governing-azure.md)
+[Administração de contas de serviço do Azure](service-accounts-governing-azure.md)
 
 [Introdução a contas de serviço locais](service-accounts-on-premises.md)
 
@@ -146,4 +146,3 @@ Se você estiver usando uma entidade de serviço ou uma conta de usuário do Azu
 
  
 
- 

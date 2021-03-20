@@ -1,14 +1,14 @@
 ---
 title: Implantar o exemplo de blueprint do Azure Security Benchmark Foundation
 description: Etapas de implantação do exemplo de blueprint do Azure Security Benchmark Foundation, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.topic: sample
-ms.openlocfilehash: 84c157d696dc8ababe1f252136672ea600e604af
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
+ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100633947"
+ms.lasthandoff: 03/03/2021
+ms.locfileid: "101740674"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implantar o exemplo de blueprint do Azure Security Benchmark Foundation
 
@@ -92,6 +92,9 @@ Quando a cópia do exemplo de blueprint for **Publicada** com êxito, ele poder�
      - **Nome do Observador de Rede**: nome do recurso de Observador de Rede
      - **Nome do grupo de recursos do Observador de Rede**: nome do grupo de recursos do Observador de Rede
      - **Habilitar proteção contra DDoS**: insira 'true' ou 'false' para especificar se a Proteção contra DDoS está ou não habilitada na rede virtual
+     
+    > [!NOTE] 
+    > Se o Observador de Rede já está habilitado, é recomendável usar o grupo de recursos do Observador de Rede existente. Você também precisa fornecer o local do grupo de recursos do Observador de Rede existente para o parâmetro de artefato **Local do grupo de recursos do Observador de Rede**.
 
    - Parâmetros do artefato
 
@@ -132,8 +135,14 @@ A seguinte tabela fornece uma lista dos parâmetros de blueprint:
 |Modelo de spoke da Rede Virtual do Azure|Modelo do Resource Manager|Nomes de endereço de sub-rede (opcional)|Matriz de nomes de sub-rede para implantação na rede virtual spoke; por exemplo, "subnet1", "subnet2"|
 |Modelo de spoke da Rede Virtual do Azure|Modelo do Resource Manager|Prefixos de endereço de sub-rede (opcional)|Matriz de prefixos de endereço IP para sub-redes opcionais para a rede virtual spoke; por exemplo, "10.0.7.0/24", "10.0.8.0/24"|
 |Modelo de spoke da Rede Virtual do Azure|Modelo do Resource Manager|Implantar spoke|Insira 'true' ou 'false' para especificar se a atribuição implanta os componentes do spoke da arquitetura|
-|Modelo do Observador de Rede do Azure|Modelo do Resource Manager|Localização do Observador de Rede|Se o Observador de Rede já estiver habilitado, esse valor de parâmetro **precisará** corresponder à localização do grupo de recursos existente do Observador de Rede.|
-|Modelo do Observador de Rede do Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Se o Observador de Rede já estiver habilitado, esse valor de parâmetro **precisará** corresponder ao nome do grupo de recursos existente do Observador de Rede.|
+|Modelo do Observador de Rede do Azure|Modelo do Resource Manager|Localização do Observador de Rede|Local do recurso de Observador de Rede|
+|Modelo do Observador de Rede do Azure|Modelo do Resource Manager|Localização do grupo de recursos do Observador de Rede|Se o Observador de Rede já estiver habilitado, esse valor de parâmetro **precisará** corresponder à localização do grupo de recursos existente do Observador de Rede.|
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se encontrar o erro `The resource group 'NetworkWatcherRG' failed to deploy due to the
+following error: Invalid resource group location '{location}'. The Resource group already exists in
+location '{location}'.`, verifique se o parâmetro de blueprint **Nome do grupo de recursos do Observador de Rede** especifica o nome do grupo de recursos do Observador de Rede existente e se o parâmetro de artefato **Local do grupo de recursos do Observador de Rede** especifica o local do grupo de recursos do Observador de Rede existente.
 
 ## <a name="next-steps"></a>Próximas etapas
 

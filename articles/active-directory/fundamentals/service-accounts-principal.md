@@ -13,16 +13,16 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f92625131a35dc91c860923ec6523c189830f65
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552143"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587841"
 ---
 # <a name="securing-service-principals"></a>Proteção de entidades de serviço
 
-Uma [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) do Azure Active Directory (AD do Azure) é a representação local de um objeto de aplicativo em um único locatário ou diretório.  Ele funciona como a identidade da instância do aplicativo. As entidades de serviço definem quem pode acessar o aplicativo e quais recursos o aplicativo pode acessar. Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado e faz referência ao objeto de aplicativo exclusivo globalmente. O locatário protege a entrada da entidade de serviço e o acesso aos recursos.  
+Uma [entidade de serviço](../develop/app-objects-and-service-principals.md) do Azure Active Directory (AD do Azure) é a representação local de um objeto de aplicativo em um único locatário ou diretório.  Ele funciona como a identidade da instância do aplicativo. As entidades de serviço definem quem pode acessar o aplicativo e quais recursos o aplicativo pode acessar. Uma entidade de serviço é criada em cada locatário em que o aplicativo é usado e faz referência ao objeto de aplicativo exclusivo globalmente. O locatário protege a entrada da entidade de serviço e o acesso aos recursos.  
 
 ### <a name="tenant-service-principal-relationships"></a>Locatário-relações de entidade de serviço
 Um aplicativo de locatário único tem apenas uma entidade de serviço em seu locatário inicial. Um aplicativo Web multilocatário ou uma API requer uma entidade de serviço em cada locatário. Uma entidade de serviço é criada quando um usuário desse locatário consentiu o uso do aplicativo ou da API. Esse consentimento cria uma relação um-para-muitos entre o aplicativo multilocatário e suas entidades de serviço associadas.
@@ -39,7 +39,7 @@ Uma determinada instância do aplicativo tem duas propriedades distintas: Applic
 
 O ApplicationID representa o aplicativo global e é o mesmo para todas as instâncias de aplicativo entre locatários. O ObjectID é um valor exclusivo para um objeto de aplicativo e representa a entidade de serviço. Assim como acontece com usuários, grupos e outros recursos, o ObjectID ajuda a identificar exclusivamente uma instância do aplicativo no Azure AD.
 
-Para obter informações mais detalhadas sobre este tópico, consulte [relação entre aplicativo e entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Para obter informações mais detalhadas sobre este tópico, consulte [relação entre aplicativo e entidade de serviço](../develop/app-objects-and-service-principals.md).
 
 Você também pode criar um aplicativo e seu objeto de entidade de serviço (ObjectID) em um locatário usando Azure PowerShell, CLI do Azure, Microsoft Graph, a portal do Azure e outras ferramentas. 
 
@@ -63,7 +63,7 @@ Os certificados são mais seguros: Use certificados de cliente, se possível. Ao
 
 * senhas 
 
-Para obter mais informações sobre Azure Key Vault e como usá-lo para gerenciamento de certificado e secreto, consulte [sobre Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) e [atribuir uma política de acesso de Key Vault usando o portal do Azure](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal). 
+Para obter mais informações sobre Azure Key Vault e como usá-lo para gerenciamento de certificado e secreto, consulte [sobre Azure Key Vault](../../key-vault/general/overview.md) e [atribuir uma política de acesso de Key Vault usando o portal do Azure](../../key-vault/general/assign-access-policy-portal.md). 
 
  ### <a name="challenges-and-mitigations"></a>Desafios e mitigações
 A tabela a seguir apresenta mitigações para desafios que você pode encontrar ao usar entidades de serviço.
@@ -89,7 +89,7 @@ Usando o PowerShell
 `Get-AzureADServicePrincipal -All:$true` 
 
 
-Para obter mais informações [, consulte Get-AzureADServicePrincipal](https://docs.microsoft.com/powershell/module/azuread/get-azureadserviceprincipal)
+Para obter mais informações [, consulte Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal)
 
 ## <a name="assess-service-principal-security"></a>Avaliar a segurança da entidade de serviço
 
@@ -105,7 +105,7 @@ Não é possível gerenciar a entrada das entidades de serviço com acesso condi
 | A função do RBAC do Azure padrão é colaborador. |Avalie as necessidades e aplique a função com o mínimo possível de permissões para atender a essa necessidade.|
 
 ## <a name="move-from-a-user-account-to-a-service-principal"></a>Mover de uma conta de usuário para uma entidade de serviço  
-Se você estiver usando uma conta de usuário do Azure como uma entidade de serviço, avalie se você pode mudar para uma [identidade gerenciada](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet) ou uma entidade de serviço. Se você não puder usar uma identidade gerenciada, Provisione uma entidade de serviço que tenha apenas permissões e escopo suficientes para executar as tarefas necessárias. Você pode criar uma entidade de serviço [registrando um aplicativo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)ou com o [PowerShell](https://docs.microsoft.com/azure/active-directory/develop/howto-authenticate-service-principal-powershell).
+Se você estiver usando uma conta de usuário do Azure como uma entidade de serviço, avalie se você pode mudar para uma [identidade gerenciada](../../app-service/overview-managed-identity.md?tabs=dotnet) ou uma entidade de serviço. Se você não puder usar uma identidade gerenciada, Provisione uma entidade de serviço que tenha apenas permissões e escopo suficientes para executar as tarefas necessárias. Você pode criar uma entidade de serviço [registrando um aplicativo](../develop/howto-create-service-principal-portal.md)ou com o [PowerShell](../develop/howto-authenticate-service-principal-powershell.md).
 
 Ao usar Microsoft Graph, verifique a documentação da API específica, [como neste exemplo](/powershell/azure/create-azure-service-principal-azureps), e verifique se o tipo de permissão para o aplicativo está sendo exibido como com suporte.
 
@@ -115,7 +115,7 @@ Ao usar Microsoft Graph, verifique a documentação da API específica, [como ne
 
 [Criar uma entidade de serviço](../develop/howto-create-service-principal-portal.md)
 
- [Monitorar as entradas da entidade de serviço](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report)
+ [Monitorar as entradas da entidade de serviço](../reports-monitoring/concept-sign-ins.md#sign-ins-report)
 
 **Para saber mais sobre como proteger as contas de serviço:**
 

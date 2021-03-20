@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2020
 ms.author: memildin
-ms.openlocfilehash: 31472b0a0eedee03d5cfcb6ff47a97033a8c78e0
-ms.sourcegitcommit: 95c2cbdd2582fa81d0bfe55edd32778ed31e0fe8
+ms.openlocfilehash: 9db276425d510316c41126f8e942a1e2a362ea35
+ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
-ms.locfileid: "98796076"
+ms.lasthandoff: 03/04/2021
+ms.locfileid: "102101283"
 ---
 # <a name="enable-security-center-on-all-subscriptions-in-a-management-group"></a>Habilitar a Central de Segurança em todas as assinaturas de um grupo de gerenciamento
 
@@ -60,7 +60,7 @@ Há várias opções para você modificar a definição do Azure Policy:
     A definição fornecida, define *uma das* configurações de "preço" abaixo como em conformidade. Isso significa que uma assinatura definida como "Standard" ou "Gratuita" está em conformidade.
 
     > [!TIP]
-    > Quando um plano do Azure Defender é habilitado, ele é descrito como se estivesse na configuração "Standard". Quando é desabilitado, ele é "Gratuito". [Saiba mais sobre planos do Azure Defender](security-center-pricing.md).
+    > Quando um plano do Azure Defender for habilitado, ele será descrito em uma definição de política como se estivesse na configuração 'Standard'. Quando é desabilitado, ele é "Gratuito". Para saber mais sobre as diferenças entre esses planos, confira [Central de Segurança gratuita vs. Azure Defender habilitado](security-center-pricing.md). 
 
     ```
     "existenceCondition": {
@@ -98,4 +98,4 @@ Há várias opções para você modificar a definição do Azure Policy:
 Agora que você integrou um grupo de gerenciamento inteiro, habilite as proteções avançadas do Azure Defender. 
 
 > [!div class="nextstepaction"]
-> [Habilitar o Azure Defender](security-center-pricing.md#enable-azure-defender)
+> [Habilitar o Azure Defender](enable-azure-defender.md)

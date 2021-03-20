@@ -8,12 +8,12 @@ ms.author: nmurav
 ms.date: 12/11/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d2df7255980ca00d405cf80a9fff69ff0511bd17
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 5ffc655cebb19b755b990171ab662576ac541793
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101659300"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102174284"
 ---
 # <a name="call-flow-topologies"></a>Topologias de fluxo de chamadas
 Este artigo descreve as topologias de fluxo de chamadas dos Serviços de Comunicação do Azure. Este é um ótimo artigo a ser examinado se você é um cliente empresarial que integra os Serviços de Comunicação em uma rede gerenciada por você. Para obter uma introdução aos fluxos de chamadas dos Serviços de Comunicação, acesse a [documentação conceitual dos fluxos de chamadas](./call-flows.md).
@@ -152,7 +152,7 @@ A sinalização entre a VPN e a rede do cliente usa o Fluxo 2*. A sinalização 
 
 ### <a name="vpn-user-to-internal-user-direct-media"></a>Usuário de VPN para usuário interno (mídia direta)
 
-:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Fluxo de chamada individual com uma VPN com mídia direta":::
+:::image type="content" source="./media/call-flows/vpn-to-internal-direct-media.png" alt-text="Fluxo de chamada individual (usuário interno) com uma VPN com mídia direta":::
 
 *Figura 6 – Usuário de VPN para usuário interno (mídia direta)*
 
@@ -162,7 +162,7 @@ Essa transmissão de mídia é bidirecional. A direção do Fluxo 2 para o usuá
 
 ### <a name="vpn-user-to-external-user-direct-media"></a>Usuário de VPN para usuário externo (mídia direta)
 
-:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Fluxo de chamada individual com uma VPN com mídia direta":::
+:::image type="content" source="./media/call-flows/vpn-user-to-external-user.png" alt-text="Fluxo de chamada individual (usuário externo) com uma VPN com mídia direta":::
 
 *Figura 7 – Usuário de VPN para usuário externo (mídia direta)*
 

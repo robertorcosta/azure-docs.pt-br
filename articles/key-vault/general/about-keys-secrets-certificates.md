@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: overview
 ms.date: 04/17/2020
 ms.author: mbaldwin
-ms.openlocfilehash: e0a45bde32fed651c4b38d203b3c75a6d928e7c5
-ms.sourcegitcommit: 4295037553d1e407edeb719a3699f0567ebf4293
+ms.openlocfilehash: f2a33b4011b0bb89ca17010fc787aebe8c17fc92
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
-ms.locfileid: "96327076"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102183923"
 ---
 # <a name="azure-key-vault-keys-secrets-and-certificates-overview"></a>Visão geral das chaves, dos segredos e dos certificados do Azure Key Vault
 
@@ -44,7 +44,7 @@ Chaves protegidas por software|/keys|Com suporte|Sem suporte
 **Outros tipos de objetos**||
 Segredos|/secrets|Com suporte|Sem suporte
 Certificados|/certificates|Com suporte|Sem suporte
-Chaves de conta de armazenamento|/storageaccount|Com suporte|Sem suporte
+Chaves de conta de armazenamento|/storage|Com suporte|Sem suporte
 |||
 - **Chaves de criptografia**: Dá suporte a vários tipos de chave e algoritmos e habilita o uso de chaves protegidas por HSM e por software. Para obter mais informações, confira [Sobre chaves](../keys/about-keys.md).
 - **Segredos**: Fornece armazenamento seguro de segredos, como senhas e cadeias de conexão de banco de dados. Para obter mais informações, confira [Sobre segredos](../secrets/about-secrets.md).
