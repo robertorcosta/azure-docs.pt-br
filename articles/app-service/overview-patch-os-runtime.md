@@ -5,10 +5,10 @@ ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 8b52223aea0f0bdfecf58906ac192e893da3b47d
-ms.sourcegitcommit: 65a4f2a297639811426a4f27c918ac8b10750d81
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96558480"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Aplicação de patch do sistema operacional e do runtime no Serviço de Aplicativo do Azure
@@ -75,7 +75,7 @@ Embora as informações críticas do sistema operacional tenham acesso bloqueado
 
 A tabela a seguir mostra como encontrar informações sobre as versões do Windows e do runtime da linguagem que está executando seus aplicativos:
 
-| Informações | Onde encontrá-las | 
+| Informações do | Onde encontrá-las | 
 |-|-|
 | Versão do Windows | Consulte `https://<appname>.scm.azurewebsites.net/Env.cshtml` (em Informações do Sistema) |
 | Versão do .NET | Em `https://<appname>.scm.azurewebsites.net/DebugConsole`, execute o seguinte comando no prompt de comando: <br>`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full"` |

@@ -9,10 +9,10 @@ ms.reviewer: klam, estfan
 ms.topic: article
 ms.date: 08/18/2016
 ms.openlocfilehash: e821036ff4ddb5a9786bc4f4537bb81539ab2c87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "78898466"
 ---
 # <a name="plans-and-billing-for-azure-scheduler"></a>Planos e Cobrança do Agendador do Azure
@@ -26,7 +26,7 @@ ms.locfileid: "78898466"
 
 No Agendador do Azure, uma coleção de trabalhos contém um número específico de trabalhos. A coleção de trabalhos é a entidade faturável e fornecida nos planos Standard, P10 Premium e P20 Premium, que são descritos aqui: 
 
-| Plano de coleção de trabalhos | Máximo de trabalhos por coleção | Recorrência máxima | Máximo de coleções de trabalhos por assinatura | limites | 
+| Plano de coleção de trabalhos | Máximo de trabalhos por coleção | Recorrência máxima | Máximo de coleções de trabalhos por assinatura | Limites | 
 |:--- |:--- |:--- |:--- |:--- |
 | **Standard** | 50 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 100 contas de coleções de trabalhos Standard. | Acesso ao conjunto de recursos completo do Agendador | 
 | **P10 Premium** | 50 trabalhos por coleção | Um por minuto. Não pode executar trabalhos com mais frequência do que um por minuto. | Cada assinatura do Azure pode ter até 10.000 contas de coleções de trabalhos P10 Premium. Para obter mais coleções, <a href="mailto:wapteams@microsoft.com">Contate-nos</a>. | Acesso ao conjunto de recursos completo do Agendador |

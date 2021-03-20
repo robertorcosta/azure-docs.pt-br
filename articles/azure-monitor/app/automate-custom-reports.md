@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.reviewer: sdash
 ms.openlocfilehash: 39970227fc94d3073688b23cc530462f368a6ecf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100590040"
 ---
 # <a name="automate-custom-reports-with-azure-application-insights-data"></a>Automatizar relatórios personalizados com dados do Azure Application Insights
@@ -95,7 +95,7 @@ availabilityResults
 
     ![Configurações de aplicativo do Azure](./media/automate-custom-reports/config.png)
 
-7. Crie três novas configurações do aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY``, e ``SendGridAPI``. Selecione **Salvar**.
+7. Crie três novas configurações do aplicativo com valores correspondentes apropriados ``AI_APP_ID``, ``AI_APP_KEY``, e ``SendGridAPI``. Clique em **Salvar**.
 
      ![Captura de tela de interface de integração função](./media/automate-custom-reports/app-settings.png)
     

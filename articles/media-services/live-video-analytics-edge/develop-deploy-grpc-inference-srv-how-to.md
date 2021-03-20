@@ -4,10 +4,10 @@ description: Este artigo fornece orientação sobre como desenvolver e implantar
 ms.topic: how-to
 ms.date: 12/02/2020
 ms.openlocfilehash: 6184a369e73c26d3a8a716f9daf1c0420a5239fe
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881645"
 ---
 # <a name="how-to-guide--develop-and-deploy-a-grpc-inference-server"></a>Guia de instruções – desenvolver e implantar um servidor de inferência de gRPC
@@ -148,7 +148,7 @@ Para entender os detalhes de como o gRPC Server é desenvolvido, vamos percorrer
 1. Inicie o VSCode e navegue até a pasta/src/edge/modules/grpcExtension.
 1. Vamos fazer uma rápida explicação dos arquivos:
 
-    1. **Program.cs**: esse é o ponto de entrada do aplicativo. Ele é responsável por inicializar e gerenciar o servidor gRPC, que atuará como um host. Em nosso exemplo, a porta para escutar mensagens gRPC de entrada de um cliente gRPC (como análise de vídeo ao vivo) em é especificada pelo elemento de configuração grpcBindings no AppConfig.jsem.
+    1. **Program. cs**: esse é o ponto de entrada do aplicativo. Ele é responsável por inicializar e gerenciar o servidor gRPC, que atuará como um host. Em nosso exemplo, a porta para escutar mensagens gRPC de entrada de um cliente gRPC (como análise de vídeo ao vivo) em é especificada pelo elemento de configuração grpcBindings no AppConfig.jsem.
     
         ```json    
         {
@@ -191,7 +191,7 @@ Agora que configuramos e inicializamos as conexões de porta do servidor gRPC, v
               }
             }
             ```
-        * Dependendo do valor de batchSize no Appconfig.jsem, nosso servidor continuará recebendo as mensagens e armazenará os quadros de vídeo em uma lista. Depois que o limite de batchSize for atingido, a função chamará a função ou o arquivo que processará a imagem. Em nosso caso, o método chama um arquivo chamado BatchImageProcessor.cs
+        * Dependendo do valor de batchSize no Appconfig.jsem, nosso servidor continuará recebendo as mensagens e armazenará os quadros de vídeo em uma lista. Depois que o limite de batchSize for atingido, a função chamará a função ou o arquivo que processará a imagem. Em nosso caso, o método chama um arquivo chamado BatchImageProcessor. cs
     1. **Processors\BatchImageProcessor.cs**: essa classe é responsável por processar a (s) imagem (ões). Nós usamos um modelo de classificação de imagem neste exemplo. Para cada imagem que será processada, o algoritmo usado é o seguinte:
 
         1. Converta a imagem em uma matriz de bytes para processamento. Consulte o método: `GetBytes(Bitmap image)`
@@ -207,7 +207,7 @@ Agora que configuramos e inicializamos as conexões de porta do servidor gRPC, v
     IEnumerable<Inference> ProcessImage(List<Image> images) 
     ```
 
-    Depois de adicionar a nova classe, você precisará atualizar o MediaGraphExtensionService.cs para que ele instancie sua classe e invoque o método ProcessImage nela para executar a lógica de processamento. 
+    Depois de adicionar a nova classe, você precisará atualizar o MediaGraphExtensionService. cs para que ele instancie sua classe e invoque o método ProcessImage nela para executar a lógica de processamento. 
 
 ## <a name="connect-with-live-video-analytics-module"></a>Conectar-se ao módulo análise de vídeo ao vivo
 
