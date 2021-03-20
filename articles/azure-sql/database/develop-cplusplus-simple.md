@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/12/2018
 ms.openlocfilehash: e891c5797c9ce93e6cab7a07d2f68de1a9157249
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92674759"
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conectar-se ao Banco de Dados SQL usando C e C++
@@ -55,7 +55,7 @@ Em [portal do Azure](https://portal.azure.com/), vá para a cadeia de conexão O
 
 ![ODBCConnectionStringProps](./media/develop-cplusplus-simple/dbconnection.png)
 
-Copie o conteúdo da cadeia de caracteres **ODBC (inclui Node.js) [autenticação do SQL]** . Usaremos essa cadeia de caracteres posteriormente para conectar do nosso interpretador de linha de comando ODBC C++. Essa cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados.
+Copie o conteúdo da cadeia de caracteres **ODBC (inclui Node.js) [autenticação do SQL]**. Usaremos essa cadeia de caracteres posteriormente para conectar do nosso interpretador de linha de comando ODBC C++. Essa cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados.
 
 ## <a name="step-3--add-your-ip-to-the-firewall"></a><a id="Firewall"></a>Etapa 3: Adicionar o IP do firewall
 
@@ -123,7 +123,7 @@ A última coisa a fazer antes de compilar é adicionar **odbc** como uma depend�
 
 ![Adicionando o ODBC como uma biblioteca de entrada](./media/develop-cplusplus-simple/lib.png)
 
-Para iniciar o aplicativo, abra o Console do Linux no menu **Depurar** :
+Para iniciar o aplicativo, abra o Console do Linux no menu **Depurar**:
 
 ![Console do Linux](./media/develop-cplusplus-simple/linuxconsole.png)
 

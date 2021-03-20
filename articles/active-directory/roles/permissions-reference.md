@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c327154e2f4eae735e7078be3b057b1d8cf1c5
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490867"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104585308"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções internas do Azure AD
 
@@ -1415,7 +1415,7 @@ A função de [administrador da política de autenticação](#authentication-pol
 
 
 > [!IMPORTANT]
-> Atualmente, essa função não é capaz de gerenciar o MFA por usuário no portal de gerenciamento herdado do MFA. As mesmas funções podem ser realizadas usando o módulo PowerShell do Azure AD do [MsolUser do conjunto](https://docs.microsoft.com/powershell/module/msonline/set-msoluser) .
+> Atualmente, essa função não é capaz de gerenciar o MFA por usuário no portal de gerenciamento herdado do MFA. As mesmas funções podem ser realizadas usando o módulo PowerShell do Azure AD do [MsolUser do conjunto](/powershell/module/msonline/set-msoluser) .
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

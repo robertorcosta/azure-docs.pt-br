@@ -9,10 +9,10 @@ ms.date: 1/17/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 6628bce68a5a99f451417a115be4b21d49878bb2
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98557291"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>O aplicativo de gerenciamento de ICS do defender para IoT para ServiceNow
@@ -153,7 +153,7 @@ Para definir a regra:
 
 ### <a name="send-defender-for-iot-device-attributes"></a>Enviar os atributos do dispositivo defender para IoT
 
-Este artigo descreve como configurar o defender para IoT para enviar por push um amplo intervalo de atributos de dispositivo para as tabelas do ServiceNow. Consulte **_Inventory Information_* _ para obter detalhes sobre o tipo de informações enviadas por push para o ServiceNow.
+Este artigo descreve como configurar o defender para IoT para enviar por push um amplo intervalo de atributos de dispositivo para as tabelas do ServiceNow. Consulte ***informações de inventário*** para obter detalhes sobre o tipo de informações enviadas por push ao ServiceNow.
 
 Para enviar atributos para o ServiceNow, você deve mapear seu console de gerenciamento local para uma instância do ServiceNow. Isso garante que a plataforma defender para IoT possa se comunicar e autenticar com a instância do.
 
@@ -161,7 +161,7 @@ Para adicionar uma instância do ServiceNow:
 
 1. Entre em seu console de gerenciamento local do defender para IoT.
 
-1. Selecione _ *configurações do sistema** e, em seguida, **ServiceNow** na seção integração do console de gerenciamento local.
+1. Selecione **configurações do sistema** e **ServiceNow** na seção integração do console de gerenciamento local.
 
       :::image type="content" source="media/integration-servicenow/servicenow.png" alt-text="Selecione o botão ServiceNow.":::
 
@@ -270,13 +270,13 @@ Este artigo descreve os atributos de dispositivo enviados por push para o Servic
 | ID | A ID do dispositivo atribuída pelo defender para IoT. |
 | Nome | O nome do dispositivo. |
 | Endereço IP | Endereço ou endereços IP do dispositivo. |
-| Tipo | O tipo de dispositivo, por exemplo, um switch, PLC, Historian ou controlador de domínio. |
+| Type | O tipo de dispositivo, por exemplo, um switch, PLC, Historian ou controlador de domínio. |
 | Endereço MAC | O endereço ou endereços MAC do dispositivo. |
-| Sistema operacional | O sistema operacional do dispositivo. |
+| Sistema Operacional | O sistema operacional do dispositivo. |
 | Fornecedor | O fornecedor do dispositivo. |
 | Protocolos | Os protocolos detectados no tráfego gerado pelo dispositivo. |
 | Proprietário | Insira o nome do proprietário do dispositivo. |
-| Localização | Insira o local físico do dispositivo. |
+| Location | Insira o local físico do dispositivo. |
 
 Exibir dispositivos conectados a um dispositivo nesta exibição.
 
