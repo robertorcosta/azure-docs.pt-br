@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/04/2020
 ms.author: mlottner
 ms.openlocfilehash: 096549c37c9f1feb04cd9214e1835956dae53735
-ms.sourcegitcommit: e972837797dbad9dbaa01df93abd745cb357cde1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100516831"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar um dispositivo IoT suspeito
@@ -39,7 +39,7 @@ Para localizar seu espaço de trabalho do Log Analytics para armazenamento de da
 1. Abra seu Hub IoT,
 1. Em **segurança**, selecione **configurações** e, em seguida, selecione **coleta de dados**.
 1. Altere seus detalhes de configuração do espaço de trabalho do Log Analytics.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Após a configuração, faça o seguinte para acessar dados armazenados no espaço de trabalho do Log Analytics:
 

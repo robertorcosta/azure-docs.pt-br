@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/03/2021
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 74813fabec4d5fe43cd158bb4aa359c2a3b0188a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99988714"
 ---
 # <a name="how-to-configure-blob-indexing-in-cognitive-search"></a>Como configurar a indexação de blob no Pesquisa Cognitiva
@@ -334,7 +334,7 @@ Você também pode definir [Propriedades de configuração de blob](/rest/api/se
 
 + `"indexStorageMetadataOnlyForOversizedDocuments"` para indexar metadados de armazenamento para o conteúdo do blob que é muito grande para ser processado. Por padrão, os blobs superdimensionados são tratados como erros. Para limites no tamanho do blob, consulte [limites de serviço](search-limits-quotas-capacity.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Indexadores na Pesquisa Cognitiva do Azure](search-indexer-overview.md)
 + [Criar um indexador](search-howto-create-indexers.md)

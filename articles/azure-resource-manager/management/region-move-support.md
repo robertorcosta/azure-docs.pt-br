@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
 ms.openlocfilehash: 18d4d84462d528b718d784ff6a16ecf990ed0d20
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100094008"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Suporte para mover recursos do Azure entre regiões
@@ -557,7 +557,7 @@ Pule para um namespace de provedor de recursos:
 > | Tipo de recurso | Movimentação de região | 
 > | ------------- | ----------- |
 > | accounts | Não | 
-> | Pesquisa Cognitiva | Com suporte com etapas manuais.<br/><br/> Saiba mais sobre como [mover o serviço de pesquisa cognitiva do Azure para outra região](../../search/search-howto-move-across-regions.md)
+> | Cognitive Search | Com suporte com etapas manuais.<br/><br/> Saiba mais sobre como [mover o serviço de pesquisa cognitiva do Azure para outra região](../../search/search-howto-move-across-regions.md)
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 

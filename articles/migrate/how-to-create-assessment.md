@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 07/15/2019
 ms.openlocfilehash: 178bdca78c6f011c607de8e1f5d5eabcdbaab7d4
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567697"
 ---
 # <a name="create-an-azure-vm-assessment"></a>Criar uma avaliação de VM do Azure
@@ -54,13 +54,13 @@ Execute uma avaliação da seguinte maneira:
     - Se você descobriu computadores usando o dispositivo, selecione **Computadores descobertos no dispositivo de Migrações para Azure**.
     - Se você descobriu computadores usando um arquivo CSV importado, selecione **Computadores importados**. 
     
-1. Clique em **Editar** para examinar as propriedades de avaliação.
+1. Clique em **Editar** para examinar as propriedades da avaliação.
 
-    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Local do botão Editar para examinar as propriedades de avaliação":::
+    :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assessment-name.png" alt-text="Localização do botão Editar para examinar as propriedades da avaliação":::
 
 1. Em **Propriedades da avaliação** > **Propriedades de Destino**:
     - Em **Local de destino**, especifique a região do Azure para a qual você deseja migrar.
-        - As recomendações de tamanho e custo são baseadas na localização especificada. Depois de alterar o local de destino de padrão, você será solicitado a especificar as **instâncias reservadas** e a **série de VMs**.
+        - As recomendações de tamanho e custo são baseadas na localização especificada. Depois de alterar a localização de destino padrão, você precisará especificar **Instâncias Reservadas** e **Série de VM**.
         - No Azure Governamental, você pode direcionar avaliações [nestas regiões](migrate-support-matrix.md#supported-geographies-azure-government)
     - Em **Tipo de armazenamento**,
         - Se você quiser usar dados baseados em desempenho na avaliação, selecione **Automático** para que as Migrações para Azure recomendem um tipo de armazenamento com base na IOPS do disco e na taxa de transferência.
@@ -97,11 +97,11 @@ Execute uma avaliação da seguinte maneira:
 
     ![Propriedades de avaliação](./media/tutorial-assess-vmware-azure-vm/assessment-properties.png)
 
-1. Em **avaliar servidores** > clique em **Avançar**.
+1. Em **Avaliar Servidores** > clique em **Avançar**.
 
-1. Em **Selecionar computadores para avaliar**  >  o **nome da avaliação** > especifique um nome para a avaliação. 
+1. Em **Selecionar os computadores a serem avaliados** > **Nome da avaliação** > especifique um nome para a avaliação. 
 
-1. Em **selecionar ou criar um grupo** > selecione **criar novo** e especifique um nome de grupo. 
+1. Em **Selecionar ou criar um grupo** > selecione **Criar** e especifique um nome de grupo. 
 
     :::image type="content" source="./media/tutorial-assess-vmware-azure-vm/assess-group.png" alt-text="Adicionar VMs a um grupo":::
 

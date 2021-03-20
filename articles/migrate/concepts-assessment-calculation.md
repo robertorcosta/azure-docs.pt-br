@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/27/2020
 ms.openlocfilehash: 9bdf907ede2c09f7e314df619cd81059956f17dc
-ms.sourcegitcommit: ca215fa220b924f19f56513fc810c8c728dff420
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/19/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98567750"
 ---
 # <a name="server-assessment-overview-migrate-to-azure-vms"></a>Visão geral da avaliação do servidor (migrar para VMs do Azure)
@@ -124,14 +124,14 @@ Aqui estão as novidades incluídas em uma avaliação de VM do Azure na avalia�
 **Critérios de dimensionamento** | Usado para asrightr a VM do Azure.<br/><br/> Use o tamanho com base no tamanho ou no desempenho.
 **Histórico de desempenho** | Usado com o dimensionamento baseado em desempenho. Histórico de desempenho especifica a duração usada quando os dados de desempenho são avaliados.
 **Utilização de percentual** | Usado com o dimensionamento baseado em desempenho. Utilização de percentil especifica o valor percentual do exemplo de desempenho usado para a permissão de direitos.
-**Série da VM** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que exija VMs da série A no Azure, poderá excluir a série A da lista de séries.
+**Série de VMs** | A série de VMs do Azure que você deseja considerar para a permissão de direitos. Por exemplo, se você não tiver um ambiente de produção que exija VMs da série A no Azure, poderá excluir a série A da lista de séries.
 **Fator de conforto** | O buffer usado durante a avaliação. Ele é aplicado aos dados de CPU, RAM, disco e rede para VMs. Ele conta com problemas como uso sazonal, histórico de desempenho curto e, provavelmente, aumenta o uso futuro.<br/><br/> Por exemplo, uma VM de 10 núcleos com 20% de utilização normalmente resulta em uma VM de dois núcleos. Com um fator de conforto de 2,0, o resultado é uma VM de quatro núcleos.
 **Oferta** | A [oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/) na qual você está inscrito. A Avaliação de Servidor estima o custo dessa oferta.
 **Moeda** | A moeda de cobrança da sua conta.
 **Desconto (%)** | Quaisquer descontos específicos de assinatura recebidos por cima da oferta do Azure. A configuração padrão é 0%.
 **Tempo de atividade da VM** | A duração em dias por mês e horas por dia para VMs do Azure que não serão executadas continuamente. As estimativas de custo são baseadas nessa duração.<br/><br/> Os valores padrão são 31 dias por mês e 24 horas por dia.
 **Benefício Híbrido do Azure** | Especifica se você tem o Software Assurance e se está qualificado para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Se a configuração tiver o valor padrão "Sim", os preços do Azure para sistemas operacionais diferentes do Windows serão considerados para VMs do Windows.
-**Assinatura de EA** | Especifica que uma assinatura Enterprise Agreement (EA) é usada para estimativa de custo. Leva em conta o desconto aplicável à assinatura. <br/><br/> Deixe as configurações para instâncias reservadas, desconto (%) e as propriedades de tempo de atividade da VM com suas configurações padrão.
+**Assinatura de EA** | Especifica que uma assinatura Contrato Enterprise (EA) é usada para estimativa de custo. Leva em conta o desconto aplicável à assinatura. <br/><br/> Deixe as configurações para instâncias reservadas, desconto (%) e as propriedades de tempo de atividade da VM com suas configurações padrão.
 
 
 [Examine as práticas recomendadas](best-practices-assessment.md) para criar uma avaliação com a avaliação do servidor.
@@ -291,7 +291,7 @@ Após a conclusão das recomendações de dimensionamento, uma avaliação de VM
     - Software Assurance
     - Instâncias reservadas
     - Tempo de atividade da VM
-    - Local
+    - Location
     - Configurações de moeda
 
     A avaliação do servidor agrega o custo em todas as máquinas para calcular o custo de computação mensal total.

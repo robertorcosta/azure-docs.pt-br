@@ -1,13 +1,13 @@
 ---
-title: Solucionar problemas de grade de eventos
+title: Solucionar problemas de Grade de Eventos
 description: Este artigo fornece diferentes maneiras de solucionar problemas da grade de eventos do Azure
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.openlocfilehash: 9c52ba8561c10dd94ec6ef51c78b8534c6c58e96
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100416939"
 ---
 # <a name="troubleshoot-azure-event-grid-issues"></a>Solucionar problemas da grade de eventos do Azure
