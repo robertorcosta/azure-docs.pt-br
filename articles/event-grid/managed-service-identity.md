@@ -4,10 +4,10 @@ description: Este artigo descreve como habilitar a identidade do serviço gerenc
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.openlocfilehash: 3e643465db7cc918499ca962c4697cb61cb4b594
-ms.sourcegitcommit: 49ea056bbb5957b5443f035d28c1d8f84f5a407b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100007764"
 ---
 # <a name="event-delivery-with-a-managed-identity"></a>Entrega de eventos com uma identidade gerenciada
@@ -45,7 +45,7 @@ Na seção anterior, você aprendeu como habilitar uma identidade gerenciada pel
 ### <a name="use-the-azure-portal"></a>Use o Portal do Azure
 O procedimento a seguir mostra como habilitar a identidade gerenciada pelo sistema para um tópico personalizado. As etapas para habilitar uma identidade para um domínio são semelhantes. 
 
-1. Acesse o [portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 2. Procure **Tópicos da grade de eventos** na barra de pesquisa na parte superior.
 3. Selecione o **tópico personalizado** para o qual você deseja habilitar a identidade gerenciada. 
 4. Alterne para a guia **Identidade**. 
