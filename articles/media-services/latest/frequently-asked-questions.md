@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 3ebff5a40528e9e3ea0e75c4b51529638de34b5d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a9394a5e117a577c903eccdf91cf22d0c359df2b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505759"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581109"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Perguntas frequentes sobre os serviços de mídia v3
 
@@ -86,12 +86,12 @@ Seu aplicativo Web deve solicitar ao usuário que ele determine a transmissão e
 
 #### <a name="server-side"></a>Lado do Servidor
 
-Você pode monitorar eventos ao vivo assinando os eventos da grade de eventos do Azure. Para obter mais informações, consulte o [esquema de evento EventGrid](media-services-event-schemas.md#live-event-types).
+Você pode monitorar eventos ao vivo assinando os eventos da grade de eventos do Azure. Para obter mais informações, consulte o [esquema de evento EventGrid](monitoring/media-services-event-schemas.md#live-event-types).
 
 Você pode:
 
-* [Assine](reacting-to-media-services-events.md) os eventos [Microsoft. Media. LiveEventEncoderDisconnected](media-services-event-schemas.md#liveeventencoderdisconnected) de nível de fluxo e monitore que nenhuma reconexão chega por um tempo para parar e excluir seu evento ao vivo.
-* [Assine](reacting-to-media-services-events.md) os eventos de [pulsação](media-services-event-schemas.md#liveeventingestheartbeat) no nível de rastreamento. Se todas as faixas tiverem uma queda de taxa de bits de entrada para 0 ou o último carimbo de data/hora não estiver mais aumentando, você poderá desligar com segurança o evento ao vivo. Os eventos de pulsação entram a cada 20 segundos para cada faixa, portanto, pode ser um pouco detalhado.
+* [Assine](monitoring/reacting-to-media-services-events.md) os eventos [Microsoft. Media. LiveEventEncoderDisconnected](monitoring/media-services-event-schemas.md#liveeventencoderdisconnected) de nível de fluxo e monitore que nenhuma reconexão chega por um tempo para parar e excluir seu evento ao vivo.
+* [Assine](monitoring/reacting-to-media-services-events.md) os eventos de [pulsação](monitoring/media-services-event-schemas.md#liveeventingestheartbeat) no nível de rastreamento. Se todas as faixas tiverem uma queda de taxa de bits de entrada para 0 ou o último carimbo de data/hora não estiver mais aumentando, você poderá desligar com segurança o evento ao vivo. Os eventos de pulsação entram a cada 20 segundos para cada faixa, portanto, pode ser um pouco detalhado.
 
 ###  <a name="how-do-i-insert-breaksvideos-and-image-slates-during-a-live-stream"></a>Como fazer inserir quebras/vídeos e slates de imagem durante uma transmissão ao vivo?
 
@@ -117,7 +117,7 @@ Para obter mais informações, consulte [proteger seu conteúdo usando a criptog
 
 ### <a name="how-and-where-did-i-get-a-jwt-token-before-using-it-to-request-a-license-or-key"></a>Como e onde eu obtive um token JWT antes de usá-lo para solicitar uma licença ou chave?
 
-Para produção, você precisa ter um serviço de token seguro (ou seja, um serviço Web), que emite um token JWT após uma solicitação HTTPS. Para teste, você pode usar o código mostrado no `GetTokenAsync` método definido em [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+Para produção, você precisa ter um serviço de token seguro (ou seja, um serviço Web), que emite um token JWT após uma solicitação HTTPS. Para teste, você pode usar o código mostrado no `GetTokenAsync` método definido em [Program. cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 
 O Player faz uma solicitação, depois que um usuário é autenticado, para o STS para esse token e o atribui como o valor do token. Você pode usar o [API do Player de mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/).
 

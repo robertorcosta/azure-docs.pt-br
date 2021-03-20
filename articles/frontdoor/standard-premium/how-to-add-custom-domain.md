@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
-ms.openlocfilehash: 164e06024844fb5262586450b737db9c807e373a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.openlocfilehash: 36cb5720e409c86fcb4bc1a97863e5d3523cd3bc
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "101098403"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588742"
 ---
 # <a name="create-a-custom-domain-on-azure-front-door-standardpremium-sku-preview-using-the-azure-portal"></a>Criar um domínio personalizado no SKU Standard/Premium da porta do Azure (versão prévia) usando o portal do Azure
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 Quando você usa o Azure front door Standard/Premium para entrega de aplicativos, um domínio personalizado é necessário se você quiser que seu próprio nome de domínio fique visível nas solicitações do usuário final. Ter um nome de domínio visível pode ser conveniente para os clientes e útil para fins de identidade visual.
 
@@ -38,6 +38,9 @@ Depois de criar um perfil padrão/Premium da porta do Azure, o host de front-end
 * Se você estiver usando o Azure para hospedar seus [domínios DNS](../../dns/dns-overview.md), você deve delegar o DNS (sistema de nomes de domínio) do provedor de domínio para um DNS do Azure. Confira [Delegar um domínio ao DNS do Azure](../../dns/dns-delegate-domain-azure-dns.md)para saber mais. Caso contrário, se você estiver usando um provedor de domínio para manipular seu domínio DNS, você deverá validar manualmente o domínio inserindo registros TXT solicitados do DNS.
 
 ## <a name="add-a-new-custom-domain"></a>Adicionar um novo domínio personalizado
+
+> [!NOTE]
+> Durante a visualização pública, não há suporte para o uso do DNS do Azure para criar domínios Apex no Azure front door Standard/Premium. Há outros provedores de DNS que dão suporte ao nivelamento CNAME ou à procura de DNS que permitirá que os domínios de APEX sejam usados para o padrão de porta frontal do Azure/Premium.
 
 Uma seção domínio personalizado é gerenciada por domínios no Portal. Um domínio personalizado pode ser criado e validado antes da associação a um ponto de extremidade. Um domínio personalizado e seus subdomínios podem ser associados a apenas um único ponto de extremidade por vez. No entanto, você pode usar diferentes subdomínios do mesmo domínio personalizado para diferentes portas de frente. Você também pode mapear domínios personalizados com subdomínios diferentes para o mesmo ponto de extremidade de porta frontal.
 

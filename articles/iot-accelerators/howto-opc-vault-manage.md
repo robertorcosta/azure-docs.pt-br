@@ -9,10 +9,10 @@ ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ms.openlocfilehash: 0829d4b3fca068ddb0db2df53dd635ab7ad80bed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91281908"
 ---
 # <a name="manage-the-opc-vault-certificate-service"></a>Gerenciar o serviço de certificado do cofre do OPC
@@ -38,7 +38,7 @@ Depois de implantar o cofre OPC, você deve criar o certificado de autoridade de
 6. Selecione **Salvar**.
 7. Se você encontrar um erro "proibido" neste ponto, suas credenciais de usuário não terão a permissão de administrador para modificar ou criar um novo certificado raiz. Por padrão, o usuário que implantou o serviço tem funções de administrador e assinatura com o serviço. Outros usuários precisam ser adicionados às funções aprovador, gravador ou administrador, conforme apropriado no registro do aplicativo Azure Active Directory (AD do Azure).
 8. Selecione **Detalhes**. Isso deve mostrar as informações atualizadas.
-9. Selecione **renovar certificado de autoridade de certificação** para emitir o primeiro certificado de autoridade de certificação do emissor ou para renovar o certificado do emissor. Depois, selecione **OK**.
+9. Selecione **renovar certificado de autoridade de certificação** para emitir o primeiro certificado de autoridade de certificação do emissor ou para renovar o certificado do emissor. Em seguida, selecione **OK**.
 10. Depois de alguns segundos, você verá os **detalhes do certificado**. Para baixar o certificado de autoridade de certificação e a CRL mais recentes para distribuição para seus aplicativos OPC UA, selecione **emissor** ou **CRL**.
 
 Agora o serviço de gerenciamento de certificados do OPC UA está pronto para emitir certificados para aplicativos OPC UA.
@@ -101,11 +101,11 @@ Por padrão, a identidade do serviço tem apenas permissões limitadas para aces
 4. Acesse **políticas de acesso**.
 5. Selecione **Adicionar nova**.
 6. Ignore o modelo. Não há modelo que corresponda aos requisitos.
-7. Escolha **selecionar entidade de segurança**e selecione o usuário a ser adicionado ou convide um novo usuário para o locatário.
-8. Selecione as seguintes **permissões de chave**: **obter**, **listar**e **assinar**.
-9. Selecione as seguintes **permissões de segredo**: **obter**, **listar**, **definir**e **excluir**.
+7. Escolha **selecionar entidade de segurança** e selecione o usuário a ser adicionado ou convide um novo usuário para o locatário.
+8. Selecione as seguintes **permissões de chave**: **obter**, **listar** e **assinar**.
+9. Selecione as seguintes **permissões de segredo**: **obter**, **listar**, **definir** e **excluir**.
 10. Selecione as seguintes **permissões de certificado**: **obter** e **listar**.
-11. Selecione **OK**e selecione **salvar**.
+11. Selecione **OK** e selecione **salvar**.
 
 #### <a name="for-an-administrator-role-the-following-permissions-must-be-added-to-key-vault"></a>Para uma função de administrador, as permissões a seguir devem ser adicionadas a Key Vault
 
@@ -115,11 +115,11 @@ Por padrão, a identidade do serviço tem apenas permissões limitadas para aces
 4. Acesse **políticas de acesso**.
 5. Selecione **Adicionar nova**.
 6. Ignore o modelo. Não há modelo que corresponda aos requisitos.
-7. Escolha **selecionar entidade de segurança**e selecione o usuário a ser adicionado ou convide um novo usuário para o locatário.
-8. Selecione as seguintes **permissões de chave**: **obter**, **listar**e **assinar**.
-9. Selecione as seguintes **permissões de segredo**: **obter**, **listar**, **definir**e **excluir**.
-10. Selecione as seguintes **permissões de certificado**: **obter**, **listar**, **Atualizar**, **criar**e **importar**.
-11. Selecione **OK**e selecione **salvar**.
+7. Escolha **selecionar entidade de segurança** e selecione o usuário a ser adicionado ou convide um novo usuário para o locatário.
+8. Selecione as seguintes **permissões de chave**: **obter**, **listar** e **assinar**.
+9. Selecione as seguintes **permissões de segredo**: **obter**, **listar**, **definir** e **excluir**.
+10. Selecione as seguintes **permissões de certificado**: **obter**, **listar**, **Atualizar**, **criar** e **importar**.
+11. Selecione **OK** e selecione **salvar**.
 
 ### <a name="remove-user-access-policy-from-azure-key-vault"></a>Remover política de acesso do usuário da Azure Key Vault
 

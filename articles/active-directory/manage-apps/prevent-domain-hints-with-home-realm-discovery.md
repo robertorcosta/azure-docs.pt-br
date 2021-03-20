@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2021
 ms.author: hirsin
-ms.openlocfilehash: 67cb1003e139a085d45d01617cd44647bad420f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 53dfdfaf37695059d6d52428c2ba109970d9f7f7
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589371"
 ---
 # <a name="disable-auto-acceleration-to-a-federated-idp-during-user-sign-in-with-home-realm-discovery-policy"></a>Desabilitar a aceleração automática para um IDP federado durante a entrada do usuário com a política de descoberta de realm inicial
 
-A HRD ( [Home Realm Discovery Policy](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) ) oferece aos administradores várias maneiras de controlar como e onde seus usuários se autenticam. A `domainHintPolicy` seção da política HRD é usada para ajudar a migrar usuários federados para credenciais gerenciadas na nuvem, como [Fido](../authentication/howto-authentication-passwordless-security-key.md), garantindo que eles sempre visitem a página de entrada do Azure AD e não sejam acelerados automaticamente para um IDP federado devido a dicas de domínio.
+A HRD ( [Home Realm Discovery Policy](/graph/api/resources/homeRealmDiscoveryPolicy) ) oferece aos administradores várias maneiras de controlar como e onde seus usuários se autenticam. A `domainHintPolicy` seção da política HRD é usada para ajudar a migrar usuários federados para credenciais gerenciadas na nuvem, como [Fido](../authentication/howto-authentication-passwordless-security-key.md), garantindo que eles sempre visitem a página de entrada do Azure AD e não sejam acelerados automaticamente para um IDP federado devido a dicas de domínio.
 
 Essa política é necessária em situações em que os aplicativos de um administrador não podem controlar nem atualizar dicas de domínio de adição durante a entrada.  Por exemplo, `outlook.com/contoso.com` o envia o usuário para uma página de logon com o `&domain_hint=contoso.com` parâmetro acrescentado, a fim de acelerar automaticamente o usuário diretamente para o IDP federado para o `contoso.com` domínio. Os usuários com credenciais gerenciadas enviadas para um IDP federado não podem entrar usando suas credenciais gerenciadas, reduzindo a segurança e os usuários frustrantes com experiências de entrada aleatórias. Os administradores que implantam credenciais gerenciadas [também devem configurar essa política](#suggested-use-within-a-tenant) para garantir que os usuários sempre possam usar suas credenciais gerenciadas.
 
@@ -101,7 +101,7 @@ Após a etapa 4 concluir todos os usuários, exceto aqueles no `guestHandlingDom
 
 ## <a name="configuring-policy-through-graph-explorer"></a>Configurando a política por meio do explorador do Graph
 
-Defina a [política HRD](https://docs.microsoft.com/graph/api/resources/homeRealmDiscoveryPolicy) como de costume, usando Microsoft Graph.  
+Defina a [política HRD](/graph/api/resources/homeRealmDiscoveryPolicy) como de costume, usando Microsoft Graph.  
 
 1. Conceda a permissão Policy. ReadWrite. ApplicationConfiguration no [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).  
 1. Usar a URL `https://graph.microsoft.com/v1.0/policies/homeRealmDiscoveryPolicies`
