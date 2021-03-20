@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.author: normesta
 ms.reviewer: stewu
 ms.openlocfilehash: 36e1a8a288e1f9b2a8d65ab966b607b594d66f4e
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653594"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Serviços do Azure compatíveis com o Azure Data Lake Storage Gen2
@@ -32,7 +32,7 @@ Esta tabela lista os serviços do Azure que você pode usar com Azure Data Lake 
 |Azure Databricks|Disponível para o público geral|Sim|Sim|[Usar com o Azure Databricks](/azure/databricks/data/data-sources/azure/azure-datalake-gen2) <br> [Tutorial: Extrair, transformar e carregar dados usando o Azure Databricks](/azure/databricks/scenarios/databricks-extract-load-sql-data-warehouse) <br>[Tutorial: acessar dados de Data Lake Storage Gen2 com Azure Databricks usando o Spark](data-lake-storage-use-databricks-spark.md)|
 |Hub de Eventos do Azure|Disponível para o público geral|Não|Sim|[Capture eventos por meio dos Hubs de Eventos do Azure no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage](../../event-hubs/event-hubs-capture-overview.md)|
 |Grade de Eventos do Azure|Disponível para o público geral|Sim|Sim|[Tutorial: Implementar o padrão de captura do data lake para atualizar uma tabela do Databricks Delta](data-lake-storage-events.md)|
-|Aplicativos Lógicos do Azure|Disponível para o público geral|Não|Sim|[Visão geral – O que são Aplicativos Lógicos do Azure?](../../logic-apps/logic-apps-overview.md)|
+|Aplicativos Lógicos do Azure|Disponível para o público geral|Não|Sim|[Visão geral – o que são os aplicativos lógicos do Azure?](../../logic-apps/logic-apps-overview.md)|
 |Azure Machine Learning|Disponível para o público geral|Sim|Sim|[Acessar dados nos serviços de armazenamento do Azure](../../machine-learning/how-to-access-data.md)|
 |Stream Analytics do Azure|Disponível para o público geral|Sim|Sim|[Início Rápido: Criar um trabalho do Stream Analytics usando o portal do Azure](../../stream-analytics/stream-analytics-quick-create-portal.md) <br> [Saída para Azure Data Lake Gen2](../../stream-analytics/stream-analytics-define-outputs.md)|
 |Data Box|Disponível para o público geral|Não|Sim|[Usar Azure Data Box para migrar dados de um repositório HDFS local para o armazenamento do Azure](data-lake-storage-migrate-on-premises-hdfs-cluster.md)|
@@ -40,7 +40,7 @@ Esta tabela lista os serviços do Azure que você pode usar com Azure Data Lake 
 |Hub IoT |Disponível para o público geral|Sim|Sim|[Usar o roteamento de mensagens do Hub IoT para enviar mensagens de dispositivo para nuvem para diferentes pontos de extremidade](../../iot-hub/iot-hub-devguide-messages-d2c.md)|
 |Power BI|Disponível para o público geral|Sim|Sim|[Analisar dados em Data Lake Storage Gen2 usando Power BI](/power-query/connectors/datalakestorage)|
 |Azure Synapse Analytics (antigo SQL Data Warehouse)|Disponível para o público geral|Sim|Sim|[Analisar dados em uma conta de armazenamento](../../synapse-analytics/get-started-analyze-storage.md)|
-|O SQL Server Integration Services (SSIS)|Disponível para o público geral|Sim|Sim|[Gerenciador de conexões do armazenamento do Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
+|SSIS (SQL Server Integration Service)|Disponível para o público geral|Sim|Sim|[Gerenciador de conexões do armazenamento do Azure](/sql/integration-services/connection-manager/azure-storage-connection-manager)|
 |Azure Data Explorer|Disponível para o público geral|Sim|Sim|[Consultar dados no Azure Data Lake usando o Azure Data Explorer](/azure/data-explorer/data-lake-query-data)|
 |Pesquisa Cognitiva do Azure|Visualização|Sim|Sim|[Indexar e Pesquisar Azure Data Lake Storage Gen2 documentos (visualização)](../../search/search-howto-index-azure-data-lake-storage.md)|
 |Rede de Distribuição de Conteúdo do Azure|Ainda não compatível|Não aplicável|Não aplicável|[Indexar e Pesquisar Azure Data Lake Storage Gen2 documentos (visualização)](../../cdn/cdn-overview.md)|

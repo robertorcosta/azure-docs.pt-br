@@ -9,17 +9,17 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: memildin
 ms.openlocfilehash: 722a508679c74f9d62df07575ffa1006528f4398
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652081"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gerenciar incidentes de segurança na central de segurança do Azure
 
-A triagem e a investigação de alertas de segurança podem ser demoradas para até mesmo os analistas de segurança mais qualificados. Para muitos, é difícil saber por onde começar. 
+A triagem e investigação de alertas de segurança pode ser uma tarefa demorada até mesmo para os analistas de segurança mais capacitados, e, para muitos, é difícil até mesmo saber por onde começar. Para muitos, é difícil saber por onde começar. 
 
-A central de segurança usa a [análise](./security-center-alerts-overview.md) para conectar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md)distintos. Usando essas conexões, a central de segurança pode fornecer uma única exibição de uma campanha de ataque e seus alertas relacionados para ajudá-lo a entender as ações do invasor e os recursos afetados.
+A central de segurança usa a [análise](./security-center-alerts-overview.md) para conectar as informações entre [alertas de segurança](security-center-managing-and-responding-alerts.md)distintos. Usando essas conexões, a Central de Segurança pode fornecer uma única exibição de uma campanha de ataque e seus alertas relacionados para ajudar você a entender as ações do invasor e os recursos afetados.
 
 Esta página fornece uma visão geral dos incidentes na central de segurança.
 
@@ -45,7 +45,7 @@ Na Central de Segurança, um incidente de segurança é uma agregação de todos
 
     [![Responder a incidentes de segurança na central de segurança do Azure](media/security-center-incident/incident-details.png)](media/security-center-incident/incident-details.png#lightbox)
 
-    O painel esquerdo da página incidente de segurança mostra informações de alto nível sobre o incidente de segurança: título, severidade, status, hora da atividade, descrição e o recurso afetado. Ao lado do recurso afetado, você pode ver as marcas relevantes do Azure. Use essas marcas para inferir o contexto organizacional do recurso ao investigar o alerta.
+    O painel esquerdo da página de incidente de segurança mostra informações de alto nível sobre o incidente de segurança: título, severidade, status, hora da atividade, descrição e o recurso afetado. Ao lado do recurso afetado, você pode ver as marcas relevantes do Azure. Use-as para inferir o contexto organizacional do recurso ao investigar o alerta.
 
     O painel direito inclui a guia **alertas** com os alertas de segurança que foram correlacionados como parte desse incidente. 
 

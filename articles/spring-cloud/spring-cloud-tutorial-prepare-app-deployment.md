@@ -9,10 +9,10 @@ ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
 ms.openlocfilehash: 4e9c84efe7b96cf61a69c54e3f5ecbc469ac7d8d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98874135"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparar um aplicativo para implantação no Azure Spring Cloud
@@ -128,7 +128,7 @@ Antes de executar este exemplo, experimente o [guia de início rápido básico](
 
 Outros exemplos explicam como implantar um aplicativo no Azure Spring Cloud quando o arquivo POM é configurado. 
 * [Iniciar seu primeiro aplicativo](spring-cloud-quickstart.md)
-* [Criar e executar microsserviços](spring-cloud-quickstart-sample-app-introduction.md)
+* [Compilar e executar microserviços](spring-cloud-quickstart-sample-app-introduction.md)
 
 Este artigo explica as dependências necessárias e como adicioná-las ao arquivo POM.
 

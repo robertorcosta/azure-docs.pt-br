@@ -8,10 +8,10 @@ ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 835e4f681d514bb6b92caa5ee076e3794ed59236
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94698811"
 ---
 # <a name="security-control-data-recovery"></a>Controle de segurança: recuperação de dados
@@ -56,7 +56,7 @@ Garanta a capacidade de executar periodicamente a restauração de dados de cont
 
 | ID do Azure | IDs de CIS | Responsabilidade |
 |--|--|--|
-| 9.4 | 10.4 | Cliente |
+| 9,4 | 10.4 | Cliente |
 
 Para backup local, a criptografia em repouso é realizada usando a frase secreta que você fornece ao fazer backup no Azure. Para VMs do Azure, os dados são criptografados em repouso usando SSE (Criptografia do Serviço de Armazenamento). Use o controle de acesso baseado em função do Azure para proteger backups e chaves gerenciadas pelo cliente.  
 

@@ -8,10 +8,10 @@ ms.date: 04/10/2020
 ms.author: brendm
 ms.custom: devx-track-java
 ms.openlocfilehash: ec87c5523d6f608363ca615037f20365705609df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90892858"
 ---
 # <a name="understanding-app-status-in-azure-spring-cloud"></a>Noções básicas sobre o status do aplicativo no Azure Spring Cloud
@@ -43,8 +43,8 @@ Para exibir o status geral de um tipo de aplicativo, selecione **aplicativos** n
 |:--:|:----------------:|
 | Criando | O recurso está sendo criado. |
 | Atualizar | O recurso está sendo atualizado. |
-| Êxito | Recursos fornecidos com êxito e implantação do binário. |
-| Failed (Falha) | Falha ao obter a meta *bem-sucedida* . |
+| Com sucesso | Recursos fornecidos com êxito e implantação do binário. |
+| Com falha | Falha ao obter a meta *bem-sucedida* . |
 | Excluir | O recurso está sendo excluído. Isso impede a operação e o recurso não está disponível nesse status. |
 
 ## <a name="app-instances-status"></a>Status de instâncias do aplicativo
@@ -61,7 +61,7 @@ Para exibir o status de uma instância específica de um aplicativo implantado, 
 |:--:|:----------------:|
 | Iniciando | O binário é implantado com êxito na instância especificada. A inicialização da instância do arquivo JAR pode falhar porque o jar não pode ser executado corretamente. |
 | Executando | A instância funciona. |
-| Failed (Falha) | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
+| Com falha | A instância do aplicativo não pôde iniciar o binário do usuário após várias tentativas. |
 | Final | A instância do aplicativo está sendo desligada. |
 
 **O status de descoberta da instância é relatado como um dos seguintes valores:**

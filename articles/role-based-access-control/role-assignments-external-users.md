@@ -14,10 +14,10 @@ ms.date: 02/15/2021
 ms.author: rolyon
 ms.custom: it-pro
 ms.openlocfilehash: d834f4ccd8dba26c895e0578f161813fc49332ea
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556298"
 ---
 # <a name="assign-azure-roles-to-external-guest-users-using-the-azure-portal"></a>Atribuir funções do Azure a usuários convidados externos usando o portal do Azure
@@ -75,7 +75,7 @@ No RBAC do Azure, para conceder acesso, você atribui uma função. Para atribui
 
 1. Clique no recurso específico.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
     A captura de tela a seguir mostra um exemplo da folha Controle de acesso (IAM) para um grupo de recursos. Se você fizer alterações de controle de acesso aqui, elas se aplicarão apenas ao grupo de recursos.
 
@@ -113,7 +113,7 @@ Se o usuário convidado ainda não estiver em seu diretório, você poderá conv
 
 1. Clique no recurso específico.
 
-1. Clique em **IAM (Controle de Acesso)**.
+1. Clique em **Controle de acesso (IAM)** .
 
 1. Clique na guia **Atribuições de função** para visualizar todas as atribuições de função nesse escopo.
 

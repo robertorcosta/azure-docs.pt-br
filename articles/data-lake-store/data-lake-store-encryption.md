@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: yagupta
 ms.openlocfilehash: f924cb7462f7f8c9939ec261b7ef200ceb8ea70b
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92109146"
 ---
 # <a name="encryption-of-data-in-azure-data-lake-storage-gen1"></a>Criptografia de dados no Azure Data Lake Storage Gen1
@@ -48,7 +48,7 @@ Os dois modos para gerenciar a chave de criptografia mestra são da seguinte man
 *   Chaves gerenciadas de serviço
 *   Chaves gerenciadas do cliente
 
-Em ambos os modos, a chave de criptografia mestra é protegida, armazenando-a no Azure Key Vault. O Key Vault é um serviço altamente seguro, totalmente gerenciado no Azure que pode ser usado para proteger chaves criptográficas. Para obter mais informações, consulte [Key Vault](https://azure.microsoft.com/services/key-vault).
+Em ambos os modos, a chave de criptografia mestra é protegida, armazenando-a no Azure Key Vault. O Key Vault é um serviço altamente seguro, totalmente gerenciado no Azure que pode ser usado para proteger chaves criptográficas. Para saber mais, confira [Key Vault](https://azure.microsoft.com/services/key-vault).
 
 Aqui está uma breve comparação dos recursos fornecidos por dois modos de gerenciar as MEKs.
 

@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
 ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98943403"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
@@ -49,7 +49,7 @@ No diagrama a seguir, linhas verdes são solicitações de recursos que terminam
 
 Use os documentos a seguir para aprender a criar uma Rede Virtual do Azure conectada à sua rede local:
 
-* [Usando portal do Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
+* [Usando o Portal do Azure](../vpn-gateway/tutorial-site-to-site-portal.md)
 * [Usando o PowerShell do Azure](../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md)
 * [Usando a CLI do Azure](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 
@@ -79,7 +79,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
     |Opções de disponibilidade |  Selecione o nível desejado de disponibilidade.  O Azure oferece várias opções de gerenciamento da disponibilidade e da resiliência de seus aplicativos.  Projete sua solução a fim de usar VMs replicadas em Zonas de Disponibilidade ou Conjuntos de Disponibilidade para proteger seus aplicativos e dados contra falhas do datacenter e eventos de manutenção. Este exemplo usa **Nenhuma redundância de infraestrutura necessária**. |
     |Imagem | Deixe no **Ubuntu Server 18, 4 LTS**. |
     |Tipo de autenticação | __Senha__ ou __chave pública SSH__: o método de autenticação para a conta SSH. É recomendável usar chaves públicas, pois elas são mais seguras. Este exemplo usa **senha**.  Para obter mais informações, consulte o documento [Criar e usar chaves SSH para VMs Linux](../virtual-machines/linux/mac-create-ssh-keys.md).|
-    |Nome do usuário |Insira o nome de usuário do administrador da VM.  Este exemplo usa **sshuser**.|
+    |Nome de usuário |Insira o nome de usuário do administrador da VM.  Este exemplo usa **sshuser**.|
     |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha de **Tipo de autenticação**.  Insira o valor apropriado.|
     |Porta de entrada públicas|Selecione **Permitir portas selecionadas**. Em seguida, selecione **SSH (22)** na lista suspensa **selecionar portas de entrada** .|
 
@@ -243,7 +243,7 @@ Para configurar a rede virtual a fim de usar o servidor DNS personalizado em vez
 
 4. Selecione __Personalizado__ e insira o **ENDEREÇO IP PRIVADO** do servidor DNS personalizado.
 
-5. Selecione __Salvar__.  <br />  
+5. Clique em __Salvar__.  <br />  
 
     ![Definir o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
 
