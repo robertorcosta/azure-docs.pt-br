@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
 ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095841"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
@@ -130,7 +130,7 @@ O aplicativo depende de dois recursos diferentes. Isso significa que o Azure Res
 
 ![Mostra as dependências do aplicativo no plano do serviço de aplicativo e a instância de SQL Server.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Configurações do aplicativo
+##### <a name="app-settings"></a>Configurações de aplicativo
 As configurações do aplicativo também serão definidas como um recurso aninhado.
 
 ![Mostra as configurações do aplicativo definidas como um recurso aninhado no código JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)

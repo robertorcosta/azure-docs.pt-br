@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 12/09/2019
 ms.openlocfilehash: 9363a2dacd91d3868e69e47381eea528e358935c
-ms.sourcegitcommit: 5ef018fdadd854c8a3c360743245c44d306e470d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/01/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97845458"
 ---
 # <a name="language-and-region-support-for-luis"></a>Suporte de idioma e região para o LUIS
@@ -28,7 +28,7 @@ Se você precisar de um aplicativo de cliente LUIS com vários idiomas, como um 
 
 O LUIS compreende declarações nos seguintes idiomas:
 
-| Linguagem |Localidade  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
+| Idioma |Locale  |  Domínio predefinido | Entidade predefinida | Recomendações da lista de frases | **[Análise de texto](../text-analytics/language-support.md)<br>(Sentimento e<br>Palavras-chave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Árabe (visualização-árabe moderno padrão) |`ar-AR`|-|-|-|-|
 | *[Chinês](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -38,7 +38,7 @@ O LUIS compreende declarações nos seguintes idiomas:
 | Francês (França) |`fr-FR` |✔| ✔ |✔ |✔|
 | Alemão |`de-DE` |✔| ✔ |✔ |✔|
 | Guzerate | `gu-IN`|-|-|-|-|
-| Hindi | `hi-IN`|-|✔|-|-|
+| Híndi | `hi-IN`|-|✔|-|-|
 | Italiano |`it-IT` |✔| ✔ |✔|✔|
 | *[Japonês](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Somente frase principal|
 | Coreano |`ko-KR` |✔|-|-|Somente frase principal|
@@ -82,7 +82,7 @@ Os idiomas híbridos combinam palavras de duas culturas, como inglês e chinês.
 ## <a name="tokenization"></a>Geração de tokens
 Para executar o aprendizado de máquina, o LUIS divide uma declaração em [tokens](luis-glossary.md#token) com base na cultura.
 
-|Linguagem|  cada espaço ou caractere especial | nível do caractere|palavras compostas
+|Idioma|  cada espaço ou caractere especial | nível do caractere|palavras compostas
 |--|:--:|:--:|:--:|
 |Árabe|✔|||
 |Chinês||✔||
@@ -92,7 +92,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Francês (fr-CA)|✔|||
 |Alemão|✔||✔|
 |Guzerate|✔|||
-|Hindi|✔|||
+|Híndi|✔|||
 |Italiano|✔|||
 |Japonês|||✔
 |Coreano||✔||
@@ -101,7 +101,7 @@ Para executar o aprendizado de máquina, o LUIS divide uma declaração em [toke
 |Espanhol (es-ES)|✔|||
 |Espanhol (es-MX)|✔|||
 |Tâmil|✔|||
-|Telugu|✔|||
+|Télugo|✔|||
 |Turco|✔|||
 
 
