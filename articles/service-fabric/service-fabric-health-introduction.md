@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 2/28/2018
 ms.author: gwallace
 ms.openlocfilehash: f691eb6433907ed10737329de3edd78547f130f1
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96008269"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introdução ao monitoramento da integridade do Service Fabric
@@ -187,7 +187,7 @@ Os [relatórios de integridade](/dotnet/api/system.fabric.health.healthreport) d
 * **SourceID**. Uma cadeia de caracteres que identifica exclusivamente o relator do evento de integridade.
 * **Identificador de entidade**. Identifica a entidade na qual o relatório é aplicado. Varia de acordo com o [tipo de entidade](service-fabric-health-introduction.md#health-entities-and-hierarchy):
   
-  * Cluster. nenhuma.
+  * Cluster. Nenhum.
   * Nó. Nome do nó (cadeia de caracteres).
   * Console. Nome do aplicativo (URI). Representa o nome da instância do aplicativo implantado no cluster.
   * Serviço. Nome do serviço (URI). Representa o nome da instância do serviço implantado no cluster.

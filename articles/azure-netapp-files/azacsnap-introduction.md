@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 12/14/2020
 ms.author: phjensen
 ms.openlocfilehash: b168167ce4f44d87c396746cca3f271f95f83163
-ms.sourcegitcommit: 8c3a656f82aa6f9c2792a27b02bbaa634786f42d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97632546"
 ---
 # <a name="what-is-azure-application-consistent-snapshot-tool-preview"></a>O que é Aplicativo Azure ferramenta de instantâneo consistente (versão prévia)
@@ -27,7 +27,7 @@ Aplicativo Azure ferramenta de instantâneo consistente (AzAcSnap) é uma ferram
 
 ## <a name="benefits-of-using-azacsnap"></a>Benefícios do uso do AzAcSnap
 
-O AzAcSnap aproveita o instantâneo de volume e as funcionalidades de replicação no Azure NetApp Files e no Azure instância grande.  Ele oferece os seguintes benefícios:
+O AzAcSnap aproveita as funcionalidades de replicação e instantâneo de volume do Azure NetApp Files e da Instância Grande do Azure.  Ele oferece os seguintes benefícios:
 
 - **Proteção de dados consistente com o aplicativo** AzAcSnap é uma solução centralizada para fazer backup de arquivos de banco de dados críticos. Ele garante a consistência do banco de dados antes de executar um instantâneo do volume de armazenamento. Como resultado, ele garante que o instantâneo do volume de armazenamento possa ser usado para recuperação do banco de dados.
 - **Gerenciamento de catálogo de banco de dados** Quando você usa AzAcSnap com um banco de dados que tem um catálogo de backup interno, os registros no catálogo são mantidos atuais com instantâneos de armazenamento.  Essa funcionalidade permite que um administrador de banco de dados Veja a atividade de backup.

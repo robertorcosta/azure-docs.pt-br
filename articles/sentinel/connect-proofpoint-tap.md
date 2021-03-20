@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 07/17/2020
 ms.author: yelevin
 ms.openlocfilehash: 86018bafaa42eac01e5dccf8da1d290b64e2475c
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100092971"
 ---
 # <a name="connect-your-proofpoint-tap-to-azure-sentinel-with-azure-function"></a>Conectar seu proofpoint TAP ao Azure Sentinel com o Azure function
@@ -38,7 +38,7 @@ Azure Functions pode integrar e efetuar pull de eventos e logs diretamente do pr
 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione conector do **proofpoint Tap** .
 
-1. Selecione a **página abrir conector**.
+1. Clique em **Abrir página do conector**.
 
 1. Siga as instruções na página **PROOFPOINT Tap** .
 

@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 09/12/2018
 ms.author: cynthn
 ms.openlocfilehash: db4c7e0126616e2d8bd120e7430c70b89c5cf36d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "87291095"
 ---
-# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover uma VM para outra assinatura ou grupo de recursos
+# <a name="move-a-vm-to-another-subscription-or-resource-group"></a>Mover uma VM para outro grupo de recursos ou outra assinatura
 Este artigo explica como mover uma VM (máquina virtual) entre grupos de recursos ou assinaturas. Mover uma VM entre assinaturas poderá ser útil se você tiver criado uma VM em uma assinatura pessoal e agora quiser movê-la para a assinatura da sua empresa.
 
 > [!IMPORTANT]

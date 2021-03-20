@@ -4,10 +4,10 @@ description: Descreve como um proprietário da conta de laboratório pode defini
 ms.date: 06/26/2020
 ms.topic: how-to
 ms.openlocfilehash: 17456f61352b1e26a33c042b27faa2d3aa44d73a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "85445076"
 ---
 # <a name="set-up-support-information-lab-account-owner-in-azure-lab-services"></a>Configurar informações de suporte (proprietário da conta de laboratório no Azure Lab Services)

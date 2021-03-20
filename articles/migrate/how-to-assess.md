@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: 9a4ed5542945b8d281ec750d9bbd3a8f444e44d2
-ms.sourcegitcommit: ea551dad8d870ddcc0fee4423026f51bf4532e19
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96752253"
 ---
 # <a name="add-assessment-tools"></a>Adicionar ferramentas de avaliação
@@ -57,7 +57,7 @@ Este artigo descreve como adicionar ferramentas de avaliação nas [migrações 
 
     - Se você criou um projeto de migrações para Azure usando a opção **avaliar e migrar banco de dados** no portal, a ferramenta de avaliação do banco de dados será adicionada automaticamente ao projeto. Para adicionar ferramentas de avaliação adicionais, em **bancos de dados**, ao lado de ferramentas de **avaliação**, selecione **adicionar mais ferramentas**.
 
-    - Se você tiver criado um projeto usando uma opção diferente e ainda não tiver nenhuma ferramenta de avaliação de banco de dados, em ferramentas de avaliação do **databases**  >  **Assessment tools**, selecione **clique aqui**.
+    - Se você tiver criado um projeto usando uma opção diferente e ainda não tiver nenhuma ferramenta de avaliação de banco de dados, em ferramentas de avaliação do **databases**  >  , selecione **clique aqui**.
 
 2. Em **migrações para Azure**  >  ,**adicione ferramentas**, selecione as ferramentas que você deseja adicionar. Em seguida, selecione **Adicionar ferramenta**.
 
@@ -69,7 +69,7 @@ Este artigo descreve como adicionar ferramentas de avaliação nas [migrações 
 Se você criou um projeto de migrações para Azure usando a opção **explorar mais**  >  **webapps** no portal, a ferramenta de avaliação do aplicativo Web será adicionada automaticamente ao projeto. 
 
 
-1. Se a ferramenta de avaliação de aplicativo Web não estiver no projeto, em ferramentas de avaliação de **aplicativos Web**  >  **Assessment tools**, selecione **clique aqui**.
+1. Se a ferramenta de avaliação de aplicativo Web não estiver no projeto, em ferramentas de avaliação de **aplicativos Web**  >  , selecione **clique aqui**.
     
     ![Adicionar ferramentas de avaliação do aplicativo Web](./media/how-to-assess/no-web-app-assessment-tool.png)
 
