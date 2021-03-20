@@ -10,10 +10,10 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 07/20/2020
 ms.openlocfilehash: 7a4654b8f389ad18010bb4ad211103f2816a18ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91541995"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por cultura em seu modelo do LUIS
@@ -30,7 +30,7 @@ A menos que indicado de outra forma, entidades predefinidas estão disponíveis 
 
 |Cultura|Subculturas|Observações|
 |--|--|--|
-|Chinês|[zh-CN](#chinese-entity-support)||
+|Chinês|[ZH-CN](#chinese-entity-support)||
 |Holandês|[nl-NL](#dutch-entity-support)||
 |Inglês|[en-US (Americano)](#english-american-entity-support)||
 |Francês|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (França)](#french-france-entity-support), ||
@@ -94,7 +94,7 @@ Há suporte para as seguintes entidades:
 
 Há suporte para as seguintes entidades:
 
-| Entidade predefinida | pt-BR |
+| Entidade predefinida | en-US |
 | --------------- | :---: |
 [Idade](luis-reference-prebuilt-age.md):<br>ano<br>mês<br>week<br>dia   |    V2, V3   |
 [Moeda (dinheiro)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidade fracionária (ex: centavo)  |    V2, V3   |

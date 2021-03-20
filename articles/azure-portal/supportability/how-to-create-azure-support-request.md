@@ -5,10 +5,10 @@ ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652387"
 ---
 # <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
@@ -94,7 +94,7 @@ Em seguida, coletamos detalhes adicionais sobre o problema. Fornecer informaçõ
 
 Conclua todas as informações necessárias em cada guia e, em seguida, selecione **Examinar + criar**. Verifique os detalhes que você enviará para dar suporte. Volte para qualquer guia para fazer uma alteração, se for necessário. Quando estiver satisfeito, a solicitação de suporte será concluída, selecione **Criar**.
 
-Um engenheiro de suporte entrará em contato com você usando o método que você indicou. Para obter informações sobre os tempos de resposta iniciais, consulte [escopo de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
+Um engenheiro de suporte vai entrar em contato com você usando o método indicado. Para obter informações sobre os tempos de resposta iniciais, confira [Escopo de suporte e capacidade de resposta](https://azure.microsoft.com/support/plans/response/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

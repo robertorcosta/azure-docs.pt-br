@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/11/2020
 ms.openlocfilehash: 87b5ec5eb13f2bc53bdf993547ce3da1c74404bf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91566781"
 ---
 # <a name="add-replicas-to-azure-cache-for-redis-preview"></a>Adicionar réplicas ao cache do Azure para Redis (versão prévia)
@@ -19,11 +19,11 @@ Neste artigo, você aprenderá a configurar uma instância de cache do Azure com
 O cache do Azure para as camadas Standard e Premium do Redis oferece redundância ao hospedar cada cache em duas VMs (máquinas virtuais) dedicadas. Essas VMs são configuradas como primária e réplica. Quando a VM primária torna-se indisponível, a réplica detecta que e assume como a nova primária automaticamente. Agora você pode aumentar o número de réplicas em um cache Premium até três, dando a você um total de quatro VMs fazendo backup de um cache. Ter várias réplicas resulta em maior resiliência do que a que uma única réplica pode fornecer.
 
 > [!IMPORTANT]
-> Essa visualização é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
+> Essa versão prévia é fornecida sem um Contrato de Nível de Serviço e não é recomendada para cargas de trabalho de produção. Para obter mais informações, consulte [termos de uso suplementares para visualizações de Microsoft Azure.](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) 
 > 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Assinatura do Azure- [crie uma gratuitamente](https://azure.microsoft.com/free/)
+* Assinatura do Azure - [criar uma gratuitamente](https://azure.microsoft.com/free/)
 
 > [!NOTE]
 > Este recurso está atualmente em visualização- [Fale conosco](mailto:azurecache@microsoft.com) se você estiver interessado.
@@ -50,7 +50,7 @@ Para criar um cache, siga estas etapas:
    
 1. Na página **avançado** , escolha **contagem de réplicas**.
    
-    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Selecionar o Cache do Azure para Redis.":::
+    :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Contagem de réplicas.":::
 
 1. Deixe outras opções em suas configurações padrão. 
 

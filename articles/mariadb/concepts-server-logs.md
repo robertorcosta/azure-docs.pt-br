@@ -7,10 +7,10 @@ ms.service: mariadb
 ms.topic: conceptual
 ms.date: 11/6/2020
 ms.openlocfilehash: 2e7e56616300566839fadef762c2165c8d989e6e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100570809"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mariadb"></a>Logs de consulta lentos no banco de dados do Azure para MariaDB
@@ -75,7 +75,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `start_time_t` HORÁRIO | Horário em que a consulta começou |
 | `query_time_s` | Tempo total que a consulta levou para executar |
 | `lock_time_s` | Tempo total em que a consulta foi bloqueada |
-| `user_host_s` | Nome de usuário |
+| `user_host_s` | Nome de Usuário |
 | `rows_sent_s` | Número de linhas enviadas |
 | `rows_examined_s` | Número de linhas verificadas |
 | `last_insert_id_s` | [last_insert_id](https://mariadb.com/kb/en/library/last_insert_id/) |

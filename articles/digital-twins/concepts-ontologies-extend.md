@@ -1,5 +1,5 @@
 ---
-title: Estendendo ontologies
+title: Extensão de ontologias
 titleSuffix: Azure Digital Twins
 description: Saiba mais sobre os motivos e as estratégias por trás da extensão de um ontologia
 author: baanders
@@ -8,13 +8,13 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: digital-twins
 ms.openlocfilehash: e5973f58887b212919ad739232faafddcf9e735c
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100561258"
 ---
-# <a name="extending-ontologies"></a>Estendendo ontologies 
+# <a name="extending-ontologies"></a>Extensão de ontologias 
 
 Um [ontologia](concepts-ontologies.md)padrão do setor, como o [RealEstateCore ontologia baseado em DTDL para prédios inteligentes](https://github.com/Azure/opendigitaltwins-building), é uma ótima maneira de começar a criar sua solução de IOT. A ontologies do setor fornece um conjunto avançado de interfaces base projetadas para seu domínio e projetada para trabalhar prontamente nos serviços de IoT do Azure, como o gêmeos digital do Azure. 
 

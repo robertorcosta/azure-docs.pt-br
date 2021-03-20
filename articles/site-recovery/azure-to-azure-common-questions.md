@@ -6,10 +6,10 @@ manager: rochakm
 ms.date: 11/03/2019
 ms.topic: conceptual
 ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93397936"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Perguntas comuns: Recuperação de desastre do Azure para o Azure
@@ -182,7 +182,7 @@ Se você tiver uma política de replicação de 24 horas e Site Recovery não pu
 
 ### <a name="can-i-change-the-replication-policy-after-replication-is-enabled"></a>Posso alterar a política de replicação depois que a replicação estiver habilitada?
 
-Sim. No cofre > políticas de replicação de **infraestrutura site Recovery**  >  **Replication policies** , selecione e edite a política. As alterações se aplicam também a políticas existentes.
+Sim. No cofre > políticas de replicação de **infraestrutura site Recovery**  >  , selecione e edite a política. As alterações se aplicam também a políticas existentes.
 
 ### <a name="are-all-recovery-points-a-complete-vm-copy"></a>Todos os pontos de recuperação são uma cópia de VM completa?
 
@@ -289,7 +289,7 @@ Em um plano de recuperação, você pode criar vários grupos de VMs para sequen
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Como localizar o RTO de um plano de recuperação?
 
-Para verificar o RTO de um plano de recuperação, faça um failover de teste para o plano de recuperação. Em **site Recovery trabalhos** , verifique a duração do failover de teste. Na captura de tela de exemplo, o trabalho de failover de teste **SAPTestRecoveryPlan** levou 8 minutos e 59 segundos.
+Para verificar o RTO de um plano de recuperação, faça um failover de teste para o plano de recuperação. Em **site Recovery trabalhos**, verifique a duração do failover de teste. Na captura de tela de exemplo, o trabalho de failover de teste **SAPTestRecoveryPlan** levou 8 minutos e 59 segundos.
 
 ![Listar trabalhos que mostram a duração do failover de teste para RTO](./media/azure-to-azure-common-questions/recovery-plan-rto.png)
 

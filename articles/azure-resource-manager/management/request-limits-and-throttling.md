@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/15/2020
 ms.custom: seodec18
 ms.openlocfilehash: 181ed1a3059d86f78e40a9949448af77a551efbc
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97563119"
 ---
 # <a name="throttling-resource-manager-requests"></a>Restrição de solicitações do Resource Manager
@@ -27,9 +27,9 @@ Os limites de limitação padrão por hora são mostrados na tabela a seguir.
 
 | Escopo | Operations | Limite |
 | ----- | ---------- | ------- |
-| Assinatura | reads | 12000 |
-| Assinatura | deletes | 15000 |
-| Assinatura | writes | 1200 |
+| Subscription | reads | 12000 |
+| Subscription | deletes | 15000 |
+| Subscription | writes | 1200 |
 | Locatário | reads | 12000 |
 | Locatário | writes | 1200 |
 
