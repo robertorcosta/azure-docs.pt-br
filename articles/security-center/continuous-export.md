@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 12/24/2020
 ms.author: memildin
 ms.openlocfilehash: fc3774a01665b88ccae2e25ae8382497f8010c35
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102096965"
 ---
-# <a name="continuously-export-security-center-data"></a>Exportar continuamente os dados da Central de Segurança
+# <a name="continuously-export-security-center-data"></a>Exportar continuamente dados da Central de Segurança
 
 A central de segurança do Azure gera recomendações e alertas de segurança detalhados. Você pode exibi-los no portal ou por meio de ferramentas programáticas. Talvez você também precise exportar algumas ou todas essas informações para acompanhamento com outras ferramentas de monitoramento em seu ambiente. 
 
@@ -251,7 +251,7 @@ Saiba mais nos [hubs de eventos do Azure – recuperação de desastres geografi
 
 ### <a name="is-continuous-export-available-with-azure-security-center-free"></a>A exportação contínua está disponível com a central de segurança do Azure gratuita?
 
-Sim. Observe que muitos alertas da central de segurança são fornecidos apenas quando você habilitou o Azure defender. Uma boa maneira de visualizar os alertas que você obterá em seus dados exportados é Ver os alertas mostrados nas páginas da central de segurança na portal do Azure.
+Sim! Observe que muitos alertas da central de segurança são fornecidos apenas quando você habilitou o Azure defender. Uma boa maneira de visualizar os alertas que você obterá em seus dados exportados é Ver os alertas mostrados nas páginas da central de segurança na portal do Azure.
 
 
 

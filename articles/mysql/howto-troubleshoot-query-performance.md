@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 3/18/2020
 ms.openlocfilehash: 81ec7e6f822f24f2b9e6ca4298e9668358c78149
-ms.sourcegitcommit: 6ab718e1be2767db2605eeebe974ee9e2c07022b
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94540749"
 ---
 # <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Como usar a EXPLAIN para analisar o desempenho de consultas no Banco de Dados do Azure para MySQL
@@ -75,7 +75,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo* , que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
+Como pode ser observado a partir da saída, o MySQL não usa nenhum índice porque não há índices adequados disponíveis. Além disso, também mostra *Usando temporário; Usando classificação de arquivo*, que significa que o MySQL cria uma tabela temporária para satisfazer a cláusula **GROUP BY**.
  
 É indiferente criar um índice na coluna **c2** sozinho e o MySQL ainda precisa criar uma tabela temporária:
 
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2** " diretamente no índice para eliminar pesquisa de dados adicionais.
+Neste caso, um **índice coberto** em ambos **c1** e **c2** pode ser criado, através do qual adicionar o valor de **c2**" diretamente no índice para eliminar pesquisa de dados adicionais.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -167,4 +167,4 @@ O uso de EXPLAIN e diferentes tipos de índices pode aumentar significativamente
 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Para localizar respostas de pares às suas perguntas mais preocupantes ou publicar uma nova pergunta/resposta, visite a [Página de P e R da Microsoft](/answers/topics/azure-database-mysql.html) ou o [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Para encontrar respostas de pares para suas perguntas mais preocupantes ou postar uma nova pergunta/resposta, visite a[página de perguntas frequentes da Microsoft](/answers/topics/azure-database-mysql.html) ou [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

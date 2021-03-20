@@ -15,10 +15,10 @@ ms.date: 07/07/2020
 ms.author: aschhab
 ms.custom: devx-track-java
 ms.openlocfilehash: b8408dde86d1902cf5b4899c4783c9dd185449ee
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92515739"
 ---
 # <a name="migrate-existing-java-message-service-jms-20-applications-from-apache-activemq-to-azure-service-bus"></a>Migrar aplicativos Java Message Service (JMS) 2,0 do Apache ActiveMQ para o barramento de serviço do Azure
@@ -266,7 +266,7 @@ connection.start();
 
 ```
 
-## <a name="post-migration"></a>Após a migração
+## <a name="post-migration"></a>Pós-migração
 
 Agora que você modificou o aplicativo para começar a enviar e receber mensagens do barramento de serviço, você deve verificar se ele funciona conforme o esperado. Quando isso for feito, você poderá continuar refinando e modernizando sua pilha de aplicativos.
 
