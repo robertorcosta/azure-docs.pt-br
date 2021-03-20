@@ -10,10 +10,10 @@ ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
 ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89500123"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Implantar um gateway auto-hospedado no Kubernetes
@@ -22,7 +22,7 @@ Este artigo descreve as etapas para implantar o componente de gateway auto-hospe
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
+- Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 - Crie um cluster kubernetes.
    > [!TIP]
    > [Clusters de nó único](https://kubernetes.io/docs/setup/#learning-environment) funcionam bem para fins de desenvolvimento e avaliação. Use clusters de vários nós [certificados pelo kubernetes](https://kubernetes.io/partners/#conformance) no local ou na nuvem para cargas de trabalho de produção.
@@ -35,7 +35,7 @@ Este artigo descreve as etapas para implantar o componente de gateway auto-hospe
 3. Selecione **implantação**.
 4. Um token de acesso na caixa de texto de **token** foi gerado automaticamente para você, com base nos valores padrão de **expiração** e **chave secreta** . Se necessário, escolha valores em um ou ambos os controles para gerar um novo token.
 5. Selecione a guia **kubernetes** em **scripts de implantação**.
-6. Selecione o link do arquivo ** \<gateway-name\> . yml** e baixe o arquivo YAML.
+6. Selecione o link do arquivo **\<gateway-name\> . yml** e baixe o arquivo YAML.
 7. Selecione o ícone de **cópia** no canto inferior direito da caixa de texto **implantar** para salvar os comandos na `kubectl` área de transferência.
 8. Colar comandos na janela de terminal (ou comando). O primeiro comando cria um segredo kubernetes que contém o token de acesso gerado na etapa 4. O segundo comando aplica o arquivo de configuração baixado na etapa 6 ao cluster kubernetes e espera que o arquivo esteja no diretório atual.
 9. Execute os comandos para criar os objetos kubernetes necessários no [namespace padrão](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/) e inicie o pods de gateway auto-hospedado da [imagem de contêiner](https://aka.ms/apim/sputnik/dhub) baixada do registro de contêiner da Microsoft.
@@ -112,7 +112,7 @@ O arquivo YAML fornecido no campo conjuntos de portal do Azure `externalTrafficP
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Nomes de domínio personalizados e certificados SSL
 
-Se você usar nomes de domínio personalizados para os pontos de extremidade de gerenciamento de API, especialmente se usar um nome de domínio personalizado para o ponto de fim de gerenciamento, talvez seja necessário atualizar o valor de `config.service.endpoint` no arquivo ** \<gateway-name\> . YAML** para substituir o nome de domínio padrão pelo nome de domínio personalizado. Verifique se o ponto de extremidade de gerenciamento pode ser acessado do Pod do gateway auto-hospedado no cluster kubernetes.
+Se você usar nomes de domínio personalizados para os pontos de extremidade de gerenciamento de API, especialmente se usar um nome de domínio personalizado para o ponto de fim de gerenciamento, talvez seja necessário atualizar o valor de `config.service.endpoint` no arquivo **\<gateway-name\> . YAML** para substituir o nome de domínio padrão pelo nome de domínio personalizado. Verifique se o ponto de extremidade de gerenciamento pode ser acessado do Pod do gateway auto-hospedado no cluster kubernetes.
 
 Nesse cenário, se o certificado SSL usado pelo ponto de extremidade de gerenciamento não estiver assinado por um certificado de autoridade de certificação conhecido, você deverá verificar se o certificado de autoridade de certificação é confiável pelo Pod do gateway de hospedagem interna.
 

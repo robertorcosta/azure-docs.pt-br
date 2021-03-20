@@ -4,10 +4,10 @@ description: Este artigo mostra como solucionar problemas com os hubs de eventos
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90061420"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guia de solução de problemas Apache Kafka para hubs de eventos
@@ -54,7 +54,7 @@ Verifique os itens a seguir se você vir problemas ao usar o Kafka nos hubs de e
 - **Codificações estranhas em cabeçalhos AMQP ao consumir com Kafka** -ao enviar eventos para um hub de eventos em AMQP, quaisquer cabeçalhos de carga AMQP são serializados na codificação AMQP. Os consumidores de Kafka não desserializam os cabeçalhos de AMQP. Para ler valores de cabeçalho, decodifique manualmente os cabeçalhos AMQP. Como alternativa, você pode evitar o uso de cabeçalhos AMQP se souber que estará consumindo por meio do protocolo Kafka. Para obter mais informações, consulte [este problema do GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/issues/56).
 - **Autenticação SASL** -obter sua estrutura para cooperar com o protocolo de autenticação SASL exigido pelos hubs de eventos pode ser mais difícil do que atender aos olhos. Veja se você pode solucionar problemas de configuração usando os recursos de sua estrutura na autenticação SASL. 
 
-## <a name="limits"></a>limites
+## <a name="limits"></a>Limites
 Apache Kafka vs. Kafka de hubs de eventos. Na maior parte, a interface Kafka dos hubs de eventos do Azure tem os mesmos padrões, propriedades, códigos de erro e comportamento geral que Apache Kafka faz. As instâncias que esses dois explicitamente diferem (ou onde os hubs de eventos impõem um limite de que Kafka não) estão listadas abaixo:
 
 - O comprimento máximo da `group.id` propriedade é de 256 caracteres

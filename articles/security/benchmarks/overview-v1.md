@@ -9,10 +9,10 @@ ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: 39b6a5452c4bc0cba1e1153c266b83e87f6209ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "90059138"
 ---
 # <a name="overview-of-the-azure-security-benchmark-v1"></a>Visão geral do benchmark de segurança do Azure (v1)
@@ -44,7 +44,7 @@ Você também pode baixar a [planilha do Excel do benchmark de segurança do Azu
 
 Cada recomendação inclui as seguintes informações: 
 
-- **ID do Azure**: a ID de benchmark de segurança do Azure que corresponde à recomendação. 
+- **ID do Azure**: a ID de parâmetro de comparação de segurança do Azure que corresponde à recomendação. 
 - **ID (s) de CIS**: as recomendações de parâmetro de comparação de CIS que correspondem a essa recomendação.  
 - **Responsabilidade**: se o cliente ou o provedor de serviços (ou ambos) são responsáveis por implementar essa recomendação. As responsabilidades de segurança são compartilhadas na nuvem pública. Alguns controles de segurança só estão disponíveis para o provedor de serviços de nuvem e, portanto, o provedor é responsável por lidar com eles. Essas são observações gerais – para alguns serviços individuais, a responsabilidade será diferente da listada no benchmark de segurança do Azure. Essas diferenças são descritas nas recomendações de linha de base para o serviço individual. 
 - **Detalhes**: a lógica para a recomendação e links para orientação sobre como implementá-la. Se a recomendação for suportada pela central de segurança do Azure, essas informações também serão listadas.

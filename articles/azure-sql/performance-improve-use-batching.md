@@ -12,10 +12,10 @@ ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
 ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92792592"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Como usar o envio em lote para melhorar o desempenho do banco de dados SQL do Azure e do Azure SQL Instância Gerenciada do aplicativo
@@ -42,7 +42,7 @@ A primeira parte deste artigo examina várias técnicas de envio em lote para ap
 ### <a name="note-about-timing-results-in-this-article"></a>Observação sobre os resultados de tempo neste artigo
 
 > [!NOTE]
-> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo** . Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](database/service-tiers-dtu.md) ou [camadas de serviço vCore](database/service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
+> Os resultados não são parâmetros de comparação, mas têm como finalidade mostrar o **desempenho relativo**. Os intervalos se baseiam em uma média de pelo menos 10 execuções de teste. As operações são inserções em uma tabela vazia. Esses testes foram medidos antes do V12 e não correspondem necessariamente à produtividade que você pode obter em um banco de dados V12 usando as novas [camadas de serviço DTU](database/service-tiers-dtu.md) ou [camadas de serviço vCore](database/service-tiers-vcore.md). O benefício relativo da técnica de envio em lote deve ser semelhante.
 
 ### <a name="transactions"></a>Transactions
 
@@ -97,18 +97,18 @@ Na verdade, as transações estão sendo usadas nos dois exemplos. No primeiro e
 
 A tabela a seguir mostra alguns resultados de testes ad hoc. Os testes executaram as mesmas inserções sequenciais, com e sem transações. Para obter uma perspectiva maior, o primeiro conjunto de testes foi executado remotamente de um laptop para o banco de dados no Microsoft Azure. O segundo conjunto de testes foi executado de um serviço de nuvem e de um banco de dados localizados no mesmo datacenter do Microsoft Azure (Oeste dos Estados Unidos). A tabela a seguir mostra a duração em milissegundos de inserções sequenciais, com e sem transações.
 
-**De Local para o Azure** :
+**De Local para o Azure**:
 
-| Operações | Nenhuma transação (MS) | Com transação (ms) |
+| Operations | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Do Azure para o Azure (mesmo datacenter)** :
+**Do Azure para o Azure (mesmo datacenter)**:
 
-| Operações | Nenhuma transação (MS) | Com transação (ms) |
+| Operations | Nenhuma transação (MS) | Com transação (ms) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -128,7 +128,7 @@ Para saber mais sobre transações no ADO.NET, consulte [Transações locais no 
 
 ### <a name="table-valued-parameters"></a>Parâmetros com valor de tabela
 
-Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType** .
+Os parâmetros com valor de tabela oferecem suporte a tipos de tabela definidos pelo usuário como parâmetros em instruções Transact-SQL, procedimentos armazenados e funções. Essa técnica de envio em lote no lado do cliente permite o envio de várias linhas de dados dentro do parâmetro com valor de tabela. Para usar os parâmetros com valor de tabela, primeiro defina um tipo de tabela. A instrução Transact-SQL a seguir cria um tipo de tabela denominado **MyTableType**.
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@ TestTvp** . O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add** . O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
+No exemplo anterior, o objeto **SqlCommand** insere linhas de um parâmetro com valor de tabela, **\@ TestTvp**. O objeto **DataTable** criado anteriormente é atribuído a esse parâmetro com o método **SqlCommand.Parameters.Add**. O envio em lote de inserções em uma chamada aumenta consideravelmente o desempenho com inserções sequenciais.
 
 Para melhorar ainda mais o exemplo anterior, use um procedimento armazenado e não um comando baseado em texto. O comando Transact-SQL a seguir cria um procedimento armazenado que utiliza o parâmetro com valor de tabela **SimpleTestTableType** .
 
@@ -195,7 +195,7 @@ Na maioria dos casos, os parâmetros com valor de tabela têm um desempenho equi
 
 A tabela a seguir mostra os resultados de teste ad hoc para o uso de parâmetros com valor de tabela em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -212,7 +212,7 @@ Para saber mais sobre parâmetros com valor de tabela, consulte [Parâmetros com
 
 ### <a name="sql-bulk-copy"></a>Cópia em massa do SQL
 
-Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe** , ou à instrução Transact-SQL, **BULK INSERT** . O exemplo de código a seguir mostra como copiar em massa as linhas na **DataTable** de origem, tabela, para a tabela de destino, MyTable.
+Cópia em massa do SQL é outra maneira de inserir grandes quantidades de dados em um banco de dados de destino. Aplicativos .NET podem usar a classe **SqlBulkCopy** para executar operações de inserção em massa. **SqlBulkCopy** tem uma função semelhante à ferramenta de linha de comando, **Bcp.exe**, ou à instrução Transact-SQL, **BULK INSERT**. O exemplo de código a seguir mostra como copiar em massa as linhas na **DataTable** de origem, tabela, para a tabela de destino, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -233,7 +233,7 @@ Há alguns casos nos quais é preferível usar a cópia em massa do que os parâ
 
 Os seguintes resultados de teste ad hoc mostram o desempenho do envio em lote com **SqlBulkCopy** em milissegundos.
 
-| Operações | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
+| Operations | Local para o Azure (MS) | Mesmo datacenter do Azure (ms) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -276,7 +276,7 @@ Esse exemplo tem como objetivo mostrar o conceito básico. Um cenário mais real
 
 Os seguintes resultados de teste ad hoc mostram o desempenho desse tipo de instrução INSERT em milissegundos.
 
-| Operações | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
+| Operations | Parâmetros com valor de tabela (ms) | Instrução INSERT única (ms) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |

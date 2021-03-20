@@ -4,13 +4,13 @@ description: Este artigo fornece uma visão geral das entidades de mensagens do 
 ms.topic: article
 ms.date: 07/20/2020
 ms.openlocfilehash: ee4e0124dced16b86d5292c647e129aa87645f22
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100652574"
 ---
-# <a name="java-message-service-jms-20-entities"></a>Entidades do Java Message Service (JMS) 2,0
+# <a name="java-message-service-jms-20-entities"></a>Entidades do JMS (Serviço de Mensagens Java) 2.0
 
 Os aplicativos cliente que se conectam ao barramento de serviço Premium do Azure e usam a [biblioteca JMS do barramento de serviço do Azure](https://search.maven.org/artifact/com.microsoft.azure/azure-servicebus-jms) podem usar as entidades abaixo.
 

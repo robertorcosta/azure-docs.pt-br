@@ -7,10 +7,10 @@ ms.date: 02/16/2021
 ms.reviewer: dariac
 ms.custom: seodec18, devx-track-azurecli
 ms.openlocfilehash: 5dd6183bf88c167adb2f084c319cd90b94351dfb
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100560456"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do Git local no Serviço de Aplicativo do Azure
@@ -51,7 +51,7 @@ az webapp create --resource-group <group-name> --plan <plan-name> --name <app-na
 
 A saída contém uma URL como: `https://<deployment-username>@<app-name>.scm.azurewebsites.net/<app-name>.git` . Use essa URL para implantar seu aplicativo na próxima etapa.
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Execute [New-AzWebApp](/powershell/module/az.websites/new-azwebapp) da raiz do seu repositório git. Por exemplo:
 
@@ -61,7 +61,7 @@ New-AzWebApp -Name <app-name>
 
 Quando você executar esse cmdlet de um diretório que é um repositório git, ele criará automaticamente um git remoto para seu aplicativo do serviço de aplicativo para você, chamado `azure` .
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 No portal, você precisa criar um aplicativo primeiro e, em seguida, configurar a implantação para ele. Consulte [configurar um aplicativo existente](#configure-an-existing-app).
 
@@ -84,7 +84,7 @@ A saída contém uma URL como: `https://<deployment-username>@<app-name>.scm.azu
 > [!TIP]
 > Essa URL contém o nome de usuário de implantação de escopo de usuários. Se desejar, você pode [usar as credenciais de escopo do aplicativo](deploy-configure-credentials.md#appscope) . 
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Defina o `scmType` do seu aplicativo executando o cmdlet [set-AzResource](/powershell/module/az.resources/set-azresource) .
 
@@ -98,7 +98,7 @@ Set-AzResource -PropertyObject $PropertiesObject -ResourceGroupName <group-name>
 -ApiVersion 2015-08-01 -Force
 ```
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até a página de gerenciamento do aplicativo.
 
