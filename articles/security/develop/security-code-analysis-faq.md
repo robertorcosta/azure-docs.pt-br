@@ -13,10 +13,10 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: b851e52141cf93aba4aab9b2768658f0aac4660f
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98879908"
 ---
 # <a name="frequently-asked-questions"></a>Perguntas frequentes
@@ -192,11 +192,11 @@ Um pesquisador de conteúdo é definido da seguinte maneira:
 
 #### <a name="what-are-common-errors-when-using-the-roslyn-analyzers-task"></a>Quais são os erros comuns ao usar a tarefa analisadores de Roslyn?
 
-##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>O projeto foi restaurado usando uma versão incorreta do Microsoft. NetCore. app
+##### <a name="the-project-was-restored-using-a-wrong-microsoftnetcoreapp-version"></a>O projeto foi restaurado usando uma versão incorreta do Microsoft.NETCore.App
 
 A mensagem de erro completa:
 
-"Erro: o projeto foi restaurado usando Microsoft. NetCore. app versão *x.* x, mas com as configurações atuais, a *versão y. y* seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para as operações seguintes, como build ou publicação. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier é definida durante o build ou a publicação, mas não durante a restauração."
+"Erro: o projeto foi restaurado usando a versão Microsoft.NETCore.App x. x *. x*, mas com as configurações atuais, a versão *y* . y seria usada em seu lugar. Para resolver esse problema, verifique se as mesmas configurações são usadas para restauração e para as operações seguintes, como build ou publicação. Normalmente, esse problema pode ocorrer se a propriedade RuntimeIdentifier é definida durante o build ou a publicação, mas não durante a restauração."
 
 Como as tarefas de analisadores Roslyn são executadas como parte da compilação, a árvore de origem no computador de compilação precisa estar em um estado compilável.
 

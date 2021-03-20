@@ -4,10 +4,10 @@ description: Saiba mais sobre planejamento e preparação para uma implantação
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.openlocfilehash: 9de59811397eb47809c6d71f608e43beae5bfadb
-ms.sourcegitcommit: 6172a6ae13d7062a0a5e00ff411fd363b5c38597
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97109616"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>Planejar e preparar uma implantação de cluster
@@ -20,7 +20,7 @@ Para gerenciar aplicativos e clusters do Azure Service Fabric com êxito, há op
 ## <a name="select-the-os-for-the-cluster"></a>Selecione o sistema operacional para o cluster
 O Service Fabric permite a criação de clusters do Service Fabric em qualquer VM ou computador que esteja executando o Windows Server ou o Linux.  Antes de implantar o cluster, você deve escolher o sistema operacional: Windows ou Linux.  Cada nó (máquina virtual) no cluster executa o mesmo sistema operacional, não é possível misturar VMs Windows e Linux no mesmo cluster.
 
-## <a name="capacity-planning"></a>Planejamento da capacidade
+## <a name="capacity-planning"></a>planejamento de capacidade
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns pontos a serem considerados como parte desse processo.
 
 * O número inicial de tipos de nó para o cluster 

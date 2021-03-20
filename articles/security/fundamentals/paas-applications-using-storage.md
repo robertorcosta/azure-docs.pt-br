@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 09/28/2018
 ms.author: tomsh
 ms.openlocfilehash: 12cce0eac3827046ae9171f3dd5696ae5905c802
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093982"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-storage"></a>Melhores práticas para proteger aplicativos PaaS móveis e Web usando o Armazenamento do Azure
@@ -33,7 +33,7 @@ O [Guia de segurança do Armazenamento do Azure](../../storage/blobs/security-re
 
 Este artigo aborda as seguintes melhores práticas:
 
-- SAS (assinaturas de acesso compartilhado)
+- SAS (Assinaturas de Acesso Compartilhado)
 - RBAC do Azure (controle de acesso baseado em função do Azure)
 - Criptografia do lado do cliente para dados de alto valor
 - Criptografia do Serviço de Armazenamento
