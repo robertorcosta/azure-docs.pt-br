@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5394a2829af4b0cd7a1c817f6aad4ca5451cc4bc
-ms.sourcegitcommit: 00aa5afaa9fac91f1059cfed3d8dbc954caaabe2
+ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/27/2020
-ms.locfileid: "97792425"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581823"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory autenticação de passagem: início rápido
 
@@ -69,10 +69,11 @@ Verifique se os pré-requisitos a seguir estão em vigor.
      | --- | --- |
      | **80** | Baixa as listas de CRLs (certificados revogados) enquanto valida o certificado TLS/SSL |
      | **443** | Lida com toda a comunicação de saída com o serviço |
-     | **8080** (opcional) | Agentes de Autenticação relatam seu status de cada dez minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas do usuário. |
+     | **8080** (opcional) | Agentes de Autenticação relatam seu status de cada dez minutos através da porta 8080, se a porta 443 não estiver disponível. Esse status é exibido no portal do Azure Active Directory. A porta 8080 _não_ é usada para entradas de usuário. |
      
      Se o firewall impõe as regras de acordo com os usuários originadores, abra essas portas para o tráfego proveniente dos serviços Windows que são executados como um serviço de rede.
    - Se o firewall ou o proxy permitir que você adicione entradas DNS a uma permissão, adicione conexões a **\* . msappproxy.net** e **\* . ServiceBus.Windows.net**. Caso contrário, permita o acesso aos [Intervalos de IP do datacenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), os quais são atualizados semanalmente.
+   - Se você tiver um proxy HTTP de saída, verifique se essa URL, autologon.microsoftazuread-sso.com, está na lista de permissões. Você deve especificar essa URL explicitamente, pois o curinga pode não ser aceito. 
    - Os seus Agentes de autenticação devem acessar **login.windows.net** e **login.microsoftonline.net** para o registro inicial. Abra seu firewall para essas URLs também.
     - Para a validação de certificado, desbloqueie as seguintes URLs: **crl3.DigiCert.com:80**, **crl4.DigiCert.com:80**, **ocsp.digicert.com:80**, **www \. d-trust.net:80**, **root-C3-Ca2-2009.OCSP.d-Trust.net:80**, **CRL.Microsoft.com:80**, **oneocsp.Microsoft.com:80** e **OCSP.msocsp.com:80**. Uma vez que essas URLs são usadas para a validação de certificado com outros produtos da Microsoft, você talvez já tenha essas URLs desbloqueadas.
 
@@ -107,7 +108,7 @@ Siga estas instruções para verificar se você habilitou a Autenticação de pa
 2. Selecione **Azure Active Directory** no painel esquerdo.
 3. Selecione **Azure AD Connect**.
 4. Verifique se o recurso **Autenticação de passagem** aparece como **Habilitado**.
-5. Selecione **Autenticação de passagem**. Esse painel da **Autenticação de passagem** lista os servidores em que os Agentes de autenticação estão instalados.
+5. Selecione **autenticação de passagem**. Esse painel da **Autenticação de passagem** lista os servidores em que os Agentes de autenticação estão instalados.
 
 ![Centro de administração do Azure Active Directory: painel do Azure AD Connect](./media/how-to-connect-pta-quick-start/pta7.png)
 

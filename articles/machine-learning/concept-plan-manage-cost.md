@@ -11,10 +11,10 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.openlocfilehash: 6f4a8e4b8cbc35dca9f48bbec84e9023e82f6a84
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102501628"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Planejar e gerenciar custos para Azure Machine Learning
@@ -57,7 +57,7 @@ O Azure Machine Learning é executado na infraestrutura do Azure que acumula cus
 
 ### <a name="costs-that-typically-accrue-with-azure-machine-learning"></a>Custos que normalmente se acumulam com Azure Machine Learning
 
-Quando você cria recursos para um espaço de trabalho Azure Machine Learning, os recursos para outros serviços do Azure também são criados. Elas são:
+Quando você cria recursos para um espaço de trabalho Azure Machine Learning, os recursos para outros serviços do Azure também são criados. São eles:
 
 * [Registro de contêiner do Azure](https://azure.microsoft.com/pricing/details/container-registry?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) Conta básica
 * [Armazenamento de blobs de blocos do Azure](https://azure.microsoft.com/pricing/details/storage/blobs?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) (uso geral v1)

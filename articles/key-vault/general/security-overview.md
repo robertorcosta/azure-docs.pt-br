@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/05/2021
 ms.author: mbaldwin
 ms.openlocfilehash: c7635fdc2012ab404709733d8f5849465c2ee82f
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99071555"
 ---
 # <a name="azure-key-vault-security"></a>Segurança do Azure Key Vault
@@ -102,7 +102,7 @@ Você pode integrar Key Vault com a grade de eventos para ser notificado quando 
 
 Também é importante monitorar a integridade do cofre de chaves para garantir que o serviço funcione conforme o esperado. Para saber como fazer isso, consulte [monitoramento e alertas para Azure Key Vault](alert.md).
 
-## <a name="backup-and-recovery"></a>Backup e recuperação
+## <a name="backup-and-recovery"></a>Backup e descoberta
 
 Azure Key Vault a proteção de exclusão e limpeza reversível permite recuperar cofres excluídos e objetos de cofre. Para obter detalhes completos, consulte [visão geral da exclusão de Azure Key Vault reversível](soft-delete-overview.md).
 

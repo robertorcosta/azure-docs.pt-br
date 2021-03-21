@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
 ms.openlocfilehash: 1ce20deed8b26dc5f5bebf4656dd3f1c370d766f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561221"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Avaliação e recomendações do Endpoint Protection na central de segurança do Azure
@@ -49,7 +49,7 @@ A central de segurança do Azure fornece avaliações de integridade de versões
 
 ## <a name="microsoft-system-center-endpoint-protection"></a>Proteção de ponto de extremidade do Microsoft System Center
 
-* A central de segurança recomenda que você **"Instale soluções do Endpoint Protection na máquina virtual"** ao importar **SCEPMpModule ("$env:P Client\MpProvider\MpProvider.psdsegurança rogramfiles\microsoft 1")** e executar resultados de **Get-MProtComputerStatus** em **AMServiceEnabled = false**.
+* A central de segurança recomenda que você **"Instale soluções de proteção de ponto de extremidade na máquina virtual"** ao importar **SCEPMpModule ("$env:P Rogramfiles \ Microsoft Security Client\MpProvider\MpProvider.psd1")** e executar resultados **Get-MProtComputerStatus** em **AMServiceEnabled = false**.
 
 * A central de segurança recomenda que você **"resolva problemas de integridade do Endpoint Protection em suas máquinas" quando o** **Get-MprotComputerStatus** for executado e qualquer uma das seguintes situações ocorrer:
 
