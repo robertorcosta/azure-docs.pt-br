@@ -13,10 +13,10 @@ ms.date: 02/23/2021
 ms.author: aahi
 keywords: local, Docker, contêiner, identificar
 ms.openlocfilehash: 36cbd7bd24304871593b107f9b8ed9be02ce46de
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706785"
 ---
 # <a name="install-and-run-face-containers-preview"></a>Instalar e executar contêineres de face (visualização)

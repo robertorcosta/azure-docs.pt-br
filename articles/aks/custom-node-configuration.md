@@ -7,10 +7,10 @@ ms.date: 12/03/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: 7b39242a7d7208b33a070e86088b25e9414ead04
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101714622"
 ---
 # <a name="customize-node-configuration-for-azure-kubernetes-service-aks-node-pools-preview"></a>Personalizar a configuração de nó para pools de nó do AKS (serviço de kubernetes do Azure) (versão prévia)
@@ -61,12 +61,12 @@ Os parâmetros de Kubelet com suporte e os valores aceitos estão listados abaix
 
 | Parâmetro | Valores permitidos/intervalo | Padrão | Descrição |
 | --------- | ----------------------- | ------- | ----------- |
-| `cpuManagerPolicy` | nenhum, estático | nenhum | A política estática permite que contêineres em [pods garantidos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) com CPU de inteiros solicitem acesso a CPUs exclusivas no nó. |
+| `cpuManagerPolicy` | nenhum, estático | none | A política estática permite que contêineres em [pods garantidos](https://kubernetes.io/docs/tasks/configure-pod-container/quality-service-pod/) com CPU de inteiros solicitem acesso a CPUs exclusivas no nó. |
 | `cpuCfsQuota` | verdadeiro, falso | true |  Habilitar/desabilitar a imposição de cota do CFS da CPU para contêineres que especificam limites de CPU. | 
 | `cpuCfsQuotaPeriod` | Intervalo em milissegundos (MS) | `100ms` | Define o valor do período de cota do CFS da CPU. | 
 | `imageGcHighThreshold` | 0-100 | 85 | A porcentagem de uso do disco após a qual a coleta de lixo da imagem é sempre executada. Uso mínimo do disco que **irá** disparar a coleta de lixo. Para desabilitar a coleta de lixo de imagem, defina como 100. | 
 | `imageGcLowThreshold` | 0-100, não é maior que `imageGcHighThreshold` | 80 | A porcentagem de uso do disco antes da qual a coleta de lixo da imagem nunca é executada. Uso mínimo do disco que **pode** disparar a coleta de lixo. |
-| `topologyManagerPolicy` | nenhum, melhor esforço, restrito, nó único | nenhum | Otimizar o alinhamento de nó NUMA, veja mais [aqui](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Somente kubernetes v 18E +. |
+| `topologyManagerPolicy` | nenhum, melhor esforço, restrito, nó único | none | Otimizar o alinhamento de nó NUMA, veja mais [aqui](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager/). Somente kubernetes v 18E +. |
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | Nenhum | Lista permitida de padrões de sysctl sysctls ou inseguros. | 
 
 ### <a name="linux-os-custom-configuration"></a>Configuração personalizada do SO Linux

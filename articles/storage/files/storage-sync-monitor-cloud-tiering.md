@@ -7,14 +7,14 @@ ms.topic: conceptual
 ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 93e9d9a552ab1bff16ca15d6bb11faeb5d47a503
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: c27916afb0d199bcb32db9d43202e552a4a04f53
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204289"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593128"
 ---
-# <a name="monitor-cloud-tiering"></a>Monitorar camadas de nuvem
+# <a name="monitor-cloud-tiering"></a>Monitorar camada de nuvem
 Há duas maneiras de monitorar sua política de camadas de nuvem: a folha de propriedades do ponto de extremidade do servidor e a Azure Monitor.
 
 ## <a name="monitoring-via-server-endpoint"></a>Monitoramento por meio do ponto de extremidade do servidor
@@ -55,7 +55,7 @@ Para ser mais específico no que você deseja que os gráficos sejam exibidos, c
  
 Para obter detalhes sobre os diferentes tipos de métricas para Sincronização de Arquivos do Azure e como usá-las, consulte [monitorar sincronização de arquivos do Azure](storage-sync-files-monitoring.md).
 
-Para obter detalhes sobre como usar as métricas, consulte [introdução ao Azure Metrics Explorer.](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started).
+Para obter detalhes sobre como usar as métricas, consulte [introdução ao Azure Metrics Explorer.](../../azure-monitor/essentials/metrics-getting-started.md).
 
 Se você quiser alterar sua política de camadas de nuvem, consulte [escolher políticas de camadas de nuvem](storage-sync-choose-cloud-tiering-policies.md).
 

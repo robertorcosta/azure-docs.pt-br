@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: 3d56fc73faeb0d48ba7e5b21449c61d6213afa40
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100549543"
 ---
 # <a name="azure-firewall-premium-preview-in-the-azure-portal"></a>Azure firewall Premium Preview no portal do Azure
@@ -20,7 +20,7 @@ ms.locfileid: "100549543"
 > O firewall Premium do Azure está atualmente em visualização pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
- O Azure firewall Premium Preview é um firewall de última geração com recursos que são necessários para ambientes altamente sensíveis e regulamentados. Ele contém os seguintes recursos:
+ O Firewall do Azure Premium Versão Prévia é um firewall de última geração com funcionalidades necessárias para ambientes altamente sensíveis e regulamentados. Ele contém os seguintes recursos:
 
 - **Inspeção de TLS** – descriptografa o tráfego de saída, processa os dados e, em seguida, criptografa os dados e os envia para o destino.
 - **IDPS** -um sistema de detecção e prevenção de intrusão na rede (IDPS) permite que você monitore atividades de rede para atividades mal-intencionadas, registre informações sobre essa atividade, relate-o e, opcionalmente, tente bloqueá-lo.

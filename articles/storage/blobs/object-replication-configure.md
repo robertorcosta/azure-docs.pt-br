@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.openlocfilehash: 2b6855d72b644a3fe1fa46c883eb7414383a1a57
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031694"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurar a replicação de objeto para BLOBs de blocos
@@ -45,7 +45,7 @@ Se você tiver acesso às contas de armazenamento de origem e de destino, poder�
 
 Antes de configurar a replicação de objeto no portal do Azure, crie os contêineres de origem e de destino nas respectivas contas de armazenamento se eles ainda não existirem. Além disso, habilite o controle de versão do blob e o feed de alterações na conta de origem e habilite o controle de versão do blob na conta de destino.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 O portal do Azure cria automaticamente a política na conta de origem depois de configurá-la para a conta de destino.
 
@@ -268,7 +268,7 @@ O exemplo a seguir define uma política de replicação na conta de destino com 
 }
 ```
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para configurar a replicação de objeto na conta de destino com um arquivo JSON no portal do Azure, siga estas etapas:
 
@@ -349,7 +349,7 @@ az storage account or-policy create \
 
 Você pode verificar o status de replicação de um blob na conta de origem usando o portal do Azure, o PowerShell ou o CLI do Azure. As propriedades de replicação de objeto não são populadas até que a replicação seja concluída ou falhou.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para verificar o status de replicação de um blob na conta de origem no portal do Azure, siga estas etapas:
 

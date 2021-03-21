@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 20c7068fa0cb56699fdbc6d75b279abadd583832
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103017096"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Como compilar um aplicativo Smooth Streaming da Windows Store
@@ -74,7 +74,7 @@ Para obter mais informações sobre como desenvolver aplicativos da Windows Stor
     | Grupo de modelos |Instalado/Modelos/Visual C#/Windows Store |
     | Modelo |Aplicativo em branco (XAML) |
     | Nome |SSPlayer |
-    | Localização |C:\SSTutorials |
+    | Location |C:\SSTutorials |
     | Nome da Solução |SSPlayer |
     | Criar diretório para a solução |(selecionado) |
 

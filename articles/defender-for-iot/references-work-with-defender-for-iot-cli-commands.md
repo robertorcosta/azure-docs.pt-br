@@ -8,10 +8,10 @@ ms.date: 12/12/2020
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100636553"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com o Defender para comandos CLI de IoT
@@ -295,6 +295,6 @@ Quando você estiver usando a ferramenta:
 
 - Confirme com ele o domínio do dispositivo (como ele aparece no certificado) com o servidor DNS e o endereço IP correspondente. 
     
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [APIs do defender for IoT API e do console de gerenciamento](references-work-with-defender-for-iot-apis.md)

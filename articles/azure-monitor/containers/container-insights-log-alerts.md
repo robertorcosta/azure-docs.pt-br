@@ -4,10 +4,10 @@ description: Este artigo descreve como criar alertas de log personalizados para 
 ms.topic: conceptual
 ms.date: 01/05/2021
 ms.openlocfilehash: 64d499d69194ac338d367ae094e42f4c8af23bef
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711188"
 ---
 # <a name="how-to-create-log-alerts-from-container-insights"></a>Como criar alertas de log de insights de contêiner
@@ -291,7 +291,7 @@ Esta seção percorre a criação de uma regra de alerta de medição de métric
 8. Cole uma das [consultas](#resource-utilization-log-search-queries) fornecidas anteriormente no campo de **consulta de pesquisa** .
 9. Configure o alerta da seguinte maneira:
 
-    1. Na lista suspensa **com base em** , selecione medição de **métrica**. Uma medida métrica cria um alerta para cada objeto na consulta que tem um valor acima do nosso limite especificado.
+    1. Na lista suspensa **Com base em**, selecione **Medição métrica**. Uma medida métrica cria um alerta para cada objeto na consulta que tem um valor acima do nosso limite especificado.
     1. Para **condição**, selecione **maior que** e insira **75** como um **limite** de linha de base inicial para os alertas de utilização de CPU e memória. Para o alerta de pouco espaço em disco, insira **90**. Ou insira um valor diferente que atenda aos seus critérios.
     1. No **alerta de gatilho com base na** seção, selecione **violações consecutivas**. Na lista suspensa, selecione **maior que** e digite **2**.
     1. Para configurar um alerta para utilização de CPU ou memória de contêiner, em **agregar em**, selecione **ContainerName**. Para configurar o alerta de baixo disco do nó do cluster, selecione **clusterid**.

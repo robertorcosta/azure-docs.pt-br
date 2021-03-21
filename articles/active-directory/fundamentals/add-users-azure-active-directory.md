@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51f1b122cb005f47e9816db3b403a35f4f502248
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 36455b3f6395216bd1ed26c8bd193f0e3ca10b5b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426817"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594590"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Adicionar ou excluir usuários usando o Azure Active Directory
 
@@ -75,7 +75,7 @@ Se você tiver um ambiente com o Azure Active Directory (nuvem) e o Windows Serv
 Você pode excluir um usuário existente usando o portal do Azure Active Directory.
 
 >[!Note]
->Você deve ter uma atribuição de função de administrador global ou de usuário para excluir usuários em sua organização. Os administradores globais podem excluir qualquer usuário, incluindo outros administradores. Os administradores de usuários podem excluir qualquer usuário não administrador, administradores de assistência técnica e outros administradores de usuários. Para obter mais informações, consulte [permissões de função de administrador no Azure ad](https://docs.microsoft.com/azure/active-directory/roles/permissions-reference).
+>Você deve ter uma atribuição de função de administrador global ou de usuário para excluir usuários em sua organização. Os administradores globais podem excluir qualquer usuário, incluindo outros administradores. Os administradores de usuários podem excluir qualquer usuário não administrador, administradores de assistência técnica e outros administradores de usuários. Para obter mais informações, consulte [permissões de função de administrador no Azure ad](../roles/permissions-reference.md).
 
 Para excluir um usuário, siga estas etapas:
 

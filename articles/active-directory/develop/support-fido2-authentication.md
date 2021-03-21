@@ -12,10 +12,10 @@ ms.date: 1/29/2021
 ms.author: nichola
 ms.custom: aaddev
 ms.openlocfilehash: f63d7aed75b14f5f008a639d667d8806b233b9fa
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102174591"
 ---
 # <a name="support-passwordless-authentication-with-fido2-keys-in-apps-you-develop"></a>Dar suporte à autenticação sem senha com chaves FIDO2 em aplicativos que você desenvolve
@@ -42,7 +42,7 @@ O método de entrada que foi usado mais recentemente por um usuário será apres
 
 ## <a name="platform-specific-best-practices"></a>Práticas recomendadas específicas da plataforma
 
-### <a name="desktop"></a>Desktop
+### <a name="desktop"></a>Área de trabalho
 
 As opções recomendadas para implementar a autenticação são, em ordem:
 
@@ -50,7 +50,7 @@ As opções recomendadas para implementar a autenticação são, em ordem:
 - Use [WebView2](/microsoft-edge/webview2/) para dar suporte a FIDO2 em um navegador inserido.
 - Use o navegador do sistema. As bibliotecas de MSAL para plataformas de desktop usam esse método por padrão. Você pode consultar nossa página sobre a compatibilidade do navegador FIDO2 para garantir que o navegador que você usa dê suporte à autenticação do FIDO2.
 
-### <a name="mobile"></a>Celular
+### <a name="mobile"></a>Dispositivos móveis
 
 A partir de fevereiro de 2021, o FIDO2 não tem suporte atualmente para aplicativos iOS ou Android nativos, mas está em desenvolvimento.
 

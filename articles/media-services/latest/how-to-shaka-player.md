@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 7b4bda5a439b1e0b35dc6d3af99e0273e4987568
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101091354"
 ---
 # <a name="how-to-use-the-shaka-player-with-azure-media-services"></a>Como usar o Shaka Player com os serviços de mídia do Azure
@@ -26,7 +26,7 @@ ms.locfileid: "101091354"
 
 ## <a name="overview"></a>Visão geral
 
-O Shaka Player é uma biblioteca JavaScript de código aberto para mídia adaptável. Ele desempenha Formatos de mídia adaptável (como DASH e HLS) em um navegador, sem usar plugins ou flash. Em vez disso, o Shaka Player usa as extensões de mídia criptografadas de mídia de padrões da Web e extensões de Media criptografia.
+O Shaka Player é uma biblioteca JavaScript de software livre para mídias adaptáveis. Ele executa formatos de mídias adaptáveis (como DASH e HLS) em um navegador, sem usar plug-ins nem o Flash. Em vez disso, o Shaka Player usa Extensões de Fontes de Mídia e Extensões de Mídia Criptografada de padrões abertos da Web.
 
 É recomendável usar [Mux.js](https://github.com/videojs/mux.js/) como, sem ele, o Shaka Player ofereceria suporte ao formato HLS CMAF, mas não HLS TS.
 

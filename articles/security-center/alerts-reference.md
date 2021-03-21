@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
 ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176698"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
@@ -157,7 +157,7 @@ Na parte inferior desta página há uma tabela que descreve a cadeia de elimina�
 |**Reconhecimento de host local detectado**|A análise de dados do host em %{Host Comprometido} detectou a execução de um comando normalmente associado ao reconhecimento de bots comuns do Linux.|-|Médio|
 |**Manipulação do firewall do host detectada [visto várias vezes]**|A análise de dados do host em %{Host Comprometido} detectou uma possível manipulação de um firewall no host. Os invasores geralmente desabilitarão isso para exportar dados. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Médio|
 |**Manipulação do firewall do host detectada**|A análise de dados do host em %{Host Comprometido} detectou uma possível manipulação de um firewall no host. Os invasores geralmente desabilitarão isso para exportar dados.|-|Médio|
-|**Agente MITRE Caldera detectado**<br>(VM_MitreCalderaTools)|Os logs do computador indicam que o processo suspeito: "%{Processo Suspeito}" estava sendo executado em %{Host Comprometido}. Isso geralmente está associado ao agente MITRE 54ndc47, que pode ser usado de forma mal-intencionada para atacar outros computadores de alguma forma.|Todos |Médio|
+|**Agente MITRE Caldera detectado**<br>(VM_MitreCalderaTools)|Os logs do computador indicam que o processo suspeito: "%{Processo Suspeito}" estava sendo executado em %{Host Comprometido}. Isso geralmente está associado ao agente MITRE 54ndc47, que pode ser usado de forma mal-intencionada para atacar outros computadores de alguma forma.|Tudo |Médio|
 |**Nova chave SSH adicionada [visto várias vezes]**|Uma nova chave SSH foi adicionada ao arquivo de chaves autorizadas. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Baixo|
 |**Nova chave SSH adicionada**|Uma nova chave SSH foi adicionada ao arquivo de chaves autorizadas|-|Baixo|
 |**Possível ferramenta de ataque detectada [visto várias vezes]**|Os logs do computador indicam que o processo suspeito: "%{Processo Suspeito}" estava sendo executado em %{Host Comprometido}. A ferramenta geralmente está associada a usuários mal-intencionados que atacam outros computadores de alguma forma. Esse comportamento foi visto [x] vezes hoje nos seguintes computadores: [Nomes dos computadores]|-|Médio|

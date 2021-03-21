@@ -8,10 +8,10 @@ ms.date: 01/13/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 2ad5bf08542cd98f7acae36827b1a7b284a893b0
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149284"
 ---
 # <a name="identify-required-appliances"></a>Identificar os dispositivos necessários
@@ -38,7 +38,7 @@ O defender para IoT dá suporte a implantações físicas e virtuais.
 
 Esta seção fornece uma visão geral dos modelos de sensor físico que estão disponíveis. Você pode comprar sensores com software pré-configurado ou sensores de compra que não são pré-configurados.
 
-| Tipo de implantação | Corporativo | Empresarial | Montagem em rack de SMB| SMB resistente|
+| Tipo de implantação | Corporativo | Enterprise | Montagem em rack de SMB| SMB resistente|
 |--|--|--|--|--|
 | Imagem | :::image type="content" source="media/how-to-prepare-your-network/corporate-hpe-proliant-dl360-v2.png" alt-text="O modelo de nível corporativo."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível empresarial."::: | :::image type="content" source="media/how-to-prepare-your-network/enterprise-and-smb-hpe-proliant-dl20-v2.png" alt-text="O modelo de nível SMB."::: | :::image type="content" source="media/how-to-prepare-your-network/office-ruggedized.png" alt-text="O modelo de nível resistente por SMB."::: |
 | Modelo | HPE ProLiant DL360 | HPE ProLiant DL20 | HPE ProLiant DL20 | HPE EL300 |
@@ -60,7 +60,7 @@ Sobre como trazer seu próprio dispositivo: examine os modelos com suporte descr
 
 Esta seção fornece uma visão geral dos sensores virtuais que estão disponíveis.
 
-| Tipo de implantação | Corporativo | Empresarial | SMB |
+| Tipo de implantação | Corporativo | Enterprise | SMB |
 |--|--|--|--|
 | Largura de banda máxima | 2,5 GB/s | 800 MB/s | 160 MB/s |
 | Máximo de dispositivos protegidos | 30,000 | 10.000 | 2\.500 |
@@ -69,7 +69,7 @@ Esta seção fornece uma visão geral dos sensores virtuais que estão disponív
 
 O console de gerenciamento está disponível como uma implantação virtual.
 
-| Tipo de implantação | Empresarial |
+| Tipo de implantação | Enterprise |
 |--|--|
 | Tipo de dispositivo | HPE DL20, VM |
 | Número de sensores gerenciados | Até 300 |
@@ -238,7 +238,7 @@ Esta seção descreve as especificações de hardware para os seguintes disposit
 
 ### <a name="sensors"></a>Sensores
 
-| Type | Corporativo | Empresarial | SMB |
+| Type | Corporativo | Enterprise | SMB |
 |--|--|--|--|
 | vCPU | 32 | 8 | 4 |
 | Memória | 32 GB | 32 GB | 8 GB |
@@ -246,7 +246,7 @@ Esta seção descreve as especificações de hardware para os seguintes disposit
 
 ### <a name="on-premises-management-console-appliance"></a>Dispositivo de console de gerenciamento local
 
-| Type | Empresarial |
+| Type | Enterprise |
 |--|--|
 | Descrição | Dispositivo virtual para tipos de implantação do Enterprise |
 | vCPU | 8 |
@@ -259,7 +259,7 @@ Hipervisores com suporte: VMware ESXi versão 5,0 e posterior, Hyper-V
 
 Esta seção detalha os dispositivos adicionais que foram certificados pela Microsoft, mas que não são oferecidos como dispositivos pré-configurados.
 
-| Tipo de implantação | Empresarial |
+| Tipo de implantação | Enterprise |
 |--|--|
 | Imagem | :::image type="content" source="media/how-to-prepare-your-network/deployment-type-enterprise-for-azure-defender-for-iot-v2.png" alt-text="Tipo de implantação empresarial."::: |
 | Modelo | Dell PowerEdge R340 XL |
