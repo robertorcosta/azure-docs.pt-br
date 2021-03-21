@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: nitinme
 ms.openlocfilehash: d0ffd786d3fb6bb5f0d70095d947c81caa070518
-ms.sourcegitcommit: d60976768dec91724d94430fb6fc9498fdc1db37
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96499128"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Migrar do Fala do Bing para o serviço de fala
@@ -87,7 +87,7 @@ Para o suporte ao serviço de fala, ao SDK e à API, visite a [página de suport
 * [Introdução à conversão de fala em texto](get-started-speech-to-text.md)
 * [Introdução à conversão de texto em fala](get-started-text-to-speech.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Notas de versão do serviço de fala](releasenotes.md)
 * [O que é o serviço de fala](overview.md)

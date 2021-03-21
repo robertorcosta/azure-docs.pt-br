@@ -8,10 +8,10 @@ ms.date: 06/19/2020
 ms.author: trkeya
 author: trkeya
 ms.openlocfilehash: 2addf415c39691b4e662f304522a418aa8a778c2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730364"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
@@ -240,7 +240,7 @@ E, em seguida, usar esse local para todos os recursos para uma instância de lab
 
 Verifique se sua assinatura tem permissão para implantar todos os recursos desejados em cada uma das regiões que você selecionar. Verifique também se suas imagens de máquina virtual estão disponíveis em todas as regiões que você habilitará, caso contrário, seu modelo de implantação não funcionará para algumas regiões.
 
-### <a name="outputs"></a>outputs
+### <a name="outputs"></a>Saídas
 
 Normalmente, com modelos do Resource Manager, você pode implantar sem produzir nenhuma saída. Isso acontece porque você conhece todos os valores que usa para preencher parâmetros do modelo e pode sempre inspecionar manualmente as propriedades de qualquer recurso.
 

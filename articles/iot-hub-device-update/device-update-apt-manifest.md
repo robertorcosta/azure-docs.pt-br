@@ -7,10 +7,10 @@ ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101678987"
 ---
 # <a name="device-update-apt-manifest"></a>Manifesto de APT de atualização de dispositivo
@@ -143,7 +143,7 @@ Ao criar o manifesto APT, há algumas diretrizes a serem consideradas:
 - Ao instalar uma versão específica de um pacote (por exemplo, `iotedge 1.0.9-1` ), é recomendável também ter no manifesto de apt as versões explícitas dos pacotes dependentes a serem instalados (por exemplo, `libiothsm 1.0.9-1` )
 - Embora não seja obrigatório, sempre garanta que seu manifesto APT seja cumulativo para evitar que seu dispositivo fique em um estado desconhecido. Uma atualização cumulativa garantirá que seus dispositivos tenham a versão desejada de cada pacote que você se importa mesmo se o dispositivo tiver ignorado uma implantação de atualização de APT devido a uma falha na instalação ou ficar offline
 
-Por exemplo: 
+Por exemplo:
 
 **Manifesto base APT**
 

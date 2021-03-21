@@ -7,10 +7,10 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 2d48c767b836771600b3491299e0bdb33aacb75b
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98733142"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o micro Focus CICS BankDemo para o micro Focus Enterprise Developer 4,0 no Azure
@@ -124,7 +124,7 @@ A consulta deve ser executada sem erros. Quando estiver concluído, você terá 
 
 1. Clique com o botão direito do mouse no banco de dados **BANKDEMO** e selecione **Atualizar**.
 
-2. Expanda o **banco de dados** e selecione **tabelas**. Você deverá ver algo semelhante ao seguinte.
+2. Expanda o **banco de dados** e selecione **tabelas**. Você deverá ver algo semelhante ao que é exibido a seguir.
 
      ![Tabela BANKDEMO expandida no Pesquisador de objetos](media/04-demo-explorer.png)
 

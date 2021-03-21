@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/24/2020
 ms.custom: references_regions
 ms.openlocfilehash: 3b19fab33d0c8f53025605fd14fe65f08e660392
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101677927"
 ---
 # <a name="supported-data-sources-and-file-types-in-azure-purview"></a>Fontes de dados e tipos de arquivo com suporte no Azure alcance
@@ -97,7 +97,7 @@ A seguir está uma lista de todas as regiões da fonte de dados do Azure (data c
 - SouthAfricaNorth
 - FranceCentral
 
-## <a name="classification"></a>Classificação
+## <a name="classification"></a>classificação
 
 Todas as regras de classificação do sistema 105 se aplicam a formatos de arquivo estruturados. Somente as regras de classificação do MCE se aplicam aos tipos de arquivo de documento (não os padrões de Regex nativos de verificação de dados, a detecção baseada em filtro de flor). Para obter mais informações sobre as classificações com suporte, consulte [classificações com suporte no Azure alcance](supported-classifications.md).
 

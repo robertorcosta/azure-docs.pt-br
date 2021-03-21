@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
 ms.openlocfilehash: 4a4bc0b55928fcaa40cd1cb03ca0522e611df476
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101727712"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiar dados do Azure Data Lake Storage Gen1 para Gen2 com o Azure Data Factory
@@ -34,7 +34,7 @@ Este artigo mostra como usar a ferramenta Data Factory copiar dados para copiar 
 * Conta do Azure Data Lake Store Gen1 contendo dados.
 * Conta de armazenamento do Azure com Data Lake Storage Gen2 habilitado. Se você não tiver uma conta de armazenamento, [crie uma conta](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 
-## <a name="create-a-data-factory"></a>Criar um data factory
+## <a name="create-a-data-factory"></a>Criar uma data factory
 
 1. No menu à esquerda, selecione **criar um recurso**  >  **dados + análise**  >  **Data Factory**.
    
@@ -132,7 +132,7 @@ Este artigo mostra como usar a ferramenta Data Factory copiar dados para copiar 
 
 17. Verifique se os dados são copiados para sua conta de Azure Data Lake Storage Gen2.
 
-## <a name="best-practices"></a>Melhores práticas
+## <a name="best-practices"></a>Práticas recomendadas
 
 Para avaliar a atualização de Azure Data Lake Storage Gen1 para Azure Data Lake Storage Gen2 em geral, consulte [atualizar suas soluções de análise de Big data de Azure data Lake Storage Gen1 para Azure data Lake Storage Gen2](../storage/blobs/data-lake-storage-migrate-gen1-to-gen2.md). As seções a seguir apresentam as práticas recomendadas para o uso de Data Factory para uma atualização de dados de Data Lake Storage Gen1 para Data Lake Storage Gen2.
 

@@ -7,10 +7,10 @@ ms.date: 02/26/2021
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: c7427a1f8f528fdf405b22c4e91941ea7a915ffa
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045795"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S
@@ -38,7 +38,7 @@ O ponto de extremidade FTP/S para seu aplicativo já está ativo. Nenhuma config
 
 ## <a name="get-ftps-endpoint"></a>Obter ponto de extremidade FTP/S
     
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Na mesma página de gerenciamento para seu aplicativo em que você copiou as credenciais de implantação (credenciais de FTP da **central de implantação**  >  ), copie o **ponto de extremidade de FTPS**.
 
@@ -52,7 +52,7 @@ az webapp deployment list-publishing-profiles --name <app-name> --resource-group
 
 Cada aplicativo tem dois pontos de extremidade FTP/S, um é de leitura/gravação, enquanto o outro é somente leitura ( `profileName` contém `ReadOnly` ) e é para cenários de recuperação de dados. Para implantar arquivos com o FTP, copie a URL do ponto de extremidade de leitura/gravação.
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Execute o comando [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . O exemplo a seguir extrai o ponto de extremidade de FTP/S da saída XML.
 
@@ -83,7 +83,7 @@ $xml.SelectNodes("//publishProfile[@publishMethod=`"FTP`"]/@publishUrl").value
 
 Para aumentar a segurança, você deve permitir FTP somente em TLS/SSL. Você também pode desabilitar FTP e FTPS se não usa a implantação de FTP.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Na página de recursos do aplicativo no [portal do Azure](https://portal.azure.com), selecione   >  **configurações gerais** de configuração no painel de navegação esquerdo.
 
@@ -101,7 +101,7 @@ az webapp config set --name <app-name> --resource-group <group-name> --ftps-stat
 
 Os valores possíveis para `--ftps-state` são `AllAllowed` (FTP e FTPS habilitado), `Disabled` (FTP e FTPS desabilitados) e `FtpsOnly` (somente FTPS).
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Execute o comando [set-AzWebApp](/powershell/module/az.websites/set-azwebapp) com o `-FtpsState` parâmetro.
 

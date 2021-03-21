@@ -10,10 +10,10 @@ services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-js
 ms.openlocfilehash: 19675a92101ed1a13b07bc1a4039701cd029a020
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044078"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>Adicionar uma camada de extrusão de polígono ao mapa
@@ -44,7 +44,7 @@ Confira o <a href='https://codepen.io/azuremaps/pen/eYYYNox'>mapa coropléticos 
 
 ## <a name="add-a-circle-to-the-map"></a>Adicionar um círculo ao mapa
 
-O Azure Maps usa uma versão estendida do esquema geojson que fornece uma definição para círculos, conforme observado [aqui](./extend-geojson.md#circle). Um círculo com extrusão pode ser renderizado no mapa criando um `point` recurso com uma `subType` propriedade de `Circle` e uma propriedade numerada `Radius` que representa o raio em **metros**. Por exemplo: 
+O Azure Maps usa uma versão estendida do esquema geojson que fornece uma definição para círculos, conforme observado [aqui](./extend-geojson.md#circle). Um círculo com extrusão pode ser renderizado no mapa criando um `point` recurso com uma `subType` propriedade de `Circle` e uma propriedade numerada `Radius` que representa o raio em **metros**. Por exemplo:
 
 ```javascript
 {

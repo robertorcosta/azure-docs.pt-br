@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 02/17/2021
 ms.author: manayar
 ms.openlocfilehash: 276762bc2b8624f687cbb77e1af771478791a57b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101679039"
 ---
 # <a name="preview-automatic-vm-guest-patching-for-azure-vms"></a>Visualização: aplicação automática de patches de convidado de VM para VMs do Azure
@@ -80,7 +80,7 @@ Atualmente, somente as VMs criadas a partir de determinadas imagens da plataform
 
 Atualmente, há suporte para as seguintes SKUs de plataforma (e mais são adicionadas periodicamente):
 
-| Publisher               | Oferta de sistema operacional      |  Sku               |
+| Publicador               | Oferta de sistema operacional      |  Sku               |
 |-------------------------|---------------|--------------------|
 | Canônico  | UbuntuServer | 18.04-LTS |
 | Redhat  | RHEL | 7.x |

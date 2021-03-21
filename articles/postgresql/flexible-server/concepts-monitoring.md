@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/23/2020
 ms.openlocfilehash: 5e7063cd1ae560fa077bd0b1b1279e4515e70464
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100579023"
 ---
 # <a name="monitor-metrics-on-azure-database-for-postgresql---flexible-server"></a>Monitorar métricas no banco de dados do Azure para PostgreSQL-servidor flexível
@@ -45,7 +45,7 @@ As métricas a seguir estão disponíveis para o servidor flexível do PostgreSQ
 | read_iops | IOPS de leitura | Contagem | Número de operações de leitura de e/s de disco de dados por segundo. |
 | read_throughput | Taxa de transferência de leitura | Bytes | Bytes lidos por segundo do disco. |
 | storage_free | Armazenamento livre | Bytes | A quantidade de espaço de armazenamento disponível. |
-| storage_percent | Porcentagem de armazenamento | Porcentagem | Porcentagem de espaço de armazenamento usado. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
+| storage_percent | Porcentagem de armazenamento | Percentual | Porcentagem de espaço de armazenamento usado. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor.|
 | storage_used | Armazenamento usado | Bytes | Porcentagem de espaço de armazenamento usado. O armazenamento usado pelo serviço pode incluir os arquivos de banco de dados, os logs de transação e os logs do servidor. |
 | txlogs_storage_used | Armazenamento de log de transações usado | Bytes | Quantidade de espaço de armazenamento usada pelos logs de transação. | 
 | write_throughput | Taxa de transferência de gravação | Bytes | Bytes gravados por segundo no disco. |
