@@ -1,5 +1,5 @@
 ---
-title: Requisitos do sistema
+title: Requisitos de sistema
 description: Lista os requisitos de sistema para renderização remota do Azure
 author: florianborn71
 ms.author: flborn
@@ -7,13 +7,13 @@ ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
 ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101705153"
 ---
-# <a name="system-requirements"></a>Requisitos do sistema
+# <a name="system-requirements"></a>Requisitos de sistema
 
 Este capítulo lista os requisitos mínimos do sistema para trabalhar com a *renderização remota do Azure* (ARR).
 
@@ -67,7 +67,7 @@ Para solucionar problemas de rede, consulte o [Guia de solução de problemas](.
 
 As máquinas virtuais de renderização remota usam endereços IP compartilhados dos seguintes intervalos de IP:
 
-| Name             | Região         | Prefixo de IP         |
+| Nome             | Região         | Prefixo de IP         |
 |------------------|:---------------|:------------------|
 | Leste da Austrália   | australiaeast  | 20.53.44.240/28   |
 | Leste dos EUA          | eastus         | 20.62.129.224/28  |

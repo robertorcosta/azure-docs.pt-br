@@ -12,10 +12,10 @@ ms.date: 02/23/2021
 ms.author: sbowles
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 3a15cce45c527a92c99e0488661e0b67bb8e2371
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713058"
 ---
 # <a name="get-face-detection-data"></a>Obter dados de detecção facial
@@ -36,7 +36,7 @@ Este guia concentra-se nas especificidades da chamada de detecção, como os arg
 
 ## <a name="get-basic-face-data"></a>Obter dados básicos de face
 
-Para localizar faces e obter seus locais em uma imagem, chame o método [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) com o parâmetro _returnFaceId_ definido como **true**. Esta é a configuração padrão.
+Para localizar faces e obter seus locais em uma imagem, chame o método [DetectWithUrlAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync) ou [DetectWithStreamAsync](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync) com o parâmetro _returnFaceId_ definido como **true**. Essa é a configuração padrão.
 
 :::code language="csharp" source="~/cognitive-services-quickstart-code/dotnet/Face/sdk/detect.cs" id="basic1":::
 

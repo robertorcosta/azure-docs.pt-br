@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 12/09/2020
 ms.author: alkohli
 ms.openlocfilehash: ae7cb05aeda296ffb3aa9d7f6e2c88fe59364975
-ms.sourcegitcommit: 445ecb22233b75a829d0fcf1c9501ada2a4bdfa3
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99475026"
 ---
 O tamanho da VM determina a quantidade de recursos de computação (como CPU, GPU e memória) que são disponibilizados para a VM. Você deve criar máquinas virtuais usando um tamanho de VM apropriado para a carga de trabalho. Embora todos os computadores estejam em execução no mesmo hardware, os tamanhos de máquina têm limites diferentes para o acesso ao disco. Isso pode ajudá-lo a gerenciar o acesso geral ao disco em suas VMs. Se uma carga de trabalho aumentar, você também poderá redimensionar uma máquina virtual existente.

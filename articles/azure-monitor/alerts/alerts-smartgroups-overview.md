@@ -4,10 +4,10 @@ description: Grupos inteligentes são as agregações de alertas que ajudam voc�
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.openlocfilehash: 8a164fe6e5fd5be58da969d9266329755705ea82
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102037958"
 ---
 # <a name="smart-groups"></a>Grupos inteligentes
@@ -30,7 +30,7 @@ Os seguintes estados de grupo inteligente são compatíveis.
 |:---|:---|
 | Novo | O problema acaba de ser detectado e ainda não foi analisado. |
 | Confirmado | Um administrador examinou o grupo inteligente e começou a trabalhar nele. |
-| Fechado | O problema foi resolvido. Depois que um grupo inteligente for fechado, será possível reabri-lo, alterando-o para outro estado. |
+| Fechadas | O problema foi resolvido. Depois que um grupo inteligente for fechado, será possível reabri-lo, alterando-o para outro estado. |
 
 [Saiba como alterar o estado do seu grupo inteligente.](./alerts-managing-alert-states.md?toc=%2fazure%2fazure-monitor%2ftoc.json)
 

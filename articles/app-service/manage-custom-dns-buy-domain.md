@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 11/30/2020
 ms.custom: seodec18
 ms.openlocfilehash: cdcf22a42375949cc4d6be0b4f3062cee26219d6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704847"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Comprar um nome de domínio personalizado para Serviço de Aplicativo do Azure
@@ -94,7 +94,7 @@ Para obter informações sobre preços em domínios do serviço de aplicativo, v
 
 1. Quando o registro de domínio for concluído, você verá um botão **ir para recurso** . Selecione-o para ver sua página de gerenciamento.
 
-    ![Domínio do serviço de aplicativo criado. Acessar recurso](./media/app-service-web-tutorial-custom-domain/deployment-complete.png)
+    ![Domínio do serviço de aplicativo criado. Ir para o recurso](./media/app-service-web-tutorial-custom-domain/deployment-complete.png)
 
 Agora você está pronto para atribuir um aplicativo do serviço de aplicativo a este domínio personalizado.
 

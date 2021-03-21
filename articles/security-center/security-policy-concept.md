@@ -8,13 +8,13 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 4dc29c8b52a3d0953445666672a716af013ee408
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176426"
 ---
-# <a name="what-are-security-policies-initiatives-and-recommendations"></a>O que são políticas de segurança, iniciativas e recomendações?
+# <a name="what-are-security-policies-initiatives-and-recommendations"></a>O que são políticas, iniciativas e recomendações de segurança?
 
 A central de segurança aplica iniciativas de segurança às suas assinaturas. Essas iniciativas contêm uma ou mais políticas de segurança. Cada uma dessas políticas resulta em uma recomendação de segurança para melhorar sua postura de segurança. Esta página explica cada uma dessas ideias em detalhes.
 

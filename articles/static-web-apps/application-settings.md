@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: buhollan
 ms.custom: devx-track-js
 ms.openlocfilehash: 2886cb6433c4f8a65eb0661eded0ddd08248e137
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102219175"
 ---
 # <a name="configure-application-settings-for-azure-static-web-apps-preview"></a>Definir configurações de aplicativo para Aplicativos Web Estáticos do Azure (Versão prévia)
@@ -110,7 +110,7 @@ O portal do Azure fornece uma interface para criar, atualizar e excluir configur
 
 1. Clique em **OK**.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="using-the-azure-cli"></a>Usando a CLI do Azure
 

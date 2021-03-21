@@ -4,10 +4,10 @@ description: Este artigo descreve como configurar o monitoramento de um cluster 
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.openlocfilehash: b46dfda0bdb0f3b582aa751786187a4d74524f75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708366"
 ---
 # <a name="configure-azure-red-hat-openshift-v3-with-container-insights"></a>Configurar o Azure Red Hat OpenShift v3 com informações de contêiner
