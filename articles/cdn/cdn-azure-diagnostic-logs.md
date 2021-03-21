@@ -14,10 +14,10 @@ ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
 ms.openlocfilehash: 96e80de5b8b5ab0a046913ce40ca2d7254dd0133
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100573222"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Logs de diagnóstico-rede de distribuição de conteúdo do Azure
@@ -71,7 +71,7 @@ Para usar uma conta de armazenamento para armazenar os logs, siga estas etapas:
 
     :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Logs de diagnóstico-armazenamento." border="true":::
 
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 ### <a name="send-to-log-analytics"></a>Enviar para o Log Analytics
 
@@ -88,7 +88,7 @@ Para usar Log Analytics para os logs, siga estas etapas:
 
    :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Logs de diagnóstico-Log Analytics." border="true":::
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="stream-to-an-event-hub"></a>Transmitir para um hub de eventos
 
@@ -105,7 +105,7 @@ Para usar um hub de eventos para os logs, siga estas etapas:
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Logs de diagnóstico-Hub de eventos." border="true":::
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 
 ## <a name="enable-logging-with-powershell"></a>Habilitar o registro em log com o PowerShell
