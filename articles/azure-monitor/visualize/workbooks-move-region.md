@@ -11,10 +11,10 @@ ms.custom: subject-moving-resources
 ms.date: 08/12/2020
 ms.author: jgardner
 ms.openlocfilehash: d58d9ab48fa16fb5258f097ed4567e539e21c72c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100605437"
 ---
 # <a name="move-an-azure-workbook-to-another-region"></a>Mover uma pasta de trabalho do Azure para outra região
@@ -49,7 +49,7 @@ A maneira mais simples de mover uma pasta de trabalho do Azure é usar "salvar c
 
 Use a interface do usuário de navegação de pastas de trabalho do Azure para localizar a nova pasta de trabalho. Verifique se o local é o local de destino.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Depois que a pasta de trabalho tiver sido criada na nova região, exclua a pasta de trabalho original na região anterior.
 1. Abra a pasta de trabalho original no Visualizador de pasta de trabalho.
