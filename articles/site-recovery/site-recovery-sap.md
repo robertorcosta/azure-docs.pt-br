@@ -6,10 +6,10 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 ms.openlocfilehash: e639762cd1adb7bbbc3fb2ec31f4ce52710e46f9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711936"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurar a recuperação de desastre para uma implantação de aplicativo do SAP NetWeaver de várias camadas
@@ -150,7 +150,7 @@ Você pode implantar os scripts de Site Recovery mais usados em sua conta de aut
 
 1. No Portal do Azure, selecione seu cofre de Serviços de Recuperação.
 1. Selecione o plano de recuperação que você criou para aplicativos SAP.
-1. Selecione **Failover de Teste**.
+1. Selecione **failover de teste**.
 1. Para iniciar o processo de failover de teste, selecione o ponto de recuperação e a rede virtual do Azure.
 1. Quando o ambiente secundário está ativo, faça validações.
 1. Quando as validações forem concluídas, limpe o ambiente de failover selecionando **limpar failover de teste**.

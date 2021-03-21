@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/06/2020
 ms.openlocfilehash: 7b663c8d6e5849d39bb8366c82f45e0fd66d77dd
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100371389"
 ---
 # <a name="azure-integration-runtime-ip-addresses"></a>Endereços de IP do Azure Integration Runtime
@@ -27,7 +27,7 @@ Os endereços IP que Azure Integration Runtime usa depende da região em que o t
 
 ## <a name="azure-integration-runtime-ip-addresses-specific-regions"></a>Azure Integration Runtime endereços IP: regiões específicas
 
-Permita o tráfego dos endereços IP listados para o tempo de execução de integração do Azure na região específica do Azure onde os recursos estão localizados. Você pode obter uma lista de intervalos IP de marcas de serviço no [link de download do intervalo de IP das marcas de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Por exemplo, se a região do Azure for **AustraliaEast**, você poderá obter uma lista de intervalos de IP de **DataFactory. AustraliaEast**.
+Permita o tráfego dos endereços IP listados para o tempo de execução de integração do Azure na região específica do Azure onde os recursos estão localizados. Você pode obter uma lista de intervalos IP das marcas de serviço no [link de download do intervalo IP das marcas de serviço](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files). Por exemplo, se a região do Azure for **AustraliaEast**, você poderá obter uma lista de intervalos de IP de **DataFactory. AustraliaEast**.
 
 
 ## <a name="known-issue-with-azure-storage"></a>Problema conhecido com o armazenamento do Azure

@@ -4,13 +4,13 @@ description: Calcule e relate o SLA para o teste na Web por meio de um único pa
 ms.topic: conceptual
 ms.date: 02/8/2021
 ms.openlocfilehash: d225627a27bffd9088956e5aee37ca543e528d4a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101714044"
 ---
-# <a name="downtime-sla-and-outages-workbook"></a>Tempo de inatividade, SLA e a pasta de trabalho de interrupções
+# <a name="downtime-sla-and-outages-workbook"></a>Tempo de inatividade, SLA e pasta de trabalho de interrupções
 
 Introdução de uma maneira simples de calcular e relatar SLA (contrato de nível de serviço) para testes da Web por meio de um único painel de vidro em seus recursos de Application Insights e assinaturas do Azure. O relatório de tempo de inatividade e interrupção fornece visualizações de dados e consultas pré-criados avançadas para aprimorar sua compreensão da conectividade do cliente, do tempo de resposta do aplicativo típico e do tempo de inatividade.
 

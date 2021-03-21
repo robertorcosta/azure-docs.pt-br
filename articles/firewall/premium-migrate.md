@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: ffdcad33568af9955dbdf5aafb1b6ffe4a51681d
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100549547"
 ---
 # <a name="migrate-to-azure-firewall-premium-preview"></a>Migrar para o Azure firewall Premium Preview
@@ -189,7 +189,7 @@ Este exemplo mostra como usar o portal do Azure para migrar um firewall padrão 
       para:
 
       `"/subscriptions/<subscription id>/resourceGroups/<your resource group>/providers/Microsoft.Network/firewallPolicies/FirewallPolicy_<your policy name>_premium"`
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Selecione **Examinar + criar**.
 1. Selecione **Criar**.
 

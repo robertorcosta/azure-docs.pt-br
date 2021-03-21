@@ -4,10 +4,10 @@ description: Saiba mais sobre os benefícios da execução de Azure Functions em
 ms.topic: conceptual
 ms.date: 10/29/2020
 ms.openlocfilehash: a9f976eda4a551c302ba7df92fbdbbf7a4fce1d7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704558"
 ---
 # <a name="dedicated-hosting-plans-for-azure-functions"></a>Planos de hospedagem dedicados para Azure Functions
@@ -31,7 +31,7 @@ Se você executar em um plano do serviço de aplicativo, habilite a configuraç�
 
 Mesmo com Always On habilitado, o tempo limite de execução para funções individuais é controlado pela configuração `functionTimeout` no arquivo de projeto [host.json](functions-host-json.md#functiontimeout).
 
-## <a name="scaling"></a>Escala
+## <a name="scaling"></a>Dimensionamento
 
 Usando um plano do serviço de aplicativo, você pode escalar horizontalmente manualmente Adicionando mais instâncias de VM. Você também pode habilitar o dimensionamento automático, embora o dimensionamento automático seja mais lento do que a escala elástica do plano Premium. Para saber mais, confira [Dimensionar a contagem de instâncias manual ou automaticamente](../azure-monitor/autoscale/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/manage-scale-up.md). 
 

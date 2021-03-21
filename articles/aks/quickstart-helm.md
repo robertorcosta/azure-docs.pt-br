@@ -7,10 +7,10 @@ ms.topic: article
 ms.date: 03/15/2021
 ms.author: zarhoads
 ms.openlocfilehash: 4f5232920853908aa5ad714313ead201494caa0d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493061"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-helm"></a>Início rápido: desenvolver no serviço de kubernetes do Azure (AKS) com Helm
@@ -59,7 +59,7 @@ A saída será semelhante ao exemplo a seguir. Anote seu valor de *loginServer* 
 }
 ```
 
-## <a name="create-an-aks-cluster"></a>Criar um cluster do AKS
+## <a name="create-an-aks-cluster"></a>Criar um cluster AKS
 
 Seu novo cluster AKS precisa acessar seu ACR para efetuar pull das imagens de contêiner e executá-las. Use o seguinte comando para:
 * Crie um cluster AKS chamado *MyAKS* e anexe *MyHelmACR*.

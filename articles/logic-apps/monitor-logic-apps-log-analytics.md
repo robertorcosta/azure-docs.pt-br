@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 09/24/2020
 ms.openlocfilehash: d1c095be1d0525cc843c04a3b83e14bb4211b175
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721252"
 ---
 # <a name="set-up-azure-monitor-logs-and-collect-diagnostics-data-for-azure-logic-apps"></a>Configurar logs de Azure Monitor e coletar dados de diagnóstico para aplicativos lógicos do Azure
@@ -114,7 +114,7 @@ Ao armazenar informações sobre eventos de tempo de execução e dados em [logs
 
    1. Quando terminar, selecione **Salvar**.
 
-   Por exemplo: 
+   Por exemplo:
 
    ![Selecionar o espaço de trabalho do Log Analytics e os dados para registrar em log](./media/monitor-logic-apps-log-analytics/send-diagnostics-data-log-analytics-workspace.png)
 
@@ -178,7 +178,7 @@ Juntamente com os logs de Azure Monitor, você pode estender como usar os dados 
 * [Arquivar logs de recursos do Azure na conta de armazenamento](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage)
 * [Transmitir logs da plataforma Azure para os hubs de eventos do Azure](../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs)
 
-Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/visualize/powerbi.md). Por exemplo: 
+Depois, obtenha o monitoramento em tempo real usando a telemetria e a análise de outros serviços, como o [Stream Analytics do Azure](../stream-analytics/stream-analytics-introduction.md) e o [Power BI](../azure-monitor/visualize/powerbi.md). Por exemplo:
 
 * [Transmitir dados dos Hubs de Eventos para o Stream Analytics](../stream-analytics/stream-analytics-define-inputs.md)
 * [Analisar dados de streaming com o Stream Analytics e criar um painel de análise em tempo real no Power BI](../stream-analytics/stream-analytics-power-bi-dashboard.md)

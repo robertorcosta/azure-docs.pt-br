@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 03/07/2021
 ms.custom: devx-track-js
 ms.openlocfilehash: 971fb2a3239614a708e14c109e567081f1ec9ff6
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614897"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guia do desenvolvedor de JavaScript do Azure Functions
@@ -509,7 +509,7 @@ A tabela a seguir mostra as versões de Node.js com suporte atuais para cada ver
 |---|---| --- |
 | 3. x (recomendado) | `~14` aconselhável<br/>`~12`<br/>`~10` | `node|14` aconselhável<br/>`node|12`<br/>`node|10` |
 | 2. x  | `~12`<br/>`~10`<br/>`~8` | `node|10`<br/>`node|8`  |
-| 1.x | 6.11.2 (bloqueada pelo runtime) | n/a |
+| 1.x | 6.11.2 (bloqueada pelo runtime) | N/D |
 
 Você pode ver a versão atual que o tempo de execução está usando registrando-se `process.version` em qualquer função.
 
