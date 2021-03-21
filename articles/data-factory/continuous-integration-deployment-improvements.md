@@ -8,10 +8,10 @@ ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 02/02/2021
 ms.openlocfilehash: 496d2b6b3d669013c8174e9bc961d0a2f640bed3
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103462075"
 ---
 # <a name="automated-publishing-for-continuous-integration-and-delivery"></a>Publicação automatizada para integração e entrega contínuas
@@ -78,7 +78,7 @@ Dois comandos estão disponíveis no momento no pacote:
 
 ### <a name="export-arm-template"></a>Exportar modelo ARM
 
-Execute `npm run start export <rootFolder> <factoryId> [outputFolder]` para exportar o modelo ARM usando os recursos de uma determinada pasta. Esse comando também executa uma verificação de validação antes de gerar o modelo ARM. Aqui está um exemplo:
+Execute `npm run start export <rootFolder> <factoryId> [outputFolder]` para exportar o modelo ARM usando os recursos de uma determinada pasta. Esse comando também executa uma verificação de validação antes de gerar o modelo ARM. Veja um exemplo:
 
 ```
 npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
@@ -93,7 +93,7 @@ npm run start export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
  
 ### <a name="validate"></a>Validar
 
-Execute `npm run start validate <rootFolder> <factoryId>` para validar todos os recursos de uma determinada pasta. Aqui está um exemplo:
+Execute `npm run start validate <rootFolder> <factoryId>` para validar todos os recursos de uma determinada pasta. Veja um exemplo:
 
 ```
 npm run start validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory

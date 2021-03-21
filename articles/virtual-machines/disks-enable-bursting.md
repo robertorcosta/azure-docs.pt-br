@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: f5865646200a783e7139bb5e22576ea404f58203
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: 733d441705c7c77f0667f88151e96f76975ee0b2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216642"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596392"
 ---
 # <a name="enable-on-demand-bursting"></a>Habilitar bursting sob demanda
 
@@ -61,7 +61,7 @@ New-AzDiskUpdateConfig -BurstingEnabled $true | Update-AzDisk -ResourceGroupName
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Os cmdlets de intermitência sob demanda estão disponíveis na versão 2.19.0 e mais recentes do [módulo CLI do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Como alternativa, você pode usar o [Azure cloud Shell](https://shell.azure.com/).
+Os cmdlets de intermitência sob demanda estão disponíveis na versão 2.19.0 e mais recentes do [módulo CLI do Azure](/cli/azure/install-azure-cli). Como alternativa, você pode usar o [Azure cloud Shell](https://shell.azure.com/).
 
 ### <a name="create-and-attach-a-on-demand-bursting-data-disk"></a>Criar e anexar um disco de dados de intermitência sob demanda
 

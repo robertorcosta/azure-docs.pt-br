@@ -7,10 +7,10 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/12/2020
 ms.openlocfilehash: b7e9318ee34836f8fbd2ae7a330134d8174e6a60
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031388"
 ---
 # <a name="azure-monitor-metrics-metrics-aggregation-and-display-explained"></a>Azure Monitor a agregação de métricas de métricas e a exibição explicada
@@ -267,7 +267,7 @@ A partir do minuto 6 acima, os tipos de agregação calculados de 1 minuto são:
 
 | Tipo de agregação | Valor        | Observações |
 |------------------|--------------|-------|
-| Somar              | 53 + 20 = 73 | |
+| Soma              | 53 + 20 = 73 | |
 | Contagem            | 2            | Mostra o efeito de nulos.  O valor teria sido 3 se o servidor estivesse online.  |
 | Mínimo          | 20           | |
 | Máximo          | 53           | |

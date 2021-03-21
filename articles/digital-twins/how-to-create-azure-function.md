@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7bb9b6d4a6ca006952d709244e6526345d44431e
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: f1ed4b9beda9848bba8fb12783f49dcf8016d3dd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102630241"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104590612"
 ---
 # <a name="connect-function-apps-in-azure-for-processing-data"></a>Conectar aplicativos de funções no Azure para processamento de dados
 
@@ -48,7 +48,7 @@ Selecione o tipo de aplicativo de função do *gatilho de grade de eventos* e se
 
 :::image type="content" source="media/how-to-create-azure-function/event-grid-trigger-function.png" alt-text="Captura de tela do Visual Studio que mostra a caixa de diálogo para criar um novo aplicativo Azure Functions. A opção de gatilho de grade de eventos está realçada.":::
 
-Depois que seu aplicativo de funções for criado, o Visual Studio gerará um exemplo de código em um arquivo **function1.cs** na pasta do projeto. Essa função curta é usada para registrar eventos.
+Depois que seu aplicativo de funções for criado, o Visual Studio gerará um exemplo de código em um arquivo **function1. cs** na pasta do projeto. Essa função curta é usada para registrar eventos.
 
 :::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Captura de tela do Visual Studio na janela do projeto para o novo projeto que foi criado. Há código para uma função de exemplo chamada function1." lightbox="media/how-to-create-azure-function/visual-studio-sample-code.png":::
 
@@ -63,13 +63,13 @@ Para usar o SDK, você precisará incluir os pacotes a seguir em seu projeto. Vo
 * [System.Net.Http](https://www.nuget.org/packages/System.Net.Http/)
 * [Azure. Core](https://www.nuget.org/packages/Azure.Core/)
 
-Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _function1.cs_ em que você tem um código de exemplo e adicione as seguintes `using` instruções para esses pacotes à sua função.
+Em seguida, no Gerenciador de Soluções do Visual Studio, abra o arquivo _function1. cs_ em que você tem um código de exemplo e adicione as seguintes `using` instruções para esses pacotes à sua função.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/adtIngestFunctionSample.cs" id="Function_dependencies":::
 
 ## <a name="add-authentication-code-to-the-function"></a>Adicionar código de autenticação à função
 
-Agora, você declarará variáveis de nível de classe e adicionará o código de autenticação que permitirá que a função acesse o Azure digital gêmeos. Você adicionará o seguinte à sua função no arquivo _function1.cs_ .
+Agora, você declarará variáveis de nível de classe e adicionará o código de autenticação que permitirá que a função acesse o Azure digital gêmeos. Você adicionará o seguinte à sua função no arquivo _function1. cs_ .
 
 * Código para ler a URL do serviço gêmeos do Azure digital como uma **variável de ambiente**. É uma boa prática ler a URL do serviço de uma variável de ambiente, em vez de codificá-la embutidamente na função. Você definirá o valor dessa variável de ambiente [posteriormente neste artigo](#set-up-security-access-for-the-function-app). Para obter mais informações sobre variáveis de ambiente, consulte [*gerenciar seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal).
 
@@ -118,12 +118,14 @@ Você pode configurar o acesso de segurança para o aplicativo de funções usan
 # <a name="cli"></a>[CLI](#tab/cli)
 
 Você pode executar esses comandos no [Azure cloud Shell](https://shell.azure.com) ou em uma [instalação local do CLI do Azure](/cli/azure/install-azure-cli).
+Você pode usar a identidade gerenciada pelo sistema do aplicativo de funções para dar a ela a função de _**proprietário de dados do gêmeos digital do Azure**_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
 
 ### <a name="assign-access-role"></a>Atribuir função de acesso
 
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
+
 O esqueleto de função dos exemplos anteriores requer que um token de portador seja passado para ele, a fim de ser capaz de autenticar com o gêmeos digital do Azure. Para garantir que esse token de portador seja passado, você precisará configurar as permissões de [identidade de serviço gerenciada (MSI)](../active-directory/managed-identities-azure-resources/overview.md) para que o aplicativo de funções acesse o Azure digital gêmeos. Isso só precisa ser feito uma vez para cada aplicativo de funções.
 
-Você pode usar a identidade gerenciada pelo sistema do aplicativo de funções para dar a ela a função de _**proprietário de dados do gêmeos digital do Azure**_ para sua instância do gêmeos digital do Azure. Isso dará à permissão do aplicativo de funções na instância para executar atividades de plano de dados. Em seguida, torne a URL da instância do Azure digital gêmeos acessível para sua função definindo uma variável de ambiente.
 
 1. Use o comando a seguir para ver os detalhes da identidade gerenciada pelo sistema para a função. Anote o campo _principalId_ na saída.
 
@@ -162,6 +164,8 @@ az functionapp config appsettings set -g <your-resource-group> -n <your-App-Serv
 Conclua as etapas a seguir no [portal do Azure](https://portal.azure.com/).
 
 ### <a name="assign-access-role"></a>Atribuir função de acesso
+
+[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
 
 Uma identidade gerenciada atribuída pelo sistema permite que os recursos do Azure se autentiquem nos serviços de nuvem (por exemplo, Azure Key Vault) sem armazenar credenciais no código. Uma vez habilitada, todas as permissões necessárias podem ser concedidas por meio do controle de acesso baseado em função do Azure. O ciclo de vida desse tipo de identidade gerenciada está vinculado ao ciclo de vida deste recurso. Além disso, cada recurso pode ter apenas uma identidade gerenciada atribuída ao sistema.
 

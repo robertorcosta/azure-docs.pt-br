@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.openlocfilehash: 166fb94f5a3aea505c0d20df861b8bc4de9ad8aa
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491105"
 ---
 # <a name="train-and-deploy-a-custom-speech-model"></a>Treinar e implantar um modelo de Fala Personalizada
@@ -53,7 +53,7 @@ A primeira etapa para treinar um modelo é carregar dados de treinamento. Consul
 >
 > Se você enfrentar o problema descrito no parágrafo acima, poderá diminuir rapidamente o tempo de treinamento reduzindo a quantidade de áudio no conjunto de espaço ou removendo-o completamente e deixando apenas o texto. A última opção é altamente recomendável se sua assinatura de serviço de fala **não** estiver em uma [região com o hardware dedicado](custom-speech-overview.md#set-up-your-azure-account) para treinamento.
 
-7. Após a conclusão do treinamento, você pode fazer testes de precisão no modelo treinado recentemente. Essa etapa é opcional.
+7. Após a conclusão do treinamento, você pode fazer testes de precisão no modelo treinado recentemente. Esta etapa é opcional.
 8. Selecione **criar** para criar seu modelo personalizado.
 
 A tabela de **treinamento** exibe uma nova entrada que corresponde ao novo modelo. A tabela também exibe o status: **processamento**, com **êxito** ou **falha**.

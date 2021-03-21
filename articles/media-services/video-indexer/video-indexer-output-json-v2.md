@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 11/16/2020
 ms.author: juliako
 ms.openlocfilehash: 2ac7c3c2149ce43c860c7726381733ef377de8d3
-ms.sourcegitcommit: 7ec45b7325e36debadb960bae4cf33164176bc24
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100530732"
 ---
 # <a name="examine-the-video-indexer-output"></a>Examinar a saída de Video Indexer
@@ -595,7 +595,7 @@ Nomes de marcas comerciais e de produtos detectados na fala para transcrição d
 |Nome|Descrição
 |---|---|
 |id|A ID do efeito de áudio|
-|tipo|O tipo de efeito de áudio|
+|type|O tipo de efeito de áudio|
 |instances|Uma lista com os intervalos de tempo nos quais esse efeito de áudio apareceu. Cada instância tem um campo de confiança.|
 
 ```json
@@ -711,7 +711,7 @@ Video Indexer identifica emoções com base em indicações de fala e áudio. A 
 |Nome|Descrição|
 |---|---|
 |id|A ID da emoção.|
-|tipo|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
+|type|O momento de emoção que foi identificado com base nas indicações de fala e áudio. A emoção poderia ser: alegria, tristeza, raiva ou medo.|
 |instances|Uma lista de intervalos de tempo nos quais essa emoção apareceu.|
 
 ```json

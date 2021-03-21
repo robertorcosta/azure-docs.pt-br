@@ -6,10 +6,10 @@ author: yossi-y
 ms.author: yossiy
 ms.date: 01/10/2021
 ms.openlocfilehash: 9fdaf42f18c320bf841e710b7066451fca24eaae
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030980"
 ---
 # <a name="azure-monitor-customer-managed-key"></a>Chave do Azure Monitor gerenciada pelo cliente 
@@ -76,7 +76,7 @@ A configuração de chave gerenciada pelo cliente não tem suporte no portal do 
 
 Algumas das etapas de configuração são executadas de forma assíncrona porque não podem ser concluídas rapidamente. O `status` em resposta pode ser um dos seguintes: ' InProgress ', ' atualizando ', ' excluindo ', ' Succeeded ou ' Failed ' com código de erro.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -171,7 +171,7 @@ Atualize keyvaultproperties no cluster com detalhes do identificador de chave.
 
 A operação é assíncrona e pode demorar um pouco para ser concluída.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -292,7 +292,7 @@ Quando você coloca seu próprio armazenamento (BYOS) e o vincula ao seu espaço
 
 Vincular uma conta de armazenamento para *consulta* ao seu espaço de trabalho-- *salvas* as consultas de pesquisas são salvas em sua conta de armazenamento. 
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 
@@ -336,7 +336,7 @@ Após a configuração, qualquer nova consulta de *pesquisa salva* será salva n
 
 Vincular uma conta de armazenamento para *alertas* ao seu espaço de trabalho-as consultas de *alertas de log* são salvas em sua conta de armazenamento. 
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 N/D
 

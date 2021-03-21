@@ -10,10 +10,10 @@ ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurepowershell
 ms.openlocfilehash: f11677d9ebc31f1c1f7cc6332b07b69f8e35ad52
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102561170"
 ---
 # <a name="azure-disk-encryption-sample-scripts-for-linux-vms"></a>Azure Disk Encryption scripts de exemplo para VMs Linux
@@ -55,10 +55,10 @@ A tabela a seguir mostra quais parâmetros podem ser usados no script do PowerSh
 
 |Parâmetro|Descrição|Obrigatório?|
 |------|------|------|
-|$resourceGroupName| Nome do grupo de recursos ao qual o KeyVault pertence.  Um grupo de recursos com esse nome será criado caso ele ainda não exista.| True|
-|$keyVaultName|Nome do KeyVault no qual as chaves de criptografia devem ser colocadas. Um cofre com esse nome será criado caso ele ainda não exista.| True|
-|$location|Local do KeyVault. Verifique se o KeyVault e as VMs a serem criptografadas estão no mesmo local. Obtenha uma lista de locais com `Get-AzLocation`.|True|
-|$subscriptionId|Identificador da assinatura do Azure a ser usada.  Você pode obter sua ID de assinatura com `Get-AzSubscription`.|True|
+|$resourceGroupName| Nome do grupo de recursos ao qual o KeyVault pertence.  Um grupo de recursos com esse nome será criado caso ele ainda não exista.| Verdadeiro|
+|$keyVaultName|Nome do KeyVault no qual as chaves de criptografia devem ser colocadas. Um cofre com esse nome será criado caso ele ainda não exista.| Verdadeiro|
+|$location|Local do KeyVault. Verifique se o KeyVault e as VMs a serem criptografadas estão no mesmo local. Obtenha uma lista de locais com `Get-AzLocation`.|Verdadeiro|
+|$subscriptionId|Identificador da assinatura do Azure a ser usada.  Você pode obter sua ID de assinatura com `Get-AzSubscription`.|Verdadeiro|
 |$aadAppName|Nome do aplicativo do Azure AD que será usado para gravar segredos no KeyVault. Será criado um novo aplicativo com esse nome caso ele não exista. Se esse aplicativo já existir, passe o parâmetro aadClientSecret para o script.|Falso|
 |$aadClientSecret|Segredo do cliente do aplicativo do Azure AD que já foi criado.|Falso|
 |$keyEncryptionKeyName|Nome da chave de criptografia da chave opcional no KeyVault. Uma chave com esse nome será criada caso ela ainda não exista.|Falso|
