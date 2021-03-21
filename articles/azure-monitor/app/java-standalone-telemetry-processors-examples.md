@@ -1,5 +1,5 @@
 ---
-title: Exemplos do processador de telemetria-Azure Monitor Application Insights para Java
+title: Exemplos de processador de telemetria – Application Insights do Azure Monitor para Java
 description: Explore exemplos que mostram os processadores de telemetria no Azure Monitor Application Insights para Java.
 ms.topic: conceptual
 ms.date: 12/29/2020
@@ -7,13 +7,13 @@ author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
 ms.openlocfilehash: 0978bd669855d264ed6dfa5eeddc45ad499aa2a5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734580"
 ---
-# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Exemplos do processador de telemetria-Azure Monitor Application Insights para Java
+# <a name="telemetry-processor-examples---azure-monitor-application-insights-for-java"></a>Exemplos de processador de telemetria – Application Insights do Azure Monitor para Java
 
 Este artigo fornece exemplos de processadores de telemetria no Application Insights para Java. Você encontrará exemplos para incluir e excluir configurações. Você também encontrará exemplos de processadores de atributos e de span.
 ## <a name="include-and-exclude-samples"></a>Incluir e excluir amostras
@@ -327,7 +327,7 @@ O exemplo a seguir mostra como fazer hash de valores de atributo existentes.
 }
 ```
 
-### <a name="extract"></a>Extract
+### <a name="extract"></a>Extração
 
 O exemplo a seguir mostra como usar uma expressão regular (Regex) para criar novos atributos com base no valor de outro atributo.
 Por exemplo, dado `http.url = http://example.com/path?queryParam1=value1,queryParam2=value2` , os seguintes atributos são inseridos:

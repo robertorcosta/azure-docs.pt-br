@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.openlocfilehash: 5446f8481439dabffe67f9b00b5f65b1da495746
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101742646"
 ---
 # <a name="quickstart-set-up-your-environment-for-the-iot-plug-and-play-quickstarts-and-tutorials"></a>Início Rápido: Configurar o ambiente para os inícios rápidos e tutoriais do IoT Plug and Play

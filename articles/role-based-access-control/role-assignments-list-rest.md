@@ -12,10 +12,10 @@ ms.topic: how-to
 ms.date: 02/27/2021
 ms.author: rolyon
 ms.openlocfilehash: 9780902a1c5f4a711e1abffa6b508c28efe269ac
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735873"
 ---
 # <a name="list-azure-role-assignments-using-the-rest-api"></a>Listar atribuições de função do Azure usando a API REST
@@ -40,7 +40,7 @@ No RBAC do Azure, para listar o acesso, você lista as atribuições de função
 1. Dentro do URI, substitua *{scope}* pelo escopo para o qual você deseja listar as funções de atribuição.
 
     > [!div class="mx-tableFixed"]
-    > | Escopo | Tipo |
+    > | Escopo | Type |
     > | --- | --- |
     > | `providers/Microsoft.Management/managementGroups/{groupId1}` | Grupo de gerenciamento |
     > | `subscriptions/{subscriptionId1}` | Subscription |

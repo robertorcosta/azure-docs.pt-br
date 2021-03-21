@@ -1,5 +1,5 @@
 ---
-title: Habilitar integridade de convidado do insights de VM (versão prévia)
+title: Integridade do convidado de habilitação de insights da VM (versão prévia)
 description: Descreve como habilitar a integridade de convidado do Revisions da VM em sua assinatura e como carregar VMs.
 ms.topic: conceptual
 author: bwren
@@ -7,13 +7,13 @@ ms.author: bwren
 ms.date: 11/16/2020
 ms.custom: references_regions
 ms.openlocfilehash: 5d4ff622f69445880c0de8cb74dc1aeee422c89b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052153"
 ---
-# <a name="enable-vm-insights-guest-health-preview"></a>Habilitar integridade de convidado do insights de VM (versão prévia)
+# <a name="enable-vm-insights-guest-health-preview"></a>Integridade do convidado de habilitação de insights da VM (versão prévia)
 A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como habilitar esse recurso em sua assinatura e como habilitar o monitoramento de convidado para cada máquina virtual.
 
 ## <a name="current-limitations"></a>Limitações atuais

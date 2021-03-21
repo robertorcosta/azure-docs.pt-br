@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 5211c1263af599eb5fd09ad276545c725ce5c867
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466977"
 ---
 # <a name="form-recognizer-prebuilt-business-cards-model"></a>Modelo de cartões de visita pré-criados do reconhecedor de formulário 
@@ -31,7 +31,7 @@ A API de cartão de visita predefinida extrai campos de chave de cartões de vis
 
 ### <a name="fields-extracted"></a>Campos extraídos:
 
-|Nome| Tipo | Descrição | Texto | 
+|Nome| Type | Descrição | Texto | 
 |:-----|:----|:----|:----|
 | ContactNames | matriz de objetos | Nome do contato extraído do cartão de visita | [{"FirstName": "John", "LastName": "Doe"}] |
 | FirstName | string | Primeiro (fornecido) nome do contato | "John" | 
@@ -66,7 +66,7 @@ O [cartão de visita de análise](https://westus.dev.cognitive.microsoft.com/doc
 
 A segunda etapa é chamar a operação [obter resultado do cartão de negócios Get Analyze](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeBusinessCardResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de cartão de negócios. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 

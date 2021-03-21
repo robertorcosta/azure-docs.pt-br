@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 01a73e7940f88a3eb6e040f26d255448294cab18
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467778"
 ---
 # <a name="form-recognizer-prebuilt-identification-card-id-model"></a>Modelo do cartão de identificação predefinida (ID) do reconhecedor de formulário
@@ -31,7 +31,7 @@ O serviço de IDs predefinidos extrai os valores de chave de passaportes mundiai
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Descrição | Valor | 
+|Nome| Type | Descrição | Valor | 
 |:-----|:----|:----|:----|
 |  País | country | Código do país em conformidade com o padrão ISO 3166 | NOS | 
 |  DateOfBirth | date | DOB no formato AAAA-MM-DD | "1980-01-01" | 
@@ -41,7 +41,7 @@ O serviço de IDs predefinidos extrai os valores de chave de passaportes mundiai
 |  LastName | string | Sobrenome extraído | "BROOKS" |   
 |  Nacionalidade | country | Código do país em conformidade com o padrão ISO 3166 | NOS |
 |  Sexo | gender | Os valores extraídos possíveis incluem "M", "F" e "X" | "F" | 
-|  MachineReadableZone | objeto | MRZ do Passport extraído incluindo duas linhas de 44 caracteres cada | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<<<<<<<<<<<<<<<<<<<<<<< 6 715816" |
+|  MachineReadableZone | object | MRZ do Passport extraído incluindo duas linhas de 44 caracteres cada | "P<USABROOKS<<JENNIFER<<<<<<<<<<<<<<<<<<<<<<< 3400200135USA8001014F1905054710000307<<<<<<<<<<<<<<<<<<<<<<< 6 715816" |
 |  DocumentType | string | Tipo de documento, por exemplo, Passport, licença do driver | passaporte |  
 |  Endereço | string | Endereço extraído (somente licença do driver) | "RUA 123 ENDEREÇO DE SUA CIDADE WA 99999-1234"|
 |  Região | string | Região extraída, estado, província, etc. (somente licença do driver) | Paulo | 
@@ -96,7 +96,7 @@ Need to update this with updated APIM links when available
 
 A segunda etapa é chamar a operação [**Get Analyze IdDocument Result**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeFormResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de ID. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |
@@ -249,7 +249,7 @@ Consulte o exemplo a seguir de uma resposta JSON bem-sucedida: o `readResults` n
 - Experimente suas próprias IDs e exemplos na [interface do usuário de exemplo do reconhecedor de formulário](https://fott-preview.azurewebsites.net/).
 - Conclua um [início rápido do reconhecedor de formulário](quickstarts/client-library.md) para começar a escrever um aplicativo de processamento de ID com o reconhecedor de formulário na linguagem de desenvolvimento de sua escolha.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 * [**O que é o Reconhecimento de Formulários?**](./overview.md)
 * [**Documentos de referência da API REST**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/AnalyzeWithCustomForm)

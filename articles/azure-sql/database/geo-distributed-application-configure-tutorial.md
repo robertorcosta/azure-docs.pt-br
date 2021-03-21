@@ -12,10 +12,10 @@ ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
 ms.openlocfilehash: 89d285a56553f5c521d1edbc92786debd4a92e32
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101659283"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Tutorial: implementar um banco de dados distribuído geograficamente (banco de dados SQL do Azure)
@@ -40,7 +40,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
 
 Para concluir o tutorial, verifique se você instalou os seguintes itens:
 
-- [PowerShell do Azure](/powershell/azure/)
+- [Azure PowerShell](/powershell/azure/)
 - Um banco de dados individual no banco de dados SQL do Azure. Para criar um, use
   - [O portal do Azure](single-database-create-quickstart.md)
   - [A CLI do Azure](az-cli-script-samples-content-guide.md)

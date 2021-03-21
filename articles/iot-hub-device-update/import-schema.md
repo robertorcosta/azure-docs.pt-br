@@ -7,10 +7,10 @@ ms.date: 2/25/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 13044b8f087b403f83516a32a490d2dee8db700f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054448"
 ---
 # <a name="importing-updates-into-device-update-for-iot-hub---schema-and-other-information"></a>Importando atualizações na atualização do dispositivo para o Hub IoT-esquema e outras informações
@@ -18,7 +18,7 @@ Se você quiser importar uma atualização para a atualização de dispositivo p
 
 ## <a name="import-manifest-schema"></a>Importar esquema de manifesto
 
-| Nome | Tipo | Descrição | Restrições |
+| Nome | Type | Descrição | Restrições |
 | --------- | --------- | --------- | --------- |
 | UpdateID | Objeto `UpdateId` | Atualizar identidade. |
 | UpdateType | string | Tipo de atualização: <br/><br/> * Especifique `microsoft/apt:1` ao executar uma atualização baseada em pacote usando o agente de referência.<br/> * Especifique `microsoft/swupdate:1` ao executar uma atualização baseada em imagem usando o agente de referência.<br/> * Especifique `microsoft/simulator:1` ao usar o simulador de agente de exemplo.<br/> * Especifique um tipo personalizado se estiver desenvolvendo um agente personalizado. | Formato: <br/> `{provider}/{type}:{typeVersion}`<br/><br/> Máximo de 32 caracteres no total |
@@ -30,7 +30,7 @@ Se você quiser importar uma atualização para a atualização de dispositivo p
 
 ## <a name="updateid-object"></a>Objeto UpdateId
 
-| Nome | Tipo | Descrição | Restrições |
+| Nome | Type | Descrição | Restrições |
 | --------- | --------- | --------- | --------- |
 | Provedor | string | Parte do provedor da identidade da atualização. | 1-64 caracteres, alfanuméricos, pontos e traço. |
 | Nome | cadeia de caracteres | Nome parte da identidade da atualização. | 1-64 caracteres, alfanuméricos, pontos e traço. |
@@ -38,7 +38,7 @@ Se você quiser importar uma atualização para a atualização de dispositivo p
 
 ## <a name="file-object"></a>Objeto de arquivo
 
-| Nome | Tipo | Descrição | Restrições |
+| Nome | Type | Descrição | Restrições |
 | --------- | --------- | --------- | --------- |
 | Nome de arquivo | string | Nome do arquivo | Deve ser exclusivo em uma atualização |
 | SizeInBytes | Int64 | Tamanho do arquivo em bytes. | Máximo de 800 MB por arquivo individual ou 800 MB coletivamente por atualização |
@@ -46,14 +46,14 @@ Se você quiser importar uma atualização para a atualização de dispositivo p
 
 ## <a name="compatibilityinfo-object"></a>Objeto CompatibilityInfo
 
-| Nome | Tipo | Descrição | Restrições |
+| Nome | Type | Descrição | Restrições |
 | --- | --- | --- | --- |
 | DeviceManufacturer | string | Fabricante do dispositivo ao qual a atualização é compatível. | 1-64 caracteres, alfanuméricos, pontos e traço. |
 | DeviceModel | string | Modelo do dispositivo ao qual a atualização é compatível. | 1-64 caracteres, alfanuméricos, pontos e traço. |
 
 ## <a name="hashes-object"></a>Objeto hashes
 
-| Name | Obrigatório | Type | Descrição |
+| Nome | Obrigatório | Type | Descrição |
 | --------- | --------- | --------- | --------- |
 | Sha256 | True | string | Hash codificado na base64 do arquivo usando o algoritmo SHA-256. |
 

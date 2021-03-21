@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 81e8cd5cf4af8da76ae4eb09bed5a4ee0368da4b
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467350"
 ---
 # <a name="form-recognizer-prebuilt-receipt-model"></a>Modelo de recebimento predefinido do reconhecedor de formulário
@@ -36,7 +36,7 @@ O serviço de recebimento predefinido extrai o conteúdo de recibos de vendas &m
 
 ### <a name="fields-extracted"></a>Campos extraídos
 
-|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Type | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Recibotype | string | Tipo de recibo de vendas | Detalhadas |  |
 | Comerciantename | string | Nome do comerciante que está emitindo o recebimento | Contoso |  |
@@ -100,7 +100,7 @@ A [confirmação de análise](https://westcentralus.dev.cognitive.microsoft.com/
 
 A segunda etapa é chamar a operação [obter resultado de recebimento de análise](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeReceiptResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de confirmação de análise. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação não foi iniciada. |
 | |  | em execução: a operação de análise está em andamento. |

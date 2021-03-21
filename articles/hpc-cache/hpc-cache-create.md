@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: v-erkel
 ms.openlocfilehash: 50fdab1fa8def1b4e3b9a9d59d3b2593e5526c65
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472031"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Criar um Azure HPC Cache
@@ -189,7 +189,7 @@ A mensagem inclui algumas informações úteis, incluindo estes itens:
 * Endereços de montagem do cliente-use esses endereços IP quando estiver pronto para conectar clientes ao cache. Leia [montar o cache HPC do Azure](hpc-cache-mount.md) para saber mais.
 * Status da atualização-quando uma atualização de software for liberada, essa mensagem será alterada. Você pode [atualizar o software de cache](hpc-cache-manage.md#upgrade-cache-software) manualmente em um momento conveniente ou ele será aplicado automaticamente após vários dias.
 
-## <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+## <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 > [!CAUTION]
 > O módulo AZ. HPCCache do PowerShell está atualmente em visualização pública. A versão prévia é fornecida sem um contrato de nível de serviço. Ela não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter recursos restritos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).

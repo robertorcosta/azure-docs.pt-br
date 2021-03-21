@@ -7,10 +7,10 @@ ms.date: 02/25/2021
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: bfee320c7a8b4cbe8439c376350d1234b393bfb5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051201"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
@@ -46,7 +46,7 @@ Devido a diferenças subjacentes nas APIs, o **OneDrive for Business** não tem 
 
 ## <a name="synchronize-content"></a>Sincronizar o conteúdo
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Na [portal do Azure](https://portal.azure.com), navegue até a página de gerenciamento do aplicativo do serviço de aplicativo.
 
@@ -64,7 +64,7 @@ Inicie uma sincronização executando o seguinte comando e substituindo \<group-
 az webapp deployment source sync –-resource-group <group-name> –-name <app-name>
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Inicie uma sincronização executando o seguinte comando e substituindo \<group-name> e \<app-name> :
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 673e2260f358332de00a15b29729f14d62fe82a4
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aa91851787bbb0f5570a4f439f794ee352bf0625
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102518000"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579681"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Tutorial: Criar um locatário do Azure Active Directory B2C
 
@@ -24,7 +24,7 @@ Antes que os aplicativos possam interagir com o Azure Active Directory B2C (Azur
 > [!NOTE]
 > Você pode criar até 20 locatários por assinatura. Esse limite ajuda a proteger contra ameaças aos seus recursos, como ataques de negação de serviço, e é imposto tanto no portal do Azure quanto na API de criação de locatários subjacente. Se precisar criar mais de 20 locatários, entre em contato com o [Suporte da Microsoft](support-options.md).
 > 
-> Caso queira reutilizar um nome de locatário que você tentou excluir anteriormente, porém receba a mensagem de erro "Em uso por outro diretório" ao inserir o nome de domínio, será preciso [seguir estas etapas primeiro para excluir completamente o locatário](https://docs.microsoft.com/azure/active-directory-b2c/faq?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). É necessário obter pelo menos uma função de Administrador da Assinatura. Depois de excluir o locatário, talvez seja preciso sair e entrar novamente antes de reutilizar o nome de domínio.
+> Caso queira reutilizar um nome de locatário que você tentou excluir anteriormente, porém receba a mensagem de erro "Em uso por outro diretório" ao inserir o nome de domínio, será preciso [seguir estas etapas primeiro para excluir completamente o locatário](./faq.md?tabs=app-reg-ga#how-do-i-delete-my-azure-ad-b2c-tenant). É necessário obter pelo menos uma função de Administrador da Assinatura. Depois de excluir o locatário, talvez seja preciso sair e entrar novamente antes de reutilizar o nome de domínio.
 
 Neste artigo, você aprenderá como:
 

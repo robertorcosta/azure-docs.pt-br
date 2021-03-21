@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: memildin
 ms.openlocfilehash: 5824457a9f2ce411a871b5e76802ecf2e2f106c3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102099498"
 ---
 # <a name="security-alerts-and-incidents-in-azure-security-center"></a>Alertas de segurança e incidentes na central de segurança do Azure
 
 A central de segurança gera alertas para recursos implantados em seus ambientes de nuvem do Azure, locais e híbridos.
 
-Os alertas de segurança são disparados por detecções avançadas e estão disponíveis somente com o Azure defender. Você pode atualizar da página de **configurações de & de preços** , conforme descrito em [início rápido: habilitar o Azure defender](enable-azure-defender.md). Há uma avaliação gratuita de 30 dias disponível. Para obter detalhes de preços na sua moeda de escolha e de acordo com sua região, consulte [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
+Os alertas de segurança são ativados por detecções avançadas e estão disponíveis apenas no Azure Defender. Você pode atualizar da página **Preço e configurações**, conforme descrito em [Início Rápido: habilitar Azure Defender](enable-azure-defender.md). Há uma avaliação gratuita de 30 dias disponível. Para obter detalhes de preço na sua moeda preferencial e de acordo com a sua região, confira [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="what-are-security-alerts-and-security-incidents"></a>O que são alertas de segurança e incidentes de segurança? 
 
@@ -30,7 +30,7 @@ Usando incidentes, a Central de Segurança fornece uma única exibição de uma 
 
 ## <a name="respond-to-todays-threats"></a>Responder às ameaças atuais
 
-Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, pois podem ser financiados por Estados da nação ou crimes organizados.
+Houve alterações significativas no panorama de ameaças nos últimos 20 anos. Antigamente, as empresas normalmente só precisavam preocupar-se com a desfiguração do site por invasores individuais, que basicamente tinham interesse em ver “o que poderiam fazer”. Os hackers de hoje em dia são muito mais sofisticados e organizados. Eles geralmente têm objetivos estratégicos e financeiros específicos. Eles também têm mais recursos disponíveis, já que podem ser financiados por nações ou pelo crime organizado.
 
 As mudanças nessa realidade levaram a um nível de profissionalismo nas classificações do invasor sem precedentes. Eles não estão mais interessados em desfiguração da Web. Agora, eles estão interessados em roubo de informações, de contas financeiras e de dados privados, que podem usar para gerar dinheiro no mercado aberto ou para se aproveitar de um negócio específico, para fins políticos ou militares. Ainda mais preocupante que esses invasores com um objetivo financeiro, são os invasores que violam as redes prejudicar a infraestrutura e pessoas.
 
@@ -52,7 +52,7 @@ Esses esforços combinados culminam em detecções novas e aprimoradas de que vo
 
 ## <a name="how-does-security-center-detect-threats"></a>Como a Central de Segurança detecta ameaças? <a name="detect-threats"> </a>
 
-Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Devido à nossa presença global na nuvem e no local, temos acesso a um conjunto extenso de telemetria. A coleção de grandes e diversificações de conjuntos de clientes nos permite descobrir novos padrões de ataque e tendências em nossos produtos de negócios e empresas locais, bem como nossa serviços online. Como resultado, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
+Os pesquisadores de segurança da Microsoft estão constantemente à procura de ameaças. Devido à nossa presença global na nuvem e localmente, temos acesso a um conjunto expansivo de telemetria. A coleção de grandes e diversificações de conjuntos de clientes nos permite descobrir novos padrões de ataque e tendências em nossos produtos de negócios e empresas locais, bem como nossa serviços online. Como resultado, a Central de Segurança pode atualizar rapidamente seus algoritmos de detecção conforme os invasores lançam explorações novas e cada vez mais sofisticadas. Isso ajuda a acompanhar o ritmo de um ambiente de ameaças que muda rapidamente.
 
 A fim de detectar ameaças e reduzir os falsos positivos, a Central de Segurança coleta, analisa e integra os dados de registro dos recursos do Azure e da rede. Ele também funciona com soluções de parceiros conectadas, como firewall e soluções de proteção de ponto de extremidade. A Central de Segurança analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças.
 
@@ -60,7 +60,7 @@ A fim de detectar ameaças e reduzir os falsos positivos, a Central de Seguranç
 
 A Central de Segurança emprega análise de segurança avançada, que vai além das abordagens baseadas em assinatura. Inovações em tecnologias de big data e [aprendizado de máquina](https://azure.microsoft.com/blog/machine-learning-in-azure-security-center/) são usadas para aproveitar os eventos de avaliação em toda a malha de nuvem, detectando ameaças que seriam impossíveis de identificar usando abordagens manuais e prevendo a evolução de ataques. Essas análises de segurança incluem:
 
-- **Inteligência integrada contra ameaças**: A Microsoft tem uma grande quantidade de inteligência contra ameaças globais. A telemetria flui de várias fontes, como Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, unidade de crimes digitais da Microsoft (DCU) e Microsoft Security Response Center (MSRC). Os pesquisadores também recebem informações de inteligência de ameaça que são compartilhadas entre os principais provedores de serviços de nuvem e feeds de terceiros. A Central de Segurança do Azure pode usar essas informações para alertá-lo de ameaças vindas de maus atores conhecidos.
+- **Inteligência integrada contra ameaças**: A Microsoft tem uma grande quantidade de inteligência contra ameaças globais. A telemetria flui de várias fontes, como o Azure, o Microsoft 365, o Microsoft CRM online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a DCU (Unidade de Crimes Digitais da Microsoft) e o Microsoft Security Response Center (MSRC). Os pesquisadores também recebem informações de inteligência de ameaça que são compartilhadas entre os principais provedores de serviços de nuvem e feeds de terceiros. A Central de Segurança do Azure pode usar essas informações para alertá-lo de ameaças vindas de maus atores conhecidos.
 
 - **Análise comportamental**: A análise de comportamento é uma técnica que analisa e compara dados em uma coleção de padrões conhecidos. No entanto, esses padrões não são assinaturas simples. Eles são determinados por meio de algoritmos de aprendizado de máquina complexos que são aplicados a grandes conjuntos de dados. Eles também são determinados pela análise cuidadosa de comportamentos mal-intencionados por analistas especialistas. A Central de Segurança do Azure pode usar a análise de comportamento para identificar recursos comprometidos baseado na análise dos logs de máquina virtual, dos logs de dispositivo de rede virtual, dos logs da malha e de outras fontes.
 
@@ -78,7 +78,7 @@ A Central de Segurança atribui uma severidade aos alertas, para ajudá-lo a pri
 | **Alta**          | Há uma grande probabilidade de que o recurso seja comprometido. Você deve analisá-lo imediatamente. A Central de Segurança tem alta confiança em ambas as más intenções e em descobertas usadas para emitir o alerta. Por exemplo, um alerta que detecta a execução de uma ferramenta mal-intencionada conhecida como Mimikatz, uma ferramenta comum usada para roubo de credenciais.                                                                                                               |
 | **Média**        | Isso provavelmente é uma atividade suspeita que pode indicar que um recurso está comprometido. A confiança da Central de Segurança na análise ou localização é média e a confiança de más intenções é média a alta. Normalmente, essas seriam machine learning ou detecções baseadas em anomalia. Por exemplo, uma tentativa de conexão de um local anômalo.                                                                                                                |
 | **Baixa**           | Isso pode ser um positivo benigno ou um ataque bloqueado. A central de segurança não tem confiança suficiente de que a intenção é mal-intencionada e a atividade pode ser inocente. Por exemplo, o log Clear é uma ação que pode acontecer quando um invasor tenta ocultar suas faixas, mas em muitos casos é uma operação de rotina executada pelos administradores. A Central de Segurança geralmente não informa quando ataques foram bloqueados, a menos que seja um caso interessante que sugerimos que você examine. |
-| **Informativa** | Você só verá alertas informativos ao fazer busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente normalmente é composto por vários alertas, alguns dos quais podem aparecer por conta própria para serem apenas informativos, mas no contexto dos outros alertas podem ser mais valiosos.                                                                                                                         |  |
+| **Informativo** | Você só verá alertas informativos ao fazer busca detalhada em um incidente de segurança ou se você usar a API REST com uma determinada ID de alerta. Um incidente geralmente é composto de um número de alertas, alguns dos quais podem aparecer por conta própria e são apenas informativo, mas no contexto de outros alertas podem ser dignos de uma análise mais detalhada.                                                                                                                         |  |
 |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 ## <a name="export-alerts"></a>Exportar alertas

@@ -12,10 +12,10 @@ ms.author: mlandzic
 ms.reviewer: ''
 ms.date: 10/12/2020
 ms.openlocfilehash: b4ba5f50f5c66b404ec76128a828a1060328f81c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101690984"
 ---
 # <a name="time-zones-in-azure-sql-managed-instance"></a>Fusos horários no Azure SQL Instância Gerenciada
@@ -241,7 +241,7 @@ Usar o mesmo fuso horário em uma instância primária e secundária em um grupo
 | Hora oficial de Samoa | (UTC + 13:00) Samoa |
 | Hora oficial das ilhas de linha | (UTC + 14:00) Ilha Kiritimati |
 
-## <a name="see-also"></a>Confira também 
+## <a name="see-also"></a>Veja também 
 
 - [CURRENT_TIMEZONE (Transact-SQL)](/sql/t-sql/functions/current-timezone-transact-sql)
 - [CURRENT_TIMEZONE_ID (Transact-SQL)](/sql/t-sql/functions/current-timezone-id-transact-sql)

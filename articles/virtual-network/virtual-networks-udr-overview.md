@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: aldomel
 ms.openlocfilehash: 512694d75bace40f33e346d28289f62e2adb04b8
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98221003"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
@@ -32,7 +32,7 @@ O Azure cria rotas de sistema automaticamente e as atribui a cada sub-rede em um
 
 Cada rota contém um prefixo de endereço e o tipo do próximo salto. Quando um tráfego saindo de uma sub-rede é enviado a um endereço IP dentro do prefixo de endereço de uma rota, a rota que contém o prefixo é a que o Azure usa. Saiba mais sobre [como o Azure seleciona uma rota](#how-azure-selects-a-route) quando várias rotas contêm os mesmos prefixos ou prefixos sobrepostos. Sempre que uma rede virtual é criada, o Azure cria automaticamente as rotas de sistema padrão a seguir para cada sub-rede na rede virtual:
 
-|Fonte |Prefixos do endereço                                        |Tipo do próximo salto  |
+|Fonte |Prefixos de endereço                                        |Tipo do próximo salto  |
 |-------|---------                                               |---------      |
 |Padrão|Exclusivo para a rede virtual                           |Rede virtual|
 |Padrão|0.0.0.0/0                                               |Internet       |
@@ -55,7 +55,7 @@ Os tipos do próximo salto listados na tabela anterior representam como o Azure 
 
 O Azure adiciona outras rotas de sistema padrão para diferentes recursos do Azure, mas somente se você habilitar os recursos. Dependendo do recurso, o Azure adiciona rotas padrão opcionais para sub-redes específicas na rede virtual ou para todas as sub-redes em uma rede virtual. As rotas de sistema adicionais e os tipos do próximo salto que o Azure pode adicionar quando você habilita recursos diferentes são:
 
-|Fonte                 |Prefixos do endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
+|Fonte                 |Prefixos de endereço                       |Tipo do próximo salto|A sub-rede na rede virtual que roteia é adicionada a|
 |-----                  |----                                   |---------                    |--------|
 |Padrão                |Exclusivo para a rede virtual, por exemplo: 10.1.0.0/16|Emparelhamento VNet                 |Todos|
 |Gateway de rede virtual|Prefixos anunciados do local via BGP ou configurada no gateway de rede local     |Gateway de rede virtual      |Todos|
@@ -137,7 +137,7 @@ Se várias rotas contêm o mesmo prefixo de endereço, o Azure seleciona o tipo 
 Por exemplo, uma tabela de rotas contém as seguintes rotas:
 
 
-|Fonte   |Prefixos do endereço  |Tipo do próximo salto           |
+|Fonte   |Prefixos de endereço  |Tipo do próximo salto           |
 |---------|---------         |-------                 |
 |Padrão  | 0.0.0.0/0        |Internet                |
 |Usuário     | 0.0.0.0/0        |Gateway de rede virtual |

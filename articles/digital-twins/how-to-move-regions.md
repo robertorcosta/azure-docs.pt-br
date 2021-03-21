@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
 ms.openlocfilehash: e268cca87479625af023b5970bb27c56721f6d39
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049841"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Mover uma instância do gêmeos digital do Azure para uma região diferente do Azure
@@ -45,7 +45,7 @@ Aqui estão algumas perguntas a serem feitas:
 * Onde a minha instância *se conecta a outros serviços do Azure*? Alguns pontos de integração comuns incluem:
 
     - Grade de eventos do Azure, hubs de eventos do Azure ou barramento de serviço do Azure
-    - Funções do Azure
+    - Azure Functions
     - Aplicativos Lógicos do Azure
     - Azure Time Series Insights
     - Mapas do Azure
@@ -91,7 +91,7 @@ Em seguida, configure e configure as permissões para o Gerenciador de gêmeos d
 
 Agora você deve ter o aplicativo de exemplo do Azure digital gêmeos Explorer em execução em um navegador em seu computador. O exemplo deve ser conectado à instância original do Azure digital gêmeos.
 
-:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost: 3000. O aplicativo é chamado de Gerenciador de gêmeos digital do Azure e contém caixas para Gerenciador de consultas, exibição de modelo, exibição de gráfico e Gerenciador de propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/explorer-blank.png":::
+:::image type="content" source="media/how-to-move-regions/explorer-blank.png" alt-text="Janela do navegador mostrando um aplicativo em execução no localhost:3000. O aplicativo é chamado de Azure Digital Twins Explorer e contém caixas para um Gerenciador de Consultas, uma Exibição de Modelo, uma Exibição de Grafo e um Gerenciador de Propriedades. Ainda não há dados na tela." lightbox="media/how-to-move-regions/explorer-blank.png":::
 
 Para verificar a conexão, selecione o botão **Executar consulta** para executar a consulta padrão que exibe todas as gêmeos e relações no grafo na caixa **Explorador do Graph** .
 
@@ -157,7 +157,7 @@ Para carregar seus modelos, gêmeos e grafo, selecione o ícone **importar grafo
 
 Na caixa seletor de arquivo, vá para o grafo baixado. Selecione o arquivo Graph **. JSON** e selecione **abrir**.
 
-Após alguns segundos, o Azure digital gêmeos Explorer abre um modo de exibição de **importação** que mostra uma visualização do grafo a ser carregado.
+Após alguns segundos, o Azure Digital Twins Explorer abre uma exibição **Importar** que mostra uma visualização do grafo que será carregado.
 
 Para confirmar o upload do grafo, selecione o ícone **Salvar** no canto superior direito da **EXIBIÇÃO DE GRAFO**.
 
