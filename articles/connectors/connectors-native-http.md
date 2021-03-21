@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 tags: connectors
 ms.openlocfilehash: dab5b755347e46d8d509e8014bba8f496ca9c900
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719433"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chamar pontos de extremidade de serviço via HTTP ou HTTPS de Aplicativos Lógicos do Azure
@@ -104,11 +104,11 @@ Essa ação interna faz uma chamada HTTP para a URL especificada para um ponto d
 
 Aqui estão mais informações sobre as saídas de um gatilho ou ação HTTP, que retorna essas informações:
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |----------|------|-------------|
 | `headers` | Objeto JSON | Os cabeçalhos da solicitação |
 | `body` | Objeto JSON | O objeto com o conteúdo do corpo da solicitação |
-| `status code` | Integer | O código de status da solicitação |
+| `status code` | Inteiro | O código de status da solicitação |
 |||
 
 | Código de status | Descrição |

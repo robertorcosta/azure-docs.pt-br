@@ -10,10 +10,10 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.openlocfilehash: 234c3358b98b7af677793fba58c1602a8bd976f0
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101102811"
 ---
 ## <a name="grant-role-based-access-for-users-to-azure-maps"></a>Conceder acesso baseado em função para usuários do Azure Maps
@@ -29,7 +29,7 @@ Leia mais sobre o [Azure ad](../../active-directory/fundamentals/index.yml) para
 
     ![Conceder acesso usando o RBAC do Azure](../media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. Selecione a entidade de segurança por nome. Depois, selecione **Salvar**.
+2. Na guia **atribuições de função** , em **função**, selecione uma definição de função interna do Azure Maps, como **leitor de dados do Azure Maps** ou colaborador de **dados do Azure Maps**. Em **Atribuir acesso a**, selecione **Usuário, grupo ou entidade de serviço do Azure AD**. Selecione a entidade de segurança por nome. Em seguida, selecione **Salvar**.
 
    * Consulte os detalhes em [atribuir funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 

@@ -8,15 +8,16 @@ manager: daveba
 ms.date: 11/15/2020
 ms.topic: how-to
 ms.service: active-directory
+ms.subservice: enterprise-users
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 874d434e545555013812714df4d1bd23de9c8543
-ms.sourcegitcommit: b8eba4e733ace4eb6d33cc2c59456f550218b234
+ms.openlocfilehash: 83b905faa892cc338b5bdf4f998ad95f7b8a484e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95488939"
 ---
 # <a name="bulk-remove-group-members-in-azure-active-directory"></a>Remover membros do grupo em massa no Azure Active Directory
@@ -34,7 +35,7 @@ Baixe e preencha o modelo CSV de carregamento em massa para ajudar a adicionar c
 As linhas em um modelo CSV baixado são as seguintes:
 
 - **Número de versão**: A primeira linha que contém o número de versão deve ser incluída no CSV de carregamento.
-- **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName] &lt;*Obrigatório ou em branco*&gt;. Por exemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações. Para alterações de associação de grupo, você tem a opção de qual identificador usar: ID de objeto de membro ou nome UPN.
+- **Cabeçalhos de coluna**: O formato dos cabeçalhos de coluna é &lt;*Nome do item*&gt; [PropertyName]&lt;*Obrigatório ou em branco*&gt;. Por exemplo, `Member object ID or user principal name [memberObjectIdOrUpn] Required`. Algumas versões mais antigas do modelo podem ter pequenas variações. Para alterações de associação de grupo, você tem a opção de qual identificador usar: ID de objeto de membro ou nome UPN.
 - **Linha de exemplos**: incluímos no modelo uma linha de exemplos de valores aceitáveis para cada coluna. Você deve remover a linha de exemplos e substituí-la por suas entradas.
 
 ### <a name="additional-guidance"></a>Diretriz adicional

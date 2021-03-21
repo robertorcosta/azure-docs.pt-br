@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
 ms.openlocfilehash: 843e11e7f2df404a6bf1866da7b383ee9d1097de
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574794"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
@@ -63,7 +63,7 @@ Para definir o fuso horário do servidor para o meu aplicativo web:
 2. Em **Configurações do aplicativo**, adicionar essa configuração:
     * Chave = WEBSITE_TIME_ZONE
     * Valor = *o fuso horário que você deseja*
-3. Selecione **Salvar**.
+3. Clique em **Salvar**.
 
 Para os serviços de aplicativos que são executados no Windows, consulte a saída do `tzutil /L` comando do Windows. Use o valor da segunda linha de cada entrada. Por exemplo: "hora padrão de Tonga". Alguns desses valores também estão listados na coluna **timezone** em [fusos horários padrão](/windows-hardware/manufacture/desktop/default-time-zones).
 

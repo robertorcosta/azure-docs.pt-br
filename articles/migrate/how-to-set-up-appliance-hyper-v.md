@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 3a7486ce94b335f835a88b7f357c9c719f86d667
-ms.sourcegitcommit: e7152996ee917505c7aba707d214b2b520348302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97704751"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Configurar um dispositivo para VMs do Hyper-V
@@ -116,16 +116,16 @@ Configure o dispositivo pela primeira vez.
 ### <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
 1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, acesse **Avaliação do Servidor> Descobrir> Gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração da chave e copie a chave correspondente.
-1. Você precisará de um código de dispositivo para autenticar com o Azure. Clicar em **logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
+1. Será necessário um código do dispositivo para a autenticação com o Azure. Clicar em **Logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
 
-    ![Modal mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
+    ![Janela restrita mostrando o código do dispositivo](./media/tutorial-discover-vmware/device-code.png)
 
-1. Clique em **copiar código & logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se não aparecer, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na guia novo, Cole o código do dispositivo e entre usando seu nome de usuário e senha do Azure.
+1. Clique em **Copiar código e Fazer logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
+1. Na nova guia, cole o código do dispositivo e entre usando seu nome de usuário e sua senha do Azure.
    
    Não há suporte para a entrada com um PIN.
-3. Caso você feche a guia de logon acidentalmente sem fazer logon, você precisa atualizar a guia navegador do Gerenciador de configuração de dispositivo para habilitar o botão de logon novamente.
-1. Depois de fazer logon com êxito, volte para a guia anterior com o Gerenciador de configuração de dispositivo.
+3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.
+1. Depois de fazer logon com êxito, volte para a guia anterior usando o gerenciador de configuração do dispositivo.
 4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
 

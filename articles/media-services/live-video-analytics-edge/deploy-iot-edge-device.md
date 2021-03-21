@@ -4,10 +4,10 @@ description: Este artigo lista as etapas que ajudarão você a implantar a anál
 ms.topic: how-to
 ms.date: 09/09/2020
 ms.openlocfilehash: 01b98c7a1f4073adcd8dea7cbfbfc57abc3787c1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718923"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Implantar a análise de vídeo ao vivo em um dispositivo IoT Edge
@@ -24,7 +24,7 @@ Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo
 * Assinatura do Azure para a qual você tem [privilégios de proprietário](../../role-based-access-control/built-in-roles.md#owner)
 * [Criar e configurar o Hub IoT](../../iot-hub/iot-hub-create-through-portal.md)
 * [Registrar IoT Edge dispositivo](../../iot-edge/how-to-register-device.md)
-* [Instalar o tempo de execução de Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md)
+* [Instalar o runtime do Azure IoT Edge em sistemas Linux baseados em Debian](../../iot-edge/how-to-install-iot-edge.md)
 * [Criar uma conta dos serviços de mídia do Azure](../latest/create-account-howto.md)
 
     * Use uma destas regiões: leste dos EUA 2, leste dos EUA, EUA Central, norte EUA Central, leste do Japão, oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste do Canadá, Sul do Reino Unido, França central, sul da França, Norte da Suíça, Oeste da Suíça e oeste do Japão.

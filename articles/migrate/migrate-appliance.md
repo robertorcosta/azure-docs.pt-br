@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 05/04/2020
 ms.openlocfilehash: 08cd0e9d33dd88b9bdc418f3d1bbd382b2d80632
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038757"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
@@ -44,7 +44,7 @@ O dispositivo pode ser implantado usando alguns métodos:
 A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure para o VMware.
 
 > [!Note]
-> A descoberta e a avaliação de instâncias de SQL Server e bancos de dados em execução em seu ambiente VMware agora estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália** . Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no Portal.
+> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 **Requisito** | **VMware** 
 --- | ---
@@ -217,7 +217,7 @@ Aqui estão os dados de aplicativos que o dispositivo coleta de cada Windows Ser
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
 
 #### <a name="windows-server-features-data"></a>Dados de recursos do Windows Server
 
@@ -225,7 +225,7 @@ Aqui estão os dados de recursos que o dispositivo coleta de cada Windows Server
 
 **Dados**  | **Cmdlet do PowerShell** | **Propriedade**
 --- | --- | ---
-Name  | Get-WindowsFeature  | Name
+Nome  | Get-WindowsFeature  | Nome
 Tipo de recurso | Get-WindowsFeature  | Recurso de funcionalidade
 Pai  | Get-WindowsFeature  | Pai
 
@@ -235,7 +235,7 @@ Aqui estão os dados de SQL Server que o dispositivo coleta de cada Windows Serv
 
 **Dados**  | **Local do Registro**  | **Chave**
 --- | --- | ---
-Name  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
+Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
 Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 
 Service Pack  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | SP
 Versão  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Versão 
@@ -246,7 +246,7 @@ Aqui estão os dados do sistema operacional que o dispositivo coleta de cada Win
 
 **Dados**  | **Classe WMI**  | **Propriedade de classe WMI**
 --- | --- | ---
-Name  | Win32_operatingsystem  | Legenda
+Nome  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OSArchitecture
 
@@ -256,7 +256,7 @@ Aqui estão os dados de aplicativos que o dispositivo coleta de cada servidor Li
 
 **Dados**  | **Comandos**
 --- | --- 
-Name | rpm, dpkg-Query, snap
+Nome | rpm, dpkg-Query, snap
 Versão | rpm, dpkg-Query, snap
 Provedor | rpm, dpkg-Query, snap
 
@@ -266,7 +266,7 @@ Aqui estão os dados do sistema operacional que o dispositivo coleta de cada ser
 
 **Dados**  | **Comandos**
 --- | --- 
-Name <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+Nome <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
 Arquitetura | uname
 
 ### <a name="sql-server-instances-and-databases-data"></a>SQL Server de instâncias e dados de bancos de dados
@@ -274,7 +274,7 @@ Arquitetura | uname
 O dispositivo coleta dados em SQL Server instâncias e bancos de dado.
 
 > [!Note]
-> A descoberta e a avaliação de instâncias de SQL Server e bancos de dados em execução em seu ambiente VMware agora estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália** . Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no Portal.
+> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 #### <a name="sql-database-metadata"></a>Metadados do banco de dados SQL
 

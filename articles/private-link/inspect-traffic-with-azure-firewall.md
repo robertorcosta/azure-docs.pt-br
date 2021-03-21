@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
 ms.openlocfilehash: 3ed349616ae6456913c19bb073f6e9ea28e7d549
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575130"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usar o Firewall do Azure para inspecionar o tráfego destinado a um ponto de extremidade privado
@@ -173,7 +173,7 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. Você criou esse grupo de recursos na seção anterior.  |
     | **Detalhes da instância** |  |
-    | Nome da máquina virtual | Insira **myVM**. |
+    | Nome da máquina virtual | Insira a opção **myVM**. |
     | Região | Marque **(US) EUA Central do Sul**. |
     | Opções de disponibilidade | Deixe o padrão **Nenhuma redundância de infraestrutura necessária**. |
     | Imagem | Selecione **Ubuntu Server 18, 4 LTS-Gen1**. |
@@ -257,7 +257,7 @@ Nesta seção, você habilita os logs no firewall.
     | Subscription | Selecione sua assinatura. |
     | Espaço de trabalho do Log Analytics | Selecione seu espaço de trabalho do Log Analytics. |
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="create-azure-sql-database"></a>Criar um Banco de Dados SQL do Azure
 
@@ -345,7 +345,7 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
 
 13. Em **firewalls e redes virtuais**, selecione **Sim** ao lado de **permitir que os serviços e recursos do Azure acessem este servidor**.
 
-14. Selecione **Salvar**.
+14. Clique em **Salvar**.
 
 ## <a name="connect-the-virtual-networks-using-virtual-network-peering"></a>Conectar as redes virtuais usando o emparelhamento de rede virtual
 
@@ -483,7 +483,7 @@ Nesta seção, criaremos uma tabela de rotas com uma rota personalizada.
 
 A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede virtual **myPEVNet**, por meio do firewall do Azure.
 
-1. No menu do portal do Azure ou na **Página inicial**, selecione **Criar um recurso**.
+1. No menu do portal do Azure ou na **Página Inicial**, selecione **Criar um recurso**.
 
 2. Digite **tabela de rotas** na caixa de pesquisa e pressione **Enter**.
 

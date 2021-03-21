@@ -8,10 +8,10 @@ author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
 ms.openlocfilehash: 3033be3a793c318135f8150b86114b6fee55fac7
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94655180"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurar uma instância do Servidor de Configuração do Spring Cloud para seu serviço
@@ -143,15 +143,15 @@ Agora que você salvou seus arquivos de configuração em um repositório, é ne
 
     ![Navegar até o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
-6. Quando a validação for concluída, clique em **aplicar** para salvar as alterações.
+6. Quando a validação for concluída, clique em **Aplicar** para salvar as alterações.
 
-    ![Validando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
+    ![Validar o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/validate-complete.png)
 
 7. A atualização da configuração pode levar alguns minutos.
  
-    ![Atualizando o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
+    ![Atualizar o servidor de configuração](media/spring-cloud-quickstart-launch-app-portal/updating-config.png) 
 
-8. Você deve receber uma notificação quando a configuração for concluída.
+8. Você deverá receber uma notificação quando a configuração for concluída.
 
 ### <a name="enter-repository-information-directly-to-the-azure-portal"></a>Insira as informações do repositório diretamente para o portal do Azure
 
@@ -201,7 +201,7 @@ As informações do arquivo YAML devem ser exibidas no portal do Azure. Selecion
 
 ## <a name="using-azure-repos-for-azure-spring-cloud-configuration"></a>Usando Azure Repos para a configuração do Azure Spring Cloud
 
-O Azure Spring Cloud pode acessar repositórios git públicos, protegidos por SSH ou protegidos usando a autenticação básica HTTP. Usaremos essa última opção, pois é mais fácil criar e gerenciar com Azure Repos.
+O Azure Spring Cloud poderá acessar repositórios Git públicos, protegidos por SSH ou com uma autenticação Básica HTTP. Usaremos essa última opção, pois é mais fácil criar e gerenciar com Azure Repos.
 
 ### <a name="get-repo-url-and-credentials"></a>Obter URL e credenciais do repositório
 1. No portal de Azure Repos para seu projeto, clique no botão "clonar":
