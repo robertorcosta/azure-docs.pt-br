@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/03/2021
 ms.author: terrylan
 ms.openlocfilehash: 81b2227ac519de4d03bb63907d14c23b9c34dc64
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102101028"
 ---
 # <a name="azure-threat-protection"></a>Proteção contra ameaças do Azure
@@ -140,7 +140,7 @@ A Central de Segurança emprega análise de segurança avançada, que vai além 
 
 A Microsoft tem acesso a uma grande quantidade de inteligência global contra ameaças.
 
-A telemetria flui de várias fontes, como Azure, Microsoft 365, Microsoft CRM Online, Microsoft Dynamics AX, outlook.com, MSN.com, unidade de crimes digitais da Microsoft (DCU) e Microsoft Security Response Center (MSRC).
+A telemetria flui de várias fontes, como o Azure, o Microsoft 365, o Microsoft CRM online, o Microsoft Dynamics AX, o outlook.com, o MSN.com, a DCU (Unidade de Crimes Digitais da Microsoft) e o Microsoft Security Response Center (MSRC).
 
 ![Descobertas de inteligência contra ameaças](./media/threat-detection/azure-threat-detection-fig10.jpg)
 

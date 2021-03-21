@@ -8,10 +8,10 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: 198702f619e490e8000e4430aab23a7f6bfb6d85
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102107306"
 ---
 # <a name="create-rich-interactive-reports-of-security-center-data"></a>Crie relatórios avançados e interativos dos dados da central de segurança
@@ -22,7 +22,7 @@ As pastas de trabalho fornecem um conjunto avançado de recursos para visualizar
 
 Na central de segurança do Azure, você pode acessar os relatórios internos para controlar a postura de segurança de sua organização. Você também pode criar relatórios personalizados para exibir uma ampla variedade de dados da central de segurança ou outras fontes de dados com suporte.
 
-:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Relatório de Pontuação segura ao longo do tempo":::
+:::image type="content" source="media/custom-dashboards-azure-workbooks/secure-score-over-time-snip.png" alt-text="Relatório de classificação de segurança ao longo do tempo":::
 
 ## <a name="availability"></a>Disponibilidade
 
@@ -38,9 +38,9 @@ Na central de segurança do Azure, você pode acessar os relatórios internos pa
 
 Com a funcionalidade integrada de pastas de trabalho do Azure, a central de segurança do Azure torna simples criar seus próprios relatórios interativos e personalizados. A central de segurança também inclui uma galeria de pastas de trabalho com os seguintes relatórios prontos para sua personalização:
 
-- **Proteger a pontuação ao longo do tempo** – controle as pontuações de suas assinaturas e as alterações nas recomendações para seus recursos
-- **Atualizações do sistema** – exibir atualizações de sistema ausentes por recursos, sistema operacional, severidade e muito mais
-- **Conclusões da avaliação de vulnerabilidade** -exibir as descobertas de verificações de vulnerabilidade dos recursos do Azure
+- **Classificação de segurança ao longo do tempo** – Acompanhar as pontuações das assinaturas e as alterações das recomendações para os recursos
+- **Atualizações do sistema** – Exibir atualizações de sistema ausentes por recursos, sistema operacional, severidade e muito mais
+- **Descobertas da avaliação de vulnerabilidade** – Exibir as descobertas das verificações de vulnerabilidade dos recursos do Azure
 
 :::image type="content" source="media/custom-dashboards-azure-workbooks/workbooks-gallery-security-center.png" alt-text="Galeria de pastas de trabalho internas na central de segurança do Azure":::
 
@@ -95,7 +95,7 @@ A central de segurança inclui verificadores de vulnerabilidade para seus comput
 
 Saiba mais sobre como usar esses scanners:
 
-- [Verificar seus computadores com o scanner do VA integrado](deploy-vulnerability-assessment-vm.md)
+- [Verificar os computadores com o scanner de VA integrado](deploy-vulnerability-assessment-vm.md)
 - [Verificar se há vulnerabilidades em suas imagens de Registro](defender-for-container-registries-usage.md)
 - [Verificar se há vulnerabilidades em seus recursos SQL](defender-for-sql-on-machines-vulnerability-assessment.md)
 

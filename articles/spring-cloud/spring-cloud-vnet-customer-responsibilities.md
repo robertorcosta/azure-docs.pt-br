@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 12/02/2020
 ms.custom: devx-track-java, devx-track-azurecli
 ms.openlocfilehash: 0c73d0394486472c2c3c92450aab6a1a0d329cf7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698205"
 ---
 # <a name="customer-responsibilities-for-running-azure-spring-cloud-in-vnet"></a>Responsabilidades do cliente para executar o Azure Spring Cloud na VNET
@@ -61,6 +61,6 @@ O Firewall do Azure fornece uma marca de nome de domínio totalmente qualificado
   | *crl.microsoft.com* | HTTPS: 80 | Caminhos da cadeia de certificados da Microsoft necessários. |
   | *crl3.digicert.com* | HTTPS: 80 | Caminhos de cadeia de certificados SSL de terceiros. |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Acessar seu aplicativo em uma rede privada](spring-cloud-access-app-virtual-network.md)
 * [Expor aplicativos usando o gateway de aplicativo e o Firewall do Azure](spring-cloud-expose-apps-gateway-azure-firewall.md)

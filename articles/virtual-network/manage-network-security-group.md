@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 5de909d0d57ae212fa562eb31551e2271d307d47
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694250"
 ---
 # <a name="create-change-or-delete-a-network-security-group"></a>Criar, alterar ou excluir um Grupo de Segurança de Rede
@@ -264,9 +264,9 @@ Um grupo de segurança de aplicativo contém zero ou mais adaptadores de rede. P
 
 1. No menu do [portal do Azure](https://portal.azure.com) ou na **Página Inicial**, selecione **Criar um recurso**.
 
-2. Na caixa de pesquisa, insira *grupo de segurança de aplicativo*.
+2. Na caixa de pesquisa, insira *Grupo de segurança do aplicativo*.
 
-3. Na página **grupo de segurança de aplicativo** , selecione **criar**.
+3. Na página **Grupo de segurança do aplicativo**, selecione **Criar**.
 
 4. Na página **criar um grupo de segurança de aplicativo** , na guia **noções básicas** , defina valores para as seguintes configurações:
 
@@ -355,7 +355,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="network-security-group"></a>Grupo de segurança de rede
 
-| Ação                                                        |   Name                                                                |
+| Ação                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/read                  |   Obter Grupo de Segurança de Rede                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Criar ou atualizar um Grupo de Segurança de Rede                             |
@@ -369,7 +369,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="network-security-group-rule"></a>Regra do grupo de segurança de rede
 
-| Ação                                                        |   Name                                                                |
+| Ação                                                        |   Nome                                                                |
 |-------------------------------------------------------------- |   -------------------------------------------                         |
 | Microsoft.Network/networkSecurityGroups/securityRules/read            |   Obter regra                                                            |
 | Microsoft.Network/networkSecurityGroups/securityRules/write           |   Criar ou atualizar regra                                               |
@@ -377,7 +377,7 @@ Para realizar tarefas em grupos de segurança de rede, regras de segurança e gr
 
 ### <a name="application-security-group"></a>Grupo de segurança do aplicativo
 
-| Ação                                                                     | Name                                                     |
+| Ação                                                                     | Nome                                                     |
 | --------------------------------------------------------------             | -------------------------------------------              |
 | Microsoft.Network/applicationSecurityGroups/joinIpConfiguration/action     | Entrar uma configuração IP a um grupo de segurança do aplicativo|
 | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Entrar em uma regra de segurança aos grupos de segurança de aplicativo    |

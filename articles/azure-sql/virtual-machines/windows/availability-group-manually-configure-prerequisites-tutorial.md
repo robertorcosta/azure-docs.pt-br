@@ -16,10 +16,10 @@ ms.date: 03/29/2018
 ms.author: mathoma
 ms.custom: seo-lt-2019
 ms.openlocfilehash: f5739604537ccc67e2cf57310269369909038d67
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508735"
 ---
 # <a name="tutorial-prerequisites-for-creating-availability-groups-on-sql-server-on-azure-virtual-machines"></a>Tutorial: pré-requisitos para a criação de grupos de disponibilidade em SQL Server em máquinas virtuais do Azure
@@ -172,7 +172,7 @@ Para criar e configurar os controladores de domínio, retorne para o grupo de re
 
 1. Selecione **Adicionar**. 
 2. Digite **Windows Server 2016 Datacenter**.
-3. Selecione **Windows Server 2016 datacenter**. No **Windows Server 2016 datacenter**, verifique se o modelo de implantação é **Resource Manager** e, em seguida, selecione **criar**. 
+3. Selecione **Windows Server 2016 Datacenter**. No **Windows Server 2016 datacenter**, verifique se o modelo de implantação é **Resource Manager** e, em seguida, selecione **criar**. 
 
 Repita as etapas anteriores para criar duas máquinas virtuais. Nomeie as duas máquinas virtuais:
 
@@ -279,7 +279,7 @@ Depois de criar o primeiro controlador de domínio e habilitar o DNS no primeiro
 
 3. Selecione **personalizado** e digite o endereço IP privado do controlador de domínio primário.
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="configure-the-second-domain-controller"></a>Configurar o segundo controlador de domínio
 

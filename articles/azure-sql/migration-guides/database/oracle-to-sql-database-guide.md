@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 11a3d386eae9b77a5f53b7e8d2dbcf012edd9386
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: f00740de5a327858fd250a0cb561b07c32f3b726
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564782"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655420"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guia de migração: Oracle para banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -51,11 +51,27 @@ Para criar uma avaliação, siga estas etapas:
 1. Abra [Assistente de migração do SQL Server para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Selecione **Arquivo** e, em seguida, escolha **Novo Projeto**. 
 1. Forneça um nome de projeto, um local para salvar seu projeto e, em seguida, selecione banco de dados SQL do Azure como o destino de migração no menu suspenso. Selecione **OK**.
-1. Insira valores nos detalhes da conexão Oracle na caixa de diálogo **conectar ao Oracle** .
+
+   ![Novo Projeto](./media/oracle-to-sql-database-guide/new-project.png)
+
+
+1. Selecione **conectar-se ao Oracle**. Insira valores nos detalhes da conexão Oracle na caixa de diálogo **conectar ao Oracle** .
+
+   ![Conectar-se ao Oracle](./media/oracle-to-sql-database-guide/connect-to-oracle.png)
+
+   Selecione os esquemas do Oracle que você deseja migrar: 
+
+   ![Selecionar esquema Oracle](./media/oracle-to-sql-database-guide/select-schema.png)
+
 1. Clique com o botão direito do mouse no esquema Oracle que você deseja migrar no **Gerenciador de metadados Oracle** e escolha **criar relatório**. Isso vai gerar um relatório HTML. Como alternativa, você pode escolher **criar relatório** na barra de navegação depois de selecionar o banco de dados.
+
+   ![Criar Relatório](./media/oracle-to-sql-database-guide/create-report.png)
+
 1. Examine o relatório HTML para entender as estatísticas de conversão e outros erros ou avisos. Você também pode abrir o relatório no Excel para obter um inventário dos objetos Oracle e o esforço necessário para executar conversões de esquema. O local padrão do relatório está na pasta de relatório em SSMAProjects.
 
    Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
+
+   ![Relatório de avaliação](./media/oracle-to-sql-database-guide/assessment-report.png) 
 
 
 
@@ -66,6 +82,9 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 1. Selecione **Ferramentas** no menu. 
 1. Selecione **Configurações do Projeto**. 
 1. Selecione a guia **Mapeamentos de tipo**. 
+
+   ![Mapeamentos de tipo](./media/oracle-to-sql-database-guide/type-mappings.png)
+
 1. Você pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Gerenciador de metadados Oracle**.
 
 ### <a name="convert-schema"></a>Converter esquema
@@ -78,8 +97,21 @@ Para converter o esquema, siga estas etapas:
     1. Escolha o banco de dados SQL de destino na lista suspensa.
     1. Selecione **Conectar**.
 
-1. Clique com o botão direito do mouse no esquema e escolha **Converter esquema**. Como alternativa, você pode escolher **Converter esquema** na barra de navegação superior depois de selecionar o esquema.
+    ![Conectar-se ao Banco de Dados SQL](./media/oracle-to-sql-database-guide/connect-to-sql-database.png)
+
+
+1. Clique com o botão direito do mouse no esquema Oracle no **Gerenciador de metadados Oracle** e escolha **converter esquema**. Como alternativa, você pode escolher **Converter esquema** na barra de navegação superior depois de selecionar o esquema.
+
+   ![Converter esquema](./media/oracle-to-sql-database-guide/convert-schema.png)
+
 1. Após a conclusão da conversão, compare e revise os objetos convertidos para os objetos originais para identificar possíveis problemas e solucioná-los com base nas recomendações.
+
+   ![Analisar esquema de recomendações](./media/oracle-to-sql-database-guide/table-mapping.png)
+
+   Compare o texto Transact-SQL convertido com os procedimentos armazenados originais e examine as recomendações. 
+
+   ![Revisar recomendações](./media/oracle-to-sql-database-guide/procedure-comparison.png)
+
 1. Salve o projeto localmente para realizar um exercício de correção de esquema offline. Selecione **Salvar Projeto** no menu **Arquivo**.
 
 ## <a name="migrate"></a>Migrar
@@ -89,11 +121,26 @@ Depois de concluir a avaliação de seus bancos de dados e resolver quaisquer di
 Para publicar o esquema e migrar seus dados, siga estas etapas:
 
 1. Publicar o esquema: clique com o botão direito do mouse no banco de dados do nó **bancos** de dados no **Gerenciador de metadados do banco de dados SQL do Azure** e escolha **sincronizar com o banco de dados**.
-1. Migrar os dados: clique com o botão direito do mouse no esquema do **Gerenciador de metadados Oracle** e escolha **migrar dados**. 
+
+   ![Sincronizar com Banco de dados](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
+
+   Examine o mapeamento entre seu projeto de origem e seu destino:
+
+   ![Sincronizar com a revisão do banco de dados](./media/oracle-to-sql-database-guide/synchronize-with-database-review.png)
+
+
+1. Migrar os dados: clique com o botão direito do mouse no esquema do **Gerenciador de metadados Oracle** e escolha **migrar dados**. Como alternativa, você pode escolher **migrar dados** da barra de navegação de linha superior depois de selecionar o esquema. 
+
+   ![Migrar dados](./media/oracle-to-sql-database-guide/migrate-data.png)
+
 1. Forneça detalhes de conexão para Oracle e banco de dados SQL do Azure.
 1. Veja o **Relatório de migração de dados**.
+
+   ![Relatório de migração de dados](./media/oracle-to-sql-database-guide/data-migration-report.png)
+
 1. Conecte-se ao banco de dados SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração revisando os data e o esquema.
 
+   ![Validar no SSMA](./media/oracle-to-sql-database-guide/validate-data.png)
 
 Como alternativa, você também pode usar SQL Server Integration Services (SSIS) para executar a migração. Para obter mais informações, consulte: 
 

@@ -12,10 +12,10 @@ ms.subservice: language-understanding
 ms.topic: how-to
 ms.date: 01/12/2021
 ms.openlocfilehash: 8e78fc5bd49aaf2b31fdc83ced132e2a39ca83d5
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100558904"
 ---
 # <a name="publish-your-active-trained-app-to-a-staging-or-production-endpoint"></a>Publicar seu aplicativo ativo, treinado em um ponto de extremidade de preparo ou produção
@@ -24,7 +24,7 @@ Quando você terminar de criar, treinar e testar seu aplicativo LUIS ativo, disp
 
 ## <a name="publishing"></a>Publicando
 1. Entre no [portal do LUIS](https://www.luis.ai) selecione sua **Assinatura** e **Recurso de criação** para ver os aplicativos atribuídos a esse recurso.
-1. Abra seu aplicativo selecionando seu nome na página **meus aplicativos** .
+1. Abra seu aplicativo selecionando seu nome na página **Meus Aplicativos**.
 1. Para publicar no ponto de extremidade, selecione **Publicar** no painel superior direito.
 
     ![Botão publicar na parte superior, barra de navegação direita](./media/luis-how-to-publish-app/publish-top-nav-bar.png)
