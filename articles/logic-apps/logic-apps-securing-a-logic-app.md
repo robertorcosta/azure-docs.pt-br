@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla, rarayudu
 ms.topic: conceptual
 ms.date: 03/09/2021
 ms.openlocfilehash: 7b082c226b38633d6c34ee2fe4d5227252b2bfcb
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556376"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteger o acesso e os dados nos Aplicativos Lógicos do Azure
@@ -1132,8 +1132,8 @@ Quando a opção de [identidade gerenciada](../active-directory/managed-identiti
 
    | Propriedade (designer) | Obrigatório | Valor | Descrição |
    |---------------------|----------|-------|-------------|
-   | **Nome da conexão** | Yes | <*nome da conexão*> ||
-   | **Identidade gerenciada** | Yes | **Identidade gerenciada atribuída pelo sistema** <br>ou <br> <*nome-de-identidade gerenciado pelo usuário*> | O tipo de autenticação a ser usado |
+   | **Nome da conexão** | Sim | <*nome da conexão*> ||
+   | **Identidade gerenciada** | Sim | **Identidade gerenciada atribuída pelo sistema** <br>ou <br> <*nome-de-identidade gerenciado pelo usuário*> | O tipo de autenticação a ser usado |
    |||||
 
 

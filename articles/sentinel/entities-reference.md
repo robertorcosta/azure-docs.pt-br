@@ -16,10 +16,10 @@ ms.topic: reference
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 17a4df3037f9922d92fca924de0d246458cfa08e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456205"
 ---
 # <a name="azure-sentinel-entity-types-reference"></a>Referência de tipos de entidade do Azure Sentinel
@@ -42,17 +42,17 @@ Para obter melhores resultados-para identificação exclusiva garantida, você d
 | [**Processo**](#process) | ProcessId<br>CommandLine<br>ElevationToken<br>CreationTimeUtc | CommandLine<br>ProcessId | |
 | [**Aplicativo de nuvem**](#cloud-application)<br>*(CloudApplication)* | AppId<br>Nome<br>InstanceName | AppId<br>Nome | |
 | [**Nome de domínio**](#domain-name)<br>*DNS* | DomainName | DomainName | |
-| [**Recurso do Azure**](#azure-resource) | ResourceId | ResourceId | |
+| [**Recursos do Azure**](#azure-resource) | ResourceId | ResourceId | |
 | [**Hash do arquivo**](#file-hash)<br>*FileHash* | Algoritmo<br>Valor | Algoritmo + valor | |
-| [**Chave do registro**](#registry-key) | Hive<br>Chave | Hive<br>Chave | Hive + chave |
+| [**Chave do Registro**](#registry-key) | Hive<br>Chave | Hive<br>Chave | Hive + chave |
 | [**Valor do Registro**](#registry-value) | Nome<br>Valor<br>ValueType | Nome | |
 | [**Grupo de segurança**](#security-group) | DistinguishedName<br>SID<br>ObjectGuid | DistinguishedName<br>SID<br>ObjectGuid | |
 | [**URL**](#url) | Url | Url | |
 | [**Dispositivo IoT**](#iot-device) | IoTHub<br>DeviceId<br>DeviceName<br>IoTSecurityAgentId<br>DeviceType<br>Fonte<br>SourceRef<br>Fabricante<br>Modelar<br>OperatingSystem<br>IpAddress<br>MacAddress<br>Protocolos<br>SerialNumber | IoTHub<br>DeviceId | IoTHub + DeviceID |
-| [**Nas**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Sufixo<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
-| [**Cluster de emails**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Ameaças<br>Consulta<br>Querytime<br>MailCount<br>IsVolumeAnomaly<br>Fonte<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Consulta<br>Fonte | Consulta + origem |
-| [**Mensagem de email**](#mail-message) | Destinatário<br>URLs<br>Ameaças<br>Remetente<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>Recebi<br>NetworkMessageId<br>InternetMessageId<br>Assunto<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>Entregaaction<br>DeliveryLocation<br>Linguagem<br>ThreatDetectionMethods | NetworkMessageId<br>Destinatário | NetworkMessageId + destinatário |
-| [**Email de envio**](#submission-mail) | Submissão<br>SubmissionDate<br>Emissor<br>NetworkMessageId<br>Timestamp<br>Destinatário<br>Remetente<br>SenderIp<br>Assunto<br>ReportType | Submissão<br>NetworkMessageId<br>Destinatário<br>Emissor |  |
+| [**Mailbox**](#mailbox) | MailboxPrimaryAddress<br>DisplayName<br>Sufixo<br>ExternalDirectoryObjectId<br>RiskLevel | MailboxPrimaryAddress | |
+| [**Cluster de e-mail**](#mail-cluster) | NetworkMessageIds<br>CountByDeliveryStatus<br>CountByThreatType<br>CountByProtectionStatus<br>Ameaças<br>Consulta<br>Querytime<br>MailCount<br>IsVolumeAnomaly<br>Fonte<br>ClusterSourceIdentifier<br>ClusterSourceType<br>ClusterQueryStartTime<br>ClusterQueryEndTime<br>ClusterGroup | Consulta<br>Fonte | Consulta + origem |
+| [**Mensagem de e-mail**](#mail-message) | Destinatário<br>URLs<br>Ameaças<br>Remetente<br>P1Sender<br>P1SenderDisplayName<br>P1SenderDomain<br>SenderIP<br>P2Sender<br>P2SenderDisplayName<br>P2SenderDomain<br>Recebi<br>NetworkMessageId<br>InternetMessageId<br>Assunto<br>BodyFingerprintBin1<br>BodyFingerprintBin2<br>BodyFingerprintBin3<br>BodyFingerprintBin4<br>BodyFingerprintBin5<br>AntispamDirection<br>Entregaaction<br>DeliveryLocation<br>Idioma<br>ThreatDetectionMethods | NetworkMessageId<br>Destinatário | NetworkMessageId + destinatário |
+| [**E-mail de envio**](#submission-mail) | Submissão<br>SubmissionDate<br>Emissor<br>NetworkMessageId<br>Timestamp<br>Destinatário<br>Remetente<br>SenderIp<br>Assunto<br>ReportType | Submissão<br>NetworkMessageId<br>Destinatário<br>Emissor |  |
 |
 
 ## <a name="entity-type-schemas"></a>Esquemas de tipo de entidade
@@ -139,7 +139,7 @@ Identificadores fracos de uma entidade de host:
 | ----- | ---- | ----------- |
 | Type | String | IP |
 | Endereço | String | O endereço IP como cadeia de caracteres, por exemplo, 127.0.0.1 (em IPv4 ou IPv6). |
-| Local | GeoLocation | O contexto de localização geográfica anexado à entidade IP. |
+| Location | GeoLocation | O contexto de localização geográfica anexado à entidade IP. |
 |
 
 Identificadores fortes de uma entidade IP:
@@ -349,7 +349,7 @@ Identificadores fracos de uma entidade de URL:
 | Fonte | String | A origem (Microsoft/fornecedor) da entidade do dispositivo. |
 | SourceRef | Entidade (URL) | Uma referência de URL para o item de origem no qual o dispositivo é gerenciado. |
 | Fabricante | String | O fabricante do dispositivo. |
-| Modelar | String | O modelo do dispositivo. |
+| Modelo | String | O modelo do dispositivo. |
 | OperatingSystem | String | O sistema operacional que o dispositivo está executando. |
 | IpAddress | Entidade (IP) | O endereço IP atual do dispositivo. |
 | MacAddress | String | O endereço MAC do dispositivo. |
@@ -378,7 +378,7 @@ Identificadores fracos de uma entidade de dispositivo IoT:
 Identificadores fortes de uma entidade de caixa de correio:
 - MailboxPrimaryAddress
 
-## <a name="mail-cluster"></a>Cluster de emails
+## <a name="mail-cluster"></a>Cluster de e-mail
 
 *Nome da entidade: MailCluster*
 
@@ -408,7 +408,7 @@ Identificadores fortes de uma entidade de caixa de correio:
 Identificadores fortes de uma entidade de cluster de email:
 - Consulta + origem
 
-## <a name="mail-message"></a>Mensagem de email
+## <a name="mail-message"></a>Mensagem de e-mail
 
 *Nome da entidade: MailMessage*
 
@@ -427,7 +427,7 @@ Identificadores fortes de uma entidade de cluster de email:
 | P2SenderDisplayName | String | Nome de exibição do usuário (primário) em nome do qual este email foi enviado. Se o email não for enviado pelo delegado, isso representará o nome de exibição do remetente. |
 | P2SenderDomain | String | Domínio de email do usuário (primário) em nome do qual este email foi enviado. Se o email não for enviado pelo delegado, isso representará o domínio do remetente. |
 | SenderIP | String | O endereço IP do remetente. |
-| Recebi | Datetime | A data de recebimento desta mensagem. |
+| Recebi | DateTime | A data de recebimento desta mensagem. |
 | NetworkMessageId | Volume? | A ID da mensagem de rede desta mensagem de email. |
 | InternetMessageId | String | A ID de mensagem da Internet desta mensagem de email. |
 | Assunto | String | O assunto desta mensagem de email. |
@@ -442,7 +442,7 @@ Identificadores fortes de uma entidade de cluster de email:
 Identificadores fortes de uma entidade de mensagem de email:
 - NetworkMessageId + destinatário
 
-## <a name="submission-mail"></a>Email de envio
+## <a name="submission-mail"></a>E-mail de envio
 
 *Nome da entidade: SubmissionMail*
 
@@ -509,7 +509,7 @@ A lista a seguir define identificadores para aplicativos de nuvem conhecidos. O 
 |22110|Google Cloud Platform|
 |22930|Gmail|
 |23004|Ciclo de vida do Autodesk Fusion|
-|23043|Margem de atraso|
+|23043|Slack|
 |23233|Microsoft Office Online|
 |25275|Microsoft Skype for Business|
 |25988|Google Docs|

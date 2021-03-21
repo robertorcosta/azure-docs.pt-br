@@ -14,10 +14,10 @@ ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
 ms.openlocfilehash: 4ab4e40e1dd4bbaf9ae73ab545285f5ae6261e27
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102201763"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Práticas recomendadas de configuração de cluster (SQL Server em VMs do Azure)
@@ -47,9 +47,9 @@ Configurar um recurso de quorum permitirá que o cluster continue online apenas 
 A tabela a seguir lista as opções de quorum disponíveis na ordem recomendada para usar com uma VM do Azure, com a testemunha de disco sendo a opção preferida: 
 
 
-||[Testemunha de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha de nuvem](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunha de compartilhamento de arquivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
+||[Testemunha de disco](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Testemunha da nuvem](/windows-server/failover-clustering/deploy-cloud-witness)  |[Testemunha de compartilhamento de arquivos](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**SO com suporte**| Todos |Windows Server 2016 e posterior| Todos|
+|**SO com suporte**| Tudo |Windows Server 2016 e posterior| Tudo|
 
 
 ### <a name="disk-witness"></a>Testemunha de disco

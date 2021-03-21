@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 8759a539005a38892498c9450d31f97884547db7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033700"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Criar, exibir e gerenciar alertas de log usando o Azure Monitor
@@ -54,7 +54,7 @@ Aqui estão as etapas para começar a escrever consultas para alertas:
 
 1. Os alertas de log podem ser baseados em dois tipos de [**medidas**](./alerts-unified-log.md#measure):
     1. **Número de resultados** -contagem de registros retornados pela consulta.
-    1. **Medição métrica**  -  *Valor agregado* calculado usando resumir agrupado por expressões escolhidas e a seleção [de bin ()](/azure/kusto/query/binfunction) . Por exemplo: 
+    1. **Medição métrica**  -  *Valor agregado* calculado usando resumir agrupado por expressões escolhidas e a seleção [de bin ()](/azure/kusto/query/binfunction) . Por exemplo:
 
     ```Kusto
     // Reported errors

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: c6620158965271ba99f80c2fbd36504fdbea7ecf
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103010772"
 ---
 # <a name="configure-content-protection-policies-by-using-the-azure-portal"></a>Configurar políticas de proteção de conteúdo usando o portal do Azure
@@ -75,7 +75,7 @@ Se você configurar uma licença como persistente, ela é salva no armazenamento
 ## <a name="widevine-license-template"></a>Modelo de licença do Widevine
 O modelo de licença do Widevine define a funcionalidade que está habilitada em suas licenças do Widevine.
 
-### <a name="basic"></a>Básico
+### <a name="basic"></a>Basic
 Quando você seleciona **Básico**, o modelo é criado com todos os valores padrões.
 
 ### <a name="advanced"></a>Avançado

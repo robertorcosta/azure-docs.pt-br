@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 73bef21f430bde1c6c2c95d7c3f685cccbbd9179
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467010"
 ---
 # <a name="form-recognizer-layout-service"></a>Serviço de layout do reconhecedor de formulário
@@ -66,7 +66,7 @@ Para grandes documentos de várias páginas, use o `pages` parâmetro de consult
 
 A segunda etapa é chamar a operação [Get Analyze layout Result](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/GetAnalyzeLayoutResult) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de layout. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. 
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | `notStarted`: A operação de análise não foi iniciada.<br /><br />`running`: A operação de análise está em andamento.<br /><br />`failed`: Falha na operação de análise.<br /><br />`succeeded`: A operação de análise foi bem-sucedida.|
 

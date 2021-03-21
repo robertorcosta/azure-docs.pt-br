@@ -4,15 +4,15 @@ description: Implantar o Azure Spring Cloud em uma rede virtual (injeção de VN
 author: MikeDodaro
 ms.author: brendm
 ms.service: spring-cloud
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 07/21/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 73dd60dba50d3bd29cda0f538462884822054cf9
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.openlocfilehash: 82dcd8c59c55a2866b51fd6dee896ea1298b6cf6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
-ms.locfileid: "98880585"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102031796"
 ---
 # <a name="deploy-azure-spring-cloud-in-a-virtual-network"></a>Implantar o Azure Spring Cloud em uma rede virtual
 
@@ -50,7 +50,7 @@ A rede virtual na qual você implanta sua instância do Azure Spring Cloud deve 
     * Uma para seus aplicativos de microsserviço do Spring Boot.
     * Há uma relação um-para-um entre essas sub-redes e uma instância do Azure Spring Cloud. Use uma nova sub-rede para cada instância de serviço que você implantar. Cada sub-rede só pode incluir uma instância de serviço.
 * **Espaço de endereço**: O CIDR bloqueia até */28* para a sub-rede de runtime do serviço e a sub-rede de aplicativos de microsserviço do Spring Boot.
-* **Tabela de rotas**: as sub-redes não devem ter uma tabela de rotas existente associada.
+* **Tabela de rotas**: por padrão, as sub-redes não precisam de tabelas de rota existentes associadas. Você pode [trazer sua própria tabela de rotas](#bring-your-own-route-table).
 
 Os procedimentos a seguir descrevem a configuração da rede virtual para conter a instância do Azure Spring Cloud.
 
@@ -179,6 +179,26 @@ Esta tabela mostra o número máximo de instâncias de aplicativo a que o Azure 
 Para sub-redes, cinco endereços IP são reservados pelo Azure e pelo menos quatro endereços são necessários para o Azure Spring Cloud. Pelo menos nove endereços IP são necessários; portanto /29 e /30 não são operacionais.
 
 Para uma sub-rede de runtime de serviço, o tamanho mínimo é /28. Esse tamanho não tem nenhuma influência sobre o número de instâncias de aplicativo.
+
+## <a name="bring-your-own-route-table"></a>Traga sua própria tabela de rotas
+
+O Azure Spring Cloud dá suporte ao uso de sub-redes e tabelas de rotas existentes.
+
+Se suas sub-redes personalizadas não contiverem tabelas de rotas, o Azure Spring Cloud as criará para cada uma das sub-redes e adicionará regras a elas durante todo o ciclo de vida da instância. Se suas sub-redes personalizadas contiverem tabelas de rotas, o Azure Spring Cloud confirmará as tabelas de rotas existentes durante operações de instância e adicionará/atualizará e/ou controlará de acordo com as operações.
+
+> [!Warning] 
+> As regras personalizadas podem ser adicionadas às tabelas de rotas personalizadas e atualizadas. No entanto, as regras são adicionadas pelo Azure Spring Cloud e não precisam ser atualizadas nem removidas. As regras como 0.0.0.0/0 sempre precisam existir em uma determinada tabela de rotas e mapear para o destino do seu gateway de Internet, como um NVA ou outro gateway de saída. Tenha cuidado ao atualizar regras quando apenas suas regras personalizadas estiverem sendo modificadas.
+
+
+### <a name="route-table-requirements"></a>Requisitos da tabela de rotas
+
+As tabelas de rotas às quais sua VNET personalizada está associada devem atender aos seguintes requisitos:
+
+* Você pode associar suas tabelas de rota do Azure à sua VNET somente quando você cria uma instância de serviço do Azure Spring Cloud. Você não pode alterar para usar outra tabela de rotas após a criação do Azure Spring Cloud.
+* A sub-rede de aplicativos de microsserviço e a sub-rede de runtime do serviço precisam ser associadas a diferentes tabelas de rotas a ou nenhuma delas.
+* As permissões precisam ser atribuídas antes da criação da instância. Lembre-se de conceder permissão de *Proprietário do Azure Spring Cloud* às suas tabelas de rotas.
+* O recurso de tabela de rotas associado não pode ser atualizado após a criação do cluster. Embora o recurso de tabela de rotas não possa ser atualizado, as regras personalizadas podem ser modificadas na tabela de rotas.
+* Não é possível reutilizar uma tabela de rotas com várias instâncias devido a possíveis regras de roteamento em conflito.
 
 ## <a name="next-steps"></a>Próximas etapas
 

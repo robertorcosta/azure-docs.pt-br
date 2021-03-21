@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
 ms.openlocfilehash: 78ec0af0acbb74436af16abba75d64de061d5268
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202158"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Perguntas frequentes sobre importação de certificados Azure Key Vault
@@ -87,4 +87,4 @@ Se você importou o certificado com êxito, você deve ser capaz de confirmá-lo
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Azure Key Vault certificados](./about-certificates.md)
+- [Certificados do Azure Key Vault](./about-certificates.md)

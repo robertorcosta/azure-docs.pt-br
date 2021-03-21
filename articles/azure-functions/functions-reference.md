@@ -5,10 +5,10 @@ ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
 ms.date: 10/12/2017
 ms.openlocfilehash: 7030ca1c1950f7c06580ce7417a4429fbe330c4e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614812"
 ---
 # <a name="azure-functions-developer-guide"></a>Guia do desenvolvedor do Azure Functions
@@ -42,7 +42,7 @@ A propriedade `bindings` é onde você configura gatilhos e associações. Cada 
 
 | Propriedade    | Valores | Digite | Comentários|
 |---|---|---|---|
-| tipo  | Nome da associação.<br><br>Por exemplo, `queueTrigger`. | string | |
+| type  | Nome da associação.<br><br>Por exemplo, `queueTrigger`. | string | |
 | direction | `in`, `out`  | string | Indica se a associação é para receber dados na função ou enviar dados a partir da função. |
 | name | Identificador de função.<br><br>Por exemplo, `myQueue`. | string | O nome que é usado para os dados associados na função. Em C#, esse é um nome de um argumento. Em JavaScript, é a chave em uma lista de chaves/valores. |
 

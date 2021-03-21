@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
 ms.openlocfilehash: 937f0d1feb0c45c1c158b5e88daf268aeb383509
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034737"
 ---
 # <a name="technical-specifications-and-compliance-for-azure-stack-edge-pro-with-gpu"></a>Especificações técnicas e conformidade para Azure Stack o Edge pro com GPU 
@@ -67,7 +67,7 @@ Estes são os detalhes da placa Mellanox:
 
 | Parâmetro           | Descrição                 |
 |-------------------------|----------------------------|
-| Modelar    | Placa de interface de rede ConnectX®-4 LX                      |
+| Modelo    | Placa de interface de rede ConnectX®-4 LX                      |
 | Descrição do modelo               | 25 GbE de porta dupla SFP28; PCIe 3.0 x8; R6 DE ROHS                    |
 | Número de peça do dispositivo (R640) | MCX4121A-ACAT  |
 | PSID (R640)           | MT_2420110034                         |

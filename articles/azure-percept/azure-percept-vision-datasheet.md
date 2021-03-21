@@ -7,10 +7,10 @@ ms.service: azure-percept
 ms.topic: reference
 ms.date: 02/16/2021
 ms.openlocfilehash: 7bbb3a88bbc3011ec5dd917cdb0c1e49f7556aab
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177157"
 ---
 # <a name="azure-percept-vision-datasheet"></a>Folha de dados da pesquisa visual do Azure Percept
@@ -19,7 +19,7 @@ As especificações listadas abaixo são para o dispositivo Azure Percept Vision
 
 |Especificação do produto           |Valor     |
 |--------------------------------|---------------------|
-|Setores-alvo               |Produção <br> Prédios inteligentes <br> Auto <br> Varejo |
+|Setores-alvo               |Produção <br> Prédios inteligentes <br> Automático <br> Varejo |
 |Cenários de Heroes                  |Análise do comprador <br> Disponibilidade na prateleira <br> Reduzir redução <br> Monitoramento do local de trabalho|
 |Dimensões                      |42 mm x 42 mm x 40mm (assembly de SoM do Azure Percept Vision com hospedagem) <br> 42 mm x 42 mm x 6mm (chip de SoM de visão)|
 |Plano de controle de gerenciamento        |ADU (atualização de dispositivo do Azure)          |

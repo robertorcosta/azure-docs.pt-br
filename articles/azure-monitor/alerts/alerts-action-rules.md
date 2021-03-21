@@ -4,10 +4,10 @@ description: Noções básicas sobre as regras de ação no Azure Monitor são e
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471685"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
@@ -97,7 +97,7 @@ Em seguida, configure a regra de ação para o suporte de supressão de alerta o
 
 #### <a name="suppression"></a>Supressão
 
-Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Escolha uma das seguintes opções:
+Se você selecionar **supressão**, configure a duração da supressão de ações e notificações. Selecione uma das seguintes opções:
 * **De agora (sempre)**: suprime todas as notificações indefinidamente.
 * **Em um horário agendado**: suprime notificações dentro de uma duração limitada.
 * **Com uma recorrência**: suprime notificações em uma agenda recorrente diária, semanal ou mensal.

@@ -16,12 +16,12 @@ ms.date: 12/23/2020
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c6f37a1b5cc16c80af8316cfeae164d58ea9796
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: d21783f0ef32289aad4b7d136dc8200d61fc0852
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102552160"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592924"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Criar e gerenciar um catálogo de recursos no gerenciamento de direitos do Azure AD
 
@@ -83,7 +83,7 @@ Para incluir recursos em um pacote do Access, os recursos devem existir em um ca
 
 ### <a name="add-a-multi-geo-sharepoint-site"></a>Adicionar um site do SharePoint de várias áreas geográficas
 
-1. Se você tiver [várias geografias](https://docs.microsoft.com/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) habilitadas para o SharePoint, selecione o ambiente do qual deseja selecionar sites.
+1. Se você tiver [várias geografias](/microsoft-365/enterprise/multi-geo-capabilities-in-onedrive-and-sharepoint-online-in-microsoft-365) habilitadas para o SharePoint, selecione o ambiente do qual deseja selecionar sites.
     
     :::image type="content" source="media/entitlement-management-catalog-create/sharepoint-multigeo-select.png" alt-text="Pacote de acesso-adicionar funções de recurso-selecionar sites de várias regiões do SharePoint":::
 

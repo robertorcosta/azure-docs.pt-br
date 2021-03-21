@@ -12,10 +12,10 @@ manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: contperf-fy20q4
 ms.openlocfilehash: ee10aa7c461aca65f385c735f6e9aaa28af7f9e5
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471703"
 ---
 # <a name="what-authentication-and-verification-methods-are-available-in-azure-active-directory"></a>Quais métodos de autenticação e verificação estão disponíveis no Azure Active Directory?
@@ -43,8 +43,8 @@ A tabela a seguir descreve as considerações de segurança para os métodos de 
 | Windows Hello para Empresas     | Alto     | Alto      | Alto         |
 | Aplicativo Microsoft Authenticator    | Alto     | Alto      | Alto         |
 | Chave de segurança do FIDO2             | Alto     | Alto      | Alto         |
-| Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alta         |
-| Tokens de software OATH           | Médio   | Médio    | Alta         |
+| Tokens de hardware OATH (versão prévia) | Médio   | Médio    | Alto         |
+| Tokens de software OATH           | Médio   | Médio    | Alto         |
 | sms                            | Médio   | Alto      | Médio       |
 | Voz                          | Médio   | Médio    | Médio       |
 | Senha                       | Baixo      | Alto      | Alto         |

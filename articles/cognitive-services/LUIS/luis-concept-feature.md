@@ -6,10 +6,10 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: da85abdff3d1022659f2d4e83fd14c5ae6003fc9
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100546050"
 ---
 # <a name="machine-learning-features"></a>Recursos de aprendizado de máquina
@@ -172,7 +172,7 @@ Suponha que sua empresa seja enviada apenas para um conjunto limitado de países
 
 |Nome canônico|Sinônimos|
 |--|--|
-|Estados Unidos|EUA<br>U. S. A<br>US<br>EUA<br>0|
+|Estados Unidos|EUA<br>U. S. A<br>EUA<br>EUA<br>0|
 
 Um aplicativo cliente, como um bot de bate-papo, pode fazer uma pergunta de acompanhamento para ajudar. Isso ajuda o cliente a entender que a seleção de país/região é limitada e *necessária*.
 
