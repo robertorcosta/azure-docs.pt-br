@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: lagayhar
 ms.openlocfilehash: e48d669321ad8c58681e8a92e68f2089962bdc17
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102429843"
 ---
 # <a name="click-analytics-auto-collection-plugin-for-application-insights-javascript-sdk"></a>Clique em plug-in de coleta automática de análise para Application Insights SDK do JavaScript
@@ -85,11 +85,11 @@ appInsights.loadAppInsights();
 | retorno de chamada              | [IValueCallback](#ivaluecallback)  | nulo    | Configuração de retornos de chamada.                                                                                                                 |
 | pageTags              | string                             | nulo    | Marcas de página.                                                                                                                               |
 | Marcas de datatags              | [ICustomDataTags](#icustomdatatags)| nulo    | Marcas de dados personalizadas fornecidas para substituir as marcas padrão usadas para capturar dados de clique.                                                           |
-| urlCollectHash        | booleano                            | false   | Habilita o log de valores após um caractere "#" da URL.                                                                          |
-| urlCollectQuery       | booleano                            | false   | Habilita o log da cadeia de caracteres de consulta da URL.                                                                                      |
+| urlCollectHash        | boolean                            | false   | Habilita o log de valores após um caractere "#" da URL.                                                                          |
+| urlCollectQuery       | boolean                            | false   | Habilita o log da cadeia de caracteres de consulta da URL.                                                                                      |
 | behaviorValidator     | Função                           | nulo  | Função de retorno de chamada a ser usada para a `data-*-bhvr` validação do valor. Para obter mais informações, acesse a [seção behaviorValidator](#behaviorvalidator).|
 | defaultRightClickBhvr | Cadeia de caracteres (ou) número                 | ''      | Valor de comportamento padrão quando o evento de clique com o botão direito do mouse ocorreu. Esse valor será substituído se o elemento tiver o `data-*-bhvr` atributo. |
-| dropInvalidEvents     | booleano                            | false   | Sinalizador para descartar eventos que não têm dados de clique úteis.                                                                                   |
+| dropInvalidEvents     | boolean                            | false   | Sinalizador para descartar eventos que não têm dados de clique úteis.                                                                                   |
 
 ### <a name="ivaluecallback"></a>IValueCallback
 
@@ -103,11 +103,11 @@ appInsights.loadAppInsights();
 
 | Nome                      | Type    | Padrão   | Marca padrão a ser usada no HTML |   Descrição                                                                                |
 |---------------------------|---------|-----------|-------------|----------------------------------------------------------------------------------------------|
-| useDefaultContentNameOrId | booleano | false     | N/D         |Coleta o atributo HTML padrão para contentname quando um determinado elemento não está marcado com customDataPrefix padrão ou quando customDataPrefix não é fornecido pelo usuário. |
+| useDefaultContentNameOrId | boolean | false     | N/D         |Coleta o atributo HTML padrão para contentname quando um determinado elemento não está marcado com customDataPrefix padrão ou quando customDataPrefix não é fornecido pelo usuário. |
 | customDataPrefix          | string  | `data-`   | `data-*`| Nome e valor de conteúdo de captura automática de elementos que são marcados com o prefixo fornecido. Por exemplo, `data-*-id` , `data-<yourcustomattribute>` pode ser usado nas marcas HTML.   |
 | aiBlobAttributeTag        | string  | `ai-blob` |  `data-ai-blob`| O plug-in dá suporte a um atributo de blob JSON em vez de `data-*` atributos individuais. |
 | metaDataPrefix            | string  | nulo      | N/D  | Nome do metaelemento e conteúdo do cabeçalho HTML da captura automática com o prefixo fornecido durante a captura. Por exemplo, `custom-` pode ser usado na marca meta de HTML. |
-| captureAllMetaDataContent | booleano | false     | N/D   | Capturar automaticamente todos os nomes de elementos e conteúdo do cabeçalho HTML. O padrão é false. Se habilitado, isso substituirá o metaDataPrefix fornecido. |
+| captureAllMetaDataContent | boolean | false     | N/D   | Capturar automaticamente todos os nomes de elementos e conteúdo do cabeçalho HTML. O padrão é false. Se habilitado, isso substituirá o metaDataPrefix fornecido. |
 | parentDataTag             | string  | nulo      |  N/D  | Interrompe a passagem do DOM para capturar o nome do conteúdo e o valor dos elementos quando encontrados com essa marca. Por exemplo, `data-<yourparentDataTag>` pode ser usado nas marcas HTML.|
 | dntDataTag                | string  | `ai-dnt`  |  `data-ai-dnt`| Elementos HTML com este atributo serão ignorados pelo plug-in para capturar dados de telemetria.|
 
@@ -115,7 +115,7 @@ appInsights.loadAppInsights();
 
 As funções behaviorValidator verificam automaticamente se os comportamentos marcados no código estão em conformidade com uma lista predefinida. Isso garante que os comportamentos marcados sejam consistentes com a taxonomia estabelecida da sua empresa. Não é necessário ou esperado que a maioria dos Azure Monitor clientes usará isso, mas está disponível para cenários avançados. Há três funções diferentes de retorno de chamada behaviorValidator expostas como parte dessa extensão. No entanto, os usuários podem usar suas próprias funções de retorno de chamada se as funções expostas não resolverem seu requisito. A intenção é trazer sua própria estrutura de dados de comportamentos, o plug-in usa essa função de validador ao extrair os comportamentos das marcas de dados.
 
-| Name                   | Descrição                                                                        |
+| Nome                   | Descrição                                                                        |
 | ---------------------- | -----------------------------------------------------------------------------------|
 | BehaviorValueValidator | Use essa função de retorno de chamada se sua estrutura de dados de comportamentos for uma matriz de cadeias de caracteres.|
 | BehaviorMapValidator   | Use essa função de retorno de chamada se sua estrutura de dados de comportamentos for um dicionário.       |

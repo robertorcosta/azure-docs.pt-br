@@ -6,19 +6,19 @@ keywords: conectar-se ao banco de dados sql, consultar o banco de dados sql, por
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, contperf-fy21q3-portal
 ms.devlang: ''
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: b2b614002a380ecd9c7eb6ec40e9dbd734b99628
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: a6f13e27a5aa2684a16565c616d781e3d5c3a750
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692837"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594182"
 ---
 # <a name="quickstart-use-the-azure-portals-query-editor-preview-to-query-an-azure-sql-database"></a>Início Rápido: Usar o editor de consultas do portal do Azure (versão prévia) para consultar um Banco de Dados SQL do Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

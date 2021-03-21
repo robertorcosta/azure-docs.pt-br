@@ -7,10 +7,10 @@ ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.openlocfilehash: 0e3c82f711de4cd9710c9aafe798a986e3403ed4
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563701"
 ---
 # <a name="troubleshooting-datadog-on-azure"></a>Solução de problemas do Datadog no Azure
@@ -29,7 +29,7 @@ Este documento contém informações sobre como solucionar problemas de suas sol
 
 ## <a name="unable-to-create-datadog-resource"></a>Não é possível criar o recurso Datadog
 
-Para configurar a integração do Datadog do Azure, você deve ter acesso de **proprietário** na assinatura do Azure. Verifique se você tem o acesso apropriado antes de iniciar a instalação.
+Para configurar a integração do Datadog do Azure, você precisa ter acesso de **Proprietário** na assinatura do Azure. Verifique se você tem o acesso apropriado antes de iniciar a configuração.
 
 ## <a name="single-sign-on-errors"></a>Erros de logon único
 

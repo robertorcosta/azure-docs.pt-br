@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 12/16/2020
 ms.openlocfilehash: 3ace7f1c93ab3918f460d245a863db43d98f1db5
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176086"
 ---
 # <a name="use-managed-identities-in-azure-kubernetes-service"></a>Usar identidades gerenciadas no serviço kubernetes do Azure
@@ -80,7 +80,7 @@ Use o comando a seguir para consultar o ObjectID da sua identidade gerenciada do
 az aks show -g myResourceGroup -n myManagedCluster --query "identity"
 ```
 
-O resultado deve ser semelhante a:
+O resultado deve ter esta aparência:
 
 ```output
 {
@@ -146,7 +146,7 @@ Se você ainda não tiver uma identidade gerenciada, deverá continuar e criar u
 ```azurecli-interactive
 az identity create --name myIdentity --resource-group myResourceGroup
 ```
-O resultado deve ser semelhante a:
+O resultado deve ter esta aparência:
 
 ```output
 {                                                                                                                                                                                 

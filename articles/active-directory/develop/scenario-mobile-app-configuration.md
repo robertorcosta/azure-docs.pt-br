@@ -13,10 +13,10 @@ ms.date: 06/16/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 6f13d789cd63bb568bb8940ce614ebdb2dbcdb83
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199741"
 ---
 # <a name="configure-a-mobile-app-that-calls-web-apis"></a>Configurar um aplicativo móvel que chama APIs da Web
@@ -214,7 +214,7 @@ Para definir a janela de objeto, siga estas etapas:
 
     `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker."`
 
-1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Aqui está um exemplo:
+1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` . Passe a referência à janela de objeto que você usará. Veja um exemplo:
 
     Em `App.cs`:
     ```csharp

@@ -4,10 +4,10 @@ description: Configure o WSFC (cluster de failover do Windows Server) na soluç�
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.openlocfilehash: d667eef00fcad0e3f5243c6ab580e2e8371c6793
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518986"
 ---
 # <a name="windows-server-failover-cluster-on-azure-vmware-solution-vsan-with-native-shared-disks"></a>Cluster de failover do Windows Server na solução do Azure VMware vSAN com discos compartilhados nativos
@@ -62,7 +62,7 @@ No momento, há suporte para as seguintes configurações:
 - Não há suporte para a combinação de discos compartilhados e não compartilhados em um único adaptador SCSI virtual. Por exemplo, se o disco do sistema (unidade C:) está anexado a SCSI0:0, o primeiro disco compartilhado seria anexado a SCSI1:0. Um nó de VM de um WSFC tem o mesmo máximo de controlador SCSI virtual que uma VM comum-até quatro (4) controladores SCSI virtuais.
 - As IDs de SCSI de discos virtuais devem ser consistentes entre todas as VMs que hospedam nós do mesmo WSFC.
 
-| **Componente** | **Requirements** |
+| **Componente** | **Requisitos** |
 | --- | --- |
 | Versão de hardware de VM | 11 ou superior para dar suporte ao vMotion em tempo real. |
 | NIC virtual | NIC (placa de interface de rede) paravirtualizada VMXNET3; Habilite o RSS (recebimento do Windows) no convidado na NIC virtual. |
@@ -73,7 +73,7 @@ No momento, há suporte para as seguintes configurações:
 ### <a name="wsfc-node---boot-disks-configuration-parameters"></a>Parâmetros de configuração dos discos de inicialização do nó do WSFC
 
 
-| **Componente** | **Requirements** |
+| **Componente** | **Requisitos** |
 | --- | --- |
 | Tipo de controlador SCSI | SAS de lógica LSI |
 | Modo de disco | Máquina |
@@ -83,7 +83,7 @@ No momento, há suporte para as seguintes configurações:
 ### <a name="wsfc-node---shared-disks-configuration-parameters"></a>Nó WSFC-parâmetros de configuração de discos compartilhados
 
 
-| **Componente** | **Requirements** |
+| **Componente** | **Requisitos** |
 | --- | --- |
 | Tipo de controlador SCSI | Paravirtualizate VMware (PVSCSI) |
 | Modo de disco | Independente-persistente (etapa 2 na ilustração abaixo). Ao usar essa configuração, você garante que todos os discos sejam excluídos dos instantâneos. Não há suporte para instantâneos em VMs baseadas em WSFC. |
