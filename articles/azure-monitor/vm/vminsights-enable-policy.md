@@ -1,18 +1,18 @@
 ---
-title: Habilitar o insights de VM usando Azure Policy
+title: Habilitar insights da VM usando o Azure Policy
 description: Descreve como habilitar o insights de VM para várias máquinas virtuais do Azure ou conjuntos de dimensionamento de máquinas virtuais usando Azure Policy.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 51baf009543208fbbfe091238d0215a24761641d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031949"
 ---
-# <a name="enable-vm-insights-by-using-azure-policy"></a>Habilitar o insights de VM usando Azure Policy
+# <a name="enable-vm-insights-by-using-azure-policy"></a>Habilitar insights da VM usando o Azure Policy
 Este artigo explica como habilitar as informações de VM para máquinas virtuais do Azure ou máquina virtual híbrida conectada com o Arc do Azure (versão prévia) usando Azure Policy. Azure Policy permite que você atribua definições de política que instalam os agentes necessários para as informações da VM em todo o ambiente do Azure e habilitam automaticamente o monitoramento de VMs à medida que cada máquina virtual é criada. O Revisions da VM fornece um recurso que permite que você descubra e corrija VMs não compatíveis em seu ambiente. Use esse recurso em vez de trabalhar diretamente com Azure Policy.
 
 Se você não estiver familiarizado com Azure Policy, obtenha uma breve introdução em [implantar Azure monitor em escala usando Azure Policy](../deploy-scale.md).
@@ -47,7 +47,7 @@ Na página **parâmetros** , selecione um **espaço de trabalho log Analytics** 
    > [!NOTE]
    > Se o workspace estiver fora do escopo da atribuição, conceda as permissões *Colaborador do Log Analytics* à ID de Entidade de Segurança da atribuição de política. Se você não fizer isso, poderá ver uma falha de implantação como `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
-[![Espaço](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
+[![Workspace](media/vminsights-enable-policy/assignment-workspace.png)](media/vminsights-enable-policy/assignment-workspace.png#lightbox)
 
 Clique em **revisar + criar** para revisar os detalhes da atribuição antes de clicar em **criar** para criá-la. Não crie uma tarefa de correção neste ponto, pois você provavelmente precisará de várias tarefas de correção para habilitar as máquinas virtuais existentes. Consulte [corrigir os resultados de conformidade](#remediate-compliance-results) abaixo.
 

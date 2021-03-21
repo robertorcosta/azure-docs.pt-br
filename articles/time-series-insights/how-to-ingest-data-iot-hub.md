@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
 ms.openlocfilehash: 85773ec66dbe567afcfd1afca1d14aa0119fb8f6
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103464013"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-azure-time-series-insight-environment"></a>Adicionar uma origem de evento do Hub IoT ao seu ambiente do Azure Time Series Insight
@@ -86,7 +86,7 @@ Para adicionar um novo grupo de consumidores ao seu hub IoT:
        | Propriedade | Descrição |
        | --- | --- |
        | ID da assinatura | A assinatura à qual o Hub IOT desejado pertence. |
-       | Grupo de recursos | O nome do grupo de recursos no qual o hub IoT foi criado. |
+       | Resource group | O nome do grupo de recursos no qual o hub IoT foi criado. |
        | Nome do Hub IoT | O nome de seu hub IoT. Quando criou o hub IoT, você inseriu um nome para ele. |
        | Nome da política do Hub IoT | A política de acesso compartilhado. Você pode criar a política de acesso compartilhado na guia Configurações do Hub IoT. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **conexão de serviço**. |
        | Chave de política do Hub IoT | A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço do Azure. Insira aqui a chave primária ou secundária. |

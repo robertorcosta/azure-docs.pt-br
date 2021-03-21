@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: philmea
 ms.openlocfilehash: d414b86ff81a33f9e818a0a28031e73d88cabec2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202256"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Gerenciar IoT Central de CLI do Azure
@@ -32,7 +32,7 @@ Em vez de criar e gerenciar IoT Central aplicativos no site [do Azure IOT centra
 
 [!INCLUDE [Warning About Access Required](../../../includes/iot-central-warning-contribitorrequireaccess.md)]
 
-Use o comando [AZ IOT central app Create](/cli/azure/iot/central/app#az-iot-central-app-create) para criar um aplicativo IOT central em sua assinatura do Azure. Por exemplo: 
+Use o comando [AZ IOT central app Create](/cli/azure/iot/central/app#az-iot-central-app-create) para criar um aplicativo IOT central em sua assinatura do Azure. Por exemplo:
 
 ```azurecli-interactive
 # Create a resource group for the IoT Central application

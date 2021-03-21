@@ -7,13 +7,13 @@ ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
 ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101744117"
 ---
-# <a name="manage-the-datadog-resource"></a>Gerenciar o recurso Datadog
+# <a name="manage-the-datadog-resource"></a>Gerenciar o recurso do Datadog
 
 Este artigo mostra como gerenciar as configurações para sua integração do Azure com o Datadog.
 
@@ -31,7 +31,7 @@ Os detalhes incluem:
 - Marcas
 - Link de logon único para a organização do Datadog
 - Oferta/plano do Datadog
-- Prazo de cobrança
+- Termo de cobrança
 
 Ele também fornece links para painéis, logs e mapas de host do Datadog.
 

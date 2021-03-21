@@ -5,10 +5,10 @@ services: container-service
 ms.topic: article
 ms.date: 10/23/2020
 ms.openlocfilehash: 1d5aa8232b5d0aaa68e6d7e3dcbb9a7d70d0e8f8
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182138"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrar Azure NetApp Files com o serviço kubernetes do Azure
@@ -145,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *creationToken* e `server` por *ipAddress* do comando anterior. Por exemplo: 
+Crie um `pv-nfs.yaml` definindo um PersistentVolume. Substitua `path` por *creationToken* e `server` por *ipAddress* do comando anterior. Por exemplo:
 
 ```yaml
 ---
@@ -179,7 +179,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Criar o PersistentVolumeClaim
 
-Crie um `pvc-nfs.yaml` definindo um PersistentVolume. Por exemplo: 
+Crie um `pvc-nfs.yaml` definindo um PersistentVolume. Por exemplo:
 
 ```yaml
 apiVersion: v1
@@ -209,7 +209,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montar com um pod
 
-Crie uma `nginx-nfs.yaml` definição de um pod que usa o PersistentVolumeClaim. Por exemplo: 
+Crie uma `nginx-nfs.yaml` definição de um pod que usa o PersistentVolumeClaim. Por exemplo:
 
 ```yaml
 kind: Pod

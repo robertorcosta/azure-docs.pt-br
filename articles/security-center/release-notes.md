@@ -8,10 +8,10 @@ ms.topic: reference
 ms.date: 03/11/2021
 ms.author: memildin
 ms.openlocfilehash: 4f2b31a4760a07779eebdd9492731ffe7e324d37
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149623"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novidades na Central de Segurança do Azure
@@ -44,7 +44,7 @@ As atualizações de março incluem:
 
 Quando você abre a Central de Segurança do Azure, a primeira página a ser exibida é a página de visão geral. 
 
-Este painel interativo fornece uma exibição unificada da postura de segurança das cargas de trabalho de nuvem híbrida. Além disso, ela mostra alertas de segurança, informações de cobertura, entre outros.
+Esse painel interativo fornece uma exibição unificada da postura de segurança das cargas de trabalho de nuvem híbrida. Além disso, ela mostra alertas de segurança, informações de cobertura, entre outros.
 
 Como parte da ajuda para exibir o status de segurança de uma experiência central, integramos o Gerenciador de Firewall do Azure a esse painel. Agora você pode verificar o status de cobertura do Firewall em todas as redes e gerenciar de forma centralizada as políticas de Firewall do Azure a partir da Central de Segurança.
 
