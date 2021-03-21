@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.openlocfilehash: 96594d573c308727217f537e5421dcb79f02c2ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433787"
 ---
 # <a name="creating-search-indexes-in-azure-cognitive-search"></a>Criando índices de pesquisa no Azure Pesquisa Cognitiva
@@ -69,7 +69,7 @@ Durante o desenvolvimento, planeje recompilações frequentes. Como as estrutura
 
 Todas as operações relacionadas a um índice de pesquisa, incluindo GET solicita sua definição, exigem uma [chave de API de administração](search-security-api-keys.md) na solicitação.
 
-### <a name="limits"></a>limites
+### <a name="limits"></a>Limites
 
 Todas as [camadas de serviço limitam](search-limits-quotas-capacity.md#index-limits) o número de objetos que você pode criar. Se você estiver experimentando a camada gratuita, só poderá ter 3 índices em um determinado momento.
 

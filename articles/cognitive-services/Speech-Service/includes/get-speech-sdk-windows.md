@@ -6,10 +6,10 @@ ms.date: 03/27/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: fc4cc5063f72ff3f0db62cde79f7908add86166e
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434426"
 ---
 :::row:::
@@ -24,7 +24,7 @@ ms.locfileid: "102434426"
     :::column-end:::
 :::row-end:::
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 
 O SDK do Speech no Windows requer o <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ redistribuível para o Visual Studio 2019 </a> no sistema.
 
@@ -40,7 +40,7 @@ Para a entrada do microfone, as bibliotecas do Media Foundation precisam ser ins
 
 Os arquivos necessários do SDK de Fala podem ser implantados no mesmo diretório do seu aplicativo. Dessa forma, seu aplicativo pode acessar diretamente as bibliotecas. Verifique se você selecionou a versão correta (x86/x64) que corresponde ao seu aplicativo.
 
-| Name                                            | Função                                             |
+| Nome                                            | Função                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK principal, necessário para implantação nativa e gerenciada |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Necessário para implantação gerenciada                      |

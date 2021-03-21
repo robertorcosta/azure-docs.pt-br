@@ -9,10 +9,10 @@ ms.date: 11/06/2019
 ms.author: cynthn
 ms.custom: include file
 ms.openlocfilehash: 7bf71f55e1b49a9280b25cfcc01090afbd0c42db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101750011"
 ---
 ## <a name="create-an-image-gallery"></a>Criar uma galeria de imagens
@@ -29,7 +29,7 @@ O exemplo a seguir cria uma galeria chamada *myGallery* no grupo de recursos *my
 1. Em **nome**, digite *myGallery* para o nome da galeria.
 1. Deixe o padrão para **região**.
 1. Você pode digitar uma breve descrição da galeria, como *minha galeria de imagens para teste.* e, em seguida, clique em **revisar + criar**.
-1. Depois que a validação for aprovada, selecione **criar**.
+1. Depois da aprovação na validação, selecione **Criar**.
 1. Depois que a implantação for concluída, selecione **Ir para o recurso**.
 
 

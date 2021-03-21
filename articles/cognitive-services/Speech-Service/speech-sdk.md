@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
 ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434419"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
@@ -126,7 +126,7 @@ A **entrada de áudio compactada por codec** está disponível nas seguintes pla
 
 Embora o SDK de fala cubra muitos recursos de recurso do serviço de fala, em alguns cenários, talvez você queira usar a API REST.
 
-### <a name="batch-transcription"></a>Transcrição em lote
+### <a name="batch-transcription"></a>Transcrição de lote
 
 A [transcrição em lote](batch-transcription.md) permite a transcrição de fala em texto assíncrona de grandes volumes de dados. A transcrição do lote só é possível da API REST. Além de converter áudio de fala em texto, a conversão de texto em lote também permite a análise de diarization e de sentimentos.
 

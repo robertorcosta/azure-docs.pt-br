@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103561644"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
@@ -200,7 +200,7 @@ O log de auditoria tem uma exibição de lista padrão que mostra:
 
 :::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Captura de tela de uma tabela na seção atividade da página dispositivos que lista a data, o destino, o ator e a atividade para quatro logs de auditoria." border="false":::
 
-Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 :::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Captura de tela mostrando a barra de ferramentas da página dispositivos. O item colunas está realçado." border="false":::
 

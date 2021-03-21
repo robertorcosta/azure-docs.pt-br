@@ -11,10 +11,10 @@ ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
 ms.openlocfilehash: 472bc66c75881d622e8ecfe23031f58db773a919
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102518918"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Criar e gerenciar espaços de trabalho do Azure Machine Learning 
@@ -134,7 +134,7 @@ Se você tiver problemas ao acessar sua assinatura, consulte [Configurar a auten
    Campo|Descrição 
    ---|---
    Nome do workspace |Insira um nome único que identifique seu workspace. Para este exemplo, usamos **docs-ws**. Os nomes devem ser únicos em todo o grupo de recursos. Use um nome que seja fácil de lembrar e diferenciar de workspaces criados por outras pessoas. O nome do workspace não diferencia maiúsculas de minúsculas.
-   Assinatura |Selecione a assinatura do Azure que você deseja usar.
+   Subscription |Selecione a assinatura do Azure que você deseja usar.
    Resource group | Use um grupo de recursos existente na sua assinatura ou insira um nome para criar um grupo de recursos. Um grupo de recursos mantém os recursos relacionados a uma solução do Azure. Para este exemplo, usamos **docs-aml**. Você precisa de um *colaborador* ou função de *proprietário* para usar um grupo de recursos existente.  Para obter mais informações sobre o acesso, consulte [gerenciar o acesso a um espaço de trabalho do Azure Machine Learning](how-to-assign-roles.md).
    Região | Selecione a região do Azure mais próxima aos usuários e aos recursos de dados para criar seu espaço de trabalho.
    | Conta de armazenamento | A conta de armazenamento padrão para o espaço de trabalho. Por padrão, um novo é criado. |

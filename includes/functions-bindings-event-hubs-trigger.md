@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
 ms.openlocfilehash: 145db7693db126d4e114e8c8a885ea7fd7809e69
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608896"
 ---
 Use o gatilho de função para responder a um evento enviado para um fluxo de eventos do hub de eventos. Você precisa ter acesso de leitura ao hub de eventos subjacente para configurar o gatilho. Quando a função for disparada, a mensagem passada para a função será digitada como uma cadeia de caracteres.
@@ -418,7 +418,7 @@ Confira o [exemplo de gatilho](#example) do Python para obter detalhes.
 
 O gatilho dos Hubs de Evento fornece várias propriedades de [metadados](../articles/azure-functions/./functions-bindings-expressions-patterns.md). As propriedades de metadados podem ser usadas como parte de expressões de associação em outras associações ou como parâmetros no seu código. As propriedades são provenientes da classe [EventData](/dotnet/api/microsoft.servicebus.messaging.eventdata).
 
-|Propriedade|Tipo|Descrição|
+|Propriedade|Type|Descrição|
 |--------|----|-----------|
 |`PartitionContext`|[PartitionContext](/dotnet/api/microsoft.servicebus.messaging.partitioncontext)|A instância `PartitionContext`.|
 |`EnqueuedTimeUtc`|`DateTime`|O tempo de enfileiramento no UTC.|

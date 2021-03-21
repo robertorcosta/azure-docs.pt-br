@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.openlocfilehash: b7e4ea586098ea3eb0dfd684650f798d7988e18b
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634576"
 ---
 # <a name="evaluate-and-improve-custom-speech-accuracy"></a>Avaliar e aprimorar a precisão da Fala Personalizada
@@ -81,7 +81,7 @@ Diferentes cenários produzem resultados de qualidade diferentes. A tabela a seg
 
 | Cenário | Qualidade do reconhecimento de fala | Erros de inserção | Erros de exclusão | Erros de substituição |
 |----------|----------------------------|------------------|-----------------|---------------------|
-| Call center | Médio (< 30% WER) | Baixo, exceto quando outras pessoas falam em segundo plano | Pode ser alto. As centrais de chamadas podem ser ruidosas e os alto-falantes sobrepostos podem confundir o modelo | Médio. Os nomes de produtos e pessoas podem causar esses erros |
+| Call center | Médio (< 30% WER) | Baixo, exceto quando outras pessoas falam em segundo plano | Pode ser alto. As centrais de chamadas podem ser ruidosas e os alto-falantes sobrepostos podem confundir o modelo | Média: Os nomes de produtos e pessoas podem causar esses erros |
 | Assistente de voz | Alta (pode ser < de 10% WER) | Baixo | Baixo | Médio, devido a títulos de música, nomes de produtos ou locais |
 | Ditado | Alta (pode ser < de 10% WER) | Baixo | Baixo | Alto |
 | Legenda codificada em vídeo | Depende do tipo de vídeo (pode ser < 50% WER) | Baixo | Pode ser alto devido a música, ruídos, qualidade do microfone | O jargão pode causar esses erros |

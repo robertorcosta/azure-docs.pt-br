@@ -4,10 +4,10 @@ description: Saiba como identificar e interagir com as unidades de instância do
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.openlocfilehash: 076e84473a7d067712625dd12a2d5cae42bfa91a
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548158"
 ---
 # <a name="manage-baremetal-instances-through-the-azure-portal"></a>Gerenciar Instâncias de BareMetal por meio do portal do Azure
@@ -40,21 +40,21 @@ Você precisará listar sua assinatura no portal do Azure e clicar duas vezes na
 
 ### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
 
-Para começar a usar o CLI do Azure:
+Para começar a usar a CLI do Azure:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-Entre na assinatura do Azure que você usa para a implantação da instância do BareMetal por meio do CLI do Azure. Registre o `BareMetalInfrastructure` provedor de recursos com o comando [AZ Provider Register](/cli/azure/provider#az_provider_register) :
+Entre na assinatura do Azure que você usa para a implantação da instância do BareMetal por meio do CLI do Azure. Registre o provedor de recursos de `BareMetalInfrastructure` com o comando [az provider register](/cli/azure/provider#az_provider_register):
 
 ```azurecli
 az provider register --namespace Microsoft.BareMetalInfrastructure
 ```
 
-Você pode usar o comando [AZ Provider List](/cli/azure/provider#az_provider_list) para ver todos os provedores disponíveis.
+Você pode usar o comando [az provider list](/cli/azure/provider#az_provider_list) para ver todos os provedores disponíveis.
 
 ---
 
-Para obter mais informações sobre provedores de recursos, consulte [tipos e provedores de recursos do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md).
+Para obter mais informações sobre os provedores de recursos, confira [Provedores e tipos de recursos do Azure](../../../azure-resource-manager/management/resource-providers-and-types.md).
 
 ## <a name="baremetal-instance-units-in-the-azure-portal"></a>BareMetal as unidades de instância no portal do Azure
  

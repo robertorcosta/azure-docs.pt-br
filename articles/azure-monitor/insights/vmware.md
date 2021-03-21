@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
 ms.openlocfilehash: 9ade5a51e2251669daee6fbaca9aa4c50f7e9bfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101704354"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Monitoramento do VMware (preterido) solução no Azure Monitor
@@ -49,14 +49,14 @@ Crie um sistema operacional do Linux VM para receber todos os dados syslog de ho
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. Marque o Console vSphere para confirmar que esse syslog está configurado corretamente. Confirme no host ESXI que a porta **1514** está configurada.
 1. Baixe e instale o agente do Log Analytics para Linux no servidor Linux. Para saber mais, veja a [Documentação do Agente do Log Analytics para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux).
-1. Depois que o agente do Log Analytics para Linux estiver instalado, vá para o diretório /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copie o arquivo vmware_esxi.conf para o diretório /etc/opt/microsoft/omsagent/conf/omsagent.d e altere o proprietário/grupo e as permissões do arquivo. Por exemplo: 
+1. Depois que o agente do Log Analytics para Linux estiver instalado, vá para o diretório /etc/opt/microsoft/omsagent/sysconf/omsagent.d e copie o arquivo vmware_esxi.conf para o diretório /etc/opt/microsoft/omsagent/conf/omsagent.d e altere o proprietário/grupo e as permissões do arquivo. Por exemplo:
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. Reinicie o agente do Log Analytics para Linux ao executar `sudo /opt/microsoft/omsagent/bin/service_control restart`.
-1. Teste a conectividade entre o servidor Linux e o host ESXi usando o comando `nc` no Host ESXi. Por exemplo: 
+1. Teste a conectividade entre o servidor Linux e o host ESXi usando o comando `nc` no Host ESXi. Por exemplo:
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -91,7 +91,7 @@ A tabela a seguir mostram exemplos de campos de dados coletados pela solução d
 | ResourceId_s |nome do host do VMware |
 | ResourceLocation_s |VMware |
 | ResourceName_s |VMware |
-| ResourceType_s |Hyper-V |
+| ResourceType_s |Hyper-v |
 | SCSIStatus_s |Status de SCSI do VMware |
 | SyslogMessage_s |Dados syslog |
 | UserName_s |usuário que criou ou excluiu a VM |
@@ -189,7 +189,7 @@ Pode haver vários motivos:
 
     a. Verifique se o agente do Log Analytics está em execução usando `ps -ef | grep oms`. Se ele não está em execução, inicie o processo executando o comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
-     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
+     b. Abra o arquivo `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf`.
 
      c. Verifique se o usuário apropriado e a configuração do grupo são válidos, semelhante a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 

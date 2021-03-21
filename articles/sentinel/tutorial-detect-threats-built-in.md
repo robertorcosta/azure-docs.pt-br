@@ -1,6 +1,6 @@
 ---
-title: Investigar alertas com o Azure Sentinel | Microsoft Docs
-description: Saiba como usar modelos de detecção de ameaças internos prontos para uso que o notificam quando algo suspeito acontece.
+title: Detecte ameaças com regras de análise internas no Azure Sentinel | Microsoft Docs
+description: Saiba como usar regras de detecção de ameaças prontas, com base em modelos internos, que o notificam quando algo suspeito acontece.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2020
 ms.author: yelevin
-ms.openlocfilehash: f1cfd941d8205a9bdc100ab69b115618af9f736d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b8a304d523052f1fe839f94608806df51d35fdf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101726964"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589915"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detectar ameaças prontas para uso
 
@@ -78,4 +78,3 @@ Os seguintes tipos de modelo estão disponíveis:
 Neste tutorial, você aprendeu a começar a detectar ameaças usando o Azure Sentinel. 
 
 Para saber como automatizar suas respostas a ameaças, [Configure as respostas de ameaças automatizadas no Azure Sentinel](tutorial-respond-threats-playbook.md).
-

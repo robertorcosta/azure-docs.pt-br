@@ -6,10 +6,10 @@ ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
 ms.openlocfilehash: 2a2e9d429d494c35c49a5b0a3e10b291fd8f24a6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100633930"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>Aplicativos gerenciados do Azure com notificações
@@ -71,11 +71,11 @@ EventType | ProvisioningState | Gatilho para notificação
 ---|---|---
 PUT | Aceito | O grupo de recursos gerenciados foi criado e projetado com êxito após o aplicativo ser colocado (antes de a implantação dentro do grupo de recursos gerenciado ser inicializada).
 PUT | Com sucesso | O provisionamento completo do aplicativo gerenciado foi bem-sucedido após um PUT.
-PUT | Failed (Falha) | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
+PUT | Com falha | Falha ao colocar o provisionamento da instância do aplicativo em qualquer ponto.
 PATCH | Com sucesso | Após um PATCH bem-sucedido na instância do aplicativo gerenciado para atualizar marcas, política de acesso JIT ou identidade gerenciada.
 Delete (excluir) | Excluir | Assim que o usuário inicia uma exclusão de uma instância de aplicativo gerenciado.
 Delete (excluir) | Excluído | Após a exclusão completa e bem-sucedida do aplicativo gerenciado.
-Delete (excluir) | Failed (Falha) | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
+Delete (excluir) | Com falha | Após qualquer erro durante o processo de desprovisionamento que bloqueia a exclusão.
 ## <a name="notification-schema"></a>Esquema de notificação
 Ao criar o ponto de extremidade do webhook para lidar com notificações, você precisará analisar a carga para obter propriedades importantes e, em seguida, agir sobre a notificação. As notificações do catálogo de serviços e do aplicativo gerenciado do Azure Marketplace fornecem muitas das mesmas propriedades. Duas pequenas diferenças são descritas na tabela que segue os exemplos.
 

@@ -12,10 +12,10 @@ ms.date: 07/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
 ms.openlocfilehash: 8076e3f6b2198abe46ae49cd8e0fd2b02f000231
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519343"
 ---
 # <a name="deploy-your-existing-model-with-azure-machine-learning"></a>Implantar seu modelo existente com Azure Machine Learning
@@ -100,7 +100,7 @@ inference_config = InferenceConfig(entry_script="score.py",
                                    environment=myenv)
 ```
 
-Para obter mais informações, confira os seguintes artigos:
+Para obter mais informações, consulte os seguintes artigos:
 
 + [Como usar ambientes](how-to-use-environments.md).
 + Referência de [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig) .

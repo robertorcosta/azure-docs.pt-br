@@ -4,10 +4,10 @@ description: Lista os tipos de recursos do Azure que podem ter mais de 800 inst�
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.openlocfilehash: 6736118f0713a27a91618173e06423530e6f10cb
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563106"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Recursos não limitados a 800 instâncias por grupo de recursos

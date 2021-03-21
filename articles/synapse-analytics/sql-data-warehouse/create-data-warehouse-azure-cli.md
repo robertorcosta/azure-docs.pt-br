@@ -2,19 +2,19 @@
 title: 'Início rápido: Criar um pool de SQL do Synapse com a CLI do Azure'
 description: Crie rapidamente um pool de SQL do Synapse com uma regra de firewall no nível do servidor usando a CLI do Azure.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/20/2020
-ms.author: Kevin
+ms.author: gaursa
 ms.custom: azure-synapse
-ms.openlocfilehash: 2920c96d6a2e505347edb51780101327cb884e08
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: c17bfc06e76bad7730707530001ebeccea539c37
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120165"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602257"
 ---
 # <a name="quickstart-create-a-synapse-sql-pool-with-azure-cli"></a>Início rápido: Criar um pool de SQL do Synapse com a CLI do Azure
 

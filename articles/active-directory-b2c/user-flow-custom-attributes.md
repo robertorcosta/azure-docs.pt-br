@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 17c73257db371bbec0c72a23b1303847a8d14102
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102607910"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definir atributos personalizados no Azure Active Directory B2C
@@ -58,9 +58,9 @@ O atributo personalizado agora está disponível na lista de **atributos de usu�
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione sua política (por exemplo, "B2C_1_SignupSignin") para abri-la.
-1. Selecione **Atributos de inscrição** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Salvar**.
+1. Selecione **Atributos de inscrição** e, em seguida, selecione o atributo personalizado (por exemplo, "ShoeSize"). Clique em **Save** (Salvar).
 1. Selecione **Declarações de aplicativo** e selecione o atributo personalizado.
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 Depois de criar um novo usuário usando um fluxo de usuário, que usa o atributo personalizado recém-criado, o objeto pode ser consultado no [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). Como alternativa, você pode usar o recurso [executar fluxo de usuário](./tutorial-create-user-flows.md) no fluxo do usuário para verificar a experiência do cliente. Agora você deve ver **ShoeSize** na lista de atributos coletados durante a jornada de inscrição, e vê-lo no token enviado de volta ao seu aplicativo.
 
@@ -127,7 +127,7 @@ Os mesmos atributos de extensão são compartilhados entre políticas internas e
 
 Você pode criar esses atributos usando a interface do usuário do portal antes ou depois de usá-los em suas políticas personalizadas. Ao criar um atributo **lealdadeid** no portal, você deve consultá-lo da seguinte maneira:
 
-|Name     |Usado em |
+|Nome     |Usado em |
 |---------|---------|
 |`extension_loyaltyId`  | Política personalizada|
 |`extension_<b2c-extensions-app-guid>_loyaltyId`  | [API do Microsoft Graph](microsoft-graph-operations.md)|

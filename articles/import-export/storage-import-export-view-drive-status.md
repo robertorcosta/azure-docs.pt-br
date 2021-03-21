@@ -10,10 +10,10 @@ ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 8ef18ea663f3a77589d61ed89c50df38f5cf0d0e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176120"
 ---
 # <a name="view-the-status-of-azure-importexport-jobs"></a>Exibir o status de trabalhos de Importação/Exportação do Azure
@@ -47,7 +47,7 @@ Você verá um dos seguintes status de trabalho, dependendo de onde a unidade es
 | Transferindo | Após pelo menos uma unidade começar o processamento, o estado do trabalho será definido como **Transferindo**. Para obter mais informações, consulte [Estados de unidade](#view-drive-status). |
 | Empacotamento | Depois que todas as unidades tiverem concluído o processamento, o trabalho será colocado no estado **Empacotamento** até que as unidades sejam enviadas de volta para você. |
 | Concluído | Depois que todas as unidades forem enviadas de volta para você, se o trabalho tiver sido concluído sem erros, ele será definido como **Concluído**. O trabalho será excluído automaticamente após 90 dias no estado **Concluído**. |
-| Fechado | Depois que todas as unidades forem enviadas de volta para você, se houver erros durante o processamento do trabalho, o trabalho será definido como **fechado**. O trabalho é excluído automaticamente após 90 dias no estado **Fechado**. |
+| Fechadas | Depois que todas as unidades forem enviadas de volta para você, se houver erros durante o processamento do trabalho, o trabalho será definido como **fechado**. O trabalho é excluído automaticamente após 90 dias no estado **Fechado**. |
 
 ## <a name="view-drive-status"></a>Exibir status da unidade
 

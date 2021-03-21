@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
 ms.openlocfilehash: 4a4705647b90d29f47e37b88531f3432c6a2f448
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102434423"
 ---
 Ao desenvolver para macOS, há três SDKs de fala disponíveis.
@@ -20,7 +20,7 @@ Ao desenvolver para macOS, há três SDKs de fala disponíveis.
 > [!TIP]
 > Para obter detalhes sobre como usar o SDK de fala do Objective-C com Swift, consulte <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">importando Objective-c para Swift </a>.
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 
 - Um macOS versão 10,13 ou posterior
 

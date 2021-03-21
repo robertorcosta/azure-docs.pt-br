@@ -2,21 +2,21 @@
 title: 'Início Rápido: Pausar e retomar a computação no pool de SQL dedicado por meio do portal do Azure'
 description: Use o portal do Azure para pausar a computação para o pool de SQL dedicado para economizar custos. Retomar computação quando você estiver pronto para usar o Data Warehouse.
 services: synapse-analytics
-author: kevinvngo
+author: gaursa
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: sql-dw
 ms.date: 11/23/2020
-ms.author: kevin
+ms.author: gaursa
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 567d5ae8b9d480003486362a7aa0ef69f9740d52
-ms.sourcegitcommit: aacbf77e4e40266e497b6073679642d97d110cda
+ms.openlocfilehash: f9cc5083c4b515454b9d5cbc40ed3b48cba80211
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
-ms.locfileid: "98120284"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602155"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-dedicated-sql-pool-via-the-azure-portal"></a>Início Rápido: Pausar e retomar a computação no pool de SQL dedicado por meio do portal do Azure
 

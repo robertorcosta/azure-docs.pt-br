@@ -14,10 +14,10 @@ ms.date: 11/25/2014
 ms.author: gwallace
 ms.custom: devx-track-java
 ms.openlocfilehash: fdaa2eeef58599cbff8dbf7daa34f9a30f31b9cb
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100548753"
 ---
 # <a name="how-to-make-a-phone-call-using-twilio-in-a-java-application-on-azure"></a>Como fazer uma chamada telefônica usando o Twilio em um aplicativo Java no Azure
@@ -169,7 +169,7 @@ Além de fazer a chamada, o makecall.jsp exibe o ponto de extremidade da Twilio,
 
 ![Resposta de chamada do Azure usando a Twilio e o Java][twilio_java_response]
 
-## <a name="run-the-application"></a>Execute o aplicativo
+## <a name="run-the-application"></a>Executar o aplicativo
 As seguintes são as etapas de alto nível para executar seu aplicativo. Os detalhes dessas etapas podem ser localizados em [Criando um aplicativo Olá, Mundo usando o Kit de Ferramentas do Azure para Eclipse][azure_java_eclipse_hello_world].
 
 1. Exporte o WAR TwilioCloud para a pasta **approot** do Azure. 

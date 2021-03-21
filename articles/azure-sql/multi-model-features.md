@@ -12,10 +12,10 @@ ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
 ms.openlocfilehash: b16a2fc9f107a8420fb7d05667807a869fa3e00a
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102172750"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funcionalidades de vários modelos do banco de dados SQL do Azure & SQL Instância Gerenciada
@@ -151,4 +151,4 @@ Os recursos de vários modelos na família de produtos SQL do Azure também são
 - [Processamento de grafo](/sql/relational-databases/graphs/sql-graph-overview)
 - [Dados JSON](/sql/relational-databases/json/json-data-sql-server)
 - [Suporte espacial](/sql/relational-databases/spatial/spatial-data-sql-server)
-- [dados XML](/sql/relational-databases/xml/xml-data-sql-server)
+- [Dados XML](/sql/relational-databases/xml/xml-data-sql-server)

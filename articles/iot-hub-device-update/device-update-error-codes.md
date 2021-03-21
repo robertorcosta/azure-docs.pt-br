@@ -7,10 +7,10 @@ ms.date: 2/18/2021
 ms.topic: reference
 ms.service: iot-hub-device-update
 ms.openlocfilehash: dbdddc7cee0c3664a83501ba619a38e1cc44e1f3
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200348"
 ---
 # <a name="device-update-for-iot-hub-error-codes"></a>Atualização de dispositivo para códigos de erro do Hub IoT
@@ -63,7 +63,7 @@ O código de erro pode ser obtido examinando as exceções geradas em resposta a
 
 | Código de erro  | Erro de cadeia de caracteres                       | Type                 | Descrição |
 |-------------|------------------------------------|----------------------|-------------|
-| 0x80D01001L | DO_E_NO_SERVICE                    | n/a                  | A otimização de entrega não pôde fornecer o serviço |
+| 0x80D01001L | DO_E_NO_SERVICE                    | N/D                  | A otimização de entrega não pôde fornecer o serviço |
 | 0x80D02002L | DO_E_DOWNLOAD_NO_PROGRESS          | Baixar trabalho         | O download de um arquivo não viu nenhum progresso dentro do período definido |
 | 0x80D02011L | DO_E_UNKNOWN_PROPERTY_ID           | Baixar trabalho         | SetProperty () ou GetProperty () chamado com uma ID de propriedade desconhecida |
 | 0x80D02012L | DO_E_READ_ONLY_PROPERTY            | Baixar trabalho         | Não é possível chamar SetProperty () em uma propriedade somente leitura |

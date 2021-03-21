@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 12/09/2019
 ms.openlocfilehash: b37cf33a96452f9f3e86f853d3d87fd3b4b3879c
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102431833"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Visão geral de versões do Azure Functions runtime
@@ -20,7 +20,7 @@ O Azure Functions atualmente dá suporte a três versões do host de tempo de ex
 
 Este artigo detalha algumas das diferenças entre as várias versões, como você pode criar cada versão e como alterar versões.
 
-## <a name="languages"></a>Languages
+## <a name="languages"></a>Idiomas
 
 A partir da versão 2. x, o tempo de execução usa um modelo de extensibilidade de linguagem e todas as funções em um aplicativo de funções devem compartilhar o mesmo idioma. O idioma das funções em um aplicativo de funções é escolhido ao criar o aplicativo e é mantido na configuração do [ \_ tempo de \_ execução do Works Worker](functions-app-settings.md#functions_worker_runtime) . 
 
@@ -61,7 +61,7 @@ Versões secundárias mais antigas são removidas periodicamente das funções. 
 
 Os aplicativos de função do .NET executados na versão 2. x ( `~2` ) são atualizados automaticamente para execução no .net core 3,1, que é uma versão de suporte a longo prazo do .NET Core 3. A execução de suas funções do .NET no .NET Core 3,1 permite que você aproveite as atualizações de segurança e os aprimoramentos de produtos mais recentes. 
 
-Qualquer aplicativo de funções fixado para `~2.0` continuar a ser executado no .NET Core 2,2, que não recebe mais segurança e outras atualizações. Para saber mais, consulte [Considerações sobre funções v2. x](functions-dotnet-class-library.md#functions-v2x-considerations).   
+Qualquer aplicativo de funções fixado para `~2.0` continuar a ser executado no .NET Core 2,2, que não recebe mais segurança e outras atualizações. Para saber mais, confira [Considerações sobre funções da v2.x](functions-dotnet-class-library.md#functions-v2x-considerations).   
 
 ## <a name="migrating-from-2x-to-3x"></a>Migrando de 2. x para 3. x
 
