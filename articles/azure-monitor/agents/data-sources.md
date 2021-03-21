@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 10/06/2020
 ms.openlocfilehash: 537163b4a78954443eeb7799dc624837ba03e2bd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036615"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Fontes de dados de monitoramento para Azure Monitor
@@ -93,7 +93,7 @@ A maioria dos serviços do Azure enviará [métricas de plataforma](../essential
 
 | Destino | Descrição | Referência |
 |:---|:---|:---|
-| Métricas do Azure Monitor | As métricas de plataforma serão gravadas no banco de dados de métricas Azure Monitor sem configuração. Acesse as métricas de plataforma de Metrics Explorer.  | [Introdução ao Azure Metrics Explorer](../essentials/metrics-getting-started.md)<br>[Métricas com suporte com Azure Monitor](../essentials/metrics-supported.md) |
+| Métricas do Azure Monitor | As métricas de plataforma serão gravadas no banco de dados de métricas Azure Monitor sem configuração. Acesse as métricas de plataforma de Metrics Explorer.  | [Introdução ao Azure Metrics Explorer](../essentials/metrics-getting-started.md)<br>[Métricas compatíveis com o Azure Monitor](../essentials/metrics-supported.md) |
 | Logs do Azure Monitor | Copie métricas de plataforma para os logs para tendência e outras análises usando Log Analytics. | [Direcionar o diagnóstico do Azure para o Log Analytics](../essentials/resource-logs.md#send-to-log-analytics-workspace) |
 | Hubs de Eventos | Transmita métricas para outros locais usando os hubs de eventos. |[Transmitir dados de monitoramento do Azure para um hub de eventos para consumo por uma ferramenta externa](../essentials/stream-monitoring-data-event-hubs.md) |
 
@@ -133,7 +133,7 @@ Instale o agente de Log Analytics para monitoramento e gerenciamento abrangentes
 | Armazenamento de VM | O Revisions de VM usa o agente de Log Analytics para armazenar informações de estado integridade em um local personalizado. Para obter mais informações, confira a próxima seção.  |
 
 
-### <a name="vm-insights"></a>Informações de VM 
+### <a name="vm-insights"></a>Insights da VM 
 O [virtual insights](../vm/vminsights-overview.md) fornece uma experiência de monitoramento Personalizada para máquinas virtuais que fornecem recursos além da funcionalidade de Azure monitor básica. Ele requer um Dependency Agent em máquinas virtuais Windows e Linux que se integre com o agente Log Analytics para coletar dados descobertos sobre processos em execução na máquina virtual e dependências de processo externas.
 
 | Destino | Descrição | Referência |
@@ -172,7 +172,7 @@ O [monitoramento de soluções](../insights/solutions.md) e [informações](../m
 | Logs do Azure Monitor | As soluções de monitoramento coletam dados em logs de Azure Monitor onde podem ser analisados usando a linguagem de consulta ou [exibições](../visualize/view-designer.md) que normalmente são incluídas na solução. | [Detalhes da coleta de dados para soluções de monitoramento no Azure](../monitor-reference.md) |
 
 
-### <a name="container-insights"></a>Informações de contêiner
+### <a name="container-insights"></a>Insights do contêiner
 As [informações de contêiner](../containers/container-insights-overview.md) fornecem uma experiência de monitoramento Personalizada para o [AKs (serviço kubernetes do Azure)](../../aks/index.yml). Ele coleta dados adicionais sobre esses recursos descritos na tabela a seguir.
 
 | Destino | Descrição | Referência |
@@ -181,7 +181,7 @@ As [informações de contêiner](../containers/container-insights-overview.md) f
 | Métricas do Azure Monitor | Os dados de métrica são armazenados no banco de dado de métrica para impulsionar a visualização e os alertas. | [Exibir métricas de contêiner no Metrics Explorer](../containers/container-insights-analyze.md#view-container-metrics-in-metrics-explorer) |
 | Serviço de Kubernetes do Azure | Fornece acesso direto aos logs de contêiner do AKS (serviço kubernetes do Azure) (stdout/stderr), eventos e métricas de Pod no Portal. | [Como exibir logs de kubernetes, eventos e métricas de pod em tempo real ](../containers/container-insights-livedata-overview.md) |
 
-### <a name="vm-insights"></a>Informações de VM
+### <a name="vm-insights"></a>Insights da VM
 As [informações de VM](../vm/vminsights-overview.md) fornecem uma experiência personalizada para monitorar máquinas virtuais. Uma descrição dos dados coletados pelo VM insights está incluída na seção do [sistema operacional (convidado)](#operating-system-guest) acima.
 
 ## <a name="custom-sources"></a>Fontes personalizadas

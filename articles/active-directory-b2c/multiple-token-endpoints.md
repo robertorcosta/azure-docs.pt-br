@@ -12,10 +12,10 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 860f167913211ee7c511e515937f29ba5bf954cf
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103491532"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom-or-a-custom-domain"></a>Migrar uma API Web baseada em OWIN para b2clogin.com ou um domínio personalizado
@@ -85,7 +85,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 Nesta seção, você atualiza o código para especificar que ambos os pontos de extremidade do emissor do token sejam válidos.
 
 1. Abra a solução **B2C-WebAPI-dotnet. sln** no Visual Studio
-1. No projeto **TaskService** , abra o arquivo *TaskService \\ App_Start \\ * * Startup.auth.cs** * em seu editor
+1. No projeto **TaskService** , abra o arquivo *TaskService \\ App_Start \\ * * Startup. auth. cs** * em seu editor
 1. Adicione a seguinte `using` diretiva à parte superior do arquivo:
 
     `using System.Collections.Generic;`
@@ -105,7 +105,7 @@ Nesta seção, você atualiza o código para especificar que ambos os pontos de 
     };
     ```
 
-`TokenValidationParameters` é fornecido pelo MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em *Startup.auth.cs*. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
+`TokenValidationParameters` é fornecido por MSAL.NET e é consumido pelo middleware OWIN na próxima seção do código em *Startup. auth. cs*. Com vários emissores válidos especificados, o pipeline de aplicativo do OWIN é informado de que os dois pontos de extremidade do token são emissores válidos.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions

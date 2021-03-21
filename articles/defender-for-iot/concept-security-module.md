@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 07/24/2019
 ms.author: mlottner
 ms.openlocfilehash: 552da329b90b102a13ef53158ec81be87684c1fc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493179"
 ---
 # <a name="defender-iot-micro-agent"></a>Defender-IoT-micro-Agent
@@ -40,7 +40,7 @@ As propriedades de segurança do dispositivo são mantidas em um defender-IoT-mi
 
 Confira [criar defender-IOT-micro-Agent](quickstart-create-security-twin.md) e [configurar os agentes de segurança](how-to-agent-configuration.md) para saber como criar, personalizar e configurar o entrelaçamento. Consulte [entendendo o módulo gêmeos](../iot-hub/iot-hub-devguide-module-twins.md) para saber mais sobre o conceito de módulo gêmeos no Hub IOT.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral do defender for IoT](overview.md)
 - [Implantar agentes de segurança](how-to-deploy-agent.md)

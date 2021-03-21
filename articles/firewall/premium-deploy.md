@@ -1,5 +1,5 @@
 ---
-title: Implantar e configurar o Azure firewall Premium Preview
+title: Implantar e configurar a versão prévia do Firewall do Azure Premium
 description: Saiba como implantar e configurar o firewall Premium do Azure.
 author: vhorne
 ms.service: firewall
@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 02/16/2021
 ms.author: victorh
 ms.openlocfilehash: fa106fac683619706f4be330ad1c4bff7b56f2dd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721779"
 ---
-# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Implantar e configurar o Azure firewall Premium Preview
+# <a name="deploy-and-configure-azure-firewall-premium-preview"></a>Implantar e configurar a versão prévia do Firewall do Azure Premium
 
 > [!IMPORTANT]
 > O firewall Premium do Azure está atualmente em visualização pública.
@@ -121,7 +121,7 @@ Você pode usar o `curl` para controlar vários cabeçalhos HTTP e simular o tr�
 
 #### <a name="to-test-idps-for-https-traffic"></a>Para testar o IDPS para o tráfego HTTPS
 
-Repita esses testes de ondulação usando HTTPS em vez de HTTP. Por exemplo: 
+Repita esses testes de ondulação usando HTTPS em vez de HTTP. Por exemplo:
 
 `curl --ssl-no-revoke -A "BlackSun" <your web server address>`
 
@@ -143,7 +143,7 @@ Algumas páginas HTML podem parecer incompletas porque se referem a outras URLs 
 - Se a página HTML contiver links para outros domínios, você poderá adicionar esses domínios a uma nova regra de aplicativo com permitir acesso a esses FQDNs.
 - Se a página HTML contiver links para sub URLs, você poderá modificar a regra e adicionar um asterisco à URL. Por exemplo: `targetURLs=www.nytimes.com/section/world*`
 
-   Como alternativa, você pode adicionar uma nova URL à regra. Por exemplo:  
+   Como alternativa, você pode adicionar uma nova URL à regra. Por exemplo: 
 
    `www.nytimes.com/section/world, www.nytimes.com/section/world/*`
 

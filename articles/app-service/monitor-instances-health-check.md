@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 7d6f9564328f81b71c62a4243c5f4cc209a29d8f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101714469"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596018"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorar instâncias do serviço de aplicativo usando a verificação de integridade
 
@@ -62,6 +62,10 @@ Grandes equipes de desenvolvimento empresarial geralmente precisam aderir aos re
 ## <a name="monitoring"></a>Monitoramento
 
 Depois de fornecer o caminho de verificação de integridade do aplicativo, você pode monitorar a integridade do seu site usando Azure Monitor. Na folha **verificação de integridade** no portal, clique nas **métricas** na barra de ferramentas superior. Isso abrirá uma nova folha em que você poderá ver o status de integridade histórico do site e criar uma nova regra de alerta. Para obter mais informações sobre como monitorar seus sites, [consulte o guia em Azure monitor](web-sites-monitor.md).
+
+## <a name="limitations"></a>Limitações
+
+A verificação de integridade não deve ser habilitada em sites de funções Premium. Devido ao dimensionamento rápido das funções Premium, as solicitações de verificação de integridade podem causar flutuações desnecessárias no tráfego HTTP. As funções Premium têm suas próprias investigações de integridade internas que são usadas para informar decisões de dimensionamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

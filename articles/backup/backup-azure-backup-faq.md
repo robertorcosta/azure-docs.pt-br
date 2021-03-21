@@ -3,12 +3,12 @@ title: Respostas a perguntas comuns
 description: 'Respostas para perguntas comuns sobre: recursos de Backup do Azure incluindo cofres dos Serviços de Recuperação, do que ele pode fazer backup, como ele funciona, criptografia e limites. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ac58cee66aa2a89efb7194a051801b068628d3bc
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.openlocfilehash: 79ff404192de481965f3971f00328c49a591dd41
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103467622"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583370"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Backup do Azure — Perguntas frequentes
 
@@ -72,6 +72,13 @@ Sim. Para mover uma assinatura (que contém um cofre) para um Azure Active Direc
 
 >[!IMPORTANT]
 >Certifique-se de executar as seguintes ações depois de mover a assinatura:<ul><li>As permissões de controle de acesso baseado em função e as funções personalizadas não são transferíveis. Você deve recriar as permissões e as funções no novo Azure AD.</li><li>Você deve recriar a identidade gerenciada (MI) do cofre desabilitando-a e habilitando-a novamente. Além disso, você deve avaliar e recriar as permissões de MI.</li><li>Se o cofre usar recursos que aproveitam MI, como [pontos de extremidade privados](private-endpoints.md#before-you-start) e [chaves gerenciadas pelo cliente](encryption-at-rest-with-cmk.md#before-you-start), você deverá reconfigurar os recursos.</li></ul>
+
+### <a name="can-i-move-a-subscription-that-contains-a-recovery-services-vault-to-a-different-tenant"></a>Posso mover uma assinatura que contém um cofre dos serviços de recuperação para um locatário diferente?
+
+Sim. Certifique-se de fazer o seguinte: 
+
+>[!IMPORTANT]
+>Certifique-se de executar as seguintes ações depois de mover a assinatura:<ul><li>Se o cofre usar CMK (chaves gerenciadas pelo cliente), você deverá atualizar o cofre. Isso permite que o cofre recrie e reconfigure a identidade gerenciada do cofre e o CMK (que residirá no novo locatário), caso contrário, a operação de backup/restauração falhará.</li><li>Você deve reconfigurar as permissões de RBAC na assinatura, pois as permissões existentes não podem ser movidas.</li></ul>
 
 ## <a name="azure-backup-agent"></a>Agente do Backup do Azure
 

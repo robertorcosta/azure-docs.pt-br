@@ -1,18 +1,18 @@
 ---
 title: Controles de Conformidade Regulatória do Azure Policy para o Banco de Dados do Azure para MariaDB
 description: Lista os controles de conformidade regulatória do Azure Policy disponíveis para o Banco de Dados do Azure para MariaDB. Estas definições de políticas internas fornecem abordagens comuns para gerenciar a conformidade dos seus recursos do Azure.
-ms.date: 03/10/2021
+ms.date: 03/17/2021
 ms.topic: sample
 author: savjani
 ms.author: pariks
 ms.service: mariadb
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: d2d6529c12363ef113da3b0fb2e59e55e361459f
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 3106a090155833463b512f8429b770afb6cf41b8
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102631091"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593486"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-database-for-mariadb"></a>Controles de Conformidade Regulatória do Azure Policy para o Banco de Dados do Azure para MariaDB
 

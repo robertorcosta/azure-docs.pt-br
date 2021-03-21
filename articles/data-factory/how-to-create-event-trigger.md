@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: 6474cb10cdb516bae0386b92e40ecd6f17250691
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: b559ce31aff7040a61f6a2f788652ffd192420c4
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225432"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593791"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento de armazenamento
 
@@ -49,7 +49,7 @@ Esta seção mostra como criar um gatilho de evento de armazenamento dentro da i
    > O gatilho de evento de armazenamento atualmente dá suporte apenas a Azure Data Lake Storage Gen2 e contas de armazenamento da versão 2 de uso geral. Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 disparadores de eventos de armazenamento por conta de armazenamento.
 
    > [!NOTE]
-   > Para criar e modificar um novo gatilho de evento de armazenamento, a conta do Azure usada para fazer logon no Data Factory e publicar o gatilho de evento de armazenamento deve ter a permissão de controle de acesso baseado em função (RBAC do Azure) na conta de armazenamento. Nenhuma permissão adicional é necessária: a entidade de serviço para o Azure Data Factory _não precisa de_ permissão especial para a conta de armazenamento ou a grade de eventos. Para obter mais informações sobre o controle de acesso, consulte seção [controle de acesso baseado em função](#role-based-access-control) .
+   > Para criar um novo ou modificar um gatilho de evento de armazenamento existente, a conta do Azure usada para fazer logon no Data Factory e publicar o gatilho de evento de armazenamento deve ter a permissão de controle de acesso baseado em função (RBAC do Azure) na conta de armazenamento. Nenhuma permissão adicional é necessária: a entidade de serviço para o Azure Data Factory _não precisa de_ permissão especial para a conta de armazenamento ou a grade de eventos. Para obter mais informações sobre o controle de acesso, consulte seção [controle de acesso baseado em função](#role-based-access-control) .
 
 1. As propriedades **Caminho do blob começa com**  e **Caminho do blob termina com** permitem especificar os contêineres, as pastas e os nomes de blob para os quais você deseja receber eventos. Seu gatilho de evento de armazenamento exige que pelo menos uma dessas propriedades seja definida. É possível usar diversos padrões tanto para o **caminho do Blob que começa com** como para o **caminho do Blob que termina com propriedades**, conforme mostrado nos exemplos mais adiante neste artigo.
 
@@ -67,12 +67,12 @@ Esta seção mostra como criar um gatilho de evento de armazenamento dentro da i
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image3.png" alt-text="Captura de tela da página de visualização do gatilho de evento de armazenamento.":::
 
-1. Para anexar um pipeline a esse gatilho, acesse a tela do pipeline e clique em **Adicionar gatilho** e selecione **Novo/Editar**. Quando a navegação lateral aparecer, clique na lista suspensa **Escolher gatilho...** e selecione o gatilho criado. Clique em **Avançar: Visualização de dados** para confirmar se a configuração está correta. Em seguida, clique em **Avançar** para validar se a visualização de dados está correta.
+1. Para anexar um pipeline a esse gatilho, vá para a tela do pipeline e clique em **gatilho** e selecione **novo/editar**. Quando a navegação lateral aparecer, clique na lista suspensa **Escolher gatilho...** e selecione o gatilho criado. Clique em **Avançar: Visualização de dados** para confirmar se a configuração está correta. Em seguida, clique em **Avançar** para validar se a visualização de dados está correta.
 
 1. Se o pipeline tiver parâmetros, você poderá especificá-los na navegação lateral do parâmetro de execução do gatilho. O gatilho de evento de armazenamento captura o caminho da pasta e o nome do arquivo do blob nas propriedades `@triggerBody().folderPath` e `@triggerBody().fileName` . Para usar os valores dessas propriedades em um pipeline, é necessário mapear as propriedades para parâmetros de pipeline. Depois de mapear as propriedades para parâmetros, acesse os valores capturados pelo gatilho por meio da expressão `@pipeline().parameters.parameterName` em todo o pipeline. Para obter uma explicação detalhada, consulte [metadados do gatilho de referência em pipelines](how-to-use-trigger-parameterization.md)
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image4.png" alt-text="Captura de tela de propriedades de mapeamento de gatilho de evento de armazenamento para parâmetros de pipeline.":::
-    
+
     No exemplo anterior, o gatilho é configurado para ser acionado quando um caminho de blob terminando em. csv é criado na pasta _-teste de evento_ no contêiner de _exemplo-dados_. As propriedades **folderPath** e **fileName** capturam o local do novo blob. Por exemplo, quando MoviesDB.csv é adicionado ao caminho de sample-data/event-testing, `@triggerBody().folderPath` tem um valor de `sample-data/event-testing` e `@triggerBody().fileName` tem um valor de `moviesDB.csv`. Esses valores são mapeados, no exemplo, para os parâmetros de pipeline `sourceFolder` e `sourceFile` , que podem ser usados em todo o pipeline como `@pipeline().parameters.sourceFolder` e, `@pipeline().parameters.sourceFile` respectivamente.
 
 1. Clique em **Concluir** quando terminar.

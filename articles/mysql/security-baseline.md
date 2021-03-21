@@ -8,10 +8,10 @@ ms.date: 09/02/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: c05abc6b761b9839df83f3170ce295d4480ca96a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577914"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Linha de base de segurança do Azure para banco de dados do Azure para MySQL
@@ -60,7 +60,7 @@ Você também pode proteger seu servidor de Banco de Dados do Azure para MySQL c
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: proteger aplicativos Web críticos
 
-**Diretriz**: não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
+**Diretriz**: Não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
@@ -104,7 +104,7 @@ Habilite a Proteção contra DDoS Padrão nas redes virtuais do Azure associadas
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: gerenciar o tráfego para aplicativos Web
 
-**Diretriz**: não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
+**Diretriz**: Não aplicável; essa recomendação destina-se a aplicativos Web em execução no Serviço de Aplicativo do Azure ou recursos de computação.
 
 **Monitoramento da Central de Segurança do Azure**: Não aplicável
 
