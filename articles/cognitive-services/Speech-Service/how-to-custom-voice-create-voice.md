@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
 ms.openlocfilehash: 541448f08e4ce9961d34063dcc225bf89d969a73
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101703364"
 ---
-# <a name="create-a-custom-voice"></a>Criar uma Voz Personalizada
+# <a name="create-a-custom-voice"></a>Criar uma voz personalizada
 
 Em [preparar dados para voz personalizada](how-to-custom-voice-prepare-data.md), descrevemos os diferentes tipos de dados que você pode usar para treinar uma voz personalizada e os requisitos de formato diferentes. Depois de preparar seus dados, você pode começar a carregá-los no [portal de voz personalizado](https://aka.ms/custom-voice-portal)ou por meio da API de treinamento de voz personalizada. Aqui, descrevemos as etapas de treinamento de uma voz personalizada por meio do Portal.
 
@@ -46,7 +46,7 @@ A tabela a seguir mostra os estados de processamento dos conjuntos de dados impo
 
 | Estado | Significado |
 | ----- | ------- |
-| Processing | Seu conjunto de seus foi recebido e está sendo processado. |
+| Processando | Seu conjunto de seus foi recebido e está sendo processado. |
 | Com sucesso | Seu conjunto de um foi validado e agora pode ser usado para criar um modelo de voz. |
 | Com falha | O conjunto de dados falhou durante o processamento devido a vários motivos, por exemplo, erros de arquivo, problemas de dados ou problemas de rede. |
 
@@ -99,7 +99,7 @@ O status mostrado reflete o processo de conversão do conjunto de seus conjuntos
 
 | Estado | Significado |
 | ----- | ------- |
-| Processing | Seu modelo de voz está sendo criado. |
+| Processando | Seu modelo de voz está sendo criado. |
 | Com sucesso | Seu modelo de voz foi criado e pode ser implantado. |
 | Com falha | O seu modelo de voz falhou no treinamento devido a vários motivos, por exemplo, problemas de dados ou problemas de rede não vistos. |
 

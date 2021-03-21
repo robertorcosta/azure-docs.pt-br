@@ -8,12 +8,12 @@ ms.date: 01/29/2021
 ms.author: rogarana
 ms.subservice: files
 ms.custom: references_regions
-ms.openlocfilehash: 51814ba36eec7b1f7d8b95ce80210d93b4cbec3f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 85d5d5b484163c4c65e7ec14c5d5ce5aea339669
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102564213"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593196"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planejando uma implantação da Sincronização de Arquivos do Azure
 
@@ -247,7 +247,7 @@ Nenhuma outra solução de HSM deve ser usada com a Sincronização de Arquivos 
 
 Como o agente do Azure File Sync é executado em um computador Windows Server que se conecta aos compartilhamentos de arquivos do Azure, o desempenho de sincronização efetivo depende de vários fatores em sua infraestrutura: Windows Server e a configuração de disco subjacente, largura de banda de rede entre o servidor e o Azure armazenamento, tamanho do arquivo, tamanho total do conjunto de dados e atividade no conjunto de dados. Desde que a sincronização de arquivos do Azure funciona no nível de arquivo, as características de desempenho de uma solução de sincronização de arquivos do Azure melhor é medido em número de objetos (arquivos e diretórios) processado por segundo.
 
-As alterações feitas ao compartilhamento de Arquivos do Azure usando o Portal do Azure ou SMB não são detectadas e replicadas imediatamente como as alterações no Ponto de extremidade do servidor são. Os Arquivos do Azure ainda não têm notificações/diário de alteração, portanto, não há nenhuma maneira de iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados. No Windows Server, Sincronização de Arquivos do Azure usa o [diário de USN do Windows](https://docs.microsoft.com/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados
+As alterações feitas ao compartilhamento de Arquivos do Azure usando o Portal do Azure ou SMB não são detectadas e replicadas imediatamente como as alterações no Ponto de extremidade do servidor são. Os Arquivos do Azure ainda não têm notificações/diário de alteração, portanto, não há nenhuma maneira de iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados. No Windows Server, Sincronização de Arquivos do Azure usa o [diário de USN do Windows](/windows/win32/fileio/change-journals) para iniciar automaticamente uma sessão de sincronização quando os arquivos são alterados
 
 Para detectar alterações para o compartilhamento de arquivos do Azure, a sincronização de arquivos do Azure tem um trabalho agendado chamado um alterar o trabalho de detecção. Um trabalho de detecção de alteração enumera todos os arquivos no compartilhamento de arquivos e, em seguida, compara a versão de sincronização para esse arquivo. Quando o trabalho de detecção de alteração determina que os arquivos foram alterados, a sincronização de Arquivos do Azure inicia uma sessão de sincronização. O trabalho de detecção de alteração é iniciado a cada 24 horas. Como o trabalho de detecção de alteração funciona enumerando todos os arquivos no compartilhamento de Arquivos do Azure, a detecção de troca demora mais nos namespaces grandes do que namespaces menores. Para esses namespaces, pode levar mais de uma vez a cada 24 horas para determinar quais arquivos foram alterados.
 

@@ -6,12 +6,12 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/30/2020
-ms.openlocfilehash: 9fb6e94062639d32707f52f66e0b99531884a636
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 120bec65c92e2a13022682265b83bfe0f69d8ed0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101692259"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592074"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Perguntas frequentes sobre o Link do Azure Synapse para Azure Cosmos DB
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -33,6 +33,10 @@ Ao planejar a configuração de uma conta de Azure Cosmos DB de várias regiões
 ### <a name="can-i-choose-to-enable-azure-synapse-link-for-only-certain-region-and-not-all-regions-in-a-multi-region-account-set-up"></a>Posso optar por habilitar o link do Azure Synapse para apenas determinada região e nem todas as regiões em uma configuração de conta de várias regiões?
 
 Quando o link Synapse do Azure está habilitado para uma conta de várias regiões, o repositório analítico é criado em todas as regiões. Os dados subjacentes são otimizados para consistência de taxa de transferência e transacional no repositório transacional.
+
+### <a name="is-analytical-store-supported-in-all-azure-cosmos-db-regions"></a>O repositório analítico é compatível com todas as regiões de Azure Cosmos DB?
+
+Sim.
 
 ### <a name="is-backup-and-restore-supported-for-azure-synapse-link-enabled-accounts"></a>O backup e a restauração têm suporte para contas habilitadas do Azure Synapse link?
 
@@ -165,6 +169,10 @@ Esse recurso não está disponível no momento.
 ### <a name="can-i-do-spark-structured-streaming-from-analytical-store"></a>Posso fazer streaming estruturado do Spark a partir do repositório analítico?
 
 Atualmente, o suporte a streaming estruturado do Spark para Azure Cosmos DB é implementado usando a funcionalidade de feed de alterações do repositório transacional e ainda não tem suporte do repositório analítico.
+
+### <a name="is-streaming-supported"></a>Há suporte para streaming?
+
+Não há suporte para streaming de dados do repositório analítico.
 
 ## <a name="azure-synapse-studio"></a>Azure Synapse Studio
 

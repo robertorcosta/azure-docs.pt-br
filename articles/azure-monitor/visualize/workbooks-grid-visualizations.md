@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 114245030ba2356861b83a580f103d3b84c0eae3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100605364"
 ---
 # <a name="grid-visualizations"></a>Visualizações de grade
@@ -239,7 +239,7 @@ As instruções abaixo mostrarão como usar os limites com links para atribuir �
     | Operador | Valor   | Ícones   |
     |----------|---------|---------|
     | ==       | warning | Aviso |
-    | ==       | erro   | Failed (Falha)  |
+    | ==       | erro   | Com falha  |
 
     ![Captura de tela da guia Editar configurações de coluna com as configurações acima.](./media/workbooks-grid-visualizations/column-settings.png)
 

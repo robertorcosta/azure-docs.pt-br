@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: deshriva
 ms.author: deshriva
 ms.date: 02/08/2021
-ms.openlocfilehash: cc3d7a7b63fc9b1a8c4fde60636836fbc34c5b35
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 0283779e10ac3e6070e9fd73d186af35972cad22
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103491445"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582877"
 ---
 # <a name="hdinsight-40-component-versions"></a>Versões de componente do HDInsight 4,0
 
@@ -29,7 +29,7 @@ As versões do componente OSS associadas ao HDInsight 4,0 estão listadas na tab
 | Apache Hive            | 3.1.0         |
 | Apache Ranger          | 1.1.0         |
 | HBase no Apache           | 2.1.6         |
-| Apache Sqoop           | 1.4.7         |
+| Apache Sqoop           | 1.5.0         |
 | Apache Oozie           | 4.3.1         |
 | O Apache Zookeeper       | 3.4.6         |
 | Apache Phoenix         | 5             |

@@ -9,10 +9,10 @@ ms.date: 02/17/2021
 ms.service: security-center
 ms.topic: how-to
 ms.openlocfilehash: 646495597565bbb033ac3adaa15f3754f33e8fd6
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100634151"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Suprimir alertas do Azure Defender
@@ -32,13 +32,13 @@ Esta página explica como você pode usar as regras de supressão de alertas par
 
 ## <a name="what-are-suppression-rules"></a>O que são regras de supressão?
 
-Os vários planos do Azure defender detectam ameaças em qualquer área do seu ambiente e geram alertas de segurança.
+Os vários planos do Azure Defender detectam ameaças em qualquer área do seu ambiente e geram alertas de segurança.
 
 Quando um único alerta não é interessante ou relevante, você pode descartá-lo manualmente. Como alternativa, use o recurso de regras de supressão para ignorar automaticamente alertas semelhantes no futuro. Normalmente, você usaria uma regra de supressão para:
 
-- Suprimir alertas que você identificou como falsos positivos
+- suprimir alertas que você identificou como falsos positivos
 
-- Suprimir alertas que estão sendo disparados com muita frequência para serem úteis
+- suprimir alertas que estão sendo disparados com frequência demais para serem úteis
 
 As regras de supressão definem os critérios para os quais os alertas devem ser automaticamente ignorados.
 

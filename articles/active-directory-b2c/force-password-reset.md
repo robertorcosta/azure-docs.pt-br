@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 0477153b466702bec0fa2d5221fee1e054d06314
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033752"
 ---
 # <a name="set-up-a-force-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de redefinição de senha forçada no Azure Active Directory B2C
@@ -80,7 +80,7 @@ Para habilitar a configuração de **redefinição de senha forçada** em um flu
 ::: zone pivot="b2c-custom-policy"
 
 1. Obtenha o exemplo de uma redefinição de senha forçada no [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/force-password-reset).
-1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com` .
+1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário do Azure AD B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com`.
 1. Carregue os arquivos de política na seguinte ordem: a política de extensão `TrustFrameworkExtensionsCustomForcePasswordReset.xml` e, em seguida, a política de terceira parte confiável `SignUpOrSigninCustomForcePasswordReset.xml` .
 
 ### <a name="test-the-policy"></a>Testar a política

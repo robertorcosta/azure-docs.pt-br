@@ -8,10 +8,10 @@ ms.date: 02/02/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526911"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
@@ -147,7 +147,7 @@ Para alterar a configuração de validação:
 
 1. Habilitar ou desabilitar a alternância **Habilitar validação de certificado** .
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação será apresentado no console do.
 
@@ -355,7 +355,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo **Editar nome do sensor** , insira um nome.
 
-1. Selecione **Salvar**. O novo nome é aplicado.
+1. Clique em **Salvar**. O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Alterar o nome de um sensor conectado à nuvem
 
@@ -406,7 +406,7 @@ Para alterar a configuração:
     | Nome do host | O nome do host do sensor |
     | Proxy | Host de proxy e nome da porta |
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar fusos horários no sensor
 
@@ -512,7 +512,7 @@ O console exibirá falhas de restauração.
 
 O procedimento a seguir descreve como atualizar um sensor autônomo usando o console do sensor. O processo de atualização leva cerca de 30 minutos.
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Vá para defender para IoT.
 
@@ -570,7 +570,7 @@ Para acessar as propriedades do sistema:
 
 3. Selecione **Propriedades do sistema** na seção **geral** .
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Pesquisa e pacotes de inteligência contra ameaças](how-to-work-with-threat-intelligence-packages.md)
 

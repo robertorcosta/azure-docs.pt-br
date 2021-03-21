@@ -11,12 +11,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Operations'
 - 'Role: Technical Support'
-ms.openlocfilehash: 3de9eccd001e421ef3255f83630716df12b7a2ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b65d42522f40eb7d0e65356223313a924de3039
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595253"
+ms.locfileid: "104656984"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -87,7 +87,7 @@ Por exemplo, você usa um dispositivo simulado para enviar mensagens de 200 do d
 
 As operações de registro de identidade do dispositivo são destinadas ao uso em tempo de execução em cenários de provisionamento e gerenciamento de dispositivos. Há suporte para leitura ou atualização de grandes números de identidades de dispositivo por meio de [trabalhos de importação e exportação](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-Ao iniciar operações de identidade por meio de [operações de dispositivo em massa](iot-hub-bulk-identity-mgmt.md), os mesmos limites de limitação se aplicam. Por exemplo, se você quiser enviar a operação em massa para criar dispositivos 50, e tiver um hub IoT S1 com uma unidade, somente duas dessas solicitações em massa serão aceitas por minuto. Isso porque o limite de operação de identidade para para um hub IoT S1 com uma unidade é 100/min/unidade. Também nesse caso, uma terceira solicitação (e além) no mesmo minuto seria rejeitada porque o limite já tinha sido atingido. 
+Ao iniciar operações de identidade por meio de [operações de atualização de registro em massa](https://docs.microsoft.com/rest/api/iothub/service/bulkregistry/updateregistry) (*não* trabalhos de importação e exportação em massa), os mesmos limites de limitação se aplicam. Por exemplo, se você quiser enviar a operação em massa para criar dispositivos 50, e tiver um hub IoT S1 com uma unidade, somente duas dessas solicitações em massa serão aceitas por minuto. Isso porque o limite de operação de identidade para para um hub IoT S1 com uma unidade é 100/min/unidade. Também nesse caso, uma terceira solicitação (e além) no mesmo minuto seria rejeitada porque o limite já tinha sido atingido. 
 
 ### <a name="device-connections-throttle"></a>Restrição de conexões de dispositivo
 
@@ -122,7 +122,7 @@ IoT Hub impõe outros limites operacionais:
 
 A qualquer momento, você pode aumentar as cotas ou os limites de limitação [aumentando o número de unidades provisionadas em um hub IOT](iot-hub-upgrade.md).
 
-## <a name="latency"></a>Latência
+## <a name="latency"></a>Latency
 
 O Hub IoT busca oferecer baixa latência para todas as operações. No entanto, devido a condições de rede e outros fatores imprevisíveis, ele não pode garantir uma determinada latência. Ao projetar sua solução, você deve:
 

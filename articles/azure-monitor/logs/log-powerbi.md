@@ -6,17 +6,17 @@ author: roygalMS
 ms.author: roygal
 ms.date: 11/03/2020
 ms.openlocfilehash: 894b87bfa17a59db20b424199a4021ad75b182fc
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041052"
 ---
 # <a name="log-analytics-integration-with-power-bi"></a>Integração do Log Analytics com o Power BI
 
 Este artigo se concentra em maneiras de alimentar dados de Log Analytics no Microsoft Power BI para criar painéis e relatórios mais atraentes visualmente. 
 
-## <a name="background"></a>Segundo plano 
+## <a name="background"></a>Tela de fundo 
 
 Os logs de Azure Monitor é uma plataforma que fornece uma solução de ponta a ponta para ingestão de logs. [Azure Monitor log Analytics](../platform/data-platform.md#) é a interface para consultar esses logs. Para obter mais informações sobre toda a plataforma de dados de Azure Monitor, incluindo Log Analytics, consulte [Azure monitor Data Platform](../data-platform.md). 
 

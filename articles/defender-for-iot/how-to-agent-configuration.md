@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: b59d9079b6d0fe0ab3fe61eacf43f3a99eb46686
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495769"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: configurar agentes de segurança
@@ -105,7 +105,7 @@ Para usar um valor de propriedade padrão, remova a propriedade do objeto de con
     }
     ```
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 ### <a name="using-a-default-value"></a>Usando um valor padrão
 
@@ -134,12 +134,12 @@ Os valores padrão estão disponíveis no esquema adequado no [GitHub](https\://
 |Erro de configuração |eventPriorityConfigurationError |Baixo |Falso |O agente não pôde analisar a configuração. Verifique a configuração em relação ao esquema.|
 |Estatísticas de eventos descartados |eventPriorityDroppedEventsStatistics |Baixo |Verdadeiro|Estatísticas de evento relacionadas ao agente. |
 |Hardware conectado|eventPriorityConnectedHardware |Baixo |Verdadeiro |Instantâneo de todo o hardware conectado ao dispositivo.|
-|Portas de escuta|eventPriorityListeningPorts |Alta |Verdadeiro |Instantâneo de todas as portas de escuta abertas no dispositivo.|
+|Portas de escuta|eventPriorityListeningPorts |Alto |Verdadeiro |Instantâneo de todas as portas de escuta abertas no dispositivo.|
 |Criar processo |eventPriorityProcessCreate |Baixo |Falso |Audita a criação do processo no dispositivo.|
 |Término do processo|eventPriorityProcessTerminate |Baixo |Falso |Audita o encerramento do processo no dispositivo.|
 |Informações do sistema |eventPrioritySystemInformation |Baixo |Verdadeiro |Um instantâneo das informações do sistema (por exemplo: sistema operacional ou CPU).|
-|Usuários locais| eventPriorityLocalUsers |Alta |Verdadeiro|Um instantâneo dos usuários locais registrados no sistema. |
-|Logon|  eventPriorityLogin |Alta|Falso|Auditar os eventos de logon para o dispositivo (logons locais e remotos).|
+|Usuários locais| eventPriorityLocalUsers |Alto |Verdadeiro|Um instantâneo dos usuários locais registrados no sistema. |
+|Logon|  eventPriorityLogin |Alto|Falso|Auditar os eventos de logon para o dispositivo (logons locais e remotos).|
 |Criação de conexão |eventPriorityConnectionCreate|Baixo|Falso|Audita as conexões TCP criadas de e para o dispositivo. |
 |Configuração do firewall| eventPriorityFirewallConfiguration|Baixo|Verdadeiro|Instantâneo da configuração de firewall do dispositivo (regras de firewall). |
 |Linha de base do so| eventPriorityOSBaseline| Baixo|Verdadeiro|Instantâneo da verificação de linha de base do so do dispositivo.|

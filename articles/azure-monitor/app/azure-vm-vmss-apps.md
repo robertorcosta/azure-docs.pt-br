@@ -4,13 +4,13 @@ description: Monitoramento do desempenho de aplicativos para a VM do Azure e con
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.openlocfilehash: 0951d1d622f59de4780735fad78ac73649ea2369
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711474"
 ---
-# <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente de Application Insights de Azure Monitor em máquinas virtuais do Azure e conjuntos de dimensionamento de máquinas virtuais do Azure
+# <a name="deploy-the-azure-monitor-application-insights-agent-on-azure-virtual-machines-and-azure-virtual-machine-scale-sets"></a>Implantar o agente do Application Insights do Azure Monitor em máquinas virtuais do Azure e em conjuntos de dimensionamento de máquinas virtuais do Azure
 
 Habilitar o monitoramento para seus aplicativos Web baseados em .NET ou Java executados em [máquinas virtuais do Azure](https://azure.microsoft.com/services/virtual-machines/) e [conjuntos de dimensionamento de máquinas virtuais do Azure](../../virtual-machine-scale-sets/index.yml) agora é mais fácil do que nunca. Obtenha todos os benefícios do uso de Application Insights sem modificar seu código.
 

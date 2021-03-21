@@ -12,10 +12,10 @@ ms.workload: infrastructure
 ms.date: 10/14/2019
 ms.author: haroldw
 ms.openlocfilehash: f257ed1097f49074d70f45f59e9040265f6cedef
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101670443"
 ---
 # <a name="configure-prerequisites"></a>Configurar pré-requisitos
@@ -66,7 +66,7 @@ Insira valores para os parâmetros de entrada e clique em **OK**.
 | Chave pública SSH para usuário administrador | Chave pública SSH usada para fazer logon na VM-não deve ter uma frase secreta |
 | Subscription | Assinatura do Azure na qual implantar o cluster |
 | Grupo de recursos | Criar um novo grupo de recursos ou selecionar um grupo de recursos vazio existente para recursos de cluster |
-| Local | Região do Azure na qual implantar o cluster |
+| Location | Região do Azure na qual implantar o cluster |
 
    ![Folha noções básicas da oferta](media/openshift-marketplace-self-managed/ocp-basics.png)  
 <br>

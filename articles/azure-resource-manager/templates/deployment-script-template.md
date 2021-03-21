@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 12/28/2020
+ms.date: 03/18/2021
 ms.author: jgao
-ms.openlocfilehash: 9d045fb75838ac016f3e9b04cd2519d8a8530a4b
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175644"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594235"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usar scripts de implantação em modelos ARM
 
@@ -149,7 +149,7 @@ Detalhes do valor da propriedade:
 
   Se os argumentos contiverem caracteres de escape, use [JsonEscaper](https://www.jsonescaper.com/) para dobrar o escape dos caracteres. Cole a cadeia de caracteres de escape original na ferramenta e selecione **escape**.  A ferramenta gera uma cadeia de caracteres com escape duplo. Por exemplo, no modelo de exemplo anterior, o argumento é `-name \"John Dole\"` . A cadeia de caracteres de escape é `-name \\\"John Dole\\\"` .
 
-  Para passar um parâmetro de modelo ARM do tipo Object como um argumento, converta o objeto em uma cadeia de caracteres usando a função [String ()](./template-functions-string.md#string) e, em seguida, use a função [replace ()](./template-functions-string.md#replace) para substituir qualquer `\"` `\\\"` . Por exemplo: 
+  Para passar um parâmetro de modelo ARM do tipo Object como um argumento, converta o objeto em uma cadeia de caracteres usando a função [String ()](./template-functions-string.md#string) e, em seguida, use a função [replace ()](./template-functions-string.md#replace) para substituir qualquer `\"` `\\\"` . Por exemplo:
 
   ```json
   replace(string(parameters('tables')), '\"', '\\\"')
@@ -162,11 +162,11 @@ Detalhes do valor da propriedade:
   > [!NOTE]
   > O portal do Azure não pode analisar um script de implantação com várias linhas. Para implantar um modelo com o script de implantação do portal do Azure, você pode encadear os comandos do PowerShell usando ponto e vírgula em uma linha ou usar a `primaryScriptUri` propriedade com um arquivo de script externo.
 
-- `primaryScriptUri`: Especifique uma URL acessível publicamente para o script de implantação primário com as extensões de arquivo com suporte.
-- `supportingScriptUris`: Especifique uma matriz de URLs acessíveis publicamente para dar suporte a arquivos que são chamados no `scriptContent` ou no `primaryScriptUri` .
+- `primaryScriptUri`: Especifique uma URL acessível publicamente para o script de implantação primário com as extensões de arquivo com suporte. Para obter mais informações, consulte [usar scripts externos](#use-external-scripts).
+- `supportingScriptUris`: Especifique uma matriz de URLs acessíveis publicamente para dar suporte a arquivos que são chamados no `scriptContent` ou no `primaryScriptUri` . Para obter mais informações, consulte [usar scripts externos](#use-external-scripts).
 - `timeout`: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.
 - `cleanupPreference`. Especifique a preferência de limpeza dos recursos de implantação quando a execução do script chegar a um estado terminal. A configuração padrão é **Sempre**, o que significa excluir os recursos, apesar do estado terminal (Êxito, Falha, Cancelado). Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
-- `retentionInterval`: Especifique o intervalo para o qual o serviço retém os recursos de script de implantação após a execução do script de implantação atingir um estado de terminal. Os recursos do script de implantação serão excluídos quando esse prazo expirar. A duração é baseada na [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção está entre 1 e 26 horas (PT26H). Essa propriedade é usada quando `cleanupPreference` está configurado como **OnExpiration**. A propriedade **Onexpiretion** não está habilitada no momento. Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
+- `retentionInterval`: Especifique o intervalo para o qual o serviço retém os recursos de script de implantação após a execução do script de implantação atingir um estado de terminal. Os recursos do script de implantação serão excluídos quando esse prazo expirar. A duração é baseada na [norma ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O intervalo de retenção está entre 1 e 26 horas (PT26H). Essa propriedade é usada quando `cleanupPreference` está configurado como **OnExpiration**. Para saber mais, confira [Limpar recursos do script de implantação](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Outros exemplos
 
@@ -212,7 +212,7 @@ Além dos scripts embutidos, você também pode usar arquivos de script externos
 
 Para obter mais informações, consulte o [modelo de exemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/deployment-script/deploymentscript-helloworld-primaryscripturi.json).
 
-Os arquivos de scripts externos devem estar acessíveis. Para proteger os arquivos de script armazenados nas contas de armazenamento do Azure, consulte [Implantar modelo de ARM privado com o token SAS](./secure-template-with-sas-token.md).
+Os arquivos de scripts externos devem estar acessíveis. Para proteger os arquivos de script armazenados nas contas de armazenamento do Azure, gere um token SAS e inclua-o no URI para o modelo. Defina a hora de vencimento de forma a permitir que haja tempo suficiente para concluir a implantação. Para obter mais informações, consulte [implantar modelo de ARM privado com token SAS](./secure-template-with-sas-token.md).
 
 Você é responsável por garantir a integridade dos scripts que são referenciados pelo script de implantação, seja `primaryScriptUri` ou `supportingScriptUris` . Referencie somente scripts nos quais você confia.
 
@@ -313,7 +313,7 @@ O serviço de script define o estado de provisionamento de recursos como **falha
 
 ### <a name="pass-secured-strings-to-deployment-script"></a>Passar cadeias de caracteres seguras para o script de implantação
 
-Definir variáveis de ambiente (EnvironmentVariable) em suas instâncias de contêiner permite que você forneça a configuração dinâmica do aplicativo ou do script executado pelo contêiner. O script de implantação manipula variáveis de ambiente não seguras e protegidas da mesma maneira que a Instância de Contêiner do Azure. Para saber mais, consulte [Definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values).
+Definir variáveis de ambiente (EnvironmentVariable) em suas instâncias de contêiner permite que você forneça a configuração dinâmica do aplicativo ou do script executado pelo contêiner. O script de implantação manipula variáveis de ambiente não seguras e protegidas da mesma maneira que a Instância de Contêiner do Azure. Para saber mais, consulte [Definir variáveis de ambiente em instâncias de contêiner](../../container-instances/container-instances-environment-variables.md#secure-values). Para obter um exemplo, consulte [modelos de exemplo](#sample-templates).
 
 O tamanho máximo permitido para variáveis de ambiente é 64 KB.
 

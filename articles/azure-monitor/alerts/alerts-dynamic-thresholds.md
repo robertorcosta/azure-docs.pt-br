@@ -6,10 +6,10 @@ ms.author: yalavi
 ms.topic: conceptual
 ms.date: 01/04/2021
 ms.openlocfilehash: 9cf4caf77d14dd1296276ca48827c170ef265e9b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718056"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Alertas de métrica com limites dinâmicos no Azure Monitor
@@ -61,7 +61,7 @@ Você pode escolher o alerta a ser disparado em uma das três condições a segu
 
 ## <a name="what-do-the-advanced-settings-in-dynamic-thresholds-mean"></a>O que as configurações avançadas em Limites Dinâmicos significam?
 
-**Períodos com falha** -os limites dinâmicos também permitem que você configure "violações de número para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo: 
+**Períodos com falha** -os limites dinâmicos também permitem que você configure "violações de número para disparar o alerta", um número mínimo de desvios necessários em uma determinada janela de tempo para o sistema gerar um alerta (a janela de tempo padrão é de quatro desvios em 20 minutos). O usuário pode configurar períodos de falha e escolher sobre o que ser alertado alterando os períodos de falha e a janela de tempo. Esse recurso reduz o ruído de alerta gerado por picos transitórios. Por exemplo:
 
 Para disparar um alerta quando o problema for contínuo por 20 minutos, 4 vezes consecutivas em um determinado período de agrupamento de 5 minutos, use as seguintes configurações:
 

@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/08/2021
-ms.openlocfilehash: b1e7511f7666455592b6d5f463a316c3354ec76b
-ms.sourcegitcommit: f6193c2c6ce3b4db379c3f474fdbb40c6585553b
+ms.date: 03/17/2021
+ms.openlocfilehash: ec24fa1bde21c70aa95fc33c92048aebc9f6659c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
-ms.locfileid: "102447428"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597378"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-servicemicrosoft-dataverse-or-dynamics-crm-by-using-azure-data-factory"></a>Copiar dados de e para o Dynamics 365 (Common Data Service/Microsoft dataverso) ou o Dynamics CRM usando Azure Data Factory
 
@@ -323,6 +323,7 @@ Para copiar dados para o Dynamics, a seção de **coletor** de atividade de cóp
 | alternateKeyName | O nome da chave alternativa definido em sua entidade para fazer um Upsert. | Não. |
 | writeBatchSize | A contagem de linhas de dados gravados no Dynamics em cada lote. | Não. O valor padrão é 10. |
 | ignoreNullValues | Se é para ignorar valores nulos de dados de entrada que não sejam campos de chave durante uma operação de gravação.<br/><br/>Os valores válidos são **true** e **false**:<ul><li>**True**: deixa os dados no objeto de destino inalterados quando você faz uma operação de Upsert ou atualização. Insira um valor padrão definido quando você faz uma operação insert.</li><li>**False**: atualizar os dados no objeto de destino para um valor nulo quando você fizer uma operação de Upsert ou atualização. Insira um valor nulo ao fazer uma operação de inserção.</li></ul> | Não. O valor padrão é **false**. |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 >[!NOTE]
 >O valor padrão para o coletor **writeBatchSize** e a atividade de cópia **[parallelCopies](copy-activity-performance-features.md#parallel-copy)** para o coletor do Dynamics é 10. Portanto, os registros 100 são enviados simultaneamente por padrão ao Dynamics.
