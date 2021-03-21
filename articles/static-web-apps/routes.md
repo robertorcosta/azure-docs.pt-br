@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: 5cbcbcf8914a663a6d039abecd6a4488eaf677b2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739637"
 ---
 # <a name="routes-in-azure-static-web-apps-preview"></a>Rotas na Versão Prévia do serviço Aplicativos Web Estáticos do Azure
@@ -31,7 +31,7 @@ O tópico de roteamento é bastante semelhante aos conceitos de autenticação e
 
 Consulte o [exemplo de arquivo de rota](#example-route-file) para obter detalhes.
 
-## <a name="location"></a>Local
+## <a name="location"></a>Location
 
 > [!IMPORTANT]
 > A funcionalidade definida no *routes.jsno* arquivo agora é preterida e melhor implementada no [arquivo de configuração](./configuration.md#routes)de aplicativos Web estáticos do Azure.
@@ -89,7 +89,7 @@ Você pode criar novas funções conforme necessário na matriz de `allowedRoles
 }
 ```
 
-- Você tem controle total sobre os nomes de função; Não há uma lista à qual suas funções devem aderir.
+- Você tem controle total sobre os nomes de função; não há nenhuma lista à qual suas funções devem se ater.
 - Os usuários individuais são associados a funções por meio de [convites](authentication-authorization.md).
 
 ## <a name="wildcards"></a>Curingas
@@ -345,7 +345,7 @@ Todas as respostas incluem os `content-security-policy` cabeçalhos com um valor
 - O arquivo _routes.json_ não pode ter mais de 100 KB
 - O arquivo _routes.json_ oferece suporte a um máximo de 50 funções distintas
 
-Consulte o [artigo cotas](quotas.md) para restrições gerais e limitações.
+Confira o [artigo Cotas](quotas.md) para ver as restrições gerais e limitações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

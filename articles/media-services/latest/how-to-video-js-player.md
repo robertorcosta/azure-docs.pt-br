@@ -14,10 +14,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: a0b357705de04ed4c2be3223f9dd07f61f75d970
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98954573"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Como usar o Video.js Player com os serviços de mídia do Azure
@@ -26,7 +26,7 @@ ms.locfileid: "98954573"
 
 ## <a name="overview"></a>Visão geral
 
-Video.js é um player de vídeo da Web criado para um mundo HTML5. Ele desempenha Formatos de mídia adaptável (como DASH e HLS) em um navegador, sem usar plugins ou flash. Em vez disso, Video.js usa as extensões Open Web de padrões de mídia e extensões de mídia criptografadas. Além disso, ele dá suporte à reprodução de vídeo em desktops e dispositivos móveis.
+Video.js é um player de vídeo da Web criado para um mundo HTML5. Ele executa formatos de mídias adaptáveis (como DASH e HLS) em um navegador, sem usar plug-ins nem o Flash. Em vez disso, Video.js usa as extensões Open Web de padrões de mídia e extensões de mídia criptografadas. Além disso, ele dá suporte à reprodução de vídeo em desktops e dispositivos móveis.
 
 Sua documentação oficial pode ser encontrada em [https://docs.videojs.com/](https://docs.videojs.com/) .
 

@@ -9,10 +9,10 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
 ms.openlocfilehash: 862c6c5253c1bb4481476b67c7cfb203c2568e24
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700568"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Fontes de dados de Azure Monitor pastas de trabalho
@@ -40,7 +40,7 @@ Os recursos do Azure emitem [métricas](../essentials/data-platform-metrics.md) 
 
 ![Captura de tela da interface de métricas da pasta de trabalho](./media/workbooks-data-sources/metrics.png)
 
-## <a name="azure-resource-graph"></a>Gráfico de Recursos do Azure
+## <a name="azure-resource-graph"></a>Azure Resource Graph
 
 As pastas de trabalho dão suporte à consulta de recursos e seus metadados usando o grafo de recursos do Azure (ARG). Essa funcionalidade é usada principalmente para criar escopos de consulta personalizados para relatórios. O escopo do recurso é expresso por meio de um subconjunto de KQL com suporte de ARG, que geralmente é suficiente para casos de uso comuns.
 

@@ -5,10 +5,10 @@ ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.openlocfilehash: 2cda13ea089ac08dff7c1ba5ca93ba56ab3c23cf
-ms.sourcegitcommit: beacda0b2b4b3a415b16ac2f58ddfb03dd1a04cf
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/31/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97831543"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Solucionando problemas de falhas de backup em máquinas virtuais do Azure
@@ -134,8 +134,8 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThre
 
 Etapa 3: se as etapas 1 e 2 não resolverem o problema, a falha poderá ser devido ao tempo limite dos gravadores VSS expirarem devido a um IOPS limitado.<br>
 
-Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo** _ e verifique a seguinte mensagem de erro:<br>
-O tempo limite do provedor de cópia de sombra do _The expirou enquanto retém gravações no volume que está sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida. *<br>
+Para verificar, navegue até ***sistema e visualizador de eventos logs de aplicativo*** e verifique a seguinte mensagem de erro:<br>
+*O tempo limite do provedor de cópia de sombra foi atingido ao reter gravações no volume sendo copiado em sombra. Isso provavelmente é devido à atividade excessiva no volume por um aplicativo ou um serviço do sistema. Tente novamente mais tarde quando a atividade no volume for reduzida.*<br>
 
 Solução:
 

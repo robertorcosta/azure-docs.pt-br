@@ -7,10 +7,10 @@ ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
 ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102217407"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
@@ -177,7 +177,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 No exemplo anterior, a chave de instrumentação é `c12a605e73c44346a984e00000000000`. Esse valor deve corresponder à chave de instrumentação para seu aplicativo.
 O minidespejo é associado a um instantâneo com a ID `139e411a23934dc0b9ea08a626db16c5`. Você pode usar essa ID posteriormente para localizar o registro de exceção associado no Application Insights Analytics.
 
-O carregador examina novos PDBs cerca de uma vez a cada 15 minutos. Aqui está um exemplo:
+O carregador examina novos PDBs cerca de uma vez a cada 15 minutos. Veja um exemplo:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.

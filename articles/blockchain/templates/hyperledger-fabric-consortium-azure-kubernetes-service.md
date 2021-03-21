@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.reviewer: ravastra
 ms.custom: contperf-fy21q3
 ms.openlocfilehash: 42d16adbc5e6396c8d5d38176ac7681c712f4555
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102101096"
 ---
 # <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Implantar o consórcio do Fabric do kubernetes no serviço do Azure
@@ -96,7 +96,7 @@ Para começar a usar a implantação de componentes de rede do Fabric do multili
     - **Log Analytics espaço de trabalho**: o espaço de trabalho log Analytics será preenchido com o espaço de trabalho padrão que é criado se o monitoramento estiver habilitado.
 
 8. Selecione a guia **revisar e criar** . Esta etapa dispara a validação para os valores que você forneceu.
-9. Depois que a validação for aprovada, selecione **criar**.
+9. Depois da aprovação na validação, selecione **Criar**.
 
     A implantação geralmente leva de 10 a 12 minutos. O tempo pode variar dependendo do tamanho e do número de nós AKS especificados.
 10. Após a implantação bem-sucedida, você será notificado por meio das notificações do Azure no canto superior direito.
@@ -277,7 +277,7 @@ No cliente da organização par, execute o comando para definir os pares âncora
 ./azhlf channel setAnchorPeers -c $CHANNEL_NAME -p <anchorPeersList> -o $PEER_ORG_NAME -u $PEER_ADMIN_IDENTITY --ordererOrg $ORDERER_ORG_NAME
 ```
 
-`<anchorPeersList>` é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo: 
+`<anchorPeersList>` é uma lista separada por espaços de nós pares a serem definidos como um par âncora. Por exemplo:
 
   - Defina `<anchorPeersList>` como `"peer1"` se você quiser definir apenas o nó ponto1 como um par âncora.
   - Defina `<anchorPeersList>` como `"peer1" "peer3"` se desejar definir os nós ponto1 e Ponto3 como pares âncora.
@@ -334,7 +334,7 @@ Passe o nome da função de instanciação e a lista de argumentos separados por
 
 Você também pode passar o arquivo JSON de configuração da coleção usando o `--collections-config` sinalizador. Ou defina os argumentos transitórios usando o `-t` sinalizador ao criar uma instância de chaincode usada para transações privadas.
 
-Por exemplo: 
+Por exemplo:
 
 ```bash
 ./azhlf chaincode instantiate -c $CHANNEL_NAME -n $CC_NAME -v $CC_VERSION -o $ORGNAME -u $USER_IDENTITY --collections-config <collectionsConfigJSONFilePath>

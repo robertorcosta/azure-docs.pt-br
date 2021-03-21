@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d00b6aa09ef19b1e6892e0e90536e45dd3bce79
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 02607c219cf39a20a40854632e961b3ce199d0d3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101718515"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588249"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 
@@ -117,7 +117,7 @@ Em operações em lote, o mesmo KEK será usado em todas as linhas de operação
 >
 > Para executar operações de consulta, você deve especificar que um resolvedor de chave é capaz de resolver todas as chaves no conjunto de resultados. Se uma entidade contida no resultado da consulta não puder ser resolvida para um provedor, a biblioteca de cliente gerará um erro. Para qualquer consulta que realiza as projeções do lado do servidor, a biblioteca de cliente adicionará as propriedades de metadados de criptografia especial (_ClientEncryptionMetadata1 e ClientEncryptionMetadata2) por padrão às colunas selecionadas.
 
-## <a name="azure-key-vault"></a>Cofre de Chave do Azure
+## <a name="azure-key-vault"></a>Azure Key Vault
 
 O Cofre da Chave do Azure ajuda a proteger chaves criptográficas e segredos usados por aplicativos e serviços em nuvem. Usando o Cofre da Chave do Azure, os usuários podem criptografar chaves e segredos (como chaves de autenticação, chaves de conta de armazenamento, chaves de criptografia de dados, arquivos .PFX e senhas) usando chaves que são protegidas por HSMs (módulos de segurança de hardware). Para obter mais informações, veja [O que é o Cofre da Chave do Azure?](../../key-vault/general/overview.md).
 
@@ -132,7 +132,7 @@ Há dois pacotes necessários para a integração de Key Vault:
 * O Azure. Core contém `IKeyEncryptionKey` as `IKeyEncryptionKeyResolver` interfaces e. A biblioteca de cliente de armazenamento para .NET já a define como uma dependência.
 * Azure. Security. keyvault. Keys (v4. x) contém o cliente REST Key Vault, bem como clientes criptográficos usados com criptografia do lado do cliente.
 
-O Cofre da Chave foi criado para chaves mestras de alto valor e os limites por Cofre da Chave são criados com tal prioridade em mente. A partir de Azure. Security. keyvault. Keys 4.1.0, não há uma `IKeyEncryptionKeyResolver` implementação que dê suporte ao cache de chaves. O armazenamento em cache deve ser necessário devido à limitação; [esse exemplo](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) pode ser seguido para injetar uma camada de cache em uma `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instância.
+O Cofre da Chave foi criado para chaves mestras de alto valor e os limites por Cofre da Chave são criados com tal prioridade em mente. A partir de Azure. Security. keyvault. Keys 4.1.0, não há uma `IKeyEncryptionKeyResolver` implementação que dê suporte ao cache de chaves. O armazenamento em cache deve ser necessário devido à limitação; [esse exemplo](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) pode ser seguido para injetar uma camada de cache em uma `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instância.
 
 # <a name="net-v11"></a>[.NET v11](#tab/dotnet11)
 
@@ -152,7 +152,7 @@ Mais informações sobre o uso de Key Vault no v11 podem ser encontradas nos [ex
 
 ---
 
-## <a name="best-practices"></a>Melhores práticas
+## <a name="best-practices"></a>Práticas recomendadas
 
 O suporte à criptografia está disponível somente na biblioteca de cliente de armazenamento para .NET. Atualmente, o Windows Phone e o Windows Runtime não dão suporte à criptografia.
 

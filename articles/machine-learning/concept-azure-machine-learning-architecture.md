@@ -11,10 +11,10 @@ author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
 ms.openlocfilehash: dc1954c97da0d7f40deaf0f4efa7ca99793107bb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503684"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Como o Azure Machine Learning funciona: Arquitetura e conceitos
@@ -114,7 +114,7 @@ Por exemplo, execute as configurações, consulte [Configurar uma execução de 
 
 Ao enviar uma execução, o Azure Machine Learning compacta o diretório que contém o script como um arquivo zip e o envia para o destino de computação. O arquivo zip é expandido e o script é executado lá. O Azure Machine Learning também armazena o arquivo zip como um instantâneo como parte do registro de execução. Qualquer pessoa com acesso ao workspace pode procurar um registro de execução e baixar o instantâneo.
 
-### <a name="logging"></a>Registrando em log
+### <a name="logging"></a>Registro em log
 
 Azure Machine Learning registra automaticamente as métricas de execução padrão para você. No entanto, você também pode [usar o SDK do Python para registrar métricas arbitrárias](how-to-track-experiments.md).
 
@@ -255,7 +255,7 @@ As etapas do pipeline são reutilizáveis e poderão ser executadas sem realizar
 
 Azure Machine Learning fornece os seguintes recursos de monitoramento e registro em log:
 
-* Para __cientistas de dados__, você pode monitorar seus experimentos e informações de log de suas execuções de treinamento. Para obter mais informações, confira os seguintes artigos:
+* Para __cientistas de dados__, você pode monitorar seus experimentos e informações de log de suas execuções de treinamento. Para obter mais informações, consulte os seguintes artigos:
    * [Iniciar, monitorar e cancelar execuções de treinamento](how-to-manage-runs.md)
    * [Métricas de logs para execuções de treinamento](how-to-track-experiments.md)
    * [Acompanhar experimentos com o MLflow](how-to-use-mlflow.md)

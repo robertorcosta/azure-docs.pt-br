@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
 ms.openlocfilehash: 46cf34bd40832488985008a645f1da25eb87b9d9
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103467367"
 ---
 # <a name="form-recognizer-prebuilt-invoice-model"></a>Modelo de fatura predefinido do reconhecedor de formulário
@@ -54,7 +54,7 @@ A operação [analisar fatura](https://westcentralus.dev.cognitive.microsoft.com
 
 A segunda etapa é chamar a operação [obter resultado da fatura de obtenção](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-3/operations/5ed8c9acb78c40a2533aee83) . Essa operação usa como entrada a ID de resultado que foi criada pela operação de análise de fatura. Ele retorna uma resposta JSON que contém um campo de **status** com os seguintes valores possíveis. Você chama essa operação iterativamente até que ela retorne com o valor **Succeeded** . Use um intervalo de 3 a 5 segundos para evitar exceder a taxa de solicitações por segundo (RPS).
 
-|Campo| Tipo | Valores possíveis |
+|Campo| Type | Valores possíveis |
 |:-----|:----:|:----|
 |status | string | não iniciado: a operação de análise não foi iniciada.<br /><br />em execução: a operação de análise está em andamento.<br /><br />falha: falha na operação de análise.<br /><br />êxito: a operação de análise foi bem-sucedida.|
 
@@ -73,7 +73,7 @@ A saída JSON tem três partes:
 
 O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir estão os campos extraídos de uma nota fiscal na resposta de saída JSON (a saída abaixo usa esta [fatura de exemplo](media/sample-invoice.jpg)).
 
-|Nome| Tipo | Descrição | Texto | Valor (saída padronizada) |
+|Nome| Type | Descrição | Texto | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | CustomerName | string | Cliente sendo faturado | Microsoft Corp |  |
 | CustomerId | string | ID de referência para o cliente | CID-12345 |  |
@@ -100,11 +100,11 @@ O serviço de fatura extrairá o texto, tabelas e 26 campos de fatura. A seguir 
 | RemittanceAddressRecipient | string | Nome associado ao RemittanceAddress | Cobrança da contoso |  |
 | Userstartdate | date | Primeira data para o período de serviço (por exemplo, um período de serviço de lista de utilitários) | 14/10/2019 | 2019-10-14 |
 | Fileenddate | date | Data de término do período de serviço (por exemplo, um período de serviço de lista de utilitários) | 11/14/2019 | 2019-11-14 |
-| PreviousUnpaidBalance | número | Saldo explícito anteriormente não pago | US$ 500,00 | 500 |
+| PreviousUnpaidBalance | número | Saldo explícito anteriormente não pago | $500 | 500 |
 
 A seguir estão os itens de linha extraídos de uma nota fiscal na resposta de saída JSON (a saída abaixo usa este [exemplo de fatura](./media/sample-invoice.jpg))  
 
-|Nome| Tipo | Descrição | Text (item de linha #1) | Valor (saída padronizada) |
+|Nome| Type | Descrição | Text (item de linha #1) | Valor (saída padronizada) |
 |:-----|:----|:----|:----| :----|
 | Itens | string | Linha de texto de cadeia de caracteres completa do item de linha | 3/4/2021 A123 Consulting Services 2 horas $30 10% $60 | |
 | Valor | número | A quantidade do item de linha | $60 | 100 |

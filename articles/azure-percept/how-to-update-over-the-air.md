@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: b8f9e6f4bc091abbd1bb08ecbd649c1411e5ab20
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102095384"
 ---
 # <a name="update-your-azure-percept-dk-over-the-air"></a>Atualizar seu Percept do Azure DK no ar
@@ -94,7 +94,7 @@ Requisitos de marca de Grupo:
     >[!CAUTION]
     >Definir a hora de início no passado irá disparar a implantação imediatamente.
  
-1. Verifique o gráfico de conformidade. Você deve ver que a atualização está em andamento.
+1. Verifique o gráfico de conformidade. Será possível ver que a atualização está em andamento.
  
 1. Depois que a atualização for concluída, seu gráfico de conformidade refletirá o novo status de atualização.
  

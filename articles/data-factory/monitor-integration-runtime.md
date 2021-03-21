@@ -7,10 +7,10 @@ ms.date: 08/11/2020
 author: dcstwh
 ms.author: weetok
 ms.openlocfilehash: 1cb4fcaa51e1a59ee9d09eb178faf9b250173709
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740011"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Monitorar um runtime de integração no Azure Data Factory
@@ -43,9 +43,9 @@ A tabela a seguir fornece descrições de propriedades retornadas pelo cmdlet pa
 
 | Propriedade | Descrição |
 -------- | ------------- | 
-| Name | Nome do Azure Integration runtime. |  
+| Nome | Nome do Azure Integration runtime. |  
 | Estado | Status do Azure Integration runtime. | 
-| Local | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
+| Location | Local do Azure Integration runtime. Para obter detalhes sobre o local de Azure Integration runtime, consulte [Introdução ao runtime de integração](concepts-integration-runtime.md). |
 | DataFactoryName | Nome do Data Factory ao qual o Azure Integration runtime pertence. | 
 | ResourceGroupName | Nome do grupo de recursos ao qual o data factory pertence.  |
 | Descrição | Descrição do runtime de integração.  |
@@ -72,7 +72,7 @@ A tabela a seguir apresenta descrições das Propriedades de monitoramento para 
 
 | Propriedade | Descrição | 
 | -------- | ----------- | 
-| Name | Nome do runtime de integração auto-hospedada e nós associados a ele. O nó é um computador local do Windows em que o runtime de integração auto-hospedada está instalado. |  
+| Nome | Nome do runtime de integração auto-hospedada e nós associados a ele. O nó é um computador local do Windows em que o runtime de integração auto-hospedada está instalado. |  
 | Status | O status do runtime de integração auto-hospedada geral e de cada nó. Exemplo: online/offline/Limited/etc. Para obter informações sobre esses status, consulte a próxima seção. | 
 | Versão | A versão do runtime de integração auto-hospedada geral e de cada nó. A versão do runtime de integração auto-hospedada é determinada com base na versão da maioria dos nós no grupo. Se há nós com versões diferentes na configuração do runtime de integração auto-hospedada, somente os nós com o mesmo número de versão que o runtime de integração auto-hospedada funcionam corretamente. Os outros estão no modo limitado e precisam ser atualizados manualmente (somente caso a atualização automática falhe). | 
 | Memória disponível | Memória disponível em um nó de runtime de integração auto-hospedada. Esse valor é um instantâneo quase em tempo real. | 
@@ -178,7 +178,7 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | OtherErrors                  | Os erros acionáveis não específicos do nó em seu Azure-SSIS IR. |
 | LastOperation                | O resultado da última operação de iniciar/parar no seu Azure-SSIS IR com erros acionáveis, caso tenha falhado. |
 | Estado                        | O status geral (inicial/iniciando/iniciado/parando/parado) do seu Azure-SSIS IR. |
-| Local                     | O local do seu Azure-SSIS IR. |
+| Location                     | O local do seu Azure-SSIS IR. |
 | NodeSize                     | O tamanho de cada nó em seu Azure-SSIS IR. |
 | NodeCount                    | O número de nós em seu Azure-SSIS IR. |
 | MaxParallelExecutionsPerNode | O número máximo de execuções paralelas por nó em seu Azure-SSIS IR. |
@@ -189,10 +189,10 @@ A tabela a seguir fornece descrições das propriedades retornadas pelo cmdlet a
 | VNetId                       | A ID de recurso de rede virtual para seu Azure-SSIS IR ingressar. |
 | Sub-rede                       | O nome da sub-rede para o Azure-SSIS IR ingressar. |
 | ID                           | A ID de recurso do seu Azure-SSIS IR. |
-| Tipo                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
+| Type                         | O tipo de IR (gerenciado/auto-hospedado) do seu Azure-SSIS IR. |
 | ResourceGroupName            | O nome do grupo de recursos do Azure, no qual o ADF e o Azure-SSIS IR foram criados. |
 | DataFactoryName              | O nome do ADF. |
-| Name                         | O nome do seu Azure-SSIS IR. |
+| Nome                         | O nome do seu Azure-SSIS IR. |
 | Descrição                  | A descrição do seu Azure-SSIS IR. |
   
 #### <a name="status-per-azure-ssis-ir-node"></a>Status (por nó de Azure-SSIS IR)

@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 01/22/2021
 ms.author: aahi
 ms.openlocfilehash: 416ef4ceddbb43e9f1606d44a66ffd5295cee4e6
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699888"
 ---
 # <a name="migrate-to-version-3x-of-the-text-analytics-api"></a>Migrar para a versão 3. x do API de Análise de Texto
@@ -78,19 +78,19 @@ A tabela a seguir lista as categorias de entidade retornadas para o NER v 2.1.
 | Categoria   | Descrição                          |
 |------------|--------------------------------------|
 | Pessoa   |   Nomes de pessoas.  |
-|Local    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
+|Location    | Pontos de referência naturais e humanos, estruturas, recursos geográficos e entidades geopolítica |
 |Organização | Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade. |
 | PhoneNumber | Números de telefone (somente números de telefone dos EUA e da UE). |
 | Email | Endereços de email. |
 | URL | URLs para sites. |
 | IP | Endereços IP de rede. |
-| Datetime | Datas e horas do dia.| 
+| DateTime | Datas e horas do dia.| 
 | Data | Datas do calendário. |
 | Hora | Horas do dia |
 | DateRange | Intervalos de datas. |
 | TimeRange | Intervalos de tempo. |
 | Duration | Durações. |
-| Definição | Definido, horários repetidos. |
+| Definir | Definido, horários repetidos. |
 | Quantidade | Números e quantidades numéricas. |
 | Número | Números. |
 | Percentual | Porcentagens.|

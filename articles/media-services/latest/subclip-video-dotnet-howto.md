@@ -15,10 +15,10 @@ ms.date: 06/09/2019
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a9408adfe33fc71707532f3bf5646f3727fd7dda
-ms.sourcegitcommit: 4e70fd4028ff44a676f698229cb6a3d555439014
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98955047"
 ---
 # <a name="subclip-a-video-when-encoding-with-media-services---net"></a>Subclipe um vídeo ao codificar com os serviços de mídia-.NET
@@ -31,7 +31,7 @@ O exemplo C# a seguir cria um trabalho que corta um vídeo em um ativo à medida
 
 Para concluir as etapas descritas neste tópico, você precisa:
 
-- [Criar uma conta de Serviços de Mídia do Azure](./create-account-howto.md)
+- [Criar uma conta dos serviços de mídia do Azure](./create-account-howto.md)
 - Crie uma transformação e um ativo de entrada e saída. Você pode ver como criar uma transformação e os ativos de entrada e saída no tutorial [carregar, codificar e transmitir vídeos usando o .net](stream-files-tutorial-with-api.md) .
 - Examine o tópico [conceito de codificação](encoding-concept.md) .
 
