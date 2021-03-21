@@ -8,10 +8,10 @@ ms.date: 12/09/2020
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: f26cea9442aa3fbbe7f475cc5d16bea792b83fb3
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493978"
 ---
 # <a name="defender-for-iot-glossary"></a>Defender para glossário do IoT
@@ -58,7 +58,7 @@ Este glossário fornece uma breve descrição dos termos e conceitos importantes
 | **Defender para mecanismos de IoT** | Os mecanismos de análise de autoaprendizado no defender para IoT eliminam a necessidade de atualizar assinaturas ou definir regras. Os mecanismos usam a análise comportamental específica do ICS e a ciência de dados para analisar continuamente o tráfego de rede para anomalias, malware, problemas operacionais, violações de protocolo e desvios da atividade de rede de linha de base.<br /><br />Quando um mecanismo detecta um desvio, um alerta é disparado. Os alertas podem ser exibidos e gerenciados na tela de **alertas** ou em um Siem. | **[Alerta](#glossary-a)** |
 | **Defender para plataforma IoT** | A solução defender para IoT instalada no defender para sensores IoT e no console de gerenciamento local. | **[](#s) <br /> Sensor <br /> [Console de gerenciamento local](#o)** |
 | **Mapa do dispositivo** | Uma representação gráfica dos dispositivos de rede que o defender for IoT detecta. Ele mostra as conexões entre os dispositivos e as informações sobre cada dispositivo. Use o mapa para:<br /><br />-Recuperar e controlar informações críticas do dispositivo.<br /><br />-Analisar fatias de rede.<br /><br />-Exportar detalhes e resumos do dispositivo. | **[Grupo de camadas Purdue](#p)** |
-| **Inventário de dispositivo-sensor** | O inventário de dispositivo exibe uma ampla gama de atributos de dispositivo detectados pelo defender para IoT. As opções estão disponíveis para:<br /><br />-Filtrar informações exibidas.<br /><br />-Exporte essas informações para um arquivo CSV.<br /><br />-Importar detalhes do registro do Windows. | **[Grupo](#g)** <br /><br />**[Inventário de dispositivo – console de gerenciamento local](#d)** |
+| **Inventário de dispositivo-sensor** | O inventário de dispositivo exibe uma ampla gama de atributos de dispositivo detectados pelo defender para IoT. As opções estão disponíveis para:<br /><br />-Filtrar informações exibidas.<br /><br />-Exporte essas informações para um arquivo CSV.<br /><br />-Importar detalhes do registro do Windows. | **[Agrupar](#g)** <br /><br />**[Inventário de dispositivo – console de gerenciamento local](#d)** |
 | **Inventário de dispositivo – console de gerenciamento local** | As informações do dispositivo de sensores conectados podem ser exibidas no console de gerenciamento local no inventário de dispositivos. Isso permite que os usuários do console de gerenciamento local tenham uma visão abrangente de todas as informações de rede. | **[Inventário de dispositivo-sensor](#d) <br /> <br /> [Inventário de dispositivos-integrador de dados](#d)** |
 | **Inventário de dispositivos-integrador de dados** | Os recursos de integração de dados do console de gerenciamento local permitem aprimorar os dados no inventário de dispositivos com informações de outros recursos da empresa. Os recursos de exemplo são CMDBs, DNS, firewalls e APIs da Web. | **[Inventário de dispositivo – console de gerenciamento local](#d)** |
 | **Dispositivos gêmeos** `(DB)` | Dispositivos gêmeos são documentos JSON que armazenam informações de estado do dispositivo, incluindo metadados, configurações e condições. | [Módulo...](#m) <br /> <br />[Defender-IoT-micro-Agent.](#s) |

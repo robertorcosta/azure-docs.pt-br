@@ -15,10 +15,10 @@ ms.date: 07/28/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: bf5445f6ca04e56aab466e97967a58c3e4b735a4
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100556945"
 ---
 # <a name="list-azure-role-assignments-using-azure-powershell"></a>Listar atribuições de função do Azure usando Azure PowerShell
@@ -188,4 +188,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Atribuir funções do Azure usando Azure PowerShell](role-assignments-powershell.md)
+- [Atribuir funções do Azure usando o Azure PowerShell](role-assignments-powershell.md)

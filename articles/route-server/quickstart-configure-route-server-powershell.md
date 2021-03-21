@@ -7,12 +7,12 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: e302cb9da410487dbea4ec5c5b256c4cb5dd186f
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: a3ab3a801872cc20b4e41bbff02ad6474c3bab8c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102566372"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655199"
 ---
 # <a name="quickstart-create-and-configure-route-server-using-azure-powershell"></a>Início rápido: criar e configurar o Servidor de Rota usando o Azure PowerShell
 
@@ -40,8 +40,8 @@ Este artigo ajuda a configurar o Servidor de Rota do Azure para ser emparelhado 
 Para criar um Servidor de Rota do Azure, você precisa de uma rede virtual para hospedar a implantação. Use o comando a seguir para criar um grupo de recursos e uma rede virtual. Se você já tiver uma rede virtual, pode pular para a próxima seção.
 
 ```azurepowershell-interactive
-New-AzResourceGroup –Name “RouteServerRG” -Location “West US”
-New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US” -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
+New-AzResourceGroup –Name "RouteServerRG” -Location “West US"
+New-AzVirtualNetwork –ResourceGroupName "RouteServerRG" -Location "West US" -Name myVirtualNetwork –AddressPrefix 10.0.0.0/16
 ```
 
 ### <a name="add-a-subnet"></a>Adicionar uma sub-rede
@@ -49,15 +49,15 @@ New-AzVirtualNetwork –ResourceGroupName “RouteServerRG -Location “West US�
 1. Adicione uma sub-rede chamada *RouteServerSubnet* para implantar o Servidor de Rota do Azure. Essa é uma sub-rede dedicada somente para o Servidor de Rota do Azure. O RouteServerSubnet deve ser /27 ou um prefixo mais curto (como /26, /25), caso contrário, você receberá uma mensagem de erro ao adicionar o Servidor de Rota do Azure.
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “myVirtualNetwork” - ResourceGroupName “RouteServerRG”
-    Add-AzVirtualNetworkSubnetConfig –Name “RouteServerSubnet” -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
+    $vnet = Get-AzVirtualNetwork –Name "myVirtualNetwork" - ResourceGroupName "RouteServerRG"
+    Add-AzVirtualNetworkSubnetConfig –Name "RouteServerSubnet" -AddressPrefix 10.0.0.0/24 -VirtualNetwork $vnet
     $vnet | Set-AzVirtualNetwork
     ```
 
 1. Obtenha a ID de RouteServerSubnet. Para ver a ID de recurso de todas as sub-redes na rede virtual, use este comando:
 
     ```azurepowershell-interactive
-    $vnet = Get-AzVirtualNetwork –Name “vnet_name” -ResourceGroupName “
+    $vnet = Get-AzVirtualNetwork –Name "vnet_name" -ResourceGroupName "RouteServerRG"
     $vnet.Subnets
     ```
 
@@ -70,7 +70,7 @@ A ID de RouteServerSubnet é parecida com a seguinte:
 Crie o Servidor de Rota usando este comando:
 
 ```azurepowershell-interactive 
-New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US” -HostedSubnet “RouteServerSubnet_ID”
+New-AzRouteServer -RouteServerName myRouteServer -ResourceGroupName RouteServerRG -Location "West US" -HostedSubnet "RouteServerSubnet_ID"
 ```
 
 O local precisa corresponder ao local da rede virtual. O HostedSubnet é a ID de RouteServerSubnet que você obteve na seção anterior.
@@ -137,7 +137,7 @@ Se você não precisar mais do Servidor de Rota do Azure, use estes comandos par
 1. Remova o emparelhamento via protocolo BGP entre o Servidor de Rota do Azure e uma NVA usando este comando:
 
 ```azurepowershell-interactive 
-Remove-AzRouteServerPeer -PeerName “nva_name” -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
+Remove-AzRouteServerPeer -PeerName "nva_name" -RouteServerName myRouteServer -ResourceGroupName RouteServerRG 
 ```
 
 2. Remova o Servidor de Rota usando este comando:

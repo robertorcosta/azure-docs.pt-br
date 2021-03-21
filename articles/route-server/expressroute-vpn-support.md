@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/02/2021
 ms.author: duau
 ms.openlocfilehash: 6e588c7c0381c6825bcf75cbbe28a1dd6b865940
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101679082"
 ---
 # <a name="about-azure-route-server-preview-support-for-expressroute-and-azure-vpn"></a>Sobre o suporte do servidor de rota do Azure (versão prévia) para ExpressRoute e VPN do Azure
@@ -19,7 +19,7 @@ ms.locfileid: "101679082"
 O servidor de rota do Azure dá suporte a não apenas soluções de virtualização de rede (NVA) de terceiros em execução no Azure, mas também se integra perfeitamente com gateways de VPN e do ExpressRoute. Você não precisa configurar ou gerenciar o emparelhamento via protocolo BGP entre o gateway e o servidor de rota do Azure. Você pode habilitar a troca de rotas entre o gateway e o servidor de rota do Azure com uma [alteração de configuração](quickstart-configure-route-server-powershell.md#route-exchange)simples.
 
 > [!IMPORTANT]
-> O servidor de rota do Azure (visualização) está atualmente em visualização pública.
+> No momento, o Servidor de Rota do Azure (versão prévia) está na versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
