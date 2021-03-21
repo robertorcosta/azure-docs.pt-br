@@ -7,17 +7,17 @@ ms.author: bwren
 ms.topic: conceptual
 ms.date: 07/15/2020
 ms.openlocfilehash: a929563df3e7e98575056d07519abfda0d6ac13b
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032952"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-or-external-partner"></a>Transmitir dados de monitoramento do Azure para um hub de eventos ou parceiro externo
 
 O Azure Monitor fornece uma solução completa de monitoramento de pilha completa para aplicativos e serviços no Azure, em outras nuvens e no local. Além de usar Azure Monitor para analisar os dados e aproveitá-los para diferentes cenários de monitoramento, talvez seja necessário enviá-los para outras ferramentas de monitoramento em seu ambiente. Na maioria dos casos, o método mais eficaz para transmitir dados de monitoramento para ferramentas externas é usar os [hubs de eventos do Azure](../../event-hubs/index.yml). Este artigo fornece uma breve descrição sobre como fazer isso e lista alguns dos parceiros nos quais você pode enviar dados. Alguns têm integração especial com o Azure Monitor e podem ser hospedados no Azure.  
 
-## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos Hubs de Eventos
+## <a name="create-an-event-hubs-namespace"></a>Criar um namespace dos hubs de eventos
 
 Antes de configurar o streaming para qualquer fonte de dados, você precisa [criar um namespace de hubs de eventos e um hub de eventos](../../event-hubs/event-hubs-create.md). Esse namespace e hub de eventos é o destino para todos os seus dados de monitoramento. Um namespace dos Hubs de Eventos é um agrupamento lógico de hubs de eventos que compartilham a mesma política de acesso, assim como uma conta de armazenamento tem blobs individuais dentro dessa conta de armazenamento. Considere os seguintes detalhes sobre o namespace de hubs de eventos e os hubs de eventos que você usa para streaming de dados de monitoramento:
 

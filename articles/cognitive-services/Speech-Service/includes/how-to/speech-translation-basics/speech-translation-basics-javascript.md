@@ -6,10 +6,10 @@ ms.date: 07/14/2020
 ms.author: v-demjoh
 ms.custom: devx-track-js
 ms.openlocfilehash: 58faca3d3b1b3a190432e2000d8619fcac1712d8
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102445503"
 ---
 Um dos principais recursos do serviço de fala é a capacidade de reconhecer a fala humana e traduzi-la para outras linguagens. Neste início rápido, você aprende a usar o SDK de fala em seus aplicativos e produtos para executar a tradução de fala de alta qualidade. Este guia de início rápido aborda os tópicos, incluindo:
@@ -37,7 +37,7 @@ Além disso, dependendo do ambiente de destino, use um dos seguintes:
 
 # <a name="script"></a>[script](#tab/script)
 
-Baixe e extraia o <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">SDK de fala para o arquivo JavaScript</a> *microsoft.cognitiveservices.speech.sdk.bundle.js* e coloque-o em uma pasta acessível ao seu arquivo HTML.
+Baixe e extraia o arquivo *microsoft.cognitiveservices.speech.sdk.bundle.js* do <a href="https://aka.ms/csspeech/jsbrowserpackage" target="_blank">SDK de Fala para JavaScript</a> e coloque-o em uma pasta acessível para o arquivo HTML.
 
 ```html
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;

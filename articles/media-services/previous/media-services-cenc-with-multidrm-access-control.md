@@ -16,10 +16,10 @@ ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1a4f151b597b57b77fa6517c6ea0d586c1106986
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103017130"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Criação de um sistema de proteção de conteúdo com controle de acesso usando os serviços de mídia do Azure
@@ -153,10 +153,10 @@ A tabela abaixo mostra o mapeamento.
 | --- | --- |
 | **Jogador** |[Player de Mídia do Azure](https://azure.microsoft.com/services/media-services/media-player/) |
 | **IdP (provedor de identidade)** |Active Directory do Azure (Azure AD) |
-| **STS (serviço de token de segurança)** |AD do Azure |
+| **STS (serviço de token de segurança)** |Azure AD |
 | **Fluxo de trabalho de proteção de DRM** |Proteção dinâmica dos Serviços de Mídia |
 | **Entrega de licença do DRM** |* Entrega de licença dos Serviços de Mídia (PlayReady, Widevine, FairPlay) <br/>* Servidor de licença Axinom <br/>* Servidor de licença do PlayReady personalizado |
-| **Origem** |Ponto de extremidade de streaming dos Serviços de Mídia |
+| **Ter** |Ponto de extremidade de streaming dos Serviços de Mídia |
 | **Gerenciamento de chaves** |Não é necessário para a implementação de referência |
 | **Gerenciamento de conteúdo** |Aplicativo do console C# |
 

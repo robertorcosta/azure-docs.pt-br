@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 185638d683699403c304603d968cfe84e32a55b5
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574553"
 ---
 # <a name="azure-active-directory-sign-in-activity-reports---preview"></a>Relatórios de atividade de entrada Azure Active Directory-visualização
@@ -153,7 +153,7 @@ Além dos campos padrão, o relatório de entradas interativas também mostra:
 
 
 
-Você pode personalizar o modo de exibição de lista clicando em **colunas** na barra de ferramentas.
+Você pode personalizar o modo de exibição de lista clicando em **Colunas** na barra de ferramentas.
 
 ![Colunas de entrada do usuário interativo](./media/concept-all-sign-ins/columns-interactive.png "Colunas de entrada do usuário interativo")
 
@@ -210,7 +210,7 @@ Para facilitar o resumo dos dados, os eventos de entrada não interativos são a
 
 - Aplicativo
 
-- User
+- Usuário
 
 - Endereço IP
 

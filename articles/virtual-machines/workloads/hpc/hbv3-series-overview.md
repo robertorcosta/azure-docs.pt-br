@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 94e4590c66cdee74555611302f4f9228a755c76a
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: b1f2800c3787cd28437afa70b78ef8388461e413
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472821"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721178"
 ---
 # <a name="hbv3-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HBv3 
 
@@ -63,13 +63,16 @@ Quando emparelhado em uma matriz distribuída, o SSD de NVMe fornece leituras de
 |--------------------------------|-----------------------------------------------------------|
 | Tamanho máximo do trabalho MPI               | 36.000 núcleos (300 VMs em um único conjunto de dimensionamento de máquinas virtuais com singlePlacementGroup = true) |
 | Suporte a MPI                    | HPC-X, Intel MPI, OpenMPi, MVAPICH2, MPICH  |
-| Estruturas adicionais          | Comunicação unificada X, libfabric, PGAS                  |
+| Estruturas adicionais          | UCX, libfabric, PGAS                  |
 | Suporte do armazenamento do Azure          | Discos Standard e Premium (máximo de 32 discos)              |
-| Suporte do so para SRIOV RDMA      | CentOS/RHEL 7.6 +, SLES 12 SP4 +, WinServer 2016 +           |
+| Suporte do so para SRIOV RDMA      | CentOS/RHEL 7.6 +, Ubuntu 18.04 +, SLES 12 SP4 +, WinServer 2016 +           |
 | Sistema operacional recomendado para desempenho | CentOS 8,1, Windows Server 2019 +
-| Suporte do Orchestrator           | Azure CycleCloud, lote do Azure, serviço kubernetes do Azure                      | 
+| Suporte do Orchestrator           | Azure CycleCloud, lote do Azure, AKS; [Opções de configuração de cluster](../../sizes-hpc.md#cluster-configuration-options)                      | 
+
+> [!NOTE] 
+> O Windows Server 2012 R2 não tem suporte no HBv3 e em outras VMs com mais de 64 núcleos (virtuais ou físicos). Veja [aqui](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows) para obter mais detalhes.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Leia sobre os comunicados mais recentes e alguns exemplos de HPC nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para obter uma visão de nível superior da arquitetura de execução de cargas de trabalho de HPC, confira [HPC (computação de alto desempenho) no Azure](/azure/architecture/topics/high-performance-computing/).

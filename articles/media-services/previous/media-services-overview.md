@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 6e68e53387aa50b99bab8ed4cdba7f1e97fc48c0
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008222"
 ---
 # <a name="azure-media-services-overview"></a>Visão geral dos Serviços de Mídia do Azure
@@ -69,7 +69,7 @@ Para compilar soluções de serviços de mídia, você pode usar:
     * [SDK do PHP do Azure](https://github.com/Azure/azure-sdk-for-php),
     * [Serviços de Mídia do Azure para Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (esta é uma versão de um SDK do Node.js que não foi criada pela Microsoft. Ele é mantido por uma comunidade e atualmente não tem cobertura de 100% das APIs do AMS).
 * Ferramentas existentes:
-    * [Portal do Azure](https://portal.azure.com/)
+    * [Azure portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) ([AMSE] Gerenciador de Serviços de Mídia do Azure é um aplicativo Winforms/C# para Windows)
 
 > [!NOTE]

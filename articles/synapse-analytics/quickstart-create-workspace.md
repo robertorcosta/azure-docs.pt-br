@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f2ed99af288b72a4c53f07d3cd7ba8b46974c0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: d38f1f294f60b73e8f1e69169a75333eb175c9f6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101693621"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600149"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Início Rápido: Criar um workspace do Synapse
 Este início rápido descreve as etapas necessárias para criar um workspace do Azure Synapse usando o portal do Azure.
@@ -35,7 +35,7 @@ Este início rápido descreve as etapas necessárias para criar um workspace do 
 
 > [!NOTE]
 > Depois de criar seu workspace do Azure Synapse, você não poderá mover o workspace para outro locatário do Azure Active Directory. Se você fizer isso por meio de migração de assinatura ou outras ações, poderá perder o acesso aos artefatos no workspace.
-> Além disso, no momento, não é possível criar um workspace do Synapse Analytics em uma assinatura do [CSP (Provedor de Soluções de Nuvem)](https://docs.microsoft.com/partner-center/csp-overview).
+> Além disso, no momento, não é possível criar um workspace do Synapse Analytics em uma assinatura do [CSP (Provedor de Soluções de Nuvem)](/partner-center/csp-overview).
 
 ## <a name="open-synapse-studio"></a>Abrir o Synapse Studio
 

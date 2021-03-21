@@ -14,10 +14,10 @@ ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e0e1543f18c18c7fdf97c39f35ba38ded658392
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103007809"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Criar e atribuir uma função personalizada no Azure Active Directory
@@ -72,7 +72,7 @@ Get-Module -Name AzureADPreview
   Binary     2.0.0.115    AzureADPreview               {Add-AzureADAdministrati...} 
 ```
 
-### <a name="connect-to-azure"></a>Conecte-se ao Azure
+### <a name="connect-to-azure"></a>Conectar-se ao Azure
 
 Para se conectar ao Azure Active Directory, use o seguinte comando:
 

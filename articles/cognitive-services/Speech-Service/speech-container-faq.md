@@ -12,10 +12,10 @@ ms.date: 03/11/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 16158b4ecfb46ea9092fe9eeb31cc4dee259b1ab
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573737"
 ---
 # <a name="speech-service-containers-frequently-asked-questions-faq"></a>Perguntas frequentes sobre os contêineres do serviço de fala
@@ -292,7 +292,7 @@ Você pode ajudar a preencher as seguintes métricas de teste, incluindo quais f
 
 | Ponto de extremidade                                                | Teste funcional                                                   | . | API REST |
 |---------------------------------------------------------|-------------------------------------------------------------------|-----|----------|
-| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Yes      |
+| `/speech/synthesize/cognitiveservices/v1`               | Sintetizar texto (conversão de texto em fala)                                  |     | Sim      |
 | `/speech/recognition/dictation/cognitiveservices/v1`    | Serviços cognitivas ponto de extremidade do WebSocket v1 do ditado        | Sim | Não       |
 | `/speech/recognition/interactive/cognitiveservices/v1`  | O ponto de extremidade do WebSocket interativo de serviços cognitivas local v1  |     |          |
 | `/speech/recognition/conversation/cognitiveservices/v1` | O ponto de extremidade do WebSocket v1 da conversa local de serviços cognitivas |     |          |

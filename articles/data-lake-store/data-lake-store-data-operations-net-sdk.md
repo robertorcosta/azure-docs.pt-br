@@ -8,10 +8,10 @@ ms.date: 01/03/2020
 ms.author: twooley
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: faa539119bbb8d73e66788b8ba472cf0db26a2e4
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102431730"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operações do sistema de arquivos em Data Lake Storage Gen1 usando o SDK do .NET
@@ -199,7 +199,7 @@ Aqui estão alguns exemplos que mostram como usar o SDK do sistema de arquivos D
 * [Exemplo básico no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Exemplo avançado no GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Operações de gerenciamento de conta no Data Lake Storage Gen1 usando o SDK do .NET](data-lake-store-get-started-net-sdk.md)
 * [Referência de SDK do .NET do Data Lake Storage Gen1](/dotnet/api/overview/azure/data-lake-store)

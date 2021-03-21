@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 10ff568ede601c57369f8c942ed61cb7a39ba703
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465701"
 ---
 # <a name="use-media-services-to-deliver-drm-licenses-or-aes-keys"></a>Usar os Serviços de Mídia para fornecer licenças DRM ou chaves AES
@@ -33,7 +33,7 @@ Os Serviços de Mídia do Azure permitem criar, codificar, adicionar proteção 
 
 Para concluir este tutorial, você precisa de uma conta do Azure. Para obter detalhes, consulte [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="overview"></a>Visão Geral
+## <a name="overview"></a>Visão geral
 Os Serviços de Mídia fornecem um serviço para entregar licenças de gerenciamento de direitos digitais (DRM) do PlayReady e do Widevine e chaves AES-128. Os Serviços de Mídia também fornecem APIs que permitem que você configure os direitos e restrições que você deseja que sejam impostos pelo runtime do DRM quando um usuário reproduz o conteúdo protegido por DRM. Quando um usuário solicita o conteúdo protegido, o player de mídia solicita uma licença do serviço de licença dos Serviços de Mídia. Se a licença é autorizada, o serviço de licença dos Serviços de Mídia emite a licença para o player. As licenças do PlayReady e do Widevine contêm a chave de descriptografia que pode ser usada pelo player cliente para descriptografar e transmitir o conteúdo.
 
 Os Serviços de Mídia dão suporte a várias maneiras de autorizar os usuários que fazem solicitações de chave ou de licença. Você configura a política de autorização da chave de conteúdo. A política pode ter uma ou mais restrições. As opções são restrição aberta ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de mídia oferecem suporte a tokens no formato Token Web Simples (SWT) e no formato Token Web JSON (JWT).
@@ -355,6 +355,6 @@ namespace DeliverDRMLicenses
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Usar a criptografia comum dinâmica PlayReady e/ou Widevine](media-services-protect-with-playready-widevine.md)
 * [Usar criptografia dinâmica AES-128 e o serviço de entrega de chave](media-services-protect-with-aes128.md)

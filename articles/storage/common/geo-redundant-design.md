@@ -12,10 +12,10 @@ ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 1a07acedadfaf3d5158ba8e494d4527301655425
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035094"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Uso da redundância geográfica para criar aplicativos altamente disponíveis
@@ -72,7 +72,7 @@ Essas são as outras considerações que discutiremos no restante deste artigo.
 
 * Dados eventualmente consistentes e a Hora da Última Sincronização
 
-* Teste
+* Testando
 
 ## <a name="running-your-application-in-read-only-mode"></a>Executando o aplicativo no modo somente leitura
 
@@ -150,7 +150,7 @@ Você tem três opções principais para monitorar a frequência de novas tentat
 
     # <a name="net-v12"></a>[.NET v12](#tab/current)
 
-    No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+    No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
     # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
@@ -168,7 +168,7 @@ Você tem três opções principais para monitorar a frequência de novas tentat
 
     # <a name="net-v12"></a>[.NET v12](#tab/current)
 
-    No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+    No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
     # <a name="net-v11"></a>[.NET v11](#tab/legacy)
 
@@ -227,7 +227,7 @@ Para reconhecer que ele tem dados potencialmente inconsistentes, o cliente pode 
 
 Para saber como verificar a hora da última sincronização, consulte [verificar a propriedade hora da última sincronização de uma conta de armazenamento](last-sync-time-get.md).
 
-## <a name="testing"></a>Teste
+## <a name="testing"></a>Testando
 
 É importante testar se o aplicativo se comporta conforme o esperado ao encontra erros com nova tentativa. Por exemplo, você precisa testar se o aplicativo alterna para o secundário e o modo somente leitura ao detectar um problema e alterna de volta quando a região primária fica disponível novamente. Para fazer isso, você precisa de uma maneira de simular erros com nova tentativa e controlar com que frequência eles ocorrem.
 
@@ -236,7 +236,7 @@ Você pode usar o [Fiddler](https://www.telerik.com/fiddler) para interceptar e 
 
 # <a name="java-v12"></a>[Java V12](#tab/current)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # <a name="java-v11"></a>[V11 Java](#tab/legacy)
 

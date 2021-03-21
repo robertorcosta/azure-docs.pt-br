@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
 ms.openlocfilehash: d3627f6bcda7a18204c24fc2a1347c4a512c5369
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149725"
 ---
 # <a name="exempting-resources-and-recommendations-from-your-secure-score"></a>Isentando recursos e recomendações de sua pontuação segura 
@@ -121,7 +121,7 @@ Para controlar como os usuários estão exercitando esse recurso, criamos um mod
 
 ## <a name="find-recommendations-with-exemptions-using-azure-resource-graph"></a>Encontre recomendações com isenções usando o grafo de recursos do Azure
 
-O grafo de recursos do Azure (ARG) fornece acesso instantâneo a informações de recursos em seus ambientes de nuvem com recursos robustos de filtragem, agrupamento e classificação. É uma maneira rápida e eficiente de consultar informações em assinaturas do Azure programaticamente ou de dentro do portal do Azure.
+O ARG (Azure Resource Graph) fornece acesso instantâneo a informações de recursos em seus ambientes de nuvem com recursos robustos de filtragem, agrupamento e classificação. É uma maneira rápida e eficiente de consultar informações em assinaturas do Azure programaticamente ou de dentro do portal do Azure.
 
 Para exibir todas as recomendações que têm regras de isenção:
 

@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.topic: reference
 ms.date: 03/12/2021
 ms.openlocfilehash: 8093b61213c3e26b93df2a3f495e7efe0a61d523
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103420027"
 ---
 # <a name="reference-guide-to-using-functions-in-expressions-for-azure-logic-apps-and-power-automate"></a>Guia de referência do uso de funções em expressões para os Aplicativos Lógicos do Azure e o Power Automate
@@ -1136,17 +1136,17 @@ Se você estiver usando `bool()` com um objeto, o valor do objeto deverá ser um
 
 | Valor retornado | Type | Descrição |
 | ------------ | ---- | ----------- |
-| `true` ou `false` | Booliano | A versão booliana do valor especificado. |
+| `true` ou `false` | Boolean | A versão booliana do valor especificado. |
 ||||
 
 *Saídas*
 
 Estes exemplos mostram os diferentes tipos de entrada com suporte para `bool()` :
 
-| Valor de entrada | Tipo | Retornar valor |
+| Valor de entrada | Type | Retornar valor |
 | ----------- | ---------- | ---------------------- |
-| `bool(1)` | Integer | `true` |
-| `bool(0)` | Integer    | `false` |
+| `bool(1)` | Inteiro | `true` |
+| `bool(0)` | Inteiro    | `false` |
 | `bool(-1)` | Integer | `true` |
 | `bool('true')` | String | `true` |
 | `bool('false')` | String | `false` |
