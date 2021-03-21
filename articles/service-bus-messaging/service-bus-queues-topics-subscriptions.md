@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral das entidades de mensagens do 
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.openlocfilehash: b8fb68509ad920fc6911290377f49b89ec610b58
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101096331"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Filas, tópicos e assinaturas do Barramento de Serviço
@@ -55,7 +55,7 @@ Para um exemplo de trabalho completo, consulte o [exemplo TopicSubscriptionWithR
 
 Para saber mais sobre possíveis valores de filtro, consulte a documentação das classes [SqlFilter](/dotnet/api/microsoft.azure.servicebus.sqlfilter) e [SqlRuleAction](/dotnet/api/microsoft.azure.servicebus.sqlruleaction).
 
-## <a name="java-message-service-jms-20-entities"></a>Entidades do Java Message Service (JMS) 2,0
+## <a name="java-message-service-jms-20-entities"></a>Entidades do JMS (Serviço de Mensagens Java) 2.0
 As entidades a seguir podem ser acessadas por meio da API do Java Message Service (JMS) 2,0.
 
   * Filas temporárias

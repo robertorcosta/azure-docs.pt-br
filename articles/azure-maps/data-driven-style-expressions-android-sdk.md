@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 zone_pivot_groups: azure-maps-android
 ms.openlocfilehash: 1babf1feb550109486089c45469ab4ce32f72cb3
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102097407"
 ---
 # <a name="data-driven-style-expressions-android-sdk"></a>Expressões de estilo controladas por dados (SDK do Android)
@@ -222,14 +222,14 @@ As expressões de dados fornecem acesso aos dados de propriedade em um recurso.
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `accumulated()` | número | Obtém o valor de uma propriedade de cluster acumulado até o momento. |
-| `at(number | Expression, Expression)` | value | Recupera um item de uma matriz. |
+| `at(number | Expression, Expression)` | valor | Recupera um item de uma matriz. |
 | `geometryType()` | string | Obtém o tipo de geometria do recurso: ponto, MultiPoint, LineString, MultiLineString, polígono, MultiPolygon. |
-| `get(string | Expression)` \| `get(string | Expression, Expression)` | value | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
-| `has(string | Expression)` \| `has(string | Expression, Expression)` | booleano | Determina se as propriedades de um recurso têm a propriedade especificada. |
-| `id()` | value | Obtém a ID do recurso se ele tiver um. |
-| `in(string | number | Expression, Expression)` | booleano | Determina se um item existe em uma matriz |
+| `get(string | Expression)` \| `get(string | Expression, Expression)` | valor | Obtém o valor da propriedade das propriedades do objeto fornecido. Retornará NULL se a propriedade solicitada estiver ausente. |
+| `has(string | Expression)` \| `has(string | Expression, Expression)` | boolean | Determina se as propriedades de um recurso têm a propriedade especificada. |
+| `id()` | valor | Obtém a ID do recurso se ele tiver um. |
+| `in(string | number | Expression, Expression)` | boolean | Determina se um item existe em uma matriz |
 | `length(string | Expression)` | número | Obtém o comprimento de uma cadeia de caracteres ou de uma matriz. |
-| `properties()`| value | Obtém o objeto de propriedades do recurso. |
+| `properties()`| valor | Obtém o objeto de propriedades do recurso. |
 
 As seguintes expressões de estilo do SDK Web não têm suporte no SDK do Android:
 
@@ -418,14 +418,14 @@ Ao comparar valores, a comparação é estritamente digitada. Os valores de tipo
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `all(Expression...)` | booleano | Retorna `true` se todas as entradas forem `true` , `false` caso contrário,. |
-| `any(Expression...)` | booleano | Retorna `true` se alguma das entradas for `true` , `false` caso contrário,. |
-| `eq(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `eq(Expression compareOne, Expression | string compareTwo, Expression collator)` | booleano | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `gt(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `gt(Expression compareOne, Expression | string compareTwo, Expression collator)` | booleano | Retorna `true` se a primeira entrada é estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `gte(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `gte(Expression compareOne, Expression | string compareTwo, Expression collator)` | booleano | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `lt(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `lt(Expression compareOne, Expression | string compareTwo, Expression collator)` | booleano | Retorna `true` se a primeira entrada é estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `lte(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `lte(Expression compareOne, Expression | string compareTwo, Expression collator)` | booleano | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
-| `neq(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `neq(Expression compareOne, Expression | string compareTwo, Expression collator)` | booleano | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
-| `not(Expression | boolean)` | booleano | Negação lógica. Retorna `true` se a entrada é `false` e `false` se a entrada é `true` . |
+| `any(Expression...)` | boolean | Retorna `true` se alguma das entradas for `true` , `false` caso contrário,. |
+| `eq(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `eq(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Retorna `true` se os valores de entrada forem iguais, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `gt(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `gt(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Retorna `true` se a primeira entrada é estritamente maior do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `gte(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `gte(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Retorna `true` se a primeira entrada for maior ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `lt(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `lt(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Retorna `true` se a primeira entrada é estritamente menor do que a segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `lte(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `lte(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Retorna `true` se a primeira entrada for menor ou igual à segunda, `false` caso contrário. Os argumentos são necessários para serem tanto cadeias de caracteres quanto números. |
+| `neq(Expression compareOne, Expression | boolean | number | string compareTwo)` \| `neq(Expression compareOne, Expression | string compareTwo, Expression collator)` | boolean | Retorna `true` se os valores de entrada não forem iguais, `false` caso contrário. |
+| `not(Expression | boolean)` | boolean | Negação lógica. Retorna `true` se a entrada é `false` e `false` se a entrada é `true` . |
 
 ## <a name="conditional-expressions"></a>Expressões condicionais
 
@@ -683,14 +683,14 @@ As expressões de tipo fornecem ferramentas para testar e converter diferentes t
 | Expression | Tipo de retorno | Descrição |
 |------------|-------------|-------------|
 | `array(Expression)` | Objeto [] | Declara que a entrada é uma matriz. |
-| `bool(Expression)` | booleano | Declara que o valor de entrada é um booliano. |
+| `bool(Expression)` | boolean | Declara que o valor de entrada é um booliano. |
 | `collator(boolean caseSensitive, boolean diacriticSensitive)` \| `collator(boolean caseSensitive, boolean diacriticSensitive, java.util.Locale locale)` \| `collator(Expression caseSensitive, Expression diacriticSensitive)` \| `collator(Expression caseSensitive, Expression diacriticSensitive, Expression locale)` | Agrupador | Retorna um Agrupador para uso em operações de comparação dependentes de localidade. As opções de diferenciação de maiúsculas e minúsculas e de sinais diacríticos são padronizadas como falso. O argumento locale especifica a marca de idioma IETF da localidade a ser usada. Se nenhum for fornecido, a localidade padrão será usada. Se a localidade solicitada não estiver disponível, o Agrupador usará uma localidade de fallback definida pelo sistema. Use resolvid-locale para testar os resultados do comportamento de fallback de localidade.  |
 | `literal(boolean \| number \| string \| Object \| Object[])` | objeto de objeto de cadeia de caracteres de número booliano \| \| \| \| [] | Retorna um valor de objeto ou matriz literal. Use esta expressão para impedir que uma matriz ou objeto seja avaliado como uma expressão. Isso é necessário quando uma matriz ou objeto precisa ser retornado por uma expressão. |
 | `number(Expression)` | número | Declara que o valor de entrada é um número. |
 | `object(Expression)` | Objeto | Declara que o valor de entrada é um objeto. |
 | `string(Expression)` | string | Declara que o valor de entrada é uma cadeia de caracteres. |
 | `toArray(Expression)` | Objeto [] | Converte a expressão em uma matriz de objetos JSON. |
-| `toBool(Expression)` | booleano | Converte o valor de entrada em um booliano. |
+| `toBool(Expression)` | boolean | Converte o valor de entrada em um booliano. |
 | `toNumber(Expression)` | número | Converte o valor de entrada em um número, se possível. |
 | `toString(Expression)` | string | Converte o valor de entrada em uma cadeia de caracteres. |
 | `typeoOf(Expression)` | string | Retorna uma cadeia de caracteres que descreve o tipo do valor especificado. |
@@ -755,7 +755,7 @@ val layer = BubbleLayer(source,
 
 ::: zone-end
 
-Se todos os parâmetros de cor forem números, não será necessário encapsulá-los com a `literal` expressão. Por exemplo: 
+Se todos os parâmetros de cor forem números, não será necessário encapsulá-los com a `literal` expressão. Por exemplo:
 
 ::: zone pivot="programming-language-java-android"
 
@@ -810,7 +810,7 @@ Expressões do operador String executam operações de conversão em cadeias de 
 |------------|-------------|-------------|
 | `concat(string...)` \| `concat(Expression...)` | string | Concatena várias cadeias de caracteres juntas. Cada valor deve ser uma cadeia de caracteres. Use a `toString` expressão Type para converter outros tipos de valor em String, se necessário. |
 | `downcase(string)` \| `downcase(Expression)` | string | Converte a cadeia de caracteres especificada em minúsculas. |
-| `isSupportedScript(string)` \| `isSupportedScript(Expression)`| booleano | Determina se a cadeia de caracteres de entrada usa um conjunto de caracteres suportado pela pilha de fontes atual. Por exemplo: `isSupportedScript("ಗೌರವಾರ್ಥವಾಗಿ")` |
+| `isSupportedScript(string)` \| `isSupportedScript(Expression)`| boolean | Determina se a cadeia de caracteres de entrada usa um conjunto de caracteres suportado pela pilha de fontes atual. Por exemplo: `isSupportedScript("ಗೌರವಾರ್ಥವಾಗಿ")` |
 | `resolvedLocale(Expression collator)` | string | Retorna a marca de idioma da IETF da localidade que está sendo usada pelo Agrupador fornecido. Isso pode ser usado para determinar a localidade padrão do sistema ou para determinar se uma localidade solicitada foi carregada com êxito. |
 | `upcase(string)` \| `upcase(Expression)` | string | Converte a cadeia de caracteres especificada em maiúsculas. |
 
@@ -874,7 +874,7 @@ interpolate(Expression.Interpolator interpolation, Expression number, Expression
 
 Há três tipos de métodos de interpolação que podem ser usados em uma `interpolate` expressão:
 
-| Name | Descrição |
+| Nome | Descrição |
 |------|-------------|
 | `linear()` | Interpola linearmente entre o par de paradas.  |
 | `exponential(number)` \| `exponential(Expression)` | Interpola exponencialmente entre as interrupções. Uma "base" é especificada e controla a taxa na qual a saída aumenta. Valores mais altos fazem com que a saída aumente mais em direção ao alto fim do intervalo. Um valor "base" próximo a 1 produz uma saída que aumenta de forma linear.|

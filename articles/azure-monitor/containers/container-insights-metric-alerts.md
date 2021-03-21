@@ -4,10 +4,10 @@ description: Este artigo revisa os alertas de métrica recomendados disponíveis
 ms.topic: conceptual
 ms.date: 10/28/2020
 ms.openlocfilehash: f19959c76d31422a0bdf898a6fa41e6b168e2e61
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728885"
 ---
 # <a name="recommended-metric-alerts-preview-from-container-insights"></a>Alertas de métrica recomendados (versão prévia) de insights de contêiner
@@ -39,7 +39,7 @@ Antes de começar, confirme o seguinte:
 
 Para alertar sobre o que importa, o contêiner insights inclui os seguintes alertas de métrica para seus clusters kubernetes do AKS e do Azure Arc habilitados:
 
-|Name| Descrição |Limite padrão |
+|Nome| Descrição |Limite padrão |
 |----|-------------|------------------|
 |% De CPU de contêiner média |Calcula a média de CPU usada por contêiner.|Quando o uso médio da CPU por contêiner for maior que 95%.| 
 |% De memória do conjunto de trabalho de contêiner médio |Calcula a média de memória do conjunto de trabalho usada por contêiner.|Quando o uso médio de memória do conjunto de trabalho por contêiner é maior que 95%. |

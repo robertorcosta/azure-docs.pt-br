@@ -4,10 +4,10 @@ description: Saiba mais sobre os parceiros do Azure Monitor e como você pode ac
 ms.topic: conceptual
 ms.date: 02/19/2021
 ms.openlocfilehash: ca58023510eb9329bc8ddf1339df4d8c27aae5e6
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102101011"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrações de parceiros do Azure Monitor

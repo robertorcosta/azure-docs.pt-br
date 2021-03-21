@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
 ms.openlocfilehash: 4024d2b1357f3dda8216e9ebdd2055b28b064d33
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101677474"
 ---
 # <a name="managed-disk-bursting"></a>Intermitência de disco gerenciado
@@ -28,7 +28,7 @@ Além disso, o [nível de desempenho dos discos gerenciados pode ser alterado](d
 |  |Intermitência com base em crédito  |Intermitência sob demanda  |Alterando o nível de desempenho  |
 |---------|---------|---------|---------|
 | Cenários|Ideal para dimensionamento de curto prazo (30 minutos ou menos).|Ideal para dimensionamento de curto prazo (sem restrições de tempo).|Ideal se sua carga de trabalho seria continuamente executada em intermitência.|
-|Custo     |Gratuita         |Custo é variável, consulte a seção de [cobrança](#billing) para obter detalhes.        |O custo de cada nível de desempenho é fixo, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/) para obter detalhes.         |
+|Cost     |Gratuita         |Custo é variável, consulte a seção de [cobrança](#billing) para obter detalhes.        |O custo de cada nível de desempenho é fixo, consulte [preços de Managed disks](https://azure.microsoft.com/pricing/details/managed-disks/) para obter detalhes.         |
 |Disponibilidade     |Disponível somente para o SSDs Premium 512 GiB e menor.         |Disponível somente para o SSDs Premium maior que 512 GiB.         |Disponível para todos os tamanhos de SSD Premium.         |
 |Habilitação     |Habilitado por padrão em discos qualificados.         |Deve ser habilitado pelo usuário.         |O usuário deve alterar manualmente sua camada.         |
 

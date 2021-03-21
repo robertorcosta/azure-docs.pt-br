@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
 ms.openlocfilehash: a15ebd43861e2116ddbb2d9055b289645962e203
-ms.sourcegitcommit: 16c7fd8fe944ece07b6cf42a9c0e82b057900662
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/03/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96573911"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluções para transferência de dados periódica
@@ -42,10 +42,10 @@ A tabela a seguir resume as diferenças nas principais funcionalidades.
 
 ### <a name="scriptedprogrammatic-network-data-transfer"></a>Transferência de dados de rede/programáticas com script
 
-| Funcionalidade                  | AzCopy                                 | APIs REST do Armazenamento do Microsoft Azure       |
+| Recurso                  | AzCopy                                 | APIs REST do Armazenamento do Microsoft Azure       |
 |-----------------------------|----------------------------------------|-------------------------------|
 | Fator forma                 | Ferramenta de linha de comando da Microsoft       | Os clientes desenvolvem em relação ao armazenamento <br> APIs REST usando bibliotecas de cliente do Azure |
-| Configuração única inicial     | Mínimo                                | Esforço moderado, variáveis, desenvolvimento    |
+| Configuração única inicial     | Minimal                                | Esforço moderado, variáveis, desenvolvimento    |
 | Formato de Dados                 | Blobs do Azure, Azure Files, Tabelas do Azure | Blobs do Azure, Azure Files, Tabelas do Azure   |
 | Desempenho                 | Já otimizado                      | Otimize à medida que desenvolve                  |
 | Preços                     | Gratuito, são cobrados encargos de saída de dados      | Gratuito, são cobrados encargos de saída de dados        |

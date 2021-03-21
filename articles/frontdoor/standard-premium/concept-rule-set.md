@@ -8,21 +8,21 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 8e6ceebc9e92dabe66baeb9aeff0ae9692e2bdad
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098419"
 ---
 # <a name="what-is-a-rule-set-for-azure-front-door-standardpremium-preview"></a>O que é um conjunto de regras para a porta de recepção do Azure Standard/Premium (versão prévia)?
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 Um conjunto de regras é um mecanismo de regra personalizado que agrupa uma combinação de regras em um único conjunto que você pode associar a várias rotas. O conjunto de regras permite que você personalize como as solicitações são processadas na borda e como a porta frontal do Azure lida com essas solicitações.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

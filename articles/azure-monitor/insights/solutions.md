@@ -7,10 +7,10 @@ ms.author: bwren
 ms.date: 10/16/2020
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.openlocfilehash: a63db154d055675b834e2949a330375633a5761d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728579"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluções de monitoramento no Azure Monitor
@@ -61,7 +61,7 @@ az monitor log-analytics solution list --subscription MySubscription
 az monitor log-analytics solution list --resource-group MyResourceGroup
 ```
 
-### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Use o cmdlet [Get-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/get-azmonitorloganalyticssolution) para listar as soluções de monitoramento instaladas em sua assinatura. Antes de executar esses comandos, siga os pré-requisitos encontrados em [instalar uma solução de monitoramento](#install-a-monitoring-solution).
 
@@ -166,7 +166,7 @@ az monitor log-analytics solution create --resource-group MyResourceGroup \
                                            Microsoft.OperationalInsights/workspaces/{WorkspaceName}"
 ```
 
-### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 ### <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
@@ -250,7 +250,7 @@ az monitor log-analytics solution delete --name
                                          [--yes]
 ```
 
-### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Para remover uma solução instalada usando Azure PowerShell, use o cmdlet [Remove-AzMonitorLogAnalyticsSolution](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution) .
 

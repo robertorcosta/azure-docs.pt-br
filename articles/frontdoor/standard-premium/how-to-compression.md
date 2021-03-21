@@ -8,21 +8,21 @@ ms.topic: article
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 4b526d82465862b1c0d27aed6443c6d7199bfb5b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098366"
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-front-door-standardpremium-preview"></a>Melhorar o desempenho compactando arquivos no Azure front door Standard/Premium (visualização)
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 A compactação de arquivo é um método eficaz para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de página. A compactação reduz o tamanho do arquivo antes de ser enviado pelo servidor. A compactação de arquivos pode reduzir os custos de largura de banda e proporcionar uma experiência melhor para seus usuários.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 Há duas maneiras de habilitar a compactação de arquivo:

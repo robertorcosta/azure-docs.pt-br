@@ -12,10 +12,10 @@ ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
 ms.openlocfilehash: 49d37a5537ada260eae453bbb5f81716d42657a5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102565811"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
@@ -134,7 +134,7 @@ O SQL Instância Gerenciada dá suporte às seguintes opções de migração de 
 
 ### <a name="azure-database-migration-service"></a>Serviço de Migração de Banco de Dados do Azure
 
-O [serviço de migração de banco de dados do Azure](../../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade Esse serviço simplifica as tarefas necessárias para mover bancos de dados de terceiros e SQL Server existentes para o Azure. As opções de implantação no modo de visualização pública incluem bancos de dados no banco de dados SQL do Azure e SQL Server bancos de dados em uma máquina virtual do Azure. O serviço de migração de banco de dados é o método recomendado de migração para suas cargas de trabalho corporativas.
+O [serviço de migração de banco de dados do Azure](../../dms/dms-overview.md) é um serviço totalmente gerenciado projetado para permitir migrações diretas de várias fontes de banco de dados para plataformas de data do Azure com tempo de inatividade Esse serviço simplifica as tarefas necessárias para mover bancos de dados existentes de terceiros e do SQL Server para o Azure. As opções de implantação no modo de visualização pública incluem bancos de dados no banco de dados SQL do Azure e SQL Server bancos de dados em uma máquina virtual do Azure. O serviço de migração de banco de dados é o método recomendado de migração para suas cargas de trabalho corporativas.
 
 Se você usar SQL Server Integration Services (SSIS) no SQL Server local, o serviço de migração de banco de dados ainda não oferecerá suporte à migração do catálogo do SSIS (SSISDB) que armazena os pacotes do SSIS, mas você pode provisionar Azure-SSIS Integration Runtime (IR) no Azure Data Factory, que criará um novo SSISDB em uma instância gerenciada para que você possa reimplantar os pacotes nele. Consulte [criar Azure-SSIS ir em Azure data Factory](../../data-factory/create-azure-ssis-integration-runtime.md).
 

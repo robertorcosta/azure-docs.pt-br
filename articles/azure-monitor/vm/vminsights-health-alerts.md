@@ -1,18 +1,18 @@
 ---
-title: Alertas de integridade de convidado do insights de VM (versão prévia)
+title: Alertas de integridade do convidado de insights da VM (versão prévia)
 description: Descreve os alertas criados pela integridade de convidado de informações de VM, incluindo como habilitá-los e configurar notificações.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
 ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052255"
 ---
-# <a name="vm-insights-guest-health-alerts-preview"></a>Alertas de integridade de convidado do insights de VM (versão prévia)
+# <a name="vm-insights-guest-health-alerts-preview"></a>Alertas de integridade do convidado de insights da VM (versão prévia)
 A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor é alterado para um estado não íntegro. Você pode exibir e gerenciar esses alertas com [aqueles criados por regras de alerta no Azure monitor](../alerts/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
 
 ## <a name="configure-alerts"></a>Configurar alertas
