@@ -10,10 +10,10 @@ ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
 ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102199842"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrar bancos de dados do SQL Server para o SQL Instância Gerenciada usando o serviço de reprodução de log (versão prévia)
@@ -313,7 +313,7 @@ az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
 
 Os clientes do PowerShell e da CLI para iniciar o LRS no modo contínuo são síncronos. Isso significa que os clientes aguardarão a resposta da API para relatar o êxito ou falha ao iniciar o trabalho. 
 
-Durante essa espera, o comando não retornará o controle para o prompt de comando. Se você estiver criando scripts para a experiência de migração e precisar do comando LRS Start para retornar o controle imediatamente para continuar com o restante do script, você poderá executar o PowerShell como um trabalho em segundo plano com a `-AsJob` opção. Por exemplo: 
+Durante essa espera, o comando não retornará o controle para o prompt de comando. Se você estiver criando scripts para a experiência de migração e precisar do comando LRS Start para retornar o controle imediatamente para continuar com o restante do script, você poderá executar o PowerShell como um trabalho em segundo plano com a `-AsJob` opção. Por exemplo:
 
 ```PowerShell
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob

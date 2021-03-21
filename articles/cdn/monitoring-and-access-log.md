@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/23/2020
 ms.author: yuajia
 ms.openlocfilehash: 8a4b48586c564ee5d14a0768156b0477e2935ccf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575447"
 ---
 # <a name="real-time-monitoring-metrics-and-access-logs-for-azure-cdn"></a>Monitoramento em tempo real, métricas e logs de acesso para a CDN do Azure
@@ -63,7 +63,7 @@ Para configurar logs brutos para seu perfil da CDN do Azure da Microsoft:
 
     :::image type="content" source="./media/cdn-raw-logs/raw-logs-02.png" alt-text="Configure o destino para as configurações de log." border="true":::
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="configuration---azure-powershell"></a>Configuração-Azure PowerShell
 
@@ -219,7 +219,7 @@ Para obter mais informações, consulte [Azure monitor métricas](../azure-monit
 
 **Métricas com suporte da CDN do Azure da Microsoft**
 
-| Métricas  | Description | Dimensões |
+| Métricas  | Descrição | Dimensões |
 | ------------- | ------------- | ------------- |
 | Taxa de acertos de bytes * | A porcentagem de egresso do cache da CDN, computada com relação à saída total. | Ponto de extremidade |
 | RequestCount | O número de solicitações de cliente atendidas pela CDN. | Ponto de extremidade </br> País do cliente. </br> Região do cliente. </br> Código de status HTTP. </br> Grupo de status HTTP. |

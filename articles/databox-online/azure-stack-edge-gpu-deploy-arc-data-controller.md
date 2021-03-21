@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: alkohli
 ms.openlocfilehash: 57633df8c6482a9b0645813519991282bdbf22c1
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102633505"
 ---
 # <a name="deploy-azure-data-services-on-your-azure-stack-edge-pro-gpu-device"></a>Implantar os serviços de dados do Azure em seu dispositivo do Azure Stack Edge pro GPU

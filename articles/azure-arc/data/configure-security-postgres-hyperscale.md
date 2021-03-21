@@ -10,17 +10,17 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: d6e27fddceb69efbb2c1697c09ee9b61d7f38ee4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687967"
 ---
 # <a name="configure-security-for-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Configurar a segurança para seu grupo de servidores de PostgreSQL de Hiperescala habilitado para o Azure Arc
 
 Este documento descreve vários aspectos relacionados à segurança do seu grupo de servidores:
 - Criptografia em repouso
-- Gerenciamento de Usuários
+- Gerenciamento de usuários
    - Perspectivas gerais
    - Alterar a senha do usuário administrativo do _postgres_
 - Audit
@@ -118,7 +118,7 @@ Saída:
 - Nome de usuário: Eu
 - UserPassword: $1 $ Uc7jzZOp $ NTfcGo7F10zGOkXOwjHy31
 
-Quando eu me conecto ao meu aplicativo e passo uma senha, ele será pesquisado na `mysecrets` tabela e retornará o nome do usuário se houver uma correspondência entre a senha fornecida para o aplicativo e as senhas armazenadas na tabela. Por exemplo: 
+Quando eu me conecto ao meu aplicativo e passo uma senha, ele será pesquisado na `mysecrets` tabela e retornará o nome do usuário se houver uma correspondência entre a senha fornecida para o aplicativo e as senhas armazenadas na tabela. Por exemplo:
 
 - Eu passo a senha incorreta:
    ```console
@@ -149,7 +149,7 @@ Quando eu me conecto ao meu aplicativo e passo uma senha, ele será pesquisado n
 
 Este pequeno exemplo demonstra que você pode criptografar dados em repouso (armazenar dados criptografados) em hiperescala PostgreSQL habilitada para Arc do Azure usando a `pgcrypto` extensão postgres e seus aplicativos podem usar funções oferecidas pelo `pgcrypto` para manipular esses dados criptografados.
 
-## <a name="user-management"></a>Gerenciamento de Usuários
+## <a name="user-management"></a>Gerenciamento de usuários
 ### <a name="general-perspectives"></a>Perspectivas gerais
 Você pode usar a maneira postgres padrão para criar usuários ou funções. No entanto, se você fizer isso, esses artefatos só estarão disponíveis na função de coordenador. Durante a visualização, esses usuários/funções ainda não poderão acessar os dados distribuídos fora do nó coordenador e nos nós de trabalho do seu grupo de servidores. Isso ocorre porque, na visualização, a definição de usuário não é replicada para os nós de trabalho.
 

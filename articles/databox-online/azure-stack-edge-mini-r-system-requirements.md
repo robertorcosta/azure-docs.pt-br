@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/05/2021
 ms.author: alkohli
 ms.openlocfilehash: 829f89f716a29f09f88a2e02b257aba1b207d072
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102634185"
 ---
 # <a name="azure-stack-edge-mini-r-system-requirements"></a>Requisitos de sistema do Azure Stack Edge de borda
@@ -40,7 +40,7 @@ Os requisitos do sistema para o Azure Stack Edge mini R incluem:
 
 As contas de armazenamento de borda a seguir têm suporte com a interface REST do dispositivo. As contas de armazenamento de borda são criadas no dispositivo. Para obter mais informações, consulte [Edge Storage accounts](azure-stack-edge-gpu-manage-storage-accounts.md#about-edge-storage-accounts)
 
-|Tipo  |Conta de armazenamento  |Comentários  |
+|Type  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: BLOB de blocos         |         |
 
@@ -51,7 +51,7 @@ As contas de armazenamento de borda a seguir têm suporte com a interface REST d
 
 Essas contas de armazenamento são por meio das APIs locais do dispositivo quando você está conectado ao Azure Resource Manager local. Há suporte para as seguintes contas de armazenamento:
 
-|Tipo  |Conta de armazenamento  |Comentários  |
+|Type  |Conta de armazenamento  |Comentários  |
 |---------|---------|---------|
 |Standard     |GPv1: BLOB de blocos, BLOB de páginas         | O tipo de SKU é Standard_LRS        |
 |Premium   |GPv1: BLOB de blocos, BLOB de páginas         |O tipo de SKU é Premium_LRS         |

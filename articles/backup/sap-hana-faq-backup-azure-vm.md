@@ -4,10 +4,10 @@ description: Neste artigo, descubra respostas a perguntas comuns sobre como faze
 ms.topic: conceptual
 ms.date: 11/7/2019
 ms.openlocfilehash: bf662600bafcd18b00c8f8d3b673fc3f9c110aca
-ms.sourcegitcommit: 1d366d72357db47feaea20c54004dc4467391364
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95400200"
 ---
 # <a name="frequently-asked-questions--back-up-sap-hana-databases-on-azure-vms"></a>Perguntas frequentes – Fazer backup de bancos de dados SAP HANA em VMs do Azure
@@ -139,7 +139,7 @@ RPO (objetivo de ponto de recuperação) indica a quantidade de perda de dados a
 
 RTO (Recovery-Time-Objection) indica a rapidez com que os dados devem ser restaurados para o último ponto no tempo disponível após um cenário de perda de dados. Isso depende da estratégia de recuperação empregada pelo HANA, que geralmente depende de quantos arquivos são necessários para a restauração. Isso também tem implicações de custo, e a tabela a seguir deve ajudar a compreender todos os cenários e suas implicações.
 
-|Política de backup  |RTO  |Custo  |
+|Política de backup  |RTO  |Cost  |
 |---------|---------|---------|
 |Diário completo + logs     |   Mais rápido, já que precisamos apenas de uma cópia completa + logs necessários para a restauração pontual      |    A opção Costliest, pois uma cópia completa é realizada diariamente e, portanto, mais e mais dados são acumulados no back-end até o tempo de retenção   |
 |Semanal Total + registros diários +     |   Mais lento do que a opção acima, mas mais rápido do que a próxima opção, pois exigimos uma cópia completa + um dos logs diferenciais + um para a restauração pontual      |    Opção menos cara, pois o diferencial diário é normalmente menor do que o completo e uma cópia completa é realizada apenas uma vez por semana      |

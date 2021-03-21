@@ -14,10 +14,10 @@ ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
 ms.openlocfilehash: 1a9b9481d0b4086505bbfd3c2cd654ce228d1ae2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688868"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>Usar o MSAL para Android com B2C
@@ -148,7 +148,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>Especificar uma política
 
-Como as políticas no B2C são representadas como autoridades separadas, a invocação de uma política diferente da padrão é obtida pela especificação de uma `fromAuthority` cláusula durante a construção `acquireToken` ou os `acquireTokenSilent` parâmetros.  Por exemplo: 
+Como as políticas no B2C são representadas como autoridades separadas, a invocação de uma política diferente da padrão é obtida pela especificação de uma `fromAuthority` cláusula durante a construção `acquireToken` ou os `acquireTokenSilent` parâmetros.  Por exemplo:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

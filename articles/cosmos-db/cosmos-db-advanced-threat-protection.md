@@ -10,10 +10,10 @@ ms.author: memildin
 author: memildin
 manager: rkarlin
 ms.openlocfilehash: b73e7f8c13f621bc359a2ae79a725829420a3ecc
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102455546"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Proteção Avançada contra Ameaças do Azure Cosmos DB (versão prévia)

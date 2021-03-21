@@ -13,10 +13,10 @@ ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7961997c6a6736c154b6217ee3f21682d0c4c3fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688460"
 ---
 # <a name="email-one-time-passcode-authentication"></a>Autenticação de senha de uso único de email
@@ -106,7 +106,7 @@ No entanto, se você preferir recusar o recurso e permitir que ele seja habilita
 
 ![Habilitar o email de senha de uso único aceito](media/one-time-passcode/email-otp-options.png)
 
-- **Habilite automaticamente a senha de um único email para convidados a partir de outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado a partir de outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso no momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não estará disponível.
+- **Habilite automaticamente a senha de um único email para convidados a partir de outubro de 2021**. Os Se o recurso de senha de um email de uso único ainda não estiver habilitado para seu locatário, ele será automaticamente ativado a partir de outubro de 2021. Nenhuma ação adicional será necessária se você quiser habilitar o recurso nesse momento. Se você já tiver habilitado ou desabilitado o recurso, essa opção não ficará disponível.
 
 - **Habilite o email de senha de uso único para convidados em vigor agora**. Ativa o recurso de senha de uso único de email para seu locatário.
 

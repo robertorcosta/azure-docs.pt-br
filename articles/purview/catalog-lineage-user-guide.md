@@ -8,17 +8,17 @@ ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/29/2020
 ms.openlocfilehash: 47c5ad18f50bd25dd3bf351090ffc9ef5d54f0b2
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202902"
 ---
 # <a name="azure-purview-data-catalog-lineage-user-guide"></a>Guia do usuário de linhagem do catálogo de dados do Azure alcance
 
 Este artigo fornece uma visão geral dos recursos de linhagem de dados no catálogo de dados do Azure alcance.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 Um dos recursos de plataforma do Azure alcance é a capacidade de mostrar a linhagem entre conjuntos de dados criados por processos de data. Sistemas como Data Factory, compartilhamento de dados e Power BI capturam a linhagem dos dados conforme eles se movem. O relatório de linhagem personalizada também tem suporte por meio de ganchos do Atlas e da API REST.
 

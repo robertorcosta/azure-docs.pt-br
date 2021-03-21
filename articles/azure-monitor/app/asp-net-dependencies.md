@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/26/2020
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 124b8d3de59d1645379d50360e69a5fdbd5587e5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045285"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rastreamento de dependência no insights Aplicativo Azure 
@@ -160,7 +160,7 @@ Aqui você poderá ver a contagem de dependências com falha. Para obter mais de
 
 ## <a name="logs-analytics"></a>Logs (Análise)
 
-Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/query/). Veja alguns exemplos.
+Você pode rastrear dependências na [linguagem de consulta Kusto](/azure/kusto/query/). Aqui estão alguns exemplos.
 
 * Localize todas as chamadas com falha de dependência:
 

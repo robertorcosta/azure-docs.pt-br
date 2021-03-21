@@ -4,10 +4,10 @@ description: Introdução aos principais conceitos de registros de contêiner do
 ms.topic: article
 ms.date: 01/29/2021
 ms.openlocfilehash: 991be79b10b6061f2034eb19e4e139af65aef3cf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578120"
 ---
 # <a name="about-registries-repositories-and-artifacts"></a>Sobre registros, repositórios e artefatos
@@ -30,7 +30,7 @@ Um *repositório* é uma coleção de imagens de contêiner ou outros artefatos 
 - *ACR-HelloWorld: v1*
 - *ACR-HelloWorld: v2*
 
-Também podem incluir nomes de repositório [namespaces](container-registry-best-practices.md#repository-namespaces). Os namespaces permitem que você identifique os repositórios relacionados e a propriedade do artefato em sua organização usando nomes delimitados por barra. No entanto, o registro gerencia todos os repositórios de forma independente, não como uma hierarquia. Por exemplo: 
+Também podem incluir nomes de repositório [namespaces](container-registry-best-practices.md#repository-namespaces). Os namespaces permitem que você identifique os repositórios relacionados e a propriedade do artefato em sua organização usando nomes delimitados por barra. No entanto, o registro gerencia todos os repositórios de forma independente, não como uma hierarquia. Por exemplo:
 
 - *Marketing/campaign10-18/Web: v2*
 - *Marketing/campaign10-18/API: V3*
