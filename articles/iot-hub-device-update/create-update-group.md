@@ -7,10 +7,10 @@ ms.date: 2/17/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.openlocfilehash: a0894047db1ed7687a1a0f5f87fc4020ddf7c694
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101678971"
 ---
 # <a name="create-device-groups-in-device-update-for-iot-hub"></a>Criar grupos de dispositivos na atualização do dispositivo para o Hub IoT
@@ -55,11 +55,11 @@ As marcas também podem ser adicionadas ou atualizadas diretamente no dispositiv
 
 1. Faça logon em [portal do Azure](https://portal.azure.com) e navegue até o Hub IOT.
 
-2. Em ' dispositivos IoT ' ou ' IoT Edge ' no painel de navegação esquerdo, localize seu dispositivo IoT e navegue até o dispositivo.
+2. Em "Dispositivos IoT" ou "IoT Edge" no painel de navegação esquerdo, encontre seu dispositivo IoT e navegue até Dispositivo gêmeo.
 
-3. No dispositivo e, exclua qualquer valor de marca de atualização de dispositivo existente definindo-os como NULL.
+3. Em Dispositivo gêmeo, exclua todos os valores de marca existentes da Atualização de dispositivo definindo-os como null.
 
-4. Adicione um novo valor de marca de atualização de dispositivo, conforme mostrado abaixo. [Documento JSON de dispositivo de exemplo com marcas.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
+4. Adicione um novo valor de marca da Atualização de dispositivo, conforme mostrado abaixo. [Documento JSON de dispositivo de exemplo com marcas.](../iot-hub/iot-hub-devguide-device-twins.md#device-twins)
 
 ```JSON
     "tags": {
@@ -78,16 +78,16 @@ As marcas também podem ser adicionadas ou atualizadas diretamente no dispositiv
 
 ## <a name="create-a-device-group-by-selecting-an-existing-iot-hub-tag"></a>Criar um grupo de dispositivos selecionando uma marca de Hub IoT existente
 
-1. Acesse o [portal do Azure](https://portal.azure.com).
+1. Vá para o [Portal do Azure](https://portal.azure.com).
 
 2. Selecione o Hub IoT que você conectou anteriormente à sua instância de atualização de dispositivo.
 
-3. Selecione a opção atualizações de dispositivo em gerenciamento de dispositivo automático na barra de navegação à esquerda.
+3. Selecione a opção Atualizações de dispositivo em Gerenciamento de dispositivo automático na barra de navegação à esquerda.
 
-4. Selecione a guia grupos na parte superior da página. Você poderá ver o número de dispositivos conectados à atualização de dispositivo que ainda não estão agrupados.
+4. Selecione a guia Grupos na parte superior da página. Você poderá ver o número de dispositivos conectados à atualização de dispositivo que ainda não estão agrupados.
    :::image type="content" source="media/create-update-group/ungrouped-devices.png" alt-text="Captura de tela de dispositivos desagrupados." lightbox="media/create-update-group/ungrouped-devices.png":::
 
-5. Selecione o botão Adicionar para criar um novo grupo.
+5. Clique no botão Adicionar para criar um novo grupo.
    :::image type="content" source="media/create-update-group/add-group.png" alt-text="Captura de tela da adição do grupo de dispositivos." lightbox="media/create-update-group/add-group.png":::
 
 6. Selecione uma marca do Hub IoT na lista e, em seguida, selecione Criar grupo de atualização.

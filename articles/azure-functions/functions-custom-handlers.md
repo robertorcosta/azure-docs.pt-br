@@ -6,10 +6,10 @@ ms.author: antchu
 ms.date: 12/1/2020
 ms.topic: article
 ms.openlocfilehash: dd112c74ea9f013a0e14bddd735060ddbf73c14e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100578525"
 ---
 # <a name="azure-functions-custom-handlers"></a>Azure Functions manipuladores personalizados
@@ -64,7 +64,7 @@ O diagrama a seguir mostra como esses arquivos examinam o sistema de arquivos em
 
 O aplicativo é configurado por meio do *host.jsno* e *local.settings.jsem* arquivos.
 
-#### <a name="hostjson"></a>host. JSON
+#### <a name="hostjson"></a>host.jsem
 
 *host.json* informa ao host do Functions onde enviar solicitações apontando para um servidor Web capaz de processar eventos http.
 
@@ -577,7 +577,7 @@ Você também pode usar essa estratégia em seus pipelines de CI/CD para executa
 
 Os manipuladores personalizados são executados no mesmo ambiente que um aplicativo Azure Functions típico. Teste seu manipulador para garantir que o ambiente contenha todas as dependências necessárias para executar. Para aplicativos que exigem dependências adicionais, talvez seja necessário executá-los usando uma [imagem de contêiner personalizada](functions-create-function-linux-custom-image.md) hospedada no [plano Azure Functions Premium](functions-premium-plan.md).
 
-### <a name="get-support"></a>Obter suporte
+### <a name="get-support"></a>Obtenha suporte
 
 Se precisar de ajuda em um aplicativo de funções com manipuladores personalizados, você poderá enviar uma solicitação por meio de canais de suporte regular. No entanto, devido à grande variedade de linguagens possíveis usadas para criar aplicativos de manipuladores personalizados, o suporte não é ilimitado.
 

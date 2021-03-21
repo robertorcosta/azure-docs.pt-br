@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/22/2017
 ms.author: alkohli
 ms.openlocfilehash: d736c09fc1c9490f79dfc526895970e01b8b45cc
-ms.sourcegitcommit: cd9754373576d6767c06baccfd500ae88ea733e4
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94963174"
 ---
 # <a name="deploy-your-on-premises-storsimple-device-in-the-government-portal"></a>Implantar seu dispositivo StorSimple local no Portal Governamental
@@ -198,4 +198,4 @@ Execute as etapas a seguir no Portal Governamental para criar um backup manual s
 
 ## <a name="next-steps"></a>Próximas etapas
 * Configurar um [dispositivo virtual](storsimple-8000-cloud-appliance-u2.md).
-* Use o [serviço storsimple Device Manager](storsimple-8000-manager-service-administration.md) para gerenciar seu dispositivo storsimple.
+* Use o [serviço storsimple Gerenciador de dispositivos](storsimple-8000-manager-service-administration.md) para gerenciar seu dispositivo storsimple.

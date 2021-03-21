@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/26/2021
 ms.author: jushiman
 ms.openlocfilehash: a9c832d9a5e90cb2c9ffcbe8a26cdb08ebcddfcc
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553112"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Suporte para VMs de geração 2 no Azure
@@ -31,7 +31,7 @@ As VMs de geração 1 têm suporte de todos os tamanhos de VM no Azure (exceto p
 * [Série B](sizes-b-series-burstable.md)
 * [Série DCsv2](dcv2-series.md)
 * [Série DSv2](dv2-dsv2-series.md)
-* [Dsv3-series](dv3-dsv3-series.md)
+* [Série Dsv3](dv3-dsv3-series.md)
 * [Série Dsv4](dv4-dsv4-series.md)
 * [Série Dasv4](dav4-dasv4-series.md)
 * [Série Ddsv4](ddv4-ddsv4-series.md)
