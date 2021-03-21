@@ -6,10 +6,10 @@ ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: ef0aa8ba1983ca30fd44c27fe570b6b5f51733a5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101744210"
 ---
 ## <a name="create-a-scheduled-webjob"></a><a name="CreateScheduledCRON"></a> Criar um WebJob agendado
@@ -31,9 +31,9 @@ ms.locfileid: "101744210"
     
     | Configuração      | Valor de exemplo   |
     | ------------ | ----------------- | 
-    | <abbr title="Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de `-` e `_` .">Name</a> | myScheduledWebJob |  |
+    | <abbr title="Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de `-` e `_` .">Nomes</a> | myScheduledWebJob |  |
     | <abbr title="Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script.">Carregar arquivos</abbr> | ConsoleApp.zip |
-    | <abbr title="Os tipos incluem contínuo, disparado.">Tipo</abbr> | Disparado |
+    | <abbr title="Os tipos incluem contínuo, disparado.">Type</abbr> | Disparado |
     | <abbr title="Para que o agendamento funcione de modo confiável, habilite o recurso AlwaysOn. O AlwaysOn está disponível apenas nos tipos de preço Básico, Standard e Premium.">Gatilhos</a> | Agendado |
     | Expressão CRON</a> | 0 0/20 * * * * | 
     

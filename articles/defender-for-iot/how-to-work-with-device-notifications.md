@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 2083da329c41afbe95ff570194a1c3ad5c2661be
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523559"
 ---
 # <a name="work-with-device-notifications"></a>Trabalhar com notificações de dispositivos
@@ -61,7 +61,7 @@ A tabela a seguir descreve os tipos de evento de notificação que você pode re
 | Tipos de evento de notificação | Descrição | Respostas |
 |--|--|--|
 | Novo IP detectado | Um novo endereço IP está associado ao dispositivo. Podem ser detectados cinco cenários: <br /><br /> Um endereço IP adicional foi associado a um dispositivo. Esse dispositivo também está associado a um endereço MAC existente.<br /><br /> Um novo endereço IP foi detectado para um dispositivo que está usando um endereço MAC existente. Atualmente, o dispositivo não se comunica usando um endereço IP.<br /> <br /> Um novo endereço IP foi detectado para um dispositivo que está usando um nome NetBIOS. <br /><br /> Um endereço IP foi detectado como a interface de gerenciamento para um dispositivo associado a um endereço MAC. <br /><br /> Um novo endereço IP foi detectado para um dispositivo que está usando um endereço IP virtual. | **Definir IP adicional para dispositivo** (dispositivos de mesclagem) <br /> <br />**Substituir IP existente** <br /> <br /> **Ignorar**<br /> Remova a notificação. |
-| Dispositivos inativos | O tráfego não foi detectado em um dispositivo por mais de 60 dias. | **Delete (excluir)** <br /> Se este dispositivo não fizer parte de sua rede, remova-o. <br /><br />**Ignorar** <br /> Remova a notificação se o dispositivo fizer parte de sua rede. Se o dispositivo estiver inativo (por exemplo, porque está desconectado da rede por engano), ignore a notificação e reconecte o dispositivo. |
+| Dispositivos inativos | O tráfego não foi detectado em um dispositivo por mais de 60 dias. | **Excluir** <br /> Se este dispositivo não fizer parte de sua rede, remova-o. <br /><br />**Ignorar** <br /> Remova a notificação se o dispositivo fizer parte de sua rede. Se o dispositivo estiver inativo (por exemplo, porque está desconectado da rede por engano), ignore a notificação e reconecte o dispositivo. |
 | Novos dispositivos de OT | Uma sub-rede inclui um dispositivo de OT que não está definido em uma sub-rede ICS. <br /><br /> Cada sub-rede que contém pelo menos um dispositivo de se pode ser definida como uma sub-rede ICS. Isso ajuda a diferenciar entre os dispositivos de OT e de ti no mapa. | **Definir como sub-rede do ICS** <br /> <br /> **Ignorar** <br />Remova a notificação se o dispositivo não fizer parte da sub-rede. |
 | Nenhuma sub-rede configurada | Não há sub-redes atualmente configuradas em sua rede. <br /><br /> Configure sub-redes para uma melhor representação no mapa e a capacidade de diferenciar entre os dispositivos de OT e de ti. | **Abra a configuração de sub-redes** e configure sub-redes. <br /><br />**Ignorar** <br /> Remova a notificação. |
 | Alterações do sistema operacional | Um ou mais sistemas operacionais novos foram associados ao dispositivo. | Selecione o nome do novo sistema operacional que você deseja associar ao dispositivo.<br /><br /> **Ignorar** <br /> Remova a notificação. |
@@ -98,6 +98,6 @@ Investigue as recomendações para enriquecer a classificação do sistema opera
 
 Quando você aceitar uma recomendação, as informações do tipo de sistema operacional serão atualizadas no sensor.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Exibir alertas](how-to-view-alerts.md)

@@ -4,10 +4,10 @@ description: Descreve como as definições de política são usadas para estabel
 ms.date: 02/17/2021
 ms.topic: conceptual
 ms.openlocfilehash: cebba214671cfab75a3f44720578b51febacdfcd
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215061"
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
@@ -76,7 +76,7 @@ Use **displayName** e **description** para identificar a definição de polític
 > [!NOTE]
 > Durante a criação ou a atualização de uma definição de política, **id**, **type** e **name** são definidos por propriedades externas ao JSON e não são necessários no arquivo JSON. O fetch da definição de política por meio do SDK retorna a as propriedades **id**, **type** e **name** como parte do JSON, mas cada uma delas é uma informação somente leitura relacionada à definição de política.
 
-## <a name="type"></a>Tipo
+## <a name="type"></a>Type
 
 Embora a propriedade **Type** não possa ser definida, há três valores que são retornados pelo SDK e visíveis no Portal:
 

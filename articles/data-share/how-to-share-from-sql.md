@@ -7,10 +7,10 @@ ms.service: data-share
 ms.topic: how-to
 ms.date: 02/24/2021
 ms.openlocfilehash: f87ad76e9bb1db4d71716bf860d5fee2d413e8e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740368"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Compartilhar e receber dados do Banco de Dados SQL do Azure e do Azure Synapse Analytics
@@ -315,7 +315,7 @@ Quando você compartilha dados da fonte SQL, o mapeamento a seguir é usado de S
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Objeto |
-| text |String, Char[] |
+| texto |String, Char[] |
 | time |TimeSpan |
 |  timestamp |Byte[] |
 | TINYINT |Int16 |

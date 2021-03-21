@@ -17,10 +17,10 @@ ms.date: 08/12/2020
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: cef0630cfc7ec7d080073085e577153ae7a47ecf
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102504449"
 ---
 # <a name="sap-ascsscs-instance-multi-sid-high-availability-with-windows-server-failover-clustering-and-azure-shared-disk"></a>Alta disponibilidade da instância do SAP ASCS/SCS com clustering de failover do Windows Server e disco compartilhado do Azure
@@ -103,11 +103,11 @@ Instalaremos um novo **PR2** de SID do SAP, além da instância existente do SAP
 | --- | --- | --- |---| ---|
 | primeiro cluster do ASCS/SCS do nó do cluster |PR1-ASCs-10 |10.0.0.4 |PR1-ASCs-avset |PR1PPG |
 | segundo cluster do nó do cluster ASCS/SCS |PR1-ASCs-11 |10.0.0.5 |PR1-ASCs-avset |PR1PPG |
-| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | n/a | n/a |
-| **SID1** Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | n/a | n/a |
-| **SID1** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | n/a | n/a |
-| **SID2** Nome da rede do cluster ASCS | PR2-ascscl |10.0.0.45 | n/a | n/a |
-| **SID2** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.46 | n/a | n/a |
+| Nome da rede de clusters | pr1clust |10.0.0.42 (**somente** para cluster do Win 2016) | N/D | N/D |
+| **SID1** Nome da rede do cluster ASCS | PR1-ascscl |10.0.0.43 | N/D | N/D |
+| **SID1** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.44 | N/D | N/D |
+| **SID2** Nome da rede do cluster ASCS | PR2-ascscl |10.0.0.45 | N/D | N/D |
+| **SID2** Nome de rede de cluster ERS (**somente** para ERS2) | PR1-erscl |10.0.0.46 | N/D | N/D |
 
 ### <a name="create-azure-internal-load-balancer"></a>Criar um balanceador de carga interno do Azure
 

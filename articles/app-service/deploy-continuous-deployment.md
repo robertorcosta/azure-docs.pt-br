@@ -7,10 +7,10 @@ ms.date: 03/12/2021
 ms.reviewer: dariac
 ms.custom: seodec18
 ms.openlocfilehash: 52f0db739cff9614dc4e9f5ef71d582e926fc65a
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103470261"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Implantação contínua no Serviço de Aplicativo do Azure
@@ -50,7 +50,7 @@ Escolha a guia que corresponde à sua seleção para as etapas.
     > [!NOTE]
     > O serviço de aplicativo detecta a [configuração de pilha de idiomas](configure-common.md#configure-language-stack-settings) do seu aplicativo e seleciona o modelo de fluxo de trabalho mais apropriado. Se você escolher um modelo diferente, ele poderá implantar um aplicativo que não seja executado corretamente. Para obter mais informações, consulte [como funciona o provedor de compilação de ações do GitHub](#how-the-github-actions-build-provider-works).
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
    
     Novas confirmações no repositório e no branch selecionados agora são implantadas continuamente em seu aplicativo do Serviço de Aplicativo. Você pode acompanhar as confirmações e implantações na guia **logs** .
 
@@ -62,7 +62,7 @@ A integração do BitBucket usa os serviços de compilação do serviço de apli
 
 1. Para bitbucket, selecione a **equipe** do bitbucket, o **repositório** e a **ramificação** que você deseja implantar continuamente.
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
    
     Novas confirmações no repositório e no branch selecionados agora são implantadas continuamente em seu aplicativo do Serviço de Aplicativo. Você pode acompanhar as confirmações e implantações na guia **logs** .
    

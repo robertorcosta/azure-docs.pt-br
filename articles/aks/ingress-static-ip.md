@@ -6,10 +6,10 @@ services: container-service
 ms.topic: article
 ms.date: 08/17/2020
 ms.openlocfilehash: fa6572ddc694cb892f48cb3e618c176f087524f6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506558"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>Crie um controlador de entrada com um endereço IP público estático no AKS (Serviço de Kubernetes do Azure)
@@ -18,7 +18,7 @@ Um controlador de entrada é uma parte do software que fornece proxy reverso, ro
 
 Este artigo mostra como implantar o [controlador de ingresso NGINX][nginx-ingress] em um Cluster do Serviço de Kubernetes do Azure (AKS0) O controlador de entrada é configurado com um endereço IP público estático. O projeto [cert-manager][cert-manager] é usado para gerar e configurar automaticamente certificados [Vamos Criptografar][lets-encrypt]. Finalmente, dois aplicativos são executados no cluster do AKS, cada um dos quais é acessível em um único endereço IP.
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]
@@ -458,7 +458,7 @@ Este artigo incluído alguns componentes externos no AKS. Para saber mais sobre 
 - [Controlador de entrada NGINX ][nginx-ingress]
 - [cert-manager][cert-manager]
 
-Também é possível:
+Você também pode:
 
 - [Criar um controlador de entrada básico com conectividade de rede externa][aks-ingress-basic]
 - [Habilitar o complemento de roteamento de aplicativo HTTP][aks-http-app-routing]

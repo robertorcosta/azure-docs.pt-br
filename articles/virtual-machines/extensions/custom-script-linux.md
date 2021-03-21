@@ -9,10 +9,10 @@ author: amjads1
 ms.collection: linux
 ms.date: 04/25/2018
 ms.openlocfilehash: 094e5f4b1bf1611f2d418d3a7b8db15ec5d58878
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102563567"
 ---
 # <a name="use-the-azure-custom-script-extension-version-2-with-linux-virtual-machines"></a>Usar a Versão 2 da Extensão de Script Personalizado do Azure com máquinas virtuais do Linux
@@ -30,7 +30,7 @@ Há duas Extensões do Script Personalizado do Linux:
 Alterne entre implantações novas e existentes para usar a nova versão 2. A nova versão tem o objetivo de ser uma substituição perfeita. Assim, a migração é tão fácil quanto alterar o nome e versão. Você não precisa alterar a configuração de extensão.
 
 
-### <a name="operating-system"></a>Sistema operacional
+### <a name="operating-system"></a>Sistema Operacional
 
 A extensão de script personalizado para Linux será executada na extensão do so de extensão com suporte, para obter mais informações, consulte este [artigo](../linux/endorsed-distros.md).
 

@@ -9,10 +9,10 @@ ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
 ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472312"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de serviços de nuvem do Azure (suporte estendido)
@@ -92,7 +92,7 @@ Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se v
 | Nome do tamanho anterior | Nome do tamanho atualizado | 
 |---|---|
 | ExtraSmall | Standard_A0 | 
-| Pequeno | Standard_A1 |
+| Small | Standard_A1 |
 | Médio | Standard_A2 | 
 | Grande | Standard_A3 | 
 | ExtraLarge | Standard_A4 | 

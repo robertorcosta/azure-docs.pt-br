@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.openlocfilehash: 517bcdab375db819b0942306df82e7285b9473b1
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103487693"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Prepare o ambiente de desenvolvimento e teste para o IoT Edge
@@ -57,7 +57,7 @@ Os modelos de módulo para algumas linguagens e serviços têm os pré-requisito
 
 | Modelo do módulo | Pré-requisito |
 | --------------- | ------------ |
-| Funções do Azure | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
+| Azure Functions | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
 | C | [Git](https://git-scm.com/) |
 | C# | [SDK do .NET Core 2,1](https://www.microsoft.com/net/download) |
 | Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Defina a variável de ambiente JAVA_HOME](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |

@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 5b7059129c45149c64bc7fc145c68d9e09a7c046
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523831"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigar as detecções do sensor no mapa do dispositivo
@@ -321,7 +321,7 @@ As informações a seguir podem ser atualizadas manualmente. As informações in
 | Nome | O nome do dispositivo. <br /> Por padrão, o sensor descobre o nome do dispositivo como definido na rede. Por exemplo, um nome definido no servidor DNS. <br /> Se esses nomes não tiverem sido definidos, o endereço IP do dispositivo aparecerá nesse campo. <br /> Você pode alterar um nome de dispositivo manualmente. Dê aos seus dispositivos nomes significativos que reflitam sua funcionalidade. |
 | Type | O tipo de dispositivo detectado pelo sensor. <br /> Para obter mais informações, consulte [Exibir tipos de dispositivo](#view-device-types). |
 | Fornecedor | O fornecedor do dispositivo. Isso é determinado pelos caracteres à esquerda do endereço MAC do dispositivo. Este campo é somente leitura. |
-| Sistema operacional | O sistema operacional do dispositivo detectado pelo sensor. |
+| Sistema Operacional | O sistema operacional do dispositivo detectado pelo sensor. |
 | Camada Purdue | A camada Purdue identificada pelo sensor para este dispositivo, incluindo: <br /> -Automático <br /> -Controle de processo <br /> -Supervisão <br /> - Enterprise |
 | Descrição | Um campo de texto livre. <br /> Adicione mais informações sobre o dispositivo. |
 | Atributos | Todas as informações adicionais que foram descobertas sobre o dispositivo durante o período de aprendizagem e que não pertencem a outras categorias aparecerão na seção atributos. <br /> As informações são RO. |
@@ -338,7 +338,7 @@ As informações a seguir podem ser atualizadas manualmente. As informações in
 | Endereço | O endereço IP do dispositivo. |
 | Serial | O número de série do dispositivo. |
 | Endereço do módulo | O modelo do dispositivo e o número do slot ou a ID. |
-| Modelar | O número do modelo do dispositivo. |
+| Modelo | O número do modelo do dispositivo. |
 | Versão do Firmware | O número de versão do firmware. |
 
 Para exibir as informações do dispositivo:
@@ -607,7 +607,7 @@ Para mesclar dispositivos:
 
    :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="caixa de diálogo atributos":::
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 ### <a name="authorize-and-unauthorize-devices"></a>Autorizar e desautorizar dispositivos
 
@@ -709,6 +709,6 @@ Para exportar:
 
 1. Selecione uma opção de exportação.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Investigar detecções de sensor em um inventário de dispositivos](how-to-investigate-sensor-detections-in-a-device-inventory.md)

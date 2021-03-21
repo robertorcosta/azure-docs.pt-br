@@ -4,10 +4,10 @@ description: Entenda como localizar quando um recurso foi alterado, obter uma li
 ms.date: 01/27/2021
 ms.topic: how-to
 ms.openlocfilehash: 5ad86ec2598cd7f24b8e0cd2208889bb7a088568
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100594645"
 ---
 # <a name="get-resource-changes"></a>Obter alterações de recurso
@@ -285,7 +285,7 @@ Para comparar os resultados, use a propriedade **changes** no **resourceChanges*
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Consulte o idioma em uso em [Consultas iniciais](../samples/starter.md).
+- Consulte a linguagem em uso em [Consultas iniciais](../samples/starter.md).
 - Consulte os usos avançados em [Consultas avançadas](../samples/advanced.md).
 - Saiba mais sobre como [explorar recursos](../concepts/explore-resources.md).
 - Para obter orientação sobre como trabalhar com consultas em alta frequência, consulte [Diretrizes para solicitações limitadas](../concepts/guidance-for-throttled-requests.md).

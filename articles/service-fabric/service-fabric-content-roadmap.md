@@ -4,10 +4,10 @@ description: Saiba mais sobre os principais conceitos e as principais áreas do 
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.openlocfilehash: c709abe1087a9cc69c9e6e23cd1ff344a3dbebd2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589040"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
@@ -69,7 +69,7 @@ O Service Fabric oferece várias maneiras de escrever e gerenciar seus serviços
 ### <a name="containers"></a>Contêineres
 Por padrão, o Service Fabric implanta e ativa esses serviços como processos. O Service Fabric também pode implantar serviços em [contêineres](service-fabric-containers-overview.md). É importante observar que você pode misturar serviços em processos e serviços em contêineres no mesmo aplicativo. O Service Fabric dá suporte à implantação de contêineres do Linux e do Windows no Windows Server 2016. Você pode implantar aplicativos existentes, serviços sem monitoração de estado ou serviços com estado em contêineres. 
 
-### <a name="reliable-services"></a>Serviços confiáveis
+### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md) é uma estrutura leve para escrever serviços que se integram à plataforma de Service Fabric e se beneficiam do conjunto completo de recursos de plataforma. O Reliable Services pode ser sem monitoração de estado (semelhante à maioria das plataformas de serviço, como servidores Web ou Funções de Trabalho nos Serviços de Nuvem do Azure), em que o estado é persistido em uma solução externa, como o BD do Azure ou o Armazenamento de Tabelas do Azure. O Reliable Services também pode ser com estado, em que o estado é persistido diretamente no próprio serviço usando Coleções Confiáveis. O estado se torna [altamente disponível](service-fabric-availability-services.md) por meio de replicação e é distribuído por meio de [particionamento](service-fabric-concepts-partitioning.md), tudo gerenciado automaticamente pelo Service Fabric.
 
 ### <a name="reliable-actors"></a>Reliable Actors

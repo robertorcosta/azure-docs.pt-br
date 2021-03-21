@@ -5,10 +5,10 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933103"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
@@ -53,9 +53,9 @@ Há vários locais para mitigar e entender os problemas de desempenho atendidos 
 
 * Use a cláusula **Limit** ao executar consultas de **seleção** grande. A cláusula **Limit** reduzirá o total de linhas relatadas para o host cliente. A cláusula **Limit** afeta apenas a geração de resultados e não altera o plano de consulta. Para aplicar a cláusula **Limit** ao plano de consulta, use a configuração `hive.limit.optimize.enable` . O **limite** pode ser combinado com um deslocamento usando o limite de formulário de argumento **x, y**.
 
-* Nomeie suas colunas de interesse ao executar consultas **Select** em vez de usar ** \* Select* _. Selecionar menos colunas reduzirá a quantidade de dados lidos.
+* Nomeie suas colunas de interesse ao executar consultas **Select** em vez de **usar \* Select**. Selecionar menos colunas reduzirá a quantidade de dados lidos.
 
-_ Tente executar a consulta de interesse por meio do Apache beeline. Se a recuperação de resultado via Apache beeline levar um longo período de tempo, espere atrasos ao recuperar os mesmos resultados por meio de ferramentas externas.
+* Tente executar a consulta de interesse por meio do Apache beeline. Se a recuperação de resultado via Apache beeline levar um longo período de tempo, espere atrasos ao recuperar os mesmos resultados por meio de ferramentas externas.
 
 * Teste uma consulta de Hive básica para garantir que uma conexão com o gateway do HDInsight possa ser estabelecida. Tente executar uma consulta básica de duas ou mais ferramentas externas para garantir que nenhuma ferramenta individual esteja sendo executada em problemas.
 

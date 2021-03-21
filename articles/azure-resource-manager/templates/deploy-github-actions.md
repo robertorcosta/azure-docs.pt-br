@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.custom: github-actions-azure, devx-track-azurecli
 ms.openlocfilehash: 564a21d565fb80eba605eece95562a809a93246f
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103471924"
 ---
 # <a name="deploy-arm-templates-by-using-github-actions"></a>Implantar modelos de ARM usando ações do GitHub
@@ -151,7 +151,7 @@ Como o fluxo de trabalho está configurado para ser acionado pelo arquivo de flu
 1. Selecione o fluxo de trabalho para abri-lo.
 1. Selecione **executar o ARM implantar** no menu para verificar a implantação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 Quando o grupo de recursos e o repositório não forem mais necessários, limpe os recursos implantados excluindo o grupo de recursos e seu repositório GitHub.
 
 ## <a name="next-steps"></a>Próximas etapas

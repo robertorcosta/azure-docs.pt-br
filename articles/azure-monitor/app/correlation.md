@@ -8,10 +8,10 @@ ms.date: 06/07/2019
 ms.reviewer: sergkanz
 ms.custom: devx-track-python, devx-track-csharp
 ms.openlocfilehash: beaeb0131a2c9b326d663f6fcbb8273a9b52b412
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102100960"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
@@ -34,7 +34,7 @@ Em um ambiente de microsserviços, os rastreamentos de componentes podem ir para
 
 ## <a name="example"></a>Exemplo
 
-Vejamos um exemplo. Um aplicativo chamado preços de ações mostra o preço atual do mercado de um estoque usando uma API externa chamada stock. O aplicativo de preços de ações tem uma página chamada Stock Page que o navegador da Web do cliente abre usando o `GET /Home/Stock` . O aplicativo consulta a API de estoque usando a chamada HTTP `GET /api/stock/value` .
+Vamos examinar um exemplo. Um aplicativo chamado preços de ações mostra o preço atual do mercado de um estoque usando uma API externa chamada stock. O aplicativo de preços de ações tem uma página chamada Stock Page que o navegador da Web do cliente abre usando o `GET /Home/Stock` . O aplicativo consulta a API de estoque usando a chamada HTTP `GET /api/stock/value` .
 
 Você pode analisar a telemetria resultante executando uma consulta:
 

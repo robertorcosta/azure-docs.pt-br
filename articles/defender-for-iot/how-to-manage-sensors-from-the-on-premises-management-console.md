@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 10051bfdf7a93a8d6c83d649a7b0ad008b5e2caf
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523950"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerenciar sensores do console de gerenciamento
@@ -64,7 +64,7 @@ Para aplicar as configurações do sistema:
 
 6. Na árvore do sensor, selecione os itens aos quais você deseja aplicar a configuração.
 
-7. Selecione **Salvar**.
+7. Clique em **Salvar**.
 
 ## <a name="update-versions"></a>Versões de atualização
 
@@ -72,7 +72,7 @@ Você pode atualizar vários sensores simultaneamente no console de gerenciament
 
 Para atualizar vários sensores:
 
-1. Acesse o [portal do Azure](https://portal.azure.com/).
+1. Vá para o [Portal do Azure](https://portal.azure.com/).
 
 2. Vá para Azure defender para IoT.
 
@@ -235,7 +235,7 @@ Para fazer backup de sensores:
 
    - Para fazer backup em um servidor externo, habilite a alternância de **caminho personalizado** e insira um local. Há suporte para os seguintes números e caracteres: `/, a-z, A-Z, 0-9, and, _` . 
 
-7. Selecione **Salvar**. 
+7. Clique em **Salvar**. 
 
 Para fazer backup imediatamente: 
 
@@ -315,6 +315,6 @@ Para configurar um servidor SMB para que você possa salvar um backup de sensor 
 
 9. Defina `Backup.shared_location` como `<backup_folder_name_on_cyberx_server>`.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Gerenciar sensores individuais](how-to-manage-individual-sensors.md)

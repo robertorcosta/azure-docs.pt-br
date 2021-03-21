@@ -12,10 +12,10 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.openlocfilehash: 8b321acb00e6e9b4b6cca117afba8bf0c9432719
-ms.sourcegitcommit: d49bd223e44ade094264b4c58f7192a57729bada
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99258459"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
@@ -41,7 +41,7 @@ Antes de ir para a integração de aplicativos com o Azure AD, é importante sab
   * Azure AD
   * Em um banco de dados de aplicativo separado que você possui
   * Em aplicativos não autorizados
-  * Todas as anteriores
+  * Todas as opções acima
 * Quais permissões e atribuições de função os usuários individuais têm atualmente? Você precisa examinar seu acesso ou tem certeza de que o acesso do usuário e as atribuições de função são apropriadas agora?
 * Os grupos já estão estabelecidos em seu Active Directory local?
   * Como os grupos são organizados?
