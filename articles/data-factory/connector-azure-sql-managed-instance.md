@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: jingwang
 author: linda33wj
 ms.custom: seo-lt-2019
-ms.date: 03/12/2021
-ms.openlocfilehash: 91e383b746509000cef74e96c08d1b70316a0527
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.date: 03/17/2021
+ms.openlocfilehash: eae085a73e8f43813aa3f02fa910c7931f10f36c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103225244"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597402"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-managed-instance-by-using-azure-data-factory"></a>Copiar e transformar dados no Azure SQL Instância Gerenciada usando Azure Data Factory
 
@@ -387,6 +387,7 @@ Para copiar dados para o SQL Instância Gerenciada, as propriedades a seguir tê
 | storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Valores permitidos são pares de nome e valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. | Não |
 | writeBatchSize |Número de linhas a serem inseridas na tabela SQL *por lote*.<br/>Os valores permitidos são inteiros para o número de linhas. Por padrão, Azure Data Factory determina dinamicamente o tamanho do lote apropriado com base no tamanho da linha.  |Não |
 | writeBatchTimeout |Essa propriedade especifica o tempo de espera para a operação de inserção em lotes a ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são para o TimeSpan. Um exemplo é "00:30:00", que é de 30 minutos. |Não |
+| maxConcurrentConnections |O limite superior de conexões simultâneas estabelecidas com o armazenamento de dados durante a execução da atividade. Especifique um valor somente quando desejar limitar as conexões simultâneas.| Não |
 
 **Exemplo 1: acrescentar dados**
 
@@ -648,7 +649,7 @@ A tabela abaixo lista as propriedades com suporte pela fonte de Instância Geren
 | ---- | ----------- | -------- | -------------- | ---------------- |
 | Tabela | Se você selecionar tabela como entrada, o fluxo de dados buscará todos os dados da tabela especificada no conjunto. | Não | - |- |
 | Consulta | Se você selecionar consulta como entrada, especifique uma consulta SQL para buscar dados da origem, o que substitui qualquer tabela que você especificar no DataSet. O uso de consultas é uma ótima maneira de reduzir linhas para teste ou pesquisas.<br><br>Não há suporte para a cláusula **order by** , mas você pode definir uma instrução SELECT FROM completa. Também pode usar funções de tabela definidas pelo usuário. **Select * de udfGetData ()** é um UDF no SQL que retorna uma tabela que você pode usar no fluxo de dados.<br>Exemplo de consulta: `Select * from MyTable where customerId > 1000 and customerId < 2000`| Não | String | Consulta |
-| Tamanho do lote | Especifique um tamanho de lote para dividir dados grandes em leituras. | Não | Integer | batchSize |
+| Tamanho do lote | Especifique um tamanho de lote para dividir dados grandes em leituras. | Não | Inteiro | batchSize |
 | Nível de Isolamento | Escolha um dos seguintes níveis de isolamento:<br>-Leitura confirmada<br>-Leitura não confirmada (padrão)<br>-Leitura repetida<br>-Serializável<br>-Nenhum (ignorar nível de isolamento) | Não | <small>READ_COMMITTED<br/>READ_UNCOMMITTED<br/>REPEATABLE_READ<br/>SERIALIZABLE<br/>NONE</small> |isolationLevel |
 
 #### <a name="azure-sql-managed-instance-source-script-example"></a>Exemplo de script de origem do Azure SQL Instância Gerenciada
@@ -673,7 +674,7 @@ A tabela abaixo lista as propriedades com suporte pelo coletor de Instância Ger
 | Colunas de chaves | Para atualizações, upserts e exclusões, coluna (s) de chave devem ser definidas para determinar qual linha alterar.<br>O nome da coluna que você escolhe como a chave será usado como parte da atualização subsequente, Upsert, Delete. Portanto, você deve escolher uma coluna que exista no mapeamento do coletor. | Não | Array | chaves |
 | Ignorar colunas de chave de gravação | Se você não quiser gravar o valor na coluna de chave, selecione "ignorar a gravação de colunas de chave". | Não | `true` ou `false` | skipKeyWrites |
 | Ação tabela |Determina se deve-se recriar ou remover todas as linhas da tabela de destino antes da gravação.<br>- **Nenhum**: nenhuma ação será feita para a tabela.<br>- **Recriar**: a tabela será descartada e recriada. Necessário ao criar uma tabela dinamicamente.<br>- **Truncar**: todas as linhas da tabela de destino serão removidas. | Não | `true` ou `false` | recriar<br/>truncate |
-| Tamanho do lote | Especifique quantas linhas estão sendo gravadas em cada lote. Tamanhos de lote maiores aprimoram a compactação e a otimização de memória, mas geram risco de exceções de memória insuficiente ao armazenar dados em cache. | Não | Integer | batchSize |
+| Tamanho do lote | Especifique quantas linhas estão sendo gravadas em cada lote. Tamanhos de lote maiores aprimoram a compactação e a otimização de memória, mas geram risco de exceções de memória insuficiente ao armazenar dados em cache. | Não | Inteiro | batchSize |
 | Scripts SQL anteriores e posteriores | Especifique scripts SQL de várias linhas que serão executados antes (pré-processamento) e após (pós-processamento) os dados são gravados no banco de dado do coletor. | Não | String | preSQLs<br>postSQLs |
 
 #### <a name="azure-sql-managed-instance-sink-script-example"></a>Exemplo de script de coletor de Instância Gerenciada do SQL do Azure
@@ -731,14 +732,14 @@ Quando os dados são copiados para e do SQL Instância Gerenciada usando a ativi
 | SMALLINT |Int16 |
 | SMALLMONEY |Decimal |
 | sql_variant |Objeto |
-| text |String, Char[] |
+| texto |String, Char[] |
 | time |TimeSpan |
 |  timestamp |Byte[] |
 | TINYINT |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |Cadeia de caracteres |
+| Xml |String |
 
 >[!NOTE]
 > Para tipos de dados que são mapeados para o tipo provisório decimal, a atividade de cópia atualmente dá suporte à precisão de até 28. Se você tiver dados que exijam precisão maior que 28, considere converter para uma cadeia de caracteres em uma consulta SQL.

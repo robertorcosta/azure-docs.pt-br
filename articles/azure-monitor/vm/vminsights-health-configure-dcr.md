@@ -1,18 +1,18 @@
 ---
-title: Configurar o monitoramento na integridade de convidado do insights de VM usando regras de coleta de dados (versão prévia)
+title: Configurar monitoramento na integridade do convidado de insights da VM usando as regras de coleta de dados (versão prévia)
 description: Descreve como modificar o monitoramento padrão na integridade de convidado do insights de VM em escala usando modelos do Resource Manager.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2020
 ms.openlocfilehash: 0db6ed7566c53429f8b9798ac8cdafe76ca7bd5a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052136"
 ---
-# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurar o monitoramento na integridade de convidado do insights de VM usando regras de coleta de dados (versão prévia)
+# <a name="configure-monitoring-in-vm-insights-guest-health-using-data-collection-rules-preview"></a>Configurar monitoramento na integridade do convidado de insights da VM usando as regras de coleta de dados (versão prévia)
 A [integridade de convidado do insights de VM](vminsights-health-overview.md) permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão em várias máquinas virtuais usando regras de coleta de dados.
 
 
@@ -48,9 +48,9 @@ A tabela a seguir lista a configuração padrão para cada monitor. Essa configu
 
 | Monitoramento | habilitado | Alertas | Aviso | Crítico | Frequência de avaliação | Lookback | Tipo de avaliação | Exemplo mín. | Máximo de amostras |
 |:---|:---|:---|:---|:---|:---|:---|:---|:---|:---|
-| Utilização da CPU  | True | Falso | Nenhum | \> 90%    | 60 s | 240 s | Min | 2 | 3 |
-| Memória disponível | True | Falso | Nenhum | \< 100 MB | 60 s | 240 s | Max | 2 | 3 |
-| Sistema de arquivos      | True | Falso | Nenhum | \< 100 MB | 60 s | 120 s | Max | 1 | 1 |
+| Utilização da CPU  | Verdadeiro | Falso | Nenhum | \> 90%    | 60 s | 240 s | Min | 2 | 3 |
+| Memória disponível | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 240 s | Máx | 2 | 3 |
+| Sistema de arquivos      | Verdadeiro | Falso | Nenhum | \< 100 MB | 60 s | 120 s | Máx | 1 | 1 |
 
 
 ## <a name="overrides"></a>Substituições
@@ -174,7 +174,7 @@ Lista de uma ou mais cadeias de caracteres que definem quais monitores na hierar
 
 A tabela a seguir lista os nomes de monitor disponíveis atualmente.
 
-| Nome do tipo | Name | Descrição |
+| Nome do tipo | Nome | Descrição |
 |:---|:---|:---|
 | root | root | Monitor de nível superior que representa a integridade da máquina virtual. | |
 | utilização da CPU | utilização da CPU | Monitor de utilização da CPU. | |

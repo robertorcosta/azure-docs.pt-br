@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
 ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694862"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Criar um endereço IP público usando o portal do Azure
@@ -38,14 +38,14 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
     | Preço                   | Selecionar **regional**         |
-    | Name                    | Insira **myStandardZRPublicIP**          |
+    | Nome                    | Insira **myStandardZRPublicIP**          |
     | Atribuição de endereço IP   | Observe que essa seleção está bloqueada como "estática"                                        |
-    | Preferência de roteamento      | Deixe o padrão da **rede da Microsoft**. </br> Para obter mais informações sobre a preferência de roteamento, consulte [o que é preferência de roteamento (versão prévia)?](./routing-preference-overview.md). |
+    | Preferência de roteamento      | Deixe o padrão da **rede da Microsoft**. </br> Para obter mais informações sobre preferências de roteamento, confira [O que é uma preferência de roteamento (versão prévia)?](./routing-preference-overview.md). |
     | Tempo limite de ociosidade (minutos)  | Deixe o padrão de **4**.        |
     | Rótulo do nome DNS          | Deixe o valor em branco.    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo**, insira **MyResource**. </br> Selecione **OK**. |
-    | Local                | Selecione **Leste dos EUA 2**      |
+    | Location                | Selecione **Leste dos EUA 2**      |
     | Zona de disponibilidade       | Selecione **com redundância de zona**, sem zona ou selecione uma zona específica (veja a observação abaixo) |
 
 :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Criar endereço IP padrão no portal do Azure" border="false":::
@@ -73,13 +73,13 @@ Nesta seção, crie um endereço IP público básico chamado **myBasicPublicIP**
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Básico**         |
-    | Name                    | Insira *myBasicPublicIP*          |
+    | Nome                    | Insira *myBasicPublicIP*          |
     | Atribuição de endereço IP   | Selecione **estático** (veja a observação abaixo)                                     |
     | Tempo limite de ociosidade (minutos)  | Deixe o padrão de **4**.       |
     | Rótulo do nome DNS          | Deixe o valor em branco    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo**, insira **MyResource**. </br> Selecione **OK**. |
-    | Local                | Selecione **Leste dos EUA 2**      |
+    | Location                | Selecione **Leste dos EUA 2**      |
 
 :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Criar endereço IP padrão no portal do Azure" border="false":::
 

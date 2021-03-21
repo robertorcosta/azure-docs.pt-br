@@ -5,10 +5,10 @@ ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
 ms.date: 03/23/2020
 ms.openlocfilehash: 10c322c9d9d18f7b79a4419bd9efa2e366a5b7c3
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96745818"
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
@@ -17,7 +17,7 @@ Os painéis são uma exibição focada e organizada dos seus recursos de nuvem n
 
 O portal do Azure fornece um painel padrão como um ponto de partida. Você pode editar o painel padrão. Crie e personalize painéis adicionais e publique e compartilhe painéis para torná-los disponíveis para outros usuários. Este artigo descreve como criar um novo painel, personalizar a interface e publicar e compartilhar painéis.
 
-## <a name="create-a-new-dashboard"></a>Crie um novo painel
+## <a name="create-a-new-dashboard"></a>Criar um painel
 
 Neste exemplo, criamos um novo painel privado e atribuímos um nome. Siga estas etapas para começar:
 
@@ -109,7 +109,7 @@ Os dados no painel mostram automaticamente a atividade das últimas 24 horas. Pa
 
 1. Escolha a granularidade de tempo a ser exibida. Você pode mostrar qualquer lugar de incrementos de um minuto para um mês.
 
-1. Selecione **Aplicar**.
+1. Escolha **Aplicar**.
 
 ## <a name="delete-a-tile"></a>Excluir um bloco
 

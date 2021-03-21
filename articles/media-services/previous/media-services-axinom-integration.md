@@ -17,10 +17,10 @@ ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 532e982b02bb35074370db45fec8cc42a898c83e
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103015499"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o Axinom para fornecer licenças Widevine para os Serviços de Mídia do Azure
@@ -48,7 +48,7 @@ O sistema completo e o fluxo de chave de conteúdo, a ID da chave, a propagaçã
 
 ![DASH e CENC](./media/media-services-axinom-integration/media-services-axinom1.png)
 
-## <a name="content-protection"></a>Proteção do conteúdo
+## <a name="content-protection"></a>Proteção de Conteúdo
 Para configurar a proteção dinâmica e a política de entrega de chaves, consulte o blog de Mingfei: [Como configurar o empacotamento do Widevine com os Serviços de Mídia do Azure](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services).
 
 Você pode configurar a proteção CENC dinâmica com multi-DRM para o streaming DASH com o seguinte:

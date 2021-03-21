@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
 ms.openlocfilehash: 97209dca7d30de037dbd21f5cc145b2941060e70
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96015393"
 ---
 # <a name="use-storsimple-monitoring-indicators-to-manage-your-device"></a>Usar indicadores de monitoramento do StorSimple para gerenciar seu dispositivo
@@ -136,7 +136,7 @@ A ilustração a seguir ajuda a identificar os LEDs no controlador primário. (T
 Use a tabela a seguir para determinar se o módulo do controlador está operando corretamente.  
 
 ### <a name="controller-indicator-leds"></a>LEDs indicadores do controlador
-| LED | Description |
+| LED | Descrição |
 | --- | --- |
 | LED de ID (azul) |Indica se o módulo está sendo identificado. Se o LED azul estiver piscando em um controlador em execução, então o controlador é o controlador ativo e o outro é o controlador standby. Para saber mais, consulte [Identificar o controlador ativo no seu dispositivo](storsimple-8000-controller-replacement.md#identify-the-active-controller-on-your-device). |
 | LED de falha (âmbar) |Indica uma falha no controlador. |
@@ -239,7 +239,7 @@ A tabela a seguir descreve as várias condições de alarme.
 | Falha de controle de energia do drive |Aviso – nenhuma perda de energia no drive |S1 |Falha do módulo |
 | Falha de controle de energia do drive |Falha – crítica; perda de energia do drive |S1 |Falha do módulo |
 | Drive removido |Aviso |Nenhum |Falha do módulo |
-| Energia insuficiente disponível |Aviso |nenhum |Falha do módulo |
+| Energia insuficiente disponível |Aviso |none |Falha do módulo |
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os [componentes de hardware e o status do StorSimple](storsimple-8000-monitor-hardware-status.md).
