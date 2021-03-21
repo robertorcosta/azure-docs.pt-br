@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.date: 10/20/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 1209c49cbd988a02b1e3503994fdbdac3f26216a
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98946137"
 ---
 # <a name="use-spark--hive-tools-for-visual-studio-code"></a>Use as ferramentas do Spark & Hive para Visual Studio Code
@@ -298,13 +298,13 @@ A ferramenta também dá suporte à consulta **SQL do Spark** :
 
 4. [Conecte-](#connect-to-an-azure-account) se à sua conta do Azure ou vincule um cluster, caso ainda não tenha feito isso.
 
-5. Clique com o botão direito do mouse no editor de scripts e selecione **Spark: PySpark batch** ou **Synapse: PySpark batch** _.
+5. Clique com o botão direito do mouse no editor de scripts e selecione **Spark: PySpark batch** ou * * Synapse: PySpark Batch * * *.
 
 6. Selecione um cluster/pool do Spark para o qual enviar seu trabalho do PySpark:
 
    ![Enviar a saída do trabalho do Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png)
 
-Depois de enviar um trabalho do Python, os logs de envio aparecem na janela _ *output** no Visual Studio Code. A URL da interface do usuário do Spark e a URL da interface do usuário yarn também são mostradas Se você enviar o trabalho em lotes para um pool de Apache Spark, a URL da interface do usuário do histórico do Spark e a URL do aplicativo de trabalho do Spark também serão mostradas. Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
+Após você enviar um trabalho do Python, os logs de envio aparecem na janela de **SAÍDA** no Visual Studio Code. A URL da interface do usuário do Spark e a URL da interface do usuário yarn também são mostradas Se você enviar o trabalho em lotes para um pool de Apache Spark, a URL da interface do usuário do histórico do Spark e a URL do aplicativo de trabalho do Spark também serão mostradas. Você pode abrir a URL em um navegador da Web para acompanhar o status do trabalho.
 
 ## <a name="integrate-with-hdinsight-identity-broker-hib"></a>Integrar com o (HIB) Agente de Identidade do HDInsight
 
@@ -349,7 +349,7 @@ Envie um arquivo e observe que a `.vscode` pasta é adicionada automaticamente �
   
   **Corpo da solicitação**
 
-  | name | descrição | tipo |
+  | name | descrição | type |
   | --- | --- | --- |
   | arquivo | Arquivo que contém o aplicativo a ser executado | Caminho (obrigatório) |
   | proxyUser | Usuário a representar ao executar o trabalho | String |
@@ -370,7 +370,7 @@ Envie um arquivo e observe que a `.vscode` pasta é adicionada automaticamente �
 
   **Corpo da resposta** O objeto de lote criado.
 
-  | name | descrição | tipo |
+  | name | descrição | type |
   | --- | ---| --- |
   | ID | ID da sessão | int |
   | appId | ID do aplicativo desta sessão | String |

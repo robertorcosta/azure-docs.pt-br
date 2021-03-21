@@ -16,10 +16,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8dddfb8426b769c06cb5b7494431b7eee34dbf9e
-ms.sourcegitcommit: 17b36b13857f573639d19d2afb6f2aca74ae56c1
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94410888"
 ---
 # <a name="adsync-service-account"></a>Conta do serviço ADSync
@@ -37,7 +37,7 @@ Quando executado em um servidor membro, o serviço AdSync é executado no contex
 |Azure AD Connect local|Conta de serviço criada|
 |-----|-----|
 |Servidor membro|NT SERVICE\ADSync|
-|Controlador de Domínio|Domínio \ AAD_74dc30c01e80 (consulte a observação)|
+|Controlador de domínio|Domínio \ AAD_74dc30c01e80 (consulte a observação)|
 
 ## <a name="custom-adsync-service-accounts"></a>Contas de serviço do ADSync personalizado
 A Microsoft recomenda executar o serviço ADSync no contexto de uma conta de serviço virtual ou de uma conta de serviço gerenciado de grupo ou autônomo.  O administrador de domínio também pode optar por criar uma conta de serviço provisionada para atender aos requisitos específicos de segurança organizacional.   Para personalizar a conta de serviço usada durante a instalação, escolha a opção personalizar na página Configurações expressas abaixo.   As seguintes opções estão disponíveis:

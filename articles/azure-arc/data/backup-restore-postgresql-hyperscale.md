@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 12/09/2020
 ms.topic: how-to
 ms.openlocfilehash: 8b3304c673e8606667246a7d0df9ad8f3be11d9b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686692"
 ---
 # <a name="back-up-and-restore-azure-arc-enabled-postgresql-hyperscale-server-groups"></a>Fazer backup e restaurar grupos de servidores de hiperescala PostgreSQL habilitados para o Azure Arc
@@ -37,13 +37,13 @@ Em que:
 
 Esse comando coordenará um backup completo distribuído em todos os nós que constituem seu grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc. Em outras palavras, ele fará backup de todos os dados em seus nós coordenador e de trabalho.
 
-Por exemplo: 
+Por exemplo:
 
 ```console
 azdata arc postgres backup create --name backup12082020-0250pm --server-name postgres01
 ```
 
-Quando o backup for concluído, a ID, o nome, o tamanho, o estado e o carimbo de data/hora do backup serão retornados. Por exemplo: 
+Quando o backup for concluído, a ID, o nome, o tamanho, o estado e o carimbo de data/hora do backup serão retornados. Por exemplo:
 ```console
 {
   "ID": "8085723fcbae4aafb24798c1458f4bb7",
@@ -68,7 +68,7 @@ Para listar os backups que estão disponíveis para restauração, execute o seg
 azdata arc postgres backup list --server-name <servergroup name>
 ```
 
-Por exemplo: 
+Por exemplo:
 
 ```console
 azdata arc postgres backup list --server-name postgres01
@@ -161,7 +161,7 @@ azdata arc postgres backup restore -sn postgres02 -ssn postgres01 -t "2020-12-08
 
 Este exemplo restaura no grupo de servidores postgres02 o estado em que o grupo de servidores postgres01 estava em 8 de dezembro de 2020 às 04:23:48.75 UTC. Observe que "+ 00" indica o fuso horário do ponto no tempo que você indica. Se você não indicar um fuso horário, o fuso horário do cliente do qual você executa a operação de restauração será usado.
 
-Por exemplo: 
+Por exemplo:
 - `2020-12-08 04:23:48.751326+00` é interpretado como `2020-12-08 04:23:48.751326` UTC
 - Se você estiver no fuso horário padrão do Pacífico (PST = UTC + 08), `2020-12-08 04:23:48.751326` será interpretado como `2020-12-08 12:23:48.751326` UTC esta operação tem suporte para qualquer versão do PostgreSQL que inicia a versão 11. O grupo de servidores de destino deve ser criado antes da operação de restauração e deve estar usando o mesmo PVC de backup que o grupo de servidores de origem.
 
@@ -195,7 +195,7 @@ em que:
 > [!NOTE]
 > `--name` e `-id` são mutuamente exclusivos.
 
-Por exemplo: 
+Por exemplo:
 
 ```console
 azdata arc postgres backup delete -sn postgres01 -n MyBackup091720200110am

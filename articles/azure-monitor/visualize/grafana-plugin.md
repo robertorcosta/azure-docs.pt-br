@@ -4,10 +4,10 @@ description: Encaminhe dados do Azure Monitor e do Application Insights para que
 ms.topic: conceptual
 ms.date: 11/06/2017
 ms.openlocfilehash: decd0353bcb2cf048fd5591ea8c895cf22944809
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048651"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
@@ -149,7 +149,7 @@ Um dos muitos recursos úteis do Grafana é a playlist do painel. Você pode cri
 
 ![Exemplo de playlist do Grafana](./media/grafana-plugin/grafana7.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você configurou um ambiente do Grafana no Azure, você será cobrado quando as VMs são executadas, independentemente de você está usando ou não. Para evitar incorrer em encargos adicionais, limpe o grupo de recursos criado neste artigo.
 

@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: d1cbd314861a4d5079a5c8e5213f45c7164344f0
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204160"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Linha de base de segurança do Azure para Azure Data Factory
@@ -624,7 +624,7 @@ Você pode armazenar credenciais ou valores secretos em um Azure Key Vault e us�
 
 - [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
 
-- [Log da análise do Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
+- [Registro em log da Análise de Armazenamento do Azure](../storage/common/storage-analytics-logging.md)
 
 **Responsabilidade**: Cliente
 
@@ -866,11 +866,11 @@ Observe que isso só se aplicará se o Integration Runtime estiver em execução
 
 - [O que é o Firewall do Azure?](../firewall/overview.md)
 
-- [O que é o Firewall do aplicativo Web do Azure?](../web-application-firewall/overview.md)
+- [O que é o Firewall do Aplicativo Web do Azure?](../web-application-firewall/overview.md)
 
 - [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md)
 
-- [O que é a rede virtual do Azure?](../virtual-network/virtual-networks-overview.md)
+- [O que é a Rede Virtual do Azure?](../virtual-network/virtual-networks-overview.md)
 
 - [Organizar seus recursos com grupos de gerenciamento do Azure](../governance/management-groups/overview.md)
 
@@ -1105,7 +1105,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 Para qualquer um de seus armazenamentos de dados, consulte a linha de base de segurança desse serviço para obter recomendações sobre como executar backups regulares e automatizados.
 
-- [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
+- [Visão geral do backup da VM do Azure](../backup/backup-azure-vms-introduction.md)
 
 - [Fazer backup de uma VM do Azure usando as configurações da VM](../backup/backup-azure-vms-first-look-arm.md)
 
@@ -1119,7 +1119,7 @@ Para qualquer um de seus armazenamentos de dados, consulte a linha de base de se
 
 Para qualquer um de seus armazenamentos de dados, consulte a linha de base de segurança desse serviço para obter recomendações sobre como executar backups regulares e automatizados.
 
-- [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
+- [Visão geral do backup da VM do Azure](../backup/backup-azure-vms-introduction.md)
 
 - [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey)
 

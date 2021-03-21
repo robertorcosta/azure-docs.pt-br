@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
 ms.openlocfilehash: 4eeda2e4e418920522f7a65bef68928963c43ad4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100581794"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
@@ -162,7 +162,7 @@ Para VMs do Windows:
 
 Para VMs do Linux, certifique-se de que os comandos de instalação para MMA e o Dependency Agent tenham êxito. Consulte mais diretrizes para solução de problemas [aqui](../azure-monitor/vm/service-map.md#post-installation-issues).
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 - **Agente MMS**: examine os sistemas operacionais [Windows](../azure-monitor/agents/agents-overview.md#supported-operating-systems)e [Linux](../azure-monitor/agents/agents-overview.md#supported-operating-systems) com suporte.
 - **Agente de dependência**: os sistemas operacionais [Windows e Linux](../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) com suporte.

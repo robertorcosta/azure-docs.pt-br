@@ -11,17 +11,17 @@ ms.topic: conceptual
 ms.date: 12/31/2020
 ms.author: kenwith
 ms.openlocfilehash: c08ce3bc8b722f2ea417c854a606f1060aa174e3
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100580049"
 ---
 # <a name="plan-an-azure-ad-application-proxy-deployment"></a>Planejar uma implantação do Proxy de Aplicativo do Azure AD
 
 O proxy de aplicativo Azure Active Directory (AD do Azure) é uma solução de acesso remoto segura e econômica para aplicativos locais. Ele fornece um caminho de transição imediato para as organizações de "nuvem First" para gerenciar o acesso a aplicativos locais herdados que ainda não são capazes de usar protocolos modernos. Para obter informações introdutórias adicionais, consulte [o que é o proxy de aplicativo](./application-proxy.md).
 
-O proxy de aplicativo é recomendado para conceder aos usuários remotos acesso a recursos internos. O proxy de aplicativo substitui a necessidade de uma VPN ou proxy reverso para esses casos de uso de acesso remoto. Ele não se destina a usuários que estão na rede corporativa. Esses usuários que usam o proxy de aplicativo para acesso à intranet podem apresentar problemas de desempenho indesejáveis.
+O Proxy de Aplicativo é recomendado para conceder aos usuários remotos o acesso a recursos internos. O proxy de aplicativo substitui a necessidade de uma VPN ou proxy reverso para esses casos de uso de acesso remoto. Ele não se destina a usuários que estão na rede corporativa. Esses usuários que usam o proxy de aplicativo para acesso à intranet podem apresentar problemas de desempenho indesejáveis.
 
 Este artigo inclui os recursos necessários para planejar, operar e gerenciar Proxy de Aplicativo do AD do Azure.
 
