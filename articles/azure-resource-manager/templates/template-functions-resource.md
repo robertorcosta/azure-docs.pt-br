@@ -4,10 +4,10 @@ description: Descreve as funções a serem usadas em um modelo de Azure Resource
 ms.topic: conceptual
 ms.date: 02/10/2021
 ms.openlocfilehash: da85308e7d214f198b29b40bc380a4d33947c865
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364555"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funções de recurso para modelos do ARM
@@ -447,7 +447,7 @@ Determina se um tipo de recurso dá suporte a zonas para uma região.
 | numberOfZones | Não | inteiro | O número de zonas lógicas a serem retornadas. O padrão é 1. O número deve ser um inteiro positivo de 1 a 3.  Use 1 para recursos de zona única. Para recursos de várias zonas, o valor deve ser menor ou igual ao número de zonas com suporte. |
 | deslocamento | Não | inteiro | O deslocamento da zona lógica inicial. A função retornará um erro se offset mais numberOfZones exceder o número de zonas com suporte. |
 
-### <a name="return-value"></a>Valor retornado
+### <a name="return-value"></a>Retornar valor
 
 Uma matriz com as zonas com suporte. Ao usar os valores padrão para offset e numberOfZones, um tipo de recurso e uma região que dão suporte a zonas retornam a seguinte matriz:
 
@@ -517,7 +517,7 @@ output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2'
 
 A saída dos exemplos anteriores retorna três matrizes.
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | com suporte | array | ["1"] |
 | notSupportedRegion | array | [] |
@@ -1345,7 +1345,7 @@ output nestedResourceOutput string = resourceId('Microsoft.SQL/servers/databases
 
 A saída do exemplo anterior com os valores padrão é:
 
-| Nome | Tipo | Valor |
+| Nome | Type | Valor |
 | ---- | ---- | ----- |
 | sameRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
 | differentRGOutput | String | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |

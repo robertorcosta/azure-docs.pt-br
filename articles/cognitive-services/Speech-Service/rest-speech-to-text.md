@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90a4ad068f332b198696d96bddbb794c820f42f5
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 76b4a749bff94cbf218d3cd3c7d132eef119b7ef
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564381"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606898"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST de conversão de fala em texto
 
@@ -51,7 +51,8 @@ Consulte a referência completa da API REST de fala em texto v 3.0 [aqui](https:
 
 ## <a name="speech-to-text-rest-api-for-short-audio"></a>API REST de conversão de fala em texto para áudio curto
 
-Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST. Cada terminal acessível está associado a uma região. Seu aplicativo requer uma chave de assinatura para o endpoint que você planeja usar. A API REST para áudio curto é muito limitada e só deve ser usada nos casos em que o [SDK de fala](speech-sdk.md) não possa.
+Como alternativa ao SDK de [fala](speech-sdk.md), o serviço de fala permite que você converta a fala em texto usando uma API REST.
+A API REST para áudio curto é muito limitada e só deve ser usada nos casos em que o [SDK de fala](speech-sdk.md) não possa.
 
 Antes de usar a API REST de fala em texto para áudio curto, considere o seguinte:
 
@@ -91,11 +92,11 @@ Esses parâmetros podem ser incluídos na string de consulta da solicitação RE
 | `profanity` | Especifica como lidar com palavrões em resultados de reconhecimento. Os valores aceitos são `masked` , que substitui profanação por asteriscos, `removed` , que remove toda a profanação do resultado, ou `raw` , que inclui a profanação no resultado. A configuração padrão é `masked`. | Opcional |
 | `cid` | Ao usar o [portal de fala personalizada](./custom-speech-overview.md) para criar modelos personalizados, você pode usar modelos personalizados por meio de sua **ID de ponto de extremidade** encontrada na página **implantação** . Use a **ID do ponto de extremidade** como o argumento para o `cid` parâmetro de cadeia de caracteres de consulta. | Opcional |
 
-### <a name="request-headers"></a>Cabeçalhos de solicitação
+### <a name="request-headers"></a>Cabeçalhos da solicitação
 
 Esta tabela lista os cabeçalhos obrigatórios e opcionais para solicitações de conversão de fala em texto.
 
-|Cabeçalho| Descrição | Obrigatório/Opcional |
+|parâmetro| Descrição | Obrigatório/Opcional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Sua chave de assinatura do serviço de Fala. | Esse cabeçalho ou `Authorization` é obrigatório. |
 | `Authorization` | Um token de autorização precedido pela palavra `Bearer`. Para obter mais informações, consulte [Autenticação](#authentication). | Esse cabeçalho ou `Ocp-Apim-Subscription-Key` é obrigatório. |
@@ -341,3 +342,4 @@ Uma resposta típica para reconhecimento com avaliação de pronúncia:
 - [Personalizar modelos acústicos](./how-to-custom-speech-train-model.md)
 - [Personalizar modelos de linguagem](./how-to-custom-speech-train-model.md)
 - [Familiarize-se com a transcrição do lote](batch-transcription.md)
+

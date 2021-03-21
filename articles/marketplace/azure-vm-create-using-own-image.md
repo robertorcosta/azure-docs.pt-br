@@ -8,10 +8,10 @@ author: krsh
 ms.author: krsh
 ms.date: 03/10/2021
 ms.openlocfilehash: 4711ea76af83594ec529cfda13a308fbe6646398
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103200453"
 ---
 # <a name="how-to-create-a-virtual-machine-using-your-own-image"></a>Como criar uma máquina virtual usando sua própria imagem
@@ -155,7 +155,7 @@ As três seções a seguir descrevem essas opções.
 
     :::image type="content" source="media/create-vm/vm-sample-code-screen.png" alt-text="Tela de código de exemplo para VM.":::
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Use os parâmetros nesta tabela para preencher os campos da tela a seguir.
 
 | Parâmetros | Descrição |
@@ -182,7 +182,7 @@ As três seções a seguir descrevem essas opções.
 > 4. Para **função**, selecione **proprietário**.
 > 5. Para **atribuir acesso a**, selecione **usuário, grupo ou entidade de serviço**.
 > 6. Insira o email do Azure da pessoa que publicará a imagem.
-> 7. Selecione **Salvar**.<br><br>
+> 7. Clique em **Salvar**.<br><br>
 > :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="A janela Adicionar atribuição de função é mostrada.":::
 
 ### <a name="option-2-upload-the-vhd-to-a-storage-account"></a>Opção 2: carregar o VHD em uma conta de armazenamento

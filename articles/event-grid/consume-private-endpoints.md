@@ -3,12 +3,12 @@ title: Entregar eventos usando o serviço de vínculo privado
 description: Este artigo descreve como solucionar a limitação de não poder entregar eventos usando o serviço de vínculo privado.
 ms.topic: how-to
 ms.date: 02/12/2021
-ms.openlocfilehash: 4343740ea6c34c9ae282723b79007f7035785b04
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7ca15a76d56d9cdcdee741b661981b80c914d0e9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100548600"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722320"
 ---
 # <a name="deliver-events-using-private-link-service"></a>Entregar eventos usando o serviço de vínculo privado
 Atualmente, não é possível entregar eventos usando pontos de [extremidade privados](../private-link/private-endpoint-overview.md). Ou seja, não haverá suporte se você tiver requisitos estritos de isolamento de rede em que o tráfego de eventos entregues não deve sair do espaço IP privado. 
@@ -36,7 +36,7 @@ Para entregar eventos aos hubs de eventos em seu namespace de hubs de eventos us
 Para entregar eventos a filas ou tópicos do barramento de serviço em seu namespace do barramento de serviço usando a identidade gerenciada, siga estas etapas:
 
 1. [Habilite a identidade atribuída pelo sistema para um tópico ou um domínio](managed-service-identity.md#create-a-custom-topic-or-domain-with-an-identity). 
-1. Adicionar a identidade à função de [remetente de dados do barramento de serviço do Azure](/service-bus-messaging/service-bus-managed-service-identity.md#azure-built-in-roles-for-azure-service-bus) no namespace do barramento de serviço
+1. Adicionar a identidade à função de [remetente de dados do barramento de serviço do Azure](/service-bus-messaging/service-bus-managed-service-identity#azure-built-in-roles-for-azure-service-bus) no namespace do barramento de serviço
 1. [Habilite **permitir que os serviços confiáveis da Microsoft ignorem essa** configuração de firewall no namespace do barramento de serviço](../service-bus-messaging/service-bus-service-endpoints.md#trusted-microsoft-services). 
 1. [Configure a assinatura de evento](managed-service-identity.md#create-event-subscriptions-that-use-an-identity) que usa uma fila ou um tópico do barramento de serviço como um ponto de extremidade para usar a identidade atribuída pelo sistema.
 

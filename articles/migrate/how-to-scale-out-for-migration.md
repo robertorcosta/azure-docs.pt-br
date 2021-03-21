@@ -6,25 +6,25 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1c93002a6dd97aadbf407713ab25091436bd85e0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102612058"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607646"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Dimensionar a migração sem agente de máquinas virtuais VMware para o Azure
 
-Este artigo ajuda você a entender como usar um dispositivo de expansão para migrar um grande número de VMs (máquinas virtuais) VMware para o Azure usando o recurso de migração sem agente da ferramenta de migração de servidor do Azure Migrations. 
+Este artigo ajuda você a entender como usar um dispositivo de expansão para migrar um grande número de VMs (máquinas virtuais) VMware para o Azure usando o método sem agente da ferramenta de migração de servidor migrações para migração de VMs VMware.
 
-Com a migração sem agente do recurso de máquinas virtuais VMware da ferramenta de migração de servidor, você pode:
+Usando o método de migração sem agente para máquinas virtuais VMware, você pode:
 
 - Replique até 300 VMs de um único servidor vCenter simultaneamente usando um dispositivo de migrações para Azure.
 - Replique até 500 VMs de um único servidor vCenter simultaneamente implantando um segundo dispositivo de expansão para migração.
 
 Neste artigo, você aprenderá a:
 
-- Implantar um dispositivo de expansão para a migração do VMware
+- Adicionar um dispositivo de expansão para a migração sem agente de máquinas virtuais VMware
 - Migre até 500 VMs simultaneamente usando o dispositivo de expansão.
 
 ##  <a name="prerequisites"></a>Pré-requisitos
@@ -37,8 +37,9 @@ Antes de começar, você precisa executar as seguintes etapas:
 > [!IMPORTANT]
 > Você precisará ter pelo menos uma máquina virtual de replicação no projeto antes de poder adicionar um dispositivo de expansão para migração.
 
-## <a name="deploy-a-scale-out-appliance"></a>Implantar um dispositivo de expansão
+Para saber como executar as informações acima, consulte o tutorial sobre como [migrar máquinas virtuais VMware para o Azure com o método de migração sem agente](./tutorial-migrate-vmware.md).
 
+## <a name="deploy-a-scale-out-appliance"></a>Implantar um dispositivo de expansão
 
 Para adicionar um dispositivo de expansão, siga as etapas mencionadas abaixo:
 

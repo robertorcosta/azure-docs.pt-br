@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: 8ed63a508447104f9073c986debfae73ba7de89f
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102428636"
 ---
 # <a name="mount-blob-storage-by-using-the-network-file-system-nfs-30-protocol-preview"></a>Montar o armazenamento de BLOBs usando o protocolo NFS (sistema de arquivos de rede) 3,0 (versão prévia)
@@ -82,7 +82,7 @@ Ao configurar a conta, escolha estes valores:
 
 |Configuração | Desempenho premium | Desempenho padrão  
 |----|---|---|
-|Local|Todas as regiões disponíveis |Uma das seguintes regiões: leste da Austrália, Coreia central e EUA Central do Sul   
+|Location|Todas as regiões disponíveis |Uma das seguintes regiões: leste da Austrália, Coreia central e EUA Central do Sul   
 |Desempenho|Premium| Standard
 |Tipo de conta|BlockBlobStorage| Uso geral V2
 |Replicação|Armazenamento com redundância local (LRS)| Armazenamento com redundância local (LRS)
@@ -134,6 +134,6 @@ Crie um diretório em seu sistema Linux e, em seguida, monte um contêiner na co
 |`Access denied by server while mounting`|Verifique se o cliente está sendo executado em uma sub-rede com suporte. Consulte os [locais de rede com suporte](network-file-system-protocol-support.md#supported-network-connections).|
 |`No such file or directory`| Verifique se o contêiner que você está montando foi criado após verificar se o recurso foi registrado. Consulte [etapa 2: verificar se o recurso está registrado](#step-2-verify-that-the-feature-is-registered). Além disso, certifique-se de digitar o comando mount e os parâmetros diretamente no terminal. Se você copiar e colar qualquer parte deste comando no terminal de outro aplicativo, os caracteres ocultos nas informações coladas poderão causar esse erro.|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)](network-file-system-protocol-support.md)

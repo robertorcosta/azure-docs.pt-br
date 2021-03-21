@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/10/2020
 ms.openlocfilehash: 7e0bc21fde2c030de7a836d82384c09c78d993ad
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047818"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
@@ -71,7 +71,7 @@ Além de descobrir servidores, a avaliação do servidor pode descobrir aplicati
 --- | ---
 **Servidores com suporte** | Atualmente com suporte somente para servidores em seu ambiente VMware. Você pode executar a descoberta de aplicativos em até 10000 servidores, de cada dispositivo de migrações para Azure.
 **Sistemas operacionais** | Há suporte para servidores que executam todas as versões do Windows e Linux.
-**Requisitos de VM** | Para executar a descoberta de aplicativos instalados, as ferramentas do VMware devem ser instaladas e executadas em servidores. <br/><br/> A versão das ferramentas do VMware deve ser posterior à 10.2.0.<br/><br/> Os servidores Windows devem ter o PowerShell versão 2,0 ou posterior instalado.
+**Requisitos de VM** | Para executar a descoberta de aplicativos instalados, as ferramentas do VMware devem ser instaladas e executadas em servidores. <br/><br/> A versão das ferramentas do VMware deve ser posterior à 10.2.0.<br/><br/> Os servidores do Windows precisam ter o PowerShell versão 2.0 ou posterior instalado.
 **Discovery** | A descoberta de aplicativos em servidores é executada no vCenter Server, usando as ferramentas do VMware instaladas nos servidores. O dispositivo reúne as informações sobre os aplicativos instalados do vCenter Server, usando APIs vSphere. A descoberta de aplicativos é sem agente. Nenhum agente está instalado no servidor e o dispositivo não se conecta diretamente aos servidores. O WMI e o SSH devem estar habilitados e disponíveis em servidores Windows e Linux, respectivamente.
 **vCenter Server conta de usuário** | A vCenter Server conta somente leitura usada para avaliação, precisa de privilégios habilitados para operações de convidado de **máquinas virtuais**  >  , a fim de interagir com os servidores para a descoberta de aplicativos.
 **Acesso ao servidor** | Você pode adicionar várias credenciais de domínio e não domínio (Windows/Linux) no Gerenciador de configuração do dispositivo para descoberta de aplicativos.<br/><br/> Você precisa de uma conta de usuário convidado para servidores Windows e uma conta de usuário regular/normal (acesso não sudo) para todos os servidores Linux.
@@ -80,7 +80,7 @@ Além de descobrir servidores, a avaliação do servidor pode descobrir aplicati
 ## <a name="requirements-for-discovery-of-sql-server-instances-and-databases"></a>Requisitos para a descoberta de instâncias de SQL Server e bancos de dados
 
 > [!Note]
-> A descoberta e a avaliação de instâncias de SQL Server e bancos de dados em execução em seu ambiente VMware agora estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália** . Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no Portal.
+> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 A [descoberta de aplicativos](how-to-discover-applications.md) identifica as instâncias de SQL Server. Usando essas informações, o dispositivo tenta se conectar às respectivas instâncias de SQL Server por meio da autenticação do Windows ou das credenciais de autenticação SQL Server fornecidas no dispositivo. Uma vez conectado, o dispositivo coleta dados de desempenho e configuração de SQL Server instâncias e bancos de dado. Os dados de configuração do SQL Server são atualizados uma vez a cada 24 horas e os dados de desempenho são capturados a cada 30 segundos.
 
@@ -97,8 +97,8 @@ A [descoberta de aplicativos](how-to-discover-applications.md) identifica as ins
 **Serviços SQL com suporte** | Há suporte apenas para SQL Server Mecanismo de Banco de Dados. <br/> Não há suporte para a descoberta de SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS) e SQL Server Analysis Services (SSAS).
 
 > [!Note]
-> As migrações para Azure criptografarão a comunicação entre o dispositivo de migração do Azure e as instâncias de SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como true); a camada de transporte usará SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor de dispositivo deve ser configurado para [**confiar na autoridade raiz do certificado**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Se nenhum certificado tiver sido provisionado no servidor quando ele for iniciado, SQL Server gerará um certificado autoassinado que será usado para criptografar pacotes de logon. [**Saiba mais**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> As Migrações para Azure criptografarão a comunicação entre o dispositivo das Migrações para Azure e as instâncias do SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como TRUE); a camada de transporte usará o SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor do dispositivo precisa ser configurado para [**confiar na autoridade raiz do certificado**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Se nenhum certificado tiver sido provisionado no servidor quando ele foi inicializado, o SQL Server vai gerar um certificado autoassinado usado para criptografar pacotes de logon. [**Saiba mais**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisitos de análise de dependência (sem agente)
 

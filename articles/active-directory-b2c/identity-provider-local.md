@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: b2baff33d9e91e1b5259d79eca0a22535c00f419
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100555248"
 ---
 # <a name="set-up-the-local-account-identity-provider"></a>Configurar o provedor de identidade da conta local
@@ -101,7 +101,7 @@ Um fluxo de usuário só pode ser configurado para usar um dos provedores de ide
 1. Em **Gerenciar**, selecione **Provedores de identidade**.
 1. Na lista de provedores de identidade, selecione **Conta local**.
 1. Na página **Configurar IDP local** , selecione pelo menos um dos tipos de identidade permitidos que os consumidores podem usar para criar suas contas locais em seu locatário de Azure ad B2C.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="configure-your-user-flow"></a>Configurar seu fluxo de usuário
 
@@ -124,7 +124,7 @@ Se você escolher a opção **inscrição no telefone**, inscrição **por telef
 1. Ao lado de **habilitar solicitação de email de recuperação para inscrição de número de telefone e entrar (versão prévia)**, selecione:
    - **Em** para mostrar o prompt de email de recuperação durante a inscrição e a entrada.
    - **Desativado** para ocultar o prompt de email de recuperação.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ::: zone-end
 
@@ -141,7 +141,7 @@ As políticas personalizadas são um conjunto de arquivos XML que você carrega 
 
 Depois de baixar o pacote inicial.
 
-1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário de Azure ad B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com` .
+1. Em cada arquivo, substitua a cadeia de caracteres `yourtenant` pelo nome do seu locatário do Azure AD B2C. Por exemplo, se o nome do seu locatário B2C for *contosob2c*, todas as instâncias de `yourtenant.onmicrosoft.com` se tornarão `contosob2c.onmicrosoft.com`.
 
 1. Conclua as etapas na seção [adicionar IDs de aplicativo à política personalizada](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) de introdução [às políticas personalizadas no Azure Active Directory B2C](custom-policy-get-started.md). Por exemplo, atualize `/phone-number-passwordless/` **`Phone_Email_Base.xml`** com as **IDs de aplicativo (cliente)** dos dois aplicativos que você registrou ao concluir os pré-requisitos, *IdentityExperienceFramework* e *ProxyIdentityExperienceFramework*.
 1. Carregar os arquivos de política

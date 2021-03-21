@@ -8,10 +8,10 @@ ms.date: 12/06/2020
 ms.service: azure
 ms.topic: how-to
 ms.openlocfilehash: 878b1b2d5ba13b68b5122e4b9cffc3c408e211e2
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526316"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Trabalhar com alertas no console de gerenciamento local 
@@ -246,6 +246,6 @@ As regras que você cria usando a API aparecem na janela de **regra de exclusão
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Captura de tela da exibição Editar regra de exclusão.":::
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Trabalhar com alertas em seu sensor](how-to-work-with-alerts-on-your-sensor.md)
