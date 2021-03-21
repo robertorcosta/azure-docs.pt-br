@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 11/15/2020
 ms.author: memildin
 ms.openlocfilehash: 4ef01045d1ca16d0101cdd9ccfcd118231cd28de
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456106"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Perguntas frequentes - perguntas sobre coleta de dados, agentes e workspaces
@@ -33,7 +33,7 @@ Não. Os workspaces criados pela Central de Segurança, embora sejam configurado
 
 - **Azure defender on** – a central de segurança habilita a solução de "segurança" no espaço de trabalho padrão.
 
-Para obter detalhes de preços na sua moeda de escolha e de acordo com sua região, consulte [preços da central de segurança](https://azure.microsoft.com/pricing/details/security-center/).
+Para obter detalhes de preço na sua moeda preferencial e de acordo com a sua região, confira [Preço da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/).
 
 > [!NOTE]
 > O tipo de preço do Log Analytics para workspaces criados pela Central de Segurança não afeta a cobrança da Central de Segurança.

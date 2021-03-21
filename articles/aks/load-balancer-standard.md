@@ -8,10 +8,10 @@ ms.date: 11/14/2020
 ms.author: jpalma
 author: palma21
 ms.openlocfilehash: e37c5a748a8e99f49e3535946268427139bbbf44
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102184416"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usar um Standard Load Balancer público no AKS (serviço kubernetes do Azure)
@@ -233,7 +233,7 @@ Para ir acima de 100 nós, você precisaria adicionar mais IPs.
 > [!IMPORTANT]
 > Você deve [calcular a cota necessária e verificar os requisitos][requirements] antes de personalizar o *allocatedOutboundPorts* para evitar problemas de conectividade ou de dimensionamento.
 
-Você também pode usar os **`load-balancer-outbound-ports`** parâmetros ao criar um cluster, mas também deve especificar qualquer um **`load-balancer-managed-outbound-ip-count`** deles **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  Por exemplo: 
+Você também pode usar os **`load-balancer-outbound-ports`** parâmetros ao criar um cluster, mas também deve especificar qualquer um **`load-balancer-managed-outbound-ip-count`** deles **`load-balancer-outbound-ips`** **`load-balancer-outbound-ip-prefixes`** .  Por exemplo:
 
 ```azurecli-interactive
 az aks create \

@@ -12,10 +12,10 @@ ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-java
 ms.openlocfilehash: 78baaa3f794bed870b40fb3975f6b80ff37e90f0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043721"
 ---
 # <a name="client-side-encryption-and-azure-key-vault-with-java-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Azure Key Vault com Java para o Armazenamento do Microsoft Azure
@@ -122,7 +122,7 @@ Há três pacotes do Cofre da Chave:
 3. Use o resolvedor de cache como uma entrada ao criar a política de criptografia.
    Mais informações sobre o uso do Cofre de Chaves podem ser encontradas nos exemplos de código de criptografia.
 
-## <a name="best-practices"></a>Melhores práticas
+## <a name="best-practices"></a>Práticas recomendadas
 O suporte à criptografia está disponível somente na biblioteca de cliente de armazenamento para Java.
 
 > [!IMPORTANT]
@@ -156,7 +156,7 @@ Crie um objeto **BlobEncryptionPolicy** e o defina nas opções de solicitação
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
@@ -185,7 +185,7 @@ Crie um objeto **QueueEncryptionPolicy** e o defina nas opções de solicitaçã
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
@@ -214,7 +214,7 @@ Além de criar uma política de criptografia e defini-la nas opções de solicit
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 
@@ -255,7 +255,7 @@ Como mencionado acima, se a entidade implementar TableEntity, as propriedades ge
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
 # <a name="java-v8"></a>[V8 Java](#tab/java8)
 

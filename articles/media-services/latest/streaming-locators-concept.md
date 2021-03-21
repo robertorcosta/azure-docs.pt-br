@@ -13,10 +13,10 @@ ms.date: 03/04/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: 8f7357644639e1bdba07b9ad44533582fc66b600
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456061"
 ---
 # <a name="streaming-locators"></a>Localizadores de Streaming
@@ -91,7 +91,7 @@ Confira [Filtragem, classificação, paginação de entidades dos Serviços de M
 
 Para obter localizadores de streaming com base no nome do ativo associado, use as seguintes operações:
 
-|Linguagem|API|
+|Idioma|API|
 |---|---|
 |REST|[liststreaminglocators](/rest/api/media/assets/liststreaminglocators)|
 |CLI|[AZ AMS Asset List – streaming-Locators](/cli/azure/ams/asset#az-ams-asset-list-streaming-locators)|
@@ -99,7 +99,7 @@ Para obter localizadores de streaming com base no nome do ativo associado, use a
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Ativos](assets-concept.md)
 * [Políticas de streaming](streaming-policy-concept.md)

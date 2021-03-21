@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: jushiman
 ms.openlocfilehash: 584a3503bf736fcf727a169611e6c79e0c374c90
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101647907"
 ---
 # <a name="create-a-custom-preference-in-azure-automanage-for-vms"></a>Criar uma preferência personalizada no autogerenciamento do Azure para VMs
@@ -64,7 +64,7 @@ Entre no [portal do Azure](https://portal.azure.com/).
 
 5. Na folha **detalhes do ambiente** , selecione um ambiente no menu suspenso: *desenvolvimento/teste* para teste, *prod* para produção e clique em **OK**
 
-    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Procure o ambiente de produção.":::
+    :::image type="content" source="media\virtual-machine-custom-preferences\browse-production-profile.png" alt-text="Procurar ambiente de produção.":::
 
 6. Depois de selecionar o ambiente, você pode selecionar **preferências de configuração**. Por padrão, a preferência de práticas recomendadas do Azure será usada. Essa preferência contém as configurações recomendadas para cada serviço. Modifique essas configurações criando uma preferência personalizada: 
     1. Clique em **criar novas preferências**.
