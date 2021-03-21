@@ -12,12 +12,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: c19f6f8c59ac38bf46999372497205e0c33ebac4
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 3a3cdb93ee4cbf4a2e15540b9daf78b6c231d393
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175100"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579732"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar o comportamento da sessão no Azure Active Directory B2C
 
@@ -81,7 +81,7 @@ Você pode configurar o comportamento da sessão de Azure AD B2C, incluindo:
   - **Locatário** -essa configuração é o padrão. O uso dessa configuração permite a vários aplicativos e fluxos de usuário em seu locatário B2C compartilhar a mesma sessão de usuário. Por exemplo, quando um usuário entra em um aplicativo, o usuário também pode entrar diretamente em outro acesso ao acessá-lo.
   - **Aplicação** - Esta configuração permite que você mantenha uma sessão de usuário exclusivamente para um aplicativo, independente de outros aplicativos. Por exemplo, você pode usar essa configuração se quiser que o usuário entre no contoso farmácia, independentemente de o usuário já estar conectado aos mercados da contoso.
   - **Política** - Essa configuração permite que você mantenha uma sessão de usuário exclusivamente para um fluxo de usuário, independentemente dos aplicativos que a usam. Por exemplo, se o usuário já tiver entrado e concluído uma etapa de autenticação multifator (MFA), o usuário poderá receber acesso a partes de segurança mais alta de vários aplicativos, desde que a sessão vinculada ao fluxo do usuário não expire.
-  - **Desabilitado** – essa configuração força o usuário a executar todo o fluxo do usuário em cada execução da política.
+  - **Suprimido** – essa configuração força o usuário a executar todo o fluxo do usuário após cada execução da política.
 - **Mantenha-me conectado (KMSI)** – estende o tempo de vida da sessão por meio do uso de um cookie persistente. Se esse recurso estiver habilitado e o usuário o selecionar, a sessão permanecerá ativa mesmo depois que o usuário fechar e reabrir o navegador. A sessão será revogada somente quando o usuário sair. O recurso KMSI só se aplica à entrada com contas locais. O recurso KMSI tem precedência sobre o tempo de vida da sessão.
 
 ::: zone pivot="b2c-user-flow"
@@ -249,7 +249,7 @@ Após uma solicitação de saída, Azure AD B2C:
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 3. Tentativas de sair de provedores de identidade federada:
-   - OpenId Connect – se o ponto de extremidade de configuração bem conhecido do provedor de identidade especificar um `end_session_endpoint` local.
+   - OpenId Connect – se o ponto de extremidade de configuração bem conhecido do provedor de identidade especificar um `end_session_endpoint` local. A solicitação de saída não passa o `id_token_hint` parâmetro. Se o provedor de identidade federada exigir esse parâmetro, a solicitação de saída falhará.
    - OAuth2 – se os [metadados do provedor de identidade](oauth2-technical-profile.md#metadata) contiverem o `end_session_endpoint` local.
    - SAML-se os [metadados do provedor de identidade](identity-provider-generic-saml.md) contiverem o `SingleLogoutService` local.
 4. Opcionalmente, desconecta-se de outros aplicativos. Para obter mais informações, consulte a seção de [saída única](#single-sign-out) .

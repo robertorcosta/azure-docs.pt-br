@@ -15,10 +15,10 @@ ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.openlocfilehash: b84c38b28b51f867160272883465242fc81ff2bf
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588058"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Como usar pastas de trabalho do Azure Monitor para relatórios do Azure Active Directory

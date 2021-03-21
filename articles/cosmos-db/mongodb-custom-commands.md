@@ -9,10 +9,10 @@ ms.date: 03/02/2021
 ms.author: chrande
 ms.custom: devx-track-js
 ms.openlocfilehash: deba6696eb71287902fa3970ed2d83d0b09ac08d
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101658479"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usar comandos de extensão do MongoDB para gerenciar dados armazenados na API do Azure Cosmos DB para MongoDB 
@@ -236,7 +236,7 @@ use test
 db.runCommand({customAction: "CreateCollection", collection: "testCollection"});
 ```
 
-Isso resultará em uma nova coleção fixa, não fragmentada, com 400RU/s e um índice no `_id` campo criado automaticamente. Esse tipo de configuração também será aplicado ao criar novas coleções por meio da `insert()` função. Por exemplo:  
+Isso resultará em uma nova coleção fixa, não fragmentada, com 400RU/s e um índice no `_id` campo criado automaticamente. Esse tipo de configuração também será aplicado ao criar novas coleções por meio da `insert()` função. Por exemplo: 
 
 ```javascript
 use test

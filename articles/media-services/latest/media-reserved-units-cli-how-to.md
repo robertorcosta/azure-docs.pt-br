@@ -14,10 +14,10 @@ ms.topic: how-to
 ms.date: 09/30/2020
 ms.author: inhenkel
 ms.openlocfilehash: a07c4a20b854e09daf3b320b8c99757ca99b2578
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102213803"
 ---
 # <a name="how-to-scale-media-reserved-units"></a>Como dimensionar unidades reservadas de mídia
@@ -50,6 +50,6 @@ Você é cobrado com base em quantos minutos as unidades reservadas de mídia s�
 
 [Analisar vídeos](analyze-videos-tutorial-with-api.md)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Cotas e limites](limits-quotas-constraints.md)

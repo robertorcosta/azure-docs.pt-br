@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.openlocfilehash: b2f2c8497d5365104a5ffc361b791450925d0c19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101694777"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Pesquisa difusa para corrigir erros ortográficos e erros de digitação
@@ -132,7 +132,7 @@ Observe que a mesma resposta é retornada, mas agora, em vez de corresponder ao 
 
 O ponto deste exemplo expandido é ilustrar a clareza de que o realce de pressionamento pode trazer resultados ambíguos. Em todos os casos, o mesmo documento é retornado. Se você confiava em IDs de documento para verificar uma correspondência, talvez tenha perdido a mudança de "especial" para "SQL".
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Como a pesquisa de texto completo funciona no Azure Pesquisa Cognitiva (arquitetura de análise de consulta)](search-lucene-query-architecture.md)
 + [Gerenciador de pesquisa](search-explorer.md)

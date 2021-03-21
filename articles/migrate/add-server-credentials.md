@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 01/26/2021
 ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054445"
 ---
 # <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Forneça credenciais de servidor para descobrir aplicativos, dependências e SQL Server instâncias e bancos de dados
@@ -18,7 +18,7 @@ ms.locfileid: "102054445"
 Siga este artigo para saber como adicionar várias credenciais de servidor no Gerenciador de configuração de dispositivo para executar o inventário de software (descobrir aplicativos instalados), a análise de dependência sem agente e descobrir SQL Server instâncias e bancos de dados.
 
 > [!Note]
-> A descoberta e a avaliação de instâncias de SQL Server e bancos de dados em execução em seu ambiente VMware agora estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália** . Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no Portal.
+> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 O [dispositivo de migrações para Azure](migrate-appliance.md) é um dispositivo leve usado pelas migrações para Azure: avaliação do servidor para descobrir servidores locais em execução no ambiente VMware e enviar metadados de configuração e desempenho do servidor para o Azure. O dispositivo também pode ser usado para executar o inventário de software, a análise de dependência sem agente e a descoberta de instâncias de SQL Server e bancos de dados.
 

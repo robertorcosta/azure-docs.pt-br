@@ -4,10 +4,10 @@ description: Neste artigo, você aprende a conectar computadores ao Azure usando
 ms.date: 09/24/2020
 ms.topic: conceptual
 ms.openlocfilehash: c0ae9c97afe14559aa36c1b8387f07897aa4c43b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100587650"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Como instalar o agente do computador conectado usando o DSC do Windows PowerShell

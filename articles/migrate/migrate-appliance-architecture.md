@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
 ms.openlocfilehash: d695758849fd4f7e6f595820221f6b8606fe7cf1
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102096183"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Arquitetura do dispositivo de Migrações para Azure
@@ -51,7 +51,7 @@ O dispositivo tem os seguintes serviços:
 - **Descoberta e agente de avaliação do SQL**: envia os metadados de configuração e desempenho de instâncias de SQL Server e bancos de dados para o Azure.
 
 > [!Note]
-> Os últimos 3 serviços estão disponíveis apenas no dispositivo usado para descoberta e avaliação de servidores em execução em seu ambiente VMware.<br/> A descoberta e a avaliação de instâncias de SQL Server e bancos de dados em execução em seu ambiente VMware agora estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **leste da Austrália** . Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no Portal.
+> Os últimos 3 serviços estão disponíveis apenas no dispositivo usado para descoberta e avaliação de servidores em execução em seu ambiente VMware.<br/> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 
 ## <a name="discovery-and-collection-process"></a>Processo de descoberta e coleta

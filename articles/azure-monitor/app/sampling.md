@@ -6,10 +6,10 @@ ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
 ms.openlocfilehash: 7b53b0bc8c7cc3df2123d327bf87a85081f88f50
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589544"
 ---
 # <a name="sampling-in-application-insights"></a>Amostragem no Application Insights
@@ -34,7 +34,7 @@ A tabela a seguir resume os tipos de amostragem disponíveis para cada SDK e tip
 |-|-|-|-|
 | ASP.NET | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | ASP.NET Core | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [Sim](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | Somente se nenhuma outra amostragem estiver em vigor |
-| Funções do Azure | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | No | Somente se nenhuma outra amostragem estiver em vigor |
+| Azure Functions | [Sim (ativado por padrão)](#configuring-adaptive-sampling-for-azure-functions) | Não | Somente se nenhuma outra amostragem estiver em vigor |
 | Java | Não | [Sim](#configuring-fixed-rate-sampling-for-java-applications) | Somente se nenhuma outra amostragem estiver em vigor |
 | Node.JS | Não | [Sim](./nodejs.md#sampling) | Somente se nenhuma outra amostragem estiver em vigor
 | Python | Não | [Sim](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | Somente se nenhuma outra amostragem estiver em vigor |

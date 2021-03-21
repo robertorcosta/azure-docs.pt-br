@@ -13,10 +13,10 @@ ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/01/2021
 ms.openlocfilehash: e096e21e7d20c992e18634d684f663f149cc3c55
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101691239"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Transparent Data Encryption do Azure SQL com chaves gerenciadas pelo cliente
@@ -170,7 +170,7 @@ Para monitorar o estado do banco de dados e habilitar o alerta para perda de ace
 
 Depois que um banco de dados é criptografado com TDE usando uma chave de Key Vault, todos os backups gerados recentemente também são criptografados com o mesmo protetor de TDE. Quando o protetor de TDE é alterado, os backups antigos do banco de dados **não são atualizados** para usar o protetor de TDE mais recente.
 
-Para restaurar um backup criptografado com um protetor TDE do Key Vault, verifique se o material da chave está disponível para o servidor de destino. Portanto, recomendamos que você mantenha todas as versões antigas do protetor de TDE no Key Vault, para que os backups de banco de dados possam ser restaurados.
+Para restaurar um backup criptografado com um protetor TDE do Key Vault, verifique se o material da chave está disponível para o servidor de destino. Portanto, é recomendável manter todas as versões antigas do protetor de TDE no cofre de chaves para que os backups do banco de dados possam ser restaurados.
 
 > [!IMPORTANT]
 > A qualquer momento, não pode haver mais de um conjunto de protetor TDE para um servidor. É a chave marcada com "tornar a chave o protetor de TDE padrão" na folha portal do Azure. No entanto, várias chaves adicionais podem ser vinculadas a um servidor sem marcá-las como um protetor de TDE. Essas chaves não são usadas para proteger DEK, mas podem ser usadas durante a restauração de um backup, se o arquivo de backup for criptografado com a chave com a impressão digital correspondente.
