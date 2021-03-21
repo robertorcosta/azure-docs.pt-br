@@ -4,18 +4,18 @@ description: Use o Azure Resource Manager para mover recursos para um novo grupo
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1218df618f7f5fa0787505cb4fcee67dd264ea76
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601382"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670198"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
 Este artigo mostra como mover recursos do Azure para outra assinatura do Azure ou outro grupo de recursos na mesma assinatura. Você pode usar o portal do Azure, Azure PowerShell, CLI do Azure ou a API REST para mover recursos.
 
-O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar ou excluir recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se você mover um SQL Server e seu banco de dados para um novo grupo de recursos, um aplicativo que usa o banco de dados não terá nenhuma inatividade. Ele ainda poderá ler e gravar no banco de dados. O bloqueio pode durar por um máximo de quatro horas, mas a maioria das mudanças é concluída em muito menos tempo.
+O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar ou excluir recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se você mover um servidor lógico do Azure SQL e seus bancos de dados para um novo grupo de recursos ou assinatura, os aplicativos que usam os bancos de dados não terão nenhum tempo de inatividade. Eles ainda podem ler e gravar nos bancos de dados. O bloqueio pode durar por um máximo de quatro horas, mas a maioria das mudanças é concluída em muito menos tempo.
 
 Mover um recurso só o move para um novo grupo de recursos ou assinatura. Não altera o local do recurso.
 

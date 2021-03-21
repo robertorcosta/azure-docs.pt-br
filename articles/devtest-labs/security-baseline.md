@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 13585173b54c79158161da54f968ba66eb018f6a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101705731"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Linha de base de segurança do Azure para Azure DevTest Labs
@@ -893,7 +893,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 **Diretrizes**: atualmente, Azure DevTest Labs não dá suporte a backups e instantâneos de VM. No entanto, você pode habilitar e configurar o backup do Azure nas VMs do Azure subjacentes hospedadas no DevTest Labs. Além disso, você também pode configurar a frequência desejada e o período de retenção para backups automáticos, contanto que você tenha acesso apropriado aos recursos de computação subjacentes. 
 
-- [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
+- [Visão geral do backup da VM do Azure](../backup/backup-azure-vms-introduction.md)
 
 - [Fazer backup de uma VM do Azure usando as configurações da VM](../backup/backup-azure-vms-first-look-arm.md)
 
@@ -911,7 +911,7 @@ Habilite o backup do Azure em VMs do Azure de destino e os períodos de frequên
 
 - [Visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
 
-- [Uma visão geral do backup de VM do Azure](../backup/backup-azure-vms-introduction.md)
+- [Visão geral do backup da VM do Azure](../backup/backup-azure-vms-introduction.md)
 
 - [Como fazer backup de chaves Key Vault no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
 

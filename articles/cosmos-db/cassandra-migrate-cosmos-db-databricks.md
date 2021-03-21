@@ -9,10 +9,10 @@ ms.date: 03/10/2021
 ms.author: thvankra
 ms.reviewer: thvankra
 ms.openlocfilehash: caf9cbb0ca017ee00c5061d94e0d37703194943d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573347"
 ---
 # <a name="migrate-data-from-cassandra-to-azure-cosmos-db-cassandra-api-account-using-azure-databricks"></a>Migrar dados do Cassandra para a conta de API do Cassandra Azure Cosmos DB usando Azure Databricks
@@ -44,7 +44,7 @@ Há várias maneiras de migrar cargas de trabalho de banco de dados de uma plata
 
 Você pode seguir as instruções para [provisionar um cluster Azure Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal). Recomendamos a seleção do databricks Runtime versão 7,5, que dá suporte ao Spark 3,0:
 
-:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Tempo de execução do databricks":::
+:::image type="content" source="./media/cassandra-migrate-cosmos-db-databricks/databricks-runtime.png" alt-text="Databricks Runtime":::
 
 
 ## <a name="add-dependencies"></a>Adicionar dependências

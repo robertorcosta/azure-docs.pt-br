@@ -11,10 +11,10 @@ ms.date: 06/29/2020
 ms.author: pdecarlo
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 1cd89f3f772effce4997fb69b37858ce2077c1dc
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201086"
 ---
 # <a name="run-azure-iot-edge-on-ubuntu-virtual-machines"></a>Executar Azure IoT Edge em Máquinas Virtuais do Ubuntu
@@ -42,39 +42,39 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
 
     [![Botão Implantar no Azure para iotedge-vm-deploy](https://aka.ms/deploytoazurebutton)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fazure%2Fiotedge-vm-deploy%2Fmaster%2FedgeDeploy.json)
 
-1. Na janela iniciada recentemente, preencha os campos de formulário disponíveis:
+1. Na recém-criada janela, preencha os campos de formulário disponíveis:
 
     > [!div class="mx-imgBorder"]
     > [![Captura de tela mostrando o modelo iotedge-vm-deploy](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-deploy.png)
 
-    **Assinatura**: a assinatura ativa do Azure na qual a máquina virtual será implantada.
+    **Assinatura**: uma assinatura ativa do Azure na qual a máquina virtual será implantada.
 
-    **Grupo de recursos**: um grupo de recursos existente ou criado recentemente para conter a máquina virtual e seus recursos associados.
+    **Grupo de recursos**: um Grupo de Recursos existente ou recém-criado para conter a máquina virtual e os recursos associados.
 
-    **Prefixo do rótulo DNS**: um valor necessário de sua escolha que é usado para prefixar o nome do host da máquina virtual.
+    **Prefixo do rótulo DNS**: um valor necessário de sua preferência que será usado para prefixar o nome do host da máquina virtual.
 
-    **Nome de usuário do administrador**: um nome de usuário, que será fornecido com privilégios de raiz na implantação.
+    **Nome de usuário do administrador**: um nome de usuário que obterá privilégios de raiz na implantação.
 
-    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão de dispositivo](./how-to-register-device.md) para um dispositivo que foi criado no [Hub IOT](../iot-hub/about-iot-hub.md)pretendido.
+    **Cadeia de conexão do dispositivo**: uma [cadeia de conexão do dispositivo](./how-to-register-device.md) para um dispositivo criado no [Hub IoT](../iot-hub/about-iot-hub.md) pretendido.
 
-    **Tamanho da VM**: o [tamanho](../cloud-services/cloud-services-sizes-specs.md) da máquina virtual a ser implantada
+    **Tamanho da VM**: o [tamanho](../cloud-services/cloud-services-sizes-specs.md) da máquina virtual que será implantada
 
-    **Versão do sistema operacional Ubuntu**: a versão do sistema operacional Ubuntu a ser instalada na máquina virtual base.
+    **Versão do sistema operacional Ubuntu**: a versão do sistema operacional Ubuntu que será instalada na máquina virtual de base.
 
-    **Local**: a [região geográfica](https://azure.microsoft.com/global-infrastructure/locations/) na qual implantar a máquina virtual, esse valor assume como padrão o local do grupo de recursos selecionado.
+    **Localização**: a [região geográfica](https://azure.microsoft.com/global-infrastructure/locations/) na qual a máquina virtual será implantada. Esse valor assumirá a localização do Grupo de Recursos selecionado como padrão.
 
-    **Tipo de autenticação**: escolha **sshPublicKey** ou **senha** dependendo de sua preferência.
+    **Tipo de autenticação**: escolha **sshPublicKey** ou **senha**, de acordo com sua preferência.
 
-    **Senha ou chave do administrador**: o valor da chave pública SSH ou o valor da senha, dependendo da escolha do tipo de autenticação.
+    **Senha ou chave do administrador**: o valor da Chave Pública SSH ou o valor da senha, dependendo do Tipo de Autenticação escolhida.
 
-    Quando todos os campos tiverem sido preenchidos, marque a caixa de seleção na parte inferior da página para aceitar os termos e selecione **comprar** para iniciar a implantação.
+    Após preencher os campos, marque a caixa de seleção na parte inferior da página para aceitar os termos. Depois clique em **Comprar** para iniciar a implantação.
 
-1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador, que deve estar no formato `vm-0000000000000` . Além disso, anote o **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador. Ele terá o formato `vm-0000000000000`. Além disso, anote o **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     O **Nome DNS** pode ser obtido na seção **Visão geral** da máquina virtual implantada recentemente no portal do Azure.
 
     > [!div class="mx-imgBorder"]
-    > [![Captura de tela mostrando o nome DNS da VM iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+    > [![Uma captura de tela mostrando o nome DNS da VM do IoT Edge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
 1. Se você quiser usar o SSH nessa VM após a instalação, use o **nome DNS** associado com o comando:  `ssh <adminUsername>@<DNS_Name>`
 
@@ -144,7 +144,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
     --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
     ```
 
-1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador, que deve estar no formato `vm-0000000000000` . Além disso, anote o **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Verifique se a implantação foi concluída com êxito.  Um recurso de máquina virtual deve ter sido implantado no grupo de recursos selecionado.  Anote o nome do computador. Ele terá o formato `vm-0000000000000`. Além disso, anote o **Nome DNS** associado, que deve estar no formato `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
     O **nome DNS** pode ser obtido da saída formatada em JSON da etapa anterior, dentro da seção **saídas** como parte da entrada **SSH pública** .  O valor dessa entrada pode ser usado para SSH no computador implantado recentemente.
 
@@ -160,7 +160,7 @@ O [botão implantar no Azure](../azure-resource-manager/templates/deploy-to-azur
     O **nome DNS** também pode ser obtido na seção **visão geral** da máquina virtual implantada recentemente na portal do Azure.
 
     > [!div class="mx-imgBorder"]
-    > [![Captura de tela mostrando o nome DNS da VM iotedge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
+    > [![Uma captura de tela mostrando o nome DNS da VM do IoT Edge](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)](./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png)
 
 1. Se você quiser usar o SSH nessa VM após a instalação, use o **nome DNS** associado com o comando:  `ssh <adminUsername>@<DNS_Name>`
 

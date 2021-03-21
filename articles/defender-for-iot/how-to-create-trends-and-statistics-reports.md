@@ -8,10 +8,10 @@ ms.date: 2/21/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 7cb3848f3711b6bf10c316ba4f5321286e2260fb
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706311"
 ---
 # <a name="sensor-trends-and-statistics-reports"></a>Tendências de sensor e relatórios de estatísticas
@@ -283,7 +283,7 @@ O relatório do sistema é mostrado em detalhes, sua linha de base de rede. Por 
 
 :::image type="content" source="media/how-to-create-trends-and-statistics-reports/open-port.png" alt-text="Uma exibição do relatório porta aberta por conexão.":::
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 Relatórios de avaliação de [risco](how-to-create-risk-assessment-reports.md) 
  Consultas de Data Mining de [sensor](how-to-create-data-mining-queries.md) 

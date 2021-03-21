@@ -11,10 +11,10 @@ author: aashishb
 ms.custom: subject-monitoring
 ms.date: 10/02/2020
 ms.openlocfilehash: f130fc0c65c49c33c838812fc2758619e0d1bca0
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521332"
 ---
 # <a name="monitoring-azure-machine-learning-data-reference"></a>Monitorando a referência de dados do Azure Machine Learning
@@ -179,7 +179,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | MinimumNodeCount | Contagem mínima de nós do cluster |
 | MaximumNodeCount | Contagem máxima de nós do cluster |
 | NodeDeallocationOption | Como o nó deve ser desalocado |
-| Publisher | Editor do tipo de cluster |
+| Publicador | Editor do tipo de cluster |
 | Oferta | Oferta com a qual o cluster é criado |
 | Sku | SKU do nó/VM criado dentro do cluster |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -215,7 +215,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | VmSize | Tamanho da VM do nó |
 | VmFamilyName | Família de VMs à qual o nó pertence |
 | VmPriority | Prioridade do nó criado dedicado/LowPriority |
-| Publisher | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
+| Publicador | Editor da imagem da VM. Por exemplo, Microsoft-dsvm |
 | Oferta | Oferta associada à criação da VM |
 | Sku | SKU do nó/VM criado |
 | Versão | Versão da imagem usada enquanto o nó/VM é criado |
@@ -229,7 +229,7 @@ Os esquemas a seguir estão em uso pelo Azure Machine Learning
 | TotalE2ETimeInSeconds | O nó de tempo total estava ativo |
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - Consulte [monitoramento Azure Machine Learning](monitor-azure-machine-learning.md) para obter uma descrição do Azure Machine Learning de monitoramento.
 - Confira [Como monitorar os recursos do Azure com o Azure Monitor](../azure-monitor/essentials/monitor-azure-resource.md) para obter detalhes sobre o monitoramento de recursos do Azure.

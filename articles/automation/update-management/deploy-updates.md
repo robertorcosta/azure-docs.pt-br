@@ -3,14 +3,14 @@ title: Como criar implantações de atualização para a automação do Azure Ge
 description: Este artigo descreve como agendar implantações de atualização e revisar seu status.
 services: automation
 ms.subservice: update-management
-ms.date: 12/09/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: fb81d38b066e1abb54664225daa6840d895e9ace
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 6d35d6b49ab72d8aa7b25506011147ab624273fd
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100575896"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669671"
 ---
 # <a name="how-to-deploy-updates-and-review-results"></a>Como implantar atualizações e examinar os resultados
 
@@ -21,6 +21,9 @@ Em cada cenário, a implantação que você cria tem como destino o computador o
 * O sistema operacional é previamente selecionado automaticamente com base no sistema operacional do computador
 * O computador de destino para atualizar está definido para o próprio destino automaticamente
 * Ao configurar o agendamento, você pode especificar **Atualizar agora**, ocorre uma vez ou usa um agendamento recorrente.
+
+> [!IMPORTANT]
+> Ao criar uma implantação de atualização, você aceita os termos dos termos de licença de software (EULA) fornecidos pelas atualizações de oferta da empresa para seu sistema operacional.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entre no Portal do Azure
 

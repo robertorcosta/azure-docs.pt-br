@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: ''
 ms.topic: conceptual
 ms.date: 03/02/2021
-ms.openlocfilehash: 57024d6cb23ab273aa69bf59f4ec436a6f873a05
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 50a9f9cd59ebeecae89580c878442eb20788f462
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102193390"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593638"
 ---
 # <a name="reference-trigger-metadata-in-pipeline-runs"></a>Metadados de gatilho de referência em execuções de pipeline
 
@@ -22,7 +22,7 @@ Este artigo descreve como os metadados de gatilho, como a hora de início do gat
 
 Às vezes, o pipeline precisa entender e ler metadados do gatilho que o invoca. Por exemplo, com a execução do gatilho de janela em cascata, com base na hora de início e de término da janela, o pipeline processará diferentes fatias ou pastas de dados. Em Azure Data Factory, usamos parametrização e a [variável do sistema](control-flow-system-variables.md) para passar metadados do gatilho para o pipeline.
 
-Esse padrão é especialmente útil para o [gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md), em que Trigger fornece a hora de início e término da janela.
+Esse padrão é especialmente útil para o [gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md), em que Trigger fornece a hora de início e término da janela e o [gatilho de evento personalizado](how-to-create-custom-event-trigger.md), no qual o gatilho analisa e processa valores no [campo _dados_ definidos personalizados](../event-grid/event-schema.md).
 
 > [!NOTE]
 > O tipo de gatilho diferente fornece informações de metadados diferentes. Para obter mais informações, consulte [variável do sistema](control-flow-system-variables.md)

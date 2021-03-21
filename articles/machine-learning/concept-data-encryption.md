@@ -11,10 +11,10 @@ author: jhirono
 ms.reviewer: larryfr
 ms.date: 11/09/2020
 ms.openlocfilehash: 13d5c02fbb4ae06c7a5279ab7c5d3af90c263f71
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521060"
 ---
 # <a name="data-encryption-with-azure-machine-learning"></a>Criptografia de dados com Azure Machine Learning
@@ -168,5 +168,5 @@ Cada workspace tem uma identidade gerenciada associada atribuída pelo sistema q
 
 * [Conectar-se ao armazenamento do Azure](how-to-access-data.md)
 * [Obter dados de um armazenamento de dados](how-to-create-register-datasets.md)
-* [Conectar-se aos dados](how-to-connect-data-ui.md)
+* [Conectar aos dados](how-to-connect-data-ui.md)
 * [Treinar com conjuntos de dados](how-to-train-with-datasets.md)

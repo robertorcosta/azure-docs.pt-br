@@ -3,12 +3,12 @@ title: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de 
 description: Descreve como fazer backup de VMs do Azure em um cofre dos Serviços de Recuperação no Backup do Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: f6fe2f629742e15e62dfc13106e92623a4b45add
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5c3bc66c2111c347f8ed0e32c9e597a52ed404ed
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/19/2021
-ms.locfileid: "92172744"
+ms.locfileid: "104670419"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
 
@@ -117,6 +117,8 @@ Se você optou por criar uma política de backup, preencha as configurações de
 4. Em **Período de retenção**, especifique por quanto tempo deseja manter seus pontos de backup diários ou semanais.
 5. Em **retenção de ponto de backup mensal** e **retenção do ponto de backup anual**, especifique se deseja manter um backup mensal ou anual de seus backups diários ou semanais.
 6. Selecione **OK** para salvar a política.
+    > [!NOTE]
+    > Para armazenar a coleção de pontos de restauração (RPC), o serviço de backup cria um grupo de recursos separado (RG). Esse RG é diferente do RG da VM. [Saiba mais](backup-during-vm-creation.md#azure-backup-resource-group-for-virtual-machines).
 
     ![Nova política de backup](./media/backup-azure-arm-vms-prepare/new-policy.png)
 

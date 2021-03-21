@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: alkohli
 ms.openlocfilehash: b52d1e834772a2a6e0e000b3df15d8aa0fa866a9
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564797"
 ---
 # <a name="deploy-an-iot-edge-workload-using-gpu-sharing-on-your-azure-stack-edge-pro"></a>Implantar uma carga de trabalho de IoT Edge usando o compartilhamento de GPU em seu Azure Stack Edge pro
@@ -120,7 +120,7 @@ A primeira etapa é verificar se o dispositivo está executando o driver de GPU 
 
 1. [Conecte-se à interface do PowerShell do seu dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-1. Execute o seguinte comando:
+1. Execute o comando a seguir:
 
     `Get-HcsGpuNvidiaSmi`
 
@@ -173,7 +173,7 @@ Siga estas etapas para criar um usuário e conceder ao usuário o acesso ao `iot
 
 1. [Conecte-se à interface do PowerShell do seu dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-1. Crie um novo usuário no `iotedge` namespace. Execute o seguinte comando:
+1. Crie um novo usuário no `iotedge` namespace. Execute o comando a seguir:
 
     `New-HcsKubernetesUser -UserName <user name>`
 
@@ -208,7 +208,7 @@ Siga estas etapas para criar um usuário e conceder ao usuário o acesso ao `iot
 
 1. Copie a saída exibida em texto sem formatação. Salve a saída como um arquivo de *configuração* (sem extensão) na `.kube` pasta do seu perfil de usuário no computador local, por exemplo, `C:\Users\<username>\.kube` . 
 
-1. Conceda ao usuário que você criou acesso ao `iotedge` namespace. Execute o seguinte comando:
+1. Conceda ao usuário que você criou acesso ao `iotedge` namespace. Execute o comando a seguir:
 
     `Grant-HcsKubernetesNamespaceAccess -Namespace iotedge -UserName <user name>`    
 
@@ -304,7 +304,7 @@ Implante IoT Edge módulos por meio do portal do Azure. Você implantará módul
 
 1. Abra uma nova sessão do PowerShell.
 
-1. Liste o pods em execução no `iotedge` namespace. Execute o seguinte comando:
+1. Liste o pods em execução no `iotedge` namespace. Execute o comando a seguir:
 
     `kubectl get pods -n iotedge`   
 

@@ -15,10 +15,10 @@ ms.date: 03/16/2021
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74769feba1d717a2f1a72d311f85bdfbeac7b7db
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574783"
 ---
 # <a name="ad-fs-sign-ins-in-azure-ad-with-connect-health---preview"></a>AD FS entradas no Azure AD com o Connect Health-versão prévia
@@ -48,7 +48,7 @@ Cada guia na folha de entradas mostra os valores padrão abaixo:
 #### <a name="authentication-method-information"></a>Informações do método de autenticação
 Os valores a seguir podem ser exibidos na guia Autenticação. O método de autenticação é obtido do AD FS logs de auditoria.
 
-|Método de autenticação|Description|
+|Método de autenticação|Descrição|
 |-----|-----|
 |Formulários|Autenticação de nome de usuário e senha|
 |Windows|Autenticação integrada do Windows|

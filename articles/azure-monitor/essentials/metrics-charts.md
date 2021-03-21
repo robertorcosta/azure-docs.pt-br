@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031425"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Recursos avançados do Gerenciador de métricas do Azure
@@ -237,7 +237,7 @@ Antes de nos aprofundarmos na experiência, queremos primeiro introduzir os dife
 | Termo             | Definição  | 
 |------------------|-------------|
 | Logs de atividades    | Fornece informações sobre as operações em cada recurso do Azure na assinatura de fora (o plano de gerenciamento), além de atualizações em eventos de integridade do serviço. Use o log de atividades para determinar o que, quem e quando para qualquer operação de gravação (PUT, POST, DELETE) realizada nos recursos em sua assinatura. Há um único log de atividades para cada assinatura do Azure.  |   
-| Log de diagnóstico   | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o plano de dados), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo dos logs de recursos varia de acordo com o serviço do Azure e o tipo de recurso. **Observação:** Deve ser fornecido pelo serviço e habilitado pelo cliente  | 
+| Log de diagnóstico   | Forneça informações sobre as operações que foram executadas em um recurso do Azure (o plano de dados), por exemplo, obter um segredo de um Key Vault ou fazer uma solicitação para um banco de dado. O conteúdo de logs de recursos varia de acordo com o tipo de recurso e serviço do Azure. **Observação:** Deve ser fornecido pelo serviço e habilitado pelo cliente  | 
 | Log recomendado | Consultas baseadas em cenário que o cliente pode aproveitar para investigar anomalias em seu Metrics Explorer.  |
 
 Atualmente, a análise detalhada de logs está disponível para provedores de recursos selecionados. Os provedores de recursos que têm a experiência completa de detalhamento dos logs são: 

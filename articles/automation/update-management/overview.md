@@ -3,14 +3,14 @@ title: Visão geral do Gerenciamento de Atualizações da Automação do Azure
 description: Este artigo fornece uma visão geral do recurso Gerenciamento de Atualizações que implementa atualizações para seus computadores com Windows e com Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 03/08/2021
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0a79be9d879e9ccb7ae4583d0674cf2bb23aafa4
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102485666"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104670606"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
@@ -65,7 +65,7 @@ Registrar um computador para Gerenciamento de Atualizações em mais de um works
 
 ## <a name="clients"></a>Clientes
 
-### <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+### <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 A tabela a seguir lista os sistemas operacionais com suporte para avaliações de atualização e aplicação de patches. A aplicação de patch requer um Hybrid Runbook Worker do sistema, que é instalado automaticamente quando você habilita a máquina virtual ou o servidor para gerenciamento pelo Gerenciamento de Atualizações. Para obter informações sobre os requisitos de sistema Hybrid Runbook Worker, consulte [implantar um Hybrid runbook Worker do Windows](../automation-windows-hrw-install.md) e um [Hybrid runbook Worker implantar um Linux](../automation-linux-hrw-install.md).
 
@@ -76,8 +76,8 @@ A tabela a seguir lista os sistemas operacionais com suporte para avaliações d
 |---------|---------|
 |Windows Server 2019 (datacenter/Standard, incluindo Server Core)<br><br>Windows Server 2016 (datacenter/padrão, exceto Server Core)<br><br>Windows Server 2012 R2(Datacenter/Standard)<br><br>Windows Server 2012 | |
 |Windows Server 2008 R2 (RTM e SP1 Standard)| O Gerenciamento de Atualizações dá suporte a avaliações e aplicação de patches para este sistema operacional. O [Hybrid runbook Worker](../automation-windows-hrw-install.md) tem suporte para o Windows Server 2008 R2. |
-|CentOS 6 e 7 (x64)      | Os agentes do Linux requerem acesso a um repositório de atualização. O patch baseado em classificação requer que `yum` retorne dados de segurança que as versões RTM do CentOS não têm. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, confira [Classificações de atualização no Linux](view-update-assessments.md#linux).          |
-|Red Hat Enterprise 6 e 7 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |
+|CentOS 6, 7 e 8 (x64)      | Os agentes do Linux requerem acesso a um repositório de atualização. O patch baseado em classificação requer que `yum` retorne dados de segurança que as versões RTM do CentOS não têm. Para obter mais informações sobre aplicação de patch com base em classificação no CentOS, confira [Classificações de atualização no Linux](view-update-assessments.md#linux).          |
+|Red Hat Enterprise 6, 7 e 8 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização.        |
 |SUSE Linux Enterprise Server 12, 15 e 15,1 (x64)     | Os agentes do Linux requerem acesso a um repositório de atualização. Para o SUSE 15. x, o Python 3 é necessário no computador.      |
 |Ubuntu 14, 4 LTS, 16, 4 LTS e 18, 4 LTS (x64)      |Os agentes do Linux requerem acesso a um repositório de atualização.         |
 
@@ -94,7 +94,7 @@ A tabela a seguir lista os sistemas operacionais sem suporte pelo Gerenciamento 
 |Windows Server 2016 Nano Server     | Sem suporte.       |
 |Nós do Serviço de Kubernetes do Azure | Sem suporte. Use o processo de aplicação de patch descrito em [Aplicar atualizações de segurança e kernel a nós do Linux no AKS (Serviço de Kubernetes do Azure)](../../aks/node-updates-kured.md)|
 
-### <a name="system-requirements"></a>Requisitos do sistema
+### <a name="system-requirements"></a>Requisitos de sistema
 
 As informações a seguir descrevem os requisitos específicos do sistema operacional. Para obter diretrizes adicionais, confira [Planejamento de rede](#ports). Para entender os requisitos do TLS 1,2, consulte [imposição tls 1,2 para a automação do Azure](../automation-managing-data.md#tls-12-enforcement-for-azure-automation).
 

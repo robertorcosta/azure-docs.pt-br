@@ -10,10 +10,10 @@ ms.author: normesta
 ms.reviewer: yzheng
 ms.custom: references_regions
 ms.openlocfilehash: b00956a6fb5a79b09602ca1752cc547595f32db6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103224587"
 ---
 # <a name="network-file-system-nfs-30-protocol-support-in-azure-blob-storage-preview"></a>Suporte ao protocolo NFS (sistema de arquivos de rede) 3,0 no armazenamento de BLOBs do Azure (versão prévia)
@@ -134,7 +134,7 @@ Os seguintes clientes NFS 3,0 ainda não têm suporte.
 
 - Cliente do Windows para NFS
 
-## <a name="pricing"></a>Preço
+## <a name="pricing"></a>Preços
 
 Durante a visualização, os dados armazenados em sua conta de armazenamento são cobrados com a mesma taxa de capacidade que o armazenamento de BLOBs cobra por GB por mês. 
 

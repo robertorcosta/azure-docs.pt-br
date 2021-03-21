@@ -18,10 +18,10 @@ ms.author: markvi
 ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: bad8ae86827144269e816a6c2e01d6af3f4d88ac
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103225411"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor"></a>Interpretar o esquema de logs de entrada do Azure AD no Azure Monitor
@@ -166,7 +166,7 @@ Este artigo descreve o esquema de log de logon do Microsoft Azure Active Directo
 | CorrelationId | - | GUID opcional passado pelo cliente. Esse valor pode ajudar a correlacionar operações do lado do cliente com operações do lado do servidor e é útil ao rastrear logs que abrangem os serviços. |
 | Identidade | - | A identidade do token que foi apresentada ao fazer a solicitação. Pode ser uma conta de usuário, conta do sistema ou principal de serviço. |
 | Nível | - | Fornece o tipo de mensagem. Para auditoria, é sempre *informativo*. |
-| Localização | - | Fornece o local da atividade de entrada. |
+| Location | - | Fornece o local da atividade de entrada. |
 | Propriedades | - | Lista todas as propriedades que são associadas aos logins.|
 
 ## <a name="next-steps"></a>Próximas etapas

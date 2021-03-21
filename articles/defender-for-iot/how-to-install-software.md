@@ -8,10 +8,10 @@ ms.date: 12/2/2020
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574655"
 ---
 # <a name="defender-for-iot-installation"></a>Instalação do defender para IoT
@@ -60,7 +60,7 @@ Os seguintes dispositivos virtuais estão disponíveis:
 | **Descrição** | Dispositivo virtual para implantações corporativas | Dispositivo virtual para implantações SMB | Dispositivo virtual para implantações de linha |
 | **Largura de banda máxima\*** | 150 MB/s | 15 MB/s | 3 MB/s |
 | **Máximo de dispositivos protegidos** | 3\.000 | 300 | 100 |
-| **Tipo de implantação** | Empresarial | SMB | Linha |
+| **Tipo de implantação** | Enterprise | SMB | Linha |
 | **Descrição** | Dispositivo virtual para implantações corporativas | Dispositivo virtual para implantações SMB | Dispositivo virtual para implantações de linha |
 
 * A capacidade de largura de banda máxima pode variar dependendo da distribuição de protocolo.
@@ -70,7 +70,7 @@ Os seguintes dispositivos virtuais estão disponíveis:
  | Item | DESCRIÇÃO |
  |----|--|
  **Descrição** | Em uma arquitetura de várias camadas, o console de gerenciamento local oferece visibilidade e controle em sites geograficamente distribuídos. Ele se integra com as pilhas de segurança do SOC, incluindo SIEMs, sistemas de emissão de tíquete, firewalls de última geração, plataformas de acesso remoto seguro e a área restrita de malware do ICS do defender para IoT. |
- **Tipo de implantação** | Empresarial |
+ **Tipo de implantação** | Enterprise |
  **Tipo de dispositivo**  | Dell R340, VM |
  **Número de sensores gerenciados** | Ilimitado |
 
@@ -713,9 +713,9 @@ A VM do console de gerenciamento local dá suporte às seguintes arquiteturas:
 
 | Arquitetura | Especificações | Uso | 
 |--|--|--|
-| Empresarial <br/>(Padrão e mais comum) | CPU: 8 <br/>Memória: 32G RAM<br/> HDD: 1,8 TB | Ambientes de produção grandes | 
-| Empresarial | CPU: 4 <br/> Memória: 8G RAM<br/> HDD: 500 GB | Ambientes de produção grandes |
-| Empresarial | CPU: 4 <br/>Memória: 8G RAM <br/> HDD: 100 GB | Pequenos ambientes de teste | 
+| Enterprise <br/>(Padrão e mais comum) | CPU: 8 <br/>Memória: 32G RAM<br/> HDD: 1,8 TB | Ambientes de produção grandes | 
+| Enterprise | CPU: 4 <br/> Memória: 8G RAM<br/> HDD: 500 GB | Ambientes de produção grandes |
+| Enterprise | CPU: 4 <br/>Memória: 8G RAM <br/> HDD: 100 GB | Pequenos ambientes de teste | 
    
 ### <a name="prerequisites"></a>Pré-requisitos
 
@@ -851,7 +851,7 @@ Para instalar o software:
 
 1. As credenciais de entrada são geradas e apresentadas automaticamente. Mantenha essas credenciais em um local seguro, pois elas são necessárias para a entrada e a administração.
 
-    | Nome de Usuário | Description |
+    | Nome de Usuário | Descrição |
     |--|--|
     | Suporte | O usuário administrativo do gerenciamento de usuários. |
     | CyberX | O equivalente de raiz para acessar o dispositivo. |
