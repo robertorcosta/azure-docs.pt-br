@@ -8,10 +8,10 @@ ms.date: 02/18/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 0f85eebbfa8fcdfd9ad6e31a564f27b5d9bfbdfc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101733237"
 ---
 # <a name="about-azure-defender-for-iot-network-setup"></a>Sobre a configuração de rede do Azure Defender para IoT
@@ -365,7 +365,7 @@ Os agregadores TAP também podem ser usados para o monitoramento de porta. Esses
 
 Esses modelos foram testados quanto à compatibilidade. Outros fornecedores e modelos também podem ser compatíveis.
 
-| Imagem | Modelar |
+| Imagem | Modelo |
 |--|--|
 | :::image type="content" source="media/how-to-set-up-your-network/garland-p1gccas-v2.png" alt-text="Captura de tela de Garland P1GCCAS."::: | Garland P1GCCAS |
 | :::image type="content" source="media/how-to-set-up-your-network/ixia-tpa2-cu3-v2.png" alt-text="Captura de tela de IXIA TPA2-CU3."::: | IXIA TPA2-CU3 |
@@ -563,7 +563,7 @@ Examine esta lista antes da implantação do site:
 
 Uma visão geral do diagrama de rede industrial permitirá que você defina o local apropriado para o equipamento do defender para IoT.
 
-1.  Exiba um diagrama de rede global do ambiente industrial de OT. Por exemplo: 
+1.  Exiba um diagrama de rede global do ambiente industrial de OT. Por exemplo:
 
     :::image type="content" source="media/how-to-set-up-your-network/ot-global-network-diagram.png" alt-text="Diagrama do ambiente industrial de OT para a rede global.":::
 
@@ -605,7 +605,7 @@ Uma visão geral do diagrama de rede industrial permitirá que você defina o lo
 
     Qual é sua política? __________________________________ 
 
-    Por exemplo: 
+    Por exemplo:
 
     - Siemens
 
@@ -695,6 +695,6 @@ Contate um administrador de Active Directory para criar um grupo de usuários de
 | Câmera | |
 | Computador com Ray X | |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Sobre a instalação do defender para IoT](how-to-install-software.md)

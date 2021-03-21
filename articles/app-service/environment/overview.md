@@ -8,10 +8,10 @@ ms.date: 03/02/2021
 ms.author: ccompy
 ms.custom: seodec18
 ms.openlocfilehash: 23b23340550ded3642d19500270f06cfb6faf8cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735090"
 ---
 # <a name="app-service-environment-overview"></a>Visão geral de Ambiente do Serviço de Aplicativo 
@@ -74,7 +74,7 @@ Grupos de Segurança de Rede restringem a comunicação da rede de entrada com a
 
 Aplicativos frequentemente precisam acessar recursos corporativos, como bancos de dados internos e serviços da Web. Se você implantar o ASE em uma rede virtual que tem uma conexão VPN à rede local, os aplicativos no ASE poderão acessar os recursos locais. Essa capacidade é verdadeira independentemente de a VPN ser uma VPN Site a Site ou Azure ExpressRoute.
 
-## <a name="preview"></a>Visualização
+## <a name="preview"></a>Versão Prévia
 O Ambiente do Serviço de Aplicativo v3 está em visualização pública.  Alguns recursos estão sendo adicionados durante a progressão da visualização. As limitações atuais do ASEv3 incluem:
 
 - Incapacidade de dimensionar um plano do serviço de aplicativo além de 50 instâncias

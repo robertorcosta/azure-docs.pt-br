@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 06/18/2019
 ms.author: rohink
 ms.openlocfilehash: 72d046cde70d1224eb1fd47f527c9e49c6b002f6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500454"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrar zonas privadas do DNS do Azure herdadas para um novo modelo de recurso
@@ -102,7 +102,7 @@ Se você achar que as consultas DNS não estão sendo resolvidas, aguarde alguns
 
 Esta etapa excluirá as zonas DNS herdadas e deverá ser executada somente após verificar se a resolução DNS está funcionando conforme o esperado. A exclusão de cada zona DNS privada será solicitada individualmente. Digite “Y” em cada prompt após verificar se a resolução DNS para as zonas está funcionando corretamente.
 
-![Limpar](./media/private-dns-migration-guide/cleanup-migration-script.png)
+![Limpeza](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
 ## <a name="update-your-automation"></a>Atualizar sua automação
 

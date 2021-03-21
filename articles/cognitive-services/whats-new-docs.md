@@ -8,10 +8,10 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 03/08/2021
 ms.openlocfilehash: b5893ab7c616c30d4febf957c21da56caf7c9673
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102631363"
 ---
 # <a name="cognitive-services-docs-whats-new-for-february-1-2021---february-28-2021"></a>Documentos de serviços cognitivas: novidades para 1º de fevereiro de 2021 – 28 de fevereiro de 2021
@@ -42,7 +42,7 @@ Bem-vindo ao que há de novo nos documentos de serviços cognitivas de 1º de fe
 - [O que é o Reconhecimento de Formulários?](/azure/cognitive-services/form-recognizer/overview)
 - [Treinar um modelo de Reconhecimento de Formulários com rótulos usando a ferramenta de rotulagem de exemplo](/azure/cognitive-services/form-recognizer/quickstarts/label-tool)
 
-## <a name="text-analytics"></a>Análise de texto
+## <a name="text-analytics"></a>Análise de Texto
 
 ### <a name="updated-articles"></a>Artigos atualizados
 

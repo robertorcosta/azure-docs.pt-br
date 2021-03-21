@@ -8,10 +8,10 @@ ms.date: 2/18/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 63b3b450e289b40aa9acbfb0d5170e8eb57f9e58
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101733254"
 ---
 # <a name="onboard-and-manage-sensors-and-subscriptions-in-the-defender-for-iot-portal"></a>Integração e gerenciamento de sensores e assinaturas no portal do defender para IoT
@@ -141,6 +141,6 @@ Para transferir uma assinatura:
 
 O ambiente local não é afetado, mas você deve desinstalar o sensor do ambiente local ou reatribuir o sensor a outra assinatura, de modo a impedir que todos os dados relacionados fluam para o console de gerenciamento local. 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Ativar e configurar seu sensor](how-to-activate-and-set-up-your-sensor.md)

@@ -1,15 +1,15 @@
 ---
-title: O que é o virtual insights?
+title: O que são insights da VM?
 description: Visão geral do VM insights, que monitora a integridade e o desempenho das VMs do Azure e descobre e mapeia automaticamente os componentes do aplicativo e suas dependências.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/22/2020
 ms.openlocfilehash: 18e1fdcdee347a057c452f6170f36ec7f1f43244
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046407"
 ---
 # <a name="overview-of-vm-insights"></a>Visão geral de informações de VM

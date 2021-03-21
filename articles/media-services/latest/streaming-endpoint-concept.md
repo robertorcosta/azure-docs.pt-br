@@ -1,6 +1,6 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
-Título: pontos de extremidade de streaming (origem): descrição dos serviços de mídia do Azure: Saiba mais sobre os pontos de extremidade de streaming (origem), um serviço de empacotamento dinâmico e streaming que fornece conteúdo diretamente a um aplicativo de Player cliente ou a uma CDN (rede de distribuição de conteúdo). serviços: Media-Services documentationcenter: ' ' autor: IngridAtMicrosoft gerente: femila editor: ' '
+Título: pontos de extremidade de streaming (origem): descrição dos serviços de mídia do Azure: Saiba mais sobre os pontos de extremidade de streaming (origem), um serviço de empacotamento dinâmico e streaming que fornece conteúdo diretamente a um aplicativo de Player cliente ou a uma CDN (rede de distribuição de conteúdo). services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
 MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 02/13/2020 MS. Author: inhenkel
 ---
@@ -37,7 +37,7 @@ O limite máximo de unidades de streaming é, em geral, 10. Entre em contato con
 
 A tabela descreve os tipos:
 
-|Tipo|Unidades de escala|Descrição|
+|Type|Unidades de escala|Descrição|
 |--------|--------|--------|  
 |**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
