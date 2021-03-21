@@ -11,10 +11,10 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506694"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e failover da conta de armazenamento
@@ -171,7 +171,7 @@ Se sua conta de armazenamento estiver configurada para acesso de leitura para o 
 
 Em circunstâncias extremas em que uma região for perdida devido a um desastre significativo, a Microsoft poderá iniciar um failover regional. Nesse caso, nenhuma ação sua é necessária. Você não terá acesso para gravação na conta de armazenamento até que o failover gerenciado pela Microsoft seja concluído. Seus aplicativos poderão ler a partir da região secundária se sua conta de armazenamento estiver configurada para RA-GRS ou RA-GZRS.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Uso da redundância geográfica para criar aplicativos altamente disponíveis](geo-redundant-design.md)
 - [Iniciar um failover da conta](storage-initiate-account-failover.md)

@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: thvankra
 ms.openlocfilehash: ed0ff343595429a4cb81fef280203f1180eeb098
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101744180"
 ---
 # <a name="configure-grafana-to-visualize-metrics-emitted-from-the-managed-instance-cluster"></a>Configurar o Grafana para visualizar as métricas emitidas do cluster de instância gerenciada
 
 > [!IMPORTANT]
-> O Azure Instância Gerenciada para Apache Cassandra está atualmente em visualização pública.
+> A Instância Gerenciada do Azure para Apache Cassandra está atualmente em versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

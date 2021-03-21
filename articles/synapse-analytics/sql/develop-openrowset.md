@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d45b2ec8814ec2b7f02da99500aa1e72ec525d65
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 987b850d569c238902f57baaed4a2178f51bd79d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695695"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589609"
 ---
 # <a name="how-to-use-openrowset-using-serverless-sql-pool-in-azure-synapse-analytics"></a>Como usar a OPENROWSET usando o pool de SQL sem servidor no Azure Synapse Analytics
 
@@ -241,7 +241,7 @@ Especifica a codificação: char é usado para arquivos UTF8 e widechar é usado
 
 CODEPAGE = { 'ACP' | 'OEM' | 'RAW' | 'code_page' }
 
-Especifica a página de código dos dados no arquivo de dados. O valor padrão é 65001 (codificação UTF-8). Confira mais detalhes sobre essa opção [aqui](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
+Especifica a página de código dos dados no arquivo de dados. O valor padrão é 65001 (codificação UTF-8). Confira mais detalhes sobre essa opção [aqui](/sql/t-sql/functions/openrowset-transact-sql?view=sql-server-ver15#codepage).
 
 ## <a name="fast-delimited-text-parsing"></a>Análise rápida de texto delimitado
 

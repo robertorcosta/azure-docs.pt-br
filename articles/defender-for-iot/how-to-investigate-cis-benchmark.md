@@ -1,5 +1,5 @@
 ---
-title: Investigar a recomendação de benchmark do CIS
+title: Investigar a recomendação do parâmetro de comparação do CIS
 titleSuffix: Azure Defender for IoT
 description: Realize investigações básicas e avançadas com base nas recomendações de linha de base do sistema operacional.
 author: shhazam-ms
@@ -9,10 +9,10 @@ ms.date: 1/21/2021
 ms.topic: how-to
 ms.service: azure
 ms.openlocfilehash: 2f68ebedb229f7295bc9c5dcc3b3349808970e8c
-ms.sourcegitcommit: 4784fbba18bab59b203734b6e3a4d62d1dadf031
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99809689"
 ---
 # <a name="investigate-os-baseline-based-on-cis-benchmark-recommendation"></a>Recomendação investigar a linha de base do so (com base na referência de CIS) 

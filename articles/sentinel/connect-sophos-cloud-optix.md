@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/26/2021
 ms.author: yelevin
 ms.openlocfilehash: c66205ffd9bd5a742d645cbf2f9251a44329a16e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101700780"
 ---
 # <a name="connect-your-sophos-cloud-optix-to-azure-sentinel"></a>Conectar seu Sophos Cloud Optix ao Azure Sentinel
@@ -37,7 +37,7 @@ O Sophos Cloud Optix pode integrar e exportar logs diretamente para o Azure Sent
 
 1. No portal do Azure Sentinel, clique em **conectores de dados** e selecione **Sophos Cloud Optix (versão prévia)**.
 
-1. Selecione a **página abrir conector**.
+1. Clique em **Abrir página do conector**.
 
 1. Copie e salve a **ID do espaço de trabalho** e a **chave primária** na página do conector.
 

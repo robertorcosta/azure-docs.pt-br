@@ -15,10 +15,10 @@ ms.date: 02/17/2021
 ms.author: inhenkel
 ms.custom: devx-track-js
 ms.openlocfilehash: 33d84ca86ac3cd4696dce3797b015b861884182a
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102216421"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Conectar-se à API dos serviços de mídia v3-Node.js
@@ -137,7 +137,7 @@ DRM_SYMMETRIC_KEY="add random base 64 encoded string here"
 cd AMSv3Samples
 ```
 
-2. Instale os pacotes usados no *packages.jsno* arquivo.
+2. Instale os pacotes usados no arquivo *packages.json*.
 
 ```
 npm install 
@@ -149,7 +149,7 @@ npm install
 cd HelloWorld-ListAssets
 ```
 
-4. Inicie o Visual Studio Code na pasta AMSv3Samples Isso é necessário para iniciar na pasta em que a pasta ". vscode" e tsconfig.jsnos arquivos estão localizados
+4. Inicie o Visual Studio Code na pasta AMSv3Samples. Isso é necessário para iniciar na pasta em que a pasta ". vscode" e tsconfig.jsnos arquivos estão localizados
 
 ```dotnetcli
 cd ..
@@ -158,7 +158,7 @@ code .
 
 Abra a pasta para *HelloWorld-ListAssets* e abra o arquivo *index. TS* no editor de Visual Studio Code.
 
-No arquivo *index. TS* , pressione F5 para iniciar o depurador. Você deverá ver uma lista de ativos exibidos se já tiver ativos na conta. Se a conta estiver vazia, você verá uma lista vazia.  
+Enquanto estiver no arquivo *index.ts*, pressione F5 para iniciar o depurador. Você deverá ver uma lista de ativos exibidos se já tiver ativos na conta. Se a conta estiver vazia, você verá uma lista vazia.  
 
 Para ver rapidamente os ativos listados, use o portal para carregar alguns arquivos de vídeo. Os ativos serão automaticamente criados cada um e executar esse script novamente retornará seus nomes.
 
@@ -222,16 +222,16 @@ Os exemplos a seguir estão disponíveis no [repositório](https://github.com/Az
 |StreamFilesWithDRMSample/index. TS| Demonstra como codificar e transmitir usando o Widevine e o DRM do PlayReady |
 |VideoIndexerSample/index. TS| Exemplo de como usar o analisador de vídeo e áudio predefinições para gerar metadados e informações de um arquivo de vídeo ou áudio |
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Documentação de referência para os módulos dos serviços de mídia do Azure para Node.js](/javascript/api/overview/azure/media-services)
-- [Azure para JavaScript & Node.js desenvolvedores](/azure/developer/javascript/)
-- [Código-fonte dos serviços de mídia no @azure/azure-sdk-for-js repositório do Hub git](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
-- [Documentação do pacote do Azure para desenvolvedores de Node.js](/javascript/api/overview/azure/)
+- [Azure para desenvolvedores do JavaScript e do Node.js](/azure/developer/javascript/)
+- [Código-fonte dos Serviços de Mídia no repositório do GitHub @azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [Documentação do Pacote do Azure para desenvolvedores do Node.js](/javascript/api/overview/azure/)
 - [Conceitos dos Serviços de Mídia](concepts-overview.md)
-- [NPM instalar @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
-- [Azure para JavaScript & Node.js desenvolvedores](/azure/developer/javascript/)
-- [Código-fonte dos serviços de mídia no @azure/azure-sdk-for-js repositório](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
+- [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices)
+- [Azure para desenvolvedores do JavaScript e do Node.js](/azure/developer/javascript/)
+- [Código-fonte dos Serviços de Mídia no repositório @azure/azure-sdk-for-js](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/mediaservices/arm-mediaservices)
 
 ## <a name="next-steps"></a>Próximas etapas
 

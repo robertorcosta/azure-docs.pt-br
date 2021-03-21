@@ -9,10 +9,10 @@ ms.date: 12/11/2020
 ms.author: mohitku
 ms.reviewer: tyao
 ms.openlocfilehash: b2f551257fb6869d5dec47014be3a8522b61b9fa
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102506626"
 ---
 # <a name="tuning-web-application-firewall-waf-for-azure-front-door"></a>Ajustando o WAF (firewall do aplicativo Web) para a porta frontal do Azure
@@ -189,7 +189,7 @@ No exemplo a seguir, criamos uma regra personalizada com duas condições. A pri
 
 O uso de uma regra personalizada permite que você seja o mais granular ao ajustar suas regras WAF e para lidar com falsos positivos. Nesse caso, não estamos realizando uma ação apenas com base no `comment` valor do corpo da solicitação, que pode existir em vários sites ou aplicativos na mesma política de WAF. Ao incluir outra condição para corresponder também a um URI de solicitação específico `/api/Feedbacks/` , garantimos que essa regra personalizada realmente se aplique a esse caso de uso explícito que verificados. Isso garante que o mesmo ataque, se executado em condições diferentes, ainda seria inspecionado e impedido pelo mecanismo de WAF.
 
-![Registro](../media/waf-front-door-tuning/custom-rule.png)
+![Log](../media/waf-front-door-tuning/custom-rule.png)
 
 Ao explorar o log, você pode ver que o `ruleName_s` campo contém o nome fornecido para a regra personalizada que criamos: `redirectcomment` . No `action_s` campo, você pode ver que a ação de *redirecionamento* foi executada para esse evento. No `details_matches_s` campo, podemos ver os detalhes de ambas as condições serem correspondidas.
 

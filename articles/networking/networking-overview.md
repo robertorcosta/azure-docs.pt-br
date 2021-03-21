@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 10/28/2020
 ms.author: kumud
 ms.openlocfilehash: d02f85647d947c2f28527ba6f0397c2a98e73840
-ms.sourcegitcommit: c7153bb48ce003a158e83a1174e1ee7e4b1a5461
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98234181"
 ---
 # <a name="azure-networking-services-overview"></a>Visão geral dos serviços de rede do Azure
@@ -61,7 +61,7 @@ WAN Virtual do Azure é um serviço de rede que fornece conectividade de ramific
 ### <a name="azure-dns"></a><a name="dns"></a>DNS do Azure
 O DNS do Azure é um serviço de hospedagem para domínios DNS que fornece a resolução de nomes usando a infraestrutura do Microsoft Azure. Ao hospedar seus domínios no Azure, você pode gerenciar seus registros DNS usando as mesmas credenciais, APIs, ferramentas e faturamento que os outros serviços do Azure. Para obter mais informações, consulte [o que é o DNS do Azure?](../dns/dns-overview.md).
 
-### <a name="azure-bastion"></a><a name="bastion"></a>Azure Bastion
+### <a name="azure-bastion"></a><a name="bastion"></a>Bastiões do Azure
 O serviço Azure Bastion é um novo serviço de PaaS, totalmente gerenciado pela plataforma e provisionado dentro de sua rede virtual. Ele fornece conectividade de RDP/SSH contínua e segura às suas máquinas virtuais, diretamente no portal do Azure, via TLS. Quando você se conecta usando o Azure Bastion, suas máquinas virtuais não precisam de um endereço IP público. Para obter mais informações, consulte [o que é a bastiões do Azure?](../bastion/bastion-overview.md).
 
 :::image type="content" source="./media/networking-overview/architecture.png" alt-text="Arquitetura de bastiões do Azure":::
@@ -113,7 +113,7 @@ Os clientes podem optar por implantar o [Azure WAF com o gateway de aplicativo](
 
 :::image type="content" source="./media/networking-overview/waf-overview.png" alt-text="Firewall do Aplicativo Web":::
 
-### <a name="network-security-groups"></a><a name="nsg"></a>Grupos de Segurança de Rede
+### <a name="network-security-groups"></a><a name="nsg"></a>Grupos de segurança de rede
 Você pode filtrar o tráfego de rede de e para recursos do Azure em uma rede virtual do Azure com um grupo de segurança de rede. Para saber mais, confira [Grupos de segurança de rede](../virtual-network/network-security-groups-overview.md).
 
 ### <a name="service-endpoints"></a><a name="serviceendpoints"></a>Pontos de extremidade de serviço
@@ -152,7 +152,7 @@ A imagem a seguir mostra um aplicativo de várias camadas voltado para a Interne
 
 :::image type="content" source="./media/networking-overview/load-balancer.png" alt-text="Exemplo de Azure Load Balancer":::
 
-### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de aplicativo
+### <a name="application-gateway"></a><a name="applicationgateway"></a>Gateway de Aplicativo
 O Gateway de Aplicativo do Azure é um balanceador de carga do tráfego da Web que permite que você gerencie o tráfego para seus aplicativos Web. É um ADC (controlador de entrega de aplicativos) como um serviço, oferecendo vários recursos de balanceamento de carga de camada 7 para seus aplicativos. Para obter mais informações, consulte [o que é aplicativo Azure gateway?](../application-gateway/overview.md).
 
 O diagrama a seguir mostra o roteamento baseado em caminho de URL com o gateway de aplicativo.
