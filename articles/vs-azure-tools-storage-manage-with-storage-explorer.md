@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa
 ms.openlocfilehash: 3a8fe3ded6608059cc6ad50901ffe6df5dcf1b08
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102441526"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introdução ao Gerenciador de Armazenamento
@@ -115,7 +115,7 @@ Gerenciador de Armazenamento fornece várias maneiras de se conectar aos recurso
 
 Gerenciador de Armazenamento permite que você se conecte a recursos individuais, como um contêiner de Azure Data Lake Storage Gen2, usando vários métodos de autenticação. Alguns métodos de autenticação têm suporte apenas para determinados tipos de recursos.
 
-| Tipo de recurso    | AD do Azure | Nome da conta e chave | SAS (Assinatura de Acesso Compartilhado)  | Público (anônimo) |
+| Tipo de recurso    | Azure AD | Nome da conta e chave | SAS (Assinatura de Acesso Compartilhado)  | Público (anônimo) |
 |------------------|----------|----------------------|--------------------------------|--------------------|
 | Contas de armazenamento | Sim      | Sim                  | Sim (cadeia de conexão ou URL) | Não                 |
 | Contêineres de blobs  | Sim      | Não                   | Sim (URL)                      | Sim                |
@@ -139,7 +139,7 @@ Se Gerenciador de Armazenamento não foi possível adicionar a conexão ou se vo
 
 As seções a seguir descrevem os diferentes métodos de autenticação que você pode usar para se conectar a recursos individuais.
 
-#### <a name="azure-ad"></a>AD do Azure
+#### <a name="azure-ad"></a>Azure AD
 
 Gerenciador de Armazenamento pode usar sua conta do Azure para se conectar aos seguintes tipos de recursos:
 * Contêineres de blobs

@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 01/12/2021
 ms.author: aahi
-ms.openlocfilehash: dda3ece27fd2c687647e0aa289bd1596a87b274f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a825b9e0abc4e33eb0f9033f46bb77c38559f740
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98186015"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722694"
 ---
 # <a name="telemetry-and-troubleshooting"></a>Telemetria e solução de problemas
 
@@ -60,7 +60,7 @@ Depois de configurar Azure Monitor, você precisará criar credenciais que permi
 
 ```bash
 # Find your Azure IoT Hub resource ID by running this command. The resource ID  should start with something like 
-# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/...”
+# "/subscriptions/b60d6458-1234-4be4-9885-c7e73af9ced8/resourceGroups/..."
 az iot hub list
 
 # Create a Service Principal with `Monitoring Metrics Publisher` role in the IoTHub resource:
@@ -105,16 +105,16 @@ Depois que o módulo Telegraf é implantado, as métricas relatadas podem ser ac
 
 | Nome do evento | Descrição|
 |------|---------|
-|archon_exit    |Enviado quando um usuário altera o status do módulo de análise espacial de *em execução* para *parado*.  |
-|archon_error   |Enviado quando qualquer um dos processos dentro do contêiner falhar. Esse é um erro crítico.  |
-|InputRate  |A taxa na qual o grafo processa a entrada de vídeo. Relatado a cada 5 minutos. | 
+|archon_exit     |Enviado quando um usuário altera o status do módulo de análise espacial de *em execução* para *parado*.  |
+|archon_error     |Enviado quando qualquer um dos processos dentro do contêiner falhar. Esse é um erro crítico.  |
+|InputRate     |A taxa na qual o grafo processa a entrada de vídeo. Relatado a cada 5 minutos. | 
 |OutputRate     |A taxa na qual o grafo gera informações de AI. Relatado a cada 5 minutos. |
 |archon_allGraphsStarted | Enviado quando todos os gráficos concluíram a inicialização. |
-|archon_configchange    | Enviado quando uma configuração de grafo é alterada. |
+|archon_configchange     | Enviado quando uma configuração de grafo é alterada. |
 |archon_graphCreationFailed     |Enviado quando o grafo com o relatado `graphId` não é iniciado. |
-|archon_graphCreationSuccess    |Enviado quando o grafo com o relatado `graphId` é iniciado com êxito. |
-|archon_graphCleanup    | Enviado quando o grafo com o relatado é `graphId` limpo e encerrado. |
-|archon_graphHeartbeat  |Pulsação enviada a cada minuto para cada grafo de uma habilidade. |
+|archon_graphCreationSuccess     |Enviado quando o grafo com o relatado `graphId` é iniciado com êxito. |
+|archon_graphCleanup     | Enviado quando o grafo com o relatado é `graphId` limpo e encerrado. |
+|archon_graphHeartbeat     |Pulsação enviada a cada minuto para cada grafo de uma habilidade. |
 |archon_apiKeyAuthFail |Enviado quando a chave de recurso de Pesquisa Visual Computacional falha ao autenticar o contêiner por mais de 24 horas, devido aos seguintes motivos: sem cota, inválida, offline. |
 |VideoIngesterHeartbeat     |Enviado a cada hora para indicar que o vídeo é transmitido da fonte de vídeo, com o número de erros nessa hora. Relatado para cada grafo. |
 |VideoIngesterState | Relatórios *interrompidos* ou *iniciados* para streaming de vídeo. Relatado para cada grafo. |
@@ -363,7 +363,7 @@ Depois que o cluster kubernetes for criado, você poderá usar a `kubectl` ferra
     New-HcsKubernetesUser -UserName
     ```
 
-3. Adicione o arquivo de *configuração* à pasta *. Kube* em seu perfil de usuário no computador local.   
+3. Adicione o arquivo de *configuração* à pasta *. Kube* em seu perfil de usuário no computador local.    
 
 4. Associe o namespace ao usuário que você criou.
 
@@ -400,6 +400,34 @@ kubectl logs <pod-name> -n <namespace> --all-containers
 |`Get-HcsKubernetesUserConfig -AseUser`     | Gera um arquivo de configuração kubernetes. Ao usar o comando, copie as informações em um arquivo chamado *config*. Não salve o arquivo com uma extensão de arquivo.        |
 | `Get-HcsApplianceInfo` | Retorna informações sobre seu dispositivo. |
 | `Enable-HcsSupportAccess` | Gera credenciais de acesso para iniciar uma sessão de suporte. |
+
+
+## <a name="how-to-file-a-support-ticket-for-spatial-analysis"></a>Como arquivar um tíquete de suporte para análise espacial 
+
+Se você precisar de mais suporte para encontrar uma solução para um problema que está tendo com o contêiner de análise espacial, siga estas etapas para preencher e enviar um tíquete de suporte. Nossa equipe entrará em conta com diretrizes adicionais. 
+
+### <a name="fill-out-the-basics"></a>Preencha as noções básicas 
+Crie um novo tíquete de suporte na página [nova solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) . Siga os prompts para preencher os seguintes parâmetros:
+
+![Noções básicas de suporte](./media/support-ticket-page-1-final.png)
+
+1. Defina o **tipo de problema** como `Technical` .
+2. Selecione a assinatura que você está utilizando para implantar o contêiner de análise espacial.
+3. Selecione `My services` e selecione `Cognitive Services` como o serviço.
+4. Selecione o recurso que você está utilizando para implantar o contêiner de análise espacial.
+5. Escreva uma breve descrição detalhando o problema que você está enfrentando. 
+6. Selecione `Spatial Analysis` como seu tipo de problema.
+7. Selecione o subtipo apropriado na lista suspensa.
+8. Selecione **Avançar: soluções** para passar para a próxima página.
+
+### <a name="recommended-solutions"></a>Soluções recomendadas
+O próximo estágio oferecerá as soluções recomendadas para o tipo de problema que você selecionou. Essas soluções resolverão os problemas mais comuns, mas se não forem úteis para sua solução, selecione **Avançar: detalhes** para ir para a próxima etapa.
+
+### <a name="details"></a>Detalhes
+Nesta página, adicione alguns detalhes adicionais sobre o problema que você esteve enfrentando. Lembre-se de incluir o máximo de detalhes possível, pois isso ajudará nossos engenheiros a restringir melhor o problema. Inclua seu método de contato preferencial e a severidade do problema para que possamos contatá-lo adequadamente e selecione **Avançar: revisar + criar** para passar para a próxima etapa. 
+
+### <a name="review-and-create"></a>Examinar e criar 
+Examine os detalhes da sua solicitação de suporte para garantir que tudo seja preciso e represente o problema com eficiência. Quando estiver pronto, selecione **criar** para enviar o tíquete para a nossa equipe! Você receberá uma confirmação por email quando seu tíquete for recebido e nossa equipe trabalhará para voltar a você assim que possível. Você pode exibir o status do seu tíquete no portal do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 

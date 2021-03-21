@@ -11,10 +11,10 @@ ms.topic: troubleshooting
 ms.date: 09/02/2020
 ms.author: genli
 ms.openlocfilehash: 12ef839cbbbc69230b314bf7c56a63f57a0d6b20
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556257"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparar um VHD ou VHDX do Windows para carregar no Azure
@@ -380,7 +380,7 @@ O ideal é que você mantenha o computador atualizado para o *nível de patch*, 
 |                         | tcpip.sys      | 6.1.7601.23761 – KB4022722                | 6.2.9200.22070 – KB4022724                  | 6.3.9600.18478 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.447             | -                                           | -                                           |
 |                         | http.sys       | 6.1.7601.23403 – KB3125574                | 6.2.9200.17285 – KB3042553                  | 6.3.9600.18574 – KB4022726          | 10.0.14393.251 – KB4022715                  | 10.0.15063.483             | -                                           | -                                           |
 |                         | vmswitch.sys   | 6.1.7601.23727 – KB4022719                | 6.2.9200.22117 – KB4022724                  | 6.3.9600.18654 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.138             | -                                           | -                                           |
-| Core                    | ntoskrnl.exe   | 6.1.7601.23807 – KB4022719                | 6.2.9200.22170 – KB4022718                  | 6.3.9600.18696 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
+| Núcleo                    | ntoskrnl.exe   | 6.1.7601.23807 – KB4022719                | 6.2.9200.22170 – KB4022718                  | 6.3.9600.18696 – KB4022726          | 10.0.14393.1358 – KB4022715                 | 10.0.15063.483             | -                                           | -                                           |
 | Serviços de área de trabalho remota | rdpcorets.dll  | 6.2.9200.21506 – KB4022719                | 6.2.9200.22104 – KB4022724                  | 6.3.9600.18619 – KB4022726          | 10.0.14393.1198 – KB4022715                 | 10.0.15063.0               | -                                           | -                                           |
 |                         | termsrv.dll    | 6.1.7601.23403 – KB3125574                | 6.2.9200.17048 – KB2973501                  | 6.3.9600.17415 – KB3000850          | 10.0.14393.0 – KB4022715                    | 10.0.15063.0               | -                                           | -                                           |
 |                         | termdd.sys     | 6.1.7601.23403 – KB3125574                | -                                           | -                                   | -                                           | -                          | -                                           | -                                           |

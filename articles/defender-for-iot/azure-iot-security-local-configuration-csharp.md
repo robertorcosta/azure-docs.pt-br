@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
 ms.openlocfilehash: 14237894a38725ee07deca3b5f46cbe0ecfce4cd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493213"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>Noções básicas sobre o arquivo de configuração local (agente C#)
@@ -84,16 +84,16 @@ Para Windows:
 
 | Nome da configuração | Valores possíveis | Detalhes |
 |:-----------|:---------------|:--------|
-| moduleName | Cadeia de caracteres | Nome da identidade do defender-IoT-micro-Agent. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
-| deviceId | Cadeia de caracteres | ID do dispositivo (como registrado no Hub IoT do Azure). |
+| moduleName | string | Nome da identidade do defender-IoT-micro-Agent. Esse nome deve corresponder ao nome de identidade do módulo no dispositivo. |
+| deviceId | string | ID do dispositivo (como registrado no Hub IoT do Azure). |
 | schedulerInterval | Cadeia de TimeSpan | Intervalo do Agendador interno. |
-| gatewayHostname | Cadeia de caracteres | Nome do host do Hub IOT do Azure. Geralmente <meu Hub>. azure-devices.net |
+| gatewayHostname | string | Nome do host do Hub IOT do Azure. Geralmente <meu Hub>. azure-devices.net |
 | filePath | Cadeia de caracteres-caminho para o arquivo | Caminho para o arquivo que contém o segredo de autenticação.|
-| tipo | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
+| type | "SymmetricKey", "SelfSignedCertificate" | O segredo do usuário para autenticação. Escolha *SymmetricKey* se o segredo do usuário for uma chave simétrica, escolha *certificado autoassinado* se o segredo for um certificado autoassinado. |
 | identidade | "DPS", "módulo", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, módulo se a autenticação for feita usando credenciais de módulo ou dispositivo se a autenticação for feita usando as credenciais do dispositivo.
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile se o certificado estiver armazenado em um arquivo, armazenará se o certificado estiver localizado em um repositório de certificados. |
-| idScope | Cadeia de caracteres | Escopo da ID do DPS |
-| registrationId | Cadeia de caracteres  | ID de registro do dispositivo DPS. |
+| idScope | string | Escopo da ID do DPS |
+| registrationId | string  | ID de registro do dispositivo DPS. |
 |
 
 ### <a name="authenticationconfig-example"></a>Exemplo de Authentication.config

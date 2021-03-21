@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm, az-logic-apps-dev
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.openlocfilehash: 7120b6ff17657232c0e614f49b75bb24263712b7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102636328"
 ---
 # <a name="overview-azure-logic-apps-preview"></a>Visão geral: visualização de aplicativos lógicos do Azure
@@ -69,7 +69,7 @@ Enquanto isso, você ainda pode criar o tipo de aplicativo lógico multilocatár
 
 Com o tipo de aplicativo lógico de locatário único, você pode criar esses tipos de fluxo de trabalho dentro do mesmo aplicativo lógico:
 
-* *Com estado*
+* *Dinâmico*
 
   Crie fluxos de trabalho com estado quando precisar manter, examinar ou referenciar dados de eventos anteriores. Esses fluxos de trabalho salvam as entradas e saídas de cada ação e seus Estados no armazenamento externo, o que torna possível examinar os detalhes de execução e o histórico possível após a conclusão de cada execução. Fluxos de trabalho com estado fornecem alta resiliência se ocorrerem interrupções. Depois que os serviços e sistemas forem restaurados, você poderá reconstruir as execuções interrompidas do estado salvo e executar novamente os fluxos de trabalho até a conclusão. Fluxos de trabalho com estado podem continuar em execução por até um ano.
 

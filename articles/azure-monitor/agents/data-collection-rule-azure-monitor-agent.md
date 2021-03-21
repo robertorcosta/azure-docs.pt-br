@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 73f7ab83ea15d223b76b9f71fde2f8a6a37bdacf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104586362"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721521"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurar a coleta de dados para o agente de Azure Monitor (versão prévia)
 
@@ -72,6 +72,8 @@ Clique em **Adicionar fonte de dados** e **revise + criar** para examinar os det
 Como você é cobrado por todos os dados coletados em um espaço de trabalho Log Analytics, você deve coletar somente os dados necessários. Usando a configuração básica no portal do Azure, você só tem a capacidade limitada de filtrar eventos a serem coletados. Para logs do aplicativo e do sistema, esses são todos os logs com uma severidade específica. Para logs de segurança, esse é todo o êxito de auditoria ou todos os logs de falha de auditoria.
 
 Para especificar filtros adicionais, você deve usar a configuração personalizada e especificar um XPath que filtra os eventos que você não tem. As entradas XPath são gravadas no formulário `LogName!XPathQuery` . Por exemplo, talvez você queira retornar apenas eventos do log de eventos do aplicativo com uma ID de evento de 1035. O XPathQuery para esses eventos seria `*[System[EventID=1035]]` . Como você deseja recuperar os eventos do log de eventos do aplicativo, o XPath seria `Application!*[System[EventID=1035]]`
+
+Consulte [limitações do xpath 1,0](/windows/win32/wes/consuming-events#xpath-10-limitations) para obter uma lista de limitações no XPath com suporte no log de eventos do Windows.
 
 > [!TIP]
 > Use o cmdlet do PowerShell `Get-WinEvent` com o `FilterXPath` parâmetro para testar a validade de um XPathQuery. O script a seguir mostra um exemplo.

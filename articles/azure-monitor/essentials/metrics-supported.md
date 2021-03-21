@@ -7,10 +7,10 @@ ms.topic: reference
 ms.date: 02/06/2021
 ms.author: robb
 ms.openlocfilehash: 2437ab80a23ffc39c180bcdf72921fdf13768541
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033496"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
@@ -121,16 +121,16 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Métrica|Exportável por meio das Configurações de Diagnóstico?|Nome de exibição da métrica|Unidade|Tipo de agregação|Descrição|Dimensões|
 |---|---|---|---|---|---|---|
 |BackendDuration|Sim|Duração de Solicitações de Back-end|Milissegundos|Média|Duração de solicitações de back-end em milissegundos|Local, Nome do host|
-|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Local|
+|Capacity|Sim|Capacity|Porcentagem|Média|Métrica de utilização para o serviço ApiManagement|Location|
 |Duration|Sim|Duração total de solicitações de gateway|Milissegundos|Média|Duração total de solicitações de gateway em milissegundos|Local, Nome do host|
-|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Local|
-|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Local|
-|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Local|
-|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Local|
-|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Local|
-|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Local|
-|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Local|
-|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Local|
+|EventHubDroppedEvents|Sim|Eventos do EventHub Ignorados|Contagem|Total|Número de eventos ignorados devido ao limite de tamanho de fila atingido|Location|
+|EventHubRejectedEvents|Sim|Eventos do EventHub Rejeitados|Contagem|Total|Número de eventos do EventHub rejeitados (configuração incorreta ou não autorizada)|Location|
+|EventHubSuccessfulEvents|Sim|Eventos do EventHub Bem-sucedidos|Contagem|Total|Número de eventos de EventHub bem-sucedidos|Location|
+|EventHubThrottledEvents|Sim|Eventos do EventHub Restringidos|Contagem|Total|Número de eventos regulados do EventHub|Location|
+|EventHubTimedoutEvents|Sim|Eventos do EventHub com Tempo Limite Excedido|Contagem|Total|Número de eventos do EventHub com tempo limite excedido|Location|
+|EventHubTotalBytesSent|Sim|Tamanho dos Eventos do EventHub|Bytes|Total|Tamanho total dos eventos do EventHub em bytes|Location|
+|EventHubTotalEvents|Sim|Eventos Totais do EventHub|Contagem|Total|Número de eventos enviados ao EventHub|Location|
+|EventHubTotalFailedEvents|Sim|Eventos do EventHub com Falha|Contagem|Total|Número de eventos de EventHub com falha|Location|
 |FailedRequests|Sim|Solicitações de Gateway com Falha (Preterido)|Contagem|Total|Número de falhas em solicitações de gateway-use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
 |Conectividade|Sim|Status de conectividade de rede de recursos (versão prévia)|Contagem|Média|Status de conectividade de rede de tipos de recursos dependentes do serviço de gerenciamento de API|Local, ResourceType|
 |OtherRequests|Sim|Outras Solicitações de Gateway (Preterido)|Contagem|Total|Número de outras solicitações de gateway – use a métrica de solicitação de várias dimensões com a dimensão GatewayResponseCodeCategory em vez disso|Local, Nome do host|
@@ -641,7 +641,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de gravação de disco/Seg|Sim|Operações de gravação de disco/Seg|CountPerSecond|Média|IOPS de gravação de disco.|RoleInstanceId|
 |Entrada na rede|Sim|Entrada na rede|Bytes|Total|O número de bytes recebidos em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Entrada).|RoleInstanceId|
 |Saída da rede|Sim|Saída da rede|Bytes|Total|O número de bytes de saída em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Saída).|RoleInstanceId|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|RoleInstanceId|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|RoleInstanceId|
 
 
 ## <a name="microsoftclassiccomputevirtualmachines"></a>Microsoft.ClassicCompute/virtualMachines
@@ -654,7 +654,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de gravação de disco/Seg|Sim|Operações de gravação de disco/Seg|CountPerSecond|Média|IOPS de gravação de disco.|Sem dimensões|
 |Entrada na rede|Sim|Entrada na rede|Bytes|Total|O número de bytes recebidos em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Entrada).|Sem dimensões|
 |Saída da rede|Sim|Saída da rede|Bytes|Total|O número de bytes de saída em todos os adaptadores de rede pelas Máquinas Virtuais (Tráfego de Saída).|Sem dimensões|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|Sem dimensões|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|O percentual das unidades de computação alocadas que estão atualmente em uso pelas Máquinas Virtuais.|Sem dimensões|
 
 
 ## <a name="microsoftclassicstoragestorageaccounts"></a>Microsoft.ClassicStorage/storageAccounts
@@ -776,7 +776,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de leitura de disco/Seg|Sim|Operações de leitura de disco/Seg|CountPerSecond|Média|IOPS de leitura de disco|RoleInstanceId, RoleID|
 |Bytes de gravação de disco|Sim|Bytes de gravação de disco|Bytes|Total|Bytes gravados no disco durante o período de monitoramento|RoleInstanceId, RoleID|
 |Operações de gravação de disco/Seg|Sim|Operações de gravação de disco/Seg|CountPerSecond|Média|IOPS de gravação de disco|RoleInstanceId, RoleID|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|RoleInstanceId, RoleID|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|RoleInstanceId, RoleID|
 
 
 ## <a name="microsoftcomputecloudservicesroles"></a>Microsoft. Compute/cloudservices/Roles
@@ -787,7 +787,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de leitura de disco/Seg|Sim|Operações de leitura de disco/Seg|CountPerSecond|Média|IOPS de leitura de disco|RoleInstanceId, RoleID|
 |Bytes de gravação de disco|Sim|Bytes de gravação de disco|Bytes|Total|Bytes gravados no disco durante o período de monitoramento|RoleInstanceId, RoleID|
 |Operações de gravação de disco/Seg|Sim|Operações de gravação de disco/Seg|CountPerSecond|Média|IOPS de gravação de disco|RoleInstanceId, RoleID|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|RoleInstanceId, RoleID|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|RoleInstanceId, RoleID|
 
 
 ## <a name="microsoftcomputedisks"></a>microsoft.compute/disks
@@ -844,7 +844,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de Gravação do Disco do SO/s|Sim|Operações de Gravação do Disco do SO/s|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Sem dimensões|
 |Fluxos de Saída|Sim|Fluxos de Saída|Contagem|Média|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|Sem dimensões|
 |Taxa Máxima de Criação de Fluxos de Saída|Sim|Taxa Máxima de Criação de Fluxos de Saída|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|Sem dimensões|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
 |Ocorrência de Leitura do Cache de Disco de Dados Premium|Sim|Ocorrência de Leitura do Cache de Disco de Dados Premium|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ausência de Leitura do Cache de Disco de Dados Premium|Sim|Ausência de Leitura do Cache de Disco de Dados Premium|Porcentagem|Média|Ausência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ocorrência de Leitura do Cache de Disco do SO Premium|Sim|Ocorrência de Leitura do Cache de Disco do SO Premium|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco do SO Premium|Sem dimensões|
@@ -899,7 +899,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de Gravação do Disco do SO/s|Sim|Operações de Gravação do Disco do SO/s|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|VMName|
 |Fluxos de Saída|Sim|Fluxos de Saída|Contagem|Média|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|VMName|
 |Taxa Máxima de Criação de Fluxos de Saída|Sim|Taxa Máxima de Criação de Fluxos de Saída|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|VMName|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|VMName|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|VMName|
 |Ocorrência de Leitura do Cache de Disco de Dados Premium|Sim|Ocorrência de Leitura do Cache de Disco de Dados Premium|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco de Dados Premium|LUN, VMName|
 |Ausência de Leitura do Cache de Disco de Dados Premium|Sim|Ausência de Leitura do Cache de Disco de Dados Premium|Porcentagem|Média|Ausência de Leitura do Cache de Disco de Dados Premium|LUN, VMName|
 |Ocorrência de Leitura do Cache de Disco do SO Premium|Sim|Ocorrência de Leitura do Cache de Disco do SO Premium|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco do SO Premium|VMName|
@@ -954,7 +954,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Operações de Gravação do Disco do SO/s|Sim|Operações de Gravação do Disco do SO/s|CountPerSecond|Média|Gravar IOPS de um único disco durante o período de monitoramento para o disco do sistema operacional|Sem dimensões|
 |Fluxos de Saída|Sim|Fluxos de Saída|Contagem|Média|Fluxos de saída são o número de fluxos atuais na direção de saída (tráfego saindo da VM)|Sem dimensões|
 |Taxa Máxima de Criação de Fluxos de Saída|Sim|Taxa Máxima de Criação de Fluxos de Saída|CountPerSecond|Média|A taxa de criação máxima de fluxos de saída (tráfego saindo da VM)|Sem dimensões|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A porcentagem das unidades de computação alocadas que estão atualmente em uso pela máquina virtual ou pelas máquinas virtuais|Sem dimensões|
 |Ocorrência de Leitura do Cache de Disco de Dados Premium|Sim|Ocorrência de Leitura do Cache de Disco de Dados Premium|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ausência de Leitura do Cache de Disco de Dados Premium|Sim|Ausência de Leitura do Cache de Disco de Dados Premium|Porcentagem|Média|Ausência de Leitura do Cache de Disco de Dados Premium|LUN|
 |Ocorrência de Leitura do Cache de Disco do SO Premium|Sim|Ocorrência de Leitura do Cache de Disco do SO Premium|Porcentagem|Média|Ocorrência de Leitura do Cache de Disco do SO Premium|Sem dimensões|
@@ -1696,21 +1696,21 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |CosmosDbCollectionSize|Sim|Tamanho da coleção de Cosmos DB|Bytes|Total|O tamanho da coleção de Cosmos DB de backup, em bytes.|Sem dimensões|
 |CosmosDbIndexSize|Sim|Tamanho do índice de Cosmos DB|Bytes|Total|O tamanho do índice da coleção de Cosmos DB de backup, em bytes.|Sem dimensões|
 |CosmosDbRequestCharge|Sim|Uso do Cosmos DB RU|Contagem|Total|O uso do RU das solicitações para o Cosmos DB de backup do serviço.|Operação, ResourceType|
-|CosmosDbRequests|Sim|Solicitações de Cosmos DB de serviço|Contagem|Somar|O número total de solicitações feitas ao Cosmos DB de backup de um serviço.|Operação, ResourceType|
-|CosmosDbThrottleRate|Sim|Taxa de limitação de Cosmos DB de serviço|Contagem|Somar|O número total de 429 respostas do Cosmos DB de backup de um serviço.|Operação, ResourceType|
-|IoTConnectorDeviceEvent|Sim|Número de mensagens de entrada|Contagem|Somar|O número total de mensagens recebidas pelo conector IoT do Azure para FHIR antes de qualquer normalização.|Operação, connectorname|
+|CosmosDbRequests|Sim|Solicitações de Cosmos DB de serviço|Contagem|Soma|O número total de solicitações feitas ao Cosmos DB de backup de um serviço.|Operação, ResourceType|
+|CosmosDbThrottleRate|Sim|Taxa de limitação de Cosmos DB de serviço|Contagem|Soma|O número total de 429 respostas do Cosmos DB de backup de um serviço.|Operação, ResourceType|
+|IoTConnectorDeviceEvent|Sim|Número de mensagens de entrada|Contagem|Soma|O número total de mensagens recebidas pelo conector IoT do Azure para FHIR antes de qualquer normalização.|Operação, connectorname|
 |IoTConnectorDeviceEventProcessingLatencyMs|Sim|Latência média de estágio de normalização|Milissegundos|Média|O tempo médio entre o tempo de ingestão de um evento e a hora em que o evento é processado para normalização.|Operação, connectorname|
-|IoTConnectorMeasurement|Sim|Número de medições|Contagem|Somar|O número de leituras de valor normalizado recebidas pelo estágio de conversão FHIR do conector IoT do Azure para FHIR.|Operação, connectorname|
-|IoTConnectorMeasurementGroup|Sim|Número de grupos de mensagens|Contagem|Somar|O número total de agrupamentos exclusivos de medidas em tipo, dispositivo, paciente e período de tempo configurado gerado pelo estágio de conversão FHIR.|Operação, connectorname|
+|IoTConnectorMeasurement|Sim|Número de medições|Contagem|Soma|O número de leituras de valor normalizado recebidas pelo estágio de conversão FHIR do conector IoT do Azure para FHIR.|Operação, connectorname|
+|IoTConnectorMeasurementGroup|Sim|Número de grupos de mensagens|Contagem|Soma|O número total de agrupamentos exclusivos de medidas em tipo, dispositivo, paciente e período de tempo configurado gerado pelo estágio de conversão FHIR.|Operação, connectorname|
 |IoTConnectorMeasurementIngestionLatencyMs|Sim|Latência média de estágio de grupo|Milissegundos|Média|O período de tempo entre o momento em que o conector IoT recebeu os dados do dispositivo e quando os dados são processados pelo estágio de conversão FHIR.|Operação, connectorname|
-|IoTConnectorNormalizedEvent|Sim|Número de mensagens normalizadas|Contagem|Somar|O número total de valores normalizados mapeados enviados do estágio de normalização do conector de IoT do Azure para FHIR.|Operação, connectorname|
-|IoTConnectorTotalErrors|Sim|Contagem Total de Erros|Contagem|Somar|O número total de erros registrados pelo conector de IoT do Azure para FHIR|Nome, operação, ErrorType, ErrorSeverity, connectorname|
-|ServiceApiErrors|Sim|Erros de serviço|Contagem|Somar|O número total de erros de servidor interno gerados pelo serviço.|Protocolo, autenticação, operação, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
+|IoTConnectorNormalizedEvent|Sim|Número de mensagens normalizadas|Contagem|Soma|O número total de valores normalizados mapeados enviados do estágio de normalização do conector de IoT do Azure para FHIR.|Operação, connectorname|
+|IoTConnectorTotalErrors|Sim|Contagem Total de Erros|Contagem|Soma|O número total de erros registrados pelo conector de IoT do Azure para FHIR|Nome, operação, ErrorType, ErrorSeverity, connectorname|
+|ServiceApiErrors|Sim|Erros de serviço|Contagem|Soma|O número total de erros de servidor interno gerados pelo serviço.|Protocolo, autenticação, operação, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
 |ServiceApiLatency|Sim|Latência de serviço|Milissegundos|Média|A latência de resposta do serviço.|Protocolo, autenticação, operação, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|ServiceApiRequests|Sim|Service Requests|Contagem|Somar|O número total de solicitações recebidas pelo serviço.|Protocolo, autenticação, operação, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
-|TotalErrors|Sim|Total de Erros|Contagem|Somar|O número total de erros de servidor interno encontrados pelo serviço.|Protocolo, StatusCode, StatusCodeClass, StatusCodeText|
+|ServiceApiRequests|Sim|Service Requests|Contagem|Soma|O número total de solicitações recebidas pelo serviço.|Protocolo, autenticação, operação, ResourceType, StatusCode, StatusCodeClass, StatusCodeText|
+|TotalErrors|Sim|Total de Erros|Contagem|Soma|O número total de erros de servidor interno encontrados pelo serviço.|Protocolo, StatusCode, StatusCodeClass, StatusCodeText|
 |TotalLatency|Sim|Latência total|Milissegundos|Média|A latência de resposta do serviço.|Protocolo|
-|TotalRequests|Sim|Total de Solicitações|Contagem|Somar|O número total de solicitações recebidas pelo serviço.|Protocolo|
+|TotalRequests|Sim|Total de Solicitações|Contagem|Soma|O número total de solicitações recebidas pelo serviço.|Protocolo|
 
 
 ## <a name="microsofthybridnetworknetworkfunctions"></a>Microsoft. hybridnetwork/networkfunctions
@@ -3057,7 +3057,7 @@ Para obter informações adicionais importantes, consulte [visão geral dos agen
 |Saída da rede|Sim|Saída da rede|Bytes|Total|Taxa de transferência total de rede para o tráfego transmitido.|Sem dimensões|
 |NetworkInBytesPerSecond|Sim|Bytes/s de Entrada de Rede|BytesPerSecond|Média|Taxa de transferência média de rede para o tráfego recebido.|Sem dimensões|
 |NetworkOutBytesPerSecond|Sim|Bytes/s de Saída de Rede|BytesPerSecond|Média|Taxa de transferência média de rede para o tráfego transmitido.|Sem dimensões|
-|Porcentagem de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A utilização da CPU. Esse valor é relatado com 100% que representa todos os núcleos de processador no sistema. Por exemplo, uma VM de 2 vias usando 50% de um sistema de quatro núcleos está usando completamente dois núcleos.|Sem dimensões|
+|Percentual de CPU|Sim|Porcentagem de CPU|Porcentagem|Média|A utilização da CPU. Esse valor é relatado com 100% que representa todos os núcleos de processador no sistema. Por exemplo, uma VM de 2 vias usando 50% de um sistema de quatro núcleos está usando completamente dois núcleos.|Sem dimensões|
 |PercentageCpuReady|Sim|Percentual de CPU Pronta|Milissegundos|Total|O tempo de preparação é o tempo gasto aguardando que as CPUs fiquem disponíveis no intervalo de atualização anterior.|Sem dimensões|
 
 

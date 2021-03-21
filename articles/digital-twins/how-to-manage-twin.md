@@ -8,10 +8,10 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 98b50673b464044af2a038fa93c3b6a022fa2899
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103149696"
 ---
 # <a name="manage-digital-twins"></a>Gerenciar gêmeos digitais
@@ -216,7 +216,7 @@ Aqui está um exemplo do código para excluir gêmeos e suas relações. A `Dele
 
 ### <a name="delete-all-digital-twins"></a>Excluir todos os gêmeos digitais
 
-Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllTwins()` função.
+Para obter um exemplo de como excluir todos os gêmeos de uma vez, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop. cs* faz isso em uma `CommandDeleteAllTwins()` função.
 
 ## <a name="runnable-digital-twin-code-sample"></a>Exemplo de código de teledigital executável
 

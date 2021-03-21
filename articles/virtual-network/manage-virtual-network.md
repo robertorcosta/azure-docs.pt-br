@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: kumud
 ms.openlocfilehash: 1ec4e26e266a1777857fe0e890b093f60a3597f0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612517"
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
@@ -122,7 +122,7 @@ Para adicionar ou remover um intervalo de endereços:
 4. Preencha uma das seguintes opções:
     - **Adicionar um intervalo de endereços:** digite o novo intervalo de endereços. O intervalo de endereços não pode se sobrepor a um intervalo de endereços existente definido para a rede virtual.
     - **Remover um intervalo de endereços**: à direita do intervalo de endereços que deseja remover, selecione **...** e, em seguida, selecione **Remover**. Se existir uma sub-rede no intervalo de endereços, você não poderá removê-lo. Para remover um intervalo de endereços, você deve primeiro excluir todas as sub-redes (e outros recursos nas sub-redes) existentes no intervalo de endereços.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 
 **Comandos**
 
@@ -143,7 +143,7 @@ Todas as VMs que estão conectadas ao registro da rede virtual com os servidores
    - **Remover um endereço:** Ao lado do servidor que deseja remover, selecione **...** e, em seguida, **Remover**. Excluir o servidor remove o servidor somente dessa lista de rede virtual. O servidor DNS permanece registrado no Azure para que suas outras redes virtuais possam usá-lo.
    - **Reordenar endereços do servidor DNS**: é importante verificar se os servidores DNS estão listados na ordem correta para seu ambiente. As listas de servidores DNS são usadas na ordem em que foram especificadas. Eles não funcionam como uma configuração de round-robin. Se o primeiro servidor DNS na lista puder ser alcançado, o cliente usará esse servidor DNS, não importa se ele está funcionando corretamente. Remova todos os servidores DNS listados e, em seguida, adicione-os de volta na ordem que desejar.
    - **Alterar um endereço**: destaque o servidor DNS na lista, e em seguida digite o novo endereço.
-5. Selecione **Salvar**.
+5. Clique em **Salvar**.
 6. Reinicie as VMs que estão conectadas à rede virtual, para que as novas configurações do servidor DNS sejam atribuídas a elas. As VMs continuam a usar suas configurações de DNS atuais até que elas sejam reiniciadas.
 
 **Comandos**
@@ -170,7 +170,7 @@ Você pode excluir uma rede virtual somente se não houver recursos conectados a
 
 Para executar tarefas em redes virtuais, sua conta deve ser atribuída à função de [colaborador da rede](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) ou a uma função [personalizada](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) à qual são atribuídas as ações apropriadas listadas na tabela a seguir:
 
-| Ação                                  |   Name                                |
+| Ação                                  |   Nome                                |
 |---------------------------------------- |   --------------------------------    |
 |Microsoft.Network/virtualNetworks/read   |   Ler uma rede virtual              |
 |Microsoft.Network/virtualNetworks/write  |   Criar ou atualizar uma rede virtual  |

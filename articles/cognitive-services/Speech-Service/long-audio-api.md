@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 08/11/2020
 ms.author: trbye
 ms.openlocfilehash: 65c0d80394317c2b2bfbf621d3cc2ad0c2e3448a
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102618399"
 ---
 # <a name="long-audio-api"></a>API de áudio longo
@@ -430,7 +430,7 @@ A tabela a seguir detalha os códigos de resposta HTTP e as mensagens da API RES
 |        | 400 | O arquivo de entrada deve ter mais de 400 caracteres. | Verifique se o arquivo de entrada excede 400 caracteres. |
 |        | 404 | O modelo declarado na definição de síntese de voz não pode ser encontrado: {ModelId}. | Verifique se {ModelId} está correto. |
 |        | 429 | Excede o limite de síntese de voz ativo. Aguarde até que algumas solicitações sejam concluídas. | O servidor tem permissão para executar e enfileirar até 120 solicitações para cada conta do Azure. Aguarde e evite enviar novas solicitações até que algumas solicitações sejam concluídas. |
-| Todos       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
+| Tudo       | 429 | Há muitas solicitações. | O cliente tem permissão para enviar até 5 solicitações ao servidor por segundo para cada conta do Azure. Reduza o valor da solicitação por segundo. |
 | Excluir    | 400 | A tarefa de síntese de voz ainda está em uso. | Você só pode excluir solicitações **concluídas** ou **com falha**. |
 | GetByID   | 404 | A entidade especificada não pode ser encontrada. | Verifique se a ID de síntese está correta. |
 
@@ -438,7 +438,7 @@ A tabela a seguir detalha os códigos de resposta HTTP e as mensagens da API RES
 
 A API de áudio longa está disponível em várias regiões com pontos de extremidade exclusivos.
 
-| Region | Ponto de extremidade |
+| Região | Ponto de extremidade |
 |--------|----------|
 | Leste dos EUA | `https://eastus.customvoice.api.speech.microsoft.com` |
 | Centro da Índia | `https://centralindia.customvoice.api.speech.microsoft.com` |

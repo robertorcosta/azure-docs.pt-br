@@ -4,10 +4,10 @@ description: Descreve como filtrar eventos durante a criação de uma assinatura
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.openlocfilehash: fa63296f97bfa888cb0f425d0c03a5e4a7e46525
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419840"
 ---
 # <a name="understand-event-filtering-for-event-grid-subscriptions"></a>Compreender a filtragem para assinaturas da Grade de Eventos
@@ -61,7 +61,7 @@ Para filtrar por valores nos campos de dados e especificar o operador de compara
 Chave é o campo nos dados de evento que você está usando para filtragem. Pode ser um dos seguintes tipos:
 
 - Número
-- Booliano
+- Boolean
 - String
 - Matriz. Você precisa definir a `enableAdvancedFilteringOnArrays` propriedade como true para usar esse recurso. Atualmente, o portal do Azure não dá suporte à habilitação desse recurso. 
 
@@ -569,7 +569,7 @@ Se você especificar um único filtro com vários valores, uma operação **ou**
 ]
 ```
 
-Se você especificar vários filtros diferentes, uma operação and será feita, portanto, cada condição **de** filtro deverá ser atendida. Aqui está um exemplo: 
+Se você especificar vários filtros diferentes, uma operação and será feita, portanto, cada condição **de** filtro deverá ser atendida. Veja um exemplo: 
 
 ```json
 "advancedFilters": [

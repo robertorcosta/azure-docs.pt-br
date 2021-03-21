@@ -15,10 +15,10 @@ ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f88a0818d93c33b6265cc8c695479d2a42678ada
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011027"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Adicionar e gerenciar grupos em uma unidade administrativa no Azure Active Directory
@@ -132,7 +132,7 @@ Get-AzureADGroup -ObjectId $member.ObjectId
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 Solicitação
 
@@ -162,7 +162,7 @@ Corpo
 
 ### <a name="use-powershell"></a>Usar o PowerShell
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 ```powershell
 Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember -ObjectId $_.ObjectId | where {$_.ObjectId -eq $groupObjId} }
@@ -170,7 +170,7 @@ Get-AzureADMSAdministrativeUnit | where { Get-AzureADMSAdministrativeUnitMember 
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 ```http
 https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
@@ -202,7 +202,7 @@ Você pode remover um grupo de uma unidade administrativa na portal do Azure de 
 
 ### <a name="use-powershell"></a>Usar o PowerShell
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 ```powershell
 Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $memberGroupObjId
@@ -210,7 +210,7 @@ Remove-AzureADMSAdministrativeUnitMember -ObjectId $adminUnitId -MemberId $membe
 
 ### <a name="use-microsoft-graph"></a>Usar Microsoft Graph
 
-Execute o seguinte comando:
+Execute o comando a seguir:
 
 ```http
 https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref

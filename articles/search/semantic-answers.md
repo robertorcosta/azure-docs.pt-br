@@ -8,17 +8,17 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
-ms.openlocfilehash: e467affd3ba1b839ce3323e3689d7f5134a0686f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9bb62544887e0bc0269b98cd98fbf97fc477352f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604297"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722422"
 ---
 # <a name="return-a-semantic-answer-in-azure-cognitive-search"></a>Retornar uma resposta semântica no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT]
-> Os recursos de pesquisa semântica estão em visualização pública, disponíveis somente por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
+> A pesquisa semântica está em visualização pública, disponível apenas por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
 Ao formular uma [consulta semântica](semantic-how-to-query-request.md), você pode, opcionalmente, extrair o conteúdo dos documentos de correspondência superior que "responde" diretamente à consulta. Uma ou mais respostas podem ser incluídas na resposta, que você pode renderizar em uma página de pesquisa para melhorar a experiência do usuário do seu aplicativo.
 
@@ -28,27 +28,27 @@ Neste artigo, saiba como solicitar uma resposta semântica, descompactar a respo
 
 Todos os pré-requisitos que se aplicam a [consultas semânticas](semantic-how-to-query-request.md) também se aplicam a respostas, incluindo a camada de serviço e a região.
 
-+ Consultas formuladas usando os parâmetros de consulta semântica e incluem o parâmetro "Answers". Os parâmetros necessários são discutidos neste artigo.
++ A lógica de consulta deve incluir os parâmetros de consulta semântica, além do parâmetro "respostas". Os parâmetros necessários são discutidos neste artigo.
 
-+ As cadeias de caracteres de consulta devem ser formuladas em linguagem com as características de uma pergunta (o que, onde, quando, como).
++ As cadeias de caracteres de consulta inseridas pelo usuário devem ser formuladas em linguagem com as características de uma pergunta (o que, onde, quando, como).
 
-+ Os documentos de pesquisa devem conter texto com as características de uma resposta e esse texto deve existir em um dos campos listados em "searchFields".
++ Os documentos de pesquisa devem conter texto com as características de uma resposta e esse texto deve existir em um dos campos listados em "searchFields". Por exemplo, dada uma consulta "o que é uma tabela de hash", se nenhuma das searchFields contiver passagens que incluam "uma tabela de hash é...", é improvável que uma resposta seja retornada.
 
 ## <a name="what-is-a-semantic-answer"></a>O que é uma resposta semântica?
 
-Uma resposta semântica é um artefato de uma [consulta semântica](semantic-how-to-query-request.md). Ele consiste em uma ou mais passagens idênticas de um documento de pesquisa, formulado como uma resposta a uma consulta que se parece com uma pergunta. Para que uma resposta seja retornada, frases ou sentenças devem existir em um documento de pesquisa que tenha as características da linguagem de uma resposta, e a consulta em si deve ser apresentada como uma pergunta.
+Uma resposta semântica é uma subestrutura de uma [resposta de consulta semântica](semantic-how-to-query-request.md). Ele consiste em uma ou mais passagens idênticas de um documento de pesquisa, formulado como uma resposta a uma consulta que se parece com uma pergunta. Para que uma resposta seja retornada, frases ou sentenças devem existir em um documento de pesquisa que tenha as características da linguagem de uma resposta, e a consulta em si deve ser apresentada como uma pergunta.
 
-Pesquisa Cognitiva usa um modelo de compreensão de leitura de máquina para formular respostas. O modelo produz um conjunto de possíveis respostas dos documentos disponíveis e, quando atinge um nível de confiança alto o suficiente, ele propõe uma resposta.
+Pesquisa Cognitiva usa um modelo de compreensão de leitura de máquina para escolher a melhor resposta. O modelo produz um conjunto de possíveis respostas do conteúdo disponível e, quando atinge um nível de confiança alto o suficiente, ele propõe uma resposta.
 
-As respostas são retornadas como um objeto independente e de nível superior na carga de resposta de consulta que você pode escolher para renderizar em páginas de pesquisa, além dos resultados da pesquisa lateral. Estruturalmente, é um elemento de matriz de uma resposta que inclui texto, uma chave de documento e uma pontuação de confiança.
+As respostas são retornadas como um objeto independente e de nível superior na carga de resposta de consulta que você pode escolher para renderizar em páginas de pesquisa, além dos resultados da pesquisa lateral. Estruturalmente, é um elemento de matriz dentro da resposta que consiste em texto, uma chave de documento e uma pontuação de confiança.
 
 <a name="query-params"></a>
 
 ## <a name="how-to-request-semantic-answers-in-a-query"></a>Como solicitar respostas semânticas em uma consulta
 
-Para retornar uma resposta semântica, a consulta deve ter o tipo de consulta semântica, idioma, campos de pesquisa e o parâmetro "respostas". A especificação do parâmetro "Answers" não garante que você receberá uma resposta, mas a solicitação deverá incluir esse parâmetro se o processamento de resposta for ser invocado.
+Para retornar uma resposta semântica, a consulta deve ter a semântica "QueryType", "queryLanguage", "searchFields" e o parâmetro "Answers". A especificação do parâmetro "Answers" não garante que você receberá uma resposta, mas a solicitação deverá incluir esse parâmetro se o processamento de resposta for ser invocado.
 
-O parâmetro "searchFields" é essencial para retornar uma resposta de alta qualidade, tanto em termos de conteúdo quanto de ordem. 
+O parâmetro "searchFields" é crucial para retornar uma resposta de alta qualidade, tanto em termos de conteúdo quanto de ordem (veja abaixo). 
 
 ```json
 {
@@ -63,9 +63,9 @@ O parâmetro "searchFields" é essencial para retornar uma resposta de alta qual
 
 + Uma cadeia de caracteres de consulta não deve ser nula e deve ser formulada como uma pergunta. Nesta visualização, o "QueryType" e "queryLanguage" devem ser definidos exatamente como mostrado no exemplo.
 
-+ O parâmetro "searchFields" determina quais campos fornecem tokens para o modelo de extração. Certifique-se de definir esse parâmetro. Você deve ter pelo menos um campo de cadeia de caracteres, mas inclua qualquer campo de cadeia de caracteres que você ache útil ao fornecer uma resposta. Coletivamente em todos os campos em searchFields, apenas cerca de 8.000 tokens por documento são passados para o modelo. Inicie a lista de campos com campos concisos e, em seguida, progresso para campos Rich Text. Para obter orientações precisas sobre como definir esse campo, consulte [set searchFields](semantic-how-to-query-request.md#searchfields).
++ O parâmetro "searchFields" determina quais campos de cadeia de caracteres fornecem tokens para o modelo de extração. Os mesmos campos que produzem legendas também produzem respostas. Para obter orientações precisas sobre como definir esse campo para que ele funcione para legendas e respostas, consulte [set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ Para "respostas", a construção do parâmetro básico é `"answers": "extractive"` , em que o número padrão de respostas retornadas é um. Você pode aumentar o número de respostas adicionando uma contagem, até um máximo de cinco.  A necessidade de mais de uma resposta depende da experiência do usuário do seu aplicativo e de como você deseja renderizar os resultados.
++ Para "respostas", a construção do parâmetro é `"answers": "extractive"` , em que o número padrão de respostas retornadas é um. Você pode aumentar o número de respostas adicionando uma contagem, conforme mostrado no exemplo acima, até um máximo de cinco.  A necessidade de mais de uma resposta depende da experiência do usuário do seu aplicativo e de como você deseja renderizar os resultados.
 
 ## <a name="deconstruct-an-answer-from-the-response"></a>Desconstruir uma resposta da resposta
 
@@ -115,7 +115,7 @@ Dada a consulta "como fazer nuvens Form", a seguinte resposta é retornada na re
 
 Para obter melhores resultados, retorne as respostas semânticas em um documento corpus com as seguintes características:
 
-+ "searchFields" deve fornecer campos que oferecem texto suficiente no qual uma resposta provavelmente será encontrada. Somente texto textual de um documento pode ser exibido como uma resposta.
++ "searchFields" deve fornecer campos que oferecem texto suficiente no qual uma resposta provavelmente será encontrada. Somente o texto textual de um documento pode aparecer como uma resposta.
 
 + as cadeias de consulta não devem ser nulas (Search = `*` ) e a cadeia de caracteres deve ter as características de uma pergunta, em oposição a uma pesquisa de palavra-chave (uma lista seqüencial de termos ou frases arbitrárias). Se a cadeia de caracteres de consulta não parece ser uma resposta, o processamento de resposta é ignorado, mesmo que a solicitação especifique "respostas" como um parâmetro de consulta.
 

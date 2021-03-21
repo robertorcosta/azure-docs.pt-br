@@ -4,10 +4,10 @@ description: Ao usar o Azure Lighthouse, é importante considerar a segurança e
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.openlocfilehash: 3aa50833b547882506bfad125992bb1c2f4e85bc
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419296"
 ---
 # <a name="recommended-security-practices"></a>Práticas de segurança recomendadas
@@ -34,7 +34,7 @@ Ao criar a estrutura de permissões, siga o princípio de privilégios mínimos 
 
 Por exemplo, convém usar uma estrutura como esta:
 
-|Nome do grupo  |Tipo  |principalId  |Definição de função  |ID de definição de função  |
+|Nome do grupo  |Type  |principalId  |Definição de função  |ID de definição de função  |
 |---------|---------|---------|---------|---------|
 |Arquitetos     |Grupo de usuários         |\<principalId\>         |Colaborador         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |Avaliação     |Grupo de usuários         |\<principalId\>         |Leitor         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |

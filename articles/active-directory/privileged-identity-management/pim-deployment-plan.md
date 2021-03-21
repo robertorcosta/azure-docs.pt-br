@@ -15,10 +15,10 @@ ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 7b1d18982a4f2a9ee8ba585af56a5e9ded7c1c62
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102036819"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implantar o Azure AD Privileged Identity Management (PIM)
@@ -78,7 +78,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>Participantes: Privileged Identity Management para funções do Azure AD
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Arquiteto de identidade ou de Administrador Global do Azure**<br/>Um representante da equipe de gerenciamento de identidades responsável por definir como alinhar essa alteração com a principal infra-estrutura de gerenciamento de identidades em sua organização. | SO/R/I |
 | Nome e email | **Proprietário do serviço / gerente de linha**<br/>Um representante dos proprietários de TI de um serviço ou um grupo de serviços. Eles são fundamentais para tomar decisões e ajudar a distribuir Privileged Identity Management para sua equipe. | SO/R/I |
@@ -88,7 +88,7 @@ A seção a seguir ajuda a identificar todos os participantes envolvidos no proj
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-roles"></a>Participantes: Privileged Identity Management para funções do Azure
 
-| Name | Função | Ação |
+| Nome | Função | Ação |
 | --- | --- | --- |
 | Nome e email | **Proprietário da assinatura / recurso**<br/>Um representante dos proprietários de ti de cada assinatura ou recurso que você deseja implantar Privileged Identity Management | SO/R/I |
 | Nome e email | **Proprietário de segurança**<br/>Um representante da equipe de segurança que pode confirmar que o plano atende aos requisitos de segurança da organização. | SO/R |

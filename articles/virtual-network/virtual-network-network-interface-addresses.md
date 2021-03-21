@@ -17,10 +17,10 @@ ms.workload: infrastructure-services
 ms.date: 01/22/2020
 ms.author: allensu
 ms.openlocfilehash: 1df132e558421d2ec6e26c3883c89457716dfc42
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419007"
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
@@ -55,7 +55,7 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [públicos](#public) e [pr
    |Configuração|Necessário?|Detalhes|
    |---|---|---|
    |Nome|Sim|Deve ser exclusivo ao adaptador de rede|
-   |Tipo|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+   |Type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
    |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
    |Endereço IP público|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 6. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.

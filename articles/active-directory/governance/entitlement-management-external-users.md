@@ -17,10 +17,10 @@ ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c7c78dcbc34deca769739f82964df41ebfc596ea
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176783"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Controlar o acesso para usuários externos no gerenciamento de direitos do Azure AD
@@ -117,7 +117,7 @@ Para garantir que as pessoas fora de sua organização possam solicitar pacotes 
 
 ## <a name="manage-the-lifecycle-of-external-users"></a>Gerenciar o ciclo de vida de usuários externos
 
-Você pode selecionar o que acontece quando um usuário externo, que foi convidado para seu diretório por meio de uma solicitação de pacote de acesso que está sendo aprovada, não tem mais nenhuma atribuição de pacote de acesso. Isso pode acontecer se o usuário ceder todas as suas atribuições de pacote de acesso ou sua última atribuição de pacote de acesso expirar. Por padrão, quando um usuário externo não tem mais nenhuma atribuição de pacote de acesso, ele é impedido de entrar no seu diretório. Após 30 dias, sua conta de usuário convidado é removida do seu diretório.
+Você pode selecionar o que acontece quando um usuário externo, que foi convidado para seu diretório por meio de uma solicitação de pacote de acesso que está sendo aprovada, não tiver mais nenhuma atribuição de pacote de acesso. Isso pode acontecer se o usuário ceder todas as suas atribuições de pacote de acesso ou sua última atribuição de pacote de acesso expirar. Por padrão, quando um usuário externo não tem mais nenhuma atribuição de pacote de acesso, ele é impedido de entrar no seu diretório. Após 30 dias, a conta de usuário convidado dele é removida do seu diretório.
 
 **Função de pré-requisito:** Administrador global ou administrador de usuário
 
@@ -139,9 +139,9 @@ Você pode selecionar o que acontece quando um usuário externo, que foi convida
 1. Depois que um usuário externo perder sua última atribuição para qualquer pacote de acesso, se você quiser remover sua conta de usuário convidado nesse diretório, defina **remover usuário externo** como **Sim**.
 
     > [!NOTE]
-    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e remover esse diretório, mesmo que esse usuário tenha sido adicionado aos recursos nesse diretório que não tenham acesso às atribuições de pacote. Se o convidado estava presente nesse diretório antes de receber atribuições de pacote de acesso, ele permanecerá. No entanto, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
+    > O gerenciamento de direitos remove apenas as contas que foram convidadas por meio do gerenciamento de direitos. Além disso, observe que um usuário será impedido de entrar e removido desse diretório, mesmo que ele tenha sido adicionado a recursos desse diretório que não eram atribuições de pacote de acesso. Se o convidado estava no diretório antes de receber atribuições de pacote de acesso, ele permanecerá. Porém, se o convidado foi convidado por meio de uma atribuição de pacote de acesso e, depois de ser convidado também foi atribuído a um site do OneDrive for Business ou do SharePoint Online, ele ainda será removido.
 
-1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes que ele seja removido. Se você quiser remover a conta de usuário convidado assim que perder sua última atribuição para qualquer pacote de acesso, defina o **número de dias antes de remover o usuário externo desse diretório** para **0**.
+1. Se você quiser remover a conta de usuário convidado nesse diretório, poderá definir o número de dias antes de ela ser removida. Se você quiser remover a conta de usuário convidado assim que o usuário perder a última atribuição a qualquer pacote de acesso, defina **Número de dias antes de remover o usuário externo desse diretório** como **0**.
 
 1. Clique em **Save** (Salvar).
 

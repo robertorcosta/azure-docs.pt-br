@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 519aa158d60eae97eb4c1b792bcecfc8a6c066e0
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008262"
 ---
 # <a name="output-metadata"></a>Metadados de saída
@@ -48,7 +48,7 @@ Coleção de entradas AssetFile do trabalho de codificação.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obrigatório |**xs:string** |O nome de arquivo de ativo de mídia. |
 | **Tamanho**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:long** |Tamanho do arquivo de ativo em bytes. |
@@ -77,7 +77,7 @@ Um arquivo de entrada/origem usado ao gerar esse ativo.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obrigatório |**xs:string** |Nome do arquivo de fonte de entrada. |
 
@@ -97,7 +97,7 @@ Uma faixa de vídeo específica no AssetFile pai.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice de base zero desta faixa de vídeo. **Observação:**  Essa **ID** não é necessariamente a TrackID como usada em um arquivo MP4. |
 | **FourCC**<br/><br/> Obrigatório |**xs:string** |Código FourCC de codec de vídeo. |
@@ -129,7 +129,7 @@ Uma faixa de áudio específica no AssetFile pai.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice de base zero desta faixa de áudio. **Observação:**  Isso não é necessariamente o TrackID como usado em um arquivo MP4. |
 | **Codec** |**xs:string** |Cadeia de caracteres de codec de faixa de áudio. |
@@ -150,7 +150,7 @@ Parâmetros de resultado de medição de intensidade.
 Você pode encontrar um exemplo XML [exemplo XML](#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| Nome | Type | Descrição |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versão do kit de desenvolvimento de medição de intensidade profissional **Dolby**. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obrigatório |**xs:int** |DialogNormalization gerado através de DPLM, necessário quando LoudnessMetering é definido |

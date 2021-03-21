@@ -13,10 +13,10 @@ manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103417630"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
@@ -178,7 +178,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Para reutilizar e compartilhar conjuntos de testes entre experimentos em seu espaço de trabalho, [Registre seu conjunto de registros](#register-datasets).
 
@@ -258,7 +258,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 
