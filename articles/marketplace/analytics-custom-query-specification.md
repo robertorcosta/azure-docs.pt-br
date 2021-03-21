@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 4be063342a6c46d73c86f2d9dff1da5395328389
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583681"
 ---
 # <a name="custom-query-specification"></a>Especificação de consulta personalizada
@@ -165,6 +165,6 @@ Essa parte da consulta especifica a duração de tempo para a qual os dados prec
 
 A especificação é completamente não diferencia maiúsculas de minúsculas. Palavras-chave predefinidas, nomes de coluna e valores podem ser especificados usando letras maiúsculas ou minúsculas.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Lista de consultas do sistema](analytics-system-queries.md)

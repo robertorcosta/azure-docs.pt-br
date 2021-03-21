@@ -1,5 +1,5 @@
 ---
-title: Retomar a API de execuções de relatório
+title: Retomar API de execuções de relatório
 description: Use essa API para retomar a execução agendada de um relatório de análise do Marketplace comercial em pausa.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 4a11783b28352cb62c5a3c0d38e45dcdc47a8d86
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583665"
 ---
-# <a name="resume-report-executions-api"></a>Retomar a API de execuções de relatório
+# <a name="resume-report-executions-api"></a>Retomar API de execuções de relatório
 
 Essa API, na execução, retoma a execução agendada de um relatório de análise do Marketplace comercial em pausa.
 
@@ -27,7 +27,7 @@ Essa API, na execução, retoma a execução agendada de um relatório de análi
 
 **Cabeçalho da solicitação**
 
-| Cabeçalho | Tipo | Descrição |
+| parâmetro | Type | Descrição |
 | ------------ | ------------- | ------------- |
 | Autorização | string | Obrigatórios. O token de acesso do Azure Active Directory (AD do Azure) no formulário `Bearer <token>` |
 | Tipo de conteúdo | string | `Application/JSON` |

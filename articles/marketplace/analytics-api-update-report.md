@@ -1,5 +1,5 @@
 ---
-title: Atualizar a API de relatório
+title: Atualizar API de relatório
 description: Use esta API para relatar o parâmetro para relatórios de análise do Marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 38680eb291417ded4c2f93539e8d1ae091b1d560
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583663"
 ---
-# <a name="update-report-api"></a>Atualizar a API de relatório
+# <a name="update-report-api"></a>Atualizar API de relatório
 
 Essa API ajuda a modificar um parâmetro de relatório.
 
@@ -27,7 +27,7 @@ Essa API ajuda a modificar um parâmetro de relatório.
 
 **Cabeçalho da solicitação**
 
-| Cabeçalho | Tipo | Descrição |
+| parâmetro | Type | Descrição |
 | ------------ | ------------- | ------------- |
 | Autorização | string | Obrigatórios. O token de acesso do Azure Active Directory (AD do Azure) no formulário `Bearer <token>` |
 | Tipo de conteúdo | string | `Application/JSON` |
@@ -64,13 +64,13 @@ Esta tabela lista as principais definições de elementos na carga de solicitaç
 
 | Parâmetro | Obrigatório | Descrição | Valores permitidos |
 | ------------ | ------------- | ------------- | ------------- |
-| `ReportName` | Yes | Nome a ser atribuído ao relatório | Cadeia de caracteres |
+| `ReportName` | Sim | Nome a ser atribuído ao relatório | Cadeia de caracteres |
 | `Description` | No | Descrição do relatório criado | string |
-| `StartTime` | Yes | Carimbo de data/hora após o qual a geração de relatório será iniciada | Cadeia de caracteres |
+| `StartTime` | Sim | Carimbo de data/hora após o qual a geração de relatório será iniciada | Cadeia de caracteres |
 | `RecurrenceInterval` | No | Frequência em que o relatório deve ser gerado em horas. O valor mínimo é 4 | inteiro |
 | `RecurrenceCount` | Não | Número de relatórios a serem gerados. O padrão é indefinido | inteiro |
-| `Format` | Yes | Formato de arquivo do arquivo exportado. O padrão é CSV. | CSV/TSV |
-| `CallbackUrl` | Yes | URL de retorno de chamada https a ser chamada na geração de relatório | string |
+| `Format` | Sim | Formato de arquivo do arquivo exportado. O padrão é CSV. | CSV/TSV |
+| `CallbackUrl` | Sim | URL de retorno de chamada https a ser chamada na geração de relatório | string |
 |||||
 
 **Glossário**

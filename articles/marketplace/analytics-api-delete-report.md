@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 7c39f8bc0db44f1d8aa885969ca09d90b0dcd332
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583711"
 ---
 # <a name="delete-report-api"></a>Excluir API de relatório
@@ -27,7 +27,7 @@ Na execução, essa API exclui todos os registros de execução do relatório e 
 
 **Cabeçalho da solicitação**
 
-| Cabeçalho | Tipo | Descrição |
+| parâmetro | Type | Descrição |
 | ------------ | ------------- | ------------- |
 | Autorização | string | Obrigatórios. O token de acesso do AD do Azure no formulário `Bearer <token>` |
 | Tipo de conteúdo | string | `Application/JSON` |

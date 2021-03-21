@@ -1,5 +1,5 @@
 ---
-title: Experimentar a API de consultas de relatório
+title: Experimentar API de consultas de relatório
 description: Use esta API para executar uma consulta de relatório para relatórios de análise do Marketplace comercial.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 0db212be06182128bbd8a3bf694a2f893ce82eae
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583664"
 ---
-# <a name="try-report-queries-api"></a>Experimentar a API de consultas de relatório
+# <a name="try-report-queries-api"></a>Experimentar API de consultas de relatório
 
 Essa API executa uma instrução de consulta de relatório. A API retorna apenas 10 registros que você como um parceiro pode usar para verificar se os dados são os esperados.
 

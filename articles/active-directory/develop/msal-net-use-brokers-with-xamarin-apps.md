@@ -13,10 +13,10 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
 ms.openlocfilehash: 226e94510709b37a7e6b1aae90a7e0ec5b4222b9
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199571"
 ---
 # <a name="use-microsoft-authenticator-or-intune-company-portal-on-xamarin-applications"></a>Usar Microsoft Authenticator ou Portal da Empresa do Intune em aplicativos Xamarin
@@ -65,7 +65,7 @@ Para obter mais informações, consulte [habilitar o acesso](msal-net-xamarin-io
 
 ### <a name="step-3-update-appdelegate-to-handle-the-callback"></a>Etapa 3: atualizar AppDelegate para manipular o retorno de chamada
 
-Quando MSAL.NET chama o agente, o agente chama de volta para o seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o arquivo *AppDelegate.cs* para substituir o método a seguir.
+Quando MSAL.NET chama o agente, o agente chama de volta para o seu aplicativo por meio do `OpenUrl` método da `AppDelegate` classe. Como MSAL aguarda a resposta do agente, seu aplicativo precisa cooperar para chamar MSAL.NET de volta. Para habilitar essa cooperação, atualize o arquivo *AppDelegate. cs* para substituir o método a seguir.
 
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url,
@@ -91,23 +91,23 @@ Esse método é invocado toda vez que o aplicativo é iniciado. Ele é usado com
 
 ### <a name="step-4-set-uiviewcontroller"></a>Etapa 4: definir UIViewController ()
 
-Ainda no arquivo *AppDelegate.cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
+Ainda no arquivo *AppDelegate. cs* , defina uma janela de objeto. Normalmente, você não precisa definir a janela de objeto para o Xamarin iOS, mas precisa de uma janela de objeto para enviar e receber respostas do agente.
 
 Para configurar a janela de objeto:
 
-1. No arquivo *AppDelegate.cs* , defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
+1. No arquivo *AppDelegate. cs* , defina `App.RootViewController` para um novo `UIViewController()` . Essa atribuição garante que a chamada para o agente inclua `UIViewController` . Se essa configuração for atribuída incorretamente, você poderá receber esse erro:
 
       `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 
 1. Na `AcquireTokenInteractive` chamada, use `.WithParentActivityOrWindow(App.RootViewController)` e, em seguida, passe a referência para a janela de objeto que você usará.
 
-    Em *app.cs*:
+    Em *app. cs*:
 
     ```csharp
        public static object RootViewController { get; set; }
     ```
 
-    Em *AppDelegate.cs*:
+    Em *AppDelegate. cs*:
 
     ```csharp
        LoadApplication(new App());
@@ -171,7 +171,7 @@ Quando você usa o agente, seu URI de redirecionamento tem um requisito extra. O
 $"msauth.{BundleId}://auth"
 ```
 
-Aqui está um exemplo:
+Veja um exemplo:
 
 ```csharp
 public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";

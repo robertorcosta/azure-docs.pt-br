@@ -8,10 +8,10 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 2d0c0e7322ecb92fd371f5bf7924a370dd29fe85
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583673"
 ---
 # <a name="make-your-first-api-call-to-access-commercial-marketplace-analytics-data"></a>Faça sua primeira chamada à API para acessar dados de análise do Marketplace comercial
@@ -338,4 +338,4 @@ Curl
 ## <a name="next-steps"></a>Próximas etapas
 
 - Você pode experimentar as APIs por meio da [URL da API do Swagger](https://partneranalytics-api.azure-api.net/analytics/cmp/swagger/index.html)
-- [Paradigma de acesso programático](analytics-programmatic-access.md)
+- [Paradigma do acesso programático](analytics-programmatic-access.md)

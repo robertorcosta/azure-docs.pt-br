@@ -14,10 +14,10 @@ ms.author: kkrishna
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 71cfe08da42b8eec9ddbd0e4246ba1b72f895414
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199593"
 ---
 # <a name="how-to-restrict-your-azure-ad-app-to-a-set-of-users-in-an-azure-ad-tenant"></a>Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD
@@ -55,9 +55,9 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
     Use os filtros na parte superior da janela para procurar um aplicativo específico.
 1. Na página **visão geral** do aplicativo, em **gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
-### <a name="app-registration"></a>Registro do aplicativo
+### <a name="app-registration"></a>Registro de aplicativo
 
 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
 1. Se você tem acesso a vários locatários, use o filtro **Diretório + assinatura** :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: no menu superior para selecionar o locatário no qual você deseja registrar um aplicativo.
@@ -67,7 +67,7 @@ Há duas maneiras de criar um aplicativo com atribuição de usuário habilitada
 1. Na página **visão geral** do aplicativo, selecione o link **aplicativo gerenciado no diretório local** na seção **Essentials** .
 1. Em **Gerenciar**, selecione **Propriedades**.
 1. Localize a configuração **Atribuição de usuário obrigatória?** e defina-a como **Sim**. Quando essa opção é definida como **Sim**, os usuários no locatário devem primeiro ser atribuídos a esse aplicativo ou não poderão entrar neste aplicativo.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="assign-users-and-groups-to-the-app"></a>Atribuir usuários e grupos ao aplicativo
 

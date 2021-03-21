@@ -1,5 +1,5 @@
 ---
-title: Paradigma de acesso programático
+title: Paradigma do acesso programático
 description: Entenda o fluxo de alto nível do padrão de chamada à API para análise programática. As APIs para acessar relatórios de análise no Microsoft Commercial Marketplace também são abordadas.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
@@ -8,13 +8,13 @@ author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
 ms.openlocfilehash: 8e0b94a46e96dd8ba16040e16b421520eb67de19
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102583706"
 ---
-# <a name="programmatic-access-paradigm"></a>Paradigma de acesso programático
+# <a name="programmatic-access-paradigm"></a>Paradigma do acesso programático
 
 Este diagrama mostra o padrão de chamada de API usado para criar um novo modelo de relatório, agendar o relatório personalizado e recuperar dados de falha.
 
@@ -52,7 +52,7 @@ O exemplo a seguir mostra como criar uma consulta personalizada para obter o _us
 
 *Cabeçalho da solicitação*
 
-| Cabeçalho | Tipo | Descrição |
+| parâmetro | Type | Descrição |
 | ------------- | ------------- | ------------- |
 | Autorização | string | Obrigatórios. O token de acesso do Azure Active Directory (AD do Azure). O formato é `Bearer <token>`. |
 | Tipo de conteúdo | `string` | `application/JSON` |
@@ -82,9 +82,9 @@ Esta tabela fornece as definições de chave dos elementos na carga de solicita�
 
 | Parâmetro | Obrigatório | Descrição | Valores permitidos |
 | ------------ | ------------- | ------------- | ------------- |
-| `Name` | Yes | Nome amigável da consulta | Cadeia de caracteres |
+| `Name` | Sim | Nome amigável da consulta | Cadeia de caracteres |
 | `Description` | No | Descrição do que a consulta retorna | string |
-| `Query` | Yes | Cadeia de caracteres de consulta de relatório | Tipo de dados: cadeia de caracteres<br>[Consulta personalizada](analytics-sample-queries.md) com base na necessidade de negócios |
+| `Query` | Sim | Cadeia de caracteres de consulta de relatório | Tipo de dados: cadeia de caracteres<br>[Consulta personalizada](analytics-sample-queries.md) com base na necessidade de negócios |
 |||||
 
 > [!NOTE]
@@ -148,7 +148,7 @@ Ao criar um modelo de relatório personalizado com êxito e receber o `QueryID` 
 
 *Cabeçalho da solicitação*
 
-| Cabeçalho | Tipo | Descrição |
+| parâmetro | Type | Descrição |
 | ------ | ---- | ----------- |
 | Autorização | string | Obrigatórios. O token de acesso do Azure Active Directory (AD do Azure). O formato é `Bearer <token>`. |
 | Tipo de conteúdo | string | `application/JSON` |
@@ -183,11 +183,11 @@ Esta tabela fornece as definições de chave dos elementos na carga de solicita�
 
 | Parâmetro | Obrigatório | Descrição | Valores permitidos |
 | ------------ | ------------- | ------------- | ------------- |
-| `ReportName` | Yes | Nome atribuído ao relatório | Cadeia de caracteres |
+| `ReportName` | Sim | Nome atribuído ao relatório | Cadeia de caracteres |
 | `Description` | No | Descrição do relatório criado | string |
-| `QueryId` | Yes | ID de consulta de relatório | string |
-| `StartTime` | Yes | Carimbo de data/hora UTC no qual a geração de relatório será iniciada.<br>O formato deve ser: YYYY-MM-ddTHH: mm: ssZ | string |
-| `RecurrenceInterval` | Yes | Frequência em horas em que o relatório deve ser gerado.<br>O valor mínimo é 4 e o valor máximo é 90. | inteiro |
+| `QueryId` | Sim | ID de consulta de relatório | string |
+| `StartTime` | Sim | Carimbo de data/hora UTC no qual a geração de relatório será iniciada.<br>O formato deve ser: YYYY-MM-ddTHH: mm: ssZ | string |
+| `RecurrenceInterval` | Sim | Frequência em horas em que o relatório deve ser gerado.<br>O valor mínimo é 4 e o valor máximo é 90. | inteiro |
 | `RecurrenceCount` | Não | Número de relatórios a serem gerados. | inteiro |
 | `Format` | Não | Formato de arquivo do arquivo exportado.<br>O formato padrão é. CSV. | CSV/TSV |
 | `CallbackUrl` | Não | URL acessível publicamente que pode ser configurada opcionalmente como destino do retorno de chamada. | Cadeia de caracteres (URL http) |
@@ -271,7 +271,7 @@ Você pode usar esse método para consultar o status de uma execução de relat�
 
 *Cabeçalho da solicitação*
 
-| Cabeçalho | Tipo | Descrição |
+| parâmetro | Type | Descrição |
 | ------ | ------ | ------ |
 | Autorização | string | Obrigatórios. O token de acesso do Azure Active Directory (AD do Azure). O formato é `Bearer <token>`. |
 | Tipo de conteúdo | string | `application/json` |
@@ -288,7 +288,7 @@ Nenhum
 | `reportId` | Sim | string | Filtre para obter detalhes de execução apenas de relatórios com `reportId` o fornecido neste argumento. Vários `reportIds` podem ser especificados separando-os com um ponto-e-vírgula ";". |
 | `executionId` | Não | string | Filtre para obter detalhes de apenas relatórios com `executionId` o fornecido neste argumento. Vários `executionIds` podem ser especificados separando-os com um ponto-e-vírgula ";". |
 | `executionStatus` | Não | Cadeia de caracteres/enumeração | Filtre para obter detalhes de apenas relatórios com `executionStatus` o fornecido neste argumento.<br>Os valores válidos são: `Pending` , `Running` , `Paused` e `Completed` <br>O valor padrão é `Completed`. Vários status podem ser especificados separando-os com um ponto-e-vírgula ";". |
-| `getLatestExecution` | Não | booleano | A API retornará detalhes da última execução do relatório.<br>Por padrão, esse parâmetro é definido como `true`. Se você optar por passar o valor desse parâmetro como `false` , a API retornará as últimas 90 dias de execução de instâncias. |
+| `getLatestExecution` | Não | boolean | A API retornará detalhes da última execução do relatório.<br>Por padrão, esse parâmetro é definido como `true`. Se você optar por passar o valor desse parâmetro como `false` , a API retornará as últimas 90 dias de execução de instâncias. |
 |||||
 
 *Carga de solicitação*
