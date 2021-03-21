@@ -9,10 +9,10 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.openlocfilehash: f76c3e6c739ae4dd13355d350a01b878e4d4f360
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666212"
 ---
 # <a name="troubleshoot-azure-image-builder-service"></a>Solucionar problemas do serviço Construtor de imagens do Azure
@@ -210,7 +210,7 @@ O customization. log inclui os seguintes estágios:
     ```
 5. Estágio de desprovisionamento. O construtor de imagens do Azure adiciona um personalizador oculto. Essa etapa de desprovisionamento é responsável por preparar a VM para desprovisionamento. Ele executa o Windows Sysprep (usando c:\DeprovisioningScript.ps1) ou o desprovisionamento do Linux waagent (usando/tmp/DeprovisioningScript.sh). 
 
-    Por exemplo: 
+    Por exemplo:
     ```text
     PACKER ERR 2020/03/04 23:05:04 [INFO] (telemetry) Starting provisioner powershell
     PACKER ERR 2020/03/04 23:05:04 packer: 2020/03/04 23:05:04 Found command: if( TEST-PATH c:\DeprovisioningScript.ps1 ){cat c:\DeprovisioningScript.ps1} else {echo "Deprovisioning script [c:\DeprovisioningScript.ps1] could not be found. Image build may fail or the VM created from the Image may not boot. Please make sure the deprovisioning script is not accidentally deleted by a Customizer in the Template."}
@@ -248,7 +248,7 @@ Falha na personalização.
 
 Examine o log para localizar as falhas dos personalizadores. Procure *(telemetria)*. 
 
-Por exemplo: 
+Por exemplo:
 ```text
 (telemetry) Starting provisioner windows-update
 (telemetry) ending windows-update

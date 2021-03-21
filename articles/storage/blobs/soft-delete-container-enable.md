@@ -10,10 +10,10 @@ ms.date: 03/05/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.openlocfilehash: 2097c1743e07b5563bc75d3d1cce48aa11b98e5f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102216336"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Habilitar e gerenciar a exclusão reversível para contêineres (visualização)
@@ -36,7 +36,7 @@ Você pode habilitar ou desabilitar a exclusão reversível de contêiner para a
 
 Para habilitar a exclusão reversível de contêiner para sua conta de armazenamento usando portal do Azure, siga estas etapas:
 
-1. No [portal do Azure](https://portal.azure.com/), navegue até sua conta de armazenamento.
+1. No [Portal do Azure](https://portal.azure.com/), navegue até sua conta de armazenamento.
 1. Localize as configurações de **proteção de dados** em **serviço blob**.
 1. Defina a propriedade **exclusão reversível do contêiner** como *habilitada*.
 1. Em **políticas de retenção**, especifique por quanto tempo os contêineres de exclusão reversível são retidos pelo armazenamento do Azure.

@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
 ms.openlocfilehash: 125431e6630ccfdd9e0e5d6b2a4ec5fa9b9e58fd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101736178"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Escolha a opção de servidor MySQL correta no Azure
@@ -41,7 +41,7 @@ Ao tomar sua decisão, considere as duas opções a seguir:
 
 As diferenças principais entre essas opções estão listadas na tabela a seguir:
 
-| Atributo          | Banco de Dados do Azure para MySQL<br/>Servidor único |Banco de Dados do Azure para MySQL<br/>Servidor flexível  |MySQL em VMs do Azure                      |
+| Atributo          | Banco de Dados do Azure para MySQL<br/>Servidor único |Banco de Dados do Azure para MySQL<br/>Servidor Flexível  |MySQL em VMs do Azure                      |
 |:-------------------|:-------------------------------------------|:---------------------------------------------|:---------------------------------------|
 | Suporte à versão do MySQL | 5,6, 5,7 & 8,0| 5,7 & 8,0 | Qualquer versão|
 | Dimensionamento de computação | Com suporte (não há suporte para dimensionar de e para a camada básica)| Com suporte | Com suporte|
@@ -72,7 +72,7 @@ As diferenças principais entre essas opções estão listadas na tabela a segui
 
 Há vários fatores que podem influenciar sua decisão de escolher PaaS ou IaaS para hospedar seus bancos de dados MySQL.
 
-### <a name="cost"></a>Custo
+### <a name="cost"></a>Cost
 
 A redução de custos geralmente é a principal consideração que determina a melhor solução para hospedar seus bancos de dados. Isso é verdadeiro tanto se você for uma startup com pouco dinheiro como uma equipe em uma empresa estabelecida que opere sob restrições de orçamento rígidas. Esta seção descreve as noções básicas de cobrança e licenciamento no Azure, pois elas se aplicam ao banco de dados do Azure para MySQL e MySQL em VMs do Azure.
 

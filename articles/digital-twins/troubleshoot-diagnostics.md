@@ -8,10 +8,10 @@ ms.date: 11/9/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: c600ced8896a3847b80d854c9e230310cca4c98d
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100588602"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Solução de problemas do Azure digital gêmeos: log de diagnóstico
@@ -63,7 +63,7 @@ Para obter informações mais detalhadas sobre as configurações de diagnóstic
 
 Aqui estão mais detalhes sobre as categorias de logs que o Azure digital gêmeos coleta.
 
-| Categoria do log | Description |
+| Categoria do log | Descrição |
 | --- | --- |
 | ADTModelsOperation | Registrar em log todas as chamadas de API pertencentes a modelos |
 | ADTQueryOperation | Registrar em log todas as chamadas de API pertencentes a consultas |

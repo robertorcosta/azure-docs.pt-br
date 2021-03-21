@@ -12,10 +12,10 @@ ms.date: 01/27/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.openlocfilehash: 4e933000c8e700d8bfd193b542e3855b2fca26f8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101689327"
 ---
 # <a name="tutorial-develop-a-sample-scim-endpoint"></a>Tutorial: desenvolver um ponto de extremidade SCIM de exemplo
@@ -104,7 +104,7 @@ O código de validação de token padrão é configurado para usar um token do A
 
 Depois de implantar o ponto de extremidade SCIM, você pode testar para garantir que ele esteja em conformidade com o SCIM RFC. Este exemplo fornece um conjunto de testes no postmaster que validam operações CRUD (criar, ler, atualizar e excluir) em usuários e grupos, filtragem, atualizações de associação de grupo e desabilitação de usuários.
 
-Os pontos de extremidade estão no `{host}/scim/` diretório, e você pode usar solicitações HTTP padrão para interagir com eles. Para modificar a `/scim/` rota, consulte *ControllerConstant.cs* em **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **Controllers**.
+Os pontos de extremidade estão no `{host}/scim/` diretório, e você pode usar solicitações HTTP padrão para interagir com eles. Para modificar a `/scim/` rota, consulte *ControllerConstant. cs* em **AzureADProvisioningSCIMreference**  >  **ScimReferenceApi**  >  **Controllers**.
 
 > [!NOTE]
 > Você só pode usar pontos de extremidade HTTP para testes locais. O serviço de provisionamento do Azure AD requer que seu ponto de extremidade dê suporte a HTTPS.

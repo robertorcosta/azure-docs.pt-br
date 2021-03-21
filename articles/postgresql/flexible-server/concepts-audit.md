@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: b344e2a845a9da8333860599bd4ff9041108202f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100588258"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---flexible-server"></a>Log de auditoria no banco de dados do Azure para PostgreSQL – servidor flexível
@@ -45,7 +45,7 @@ Depois de [habilitar o pgAudit](#enabling-pgaudit), você poderá configurar seu
 
 > [!NOTE]
 > Definir `pgaudit.log_client` como on redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Essa configuração deve ser deixada desabilitada. <br> <br>
-> `pgaudit.log_level` é habilitado somente quando o `pgaudit.log_client` está ativado.
+> `pgaudit.log_level` é habilitado somente quando `pgaudit.log_client` está ativado.
 
 > [!NOTE]
 > No banco de dados do Azure para PostgreSQL – servidor flexível, `pgaudit.log` não pode ser definido usando um `-` atalho de sinal (menos), conforme descrito na documentação do pgAudit. Todas as classes de instrução necessárias (leitura, gravação, etc.) devem ser especificadas individualmente.

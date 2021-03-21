@@ -7,10 +7,10 @@ ms.date: 02/22/2021
 author: swinarko
 ms.author: sawinark
 ms.openlocfilehash: 4b26abe1d1340e4e8c5f034fad72f612f0b246a2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101739395"
 ---
 # <a name="create-an-azure-ssis-integration-runtime-in-azure-data-factory"></a>Criar um Integration Runtime do Azure-SSIS no Azure Data Factory
@@ -157,11 +157,11 @@ Se marcar a caixa de seleção, conclua as etapas a seguir para trazer seu próp
 
    1. Para **Senha do Administrador**, insira a senha de autenticação do SQL para o servidor de banco de dados para hospedar o SSISDB. 
 
-   1. Marque a caixa de seleção **usar par de Azure-SSIS Integration Runtime em espera dupla com failover do SSISDB** para configurar um par de ir do Azure SSIS em espera duplo que funciona em sincronia com o grupo de failover do banco de dados SQL/instância gerenciada do Azure para continuidade dos negócios e recuperação de desastres (BCDR).
+   1. Marque a caixa de seleção **Usar par do Azure-SSIS Integration Runtime de espera duplo com failover de SSISDB** para configurar um par do Azure SSIS IR de espera duplo que funcione em sincronia com o grupo de failover do Banco de Dados SQL do Azure/Instância Gerenciada para BCDR (continuidade dos negócios e recuperação de desastres).
    
-      Se você marcar a caixa de seleção, insira um nome para identificar seu par de IRs principal e secundário do Azure-SSIS na caixa de texto **nome de par em espera dupla** . Você precisa inserir o mesmo nome de par ao criar seu IRs do Azure-SSIS primário e secundário.
+      Se você marcar a caixa de seleção, insira um nome para identificar seu par de Azure-SSIS IRs primário e secundário na caixa de texto **Nome de par de espera dupla**. Você precisa inserir o mesmo nome de par ao criar os Azure-SSIS IRs primário e secundário.
 
-      Para obter mais informações, consulte [Configure your Azure-SSIS ir for BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
+      Para obter mais informações, confira [Configurar seu Azure-SSIS IR para BCDR](./configure-bcdr-azure-ssis-integration-runtime.md).
 
    1. Para **Camada de Serviço de Banco de Dados de Catálogo**, selecione a camada de serviço para o seu servidor de banco de dados na qual hospedar o SSISDB. Selecione a camada Básica, Standard ou Premium ou selecione um nome de pool elástico.
 

@@ -10,10 +10,10 @@ ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
 ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100587952"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
@@ -224,9 +224,9 @@ Você pode fornecer as chaves públicas SSH em texto sem formatação ao criar u
 }
 ```
 
-Nome do elemento linuxConfiguration | Obrigatório | Type | Description
+Nome do elemento linuxConfiguration | Obrigatório | Type | Descrição
 --- | --- | --- | ---
-ssh | No | Coleção | Especifica a configuração da chave SSH para um SO Linux
+ssh | Não | Coleção | Especifica a configuração da chave SSH para um SO Linux
 caminho | Sim | String | Especifica o caminho de arquivo do Linux no qual as chaves SSH ou o certificado deve estar localizado
 keyData | Sim | String | Especifica uma chave pública SSH codificada em base64
 

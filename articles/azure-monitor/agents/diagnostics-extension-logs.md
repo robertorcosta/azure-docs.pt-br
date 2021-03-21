@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
 ms.openlocfilehash: deb6b5f3718c1a7c84e3591bf9abcceb72b785da
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054439"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Coletar dados da extensão de diagnóstico do Azure para logs de Azure Monitor
@@ -21,7 +21,7 @@ A extensão de diagnóstico do Azure é um [agente no Azure monitor](../agents/a
 ## <a name="supported-data-types"></a>Tipos de dados com suporte
 A extensão de diagnóstico do Azure armazena dados em uma conta de armazenamento do Azure. Para que os logs de Azure Monitor coletem esses dados, eles devem estar nos seguintes locais:
 
-| Tipo de Log | Tipo de recurso | Local |
+| Tipo de Log | Tipo de recurso | Location |
 | --- | --- | --- |
 | Logs IIS |Máquinas Virtuais <br> Funções da Web <br> Funções de trabalho |wad-iis-logfiles (Armazenamento de Blobs) |
 | syslog |Máquinas Virtuais |LinuxsyslogVer2v0 (Armazenamento de Tabelas) |

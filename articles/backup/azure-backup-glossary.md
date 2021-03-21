@@ -4,10 +4,10 @@ description: Este artigo define os termos úteis para uso com o backup do Azure.
 ms.topic: conceptual
 ms.date: 12/21/2020
 ms.openlocfilehash: fb46415c8bdb463556d57004e37d741c1b9a9b57
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502018"
 ---
 # <a name="azure-backup-glossary"></a>Glossário do backup do Azure
@@ -246,7 +246,7 @@ Uma cópia dos dados originais que estão sendo submetidos a backup. Um ponto de
 
 Um recurso de Azure Resource Manager do tipo *Microsoft. recoveryservices/cofres*. Atualmente, os cofres dos serviços de recuperação são usados para fazer backup das seguintes cargas de trabalho: VMs do Azure, SQL em VMs do Azure, SAP HANA em VMs do Azure e compartilhamentos de arquivos do Azure. Ele também é usado para fazer backup de cargas de trabalho locais usando MARS, Servidor de Backup do Azure (MABS) e System Center DPM. [Saiba mais sobre os cofres dos serviços de recuperação](backup-azure-recovery-services-vault-overview.md).
 
-## <a name="resource-group"></a>Grupo de recursos
+## <a name="resource-group"></a>Resource group
 
 Consulte a [documentação do Azure Resource Manager](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
@@ -286,7 +286,7 @@ Um instantâneo é uma cópia completa e somente leitura de um disco rígido vir
 
 Consulte a [documentação da conta de armazenamento](../storage/common/storage-account-overview.md).
 
-## <a name="subscription"></a>Assinatura
+## <a name="subscription"></a>Subscription
 
 Uma assinatura do Azure é um contêiner lógico usado para provisionar recursos no Azure. Ele contém os detalhes de todos os seus recursos, como VMs (máquinas virtuais), bancos de dados e muito mais.
 

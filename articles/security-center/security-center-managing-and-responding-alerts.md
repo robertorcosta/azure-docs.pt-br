@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 02/17/2021
 ms.author: memildin
 ms.openlocfilehash: 490f94c71611e07e765f5882cb4e3eec13033a6a
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102099328"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gerencie e responda a alertas de segurança na Central de Segurança do Azure
@@ -62,7 +62,7 @@ Para obter uma visão geral de como a central de segurança gera alertas, consul
 
 1. Para obter mais informações, selecione **Exibir detalhes completos**.
 
-    O painel esquerdo da página alerta de segurança mostra informações de alto nível sobre o alerta de segurança: título, severidade, status, tempo de atividade, descrição da atividade suspeita e o recurso afetado. Junto com o recurso afetado estão as marcas do Azure relevantes para o recurso. Use-os para inferir o contexto organizacional do recurso ao investigar o alerta.
+    O painel esquerdo da página alerta de segurança mostra informações de alto nível sobre o alerta de segurança: título, severidade, status, tempo de atividade, descrição da atividade suspeita e o recurso afetado. Com o recurso afetado estão as marcas do Azure relevantes para o recurso. Use-as para inferir o contexto organizacional do recurso ao investigar o alerta.
 
     O painel direito inclui a guia **detalhes do alerta** que contém mais detalhes do alerta para ajudá-lo a investigar o problema: endereços IP, arquivos, processos e muito mais.
      
@@ -79,7 +79,7 @@ Para obter uma visão geral de como a central de segurança gera alertas, consul
 
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 Neste documento, você aprendeu a exibir alertas de segurança. Consulte as páginas a seguir para obter material relacionado:
 

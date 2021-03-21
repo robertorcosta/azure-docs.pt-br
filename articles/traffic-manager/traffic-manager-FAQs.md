@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 03/03/2021
 ms.author: duau
 ms.openlocfilehash: 0d4f1ed6bab5775c44b2a745e1edc5fc07e0c06d
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102215452"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
@@ -385,10 +385,10 @@ Para perfis com qualquer método de roteamento que não seja de Múltiplos Valor
 |Solicitação de consulta de entrada|     Tipo de ponto de extremidade|     Resposta fornecida|
 |--|--|--|
 |ANY |    A / AAAA / CNAME |    Ponto de extremidade de destino| 
-|Um |    A / CNAME |    Ponto de extremidade de destino|
+|A |    A / CNAME |    Ponto de extremidade de destino|
 |A |    AAAA |    NODATA |
 |AAAA |    AAAA / CNAME |    Ponto de extremidade de destino|
-|AAAA |    Um |    NODATA |
+|AAAA |    A |    NODATA |
 |CNAME |    CNAME |    Ponto de extremidade de destino|
 |CNAME     |A / AAAA |    NODATA |
 |
@@ -398,7 +398,7 @@ Para perfis com o método de roteamento definido como de Múltiplos Valores:
 |Solicitação de consulta de entrada|     Tipo de ponto de extremidade |    Resposta fornecida|
 |--|--|--|
 |ANY |    Combinação de A e AAAA |    Pontos de extremidade de destino|
-|Um |    Combinação de A e AAAA |    Somente pontos de extremidade de destino do tipo A|
+|A |    Combinação de A e AAAA |    Somente pontos de extremidade de destino do tipo A|
 |AAAA    |Combinação de A e AAAA|     Somente pontos de extremidade de destino do tipo AAAA|
 |CNAME |    Combinação de A e AAAA |    NODATA |
 
