@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/12/2021
 ms.author: trbye
 ms.openlocfilehash: 2c98546d20e9f977a605ccbac21010aa9b1dbadc
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232487"
 ---
 # <a name="prepare-data-for-custom-speech"></a>Preparar dados para Fala Personalizada
@@ -206,7 +206,7 @@ O formulário falado é a seqüência fonética escrita. Ele pode ser composto p
 
 A pronúncia personalizada está disponível em inglês ( `en-US` ) e alemão ( `de-DE` ). Esta tabela mostra os caracteres com suporte por idioma:
 
-| Language | Locale | Characters |
+| Idioma | Locale | Characters |
 |----------|--------|------------|
 | Inglês | `en-US` | `a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |
 | Alemão | `de-DE` | `ä, ö, ü, a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z` |

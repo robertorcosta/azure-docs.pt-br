@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 03/12/2021
 ms.author: alkohli
 ms.openlocfilehash: 04299ba4028de313f640074ca98c0b611f734981
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564795"
 ---
 # <a name="deploy-a-kubernetes-workload-using-gpu-sharing-on-your-azure-stack-edge-pro"></a>Implantar uma carga de trabalho kubernetes usando a GPU Sharing em seu Azure Stack Edge pro
@@ -81,7 +81,7 @@ A primeira etapa é verificar se o dispositivo está executando o driver de GPU 
 
 1. [Conecte-se à interface do PowerShell do seu dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
-1. Execute o seguinte comando:
+1. Execute o comando a seguir:
 
     ```powershell
     Get-HcsGpuNvidiaSmi
@@ -129,7 +129,7 @@ A primeira etapa é verificar se o dispositivo está executando o driver de GPU 
 
 Você executará o primeiro trabalho para implantar um aplicativo em seu dispositivo no namespace `mynamesp1` . Essa implantação de aplicativo também mostrará que o compartilhamento de contexto de GPU não está habilitado por padrão. 
 
-1. Listar todos os pods em execução no namespace. Execute o seguinte comando: 
+1. Listar todos os pods em execução no namespace. Execute o comando a seguir: 
 
     ```powershell
     kubectl get pods -n <Name of the namespace>
@@ -141,7 +141,7 @@ Você executará o primeiro trabalho para implantar um aplicativo em seu disposi
     PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1
     No resources found.
     ```
-1. Inicie um trabalho de implantação em seu dispositivo usando o Deployment. YAML fornecido anteriormente. Execute o seguinte comando: 
+1. Inicie um trabalho de implantação em seu dispositivo usando o Deployment. YAML fornecido anteriormente. Execute o comando a seguir: 
 
     ```powershell
     kubectl apply -f <Path to the deployment .yaml> -n <Name of the namespace> 
@@ -176,7 +176,7 @@ Você executará o primeiro trabalho para implantar um aplicativo em seu disposi
 
     Há dois pods `cuda-sample1-cf979886d-xcwsq` e `cuda-sample2-68b4899948-vcv68` em execução no seu dispositivo.
 
-1. Busque os detalhes do pods. Execute o seguinte comando:
+1. Busque os detalhes do pods. Execute o comando a seguir:
 
     ```powershell
     kubectl -n <Name of the namespace> describe <Name of the job> 
@@ -307,7 +307,7 @@ Você executará o primeiro trabalho para implantar um aplicativo em seu disposi
     PS C:\WINDOWS\system32>
     ```
  
-1. Depois que a simulação for concluída, você poderá exibir os logs e o tempo total para a conclusão da simulação. Execute o seguinte comando:
+1. Depois que a simulação for concluída, você poderá exibir os logs e o tempo total para a conclusão da simulação. Execute o comando a seguir:
 
     ```powershell
     kubectl logs -n <Name of the namespace> <pod name>
@@ -509,7 +509,7 @@ Você executará o segundo trabalho para implantar a simulação de n-Body em do
     +-----------------------------------------------------------------------------+
     ```
 
-1. Depois que a simulação for concluída, você poderá exibir os logs e o tempo total para a conclusão da simulação. Execute o seguinte comando:
+1. Depois que a simulação for concluída, você poderá exibir os logs e o tempo total para a conclusão da simulação. Execute o comando a seguir:
 
     ```powershell
         PS C:\WINDOWS\system32> kubectl get pods -n mynamesp1

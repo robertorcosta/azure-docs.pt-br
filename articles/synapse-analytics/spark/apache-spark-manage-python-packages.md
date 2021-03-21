@@ -9,12 +9,12 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 4bb323e0e8f72456b6a522ede9a98d193e1c3c7e
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d6ac02402414f096a46fec0340c3074d8e1784a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102098767"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586634"
 ---
 # <a name="manage-python-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas do Python para Apache Spark no Azure Synapse Analytics
 
@@ -68,13 +68,13 @@ Este exemplo especifica os canais e as dependências de Conda/PyPI.
 ```
 name: stats2
 channels:
-  - defaults
+- defaults
 dependencies:
-  - bokeh=0.9.2
-  - numpy=1.9.*
-  - flask
-  - pip:
-    - matplotlib
+- bokeh
+- numpy
+- pip:
+  - matplotlib
+  - koalas==1.7.0
 ```
 Para obter detalhes sobre como criar um ambiente desse arquivo environment. yml, consulte [criando um ambiente de um arquivo environment. yml](https://docs.conda.io/projects/conda/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually).
 
@@ -140,6 +140,11 @@ Para adicionar pacotes de espaço de trabalho:
 
 ![Captura de tela que realça os pacotes de espaço de trabalho.](./media/apache-spark-azure-portal-add-libraries/studio-add-workspace-package.png "Exibir pacotes de espaço de trabalho")
 
+>[!WARNING]
+>- No Azure Synapse, um pool de Apache Spark pode aproveitar as bibliotecas personalizadas que são carregadas como pacotes de espaço de trabalho ou carregadas em um caminho de Azure Data Lake Storage conhecido. No entanto, essas duas opções não podem ser usadas simultaneamente no mesmo pool de Apache Spark. Se os pacotes forem fornecidos usando os dois métodos, somente os arquivos de roda especificados na lista pacotes de espaço de trabalho serão instalados. 
+>
+>- Depois que pacotes de espaço de trabalho (versão prévia) são usados para instalar pacotes em um determinado pool de Apache Spark, há uma limitação de que você não pode mais especificar pacotes usando o caminho da conta de armazenamento no mesmo pool.  
+
 ### <a name="storage-account"></a>Conta de armazenamento
 Os pacotes de roda personalizados podem ser instalados no pool de Apache Spark carregando todos os arquivos de roda na conta Azure Data Lake Storage (Gen2) que está vinculada ao espaço de trabalho Synapse. 
 
@@ -149,13 +154,12 @@ Os arquivos devem ser carregados no seguinte caminho no contêiner padrão da co
 abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<workspace_name>/sparkpools/<pool_name>/libraries/python/
 ```
 
-Talvez seja necessário adicionar a ```python``` pasta dentro da ```libraries``` pasta, caso ela ainda não exista.
+>[!WARNING]
+> Em alguns casos, talvez seja necessário criar o caminho do arquivo com base na estrutura acima, caso ele ainda não exista. Por exemplo, talvez seja necessário adicionar a ```python``` pasta dentro da ```libraries``` pasta, caso ela ainda não exista.
 
 > [!IMPORTANT]
 > Para instalar bibliotecas personalizadas usando o método de armazenamento do Azure datalake, você deve ter as permissões de proprietário de dados de armazenamento de **blob de armazenamento** ou de **proprietários** da conta de armazenamento do Gen2 primário que está vinculada ao espaço de trabalho do Azure Synapse Analytics.
 
->[!WARNING]
-> Ao fornecer arquivos de roda personalizados, os usuários não podem fornecer arquivos de roda na conta de armazenamento e na interface de biblioteca de espaço de trabalho. Se ambos forem fornecidos, somente os arquivos de roda especificados na lista pacotes de espaço de trabalho serão instalados. 
 
 ## <a name="session-scoped-packages-preview"></a>Pacotes no escopo da sessão (versão prévia)
 Além dos pacotes de nível de pool, você também pode especificar bibliotecas no escopo da sessão no início de uma sessão do bloco de anotações.  Bibliotecas com escopo de sessão permitem especificar e usar ambientes de Python personalizados em uma sessão de notebook. 

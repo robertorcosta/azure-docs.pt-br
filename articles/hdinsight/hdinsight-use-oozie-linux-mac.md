@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: seoapr2020
 ms.date: 04/27/2020
 ms.openlocfilehash: b72d94c1cba3ea0476c6d44e68583f6668b167e2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702769"
 ---
 # <a name="use-apache-oozie-with-apache-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Usar o Apache Oozie com o Apache Hadoop para definir e executar um fluxo de trabalho no Azure HDInsight baseado no Linux
@@ -488,7 +488,7 @@ Com a API REST do Oozie, você pode criar suas próprias ferramentas que funcion
 
 * **URI**: você pode acessar a API REST de fora do cluster em `https://CLUSTERNAME.azurehdinsight.net/oozie`.
 
-* **Autenticação**: para fazer a autenticação, use a API com a conta (administrador) e a senha do cluster HTTP. Por exemplo: 
+* **Autenticação**: para fazer a autenticação, use a API com a conta (administrador) e a senha do cluster HTTP. Por exemplo:
 
     ```bash
     curl -u admin:PASSWORD https://CLUSTERNAME.azurehdinsight.net/oozie/versions

@@ -13,10 +13,10 @@ ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: d2ecfb5a58641938062166bcd7c61a7d91764a3f
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101093471"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Criar um localizador de streaming e criar URLs
@@ -163,7 +163,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Consulte o exemplo de código completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Criar filtros com o .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Criar filtros com o REST](filters-dynamic-manifest-rest-howto.md)

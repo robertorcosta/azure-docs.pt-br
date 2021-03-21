@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: e7d6156fe5cd8ab32ff159bda64e0c06cfbac406
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653963"
 ---
 # <a name="use-java-to-manage-acls-in-azure-data-lake-storage-gen2"></a>Usar Java para gerenciar ACLs no Azure Data Lake Storage Gen2
@@ -208,13 +208,13 @@ Este exemplo define as entradas de ACL recursivamente. Se esse código encontrar
 
 [!INCLUDE [updated-for-az](../../../includes/recursive-acl-best-practices.md)]
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Documentação de referência da API](/java/api/overview/azure/storage-file-datalake-readme)
 - [Pacote (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake)
 - [Amostras](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 - [Mapeamento de Gen1 para Gen2](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
 - [Problemas conhecidos](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-- [Enviar comentários](https://github.com/Azure/azure-sdk-for-java/issues)
+- [Envie comentários](https://github.com/Azure/azure-sdk-for-java/issues)
 - [Modelo de controle de acesso no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
 - [ACLs (listas de controle de acesso) no Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)

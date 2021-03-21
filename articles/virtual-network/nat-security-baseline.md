@@ -8,10 +8,10 @@ ms.date: 11/20/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 501d5b17358501f17d17e8884ceec0bcbbb2ab1c
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612398"
 ---
 # <a name="azure-security-baseline-for-virtual-network-nat"></a>Linha de base de segurança do Azure para NAT de rede virtual
@@ -34,7 +34,7 @@ No entanto, os logs de fluxo do NSG (grupo de segurança de rede) podem ser usad
 
 Use a central de segurança do Azure e siga as recomendações de proteção de rede para ajudar a proteger seus recursos de rede do Azure. Habilite logs de fluxo do grupo de segurança de rede e envie os logs para uma conta de armazenamento do Azure para auditoria. Você também pode enviar os logs de fluxo para um espaço de trabalho Log Analytics e, em seguida, usar Análise de Tráfego para fornecer informações sobre os padrões de tráfego em sua nuvem do Azure. Algumas vantagens do Análise de Tráfego são a capacidade de visualizar a atividade da rede, identificar pontos de acesso e ameaças à segurança, compreender os padrões de fluxo de tráfego e identificar as configurações incorretas da rede. 
 
-- [Visão geral de NAT da rede virtual](./nat-overview.md)
+- [Visão geral da NAT da Rede Virtual](./nat-overview.md)
 
 - [Recurso de gateway da NAT](./nat-gateway-resource.md)
 

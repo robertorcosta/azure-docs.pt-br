@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6ac21d67f32fbc61db19b348fc29cdf3ee9fd7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 7f540ab40a14af09aa8667860286021f572eb6f1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103418174"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104587892"
 ---
 # <a name="governing-azure-ad-service-accounts"></a>Governando contas de serviço do Azure AD
 
@@ -53,7 +53,7 @@ Recomendamos as práticas a seguir para privilégios de conta de serviço.
 
 * Não atribua funções internas a contas de serviço. Em vez disso, use o [modelo de concessão de permissão OAuth2 para Microsoft Graph](/graph/api/resources/oauth2permissiongrant),
 
-* Se a entidade de serviço tiver que ser atribuída uma função privilegiada, considere atribuir uma [função personalizada](https://docs.microsoft.com/azure/active-directory/roles/custom-create) com privilégios específicos, necessários, em uma forma de limite de tempo.
+* Se a entidade de serviço tiver que ser atribuída uma função privilegiada, considere atribuir uma [função personalizada](../roles/custom-create.md) com privilégios específicos, necessários, em uma forma de limite de tempo.
 
 * Não inclua contas de serviço como membros de qualquer grupo com permissões elevadas. 
 
@@ -63,10 +63,10 @@ Recomendamos as práticas a seguir para privilégios de conta de serviço.
    ou use  
 `Get-AzureADServicePrincipal | % { Get-AzureADServiceAppRoleAssignment -ObjectId $_ }`
 
-* [Use escopos OAuth 2,0](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent) para limitar a funcionalidade que uma conta de serviço pode acessar em um recurso.
+* [Use escopos OAuth 2,0](../develop/v2-permissions-and-consent.md) para limitar a funcionalidade que uma conta de serviço pode acessar em um recurso.
 * As entidades de serviço e as identidades gerenciadas podem usar escopos OAuth 2,0 em um contexto delegado que está representando um usuário conectado ou como uma conta de serviço no contexto do aplicativo. No contexto do aplicativo, não é conectado.
 
-* Verifique os escopos solicitação de contas de serviço para obter recursos para garantir que eles sejam apropriados. Por exemplo, se uma conta estiver solicitando arquivos. ReadWrite. All, avalie se ele realmente precisa apenas de File. Read. All. Para obter mais informações sobre permissões, consulte para [Microsoft Graph referência de permissão](https://docs.microsoft.com/graph/permissions-reference).
+* Verifique os escopos solicitação de contas de serviço para obter recursos para garantir que eles sejam apropriados. Por exemplo, se uma conta estiver solicitando arquivos. ReadWrite. All, avalie se ele realmente precisa apenas de File. Read. All. Para obter mais informações sobre permissões, consulte para [Microsoft Graph referência de permissão](/graph/permissions-reference).
 
 * Verifique se você confia no desenvolvedor do aplicativo ou API com o acesso solicitado aos seus recursos.
 
@@ -78,9 +78,9 @@ Recomendamos as práticas a seguir para privilégios de conta de serviço.
 
 Depois de ter uma compreensão clara da finalidade, do escopo e das permissões necessárias, crie sua conta de serviço. 
 
-[Criar e usar identidades gerenciadas](https://docs.microsoft.com/azure/app-service/overview-managed-identity?tabs=dotnet)
+[Criar e usar identidades gerenciadas](../../app-service/overview-managed-identity.md?tabs=dotnet)
 
-[Criar e usar entidades de serviço](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)
+[Criar e usar entidades de serviço](../develop/howto-create-service-principal-portal.md)
 
 Use uma identidade gerenciada quando possível. Se você não puder usar uma identidade gerenciada, use uma entidade de serviço. Se você não puder usar uma entidade de serviço, use apenas uma conta de usuário do Azure AD.
 
@@ -100,7 +100,7 @@ Monitore proativamente suas contas de serviço para garantir que os padrões de 
 
 * Usando os logs de Sign-In do Azure AD no portal do Azure AD.
 
-* Exportar os logs de Sign-In do Azure AD para o [armazenamento do Azure](https://docs.microsoft.com/azure/storage/), [hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/)ou [Azure monitor](https://docs.microsoft.com/azure/azure-monitor/logs/data-platform-logs).
+* Exportar os logs de Sign-In do Azure AD para o [armazenamento do Azure](../../storage/index.yml), [hubs de eventos do Azure](../../event-hubs/index.yml)ou [Azure monitor](../../azure-monitor/logs/data-platform-logs.md).
 
 
 ![Captura de tela mostrando a tela de entrada da entidade de serviço.](./media/securing-service-accounts/service-accounts-govern-azure-1.png)
@@ -172,7 +172,7 @@ Estabeleça um processo de revisão para garantir que as contas de serviço seja
 
 **Os processos de desprovisionamento devem incluir as tarefas a seguir.**
 
-1. Depois que o aplicativo ou script associado for desprovisionado, [monitore as entradas](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins#sign-ins-report) e o acesso aos recursos pela conta de serviço.
+1. Depois que o aplicativo ou script associado for desprovisionado, [monitore as entradas](../reports-monitoring/concept-sign-ins.md#sign-ins-report) e o acesso aos recursos pela conta de serviço.
 
    * Se a conta ainda estiver ativa, determine como ela está sendo usada antes de tomar as etapas subsequentes.
  
@@ -196,4 +196,3 @@ Para obter mais informações sobre como proteger contas de serviço do Azure, c
 
  
 
- 

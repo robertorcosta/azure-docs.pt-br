@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c939c1d061f4e01a00bc2b886056e42f0b059ad5
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: a995a110c4f777603e5b0273b6025cd68fe55b67
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102511003"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102532754"
 ---
 ## <a name="download-and-install"></a>Fazer o download e instalar
 
@@ -118,7 +118,7 @@ Para usar o comando `spx` instalado em um contêiner, sempre insira o comando co
 Por exemplo, no Windows, este comando define a chave:
 
 ```console
-docker run -it -v c:\spx-data:/data --rm msftspeech/spx config --set @key SUBSCRIPTION-KEY
+docker run -it -v c:\spx-data:/data --rm msftspeech/spx config @key --set SUBSCRIPTION-KEY
 ```
 
 Para obter uma interação mais estendida com a ferramenta de linha de comando, inicie um contêiner com um shell do Bash interativo adicionando um parâmetro de ponto de entrada.
@@ -171,8 +171,8 @@ Para começar a usar a CLI de Fala, você precisa inserir a chave de assinatura 
 Depois de obter a chave de assinatura e o identificador da região (por exemplo, `eastus`, `westus`), execute os comandos a seguir.
 
 ```console
-spx config --set @key SUBSCRIPTION-KEY
-spx config --set @region REGION
+spx config @key --set SUBSCRIPTION-KEY
+spx config @region --set REGION
 ```
 
 Sua autenticação de assinatura agora está armazenada para futuras solicitações de SPX. Se você precisar remover qualquer um desses valores armazenados, execute `spx config @region --clear` ou `spx config @key --clear`.

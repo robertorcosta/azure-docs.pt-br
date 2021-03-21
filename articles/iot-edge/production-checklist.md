@@ -11,12 +11,12 @@ services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 1fc229b04ac317578e9e90686496cd081b279afd
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: fda69d582f26b0c9189898bb5c8b0004a1e47360
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489748"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722762"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Prepare-se para implantar sua solução IoT Edge em produção
 
@@ -178,7 +178,13 @@ Uma marca é um conceito de Docker que você pode usar para distinguir entre ver
 
 As tags também ajudam a impor atualizações nos seus dispositivos IoT Edge. Quando você envia uma versão atualizada de um módulo para seu registro de contêiner, incremente a tag. Em seguida, envie uma nova implantação para seus dispositivos com a tag incrementada. O mecanismo do contêiner reconhecerá a tag incrementada como uma nova versão e baixará a versão mais recente do módulo para o seu dispositivo.
 
-Para obter um exemplo de uma convenção de tag, consulte [ Atualizar o runtime do IoT Edge ](how-to-update-iot-edge.md#understand-iot-edge-tags) para saber como o IoT Edge usa tags de rolagem e tags específicas para rastrear versões.
+#### <a name="tags-for-the-iot-edge-runtime"></a>Marcas para o tempo de execução de IoT Edge
+
+O agente do IoT Edge e as imagens de hub do IoT Edge são marcadas com a versão do IoT Edge a que estão associados. Há duas maneiras diferentes de usar marcas com as imagens de runtime:
+
+* **Marcas sem interrupção** – use os dois primeiros valores do número de versão para obter a imagem mais recente que corresponde a esses dígitos. Por exemplo, 1,1 é atualizado sempre que há uma nova versão para apontar para a versão 1.1. x mais recente. Se o runtime do contêiner em seu dispositivo IoT Edge extrair a imagem novamente, os módulos de runtime serão atualizados para a versão mais recente. Implantações do portal do Azure usam como padrão marcas sem interrupção. *Essa abordagem é sugerida para fins de desenvolvimento.*
+
+* **Marcas específicas** – use todos os três valores do número de versão para definir explicitamente a versão da imagem. Por exemplo, o 1.1.0 não mudará após sua versão inicial. Você pode declarar um novo número de versão no manifesto de implantação quando estiver pronto para atualizar. *Essa abordagem é sugerida para fins de produção.*
 
 ### <a name="store-runtime-containers-in-your-private-registry"></a>Armazenar contêineres de tempo de execução em seu registro particular
 

@@ -12,10 +12,10 @@ author: NilsPohlmann
 ms.date: 07/31/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: e2b5a3322f633ca8301357c2186d78d3ac437ae2
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102521961"
 ---
 # <a name="define-machine-learning-pipelines-in-yaml"></a>Definir pipelines de Machine Learning no YAML
@@ -26,15 +26,15 @@ A tabela a seguir lista o que é e não tem suporte atualmente ao definir um pip
 
 | Tipo de etapa | Compatível? |
 | ----- | :-----: |
-| PythonScriptStep | Yes |
-| ParallelRunStep | Yes |
-| AdlaStep | Yes |
-| AzureBatchStep | Yes |
-| DatabricksStep | Yes |
-| DataTransferStep | Yes |
+| PythonScriptStep | Sim |
+| ParallelRunStep | Sim |
+| AdlaStep | Sim |
+| AzureBatchStep | Sim |
+| DatabricksStep | Sim |
+| DataTransferStep | Sim |
 | AutoMLStep | Não |
 | HyperDriveStep | Não |
-| ModuleStep | Yes |
+| ModuleStep | Sim |
 | MPIStep | Não |
 | EstimatorStep | Não |
 
