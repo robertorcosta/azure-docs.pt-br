@@ -9,23 +9,23 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: db026c4903aa30a0a4c8154af8ad6eeb4b72b706
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101098511"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview-route"></a>O que é a rota do Azure front door Standard/Premium (versão prévia)?
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 A rota Premium/Standard da porta do Azure define como o tráfego é tratado quando a solicitação de entrada chega ao ambiente de porta frontal do Azure. Por meio das configurações de rota, uma associação é definida entre um domínio e um grupo de origem de back-end. Ao ativar os recursos avançados, como padrão para Mach, conjunto de regras, um controle mais granular sobre o tráfego é atingível.
 
 Uma configuração de roteamento Standard/Premium da porta é composta de duas partes principais: "lado esquerdo" e "lado direito". Correspondemos à solicitação de entrada no lado esquerdo da rota e o lado direito define como processamos a solicitação.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -58,7 +58,7 @@ Para explicar esse processo ainda mais, vamos examinar um exemplo de configuraç
 
 | Regra de roteamento | Hosts de front-end | Caminho |
 |-------|--------------------|-------|
-| Um | foo.contoso.com | /\* |
+| A | foo.contoso.com | /\* |
 | B | foo.contoso.com | /users/\* |
 | C | www \. fabrikam.com, foo.Adventure-Works.com  | /\*, /images/\* |
 
@@ -89,7 +89,7 @@ Para explicar melhor, vejamos outro conjunto de exemplos:
 
 | Regra de roteamento | Host de front-end    | Caminho     |
 |-------|---------|----------|
-| Um     | www\.contoso.com | /        |
+| A     | www\.contoso.com | /        |
 | B     | www\.contoso.com | /\*      |
 | C     | www\.contoso.com | /ab      |
 | D     | www\.contoso.com | /abc     |
@@ -102,7 +102,7 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 
 | Solicitação de entrada    | Rota correspondente |
 |---------------------|---------------|
-| \.contoso.com/www            | Um             |
+| \.contoso.com/www            | A             |
 | \.contoso.com/a www           | B             |
 | \.contoso.com/AB www          | C             |
 | \.contoso.com/ABC www         | D             |
@@ -123,7 +123,7 @@ Dada essa configuração, a tabela de correspondência de exemplo a seguir resul
 >
 > | Rota | Host             | Caminho    |
 > |-------|------------------|---------|
-> | Um     | profile.contoso.com | /api/\* |
+> | A     | profile.contoso.com | /api/\* |
 >
 > Tabela de correspondência:
 >

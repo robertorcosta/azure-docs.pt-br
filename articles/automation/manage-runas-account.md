@@ -6,10 +6,10 @@ ms.subservice: ''
 ms.date: 01/19/2021
 ms.topic: conceptual
 ms.openlocfilehash: f170fc948f136f4f46634e7ae2645ed2eb357afa
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101096472"
 ---
 # <a name="manage-an-azure-automation-run-as-account"></a>Gerenciar uma conta Executar como da Automação do Azure
@@ -65,7 +65,7 @@ Antes de conceder as permissões da conta Executar como, você precisa primeiro 
 Para obter etapas detalhadas sobre como adicionar atribuições de função, confira os artigos a seguir, dependendo do método que você deseja usar.
 
 * [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md)
-* [Atribuir funções do Azure usando Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
+* [Atribuir funções do Azure usando o Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 * [Atribuir funções do Azure usando o CLI do Azure](../role-based-access-control/role-assignments-cli.md)
 * [Atribuir funções do Azure usando a API REST](..//role-based-access-control/role-assignments-rest.md)
 

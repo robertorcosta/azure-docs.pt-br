@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 07/03/2018
 ms.openlocfilehash: 1c7218deac9efba6df6c1284f2578a744e768284
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92221019"
 ---
 # <a name="debug-azure-data-lake-analytics-code-locally"></a>Depurar o código do Azure Data Lake Analytics localmente
@@ -25,7 +25,7 @@ Você pode depurar assemblies do C# sem enviar e registrá-los para o serviço A
 ### <a name="debug-local-code-in-a-code-behind-file"></a>Depurar o código local no arquivo code-behind
 
 1. Definir pontos de interrupção no arquivo code-behind.
-2. Selecione **F5**para depurar o script localmente.
+2. Selecione **F5** para depurar o script localmente.
 
 > [!NOTE]
    > O procedimento a seguir só funciona no Visual Studio 2015. Nas versões mais antigas do Visual Studio, talvez seja necessário adicionar manualmente os arquivos **PDB**.  

@@ -8,10 +8,10 @@ author: parthpandyaMSFT
 ms.author: parthp
 ms.date: 05/30/2019
 ms.openlocfilehash: 5b4aadc506b2f4a251ccef5e9488066b609ba5a5
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93130520"
 ---
 # <a name="company-work-accounts-and-partner-center"></a>Contas corporativas corporativas e Partner Center
@@ -24,7 +24,7 @@ Se sua empresa assinou um serviço de nuvem da Microsoft, como o Azure, Microsof
 
 Siga estas etapas para verificar:
 1. Entre no portal de administração do Azure em https://portal.azure.com .
-2. Selecione **Azure Active Directory** no menu de navegação à esquerda e, em seguida, selecione **nomes de domínio personalizados** .
+2. Selecione **Azure Active Directory** no menu de navegação à esquerda e, em seguida, selecione **nomes de domínio personalizados**.
 3. Caso você já tenha uma conta corporativa, seu nome de domínio estará listado.
 
 Se sua empresa ainda não tiver uma conta corporativa, ela será criada para você durante o processo de registro do Partner Center.
@@ -37,8 +37,8 @@ Antes de decidir usar uma conta de trabalho existente, considere quantos usuári
 
 Para criar uma nova conta de trabalho para sua empresa, siga as etapas abaixo. Talvez seja necessário solicitar assistência de quem tem permissões administrativas na conta de Microsoft Azure da sua empresa.
 
-1. Entre no [portal do Microsoft Azure](https://portal.azure.com).
-2. No menu de navegação à esquerda, selecione o **Azure Active Directory**  ->  **usuários** .
+1. Entre no [Portal do Microsoft Azure](https://portal.azure.com).
+2. No menu de navegação à esquerda, selecione o **Azure Active Directory**  ->  **usuários**.
 3. Selecione **novo usuário** e crie uma nova conta de trabalho do Azure inserindo um nome e endereço de email. Verifique se a **função de diretório** está definida como **usuário** e marque a caixa de seleção **Mostrar senha** na parte inferior para exibir e anotar a senha gerada automaticamente.
 4. Selecione **criar** para salvar o novo usuário.
 

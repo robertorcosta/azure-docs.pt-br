@@ -4,10 +4,10 @@ description: Compreendendo o esquema de alerta comum, por que você deve usá-lo
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.openlocfilehash: 39ea469b4109f4715db0d0a73ad069121058a46f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102038250"
 ---
 # <a name="common-alert-schema"></a>Esquema comum de alertas
@@ -32,7 +32,7 @@ O esquema de alerta comum se manifestará principalmente em suas notificações 
 
 | Ação | Aprimoramentos|
 |:---|:---|
-| SMS | Um modelo de SMS consistente para todos os tipos de alerta. |
+| sms | Um modelo de SMS consistente para todos os tipos de alerta. |
 | Email | Um modelo de email consistente e detalhado, permitindo que você diagnostique facilmente os problemas rapidamente. Inseridos em profundidade – links para a instância de alerta no portal e o recurso afetado garantem que você possa ir rapidamente para o processo de correção. |
 | Aplicativo webhook/lógico/Azure function/Automation runbook | Uma estrutura JSON consistente para todos os tipos de alertas, que permite que você crie facilmente integrações em diferentes tipos de alertas. |
 

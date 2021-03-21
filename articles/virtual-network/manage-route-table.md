@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2020
 ms.author: kumud
 ms.openlocfilehash: 642a9a9f798492d85ee2a9784a1fe5ad4f854d58
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574127"
 ---
 # <a name="create-change-or-delete-a-route-table"></a>Criar, alterar ou excluir uma tabela de rotas
@@ -127,7 +127,7 @@ Opcionalmente, você pode associar uma tabela de rotas a uma sub-rede. Uma tabel
 
 1. Em **tabela de rotas**, escolha a tabela de rotas que você deseja associar à sub-rede.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Se sua rede virtual estiver conectada a um gateway de VPN do Azure, não associe uma tabela de rotas à [sub-rede de gateway](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#gwsub) que inclui uma rota com um destino de *0.0.0.0/0*. Isso pode impedir que o gateway funcione corretamente. Para obter mais informações sobre como usar *0.0.0.0/0* em uma rota, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md#default-route).
 
@@ -152,7 +152,7 @@ Quando você desassocia uma tabela de rota de uma sub-rede, o Azure roteia o tr�
 
 1. Em **tabela de rotas**, escolha **nenhum**.
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ### <a name="dissociate-a-route-table---commands"></a>Dissociar uma tabela de rotas – comandos
 

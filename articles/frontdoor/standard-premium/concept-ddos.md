@@ -9,21 +9,21 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: jodowns
 ms.openlocfilehash: 9c67944717888439c0d6bd84e1615f51dd91fcac
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098528"
 ---
 # <a name="ddos-protection-on-azure-front-door-standardpremium-preview"></a>Proteção contra DDoS no Azure front door Standard/Premium (visualização)
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 A porta frontal do Azure tem vários recursos e características que podem ajudar a impedir ataques de DDoS (negação de serviço distribuído). Esses recursos podem impedir que os invasores atinjam seu aplicativo e afetem a disponibilidade e o desempenho do seu aplicativo.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

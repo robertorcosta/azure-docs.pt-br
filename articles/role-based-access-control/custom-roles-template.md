@@ -10,10 +10,10 @@ ms.workload: identity
 ms.date: 12/16/2020
 ms.author: rolyon
 ms.openlocfilehash: 0626a9e36d05ac9cb51f62652dbe6f3133bbc6d7
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095905"
 ---
 # <a name="create-or-update-azure-custom-roles-using-an-arm-template"></a>Criar ou atualizar funções personalizadas do Azure usando um modelo ARM
@@ -117,7 +117,7 @@ Siga estas etapas para verificar se a função personalizada foi criada.
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
-    Você deverá ver uma saída semelhante à seguinte:
+    Será exibida uma saída semelhante à seguinte:
 
     ```azurepowershell-interactive
     {
@@ -191,7 +191,7 @@ $templateFile = "rg-reader-update.json"
 New-AzDeployment -Location $location -TemplateFile $templateFile -actions $actions -roleDefName $roleDefName
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para remover a função personalizada, siga estas etapas.
 
