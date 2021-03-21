@@ -15,10 +15,10 @@ ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
 ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/28/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92778667"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analisar o desempenho do nó de borda no CDN do Microsoft Azure
@@ -55,7 +55,7 @@ Este painel consiste em:
     ![botão gerenciar da folha Perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe o ponteiro do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda** .  Clique em **Painel** .
+2. Passe o ponteiro do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**.  Clique em **Painel**.
    
     O painel de análise de nó de borda é exibido.
 
@@ -143,7 +143,7 @@ Cada relatório neste módulo contém um gráfico e as estatísticas de uso de l
     ![botão gerenciar da folha Perfil CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
-2. Passe o ponteiro do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda** .  Clique em **Objeto grande de HTTP** .
+2. Passe o ponteiro do mouse sobre a guia **Análise** e, em seguida, sobre o submenu **Análise de desempenho de borda**.  Clique em **Objeto grande de HTTP**.
    
     A tela de relatórios de análise de nó de borda é exibido.
 

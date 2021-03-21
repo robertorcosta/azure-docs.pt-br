@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/13/2020
 ms.author: kumud
 ms.openlocfilehash: 43d3da49688a7daeb3ea4e0c1c3dba505dcd3b59
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508322"
 ---
 # <a name="add-network-interfaces-to-or-remove-network-interfaces-from-virtual-machines"></a>Adicionar adaptadores de rede ou remover adaptadores de rede de máquinas virtuais
@@ -117,7 +117,7 @@ Para saber mais sobre as configurações de adaptador de rede e como alterá-las
 
 5. Na barra de menus da VM, escolha **rede**  >  **desanexar interface de rede**.
 
-6. Na caixa de diálogo **desanexar interface de rede** , selecione a interface de rede que você deseja desanexar. Em seguida, selecione **OK**.
+6. Na caixa de diálogo **desanexar interface de rede** , selecione a interface de rede que você deseja desanexar. Depois, selecione **OK**.
 
     >[!NOTE]
     >Se apenas uma interface de rede estiver listada, você não poderá desanexá-la, pois uma máquina virtual sempre deve ter pelo menos um adaptador de rede anexado a ela.

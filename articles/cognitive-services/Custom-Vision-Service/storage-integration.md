@@ -10,10 +10,10 @@ ms.topic: how-to
 ms.date: 09/11/2020
 ms.author: pafarley
 ms.openlocfilehash: 2afac0e25c394c9bf265daf1fe3ded3d763a7c61
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102508496"
 ---
 # <a name="integrate-azure-storage-for-notifications-and-backup"></a>Integrar o armazenamento do Azure para notificações e backup
@@ -29,7 +29,7 @@ Este guia mostra como usar essas APIs REST com a rotação. Você também pode u
 
 - Um recurso Visão Personalizada no Azure. Se você não tiver uma, vá para a portal do Azure e [crie um novo recurso de visão personalizada](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision?azure-portal=true). No momento, esse recurso não dá suporte ao recurso de serviço cognitiva (tudo em uma única chave).
 - Uma conta de armazenamento do Azure com um contêiner de BLOB. Siga [os exercícios 1 do laboratório de armazenamento do Azure](https://github.com/Microsoft/computerscience/blob/master/Labs/Azure%20Services/Azure%20Storage/Azure%20Storage%20and%20Cognitive%20Services%20(MVC).md#Exercise1) se precisar de ajuda com esta etapa.
-* [PowerShell versão 6.0 +](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows)ou um aplicativo de linha de comando semelhante.
+* [PowerShell versão 6.0+](https://docs.microsoft.com/powershell/scripting/install/installing-powershell-core-on-windows) ou um aplicativo de linha de comando semelhante.
 
 ## <a name="set-up-azure-storage-integration"></a>Configurar a integração do armazenamento do Azure
 

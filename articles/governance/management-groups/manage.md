@@ -4,10 +4,10 @@ description: Saiba como visualizar, manter, atualizar e excluir sua hierarquia d
 ms.date: 01/15/2021
 ms.topic: conceptual
 ms.openlocfilehash: 05e78d66c29e500842d14a6eeb563c4569ecf0bd
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596490"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gerenciar seus recursos com grupos de gerenciamento
@@ -203,7 +203,7 @@ Ao mover um grupo de gerenciamento ou uma assinatura para ser um filho de outro 
 Se você estiver executando a ação de mover, precisará de: 
 
 - Permissões de gravação de Atribuição de função e gravação de grupo de gerenciamento na no grupo de gerenciamento ou assinatura filho.
-  - **Proprietário** de exemplo de função interna
+  - **Proprietário** do exemplo da função interna
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai alvo.
   - Exemplo de função interna: **Proprietário**, **Colaborador**, **Colaborador do Grupo de Gerenciamento**
 - Acesso de gravação do grupo de gerenciamento no grupo de gerenciamento pai existente.

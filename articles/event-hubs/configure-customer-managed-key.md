@@ -4,10 +4,10 @@ description: Este artigo fornece informações sobre como configurar sua própri
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.openlocfilehash: c9d1ac1c3a3387600fed80939598baafe658054b
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100595985"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Configurar chaves gerenciadas pelo cliente para criptografar dados de hubs de eventos do Azure em repouso usando o portal do Azure
@@ -90,7 +90,7 @@ Siga estas etapas para habilitar logs para chaves gerenciadas pelo cliente.
 ## <a name="log-schema"></a>Esquema do log 
 Todos os logs são armazenados no formato JSON (JavaScript Object Notation). Cada entrada tem campos de cadeia de caracteres que usam o formato descrito na tabela a seguir. 
 
-| Name | Descrição |
+| Nome | Descrição |
 | ---- | ----------- | 
 | TaskName | Descrição da tarefa que falhou. |
 | ActivityId | ID interna que é usada para acompanhamento. |

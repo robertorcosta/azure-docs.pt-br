@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral do recurso de Captura que perm
 ms.topic: article
 ms.date: 02/16/2021
 ms.openlocfilehash: 9f0ec1223c06b908a9aa9f3ac5c5b19ead2fe962
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100595962"
 ---
 # <a name="capture-events-through-azure-event-hubs-in-azure-blob-storage-or-azure-data-lake-storage"></a>Capture eventos por meio dos Hubs de Eventos do Azure no Armazenamento de Blobs do Azure ou no Azure Data Lake Storage
@@ -19,7 +19,7 @@ Os Hubs de Eventos do Azure permitem que você capture automaticamente dados de 
 A Captura de Hubs de Eventos permite processar pipelines em tempo real e baseados em lote no mesmo fluxo. Isso significa que você pode criar soluções que crescem com suas necessidades ao longo do tempo. Se você estiver criando sistemas baseados em lote com o objetivo de processá-los em tempo real no futuro ou para adicionar um caminho frio eficiente para uma solução em tempo real, a Captura de Hubs de Eventos facilita o trabalho de transmissão de dados.
 
 > [!IMPORTANT]
-> A conta de armazenamento de destino (armazenamento do Azure ou Azure Data Lake Storage) deve estar na mesma assinatura que o Hub de eventos. 
+> A conta de armazenamento de destino (Armazenamento do Azure ou Azure Data Lake Storage) precisa estar na mesma assinatura do hub de eventos. 
 
 ## <a name="how-event-hubs-capture-works"></a>Como a Captura de Hubs de Eventos funciona
 
