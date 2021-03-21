@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 1/5/2021
 ms.author: v-jawe
 ms.openlocfilehash: 2c771509de5ac246bac0d8e006a5d0b884a410b0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101706802"
 ---
 # <a name="how-to-mitigate-latency-when-using-the-face-service"></a>Como mitigar a latência ao usar o serviço de face
@@ -42,7 +42,7 @@ var faces = await client.Face.DetectWithUrlAsync("https://www.biography.com/.ima
 
 O serviço de face deve, então, baixar a imagem do servidor remoto. Se a conexão do serviço de face ao servidor remoto estiver lenta, isso afetará o tempo de resposta do método Detect.
 
-Para atenuar isso, considere [armazenar a imagem no armazenamento de blob Premium do Azure](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). Por exemplo: 
+Para atenuar isso, considere [armazenar a imagem no armazenamento de blob Premium do Azure](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). Por exemplo:
 
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
@@ -62,7 +62,7 @@ Se o arquivo a ser carregado for grande, o que afetará o tempo de resposta do `
 - O serviço leva mais tempo para processar o arquivo, em proporção ao tamanho do arquivo.
 
 Atenuações:
-- Considere [armazenar a imagem no armazenamento de blob Premium do Azure](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). Por exemplo: 
+- Considere [armazenar a imagem no armazenamento de blob Premium do Azure](../../../storage/blobs/storage-upload-process-images.md?tabs=dotnet). Por exemplo:
 ``` csharp
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
 ```

@@ -7,10 +7,10 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.openlocfilehash: ec8943bc73cac2020350dd4916f040f031cd842b
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102499689"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-with-azure-cache-for-redis"></a>Implantar um modelo de aprendizado de máquina para Azure Functions com o cache do Azure para Redis 
@@ -294,7 +294,7 @@ Agora, executaremos e testaremos nosso gatilho HTTP Azure Functions.
 
 Agora você implantou com êxito um modelo de Azure Machine Learning como um aplicativo de funções usando um cache do Azure para a instância Redis. Saiba mais sobre o cache do Azure para Redis navegando até os links na seção abaixo.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você pretende continuar até o próximo tutorial, pode manter os recursos criados neste início rápido e reutilizá-los.
 

@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/17/2018
 ms.openlocfilehash: d1d0da70dc1e47d0a1ddb90abbed2eaea83919cd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040168"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guia de referência para exibir blocos do designer no Azure Monitor
@@ -44,9 +44,9 @@ O bloco **Número** exibe a contagem de registros de uma consulta de log e um r�
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido na parte superior do bloco. |
+| Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
-| **Tile** | |
+| **Bloco** | |
 | Legenda |O texto que é exibido sob o valor. |
 | Consulta |A consulta que é executada. A contagem de registros que são retornados pela consulta é exibida. |
 | **Avançado** |**> Verificação do fluxo de dados** |
@@ -62,7 +62,7 @@ Este bloco exibe a contagem de registros de duas consultas de log diferentes e u
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido na parte superior do bloco. |
+| Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
 | **Primeiro Bloco** | |
 | Legenda |O texto que é exibido sob o valor. |
@@ -83,7 +83,7 @@ O bloco **Rosca** exibe um único número que resume uma coluna de valor em uma 
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido na parte superior do bloco. |
+| Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
 | **Donut** | |
 | Consulta |A consulta que é executada para a rosca. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. |
@@ -107,7 +107,7 @@ Este bloco é um gráfico de linhas que exibe várias séries de uma consulta de
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido na parte superior do bloco. |
+| Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
@@ -128,7 +128,7 @@ Este bloco tem um gráfico de linhas que exibe várias séries de uma consulta d
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido na parte superior do bloco. |
+| Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
 | **Gráfico de linhas** | |
 | Consulta |A consulta que é executada para o gráfico de linhas. A primeira propriedade é um valor de texto e a segunda é um valor numérico. Essa consulta normalmente usa a palavra-chave *medida* para resumir resultados. Se a consulta usar a palavra-chave *intervalo*, o eixo x usará esse intervalo de tempo. Se a consulta não usar a palavra-chave *intervalo*, o eixo x usará intervalos de horas. |
@@ -153,7 +153,7 @@ O bloco **Duas linhas do tempo** exibe os resultados das duas consultas de log a
 
 | Configuração | Descrição |
 |:--- |:--- |
-| Name |O texto que é exibido na parte superior do bloco. |
+| Nome |O texto que é exibido na parte superior do bloco. |
 | Descrição |O texto que é exibido sob o nome do bloco. |
 | Primeiro Gráfico | |
 | Legenda |O texto que é exibido sob o balão para a primeira série. |

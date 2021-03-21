@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/23/2021
 ms.custom: seodec18, has-adal-ref
 ms.openlocfilehash: 88fd575d40cc31f12f052158bda0aed9a5335555
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103009259"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
@@ -119,7 +119,7 @@ Solicite um token para Azure Time Series Insights usando C# e a biblioteca de cl
    var accessToken = token.Token;
    ```
 
-### <a name="app-registration"></a>Registro do aplicativo
+### <a name="app-registration"></a>Registro de aplicativo
 
 * Os desenvolvedores podem usar a MSAL ( [biblioteca de autenticação da Microsoft](../active-directory/develop/msal-overview.md) ) para obter tokens para registros de aplicativo.
 

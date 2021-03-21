@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 10/13/2019
 ms.author: yelevin
 ms.openlocfilehash: 6500805a4dc7e26f5e1bc601df9ea78279ae17e9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101709335"
 ---
 # <a name="connect-data-from-microsoft-365-defender-to-azure-sentinel"></a>Conectar dados do Microsoft 365 defender ao Azure Sentinel
@@ -31,7 +31,7 @@ ms.locfileid: "101709335"
 >
 > Você pode ver que os nomes antigos ainda estão em uso por um período de tempo.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 O conector do [Microsoft 365 defender (M365D)](/microsoft-365/security/mtp/microsoft-threat-protection) do Sentinela do Azure com integração de incidentes permite transmitir todos os incidentes e alertas do M365D para o Azure Sentinel e mantém os incidentes sincronizados entre os dois portais. Os incidentes de M365D incluem todos os seus alertas, entidades e outras informações relevantes, e eles são aprimorados pelo e agrupam alertas de serviços de componentes do M365D's **Microsoft defender for Endpoint**, **Microsoft defender for Identity**, **Microsoft defender for Office 365** e **Microsoft Cloud app Security**.
 

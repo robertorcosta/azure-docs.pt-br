@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/23/2021
 ms.author: victorh
 ms.openlocfilehash: 224cbe1e34e5915a7fa5fc1cf415c35f86c3abe4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711647"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar um gateway de aplicativo com um ponto de extremidade de ILB (balanceador de carga interno)
@@ -109,7 +109,7 @@ Para fazer isto:
 1. Aceite os padrões e selecione **Avançar: rede**.
 1. Verifique se **myVNet** está selecionado para a rede virtual e se a sub-rede é **myBackendSubnet**.
 1. Aceite os padrões restantes e selecione **Avançar: gerenciamento**.
-1. Selecione **desabilitar** para desabilitar o diagnóstico de inicialização.
+1. Selecione **Desabilitar** para desabilitar o diagnóstico de inicialização.
 1. Selecione **Examinar + criar**.
 1. Examine as configurações na página de resumo e, em seguida, selecione **Criar**. Pode levar vários minutos para criar a VM. Aguarde até que a implantação seja concluída com êxito antes de passar para a próxima seção.
 

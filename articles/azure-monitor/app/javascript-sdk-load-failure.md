@@ -7,10 +7,10 @@ ms.author: newylie
 ms.date: 06/05/2020
 ms.custom: devx-track-js
 ms.openlocfilehash: 6295a56abbf3466c68b968c935936dbc10e22fb5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101711409"
 ---
 # <a name="troubleshooting-sdk-load-failure-for-javascript-web-apps"></a>Solucionando problemas de falha de carregamento do SDK para aplicativos Web JavaScript
@@ -30,7 +30,7 @@ A exceção de falha de carregamento do SDK é criada e relatada pelo trecho de 
 
 Os detalhes da pilha incluem as informações básicas com as URLs que estão sendo usadas pelo usuário final.
 
-| Name                      | Descrição                                                                                                  |
+| Nome                      | Descrição                                                                                                  |
 |---------------------------|--------------------------------------------------------------------------------------------------------------|
 | &lt;&nbsp;Ponto de extremidade CDN&gt; | A URL que foi usada (e falhou) para baixar o SDK.                                                      |
 | &lt;Link de ajuda &nbsp;&gt;    | Uma URL que vincula à documentação de solução de problemas (esta página).                                              |
