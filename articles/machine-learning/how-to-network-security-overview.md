@@ -12,10 +12,10 @@ ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions, contperf-fy21q1
 ms.openlocfilehash: 1c3d9b286a8262efa126ba9c661c50dd88e78b64
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103573465"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Visão geral de isolamento de rede virtual e privacidade
@@ -31,7 +31,7 @@ Estes são os outros artigos desta série:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Este artigo pressupõe que você tenha familiaridade com os seguintes tópicos:
-+ [Redes virtuais do Azure](../virtual-network/virtual-networks-overview.md)
++ [Redes Virtuais do Azure](../virtual-network/virtual-networks-overview.md)
 + [Rede IP](../virtual-network/public-ip-addresses.md)
 + [Link Privado do Azure](how-to-configure-private-link.md)
 + [NSG (grupos de segurança de rede)](../virtual-network/network-security-groups-overview.md)

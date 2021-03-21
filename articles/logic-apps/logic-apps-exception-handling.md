@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm, azla
 ms.date: 02/18/2021
 ms.topic: article
 ms.openlocfilehash: fbe797937021763bb97ca09e1da792d9a7010f9a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702497"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Tratar erros e exceções em Aplicativos Lógicos do Azure
@@ -27,7 +27,7 @@ Para obter a exceção mais básica e o tratamento de erros, você pode usar uma
 
 Aqui estão os tipos de política de repetição:
 
-| Tipo | Descrição |
+| Type | Descrição |
 |------|-------------|
 | **Default** | Essa política envia até quatro novas tentativas em intervalos *exponencialmente crescentes*, que são dimensionados em 7,5 segundos, mas são limitados entre 5 e 45 segundos. |
 | **Intervalo exponencial**  | Essa política aguarda um intervalo aleatório selecionado de um intervalo em crescimento exponencial antes de enviar a próxima solicitação. |
@@ -67,18 +67,18 @@ Ou você pode especificar manualmente a política de repetição na seção `inp
 }
 ```
 
-*Necessária*
+*Obrigatório*
 
-| Valor | Tipo | Descrição |
+| Valor | Type | Descrição |
 |-------|------|-------------|
 | <*Retry-tipo de política*> | String | O tipo de política de repetição que você deseja usar: `default`, `none`, `fixed`, ou `exponential` |
 | <*intervalo de repetição*> | String | O intervalo de repetição em que o valor deve usar [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). O intervalo mínimo de padrão é `PT5S` e o intervalo máximo é `PT1D`. Ao usar a política de intervalo exponencial, você pode especificar valores mínimos e máximos diferentes. |
-| <*tentativas repetidas*> | Integer | O número de tentativas de repetição, que deve estar entre 1 e 90 |
+| <*tentativas repetidas*> | Inteiro | O número de tentativas de repetição, que deve estar entre 1 e 90 |
 ||||
 
 *Opcional*
 
-| Valor | Tipo | Descrição |
+| Valor | Type | Descrição |
 |-------|------|-------------|
 | <*intervalo mínimo*> | String | Para a política de intervalo exponencial, o menor intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |
 | <*intervalo máximo*> | String | Para a política de intervalo exponencial, o maior intervalo para o intervalo selecionado aleatoriamente no formato [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) |

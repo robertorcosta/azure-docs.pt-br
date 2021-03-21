@@ -7,10 +7,10 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/25/2021
 ms.openlocfilehash: c6e946d5aedb06899a44851b79581dbc518f41b0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052306"
 ---
 # <a name="custom-metrics-in-azure-monitor-preview"></a>Métricas personalizadas no Azure Monitor (versão prévia)
@@ -74,7 +74,7 @@ Cada ponto de dados enviado ao Azure Monitor deve estar marcado com um carimbo d
 ### <a name="namespace"></a>Namespace
 Namespaces são uma maneira de categorizar ou agrupar métricas semelhantes. Ao usar namespaces, você pode obter isolamento entre grupos de métricas que podem coletar diferentes insights ou indicadores de desempenho. Por exemplo, você pode ter um namespace chamado **contosomemorymetrics** que controla as métricas de uso de memória cujo perfil é seu aplicativo. Outro namespace chamado **contosoapptransaction** pode rastrear todas as métricas sobre transações de usuário em seu aplicativo.
 
-### <a name="name"></a>Name
+### <a name="name"></a>Nome
 **Nome** é o nome da métrica que está sendo relatada. Normalmente, o nome é descritivo para ajudar a identificar o que está sendo medido. Um exemplo é uma métrica que mede o número de bytes de memória usados em uma determinada VM. Pode ter um nome de métrica como **Memory Bytes In Use**.
 
 ### <a name="dimension-keys"></a>Chaves de dimensão
@@ -176,7 +176,7 @@ Depois que as métricas personalizadas são enviadas ao Monitor do Azure, você 
 > Você precisa ser uma função de leitor ou colaborador para exibir métricas personalizadas. Consulte [leitor de monitoramento](../../role-based-access-control/built-in-roles.md#monitoring-reader). 
 
 ### <a name="browse-your-custom-metrics-via-the-azure-portal"></a>Procurar suas métricas personalizadas no portal do Azure
-1.    Acesse o [portal do Azure](https://portal.azure.com).
+1.    Vá para o [Portal do Azure](https://portal.azure.com).
 2.    Selecione o painel **Monitor**.
 3.    Selecione **Métricas**.
 4.    Selecione um recurso em que você emitiu métricas personalizadas.

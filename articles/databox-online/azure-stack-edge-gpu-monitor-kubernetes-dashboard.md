@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 19b3595228c29814e42af88696972fd81b156190
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102443039"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Use o painel do kubernetes para monitorar seu dispositivo de GPU pro do Azure Stack Edge
@@ -53,7 +53,7 @@ O painel do kubernetes é *somente leitura* e é executado no nó mestre kuberne
     
     1. Selecione **kubeconfig**. 
         ![Selecione a opção kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-1.png) 
-    1. Selecione as reticências **...**. Procure e aponte para o `kubeconfig` que você baixou anteriormente no sistema local. Escolha **Entrar**.
+    1. Selecione as reticências **...**. Procure e aponte para o `kubeconfig` que você baixou anteriormente no sistema local. Selecione **Entrar**.
         ![Navegue até o arquivo kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
 6. Agora você pode exibir o painel do kubernetes para seu dispositivo pro Edge Azure Stack no modo somente leitura.
