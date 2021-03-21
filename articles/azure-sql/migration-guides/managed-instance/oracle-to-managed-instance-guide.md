@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: e7e63edb1e91f07504154cacfcf3d43d3bb310a2
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: c54ec2cc6e17d9693e25f1471922da8c7c023e36
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564778"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602801"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guia de migração: Oracle para Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -50,11 +50,26 @@ Para criar uma avaliação, siga estas etapas:
 1. Abra [Assistente de migração do SQL Server para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Selecione **Arquivo** e, em seguida, escolha **Novo Projeto**. 
 1. Forneça um nome de projeto, um local para salvar seu projeto e, em seguida, selecione Azure SQL Instância Gerenciada como o destino de migração no menu suspenso. Selecione **OK**.
-1. Insira valores nos detalhes da conexão Oracle na caixa de diálogo Conectar-se para **conectar-se ao Oracle** .
+
+   ![Novo Projeto](./media/oracle-to-managed-instance-guide/new-project.png)
+
+1. Selecione **conectar-se ao Oracle**. Insira valores nos detalhes da conexão Oracle na caixa de diálogo **conectar ao Oracle** .
+
+   ![Conectar-se ao Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
+
+   Selecione os esquemas do Oracle que você deseja migrar: 
+
+   ![Escolher esquema Oracle](./media/oracle-to-managed-instance-guide/select-schema.png)
+
 1. Clique com o botão direito do mouse no esquema Oracle que você deseja migrar no **Gerenciador de metadados Oracle** e escolha **criar relatório**. Isso vai gerar um relatório HTML. Como alternativa, você pode escolher **criar relatório** na barra de navegação depois de selecionar o banco de dados.
+
+   ![Criar Relatório](./media/oracle-to-managed-instance-guide/create-report.png)
+
 1. Examine o relatório HTML para entender as estatísticas de conversão e outros erros ou avisos. Você também pode abrir o relatório no Excel para obter um inventário dos objetos Oracle e o esforço necessário para executar conversões de esquema. O local padrão do relatório está na pasta de relatório em SSMAProjects.
 
    Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2020_11_12T02_47_55\`
+
+   ![Relatório de avaliação](./media/oracle-to-managed-instance-guide/assessment-report.png)
 
 
 ### <a name="validate-data-types"></a>Validar tipos de dados
@@ -64,6 +79,9 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 1. Selecione **Ferramentas** no menu. 
 1. Selecione **Configurações do Projeto**. 
 1. Selecione a guia **Mapeamentos de tipo**. 
+
+   ![Mapeamentos de tipo](./media/oracle-to-managed-instance-guide/type-mappings.png)
+
 1. Você pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Gerenciador de metadados Oracle**.
 
 ### <a name="convert-schema"></a>Converter esquema
@@ -75,8 +93,21 @@ Para converter o esquema, siga estas etapas:
     1. Insira os detalhes de conexão para conectar seu banco de dados no Azure SQL Instância Gerenciada.
     1. Escolha o banco de dados de destino na lista suspensa.
     1. Selecione **Conectar**.
-1. Clique com o botão direito do mouse no esquema e escolha **Converter esquema**. Como alternativa, você pode escolher **Converter esquema** na barra de navegação superior depois de selecionar o esquema.
+
+    ![Conectar-se à Instância Gerenciada do SQL](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
+
+1. Clique com o botão direito do mouse no esquema Oracle no **Gerenciador de metadados Oracle** e escolha **converter esquema**. Como alternativa, você pode escolher **Converter esquema** na barra de navegação superior depois de selecionar o esquema.
+
+   ![Converter esquema](./media/oracle-to-managed-instance-guide/convert-schema.png)
+
 1. Após a conclusão da conversão, compare e revise os objetos convertidos para os objetos originais para identificar possíveis problemas e solucioná-los com base nas recomendações.
+
+   ![Comparar recomendações de tabela](./media/oracle-to-managed-instance-guide/table-comparison.png)
+
+   Compare o texto Transact-SQL convertido com os procedimentos armazenados originais e examine as recomendações: 
+
+   ![Comparar recomendações de procedimento](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
+
 1. Salve o projeto localmente para realizar um exercício de correção de esquema offline. Selecione **Salvar Projeto** no menu **Arquivo**.
 
 ## <a name="migrate"></a>Migrar
@@ -86,10 +117,26 @@ Depois de concluir a avaliação de seus bancos de dados e resolver quaisquer di
 Para publicar o esquema e migrar seus dados, siga estas etapas:
 
 1. Publicar o esquema: clique com o botão direito do mouse no banco de dados do nó **bancos** de dados no **Gerenciador de metadados do SQL instância gerenciada do Azure** e escolha **sincronizar com o banco de dados**.
+
+   ![Sincronizar com Banco de dados](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
+
+   Examine o mapeamento entre seu projeto de origem e seu destino:
+
+   ![Sincronizar com a revisão do banco de dados](./media/oracle-to-managed-instance-guide/synchronize-with-database-review.png)
+
 1. Migrar os dados: clique com o botão direito do mouse no esquema do **Gerenciador de metadados Oracle** e escolha **migrar dados**. 
+
+   ![Migrar dados](./media/oracle-to-managed-instance-guide/migrate-data.png)
+
 1. Forneça detalhes de conexão para Oracle e Azure SQL Instância Gerenciada.
 1. Veja o **Relatório de migração de dados**.
+
+   ![Relatório de migração de dados](./media/oracle-to-managed-instance-guide/data-migration-report.png)
+
 1. Conecte-se ao seu Instância Gerenciada SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração examinando os dados e o esquema.
+
+   ![Validar no SSMA](./media/oracle-to-managed-instance-guide/validate-data.png)
+
 
 Como alternativa, você também pode usar SQL Server Integration Services (SSIS) para executar a migração. Para obter mais informações, consulte: 
 

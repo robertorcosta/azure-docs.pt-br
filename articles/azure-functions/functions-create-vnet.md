@@ -4,10 +4,10 @@ description: Este tutorial mostra como conectar uma função a uma rede virtual 
 ms.topic: article
 ms.date: 2/22/2021
 ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102630462"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: integrar Azure Functions com uma rede virtual do Azure usando pontos de extremidade privados
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá a:
 > * Implante um aplicativo de funções que usa o barramento de serviço e os gatilhos HTTP.
 > * Bloqueie seu aplicativo de funções por trás de um ponto de extremidade privado.
 > * Teste para ver se seu aplicativo de funções é seguro dentro da rede virtual.
-> * Limpe os recursos.
+> * Limpar os recursos.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Criar um aplicativo de funções em um plano Premium
 
@@ -105,7 +105,7 @@ Suas redes virtuais precisarão de uma conta de armazenamento separada da que vo
     | **[Grupo de recursos](../azure-resource-manager/management/overview.md)**  | myResourceGroup | O grupo de recursos que você criou com seu aplicativo de funções. |
     | **Nome** | myServiceBus| O nome do barramento de serviço ao qual o ponto de extremidade privado será aplicado. |
     | **[Região](https://azure.microsoft.com/regions/)** | myFunctionRegion | A região em que você criou seu aplicativo de funções. |
-    | **Tipo de preço** | Premium | Escolha esta camada para usar pontos de extremidade privados com o barramento de serviço do Azure. |
+    | **Tipo de preços** | Premium | Escolha esta camada para usar pontos de extremidade privados com o barramento de serviço do Azure. |
 
 1. Selecione **Examinar + criar**. Após a conclusão da validação, selecione **criar**.
 
@@ -212,7 +212,7 @@ Crie o ponto de extremidade privado para bloquear seu barramento de serviço:
     | **Assinatura** | Sua assinatura | A assinatura na qual os recursos são criados. | 
     | **Tipo de recurso**  | Microsoft.ServiceBus/namespaces | O tipo de recurso para o barramento de serviço. |
     | **Recurso** | myServiceBus | O barramento de serviço criado anteriormente no tutorial. |
-    | **Sub-recurso de destino** | namespace | O ponto de extremidade privado que será usado para o namespace do barramento de serviço. |
+    | **Subrecurso de destino** | namespace | O ponto de extremidade privado que será usado para o namespace do barramento de serviço. |
 
 1. Na guia **configuração** , para a configuração **sub-rede** , escolha **padrão**.
 

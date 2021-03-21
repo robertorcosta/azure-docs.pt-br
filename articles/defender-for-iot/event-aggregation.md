@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/20/2021
 ms.author: shhazam
 ms.openlocfilehash: 01333da3041cc93154c46fb45a39bb209fd30f91
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493060"
 ---
 # <a name="defender-iot-micro-agent-classic-event-aggregation"></a>Agregação de eventos clássicos do defender-IoT-micro-Agent
@@ -93,7 +93,7 @@ Faça alterações na configuração do defender para agregação de eventos de 
 
 Neste artigo, você aprendeu sobre a agregação do agente de segurança do defender para IoT e as opções de configuração de evento disponíveis.
 
-Para continuar a introdução à implantação do defender para IoT, use os seguintes artigos:
+Para continuar com a introdução à implantação do Defender para IoT, use os seguintes artigos:
 
 - Entender os [métodos de autenticação do agente de segurança](concept-security-agent-authentication-methods.md)
 - Selecionar e implantar um [agente de segurança](how-to-deploy-agent.md)

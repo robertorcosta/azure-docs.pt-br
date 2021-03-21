@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 9/04/2020
 ms.author: lagayhar
 ms.openlocfilehash: 9a02299853174192c6963cbb382ceb1aa06ac088
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101728596"
 ---
 # <a name="composite-bar-renderer"></a>Renderizador de barra de composição
@@ -97,7 +97,7 @@ Nenhum agregação significa não exibir nenhum resultado para essa coluna para 
 
 ![Captura de tela da barra de composição sem agregação None.](./media/workbooks-composite-bar/none.png)
 
-#### <a name="sum"></a>Somar
+#### <a name="sum"></a>Soma
 
 Se a agregação for definida como Sum, a coluna na linha do grupo mostrará a barra de composição usando a soma das colunas usadas para renderizá-la. O rótulo também usará a soma das colunas referenciadas.
 

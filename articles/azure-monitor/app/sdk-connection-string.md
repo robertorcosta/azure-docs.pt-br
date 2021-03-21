@@ -8,10 +8,10 @@ ms.date: 01/17/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.reviewer: mbullwin
 ms.openlocfilehash: df87b060423aeff9fa5f83f21634395fe30e0bbb
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102486277"
 ---
 # <a name="connection-strings"></a>Cadeias de conexão
@@ -58,7 +58,7 @@ A conexão tem um comprimento máximo com suporte de 4096 caracteres.
 
 A cadeia de conexão consiste em uma lista de configurações representadas como pares chave-valor separados por ponto e vírgula: `key1=value1;key2=value2;key3=value3`
 
-#### <a name="syntax"></a>Syntax
+#### <a name="syntax"></a>Sintaxe
 
 - `InstrumentationKey` (ex: 00000000-0000-0000-0000-000000000000)  A cadeia de conexão é um campo **obrigatório** .
 - `Authorization` (ex: iKey) (Essa configuração é opcional porque hoje só damos suporte à autorização iKey.)

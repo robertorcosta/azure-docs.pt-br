@@ -12,10 +12,10 @@ ms.custom:
 - amqp
 - mqtt
 ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103492703"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
@@ -118,7 +118,7 @@ Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
-| Capacidade | Dispositivo IoT | IoT por trás de um gateway |
+| Recurso | Dispositivo IoT | IoT por trás de um gateway |
 | ---------- | ---------- | -------------------- |
 | [Mensagens do dispositivo para a nuvem (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sim – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-D2C IoT filho](./media/iot-edge-as-gateway/check-yes.png) |
 | [Mensagens de nuvem para dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sim – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-C2D filho de IoT](./media/iot-edge-as-gateway/check-yes.png) |
@@ -131,7 +131,7 @@ Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
 
-| Capacidade | Dispositivo IoT | IoT por trás de um gateway | Dispositivo do IoT Edge | IoT Edge por trás de um gateway |
+| Recurso | Dispositivo IoT | IoT por trás de um gateway | Dispositivo do IoT Edge | IoT Edge por trás de um gateway |
 | ---------- | ---------- | --------------------------- | --------------- | -------------------------------- |
 | [Mensagens do dispositivo para a nuvem (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sim – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-D2C IoT filho](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-IoT Edge D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-filho IoT Edge D2C](./media/iot-edge-as-gateway/check-yes.png) |
 | [Mensagens de nuvem para dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sim – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-C2D filho de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![C2D não-IoT Edge](./media/iot-edge-as-gateway/crossout-no.png) | ![C2D filho sem IoT Edge](./media/iot-edge-as-gateway/crossout-no.png) |
@@ -173,7 +173,7 @@ A conversão de identidade fornece os benefícios da conversão de protocolo e, 
 
 A tabela a seguir explica como os recursos do Hub IoT são estendidos para dispositivos downstream em ambos os padrões de gateway de tradução.
 
-| Capacidade | Conversão de protocolo | Conversão de identidade |
+| Recurso | Conversão de protocolo | Conversão de identidade |
 | ---------- | -------------------- | -------------------- |
 | Identidades armazenadas no registro de identidade do Hub IoT | Somente a identidade do dispositivo de gateway | Identidades de todos os dispositivos conectados |
 | Dispositivo gêmeo | Somente o gateway tem um dispositivo e módulo gêmeos | Cada dispositivo conectado tem seu próprio dispositivo gêmeo |

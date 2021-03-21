@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: 443d6349aab68fd05edfe4c4007fd043c932f4f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604263"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720484"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica no Azure Pesquisa Cognitiva
 
@@ -50,7 +50,9 @@ Os componentes da pesquisa semântica estendem o pipeline de execução de consu
 
 A execução da consulta prossegue como de costume, com análise de termo, análise e verificações sobre os índices invertidos. O mecanismo recupera documentos usando correspondência de token e pontua os resultados usando o [algoritmo de Pontuação de similaridade padrão](index-similarity-and-scoring.md#similarity-ranking-algorithms). As pontuações são calculadas com base no grau de similaridade lingüística entre os termos da consulta e os termos correspondentes no índice. Se você os tiver definido, os perfis de Pontuação também serão aplicados neste estágio. Os resultados são passados para o subsistema de pesquisa semântica.
 
-Na etapa de preparação, o documento Corpus retornado do conjunto de resultados inicial é analisado no nível de sentença e de parágrafo para localizar passagens que resumem cada documento. Em contraste com a pesquisa de palavra-chave, essa etapa usa a leitura e a compreensão da máquina para avaliar o conteúdo. Como parte da composição de resultado, uma consulta semântica retorna legendas e respostas. Para Formula-los, a pesquisa semântica usa a representação de linguagem para extrair e realçar as passagens de chave que melhor resumem um resultado. Se a consulta de pesquisa for uma pergunta e as respostas forem solicitadas-a resposta também incluirá uma passagem de texto que melhor responde à pergunta, conforme expresso pela consulta de pesquisa. Para legendas e respostas, o texto existente é usado na formulação. Os modelos semânticos não compõem novas frases ou frases do conteúdo disponível, nem aplicam a lógica para chegar a novas conclusões. Em suma, o sistema nunca retornará conteúdo que ainda não exista.
+Na etapa de preparação, o documento Corpus retornado do conjunto de resultados inicial é analisado no nível de sentença e de parágrafo para localizar passagens que resumem cada documento. Em contraste com a pesquisa de palavra-chave, essa etapa usa a leitura e a compreensão da máquina para avaliar o conteúdo. Por meio desse estágio de processamento de conteúdo, uma consulta semântica retorna [legendas](semantic-how-to-query-request.md) e [respostas](semantic-answers.md). Para Formula-los, a pesquisa semântica usa a representação de linguagem para extrair e realçar as passagens de chave que melhor resumem um resultado. Se a consulta de pesquisa for uma pergunta e as respostas forem solicitadas-a resposta também incluirá uma passagem de texto que melhor responde à pergunta, conforme expresso pela consulta de pesquisa. 
+
+Para legendas e respostas, o texto existente é usado na formulação. Os modelos semânticos não compõem novas frases ou frases do conteúdo disponível, nem aplicam a lógica para chegar a novas conclusões. Em suma, o sistema nunca retornará conteúdo que ainda não exista.
 
 Os resultados são então pontuados novamente com base na [similaridade conceitual](semantic-ranking.md) dos termos de consulta.
 
