@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 12/31/2019
 ms.custom: devx-track-csharp
 ms.openlocfilehash: a81f2b21545a5362168482f3f0a65fbbbf381c10
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929153"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
@@ -132,7 +132,7 @@ Para criar um projeto de topologia C# no Visual Studio:
 
 Depois de criar o projeto, você deverá ter os seguintes arquivos:
 
-* *Program.cs*: a definição de topologia para seu projeto. Uma topologia padrão consistindo em um spout e um bolt é criada por padrão.
+* *Program. cs*: a definição de topologia do seu projeto. Uma topologia padrão consistindo em um spout e um bolt é criada por padrão.
 
 * *Spout.cs*: um spout de exemplo que emite números aleatórios.
 
@@ -218,11 +218,11 @@ Agora, crie dois parafusos Storm neste exemplo:
 
 1. Exclua o arquivo *Bolt.cs* existente do projeto.
 
-2. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar**  >  **novo item**. Na lista, selecione **Storm Bolt** e digite *Splitter.cs* como o nome. No código do novo arquivo, altere o nome do namespace para `WordCount` . Em seguida, repita esse processo para criar um segundo parafuso chamado *Counter.cs*.
+2. Em **Gerenciador de soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar**  >  **novo item**. Na lista, selecione **Storm Bolt** e digite *Splitter.cs* como o nome. No código do novo arquivo, altere o nome do namespace para `WordCount` . Em seguida, repita esse processo para criar um segundo raio chamado *Counter. cs*.
 
-   * *Splitter.cs*: implementa um raio que divide frases em palavras individuais e emite um novo fluxo de palavras.
+   * *Splitter. cs*: implementa um raio que divide frases em palavras individuais e emite um novo fluxo de palavras.
 
-   * *Counter.cs*: implementa um raio que conta cada palavra e emite um novo fluxo de palavras e a contagem de cada palavra.
+   * *Counter. cs*: implementa um raio que conta cada palavra e emite um novo fluxo de palavras e a contagem de cada palavra.
 
      > [!NOTE]  
      > Esses bolts leem e gravam em fluxos, mas você também pode usar um bolt para se comunicar com um banco de dados ou serviço.
@@ -572,9 +572,9 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
    > [!NOTE]
    > Lembre-se de alterar o **Tipo de saída** de volta para **Biblioteca de Classes** antes de implantar a topologia em um cluster.
 
-1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Novo Item**. Selecione **classe** e insira *LocalTest.cs* como o nome da classe. Por fim, selecione **Adicionar**.
+1. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e selecione **Adicionar** > **Novo Item**. Selecione **classe** e digite *LocalTest. cs* como o nome da classe. Por fim, selecione **Adicionar**.
 
-1. Abra *LocalTest.cs* e adicione a seguinte `using` instrução na parte superior:
+1. Abra *LocalTest. cs* e adicione a seguinte `using` instrução na parte superior:
 
     ```csharp
     using Microsoft.SCP;
@@ -661,7 +661,7 @@ Embora seja fácil implantar uma topologia em um cluster, em alguns casos, talve
 
     Tome um momento para ler os comentários do código. Esse código usa `LocalContext` o para executar os componentes no ambiente de desenvolvimento. Ele persiste o fluxo de dados entre componentes em arquivos de texto na unidade local.
 
-1. Abra *Program.cs* e adicione o seguinte código ao `Main` método:
+1. Abra *Program. cs* e adicione o seguinte código ao `Main` método:
 
     ```csharp
     Console.WriteLine("Starting tests");

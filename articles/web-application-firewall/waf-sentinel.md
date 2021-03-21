@@ -8,10 +8,10 @@ ms.date: 10/12/2020
 ms.author: victorh
 ms.topic: how-to
 ms.openlocfilehash: 3d905dd1e6acab8f9f6d3885c882dd9c32133cb4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596429"
 ---
 # <a name="using-azure-sentinel-with-azure-web-application-firewall"></a>Usando o Azure Sentinel com o Firewall do aplicativo Web do Azure
@@ -62,7 +62,7 @@ Para habilitar o log Analytics para cada recurso, vá para o recurso individual 
       1. Gateway de aplicativo: ' ApplicationGatewayAccessLog ' e ' ApplicationGatewayFirewallLog '
       1. Porta frontal do Azure: ' FrontDoorAccessLog ' e ' FrontDoorFirewallLog '
       1. CDN: ' AzureCdnAccessLog '
-   1. Selecione **Salvar**.
+   1. Clique em **Salvar**.
 
    :::image type="content" source="media//waf-sentinel/diagnostics-setting.png" alt-text="Configuração de diagnóstico":::
 

@@ -11,10 +11,10 @@ ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 03/19/2021
 ms.openlocfilehash: 0e1b44667a5ff42978b22ab9450d6a8e9870960b
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563208"
 ---
 # <a name="migration-guide-sql-server-to-sql-server-on-azure-vms"></a>Guia de migração: do SQL Server para o SQL Server nas VMs do Azure 
@@ -24,7 +24,7 @@ Este guia de migração ensina a **descobrir**, **avaliar** e **migrar** seus ba
 
 Você pode migrar SQL Server em execução no local ou em:
 
-- SQL Server em máquinas virtuais  
+- SQL Server em Máquinas Virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)
@@ -111,7 +111,7 @@ Para recursos preteridos, você pode optar por executar seus bancos de dados de 
 > Nem todas as versões do SQL Server dão suporte a todos os modos de compatibilidade. Verifique se a [versão de SQL Server de destino](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) dá suporte à compatibilidade de banco de dados escolhida. Por exemplo, SQL Server 2019 não oferece suporte a bancos de dados com compatibilidade de nível 90 (que é SQL Server 2005). Esses bancos de dados exigirão, pelo menos, uma atualização para o nível de compatibilidade 100.
 >
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 Depois de concluir as etapas de pré-migração, você estará pronto para migrar os bancos de dados e componentes do usuário. Migre seus bancos de dados usando seu [método de migração](sql-server-to-sql-on-azure-vm-migration-overview.md#migrate)preferencial.  
 
@@ -154,7 +154,7 @@ A tabela a seguir fornece uma lista de componentes e métodos de migração reco
 
 | **Recurso** | **Componente** | **Método (s) de migração** |
 | --- | --- | --- |
-| **Bancos de dados** | Modelar  | Script com SQL Server Management Studio |
+| **Bancos de dados** | Modelo  | Script com SQL Server Management Studio |
 || TempDB | Planeje mover o TempDB para o [disco temporário da VM do Azure (SSD](../../virtual-machines/windows/performance-guidelines-best-practices.md#temporary-disk)) para obter o melhor desempenho. Certifique-se de escolher um tamanho de VM que tenha um SSD local suficiente para acomodar seu TempDB. |
 || Bancos de dados de usuário com FileStream |  Use os métodos de [backup e restauração](../../virtual-machines/windows/migrate-to-vm-from-sql-server.md#back-up-and-restore) para a migração. O DMA não oferece suporte a bancos de dados com FileStream. |
 | **Segurança** | Logons SQL Server e do Windows | Use o DMA para [migrar logons de usuário](/sql/dma/dma-migrateserverlogins). |
@@ -165,7 +165,7 @@ A tabela a seguir fornece uma lista de componentes e métodos de migração reco
 || Gatilhos do servidor | Script com SQL Server Management Studio. |
 | **Replicação** | Publicações locais | Script com SQL Server Management Studio. |
 || Assinantes locais | Script com SQL Server Management Studio. |
-| **Polybase** | PolyBase | Script com SQL Server Management Studio. |
+| **PolyBase** | PolyBase | Script com SQL Server Management Studio. |
 | **Gerenciamento** | Database Mail | Script com SQL Server Management Studio. |
 | **SQL Server Agent** | Trabalhos | Script com SQL Server Management Studio. |
 || Alertas | Script com SQL Server Management Studio. |

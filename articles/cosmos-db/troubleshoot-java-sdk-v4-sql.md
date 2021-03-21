@@ -10,10 +10,10 @@ ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.custom: devx-track-java
 ms.openlocfilehash: cba8b97adb40ca2c277268188ff6ad541c7e9676
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596470"
 ---
 # <a name="troubleshoot-issues-when-you-use-azure-cosmos-db-java-sdk-v4-with-sql-api-accounts"></a>Solução de problemas ao usar o SDK do Java v4 do Azure Cosmos DB com contas de API do SQL
@@ -21,7 +21,7 @@ ms.locfileid: "100596470"
 
 > [!div class="op_single_selector"]
 > * [SDK do Java v4](troubleshoot-java-sdk-v4-sql.md)
-> * [SDK do Java v2 Assíncrono](troubleshoot-java-async-sdk.md)
+> * [SDK do Java Assíncrono v2](troubleshoot-java-async-sdk.md)
 > * [.NET](troubleshoot-dot-net-sdk.md)
 > 
 

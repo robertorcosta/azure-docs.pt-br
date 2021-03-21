@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/23/2020
 ms.openlocfilehash: bde6c5b2bad12df8642dd3c9b4a49548f7bc9a6d
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98929512"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Visão geral de Streaming do Apache Spark
@@ -151,7 +151,7 @@ SELECT * FROM demo_numbers
 
 A saída resultante é semelhante à seguinte saída:
 
-| value | time |
+| valor | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -219,7 +219,7 @@ ssc.start()
 
 Após o primeiro minuto, há 12 entradas – seis entradas de cada um dos dois lotes coletados na janela.
 
-| value | time |
+| valor | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

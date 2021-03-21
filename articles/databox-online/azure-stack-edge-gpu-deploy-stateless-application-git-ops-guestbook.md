@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 ms.openlocfilehash: 920f7912a1289fe92618d893b94943784e4a9a3a
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102520720"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-pro-gpu"></a>Implantar um `Guestbook` aplicativo sem monitoração de estado do PHP com o Redis em Arc habilitado cluster kubernetes no Azure Stack GPU pro Edge
@@ -113,7 +113,7 @@ Siga estas etapas para configurar o recurso Arc do Azure para implantar uma conf
 
     ![Captura de tela mostra o cluster kubernetes habilitado para Arc do Azure em um estado instalado.](media/azure-stack-edge-gpu-connect-powershell-interface/view-configurations-2.png)
 
-## <a name="verify-deployment"></a>Verificar a implantação
+## <a name="verify-deployment"></a>Verificar implantação
 
 A implantação por meio da configuração GitOps cria um `demotestguestbook` namespace conforme especificado nos arquivos de implantação `yaml` localizados no repositório git.
 
