@@ -6,10 +6,10 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
 ms.openlocfilehash: 2427fbdaa497ccb6d9a46330dcc6eb872e1d28ac
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102214160"
 ---
 # <a name="azure-resources-for-qna-maker"></a>Recursos do Azure para QnA Maker
@@ -120,7 +120,7 @@ O QnA Maker gerenciado é um serviço gratuito, e a taxa de transferência está
 
 # <a name="qna-maker-ga-stable-release"></a>[QnA Maker GA (versão estável)](#tab/v1)
 
-|Atualizar|Motivo|
+|Atualização|Motivo|
 |--|--|
 |[Atualizar](../How-to/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku) o SKU de gerenciamento de QnA Maker|Você deseja ter mais pares de QnA ou fontes de documento na sua base de dados de conhecimento.|
 |[Atualizar](../How-to/set-up-qnamaker-service-azure.md#upgrade-app-service) o SKU do serviço de aplicativo e verificar Pesquisa Cognitiva camada e [criar réplicas de pesquisa cognitiva](../../../search/search-capacity-planning.md)|Sua base de dados de conhecimento precisa atender a mais solicitações do aplicativo cliente, como um bot de chat.|

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 12/04/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: c4871c3de8028eec1b6184c1d03ac2180b50f57d
-ms.sourcegitcommit: aaa65bd769eb2e234e42cfb07d7d459a2cc273ab
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98881343"
 ---
 # <a name="application-insights-java-in-process-agent-in-azure-spring-cloud-preview"></a>Application Insights o agente de In-Process Java no Azure Spring Cloud (versão prévia)
@@ -140,7 +140,7 @@ az spring-cloud app-insights update --disable –name "assignedName" –resource
 
 ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Usar o rastreamento distribuído com o Azure Spring Cloud](spring-cloud-tutorial-distributed-tracing.md)
 * [Analisar logs e métricas](diagnostic-services.md)
 * [Transmitir logs em tempo real](spring-cloud-howto-log-streaming.md)

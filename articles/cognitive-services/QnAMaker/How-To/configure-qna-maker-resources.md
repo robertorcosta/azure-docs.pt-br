@@ -6,13 +6,13 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 02/18/2021
 ms.openlocfilehash: 3c6f75eafad51c99f60b78ce49862d2488d5926f
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102220108"
 ---
-# <a name="configure-qna-maker-resources"></a>Configurar QnA Maker recursos
+# <a name="configure-qna-maker-resources"></a>Configurar recursos do QnA Maker
 
 O usuário pode configurar QnA Maker para usar um recurso de pesquisa cognitiva diferente. Eles também podem definir as configurações do serviço de aplicativo se estiverem usando QnA Maker GA.
 
@@ -122,7 +122,7 @@ Se você criar um serviço QnA gerenciado (versão prévia) e suas dependências
 
     ![Captura de tela de QnA Maker página de configuração gerenciada (versão prévia)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-configuration.png)
 
-1. Clique em **Salvar**.
+1. Clique em **Save** (Salvar).
 
 > [!NOTE]
 > Se você alterar o serviço de Azure Search associado ao QnA Maker, você perderá o acesso a todas as bases de dados de conhecimento já presentes nela. Certifique-se de exportar as bases de dados de conhecimento existentes antes de alterar o serviço Azure Search.

@@ -6,18 +6,18 @@ author: bwren
 ms.author: bwren
 ms.date: 10/09/2020
 ms.openlocfilehash: 529fc432bf8777ef7e2b527f08e9cb59e42bf156
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102041018"
 ---
 # <a name="log-queries-in-azure-monitor"></a>Consultas de log no Azure Monitor
-Os logs de Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log são escritas usando a mesma linguagem de consulta Kusto (KQL). Essa é uma linguagem avançada criada para ser fácil de ler e criar, portanto, você deve ser capaz de começar a escrever consultas com algumas diretrizes básicas.
+Os logs de Azure Monitor baseiam-se no Azure Data Explorer e as consultas de log são escritas usando a mesma linguagem de consulta Kusto (KQL). Essa é uma linguagem avançada criada para ser fácil de ler e criar, portanto, você deve conseguir começar a escrever consultas seguindo algumas diretrizes básicas.
 
 As áreas em Azure Monitor em que você usará consultas incluem o seguinte:
 
-- [Log Analytics](../logs/log-analytics-overview.md). A ferramenta principal no portal do Azure para editar consultas de log e analisar seus resultados interativamente. Mesmo que você pretenda usar uma consulta de log em outro lugar no Azure Monitor, você normalmente escreverá e testará em Log Analytics antes de copiá-la para seu local final.
+- [Log Analytics](../logs/log-analytics-overview.md). A ferramenta principal no portal do Azure para editar consultas de log e analisar seus resultados interativamente. Mesmo que pretenda usar uma consulta de log em outro lugar no Azure Monitor, normalmente você escreverá e testará essa consulta no Log Analytics antes de copiá-la para o local final.
 - [Registrar em log as regras de alerta](../alerts/alerts-overview.md). Identifique de forma proativa os problemas dos dados em seu espaço de trabalho.  Cada regra de alerta é baseada em uma consulta de log que é executada automaticamente em intervalos regulares.  Os resultados são inspecionados para determinar se um alerta deve ser criado.
 - [Pastas de trabalho](../visualize/workbooks-overview.md). Inclua os resultados das consultas de log usando visualizações diferentes em relatórios visuais interativos no portal do Azure.
 - [Painéis do Azure](../visualize/tutorial-logs-dashboards.md). Fixe os resultados de qualquer consulta em um painel do Azure que permita que você visualize dados de log e de métrica juntos e, opcionalmente, compartilhe com outros usuários do Azure.
@@ -28,9 +28,9 @@ As áreas em Azure Monitor em que você usará consultas incluem o seguinte:
 ## <a name="getting-started"></a>Introdução
 A melhor maneira de começar a aprender a escrever consultas de log usando o KQL está aproveitando os tutoriais e exemplos disponíveis.
 
-- [Tutorial log Analytics](./log-analytics-tutorial.md) -tutorial sobre como usar os recursos do log Analytics que é a ferramenta que você usará no portal do Azure para editar e executar consultas. Ele também permite que você escreva consultas simples sem trabalhar diretamente com a linguagem de consulta. Se você ainda não usou Log Analytics antes, comece aqui para entender a ferramenta que você usará com os outros tutoriais e exemplos.
+- [Tutorial log Analytics](./log-analytics-tutorial.md) -tutorial sobre como usar os recursos do log Analytics que é a ferramenta que você usará no portal do Azure para editar e executar consultas. Ele também permite que você escreva consultas simples sem trabalhar diretamente com a linguagem de consulta. Se você nunca usou o Log Analytics, comece por aqui para entender a ferramenta que você usará com os outros tutoriais e exemplos.
 - [Tutorial do KQL](/azure/data-explorer/kusto/query/tutorial?pivots=azuremonitor) – orientação guiada por meio de conceitos básicos de KQL e operadores comuns. Esse é o melhor lugar para começar a se familiarizar com o próprio idioma e com a estrutura de consultas de log. 
-- [Consultas de exemplo](../logs/example-queries.md) – descrição das consultas de exemplo disponíveis no log Analytics. Você pode usar as consultas sem modificação ou usá-las como exemplos para aprender a KQL.
+- [Consultas de exemplo](../logs/example-queries.md) – descrição das consultas de exemplo disponíveis no log Analytics. Você pode usar as consultas sem modificação ou usá-las como exemplos para aprender KQL.
 - [Exemplos de consulta](/azure/data-explorer/kusto/query/samples?pivots=azuremonitor) – consultas de exemplo que ilustram uma variedade de diferentes conceitos.
 
 
@@ -49,11 +49,11 @@ Embora Azure Monitor use o mesmo KQL que o Data Explorer do Azure, há algumas d
 
 ### <a name="functions-not-supported-in-azure-monitor"></a>Funções não compatíveis com o Azure Monitor
 
-* [cluster()](/azure/kusto/query/clusterfunction)
+* [cluster ()](/azure/kusto/query/clusterfunction)
 * [cursor_after()](/azure/kusto/query/cursorafterfunction)
 * [cursor_before_or_at()](/azure/kusto/query/cursorbeforeoratfunction)
 * [cursor_current(), current_cursor()](/azure/kusto/query/cursorcurrent)
-* [database()](/azure/kusto/query/databasefunction)
+* [banco de dados ()](/azure/kusto/query/databasefunction)
 * [current_principal()](/azure/kusto/query/current-principalfunction)
 * [extent_id()](/azure/kusto/query/extentidfunction)
 * [extent_tags()](/azure/kusto/query/extenttagsfunction)

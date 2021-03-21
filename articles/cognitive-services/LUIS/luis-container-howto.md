@@ -13,10 +13,10 @@ ms.date: 03/02/2021
 ms.author: aahi
 keywords: local, Docker, contêiner
 ms.openlocfilehash: e157e976186f03aa984877435c42b996ce476740
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102040185"
 ---
 # <a name="install-and-run-docker-containers-for-luis"></a>Instalar e executar contêineres do Docker para LUIS
@@ -260,9 +260,9 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 |Parâmetro de consulta|Tipo|Finalidade|
 |--|--|--|
 |`query`|string|A declaração do usuário.|
-|`verbose`|booleano|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é false.|
-|`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é false.|
-|`show-all-intents`|booleano|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é false.|
+|`verbose`|boolean|Um valor booliano que indica se todos os metadados para os modelos previstos devem ser retornados. O padrão é false.|
+|`log`|boolean|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é false.|
+|`show-all-intents`|boolean|Um valor booliano que indica se todas as tentativas ou a primeira tentativa de Pontuação devem ser retornadas. O padrão é false.|
 
 # <a name="v2-prediction-endpoint"></a>[Ponto de extremidade de previsão V2](#tab/v2)
 
@@ -277,9 +277,9 @@ Os parâmetros de consulta configuram como e o que é retornado na resposta da c
 |--|--|--|
 |`q`|string|A declaração do usuário.|
 |`timezoneOffset`|número|O timezoneOffset permite [alterar o fuso horário](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usado pela datetimeV2 predefinida da entidade.|
-|`verbose`|booleano|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
-|`staging`|booleano|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
-|`log`|booleano|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
+|`verbose`|boolean|Retorna todas as intenções e suas pontuações quando definido como true. O padrão é false, o que retorna apenas a intenção principal.|
+|`staging`|boolean|Retorna a consulta dos resultados do ambiente de preparo quando definido como true. |
+|`log`|boolean|Registra as consultas, que podem ser usadas posteriormente no [aprendizado ativo](luis-how-to-review-endpoint-utterances.md). O padrão é true.|
 
 ***
 
