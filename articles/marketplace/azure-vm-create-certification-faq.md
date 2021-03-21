@@ -8,10 +8,10 @@ author: mathapli
 ms.author: mathapli
 ms.date: 01/18/2021
 ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721150"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
@@ -163,7 +163,7 @@ A tabela a seguir lista os casos de teste do Windows que o kit de ferramentas ex
 |3|Cluster de failover|Ainda não há suporte para o recurso Windows Server failover clustering. O aplicativo não deve depender desse recurso.|
 |4|IPV6|O IPv6 ainda não tem suporte no ambiente do Azure. O aplicativo não deve depender desse recurso.|
 |5|DHCP|A função de servidor do protocolo de configuração de host dinâmico ainda não tem suporte. O aplicativo não deve depender desse recurso.|
-|6|Hyper-V|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
+|6|Hyper-v|A função de servidor Hyper-V ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |7|Acesso remoto|A função de servidor acesso remoto (acesso direto) ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |8|Rights Management Services|Serviços Rights Managements. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|
 |9|Windows Deployment Services|Serviços de implantação do Windows. A função de servidor ainda não tem suporte. O aplicativo não deve depender desse recurso.|

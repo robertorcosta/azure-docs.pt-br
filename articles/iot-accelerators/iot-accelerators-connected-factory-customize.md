@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: dobett
 ms.openlocfilehash: a092859517ee6ac41e62e55fe95f72b8bfdf87d5
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96011193"
 ---
 # <a name="customize-how-the-connected-factory-solution-displays-data-from-your-opc-ua-servers"></a>Personalizar como a solução Connected Factory exibe dados dos servidores OPC UA
@@ -83,7 +83,7 @@ O repositório **azure-iot-connected-factory** inclui um script **build.ps1** do
 Saiba mais sobre o acelerador de solução Connected Factory lendo os seguintes artigos:
 
 * [Permissões no site azureiotsolutions.com][lnk-permissions]
-* [Perguntas frequentes da fábrica conectada](iot-accelerators-faq-cf.md)
+* [Perguntas Frequentes sobre Factory Conectado](iot-accelerators-faq-cf.md)
 * [perguntas frequentes][lnk-faq]
 
 

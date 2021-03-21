@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: cshoe
 ms.openlocfilehash: ab41a336c32a1827c23f4c4619f47dc294a4d2ea
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103419279"
 ---
 # <a name="authentication-and-authorization-for-azure-static-web-apps-preview"></a>Autenticação e autorização para Versão Prévia do serviço Aplicativos Web Estáticos do Azure
@@ -194,7 +194,7 @@ Para bloquear um provedor, você pode criar [regras de rota](routes.md) para ret
 
 ## <a name="restrictions"></a>Restrições
 
-Consulte o [artigo cotas](quotas.md) para restrições gerais e limitações.
+Confira o [artigo Cotas](quotas.md) para ver as restrições gerais e limitações.
 
 ## <a name="next-steps"></a>Próximas etapas
 

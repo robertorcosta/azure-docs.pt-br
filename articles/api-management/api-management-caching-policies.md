@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 03/08/2021
 ms.author: apimpm
 ms.openlocfilehash: 9888627bed0fbf90abc75c81564dacc0d1aac18e
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103233459"
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
@@ -275,7 +275,7 @@ Para saber mais e obter exemplos dessa política, veja [Cache personalizado no G
 | tipo de cache | Escolha entre os seguintes valores do atributo:<br />- `internal` para usar o cache interno do Gerenciamento de API,<br />- `external` para usar o cache externo, conforme descrito em [Usar um Cache Redis do Azure externo no Gerenciamento de API do Azure](api-management-howto-cache-external.md),<br />- `prefer-external` para usar cache externo se configurado ou cache interno. | Não       | `prefer-external` |
 | duration         | Valor será armazenado em cache para o valor de duração fornecido, especificado em segundos.                                                                                                                                                                                                                                                                                 | Sim      | N/D               |
 | chave              | A chave em cache em que o valor será armazenado.                                                                                                                                                                                                                                                                                                                   | Sim      | N/D               |
-| value            | O valor a ser armazenado em cache.                                                                                                                                                                                                                                                                                                                                     | Sim      | N/D               |
+| valor            | O valor a ser armazenado em cache.                                                                                                                                                                                                                                                                                                                                     | Sim      | N/D               |
 ### <a name="usage"></a>Uso
 Essa política pode ser usada nas [seções](./api-management-howto-policies.md#sections) e nos [escopos](./api-management-howto-policies.md#scopes) da política a seguir.
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/12/2021
 ms.openlocfilehash: 52b3523d3c092f1b9375f53038cc3b20d0ddedcc
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232827"
 ---
 # <a name="configure-the-similarity-ranking-algorithm-in-azure-cognitive-search"></a>Configurar o algoritmo de classificação de similaridade no Azure Pesquisa Cognitiva
@@ -78,7 +78,7 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 
 A similaridade BM25 adiciona dois parâmetros personalizáveis do usuário para controlar a pontuação de relevância calculada. Você pode definir parâmetros BM25 durante a criação do índice ou como uma atualização de índice se o algoritmo BM25 tiver sido especificado durante a criação do índice.
 
-| Propriedade | Tipo | Descrição |
+| Propriedade | Type | Descrição |
 |----------|------|-------------|
 | k1 | número | Controla a função de dimensionamento entre a frequência de termos de cada termo correspondente à pontuação de relevância final de um par de consulta de documento. Os valores geralmente são 0,0 a 3,0, com 1,2 como o padrão. </br></br>Um valor de 0,0 representa um "modelo binário", em que a contribuição de um único termo de correspondência é a mesma para todos os documentos correspondentes, independentemente de quantas vezes esse termo aparece no texto, enquanto um valor K1 maior permite que a pontuação continue aumentando conforme mais instâncias do mesmo termo forem encontradas no documento. </br></br>Usar um valor K1 mais alto pode ser importante nos casos em que esperamos que vários termos façam parte de uma consulta de pesquisa. Nesses casos, poderemos preferir favorecer documentos que correspondam a muitos dos diferentes termos de consulta sendo pesquisados em documentos que correspondem apenas a um único, várias vezes. Por exemplo, ao consultar o índice em busca de documentos que contenham os termos "Apollo spaceflight", podemos querer diminuir a pontuação de um artigo sobre o grego Mythology que contém o termo "Apollo", em algumas dúzias de vezes, sem mencionar "spaceflight", em comparação com outro artigo que menciona explicitamente "Apollo" e "spaceflight" a algumas vezes. |
 | b | número | Controla como o comprimento de um documento afeta a pontuação de relevância. Os valores estão entre 0 e 1, com 0,75 como o padrão. </br></br>Um valor de 0,0 significa que o comprimento do documento não influenciará a pontuação, enquanto um valor de 1,0 significa que o impacto da frequência do termo na pontuação de relevância será normalizado pelo comprimento do documento. </br></br>Normalizar a frequência de termo pelo comprimento do documento é útil nos casos em que desejamos penalizar documentos mais longos. Em alguns casos, documentos mais longos (como um romance completo) são mais prováveis de conter muitos termos irrelevantes, em comparação com documentos muito menores. |
@@ -98,9 +98,9 @@ PUT https://[search service name].search.windows.net/indexes/[index name]?api-ve
 }
 ```
 
-## <a name="see-also"></a>Confira também  
+## <a name="see-also"></a>Veja também  
 
-+ [referência da API REST](/rest/api/searchservice/)
++ [Referência da API REST](/rest/api/searchservice/)
 + [Adicionar perfis de pontuação ao índice](index-add-scoring-profiles.md)
 + [Criar API de índice](/rest/api/searchservice/create-index)
 + [SDK do .NET do Azure Cognitive Search](/dotnet/api/overview/azure/search)

@@ -8,10 +8,10 @@ ms.date: 11/03/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: fde473453aa79e0078765df394acdeb54b3c7fe9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433311"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gerenciar um grafo de gêmeos digital usando relações
@@ -188,8 +188,8 @@ Considere a tabela de dados a seguir, descrevendo um conjunto de gêmeos e rela�
 
 |  ID do Modelo    | ID de entrelaça (deve ser exclusivo) | Nome da Relação  | ID do entrelaçado de destino  | Dados de inicialização de entrelaçamento |
 | --- | --- | --- | --- | --- |
-| dtmi: exemplo: Floor; 1    | Floor1 | contains | Room1 | |
-| dtmi: exemplo: Floor; 1    | Floor0 | contains | Room0 | |
+| dtmi: exemplo: Floor; 1    | Floor1 | contém | Room1 | |
+| dtmi: exemplo: Floor; 1    | Floor0 | contém | Room0 | |
 | dtmi: exemplo: sala; 1    | Room1 | | | {"Temperatura": 80} |
 | dtmi: exemplo: sala; 1    | Room0 | | | {"Temperatura": 70} |
 

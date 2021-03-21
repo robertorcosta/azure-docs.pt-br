@@ -10,10 +10,10 @@ ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
 ms.openlocfilehash: c41c5350e29555a11bb74eeca9af62a6b87cfced
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101094278"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gerenciar um espaço de trabalho Azure Machine Learning Studio (clássico)
@@ -30,7 +30,7 @@ Você pode gerenciar os espaços de trabalho do Machine Learning Studio (clássi
 
 
 
-## <a name="use-the-azure-portal"></a>Usar o portal do Azure
+## <a name="use-the-azure-portal"></a>Use o Portal do Azure
 
 Para gerenciar um espaço de trabalho do Studio (clássico) no portal do Azure:
 

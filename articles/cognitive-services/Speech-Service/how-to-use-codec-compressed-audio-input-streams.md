@@ -13,17 +13,17 @@ ms.author: amishu
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-two
 ms.openlocfilehash: 1e08203076de2073e39c5b5f5eb40b66c88490d7
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103417681"
 ---
 # <a name="use-codec-compressed-audio-input-with-the-speech-sdk"></a>Usar a entrada de áudio compactada por codec com o SDK de fala
 
 A API de **fluxo de entrada de áudio compactada** do SDK do serviço de fala fornece uma maneira de transmitir áudio compactado para o serviço de fala usando um `PullStream` ou o `PushStream` .
 
-Plataforma | Languages | Versão do GStreamer com suporte
+Plataforma | Idiomas | Versão do GStreamer com suporte
 | :--- | ---: | :---:
 Windows (exceto UWP)  | C++, C#, Java, Python | [1.18.3](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/)
 Linux  | C++, C#, Java, Python | [distribuições e arquiteturas de destino do Linux com suporte](~/articles/cognitive-services/speech-service/speech-sdk.md)

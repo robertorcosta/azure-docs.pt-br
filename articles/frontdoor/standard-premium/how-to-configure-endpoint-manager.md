@@ -8,21 +8,21 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: 241f4a61e8d8c8de7a5573e8de534cb927a71b30
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098365"
 ---
 # <a name="configure-an-azure-front-door-standardpremium-preview-endpoint-with-endpoint-manager"></a>Configurar um ponto de extremidade do Azure front door Standard/Premium (visualização) com o Gerenciador de ponto de extremidade
 
 > [!NOTE]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Exibir os **[documentos de porta frontal do Azure](../front-door-overview.md)**.
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Em busca de informações sobre o Azure Front Door? Exibir os **[documentos de porta frontal do Azure](../front-door-overview.md)**.
 
 Este artigo mostra como criar um ponto de extremidade para um perfil padrão/Premium da porta do Azure existente com o Gerenciador de pontos de extremidade.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -137,7 +137,7 @@ Selecione **Adicionar** na exibição rotas, a página **Adicionar uma rota** é
 
     :::image type="content" source="../media/how-to-configure-endpoint-manager/waf-in-security-view.png" alt-text="Captura de tela da política de WAF no modo de exibição de segurança.":::
 
-## <a name="clean-up-resources"></a>Limpar recursos
+## <a name="clean-up-resources"></a>Limpar os recursos
 
 Para excluir um ponto de extremidade quando ele não for mais necessário, selecione **excluir ponto de extremidade** no final da linha do ponto de extremidade 
 
