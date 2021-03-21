@@ -7,10 +7,10 @@ ms.date: 2/11/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: ac6094efde8a32b1fcc04c55bbc537afeb4166f7
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101661891"
 ---
 # <a name="device-update-compliance"></a>Conformidade de Atualizações de dispositivo
@@ -21,8 +21,8 @@ Por exemplo, considere uma instância de atualização de dispositivo com as seg
 
 |Nome da atualização|Versão de atualização|Modelo de dispositivo compatível|
 |-----------|--------------|-----------------------|
-|Atualização1    |1,0    |Model1|
-|Atualização 2    |1,0    |Model2|
+|Atualização1    |1.0    |Model1|
+|Atualização 2    |1.0    |Model2|
 |Update3    |2,0    |Model1|
 
 Digamos que as seguintes implantações foram criadas:
@@ -37,10 +37,10 @@ Agora, considere os seguintes dispositivos, com suas associações de grupo e ve
 
 |DeviceId   |Modelo do Dispositivo   |Versão de atualização instalada|Agrupar |Conformidade|
 |-----------|--------------|-----------------------|-----|---------|
-|Device1    |Model1 |1,0    |Grupo1 |Novas atualizações disponíveis</span>|
+|Device1    |Model1 |1.0    |Grupo1 |Novas atualizações disponíveis</span>|
 |Dispositivo2    |Model1 |2,0    |Grupo 3 |Na atualização mais recente|
-|Dispositivo3    |Model2 |1,0    |Grupo 2 |Na atualização mais recente|
-|Dispositivo4    |Model1 |1,0    |Grupo 3 |Atualização em andamento|
+|Dispositivo3    |Model2 |1.0    |Grupo 2 |Na atualização mais recente|
+|Dispositivo4    |Model1 |1.0    |Grupo 3 |Atualização em andamento|
 
 Device1 e Dispositivo4 não são compatíveis porque têm a versão 1,0 instalada, embora haja uma atualização de versão mais alta, Update3, compatível com seu modelo na instância de atualização de dispositivo. Dispositivo2 e Dispositivo3 são compatíveis porque têm as atualizações de versão mais elevadas compatíveis para seus modelos instalados.
 

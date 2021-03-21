@@ -7,10 +7,10 @@ ms.date: 2/12/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 39ecd9d6d0deec942d5c8cce9357c779a4b328d3
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101661737"
 ---
 # <a name="device-update-for-iot-hub-configuration-file"></a>Atualização de dispositivo para o arquivo de configuração do Hub IoT
@@ -34,7 +34,7 @@ No sistema Linux, na partição ou no disco chamado `adu` , crie um arquivo de t
 
 ## <a name="list-of-fields"></a>Lista de campos
 
-|Name|Descrição|
+|Nome|Descrição|
 |-----------|--------------------|
 |connection_string|Cadeia de conexão pré-provisionada que o dispositivo pode usar para se conectar ao Hub IoT. Observação: não será necessário se você estiver Provisionando o agente de atualização de dispositivo por meio do [serviço de identidade do Azure IOT](https://azure.github.io/iot-identity-service/)|
 |aduc_manufacturer|Relatado pela `AzureDeviceUpdateCore:4.ClientMetadata:4` interface para classificar o dispositivo para direcionar a implantação de atualização.|

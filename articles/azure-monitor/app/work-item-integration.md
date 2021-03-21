@@ -4,13 +4,13 @@ description: Saiba como criar itens de trabalho no GitHub ou no Azure DevOps com
 ms.topic: conceptual
 ms.date: 02/9/2021
 ms.openlocfilehash: ba0a67bad3ba47191414d6b406ab6cb4e6b7da78
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101731911"
 ---
-# <a name="work-item-integration-preview"></a>Integração de item de trabalho (versão prévia)
+# <a name="work-item-integration-preview"></a>Integração do item de trabalho (versão prévia)
 
 A funcionalidade de integração de itens de trabalho permite que você crie facilmente itens de trabalho no GitHub ou no Azure DevOps que têm dados relevantes Application Insights inseridos neles.
 

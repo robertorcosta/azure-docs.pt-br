@@ -8,10 +8,10 @@ ms.author: cweining
 ms.date: 02/23/2018
 ms.reviewer: mbullwin
 ms.openlocfilehash: 6ef52e946edb5db8074a9b4e3ce5e4a81ae0bde5
-ms.sourcegitcommit: 77ab078e255034bd1a8db499eec6fe9b093a8e4f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97561045"
 ---
 # <a name="profile-aspnet-core-azure-linux-web-apps-with-application-insights-profiler"></a>Criar o perfil de aplicativos web ASP.NET Core Azure Linux com o Application Insights Profiler
@@ -48,7 +48,7 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
    dotnet add package Microsoft.ApplicationInsights.Profiler.AspNetCore
    ```
 
-1. Habilitar Application Insights em Program.cs:
+1. Habilitar Application Insights em Program. cs:
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -57,7 +57,7 @@ As seguintes instruções se aplicam a todos os ambientes de desenvolvimento do 
             .UseStartup<Startup>();
     ```
 
-1. Habilitar criador de perfil no Startup.cs:
+1. Habilite o profiler na inicialização. cs:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)

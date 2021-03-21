@@ -8,10 +8,10 @@ ms.date: 10/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 420cd4a5b39f7c5864cf9802d02643e23c8ad24e
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101666560"
 ---
 # <a name="azure-security-baseline-for-virtual-network"></a>Linha de base de segurança do Azure para rede virtual
@@ -60,7 +60,7 @@ Aplique recomendações de proteção de rede adaptáveis da central de seguran�
 
 - [Proteção contra ameaças na central de segurança](../security-center/azure-defender.md)
 
-- [Proteção de rede adaptável na central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
+- [Proteção de Rede Adaptável na Central de Segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 
 **Monitoramento da Central de Segurança do Azure**: Sim
 

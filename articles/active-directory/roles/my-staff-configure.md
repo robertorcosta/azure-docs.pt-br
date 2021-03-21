@@ -14,10 +14,10 @@ ms.author: rolyon
 ms.reviewer: sahenry
 ms.custom: oldportal;it-pro;
 ms.openlocfilehash: 1a380c8a3d766c3c11d8cba1148383d924f65a1b
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103224989"
 ---
 # <a name="manage-your-users-with-my-staff"></a>Gerenciar seus usuários com minha equipe
@@ -86,7 +86,7 @@ As seguintes funções têm permissão para redefinir a senha de um usuário:
 * [Administrador de autenticação privilegiada](permissions-reference.md#privileged-authentication-administrator)
 * [Administrador global](permissions-reference.md#global-administrator)
 * [Administrador de assistência técnica](permissions-reference.md#helpdesk-administrator)
-* [Administrador de usuários](permissions-reference.md#user-administrator)
+* [Administrador do usuário](permissions-reference.md#user-administrator)
 * [Administrador de senhas](permissions-reference.md#password-administrator)
 
 Na **minha equipe**, abra o perfil de um usuário. Selecione **Redefinir senha**.

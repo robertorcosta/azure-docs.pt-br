@@ -4,10 +4,10 @@ description: Descreve as propriedades exportadas de exportação contínua em JS
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.openlocfilehash: b4609d54c1c3c33a654dd58a3bceaca4974fda15
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100584228"
 ---
 # <a name="application-insights-export-data-model"></a>Modelo de dados de exportação do Application Insights
@@ -112,7 +112,7 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.custom.dimensions [0] |object [ ] |Pares de cadeira de caractere chave-valor definidos pelo parâmetro das propriedades personalizadas. Comprimento máximo da chave 100, comprimento máximo dos valores 1024. Mais de 100 valores exclusivos, é possível pesquisar na propriedade, mas não usá-la para segmentação. Máximo de 200 chaves por ikey. |
 | context.custom.metrics [0] |object [ ] |Pares de chave-valor definidos pelo parâmetro de medidas personalizadas e por TrackMetrics. Comprimento máximo da chave 100, os valores podem ser numéricos. |
 | context.data.eventTime |string |UTC |
-| context.data.isSynthetic |booleano |A solicitação parece ser proveniente de um teste na Web ou de um bot. |
+| context.data.isSynthetic |boolean |A solicitação parece ser proveniente de um teste na Web ou de um bot. |
 | context.data.samplingRate |número |Porcentagem de telemetria gerada pelo SDK enviado ao portal. Intervalo 0.0-100.0. |
 | context.device |object |Dispositivo de cliente |
 | context.device.browser |string |IE, Chrome, ... |
@@ -139,14 +139,14 @@ Todos os tipos de telemetria são acompanhados por uma seção de contexto. Nem 
 | context.operation.name |string |nome solicitação ou url |
 | context.operation.parentId |string |Permite itens relacionados aninhados. |
 | context.session.id |string |`Id` de um grupo de operações da mesma fonte. Um período de 30 minutos sem uma operação sinaliza o término de uma sessão. |
-| context.session.isFirst |booleano | |
+| context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |string | |
 | context.user.accountId |string | |
 | context.user.anonAcquisitionDate |string | |
 | context.user.anonId |string | |
 | context.user.authAcquisitionDate |string |[Usuário Autenticado](./api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |string | |
-| context.user.isAuthenticated |booleano | |
+| context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |string | |
 | internal.data.documentVersion |string | |
 | internal.data.id |string | `Unique id` que é atribuído quando um item é ingerido para Application Insights |
@@ -174,7 +174,7 @@ Eventos personalizados gerados por [TrackEvent()](./api-custom-events-metrics.md
 | basicException [0] failedUserCodeMethod |string | |
 | basicException [0] failedUserCodeAssembly |string | |
 | basicException [0] handledAt |string | |
-| basicException [0] hasFullStack |booleano | |
+| basicException [0] hasFullStack |boolean | |
 | basicexception [0] `id` |string | |
 | basicException [0] method |string | |
 | basicException [0] message |string |Mensagem de exceção. Comprimento máximo 10k. |
@@ -206,7 +206,7 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 
 | Caminho | Type | Observações |
 | --- | --- | --- |
-| remoteDependency [0] async |booleano | |
+| remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |string | |
 | remoteDependency [0] commandName |string |Por exemplo, "home/index" |
 | remoteDependency [0] count |inteiro |100/(taxa de[amostragem](./sampling.md) ). Por exemplo, 4 =&gt; 25%. |
@@ -215,7 +215,7 @@ Enviado por TrackDependency. Usado para indicar o desempenho e o uso das [chamad
 | remoteDependency [0] `id` |string | |
 | remoteDependency [0] name |string |Url. Comprimento máximo 250. |
 | remoteDependency [0] resultCode |string |da dependência de HTTP |
-| remoteDependency [0] success |booleano | |
+| remoteDependency [0] success |boolean | |
 | remoteDependency [0] type |string |Http, Sql,... |
 | remoteDependency [0] url |string |Comprimento máximo 2000 |
 | remoteDependency [0] urlData.base |string |Comprimento máximo 2000 |
@@ -232,7 +232,7 @@ Enviado por [TrackRequest](./api-custom-events-metrics.md#trackrequest). Os mód
 | solicitação [0] `id` |string |`Operation id` |
 | request [0] name |string |GET/POST + url base.  Comprimento máximo 250 |
 | request [0] responseCode |inteiro |Resposta HTTP enviada ao cliente |
-| request [0] success |booleano |Padrão == (responseCode &lt; 400) |
+| request [0] success |boolean |Padrão == (responseCode &lt; 400) |
 | request [0] url |string |Não incluindo o host |
 | request [0] urlData.base |string | |
 | request [0] urlData.hashTag |string | |
@@ -294,7 +294,7 @@ Gerado por TrackMetric().
 
 O valor da métrica é encontrado em context.custom.metrics[0]
 
-Por exemplo: 
+Por exemplo:
 
 ```json
 {
@@ -324,7 +324,7 @@ Por exemplo:
 ```
 
 ## <a name="about-metric-values"></a>Sobre valores de métricas
-Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo: 
+Valores de métricas, tanto em relatórios de métrica quanto em outros locais, são relatados com uma estrutura de objeto padrão. Por exemplo:
 
 ```json
 "durationMetric": {
@@ -350,8 +350,8 @@ Em vez de agregar previamente as métricas, você pode usar a [amostragem](./sam
 ### <a name="durations"></a>Durações
 Exceto quando indicado o contrário, as durações são representadas em décimos de microssegundo, de modo que 10000000.0 significa 1 segundo.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 * [Application Insights](./app-insights-overview.md)
-* [Exportação contínua](export-telemetry.md)
+* [Exportação Contínua](export-telemetry.md)
 * [Exemplos de código](export-telemetry.md#code-samples)
 

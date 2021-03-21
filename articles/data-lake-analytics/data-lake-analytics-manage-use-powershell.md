@@ -6,10 +6,10 @@ ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 06/29/2018
 ms.openlocfilehash: f1d5d732433a78b8e3e7ff94bd6aaa2eea8f4a87
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051779"
 ---
 # <a name="manage-azure-data-lake-analytics-using-azure-powershell"></a>Gerenciar a Análise Azure Data Lake usando o Azure PowerShell
@@ -114,7 +114,7 @@ Get-AdlAnalyticsAccount -Name $adla
 Test-AdlAnalyticsAccount -Name $adla
 ```
 
-## <a name="manage-data-sources"></a>Gerenciar as fontes de dados
+## <a name="manage-data-sources"></a>Gerenciar fontes de dados
 
 No momento, o Azure Data Lake Analytics dá suporte às seguintes fontes de dados:
 

@@ -7,10 +7,10 @@ ms.date: 2/14/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
 ms.openlocfilehash: 227488f165aaad2f204c647eed17467a4ef561a1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101661889"
 ---
 # <a name="device-update-for-iot-hub-and-iot-plug-and-play"></a>Atualização de dispositivo para o Hub IoT e Plug and Play de IoT
@@ -27,19 +27,19 @@ O nome do componente esperado em seu modelo é **"azureDeviceUpdateAgent"** ao i
 
 Os metadados do agente contêm campos que o dispositivo ou o agente de atualização de dispositivo usa para enviar informações e status para os serviços de atualização de dispositivo.
 
-|Name|Esquema|Direção|Descrição|Exemplo|
+|Nome|Esquema|Direção|Descrição|Exemplo|
 |----|------|---------|-----------|-----------|
 |resultCode|inteiro|dispositivo para a nuvem|Um código que contém informações sobre o resultado da última ação de atualização. Pode ser preenchido para êxito ou falha e deve seguir a [especificação de código de status http](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html).|500|
 |extendedResultCode|inteiro|dispositivo para a nuvem|Um código que contém informações adicionais sobre o resultado. Pode ser preenchido para êxito ou falha.|0x80004005|
 |state|inteiro|dispositivo para a nuvem|É um inteiro que indica o estado atual do agente de atualização de dispositivo. Confira abaixo para obter os detalhes |Ocioso|
 |installedUpdateId|string|dispositivo para a nuvem|Uma ID da atualização instalada atualmente (por meio da atualização do dispositivo). Esse valor será NULL para um dispositivo que nunca tenha feito uma atualização por meio da atualização do dispositivo.|Nulo|
-|`deviceProperties`|Mapeamento|dispositivo para a nuvem|O conjunto de propriedades que contêm o fabricante e o modelo.|Confira abaixo para obter os detalhes
+|`deviceProperties`|Map|dispositivo para a nuvem|O conjunto de propriedades que contêm o fabricante e o modelo.|Confira abaixo para obter os detalhes
 
 #### <a name="state"></a>Estado
 
 É o status relatado pelo agente de atualização de dispositivo depois de receber uma ação do serviço de atualização de dispositivo. `State` é relatado em resposta a um `Action` (veja `Actions` abaixo) enviado para o agente de atualização de dispositivo do serviço de atualização de dispositivo. Consulte o [fluxo de trabalho de visão geral](understand-device-update.md#device-update-agent) para solicitações que fluem entre o serviço de atualização de dispositivo e o agente de atualização de dispositivo.
 
-|Name|Valor|Descrição|
+|Nome|Valor|Descrição|
 |---------|-----|-----------|
 |Ocioso|0|O dispositivo está pronto para receber uma ação do serviço de atualização de dispositivo. Após uma atualização bem-sucedida, o estado é retornado para o `Idle` estado.|
 |DownloadSucceeded|2|Um download bem-sucedido.|
@@ -50,7 +50,7 @@ Os metadados do agente contêm campos que o dispositivo ou o agente de atualiza�
 
 É o conjunto de propriedades que contêm o fabricante e o modelo.
 
-|Name|Esquema|Direção|Descrição|
+|Nome|Esquema|Direção|Descrição|
 |----|------|---------|-----------|
 |fabricante|string|dispositivo para a nuvem|O fabricante do dispositivo, relatado por meio do `deviceProperties` . Essa propriedade é lida de um dos dois locais-a interface ' AzureDeviceUpdateCore ' tentará primeiro ler o valor ' aduc_manufacturer ' do arquivo de [configuração](device-update-configuration-file.md) .  Se o valor não for preenchido no arquivo de configuração, o padrão será relatar a definição de tempo de compilação para ADUC_DEVICEPROPERTIES_MANUFACTURER. Essa propriedade só será relatada no momento da inicialização.|
 |modelo|string|dispositivo para a nuvem|O modelo de dispositivo do dispositivo, relatado por meio de `deviceProperties` . Essa propriedade é lida de um dos dois locais-a interface AzureDeviceUpdateCore primeiro tentará ler o valor ' aduc_model ' do arquivo de [configuração](device-update-configuration-file.md) .  Se o valor não for preenchido no arquivo de configuração, o padrão será relatar a definição de tempo de compilação para ADUC_DEVICEPROPERTIES_MODEL. Essa propriedade só será relatada no momento da inicialização.|
@@ -61,18 +61,18 @@ Os metadados do agente contêm campos que o dispositivo ou o agente de atualiza�
 
 Os metadados de serviço contêm campos que os serviços de atualização de dispositivo usam para comunicar ações e dados para o agente de atualização de dispositivo.
 
-|Name|Esquema|Direção|Descrição|
+|Nome|Esquema|Direção|Descrição|
 |----|------|---------|-----------|
 |ação|inteiro|nuvem para dispositivo|É um inteiro que corresponde a uma ação que o agente deve executar. Valores listados abaixo.|
 |updateManifest|string|nuvem para dispositivo|Usado para descrever o conteúdo de uma atualização. Gerado a partir do [manifesto de importação](import-update.md#create-device-update-import-manifest)|
 |updateManifestSignature|Objeto JSON|nuvem para dispositivo|Uma assinatura Web JSON (JWS) com chaves Web JSON usadas para verificação de origem.|
-|fileUrls|Mapeamento|nuvem para dispositivo|Mapa de `FileHash` para `DownloadUri` . Informa ao agente, quais arquivos baixar e o hash a ser usado para verificar se os arquivos foram baixados corretamente.|
+|fileUrls|Map|nuvem para dispositivo|Mapa de `FileHash` para `DownloadUri` . Informa ao agente, quais arquivos baixar e o hash a ser usado para verificar se os arquivos foram baixados corretamente.|
 
 #### <a name="action"></a>Ação
 
 `Actions` abaixo representa as ações executadas pelo agente de atualização de dispositivo, conforme instruído pelo serviço de atualização de dispositivo. O agente de atualização de dispositivo relatará um `State` (consulte `State` a seção acima) processando o `Action` recebido. Consulte o [fluxo de trabalho de visão geral](understand-device-update.md#device-update-agent) para solicitações que fluem entre o serviço de atualização de dispositivo e o agente de atualização de dispositivo.
 
-|Name|Valor|Descrição|
+|Nome|Valor|Descrição|
 |---------|-----|-----------|
 |Baixar|0|Baixar conteúdo publicado ou atualizar e qualquer outro conteúdo necessário|
 |Instalar|1|Instale o conteúdo ou a atualização. Normalmente, isso significa chamar o instalador para o conteúdo ou a atualização.|
@@ -85,7 +85,7 @@ A interface de informações do dispositivo é um conceito usado na [arquitetura
 
 O nome do componente esperado em seu modelo é **deviceInformation** ao implementar essa interface. [Saiba mais sobre os componentes PnP do Azure IoT](https://docs.microsoft.com/azure/iot-pnp/concepts-components)
 
-|Nome|Tipo|Esquema|Direção|Descrição|Exemplo|
+|Nome|Type|Esquema|Direção|Descrição|Exemplo|
 |----|----|------|---------|-----------|-----------|
 |fabricante|Propriedade|string|dispositivo para a nuvem|Nome da empresa do fabricante do dispositivo. Isso pode ser igual ao nome do fabricante original do equipamento (OEM).|Contoso|
 |modelo|Propriedade|string|dispositivo para a nuvem|Nome ou ID do modelo do dispositivo.|Dispositivo IoT Edge|

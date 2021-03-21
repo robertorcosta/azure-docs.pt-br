@@ -8,13 +8,13 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: e7351079e7325aa7750dc0d10f0923bc847ccc3c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101661908"
 ---
-# <a name="vision-solution-troubleshooting"></a>Solução de problemas da solução de visão
+# <a name="vision-solution-troubleshooting"></a>Solução de problemas com a solução de pesquisa visual
 
 Consulte as diretrizes a seguir para obter informações sobre como solucionar problemas de soluções de visão sem código no Azure Percept Studio.
 
@@ -28,7 +28,7 @@ Consulte as diretrizes a seguir para obter informações sobre como solucionar p
 
 ## <a name="check-which-modules-are-on-a-device"></a>Verificar quais módulos estão em um dispositivo
 
-1. Acesse o [portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
+1. Vá para o [Portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
 
 1. Clique no ícone do **Hub IOT** .
 
@@ -48,7 +48,7 @@ Consulte as diretrizes a seguir para obter informações sobre como solucionar p
 
 ## <a name="delete-a-device"></a>Excluir um dispositivo
 
-1. Acesse o [portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
+1. Vá para o [Portal do Azure](https://portal.azure.com/?feature.canmodifystamps=true&Microsoft_Azure_Iothub=aduprod&microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_ADUHidden#home).
 
 1. Clique no ícone do **Hub IOT** .
 
