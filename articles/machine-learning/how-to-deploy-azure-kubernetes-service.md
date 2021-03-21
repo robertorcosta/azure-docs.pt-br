@@ -12,10 +12,10 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
 ms.openlocfilehash: ef9c03b687bbc9b8fe736c872bbde14b8daba899
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102519377"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Implantar um modelo em um cluster do serviço kubernetes do Azure
@@ -24,7 +24,7 @@ Saiba como usar Azure Machine Learning para implantar um modelo como um serviço
 
 - __Tempo de resposta rápido__
 - __Dimensionamento__ automático do serviço implantado
-- __Registro em log__
+- __Logging__
 - __Coleta de dados de modelo__
 - __Autenticação__
 - __Encerramento de TLS__

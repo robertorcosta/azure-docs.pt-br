@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: shlo
 ms.openlocfilehash: 472d55f79033d60c4f40e60b55e0f7fc2ea4517e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101716645"
 ---
 # <a name="disclosure-design-guidelines"></a>Diretrizes de design de divulgação
@@ -74,7 +74,7 @@ Use o diagrama a seguir para determinar se sua experiência de voz sintética re
 
   ![Diagrama de avaliação de divulgação](media/responsible-ai/disclosure-guidelines/flowchart.png)
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Padrões de design de divulgação](concepts-disclosure-patterns.md)
 * [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)

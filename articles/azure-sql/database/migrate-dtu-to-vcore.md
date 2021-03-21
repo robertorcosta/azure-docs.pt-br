@@ -11,10 +11,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 02/09/2021
 ms.openlocfilehash: 332a2273a377268a425619a0cdaa5f4780b46e73
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100361641"
 ---
 # <a name="migrate-azure-sql-database-from-the-dtu-based-model-to-the-vcore-based-model"></a>Migrar o banco de dados SQL do Azure do modelo baseado em DTU para o modelo baseado em vCore
@@ -178,12 +178,12 @@ A tabela a seguir fornece orientação para cenários de migração específicos
 |---|---|---|---|
 |Standard|Propósito geral|Lateral|Pode migrar em qualquer ordem, mas precisa garantir o dimensionamento de vCore apropriado, conforme descrito acima|
 |Premium|Comercialmente crítico|Lateral|Pode migrar em qualquer ordem, mas precisa garantir o dimensionamento de vCore apropriado, conforme descrito acima|
-|Standard|Comercialmente crítico|Atualizar|Deve migrar primeiro o secundário|
+|Standard|Comercialmente crítico|Atualização|Deve migrar primeiro o secundário|
 |Comercialmente crítico|Standard|Downgrade|Deve migrar primeiro o primário|
 |Premium|Propósito geral|Downgrade|Deve migrar primeiro o primário|
-|Propósito geral|Premium|Atualizar|Deve migrar primeiro o secundário|
+|Propósito geral|Premium|Atualização|Deve migrar primeiro o secundário|
 |Comercialmente crítico|Propósito geral|Downgrade|Deve migrar primeiro o primário|
-|Propósito geral|Comercialmente crítico|Atualizar|Deve migrar primeiro o secundário|
+|Propósito geral|Comercialmente crítico|Atualização|Deve migrar primeiro o secundário|
 ||||
 
 ## <a name="migrate-failover-groups"></a>Migrar grupos de failover

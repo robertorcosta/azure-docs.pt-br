@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
 ms.openlocfilehash: 57ba1c760fe8919fff95493c5c81da4368894f73
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101719807"
 ---
 # <a name="windows-azure-diagnostics-extension-wad-configuration-schema-versions-and-history"></a>Histórico e versões do esquema de configuração do WAD (Windows Diagnóstico do Azure Extension)
@@ -18,10 +18,10 @@ Este artigo fornece o histórico de versões das versões de esquema do [diagnó
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envio de versões do SDK e Diagnóstico do Azure  
 
-|Versão do SDK do Azure | Versão da extensão do Diagnóstico | Modelar|  
+|Versão do SDK do Azure | Versão da extensão do Diagnóstico | Modelo|  
 |------------------|-------------------------------|------|  
-|1.x               |1,0                            |plug-in|  
-|2.0 - 2.4         |1,0                            |plug-in|  
+|1.x               |1.0                            |plug-in|  
+|2.0 - 2.4         |1.0                            |plug-in|  
 |2.5               |1.2                            |extensão|  
 |2.6               |1,3                            |"|  
 |2.7               |1.4                            |"|  

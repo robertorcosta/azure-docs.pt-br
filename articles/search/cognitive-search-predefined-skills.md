@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: bde82a0ad50c2172e70337ad202b91af0a62c530
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102547808"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>Habilidades cognitivas internas para processamento de texto e imagem durante a indexação (Pesquisa Cognitiva do Azure)
@@ -53,7 +53,7 @@ Diversas habilidades são flexíveis na forma que consomem ou produzem. Em geral
 
 Para obter orientação sobre como criar uma [habilidade personalizada](cognitive-search-custom-skill-web-api.md), consulte [como definir uma interface personalizada](cognitive-search-custom-skill-interface.md) e um [exemplo: criando uma habilidade personalizada para enriquecimento de ia](cognitive-search-create-custom-skill-example.md).
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 + [Como definir um conjunto de qualificações](cognitive-search-defining-skillset.md)
 + [Definição da interface de habilidades personalizadas](cognitive-search-custom-skill-interface.md)

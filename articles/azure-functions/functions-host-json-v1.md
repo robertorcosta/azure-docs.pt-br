@@ -4,10 +4,10 @@ description: Documentação de referência para o arquivo host.json do Azure Fun
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.openlocfilehash: 48dba50b384731befdc7fba7c418e542994cedd9
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608947"
 ---
 # <a name="hostjson-reference-for-azure-functions-1x"></a>Referência de host.json para as funções do Azure 1.x
@@ -141,7 +141,7 @@ Definições de configuração para o [gatilho Azure Cosmos DB e associações](
 |---------|---------|---------|
 |GatewayMode|Gateway|O modo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB. As opções são `Direct` e `Gateway`|
 |Protocolo|Https|O protocolo de conexão usado pela função ao se conectar ao serviço do Azure Cosmos DB.  Leia [aqui para obter uma explicação de ambos os modos](../cosmos-db/performance-tips.md#networking)|
-|leasePrefix|n/a|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
+|leasePrefix|N/D|Prefixo de concessão a ser usado em todas as funções em um aplicativo.|
 
 ## <a name="durabletask"></a>durableTask
 
@@ -250,9 +250,9 @@ Controla a filtragem de logs gravados por um objeto [ILogger](functions-dotnet-c
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|categoryFilter|n/a|Especifica a filtragem por categoria| 
+|categoryFilter|N/D|Especifica a filtragem por categoria| 
 |defaultLevel|Informações do|Para as categorias não especificadas na matriz `categoryLevels`, envie logs nesse nível e acima para o Application Insights.| 
-|categoryLevels|n/a|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
+|categoryLevels|N/D|Uma matriz de categorias que especifica o nível mínimo de logs que será enviado ao Application Insights para cada categoria. A categoria especificada aqui controla todas as categorias que começam com o mesmo valor, com precedência para os valores maiores. No arquivo de exemplo *host.json* anterior, todas as categorias que começam com o log "Host.Aggregator" no nível `Information`. Todas as outras categorias que começam com o log "Host", como "Host.Executor", no nível `Error`.| 
 
 ## <a name="queues"></a>filas
 
@@ -292,7 +292,7 @@ Parâmetro de configuração para a [Associação de saída SendGrind](functions
 
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------| 
-|de|n/a|Endereço de email do remetente em todas as funções.| 
+|de|N/D|Endereço de email do remetente em todas as funções.| 
 
 ## <a name="servicebus"></a>serviceBus
 
@@ -338,7 +338,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/a|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="tracing"></a>tracing
 

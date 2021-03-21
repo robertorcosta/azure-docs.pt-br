@@ -8,10 +8,10 @@ ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: dd612e7e3c54a000d989c5a2f3a633d06d6d11cb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101718281"
 ---
 # <a name="azure-security-baseline-for-app-service"></a>Linha de base de segurança do Azure para o serviço de aplicativo
@@ -426,7 +426,7 @@ Crie um processo para monitorar as configurações de recursos de rede e detecta
 
 Os aplicativos do serviço de aplicativo usam a identidade federada, na qual um provedor de identidade de terceiros gerencia as identidades de usuário e o fluxo de autenticação para você. Esses provedores de identidade estão disponíveis por padrão:
 
-- AD do Azure
+- Azure AD
 - Conta da Microsoft
 
 - Facebook

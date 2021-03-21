@@ -9,10 +9,10 @@ ms.date: 07/22/2019
 ms.author: sngun
 ms.reviewer: sngun
 ms.openlocfilehash: 85c0a113f15a1ce94ca1cccc605085dcd003dce4
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101661385"
 ---
 # <a name="migrate-data-to-azure-cosmos-db-cassandra-api-account-using-striim"></a>Migrar dados para Azure Cosmos DB conta de API do Cassandra usando o Striim
@@ -30,7 +30,7 @@ Este artigo mostra como usar o Striim para migrar dados de um **Oracle Database*
 
 ## <a name="deploy-the-striim-marketplace-solution"></a>Implantar a solução Striim Marketplace
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. Selecione **criar um recurso** e pesquise **Striim** no Azure Marketplace. Selecione a primeira opção e **criar**.
 

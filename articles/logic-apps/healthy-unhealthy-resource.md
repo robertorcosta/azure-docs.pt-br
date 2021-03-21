@@ -7,10 +7,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 12/07/2020
 ms.openlocfilehash: 42b33a5b96de7334f8310b040052c633342f5e05
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101712378"
 ---
 # <a name="set-up-logging-to-monitor-logic-apps-in-azure-security-center"></a>Configurar o registro em log para monitorar aplicativos lógicos na central de segurança do Azure
@@ -69,7 +69,7 @@ Se você usar Log Analytics ou hubs de eventos como o destino para seus logs de 
 1. Para confirmar que você habilitou os logs de diagnóstico, verifique se o campo configurações de diagnóstico `logs.enabled` está definido como `true` . 
 1. Para confirmar que você não definiu uma conta de armazenamento como o destino, verifique se o `storageAccountId` campo está definido como `false` .
 
-Por exemplo: 
+Por exemplo:
 
 ```json
 "allOf": [

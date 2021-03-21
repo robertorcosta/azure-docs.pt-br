@@ -14,10 +14,10 @@ ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.openlocfilehash: f26905366949c2c198e52f78bc7adb734cbb7f90
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102612449"
 ---
 # <a name="output-metadata"></a>Metadados de saída
@@ -36,45 +36,45 @@ Você pode encontrar o código de esquema completo e o exemplo de JSON no final 
 
 Coleção de entradas AssetFile do trabalho de codificação.  
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
 | **Fontes** |Coleção de arquivos de mídia de entrada/origem, que foi processada para produzir esse AssetFile.<br />Exemplo: `"Sources": [{"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"}]`|
 | **VideoTracks**|Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas em um formato de contêiner apropriado. <br />Consulte [VideoTracks](#videotracks). |
 | **AudioTracks**|Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. Esta é a coleção de todas essas faixas de áudio.<br /> Para obter mais informações, consulte [AudioTracks](#audiotracks). |
-| **Nome**<br />Necessária |O nome de arquivo de ativo de mídia. <br /><br />Exemplo: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
-| **Tamanho**<br />Necessária |Tamanho do arquivo de ativo em bytes. <br /><br />Exemplo: `"Size": 32414631`|
-| **Duration**<br />Necessária |Duração da reprodução de conteúdo. Para obter mais informações, consulte o formato [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) . <br /><br />Exemplo: `"Duration": "PT1M10.315S"`|
+| **Nome**<br />Obrigatório |O nome de arquivo de ativo de mídia. <br /><br />Exemplo: `"Name": "Ignite-short_1280x720_AACAudio_3551.mp4"`|
+| **Tamanho**<br />Obrigatório |Tamanho do arquivo de ativo em bytes. <br /><br />Exemplo: `"Size": 32414631`|
+| **Duration**<br />Obrigatório |Duração da reprodução de conteúdo. Para obter mais informações, consulte o formato [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html) . <br /><br />Exemplo: `"Duration": "PT1M10.315S"`|
 
 ## <a name="videotracks"></a>VideoTracks 
 
 Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas em um formato de contêiner apropriado. O elemento **VideoTracks** representa uma coleção de todas as faixas de vídeos.  
 
-| Name | Descrição |
+| Nome | Descrição |
 | --- | --- |
-| **Id**<br /> Necessária |Índice de base zero desta faixa de vídeo. **Observação:**  Essa **ID** não é necessariamente a TrackID como usada em um arquivo MP4. <br /><br />Exemplo: `"Id": 1`|
-| **FourCC**<br />Necessária | Código FourCC do codec de vídeo relatado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1" | "hev1" | "hvc1"`|
+| **Id**<br /> Obrigatório |Índice de base zero desta faixa de vídeo. **Observação:**  Essa **ID** não é necessariamente a TrackID como usada em um arquivo MP4. <br /><br />Exemplo: `"Id": 1`|
+| **FourCC**<br />Obrigatório | Código FourCC do codec de vídeo relatado por ffmpeg.  <br /><br />Exemplo: `"FourCC": "avc1" | "hev1" | "hvc1"`|
 | **Perfil** |Perfil de H264 (aplicável somente ao Codec H264)  <br /><br />Exemplo: `"Profile": "High"` |
 | **Level** |Nível H264 (aplicável somente ao codec H264).  <br /><br />Exemplo: `"Level": "3.2"`|
-| **Largura**<br />Necessária |Largura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
-| **Altura**<br />Necessária |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
-| **DisplayAspectRatioNumerator**<br />Necessária|Numerador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
-| **DisplayAspectRatioDenominator**<br />Necessária |Denominador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
-| **Quadros**<br />Necessária |Medida de taxa de quadros de vídeo em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
-| **720p**<br />Necessária |Taxa média de bits de vídeo em bits por segundo, calculada a partir do Assetfile. Conta apenas o conteúdo de transmissão elementar e não inclui a sobrecarga de empacotamento.  <br /><br />Exemplo: `"Bitrate": 3551567`|
-| **TargetBitrate**<br />Necessária |Taxa de bits média de destino para esta faixa de vídeo, conforme solicitado por meio da predefinição de codificação, em bits por segundo. <br /><br />Exemplo: `"TargetBitrate": 3520000` |
+| **Largura**<br />Obrigatório |Largura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Width": "1280"`|
+| **Altura**<br />Obrigatório |Altura do vídeo codificado em pixels.  <br /><br />Exemplo: `"Height": "720"`|
+| **DisplayAspectRatioNumerator**<br />Obrigatório|Numerador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioNumerator": 16.0`|
+| **DisplayAspectRatioDenominator**<br />Obrigatório |Denominador de taxa de proporção de exibição do vídeo.  <br /><br />Exemplo: `"DisplayAspectRatioDenominator": 9.0`|
+| **Quadros**<br />Obrigatório |Medida de taxa de quadros de vídeo em formato .3f.  <br /><br />Exemplo: `"Framerate": 29.970`|
+| **720p**<br />Obrigatório |Taxa média de bits de vídeo em bits por segundo, calculada a partir do Assetfile. Conta apenas o conteúdo de transmissão elementar e não inclui a sobrecarga de empacotamento.  <br /><br />Exemplo: `"Bitrate": 3551567`|
+| **TargetBitrate**<br />Obrigatório |Taxa de bits média de destino para esta faixa de vídeo, conforme solicitado por meio da predefinição de codificação, em bits por segundo. <br /><br />Exemplo: `"TargetBitrate": 3520000` |
 
 ## <a name="audiotracks"></a>AudioTracks 
 
 Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. O elemento **AudioTracks** representa uma coleção de todas essas faixas de áudio.  
 
-| Name  | Descrição |
+| Nome  | Descrição |
 | --- | --- |
-| **Id**<br />Necessária  |Índice de base zero desta faixa de áudio. **Observação:**  Isso não é necessariamente o TrackID como usado em um arquivo MP4.  <br /><br />Exemplo: `"Id": 2`|
+| **Id**<br />Obrigatório  |Índice de base zero desta faixa de áudio. **Observação:**  Isso não é necessariamente o TrackID como usado em um arquivo MP4.  <br /><br />Exemplo: `"Id": 2`|
 | **Codec**  |Cadeia de caracteres de codec de faixa de áudio.  <br /><br />Exemplo: `"Codec": "aac"`|
 | **Idioma**|Exemplo: `"Language": "eng"`|
-| **Canais**<br />Necessária|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
-| **SamplingRate**<br />Necessária |Taxa de amostragem de áudio em amostras/s ou Hz.  <br /><br />Exemplo: `"SamplingRate": 48000`|
-| **720p**<br />Necessária |Taxa média de bits de áudio em bits por segundo, calculada com base no AssetFile. Conta apenas o conteúdo de transmissão elementar e não inclui a sobrecarga de empacotamento.  <br /><br />Exemplo: `"Bitrate": 128041`|
+| **Canais**<br />Obrigatório|Número de canais de áudio.  <br /><br />Exemplo: `"Channels": 2`|
+| **SamplingRate**<br />Obrigatório |Taxa de amostragem de áudio em amostras/s ou Hz.  <br /><br />Exemplo: `"SamplingRate": 48000`|
+| **720p**<br />Obrigatório |Taxa média de bits de áudio em bits por segundo, calculada com base no AssetFile. Conta apenas o conteúdo de transmissão elementar e não inclui a sobrecarga de empacotamento.  <br /><br />Exemplo: `"Bitrate": 128041`|
 
 ## <a name="json-schema-example"></a>Exemplo de esquema JSON
 

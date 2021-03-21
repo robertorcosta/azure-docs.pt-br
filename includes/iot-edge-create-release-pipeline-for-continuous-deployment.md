@@ -4,12 +4,12 @@ ms.service: iot-edge
 ms.topic: include
 ms.date: 08/26/2020
 ms.author: v-tcassi
-ms.openlocfilehash: 706b2306fbe9f2a744d2874a8b55f78fa2fc8e4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9572f4c663c820c76a57cdbdcecff082b150b577
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89301432"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104761127"
 ---
 ## <a name="create-a-release-pipeline-for-continuous-deployment"></a>Criar um pipeline de liberação para implantação contínua
 
@@ -25,7 +25,7 @@ Crie um novo pipeline e adicione um novo estágio:
 
     ![Iniciar com um trabalho vazio para o pipeline de liberação](./media/iot-edge-create-release-pipeline-for-continuous-deployment/start-with-empty-release-job.png)
 
-3. O novo pipeline de lançamento é iniciado com um estágio, chamado **Estágio 1**. Renomeie o estágio 1 como **dev** e trate-o como um pipeline de implantação contínua para seu ambiente de desenvolvimento. Normalmente, os pipelines de implantação contínua têm vários estágios, incluindo **desenvolvimento**, **preparo**e **produção**. Você pode usar nomes diferentes e criar mais com base em sua prática DevOps. Feche a janela de detalhes do estágio depois de renomeá-lo.
+3. O novo pipeline de lançamento é iniciado com um estágio, chamado **Estágio 1**. Renomeie o estágio 1 como **dev** e trate-o como um pipeline de implantação contínua para seu ambiente de desenvolvimento. Normalmente, os pipelines de implantação contínua têm vários estágios, incluindo **desenvolvimento**, **preparo** e **produção**. Você pode usar nomes diferentes e criar mais com base em sua prática DevOps. Feche a janela de detalhes do estágio depois de renomeá-lo.
 
    Você também pode renomear o pipeline de liberação selecionando o texto "novo pipeline de liberação" na parte superior.
 
@@ -41,7 +41,7 @@ Crie um novo pipeline e adicione um novo estágio:
 
    ![Abra os gatilhos de artefato e alterne para habilitar o gatilho de implantação contínua](./media/iot-edge-create-release-pipeline-for-continuous-deployment/add-trigger.png)
 
-7. O estágio de **desenvolvimento** é pré-configurado com um trabalho e zero tarefas. No menu pipeline, selecione **tarefas** e escolha o estágio **desenvolvimento** . Selecione o **trabalho do agente** e altere seu **nome de exibição** para p e **r**. Você pode configurar detalhes sobre o trabalho do Agent, mas a tarefa de implantação é insensível à plataforma para que você possa usar qualquer **especificação de agente** no **pool de agentes**escolhido.
+7. O estágio de **desenvolvimento** é pré-configurado com um trabalho e zero tarefas. No menu pipeline, selecione **tarefas** e escolha o estágio **desenvolvimento** . Selecione o **trabalho do agente** e altere seu **nome de exibição** para p e **r**. Você pode configurar detalhes sobre o trabalho do Agent, mas a tarefa de implantação é insensível à plataforma para que você possa usar qualquer **especificação de agente** no **pool de agentes** escolhido.
 
    ![Exibir as tarefas para o estágio de desenvolvimento na guia tarefas](./media/iot-edge-create-release-pipeline-for-continuous-deployment/view-stage-tasks.png)
 
@@ -63,8 +63,18 @@ Crie um novo pipeline e adicione um novo estágio:
     * **ACR_PASSWORD**: sua senha de registro de contêiner do Azure.
     * **ACR_USER**: seu nome de usuário do registro de contêiner do Azure.
 
-    Se você tiver outras variáveis em seu projeto, poderá especificar o nome e o valor nessa guia. O **manifesto de implantação de geração** só pode reconhecer as variáveis que estão em `${VARIABLE}` tipo. Verifique se você está usando esse tipo em seus `*.template.json` arquivos.
-
+    Se você tiver outras variáveis em seu projeto, poderá especificar o nome e o valor nessa guia. O **manifesto de implantação de geração** só pode reconhecer as variáveis que estão em um `${VARIABLE}` tipo. Verifique se você está usando esse tipo em seus `*.template.json` arquivos.
+    
+    ```json-interactive
+    "registryCredentials": {
+      "<ACR name>": { // Your Azure Container Registry **Registry name** value
+        "username": "${ACR_USER}",
+        "password": "${ACR_PASSWORD}",
+        "address": "${ACR_ADDRESS}"
+      }
+    }
+    ```
+    
     ![Configurar as variáveis para o pipeline de liberação na guia variáveis](./media/iot-edge-create-release-pipeline-for-continuous-deployment/configure-variables.png)
 
 10. Selecione a segunda tarefa de **Azure IOT Edge** e configure-a com os seguintes valores:

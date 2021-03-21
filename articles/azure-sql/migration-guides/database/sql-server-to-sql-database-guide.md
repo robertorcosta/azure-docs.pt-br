@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
 ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103563837"
 ---
 # <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL
@@ -24,7 +24,7 @@ Este guia ajuda você a migrar sua instância de SQL Server para o banco de dado
 
 Você pode migrar SQL Server em execução no local ou em: 
 
-- SQL Server em máquinas virtuais  
+- SQL Server em Máquinas Virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)  
@@ -102,7 +102,7 @@ Se você tiver vários servidores e bancos de dados que precisam ser avaliados e
 > [!IMPORTANT]
 > A execução de avaliações em escala para vários bancos de dados, especialmente grandes, também pode ser automatizada usando o [Utilitário de linha de comando DMA](/sql/dma/dma-commandline) e carregada para [migrações para Azure](/sql/dma/dma-assess-sql-data-estate-to-sqldb#view-target-readiness-assessment-results) para análise adicional e preparação de destino.
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 Depois de concluir as tarefas associadas ao estágio de pré-migração, você estará pronto para executar o esquema e a migração de dados. 
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2021
 ms.author: jeedes
-ms.openlocfilehash: fb648983224b4f3bb99b6cc0578f8c7de301b522
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7165fb1c8a3bf608ac1f754168ba40647b954b10
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053476"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583761"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-fortisase-sia"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao FortiSASE SIA
 
@@ -146,10 +146,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do FortiSASE SIA e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do FortiSASE SIA em Meus Aplicativos, você será redirecionado à URL de Logon do FortiSASE SIA. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do FortiSASE SIA em Meus Aplicativos, você será redirecionado à URL de Logon do FortiSASE SIA. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o FortiSASE SIA, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o FortiSASE SIA, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
