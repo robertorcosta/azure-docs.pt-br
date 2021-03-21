@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
-ms.openlocfilehash: 4b6154a18cf4e08bf59dad91350160a1f83c49ed
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: eb4fe102407bf519c9253ac7da39178ad8cacb0c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102201474"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607493"
 ---
 # <a name="configure-azure-image-builder-service-permissions-using-azure-cli"></a>Configurar permissões de serviço do construtor de imagem do Azure usando CLI do Azure
 
@@ -239,7 +239,7 @@ Substitua as seguintes configurações de espaço reservado:
 | \<Storage account container\> | Nome do contêiner da conta de armazenamento |
 | \<Subscription ID\> | Assinatura do Azure |
 
-Para obter mais informações sobre como usar uma identidade gerenciada atribuída pelo usuário, consulte [criar uma imagem personalizada que usará uma identidade gerenciada do azure User-Assigned para arquivos do Conecte Access do armazenamento do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity). O guia de início rápido explica como criar e configurar a identidade gerenciada atribuída pelo usuário para acessar uma conta de armazenamento.
+Para obter mais informações sobre como usar uma identidade gerenciada atribuída pelo usuário, consulte [criar uma imagem personalizada que usará uma identidade gerenciada do azure User-Assigned para arquivos do Conecte Access do armazenamento do Azure](./image-builder-user-assigned-identity.md). O guia de início rápido explica como criar e configurar a identidade gerenciada atribuída pelo usuário para acessar uma conta de armazenamento.
 
 ## <a name="next-steps"></a>Próximas etapas
 

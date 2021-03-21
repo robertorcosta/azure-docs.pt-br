@@ -1,5 +1,5 @@
 ---
-title: Processadores de telemetria (visualização)-Azure Monitor Application Insights para Java
+title: Processadores de telemetria (versão prévia) – Application Insights do Azure Monitor para Java
 description: Saiba como configurar os processadores de telemetria no Azure Monitor Application Insights para Java.
 ms.topic: conceptual
 ms.date: 10/29/2020
@@ -7,13 +7,13 @@ author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
 ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101734563"
 ---
-# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (visualização)-Azure Monitor Application Insights para Java
+# <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (versão prévia) – Application Insights do Azure Monitor para Java
 
 > [!NOTE]
 > O recurso de processadores de telemetria está em versão prévia.
@@ -36,7 +36,7 @@ Antes de aprender sobre os processadores de telemetria, você deve entender o te
 
 Para processadores de telemetria, esses componentes de span são importantes:
 
-* Name
+* Nome
 * Atributos
 
 O nome do span é a exibição primária para solicitações e dependências no portal do Azure. Atributos de span representam propriedades padrão e personalizadas de uma determinada solicitação ou dependência.

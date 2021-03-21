@@ -4,10 +4,10 @@ description: Saiba como configurar seu Service Fabric cluster gerenciado para re
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.openlocfilehash: e17251523c0720665c4c6f5b7811304eebc9923e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101744271"
 ---
 # <a name="configure-network-settings-for-service-fabric-managed-clusters-preview"></a>Definir configurações de rede para Service Fabric clusters gerenciados (versão prévia)
@@ -28,7 +28,7 @@ Esteja atento a essas considerações ao criar novas regras de NSG para o cluste
 
 Com clusters de Service Fabric clássicos (não gerenciados), você deve declarar e gerenciar um recurso *Microsoft. Network/networkSecurityGroups* separado para [aplicar as regras de NSG (grupo de segurança de rede) ao cluster](https://github.com/Azure/azure-quickstart-templates/tree/master/service-fabric-secure-nsg-cluster-65-node-3-nodetype). Service Fabric clusters gerenciados permitem atribuir regras NSG diretamente no recurso de cluster do seu modelo de implantação.
 
-Use a propriedade [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) do seu recurso *Microsoft. perfabric/managedclusters* (versão `2021-01-01-preview` ou posterior) para atribuir regras de NSG. Por exemplo: 
+Use a propriedade [networkSecurityRules](/azure/templates/microsoft.servicefabric/managedclusters#managedclusterproperties-object) do seu recurso *Microsoft. perfabric/managedclusters* (versão `2021-01-01-preview` ou posterior) para atribuir regras de NSG. Por exemplo:
 
 ```json
             "apiVersion": "2021-01-01-preview",

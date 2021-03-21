@@ -13,10 +13,10 @@ ms.workload: infrastructure-services
 ms.date: 05/10/2020
 ms.author: vikancha
 ms.openlocfilehash: 42dac9edc91d7cb935e8c20398c4d31343b358e1
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102559674"
 ---
 # <a name="amd-gpu-driver-extension-for-windows"></a>Extensão de driver de GPU AMD para Windows
@@ -35,8 +35,8 @@ A Extensão suporta os seguintes OS:
 |---|---|
 | EMS do Windows 10 | Build 1903 |
 | Windows 10 | Build 1809 |
-| Windows Server 2016 | Core |
-| Windows Server 2019 | Core |
+| Windows Server 2016 | Núcleo |
+| Windows Server 2019 | Núcleo |
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 

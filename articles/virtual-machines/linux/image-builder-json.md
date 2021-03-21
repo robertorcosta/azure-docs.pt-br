@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: image-builder
 ms.collection: linux
 ms.reviewer: cynthn
-ms.openlocfilehash: a3138da0ecbcabaeb7ef910975afc3b7005e5b50
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.openlocfilehash: aaaabe758b036335062907c8e5549ae876c63997
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102519700"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594726"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>Visualização: Criar um modelo do Construtor de Imagens do Azure 
 
@@ -249,7 +249,7 @@ Ao usar `customize`:
 - Se um personalizador falhar, o componente de personalização inteiro falhará e relatará um erro.
 - É altamente recomendável testar o script cuidadosamente antes de usá-lo em um modelo. A depuração do script em sua própria VM será mais fácil.
 - Não coloque dados confidenciais nos scripts. 
-- Os locais de script precisam ser acessíveis publicamente, a menos que você esteja usando [MSI](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity).
+- Os locais de script precisam ser acessíveis publicamente, a menos que você esteja usando [MSI](./image-builder-user-assigned-identity.md).
 
 ```json
         "customize": [
@@ -417,7 +417,7 @@ Propriedades do personalizador de arquivo:
 - **sourceUri** – um ponto de extremidade de armazenamento acessível. Pode ser o GitHub ou o armazenamento do Azure. Você só pode baixar um arquivo, não um diretório inteiro. Se você precisar baixar um diretório, use um arquivo compactado e descompacte-o usando os personalizadores Shell ou PowerShell. 
 
 > [!NOTE]
-> Se o sourceUri for uma conta de armazenamento do Azure, independentemente de o blob ser marcado como público, você concederá permissões de identidade de usuário gerenciadas para acesso de leitura no BLOB. Consulte este [exemplo](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-user-assigned-identity#create-a-resource-group) para definir as permissões de armazenamento.
+> Se o sourceUri for uma conta de armazenamento do Azure, independentemente de o blob ser marcado como público, você concederá permissões de identidade de usuário gerenciadas para acesso de leitura no BLOB. Consulte este [exemplo](./image-builder-user-assigned-identity.md#create-a-resource-group) para definir as permissões de armazenamento.
 
 - **destination** – é o caminho de destino completo e o nome do arquivo. Qualquer caminho e subdiretórios referenciados devem existir. Use os personalizadores Shell ou PowerShell para configurá-los com antecedência. Você pode usar os personalizadores de script para criar o caminho. 
 
@@ -456,7 +456,7 @@ Personalizar propriedades:
 - **updateLimit** – opcional, define quantas atualizações podem ser instaladas. O padrão é 1.000.
  
 > [!NOTE]
-> O personalizador de Windows Update poderá falhar se houver reinicializações pendentes do Windows ou se as instalações do aplicativo ainda estiverem em execução, normalmente você poderá ver esse erro no customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos que você considere a adição de uma reinicialização do Windows e/ou permitindo que os aplicativos tenham tempo suficiente para concluir suas instalações usando comandos de [suspensão](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/start-sleep) ou espera nos comandos embutidos ou scripts antes de executar Windows Update.
+> O personalizador de Windows Update poderá falhar se houver reinicializações pendentes do Windows ou se as instalações do aplicativo ainda estiverem em execução, normalmente você poderá ver esse erro no customization. log, `System.Runtime.InteropServices.COMException (0x80240016): Exception from HRESULT: 0x80240016` . Aconselhamos que você considere a adição de uma reinicialização do Windows e/ou permitindo que os aplicativos tenham tempo suficiente para concluir suas instalações usando comandos de [suspensão](/powershell/module/microsoft.powershell.utility/start-sleep) ou espera nos comandos embutidos ou scripts antes de executar Windows Update.
 
 ### <a name="generalize"></a>Generalizar 
 Por padrão, o Construtor de Imagens do Azure também executará o código de "desprovisionamento" no final de cada fase de personalização de imagem para "generalizar" a imagem. Generalizar é um processo em que a imagem é configurada para que possa ser reutilizada para criar várias VMs. Para VMs do Windows, o Construtor de Imagens do Azure usa Sysprep. Para o Linux, o Construtor de Imagens do Azure executa 'waagent-deprovision'. 

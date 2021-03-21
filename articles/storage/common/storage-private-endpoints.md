@@ -6,16 +6,16 @@ services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 03/16/2021
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 13e274a0d43ba4399e039d1280aa5ada3c94afe5
-ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
+ms.openlocfilehash: 3fcc58f626622bcc728265e782906226859e1bf9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103601467"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104600455"
 ---
 # <a name="use-private-endpoints-for-azure-storage"></a>Usar pontos de extremidade privados para o armazenamento do Azure
 
@@ -53,6 +53,16 @@ Você pode proteger sua conta de armazenamento para aceitar somente conexões de
 
 ## <a name="creating-a-private-endpoint"></a>Criando um ponto de extremidade privado
 
+Para criar um ponto de extremidade privado usando o portal do Azure, consulte [conectar-se de forma privada a uma conta de armazenamento da experiência de conta de armazenamento no portal do Azure](../../private-link/tutorial-private-endpoint-storage-portal.md).
+
+Para criar um ponto de extremidade privado usando o PowerShell ou o CLI do Azure, consulte um destes artigos. Ambos apresentam um aplicativo Web do Azure como o serviço de destino, mas as etapas para criar um link privado são as mesmas para uma conta de armazenamento do Azure.
+
+- [Criar um ponto de extremidade privado usando a CLI do Azure](../../private-link/create-private-endpoint-cli.md)
+
+- [Criar um ponto de extremidade privado usando o Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+
+
+
 Ao criar um ponto de extremidade privado, você deve especificar a conta de armazenamento e o serviço de armazenamento ao qual ele se conecta. 
 
 Você precisa de um ponto de extremidade privado separado para cada recurso de armazenamento que precisa acessar, ou seja, [BLOBs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [arquivos](../files/storage-files-introduction.md), [filas](../queues/storage-queues-introduction.md), [tabelas](../tables/table-storage-overview.md)ou [sites estáticos](../blobs/storage-blob-static-website.md). No ponto de extremidade privado, esses serviços de armazenamento são definidos como o **subrecurso de destino** da conta de armazenamento associada. 
@@ -64,13 +74,6 @@ Se você criar um ponto de extremidade privado para o recurso de armazenamento D
 > Certifique-se de criar uma conta de armazenamento de uso geral v2 (Standard ou Premium).
 
 Para acesso de leitura à região secundária com uma conta de armazenamento configurada para armazenamento com redundância geográfica, você precisa de pontos de extremidade privados separados para as instâncias primária e secundária do serviço. Você não precisa criar um ponto de extremidade privado para a instância secundária para **failover**. O ponto de extremidade privado se conectará automaticamente à nova instância primária após o failover. Para obter mais informações sobre opções de redundância de armazenamento, consulte [redundância de armazenamento do Azure](storage-redundancy.md).
-
-Para obter informações mais detalhadas sobre como criar um ponto de extremidade privado para sua conta de armazenamento, consulte os seguintes artigos:
-
-- [Conecte-se de forma privada a uma conta de armazenamento da experiência de conta de armazenamento no portal do Azure](../../private-link/tutorial-private-endpoint-storage-portal.md)
-- [Criar um ponto de extremidade privado usando o centro de links privado no portal do Azure](../../private-link/create-private-endpoint-portal.md)
-- [Criar um ponto de extremidade privado usando a CLI do Azure](../../private-link/create-private-endpoint-cli.md)
-- [Criar um ponto de extremidade privado usando o Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
 
 <a id="connecting-to-private-endpoints"></a>
 
@@ -95,7 +98,7 @@ Para o exemplo ilustrado acima, os registros de recurso de DNS para a conta de a
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
 | ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
-| \<storage service public endpoint\>                   | Um     | \<storage service public IP address\>                 |
+| \<storage service public endpoint\>                   | A     | \<storage service public IP address\>                 |
 
 Conforme mencionado anteriormente, você pode negar ou controlar o acesso para clientes fora da VNet por meio do ponto de extremidade público usando o firewall de armazenamento.
 
@@ -104,7 +107,7 @@ Os registros de recurso DNS para StorageAccountA, quando resolvido por um client
 | Nome                                                  | Tipo  | Valor                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | Um     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | A     | 10.1.1.5                                              |
 
 Essa abordagem habilita o acesso à conta de armazenamento **usando a mesma cadeia de conexão** para clientes na vnet que hospeda os pontos de extremidade privados, bem como clientes fora da vnet.
 

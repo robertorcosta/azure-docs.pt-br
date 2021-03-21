@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 2466b9b9b812ae9fb590a6678d840661c74f47bd
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: cdcb61249f6cb8f7b60c891dd4899d2e5cedbae6
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103439102"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104611869"
 ---
 :::row:::
     :::column span="3":::
@@ -32,7 +32,7 @@ ms.locfileid: "103439102"
 > Para o C# no Linux ARM64, é necessário ter o pacote do .NET Core 3. x (dotNet-SDK-3. x).
 
 > [!NOTE]
-> Para usar o SDK de fala no Alpine Linux, crie um ambiente Debian chroot conforme documentado no wiki do Alpine Linux no [https://wiki.alpinelinux.org/wiki/Running_glibc_programs](running glibc programs) e siga as instruções Debian aqui.
+> Para usar o SDK de fala no Alpine Linux, crie um ambiente Debian chroot, conforme documentado no wiki do Alpine Linux, na [execução de programas glibc](https://wiki.alpinelinux.org/wiki/Running_glibc_programs)e siga as instruções Debian aqui.
 
 ### <a name="system-requirements"></a>Requisitos de sistema
 

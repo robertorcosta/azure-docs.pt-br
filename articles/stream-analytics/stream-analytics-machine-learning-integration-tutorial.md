@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 08/12/2020
 ms.custom: seodec18
 ms.openlocfilehash: 1ebe62c1b90e09b36dd75b5bda4054cca08d5759
-ms.sourcegitcommit: 5bbc00673bd5b86b1ab2b7a31a4b4b066087e8ed
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102441203"
 ---
 # <a name="do-sentiment-analysis-with-azure-stream-analytics-and-azure-machine-learning-studio-classic"></a>Fazer análise de sentimentos com Azure Stream Analytics e Azure Machine Learning Studio (clássico)
@@ -216,7 +216,7 @@ Agora você pode iniciar o trabalho do Stream Analytics.
 
    ![Stream Analytics Azure Machine Learning Studio (clássico), exibição de CSV](./media/stream-analytics-machine-learning-integration-tutorial/stream-analytics-machine-learning-integration-tutorial-csv-view.png)  
 
-### <a name="view-metrics"></a>Métricas de exibição
+### <a name="view-metrics"></a>Exibir métricas
 
 Você também pode exibir as métricas relacionadas à função do Studio (clássico). As seguintes métricas relacionadas à função são exibidas na caixa **monitoramento** da visão geral do trabalho:
 

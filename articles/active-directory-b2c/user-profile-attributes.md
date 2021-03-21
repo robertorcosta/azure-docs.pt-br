@@ -11,10 +11,10 @@ ms.date: 03/09/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 7dfad71d05a882e3a3941a96e12489adb5fb3234
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500522"
 ---
 # <a name="user-profile-attributes"></a>Atributos de perfil do usuário
@@ -39,7 +39,7 @@ A tabela a seguir lista os atributos do [tipo de recurso de usuário](/graph/api
 - Se o atributo pode ser usado em um fluxo de usuário
 - Se o atributo pode ser usado em uma política personalizada de [perfil técnico do Azure Active Directory](active-directory-technical-profile.md) e em qual seção (&lt;InputClaims&gt;, &lt;OutputClaims&gt; ou &lt;PersistedClaims&gt;)
 
-|Nome     |Tipo     |Descrição|Portal do Azure|Fluxos de usuário|Política personalizada|
+|Nome     |Type     |Descrição|Portal do Azure|Fluxos de usuário|Política personalizada|
 |---------|---------|----------|------------|----------|-------------|
 |accountEnabled  |Boolean|Se a conta de usuário está habilitada ou desabilitada: **true** se a conta estiver habilitada; caso contrário, **false**.|Sim|Não|Persistente, Saída|
 |ageGroup        |String|O grupo de idade do usuário. Valores possíveis: null, Undefined, Minor, Adult, NotAdult.|Sim|Não|Persistente, Saída|
@@ -105,7 +105,7 @@ Um usuário com uma conta de cliente pode entrar com várias identidades. Por ex
 
 Na API Microsoft Graph, as identidades local e federada são armazenadas no atributo User `identities` , que é do tipo [objectidentity](/graph/api/resources/objectidentity). A `identities` coleção representa um conjunto de identidades usadas para entrar em uma conta de usuário. Essa coleção permite que o usuário entre na conta de usuário com qualquer uma de suas identidades associadas. O atributo Identities pode conter até dez objetos [objectidentity](/graph/api/resources/objectidentity) . Cada objeto contém as seguintes propriedades:
 
-| Nome   | Tipo |Descrição|
+| Nome   | Type |Descrição|
 |:---------------|:--------|:----------|
 |signInType|string| Especifica os tipos de entrada do usuário em seu diretório. Para conta local:,,,,  `emailAddress` `emailAddress1` `emailAddress2` `emailAddress3`  `userName` ou qualquer outro tipo que você desejar. A conta social deve ser definida como  `federated` .|
 |emissor|string|Especifica o emissor da identidade. Para contas locais (em que **signInType** não é `federated` ), essa propriedade é o nome de domínio padrão do locatário B2C local, por exemplo `contoso.onmicrosoft.com` . Para a identidade social (em que **signInType** é  `federated` ), o valor é o nome do emissor, por exemplo `facebook.com`|
@@ -183,7 +183,7 @@ Os atributos de extensão no API do Graph são nomeados usando a Convenção `ex
 
 Os tipos de dados a seguir têm suporte ao definir um atributo em uma extensão de esquema:
 
-|Tipo |Comentários  |
+|Type |Comentários  |
 |--------------|---------|
 |Boolean    | Os valores possíveis: **true** ou **false**. |
 |Datetime   | Deve ser especificado no formato ISO 8601. Será armazenado em UTC.   |
