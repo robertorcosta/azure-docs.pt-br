@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: anilmur
 ms.reviewer: juliako
 ms.openlocfilehash: b9b4cd54375a13da95259e27da680255f785df45
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013203"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Transmissão ao vivo usando os Serviços de Mídia do Azure para criar fluxos de múltiplas taxas de bits
@@ -221,12 +221,12 @@ Especifica a predefinição a ser usada pelo codificador ao vivo dentro deste ca
 
 | Taxa de bits | Largura | Altura | MáxFPS | Perfil | Nome do fluxo de saída |
 | --- | --- | --- | --- | --- | --- |
-| 3500 |1280 |720 |30 |Alta |Video_1280x720_3500kbps |
-| 2200 |960 |540 |30 |Alta |Video_960x540_2200kbps |
-| 1350 |704 |396 |30 |Alta |Video_704x396_1350kbps |
-| 850 |512 |288 |30 |Alta |Video_512x288_850kbps |
-| 550 |384 |216 |30 |Alta |Video_384x216_550kbps |
-| 200 |340 |192 |30 |Alta |Video_340x192_200kbps |
+| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 #### <a name="output-audio-stream"></a>Fluxo de áudio de saída
 

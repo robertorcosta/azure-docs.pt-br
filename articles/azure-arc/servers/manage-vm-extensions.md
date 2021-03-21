@@ -4,10 +4,10 @@ description: Os servidores habilitados para Arc do Azure podem gerenciar a impla
 ms.date: 03/01/2021
 ms.topic: conceptual
 ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687899"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gerenciamento de extensão da máquina virtual com servidores habilitados para Azure Arc
@@ -18,7 +18,7 @@ Os servidores habilitados para Arc do Azure permitem implantar extensões de VM 
 
 - O [Portal do Azure](manage-vm-extensions-portal.md)
 - A [CLI do Azure](manage-vm-extensions-cli.md)
-- [PowerShell do Azure](manage-vm-extensions-powershell.md)
+- [Azure PowerShell](manage-vm-extensions-powershell.md)
 - Modelos do Azure [Resource Manager](manage-vm-extensions-template.md)
 
 ## <a name="key-benefits"></a>Principais benefícios
@@ -45,7 +45,7 @@ Para saber mais sobre o pacote do agente do computador conectado do Azure e deta
 
 ### <a name="windows-extensions"></a>Extensões do Windows
 
-|Extensão |Publisher |Tipo |Informações adicionais |
+|Extensão |Publicador |Type |Informações adicionais |
 |----------|----------|-----|-----------------------|
 |Scanner de vulnerabilidade integrada do Azure defender |Qualys |WindowsAgent.AzureSecurityCenter |[Solução de avaliação de vulnerabilidade integrada do Azure defender para Azure e computadores híbridos](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Extensão de Script personalizado |Microsoft.Compute | CustomScriptExtension |[Extensão de script personalizado do Windows](../../virtual-machines/extensions/custom-script-windows.md)|
@@ -56,7 +56,7 @@ Para saber mais sobre o pacote do agente do computador conectado do Azure e deta
 
 ### <a name="linux-extensions"></a>Extensões do Linux
 
-|Extensão |Publisher |Tipo |Informações adicionais |
+|Extensão |Publicador |Type |Informações adicionais |
 |----------|----------|-----|-----------------------|
 |Scanner de vulnerabilidade integrada do Azure defender |Qualys |LinuxAgent.AzureSecurityCenter |[Solução de avaliação de vulnerabilidade integrada do Azure defender para Azure e computadores híbridos](../../security-center/deploy-vulnerability-assessment-vm.md)|
 |Extensão de Script personalizado |Microsoft. Azure. Extensions |CustomScript |[Extensão de script personalizado do Linux versão 2](../../virtual-machines/extensions/custom-script-linux.md) |

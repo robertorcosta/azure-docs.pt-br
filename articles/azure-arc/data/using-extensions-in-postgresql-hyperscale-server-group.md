@@ -11,10 +11,10 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 6586375d7db71274f40eb62aeb24f9daad0d7c2e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688290"
 ---
 # <a name="use-postgresql-extensions-in-your-azure-arc-enabled-postgresql-hyperscale-server-group"></a>Usar extensões PostgreSQL em seu grupo de servidores de hiperescala PostgreSQL habilitados para o Azure Arc
@@ -76,7 +76,7 @@ Execute um dos comandos a seguir.
 ```console
 azdata arc postgres server show -n <server group name>
 ```
-Role a saída e observe as seções engine\extensions nas especificações do seu grupo de servidores. Por exemplo: 
+Role a saída e observe as seções engine\extensions nas especificações do seu grupo de servidores. Por exemplo:
 ```console
 "engine": {
       "extensions": [
@@ -93,7 +93,7 @@ Role a saída e observe as seções engine\extensions nas especificações do se
 ```console
 kubectl describe postgresql-12s/postgres02
 ```
-Role a saída e observe as seções engine\extensions nas especificações do seu grupo de servidores. Por exemplo: 
+Role a saída e observe as seções engine\extensions nas especificações do seu grupo de servidores. Por exemplo:
 ```console
 Engine:
     Extensions:

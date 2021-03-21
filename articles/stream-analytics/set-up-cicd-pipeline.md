@@ -8,10 +8,10 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.openlocfilehash: f62b4c354ffa90bf1a03651fccf8780074344e46
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466381"
 ---
 # <a name="use-azure-devops-to-create-a-cicd-pipeline-for-a-stream-analytics-job"></a>Usar o Azure DevOps para criar um pipeline de CI/CD para um trabalho Stream Analytics
@@ -182,8 +182,8 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
    |Nome de exibição| *Implantar myASAProject*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
-   |Grupo de recursos| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
-   |Localização|Escolha o local do seu grupo de recursos de teste.|
+   |Resource group| Escolha um nome para o grupo de recursos de teste que conterá seu trabalho de Stream Analytics.|
+   |Location|Escolha o local do seu grupo de recursos de teste.|
    |Local do modelo| Artefato vinculado|
    |Modelo| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cICD-demo-CI-Deployment/drop/myASAProject.JobTemplate.json |
    |Parâmetros de modelo|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cICD-demo-CI-Deployment/drop/myASAProject.JobTemplate.parameters.json |
@@ -199,8 +199,8 @@ Abra um navegador da Web e navegue até seu Azure Stream Analytics Visual Studio
    |Nome de exibição| *Implantar myASAProject*|
    |Assinatura do Azure| Escolha sua assinatura.|
    |Ação| *Criar ou atualizar o grupo de recursos*|
-   |Grupo de recursos| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
-   |Localização|Escolha o local do seu grupo de recursos de produção.|
+   |Resource group| Escolha um nome para o grupo de recursos de produção que conterá seu trabalho de Stream Analytics.|
+   |Location|Escolha o local do seu grupo de recursos de produção.|
    |Local do modelo| *Artefato vinculado*|
    |Modelo| $ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cICD-demo-CI-Deployment/drop/myASAProject.JobTemplate.json |
    |Parâmetros de modelo|$ (System. DefaultWorkingDirectory)/_azure-streamanalytics-cICD-demo-CI-Deployment/drop/myASAProject.JobTemplate.parameters.json |

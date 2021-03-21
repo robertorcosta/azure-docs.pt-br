@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/02/2021
 ms.author: caya
 ms.openlocfilehash: e83834fd5f8ca95826118c952f7884a494c7abbb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102050827"
 ---
 # <a name="migrate-from-agic-helm-to-agic-add-on"></a>Migrar do AGIC Helm para o complemento AGIC 
@@ -46,7 +46,7 @@ az aks enable-addons -n myCluster -g myResourceGroup -a ingress-appgw --appgw-id
 
 Como alternativa, você pode navegar para o cluster AKS no portal usando este [link](https://portal.azure.com/?feature.aksagic=true) e habilitar o complemento AGIC na guia rede do cluster. Selecione o gateway de aplicativo existente no menu suspenso ao escolher qual gateway de aplicativo o complemento deve ter como destino. 
 
-![Portal do controlador de entrada do gateway de aplicativo](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
+![Portal do Controlador de Entrada do Gateway de Aplicativo](./media/tutorial-ingress-controller-add-on-existing/portal-ingress-controller-add-on.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [**Solução de problemas do controlador de entrada do gateway de aplicativo**](ingress-controller-troubleshoot.md): guia de solução de problemas para AGIC 

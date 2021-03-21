@@ -1,18 +1,18 @@
 ---
-title: Solucionar problemas de integridade de convidado do VM insights (versão prévia)
+title: Integridade do convidado de solução de problemas de insights da VM (versão prévia)
 description: Descreve as etapas de solução de problemas que você pode tomar quando tiver problemas com a integridade do virtual insights.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/08/2020
 ms.openlocfilehash: d8b37569ebaa8e75be601a1efd65a23a61aeaa75
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102051932"
 ---
-# <a name="troubleshoot-vm-insights-guest-health-preview"></a>Solucionar problemas de integridade de convidado do VM insights (versão prévia)
+# <a name="troubleshoot-vm-insights-guest-health-preview"></a>Integridade do convidado de solução de problemas de insights da VM (versão prévia)
 Este artigo descreve as etapas de solução de problemas que você pode tomar quando tiver problemas com a integridade do virtual insights.
 
 ## <a name="error-message-that-no-data-is-available"></a>Mensagem de erro informando que não há dados disponíveis 

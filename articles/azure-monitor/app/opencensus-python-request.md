@@ -7,10 +7,10 @@ ms.author: lechen
 ms.date: 10/15/2019
 ms.custom: devx-track-python
 ms.openlocfilehash: 3b029a9cb14a81c80072847dc17d6b71f480743f
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585669"
 ---
 # <a name="track-incoming-requests-with-opencensus-python"></a>Acompanhar solicitações de entrada com Python OpenCensus
@@ -176,7 +176,7 @@ OpenCensus não tem uma extensão para FastAPI. Para escrever seu próprio middl
 
 * [Mapa do aplicativo](./app-map.md)
 * [Disponibilidade](./monitor-web-app-availability.md)
-* [Pesquisa](./diagnostic-search.md)
+* [Pesquisar](./diagnostic-search.md)
 * [Consulta de log (Analytics)](../logs/log-query-overview.md)
 * [Diagnóstico da transação](./transaction-diagnostics.md)
 
