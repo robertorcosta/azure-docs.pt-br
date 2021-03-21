@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
 ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96348612"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas
@@ -37,19 +37,19 @@ Use este artigo para encontrar as configurações e os requisitos para conectar 
 
 | Fontes de dados | Tipos de autenticação |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Básico |
-|[**Armazenamento de BLOBs do Azure (JSON)**](#blob) | Básico<br>ManagedIdentity|
-|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Básico |
-|[**Azure Data Explorer (Kusto)**](#kusto) | Básico<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Básico<br>DataLakeGen2SharedKey<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br> |
-|[**Banco de dados SQL/SQL Server do Azure**](#sql) | Básico<br>ManagedIdentity<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br>AzureSQLConnectionString
-|[**Armazenamento de Tabelas do Azure**](#table) | Básico | 
-|[**ElasticSearch**](#es) | Básico |
-|[**Solicitação http**](#http) | Básico | 
-|[**InfluxDB (InfluxQL)**](#influxdb) | Básico |
-|[**MongoDB**](#mongodb) | Básico |
-|[**MySQL**](#mysql) | Básico |
-|[**PostgreSQL**](#pgsql)| Básico|
+|[**Azure Application Insights**](#appinsights)|  Basic |
+|[**Armazenamento de BLOBs do Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
+|[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
+|[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br> |
+|[**Banco de dados SQL/SQL Server do Azure**](#sql) | Basic<br>ManagedIdentity<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br>AzureSQLConnectionString
+|[**Armazenamento de Tabelas do Azure**](#table) | Basic | 
+|[**ElasticSearch**](#es) | Basic |
+|[**Solicitação http**](#http) | Basic | 
+|[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
+|[**MongoDB**](#mongodb) | Basic |
+|[**MySQL**](#mysql) | Basic |
+|[**PostgreSQL**](#pgsql)| Basic|
 
 Crie uma **entidade de credencial** e use-a para autenticação em suas fontes de dados. As seções a seguir especificam os parâmetros necessários para a autenticação *básica* . 
 
@@ -82,7 +82,7 @@ Crie uma **entidade de credencial** e use-a para autenticação em suas fontes d
 
 * **Contêiner**: o Orientador de métricas espera dados de série temporal armazenados como arquivos de BLOB (um blob por carimbo de data/hora) em um único contêiner. Este é o campo nome do contêiner.
 
-* **Modelo de blob**: esse é o modelo dos nomes de arquivo de BLOB. Por exemplo: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Há suporte para os seguintes parâmetros:
+* **Modelo de blob**: esse é o modelo dos nomes de arquivo de BLOB. Por exemplo: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Os seguintes parâmetros são compatíveis:
   * `%Y` é o ano formatado como `yyyy`
   * `%m` é o mês formatado como `MM`
   * `%d` é o dia formatado como `dd`
@@ -145,14 +145,14 @@ Somente um carimbo de data/hora é permitido por arquivo JSON.
 
 * **Nome do sistema de arquivos (contêiner)**: o assistente de métricas esperará que os dados de série temporal sejam armazenados como arquivos de BLOB (um blob por carimbo de data/hora) em um único contêiner. Este é o campo nome do contêiner. Isso pode ser encontrado em sua instância de conta de armazenamento do Azure (Azure Data Lake Storage Gen2) e clicar em ' contêineres ' na seção ' serviço BLOB '.
 
-* **Modelo de diretório**: esse é o modelo de diretório do arquivo de BLOB. Por exemplo: */%Y/%m/%d*. Há suporte para os seguintes parâmetros:
+* **Modelo de diretório**: esse é o modelo de diretório do arquivo de BLOB. Por exemplo: */%Y/%m/%d*. Os seguintes parâmetros são compatíveis:
   * `%Y` é o ano formatado como `yyyy`
   * `%m` é o mês formatado como `MM`
   * `%d` é o dia formatado como `dd`
   * `%h` é a hora formatada como `HH`
   * `%M` é o minuto formatado como `mm`
 
-* **Modelo de arquivo**: esse é o modelo de arquivo do arquivo de BLOB. Por exemplo: *X_% Y-% m-% d-% h-% M.jsem*. Há suporte para os seguintes parâmetros:
+* **Modelo de arquivo**: esse é o modelo de arquivo do arquivo de BLOB. Por exemplo: *X_% Y-% m-% d-% h-% M.jsem*. Os seguintes parâmetros são compatíveis:
   * `%Y` é o ano formatado como `yyyy`
   * `%m` é o mês formatado como `MM`
   * `%d` é o dia formatado como `dd`

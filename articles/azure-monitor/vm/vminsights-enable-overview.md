@@ -7,10 +7,10 @@ ms.author: bwren
 ms.date: 12/22/2020
 ms.custom: references_regions
 ms.openlocfilehash: bb2e12082b80c397eec27409b1177379a92fdd7d
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102634151"
 ---
 # <a name="enable-vm-insights-overview"></a>Visão geral de habilitação de insights da VM
@@ -47,7 +47,7 @@ As informações de VM estão disponíveis para servidores habilitados para Arc 
 | Agentes do Linux | Sim | Junto com o [agente de log Analytics para Linux](../agents/log-analytics-agent.md), os agentes do Linux precisam do agente de dependência. Para obter mais informações, consulte [sistemas operacionais com suporte](#supported-operating-systems). |
 | Grupo de gerenciamento do System Center Operations Manager | Não | |
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 O Revisions de VM dá suporte a qualquer sistema operacional que dê suporte ao agente de Log Analytics e ao agente de dependência. Consulte [visão geral de agentes de Azure monitor ](../agents/agents-overview.md#supported-operating-systems) para obter uma lista completa.
 

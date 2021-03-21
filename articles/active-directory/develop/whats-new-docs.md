@@ -12,10 +12,10 @@ ms.topic: reference
 ms.workload: identity
 ms.author: marsma
 ms.openlocfilehash: 56e6d859293b91a56252372574f59c8dcc2cd80e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687321"
 ---
 # <a name="microsoft-identity-platform-docs-whats-new"></a>Documentos da plataforma Microsoft Identity: o que há de novo
@@ -58,7 +58,7 @@ Bem-vindo ao que há de novo na documentação da plataforma Microsoft Identity.
 
 - [Solucionar problemas](troubleshoot-publisher-verification.md) de verificação do editor
 - [Modelo de aplicativo](application-model.md)
-- [Autenticação versus autorização](authentication-vs-authorization.md)
+- [Autenticação vs. autorização](authentication-vs-authorization.md)
 - [Como restringir seu aplicativo do Azure AD a um conjunto de usuários em um locatário do Azure AD](howto-restrict-your-app-to-a-set-of-users.md)
 - [Permissões e consentimento no ponto de extremidade da plataforma de identidade da Microsoft](v2-permissions-and-consent.md)
 - [Tempos de vida de token configuráveis na plataforma Microsoft Identity (versão prévia)](active-directory-configurable-token-lifetimes.md)

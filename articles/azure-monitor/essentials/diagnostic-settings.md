@@ -7,10 +7,10 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 02/08/2021
 ms.openlocfilehash: 254d403adc687074eae772bcdcc55793bb25b336
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048906"
 ---
 # <a name="create-diagnostic-settings-to-send-platform-logs-and-metrics-to-different-destinations"></a>Criar configurações de diagnóstico para enviar logs e métricas de plataforma para destinos diferentes
@@ -180,7 +180,7 @@ Ao implantar uma configuração de diagnóstico, você receberá a seguinte mens
 
    "Não há suporte para a categoria de métrica '*xxxx*'"
 
-Por exemplo:  
+Por exemplo: 
 
    "Não há suporte para a categoria de métrica ' ActionsFailed '"
 

@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: benoah
 ms.openlocfilehash: 3a0b645acd7c21ff0416c748cdd2caf7041be508
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730806"
 ---
 # <a name="guidelines-for-responsible-deployment-of-synthetic-voice-technology"></a>Diretrizes para a implantação responsável da tecnologia de voz sintética
@@ -62,7 +62,7 @@ Para pessoas com autoimunes de fala que registram suas próprias fontes de voz, 
 Indivíduos com autoimunes de fala para fazer atualizações em sua voz sintética para refletir a expiração (por exemplo, um filho que atinja Puberty). Os indivíduos também podem ter preferências estilísticos que mudam ao longo do tempo e talvez queiram fazer alterações de Tom, acentuação ou outras características de voz.
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Divulgação para talento de voz](/legal/cognitive-services/speech-service/disclosure-voice-talent?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext)
 * [Como divulgar](concepts-disclosure-guidelines.md)

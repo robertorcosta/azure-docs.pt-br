@@ -6,16 +6,16 @@ ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
 ms.openlocfilehash: c3a23276ce19f6d7b4cf341bac155ec84363fe5f
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95018334"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configurar a aceleração da GPU (unidade de processamento gráfico) para a Área de Trabalho Virtual do Windows
 
 >[!IMPORTANT]
->Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica) sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
+>Este conteúdo se aplica à Área de Trabalho Virtual do Windows com objetos da Área de Trabalho Virtual do Windows do Azure Resource Manager. Se você estiver usando a Área de Trabalho Virtual do Windows (clássica), sem objetos do Azure Resource Manager, confira [este artigo](./virtual-desktop-fall-2019/configure-vm-gpu-2019.md).
 
 A Área de Trabalho Virtual do Windows dá suporte à renderização e à codificação acelerada por GPU para obter melhor desempenho do aplicativo e escalabilidade. A aceleração de GPU é particularmente fundamental para aplicativos com uso intensivo de gráficos.
 

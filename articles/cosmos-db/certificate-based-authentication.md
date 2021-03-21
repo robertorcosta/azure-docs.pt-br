@@ -9,10 +9,10 @@ ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
 ms.openlocfilehash: 84cbc681d0974e91561daf8918dff389226fa7aa
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102553945"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticação baseada em certificado para uma identidade do Azure AD para acessar chaves de uma conta de Azure Cosmos DB
@@ -30,7 +30,7 @@ A autenticação baseada em certificado permite que o aplicativo cliente seja au
 
 Nesta etapa, você registrará um aplicativo Web de exemplo em sua conta do Azure AD. Esse aplicativo é usado posteriormente para ler as chaves de sua conta de Azure Cosmos DB. Use as seguintes etapas para registrar um aplicativo: 
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o painel **Active Directory** do Azure, vá para o painel **registros de aplicativo** e selecione **novo registro**. 
 
@@ -105,7 +105,7 @@ O comando acima resulta na saída semelhante à captura de tela abaixo:
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configurar sua conta do Azure Cosmos para usar a nova identidade
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. Navegue até sua conta do Azure Cosmos, abra a folha **controle de acesso (iam)** .
 
@@ -121,7 +121,7 @@ Você pode associar a credencial baseada em certificado ao aplicativo cliente no
 
 No registro do aplicativo do Azure para o aplicativo cliente:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. Abra o painel de **Active Directory** do Azure, vá para o painel de **registros de aplicativo** e abra o aplicativo de exemplo que você criou na etapa anterior. 
 

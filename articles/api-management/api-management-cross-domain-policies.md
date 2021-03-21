@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/01/2021
 ms.author: apimpm
 ms.openlocfilehash: 85abf30d792b24b92685e191f5b460a42dc29142
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101688409"
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
@@ -138,7 +138,7 @@ Este exemplo demonstra como dar suporte a solicitações preliminares, como as c
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |allow-credentials|O `Access-Control-Allow-Credentials` cabeçalho na resposta de simulação será definido como o valor desse atributo e afetará a capacidade do cliente de enviar credenciais em solicitações entre domínios.|Não|false|
 |Terminate-sem correspondência-solicitação|Esse atributo controla o processamento de solicitações entre origens que não correspondem às configurações de política de CORS. Quando a solicitação de opções é processada como uma solicitação de simulação e não corresponde às configurações de política de CORS: se o atributo for definido como `true` , encerre imediatamente a solicitação com uma resposta de 200 OK vazia; Se o atributo for definido como `false` , verifique a entrada de outras políticas de CORS no escopo que são filhos diretos do elemento de entrada e aplique-as.  Se nenhuma política de CORS for encontrada, encerre a solicitação com uma resposta de 200 OK vazia. Quando a solicitação GET ou HEAD inclui o cabeçalho Origin (e, portanto, é processada como uma solicitação entre origens) e não corresponde às configurações de política de CORS: se o atributo for definido como `true` , encerre imediatamente a solicitação com uma resposta vazia de 200 OK; Se o atributo for definido como `false` , permita que a solicitação prossiga normalmente e não adicione cabeçalhos CORS à resposta.|Não|true|
@@ -177,7 +177,7 @@ Se você adicionar o parâmetro de retorno de chamada `?cb=XXX`, será retornado
 
 ### <a name="attributes"></a>Atributos
 
-|Name|Descrição|Obrigatório|Padrão|
+|Nome|Descrição|Obrigatório|Padrão|
 |----------|-----------------|--------------|-------------|
 |callback-parameter-name|A chamada da função JavaScript entre domínios, prefixada com o nome do domínio onde a função reside totalmente qualificado.|Sim|N/D|
 

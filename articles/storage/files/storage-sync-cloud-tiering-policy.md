@@ -8,10 +8,10 @@ ms.date: 1/4/2021
 ms.author: rogarana
 ms.subservice: files
 ms.openlocfilehash: 3020737e91e1fe5c4af3e23a147fa0ea16037d3b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102204286"
 ---
 # <a name="cloud-tiering-policies"></a>Políticas de camadas de nuvem
@@ -70,4 +70,4 @@ Nesse caso, os arquivos 1, 2 e 5 seriam armazenados localmente em cache e os arq
 A camada de nuvem pode ser habilitada para vários pontos de extremidade de servidor em um único volume local. Para essa configuração, você deve definir o espaço livre do volume para o mesmo valor de todos os pontos de extremidade do servidor no mesmo volume. Se você definir diferentes políticas de espaço livre de volume para vários pontos de extremidade de servidor no mesmo volume, a maior porcentagem de espaço livre de volume terá precedência. Isso é chamado de **política de espaço livre do volume em vigor**. Por exemplo, se você tiver três pontos de extremidade de servidor no mesmo volume local, um definido como 15%, outro definido como 20% e um terceiro definido como 30%, todos eles começarão a hierarquizar os arquivos mais frios quando tiverem menos de 30% de espaço livre disponível.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Monitorar camadas de nuvem](storage-sync-monitor-cloud-tiering.md)
+* [Monitorar camada de nuvem](storage-sync-monitor-cloud-tiering.md)

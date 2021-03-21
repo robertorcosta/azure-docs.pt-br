@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 02/10/2021
 ms.author: yelevin
 ms.openlocfilehash: 43da1af7a3001d7f8e000a878948428a3d63aa4e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102456204"
 ---
 # <a name="classify-and-analyze-data-using-entities-in-azure-sentinel"></a>Classificar e analisar dados usando entidades no Azure Sentinel
@@ -35,15 +35,15 @@ O Azure Sentinel dá suporte a uma ampla variedade de tipos de entidade. Cada ti
 
 Conforme observado acima, para cada tipo de entidade, há campos, ou conjuntos de campos, que podem identificá-lo. Esses campos ou conjuntos de campos podem ser chamados de **identificadores fortes** se puderem identificar exclusivamente uma entidade sem nenhuma ambiguidade ou como **identificadores fracos** se puderem identificar uma entidade em algumas circunstâncias, mas não houver garantia de identificar exclusivamente uma entidade em todos os casos. Em muitos casos, no entanto, uma seleção de identificadores fracos pode ser combinada para produzir um identificador forte.
 
-Por exemplo, as contas de usuário podem ser identificadas como entidades de **conta** de mais de uma maneira: usando um único **identificador forte** , como um identificador numérico da conta do Azure AD (o campo **GUID** ) ou seu valor **UPN (nome principal do usuário)** ou, como alternativa, usando uma combinação de **identificadores fracos** como seus campos **Name** e **domínio do NT** . Diferentes fontes de dados podem identificar o mesmo usuário de diferentes maneiras. Sempre que o Azure Sentinel encontra duas entidades que ele pode reconhecer como a mesma entidade com base em seus identificadores, ele mescla as duas entidades em uma única entidade, para que possa ser manipulado de forma adequada e consistente.
+Por exemplo, as contas de usuário podem ser identificadas como entidades de **conta** de mais de uma maneira: usando um único **identificador forte** , como um identificador numérico da conta do Azure AD (o campo **GUID** ) ou seu valor **UPN (nome principal do usuário)** ou, como alternativa, usando uma combinação de **identificadores fracos** como seus campos **Name** e **domínio do NT** . Fontes de dados diferentes podem identificar o mesmo usuário de maneiras diferentes. Sempre que o Azure Sentinel encontra duas entidades que ele pode reconhecer como a mesma entidade com base em seus identificadores, ele mescla as duas entidades em uma única entidade, para que possa ser manipulado de forma adequada e consistente.
 
 No entanto, se um de seus provedores de recursos criar um alerta no qual uma entidade não está suficientemente identificada, por exemplo, usando apenas um único **identificador fraco** , como um nome de usuário sem o contexto do nome de domínio, a entidade do usuário não poderá ser mesclada com outras instâncias da mesma conta de usuário. Essas outras instâncias seriam identificadas como uma entidade separada, e essas duas entidades permanecerão separadas em vez de unificadas.
 
-Para minimizar o risco de isso acontecer, você deve verificar se todos os seus provedores de alertas identificam corretamente as entidades nos alertas que eles produzem. Além disso, a sincronização de entidades de conta de usuário com Azure Active Directory pode criar um diretório unificado, que poderá mesclar entidades de conta de usuário.
+Para minimizar o risco dessa ocorrência, você deve verificar se todos os provedores de alertas identificam corretamente as entidades nos alertas produzidos. Além disso, a sincronização de entidades de conta de usuário com o Azure Active Directory pode criar um diretório unificado, que pode mesclar entidades de conta de usuário.
 
 #### <a name="supported-entities"></a>Entidades com suporte
 
-Os seguintes tipos de entidades estão atualmente identificados no Azure sentinela:
+Os seguintes tipos de entidades estão identificados no Azure sentinela atualmente:
 
 - Conta de usuário
 - Host
@@ -61,9 +61,9 @@ Os seguintes tipos de entidades estão atualmente identificados no Azure sentine
 - URL
 - Dispositivo IoT
 - Mailbox
-- Cluster de emails
-- Mensagem de email
-- Email de envio
+- Cluster de e-mail
+- Mensagem de e-mail
+- E-mail de envio
 
 Você pode exibir os identificadores dessas entidades e outras informações relevantes na [referência de entidades](entities-reference.md).
 
@@ -83,35 +83,35 @@ Saiba [quais identificadores identificam fortemente uma entidade](entities-refer
 
 ## <a name="entity-pages"></a>Páginas de entidade
 
-Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade**, uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações que você encontrará nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
+Quando você encontra qualquer entidade (atualmente limitada a usuários e hosts) em uma pesquisa, um alerta ou uma investigação, você pode selecionar a entidade e ser levado a uma **página de entidade**, uma folha de dados cheia de informações úteis sobre essa entidade. Os tipos de informações encontradas nesta página incluem fatos básicos sobre a entidade, uma linha do tempo de eventos notáveis relacionados a essa entidade e informações sobre o comportamento da entidade.
 
 As páginas de entidade consistem em três partes:
 
-- O painel do lado esquerdo contém as informações de identificação da entidade, coletadas de fontes de dados como Azure Active Directory, Azure Monitor, central de segurança do Azure e Microsoft defender.
+- O painel do lado esquerdo contém as informações de identificação da entidade, coletadas de fontes de dados como Azure Active Directory, Azure Monitor, Central de Segurança do Azure e Microsoft Defender.
 
-- O painel central mostra uma linha do tempo gráfica e textual de eventos notáveis relacionados à entidade, como alertas, indicadores e atividades. As atividades são agregações de eventos notáveis de Log Analytics. As consultas que detectam essas atividades são desenvolvidas pelas equipes de pesquisa de segurança da Microsoft.
+- O painel central mostra uma linha do tempo gráfica e textual de eventos notáveis relacionados à entidade, como alertas, indicadores e atividades. As atividades são agregações de eventos notáveis do Log Analytics. As consultas que detectam essas atividades são desenvolvidas pelas equipes de pesquisa de segurança da Microsoft.
 
-- O painel do lado direito apresenta informações comportamentais sobre a entidade. Essas informações ajudam a identificar rapidamente as anomalias e as ameaças à segurança. As informações são desenvolvidas pelas equipes de pesquisa de segurança da Microsoft e são baseadas em modelos de detecção de anomalias.
+- O painel do lado direito apresenta informações comportamentais sobre a entidade. Essas informações ajudam a identificar rapidamente as anomalias e ameaças à segurança. As informações são desenvolvidas pelas equipes de pesquisa de segurança da Microsoft e baseadas em modelos de detecção de anomalias.
 
 ### <a name="the-timeline"></a>A linha do tempo
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-timeline.png" alt-text="Linha do tempo das páginas da entidade":::
 
-A linha do tempo é uma parte importante da contribuição da página de entidade para análise de comportamento no Azure Sentinel. Ele apresenta uma história sobre eventos relacionados a entidades, ajudando você a entender a atividade da entidade em um período de tempo específico.
+A linha do tempo é uma parte importante da contribuição da página de entidade com a análise de comportamento no Azure Sentinel. Apresenta uma história sobre os eventos relacionados a entidades, ajudando você a entender a atividade da entidade em um período específico.
 
-Você pode escolher o **intervalo de tempo** entre várias opções predefinidas (como *últimas 24 horas*) ou defini-las para qualquer período de tempo definido personalizado. Além disso, você pode definir filtros que limitam as informações na linha do tempo a tipos específicos de eventos ou alertas.
+Você pode escolher o **intervalo de tempo** entre várias opções predefinidas (como *nas últimas 24 horas*) ou defini-lo como qualquer período personalizado. Além disso, você pode definir filtros que limitam as informações na linha do tempo a tipos específicos de eventos ou alertas.
 
 Os seguintes tipos de itens estão incluídos na linha do tempo:
 
-- Alertas-todos os alertas nos quais a entidade é definida como uma **entidade mapeada**. Observe que, se a sua organização tiver criado [alertas personalizados usando regras de análise](./tutorial-detect-threats-custom.md), você deverá certificar-se de que o mapeamento de entidade das regras seja feito corretamente.
+- Alertas – todos os alertas em que a entidade é definida como uma **entidade mapeada**. Observe que, se a organização criou [alertas personalizados usando as regras de análise](./tutorial-detect-threats-custom.md), você deve verificar se o mapeamento de entidade das regras foi feito corretamente.
 
-- Indicadores-todos os indicadores que incluem a entidade específica mostrada na página.
+- Indicadores – todos os indicadores que incluem a entidade específica mostrada na página.
 
 - Atividades – agregação de eventos notáveis relacionados à entidade.
 
-### <a name="entity-insights"></a>Informações de entidade
+### <a name="entity-insights"></a>Insights de entidade
 
-As informações de entidade são consultas definidas pelos pesquisadores de segurança da Microsoft para ajudar seus analistas a investigar de forma mais eficiente e eficaz. Os insights são apresentados como parte da página de entidade e fornecem informações de segurança valiosas sobre hosts e usuários, na forma de gráficos e dados tabulares. Ter as informações aqui significa que você não precisa desvio a Log Analytics. As informações incluem dados relacionados a entradas, adições de grupo, eventos anormais e muito mais, e incluem algoritmos de ML avançados para detectar o comportamento anormal.
+Os insights de entidade são consultas definidas pelos pesquisadores de segurança da Microsoft para ajudar os analistas a investigar de forma mais eficiente e eficaz. Os insights são apresentados como parte da página de entidade e fornecem informações de segurança importantes sobre hosts e usuários, na forma de dados de tabela e gráficos. Ter as informações aqui significa que você não precisa desviar para o Log Analytics. As informações incluem dados relacionados a entradas, adições de grupo, eventos anormais e muito mais, e incluem algoritmos de ML avançados para detectar o comportamento anormal.
 
 As informações são baseadas nas seguintes fontes de dados:
 
@@ -124,9 +124,9 @@ As informações são baseadas nas seguintes fontes de dados:
 - Pulsação (agente de Azure Monitor)
 - CommonSecurityLog (Sentinela do Azure)
 
-### <a name="how-to-use-entity-pages"></a>Como usar páginas de entidade
+### <a name="how-to-use-entity-pages"></a>Como usar as páginas de entidade
 
-As páginas de entidade são projetadas para fazer parte de vários cenários de uso e podem ser acessadas do gerenciamento de incidentes, do grafo de investigação, de indicadores ou diretamente da página de pesquisa de entidade em **análise de comportamento de entidade** no menu principal do Sentinela do Azure.
+As páginas de entidade são criadas para fazer parte de vários cenários de uso e podem ser acessadas por meio de gerenciamento de incidentes, grafo de investigação, indicadores ou diretamente na página de pesquisa de entidade em **Análise de comportamento de entidades** no menu principal do Sentinela do Azure.
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/entity-pages-use-cases.png" alt-text="Casos de uso de página de entidade":::
 
