@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 05/05/2020
 ms.openlocfilehash: 2c93471436030f9260f4fa0d95d656c27d382346
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102047036"
 ---
 # <a name="monitoring-azure-virtual-machines-with-azure-monitor"></a>Monitorar máquinas virtuais do Azure com o Azure Monitor
@@ -55,14 +55,14 @@ Para habilitar todos os recursos do Azure Monitor para monitoramento de máquina
 | Etapa de configuração | Ações concluídas | Recursos habilitados |
 |:---|:---|:---|
 | Nenhuma configuração | - Métricas de plataforma de host coletadas para métricas.<br>- Coleta de logs de atividades. | - Metrics Explorer para host.<br>- Alertas de métricas para host.<br>- Alertas do log de atividades. |
-| [Habilitar informações de VM](#enable-vm-insights) | - Agente do Log Analytics instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho de convidado coletados para logs.<br>- Detalhes de processo e dependência coletados para logs. | - Gráficos de desempenho e pastas de trabalho para dados de desempenho de convidado.<br>- Consultas de log para dados de desempenho de convidado.<br>- Alertas de log para dados de desempenho de convidado.<br>- Mapa de dependências. |
+| [Habilitar insights da VM](#enable-vm-insights) | - Agente do Log Analytics instalado.<br>- Agente de dependência instalado.<br>- Dados de desempenho de convidado coletados para logs.<br>- Detalhes de processo e dependência coletados para logs. | - Gráficos de desempenho e pastas de trabalho para dados de desempenho de convidado.<br>- Consultas de log para dados de desempenho de convidado.<br>- Alertas de log para dados de desempenho de convidado.<br>- Mapa de dependências. |
 | [Instalar a extensão de diagnóstico e o agente Telegraf](#enable-diagnostics-extension-and-telegraf-agent) | - Dados de desempenho de convidado coletados para métricas. | - Metrics Explorer para convidado.<br>- Alertas de métricas para convidado.  |
 | [Configurar um espaço de trabalho do Log Analytics](#configure-log-analytics-workspace) | - Eventos coletados do convidado. | - Consultas de log para eventos de convidado.<br>- Alertas de log para eventos de convidado. |
 | [Criar a configuração de diagnóstico para a máquina virtual](#collect-platform-metrics-and-activity-log) | - Métricas de plataforma coletadas para Logs.<br>- Log de atividades coletados para Logs. | -Log de consultas para métricas de host.<br>- Alertas de log para métricas do host.<br>- Consultas de log para log de atividades.
 
 Cada uma dessas etapas de configuração é descrita nas seções a seguir.
 
-### <a name="enable-vm-insights"></a>Habilitar informações de VM
+### <a name="enable-vm-insights"></a>Habilitar insights da VM
 As informações de [VM](../vm/vminsights-overview.md) são uma [percepção](../monitor-reference.md) em Azure monitor que é a principal ferramenta para monitorar máquinas virtuais no Azure monitor. Ele fornece o seguinte valor adicional em relação aos recursos de Azure Monitor padrão.
 
 - Integração simplificada do agente de Log Analytics e do agente de dependência para habilitar o monitoramento de cargas de trabalho e sistema operacional convidado de máquina virtual. 
@@ -76,7 +76,7 @@ As informações de [VM](../vm/vminsights-overview.md) são uma [percepção](..
 
 Habilite o Revisions da VM da opção **insights** no menu máquina virtual do portal do Azure. Consulte [habilitar visão geral do VM insights](vminsights-enable-overview.md) para obter detalhes e outros métodos de configuração.
 
-![Habilitar informações de VM](media/monitor-vm-azure/enable-vminsights.png)
+![Habilitar insights da VM](media/monitor-vm-azure/enable-vminsights.png)
 
 ### <a name="configure-log-analytics-workspace"></a>Configurar o espaço de trabalho do Log Analytics
 O agente de Log Analytics usado pelo Revisions de VM envia dados para um [espaço de trabalho log Analytics](../logs/data-platform-logs.md). Você pode habilitar a coleta de dados de desempenho adicionais, eventos e outros dados de monitoramento do agente, configurando o espaço de trabalho Log Analytics. Ele só precisa ser configurado uma vez, uma vez que qualquer agente que se conecta ao espaço de trabalho baixará automaticamente a configuração e começará imediatamente a coletar os dados definidos. 
@@ -162,7 +162,7 @@ O Revisions de VM permite a coleta de um conjunto predeterminado de contadores d
 
 | Fonte de dados | Requisitos | Tabelas |
 |:---|:---|:---|
-| Informações de VM | Habilite em cada máquina virtual. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>Consulte [como consultar logs de informações da VM](../vm/vminsights-log-search.md) para obter detalhes. |
+| Insights da VM | Habilite em cada máquina virtual. | InsightsMetrics<br>VMBoundPort<br>VMComputer<br>VMConnection<br>VMProcess<br>Consulte [como consultar logs de informações da VM](../vm/vminsights-log-search.md) para obter detalhes. |
 | Log de atividades | Configuração de diagnóstico para a assinatura. | AzureActivity |
 | Métricas de host | Configuração de diagnóstico para a máquina virtual. | AzureMetrics |
 | Fontes de dados do sistema operacional convidado | Habilite o agente do Log Analytics e configure as fontes de dados. | Consulte a documentação para cada fonte de dados. |

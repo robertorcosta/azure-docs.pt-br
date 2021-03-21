@@ -12,10 +12,10 @@ ms.author: MirekS
 ms.reviewer: vanto
 ms.date: 04/23/2020
 ms.openlocfilehash: 93831ec4c1dc3e34c2ea144e71b67dae711ee870
-ms.sourcegitcommit: 0a9df8ec14ab332d939b49f7b72dea217c8b3e1e
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94841619"
 ---
 # <a name="connect-to-azure-sql-database-with-azure-ad-multi-factor-authentication"></a>Conectar-se ao banco de dados SQL do Azure com a autenticação multifator do Azure AD
@@ -39,9 +39,9 @@ A partir do .NET Framework versão 4.7.2, a enumeração [`SqlAuthenticationMeth
 
 * Uma caixa de diálogo que solicita um código de verificação de autenticação multifator, que o sistema enviou para um telefone celular.
 
-Para obter informações sobre como configurar o Azure AD para exigir a autenticação multifator, consulte [introdução à autenticação multifator do Azure ad na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
+Para obter informações sobre de que modo configurar o Azure AD para exigir uma Autenticação Multifator, confira o artigo [Introdução à Autenticação Multifator do Azure AD na nuvem](../../active-directory/authentication/howto-mfa-getstarted.md).
 
-Para capturas de tela dessas caixas de diálogo, consulte [configurar autenticação multifator para SQL Server Management Studio e Azure ad](authentication-mfa-ssms-configure.md).
+Para obter capturas de tela dessas caixas de diálogo, confira como [Configurar uma autenticação multifator para o SQL Server Management Studio e o Azure AD](authentication-mfa-ssms-configure.md).
 
 > [!TIP]
 > Você pode pesquisar .NET Framework APIs com a [página de ferramentas do navegador de API do .net](/dotnet/api/).
@@ -62,7 +62,7 @@ Para registrar e definir as permissões necessárias para seu aplicativo:
 
 1. Na portal do Azure, selecione **Azure Active Directory**  >  **registros de aplicativo**  >  **novo registro**.
 
-    ![Registro do aplicativo](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
+    ![Registro de aplicativo](./media/active-directory-interactive-connect-azure-sql-db/image1.png)
 
     Depois que o registro do aplicativo é criado, o valor da **ID do aplicativo** é gerado e exibido.
 

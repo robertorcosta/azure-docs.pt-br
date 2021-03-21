@@ -9,10 +9,10 @@ ms.author: mlearned
 description: Solução de problemas comuns de clusters do Kubernetes habilitado para Arc.
 keywords: Kubernetes, Arc, Azure, contêineres
 ms.openlocfilehash: e1f4e84f16c6b584f1ffbd918a86c251f47efcca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101653993"
 ---
 # <a name="azure-arc-enabled-kubernetes-troubleshooting"></a>Solução de problemas do kubernetes habilitado para Arc do Azure

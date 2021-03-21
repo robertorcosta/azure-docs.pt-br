@@ -1,15 +1,15 @@
 ---
-title: Exibir dependências de aplicativo com as informações de VM
+title: Exibir dependências de aplicativo com insights da VM
 description: O MAP é um recurso do Revisions da VM. Ele descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usar o recurso de mapa em vários cenários.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2020
 ms.openlocfilehash: 267ec0ed01fb85e9e29b0b8c9294d20d610db8fb
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046560"
 ---
 # <a name="use-the-map-feature-of-vm-insights-to-understand-application-components"></a>Usar o recurso de mapa de informações de VM para entender os componentes do aplicativo

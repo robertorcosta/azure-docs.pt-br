@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
 ms.openlocfilehash: 64588d5968df635c3bb017bd1ff1d10951968f32
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724941"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
@@ -310,7 +310,7 @@ Você pode enviar valores personalizados do seu código em uma atividade persona
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperar saídas do SecureString
 
-Os valores de propriedades confidenciais designados como tipo *SecureString*, conforme mostrado em alguns dos exemplos deste artigo, são mascarados na guia Monitoramento na interface do usuário do Data Factory.  Na execução real do pipeline, no entanto, uma propriedade *SecureString* é serializada como JSON no arquivo `activity.json` como texto simples. Por exemplo: 
+Os valores de propriedades confidenciais designados como tipo *SecureString*, conforme mostrado em alguns dos exemplos deste artigo, são mascarados na guia Monitoramento na interface do usuário do Data Factory.  Na execução real do pipeline, no entanto, uma propriedade *SecureString* é serializada como JSON no arquivo `activity.json` como texto simples. Por exemplo:
 
 ```json
 "extendedProperties": {

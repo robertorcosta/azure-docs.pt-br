@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 11/21/2019
 ms.openlocfilehash: f8558644fc24f3190247e57b4de7228af161a2a8
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102631159"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Como solucionar problemas com o agente do Log Analytics para Linux 
@@ -74,7 +74,7 @@ Vimos que uma reinstalação limpa do agente corrigirá a maioria dos problemas.
 
 ## <a name="important-configuration-files"></a>Arquivos de configuração importantes
 
- Category | Local do arquivo
+ Categoria | Local do arquivo
  ----- | -----
  syslog | `/etc/syslog-ng/syslog-ng.conf` ou `/etc/rsyslog.conf` ou `/etc/rsyslog.d/95-omsagent.conf`
  Desempenho, Nagios, Zabbix, saída do Log Analytics e agente geral | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`

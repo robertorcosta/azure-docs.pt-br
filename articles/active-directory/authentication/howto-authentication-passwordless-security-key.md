@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 71a29a2a7e379e253b52813eb7a76f669abbf668
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101653823"
 ---
 # <a name="enable-passwordless-security-key-sign-in"></a>Habilitar entrada de chave de segurança sem senha 
@@ -65,7 +65,7 @@ Os recursos de registro para métodos de autenticação com senha contam com o r
 1. Escolha **dispositivo USB** ou **dispositivo NFC**.
 1. Prepare sua chave e escolha **Avançar**.
 1. Uma caixa será exibida e solicitará que o usuário crie/Insira um PIN para sua chave de segurança e, em seguida, execute o gesto necessário para a chave, biométrica ou toque.
-1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Avançar**.
+1. O usuário será devolvido à experiência de registro combinada e será solicitado a fornecer um nome significativo para a chave para que o usuário possa identificar qual delas tem várias. Clique em **Próximo**.
 1. Clique em **concluído** para concluir o processo.
 
 ## <a name="sign-in-with-passwordless-credential"></a>Entrar com credencial sem senha

@@ -11,10 +11,10 @@ ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
 ms.openlocfilehash: dda47d3ff561d4d57045dbb28f8c411e193086d5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101657343"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Executar previsões em lote usando o designer do Azure Machine Learning
@@ -151,11 +151,11 @@ Se você fizer algumas modificações em seu pipeline de treinamento, deverá en
 
 Observe que somente os modelos serão atualizados no pipeline de inferência, enquanto a transformação de dados não será atualizada.
 
-Para usar a transformação atualizada no pipeline de inferência, você precisa registrar a saída da transformação do módulo de transformação como conjunto de registros.
+Para usar a transformação atualizada no pipeline de inferência, você precisa registrar a saída da transformação do módulo de transformação como um conjunto de dados.
 
-![Captura de tela mostrando como registrar o conjunto de registros de transformação](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
+![Captura de tela mostrando como registrar o conjunto de dados de transformação](./media/how-to-run-batch-predictions-designer/register-transformation-dataset.png)
 
-Em seguida, substitua manualmente o módulo **td** no pipeline de inferência com o DataSet registrado.
+Em seguida, substitua manualmente o módulo **td** no pipeline de inferência com o conjunto de dados registrado.
 
 ![Captura de tela mostrando como substituir o módulo de transformação](./media/how-to-run-batch-predictions-designer/replace-td-module-batch-inference-pipeline.png)
 
