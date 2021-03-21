@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: devx-track-dotnet
 ms.openlocfilehash: 79e14c171adde89c43c5ea82a60db39133157293
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100576434"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentar aplicativos Web em tempo de execução com Application Insights anexação sem código
@@ -41,7 +41,7 @@ Aqui está um resumo do que você tem com cada rota:
 |  | Tempo de compilação | Tempo de execução |
 | --- | --- | --- |
 | **Solicitações & exceções** |Sim |Sim |
-| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Yes |
+| **[Exceções mais detalhadas](./asp-net-exceptions.md)** | |Sim |
 | **[Diagnóstico de dependência](./asp-net-dependencies.md)** |No .NET 4.6+, mas menos detalhes |Sim, detalhes completos: códigos de resultado, texto do comando SQL, verbo HTTP|
 | **[Contadores de desempenho do sistema](./performance-counters.md)** |Sim |Sim |
 | **[API para telemetria personalizada][api]** |Sim |Não |

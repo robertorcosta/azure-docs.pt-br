@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 02/09/2021
 ms.author: bagol
 ms.openlocfilehash: 25f83088bdc55dbafe7ccf0ff06b0c6595c9ea71
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101724346"
 ---
 # <a name="resources-for-creating-azure-sentinel-custom-connectors"></a>Recursos para criar conectores personalizados do Azure Sentinel
@@ -34,7 +34,7 @@ Para obter uma lista completa dos conectores com suporte, consulte a postagem do
 
 A tabela a seguir compara os detalhes essenciais sobre cada método para a criação de conectores personalizados descritos neste artigo. Selecione os links na tabela para obter mais detalhes sobre cada método.
 
-|Descrição do método  |Funcionalidade | Sem servidor    |Complexidade  |
+|Descrição do método  |Recurso | Sem servidor    |Complexidade  |
 |---------|---------|---------|---------|
 |**[Agente de Log Analytics](#connect-with-the-log-analytics-agent)** <br>Melhor para coletar arquivos de fontes locais e de IaaS   | Somente coleção de arquivos  |   No      |Baixo         |
 |**[Logstash](#connect-with-logstash)** <br>Melhor para fontes locais e IaaS, qualquer fonte para a qual um plug-in esteja disponível e organizações já familiarizados com o Logstash  | Os plug-ins disponíveis, além do plug-in personalizado, fornecem uma flexibilidade significativa.   |   Foi requer que uma VM ou um cluster de VM seja executado           |   Pequena dá suporte a muitos cenários com plug-ins      |
@@ -100,7 +100,7 @@ Use um [aplicativo lógico do Azure](../logic-apps/index.yml) para criar um cone
     |**Ponto de extremidade HTTP/S**     |  Recomendado para streaming e se o sistema de origem puder iniciar a transferência de dados. <br>Para obter mais informações, consulte [chamar pontos de extremidade de serviço por http ou HTTPS](../connectors/connectors-native-http.md).       |
     |     |         |
 
-1. **Use qualquer um dos conectores de aplicativos lógicos que lêem informações para obter seus eventos**. Por exemplo: 
+1. **Use qualquer um dos conectores de aplicativos lógicos que lêem informações para obter seus eventos**. Por exemplo:
 
     - [Conectar-se a uma API REST](/connectors/custom-connectors/)
     - [Conectar a um SQL Server](/connectors/sql/)
@@ -197,7 +197,7 @@ Para obter exemplos desse método, consulte:
 
 Você pode usar a técnica de análise interna do conector personalizado para extrair as informações relevantes e preencher os campos relevantes no Azure Sentinel.
 
-Por exemplo: 
+Por exemplo:
 
 - **Se você usou o Logstash**, use o plug-in de filtro do [compreendo](https://www.elastic.co/guide/en/logstash/current/plugins-filters-grok.html) para analisar seus dados.
 - **Se você usou uma função do Azure**, analise seus dados com o código. Para obter mais informações, consulte [analisadores](normalization.md#parsers).

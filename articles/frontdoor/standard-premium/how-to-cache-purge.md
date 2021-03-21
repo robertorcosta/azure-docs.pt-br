@@ -10,23 +10,23 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: aacbf2ceab8580727b1885bf6533cd74a7c4e60a
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098389"
 ---
 # <a name="cache-purging-in-azure-front-door-standardpremium-preview"></a>Limpeza de cache no Azure front door Standard/Premium (visualização)
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 O Azure front door Standard/Premium armazena ativos em cache até o tempo de vida (TTL) do ativo expirar. Sempre que um cliente solicita um ativo com TTL expirado, o ambiente de porta frontal do Azure recupera uma nova cópia atualizada do ativo para atender à solicitação e, em seguida, armazena o cache atualizado.
 
 A prática recomendada é garantir que os usuários sempre obtenham a cópia mais recente de seus ativos. A maneira de fazer isso é fazer a versão de seus ativos para cada atualização e publicá-los como novas URLs. O padrão de porta frontal do Azure/Premium recuperará imediatamente os novos ativos para as próximas solicitações de cliente. Às vezes, você pode desejar limpar o conteúdo em cache de todos os nós de borda e forçá-los a recuperar novos ativos atualizados. O motivo pelo qual você deseja limpar o conteúdo armazenado em cache é porque você fez novas atualizações em seu aplicativo ou deseja atualizar ativos que contêm informações incorretas.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

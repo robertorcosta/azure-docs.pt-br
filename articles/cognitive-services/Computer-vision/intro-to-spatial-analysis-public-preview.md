@@ -1,5 +1,5 @@
 ---
-title: Visão geral da análise espacial
+title: Visão geral da Análise Espacial
 titleSuffix: Azure Cognitive Services
 description: Este documento explica os conceitos básicos e os recursos de um contêiner de análise espacial Pesquisa Visual Computacional.
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 02/01/2021
 ms.openlocfilehash: ad05dd59c925242baf5c2b0e36c1f51bc4fec5d4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575361"
 ---
 # <a name="overview-of-computer-vision-spatial-analysis"></a>Visão geral de Pesquisa Visual Computacional análise espacial

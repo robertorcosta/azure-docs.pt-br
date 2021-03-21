@@ -8,10 +8,10 @@ ms.date: 02/22/2021
 ms.author: mbaldwin
 ms.custom: security-benchmark
 ms.openlocfilehash: b47f833a3b47dae145aa18eb6eda0c6bd95f6689
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042906"
 ---
 # <a name="security-control-v2-network-security"></a>Controle de segurança v2: segurança de rede
@@ -38,7 +38,7 @@ Use o Azure Sentinel para descobrir o uso de protocolos inseguros herdados, como
 
 - [Como implantar e configurar o Firewall do Azure](../../firewall/tutorial-firewall-deploy-portal.md)
 
-- [Proteção de rede adaptável na central de segurança do Azure](../../security-center/security-center-adaptive-network-hardening.md)
+- [Proteção de Rede Adaptável na Central de Segurança do Azure](../../security-center/security-center-adaptive-network-hardening.md)
 
 - [Pasta de trabalho de protocolos inseguros do Azure Sentinel](../../sentinel/quickstart-get-visibility.md#use-built-in-workbooks)
 

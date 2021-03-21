@@ -4,10 +4,10 @@ description: A CVR (gravação contínua de vídeo) refere-se ao processo de gra
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.openlocfilehash: f8b25d74db279f8cfff68f08efeab2975484a0c5
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102453743"
 ---
 # <a name="continuous-video-recording"></a>Gravação de vídeo contínua  
@@ -53,7 +53,7 @@ A propriedade segmentLength garante que o módulo de borda carregará vídeo no 
 > [!NOTE]
 > Consulte o artigo [gravações de reprodução](playback-recordings-how-to.md) para o efeito que o segmentLength tem na reprodução.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Gravação de vídeo baseada em eventos](event-based-video-recording-concept.md)
 * [Reprodução de conteúdo gravado](video-playback-concept.md)

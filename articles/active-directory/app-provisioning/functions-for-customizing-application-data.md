@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: kenwith
 ms.custom: contperf-fy21q2
 ms.openlocfilehash: 0334f52b87071c8f363a0dfcc793170316747096
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198499"
 ---
 # <a name="reference-for-writing-expressions-for-attribute-mappings-in-azure-ad"></a>Referência para escrever expressões para mapeamentos de atributo no Azure AD
@@ -372,7 +372,7 @@ Retornará true se o atributo não estiver presente ou for uma cadeia de caracte
  `Item([proxyAddresses], 1)` Retorna o segundo item no atributo de valores múltiplos.
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>Ingressar
 **Função:** Junção (separador, origem1, origem2,...)
 
 **Descrição:** Join () é semelhante a Append (), exceto pelo fato de que ele pode combinar vários valores de cadeia de caracteres de **origem** em uma única cadeia de caracteres, e cada valor será separado por uma cadeia de caracteres **separadora** .
