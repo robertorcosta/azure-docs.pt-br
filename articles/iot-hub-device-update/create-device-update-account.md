@@ -7,19 +7,19 @@ ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
 ms.openlocfilehash: a0201882b74d2acf57c246d2dc63530ca8b1f010
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101692493"
 ---
-# <a name="device-update-for-iot-hub-resource-management"></a>Atualização de dispositivo para gerenciamento de recursos do Hub IoT
+# <a name="device-update-for-iot-hub-resource-management"></a>Atualização de Dispositivo para gerenciamento de recursos do Hub IoT
 
 Para começar a usar a atualização do dispositivo, você precisará criar uma conta de atualização de dispositivo, instância e definir funções de controle de acesso. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Acesso a um hub IoT. É recomendável que você use uma camada S1 (padrão) ou superior. 
+* Acesso a um Hub IoT. É recomendável usar uma camada S1 (Standard) ou posterior. 
 * Navegadores compatíveis:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 03/09/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8592b679fcfbb860962bf75b882dc1a0543412c0
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: ffea2d84f1a5149670976beef3b9af847ae31a35
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102613962"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582129"
 ---
 # <a name="windows-virtual-desktop-faq"></a>Perguntas frequentes da Área de Trabalho Virtual do Windows
 
@@ -110,9 +110,9 @@ Depois de criar um pool de hosts, você não pode alterar seu tipo. No entanto, 
 
 As limitações ou cotas no FSLogix dependem da malha de armazenamento usada para armazenar arquivos VHD (X) do perfil do usuário.
 
-A tabela a seguir fornece um exemplo de como os recursos de um perfil de FSLogix precisam dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil.
+A tabela a seguir fornece um exemplo de quantos IOPS um perfil FSLogix precisa para dar suporte a cada usuário. Os requisitos podem variar amplamente dependendo do usuário, dos aplicativos e da atividade em cada perfil.
 
-| Resource | Requisito |
+| Recurso | Requisito |
 |---|---|
 | IOPS de estado estável | 10 |
 | Entrar/sair do IOPS | 50 |
@@ -152,10 +152,10 @@ A opção de disponibilidade que você deve usar para suas VMs depende do local 
 | Opção de disponibilidade | Local da imagem | Botão de opção usar disco gerenciado (botão de opção) |
 |---|---|---|
 | Nenhum | Galeria | Desabilitado com "Sim" como padrão |
-| Nenhum | Armazenamento de blob | Habilitado com "não" como padrão |
+| Nenhum | Armazenamento de Blobs | Habilitado com "não" como padrão |
 | Zona de disponibilidade | Galeria (opção de armazenamento de BLOBs desabilitada) | Desabilitado com "Sim" como padrão |
 | Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Galeria | Desabilitado com "Sim" como padrão |
-| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de blob | Habilitado com "não" como padrão |
+| Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de Blobs | Habilitado com "não" como padrão |
 | Conjunto de disponibilidade com SKU gerenciado (disco gerenciado) | Armazenamento de BLOBs (opção de galeria desabilitada) | Desabilitado com "não" como padrão |
 | Conjunto de disponibilidade (criado recentemente pelo usuário) | Galeria | Desabilitado com "Sim" como padrão |
-| Conjunto de disponibilidade (criado recentemente pelo usuário) | Armazenamento de blob | Habilitado com "não" como padrão |
+| Conjunto de disponibilidade (criado recentemente pelo usuário) | Armazenamento de Blobs | Habilitado com "não" como padrão |

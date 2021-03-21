@@ -8,10 +8,10 @@ ms.date: 03/14/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: ba68bc3eee94689236792f0270d779357dffde9f
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103465769"
 ---
 # <a name="troubleshoot-the-sensor-and-on-premises-management-console"></a>Solucionar problemas do sensor e do console de gerenciamento local
@@ -283,7 +283,7 @@ Os logs exportados são adicionados à lista de **logs arquivados** . Envie a OT
 
 A lista de logs arquivados pode conter até cinco itens. Se o número de itens na lista ultrapassar esse número, o item mais antigo será excluído.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 - [Exibir alertas](how-to-view-alerts.md)
 

@@ -7,10 +7,10 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/19/2021
 ms.openlocfilehash: 007bf845bab6f493fae91debefde27a4929d9f95
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98611025"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Cotas de serviço do Azure Cosmos DB
@@ -62,8 +62,8 @@ Exemplo: Suponha que você tenha um contêiner provisionado com o armazenamento 
 
 **Observação:** a taxa de transferência mínima de 10 ru/s por GB de armazenamento poderá ser reduzida se sua conta estiver qualificada para o nosso [programa de "alta taxa de armazenamento/baixa produtividade"](set-throughput.md#high-storage-low-throughput-program).
 
-#### <a name="minimum-throughput-on-shared-throughput-database"></a>Taxa de transferência mínima no banco de dados de produtividade compartilhada 
-Para estimar a taxa de transferência mínima necessária de um banco de dados de produtividade compartilhado com taxa de transferência manual, encontre o máximo de:
+#### <a name="minimum-throughput-on-shared-throughput-database"></a>Taxa de transferência mínima no banco de dados de taxa de transferência compartilhada 
+Para estimar a taxa de transferência mínima necessária de um banco de dados de taxa de transferência compartilhado com taxa de transferência manual, encontre o máximo de:
 
 * 400 RU/s 
 * Armazenamento atual em GB * 10 RU/s

@@ -8,10 +8,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.openlocfilehash: bef8706d9dcef966397dcddc64ffbd567a8431f6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034397"
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - regras de nomenclatura
@@ -20,7 +20,7 @@ ms.locfileid: "102034397"
 
 A tabela a seguir fornece regras de nomenclatura para artefatos Data Factory.
 
-| Name | Exclusividade do nome | Verificações de validação |
+| Nome | Exclusividade do nome | Verificações de validação |
 |:--- |:--- |:--- |
 | Fábrica de dados | Exclusivo em todo o Microsoft Azure. Os nomes não diferenciam maiúsculas de minúsculas, isto é, `MyDF` e `mydf` referem-se ao mesmo data factory. |<ul><li>Cada data factory está vinculado a exatamente uma assinatura do Azure.</li><li>Os nomes do objeto devem começar com uma letra ou número e podem conter apenas letras, números e o caractere traço (-).</li><li>Cada caractere traço (-) deve ser imediatamente precedido e seguido por uma letra ou um número. Não há permissão para traços consecutivos em nomes de contêiner.</li><li>O nome pode ter de 3 a 63 caracteres.</li></ul> |
 | Serviços vinculados/conjuntos de dados/pipelines/fluxos de dados | Exclusivo em um data factory. Os nomes não diferenciam maiúsculas de minúsculas. |<ul><li>Os nomes de objeto devem começar com uma letra.</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \\ "</li><li>Os traços ("-") não são permitidos nos nomes de serviços vinculados, fluxos de dados e conjuntos de dados.</li></ul>  |
