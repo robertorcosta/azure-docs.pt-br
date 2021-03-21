@@ -14,10 +14,10 @@ ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ROBOTS: NOINDEX
 ms.openlocfilehash: d68cfb91445e2055cb3c3feb88bf925987ea9852
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687389"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Como migrar do Serviço de Controle de Acesso do Azure
@@ -187,7 +187,7 @@ A tabela a seguir compara os recursos do Controle de Acesso que são relevantes 
 
 Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção para a sua migração se você permitir que os usuários entrem somente com suas contas corporativas ou de estudante da Microsoft*.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte |
@@ -202,7 +202,7 @@ Em um alto nível, o *Azure Active Directory provavelmente é a melhor opção p
 | WS-Trust | Com suporte | Sem suporte |
 | **Formatos de token** | | |
 | JWT | Com suporte em versão beta | Com suporte |
-| SAML 1.1 | Com suporte | Visualização |
+| SAML 1.1 | Com suporte | Versão Prévia |
 | SAML 2.0 | Com suporte | Com suporte |
 | SWT | Com suporte | Sem suporte |
 | **Personalizações** | | |
@@ -238,7 +238,7 @@ No entanto, o Azure AD B2C não oferece suporte para a variedade de protocolos d
 
 A tabela a seguir compara os recursos do Controle de Acesso que são relevantes para aplicativos web aos que estão disponíveis no Azure AD B2C. Em um nível elevado, o *Azure AD B2C é provavelmente a escolha certa para a sua migração se seu aplicativo for voltado a clientes, ou se ele oferecer suporte a muitos tipos de contas.*
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD B2C |
 | ---------- | ----------- | ---------------- |
 | **Tipos de contas** | | |
 | Contas corporativas ou de estudante da Microsoft | Com suporte | Com suporte via políticas personalizadas  |
@@ -320,7 +320,7 @@ Nossa recomendação para este tipo de fluxo de autenticação é migrar para o 
 
 Você também usar o Azure AB para a autenticação de servidor para servidor usando a implementação do Azure AD da concessão de credenciais de cliente do OAuth. A tabela a seguir compara os recursos do Controle de Acesso na autenticação de servidor para servidor com aquelas que estão disponíveis no Azure AD.
 
-| Funcionalidade | Suporte do Controle de Acesso | Suporte do Azure AD |
+| Recurso | Suporte do Controle de Acesso | Suporte do Azure AD |
 | ---------- | ----------- | ---------------- |
 | Como registrar um serviço Web | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie um aplicativo web do Azure AD no portal do Azure |
 | Como registrar um cliente | Crie uma terceira parte confiável no portal de gerenciamento do Controle de Acesso | Crie outro aplicativo web do Azure AD no portal do Azure |

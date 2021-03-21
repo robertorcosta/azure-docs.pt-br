@@ -10,10 +10,10 @@ ms.reviewer: mikeray
 ms.date: 03/02/2021
 ms.topic: how-to
 ms.openlocfilehash: facb7db73bf7a709b9ed07e460d8653d79f1ed2f
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687577"
 ---
 # <a name="create-azure-arc-data-controller-using-the-azure-data-cli-azdata"></a>Criar um controlador de dados de arco do Azure usando o [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]

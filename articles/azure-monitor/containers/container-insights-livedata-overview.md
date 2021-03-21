@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: references_regions
 ms.openlocfilehash: 5277f5051e291e9058255d8920ac0be950389704
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203191"
 ---
 # <a name="how-to-view-kubernetes-logs-events-and-pod-metrics-in-real-time"></a>Como exibir logs de kubernetes, eventos e métricas de pod em tempo real
@@ -82,7 +82,7 @@ O título do painel mostra o nome do pod com o qual o contêiner é agrupado.
 
 Ao exibir eventos, você pode limitar os resultados usando o **filtro** Pill encontrado à direita da barra de pesquisa. Dependendo do recurso que você selecionou, o Pill lista um pod, um namespace ou um cluster do qual escolher.
 
-## <a name="view-metrics"></a>Métricas de exibição
+## <a name="view-metrics"></a>Exibir métricas
 
 Você pode exibir dados de métrica em tempo real à medida que eles são gerados pelo mecanismo de contêiner do modo de exibição **nós** ou **controladores** somente quando um **Pod** é selecionado. Para exibir as métricas, execute as etapas a seguir.
 

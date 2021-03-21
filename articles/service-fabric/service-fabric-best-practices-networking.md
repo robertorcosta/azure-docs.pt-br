@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: chrpap
 ms.openlocfilehash: caba864e77822ccab649f694df7e63e0ee5d6e51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732557"
 ---
 # <a name="networking"></a>Rede
@@ -101,7 +101,7 @@ Mais informações sobre as regras de segurança de entrada:
 |---        |---                |---         |---       |---                |---               |---
 |3900       |Rede            |Qualquer         |TCP       |VirtualNetwork     |VirtualNetwork    |Allow
 |3910       |Provedor de recursos  |443         |TCP       |VirtualNetwork     |ServiceFabric     |Allow
-|3920       |Atualizar            |443         |TCP       |VirtualNetwork     |Internet          |Allow
+|3920       |Atualização            |443         |TCP       |VirtualNetwork     |Internet          |Allow
 |3950       |Bloquear saída     |Qualquer         |Qualquer       |Qualquer                |Qualquer               |Negar
 
 Mais informações sobre as regras de segurança de saída:

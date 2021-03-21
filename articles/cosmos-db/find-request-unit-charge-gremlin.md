@@ -9,10 +9,10 @@ ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
 ms.openlocfilehash: 295ed3eb2312a5f614a4214b5b627f5657fba1eb
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103201350"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-gremlin-api"></a>Localizar o encargo de unidade de solicitação para operações executadas na API Azure Cosmos DB Gremlin

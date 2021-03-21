@@ -13,10 +13,10 @@ ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 12/14/2020
 ms.openlocfilehash: 95e11e98be8a58611a435de533ffcc16ec5ce357
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048549"
 ---
 # <a name="azure-sql-database-and-azure-sql-managed-instance-service-tiers"></a>Banco de dados SQL do Azure e camadas de serviço do Azure SQL Instância Gerenciada
@@ -44,7 +44,7 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 | **Tamanho da computação**| Banco de Dados SQL | 1 a 80 vCores | 1 a 80 vCores | 1 a 80 vCores |
 | | Instância Gerenciada de SQL | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | | Pools de Instância Gerenciada do SQL | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/D | N/D |
-| **Tipo de armazenamento** | Todos | Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
+| **Tipo de armazenamento** | Tudo | Armazenamento remoto Premium (por instância) | Armazenamento desacoplado com cache SSD local (por instância) | Armazenamento SSD local super rápido (por instância) |
 | **Tamanho do banco de dados** | Banco de Dados SQL | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
 | | Instância Gerenciada de SQL  | 32 GB A 8 TB | N/D | 32 GB – 4 TB |
 | **Tamanho de armazenamento** | Banco de Dados SQL | 5 GB – 4 TB | Até 100 TB | 5 GB – 4 TB |
@@ -53,8 +53,8 @@ A tabela a seguir descreve as principais diferenças entre as camadas de serviç
 | | Instância Gerenciada de SQL  | [24 GB por vCore](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | Até 4 TB- [limitado pelo tamanho do armazenamento](../managed-instance/resource-limits.md#service-tier-characteristics) |
 | **Taxa de transferência de gravação de log** | Banco de Dados SQL | [1,875 MB/s por vCore (máximo de 30 MB/s)](resource-limits-vcore-single-databases.md#general-purpose---provisioned-compute---gen4) | 100 MB/s | [6 MB/s por vCore (máx. 96 MB/s)](resource-limits-vcore-single-databases.md#business-critical---provisioned-compute---gen4) |
 | | Instância Gerenciada de SQL | [3 MB/s por vCore (máximo de 22 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) | N/D | [4 MB/s por VCORE (máx. 48 MB/s)](../managed-instance/resource-limits.md#service-tier-characteristics) |
-|**Disponibilidade**|Todos| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**Backups**|Todos|RA-GRS, 7-35 dias (7 dias por padrão). A retenção máxima para a camada básica é de 7 dias. | RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
+|**Disponibilidade**|Tudo| 99,99% |  [99,95% com uma réplica secundária, 99,99% com mais réplicas](service-tier-hyperscale-frequently-asked-questions-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99,99% <br/> [99,995% com Banco de dados individual com redundância de zona](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**Backups**|Tudo|RA-GRS, 7-35 dias (7 dias por padrão). A retenção máxima para a camada básica é de 7 dias. | RA-GRS, 7 dias, tempo constante de recuperação point-in-time (PITR) | RA-GRS, 7-35 dias (7 dias por padrão) |
 |**OLTP na memória** | | N/D | N/D | Disponível |
 |**Réplicas somente leitura**| | 0 interno <br> 0-4 usando [a replicação geográfica](active-geo-replication-overview.md) | 0-4 interno | 1 interno, incluído no preço <br> 0-4 usando [a replicação geográfica](active-geo-replication-overview.md) |
 |**Preço/cobrança** | Banco de Dados SQL | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. | [vCore para cada réplica e armazenamento usado](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>IOPS ainda não cobrado. | [vCore, armazenamento reservado e armazenamento de backup](https://azure.microsoft.com/pricing/details/sql-database/single/) são cobrados. <br/>O IOPS não é cobrado. |

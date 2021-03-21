@@ -13,10 +13,10 @@ ms.date: 02/27/2017
 ms.author: rohink
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 5d902e0172a048527ce8f2fa9e22c5fc9bf22e0b
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102203616"
 ---
 # <a name="how-to-manage-dns-zones-in-azure-dns-using-the-azure-cli"></a>Como gerenciar Zonas DNS no DNS do Azure usando a CLI do Azure
@@ -85,7 +85,7 @@ az group create --name myresourcegroup --location "West US"
 
 ## <a name="getting-help"></a>Obtendo ajuda
 
-Todos os comandos da CLI do Azure relacionados ao DNS do Azure começam com `az network dns`. A ajuda está disponível para cada comando usando a opção `--help` (forma abreviada `-h`).  Por exemplo: 
+Todos os comandos da CLI do Azure relacionados ao DNS do Azure começam com `az network dns`. A ajuda está disponível para cada comando usando a opção `--help` (forma abreviada `-h`).  Por exemplo:
 
 ```azurecli
 az network dns --help

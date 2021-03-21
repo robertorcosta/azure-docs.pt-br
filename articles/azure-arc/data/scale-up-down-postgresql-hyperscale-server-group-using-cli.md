@@ -10,17 +10,17 @@ ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
 ms.openlocfilehash: 4461fb6904d51ee8d740b633a2d0028658ac2ced
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101687542"
 ---
 # <a name="scale-up-and-down-an-azure-database-for-postgresql-hyperscale-server-group-using-cli-azdata-or-kubectl"></a>Escalar e reduzir verticalmente um grupo de servidores de hiperescala do banco de dados do Azure para PostgreSQL usando a CLI (azdata ou kubectl)
 
 
 
-Há ocasiões em que talvez seja necessário alterar as características ou a definição de um grupo de servidores. Por exemplo: 
+Há ocasiões em que talvez seja necessário alterar as características ou a definição de um grupo de servidores. Por exemplo:
 
 - Escalar ou reduzir verticalmente o número de vCores que cada um dos nós de coordenador ou de trabalho usa
 - Escalar ou reduzir verticalmente a memória que cada um dos nós coordenador ou de trabalho usa
@@ -126,7 +126,7 @@ Isso o levará no editor de vi, no qual você pode navegar e alterar a configura
 > [!CAUTION]
 > Veja abaixo um exemplo fornecido para ilustrar como você pode editar a configuração. Antes de atualizar a configuração, certifique-se de definir os parâmetros para valores que o cluster kubernetes pode honrar.
 
-Por exemplo: 
+Por exemplo:
 - VCore mínimo = 2-> scheduling\default\resources\requests\cpu
 - VCore máximo = 4-> scheduling\default\resources\limits\cpu
 - Memória mínima = 512Mb-> scheduling\default\resources\requests\cpu

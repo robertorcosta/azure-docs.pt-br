@@ -7,10 +7,10 @@ ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: anithaa
 ms.openlocfilehash: 2f15b397fbceb9e097d94080ba03fba50a96ed06
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102048498"
 ---
 # <a name="configure-private-endpoints-for-azure-cosmos-db-analytical-store"></a>Configurar pontos de extremidade privados para o repositório analítico do Azure Cosmos DB
@@ -35,7 +35,7 @@ As seguintes restrições de acesso são aplicáveis quando a proteção de dado
 
 ### <a name="add-a-managed-private-endpoint-for-azure-cosmos-db-analytical-store"></a>Adicionar um ponto de extremidade privado gerenciado para Azure Cosmos DB repositório analítico
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. No portal do Azure, navegue até o espaço de trabalho do Synapse Analytics e abra o painel **visão geral** .
 

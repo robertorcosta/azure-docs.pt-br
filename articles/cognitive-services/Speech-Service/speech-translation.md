@@ -13,19 +13,19 @@ ms.author: erhopf
 ms.custom: devx-track-csharp, cog-serv-seo-aug-2020
 keywords: Tradução de fala
 ms.openlocfilehash: 36c2943d7cd5ce2c5c7c4a8501dc0033aa8c9cbc
-ms.sourcegitcommit: 10d00006fec1f4b69289ce18fdd0452c3458eca5
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95015198"
 ---
 # <a name="what-is-speech-translation"></a>O que é tradução de fala?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Nesta visão geral, você aprende sobre os benefícios e recursos do serviço de tradução de fala, que permite a tradução de fala em tempo real, de voz a voz e de fala a texto de fluxos de áudio. Com o SDK de fala, seus aplicativos, ferramentas e dispositivos têm acesso a transcrições de origem e saídas de tradução para áudio fornecido. Os resultados provisórios de transcrição e tradução são retornados conforme a fala é detectada e os resultados finais podem ser convertidos em fala sintetizada.
+Nesta visão geral, você aprende sobre os benefícios e recursos do serviço de tradução de fala, que permite a tradução de fala em tempo real, de voz a voz e de fala a texto de fluxos de áudio. Com o SDK de Fala, os seus aplicativos, ferramentas e dispositivos têm acesso a transcrições de origem e a saídas de tradução para o áudio fornecido. Os resultados provisórios de transcrição e tradução são retornados conforme a fala é detectada e os resultados finais podem ser convertidos em fala sintetizada.
 
-O mecanismo de tradução da Microsoft é fornecido por duas abordagens diferentes: conversão de máquina estatística (SMT) e conversão de máquina neural (NMT). O SMT usa análise estatística avançada para estimar a melhor tradução possível, dado o contexto de algumas palavras. Com o NMT, as redes neurais são usadas para fornecer traduções mais precisas e de som natural usando o contexto completo de frases para traduzir palavras.
+O mecanismo de tradução da Microsoft é desenvolvido com duas abordagens diferentes: SMT (tradução automática estatística) e NMT (tradução automática neural). A SMT usa análise estatística avançada para estimar a melhor tradução possível de algumas palavras em contexto. Com a NMT, as redes neurais são usadas para fornecer traduções mais precisas e que soam naturais usando o contexto completo de frases para traduzir as palavras.
 
 Hoje, a Microsoft usa o NMT para tradução para as linguagens mais populares. Todos os [idiomas disponíveis para tradução de fala em fala](language-support.md#speech-translation) também são alimentadas por NMT. A tradução com conversão de fala em texto pode usar SMT ou NMT, dependendo do par de idiomas. Quando o idioma de destino tem suporte do NMT, a tradução completa é NMT. Quando o idioma de destino não tem suporte do NMT, a tradução é um híbrido de NMT e SMT, usando o inglês como uma "dinamização" entre os dois idiomas.
 
