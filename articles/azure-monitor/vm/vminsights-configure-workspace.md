@@ -1,5 +1,5 @@
 ---
-title: Configurar o espaço de trabalho Log Analytics para o VM insights
+title: Configurar workspace do Log Analytics para insights da VM
 description: Descreve como criar e configurar o espaço de trabalho de Log Analytics usado pelo virtual insights.
 ms.topic: conceptual
 ms.custom: references_regions
@@ -7,13 +7,13 @@ author: bwren
 ms.author: bwren
 ms.date: 12/22/2020
 ms.openlocfilehash: 5a0e04772cfc1c9be77c0ad8b32b0e93be8b9f54
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046713"
 ---
-# <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configurar o espaço de trabalho Log Analytics para o VM insights
+# <a name="configure-log-analytics-workspace-for-vm-insights"></a>Configurar workspace do Log Analytics para insights da VM
 As informações de VM coletam seus dados de um ou mais espaços de trabalho Log Analytics no Azure Monitor. Antes de realizar a integração de agentes, você deve criar e configurar um espaço de trabalho. Este artigo descreve os requisitos do espaço de trabalho e para configurá-lo para o virtual insights.
 
 ## <a name="overview"></a>Visão geral

@@ -9,10 +9,10 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.custom: ''
 ms.openlocfilehash: d9bf1b54f1bfeebacbb406a50c8496817857204c
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102507561"
 ---
 # <a name="azure-cloud-services-extended-support-definition-schema-csdef-file"></a>Esquema de definição (suporte estendido) dos serviços de nuvem do Azure (arquivo csdef)
@@ -70,6 +70,6 @@ A tabela a seguir descreve os atributos do elemento `ServiceDefinition`.
 | schemaVersion           | Opcional. Especifica a versão do esquema de definição de serviço. A versão do esquema permitirá que o Visual Studio selecione as ferramentas do SDK corretas para usar para a validação de esquema se mais de uma versão do SDK for instalada lado a lado.|
 | upgradeDomainCount      | Opcional. Especifica o número de domínios de atualização entre quais funções neste serviço são alocadas. As instâncias de função são alocadas para um domínio de atualização quando o serviço é implantado. Para obter mais informações, consulte [atualizar uma função ou implantação de serviço de nuvem](sample-update-cloud-service.md) e [gerenciar a disponibilidade de máquinas virtuais](../virtual-machines/availability.md) , você pode especificar até 20 domínios de atualização. Se não especificado, o número padrão de domínios de atualização é 5.|
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Esquema de configuração dos serviços de nuvem do Azure (suporte estendido) (arquivo cscfg)](schema-cscfg-file.md).

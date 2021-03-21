@@ -1,18 +1,18 @@
 ---
-title: Como ter como gráfico o desempenho com o VM insights
+title: Como plotar o desempenho com insights da VM
 description: O desempenho é um recurso das informações da VM que descobre automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Este artigo fornece detalhes sobre como usá-lo em vários cenários.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/31/2020
 ms.openlocfilehash: 02cb6a0c69fef1a33dd9327ddbd86e02b376a60e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102046458"
 ---
-# <a name="how-to-chart-performance-with-vm-insights"></a>Como ter como gráfico o desempenho com o VM insights
+# <a name="how-to-chart-performance-with-vm-insights"></a>Como plotar o desempenho com insights da VM
 
 O virtual insights inclui um conjunto de gráficos de desempenho que visam vários KPIs (indicadores chave de desempenho) para ajudá-lo a determinar o desempenho de uma máquina virtual. Os gráficos mostram a utilização de recursos durante um período de tempo para que você possa identificar afunilamentos, anomalias ou alternar para uma perspectiva listando cada máquina para exibir a utilização de recursos com base na métrica selecionada. Embora haja inúmeros elementos a serem considerados ao lidar com o desempenho, o virtual insights monitora os principais indicadores de desempenho do sistema operacional relacionados ao processador, à memória, ao adaptador de rede e à utilização de disco. O desempenho complementa o recurso de monitoramento de integridade e ajuda a expor problemas que indicam uma possível falha do componente do sistema, suporte ao ajuste e otimização para obter eficiência ou suportar o planejamento da capacidade.  
 

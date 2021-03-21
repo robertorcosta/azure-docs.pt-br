@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 6/08/2020
 ms.openlocfilehash: c3aa2aea764af8469152b007e60427724fea398a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045846"
 ---
 # <a name="analyze-server-dependencies-agentless"></a>Analisar dependências do servidor (sem agente)
@@ -45,7 +45,7 @@ Este artigo descreve como configurar a análise de dependência sem agente usand
 6. Ao configurar o dispositivo, você precisa especificar o seguinte no Gerenciador de configuração de dispositivo:
     - Os detalhes do vCenter Server ao qual você deseja se conectar.
     - vCenter Server credenciais com escopo para descobrir os servidores em seu ambiente VMware.
-    - Credenciais do servidor que podem ser credenciais de domínio/Windows (não domínio)/Linux (não domínio). [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como tratá-las.
+    - Credenciais do servidor que podem ser credenciais de domínio/Windows (não domínio)/Linux (não domínio). [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como as manipulamos.​
 
 ## <a name="verify-permissions"></a>Verificar permissões
 
@@ -59,9 +59,9 @@ Este artigo descreve como configurar a análise de dependência sem agente usand
 1.  Na **etapa 1: fornecer credenciais de vCenter Server**, clique em **Adicionar credenciais** para fornecer credenciais para a conta de vCenter Server que o dispositivo usará para descobrir servidores em execução no vCenter Server.
 1. Na **etapa 2: fornecer vCenter Server detalhes**, clique em **Adicionar origem de descoberta** para selecionar o nome amigável para credenciais na lista suspensa, especifique o **endereço IP/FQDN** do painel de instância vCenter Server :::image type="content" source="./media/tutorial-discover-vmware/appliance-manage-sources.png" alt-text="3 no Gerenciador de configuração de dispositivo para obter detalhes de vCenter Server":::
 1. Na **etapa 3: fornecer credenciais de servidor para executar o inventário de software, a análise de dependência sem agente e a descoberta de instâncias de SQL Server e bancos de dados**, clique em **Adicionar credenciais** para fornecer várias credenciais de servidor para iniciar o inventário de software.
-1. Clique em **Iniciar descoberta** para começar a descoberta de vCenter Server.
+1. Clique em **Iniciar descoberta** para iniciar a descoberta do vCenter Server.
 
- Após a conclusão da descoberta de vCenter Server, o dispositivo inicia a descoberta de aplicativos, funções e recursos instalados (inventário de software). Durante o inventário de software, as credenciais dos servidores adicionados serão iteradas em relação aos servidores e validadas para análise de dependência sem agente. Você pode habilitar a análise de dependência sem agente para servidores do Portal. Somente os servidores onde a validação é realizada com sucesso podem ser selecionados para habilitar a análise de dependência sem agente.
+ Após a conclusão da descoberta de vCenter Server, o dispositivo inicia a descoberta de aplicativos, funções e recursos instalados (inventário de software). Durante o inventário de software, as credenciais dos servidores adicionados serão iteradas em relação aos servidores e validadas para análise de dependência sem agente. Você pode habilitar a análise de dependência sem agente para servidores do Portal. Somente os servidores em que a validação é realizada com sucesso podem ser selecionados para habilitar a análise de dependências sem agente.
 
 ## <a name="start-dependency-discovery"></a>Iniciar descoberta de dependência
 
