@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2020
-ms.openlocfilehash: 5b9b0c6a0fe08ccff9da59539b926270cd0e1d44
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 29cc0a3201b7c4ce1c685029de2a40f115b23e82
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102032847"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606949"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Monitor
 
@@ -606,7 +606,7 @@ O coletor OpenTelemetry é descrito em seu [arquivo Leiame do GitHub](https://gi
 [OpenCensus](https://opencensus.io/) é o precursor para [OpenTelemetry](https://opentelemetry.io/). A Microsoft ajudou a juntar [OpenTracing](https://opentracing.io/) e OpenCensus a criar OpenTelemetry, um padrão de observação única para o mundo. Produção atual do Azure Monitor o [SDK do Python recomendado](app/opencensus-python.md) é baseado em OpenCensus, mas eventualmente todos os SDKs do Azure monitor serão baseados em OpenTelemetry.
 
 
-## <a name="container-insights"></a>Informações de contêiner
+## <a name="container-insights"></a>Insights do contêiner
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>O que *Outros processos* representam na Exibição de nó?
 
@@ -705,6 +705,10 @@ A coleta de log de contêineres no namespace kube-system está desabilitada por 
 
 Para saber como atualizar o agente, confira [Gerenciamento de agente](containers/container-insights-manage-agent.md).
 
+### <a name="why-are-log-lines-larger-than-16kb-split-into-multiple-records-in-log-analytics"></a>Por que as linhas de log maiores que 16 KB são divididas em vários registros no Log Analytics?
+
+O agente usa o [Driver de registro de arquivo JSON do Docker](https://docs.docker.com/config/containers/logging/json-file/) para capturar o stdout e o stderr de contêineres. Esse driver de log divide as linhas [de log maiores que 16 KB](https://github.com/moby/moby/pull/22982) em várias linhas quando copiadas de stdout ou stderr para um arquivo.
+
 ### <a name="how-do-i-enable-multi-line-logging"></a>Como habilito o registro em log de várias linhas?
 
 Atualmente, o insights de contêiner não dá suporte ao log de várias linhas, mas há soluções alternativas disponíveis. Você pode configurar todos os serviços para gravar em formato JSON e, em seguida, o Docker/Moby vai gravá-los como uma única linha.
@@ -742,7 +746,7 @@ Se, depois de habilitar o insights de contêiner para um cluster AKS, você excl
 Confira os [Requisitos de firewall de rede](containers/container-insights-onboard.md#network-firewall-requirements) para obter as informações de configuração de proxy e firewall necessárias para o agente em contêiner com as nuvens do Azure, do Governo dos EUA do Azure e do Azure China 21Vianet.
 
 
-## <a name="vm-insights"></a>Informações de VM
+## <a name="vm-insights"></a>Insights da VM
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>É possível fazer a integração com um workspace existente?
 Se suas máquinas virtuais já estiverem conectadas a um espaço de trabalho Log Analytics, você poderá continuar a usar esse espaço de trabalho ao realizar a integração com o VM insights, desde que ele esteja em uma das [regiões com suporte](vm/vminsights-configure-workspace.md#supported-regions).
@@ -821,6 +825,29 @@ Se você tiver configurado Azure Monitor com um espaço de trabalho Log Analytic
 
 Nessa condição, uma opção **Experimentar Agora** será exibida quando você abrir a VM e selecionar **Insights** no painel esquerdo, mesmo após já ter sido instalado na VM.  No entanto, as opções não são solicitadas como normalmente ocorrerão se essa VM não estivesse integrada ao insights da VM. 
 
+## <a name="sql-insights-preview"></a>Insights do SQL (versão prévia)
+
+### <a name="what-versions-of-sql-server-are-supported"></a>Quais versões do SQL Server têm suporte?
+Consulte [versões com suporte](insights/sql-insights-overview.md#supported-versions) para versões do SQL com suporte.
+
+### <a name="what-sql-resource-types-are-supported"></a>Quais tipos de recursos SQL têm suporte?
+
+- Banco de Dados SQL do Azure. Somente banco de dados individual, não bancos dados em um Pool Elástico.
+- Instância Gerenciada do Azure SQL 
+- Máquinas virtuais do Azure SQL ([Windows](../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md#get-started-with-sql-server-vms), [Linux](../azure-sql/virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md#create)) e máquinas virtuais do Azure que SQL Server estão instaladas no.
+
+### <a name="what-operating-systems-for-the-machine-running-sql-server-are-supported"></a>Há suporte para quais sistemas operacionais do computador que executa o SQL Server?
+Qualquer sistema operacional que ofereça suporte à execução da versão com suporte do SQL.
+
+### <a name="what-operating-system-for-the-remote-monitoring-server-are-supported"></a>Há suporte para qual sistema operacional para o servidor de monitoramento remoto?
+
+Atualmente, o Ubuntu 18, 4 é o único sistema operacional com suporte.
+
+### <a name="where-will-the-monitoring-data-be-stored-in-log-analytics"></a>Onde os dados de monitoramento serão armazenados em Log Analytics 
+Todos os dados de monitoramento são armazenados na tabela **InsightsMetrics** . A coluna de **origem** tem o valor *Solutions.AZM.ms/Telegraf/SqlInsights*. A coluna **namespace** tem valores que começam com *sqlserver_*.
+
+### <a name="how-often-is-data-collected"></a>Com que frequência os dados são coletados? 
+Consulte [dados coletados pelo SQL insights](../insights/../azure-monitor/insights/sql-insights-overview.md#data-collected-by-sql-insights) para obter detalhes sobre a frequência com que os dados diferentes são coletados.
 
 ## <a name="next-steps"></a>Próximas etapas
 Se a sua pergunta não estiver respondida aqui, confira os fóruns a seguir para ver outras perguntas e respostas.

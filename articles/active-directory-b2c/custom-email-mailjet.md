@@ -12,10 +12,10 @@ ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: 48e823b19c1c6d30e73a7a673cbeab82a4d007a9
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489212"
 ---
 # <a name="custom-email-verification-with-mailjet"></a>Verificação de email personalizada com Mailjet
@@ -162,7 +162,7 @@ Com uma conta do Mailjet criada e a chave de API do Mailjet armazenada em uma ch
     1. Para **assunto**, insira um valor padrão para o assunto. Mailjet usa esse valor quando a API não contém um parâmetro Subject.
     1. Para o **nome**, digite o nome da sua empresa.
     1. Para o **endereço**, selecione seu endereço de email
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 1. No canto superior direito, selecione **salvar & publicar** e, em seguida **, sim, publicar alterações**
 1. Registre a **ID do modelo** do modelo criado para uso em uma etapa posterior. Você especifica essa ID ao [Adicionar a transformação declarações](#add-the-claims-transformation).
 

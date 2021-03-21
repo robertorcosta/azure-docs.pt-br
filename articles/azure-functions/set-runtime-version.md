@@ -4,10 +4,10 @@ description: O Azure Functions é compatível com várias versões do runtime. S
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.openlocfilehash: e9aa5546b5f07b724fe22bc1e20a2e97feb2aec2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102435555"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Como direcionar para versões do Azure Functions runtime
@@ -40,7 +40,7 @@ A tabela a seguir mostra os `FUNCTIONS_EXTENSION_VERSION` valores para cada vers
 Uma alteração na versão do runtime faz com que seu aplicativo de função reinicie.
 
 >[!NOTE]
->Aplicativos de funções do .NET fixados para `~2.0` recusar a atualização automática para o .NET Core 3,1. Para saber mais, consulte [Considerações sobre funções v2. x](functions-dotnet-class-library.md#functions-v2x-considerations).  
+>Aplicativos de funções do .NET fixados para `~2.0` recusar a atualização automática para o .NET Core 3,1. Para saber mais, confira [Considerações sobre funções da v2.x](functions-dotnet-class-library.md#functions-v2x-considerations).  
 
 ## <a name="view-and-update-the-current-runtime-version"></a>Exibir e atualizar a versão de runtime atual
 

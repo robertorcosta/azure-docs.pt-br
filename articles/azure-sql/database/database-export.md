@@ -12,10 +12,10 @@ ms.reviewer: ''
 ms.date: 01/11/2021
 ms.topic: how-to
 ms.openlocfilehash: 866500e9cd9e3fe6aac6a5bfded0dbb21ab137fc
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614234"
 ---
 # <a name="export-to-a-bacpac-file---azure-sql-database-and-azure-sql-managed-instance"></a>Exportar para um arquivo BACPAC – banco de dados SQL do Azure e Azure SQL Instância Gerenciada
@@ -73,7 +73,7 @@ Este exemplo mostra como exportar um banco de dados usando SqlPackage.exe com Au
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="sql-server-management-studio-ssms"></a>SSMS (SQL Server Management Studio)
+## <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 
 As versões mais recentes do SQL Server Management Studio fornecem um assistente para exportar um banco de dados no banco de dados SQL do Azure ou um banco de dados SQL Instância Gerenciada para um arquivo BACPAC. Consulte [Exportar um aplicativo da camada de dados](/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
@@ -106,7 +106,7 @@ $exportStatus
 ```
 ## <a name="cancel-the-export-request"></a>Cancelar a solicitação de exportação
 
-Use a [API Database-Cancel](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) ou o [comando Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity)do PowerShell, aqui um exemplo de comando do PowerShell.
+Use a [API de Cancelamento – Operações de Banco de Dados](https://docs.microsoft.com/rest/api/sql/databaseoperations/cancel) ou o [comando Stop-AzSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/az.sql/Stop-AzSqlDatabaseActivity) do PowerShell, no caso um exemplo de comando do PowerShell.
 
 ```cmd
 Stop-AzSqlDatabaseActivity -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -OperationId $Operation.OperationId

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c2e7c9c96f237512d7f28f7243707b097c034aab
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: acaab347d56d320f2287bb8f548fd832f52efece
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198447"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595355"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gerenciar dispositivos automaticamente no gêmeos digital do Azure usando o DPS (serviço de provisionamento de dispositivos)
 
@@ -99,7 +99,7 @@ Adicione a configuração com este CLI do Azure comando:
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Verifique se as permissões e a atribuição da função de identidade gerenciada estão configuradas corretamente para o aplicativo de funções, conforme descrito na seção [*atribuir permissões ao aplicativo de funções*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) no tutorial de ponta a ponta.
+Verifique se as permissões e a atribuição da função de identidade gerenciada estão configuradas corretamente para o aplicativo de funções, conforme descrito na seção [*atribuir permissões ao aplicativo de funções*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) no tutorial de ponta a ponta.
 
 ### <a name="create-device-provisioning-enrollment"></a>Criar registro de provisionamento de dispositivos
 
@@ -164,7 +164,7 @@ Aqui está uma descrição do fluxo do processo:
 
 As seções a seguir percorrem as etapas para configurar esse fluxo de dispositivo de desativação automática.
 
-### <a name="create-an-event-hub"></a>Criar um hub de eventos
+### <a name="create-an-event-hub"></a>Criar um Hub de Evento
 
 Agora você precisa criar um hub de [eventos](../event-hubs/event-hubs-about.md)do Azure, que será usado para receber os eventos do ciclo de vida do Hub IOT. 
 
@@ -202,7 +202,7 @@ Em seguida, você precisará configurar a variável de ambiente de função para
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
-Verifique se as permissões e a atribuição da função de identidade gerenciada estão configuradas corretamente para o aplicativo de funções, conforme descrito na seção [*atribuir permissões ao aplicativo de funções*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) no tutorial de ponta a ponta.
+Verifique se as permissões e a atribuição da função de identidade gerenciada estão configuradas corretamente para o aplicativo de funções, conforme descrito na seção [*atribuir permissões ao aplicativo de funções*](tutorial-end-to-end.md#configure-permissions-for-the-function-app) no tutorial de ponta a ponta.
 
 ### <a name="create-an-iot-hub-route-for-lifecycle-events"></a>Criar uma rota do Hub IoT para eventos de ciclo de vida
 
