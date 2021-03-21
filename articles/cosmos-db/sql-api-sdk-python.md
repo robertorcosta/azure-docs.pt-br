@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: python
 ms.topic: reference
 ms.date: 08/12/2020
-ms.author: anfeldma
+ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 77cde4fb580ebea14c09856b9ad2e7f093e20db3
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 8487743efd4f18806ae03ed7529927736314988b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102505045"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104595668"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -38,31 +38,41 @@ ms.locfileid: "102505045"
 > * [Executor em massa-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Executor em massa – Java](sql-api-sdk-bulk-executor-java.md)
 
-| |  |
+| ?| Link |
 |---|---|
 |**Baixar o SDK**|[PyPI](https://pypi.org/project/azure-cosmos)|
-|**Documentação da API**|[Documentação de referência da API do Python](/python/api/azure-cosmos/)|
+|**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Introdução ao SDK do Python](create-sql-api-python.md)|
 |**Plataforma atual com suporte**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Histórico de versões
 
-### <a name="410-2020-08-10"></a>4.1.0 (2020-08-10)
+## <a name="420"></a>4.2.0
+
+**Correções de bug**
+- Corrigido o bug em que o token de continuação não é respeitado quando query_iterable é usado para obter resultados por página.
+- Corrigido o bug em que os tokens de recurso não estão sendo respeitados para leituras de documento e exclusões. 
+
+**Novos recursos**
+- Adicionado suporte para passagem `partitionKey` ao consultar o feed de alterações.
+
+## <a name="410"></a>4.1.0
 
 - Aviso de substituição adicionado para o modo de indexação "lento". O back-end não permite mais criar contêineres com esse modo e os definirá como consistente.
 
 **Novos recursos**
 - Adicionada a capacidade de definir o TTL de armazenamento analítico ao criar um novo contêiner.
 
-**Correções de bugs**
-- Corrigido o suporte para os dictfiles como entradas para get_client APIs.
+**Correções de bug**
+- Corrigido o suporte para `dicts` as entradas do as para Get_client APIs.
 - Correção da compatibilidade do Python 2/3 nos iteradores de consulta.
-- Erro de dica de tipo fixo (problema #12570).
-- Corrigido o bug em que os cabeçalhos de opções não foram adicionados à função upsert_item. Problema #11791-Obrigado @aalapatirvbd .
-- Erro fixo gerado quando uma ID não cadeia de caracteres é usada em um item. Agora, ele gera TypeError em vez de AttributeError (Issue #11793).
+- Erro de dica de tipo fixo.
+- Corrigido o bug em que os cabeçalhos de opções não foram adicionados à função upsert_item. 
+- Erro fixo gerado quando uma ID que não é de cadeia de caracteres é usada em um item. Agora, ele gera TypeError em vez de AttributeError.
 
-### <a name="400"></a>4.0.0
+
+## <a name="400"></a>4.0.0
 
 * Versão estável.
 * HttpLoggingPolicy adicionado ao pipeline para habilitar a passagem de um agente de log personalizado para cabeçalhos de solicitação e resposta.
@@ -80,8 +90,8 @@ ms.locfileid: "102505045"
 * Compatibilidade adicionada a consultas Distinto, Deslocamento e Limite.
 * O contexto de execução de consulta de documento padrão agora é usado para
 
-  * consultas ChangeFeed
-  * consultas de partição única (partitionkey, partitionKeyRangeId está presente nas opções)
+  * Consultas de feed de alterações
+  * consultas de partição única ( `partitionkey` , `partitionKeyRangeId` está presente em opções)
   * Consultas sem documento
 
 * Erros para agregações em várias partições, com a habilitação da consulta entre partições definida como verdadeiro, mas nenhuma palavra-chave "value" presente
@@ -324,6 +334,8 @@ A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de
 
 | Versão | Data de lançamento | Data de desativação |
 | --- | --- | --- |
+| [4.2.0](#420) |09 de outubro de 2020 |--- |
+| [4.1.0](#410) |10 de agosto de 2020 |--- |
 | [4.0.0](#400) |20 de maio de 2020 |--- |
 | [3.0.2](#302) |15 de novembro de 2018 |--- |
 | [3.0.1](#301) |4 de outubro de 2018 |--- |

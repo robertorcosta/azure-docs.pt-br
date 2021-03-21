@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 02/17/2021
 ms.openlocfilehash: 10e925a84dbe187ccdf5e444cb8b3dd4b7bb4676
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102607995"
 ---
 # <a name="create-scoped-resource-set-configuration-rules"></a>Criar regras de configuração do conjunto de recursos no escopo
@@ -74,7 +74,7 @@ Os realocadores estáticos podem ser usados para especificar o nome de exibiçã
 
 Abaixo estão os tipos disponíveis que podem ser usados em realocadores estáticos e dinâmicos:
 
-| Tipo | Estrutura |
+| Type | Estrutura |
 | ---- | --------- |
 | string | Uma série de 1 ou mais caracteres Unicode, incluindo delimitadores como espaços. |
 | INT | Uma série de 1 ou mais caracteres ASCII de 0-9, pode ser 0 prefixado (por exemplo, 0001). |
@@ -82,7 +82,7 @@ Abaixo estão os tipos disponíveis que podem ser usados em realocadores estáti
 | date | Uma série de 6 ou 8 0-9 caracteres ASCII com separadores opcionalmente: AAAAMMDD, aaaa-mm-dd, YYMMDD, aa-mm-dd, especificado na [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 | time | Uma série de 4 ou 6 0-9 caracteres ASCII com separadores opcionalmente: HHmm, HH: mm, HHmmss, HH: mm: SS especificado em [RFC 3339](https://tools.ietf.org/html/rfc3339). |
 |  timestamp | Uma série de 12 ou 14 0-9 caracteres ASCII com separadores opcionalmente: AAAA-MM-ddTHH: mm, AAAAMMDDHHMM, aaaa-MM-ddTHH: mm: SS, AAAAMMDDHHMMSS especificado na [RFC 3339](https://tools.ietf.org/html/rfc3339). |
-| booleano | Pode conter ' true ' ou ' false ', não diferencia maiúsculas de minúsculas. |
+| boolean | Pode conter ' true ' ou ' false ', não diferencia maiúsculas de minúsculas. |
 | número | Uma série de 0 ou mais caracteres ASCII de 0-9, pode ser 0 prefixado (por exemplo, 0001) seguido por um ponto '. ' e uma série de 1 ou mais caracteres ASCII de 0-9, pode ser 0 (por exemplo, 100) |
 | hex | Uma série de 1 ou mais caracteres ASCII do conjunto de 0-1 e a-F, o valor pode ser 0 prefixado |
 | localidade | Uma cadeia de caracteres que corresponde à sintaxe especificada no [RFC 5646](https://tools.ietf.org/html/rfc5646). |

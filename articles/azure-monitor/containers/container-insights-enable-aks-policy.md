@@ -4,13 +4,13 @@ description: Descreve como habilitar o complemento de monitoramento AKS usando a
 ms.topic: conceptual
 ms.date: 02/04/2021
 ms.openlocfilehash: 2163527cc83e70913e9a6e11bf2e22f9ed9c6690
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101713891"
 ---
-# <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Habilitar o complemento de monitoramento AKS usando o Azure Policy
+# <a name="enable-aks-monitoring-addon-using-azure-policy"></a>Habilitar o complemento de monitoramento do AKS usando o Azure Policy
 Este artigo descreve como habilitar o complemento de monitoramento AKS usando a política personalizada do Azure. A política personalizada de complemento de monitoramento pode ser atribuída na assinatura ou no escopo do grupo de recursos. Se o Azure Log Analytics Workspace e o cluster AKS estiverem em assinaturas diferentes, a identidade gerenciada usada pela atribuição de política precisará ter as permissões de função necessárias nas assinaturas ou menos no recurso do espaço de trabalho Log Analytics. Da mesma forma, se a política estiver no escopo do grupo de recursos, a identidade gerenciada deverá ter as permissões de função necessárias no espaço de trabalho Log Analytics se o espaço de trabalho não estiver no escopo do grupo de recursos selecionado.
 
 O complemento de monitoramento requer as seguintes funções na identidade gerenciada usada pelo Azure Policy:

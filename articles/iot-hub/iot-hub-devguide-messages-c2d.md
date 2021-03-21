@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.custom: mqtt, devx-track-azurecli
-ms.openlocfilehash: 5515d1084b28091cf7d20958cfca8af3f2664563
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 154b496a6c14d307c09ddcd1b42bf4ba568cb315
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102199485"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104607884"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>Enviar mensagens da nuvem para o dispositivo de um hub IoT
 
@@ -76,7 +76,7 @@ Quando você envia uma mensagem da nuvem para o dispositivo, o serviço pode sol
 
 | Valor da propriedade ACK | Comportamento |
 | ------------ | -------- |
-| none     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
+| nenhum     | O Hub IoT não gera uma mensagem de comentários (comportamento padrão). |
 | positivo | Se a mensagem da nuvem para o dispositivo atingir o estado *concluído* , o Hub IOT gerará uma mensagem de comentários. |
 | negativo | Se a mensagem da nuvem para o dispositivo atingir o estado *inativo* , o Hub IOT gerará uma mensagem de comentários. |
 | completa     | O Hub IoT gera uma mensagem de comentários em ambos os casos. |
@@ -90,6 +90,8 @@ Conforme explicado em [pontos](iot-hub-devguide-endpoints.md)de extremidade, o H
 | EnqueuedTime | Um carimbo de data/hora que indica quando a mensagem de comentário foi recebida pelo Hub |
 | UserId       | `{iot hub name}` |
 | ContentType  | `application/vnd.microsoft.iothub.feedback.json` |
+
+O sistema enviará os comentários quando o lote chegar a 64 mensagens ou em 15 segundos desde o último envio, o que vier primeiro. 
 
 O corpo é uma matriz de registros serializada em JSON, cada um com as seguintes propriedades:
 

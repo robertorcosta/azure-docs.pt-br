@@ -15,10 +15,10 @@ ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 3/02/2021
 ms.openlocfilehash: 3d64336184450514d52095097343a4588213f111
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102034890"
 ---
 # <a name="understand-and-resolve-azure-sql-database-blocking-problems"></a>Entender e resolver problemas de bloqueio do banco de dados SQL do Azure
@@ -228,7 +228,7 @@ Consulte o documento que explica como usar o assistente para [nova sessão de ev
     -   Sql_batch_completed
     -   Sql_batch_starting
 
--   Bloquear
+-   Bloqueio
     -   Lock_deadlock
 
 -   Session
@@ -251,7 +251,7 @@ Ao examinar as informações anteriores, você pode determinar a causa da maiori
 
     | Status | Significado |
     |:-|:-|
-    | Segundo plano | O SPID está executando uma tarefa em segundo plano, como detecção de deadlock, gravador de log ou ponto de verificação. |
+    | Tela de fundo | O SPID está executando uma tarefa em segundo plano, como detecção de deadlock, gravador de log ou ponto de verificação. |
     | Hibernando | O SPID não está em execução no momento. Isso geralmente indica que o SPID está aguardando um comando do aplicativo. |
     | Executando | O SPID está sendo executado no momento em um Agendador. |
     | Executável | O SPID está na fila executável de um Agendador e aguardando para obter o tempo do Agendador. |
@@ -413,7 +413,7 @@ As `wait_type` `open_transaction_count` colunas, e `status` referem-se às infor
     KILL 99
     ```
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 * [Monitoramento e ajuste de desempenho no Banco de Dados SQL do Azure e da Instância Gerenciada de SQL do Azure](./monitor-tune-overview.md)
 * [Monitorando o desempenho usando o Repositório de Consultas](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store)

@@ -4,10 +4,10 @@ description: Documentação de referência do arquivo host.json do Azure Functio
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.openlocfilehash: cbedf2212c52d8f1996d3cce0d96d494313ea525
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102608811"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Referência ao host.json para Azure Functions 2.x e versões posteriores 
@@ -154,13 +154,13 @@ Para obter a estrutura JSON completa, consulte o [exemplo anterior host.jsno arq
 
 | Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
-| samplingSettings | n/a | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
+| samplingSettings | N/D | Consulte [applicationInsights. samplingSettings](#applicationinsightssamplingsettings). |
 | enableLiveMetrics | true | Habilita a coleta de métricas em tempo real. |
 | enableDependencyTracking | true | Habilita o rastreamento de dependência. |
 | enablePerformanceCountersCollection | true | Habilita a coleta de contadores de desempenho kudu. |
 | liveMetricsInitializationDelay | 00:00:15 | Somente para uso interno. |
-| httpAutoCollectionOptions | n/a | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
-| snapshotConfiguration | n/a | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
+| httpAutoCollectionOptions | N/D | Consulte [applicationInsights. httpAutoCollectionOptions](#applicationinsightshttpautocollectionoptions). |
+| snapshotConfiguration | N/D | Consulte [applicationInsights. snapshotConfiguration](#applicationinsightssnapshotconfiguration). |
 
 ### <a name="applicationinsightssamplingsettings"></a>applicationInsights. samplingSettings
 
@@ -195,7 +195,7 @@ Para obter mais informações sobre instantâneos, consulte [depurar instantâne
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- | 
 | agentEndpoint | nulo | O ponto de extremidade usado para se conectar ao serviço de Depurador de Instantâneos de Application Insights. Se for NULL, será usado um ponto de extremidade padrão. |
-| captureSnapshotMemoryWeight | 0,5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
+| captureSnapshotMemoryWeight | 0.5 | O peso dado ao tamanho da memória do processo atual ao verificar se há memória suficiente para tirar um instantâneo. O valor esperado é maior que 0 fração correta (0 < CaptureSnapshotMemoryWeight < 1). |
 | failedRequestLimit | 3 | O limite do número de solicitações com falha para solicitar instantâneos antes que o processador de telemetria seja desabilitado.|
 | handleUntrackedExceptions | true | Habilita ou desabilita o rastreamento de exceções que não são controladas pela telemetria do Application Insights. |
 | isEnabled | true | Habilita ou desabilita a coleta de instantâneos | 
@@ -242,9 +242,9 @@ Definições de configuração para um manipulador personalizado. Para obter mai
 
 |Propriedade | Padrão | Descrição |
 | --------- | --------- | --------- |
-| defaultExecutablePath | n/a | O executável a ser iniciado como o processo do manipulador personalizado. É uma configuração necessária ao usar manipuladores personalizados e seu valor é relativo à raiz do aplicativo de funções. |
+| defaultExecutablePath | N/D | O executável a ser iniciado como o processo do manipulador personalizado. É uma configuração necessária ao usar manipuladores personalizados e seu valor é relativo à raiz do aplicativo de funções. |
 | workingDirectory | *raiz do aplicativo de funções* | O diretório de trabalho no qual iniciar o processo de manipulador personalizado. É uma configuração opcional e seu valor é relativo à raiz do aplicativo de funções. |
-| argumentos | n/a | Uma matriz de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
+| argumentos | N/D | Uma matriz de argumentos de linha de comando para passar para o processo de manipulador personalizado. |
 | enableForwardingHttpRequest | false | Se definido, todas as funções que consistem apenas em um gatilho HTTP e saída HTTP serão encaminhadas a solicitação HTTP original em vez da [carga de solicitação](functions-custom-handlers.md#request-payload)do manipulador personalizado. |
 
 ## <a name="durabletask"></a>durableTask
@@ -345,9 +345,9 @@ Controla os comportamentos de registro em log do aplicativo de funções, inclui
 |Propriedade  |Padrão | Descrição |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Define qual nível de log de arquivos está habilitado.  As opções são: `never`, `always` e `debugOnly`. |
-|logLevel|n/a|Objeto que define a filtragem da categoria de log para funções no aplicativo. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels). |
-|console|n/a| A configuração de log do [console](#console). |
-|applicationInsights|n/a| A configuração [applicationInsights](#applicationinsights). |
+|logLevel|N/D|Objeto que define a filtragem da categoria de log para funções no aplicativo. Essa configuração permite filtrar o registro em log para funções específicas. Para obter mais informações, consulte [configurar níveis de log](configure-monitoring.md#configure-log-levels). |
+|console|N/D| A configuração de log do [console](#console). |
+|applicationInsights|N/D| A configuração [applicationInsights](#applicationinsights). |
 
 ## <a name="console"></a>console
 
@@ -437,7 +437,7 @@ Parâmetro de configuração para o comportamento de bloqueio de Singleton. Para
 |listenerLockPeriod|00:01:00|O período em que ocorrem os bloqueios de ouvinte.| 
 |listenerLockRecoveryPollingInterval|00:01:00|O intervalo de tempo usado para a recuperação do bloqueio de ouvinte caso não tenha sido possível adquirir um bloqueio de ouvinte durante a inicialização.| 
 |lockAcquisitionTimeout|00:01:00|A quantidade máxima de tempo em que o runtime tenta adquirir um bloqueio.| 
-|lockAcquisitionPollingInterval|n/a|O intervalo entre as tentativas de aquisição de bloqueio.| 
+|lockAcquisitionPollingInterval|N/D|O intervalo entre as tentativas de aquisição de bloqueio.| 
 
 ## <a name="version"></a>version
 

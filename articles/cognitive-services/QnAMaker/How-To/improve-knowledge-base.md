@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/06/2020
 ms.custom: devx-track-js, devx-track-csharp
 ms.openlocfilehash: 3fe6ee8336872c04e85b732713494adf0fefa28a
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103011435"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Aceitar perguntas sugeridas sobre o aprendizado ativo na base de dados de conhecimento
@@ -160,8 +160,8 @@ Content-Type: application/json
 |--|--|--|--|
 |Parâmetro de rota de URL|ID da base de dados de conhecimento|string|o GUID da base de dados de conhecimento.|
 |Subdomínio personalizado|Nome do recurso QnAMaker|string|O nome do recurso é usado como o subdomínio personalizado para seu QnA Maker. Isso estará disponível na página configurações depois que você publicar a base de dados de conhecimento. Ele é listado como o `host` .|
-|Cabeçalho|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
-|Cabeçalho|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|parâmetro|Tipo de conteúdo|string|o tipo de mídia do corpo enviado para a API. O valor padrão é: `application/json`|
+|parâmetro|Autorização|string|sua chave de ponto de extremidade (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo da postagem|Objeto JSON|JSON|Os comentários de treinamento|
 
 O corpo JSON tem várias configurações:

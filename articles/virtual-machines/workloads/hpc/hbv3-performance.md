@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: c92c30da2b8e78715df46341dc4bc502ed5e34ce
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 87c3e4e9b509589624a228ea2e1f4b68e86e3fa8
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472811"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721131"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Desempenho da máquina virtual da série HBv3
 
@@ -51,5 +51,5 @@ numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [dimensionamento de aplicativos MPI](compiling-scaling-applications.md).
-- Leia sobre os comunicados mais recentes e alguns exemplos e resultados de HPC (computação de alto desempenho) nos [Blogs da comunidade de computação técnica do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
+- Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para uma exibição arquitetônica de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).

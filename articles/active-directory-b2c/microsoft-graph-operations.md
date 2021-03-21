@@ -13,10 +13,10 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: a8ff94acbd9ffd491bf628ae61ee87634a9c6dd6
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033615"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Gerenciar Azure AD B2C com Microsoft Graph
@@ -27,7 +27,7 @@ Microsoft Graph permite que você gerencie recursos em seu diretório Azure AD B
 
 Para usar o MS API do Graph e interagir com recursos em seu locatário do Azure AD B2C, você precisa de um registro de aplicativo que conceda as permissões para fazer isso. Siga as etapas no artigo [gerenciar Azure ad B2C com Microsoft Graph](microsoft-graph-get-started.md) para criar um registro de aplicativo que seu aplicativo de gerenciamento pode usar. 
 
-## <a name="user-management"></a>Gerenciamento de Usuários
+## <a name="user-management"></a>Gerenciamento de usuários
 
 - [Listar usuários](/graph/api/user-list)
 - [Criar um usuário do consumidor](/graph/api/user-post-users)
@@ -43,7 +43,7 @@ Um número de telefone que pode ser usado por um usuário para entrar usando [ch
 - [Lista](/graph/api/authentication-list-phonemethods)
 - [Obter](/graph/api/phoneauthenticationmethod-get)
 - [Atualizar](/graph/api/phoneauthenticationmethod-update)
-- [Delete (excluir)](/graph/api/phoneauthenticationmethod-delete)
+- [Excluir](/graph/api/phoneauthenticationmethod-delete)
 
 Observe que a operação de [lista](/graph/api/authentication-list-phonemethods) retorna apenas números de telefone habilitados. O número de telefone a seguir deve ser habilitado para uso com as operações de lista. 
 
@@ -57,7 +57,7 @@ Um endereço de email que pode ser usado por uma [conta de entrada de nome de us
 - [Lista](/graph/api/emailauthenticationmethod-list)
 - [Obter](/graph/api/emailauthenticationmethod-get)
 - [Atualizar](/graph/api/emailauthenticationmethod-update)
-- [Delete (excluir)](/graph/api/emailauthenticationmethod-delete)
+- [Excluir](/graph/api/emailauthenticationmethod-delete)
 
 ## <a name="identity-providers"></a>Provedores de identidade
 
@@ -138,7 +138,7 @@ O Azure AD B2C fornece um diretório que pode conter 100 atributos personalizado
 
 Para obter mais informações sobre como acessar Azure AD B2C logs de auditoria, consulte [Acessando Azure ad B2C logs de auditoria](view-audit-logs.md).
 
-## <a name="conditional-access"></a>Acesso Condicional
+## <a name="conditional-access"></a>Acesso condicional
 
 - [Listar todas as políticas de acesso condicional](/graph/api/resources/conditionalaccessroot-list-policies)
 - [Ler propriedades e relações de uma política de acesso condicional](/graph/api/conditionalaccesspolicy-get)
@@ -158,7 +158,7 @@ git clone https://github.com/Azure-Samples/ms-identity-dotnetcore-b2c-account-ma
 Depois de obter o exemplo de código, configure-o para o seu ambiente e, em seguida, compile o projeto:
 
 1. Abra o projeto no [Visual Studio](https://visualstudio.microsoft.com) ou [Visual Studio Code](https://code.visualstudio.com).
-1. Abra `src/appsettings.json`.
+1. Abra o `src/appsettings.json`.
 1. Na `appSettings` seção, substitua `your-b2c-tenant` pelo nome do seu locatário e `Application (client) ID` `Client secret` com os valores para o registro do aplicativo de gerenciamento. Para obter mais informações, consulte [registrar um aplicativo Microsoft Graph](microsoft-graph-get-started.md).
 1. Abra uma janela de console no seu clone local do repositório, alterne para o `src` diretório e, em seguida, compile o projeto:
 
@@ -181,7 +181,7 @@ O código de exemplo usa o [SDK do Microsoft Graph](/graph/sdks/sdks-overview), 
 
 Qualquer solicitação para a API de Microsoft Graph requer um token de acesso para autenticação. A solução utiliza o pacote NuGet [Microsoft. Graph. auth](https://www.nuget.org/packages/Microsoft.Graph.Auth/) que fornece um wrapper baseado em cenário de autenticação da MSAL (biblioteca de autenticação da Microsoft) para uso com o SDK do Microsoft Graph.
 
-O `RunAsync` método no arquivo _Program.cs_ :
+O `RunAsync` método no arquivo _Program. cs_ :
 
 1. Lê as configurações do aplicativo do _appsettings.jsno_ arquivo
 1. Inicializa o provedor de autenticação usando o fluxo de [concessão de credenciais de cliente do OAuth 2,0](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md) . Com o fluxo de concessão de credenciais de cliente, o aplicativo é capaz de obter um token de acesso para chamar a API de Microsoft Graph.
@@ -203,7 +203,7 @@ O `RunAsync` método no arquivo _Program.cs_ :
     GraphServiceClient graphClient = new GraphServiceClient(authProvider);
     ```
 
-O *GraphServiceClient* inicializado é usado em _UserService.cs_ para executar as operações de gerenciamento de usuário. Por exemplo, obter uma lista das contas de usuário no locatário:
+O *GraphServiceClient* inicializado é usado em _UserService. cs_ para executar as operações de gerenciamento de usuário. Por exemplo, obter uma lista das contas de usuário no locatário:
 
 ```csharp
 public static async Task ListUsers(GraphServiceClient graphClient)

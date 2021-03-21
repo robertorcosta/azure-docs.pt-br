@@ -8,10 +8,10 @@ ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102433243"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
@@ -142,7 +142,7 @@ O status de descomissionamento de um modelo é incluído nos `ModelData` registr
 
 Você pode excluir todos os modelos em sua instância de uma só vez ou pode fazê-lo em uma base individual.
 
-Para obter um exemplo de como excluir todos os modelos, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop.cs* faz isso em uma `CommandDeleteAllModels` função.
+Para obter um exemplo de como excluir todos os modelos, baixe o aplicativo de exemplo usado no [*tutorial: explorar os conceitos básicos com um aplicativo cliente de exemplo*](tutorial-command-line-app.md). O arquivo *CommandLoop. cs* faz isso em uma `CommandDeleteAllModels` função.
 
 O restante desta seção divide a exclusão do modelo em detalhes mais detalhadamente e mostra como fazê-lo para um modelo individual.
 

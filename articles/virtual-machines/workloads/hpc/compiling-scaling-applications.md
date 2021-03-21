@@ -5,19 +5,25 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 9185f502a7d9dd7ab00a149fb2f3365372b350cc
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103470746"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721285"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos HPC
 
 O desempenho ideal de expansão e escalabilidade horizontal de aplicativos HPC no Azure requer testes de desempenho e de otimização para a carga de trabalho específica. Esta seção e as páginas específicas da série de VMs oferecem diretrizes gerais para dimensionar seus aplicativos.
+
+## <a name="application-setup"></a>Instalação do aplicativo
+O [repositório azurehpc](https://github.com/Azure/azurehpc) contém muitos exemplos de:
+- Configurando e executando [aplicativos](https://github.com/Azure/azurehpc/tree/master/apps) de maneira ideal.
+- Configuração de [sistemas de arquivos e clusters](https://github.com/Azure/azurehpc/tree/master/examples).
+- [Tutoriais](https://github.com/Azure/azurehpc/tree/master/tutorials) sobre como começar facilmente com alguns fluxos de trabalho de aplicativo comuns.
 
 ## <a name="optimally-scaling-mpi"></a>Dimensionamento de MPI de maneira ideal 
 
@@ -48,6 +54,9 @@ As sugestões a seguir se aplicam à eficiência, ao desempenho e à consistênc
 - Para execuções de escala significativamente maiores, é recomendável usar transportes UD ou RC do UD híbrido. Muitas bibliotecas MPI/bibliotecas de tempo de execução fazem isso internamente (como UCX ou MVAPICH2). Verifique suas configurações de transporte para execuções em larga escala.
 
 ## <a name="compiling-applications"></a>Compilando aplicativos
+<br>
+<details>
+<summary>Clique para expandir</summary>
 
 Embora não seja necessário, a compilação de aplicativos com sinalizadores de otimização apropriados fornece o melhor desempenho de expansão nas VMs da série HB e HC.
 
@@ -96,6 +105,7 @@ Para HPC, a AMD recomenda o compilador GCC 7,3 ou mais recente. As versões mais
 ```bash
 gcc $(OPTIMIZATIONS) $(OMP) $(STACK) $(STREAM_PARAMETERS) stream.c -o stream.gcc
 ```
+</details>
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -1,48 +1,61 @@
 ---
 title: Classificação semântica
 titleSuffix: Azure Cognitive Search
-description: Descreve o algoritmo de classificação semântica no Pesquisa Cognitiva.
+description: Saiba como o algoritmo de classificação semântica funciona no Azure Pesquisa Cognitiva.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/12/2021
-ms.openlocfilehash: 01c4d6475ec23b8a55d91e18f49cab27760aa907
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/18/2021
+ms.openlocfilehash: bb65a53f1ba6e97a39bd0c0170c5c41da38aee8b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104604280"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720501"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classificação semântica no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT]
-> Os recursos de pesquisa semântica estão em visualização pública, disponíveis somente por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
+> Os recursos de pesquisa semântica estão em visualização pública, disponíveis somente por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
-A classificação semântica é uma extensão do pipeline de execução de consulta que melhora a precisão e a RECALL, reclassificando as principais correspondências de um conjunto de resultados inicial. A classificação semântica é apoiada por uma máquina aprofundada que lê modelos de compreensão, treinados para consultas expressas em linguagem natural, em oposição à correspondência lingüística em palavras-chave. Em contraste com o [algoritmo de classificação de similaridade padrão](index-ranking-similarity.md), o classificador semântico usa o contexto e o significado de palavras para determinar a relevância.
+A classificação semântica é uma extensão do pipeline de execução de consulta que melhora a precisão e a RECALL, reclassificando as principais correspondências de um conjunto de resultados inicial. A classificação semântica é apoiada por uma máquina de ponta que lê modelos de compreensão, treinados para consultas expressas em linguagem natural, em oposição à correspondência lingüística em palavras-chave. Em contraste com o [algoritmo de classificação de similaridade padrão](index-ranking-similarity.md), o classificador semântico usa o contexto e o significado de palavras para determinar a relevância.
 
-## <a name="how-semantic-ranking-works"></a>Como funciona a classificação semântica
+A classificação semântica é muito demorada para o recurso e o tempo. Para concluir o processamento dentro da latência esperada de uma operação de consulta, as entradas são consolidadas e simplificadas para que o resumo e a análise possam ser concluídos o mais rápido possível.
 
-A classificação semântica é muito demorada para o recurso e o tempo. Para concluir o processamento dentro da latência esperada de uma operação de consulta, o modelo usa como entrada apenas os principais documentos 50 retornados do algoritmo de [classificação de similaridade](index-ranking-similarity.md)padrão. Os resultados da classificação inicial podem incluir mais de 50 correspondências, mas apenas a primeira 50 será reclassificada semanticamente. 
+## <a name="preparation-for-semantic-ranking"></a>Preparação para classificação semântica
 
-Para classificação semântica, o modelo usa a compreensão de leitura do computador e o aprendizado de transferência para pontuar novamente os documentos com base em quão bem cada um corresponde à intenção da consulta.
+Antes da Pontuação de relevância, o conteúdo deve ser reduzido a uma quantidade de parâmetros que podem ser tratados com eficiência pelo classificador semântico. A redução de conteúdo inclui a seguinte sequência de etapas.
 
-### <a name="preparation-passage-extraction-phase"></a>Fase de preparação (extração de passagens)
+1. A redução de conteúdo começa usando os resultados iniciais retornados pelo [algoritmo de classificação de similaridade](index-ranking-similarity.md) padrão usado para pesquisa de palavra-chave. Os resultados da pesquisa podem incluir até 1.000 correspondências, mas a classificação semântica processará apenas os 50 principais. 
 
-Para cada documento nos resultados iniciais, há um exercício de extração de passagem que identifica as passagens de chave. Esse é um exercício downsizing que reduz o conteúdo para uma quantia que pode ser processada rapidamente.
+   Dada a consulta, os resultados iniciais podem ser muito menores que 50, dependendo de quantas correspondências foram encontradas. Seja qual for a contagem de documentos, o conjunto de resultados inicial será o corpus do documento para classificação semântica.
 
-1. Para cada um dos documentos 50, cada campo no parâmetro searchFields é avaliado em ordem consecutiva. O conteúdo de cada campo é consolidado em uma cadeia de caracteres longa. 
+1. No Corpus do documento, o conteúdo de cada campo em "searchFields" é extraído e combinado em uma cadeia de caracteres longa.
 
-1. A cadeia de caracteres longa é cortada para garantir que o comprimento geral não tenha mais de 8.000 tokens. Por esse motivo, é recomendável posicionar os campos concisos primeiro para que eles sejam incluídos na cadeia de caracteres. Se você tiver documentos muito grandes com campos com texto pesado, qualquer coisa após o limite de token será ignorada.
+1. Todas as cadeias de caracteres que são excessivamente longas são cortadas para garantir que o comprimento geral atenda aos requisitos de entrada do modelo de resumo. Esse exercício de corte é o motivo pelo qual é importante posicionar os campos concisos primeiro em "searchFields", para garantir que eles sejam incluídos na cadeia de caracteres. Se você tiver documentos muito grandes com campos com texto pesado, qualquer coisa após o limite máximo será ignorada.
 
-1. Cada documento agora é representado por uma única cadeia de caracteres longa que tem até 8.000 tokens. Essas cadeias de caracteres são enviadas para o modelo de resumo, o que reduzirá ainda mais a cadeia de caracteres. O modelo de resumo avalia a cadeia de caracteres longa para frases-chave ou passagens que resumem melhor o documento ou respondem à pergunta.
+Cada documento agora é representado por uma única cadeia de caracteres longa.
 
-1. A saída dessa fase é uma legenda (e, opcionalmente, uma resposta). A legenda tem no máximo 128 tokens por documento e é considerada a mais representativa do documento.
+> [!NOTE]
+> As entradas de parâmetro para os modelos são tokens, não caracteres ou palavras. A geração de tokens é determinada em parte pela atribuição do analisador em campos pesquisáveis. Para obter informações sobre como as cadeias de caracteres são indexadas, você pode examinar a saída do token de um analisador usando a [API REST do Test Analyzer](/rest/api/searchservice/test-analyzer).
+>
+> Atualmente nesta visualização, cadeias de caracteres longas podem ter um máximo de 8.000 tokens de tamanho. Se a pesquisa falhar em fornecer uma resposta esperada do fundo em um documento, saber mais sobre a remoção de conteúdo ajuda você a entender o porquê. 
 
-### <a name="scoring-and-ranking-phases"></a>Fases de Pontuação e classificação
+## <a name="summarization"></a>Resumo
 
-Nesta fase, todas as legendas de 50 são avaliadas para avaliar a relevância.
+Após a redução da cadeia de caracteres, agora é possível passar os parâmetros por meio da compreensão da leitura do computador e da representação de linguagem para determinar quais frases e frases melhor resumem o modelo, em relação à consulta.
+
+As entradas de resumo são a cadeia de caracteres longa da fase de preparação. Nessa entrada, o modelo de resumo avalia o conteúdo para encontrar passagens que são mais representativas.
+
+A saída é uma [legenda semântica](semantic-how-to-query-request.md), em texto sem formatação e com destaques. A legenda é menor que a cadeia de caracteres longa, geralmente menos de 200 palavras por documento, e é considerada a mais representativa do documento. 
+
+Uma [resposta semântica](semantic-answers.md) também será retornada se você tiver especificado o parâmetro "respostas", se a consulta foi apresentada como uma pergunta e se uma passagem pode ser encontrada na cadeia de caracteres longa que se parece com uma resposta plausível para a pergunta.
+
+## <a name="scoring-and-ranking"></a>Pontuação e classificação
+
+Neste ponto, agora você tem legendas para cada documento. As legendas são avaliadas para fins de relevância para a consulta.
 
 1. A pontuação é determinada pela avaliação de cada legenda para relevância conceitual e semântica, relativa à consulta fornecida.
 
@@ -50,13 +63,14 @@ Nesta fase, todas as legendas de 50 são avaliadas para avaliar a relevância.
 
    :::image type="content" source="media/semantic-search-overview/semantic-vector-representation.png" alt-text="Representação de vetor para o contexto" border="true":::
 
-1. A saída dessa fase é @search.rerankerScore atribuída a cada documento. Depois que todos os documentos são pontuados, eles são listados em ordem decrescente e incluídos na carga de resposta da consulta.
+1. A saída dessa fase é @search.rerankerScore atribuída a cada documento. Depois que todos os documentos são pontuados, eles são listados em ordem decrescente e incluídos na carga de resposta da consulta. A carga inclui respostas, texto sem formatação e legendas realçadas e todos os campos marcados como recuperáveis ou especificados em uma cláusula SELECT.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-A classificação semântica é oferecida em camadas padrão, em regiões específicas. Para obter mais informações e se inscrever, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing). Um novo tipo de consulta permite a classificação de relevância e as estruturas de resposta da pesquisa semântica. Para começar, [crie uma consulta semântica](semantic-how-to-query-request.md).
+A classificação semântica é oferecida em camadas padrão, em regiões específicas. Para obter mais informações sobre o disponível e a inscrição, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing). Um novo tipo de consulta permite a classificação de relevância e as estruturas de resposta da pesquisa semântica. Para começar, [crie uma consulta semântica](semantic-how-to-query-request.md).
 
-Como alternativa, examine qualquer um dos artigos a seguir para obter informações relacionadas.
+Como alternativa, examine os artigos a seguir sobre a classificação padrão. A classificação semântica depende do classificador de similaridade para retornar os resultados iniciais. Conhecer a execução e a classificação da consulta fornecerá uma ampla compreensão de como o processo inteiro funciona.
 
-+ [Visão geral da pesquisa semântica](semantic-search-overview.md)
-+ [Retornar uma resposta semântica](semantic-answers.md)
++ [Pesquisa de texto completo no Azure Pesquisa Cognitiva](search-lucene-query-architecture.md)
++ [Similaridade e pontuação no Azure Cognitive Search](index-similarity-and-scoring.md)
++ [Analisadores para processamento de texto no Azure Pesquisa Cognitiva](search-analyzers.md)

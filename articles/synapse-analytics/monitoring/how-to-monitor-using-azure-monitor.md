@@ -10,10 +10,10 @@ ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
 ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102549848"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use Azure Monitor com seu espaço de trabalho do Azure Synapse Analytics
@@ -173,7 +173,7 @@ Crie ou adicione configurações de diagnóstico para seu espaço de trabalho, p
     > [!NOTE]
     > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [referência de logs do AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações para seu espaço de trabalho, pool de SQL dedicado ou pool de Apache Spark. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 

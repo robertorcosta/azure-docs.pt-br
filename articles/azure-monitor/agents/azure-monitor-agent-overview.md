@@ -4,13 +4,14 @@ description: Visão geral do AMA (agente de Azure Monitor), que coleta dados de 
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 08/10/2020
-ms.openlocfilehash: 0487e5bd8109c02605e785e74d45589dd5fde5b9
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.date: 03/16/2021
+ms.custom: references_regions
+ms.openlocfilehash: f1f1ea787406d900c8035c0462ef903b848d7e81
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102039590"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608207"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Visão geral do agente de Azure Monitor (versão prévia)
 O agente de Azure Monitor (AMA) coleta dados de monitoramento do sistema operacional convidado de máquinas virtuais e as entrega ao Azure Monitor. Este artigo fornece uma visão geral do agente de Azure Monitor, incluindo como instalá-lo e como configurar a coleta de dados.
@@ -60,6 +61,35 @@ As seguintes limitações se aplicam durante a visualização pública do agente
   - *. control.monitor.azure.com
 
 
+## <a name="supported-regions"></a>Regiões com suporte
+Atualmente, o agente de Azure Monitor dá suporte a recursos nas seguintes regiões:
+
+- Leste da Ásia
+- Sudeste Asiático
+- Austrália Central
+- Leste da Austrália
+- Sudeste da Austrália
+- Canadá Central
+- Norte da Europa
+- Europa Ocidental
+- França Central
+- Centro-Oeste da Alemanha
+- Índia Central
+- Leste do Japão
+- Coreia Central
+- Norte da África do Sul
+- Norte da Suíça
+- Sul do Reino Unido
+- Oeste do Reino Unido
+- Centro dos EUA
+- Leste dos EUA
+- Leste dos EUA 2
+- Centro-Norte dos EUA
+- Centro-Sul dos Estados Unidos
+- Oeste dos EUA
+- Oeste dos EUA 2
+- Centro-Oeste dos EUA
+
 ## <a name="coexistence-with-other-agents"></a>Coexistência com outros agentes
 O agente de Azure Monitor pode coexistir com os agentes existentes para que você possa continuar a usar sua funcionalidade existente durante a avaliação ou migração. Isso é particularmente importante devido às limitações da visualização pública no suporte a soluções existentes. Você deve ter cuidado ao coletar dados duplicados, pois isso poderia distorcer os resultados da consulta e resultar em cobranças adicionais para a ingestão e retenção de dados.
 
@@ -79,10 +109,10 @@ O agente de Azure Monitor envia dados para Azure Monitor métricas ou um espaço
 |:---|:---|:---|
 | Desempenho        | Métricas do Azure Monitor<br>Espaço de trabalho do Log Analytics | Valores numéricos que medem o desempenho de diferentes aspectos do sistema operacional e das cargas de trabalho. |
 | Log de eventos do Windows | Espaço de trabalho do Log Analytics | Informações enviadas ao sistema de registro de evento do Windows. |
-| syslog             | Espaço de trabalho do Log Analytics | Informações enviadas ao sistema de registro de evento do Linux. |
+| Syslog             | Espaço de trabalho do Log Analytics | Informações enviadas ao sistema de registro de evento do Linux. |
 
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
+## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
 Consulte [sistemas operacionais com suporte](agents-overview.md#supported-operating-systems) para obter uma lista das versões do sistema operacional Windows e Linux com suporte no momento pelo agente de Azure monitor.
 
 

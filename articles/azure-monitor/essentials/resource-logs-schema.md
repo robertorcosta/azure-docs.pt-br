@@ -4,10 +4,10 @@ description: Entenda os serviços com suporte e o esquema de eventos para logs d
 ms.topic: reference
 ms.date: 09/01/2020
 ms.openlocfilehash: 661cba2d78dbb176bb04e6831cf8e045a285535e
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102033088"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Esquema comum e específico de serviço para logs de recursos do Azure
@@ -22,7 +22,7 @@ Uma combinação do tipo de recurso (disponível na propriedade `resourceId`) e 
 
 ## <a name="top-level-common-schema"></a>Esquema comum de nível superior
 
-| Name | Obrigatório/Opcional | Descrição |
+| Nome | Obrigatório/Opcional | Descrição |
 |---|---|---|
 | time | Obrigatório | O carimbo de data/hora (UTC) do evento. |
 | resourceId | Obrigatório | A ID do recurso que emitiu o evento. Para serviços de locatário, isso é o /tenants/tenant-id/providers/provider-name do formulário. |
@@ -48,7 +48,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Serviço | Esquema e Documentos |
 | --- | --- |
 | Azure Active Directory | [Visão geral](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), esquema de [log de auditoria](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [esquemas de entradas](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Serviços de análise | [Log de diagnóstico da instalação do Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
+| Analysis Services | [Log de diagnóstico da instalação do Azure Analysis Services](../../analysis-services/analysis-services-logging.md) |
 | Gerenciamento de API | [Logs de recursos de gerenciamento de API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Serviço de Aplicativo | [Logs do serviço de aplicativo](../../app-service/troubleshoot-diagnostic-logs.md)
 | Gateways do Aplicativo |[Registro em log do gateway de aplicativo](../../application-gateway/application-gateway-diagnostics.md) |
@@ -79,7 +79,7 @@ O esquema para logs de recursos varia dependendo do recurso e da categoria de lo
 | Proteção contra DDoS | [Registro em log para o padrão de proteção contra DDoS do Azure](../../ddos-protection/diagnostic-logging.md#log-schemas) |
 | Power BI dedicado | [Registro em log para Power BI Embedded no Azure](/power-bi/developer/azure-pbie-diag-logs) |
 | Serviços de Recuperação | [Modelo de dados para o backup do Azure](../../backup/backup-azure-reports-data-model.md)|
-| Pesquisar |[Habilitação e uso da análise de tráfego de pesquisa](../../search/search-traffic-analytics.md) |
+| Search |[Habilitação e uso da análise de tráfego de pesquisa](../../search/search-traffic-analytics.md) |
 | Barramento de Serviço |[Logs do barramento de serviço do Azure](../../service-bus-messaging/service-bus-diagnostic-logs.md) |
 | Banco de Dados SQL | [Log do banco de dados SQL do Azure](../../azure-sql/database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md) |
 | Stream Analytics |[Logs de trabalho](../../stream-analytics/stream-analytics-job-diagnostic-logs.md) |

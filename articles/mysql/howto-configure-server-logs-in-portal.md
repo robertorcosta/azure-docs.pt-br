@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/15/2021
 ms.openlocfilehash: 91569780aa71861e07c7e96bec5eac879642760d
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103496211"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Configurar e acessar logs de consulta lentos no portal do Azure
@@ -40,7 +40,7 @@ Configure o acesso aos logs de consulta lenta do MySQL.
 
 8. Ajuste outros parâmetros, como log_slow_admin_statements para registrar instruções administrativas. Por padrão, as instruções administrativas não são registradas em log, nem consultas que não usam índices para pesquisas. 
 
-9. Selecione **Salvar**. 
+9. Clique em **Salvar**. 
 
    :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Captura de tela de parâmetros de log de consulta lentos e salvar.":::
 

@@ -5,12 +5,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 03/15/2021
 ms.topic: how-to
-ms.openlocfilehash: 4a0d3e017f36f580024b77fbd23145d7447f336d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 86ea4ce4d596875e455d7b86250882713a14337f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564398"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720144"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Verificar erros no pool e nos nós
 
@@ -136,14 +136,16 @@ Alguns desses arquivos são gravados apenas uma vez quando nós de pool são cri
 
 Outros arquivos são gravados para cada tarefa executada em um nó, como stdout e stderr. Se um grande número de tarefas for executado no mesmo nó e/ou os arquivos de tarefas forem muito grandes, eles poderão preencher a unidade temporária.
 
-O tamanho da unidade temporária depende do tamanho da VM. Ao escolher um tamanho de VM, considere garantir que a unidade temporária tenha espaço suficiente.
+Além disso, depois que o nó é iniciado, uma pequena quantidade de espaço é necessária no disco do sistema operacional para criar usuários.
+
+O tamanho da unidade temporária depende do tamanho da VM. Uma consideração ao escolher um tamanho de VM é garantir que a unidade temporária tenha espaço suficiente para a carga de trabalho planejada.
 
 - No portal do Azure, ao adicionar um pool, é possível exibir a lista completa de tamanhos de VM e há a coluna "Tamanho do Disco do Recurso".
 - Os artigos que descrevem todos os tamanhos de VM têm tabelas com a coluna "Armazenamento Temporário"; por exemplo, [Tamanhos de VM de Computação Otimizada](../virtual-machines/sizes-compute.md)
 
 Para arquivos gravados por cada tarefa, é possível especificar um tempo de retenção para cada tarefa que determine por quanto tempo os arquivos de tarefa serão mantidos antes de serem limpos automaticamente. O tempo de retenção pode ser reduzido para diminuir os requisitos de armazenamento.
 
-Se o disco temporário ficar sem espaço (ou estiver muito perto de ficar sem espaço), o nó será movido para o estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó será relatado, informando que o disco está cheio.
+Se o disco do sistema operacional ou temporário estiver sem espaço (ou estiver muito perto de ficar sem espaço), o nó será movido para o estado [inutilizável](/rest/api/batchservice/computenode/get#computenodestate) e um erro de nó será relatado dizendo que o disco está cheio.
 
 Se você não tiver certeza do que está ocupando espaço no nó, tente comunicação remota com o nó e investigando manualmente onde o espaço foi feito. Você também pode usar a [API de Arquivos de Lista de Lote](/rest/api/batchservice/file/listfromcomputenode) para examinar arquivos em pastas gerenciadas do Lote (por exemplo, saídas de tarefas). Observe que essa API lista apenas os arquivos nos diretórios gerenciados do lote. Se suas tarefas criaram arquivos em outro lugar, você não os verá.
 

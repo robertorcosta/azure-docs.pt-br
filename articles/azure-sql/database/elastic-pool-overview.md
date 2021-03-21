@@ -12,10 +12,10 @@ ms.author: moslake
 ms.reviewer: ninarn, sstein
 ms.date: 12/9/2020
 ms.openlocfilehash: c478edf95ae345d64da630400fbf63ac613b73a6
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100653628"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-databases-in-azure-sql-database"></a>Pools elásticos ajudam a gerenciar e dimensionar vários bancos de dados no Banco de Dados SQL do Azure
@@ -153,7 +153,7 @@ No Portal do Azure, é possível monitorar a utilização de um pool elástico e
 
 Você pode usar as ferramentas internas de [monitoramento](./performance-guidance.md) e [alerta](./alerts-insights-configure-portal.md)de desempenho, combinadas com as classificações de desempenho.  Além disso, o Banco de Dados SQL pode [emitir métrica e logs de recursos](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md?tabs=azure-portal) para facilitar o monitoramento.
 
-## <a name="customer-case-studies"></a>Estudos de caso de cliente
+## <a name="customer-case-studies"></a>Estudos de caso de clientes
 
 - [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
 
