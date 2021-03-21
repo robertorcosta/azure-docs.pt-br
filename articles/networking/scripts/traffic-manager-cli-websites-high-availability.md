@@ -13,10 +13,10 @@ ms.workload: traffic-manager
 ms.date: 06/26/2018
 ms.author: allensu
 ms.openlocfilehash: 90fcba21ad6f44b5a420cb15b95ef278f9b5b9b0
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102211066"
 ---
 # <a name="route-traffic-for-high-availability-of-applications---azure-cli"></a>Rotear o tráfego para alta disponibilidade de aplicativos-CLI do Azure

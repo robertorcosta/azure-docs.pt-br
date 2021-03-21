@@ -9,10 +9,10 @@ ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
 ms.openlocfilehash: 21576b6714c05e5a0ed703c7a1452103c2c4b355
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103472809"
 ---
 # <a name="hbv3-series"></a>Série HBv3
@@ -32,11 +32,11 @@ Todas as VMs da série HBv3 apresentam um cabeçalho HDR de 200 GB/s de rede NVI
 
 |Tamanho |vCPU |Processador |Memória (GiB) |Largura de banda de memória GB/s |Frequência de CPU base (GHz) |Frequência de todos os núcleos (GHz, pico) |Frequência de núcleo único (GHz, pico) |Desempenho de RDMA (GB/s) |Suporte a MPI |Armazenamento temporário (GiB) |Discos de dados máximos |VNICs Ethernet máx. |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
-|Standard_HB120rs_v3    |120 |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Todos |2 * 960 |32 |8 |
-|Standard_HB120-96rs_v3 |96  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Todos |2 * 960 |32 |8 |
-|Standard_HB120-64rs_v3 |64  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Todos |2 * 960 |32 |8 |
-|Standard_HB120-32rs_v3 |32  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Todos |2 * 960 |32 |8 |
-|Standard_HB120-16rs_v3 |16  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Todos |2 * 960 |32 |8 |
+|Standard_HB120rs_v3    |120 |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
+|Standard_HB120-96rs_v3 |96  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
+|Standard_HB120-64rs_v3 |64  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
+|Standard_HB120-32rs_v3 |32  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
+|Standard_HB120-16rs_v3 |16  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
 
 
 Saiba mais sobre:

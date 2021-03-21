@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral de todos os logs operacionais 
 ms.topic: article
 ms.date: 06/23/2020
 ms.openlocfilehash: f2672d61285025eadb8f742ca2518297107595ce
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100585274"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Habilitar logs de diagnóstico para o barramento de serviço
@@ -25,7 +25,7 @@ Todos os logs são armazenados no formato JavaScript Object Notation (JSON) nos 
 
 As cadeias de caracteres JSON do log operacional incluem os elementos listados na tabela a seguir:
 
-| Name | Descrição |
+| Nome | Descrição |
 | ------- | ------- |
 | ActivityId | ID interna, usada para identificar a atividade especificada |
 | EventName | Nome da operação |
@@ -97,7 +97,7 @@ Os logs operacionais são desabilitados por padrão. Para habilitar os logs de d
 
     ![O painel "configurações de diagnóstico"](./media/service-bus-diagnostic-logs/image3.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 As novas configurações terão efeito em aproximadamente dez minutos. Os logs aparecerão no destino de arquivamento configurado, no painel **Logs de diagnóstico**.
 

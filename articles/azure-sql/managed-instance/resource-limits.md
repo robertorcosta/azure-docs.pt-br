@@ -13,10 +13,10 @@ ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
 ms.openlocfilehash: 9a96da607ceea5a6d5cb6ef02df5a9a4db24562e
-ms.sourcegitcommit: e8bd58dbcfe0eae45979d86e071778b9aec40b6c
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97770954"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Visão geral dos limites de recursos da Instância Gerenciada de SQL do Azure
@@ -80,7 +80,7 @@ O SQL Instância Gerenciada tem duas camadas de serviço: [uso geral](../databas
 | Limite de taxa de transferência de gravação de log (por instância) | 3 MB/s por vCore<br/>Máximo de 120 MB/s por instância<br/>22-65 MB/s por BD<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | 4 MB/s por vCore<br/>Máximo de 96 MB/s |
 | Taxa de transferência de dados (aproximada) | 100 – 250 MB/s por arquivo<br/>\*[Aumente o tamanho do arquivo para obter melhor desempenho de e/s](#file-io-characteristics-in-general-purpose-tier) | Não limitado. |
 | Latência de e/s de armazenamento (aproximada) | 5-10 ms | 1-2 ms |
-| OLTP na memória | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
+| OLTP in-memory | Sem suporte | Disponível, o [tamanho depende do número de vCore](#in-memory-oltp-available-space) |
 | Máx. de sessões | 30000 | 30000 |
 | Máximo de trabalhos simultâneos (solicitações) | Gen4: 210 x número de vCores + 800<br>Gen5: 105 x número de vCores + 800 | Gen4: 210 x contagem de vCore + 800<br>Gen5: 105 * contagem de vCore + 800 |
 | [Réplicas somente leitura](../database/read-scale-out.md) | 0 | 1 (incluído no preço) |

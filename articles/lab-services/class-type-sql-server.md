@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 06/26/2020
 ms.author: enewman
 ms.openlocfilehash: 50f71ee1ce59f5809fe8905c58f0399cf484f11a
-ms.sourcegitcommit: 8e7316bd4c4991de62ea485adca30065e5b86c67
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94659702"
 ---
 # <a name="set-up-a-lab-to-manage-and-develop-with-sql-server"></a>Configurar um laboratório para gerenciar e desenvolver com SQL Server
@@ -75,7 +75,7 @@ Use as configurações na tabela abaixo ao configurar um laboratório de sala de
 
 | Configurações do laboratório | Valor/instruções |
 | ------------ | ------------------ |
-| Tamanho da Máquina Virtual | Médio. Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise. |
+| Tamanho da Máquina Virtual | Média: Este tamanho é mais adequado a bancos de dados relacionais, cache na memória e análise. |
 | Imagem de máquina virtual | Comunidade do Visual Studio 2019 (versão mais recente) no Windows 10 Enterprise N (x64) |
 
 Agora que o nosso laboratório foi criado, vamos modificar o computador do modelo com o software de que precisamos.
@@ -93,10 +93,10 @@ O Visual Studio dá suporte a várias cargas de trabalho, incluindo cargas do & 
 O [Azure Data Studio](https://github.com/microsoft/azuredatastudio) é um ambiente de área de trabalho multiplataforma entre plataformas para profissionais de dados que usam a família de plataformas de dados locais e na nuvem no Windows, no MacOS e no Linux.
 
 1. Baixe o [instalador do *sistema* Azure Data Studio para Windows](https://go.microsoft.com/fwlink/?linkid=2127432). Para localizar instaladores para outros sistemas operacionais com suporte, vá para a página de download do [Azure Data Studio](/sql/azure-data-studio/download) .
-2. Na página **contrato de licença** , selecione **aceito o contrato**. Clique em **Avançar**.
+2. Na página **contrato de licença** , selecione **aceito o contrato**. Clique em **Próximo**.
 3. Na página **Selecionar Local de Destino**, clique em **Avançar**.
 4. Na página **Selecionar Pasta do Menu Iniciar**, clique em **Avançar**.
-5. Na página **selecionar tarefas adicionais** , marque **criar um ícone de área de trabalho** se desejar um ícone de área de trabalho.  Clique em **Avançar**.
+5. Na página **selecionar tarefas adicionais** , marque **criar um ícone de área de trabalho** se desejar um ícone de área de trabalho.  Clique em **Próximo**.
 6. Em **pronto para instalar**, clique em **Avançar**.
 7. Aguarde a execução do instalador.  Clique em **Concluir**.
 

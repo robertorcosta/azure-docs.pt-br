@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: how-to
 ms.date: 06/22/2020
 ms.author: rogarana
-ms.openlocfilehash: 3aa7ab2fd3217377e9c56c8c71a1c1acc959bcd9
-ms.sourcegitcommit: 66ce33826d77416dc2e4ba5447eeb387705a6ae5
+ms.openlocfilehash: 1dd2768c7541312b68e2a44a35fc4260d67c5655
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
-ms.locfileid: "103472273"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104586991"
 ---
 # <a name="part-four-mount-a-file-share-from-a-domain-joined-vm"></a>Parte quatro: montar um compartilhamento de arquivos de uma VM ingressada no domínio
 
@@ -28,7 +28,7 @@ Entre no cliente usando as credenciais às quais você concedeu permissões, con
 
 Antes de poder montar o compartilhamento de arquivos, verifique se você passou pelos seguintes pré-requisitos:
 
-- Se você estiver montando o compartilhamento de arquivos de um cliente que tenha montado anteriormente o compartilhamento de arquivos usando sua chave de conta de armazenamento, verifique se você desconectou o compartilhamento, removeu as credenciais persistentes da chave da conta de armazenamento e está usando as credenciais AD DS para autenticação. Para obter instruções para limpar o compartilhamento montado com a chave da conta de armazenamento, consulte a [página de perguntas frequentes](https://docs.microsoft.com/azure/storage/files/storage-files-faq#ad-ds--azure-ad-ds-authentication).
+- Se você estiver montando o compartilhamento de arquivos de um cliente que tenha montado anteriormente o compartilhamento de arquivos usando sua chave de conta de armazenamento, verifique se você desconectou o compartilhamento, removeu as credenciais persistentes da chave da conta de armazenamento e está usando as credenciais AD DS para autenticação. Para obter instruções para limpar o compartilhamento montado com a chave da conta de armazenamento, consulte a [página de perguntas frequentes](./storage-files-faq.md#ad-ds--azure-ad-ds-authentication).
 - Seu cliente deve ter uma linha de visão para seu AD DS. Se seu computador ou VM estiver fora da rede gerenciada pelo seu AD DS, você precisará habilitar a VPN para alcançar AD DS para autenticação.
 
 Substitua os valores de espaço reservado pelos seus próprios valores e, em seguida, use o comando a seguir para montar o compartilhamento de arquivos do Azure. Você sempre precisa montar usando o caminho mostrado abaixo. Não há suporte para o uso de CNAME para montagem de arquivo para autenticação baseada em identidade (AD DS ou AD DS do Azure).

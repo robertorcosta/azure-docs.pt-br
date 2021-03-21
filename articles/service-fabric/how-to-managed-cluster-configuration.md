@@ -4,10 +4,10 @@ description: Saiba como configurar seu Service Fabric cluster gerenciado para at
 ms.topic: how-to
 ms.date: 02/15/2021
 ms.openlocfilehash: 44b1b949fe314231cb44f190c31b53903e47a904
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732625"
 ---
 # <a name="service-fabric-managed-cluster-preview-configuration-options"></a>Opções de configuração do Service Fabric cluster gerenciado (versão prévia)
@@ -30,7 +30,7 @@ Para habilitar atualizações automáticas do so:
 * Defina a propriedade do cluster `enableAutoOSUpgrade` como *true*
 * Definir a propriedade de recurso de nodeTypes do cluster `vmImageVersion` como *mais recente*
 
-Por exemplo: 
+Por exemplo:
 
 ```json
     {

@@ -7,10 +7,10 @@ ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: e116c590e07ffcdb1b7c8ae2e30b2e76bb909bff
-ms.sourcegitcommit: 7e97ae405c1c6c8ac63850e1b88cf9c9c82372da
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/29/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97802704"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrações de parceiros de área de trabalho virtual do Windows
@@ -347,7 +347,7 @@ o laboratório de inovação e desenvolvimento de sepago cria soluções intelig
 
 SSH2 é um provedor de serviços de valor agregado da área de trabalho virtual do Windows que equipa suas equipes de ti com software para acelerar a entrega de aplicativos da plataforma atual para a área de trabalho virtual do Windows no Azure. O SSH2 permite acelerar a captura de aplicativos para simplificar o processo de migração. O SSH2's appCURE captura aplicativos em execução no ponto de extremidade, permite a atualização e a correção para criar uma mudança de etapa abrangente na velocidade em que os ambientes de usuário final podem ser executados. 
 
-o appCURE captura detalhes do aplicativo da execução de aplicativos para garantir que todos os pontos que possam afetar os aplicativos do usuário final sejam compreendidos. em seguida, o appCURE atualiza e entrega para sua nova área de trabalho virtual do Windows. Ao capturar todos os pontos de integração do aplicativo em seu ambiente atual, o appCURE fornece a velocidade para otimizar os recursos de ti e planejar suas migrações melhor e mais rápido do que nunca, permitindo, assim, que as organizações cheguem mais rapidamente à produção.
+O appCURE captura detalhes do aplicativo, da execução de aplicativos à garantia de que todos os pontos que possam afetar os aplicativos de usuário final sejam compreendidos. em seguida, o appCURE atualiza e entrega para sua nova área de trabalho virtual do Windows. Capturando todos os pontos de integração do aplicativo em seu ambiente atual, o appCURE oferece a velocidade para otimizar recursos de TI e planejar as suas migrações melhor e de modo mais rápido do que nunca, permitindo que as organizações entrem em produção com mais rapidez.
 
 - [Veja o resumo da solução conjunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
 - [Acesse a página do parceiro](#ssh2).

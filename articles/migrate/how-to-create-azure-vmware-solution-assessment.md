@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 06/26/2020
 ms.openlocfilehash: e386db1ee2042d75a31d4a9de2a5174e904c6b5c
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732965"
 ---
 # <a name="create-an-azure-vmware-solution-avs-assessment"></a>Criar uma avaliação da AVS (solução do Azure VMware)
@@ -37,7 +37,7 @@ Há dois tipos de avaliações que podem ser criadas usando as Migrações para 
 **AVS (Solução VMware no Azure)** | Avaliações para migrar servidores locais para a [AVS (Solução VMware no Azure)](../azure-vmware/introduction.md). <br/><br/> Avalie as [VMs do VMware](how-to-set-up-appliance-vmware.md) locais para migração para a AVS (Solução VMware no Azure) usando esse tipo de avaliação.[Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
 > [!NOTE]
-> A avaliação da solução de VMware Azure (AVS) pode ser criada somente para VMs VMware.
+> A avaliação da AVS (Solução VMware no Azure) pode ser criada apenas para VMs do VMware.
 
 
 Há dois tipos de critérios de dimensionamento que você pode usar para criar avaliações da AVS (solução VMware) do Azure:
@@ -56,7 +56,7 @@ Há dois tipos de critérios de dimensionamento que você pode usar para criar a
 
 1. Em **Migrações para Azure: Avaliação de Servidor**, clique em **Avaliar**.
 
-1. Em **avaliar**  >  **tipo de avaliação** de servidores, selecione **solução VMware do Azure (AVS)**.
+1. Em **Avaliar servidores** > **Tipo de avaliação**, selecione **AVS (Solução VMware no Azure)** .
 
 1. Em **Origem da descoberta**:
 
@@ -78,8 +78,8 @@ Há dois tipos de critérios de dimensionamento que você pode usar para criar a
     - O **Tipo de nó** usa **AV36** como padrão. As Migrações para Azure recomendam o uso de nós necessários para migrar as VMs para a AVS.
     - Em **Configuração FTT, nível de RAID**, selecione a combinação RAID e Tolerância a Falhas.  A opção FTT selecionada, combinada com o requisito de disco de VM local, determina o total de armazenamento vSAN necessário na AVS.
     - Em **Excesso de Assinatura de CPU**, especifique a proporção de núcleos virtuais associados a um núcleo físico no nó da AVS. Um Excesso de Assinatura maior que 4:1 pode causar degradação do desempenho, mas pode ser usado para cargas de trabalho do tipo servidor Web.
-    - Em **fator** de excesso de memória, especifique a taxa de memória sobre confirmações no cluster. Um valor de 1 representa 100% de uso da memória, 0,5, por exemplo, é 50%, e 2 estaria usando 200% da memória disponível. Você só pode adicionar valores de 0,5 a 10 até uma casa decimal.
-    - Em **eliminação de duplicação e fator de compactação**, especifique a eliminação de duplicação prevista e o fator de compactação para suas cargas de trabalho. O valor real pode ser obtido da configuração de armazenamento ou da vSAN local, e isso pode variar por carga de trabalho. Um valor de 3 significaria 3x para que apenas 300 GB de armazenamento de 100 GB fosse usado. Um valor de 1 não significaria nenhuma eliminação de duplicação ou compactação. Você só pode adicionar valores de 1 a 10 até um lugar decimal.
+    - Em **Fator de memória para confirmação**, especifique a proporção de memória para confirmações no cluster. Um valor de 1 representa 100% de uso da memória; um valor de 0,5 representa 50% e um valor de 2 usaria 200% da memória disponível. Você só pode adicionar valores de 0,5 a 10, com até uma casa decimal.
+    - Em **Fator de eliminação de duplicação e compactação**, especifique o fator de eliminação de duplicação e compactação previstas para suas cargas de trabalho. O valor real pode ser obtido da configuração de armazenamento ou da vSAN local e pode variar por carga de trabalho. Um valor de 3 significaria 3x para, de modo que para um disco de 300 GB, somente 100 GB de armazenamento seriam usados. Um valor de 1 significaria que não há eliminação de duplicação ou compactação. Você só pode adicionar valores de 1 a 10, com até uma casa decimal.
 1. Em **Tamanho do Nó**: 
     - Em **Critério de Dimensionamento**, selecione se você deseja basear a avaliação em metadados estáticos ou em dados baseados em desempenho. Se você optar por usar dados de desempenho:
         - Em **Histórico de desempenho**, indique a duração dos dados em que você deseja basear a avaliação

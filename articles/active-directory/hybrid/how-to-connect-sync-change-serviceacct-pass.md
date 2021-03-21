@@ -18,10 +18,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4dcc7ed6076c3bac723d709f50f1b3ab2ce8f58
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95996552"
 ---
 # <a name="changing-the-adsync-service-account-password"></a>Alterando a senha da conta de serviço do ADSync
@@ -97,7 +97,7 @@ Como as senhas existentes armazenadas no banco de dados não podem mais ser desc
 </br>![Synchronization Service Manager](./media/how-to-connect-sync-change-serviceacct-pass/startmenu.png)  
 2. Acesse a guia **Conectores**.
 3. Selecione o **AD Connector** que corresponde ao seu AD local. Se você tiver mais de um AD Connector, repita as etapas a seguir para cada um deles.
-4. Em **ações**, selecione **Propriedades**.
+4. Em **Ações**, selecione **Propriedades**.
 5. Na caixa de diálogo pop-up, selecione **Conectar-se à floresta do Active Directory**:
 6. Insira a senha da conta do AD DS na caixa de texto **Senha**. Se você não souber a senha, configure-a para um valor conhecido antes de executar essa etapa.
 7. Clique em **OK** para salvar a nova senha e fechar a caixa de diálogo pop-up.
