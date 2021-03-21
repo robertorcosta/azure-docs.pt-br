@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.openlocfilehash: 5a050d9aab9e8665c6048391488e57c9b4af10a5
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043058"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Dispositivo de migrações para Azure: perguntas comuns
@@ -22,7 +22,7 @@ Este artigo responde a perguntas comuns sobre o dispositivo migrações para Azu
 - Perguntas sobre a [migração do servidor](common-questions-server-migration.md)
 - Obter perguntas respondidas no [Fórum de migrações para Azure](https://aka.ms/AzureMigrateForum)
 
-## <a name="what-is-the-azure-migrate-appliance"></a>O que é o dispositivo de migrações para Azure?
+## <a name="what-is-the-azure-migrate-appliance"></a>O que é o dispositivo de Migrações para Azure?
 
 O dispositivo de migrações para Azure é um dispositivo leve que a ferramenta migrações para Azure usa para descobrir e avaliar servidores físicos ou virtuais do local ou de qualquer nuvem. A ferramenta migrações para Azure: migração de servidor também usa o dispositivo para a migração sem agente de VMs VMware locais.
 
@@ -155,12 +155,12 @@ Sim. No portal, acesse a página de **integridade do agente** para a ferramenta 
 Sim, agora damos suporte a várias credenciais de servidor para executar o inventário de software (descoberta de aplicativos instalados), análise de dependência sem agente e descoberta de instâncias de SQL Server e bancos de dados. [Saiba mais](tutorial-discover-vmware.md#provide-server-credentials) sobre como fornecer credenciais no Gerenciador de configuração de dispositivo.
 
 ## <a name="what-type-of-server-credentials-can-i-add-on-the-vmware-appliance"></a>Que tipo de credenciais de servidor posso adicionar ao dispositivo VMware?
-Você pode fornecer credenciais de autenticação de domínio/Windows (não domínio)/Linux (não domínio)/SQL Server no Gerenciador de configuração de dispositivo. [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como tratá-las.
+Você pode fornecer credenciais de autenticação de domínio/Windows (não domínio)/Linux (não domínio)/SQL Server no Gerenciador de configuração de dispositivo. [Saiba mais](add-server-credentials.md) sobre como fornecer credenciais e como as manipulamos.​
 
 ## <a name="what-type-of-sql-server-connection-properties-are-supported-by-azure-migrate-for-sql-discovery"></a>Quais tipos de propriedades de conexão de SQL Server são compatíveis com a migração do Azure para descoberta de SQL?
-As migrações para Azure criptografarão a comunicação entre o dispositivo de migração do Azure e as instâncias de SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como true); a camada de transporte usará SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor de dispositivo deve ser configurado para [confiar na autoridade raiz do certificado](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+As Migrações para Azure criptografarão a comunicação entre o dispositivo das Migrações para Azure e as instâncias do SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [TrustServerCertificate](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como TRUE); a camada de transporte usará o SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor do dispositivo precisa ser configurado para [confiar na autoridade raiz do certificado](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
-Se nenhum certificado tiver sido provisionado no servidor quando ele for iniciado, SQL Server gerará um certificado autoassinado que será usado para criptografar pacotes de logon. [Saiba mais](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+Se nenhum certificado tiver sido provisionado no servidor quando ele foi inicializado, o SQL Server vai gerar um certificado autoassinado usado para criptografar pacotes de logon. [Saiba mais](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 
 ## <a name="next-steps"></a>Próximas etapas

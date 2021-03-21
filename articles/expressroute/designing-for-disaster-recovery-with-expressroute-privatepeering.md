@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 9826fb9575dcc1d49f16dd8c7794c7b471bd3109
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92202406"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Criando para recuperação de desastre com o emparelhamento privado do ExpressRoute
 
 O ExpressRoute foi projetado para alta disponibilidade a fim de fornecer conectividade de rede privada de nível Carrier para recursos da Microsoft. Em outras palavras, não há nenhum ponto único de falha no caminho do ExpressRoute dentro da rede da Microsoft. Para obter considerações de design para maximizar a disponibilidade de um circuito do ExpressRoute, consulte [projetando para alta disponibilidade com o ExpressRoute][HA].
 
-No entanto, tomando o adágio popular da Murphy – *se algo puder dar errado, ele entrará* em consideração. neste artigo, vamos nos concentrar em soluções que vão além das falhas que podem ser resolvidas usando um único circuito do ExpressRoute. Em outras palavras, neste artigo, vamos examinar as considerações de arquitetura de rede para criar uma conectividade de rede de back-end robusta para recuperação de desastres usando circuitos de ExpressRoute com redundância geográfica.
+No entanto, tomando o adágio popular da Murphy –*se algo puder dar errado, ele entrará* em consideração. neste artigo, vamos nos concentrar em soluções que vão além das falhas que podem ser resolvidas usando um único circuito do ExpressRoute. Em outras palavras, neste artigo, vamos examinar as considerações de arquitetura de rede para criar uma conectividade de rede de back-end robusta para recuperação de desastres usando circuitos de ExpressRoute com redundância geográfica.
 
 >[!NOTE]
 >Os conceitos descritos neste artigo se aplicam igualmente quando um circuito do ExpressRoute é criado sob a WAN virtual ou fora dele.

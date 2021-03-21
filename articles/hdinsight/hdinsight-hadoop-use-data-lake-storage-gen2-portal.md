@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 09/17/2020
 ms.openlocfilehash: d54c005ffb17571be172b5716723febb742253a3
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98945392"
 ---
 # <a name="create-a-cluster-with-data-lake-storage-gen2-using-the-azure-portal"></a>Criar um cluster com Data Lake Storage Gen2 usando o portal do Azure
@@ -73,7 +73,7 @@ Atribua a identidade gerenciada à função de **proprietário de dados do blob 
 
     ![Captura de tela mostrando como atribuir uma função do Azure](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
-1. Selecione **Salvar**. A identidade atribuída pelo usuário que você selecionou agora está listada na função selecionada.
+1. Clique em **Salvar**. A identidade atribuída pelo usuário que você selecionou agora está listada na função selecionada.
 1. Ao concluir a configuração inicial, você poderá criar um cluster usando o portal. O cluster deve estar na mesma região do Azure da conta de armazenamento. Na guia **armazenamento** do menu de criação de cluster, selecione as seguintes opções:
 
     * Para **tipo de armazenamento primário**, selecione **Azure data Lake Storage Gen2**.

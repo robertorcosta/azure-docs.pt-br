@@ -4,10 +4,10 @@ description: Este artigo descreve como usar os eventos de diagnóstico novos e a
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.openlocfilehash: b2130f06e17dd2b5cf8461d4e58342ee41c14f96
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100575413"
 ---
 # <a name="use-diagnostics-settings-for-recovery-services-vaults"></a>Usar configurações de diagnóstico para cofres dos serviços de recuperação
@@ -45,7 +45,7 @@ Para enviar os dados de diagnóstico do cofre para Log Analytics:
 1. Dê um nome para a configuração de diagnóstico.
 1. Marque a caixa de seleção **Enviar para log Analytics** e selecione um espaço de trabalho log Analytics.
 1. Selecione **recurso específico** na alternância e selecione os seis eventos a seguir: **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage** e **AddonAzureBackupProtectedInstance**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
    ![Modo específico do recurso](./media/backup-azure-diagnostics-events/resource-specific-blade.png)
 

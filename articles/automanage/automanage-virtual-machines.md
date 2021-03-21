@@ -10,10 +10,10 @@ ms.date: 02/23/2021
 ms.author: deanwe
 ms.custom: references_regions
 ms.openlocfilehash: 1d3b2174df5dd83852ce120ec6693ae187a3e795
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101643501"
 ---
 # <a name="azure-automanage-for-virtual-machines"></a>Autogerenciamento do Azure para máquinas virtuais
@@ -78,8 +78,8 @@ Se você estiver habilitando o autogerenciamento com uma conta de autogerenciame
 :::image type="content" source="media\automanage-virtual-machines\intelligently-onboard-services.png" alt-text="Integração inteligente de serviços.":::
 
 Para obter a lista completa de serviços participantes do Azure, bem como seu ambiente com suporte, consulte o seguinte:
-- [Autogerenciar para Linux](automanage-linux.md)
-- [Autogerenciar para Windows Server](automanage-windows-server.md)
+- [Gerenciamento Automatizado para Linux](automanage-linux.md)
+- [Gerenciamento Automatizado para Windows Server](automanage-windows-server.md)
 
  Nós iremos integrar automaticamente a esses serviços participantes. Eles são essenciais para nossas práticas recomendadas white paper, que você pode encontrar em nossa [estrutura de adoção de nuvem](/azure/cloud-adoption-framework/manage/azure-server-management).
 
@@ -121,8 +121,8 @@ Você pode ajustar as configurações de um ambiente padrão por meio de prefer�
 > Você não pode alterar a configuração de enivonrment em sua VM enquanto o autogerenci está habilitado. Será necessário desabilitar o autogerenci para essa VM e reabilitar o autogerenci com o ambiente e as preferências desejadas.
 
 Para obter a lista completa de serviços participantes do Azure e se eles dão suporte a preferências, consulte aqui:
-- [Autogerenciar para Linux](automanage-windows-server.md)
-- [Autogerenciar para Windows Server](automanage-windows-server.md)
+- [Gerenciamento Automatizado para Linux](automanage-windows-server.md)
+- [Gerenciamento Automatizado para Windows Server](automanage-windows-server.md)
 
 
 ## <a name="automanage-account"></a>Autogerenciar conta

@@ -8,10 +8,10 @@ ms.author: weetok
 ms.reviewer: maghan
 ms.date: 10/09/2018
 ms.openlocfilehash: 5a9ed44e05c371460ae3ceab721f2236f6ec7fd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100383391"
 ---
 # <a name="append-variable-activity-in-azure-data-factory"></a>Atividade Anexar Variável no Azure Data Factory
@@ -31,4 +31,4 @@ variableName | Nome da variável que será modificada por atividade, a variável
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre uma atividade de fluxo de controle relacionada com suporte pelo Data Factory: 
 
-- [Definir Atividade Variável](control-flow-set-variable-activity.md)
+- [Definir atividade variável](control-flow-set-variable-activity.md)

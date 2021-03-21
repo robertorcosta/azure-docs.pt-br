@@ -4,10 +4,10 @@ description: Use um Dashboard no portal do Azure como um modelo para criar progr
 ms.topic: how-to
 ms.date: 12/4/2020
 ms.openlocfilehash: bd56dc1c729c5aa7a77e79aa3af3366166fdcfea
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101095173"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
@@ -46,7 +46,7 @@ Depois de configurar o painel, a próxima etapa é publicar o painel usando o co
 
 ![compartilhando um painel](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, consulte [atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
+Selecionar **compartilhar** solicita que você escolha em qual assinatura e grupo de recursos publicar. Você deve ter acesso de gravação à assinatura e ao grupo de recursos que escolher. Para obter mais informações, confira [Atribuir funções do Azure usando o portal do Azure](../role-based-access-control/role-assignments-portal.md).
 
 ![fazer alterações no compartilhamento e no acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 

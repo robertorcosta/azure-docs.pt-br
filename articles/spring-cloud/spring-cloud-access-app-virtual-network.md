@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 11/11/2020
 ms.custom: devx-track-java
 ms.openlocfilehash: 37c8b4bc186c217ecb27638f5f50297102345de7
-ms.sourcegitcommit: 1f1d29378424057338b246af1975643c2875e64d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/05/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99576524"
 ---
 # <a name="access-your-application-in-a-private-network"></a>Acessar seu aplicativo em uma rede privada
@@ -88,7 +88,7 @@ $SERVICE_RUNTIME_RG --query "[0].privateIpAddress" -o tsv`
     |Configuração     |Valor                                                                      |
     |------------|---------------------------------------------------------------------------|
     |Nome        |Insira *\**                                                                 |
-    |Tipo        |Selecione **um**                                                               |
+    |Type        |Selecione **um**                                                               |
     |TTL         |Insira *1*                                                                  |
     |Unidade de TTL    |Selecionar **horas**                                                           |
     |Endereço IP  |Insira o endereço IP copiado na etapa 3. No exemplo, insira *10.1.0.7*.    |
