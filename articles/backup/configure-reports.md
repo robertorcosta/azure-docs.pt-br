@@ -4,10 +4,10 @@ description: Configurar e exibir relatórios para o Backup do Azure usando o Log
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102509346"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
@@ -156,7 +156,7 @@ No caso de itens com backup semanal, essa grade ajuda a identificar todos os ite
 
 ![Adesão de política por instância de backup](./media/backup-azure-configure-backup-reports/policy-adherence-by-backup-instance.png)
 
-###### <a name="email-azure-backup-reports"></a>Enviar relatórios de backup do Azure
+###### <a name="email-azure-backup-reports"></a>Enviar relatórios de Backup do Azure por email
 
 Usando o recurso de **relatório de email** disponível em relatórios de backup, você pode criar tarefas automatizadas para receber relatórios periódicos por email. Esse recurso funciona implantando um aplicativo lógico em seu ambiente do Azure que consulta dados de seus espaços de trabalho selecionados de Log Analytics (LA), com base nas entradas que você fornecer.
 

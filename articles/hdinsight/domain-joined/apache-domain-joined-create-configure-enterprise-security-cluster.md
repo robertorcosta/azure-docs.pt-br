@@ -6,10 +6,10 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/10/2019
 ms.openlocfilehash: 914acfab3935bc81e7d8382163ca9283c7f71a53
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98934045"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Criar e configurar clusters Enterprise Security Package no Azure HDInsight
@@ -155,7 +155,7 @@ Crie um administrador de locatários Active Directory.
 
     |Propriedade |Descrição |
     |---|---|
-    |Nome do usuário|Insira `fabrikamazureadmin` na caixa de texto. Na lista suspensa nome de domínio, selecione `hdifabrikam.com`|
+    |Nome de usuário|Insira `fabrikamazureadmin` na caixa de texto. Na lista suspensa nome de domínio, selecione `hdifabrikam.com`|
     |Nome| Digite `fabrikamazureadmin`.|
 
     **Senha**
@@ -201,7 +201,7 @@ Crie um administrador de locatários Active Directory.
 
    ![A página "pronto para configurar"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
-1. Na página **Configuração completa**, selecione **Sair**.
+1. Na página **Configuração completa** selecione **Sair**.
    ![A página "configuração concluída"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
 
 1. Após a conclusão da sincronização, confirme se os usuários que você criou no diretório IaaS estão sincronizados com o Azure AD.
@@ -288,7 +288,7 @@ Use as etapas a seguir para configurar sua rede virtual do Azure AD DS (**HDIFab
     1. Em **configurações**, selecione **servidores DNS**.
     1. selecione **Personalizado**.
     1. Na caixa de texto, insira o primeiro endereço IP (*10.0.0.4*).
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
     1. Repita as etapas para adicionar o outro endereço IP (*10.0.0.5*).
 
 Em nosso cenário, configuramos o Azure AD DS para usar os endereços IP 10.0.0.4 e 10.0.0.5, definindo o mesmo endereço IP na rede virtual do Azure AD DS:
@@ -389,7 +389,7 @@ Esta etapa requer os seguintes pré-requisitos:
 1. Configure o DNS personalizado na rede virtual **HDIFabrikam-AADDSVNET** .
     1. Vá para o portal do Azure > **grupos de recursos**  >  **OnPremADVRG**  >  **HDIFabrikam-AADDSVNET**  >  **servidores DNS**.
     1. Selecione **personalizado** e insira *10.0.0.4* e *10.0.0.5*.
-    1. Selecione **Salvar**.
+    1. Clique em **Salvar**.
 
         ![Salvar configurações personalizadas de DNS para uma rede virtual](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0123.png)
 

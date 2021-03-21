@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: template-concept; references_regions
-ms.openlocfilehash: 449eb1d65e0104e6c5c74a78901cf29c5aeb3e57
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 01c5d4aaa3896e05bc743be309df050471ece5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102609083"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582044"
 ---
 # <a name="trusted-launch-for-azure-virtual-machines-preview"></a>Inicialização confiável para máquinas virtuais do Azure (versão prévia)
 
@@ -73,7 +73,7 @@ O Azure oferece uma inicialização confiável como uma maneira simples de melho
 
 ## <a name="secure-boot"></a>Inicialização Segura
 
-Na raiz de inicialização confiável está a inicialização segura para sua VM. Esse modo, que é implementado no firmware da plataforma, protege contra a instalação de rootkits baseados em malware e kits de inicialização. A inicialização segura funciona para garantir que apenas sistemas operacionais e drivers assinados possam ser inicializados. Ele estabelece uma "raiz de confiança" para a pilha de software em sua VM. Com a inicialização segura habilitada, todos os componentes de inicialização do sistema operacional (carregador de inicialização, kernel, drivers de kernel) devem ser assinados por editores confiáveis. O Windows e o selecione as distribuições do Linux dão suporte à inicialização segura. Se a inicialização segura falhar ao autenticar que a imagem foi assinada por um fornecedor confiável, a VM não terá permissão para inicializar. Para saber mais, confira [Inicialização Segura](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot).
+Na raiz de inicialização confiável está a inicialização segura para sua VM. Esse modo, que é implementado no firmware da plataforma, protege contra a instalação de rootkits baseados em malware e kits de inicialização. A inicialização segura funciona para garantir que apenas sistemas operacionais e drivers assinados possam ser inicializados. Ele estabelece uma "raiz de confiança" para a pilha de software em sua VM. Com a inicialização segura habilitada, todos os componentes de inicialização do sistema operacional (carregador de inicialização, kernel, drivers de kernel) devem ser assinados por editores confiáveis. O Windows e o selecione as distribuições do Linux dão suporte à inicialização segura. Se a inicialização segura falhar ao autenticar que a imagem foi assinada por um fornecedor confiável, a VM não terá permissão para inicializar. Para saber mais, confira [Inicialização Segura](/windows-hardware/design/device-experiences/oem-secure-boot).
 
 ## <a name="vtpm"></a>vTPM
 
@@ -87,7 +87,7 @@ A [proteção baseada em virtualização](/windows-hardware/design/device-experi
 
 O política HVAC é uma poderosa mitigação do sistema que protege os processos do modo kernel do Windows contra injeção e execução de código mal-intencionado ou não verificado. Ele verifica os drivers e os binários do modo kernel antes de executá-los, impedindo que arquivos não assinados sejam carregados na memória. Isso garante que esse código executável não possa ser modificado depois que ele tiver permissão para ser carregado. Para obter mais informações sobre VBS e política HVAC, consulte [segurança baseada em virtualização (vbs) e integridade de código imposta do hipervisor (política HVAC)](https://techcommunity.microsoft.com/t5/windows-insider-program/virtualization-based-security-vbs-and-hypervisor-enforced-code/m-p/240571).
 
-Com o Launch e o VBS confiáveis, você pode habilitar o Windows Defender Credential Guard. Esse recurso isola e protege segredos para que somente o software de sistema privilegiado possa acessá-los. Ele ajuda a impedir o acesso não autorizado a segredos e ataques de roubo de credenciais, como ataques de Pass-the-hash (PtH). Para obter mais informações, consulte [Credential Guard](https://docs.microsoft.com/windows/security/identity-protection/credential-guard/credential-guard).
+Com o Launch e o VBS confiáveis, você pode habilitar o Windows Defender Credential Guard. Esse recurso isola e protege segredos para que somente o software de sistema privilegiado possa acessá-los. Ele ajuda a impedir o acesso não autorizado a segredos e ataques de roubo de credenciais, como ataques de Pass-the-hash (PtH). Para obter mais informações, consulte [Credential Guard](/windows/security/identity-protection/credential-guard/credential-guard).
 
 
 ## <a name="security-center-integration"></a>Integração da Central de Segurança
@@ -134,7 +134,7 @@ Na cadeia de inicialização segura, cada etapa no processo de inicialização v
 
 ### <a name="what-happens-when-an-integrity-fault-is-detected"></a>O que acontece quando uma falha de integridade é detectada?
 
-O lançamento confiável para máquinas virtuais do Azure é monitorado para ameaças avançadas. Se essas ameaças forem detectadas, um alerta será disparado. Os alertas só estão disponíveis na [camada Standard](/azure/security-center/security-center-pricing) da central de segurança do Azure.
+O lançamento confiável para máquinas virtuais do Azure é monitorado para ameaças avançadas. Se essas ameaças forem detectadas, um alerta será disparado. Os alertas só estão disponíveis na [camada Standard](../security-center/security-center-pricing.md) da central de segurança do Azure.
 A central de segurança do Azure executa periodicamente o atestado. Se o atestado falhar, um alerta de severidade médio será disparado. O atestado de inicialização confiável pode falhar pelos seguintes motivos: 
 - As informações atestadas, que incluem um log da base de computação confiável (TCB), se desviam de uma linha de base confiável (como quando a inicialização segura está habilitada). Isso pode indicar que os módulos não confiáveis foram carregados e que o sistema operacional pode estar comprometido.
 - Não foi possível verificar a cotação de atestado para originar do vTPM da VM atestada. Isso pode indicar que o malware está presente e pode estar interceptando o tráfego para o TPM. 

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.custom: ''
 ms.date: 01/14/2021
 ms.openlocfilehash: 0cc1a083e1400b5a3167376e374af6c7bf7ab7c7
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101698341"
 ---
 # <a name="data-source-schema-reference"></a>Referência de esquema de fonte de dados
@@ -23,7 +23,7 @@ Este artigo lista esquemas de fonte de dados do Azure e de terceiros com suporte
 
 ## <a name="azure-data-sources"></a>Fontes de dados do Azure
 
-| Tipo                             | Fonte de dados             | Log Analytics TableName | Referência de esquema |
+| Type                             | Fonte de dados             | Log Analytics TableName | Referência de esquema |
 | -------------------------------- | ---------------------- | ---------------------- | ---------------- |
 | **Azure**                            | Azure Active Directory | SigninEvents           | [Propriedades de entrada dos relatórios de atividade do Azure AD](/graph/api/resources/signin#properties) |
 | **Azure**                            | Azure Active Directory | AuditLogs              | [Referência do Azure Monitor AuditLogs](/azure/azure-monitor/reference/tables/auditlogs) |
@@ -44,7 +44,7 @@ Este artigo lista esquemas de fonte de dados do Azure e de terceiros com suporte
 
 A tabela a seguir lista os fornecedores de terceiros com suporte e sua documentação de mapeamento de syslog ou formato de evento comum (CEF) para vários tipos de log com suporte, que contêm mapeamentos de campo CEF e logs de exemplo para cada tipo de categoria.
 
-| Tipo |    Fornecedor |    Produto | Log Analytics TableName | Campo CEF – referência de mapeamento  |
+| Type |    Fornecedor |    Produto | Log Analytics TableName | Campo CEF – referência de mapeamento  |
 | ----- | ----- | ----- | ----- |----- |
 | **Rede** | Palo Alto   | PANORÂMICA DO SISTEMA OPERACIONAL    | CommonSecurityLog |   [Guia de integração de formato de evento comum do Pan-OS 9,0](https://docs.paloaltonetworks.com/content/dam/techdocs/en_US/pdf/cef/pan-os-90-cef-configuration-guide.pdf) (pesquise *formatos de log de estilo CEF*) |
 | **Rede** | Ponto de Verificação  |ALL   | CommonSecurityLog | [Descrição de campos de log](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk109795)       |
@@ -59,7 +59,7 @@ A tabela a seguir lista os fornecedores de terceiros com suporte e sua documenta
 | **Rede** | F5  | BigIP ASM|    CommonSecurityLog|  [Registrando eventos de segurança do aplicativo](https://techdocs.f5.com/kb/en-us/products/big-ip_asm/manuals/product/asm-implementations-13-1-0/14.html)                                                           |
 | **Rede** | Citrix  |Firewall do aplicativo Web   | CommonSecurityLog|    [Suporte ao log do formato de evento comum (CEF) no firewall do aplicativo](https://support.citrix.com/article/CTX136146) <br>  [Referência de mensagem de syslog do Netscaler 12,0](https://developer-docs.citrix.com/projects/netscaler-syslog-message-reference/en/12.0/)   |
 |**Host** |Symantec | Symantec Endpoint Protection Manager (SEPM) | CommonSecurityLog|[Configurações de log externo e níveis de severidade de evento de log para Endpoint Protection Manager](https://support.symantec.com/us/en/article.tech171741.html)|
-|**Host** |Trend Micro |Todos |CommonSecurityLog | [Mapeamento de conteúdo do syslog-CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
+|**Host** |Trend Micro |Tudo |CommonSecurityLog | [Mapeamento de conteúdo do syslog-CEF](https://docs.trendmicro.com/en-us/enterprise/control-manager-70/appendices/syslog-mapping-cef.aspx) |
 | | | | | |
 
 ## <a name="next-steps"></a>Próximas etapas

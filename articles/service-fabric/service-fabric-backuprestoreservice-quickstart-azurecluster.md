@@ -4,10 +4,10 @@ description: Use o recurso de restauração e backup periódico do Service Fabri
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.openlocfilehash: 42097b50277e78b3f0e8f5e61a2bf70cc08dbc02
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103198721"
 ---
 # <a name="periodic-backup-and-restore-in-an-azure-service-fabric-cluster"></a>Backup e restauração periódicos em um cluster de Service Fabric do Azure

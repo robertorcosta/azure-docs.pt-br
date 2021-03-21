@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 02/11/2021
-ms.openlocfilehash: 838a48aa11a1cb36c3a7d822ce88f58936aa976d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 8319885de26bf79f5e402c4d06b29e9dd94894de
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101734614"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655828"
 ---
 # <a name="visualizations-for-application-change-analysis-preview"></a>Visualizações para análise de alterações de aplicativo (versão prévia)
 
@@ -22,11 +22,11 @@ Pesquise a análise de alterações na barra de pesquisa em portal do Azure para
 
 ![Captura de tela da pesquisa de análise de alterações no portal do Azure](./media/change-analysis/search-change-analysis.png)
 
-Todos os recursos em uma assinatura selecionada são exibidos com as alterações das últimas 24 horas. Para otimizar o desempenho de carregamento de página, o serviço está exibindo 10 recursos por vez. Selecione a página seguinte para exibir mais recursos. Estamos trabalhando para remover essa limitação.
+Todos os recursos em uma assinatura selecionada são exibidos com as alterações das últimas 24 horas. Todas as alterações são exibidas com o valor antigo e o novo valor para fornecer informações em um relance.
 
 ![Captura de tela da folha de análise de alterações no portal do Azure](./media/change-analysis/change-analysis-standalone-blade.png)
 
-Clicando em um recurso para exibir todas as suas alterações. Se necessário, faça uma busca detalhada em uma alteração para exibir detalhes e informações de alteração formatada em JSON.
+Clicando em uma alteração para exibir o trecho completo do Resource Manager e outras propriedades.
 
 ![Captura de tela de detalhes de alteração](./media/change-analysis/change-details.png)
 
@@ -40,11 +40,6 @@ A interface do usuário dá suporte à seleção de várias assinaturas para exi
 
 ![Captura de tela do filtro de assinatura que dá suporte à seleção de várias assinaturas](./media/change-analysis/multiple-subscriptions-support.png)
 
-### <a name="web-app-diagnose-and-solve-problems"></a>Diagnóstico e resolução de problemas do aplicativo Web
-
-Em Azure Monitor, a análise de alterações também é incorporada à experiência de **diagnóstico e solução de problemas** de autoatendimento. Acesse essa experiência na página **visão geral** do aplicativo do serviço de aplicativo.
-
-![Captura de tela do botão "visão geral" e o botão "diagnosticar e resolver problemas"](./media/change-analysis/change-analysis.png)
 
 ## <a name="application-change-analysis-in-the-diagnose-and-solve-problems-tool"></a>Análise de alteração de aplicativo na ferramenta diagnosticar e resolver problemas
 
@@ -69,6 +64,13 @@ A análise de alterações do aplicativo é um detector autônomo nas ferramenta
 5. Os dados de alteração também estão disponíveis em selecionar **aplicativo Web inoperante** e detectores de **falhas de aplicativo** . Você verá um grafo que resume o tipo de alterações ao longo do tempo, juntamente com detalhes sobre essas alterações. Por padrão, as alterações nas últimas 24 horas são exibidas para ajudar com problemas imediatos.
 
      ![Captura de tela da exibição alterar comparação](./media/change-analysis/change-view.png)
+
+## <a name="diagnose-and-solve-problems-tool"></a>Ferramenta diagnosticar e resolver problemas
+A análise de alterações está disponível como um cartão Insight na ferramenta diagnosticar e resolver problemas. Se um recurso apresentar problemas e houver alterações descobertas nas últimas 72 horas, o cartão de informações exibirá o número de alterações. Clicar no link exibir detalhes da alteração levará à exibição filtrada da interface do usuário autônoma de análise de alterações.
+
+![Captura de tela da exibição de informações de alterações na ferramenta diagnosticar e solucionar problemas.](./media/change-analysis/change-insight-diagnose-and-solve.png)
+
+
 
 ## <a name="virtual-machine-diagnose-and-solve-problems"></a>Problemas de diagnóstico e resolução da máquina virtual
 

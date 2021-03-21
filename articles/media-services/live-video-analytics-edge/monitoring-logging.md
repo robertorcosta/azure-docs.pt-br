@@ -4,10 +4,10 @@ description: Este artigo fornece uma visão geral do monitoramento e registro em
 ms.topic: reference
 ms.date: 04/27/2020
 ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101730228"
 ---
 # <a name="monitoring-and-logging"></a>Monitoramento e registro em log
@@ -230,7 +230,7 @@ A hora do evento é formatada em uma cadeia de caracteres ISO 8601. Representa a
 
 Essas métricas serão relatadas da análise de vídeo ao vivo no módulo IoT Edge:  
 
-|Nome da métrica|Tipo|Rótulo|Descrição|
+|Nome da métrica|Type|Rótulo|Descrição|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Medidor|iothub, edge_device, module_name, graph_topology|Número total de grafos ativos por topologia.|
 |lva_received_bytes_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Número total de bytes recebidos por um nó. Com suporte apenas para fontes RTSP.|

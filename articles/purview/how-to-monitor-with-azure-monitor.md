@@ -8,10 +8,10 @@ ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 12/03/2020
 ms.openlocfilehash: 4cb3965d359980856c238cd563ed8b761754660b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101667735"
 ---
 # <a name="azure-purview-metrics-in-azure-monitor"></a>Métricas do Azure alcance no Azure Monitor
@@ -64,10 +64,10 @@ A tabela a seguir contém a lista de métricas disponíveis para explorar no por
 
 | Nome da métrica | Namespace da métrica | Tipo de agregação | Descrição |
 | ------------------- | ------------------- | ------------------- | ----------------- |
-| Verificação cancelada | Verificação automatizada | Somar <br> Contagem | Agregar as verificações da fonte de dados cancelada com o período de tempo |
-| Verificação concluída | Verificação automatizada | Somar <br> Contagem | Agregar as verificações de fonte de dados concluídas ao longo do período de tempo |
-| Falha na verificação | Verificação automatizada | Somar <br> Contagem | Agregar as verificações de fonte de dados com falha ao longo do período de tempo |
-| Tempo de verificação tomado | Verificação automatizada | Mín <br> Max <br> Somar <br> Méd | Agregar o tempo total gasto pelas verificações no período de tempo |
+| Verificação cancelada | Verificação automatizada | Soma <br> Contagem | Agregar as verificações da fonte de dados cancelada com o período de tempo |
+| Verificação concluída | Verificação automatizada | Soma <br> Contagem | Agregar as verificações de fonte de dados concluídas ao longo do período de tempo |
+| Falha na verificação | Verificação automatizada | Soma <br> Contagem | Agregar as verificações de fonte de dados com falha ao longo do período de tempo |
+| Tempo de verificação tomado | Verificação automatizada | Mín <br> Max <br> Soma <br> Média | Agregar o tempo total gasto pelas verificações no período de tempo |
 
 ## <a name="diagnostic-logs-to-azure-storage-account"></a>Logs de diagnóstico para a conta de armazenamento do Azure
 

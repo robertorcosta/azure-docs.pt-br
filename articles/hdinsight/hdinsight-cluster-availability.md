@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 05/01/2020
 ms.openlocfilehash: 34f752d4c3d50d5f680e317b2724b1e631537f32
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98933201"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-in-azure-hdinsight"></a>Como monitorar a disponibilidade do cluster com o Apache Ambari no Azure HDInsight
@@ -18,7 +18,7 @@ Os clusters HDInsight incluem o Apache Ambari, que fornece informações de inte
 
 Este artigo mostra como usar o Ambari para monitorar o cluster e percorre alguns exemplos para configurar um alerta do Ambari, monitorar a taxa de disponibilidade do nó e criar um alerta de Azure Monitor que é acionado quando uma pulsação não foi recebida de um ou mais nós em cinco horas.
 
-## <a name="dashboard"></a>Dashboard
+## <a name="dashboard"></a>Painel
 
 O painel do Ambari pode ser acessado selecionando o link do **Ambari Home** na seção **painéis do cluster** da visão geral do HDInsight em portal do Azure, conforme mostrado abaixo. Como alternativa, ele pode ser acessado navegando para `https://CLUSTERNAME.azurehdinsight.net` em um navegador em que ClusterName é o nome do cluster.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2021
 ms.author: jeedes
-ms.openlocfilehash: 5aa13598133b55547484609fc6d26d9375c04045
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 35ab4d335560689a7e55bf1a8dff9fcb0bcc7d7f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053471"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601509"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-broadcom-dx-saas"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Broadcom DX SaaS
 
@@ -179,8 +179,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em Testar este aplicativo no portal do Azure e você entrará automaticamente no Broadcom DX SaaS, para o qual configurou o SSO.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Broadcom DX SaaS em Meus Aplicativos, você entrará automaticamente no Broadcom DX SaaS, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Broadcom DX SaaS em Meus Aplicativos, você entrará automaticamente no Broadcom DX SaaS, para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Broadcom DX SaaS, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o Broadcom DX SaaS, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2020
 ms.author: kumud
 ms.openlocfilehash: d591194f09e85c3e34ed4b904249df994a14bff5
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100558594"
 ---
 # <a name="add-change-or-delete-a-virtual-network-subnet"></a>Adicionar, alterar ou excluir uma sub-rede da rede virtual
@@ -86,7 +86,7 @@ A conta na qual você entra ou se conecta ao Azure com, deve ser atribuída à f
     | **Pontos de extremidade de serviço** | <p>Consulte pontos de extremidade de serviço na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). Ao habilitar um ponto de extremidade de serviço para uma sub-rede existente, certifique-se de que nenhuma tarefa crítica está executando qualquer recurso na sub-rede. Pontos de extremidade de serviço alternam rotas em cada interface de rede na sub-rede. Os pontos de extremidade de serviço vão de usar a rota padrão com o prefixo de endereço *0.0.0.0/0* e o tipo do próximo salto da *Internet*, para usar uma nova rota com os prefixos de endereço do serviço e um tipo de próximo salto de *VirtualNetworkServiceEndpoint*.</p><p>Durante a troca, todas as conexões TCP abertas podem ser finalizadas. O ponto de extremidade de serviço não está habilitado até que o tráfego flua para o serviço para todas as interfaces de rede sejam atualizados com a nova rota. Para saber mais sobre roteamento, consulte [Roteamento de tráfego de rede virtual](virtual-networks-udr-overview.md).</p> |
     | **Delegação de sub-rede** | Consulte pontos de extremidade de serviço na etapa 4 de [Adicionar uma sub-rede](#add-a-subnet). A delegação de sub-rede pode ser modificada para ter nenhuma ou várias delegações habilitadas para ela. Se um recurso para um serviço já estiver implantado na sub-rede, a delegação de sub-rede não poderá ser adicionada ou removida até que todos os recursos do serviço sejam removidos. Para delegar para um serviço diferente, selecione o serviço que você deseja delegar na lista **Serviços**. |
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ### <a name="commands"></a>Comandos
 

@@ -4,10 +4,10 @@ description: Gravar consultas personalizadas em logs de Azure Monitor usando fun
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102510446"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Funções do sistema em logs de Azure Monitor
@@ -70,11 +70,11 @@ Essa função retorna a lista de todos os cofres de serviços de recuperação e
 | ID | Azure Resource Manager (ARM) ID do cofre |
 | Nome | Nome do cofre |
 | SubscriptionId | ID da assinatura na qual o cofre existe |
-| Localização | Local no qual o cofre existe |
+| Location | Local no qual o cofre existe |
 | VaultStore_StorageReplicationType | Tipo de replicação de armazenamento associado ao cofre |
-| Marcações | Marcas do cofre |
+| Marcas | Marcas do cofre |
 | TimeGenerated | Carimbo de data/hora do registro |
-| Tipo |  Tipo do cofre, que é "Microsoft. Recoveryservices/cofres"|
+| Type |  Tipo do cofre, que é "Microsoft. Recoveryservices/cofres"|
 
 #### <a name="_azurebackup_getpolicies"></a>_AzureBackup_GetPolicies ()
 
@@ -247,7 +247,7 @@ Essa função retorna uma lista de todas as entidades de cobrança relacionadas 
 | UniqueId | Chave primária denotando a ID exclusiva do grupo de cobrança |
 | FriendlyName | Nome amigável do grupo de cobrança |
 | Nome | Nome do grupo de cobrança |
-| Tipo | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
+| Type | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
 | SourceSizeInMBs | Tamanho de front-end do grupo de cobrança em MBs |
 | VaultStore_StorageConsumptionInMBs | Armazenamento em nuvem total consumido pelo grupo de cobrança no cofre-camada padrão |
 | BackupSolution | Solução de backup à qual o grupo de cobrança está associado. Por exemplo, backup de VM do Azure, SQL no backup de VM do Azure e assim por diante. |
@@ -344,7 +344,7 @@ Essa função retorna registros históricos para cada entidade de cobrança, per
 | UniqueId | Chave primária denotando a ID exclusiva do grupo de cobrança |
 | FriendlyName | Nome amigável do grupo de cobrança |
 | Nome | Nome do grupo de cobrança |
-| Tipo | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
+| Type | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
 | SourceSizeInMBs | Tamanho de front-end do grupo de cobrança em MBs |
 | VaultStore_StorageConsumptionInMBs | Armazenamento em nuvem total consumido pelo grupo de cobrança no cofre-camada padrão |
 | BackupSolution | Solução de backup à qual o grupo de cobrança está associado. Por exemplo, backup de VM do Azure, SQL no backup de VM do Azure e assim por diante. |

@@ -8,10 +8,10 @@ ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 330b466360cc5687f78db81fbb4545e1c3409098
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101729871"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Linha de base de segurança do Azure para a central de segurança
@@ -106,7 +106,7 @@ Configure a coleta de dados da central de segurança para enviar dados de segura
 
 Como alternativa, você pode enviar dados produzidos pela central de segurança para o Azure Sentinel ou um SIEM de terceiros.
 
-- [Exportar continuamente os dados da Central de Segurança](continuous-export.md)
+- [Exportar continuamente dados da Central de Segurança](continuous-export.md)
 
 - [Coleta de dados na Central de Segurança do Azure](security-center-enable-data-collection.md)
 
@@ -348,7 +348,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 Por padrão, os dados da central de segurança do Azure são armazenados no serviço de back-end da central de segurança. Se sua organização tiver adicionado requisitos para armazenar esses dados em seus próprios recursos, você poderá configurar um espaço de trabalho Log Analytics para armazenar dados, alertas e recomendações da central de segurança. Ao usar seu próprio espaço de trabalho, você pode adicionar mais separação Configurando espaços de trabalho diferentes de acordo com o ambiente em que os dados foram originados.
 
-- [Exportar continuamente os dados da Central de Segurança](continuous-export.md)
+- [Exportar continuamente dados da Central de Segurança](continuous-export.md)
 
 - [Coleta de dados na Central de Segurança do Azure](security-center-enable-data-collection.md)
 

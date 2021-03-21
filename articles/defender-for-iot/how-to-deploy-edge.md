@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 1/30/2020
 ms.author: mlottner
 ms.openlocfilehash: e4117c3c0f1016da616a88a36a1b8c926b790c62
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495106"
 ---
 # <a name="deploy-a-defender-iot-micro-agent-on-your-iot-edge-device"></a>Implantar um defender-IoT-micro-Agent em seu dispositivo IoT Edge
@@ -143,7 +143,7 @@ Conclua cada etapa para concluir a implantação do IoT Edge para o defender par
     }
     ```
 
-4. Selecione **Salvar**.
+4. Clique em **Salvar**.
 
 5. Selecione **Avançar**.
 

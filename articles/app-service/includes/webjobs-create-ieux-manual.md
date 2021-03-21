@@ -6,10 +6,10 @@ ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 5687fb99c27b8b2141e0a2a817327cfbb124951a
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102109277"
 ---
 ## <a name="create-a-manually-triggered-webjob"></a><a name="CreateOnDemand"></a> Criar um WebJob disparado manualmente
@@ -30,9 +30,9 @@ ms.locfileid: "102109277"
     
     | Configuração      | Valor de exemplo   | 
     | ------------ | ----------------- | 
-   | <abbr title="Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de `-` e `_` .">Name</abbr> | myTriggeredWebJob | 
+   | <abbr title="Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de `-` e `_` .">Nome</abbr> | myTriggeredWebJob | 
     | <abbr title="Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script.">Carregar arquivos</abbr> | ConsoleApp.zip |
-    | <abbr title="Os tipos incluem contínuo, disparado.">Tipo</abbr> | Disparado | 
+    | <abbr title="Os tipos incluem contínuo, disparado.">Type</abbr> | Disparado | 
     | <abbr title="Os tipos incluem agendado ou manual">Gatilhos</a> | Manual | |
 
 4. Clique em **OK**. 
