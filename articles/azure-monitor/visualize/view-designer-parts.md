@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 03/12/2018
 ms.openlocfilehash: 6e971db01322fc031dd0fa8abe82f76a5b45d256
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102045251"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guia de referência para exibir partes de visualização do designer no Azure Monitor
@@ -80,7 +80,7 @@ O cabeçalho exibe um único número que mostra uma contagem de registros de uma
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Name |O texto que é exibido na parte superior da primeira coluna. |
+| Nome |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -111,7 +111,7 @@ O cabeçalho tem dois números que exibem uma contagem de registros de consultas
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Name |O texto que é exibido na parte superior da primeira coluna. |
+| Nome |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -152,7 +152,7 @@ O cabeçalho exibe um único número que resume uma coluna de valor em uma consu
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Name |O texto que é exibido na parte superior da primeira coluna. |
+| Nome |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -184,7 +184,7 @@ O cabeçalho exibe os resultados de duas consultas de log ao longo do tempo como
 | Operação |A operação a ser executada para o minigráfico. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Name |O texto que é exibido na parte superior da primeira coluna. |
+| Nome |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -245,7 +245,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Name |O texto que é exibido na parte superior da primeira coluna. |
+| Nome |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -281,7 +281,7 @@ O cabeçalho exibe um gráfico de linhas com várias séries de uma consulta de 
 | Separador de valor e nome |O delimitador de caractere único a ser usado para analisar a próxima propriedade em vários valores. Para saber mais, veja [Configurações comuns](#sparklines). |
 | Navegação clickthrough | Ação executada quando você clica em um item na lista.  Para saber mais, veja [Configurações comuns](#click-through-navigation). |
 | **Lista** |**> Títulos de coluna** |
-| Name |O texto que é exibido na parte superior da primeira coluna. |
+| Nome |O texto que é exibido na parte superior da primeira coluna. |
 | Valor |O texto que é exibido na parte superior da segunda coluna. |
 | **Lista** |**> Limites** |
 | Habilitar limites |Selecione este link para habilitar limites. Para saber mais, veja [Configurações comuns](#thresholds). |
@@ -351,7 +351,7 @@ A tabela a seguir descreve as configurações de limites:
 | Configuração | Descrição |
 |:--- |:--- |
 | Habilitar limites |Clique neste link para exibir um ícone de cor à esquerda de cada valor. O ícone indica a integridade do valor em relação a limites especificados. |
-| Name |O nome do valor limite. |
+| Nome |O nome do valor limite. |
 | Limite |O valor para o limite. A cor de integridade para cada item de lista é definida como a cor do maior valor limite que é excedido pelo valor do item. Se nenhum valor limite for excedido, será usada uma cor padrão. |
 | Cor |A cor que indica o valor limite. |
 

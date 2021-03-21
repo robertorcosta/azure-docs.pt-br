@@ -8,10 +8,10 @@ keywords: Docker, kubernetes, Azure, AKS, serviço kubernetes do Azure, contêin
 manager: gwallace
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: 37ad621609f5a5631b498e55483e5d16e8ac4472
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102202103"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Ações do GitHub & serviço kubernetes do Azure (versão prévia)
@@ -53,7 +53,7 @@ Salve o valor de *loginServer* da saída porque ele é usado em uma etapa poster
 
 ## <a name="create-a-service-principal-for-authentication"></a>Criar uma entidade de serviço para autenticação
 
-Use [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] para criar uma entidade de serviço. Por exemplo: 
+Use [AZ ad SP Create-for-RBAC][az-ad-sp-create-for-rbac] para criar uma entidade de serviço. Por exemplo:
 
 ```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment

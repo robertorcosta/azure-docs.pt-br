@@ -7,10 +7,10 @@ ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 05/04/2020
 ms.openlocfilehash: 3c3d1930234c178a56227830ef0702450ddf4a8c
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "100580667"
 ---
 # <a name="monitor-run-status-review-trigger-history-and-set-up-alerts-for-azure-logic-apps"></a>Monitorar o status de execução, examinar o histórico de gatilho e configurar alertas para Aplicativos Lógicos do Azure
@@ -49,7 +49,7 @@ Cada vez que o gatilho é acionado para um item ou evento, o mecanismo de aplica
 
    Estes são os status de execução possíveis:
 
-   | Status da execução | Description |
+   | Status da execução | Descrição |
    |------------|-------------|
    | **Anulado** | A execução foi interrompida ou não foi concluída devido a problemas externos, por exemplo, uma interrupção do sistema ou uma assinatura do Azure enlapsada. |
    | **Cancelar** | A execução foi disparada e iniciada, mas recebeu uma solicitação de cancelamento. |
@@ -121,7 +121,7 @@ Cada execução de aplicativo lógico começa com um gatilho. O histórico de ga
 
    Aqui estão os status de possíveis tentativas de gatilho:
 
-   | Status do gatilho | Description |
+   | Status do gatilho | Descrição |
    |----------------|-------------|
    | **Falha** | Ocorreu um erro. Para examinar as mensagens de erro geradas para um disparador com falha, selecione essa tentativa de disparo e escolha **Saídas**. Por exemplo, você pode descobrir entradas que não são válidas. |
    | **Ignorado** | O gatilho verificou o ponto de extremidade, mas não encontrou dados que atendem aos critérios especificados. |

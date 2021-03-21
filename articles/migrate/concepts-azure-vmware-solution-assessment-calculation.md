@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/25/2020
 ms.openlocfilehash: b3975d30fca1f7f542f27742ef8408b1feecc146
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101727185"
 ---
 # <a name="assessment-overview-migrate-to-azure-vmware-solution"></a>Visão geral da avaliação (migrar para a solução VMware do Azure)
@@ -20,7 +20,7 @@ As [migrações para Azure](migrate-services-overview.md) fornecem um hub centra
 A avaliação do servidor é uma ferramenta em migrações para Azure que avalia os servidores locais para migração para as máquinas virtuais IaaS do Azure e para a solução VMware do Azure (AVS). Este artigo fornece informações sobre como as avaliações da AVS (solução do Azure VMware) são calculadas.
 
 > [!NOTE]
-> A avaliação da solução de VMware Azure (AVS) pode ser criada somente para VMs VMware.
+> A avaliação da AVS (Solução VMware no Azure) pode ser criada apenas para VMs do VMware.
 
 ## <a name="types-of-assessments"></a>Tipos de avaliações
 
@@ -127,8 +127,8 @@ Aqui estão as novidades incluídas em uma avaliação de AVS:
 | **Desconto (%)** | Lista qualquer desconto específico de assinatura que você recebe na parte superior da oferta do Azure. A configuração padrão é 0%. |
 | **Benefício Híbrido do Azure** | Especifica se você tem o Software Assurance e se está qualificado para [benefício híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Embora não tenha impacto sobre o preço das soluções VMware do Azure devido ao preço baseado em nó, os clientes ainda podem aplicar as licenças do sistema operacional local ou do SQL (baseado na Microsoft) em AVS usando OS benefícios híbridos do Azure. Outros fornecedores de sistema operacional de software precisarão fornecer seus próprios termos de licenciamento, como o RHEL, por exemplo. |
 | **vCPU excesso de assinatura** | Especifica a proporção do número de núcleos virtuais vinculados a um núcleo físico no nó AVS. O valor padrão nos cálculos é 4 vCPU: 1 núcleo físico em AVS. Os usuários da API podem definir esse valor como um inteiro. Observe que o vCPU Oversubscription > 4:1 pode afetar as cargas de trabalho dependendo do uso da CPU. Ao dimensionar, sempre presumimos a utilização de 100% dos núcleos escolhidos. |
-| **Fator de excesso de memória** | Especifica a taxa de memória sobre a confirmação no cluster. Um valor de 1 representa 100% de uso da memória, 0,5, por exemplo, é 50%, e 2 estaria usando 200% da memória disponível. Você só pode adicionar valores de 0,5 a 10 até uma casa decimal. |
-| **Eliminação de duplicação e fator de compactação** | Especifica a eliminação de duplicação e o fator de compactação previstos para suas cargas de trabalho. O valor real pode ser obtido da configuração de armazenamento ou da vSAN local. Elas variam de acordo com a carga de trabalho. Um valor de 3 significaria 3x para que apenas 300 GB de armazenamento de 100 GB fosse usado. Um valor de 1 não significaria nenhuma eliminação de duplicação ou compactação. Você só pode adicionar valores de 1 a 10 até um lugar decimal. |
+| **Fator de excesso de memória** | Especifica a taxa de memória sobre a confirmação no cluster. Um valor de 1 representa 100% de uso da memória; um valor de 0,5 representa 50% e um valor de 2 usaria 200% da memória disponível. Você só pode adicionar valores de 0,5 a 10, com até uma casa decimal. |
+| **Eliminação de duplicação e fator de compactação** | Especifica a eliminação de duplicação e o fator de compactação previstos para suas cargas de trabalho. O valor real pode ser obtido da configuração de armazenamento ou da vSAN local. Elas variam de acordo com a carga de trabalho. Um valor de 3 significaria 3x para, de modo que para um disco de 300 GB, somente 100 GB de armazenamento seriam usados. Um valor de 1 significaria que não há eliminação de duplicação ou compactação. Você só pode adicionar valores de 1 a 10, com até uma casa decimal. |
 
 ## <a name="azure-vmware-solution-avs-suitability-analysis"></a>Análise de adequação da solução VMware do Azure (AVS)
 

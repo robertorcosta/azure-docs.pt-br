@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 1/21/2021
 ms.author: baanders
-ms.openlocfilehash: 59506b1d1d3fbbc5a532c597d46dc92ee3c2e98e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 9f8ca9ab6dc184abb8d9dcd25ebe87cbd7761722
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750759"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102630242"
 ---
 Para publicar o projeto em um aplicativo de funções do Azure, clique com o botão direito do mouse em *Gerenciador de Soluções*, selecione o projeto, depois clique em **Publicar**.
 
@@ -57,6 +57,4 @@ No painel *Publicar* que é aberto na janela principal do Visual Studio, verifiq
 >
 > siga os prompts para atualizar para a versão mais recente do Azure Functions runtime. Esse problema poderá ocorrer caso esteja usando uma versão anterior do Visual Studio.
 
-Seu aplicativo de funções agora é publicado no Azure. 
-
-Para que seu aplicativo de funções possam acessar os Gêmeos Digitais do Azure, será necessário ter uma identidade gerenciada pelo sistema com permissões para acessar sua instância dos Gêmeos Digitais do Azure. Você vai configurar tudo isso a seguir.
+Seu aplicativo de funções agora é publicado no Azure.

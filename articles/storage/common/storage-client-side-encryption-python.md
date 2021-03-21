@@ -12,10 +12,10 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.openlocfilehash: ffdfd4dc8a81587d757e3f9853f1bb34e0b93c0d
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102043738"
 ---
 # <a name="client-side-encryption-with-python"></a>Criptografia do lado do cliente com Python
@@ -150,11 +150,11 @@ Os usuários podem habilitar opcionalmente um modo de operação no qual todos o
 ### <a name="blob-service-encryption"></a>Criptografia do serviço Blob
 Defina os campos de política de criptografia no objeto blockblobservice. Todo o resto será tratado pela biblioteca de cliente internamente.
 
-# <a name="python-v12"></a>[Python V12](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -182,11 +182,11 @@ blob = my_block_blob_service.get_blob_to_bytes(container_name, blob_name)
 ### <a name="queue-service-encryption"></a>Criptografia do serviço Fila
 Defina os campos de política de criptografia no objeto queueservice. Todo o resto será tratado pela biblioteca de cliente internamente.
 
-# <a name="python-v12"></a>[Python V12](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -215,11 +215,11 @@ Além de criar uma política de criptografia e defini-la nas opções de solicit
 
 ### <a name="using-the-resolver"></a>Usando o resolvedor
 
-# <a name="python-v12"></a>[Python V12](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 # Create the KEK used for encryption.
@@ -258,11 +258,11 @@ my_table_service.get_entity(
 ### <a name="using-attributes"></a>Usando atributos
 Conforme mencionado acima, uma propriedade pode ser marcada para criptografia armazenando-a em um objeto EntityProperty e definindo o campo encrypt.
 
-# <a name="python-v12"></a>[Python V12](#tab/python)
+# <a name="python-v12"></a>[Python v12](#tab/python)
 
-No momento, estamos trabalhando para criar trechos de código que refletem a versão 12. x das bibliotecas de cliente do armazenamento do Azure. Para obter mais informações, consulte [anunciando as bibliotecas de cliente do Azure Storage V12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
+No momento, estamos trabalhando para criar snippets de código que refletem a versão 12.x das bibliotecas de clientes do Armazenamento do Azure. Para obter mais informações, confira [Comunicado sobre as bibliotecas de clientes do Armazenamento do Azure v12](https://techcommunity.microsoft.com/t5/azure-storage/announcing-the-azure-storage-v12-client-libraries/ba-p/1482394).
 
-# <a name="python-v21"></a>[Python v 2.1](#tab/python2)
+# <a name="python-v21"></a>[Python v2.1](#tab/python2)
 
 ```python
 encrypted_property_1 = EntityProperty(EdmType.STRING, value, encrypt=True)

@@ -11,10 +11,10 @@ ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101652123"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
@@ -49,21 +49,21 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 É possível usar as seguintes informações para criar uma nova conta corporativa:
 
-- [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](/graph/api/user-post-users)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil do usuário
 
 É possível usar as seguintes informações para atualizar o perfil de um usuário:
 
-- [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](/graph/api/user-update)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma senha para um usuário
 
 É possível usar as seguintes informações para redefinir a senha de um usuário:
 
-- [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](/graph/api/user-update)
 
 ## <a name="guest-user"></a>Usuário Convidado
