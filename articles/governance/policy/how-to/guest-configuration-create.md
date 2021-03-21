@@ -4,10 +4,10 @@ description: Saiba como criar uma política de Configuração de Convidado do Az
 ms.date: 08/17/2020
 ms.topic: how-to
 ms.openlocfilehash: ae9af51ad3b2eb237f8655c996a1345140a8a635
-ms.sourcegitcommit: dd24c3f35e286c5b7f6c3467a256ff85343826ad
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/29/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "99070637"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Como criar políticas de Configuração de Convidado para o Windows
@@ -54,7 +54,7 @@ Sistemas operacionais em que é possível instalar o módulo:
 
 O módulo do recurso de Configuração de Convidado requer o seguinte software:
 
-- PowerShell 6.2 ou posterior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
+- PowerShell 6.2 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 ou superior. Se ainda não estiver instalado, siga [estas instruções](/powershell/azure/install-az-ps).
   - Somente os módulos AZ ' AZ. Accounts ' e ' AZ. Resources ' são necessários.
 

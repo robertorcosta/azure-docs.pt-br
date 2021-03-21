@@ -6,10 +6,10 @@ ms.date: 02/11/2021
 ms.reviewer: byvinyal
 ms.custom: seodec18
 ms.openlocfilehash: c7d3c7c8b5da40a4e9ccd9085af5a850b9ebc3dd
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102052340"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurar as credenciais de implantação do Serviço de Aplicativo do Azure
@@ -35,11 +35,11 @@ az webapp deployment user set --user-name <username> --password <password>
 
 A saída JSON mostra a senha como `null`.
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Não é possível configurar as credenciais de escopo do usuário com Azure PowerShell. Use um método diferente ou considere o [uso de credenciais de escopo de aplicativo](#appscope). 
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Você pode configurar suas credenciais de escopo do usuário na página de [recursos](../azure-resource-manager/management/manage-resources-portal.md#manage-resources)de qualquer aplicativo. Independentemente de qual aplicativo você configurar essas credenciais, ele se aplica a todos os aplicativos para todas as assinaturas em sua conta do Azure. 
 
@@ -74,27 +74,27 @@ Uma vez que as credenciais de escopo do usuário são vinculadas ao usuário e n
 
 # <a name="azure-cli"></a>[CLI do Azure](#tab/cli)
 
-Obtenha as credenciais de escopo do aplicativo usando o comando [AZ webapp Deployment List-Publishing-Profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) . Por exemplo: 
+Obtenha as credenciais de escopo do aplicativo usando o comando [AZ webapp Deployment List-Publishing-Profiles](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_profiles) . Por exemplo:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --resource-group <group-name> --name <app-name>
 ```
 
-Para a [implantação do git local](deploy-local-git.md), você também pode usar o comando [AZ webapp Deployment List-Publishing-Credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) para obter um URI remoto do git para seu aplicativo, com as credenciais de escopo do aplicativo já inseridas. Por exemplo: 
+Para a [implantação do git local](deploy-local-git.md), você também pode usar o comando [AZ webapp Deployment List-Publishing-Credentials](/cli/azure/webapp/deployment#az_webapp_deployment_list_publishing_credentials) para obter um URI remoto do git para seu aplicativo, com as credenciais de escopo do aplicativo já inseridas. Por exemplo:
 
 ```azurecli-interactive
 az webapp deployment list-publishing-credentials --resource-group <group-name> --name <app-name> --query scmUri
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
-Obtenha as credenciais de escopo do aplicativo usando o comando [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . Por exemplo: 
+Obtenha as credenciais de escopo do aplicativo usando o comando [Get-AzWebAppPublishingProfile](/powershell/module/az.websites/get-azwebapppublishingprofile) . Por exemplo:
 
 ```azurepowershell-interactive
 Get-AzWebAppPublishingProfile -ResourceGroupName <group-name> -Name <app-name>
 ```
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. No menu à esquerda do seu aplicativo, selecione a **central de implantação**  >  **credenciais de FTPS** ou **credenciais locais de git/FTPS**.
 
@@ -114,7 +114,7 @@ Redefina as credenciais de escopo do aplicativo usando o comando [AZ Resource In
 az resource invoke-action --action newpassword --resource-group <group-name> --name <app-name> --resource-type Microsoft.Web/sites
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/powershell)
 
 Redefina as credenciais de escopo do aplicativo usando o comando [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) :
 
@@ -122,7 +122,7 @@ Redefina as credenciais de escopo do aplicativo usando o comando [Invoke-AzResou
 Invoke-AzResourceAction -ResourceGroupName <group-name> -ResourceType Microsoft.Web/sites -ResourceName <app-name> -Action newpassword
 ```
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. No menu à esquerda do seu aplicativo, selecione a **central de implantação**  >  **credenciais de FTPS** ou **credenciais locais de git/FTPS**.
 

@@ -15,10 +15,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
 ms.openlocfilehash: fd19bce05d18eb8f9b8fd3806082caeebe98bdad
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103013985"
 ---
 # <a name="use-azure-ad-authentication-to-access-azure-media-services-api-with-net"></a>Usar a autenticação do Azure AD para acessar a API dos Serviços de Mídia do Azure com o .NET
@@ -65,7 +65,7 @@ Você também tem a opção de substituir a implementação padrão do **AzureAd
 
     Para adicionar referências usando o NuGet, realize as seguintes etapas: no **Gerenciador de Soluções**, clique com o botão direito do mouse no nome do projeto e, depois, selecione **Gerenciar pacotes NuGet**. Em seguida, pesquise **windowsazure.mediaservices** e selecione **Instalar**.
 
-    -ou-
+    – ou –
 
     Execute o comando a seguir no **Console do Gerenciador de Pacotes** do Visual Studio.
 

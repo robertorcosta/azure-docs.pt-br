@@ -11,10 +11,10 @@ ms.author: mathoma
 ms.reviewer: MashaMSFT
 ms.date: 12/15/2020
 ms.openlocfilehash: bf825572226bf5d7432fd3ad825f2f3a13355c53
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054436"
 ---
 # <a name="assessment-rules-for-sql-server-to-sql-database-migration"></a>Regras de avaliação para SQL Server a migração do banco de dados SQL
@@ -383,7 +383,7 @@ Mais informações: [resolvendo diferenças de Transact-SQL durante a migração
 **Categoria**: aviso   
 
 **Descrição**   
-SQL Server Agent é um serviço do Microsoft Windows que executa tarefas administrativas agendadas, que são chamadas de trabalhos no SQL Server. SQL Server Agent trabalhos não estão disponíveis no banco de dados SQL do Azure. 
+O SQL Server Agent é um serviço Microsoft Windows que executa tarefas administrativas agendadas, que são chamadas de trabalhos no SQL Server. SQL Server Agent trabalhos não estão disponíveis no banco de dados SQL do Azure. 
 
 
 **Recomendação** Use trabalhos elásticos (versão prévia), que são a substituição para trabalhos de SQL Server Agent no banco de dados SQL do Azure. Trabalhos de Banco de Dados Elástico para o banco de dados SQL do Azure permitem que você execute com confiança scripts T-SQL que abrangem vários bancos de dados enquanto tentam novamente e fornecem garantias de conclusão eventual. Alternativamente, considere migrar para o Azure SQL Instância Gerenciada ou SQL Server em máquinas virtuais do Azure.

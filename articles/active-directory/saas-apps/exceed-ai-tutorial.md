@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: jeedes
-ms.openlocfilehash: 16d1547b81f48b0525c667262a7a903d747a40dc
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 5db18b36464e51d8832e0879e55cfe6f0f73eab5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435582"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104597786"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-exceedai"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Exceed.ai
 
@@ -125,11 +125,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Exceed.ai e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Exceed.ai em Meus Aplicativos, isso redirecionará você à URL de Logon do Exceed.ai. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Exceed.ai em Meus Aplicativos, isso redirecionará você à URL de Logon do Exceed.ai. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Exceed.ai, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o Exceed.ai, você poderá impor o controle de sessão, que fornece proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

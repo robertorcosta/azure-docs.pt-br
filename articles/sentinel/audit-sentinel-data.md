@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 03/03/2021
 ms.author: bagol
 ms.openlocfilehash: a8ea32d84da521c8a1af926c6cb5e26bc2738de2
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102054441"
 ---
 # <a name="audit-azure-sentinel-queries-and-activities"></a>Auditar consultas e atividades do Azure Sentinel
@@ -129,7 +129,7 @@ Por exemplo, a tabela a seguir lista as operações selecionadas encontradas nos
 |Criar comentários de caso   |Microsoft. SecurityInsights/casos/comentários|
 |Atualizar conectores de dados |Microsoft. SecurityInsights/dataconnecters|
 |Excluir conectores de dados |Microsoft. SecurityInsights/dataconnecters|
-|Atualizar configurações    |Microsoft. SecurityInsights/Settings|
+|Configurações de atualização    |Microsoft. SecurityInsights/Settings|
 | | |
 
 Para obter mais informações, consulte [esquema de eventos do log de atividades do Azure](/azure/azure-monitor/essentials/activity-log-schema).

@@ -8,10 +8,10 @@ ms.date: 12/02/2020
 ms.service: azure
 ms.topic: how-to
 ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: e3151d9b352d4b69c4438c12b3b55413b4565e2f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100526282"
 ---
 # <a name="accelerate-alert-workflows"></a>Acelerar fluxos de trabalho de alerta
@@ -85,7 +85,7 @@ Os seguintes grupos de alertas são definidos automaticamente:
 |--|--|--|
 | Comportamento de comunicação anormal | Alertas personalizados | Acesso remoto |
 | Comportamento de comunicação HTTP anormal | Descoberta | Comandos de reiniciar e parar |
-| Autenticação | Alteração de firmware | Verificação |
+| Autenticação | Alteração de firmware | Verificar |
 | Comportamento de comunicação não autorizado | Comandos ilegais | Tráfego do sensor |
 | Anomalias de largura de banda | Acesso à Internet | Suspeita de malware |
 | Estouro de buffer | Falhas de operação | Suspeita de atividade mal-intencionada |
@@ -134,13 +134,13 @@ Para criar uma regra de alerta personalizada:
     - Indique se a regra dispara um **alarme** ou **evento**.
     - Atribua um nível de severidade ao alerta.
     - Indique se o alerta incluirá um arquivo PCAP.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 A regra é adicionada à lista **regras de alertas personalizados** , em que você pode examinar os parâmetros básicos da regra, a última vez que a regra foi disparada e muito mais. Você também pode habilitar e desabilitar a regra na lista.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/customized-alerts-screen.png" alt-text="Captura de tela de uma regra personalizada adicionada pelo usuário.":::
 
-### <a name="see-also"></a>Consulte também
+### <a name="see-also"></a>Veja também
 
 [Exibir informações fornecidas em alertas](how-to-view-information-provided-in-alerts.md)
 

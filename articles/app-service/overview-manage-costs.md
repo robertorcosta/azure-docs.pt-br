@@ -6,10 +6,10 @@ ms.service: app-service
 ms.topic: how-to
 ms.date: 01/01/2021
 ms.openlocfilehash: ada4c1991a57c8252247c9617e097dc82cb3b4a9
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100593978"
 ---
 # <a name="plan-and-manage-costs-for-azure-app-service"></a>Planejar e gerenciar custos para Azure App serviço
@@ -51,7 +51,7 @@ Outros recursos de custo para o serviço de aplicativo são (consulte [preços d
 
 Quando você exclui todos os aplicativos em um plano do serviço de aplicativo, o plano continua a acumular encargos com base em seu tipo de preço e número de instâncias configurados. Para evitar encargos indesejados, exclua o plano ou dimensione-o para a camada **gratuita** .
 
-Depois de excluir Azure App recursos de serviço, os recursos dos serviços do Azure relacionados podem continuar existindo. Eles continuam acumulando os custos até que você os exclua. Por exemplo: 
+Depois de excluir Azure App recursos de serviço, os recursos dos serviços do Azure relacionados podem continuar existindo. Eles continuam acumulando os custos até que você os exclua. Por exemplo:
 
 - A rede virtual que você criou para um plano do serviço de aplicativo de camada **isolada**
 - Contas de armazenamento que você criou para armazenar backups ou logs de diagnóstico

@@ -7,10 +7,10 @@ ms.reviewer: estfan, sneshaf, pinath, logicappspm
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.openlocfilehash: f2b4e09ec9b50bb6993c89d90b0f33c0c905cbf0
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101699089"
 ---
 # <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Exportar fluxos do Power Automate e implantar no Aplicativos Lógicos do Azure
@@ -78,7 +78,7 @@ Para obter mais informações, consulte [aumentar até os aplicativos lógicos d
       | <*nome da conexão*> | Um ou vários nomes para todas as conexões criadas anteriormente que o aplicativo lógico pode reutilizar <p><p>**Observação**: se esse aplicativo lógico for o primeiro, todas as conexões serão criadas como novas, para que você possa aceitar os nomes padrão. Caso contrário, você pode especificar os nomes para as conexões criadas anteriormente, que podem ser usadas em vários aplicativos lógicos. |
       |||
 
-      Por exemplo: 
+      Por exemplo:
 
       ![Especificar parâmetros de entrada para o modelo](./media/export-from-microsoft-flow-logic-app-template/template-input-parameters.png)
 
@@ -158,7 +158,7 @@ Se você configurou o Visual Studio com os [pré-requisitos](../logic-apps/quick
 
    ![Editar parâmetros de implantação](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   Ao iniciar a implantação, o status da implantação do aplicativo é exibido na janela **Saída** do Visual Studio. Se o status não aparecer, abra a lista **Mostrar saída de** e selecione o grupo de recursos do Azure. Por exemplo: 
+   Ao iniciar a implantação, o status da implantação do aplicativo é exibido na janela **Saída** do Visual Studio. Se o status não aparecer, abra a lista **Mostrar saída de** e selecione o grupo de recursos do Azure. Por exemplo:
 
    ![janela Saída](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

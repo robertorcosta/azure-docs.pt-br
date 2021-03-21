@@ -7,11 +7,11 @@ ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
 ms.service: azure
-ms.openlocfilehash: 9dc6849c1b2ad5daa6142e894e36f351663ff9bd
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100523984"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar as detecções do sensor em um inventário de dispositivos
@@ -35,7 +35,7 @@ Os atributos a seguir aparecem na tabela de inventário do dispositivo.
 | Nome | O nome do dispositivo como o sensor o descobriu, ou conforme inserido pelo usuário. |
 | Type | O tipo de dispositivo, conforme determinado pelo sensor, ou conforme inserido pelo usuário. |
 | Fornecedor | O nome do fornecedor do dispositivo, conforme definido no endereço MAC. |
-| Sistema operacional | O sistema operacional do dispositivo, se detectado. |
+| Sistema Operacional | O sistema operacional do dispositivo, se detectado. |
 | Versão do firmware | O firmware do dispositivo, se detectado. |
 | Endereço IP | O endereço IP do dispositivo onde definido. |
 | VLAN | A VLAN do dispositivo. Para obter detalhes sobre como instruir o sensor a descobrir VLANs, consulte [definir nomes de VLAN](how-to-manage-the-on-premises-management-console.md#define-vlan-names). (instruções-definir-Management-Console-Network-Settings. MD # define-VLAN-Names). |
@@ -65,7 +65,7 @@ Para ocultar e exibir colunas, personalize a tabela de inventário do dispositiv
 
 3. Altere o local das colunas na tabela usando setas.
 
-4. Selecione **Salvar**. A janela **configurações de inventário de dispositivo** é fechada e as novas configurações aparecem na tabela.
+4. Clique em **Salvar**. A janela **configurações de inventário de dispositivo** é fechada e as novas configurações aparecem na tabela.
 
 ### <a name="create-temporary-device-inventory-filters"></a>Criar filtros de inventário de dispositivo temporários
 
@@ -223,7 +223,7 @@ Para exportar um arquivo CSV:
 
 - No menu superior direito do inventário de dispositivos, selecione :::image type="icon" source="media/how-to-work-with-asset-inventory-information/csv-excel-export-icon.png" border="false"::: . O relatório CSV é gerado e baixado.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Veja também
 
 [Investigar todas as detecções do sensor corporativo em um inventário de dispositivos](how-to-investigate-all-enterprise-sensor-detections-in-a-device-inventory.md)
 

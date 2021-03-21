@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2020
 ms.author: damendo
 ms.openlocfilehash: 5feef79a08789ad381b0c93cb938abd9effdfcc8
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502001"
 ---
 # <a name="introduction-to-network-configuration-diagnostics-in-azure-network-watcher"></a>Introdução ao diagnóstico de configuração de rede no observador de rede do Azure
@@ -25,7 +25,7 @@ A ferramenta de diagnóstico de configuração de rede ajuda os clientes a enten
 ## <a name="pre-requisites"></a>Pré-requisitos
 Para usar o diagnóstico de configuração de rede, o observador de rede deve estar habilitado em sua assinatura. Consulte [criar uma instância do observador de rede do Azure](./network-watcher-create.md) para habilitar.
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 - Seus recursos no Azure são conectados por meio de redes virtuais (VNETs) e sub-redes. A segurança dessas VNets e sub-redes pode ser gerenciada usando um grupo de segurança de rede (NSG).
 - Um NSG contém uma lista de regras de segurança que permitem ou negam o tráfego de rede aos recursos aos quais ele está conectado. NSGs pode ser associado a sub-redes, VMs individuais ou adaptadores de rede (NICs) individuais conectados às VMs. 

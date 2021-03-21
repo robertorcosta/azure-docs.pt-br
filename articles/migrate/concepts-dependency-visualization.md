@@ -7,10 +7,10 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.date: 09/15/2020
 ms.openlocfilehash: f5304e7634cfb7b4d5c3c05036c0606ba03295ae
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589050"
 ---
 # <a name="dependency-analysis"></a>dependency analysis
@@ -34,7 +34,7 @@ Há duas opções para implantar a análise de dependência
 **Opção** | **Detalhes** | **Nuvem pública** | **Azure Governamental**
 ----  |---- | ---- 
 **Sem agente** | Sonda dados de VMs VMware usando APIs vSphere.<br/><br/> Você não precisa instalar agentes em VMs.<br/><br/> Esta opção está atualmente em visualização, somente para VMs VMware. | Com suporte. | Com suporte.
-**Análise baseada em agente** | Usa a [solução mapa do serviço](../azure-monitor/vm/service-map.md) no Azure monitor para habilitar a visualização e a análise de dependência.<br/><br/> Você precisa instalar agentes em cada computador local que deseja analisar. | Com suporte | Não há suporte.
+**Análise baseada em agente** | Usa a [solução mapa do serviço](../azure-monitor/vm/service-map.md) no Azure monitor para habilitar a visualização e a análise de dependência.<br/><br/> Você precisa instalar agentes em cada computador local que deseja analisar. | Com suporte | Sem suporte.
 
 
 ## <a name="agentless-analysis"></a>Análise sem agente

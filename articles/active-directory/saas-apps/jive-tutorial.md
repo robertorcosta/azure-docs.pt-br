@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/02/2021
 ms.author: jeedes
-ms.openlocfilehash: bcfc2996daeb34f357625572d39661638982ae42
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 6f2d151ac5110a504d17e1c9e2835a339f31da8c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489099"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104581772"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jive"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Jive
 
@@ -163,8 +163,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse a URL de Entrada do Jive diretamente e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Jive em Meus Aplicativos, você será redirecionado à URL de Entrada do Jive. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Ao clicar no bloco do Jive em Meus Aplicativos, você será redirecionado à URL de Entrada do Jive. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Jive, será possível impor um controle de sessão que fornecerá proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o Jive, será possível impor um controle de sessão que fornecerá proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

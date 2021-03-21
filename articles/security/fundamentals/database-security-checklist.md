@@ -16,10 +16,10 @@ ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
 ms.openlocfilehash: 80455b442bbfb9c8a7d40799b2ddd5fc25460578
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100595581"
 ---
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
@@ -44,7 +44,7 @@ A computação na nuvem exige novos paradigmas de segurança que não são famil
 É recomendável que você leia o artigo [Práticas recomendadas de segurança do banco de dados do Azure](../../azure-sql/database/security-best-practice.md) antes de examinar esta lista de verificação. Você poderá tirar o máximo proveito desta lista de verificação depois de entender as práticas recomendadas. Você pode usar essa lista de verificação para certificar-se de que você resolveu os problemas importantes na segurança de banco de dados do Azure.
 
 
-|Categoria da lista de verificação| Description|
+|Categoria da lista de verificação| Descrição|
 | ------------ | -------- |
 |**Proteger dados**||
 | <br> Criptografia em movimento/trânsito| <ul><li>[Protocolo TLS](/windows-server/security/tls/transport-layer-security-protocol), para criptografia de dados quando os dados se movem para as redes.</li><li>O banco de dados requer uma comunicação segura de clientes com base no protocolo [TDS (Tabular Data Stream)](/openspecs/windows_protocols/ms-tds/893fcc7e-8a39-4b3c-815a-773b7b982c50) em TLS (Transport Layer Security).</li></ul> |
