@@ -6,10 +6,10 @@ ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/02/2020
 ms.openlocfilehash: 24a0c09ba78c668dab017ec80adda19f59d89a4f
-ms.sourcegitcommit: 2f9f306fa5224595fa5f8ec6af498a0df4de08a8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/28/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98942971"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Migrar um cluster Apache HBase para uma nova versão
@@ -29,17 +29,17 @@ Aqui está um exemplo de matriz de compatibilidade de versão. Y indica compatib
 
 | Tipo de compatibilidade | Versão principal| Versão secundária | Patch |
 | --- | --- | --- | --- |
-| Compatibilidade de transferência cliente-servidor | N | S | S |
-| Compatibilidade servidor-servidor | N | S | S |
-| Compatibilidade de formato de arquivo | N | S | S |
-| Compatibilidade de API do cliente | N | S | S |
-| Compatibilidade de binário do cliente | N | N | S |
+| Compatibilidade de transferência cliente-servidor | N | Y | Y |
+| Compatibilidade servidor-servidor | N | Y | Y |
+| Compatibilidade de formato de arquivo | N | Y | Y |
+| Compatibilidade de API do cliente | N | Y | Y |
+| Compatibilidade de binário do cliente | N | N | Y |
 | **Compatibilidade de API limitada ao lado do servidor** |  |  |  |
-| Estável | N | S | S |
-| Evoluindo | N | N | S |
+| Estável | N | Y | Y |
+| Evoluindo | N | N | Y |
 | Instável | N | N | N |
-| Compatibilidade de dependência | N | S | S |
-| Compatibilidade operacional | N | N | S |
+| Compatibilidade de dependência | N | Y | Y |
+| Compatibilidade operacional | N | N | Y |
 
 ## <a name="upgrade-with-same-apache-hbase-major-version"></a>Atualizar com a mesma versão principal do Apache HBase
 

@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 08/03/2020
 ms.author: avgupta
 ms.openlocfilehash: 19de46bc87b72ada221c63e36e87d0545304d344
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102122146"
 ---
 # <a name="leverage-content-type-to-store-json-key-values-in-app-configuration"></a>Aproveitar o tipo de conteúdo para armazenar valores de chave JSON na configuração do aplicativo
@@ -55,7 +55,7 @@ Alguns exemplos de valores JSON válidos são:
 > [!NOTE]
 > Para o restante deste artigo, qualquer valor de chave na configuração de aplicativo que tenha um tipo de conteúdo JSON válido e um valor JSON válido será referido como **chave-valor JSON**. 
 
-Neste tutorial, você aprenderá como:
+Neste tutorial, você aprenderá a:
 > [!div class="checklist"]
 > * Criar valores de chave JSON na configuração do aplicativo.
 > * Importar valores de chave JSON de um arquivo JSON.

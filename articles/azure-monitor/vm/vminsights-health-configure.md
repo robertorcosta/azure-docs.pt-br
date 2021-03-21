@@ -1,22 +1,22 @@
 ---
-title: Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)
+title: Configurar monitoramento na integridade do convidado de insights da VM (versão prévia)
 description: Descreve como modificar o monitoramento padrão para a integridade de convidado do insights de VM (versão prévia) usando o portal do Azure.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/14/2020
-ms.openlocfilehash: 0f6599bb9f379cf471dafbb83a7deefbb05c0dbe
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 6bda6c9e5f6e23e9e15c12fd507645fc72159302
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102052204"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583438"
 ---
-# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configurar o monitoramento na integridade do convidado do insights de VM (versão prévia)
+# <a name="configure-monitoring-in-vm-insights-guest-health-preview"></a>Configurar monitoramento na integridade do convidado de insights da VM (versão prévia)
 A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Este artigo descreve como você pode modificar o monitoramento padrão usando o portal do Azure. Ele também descreve os conceitos fundamentais dos monitores necessários para [Configurar o monitoramento usando uma regra de coleta de dados](vminsights-health-configure-dcr.md).
 
 ## <a name="open-monitor-configuration"></a>Abrir configuração do monitor
-Abra a configuração do monitor bin The portal do Azure selecionando o monitor e, em seguida, a guia **Configuration** .
+Abra a configuração do monitor no portal do Azure selecionando o monitor e, em seguida, a guia **configuração** .
 
 [![Configuração de detalhes do monitor](media/vminsights-health-overview/monitor-details-configuration.png)](media/vminsights-health-overview/monitor-details-configuration.png#lightbox)
 

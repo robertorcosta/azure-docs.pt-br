@@ -6,10 +6,10 @@ ms.date: 10/16/2018
 ms.title: include
 ROBOTS: NOINDEX,NOFOLLOW
 ms.openlocfilehash: 33dc766643355a5f5ebb6138e000595fd1bfe6fc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101744208"
 ---
 ## <a name="create-a-continuous-webjob"></a><a name="CreateContinuous"></a> Criar um WebJob contínuo
@@ -30,9 +30,9 @@ ms.locfileid: "101744208"
 
    | Configuração      | Valor de exemplo   | 
    | ------------ | ----------------- | 
-   | <abbr title="Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de `-` e `_` .">Name</abbr> | myContinuousWebJob | 
+   | <abbr title="Um nome que seja exclusivo em um aplicativo do Serviço de Aplicativo. Deve começar com uma letra ou um número e não pode conter caracteres especiais além de `-` e `_` .">Nome</abbr> | myContinuousWebJob | 
    | <abbr title=" Um arquivo *.zip* que contém o executável ou o arquivo de script, bem como os arquivos de suporte necessários para executar o programa ou o script.">Carregar arquivos</abbr> | ConsoleApp.zip |
-   | <abbr title="Os tipos incluem contínuo, disparado.">Tipo</abbr> | Contínuo | 
+   | <abbr title="Os tipos incluem contínuo, disparado.">Type</abbr> | Contínuo | 
    | <abbr title="Disponível somente para WebJobs Contínuos. Determina se o programa ou o script é executado em todas as instâncias ou apenas em uma única instância. A opção de execução em várias instâncias não se aplica aos tipos de preço Gratuito ou Compartilhado.">Escala</abbr> | Várias instâncias | 
 
 1. Clique em **OK**.

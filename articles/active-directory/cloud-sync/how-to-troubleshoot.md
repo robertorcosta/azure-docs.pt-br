@@ -9,10 +9,10 @@ ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
 ms.openlocfilehash: 174ec8c42ea17ccae04769d7c0baaa91b8e7025b
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517864"
 ---
 # <a name="cloud-sync-troubleshooting"></a>Solução de problemas de sincronização de nuvem
@@ -176,7 +176,7 @@ Clicar com o botão direito do mouse no status abrirá opções adicionais:
 
 
 ### <a name="resolve-a-quarantine"></a>Resolver uma quarentena
-Há duas maneiras diferentes de resolver uma quarentena.  Elas são:
+Há duas maneiras diferentes de resolver uma quarentena.  São eles:
 
   - limpar quarentena-limpa a marca-d ' água e executa uma sincronização Delta
   - reiniciar o trabalho de provisionamento-limpa a marca-d ' água e executa uma sincronização inicial

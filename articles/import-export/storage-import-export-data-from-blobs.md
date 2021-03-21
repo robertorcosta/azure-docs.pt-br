@@ -10,10 +10,10 @@ ms.author: alkohli
 ms.subservice: common
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3
 ms.openlocfilehash: e878be5351362923e163c0a6f617b96ab72a36d8
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102177500"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usar o serviço de Importação/ Exportação do Azure para exportar dados do Armazenamento de Blobs do Azure
@@ -125,7 +125,7 @@ Execute as etapas a seguir para criar um trabalho de exportação no portal do A
 
    ![Revisar e criar sua ordem de exportação](./media/storage-import-export-data-from-blobs/export-from-blob-6-a.png)
 
- 1. Depois que a validação for aprovada, selecione **criar**.
+ 1. Depois da aprovação na validação, selecione **Criar**.
 
 <!--Replaced text: Steps 4 - end of "Create an export job." Wizard design changes required both screen and text updates.
 
@@ -257,7 +257,7 @@ Use as etapas a seguir para criar um trabalho de exportação no portal do Azure
     az import-export update --resource-group myierg --name MyIEjob1 --cancel-requested true
     ```
 
-### <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+### <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Use as etapas a seguir para criar um trabalho de exportação no Azure PowerShell.
 

@@ -10,10 +10,10 @@ author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
 ms.openlocfilehash: 81956a16142f314f54afd9d5a1b9055a559e906c
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564780"
 ---
 # <a name="migration-guide-sap-ase-to-azure-sql-database"></a>Guia de migração: SAP ASE para banco de dados SQL do Azure
@@ -69,7 +69,7 @@ Para converter o esquema, siga estas etapas:
 Para saber mais, consulte [converter esquema](/sql/ssma/sybase/converting-sybase-ase-database-objects-sybasetosql)
 
 
-## <a name="migrate"></a>Migrar 
+## <a name="migrate"></a>Migrações 
 
 Depois de ter os pré-requisitos necessários em vigor e concluir as tarefas associadas **ao estágio de pré-migração,** você estará pronto para executar a migração de dados e de esquema.
 

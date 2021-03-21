@@ -1,18 +1,18 @@
 ---
-title: Como planejar uma implantação em escala de servidores habilitados para Arc do Azure
+title: Como planejar e implantar servidores habilitados para Arc do Azure
 description: Saiba como habilitar um grande número de máquinas para servidores habilitados para Arc do Azure para simplificar a configuração de recursos essenciais de segurança, gerenciamento e monitoramento no Azure.
-ms.date: 03/12/2021
+ms.date: 03/18/2021
 ms.topic: conceptual
-ms.openlocfilehash: 63e224180cff8cab6e700bc72b8a5c39a7f26857
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: 401725dcfed85a6675c95434270dd7dbff482b6e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103461293"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591173"
 ---
-# <a name="plan-and-deploy-arc-enabled-servers-at-scale"></a>Planejar e implantar servidores habilitados para ARC em escala
+# <a name="plan-and-deploy-arc-enabled-servers"></a>Planejar e implantar servidores habilitados para Arc
 
-A implantação de um serviço de infraestrutura de ti ou aplicativo de negócios é um desafio para qualquer empresa. Para executá-lo bem e evitar surpresas indesejadas e custos não planejados, você precisa planejar completamente para ele para garantir que você esteja o mais pronto possível. Para planejar a implantação de servidores habilitados para Arc do Azure em escala, ele deve abranger os critérios de design e implantação que precisam ser atendidos para concluir com êxito as tarefas para dar suporte a uma implantação em escala.
+A implantação de um serviço de infraestrutura de ti ou aplicativo de negócios é um desafio para qualquer empresa. Para executá-lo bem e evitar surpresas indesejadas e custos não planejados, você precisa planejar completamente para ele para garantir que você esteja o mais pronto possível. Para planejar a implantação de servidores habilitados para Arc do Azure em qualquer escala, ele deve abranger os critérios de design e implantação que precisam ser atendidos para concluir as tarefas com êxito.
 
 Para que a implantação continue sem problemas, seu plano deve estabelecer uma compreensão clara de:
 
@@ -54,7 +54,7 @@ Estabeleça um plano formal que descreva o escopo e os detalhes do piloto. Veja 
 
 Nesta fase, os engenheiros de sistema ou os administradores habilitam os principais recursos da assinatura do Azure de suas organizações para iniciar a base antes de habilitar seus computadores para gerenciamento por servidores habilitados para Arc e outros serviços do Azure.
 
-|Tarefa |Detalhes |Duração |
+|Tarefa |Detalhe |Duration |
 |-----|-------|---------|
 | [Criar um grupo de recursos](../../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups) | Um grupo de recursos dedicado para incluir apenas servidores habilitados para Arc e centralizar o gerenciamento e o monitoramento desses recursos. | Uma hora |
 | Aplique [marcas](../../azure-resource-manager/management/tag-resources.md) para ajudar a organizar computadores. | Avalie e desenvolva uma estratégia de [marcação](/cloud-adoption-framework/decision-guides/resource-tagging/) alinhada a ti que pode ajudar a reduzir a complexidade de gerenciar seus servidores habilitados para Arc e simplificar a tomada de decisões de gerenciamento. | Um dia |
@@ -69,9 +69,9 @@ Nesta fase, os engenheiros de sistema ou os administradores habilitam os princip
 
 Em seguida, adicionamos à Fundação dividida na fase 1 preparando e implantando o agente do computador conectado de servidores habilitados para Arc.
 
-|Tarefa |Detalhes |Duração |
+|Tarefa |Detalhe |Duration |
 |-----|-------|---------|
-| Baixar o script de instalação predefinido | Examine e personalize o script de instalação predefinido para a implantação em escala do agente do computador conectado para dar suporte aos seus requisitos de implantação automatizados.<br><br> Exemplo de recursos de integração em escala:<br><br> <ul><li> [Script de implantação básica em escala](onboard-service-principal.md)</ul></li> <ul><li>[Integração em escala VMware vSphere VMs do Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Integração em escala VMware vSphere VMs Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Integração em escala AWS instâncias de EC2 usando o Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implantação em escala usando a comunicação remota do PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (somente Windows)</ul></li>| Um ou mais dias, dependendo dos requisitos, dos processos organizacionais (por exemplo, alteração e Release Management) e do método de automação usado. |
+| Baixar o script de instalação predefinido | Examine e personalize o script de instalação predefinido para a implantação em escala do agente do computador conectado para dar suporte aos seus requisitos de implantação automatizados.<br><br> Exemplo de recursos de integração de escala:<br><br> <ul><li> [Script de implantação básica em escala](onboard-service-principal.md)</ul></li> <ul><li>[Integração em escala VMware vSphere VMs do Windows Server](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_win.md)</ul></li> <ul><li>[Integração em escala VMware vSphere VMs Linux](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/vmware_scaled_powercli_linux.md)</ul></li> <ul><li>[Em dimensionar a integração de AWS instâncias do EC2 usando o Ansible](https://github.com/microsoft/azure_arc/blob/master/azure_arc_servers_jumpstart/docs/aws_scale_ansible.md)</ul></li> <ul><li>[Implantação em escala usando a comunicação remota do PowerShell](https://docs.microsoft.com/azure/azure-arc/servers/onboard-powershell) (somente Windows)</ul></li>| Um ou mais dias, dependendo dos requisitos, dos processos organizacionais (por exemplo, alteração e Release Management) e do método de automação usado. |
 | [Criar uma entidade de serviço](onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale) |Crie uma entidade de serviço para conectar computadores de forma não interativa usando Azure PowerShell ou no Portal.| Uma hora |
 | Implantar o agente do computador conectado nos servidores e máquinas de destino |Use sua ferramenta de automação para implantar os scripts em seus servidores e conectá-los ao Azure.| Um ou mais dias, dependendo do seu plano de versão, e se estiver seguindo uma distribuição em fases. |
 
@@ -79,7 +79,7 @@ Em seguida, adicionamos à Fundação dividida na fase 1 preparando e implantand
 
 A fase 3 vê os administradores ou engenheiros de sistema a habilitar a automação de tarefas manuais para gerenciar e operar o agente de computador conectado e a máquina durante o ciclo de vida deles.
 
-|Tarefa |Detalhes |Duração |
+|Tarefa |Detalhe |Duration |
 |-----|-------|---------|
 |Criar um alerta Resource Health |Se um servidor parar de enviar pulsações para o Azure por mais de 15 minutos, isso pode significar que está offline, a conexão de rede foi bloqueada ou o agente não está em execução. Desenvolva um plano para como você responderá e investigará esses incidentes e usará [Resource Health alertas](../..//service-health/resource-health-alert-monitor-guide.md) para ser notificado quando eles forem iniciados.<br><br> Especifique o seguinte ao configurar o alerta:<br> **Tipo**  =  de recurso **Servidores habilitados para Arc do Azure**<br> Status do recurso **atual**  =  **Não disponível**<br> Status do recurso **anterior**  =  **Disponível** | Uma hora |
 |Criar um alerta do supervisor do Azure | Para obter a melhor experiência e correções de bugs e segurança mais recentes, é recomendável manter o agente de servidores habilitados para Arc do Azure atualizado. Agentes desatualizados serão identificados com um [alerta do supervisor do Azure](../../advisor/advisor-alerts-portal.md).<br><br> Especifique o seguinte ao configurar o alerta:<br> **Tipo**  =  de recomendação **Atualizar para a versão mais recente do agente do computador conectado do Azure** | Uma hora |

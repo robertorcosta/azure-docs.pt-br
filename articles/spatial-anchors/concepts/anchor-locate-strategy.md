@@ -9,10 +9,10 @@ ms.date: 02/11/2021
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 43273ccd7c882bbac6cbc68d359db4ecb100800e
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102617396"
 ---
 # <a name="understanding-the-anchorlocatecriteria-class"></a>Compreendendo a classe AnchorLocateCriteria
@@ -66,7 +66,7 @@ Valor de enumeração LocateStrategy | Descrição
 ---------------|------------
 AnyStrategy | Essa estratégia permite que o sistema use combinações de VisualInformation e estratégias de relacionamento para localizar âncoras. 
 VisualInformation|Essa estratégia tenta encontrar âncoras combinando informações visuais do ambiente atual para os da superfície visual da âncora. A superfície visual de uma âncora refere-se às informações visuais atualmente associadas à âncora. Normalmente, essas informações visuais não são reunidas exclusivamente durante a criação da âncora. Atualmente, essa estratégia só é permitida em conjunto com as propriedades NearDevice ou identificadores.
-Relationship|Essa estratégia tenta encontrar âncoras fazendo uso de [âncoras conectadas](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors)existentes. Atualmente, essa estratégia só é permitida em conjunto com as propriedades NearAnchor ou identificadores. Quando usado com a propriedade identificadores, é necessário que, na mesma sessão, o usuário tenha localizado anteriormente uma âncora com relações de conexão já estabelecidas com as âncoras cujas IDs são especificadas na matriz de identificadores. 
+Relação|Essa estratégia tenta encontrar âncoras fazendo uso de [âncoras conectadas](https://docs.microsoft.com/azure/spatial-anchors/concepts/anchor-relationships-way-finding#connect-anchors)existentes. Atualmente, essa estratégia só é permitida em conjunto com as propriedades NearAnchor ou identificadores. Quando usado com a propriedade identificadores, é necessário que, na mesma sessão, o usuário tenha localizado anteriormente uma âncora com relações de conexão já estabelecidas com as âncoras cujas IDs são especificadas na matriz de identificadores. 
 
 
 ### <a name="valid-combinations-of-locatestrategy-and-anchorlocatecriteria-properties"></a>Combinações válidas de propriedades LocateStrategy e AnchorLocateCriteria 
@@ -75,7 +75,7 @@ Nem todas as combinações de propriedades Strategy e AnchorLocateCriteria são 
 
 
 
-Propriedade | AnyStrategy | Relationship | VisualInformation
+Propriedade | AnyStrategy | Relação | VisualInformation
 -------- | ------------|--------------|-------------------
 Identificadores | &check;    | &check;     | &check;
 NearAnchor  | &check;   (o padrão será a relação) | &check;    | 

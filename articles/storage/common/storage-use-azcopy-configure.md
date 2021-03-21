@@ -9,10 +9,10 @@ ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
 ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100596948"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
@@ -49,7 +49,7 @@ Se você estiver executando o AzCopy no Windows e quiser dizer que ele _não usa
 
 Em outros sistemas operacionais, basta deixar a variável de HTTPS_PROXY desdefinida se você quiser usar nenhum proxy.
 
-## <a name="optimize-performance"></a>Otimizar desempenho
+## <a name="optimize-performance"></a>Otimizar o desempenho
 
 Você pode obter o desempenho do benchmark e, em seguida, usar comandos e variáveis de ambiente para encontrar uma compensação ideal entre o consumo de recursos e o desempenho.
 

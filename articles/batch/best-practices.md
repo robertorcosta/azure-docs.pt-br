@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: d1040762c171af486c7f5d66daca44ec65602aff
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561831"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104583268"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -23,35 +23,29 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 
 ### <a name="pool-configuration-and-naming"></a>Configuração e nomenclatura de pool
 
-- **Modo de alocação de pool** Ao criar uma conta do Lote, você pode escolher entre dois modos de alocação de pool: **Serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modo de alocação do pool:** Ao criar uma conta do lote, você pode escolher entre dois modos de alocação de pool: **serviço de lote** ou **assinatura de usuário**. Na maioria dos casos, você deve usar o modo de serviço de Lote padrão, no qual os pools são alocados em segundo plano em assinaturas gerenciadas no Lote. No modo de assinatura alternativo do usuário, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. As contas de assinatura de usuário são usadas principalmente para habilitar um subconjunto de cenários importante, mas pequeno. Você pode ler mais sobre o modo de assinatura do usuário em [Configuração adicional para o modo de assinatura do usuário](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
-- **' virtualMachineConfiguration ' ou ' cloudServiceConfiguration '.**
-    Embora você possa criar pools no momento usando qualquer configuração, novos pools devem ser configurados usando ' virtualMachineConfiguration ' e não ' cloudServiceConfiguration '. Todos os recursos atuais e novos do lote serão suportados pelos pools de configuração da máquina virtual. Os pools de configuração de serviços de nuvem não oferecem suporte a todos os recursos e nenhuma nova funcionalidade é planejada. Você não poderá criar novos pools ' cloudServiceConfiguration ' ou adicionar novos nós a pools existentes [após 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Para obter mais informações, consulte [migrar a configuração do pool do lote dos serviços de nuvem para a máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
+- **' virtualMachineConfiguration ' ou ' cloudServiceConfiguration ':** Embora você possa criar pools no momento usando qualquer configuração, novos pools devem ser configurados usando ' virtualMachineConfiguration ' e não ' cloudServiceConfiguration '. Todos os recursos atuais e novos do lote serão suportados pelos pools de configuração da máquina virtual. Os pools de configuração de serviços de nuvem não oferecem suporte a todos os recursos e nenhuma nova funcionalidade é planejada. Você não poderá criar novos pools ' cloudServiceConfiguration ' ou adicionar novos nós a pools existentes [após 29 de fevereiro de 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Para obter mais informações, consulte [migrar a configuração do pool do lote dos serviços de nuvem para a máquina virtual](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
-- **Considere o tempo de execução de trabalho e tarefa ao determinar o mapeamento do trabalho para o pool.**
-    Se você tiver trabalhos compostos principalmente de tarefas de execução curta, e as contagens de tarefas totais esperadas forem pequenas, para que o tempo de execução esperado geral do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de alocação dos nós reduzirá o tempo de execução do trabalho.
+- **Considere o tempo de execução do trabalho e da tarefa ao determinar o mapeamento do trabalho para o pool:** Se você tiver trabalhos compostos principalmente de tarefas de execução curta, e as contagens de tarefas totais esperadas forem pequenas, para que o tempo de execução esperado geral do trabalho não seja longo, não aloque um novo pool para cada trabalho. O tempo de alocação dos nós reduzirá o tempo de execução do trabalho.
 
-- **Os pools devem ter mais de um nó de computação.**
-    Não há garantia de que os nós individuais estejam sempre disponíveis. Embora não sejam comuns, falhas de hardware, atualizações de sistema operacional e outros problemas podem fazer com que nós individuais fiquem offline. Se a carga de trabalho do Lote exigir um progresso determinístico e garantido, você deverá alocar pools com vários nós.
+- Os **pools devem ter mais de um nó de computação:** Não há garantia de que os nós individuais estejam sempre disponíveis. Embora não sejam comuns, falhas de hardware, atualizações de sistema operacional e outros problemas podem fazer com que nós individuais fiquem offline. Se a carga de trabalho do Lote exigir um progresso determinístico e garantido, você deverá alocar pools com vários nós.
 
-- **Não reutilize nomes de recursos.**
-    Os recursos do Lote (trabalhos, pools etc.) geralmente entram e saem ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
+- **Não reutilizar nomes de recursos:** Os recursos do lote (trabalhos, pools, etc.) geralmente são fornecidos e passam ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
 
-- **Continuidade durante a manutenção e a falha do pool.**
-    É melhor fazer com que seus trabalhos usem pools dinamicamente. Se seus trabalhos usarem o mesmo pool para tudo, haverá a chance de que seus trabalhos não sejam executados se algo der errado com o pool. Isso é especialmente importante para cargas de trabalho com detecção de hora. Para corrigir isso, selecione ou crie um pool dinamicamente ao agendar cada trabalho ou tenha uma maneira de substituir o nome do pool para que você possa ignorar um pool não íntegro.
+- **Continuidade durante a manutenção e a falha do pool:** É melhor fazer com que seus trabalhos usem pools dinamicamente. Se seus trabalhos usarem o mesmo pool para tudo, haverá a chance de que seus trabalhos não sejam executados se algo der errado com o pool. Isso é especialmente importante para cargas de trabalho com detecção de hora. Para corrigir isso, selecione ou crie um pool dinamicamente ao agendar cada trabalho ou tenha uma maneira de substituir o nome do pool para que você possa ignorar um pool não íntegro.
 
-- **Continuidade dos negócios durante a manutenção e a falha do pool** Há muitas causas possíveis que podem impedir que um pool aumente para o tamanho necessário que você deseja, como erros internos, restrições de capacidade etc. Por esse motivo, você deve estar pronto para redirecionar os trabalhos em um pool diferente (possivelmente com um tamanho de VM diferente; o Lote dá suporte a isso por meio de [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), se necessário. Evite usar uma ID de pool estático com a expectativa de que ela nunca seja excluída e nunca seja alterada.
+- **Continuidade dos negócios durante a manutenção e a falha do pool:** Há muitas razões pelas quais um pool pode não aumentar para o tamanho desejado, como erros internos, restrições de capacidade, etc. Por esse motivo, você deve estar pronto para redirecionar trabalhos em um pool diferente (possivelmente com um tamanho de VM diferente-o lote dá suporte a isso via [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), se necessário. Evite usar uma ID de pool estático com a expectativa de que ela nunca seja excluída e nunca seja alterada.
 
 ### <a name="pool-lifetime-and-billing"></a>Tempo de vida e cobrança do pool
 
 O tempo de vida do pool pode variar de acordo com o método de alocação e as opções aplicadas à configuração do pool. Os pools podem ter um tempo de vida arbitrário e um número variável de nós de computação no pool a qualquer momento. É sua responsabilidade gerenciar os nós de computação no pool explicitamente ou por meio de recursos fornecidos pelo serviço ([autoescala](nodes-and-pools.md#automatic-scaling-policy) ou [autopool](nodes-and-pools.md#autopools)).
 
-- **Mantenha os pools atualizados.**
-    Redimensione seus pools para zero a cada poucos meses para garantir que você obtenha as [atualizações e correções de bug mais recentes do agente de nó](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes).
+- **Manter os pools atualizados:** Redimensione seus pools para zero a cada poucos meses para garantir que você obtenha as [atualizações e correções de bug mais recentes do agente de nó](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Seu pool não receberá atualizações do agente de nó a menos que seja recriado ou redimensionado para 0 nós de computação. Antes de recriar ou redimensionar o pool, é recomendável baixar todos os logs do agente de nó para fins de depuração, conforme discutido na seção [nós](#nodes).
 
-- **Recriação do pool** Em uma observação semelhante, não é recomendável excluir e recriar seus pools diariamente. Em vez disso, crie um novo pool, atualize seus trabalhos existentes para apontar para o novo pool. Depois que todas as tarefas forem movidas para o novo pool, exclua o pool antigo.
+- **Recriação de pool:** Em uma observação semelhante, não é recomendável excluir e recriar seus pools diariamente. Em vez disso, crie um novo pool, atualize seus trabalhos existentes para apontar para o novo pool. Depois que todas as tarefas forem movidas para o novo pool, exclua o pool antigo.
 
-- **Eficiência do pool e cobrança** O Lote incorre em encargos adicionais, mas você não é cobrado pelos recursos de computação usados. Você será cobrado por cada nó de computação no pool, independentemente do estado em que ele está. Isso inclui quaisquer encargos necessários para que o nó seja executado, como os custos de armazenamento e de rede. Para saber mais melhores práticas, consulte [Análise de custo e orçamentos para Lote do Azure](budget.md).
+- A **eficiência e a cobrança do pool:** O próprio lote incorre em encargos extras, mas você não tem cobranças para os recursos de computação usados. Você será cobrado por cada nó de computação no pool, independentemente do estado em que ele está. Isso inclui quaisquer encargos necessários para que o nó seja executado, como os custos de armazenamento e de rede. Para saber mais melhores práticas, consulte [Análise de custo e orçamentos para Lote do Azure](budget.md).
 
 ### <a name="pool-allocation-failures"></a>Falhas de alocação de pool
 
@@ -73,7 +67,7 @@ Os pools podem ser criados usando imagens de terceiros publicadas no Azure Marke
 
 ### <a name="azure-region-dependency"></a>Dependência da região do Azure
 
-É aconselhável não depender de uma única região do Azure caso você tenha uma carga de trabalho de produção ou sensível ao tempo. Embora seja raro, há problemas que podem afetar toda a região. Por exemplo, se o processamento precisar ser iniciado em um momento específico, considere escalar verticalmente o pool em sua região primária *bem antes da hora de início*. Se a escala do pool falhar, você poderá fazer fallback para escalar verticalmente um pool em uma região (ou regiões) de backup. Os pools em várias contas em regiões diferentes fornecem um backup pronto e facilmente acessível se algo der errado com outro pool. Para obter mais informações, consulte [Projetar seu aplicativo para alta disponibilidade](high-availability-disaster-recovery.md).
+Você não deve contar com uma única região do Azure se tiver uma carga de trabalho de produção ou de tempo. Embora seja raro, há problemas que podem afetar toda a região. Por exemplo, se o processamento precisar ser iniciado em um momento específico, considere escalar verticalmente o pool em sua região primária *bem antes da hora de início*. Se a escala do pool falhar, você poderá fazer fallback para escalar verticalmente um pool em uma região (ou regiões) de backup. Os pools em várias contas em regiões diferentes fornecem um backup pronto e facilmente acessível se algo der errado com outro pool. Para obter mais informações, consulte [Projetar seu aplicativo para alta disponibilidade](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Trabalhos
 
@@ -133,7 +127,7 @@ Um exemplo comum é uma tarefa que copia arquivos para um nó de computação. U
 
 ### <a name="avoid-short-execution-time"></a>Evitar tempo de execução curto
 
-As tarefas que só são executadas por um ou dois segundos não são ideais. Tente fazer uma quantidade significativa de trabalho em uma tarefa individual (no mínimo 10 segundos, no máximo horas ou dias). Se cada tarefa estiver em execução por um minuto (ou mais), a sobrecarga de agendamento como uma fração do tempo de computação geral será pequena.
+As tarefas que só são executadas por um ou dois segundos não são ideais. Tente fazer uma quantidade significativa de trabalho em uma tarefa individual (no mínimo 10 segundos, indo até horas ou dias). Se cada tarefa estiver em execução por um minuto (ou mais), a sobrecarga de agendamento como uma fração do tempo de computação geral será pequena.
 
 ### <a name="use-pool-scope-for-short-tasks-on-windows-nodes"></a>Usar escopo de pool para tarefas curtas em nós do Windows
 

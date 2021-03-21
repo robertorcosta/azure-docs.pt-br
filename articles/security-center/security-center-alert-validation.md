@@ -1,24 +1,18 @@
 ---
 title: Validação de alerta na central de segurança do Azure | Microsoft Docs
 description: Saiba como validar se os alertas de segurança estão configurados corretamente na central de segurança do Azure
-services: security-center
-documentationcenter: na
 author: memildin
 manager: rkarlin
-ms.assetid: f8f17a55-e672-4d86-8ba9-6c3ce2e71a57
 ms.service: security-center
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/17/2021
+ms.date: 03/17/2021
 ms.author: memildin
-ms.openlocfilehash: 74323c63ab8985dee2391a546d82258dcb8d0114
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: b90ca39d7bf01b84400464240bb581a5e7bc922a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102099515"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602376"
 ---
 # <a name="alert-validation-in-azure-security-center"></a>Validação de alerta na central de segurança do Azure
 Este documento ensina você a verificar se o sistema está configurado corretamente para os alertas da Central de Segurança do Azure.
@@ -39,7 +33,7 @@ Use alertas de exemplo para:
 
 Para criar alertas de exemplo:
 
-1. Na barra de ferramentas da página alertas, selecione **criar alertas de exemplo**. 
+1. Como usuário com o administrador de **segurança** de função ou **colaborador de assinatura**, na barra de ferramentas da página alertas, selecione **criar alertas de exemplo**.
 1. Selecione a assinatura.
 1. Selecione o plano/s do Azure defender relevante para o qual você deseja ver os alertas. 
 1. Selecione **criar alertas de exemplo**.

@@ -13,10 +13,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 0f09b4557f9bbf2f074948bd7c8dbd349cd397bc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103488662"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Configurar a inscrição e entrada com a conta do QQ usando o Azure Active Directory B2C
@@ -43,7 +43,7 @@ Para habilitar a entrada para usuários com uma conta do QQ no Azure Active Dire
 
 ### <a name="register-a-qq-application"></a>Registrar um aplicativo do QQ
 
-1. Vá para [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
+1. Acesse [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 1. Selecione **应用管理**(gerenciamento de aplicativos).
 1. Selecione **创建应用** (criar aplicativo) e insira as informações necessárias.
 1. Para o **授权回调域** (URL de retorno de chamada), digite `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Se você usar um [domínio personalizado](custom-domain.md), digite `https://your-domain-name/your-tenant-name.onmicrosoft.com/oauth2/authresp` . Substitua `your-tenant-name` pelo nome do seu locatário e `your-domain-name` pelo seu domínio personalizado.
@@ -64,14 +64,14 @@ Para habilitar a entrada para usuários com uma conta do QQ no Azure Active Dire
 1. Insira um **Nome**. Por exemplo, *QQ*.
 1. Para a **ID do cliente**, insira a ID do aplicativo QQ que você criou anteriormente.
 1. Para o **segredo do cliente**, insira a chave do aplicativo que você registrou.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 ## <a name="add-qq-identity-provider-to-a-user-flow"></a>Adicionar o provedor de identidade QQ a um fluxo de usuário 
 
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Clique no fluxo de usuário para o qual você deseja adicionar o provedor de identidade QQ.
 1. Em **provedores de identidade social**, selecione **QQ**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .

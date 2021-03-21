@@ -8,12 +8,12 @@ ms.date: 04/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: contperf-fy21q1
-ms.openlocfilehash: 6c9b4a9ee1a778ba7a534377f8b2abe9d9a7e18a
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: eea5c800d7aa9c8d1e6c0c507136b86ab8bf21f3
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102504723"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604025"
 ---
 # <a name="introduction-to-azure-managed-disks"></a>Introdução aos discos gerenciados do Azure
 
@@ -100,7 +100,7 @@ Esse disco tem uma capacidade máxima de 4.095 GiB.
 
 ### <a name="temporary-disk"></a>Disco temporário
 
-A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./understand-vm-reboots.md) ou durante a [reimplantação de uma VM](troubleshooting/redeploy-to-new-node-windows.md?toc=/azure/virtual-machines/windows/toc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
+A maioria das VMs contém um disco temporário, que não é um disco gerenciado. O disco temporário fornece armazenamento de curto prazo para aplicativos e processos e destina-se apenas a armazenar dados como arquivos de página ou de permuta. Os dados no disco temporário podem ser perdidos durante um [evento de manutenção](./understand-vm-reboots.md) ou durante a [reimplantação de uma VM](/troubleshoot/azure/virtual-machines/redeploy-to-new-node-windows?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Durante uma reinicialização padrão bem-sucedida da VM, os dados no disco temporário serão mantidos. Para obter mais informações sobre VMs sem discos temporários, consulte [tamanhos de VM do Azure sem disco temporário local](azure-vms-no-temp-disk.md).
 
 Em VMs do Linux do Azure, o disco temporário é normalmente /dev/sdb e em VMs do Windows, o disco temporário é D: por padrão. O disco temporário não é criptografado pela criptografia do servidor, a menos que você habilite a criptografia no host.
 
