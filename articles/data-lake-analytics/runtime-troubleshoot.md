@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: troubleshooting
 ms.date: 10/10/2019
 ms.openlocfilehash: 1236b83b410057e55015391772e37bd461a448d0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102030606"
 ---
 # <a name="learn-how-to-troubleshoot-u-sql-runtime-failures-due-to-runtime-changes"></a>Saiba como solucionar falhas de tempo de execução do U-SQL devido a alterações no tempo de execução
@@ -71,7 +71,7 @@ Há dois possíveis problemas de versão de tempo de execução que você pode e
     Como essa correção está lidando com os dados do cliente, é extremamente importante que essa correção seja bem validada no MSFT antes de ser liberada. Espera-se que essa correção esteja disponível como tempo de execução beta no meio do ano 2021 e como tempo de execução padrão na segunda metade do ano 2021. 
 
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 - [Visão geral da Análise Azure Data Lake](data-lake-analytics-overview.md)
 - [Gerenciar Azure Data Lake Analytics usando portal do Azure](data-lake-analytics-manage-use-portal.md)

@@ -7,10 +7,10 @@ ms.author: regutier
 ms.date: 01/14/2021
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9c3ff91cbfb6423099040a6ea46eeb66f5461f48
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100589671"
 ---
 # <a name="configure-bring-your-own-storage-byos-for-application-insights-profiler-and-snapshot-debugger"></a>Configure o BYOS (Traga seu próprio armazenamento) para Application Insights Profiler e Depurador de Instantâneos
@@ -31,7 +31,7 @@ Com o traga seu próprio armazenamento, esses artefatos são carregados em uma c
 1. Quando você exibir os rastreamentos do criador de perfil ou a análise do depurador de instantâneo, o serviço buscará os resultados da análise do armazenamento de BLOBs.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Exemplo: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
+* Certifique-se de criar sua conta de armazenamento no mesmo local que o recurso de Application Insights. Ex.: Se o recurso de Application Insights estiver no oeste dos EUA 2, sua conta de armazenamento também deverá estar no oeste dos EUA 2. 
 * Conceda a função "colaborador de dados de blob de armazenamento" ao aplicativo do AAD "acesso de armazenamento confiável dos serviços de diagnóstico" em sua conta de armazenamento por meio da interface de usuário do controle de acesso (IAM).
 * Se o link privado estiver habilitado, defina a configuração adicional para permitir a conexão com o nosso serviço confiável da Microsoft de sua rede virtual. 
 

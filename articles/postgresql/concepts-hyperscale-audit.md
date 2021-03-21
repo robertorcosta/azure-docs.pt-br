@@ -7,10 +7,10 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/29/2021
 ms.openlocfilehash: 8a36062a2d29bcec10279d73211526a0dcba619e
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101702106"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---hyperscale-citus"></a>Log de auditoria no banco de dados do Azure para PostgreSQL-Citus (hiperescala)
@@ -42,7 +42,7 @@ Você deve configurar os parâmetros de pgAudit para iniciar o registro em log. 
 
 > [!NOTE]
 > Definir `pgaudit.log_client` como on redirecionará os logs para um processo de cliente (como psql) em vez de ser gravado no arquivo. Essa configuração deve ser deixada desabilitada. <br> <br>
-> `pgaudit.log_level` é habilitado somente quando o `pgaudit.log_client` está ativado.
+> `pgaudit.log_level` é habilitado somente quando `pgaudit.log_client` está ativado.
 
 > [!NOTE]
 > No banco de dados do Azure para PostgreSQL-Citus (hiperescala), `pgaudit.log` não é possível definir usando um `-` atalho de sinal (menos), conforme descrito na documentação do pgAudit. Todas as classes de instrução necessárias (leitura, gravação, etc.) devem ser especificadas individualmente.

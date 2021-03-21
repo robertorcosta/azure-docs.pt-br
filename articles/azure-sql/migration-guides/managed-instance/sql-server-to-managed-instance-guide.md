@@ -11,10 +11,10 @@ ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
 ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564483"
 ---
 # <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Instância Gerenciada
@@ -24,7 +24,7 @@ Este guia ajuda você a migrar sua instância do SQL Server para o SQL Instânci
 
 Você pode migrar SQL Server em execução no local ou em: 
 
-- SQL Server em máquinas virtuais  
+- SQL Server em Máquinas Virtuais  
 - Amazon Web Services (AWS) EC2 
 - Serviço de banco de dados relacional do Amazon (AWS RDS) 
 - Mecanismo de computação (Google Cloud Platform-GCP)  
@@ -104,7 +104,7 @@ Se você precisar comparar o desempenho de sua carga de trabalho em um Instânci
 Com base nas informações na fase de descoberta e avaliação, crie um Instância Gerenciada de destino do SQL de tamanho adequado. Você pode fazer isso usando o [portal do Azure](../../managed-instance/instance-create-quickstart.md), o [PowerShell](../../managed-instance/scripts/create-configure-managed-instance-powershell.md)ou um [modelo de Azure Resource Manager (ARM)](../../managed-instance/create-template-quickstart.md). 
 
 
-## <a name="migrate"></a>Migrar
+## <a name="migrate"></a>Migrações
 
 Depois de concluir as tarefas associadas ao estágio de pré-migração, você estará pronto para executar o esquema e a migração de dados. 
 

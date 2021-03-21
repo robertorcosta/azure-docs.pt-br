@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 02/05/2019
 ms.openlocfilehash: d8702b498e08561175aa7ee975c7b6b46fdf1687
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102031082"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de computadores em consultas Azure Monitor log
@@ -49,7 +49,7 @@ A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
 | Propriedade | Descrição |
 |:---|:---|
-| Name   | Nome da consulta a ser exibida no portal. |
+| Nome   | Nome da consulta a ser exibida no portal. |
 | Alias da função | Um alias exclusivo usado para identificar o grupo de computadores em uma consulta. |
 | Categoria       | Categoria para organizar as consultas no portal. |
 
@@ -128,7 +128,7 @@ Um registro é criado no espaço de trabalho do Log Analytics para cada associa�
 | `Computer` |Nome do computador membro. |
 | `Group` |Nome do grupo. |
 | `GroupFullName` |Caminho completo para o grupo, incluindo a fonte e o nome da fonte. |
-| `GroupSource` |Fonte da qual o grupo foi coletado. <br><br>Active Directory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSource` |Fonte da qual o grupo foi coletado. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
 | `GroupSourceName` |Nome da origem da qual o grupo foi coletado.  Para o Active Directory, este é o nome de domínio. |
 | `ManagementGroupName` |Nome do grupo de gerenciamento de agentes do SCOM.  Para outros agentes, ele é AOI-\<workspace ID\> |
 | `TimeGenerated` |Data e hora em que o grupo de computadores foi criado ou atualizado. |

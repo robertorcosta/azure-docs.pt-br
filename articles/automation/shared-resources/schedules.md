@@ -3,14 +3,14 @@ title: Gerenciar agendamentos na Automação do Azure
 description: Este artigo mostra como criar e trabalhar com um agendamento na Automação do Azure.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 09/10/2020
+ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: f40e3d555d6e1472b9d2368a114ee27d588f6383
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: 6f7cd1f3684bb14d25a77fe8e3980e8e2041808a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149470"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669552"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gerenciar agendamentos na Automação do Azure
 
@@ -38,7 +38,7 @@ Os cmdlets na tabela a seguir são usados para criar e gerenciar agendamentos de
 
 ## <a name="create-a-schedule"></a>Criar um agendamento
 
-Você pode criar um novo agendamento para runbooks no portal do Azure ou com o PowerShell. Para evitar impactos em seus runbooks e os processos que eles automatizam, primeiro você deve testar quaisquer runbooks que tenham agendamentos vinculados a uma conta de Automação dedicada a testes. Um teste valida que seus runbooks agendados continuam funcionando corretamente. Se encontrar algum problema, você poderá solucionar e aplicar as alterações necessárias antes de migrar a versão atualizada do runbook para produção.
+Você pode criar um novo agendamento para seus runbooks do portal do Azure, com o PowerShell ou usando um modelo de Azure Resource Manager (ARM). Para evitar impactos em seus runbooks e os processos que eles automatizam, primeiro você deve testar quaisquer runbooks que tenham agendamentos vinculados a uma conta de Automação dedicada a testes. Um teste valida que seus runbooks agendados continuam funcionando corretamente. Se encontrar algum problema, você poderá solucionar e aplicar as alterações necessárias antes de migrar a versão atualizada do runbook para produção.
 
 > [!NOTE]
 > Sua conta de Automação não recebe automaticamente nenhuma nova versão dos módulos, a menos que você os tenha atualizado manualmente selecionando a opção [Atualizar módulos do Azure](../automation-update-azure-modules.md) em **Módulos**. A Automação do Azure usa os módulos mais recentes de sua conta de Automação quando um novo trabalho agendado é executado. 
