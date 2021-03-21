@@ -6,10 +6,10 @@ ms.subservice: process-automation
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.openlocfilehash: d4d9bcd16e36e76808f19f7fbd43dd0d3e7550c3
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102182325"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Implantar o Hybrid Runbook Worker do Linux
@@ -24,7 +24,7 @@ Depois de implantar com êxito um trabalhador de runbook, revise [Executar runbo
 
 Antes de começar, verifique se você tem o seguinte.
 
-### <a name="a-log-analytics-workspace"></a>Um workspace do Log Analytics
+### <a name="a-log-analytics-workspace"></a>Um espaço de trabalho Log Analytics
 
 A função Hybrid Runbook Worker depende de um espaço de trabalho de Log Analytics de Azure Monitor para instalar e configurar a função. Você pode criá-lo por meio de [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), por meio do [PowerShell](../azure-monitor/logs/powershell-sample-create-workspace.md?toc=/powershell/module/toc.json), ou no [portal do Azure](../azure-monitor/logs/quick-create-workspace.md).
 
@@ -127,7 +127,7 @@ Para instalar e configurar um Hybrid Runbook Worker do Linux, execute as etapas 
 
             - O [Portal do Azure](../azure-arc/servers/manage-vm-extensions-portal.md)
             - A [CLI do Azure](../azure-arc/servers/manage-vm-extensions-cli.md)
-            - [PowerShell do Azure](../azure-arc/servers/manage-vm-extensions-powershell.md)
+            - [Azure PowerShell](../azure-arc/servers/manage-vm-extensions-powershell.md)
             - Modelos do Azure [Resource Manager](../azure-arc/servers/manage-vm-extensions-template.md)
 
         - Usando Azure Policy.

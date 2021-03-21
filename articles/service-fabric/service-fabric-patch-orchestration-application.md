@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 2/01/2019
 ms.author: atsenthi
 ms.openlocfilehash: e51b247f8c1a5a9ed8f6ec8e24363015afb2f7de
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102614404"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
@@ -299,8 +299,8 @@ ResultCode | O mesmo que OperationResult | Esse campo indica o resultado da oper
 OperationType | 1 - Instalação<br> 0-Pesquisar e baixar| Por padrão, a instalação é o único OperationType mostrado nos resultados.
 WindowsUpdateQuery | O padrão é "IsInstalled=0" | A consulta Windows Update que foi usada para Pesquisar atualizações. Para obter mais informações, consulte [WuQuery](/windows/win32/api/wuapi/nf-wuapi-iupdatesearcher-search).
 RebootRequired | true - a reinicialização foi necessária<br> false - a reinicialização não foi necessária | Indica se uma reinicialização foi necessária para concluir a instalação das atualizações.
-OperationStartTime | Datetime | Indica a hora em que a operação (download/instalação) foi iniciada.
-Operationtime | Datetime | Indica a hora em que a operação (download/instalação) foi concluída.
+OperationStartTime | DateTime | Indica a hora em que a operação (download/instalação) foi iniciada.
+Operationtime | DateTime | Indica a hora em que a operação (download/instalação) foi concluída.
 HResult | 0-êxito<br> outro-falha| Indica o motivo da falha da atualização do Windows com a UpdateId "7392acaf-6a85-427c-8a8d-058c25beb0d6".
 
 Se nenhuma atualização estiver agendada ainda, o resultado JSON estará vazio.

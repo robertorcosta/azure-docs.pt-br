@@ -11,18 +11,18 @@ ms.workload: ''
 ms.topic: tutorial
 ms.date: 08/24/2020
 ms.author: inhenkel
-ms.openlocfilehash: c481daf73f916ede2e7063c75448ba4d09e553cc
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 8e3b9636dfb900fa0e22bfea8bcd2d0c7edf0241
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100571862"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104596698"
 ---
 # <a name="tutorial-store-azure-media-services-events-in-azure-log-analytics"></a>Tutorial: Armazenar eventos dos Serviços de Mídia do Azure no Azure Log Analytics
 
 ## <a name="azure-media-services-events"></a>Eventos dos Serviços de Mídia do Azure
 
-Os Serviços de Mídia do Azure v3 emitem eventos na [Grade de Eventos do Azure](media-services-event-schemas.md). Você pode assinar eventos de várias maneiras e armazená-los em armazenamentos de dados. Neste tutorial, você assinará os eventos dos Serviços de Mídia usando um [Fluxo de Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/). O Aplicativo Lógico será disparado para cada evento e armazenará o corpo do evento no Azure Log Analytics. Depois que os eventos estiverem no Azure Log Analytics, você poderá usar outros serviços do Azure para criar um painel, para monitor eventos e gerar alertas sobre eles, embora não abordaremos isso neste tutorial.
+Os Serviços de Mídia do Azure v3 emitem eventos na [Grade de Eventos do Azure](monitoring/media-services-event-schemas.md). Você pode assinar eventos de várias maneiras e armazená-los em armazenamentos de dados. Neste tutorial, você assinará os eventos dos Serviços de Mídia usando um [Fluxo de Aplicativos Lógicos](https://azure.microsoft.com/services/logic-apps/). O Aplicativo Lógico será disparado para cada evento e armazenará o corpo do evento no Azure Log Analytics. Depois que os eventos estiverem no Azure Log Analytics, você poderá usar outros serviços do Azure para criar um painel, para monitor eventos e gerar alertas sobre eles, embora não abordaremos isso neste tutorial.
 
 > [!NOTE]
 > Seria útil se você já estivesse familiarizado com o uso de FFmpeg como seu codificador local.  Caso contrário, não tem problema. A linha de comando e as instruções para transmitir um vídeo estão incluídas abaixo.

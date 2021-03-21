@@ -9,12 +9,12 @@ ms.date: 03/01/2020
 ms.author: midesa
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: c6d720c3feec29eb32b1cfa9c31ea45839c98ec7
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: e8ad6d072af6979eb8509068c1dcd239e7840950
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102176409"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598007"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gerenciar bibliotecas para Apache Spark no Azure Synapse Analytics
 As bibliotecas fornecem código reutilizável que você talvez queira incluir em seus programas ou projetos. 
@@ -60,10 +60,6 @@ Para saber mais sobre esses recursos, visite a documentação sobre [Gerenciamen
 Geralmente, ao fazer análises de dados interativas ou aprendizado de máquina, você pode achar que deseja experimentar pacotes mais recentes ou pode precisar de pacotes que ainda não estão disponíveis em seu pool de Apache Spark. Em vez de atualizar a configuração do pool, os usuários agora podem usar pacotes no escopo da sessão para adicionar, gerenciar e atualizar dependências de sessão.
 
 Os pacotes no escopo da sessão permitem que os usuários definam as dependências do pacote no início da sessão. Quando você instala um pacote com escopo de sessão, somente a sessão atual tem acesso aos pacotes especificados. Como resultado, esses pacotes no escopo da sessão não afetarão outras sessões ou trabalhos usando o mesmo pool de Apache Spark. Além disso, essas bibliotecas são instaladas sobre o tempo de execução base e os pacotes de nível de pool. 
-
-Esses pacotes são adicionados automaticamente ao seu ambiente Python. Os pacotes não devem ser mencionados no arquivo de *requirements.txt* .
-
-Observe que, atualmente, esse método suports apenas `*.whl` arquivos. Não adicione nenhum `*.tar.gz` arquivo ao contêiner.
 
 Para saber mais sobre como gerenciar pacotes no escopo da sessão, visite os seguintes guias de instruções:
 

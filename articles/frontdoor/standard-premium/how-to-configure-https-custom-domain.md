@@ -9,23 +9,23 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: amsriva
 ms.openlocfilehash: c2edf11939996156c2b589b0b7876ae1b01466e5
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740810"
 ---
 # <a name="configure-https-on-a-front-door-standardpremium-sku-preview-custom-domain-using-the-azure-portal"></a>Configurar HTTPS em um domínio personalizado de SKU padrão/Premium da porta (versão prévia) usando o portal do Azure
 
 > [!NOTE]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 O padrão de porta frontal do Azure/Premium permite a entrega de TLS segura para seus aplicativos por padrão quando um domínio personalizado é adicionado. Usando o protocolo HTTPS em seu domínio personalizado, você garante que seus dados confidenciais sejam entregues com segurança com criptografia TLS/SSL quando enviados pela Internet. Quando seu navegador da Web é conectado a um site da Web via HTTPS, ele valida o certificado de segurança do site da Web e verifica se ele é emitido por uma autoridade de certificação legítima. Esse processo oferece segurança e protege seus aplicativos Web contra ataques.
 
 O Standard/Premium da porta do Azure dá suporte ao certificado gerenciado do Azure e aos certificados gerenciados pelo cliente. Por padrão, a porta frontal do Azure habilita automaticamente o HTTPS para todos os seus domínios personalizados usando os certificados gerenciados do Azure. Nenhuma etapa adicional é necessária para obter um certificado gerenciado do Azure. Um certificado é criado durante o processo de validação de domínio. Você também pode usar seu próprio certificado integrando o Azure front door Standard/Premium com seu Key Vault.
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para saber mais, confira os [**Termos de uso complementares das versões prévias do Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 

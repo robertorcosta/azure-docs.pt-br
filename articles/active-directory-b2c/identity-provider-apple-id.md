@@ -14,10 +14,10 @@ ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
 ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103489127"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar a inscrição e a entrada com uma ID da Apple usando Azure Active Directory B2C (versão prévia)
@@ -79,14 +79,14 @@ Para habilitar a entrada para usuários com uma ID da Apple no Azure Active Dire
 
 1. Entre no [portal do Azure](https://portal.azure.com/) como um administrador global do seu locatário Azure ad B2C.
 1. Selecione o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário do Azure AD B2C.
-1. Em **Serviços do Azure**, selecione **Azure ad B2C**. Ou use a caixa de pesquisa para localizar e selecionar **Azure ad B2C**.
+1. Em **Serviços do Azure**, selecione **Azure AD B2C**. Ou use a caixa de pesquisa para localizar e selecionar **Azure AD B2C**.
 1. Selecione **provedores de identidade** e, em seguida, selecione **Apple (versão prévia)**.
 1. Insira um **Nome**. Por exemplo, *Apple*.
 1. Insira a **ID do desenvolvedor da Apple (ID da equipe)**.
 1. Insira a **ID de serviço da Apple (ID do cliente)**.
 1. Insira a **ID da chave da Apple**.
 1. Selecione e carregue os **dados de certificado da Apple**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 
 > [!IMPORTANT] 
@@ -101,7 +101,7 @@ Para permitir que os usuários entrem usando uma ID da Apple, você precisa adic
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione um fluxo de usuário para o qual você deseja adicionar o provedor de identidade da Apple. 
 1. Em **provedores de identidade social**, selecione **Apple (versão prévia)**.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .
@@ -120,7 +120,7 @@ Use o arquivo. P8 baixado anteriormente para assinar o segredo do cliente em um 
 1. Crie uma [função do Azure](../azure-functions/functions-create-function-app-portal.md).
 1. Em **desenvolvedor**, selecione **código + teste**. 
 1. Copie o conteúdo do arquivo [Run. CSX](https://github.com/azure-ad-b2c/samples/blob/master/policies/sign-in-with-apple/azure-function/run.csx) e cole-o no editor.
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 1. Faça uma `POST` solicitação HTTP e forneça as seguintes informações:
 
     - **appleTeamId**: sua ID da equipe de desenvolvedores da Apple
@@ -152,7 +152,7 @@ Você precisa armazenar o segredo do cliente que registrou anteriormente no seu 
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
 1. Selecione o filtro **Diretório + assinatura** no menu superior e escolha o diretório que contém o locatário do Azure AD B2C.
-2. Em **Serviços do Azure**, selecione **Azure ad B2C**. Ou use a caixa de pesquisa para localizar e selecionar **Azure ad B2C**.
+2. Em **Serviços do Azure**, selecione **Azure AD B2C**. Ou use a caixa de pesquisa para localizar e selecionar **Azure AD B2C**.
 1. Na página **visão geral** , selecione **Identity Experience Framework**.
 1. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
 1. Para **Opções**, escolha **manual**.

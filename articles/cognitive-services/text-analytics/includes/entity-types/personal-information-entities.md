@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: include
-ms.date: 02/17/2021
+ms.date: 03/15/2021
 ms.author: aahi
-ms.openlocfilehash: 97167485dae155670f0eb83fc3ef9cb658952251
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 19586c09cca9a0dc74ba9ee4ef9da459964f9b7e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101751032"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599284"
 ---
 > [!NOTE]
 > Para detectar informações de integridade protegidas (PHI), use o `domain=phi` parâmetro e a versão do modelo `2020-04-01` ou posterior.
@@ -28,7 +28,7 @@ As categorias de entidade a seguir são retornadas quando você está enviando s
 |------------|-------------|
 | [Person](#category-person)      |  Nomes de pessoas.  |
 | [Persontype](#category-persontype) | Tipos de trabalho ou funções mantidas por uma pessoa. |
-| [Número de telefone](#category-phonenumber) |Números de telefone (somente números de telefone dos EUA e da UE). |
+| [Número do telefone](#category-phonenumber) |Números de telefone (somente números de telefone dos EUA e da UE). |
 | [Organização](#category-organization) |  Empresas, grupos, órgãos governamentais e outras organizações.  |
 | [Endereço](#category-address) | Endereços de endereçamento completos.  |
 | [Email](#category-email) | Endereços de email.   |
@@ -53,9 +53,18 @@ Esta categoria contém a seguinte entidade:
     :::column span="2":::
         **Detalhes**
 
-        Nomes de pessoas. Também retornado com `domain=phi` .
+        Nomes de pessoas. 
+
+        Para obter essa categoria de entidade, adicione `Person` ao `pii-categories` parâmetro. `Person` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+    
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
+      
+   :::column-end:::
 :::row-end:::
 
 ### <a name="category-persontype"></a>Categoria: Persontype
@@ -74,8 +83,17 @@ Esta categoria contém a seguinte entidade:
         **Detalhes**
 
         Tipos de trabalho ou funções mantidas por uma pessoa.
+
+        Para obter essa categoria de entidade, adicione `PersonType` ao `pii-categories` parâmetro. `PersonType` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
 :::row-end:::
 
 ### <a name="category-phonenumber"></a>Categoria: PhoneNumber
@@ -93,8 +111,18 @@ Esta categoria contém a seguinte entidade:
         **Detalhes**
 
         Números de telefone (somente números de telefone dos EUA e da UE). Também retornado com `domain=phi` .
+
+        Para obter essa categoria de entidade, adicione `PhoneNumber` ao `pii-categories` parâmetro. `PhoneNumber` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt` `pt-br`
+      
+   :::column-end:::
+
 :::row-end:::
 
 
@@ -113,8 +141,18 @@ Esta categoria contém a seguinte entidade:
         **Detalhes**
 
         Empresas, grupos políticos, faixas musicais, clubes esporte, órgãos governamentais e organizações públicas. As nacionalidades e Religions não são incluídas nesse tipo de entidade.
+
+        Para obter essa categoria de entidade, adicione `Organization` ao `pii-categories` parâmetro. `Organization` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
+
 :::row-end:::
 
 #### <a name="subcategories"></a>Subcategorias
@@ -125,15 +163,25 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
     :::column span="":::
         **Subcategoria da entidade**
 
-        Médicos
+        Médicos    
 
     :::column-end:::
     :::column span="2":::
         **Detalhes**
 
         Empresas e grupos médicos.
+
+        Para obter essa categoria de entidade, adicione `OrganizationMedical` ao `pii-categories` parâmetro. `OrganizationMedical` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`   
+      
+   :::column-end:::
+
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -144,8 +192,17 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
     :::column span="2":::
 
         Grupos de troca de estoque. 
+
+        Para obter essa categoria de entidade, adicione `OrganizationStockExchange` ao `pii-categories` parâmetro. `OrganizationStockExchange` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+
+      `en`   
+      
+   :::column-end:::
+
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -156,8 +213,16 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
     :::column span="2":::
 
         Organizações relacionadas a esportes.
+
+        Para obter essa categoria de entidade, adicione `OrganizationSports` ao `pii-categories` parâmetro. `OrganizationSports` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+
+      `en`   
+      
+   :::column-end:::
 
 :::row-end:::
 
@@ -177,8 +242,18 @@ Esta categoria contém a seguinte entidade:
         **Detalhes**
 
         Endereço de endereçamento completo.
+
+        Para obter essa categoria de entidade, adicione `Address` ao `pii-categories` parâmetro. `Address` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+    :::column-end:::
+
 :::row-end:::
 
 ### <a name="category-email"></a>Categoria: email
@@ -197,8 +272,17 @@ Esta categoria contém a seguinte entidade:
 
         Endereços de email.
       
+        Para obter essa categoria de entidade, adicione `Email` ao `pii-categories` parâmetro. `Email` será retornado na resposta da API, se detectado.
+
+    :::column-end:::
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
     :::column-end:::
 :::row-end:::
+
 
 ### <a name="category-url"></a>Categoria: URL
 
@@ -215,8 +299,18 @@ Esta categoria contém a seguinte entidade:
         **Detalhes**
 
         URLs para sites. 
+
+        Para obter essa categoria de entidade, adicione `URL` ao `pii-categories` parâmetro. `URL` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+    :::column-end:::
+
 :::row-end:::
 
 ### <a name="category-ip"></a>Categoria: IP
@@ -234,6 +328,15 @@ Esta categoria contém a seguinte entidade:
         **Detalhes**
 
         endereços IP de rede. 
+
+        Para obter essa categoria de entidade, adicione `IP` ao `pii-categories` parâmetro. `IP` será retornado na resposta da API, se detectado.
+      
+    :::column-end:::
+
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
     :::column-end:::
 :::row-end:::
@@ -246,15 +349,23 @@ Essa categoria contém as seguintes entidades:
     :::column span="":::
         **Entidade**
 
-        Datetime
+        DateTime
 
     :::column-end:::
     :::column span="2":::
         **Detalhes**
 
         Datas e horas do dia. 
+
+        Para obter essa categoria de entidade, adicione `DateTime` ao `pii-categories` parâmetro. `DateTime` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+:::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
+      
+   :::column-end:::
 :::row-end:::
 
 #### <a name="subcategories"></a>Subcategorias
@@ -272,6 +383,14 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
         **Detalhes**
 
         Datas do calendário.
+
+        Para obter essa categoria de entidade, adicione `Date` ao `pii-categories` parâmetro. `Date` será retornado na resposta da API, se detectado.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Idiomas de documento com suporte**
+      
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`   
       
     :::column-end:::
 :::row-end:::
@@ -291,6 +410,14 @@ Essa categoria contém as seguintes entidades:
         **Detalhes**
 
         Números e quantidades numéricas.
+
+        Para obter essa categoria de entidade, adicione `Quantity` ao `pii-categories` parâmetro. `Quantity` será retornado na resposta da API, se detectado.
+      
+    :::column-end:::
+    :::column span="2":::
+      **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`
       
     :::column-end:::
 :::row-end:::
@@ -310,8 +437,16 @@ A entidade nessa categoria pode ter as subcategorias a seguir.
         **Detalhes**
 
         Paralisa.
+
+        Para obter essa categoria de entidade, adicione `Age` ao `pii-categories` parâmetro. `Age` será retornado na resposta da API, se detectado.
       
     :::column-end:::
+    :::column span="2":::
+        **Idiomas de documento com suporte**
+
+      `en`, `es`, `fr`, `de`, `it`, `zh-hans`, `ja`, `ko`, `pt-pt`, `pt-br`  
+      
+   :::column-end:::
 :::row-end:::
 
 ### <a name="azure-information"></a>Informações do Azure
@@ -329,33 +464,36 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
         **Detalhes**
 
         Chave de autorização para um servidor de Azure Cosmos DB.   
+
+        Para obter essa categoria de entidade, adicione `AzureDocumentDBAuthKey` ao `pii-categories` parâmetro. `AzureDocumentDBAuthKey` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+      **Idiomas de documento com suporte**
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="":::
 
-        Cadeia de conexão do banco de dados IAAS do Azure e Cadeia de conexão de SQL do Azure
+        Cadeia de conexão de banco de dados IAAS do Azure e cadeia de conexão SQL do Azure.
+        
 
     :::column-end:::
     :::column span="2":::
 
         Cadeia de conexão para um banco de dados IaaS (infraestrutura como serviço) do Azure e uma cadeia de conexão SQL.
+
+        Para obter essa categoria de entidade, adicione `AzureIAASDatabaseConnectionAndSQLString` ao `pii-categories` parâmetro. `AzureIAASDatabaseConnectionAndSQLString` será retornado na resposta da API, se detectado.
       
     :::column-end:::
-:::row-end:::
-:::row:::
     :::column span="":::
 
-        Cadeia de conexão SQL do Azure
+      `en` 
 
     :::column-end:::
-    :::column span="2":::
-
-        Cadeia de conexão para um banco de dados no banco de dados SQL do Azure.
-      
-    :::column-end:::
-
 :::row-end:::
 :::row:::
     :::column span="":::
@@ -367,6 +505,13 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
 
         Cadeia de conexão para IoT do Azure. 
       
+        Para obter essa categoria de entidade, adicione `AzureIoTConnectionString` ao `pii-categories` parâmetro. `AzureIoTConnectionString` será retornado na resposta da API, se detectado.
+
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -378,7 +523,14 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column span="2":::
 
         Senha para as configurações de publicação do Azure.
+
+        Para obter essa categoria de entidade, adicione `AzurePublishSettingPassword` ao `pii-categories` parâmetro. `AzurePublishSettingPassword` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -390,7 +542,14 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column span="2":::
 
         Cadeia de conexão para um cache Redis.
+
+        Para obter essa categoria de entidade, adicione `AzureRedisCacheString` ao `pii-categories` parâmetro. `AzureRedisCacheString` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -402,7 +561,14 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column span="2":::
 
         Cadeia de conexão para SaaS (software como serviço) do Azure.
+
+        Para obter essa categoria de entidade, adicione `AzureSAS` ao `pii-categories` parâmetro. `AzureSAS` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -414,7 +580,14 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column span="2":::
 
         Cadeia de conexão para um barramento de serviço do Azure.
+
+        Para obter essa categoria de entidade, adicione `AzureServiceBusString` ao `pii-categories` parâmetro. `AzureServiceBusString` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -425,8 +598,15 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column-end:::
     :::column span="2":::
 
-       Chave de conta para uma conta de armazenamento do Azure. 
+        Chave de conta para uma conta de armazenamento do Azure. 
+
+        Para obter essa categoria de entidade, adicione `AzureStorageAccountKey` ao `pii-categories` parâmetro. `AzureStorageAccountKey` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -437,8 +617,15 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column-end:::
     :::column span="2":::
 
-       Chave de conta genérica para uma conta de armazenamento do Azure.
+        Chave de conta genérica para uma conta de armazenamento do Azure.
+
+        Para obter essa categoria de entidade, adicione `AzureStorageAccountGeneric` ao `pii-categories` parâmetro. `AzureStorageAccountGeneric` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -449,8 +636,15 @@ Essas categorias de entidade incluem informações identificáveis do Azure, inc
     :::column-end:::
     :::column span="2":::
 
-       Cadeia de conexão para um computador executando SQL Server.
+        Cadeia de conexão para um computador executando SQL Server.
+
+        Para obter essa categoria de entidade, adicione `SQLServerConnectionString` ao `pii-categories` parâmetro. `SQLServerConnectionString` será retornado na resposta da API, se detectado.
       
+    :::column-end:::
+    :::column span="":::
+
+      `en` 
+
     :::column-end:::
 :::row-end:::
 

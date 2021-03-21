@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 10/08/2020
 ms.author: v-ekrieg
 ms.openlocfilehash: 161bc008076de2bba62cd65c6c9bb106f648aa47
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103493230"
 ---
 # <a name="understanding-the-localconfigurationjson-file---c-agent"></a>Noções básicas sobre o arquivo LocalConfiguration.json – agente do C
@@ -42,11 +42,11 @@ As alterações feitas no arquivo de configuração ocorrem quando o agente é r
 | Identidade | "DPS", "SecurityModule", "dispositivo" | Identidade de autenticação – DPS se a autenticação for feita por meio do DPS, SecurityModule se a autenticação for feita por meio do defender-IoT-micro-agentcredentials ou dispositivo se a autenticação for feita com as credenciais do dispositivo |
 | AuthenticationMethod | "SasToken", "SelfSignedCertificate" | o segredo do usuário para autenticação-escolha SasToken se o segredo de uso for uma chave simétrica, escolha certificado autoassinado se o segredo for um certificado autoassinado  |
 | FilePath | Caminho para o arquivo (cadeia de caracteres) | Caminho para o arquivo que contém o segredo de autenticação |
-| HostName | Cadeia de caracteres | O nome do host do Hub IoT do Azure. geralmente <meu Hub>. azure-devices.net |
-| DeviceId | Cadeia de caracteres | A ID do dispositivo (como registrado no Hub IoT do Azure) |
+| HostName | string | O nome do host do Hub IoT do Azure. geralmente <meu Hub>. azure-devices.net |
+| DeviceId | string | A ID do dispositivo (como registrado no Hub IoT do Azure) |
 | DPS | JsonObject | Configurações relacionadas a DPS |
-| IDScope | Cadeia de caracteres | Escopo da ID do DPS |
-| RegistrationId | Cadeia de caracteres  | ID de registro do dispositivo DPS |
+| IDScope | string | Escopo da ID do DPS |
+| RegistrationId | string  | ID de registro do dispositivo DPS |
 | Registro em log | JsonObject | Configurações relacionadas ao agente de log |
 | SystemLoggerMinimumSeverity | 0 <= número <= 4 | mensagens de log iguais e superiores a essa gravidade serão registradas em/var/log/syslog (0 é a severidade mais baixa) |
 | DiagnosticEventMinimumSeverity | 0 <= número <= 4 | as mensagens de log iguais e superiores a essa gravidade serão enviadas como eventos de diagnóstico (0 é a severidade mais baixa) |

@@ -1,5 +1,5 @@
 ---
-title: Azure Arc habilitado Instância Gerenciada alta disponibilidade
+title: Alta disponibilidade da Instância Gerenciada habilitada para o Azure Arc
 titleSuffix: Deploy Azure Arc enabled Managed Instance with high availability
 description: Saiba como implantar o Azure Arc habilitado Instância Gerenciada com alta disponibilidade.
 author: vin-yu
@@ -11,13 +11,13 @@ services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.openlocfilehash: 92f5c900238fc5d40e22870e2f00f8adeb5d335f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102032187"
 ---
-# <a name="azure-arc-enabled-managed-instance-high-availability"></a>Azure Arc habilitado Instância Gerenciada alta disponibilidade
+# <a name="azure-arc-enabled-managed-instance-high-availability"></a>Alta disponibilidade da Instância Gerenciada habilitada para o Azure Arc
 
 O Instância Gerenciada habilitado para Arc do Azure é implantado em kubernetes como um aplicativo em contêiner e usa construções kubernetes como conjuntos com estado e armazenamento persistente para fornecer monitoramento de integridade interno, detecção de falha e mecanismos de failover para manter a integridade do serviço. Para maior confiabilidade, você também pode configurar o Instância Gerenciada habilitado para o Azure ARC para implantar com réplicas extras em uma configuração de alta disponibilidade. O monitoramento, a detecção de falhas e o failover automático são gerenciados pelo controlador de dados do Arc Data Services. Esse serviço é fornecido sem a intervenção do usuário – tudo, desde a configuração do grupo de disponibilidade e da configuração dos pontos de extremidade de espelhamento de banco de dados, à adição do bancos de dados ao grupo de disponibilidade ou à coordenação de failover e atualização. Este documento explora os dois tipos de alta disponibilidade.
 
@@ -137,7 +137,7 @@ Etapas adicionais são necessárias para restaurar um banco de dados em um grupo
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=NodePort
     ```
 
-    Para um serviço Balancer, execute o mesmo comando, exceto que o tipo de serviço criado é `LoadBalancer` . Por exemplo:  
+    Para um serviço Balancer, execute o mesmo comando, exceto que o tipo de serviço criado é `LoadBalancer` . Por exemplo: 
 
     ```bash
     kubectl -n <namespaceName> expose pod <podName> --port=1533  --name=<serviceName> --type=LoadBalancer

@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: d59a4fc2cbf52d95e6b5a5100b5ffe06c5dbed7e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: ff7b2115b396bf42cdeffa9c58bffb1802e980d1
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564781"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721878"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>Guia de migração: MySQL para banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -42,10 +42,18 @@ Usando [Assistente de migração do SQL Server para MySQL](https://www.microsoft
 Para criar uma avaliação, execute as etapas a seguir.
 
 1. Abra Assistente de Migração do SQL Server para MySQL. 
-1. Selecione **arquivo** no menu e, em seguida, escolha **novo projeto**. Forneça o nome do projeto, um local para salvar seu projeto.
-1. Escolha **banco de dados SQL do Azure** como o destino de migração. 
+1. Selecione **arquivo** no menu e, em seguida, escolha **novo projeto**. Forneça o nome do projeto, um local para salvar seu projeto. Escolha **banco de dados SQL do Azure** como o destino de migração. 
+
+   ![Novo Projeto](./media/mysql-to-sql-database-guide/new-project.png)
+
 1. Escolha **conectar-se ao MySQL** e forneça os detalhes de conexão para conectar o servidor MySQL. 
+
+   ![Conectar-se ao MySQL](./media/mysql-to-sql-database-guide/connect-to-mysql.png)
+
 1. Clique com o botão direito do mouse no esquema MySQL no **Gerenciador de metadados MySQL** e escolha **criar relatório**. Como alternativa, você pode selecionar **criar relatório** na barra de navegação de linha superior. 
+
+   ![Criar Relatório](./media/mysql-to-sql-database-guide/create-report.png)
+
 1. Examine o relatório HTML para obter as estatísticas de conversão, bem como erros e avisos. Analise-o para entender problemas e resoluções de conversão. 
 
    Esse relatório também pode ser acessado na pasta projetos do SSMA, conforme selecionado na primeira tela. No exemplo acima, localize o arquivo de report.xml de:
@@ -54,9 +62,19 @@ Para criar uma avaliação, execute as etapas a seguir.
  
    e abra-o no Excel para obter um inventário de objetos MySQL e o esforço necessário para executar conversões de esquema.
 
+    ![Relatório de conversão](./media/mysql-to-sql-database-guide/conversion-report.png)
+
 ### <a name="validate-data-types"></a>Validar tipos de dados
 
-Antes de executar a conversão de esquema, valide os mapeamentos de tipo de dados padrão ou altere-os com base nos requisitos. Você pode fazer isso navegando até o menu "ferramentas" e escolhendo "configurações do projeto" ou pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no "Gerenciador de metadados do MySQL".
+Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisitos, se necessário. Para fazer isso, siga estas etapas: 
+
+1. Selecione **Ferramentas** no menu. 
+1. Selecione **Configurações do Projeto**. 
+1. Selecione a guia **Mapeamentos de tipo**. 
+
+   ![Mapeamentos de tipo](./media/mysql-to-sql-database-guide/type-mappings.png)
+
+1. Você pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Gerenciador de metadados do MySQL**. 
 
 ### <a name="convert-schema"></a>Converter esquema 
 
@@ -64,9 +82,22 @@ Para converter o esquema, siga estas etapas:
 
 1. Adicional Para converter consultas dinâmicas ou ad hoc, clique com o botão direito do mouse no nó e escolha **Adicionar instrução**. 
 1. Escolha **conectar-se ao banco de dados SQL do Azure** na barra de navegação de linha superior e forneça detalhes de conexão. Você pode optar por se conectar a um banco de dados existente ou fornecer um novo nome, caso em que um banco de dados será criado no servidor de destino.
+
+   ![Conectar-se ao SQL](./media/mysql-to-sql-database-guide/connect-to-sqldb.png)
+ 
 1. Clique com o botão direito do mouse no esquema e escolha **converter esquema**. 
+
+   ![Converter esquema](./media/mysql-to-sql-database-guide/convert-schema.png)
+
 1. Depois que o esquema terminar a conversão, compare o código convertido com o código original para identificar possíveis problemas. 
 
+   Comparar objetos convertidos com objetos originais: 
+
+   ![ Comparar e revisar objeto ](./media/mysql-to-sql-database-guide/table-comparison.png)
+
+   Comparar procedimentos convertidos com os procedimentos originais: 
+
+   ![Comparar e revisar o código do objeto](./media/mysql-to-sql-database-guide/procedure-comparison.png)
 
 
 ## <a name="migrate"></a>Migrar 
@@ -76,9 +107,25 @@ Depois de concluir a avaliação de seus bancos de dados e resolver quaisquer di
 Para publicar o esquema e migrar os dados, siga estas etapas: 
 
 1. Clique com o botão direito do mouse no banco de dados do **Gerenciador de metadados do banco de dados SQL do Azure** e escolha **sincronizar com o banco** Essa ação publica o esquema MySQL no banco de dados SQL do Azure.
+
+   ![Sincronizar com Banco de dados](./media/mysql-to-sql-database-guide/synchronize-database.png)
+
+   Examine o mapeamento entre seu projeto de origem e seu destino:
+
+   ![Sincronizar com a revisão do banco de dados](./media/mysql-to-sql-database-guide/synchronize-database-review.png)
+
 1. Clique com o botão direito do mouse no esquema do MySQL no **Gerenciador de metadados do MySQL** e escolha **migrar dados**. Como alternativa, você pode selecionar **migrar dados** da navegação de linha superior. 
+
+   ![Migrar dados](./media/mysql-to-sql-database-guide/migrate-data.png)
+
 1. Após a conclusão da migração, exiba o relatório de **migração de dados** : 
+
+   ![Relatório de migração de dados](./media/mysql-to-sql-database-guide/data-migration-report.png)
+
 1.  Valide a migração examinando os dados e o esquema no banco de dados SQL do Azure usando o SQL Server Management Studio (SSMS).
+
+    ![Validar no SSMA](./media/mysql-to-sql-database-guide/validate-in-ssms.png)
+
 
 
 ## <a name="post-migration"></a>Pós-migração 

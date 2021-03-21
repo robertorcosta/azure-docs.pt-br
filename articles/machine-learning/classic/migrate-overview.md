@@ -9,10 +9,10 @@ author: xiaoharper
 ms.author: zhanxia
 ms.date: 03/08/2021
 ms.openlocfilehash: fda34a7ee06d35846bcec571e904297d0421c38f
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103564788"
 ---
 # <a name="migrate-to-azure-machine-learning"></a>Migrar para o Azure Machine Learning
@@ -103,7 +103,7 @@ Consulte a tabela a seguir para ver quais módulos usar ao recompilar experiment
 | Módulos de linguagem Python| -Executar script Python| -Executar script Python  </br> -Criar modelo Python |
 | Módulos de linguagem R  | -Executar script R  </br> -Criar modelo de R| -Executar script R|
 | Funções estatísticas | -Aplicar operação matemática </br>– Estatísticas elementares de computação  </br>-Correlação linear de computação  </br>-Função de probabilidade de avaliação  </br>-Substituir valores discretos  </br>-Resumir dados  </br>-Hipótese de teste usando o t-test| -Aplicar operação matemática  </br>-Resumir dados|
-| Análise de texto| -Detectar idiomas  </br>-Extrair frases-chave do texto  </br>-Extrair recursos de N-Gram de texto  </br>-Hash de recurso </br>-Alocação de Dirichlet latente  </br>-Reconhecimento de entidade nomeada </br>-Pré-processar texto  </br>-Score Vowpal Wabbit versão 7-10 modelo  </br>-Score Vowpal Wabbit versão 8 modelo </br>-Treinar modelo do Vowpal Wabbit versão 7-10  </br>-Treinar modelo do Vowpal Wabbit versão 8 |-Converter palavra em vetor </br> -Extrair recursos de N-Gram de texto </br>-Hash de recurso  </br>-Alocação de Dirichlet latente </br>-Pré-processar texto  </br>-Pontuação Vowpal Wabbit Model </br> -Treinar modelo de Wabbit Vowpal|
+| Análise de Texto| -Detectar idiomas  </br>-Extrair frases-chave do texto  </br>-Extrair recursos de N-Gram de texto  </br>-Hash de recurso </br>-Alocação de Dirichlet latente  </br>-Reconhecimento de entidade nomeada </br>-Pré-processar texto  </br>-Score Vowpal Wabbit versão 7-10 modelo  </br>-Score Vowpal Wabbit versão 8 modelo </br>-Treinar modelo do Vowpal Wabbit versão 7-10  </br>-Treinar modelo do Vowpal Wabbit versão 8 |-Converter palavra em vetor </br> -Extrair recursos de N-Gram de texto </br>-Hash de recurso  </br>-Alocação de Dirichlet latente </br>-Pré-processar texto  </br>-Pontuação Vowpal Wabbit Model </br> -Treinar modelo de Wabbit Vowpal|
 | Série temporal| -Detecção de anomalias de série temporal | |
 | Serviço Web | -Entrada </br> -Saída | -Entrada </br>  - Saída|
 | Pesquisa Visual Computacional| | -Aplicar transformação de imagem </br> -Converter em diretório de imagens </br> -Transformação imagem de inicialização </br> -Dividir diretório de imagens  </br> -Classificação de imagem DenseNet   </br>-Classificação de imagem ResNet |
