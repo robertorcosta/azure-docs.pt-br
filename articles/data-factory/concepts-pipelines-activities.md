@@ -7,10 +7,10 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.openlocfilehash: 870c812a68f765f987cfd3d1b953e0afeb3e9055
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100364487"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory
@@ -23,7 +23,7 @@ ms.locfileid: "100364487"
 Este artigo o ajuda a compreender pipelines e atividades no Azure Data Factory e a usá-los para construir fluxos de trabalho orientados a dados de ponta a ponta para seus cenários de movimentação e processamento de dados.
 
 ## <a name="overview"></a>Visão geral
-Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que, juntas, executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam os dados de log e disparam um fluxo de dados de mapeamento para analisar os dados de log. O pipeline permite que você gerencie as atividades como um conjunto, em vez de cada uma individualmente. Você implanta e agenda o pipeline em vez das atividades de maneira independente.
+Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um agrupamento lógico de atividades que juntas executam uma tarefa. Por exemplo, um pipeline pode conter um conjunto de atividades que ingerem e limpam os dados de log e disparam um fluxo de dados de mapeamento para analisar os dados de log. O pipeline permite que você gerencie as atividades como um conjunto, em vez de cada uma individualmente. Você implanta e agenda o pipeline em vez das atividades de maneira independente.
 
 As atividades de um pipeline definem as ações a serem executadas nos seus dados. Por exemplo, você pode usar uma atividade de cópia para copiar dados de SQL Server para um armazenamento de BLOBs do Azure. Em seguida, use uma atividade de fluxo de dados ou uma atividade do databricks Notebook para processar e transformar dados do armazenamento de BLOBs em um pool do Azure Synapse Analytics sobre o qual business intelligence soluções de relatório são criadas.
 
@@ -47,7 +47,7 @@ O Azure Data Factory dá suporte às seguintes atividades de transformação, qu
 Atividades de transformação de dados | Ambiente de computação
 ---------------------------- | -------------------
 [Fluxo de Dados](control-flow-execute-data-flow-activity.md) | Azure Databricks gerenciado por Azure Data Factory
-[Azure Function](control-flow-azure-function-activity.md) | Funções do Azure
+[Azure Function](control-flow-azure-function-activity.md) | Azure Functions
 [Hive](transform-data-using-hadoop-hive.md) | HDInsight [Hadoop]
 [Pig](transform-data-using-hadoop-pig.md) | HDInsight [Hadoop]
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
@@ -58,8 +58,8 @@ Atividades de transformação de dados | Ambiente de computação
 [U-SQL](transform-data-using-data-lake-analytics.md) | Análise Azure Data Lake
 [Atividade personalizada](transform-data-using-dotnet-custom-activity.md) | Lote do Azure
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
-[Atividade do Databricks Jar](transform-data-databricks-jar.md) | Azure Databricks
-[Atividade do Databricks Python](transform-data-databricks-python.md) | Azure Databricks
+[Atividade de jar do databricks](transform-data-databricks-jar.md) | Azure Databricks
+[Atividade de Python do databricks](transform-data-databricks-python.md) | Azure Databricks
 
 Para obter mais informações, confira o artigo [Atividades de transformação de dados](transform-data.md).
 
@@ -107,13 +107,13 @@ Marca | Descrição | Type | Obrigatório
 --- | ----------- | ---- | --------
 name | Nome do pipeline. Especifique um nome que represente a ação executada pelo pipeline. <br/><ul><li>Número máximo de caracteres: 140</li><li>Deve começar com uma letra, um número ou um sublinhado (\_)</li><li>Os seguintes caracteres não são permitidos: ".", "+", "?", "/", "<", ">", "*", "%", "&", ":", " \" </li></ul> | String | Sim
 descrição | Especifique o texto descrevendo para que o pipeline é usado. | String | Não
-atividades | A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Array | Sim
-parameters | A seção **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando seu pipeline flexível para reutilização. | List | Não
+atividades | A seção **atividades** pode ter uma ou mais atividades definidas dentro dela. Confira a seção [Atividade JSON](#activity-json) para obter detalhes sobre o elemento das atividades JSON. | Array | Sim
+parameters | A seção de **parâmetros** pode ter um ou mais parâmetros definidos no pipeline, tornando o pipeline flexível para reutilização. | Lista | Não
 simultaneidade | O número máximo de execuções simultâneas que o pipeline pode ter. Por padrão, não há nenhum máximo. Se o limite de simultaneidade for atingido, as execuções de pipeline adicionais serão enfileiradas até que as anteriores sejam concluídas | Número | Não 
 annotations | Uma lista de marcas associadas ao pipeline | Array | Não
 
 ## <a name="activity-json"></a>Atividade JSON
-A seção **Atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois tipos principais de atividades: atividades de execução e de controle.
+A seção **atividades** pode ter uma ou mais atividades definidas dentro dela. Há dois tipos principais de atividades: atividades de execução e de controle.
 
 ### <a name="execution-activities"></a>Atividades de execução
 As atividades de execução incluem [atividades de movimentação de dados](#data-movement-activities) e de [transformação de dados](#data-transformation-activities). Elas têm a seguinte estrutura de nível superior:
@@ -182,8 +182,8 @@ Políticas afetam o comportamento de tempo de execução de uma atividade, ofere
 Nome JSON | Descrição | Valores Permitidos | Obrigatório
 --------- | ----------- | -------------- | --------
 tempo limite | Especifica o tempo limite para a atividade ser executada. | Timespan | Não. O tempo limite padrão é 7 dias.
-tentar novamente | Número máximo de novas tentativas | Integer | Não. O padrão é 0
-retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Integer | Não. O padrão é de 30 segundos
+tentar novamente | Número máximo de novas tentativas | Inteiro | Não. O padrão é 0
+retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Inteiro | Não. O padrão é de 30 segundos
 secureOutput | Quando definido como true, a saída da atividade é considerada como segura e não é registrada para monitoramento. | Boolean | Não. O padrão é false.
 
 ### <a name="control-activity"></a>Atividade de controle

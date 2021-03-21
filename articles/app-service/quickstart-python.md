@@ -9,12 +9,12 @@ adobe-target: true
 adobe-target-activity: DocsExp–377467–A/B– Quickstarts/Python App–12.11
 adobe-target-experience: Experience B
 adobe-target-content: ./quickstart-python-1
-ms.openlocfilehash: 1f37ee36710211e95bcc5d99a095de4303c85281
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 36c1b112127fadd5149c62a92ca469322db65edd
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102172385"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592346"
 ---
 # <a name="quickstart-create-a-python-app-using-azure-app-service-on-linux"></a>Início Rápido: Criar um aplicativo Python no Serviço de Aplicativo do Azure no Linux
 
@@ -244,7 +244,7 @@ Você também pode inspecionar os arquivos de log do navegador em `https://<app-
 
 Para interromper o streaming de log a qualquer momento, pressione **CTRL**+**C** no terminal.
 
-Está enfrentando problemas? [Fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
+Está enfrentando problemas? Veja primeiro o [Guia de solução de problemas](configure-language-python.md#troubleshooting). Caso contrário, [fale conosco](https://aka.ms/FlaskCLIQuickstartHelp).
 
 ## <a name="manage-the-azure-app"></a>Gerenciar o aplicativo do Azure
 

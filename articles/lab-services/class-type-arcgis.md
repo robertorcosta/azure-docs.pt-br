@@ -6,10 +6,10 @@ ms.topic: article
 ms.date: 02/04/2021
 ms.author: nicolela
 ms.openlocfilehash: 530597a72b19afa1e80b5c7640b105d86479b1c1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740096"
 ---
 # <a name="set-up-a-lab-for-arcmaparcgis-desktop"></a>Configurar um laboratório para o ArcMap\ArcGIS desktop
@@ -81,7 +81,7 @@ Para ArcGIS, recomendamos os seguintes valores para essas configurações:
 - Desligar as máquinas virtuais quando os usuários se desconectarem
     - 15 minutos após a desconexão do usuário
 
-## <a name="cost"></a>Custo
+## <a name="cost"></a>Cost
 
 Vamos abordar uma possível estimativa de custo para essa classe. Essa estimativa não inclui o custo da execução do servidor de licença. Usaremos uma classe de 25 alunos. Há 20 horas de tempo de classe agendada. Além disso, cada aluno recebe uma cota de 10 horas de casa ou atribuições fora do tempo de classe agendado. O tamanho da máquina virtual que escolhemos era **médio**, que é 42 unidades de laboratório.
 

@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: bd04c692655161a2ba8d4ff51a8ff07e9b9bd374
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101695835"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104593009"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutorial: conectar e monitorar as métricas no nível do aplicativo Spark do Azure Synapse
 
@@ -176,7 +176,7 @@ A resposta tem esta aparência:
 
 ### <a name="2-list-running-applications-in-the-azure-synapse-workspace"></a>2. Listar aplicativos em execução no workspace do Azure Synapse
 
-Para obter uma lista de aplicativos Spark para um workspace do Synapse, você pode seguir este documento [Monitoramento – Obter lista de trabalhos do Spark](https://docs.microsoft.com/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
+Para obter uma lista de aplicativos Spark para um workspace do Synapse, você pode seguir este documento [Monitoramento – Obter lista de trabalhos do Spark](/rest/api/synapse/data-plane/monitoring/getsparkjoblist).
 
 
 ### <a name="3-collect-spark-application-metrics-with-the-prometheus-or-rest-apis"></a>3. Coletar métricas do aplicativo Spark com a API do Prometheus ou as APIs REST

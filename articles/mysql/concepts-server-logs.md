@@ -7,10 +7,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/6/2020
 ms.openlocfilehash: efabb3de69e96ec1a8955b2691af20a36fbabfe4
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100595941"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Logs de consultas lentas no Banco de Dados do Azure para MySQL
@@ -75,7 +75,7 @@ A tabela a seguir descreve o que está em cada log. Dependendo do método de sa�
 | `start_time_t` HORÁRIO | Horário em que a consulta começou |
 | `query_time_s` | Tempo total em segundos que a consulta levou para ser executada |
 | `lock_time_s` | Tempo total em segundos em que a consulta foi bloqueada |
-| `user_host_s` | Nome de usuário |
+| `user_host_s` | Nome de Usuário |
 | `rows_sent_s` | Número de linhas enviadas |
 | `rows_examined_s` | Número de linhas verificadas |
 | `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |

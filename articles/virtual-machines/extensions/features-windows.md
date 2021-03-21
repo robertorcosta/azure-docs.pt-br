@@ -8,12 +8,12 @@ author: amjads1
 ms.author: amjads
 ms.collection: windows
 ms.date: 03/30/2018
-ms.openlocfilehash: eb1b05afbaa57fb86033c568142da32443adc1f9
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: b9b10e2ed58a41cee99e7e6ef1c3994035460407
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102559760"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104601853"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Recursos e extensões da máquina virtual para Windows
 
@@ -120,7 +120,7 @@ Set-AzVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-No seguinte exemplo, a extensão de acesso à VM é usada para redefinir a senha administrativa de uma VM Windows para uma senha temporária. Para saber mais sobre a extensão de acesso à VM, veja [Serviço de redefinição de área de trabalho remota em uma VM do Windows](../troubleshooting/reset-rdp.md). Depois de ter executado isso, você deverá redefinir a senha no primeiro logon:
+No seguinte exemplo, a extensão de acesso à VM é usada para redefinir a senha administrativa de uma VM Windows para uma senha temporária. Para saber mais sobre a extensão de acesso à VM, veja [Serviço de redefinição de área de trabalho remota em uma VM do Windows](/troubleshoot/azure/virtual-machines/reset-rdp). Depois de ter executado isso, você deverá redefinir a senha no primeiro logon:
 
 ```powershell
 $cred=Get-Credential

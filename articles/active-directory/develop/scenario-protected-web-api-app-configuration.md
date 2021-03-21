@@ -13,10 +13,10 @@ ms.date: 07/15/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5206c2295ee7c01b4a2908e59da1cfdd8782bccd
-ms.sourcegitcommit: 956dec4650e551bdede45d96507c95ecd7a01ec9
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102517711"
 ---
 # <a name="protected-web-api-code-configuration"></a>API Web protegida: configuração de código
@@ -123,7 +123,7 @@ Você pode criar uma API Web do zero usando modelos de projeto Microsoft. Identi
 
 #### <a name="starting-from-an-existing-aspnet-core-31-application"></a>Iniciando com base em um aplicativo ASP.NET Core 3,1 existente
 
-Hoje, ASP.NET Core 3,1 usa a biblioteca Microsoft. AspNetCore. AzureAD. UI. O middleware é inicializado no arquivo Startup.cs.
+Hoje, ASP.NET Core 3,1 usa a biblioteca Microsoft. AspNetCore. AzureAD. UI. O middleware é inicializado no arquivo Startup. cs.
 
 ```csharp
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -140,7 +140,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
- Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização. Eles não entram em usuários com contas pessoais. No entanto, você pode alterar os modelos para usar a plataforma de identidade da Microsoft usando [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) , substituindo o código em *Startup.cs*:
+ Atualmente, os modelos de ASP.NET Core criam APIs da Web do Azure Active Directory (Azure AD) que conectam usuários em sua organização ou em qualquer organização. Eles não entram em usuários com contas pessoais. No entanto, você pode alterar os modelos para usar a plataforma de identidade da Microsoft usando [Microsoft. Identity. Web](https://www.nuget.org/packages/Microsoft.Identity.Web) , substituindo o código em *Startup. cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -210,7 +210,7 @@ Os validadores são associados às propriedades da classe **TokenValidationParam
 
 Na maioria dos casos, você não precisa alterar os parâmetros. Aplicativos que não são locatários únicos são exceções. Esses aplicativos Web aceitam usuários de qualquer organização ou de contas pessoais da Microsoft. Os emissores nesse caso devem ser validados. O Microsoft. Identity. Web cuida da validação do emissor também. Para obter detalhes, consulte Microsoft. Identity. Web [AadIssuerValidator](https://github.com/AzureAD/microsoft-identity-web/blob/master/src/Microsoft.Identity.Web/Resource/AadIssuerValidator.cs).
 
-Em ASP.NET Core, se você quiser personalizar os parâmetros de validação de token, use o trecho a seguir em seu *Startup.cs*:
+Em ASP.NET Core, se você quiser personalizar os parâmetros de validação de token, use o trecho a seguir em seu *Startup. cs*:
 
 ```c#
 services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

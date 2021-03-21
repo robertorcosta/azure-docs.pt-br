@@ -10,10 +10,10 @@ ms.date: 03/11/2021
 ms.author: tamram
 ms.reviewer: fryu
 ms.openlocfilehash: b7290abe102d22bb87c87c3c9d13ee99c127b942
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103199924"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedir a autorização de chave compartilhada para uma conta de armazenamento do Azure (versão prévia)
@@ -119,7 +119,7 @@ A propriedade **AllowSharedKeyAccess** não é definida por padrão e não retor
 > [!WARNING]
 > Se algum cliente estiver acessando dados em sua conta de armazenamento com a chave compartilhada, a Microsoft recomendará que você migre esses clientes para o Azure AD antes de não permitir o acesso à chave compartilhada à conta de armazenamento.
 
-# <a name="azure-portal"></a>[Portal do Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Para não permitir a autorização de chave compartilhada para uma conta de armazenamento no portal do Azure, siga estas etapas:
 
@@ -209,7 +209,7 @@ Quando o acesso à chave compartilhada não é permitido para a conta de armazen
 
 | Tipo de SAS | Tipo de autorização | Comportamento quando AllowSharedKeyAccess é false |
 |-|-|-|
-| SAS de delegação de usuário (somente armazenamento de BLOBs) | AD do Azure | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
+| SAS de delegação de usuário (somente armazenamento de BLOBs) | Azure AD | A solicitação é permitida. A Microsoft recomenda usar uma SAS de delegação de usuário quando possível para segurança superior. |
 | SAS do serviço | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 | SAS da conta | Chave compartilhada | A solicitação é negada para todos os serviços de armazenamento do Azure. |
 

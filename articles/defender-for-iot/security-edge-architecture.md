@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/09/2020
 ms.author: mlottner
 ms.openlocfilehash: 4b7377f74e24660945555c112fed4d77d2c5ddcc
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103495939"
 ---
 # <a name="azure-defender-for-iot-edge-defender-iot-micro-agent"></a>Azure defender para IoT Edge defender-IoT-micro-Agent
@@ -56,7 +56,7 @@ O defender para IoT defender-IoT-micro-Agent para IoT Edge está disponível no 
 
 Neste artigo, você aprendeu sobre a arquitetura e os recursos do defender para IoT defender-IoT-micro-Agent para IoT Edge.
 
-Para continuar a introdução à implantação do defender para IoT, use os seguintes artigos:
+Para continuar com a introdução à implantação do Defender para IoT, use os seguintes artigos:
 
 - Implantar o [defender-IOT-micro-Agent para IOT Edge](how-to-deploy-edge.md)
 - Saiba como [configurar seu defender-IOT-micro-Agent](how-to-agent-configuration.md)

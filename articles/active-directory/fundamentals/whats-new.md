@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df90857bf30b6fff3c18faf126efabe8c959c0c6
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: 0d9769a2cfdbd5f552e97a6cd665263cbd488325
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102633420"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104592952"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
@@ -79,7 +79,7 @@ A passagem de acesso temporário é uma senha com tempo limitado que funciona co
 **Categoria de serviço:** B2C - gerenciamento de identidades de consumidor  
 **Funcionalidade do produto:** B2B/B2C
 
-A próxima geração de fluxos de usuário B2C agora dá suporte à funcionalidade [manter-me conectado (KMSI)](https://docs.microsoft.com/azure/active-directory-b2c/session-behavior?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) que permite aos clientes estender o tempo de vida da sessão para os usuários de seus aplicativos Web e nativos usando um cookie persistente.  o recurso mantém a sessão ativa mesmo quando o usuário fecha e reabre o navegador e é revogado quando o usuário se desconecta.
+A próxima geração de fluxos de usuário B2C agora dá suporte à funcionalidade [manter-me conectado (KMSI)](../../active-directory-b2c/session-behavior.md?pivots=b2c-custom-policy#enable-keep-me-signed-in-kmsi) que permite aos clientes estender o tempo de vida da sessão para os usuários de seus aplicativos Web e nativos usando um cookie persistente.  o recurso mantém a sessão ativa mesmo quando o usuário fecha e reabre o navegador e é revogado quando o usuário se desconecta.
 
 ---
 
@@ -109,7 +109,7 @@ Agora, os clientes podem convidar os usuários convidados externos existentes pa
 **Categoria de serviço:** provisionamento de aplicativos  
 **Funcionalidade do produto:** Gerenciamento do ciclo de vida de identidade
  
-Agora, os clientes podem usar Application. ReadWrite. ownedby como uma permissão de aplicativo para chamar as APIs de sincronização. Observe que isso só tem suporte para provisionamento do Azure AD para aplicativos de terceiros (por exemplo, AWS, Bricks de dados, etc.). Atualmente, não há suporte para o HR-Provisioning (workday/Successfactors) ou para a sincronização de nuvem (AD para Azure AD). [Saiba mais](https://docs.microsoft.com/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
+Agora, os clientes podem usar Application. ReadWrite. ownedby como uma permissão de aplicativo para chamar as APIs de sincronização. Observe que isso só tem suporte para provisionamento do Azure AD para aplicativos de terceiros (por exemplo, AWS, Bricks de dados, etc.). Atualmente, não há suporte para o HR-Provisioning (workday/Successfactors) ou para a sincronização de nuvem (AD para Azure AD). [Saiba mais](/graph/api/resources/provisioningobjectsummary?view=graph-rest-beta).
  
 ---
 
@@ -199,7 +199,7 @@ Agora você pode automatizar a criação, a atualização e a exclusão de conta
 - [Iris Intranet](../saas-apps/iris-intranet-provisioning-tutorial.md)
 - [Preciate](../saas-apps/preciate-provisioning-tutorial.md)
 
-Para obter mais informações, leia [automatizar o provisionamento de usuário para aplicativos SaaS com o Azure ad](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning).
+Para obter mais informações, leia [automatizar o provisionamento de usuário para aplicativos SaaS com o Azure ad](../app-provisioning/user-provisioning.md).
 
 ---
 
@@ -209,7 +209,7 @@ Para obter mais informações, leia [automatizar o provisionamento de usuário p
 **Categoria de serviço:** RBAC  
 **Funcionalidade do produto:** Controle de Acesso
  
-10 funções internas do Azure AD foram renomeadas para que elas fiquem alinhadas no centro de [administração Microsoft 365](https://docs.microsoft.com/microsoft-365/admin/microsoft-365-admin-center-preview), no [portal do AD do Azure](https://portal.azure.com/)e no [Microsoft Graph](https://developer.microsoft.com/graph/). Para saber mais sobre as novas funções, consulte [permissões de função de administrador no Azure Active Directory](../roles/permissions-reference.md#all-roles).
+10 funções internas do Azure AD foram renomeadas para que elas fiquem alinhadas no centro de [administração Microsoft 365](/microsoft-365/admin/microsoft-365-admin-center-preview), no [portal do AD do Azure](https://portal.azure.com/)e no [Microsoft Graph](https://developer.microsoft.com/graph/). Para saber mais sobre as novas funções, consulte [permissões de função de administrador no Azure Active Directory](../roles/permissions-reference.md#all-roles).
 
 ![Tabela mostrando nomes de função em MS API do Graph e o portal do Azure e o nome final proposto na API, portal do Azure e Mac.](media/whats-new/roles-table-rbac.png)
 
@@ -270,20 +270,20 @@ Os clientes podem contornar esse requisito para fins de teste usando um sinaliza
  
 ---
 
-### <a name="public-preview---customize-and-configure-android-shared-devices-for-firstline-workers-at-scale"></a>Visualização pública – personalizar e configurar dispositivos compartilhados Android para trabalhos de início em escala
+### <a name="public-preview---customize-and-configure-android-shared-devices-for-frontline-workers-at-scale"></a>Visualização pública – personalizar e configurar dispositivos compartilhados Android para trabalhadores frente em escala
 
 **Tipo:** novo recurso  
 **Categoria de serviço:** Gerenciamento e registro de dispositivos  
 **Funcionalidade do produto:** segurança e proteção da identidade
  
-As equipes do Azure AD e do Microsoft Endpoint Manager foram combinadas para trazer a capacidade de personalizar, dimensionar e proteger seus primeiros dispositivos de trabalho.
+As equipes do Azure AD e do Microsoft Endpoint Manager foram combinadas para trazer a capacidade de personalizar, dimensionar e proteger seus dispositivos de trabalho do frente.
 
 Os seguintes recursos de visualização lhe permitirão:
 - Provisionar dispositivos Android compartilhados em escala com o Microsoft Endpoint Manager
 - Proteja seu acesso a usuários de turnos usando o acesso condicional com base no dispositivo
 - Personalizar experiências de entrada para os trabalhadores com turnos com a tela inicial gerenciada
 
-Para saber mais, consulte [Personalizar e configurar dispositivos compartilhados para trabalhos de início em escala](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
+Para saber mais, consulte [Personalizar e configurar dispositivos compartilhados para trabalhadores do frente em escala](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/customize-and-configure-shared-devices-for-firstline-workers-at/ba-p/1751708).
 
 ---
 

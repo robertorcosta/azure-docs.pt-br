@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/04/2020
 ms.author: jiajzhan
 ms.openlocfilehash: 580de0112c99eef4ba22ba946f6a2b81bc326001
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102432036"
 ---
 # <a name="speech-service-phonetic-sets"></a>Conjuntos fonéticos do serviço de fala
@@ -352,7 +352,7 @@ O telefone do serviço de fala definido para `zh-CN` o é baseado no conjunto de
 | mà          | Ma 4  | 骂                 |
 | ma          | Ma 5  | 嘛                 |
 
-#### <a name="example"></a>Exemplo: 
+#### <a name="example"></a>Exemplo
 
 | Caractere | Serviço de Fala                |
 |-----------|-------------------------------|
@@ -374,7 +374,7 @@ O telefone do serviço de fala definido para `zh-TW` o é baseado no telefone <a
 | ˋ                   | ˋ             | 望              | ㄨㄤˋ                   | ㄨㄤˋ      | wàng        |
 | ˙                   | ˙             | 影子             | 一ㄥˇ ㄗ˙               | 一ㄥˇ ㄗ˙  | yǐng Zi    |
 
-#### <a name="example"></a>Exemplo: 
+#### <a name="example"></a>Exemplo
 
 | Caractere | `sapi`   |
 |-----------|----------|
@@ -393,7 +393,7 @@ O telefone do serviço de fala definido para `ja-JP` o é baseado no conjunto <a
 | `ˈ`    | `ˈ` mainstress |
 | `+`    | `ˌ` subestresse  |
 
-#### <a name="example"></a>Exemplo: 
+#### <a name="example"></a>Exemplo
 
 | Caractere | `sapi`  | `ipa`       |
 |-----------|---------|-------------|
