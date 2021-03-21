@@ -10,10 +10,10 @@ ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 11f0a58f8c6d38d070d4bafe68794bdd9ada7cf3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102556155"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-machines"></a>Linha de base de segurança do Azure para Máquinas Virtuais do Windows
@@ -598,7 +598,7 @@ A Microsoft usa o protocolo TLS para proteger dados quando está viajando entre 
 
 * [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
-* [Log da análise do Armazenamento do Azure](../../storage/common/storage-analytics-logging.md)
+* [Registro em log da Análise de Armazenamento do Azure](../../storage/common/storage-analytics-logging.md)
 
 **Monitoramento da central de segurança do Azure**: não disponível
 
@@ -1045,7 +1045,7 @@ Para a maioria dos cenários, os modelos de VM base da Microsoft combinados com 
 
 **Orientação**: habilitar o backup do Azure e configurar as máquinas virtuais (VM) do Azure, bem como a frequência e o período de retenção desejados para backups automáticos.
 
-* [Uma visão geral do backup de VM do Azure](../../backup/backup-azure-vms-introduction.md)
+* [Visão geral do backup da VM do Azure](../../backup/backup-azure-vms-introduction.md)
 
 * [Fazer backup de uma VM do Azure usando as configurações da VM](../../backup/backup-azure-vms-first-look-arm.md)
 
@@ -1063,7 +1063,7 @@ Habilite o backup do Azure e as máquinas virtuais (VM) do Azure de destino, bem
 
 * [Visão geral do backup de VM do Azure](../../backup/backup-azure-vms-introduction.md)
 
-* [Uma visão geral do backup de VM do Azure](../../backup/backup-azure-vms-introduction.md)
+* [Visão geral do backup da VM do Azure](../../backup/backup-azure-vms-introduction.md)
 
 * [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
 

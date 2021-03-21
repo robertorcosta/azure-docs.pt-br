@@ -13,10 +13,10 @@ ms.date: 01/28/2021
 ms.author: curtand
 ms.reviewer: olhaun
 ms.openlocfilehash: 8ddc02075d2cdeba4a4fa83a2475ec20c3f18d6e
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418072"
 ---
 # <a name="frequently-asked-questions-faq-about-the-microsoft-authenticator-app"></a>Perguntas frequentes sobre o aplicativo Microsoft Authenticator
@@ -121,7 +121,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 **R**: não, as notificações só funcionam com contas da Microsoft e contas de Azure Active Directory. Se seu trabalho ou escola usa contas do Azure AD, eles são capazes de desativar esse recurso.
 
-### <a name="backup-and-recovery"></a>Backup e recuperação
+### <a name="backup-and-recovery"></a>Backup e descoberta
 
 **P**: Eu recebi um novo dispositivo ou restaurei meu dispositivo de um backup. Como fazer configurar minhas contas no autenticador novamente?
 
@@ -234,7 +234,7 @@ O aplicativo Microsoft Authenticator substituiu o aplicativo Azure Authenticator
 
 1. Abra o aplicativo autenticador.
 1. Na guia **senhas** dentro do aplicativo, selecione **entrar com a conta da Microsoft** e entre usando [seu conta Microsoft](https://account.microsoft.com/account).
-1. Realize um dos seguintes procedimentos:
+1. Realize uma destas ações:
 
    - No iOS, em **configurações**, selecione **como ativar o preenchimento automático** na seção Configurações de preenchimento automático para saber como definir o autenticador como o provedor de preenchimento automático padrão.
    - No Android, em **configurações**, selecione **definir como provedor de preenchimento automático** na seção Configurações de preenchimento automático.

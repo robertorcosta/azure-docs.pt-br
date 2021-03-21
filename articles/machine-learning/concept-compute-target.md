@@ -10,10 +10,10 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
 ms.openlocfilehash: b4422c664071087ccae73a5b6f642b53dcca74bf
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574638"
 ---
 # <a name="what-are-compute-targets-in-azure-machine-learning"></a>O que são destinos de computação no Azure Machine Learning?
@@ -76,7 +76,7 @@ Você pode criar Azure Machine Learning instâncias de computação ou clusters 
 Quando criados, esses recursos de computação são automaticamente parte do seu espaço de trabalho, ao contrário de outros tipos de destinos de computação.
 
 
-|Funcionalidade  |Cluster de computação  |Instância de computação  |
+|Recurso  |Cluster de computação  |Instância de computação  |
 |---------|---------|---------|
 |Cluster único ou com vários nós     |    **&check;**       |         |
 |Dimensionamento a cada vez que você envia uma execução     |     **&check;**      |         |

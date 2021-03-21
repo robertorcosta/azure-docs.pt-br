@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 01/21/2021
 ms.custom: seodec18
 ms.openlocfilehash: ee66e68216933c410092865a1cdb781476a944c6
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103461126"
 ---
 # <a name="add-an-event-hub-event-source-to-your-azure-time-series-insights-environment"></a>Adicionar uma origem de evento do hub de eventos ao seu ambiente de Azure Time Series Insights
@@ -91,7 +91,7 @@ Para adicionar um novo grupo de consumidores ao seu hub de eventos:
        | Propriedade | Descrição |
        | --- | --- |
        | ID da assinatura | A assinatura à qual a instância do hub de eventos desejada e o namespace pertencem. |
-       | Grupo de recursos | O grupo de recursos ao qual a instância do hub de eventos desejada e o namespace pertencem. |
+       | Resource group | O grupo de recursos ao qual a instância do hub de eventos desejada e o namespace pertencem. |
        | Namespace do Hub de Eventos | O namespace do hub de eventos ao qual a instância do hub de eventos desejada pertence. |
        | Nome do Hub de Eventos | O nome da instância do hub de eventos desejada. |
        | Valor da política do hub de eventos | Selecione a política de acesso compartilhado desejada. Você pode criar a política de acesso compartilhado na guia **Configurar** o Hub de eventos. Cada política de acesso compartilhado tem um nome, as permissões definidas por você e as chaves de acesso. A política de acesso compartilhado para a origem do evento *deve* ter permissões de **leitura**. |

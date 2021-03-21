@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: e92d509cdbeba142ec1c740277b45aa3eb5fd21e
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 3f91ca21512b8cddcac7fe71fa3eec07e1a8745a
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103564776"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720076"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Políticas de gerenciamento de API para validar solicitações e respostas
 
@@ -95,10 +95,10 @@ No exemplo a seguir, a carga JSON em solicitações e respostas é validada no m
 | Nome                       | Descrição                                                                                                                                                            | Obrigatório | Padrão |
 | -------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
 | ação de tipo de conteúdo não especificado | [Ação](#actions) a ser executada para solicitações ou respostas com um tipo de conteúdo que não é especificado no esquema de API. |  Sim     | N/D   |
-| tamanho máximo | O comprimento máximo do corpo da solicitação ou da resposta, verificado em relação ao `Content-Length` cabeçalho. Se o corpo da solicitação ou o corpo da resposta for compactado, esse valor será o comprimento descompactado. Valor máximo permitido: 102.400 bytes (100 KB).  | Sim       | N/D   |
+| tamanho máximo | O comprimento máximo do corpo da solicitação ou resposta em bytes, verificado em relação ao `Content-Length` cabeçalho. Se o corpo da solicitação ou o corpo da resposta for compactado, esse valor será o comprimento descompactado. Valor máximo permitido: 102.400 bytes (100 KB).  | Sim       | N/D   |
 | tamanho-excedido-ação | [Ação](#actions) a ser executada para solicitações ou respostas cujo corpo excede o tamanho especificado em `max-size` . |  Sim     | N/D   |
 | erros-variável-nome | Nome da variável no `context.Variables` para registrar erros de validação para.  |   Sim    | N/D   |
-| tipo | Tipo de conteúdo para executar a validação de corpo para, verificado em relação ao `Content-Type` cabeçalho. Esse valor não diferencia maiúsculas de minúsculas. Se estiver vazio, ele se aplicará a todos os tipos de conteúdo especificados no esquema de API. |   Não    |  N/D  |
+| type | Tipo de conteúdo para executar a validação de corpo para, verificado em relação ao `Content-Type` cabeçalho. Esse valor não diferencia maiúsculas de minúsculas. Se estiver vazio, ele se aplicará a todos os tipos de conteúdo especificados no esquema de API. |   Não    |  N/D  |
 | validar como | Mecanismo de validação a ser usado para validação do corpo de uma solicitação ou resposta com um tipo de conteúdo correspondente. Atualmente, o único valor com suporte é "JSON".   |  Sim     |  N/D  |
 | ação | [Ação](#actions) a ser executada para solicitações ou respostas cujo corpo não corresponde ao tipo de conteúdo especificado.  |  Sim      | N/D   |
 

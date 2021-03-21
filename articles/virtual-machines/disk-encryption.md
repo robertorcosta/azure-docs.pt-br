@@ -2,26 +2,26 @@
 title: Criptografia do lado do servidor dos discos gerenciados do Azure
 description: O Armazenamento do Microsoft Azure protege os dados com criptografia em repouso, antes de enviá-los para clusters de armazenamento. Você pode usar chaves gerenciadas pelo cliente para gerenciar a criptografia com suas próprias chaves ou pode contar com chaves gerenciadas pela Microsoft para a criptografia de seus discos gerenciados.
 author: roygara
-ms.date: 03/02/2021
+ms.date: 03/11/2021
 ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: ee4dd539119457086c9b109579b7e6ab195fea96
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 786ecef5d62c7dd18e3992fa0b233b27a80d762b
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103014376"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721844"
 ---
 # <a name="server-side-encryption-of-azure-disk-storage"></a>Criptografia do lado do servidor de Armazenamento em Disco do Azure
 
-A criptografia do lado do servidor (SSE) ajuda a proteger os dados e atender aos compromissos de conformidade e segurança de sua organização. A SSE criptografa automaticamente os dados armazenados nos discos gerenciados do Azure (so e discos de dados) em repouso por padrão, ao mantê-los na nuvem. 
+A maioria dos Azure Managed disks é criptografada com a criptografia de armazenamento do Azure, que usa a SSE (criptografia do lado do servidor) para proteger seus dados e ajudá-lo a atender aos seus compromissos de segurança e conformidade organizacionais. A criptografia de armazenamento do Azure criptografa automaticamente seus dados armazenados em discos gerenciados do Azure (so e discos de dados) em repouso por padrão ao mantê-los para a nuvem. Os discos com criptografia no host habilitado, no entanto, não são criptografados por meio do armazenamento do Azure. Para discos com criptografia no host habilitado, o servidor que hospeda sua VM fornece a criptografia para seus dados e os dados criptografados fluem para o armazenamento do Azure.
 
 Os dados nos discos gerenciados são criptografados de maneira transparente usando a [criptografia AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) de 256 bits, uma das codificações de bloco mais fortes disponíveis, e são compatíveis com o FIPS 140-2. Para obter mais informações sobre os módulos criptográficos subjacentes aos discos gerenciados do Azure, veja [API de Criptografia: Próxima geração](/windows/desktop/seccng/cng-portal)
 
-A criptografia do lado do servidor não afeta o desempenho dos discos gerenciados e não há nenhum custo adicional. 
+A criptografia de armazenamento do Azure não afeta o desempenho de discos gerenciados e não há nenhum custo adicional. Para obter mais informações sobre a criptografia de armazenamento do Azure, consulte [criptografia de armazenamento do Azure](/azure/storage/common/storage-service-encryption).
 
 > [!NOTE]
 > Discos temporários não são discos gerenciados e não são criptografados pelo SSE, a menos que você habilite a criptografia no host.

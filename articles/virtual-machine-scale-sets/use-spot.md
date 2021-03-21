@@ -9,12 +9,12 @@ ms.subservice: spot
 ms.date: 02/26/2021
 ms.reviewer: cynthn
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: a176a30a1e21ec03c2da329785ab895ec67a4faf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ec73d1363fb18d1d6c46589fe69879a8f6df1dab
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596409"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722558"
 ---
 # <a name="azure-spot-virtual-machines-for-virtual-machine-scale-sets"></a>Máquinas virtuais do Azure spot para conjuntos de dimensionamento de máquinas virtuais 
 
@@ -44,8 +44,8 @@ A máquina virtual do Azure Spot pode ser implantada em qualquer região, exceto
 Atualmente, há suporte para os seguintes [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/) :
 
 -   Contrato Enterprise
--   Código de oferta pago conforme o uso 003P
--   Patrocinado
+-   Código de oferta pago pelo uso (003P)
+-   Patrocinado (0036P e 0136P)
 - Para o CSP (provedor de serviços de nuvem), consulte o [Partner Center](/partner-center/azure-plan-get-started) ou contate seu parceiro diretamente.
 
 ## <a name="eviction-policy"></a>Política de remoção
@@ -168,7 +168,7 @@ $vmssConfig = New-AzVmssConfig `
     -SkuName "Standard_DS2" `
     -UpgradePolicyMode Automatic `
     -Priority "Spot" `
-    --max-price -1
+    -max-price -1
 ```
 
 ## <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos

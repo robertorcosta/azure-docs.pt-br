@@ -8,10 +8,10 @@ ms.date: 11/09/2020
 author: sayantanroy83
 ms.author: sroy
 ms.openlocfilehash: c5c50787ef3e287d164e051ece26da4e83199d47
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102555628"
 ---
 # <a name="customers-dashboard-in-commercial-marketplace-analytics"></a>Painel de clientes na análise de Marketplace comercial
@@ -149,7 +149,7 @@ _**Tabela 1: dicionário de termos de dados**_
 | DateLost | Data da perda | A última data em que o cliente cancelou o último de todas as ofertas adquiridas anteriormente. | DateLost |
 | Nome do Provedor | Nome do Provedor | O nome do provedor envolvido na relação entre a Microsoft e o cliente. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP. | ProviderName |
 | Email do provedor | Email do provedor | O endereço de email do provedor envolvido na relação entre a Microsoft e o cliente. Se o cliente for uma empresa por meio do revendedor, esse será o revendedor. Se um CSP (provedor de soluções de nuvem) estiver envolvido, esse será o CSP. | ProviderEmail |
-| Nome | Nome do cliente | O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente. | Nome |
+| FirstName | Nome do cliente | O nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente. | FirstName |
 | LastName | Sobrenome do cliente | O último nome fornecido pelo cliente. O nome pode ser diferente do nome fornecido na assinatura do Azure de um cliente. | LastName |
 | Email | Email do cliente | O endereço de email fornecido pelo cliente final. O email pode ser diferente do endereço de email na assinatura do Azure de um cliente. | Email |
 | Nome da empresa do cliente | Nome da empresa do cliente | O nome da empresa fornecido pelo cliente. O nome pode ser diferente da cidade na assinatura do Azure de um cliente. | Nome do CustomerCompany |

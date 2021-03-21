@@ -12,10 +12,10 @@ ms.date: 03/01/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.openlocfilehash: ee1d863ccb974b30213179a1aba9e27d5a3a2bda
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103418264"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Movendo a autenticação do aplicativo de Serviços de Federação do Active Directory (AD FS) para Azure Active Directory
@@ -27,9 +27,9 @@ O [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md
 
 ## <a name="azure-ad-benefits"></a>Benefícios do AD do Azure
 
-Se você tiver um diretório local que contenha contas de usuário, provavelmente terá muitos aplicativos para os quais os usuários se autenticam. Cada um desses aplicativos é configurado para que os usuários acessem usando suas identidades.
+Se você tiver um diretório local que contém contas de usuário, provavelmente terá muitos aplicativos nos quais os usuários se autenticam. Cada um desses aplicativos é configurado para que os usuários os acessem usando suas identidades.
 
-Os usuários também podem se autenticar diretamente com seu Active Directory local. O Serviços de Federação do Active Directory (AD FS) (AD FS) é um serviço de identidade local baseado em padrões. Ele estende a capacidade de usar a funcionalidade de SSO (logon único) entre parceiros comerciais confiáveis para que os usuários não precisem entrar separadamente em cada aplicativo. Isso é conhecido como identidade federada.
+Os usuários também podem se autenticar diretamente com seu Active Directory local. O AD FS (Serviços de Federação do Active Directory) é um serviço de identidade local baseado em padrões. Ele estende a capacidade de usar a funcionalidade de SSO (logon único) entre parceiros comerciais confiáveis para que os usuários não precisem entrar separadamente em cada aplicativo. Isso é conhecido como identidade federada.
 
 Muitas organizações têm software como serviço (SaaS) ou aplicativos de linha de negócios personalizados federados diretamente para AD FS, juntamente com Microsoft 365 e aplicativos baseados no Azure AD.
 
@@ -42,7 +42,7 @@ Muitas organizações têm software como serviço (SaaS) ou aplicativos de linha
 
 ## <a name="types-of-apps-to-migrate"></a>Tipos de aplicativos a serem migrados
 
-A migração de todas as suas autenticações de aplicativos para o Azure AD é ideal, pois oferece um único plano de controle para gerenciamento de identidade e acesso.
+A migração de todas as suas autenticações de aplicativos para o Azure AD é ideal, pois oferece um único painel de controle para gerenciamento de identidade e acesso.
 
 Seus aplicativos podem usar protocolos modernos ou herdados para autenticação. Ao planejar a migração para o Azure AD, considere migrar os aplicativos que usam protocolos de autenticação modernos (como SAML e Open ID Connect) primeiro. Esses aplicativos podem ser reconfigurados para autenticar com o Azure AD por meio de um conector interno da Galeria de Azure App ou registrando o aplicativo no Azure AD. Aplicativos que usam protocolos mais antigos podem ser integrados usando o proxy de aplicativo.
 

@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 93812cf2b0db7fc3557e31c8d9e8053831c7b90f
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010993"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608139"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Solução de problemas do Azure Percept DK (Kit de desenvolvimento)
 
@@ -31,6 +31,12 @@ Para redirecionar qualquer saída para um arquivo. txt para análise adicional, 
 sudo [command] > [file name].txt
 ```
 
+Altere as permissões do arquivo. txt para que ele possa ser copiado:
+
+```console
+sudo chmod 666 [file name].txt
+```
+
 Depois de redirecionar a saída para um arquivo. txt, copie o arquivo para o computador host por meio do SCP:
 
 ```console
@@ -43,9 +49,9 @@ Para obter informações adicionais sobre os comandos de Azure IoT Edge, consult
 
 |Categoria:         |Comando:                    |Função:                  |
 |------------------|----------------------------|---------------------------|
-|SO                |```cat /etc/os-release```         |verificar a versão da imagem Mariner |
-|SO                |```cat /etc/os-subrelease```      |verificar versão da imagem derivada |
-|SO                |```cat /etc/adu-version```        |verificar a versão do ADU |
+|Sistema operacional                |```cat /etc/os-release```         |verificar a versão da imagem Mariner |
+|Sistema operacional                |```cat /etc/os-subrelease```      |verificar versão da imagem derivada |
+|Sistema operacional                |```cat /etc/adu-version```        |verificar a versão do ADU |
 |Temperatura       |```cat /sys/class/thermal/thermal_zone0/temp``` |verificar temperatura de devkit |
 |Wi-Fi             |```sudo journalctl -u hostapd.service``` |verificar logs do SoftAP|
 |Wi-Fi             |```sudo journalctl -u wpa_supplicant.service``` |verificar logs de serviços Wi-Fis |

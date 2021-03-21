@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
 ms.openlocfilehash: 076fcab7b0747a7993407edd65f9d08efc27309f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035578"
 ---
 # <a name="enable-azure-monitor-for-single-virtual-machine-or-virtual-machine-scale-set-in-the-azure-portal"></a>Habilitar o Azure Monitor para uma única máquina virtual ou para um conjunto de dimensionamento de máquinas virtuais no portal do Azure
@@ -24,7 +24,7 @@ Este artigo descreve como habilitar o Revisions da VM para uma máquina virtual 
 - [Criar e configurar um espaço de trabalho log Analytics](./vminsights-configure-workspace.md). Como alternativa, você pode criar um novo espaço de trabalho durante esse processo.
 - Consulte [sistemas operacionais com suporte](./vminsights-enable-overview.md#supported-operating-systems) para garantir que o sistema operacional da máquina virtual ou do conjunto de dimensionamento de máquinas virtuais que você está habilitando tem suporte. 
 
-## <a name="enable-vm-insights"></a>Habilitar informações de VM
+## <a name="enable-vm-insights"></a>Habilitar insights da VM
 
 No portal do Azure, selecione **máquinas virtuais**, **conjuntos de dimensionamento de máquinas virtuais** ou **servidores – arco do Azure** e selecione um recurso na lista. Na seção **monitoramento** do menu, selecione **insights** e, em seguida, **habilitar**. O exemplo a seguir mostra uma máquina virtual do Azure, mas o menu é semelhante para o conjunto de dimensionamento de máquinas virtuais do Azure ou o arco do Azure.
 

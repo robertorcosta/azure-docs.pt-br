@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 2805500e4a4c98ad7b8360393e7d69ad9fb704a3
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 0f028f264d02d7300bb888e2053708ef6b06ea51
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102563329"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104721555"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurar seu aplicativo do Serviço de Aplicativo ou do Azure Functions aplicativo para usar o logon do Azure AD
 
@@ -97,14 +97,14 @@ Para registrar o aplicativo, execute as seguintes etapas:
     |-|-|
     |ID do Cliente| Use a **ID do aplicativo (cliente)** do registro do aplicativo. |
     |URL do emissor| Use `<authentication-endpoint>/<tenant-id>/v2.0` e substitua *\<authentication-endpoint>* pelo ponto de [extremidade de autenticação para seu ambiente de nuvem](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) (por exemplo, " https://login.microsoftonline.com " para o Azure global), também substituindo *\<tenant-id>* pela ID do **diretório (locatário)** na qual o registro do aplicativo foi criado. Esse valor é usado para redirecionar os usuários para o locatário correto do Azure AD, bem como para baixar os metadados apropriados para determinar as chaves de assinatura de token apropriadas e o valor de declaração do emissor do token, por exemplo. Para aplicativos que usam o Azure AD v1 e para aplicativos Azure Functions, omita `/v2.0` na URL.|
-    |Segredo do cliente (opcional)| Use o segredo do cliente gerado no registro do aplicativo.|
-    |Audiências de token permitidas| Se este for um aplicativo de nuvem ou de servidor e você quiser permitir tokens de autenticação de um aplicativo Web, adicione o **URI da ID do aplicativo** do aplicativo Web aqui. A **ID do cliente** configurada é *sempre* implicitamente considerada uma audiência permitida. |
+    |Segredo do cliente (opcional)| Use o segredo do cliente gerado no registro do aplicativo. Com um segredo do cliente, o fluxo híbrido é usado e o serviço de aplicativo retornará tokens de acesso e de atualização. Quando o segredo do cliente não é definido, o fluxo implícito é usado e apenas um token de ID é retornado. Esses tokens são enviados pelo provedor e armazenados no repositório de token EasyAuth.|
+    |Audiências de token permitidas| Se este for um aplicativo de nuvem ou de servidor e você quiser permitir tokens de autenticação de um aplicativo Web, adicione o **URI da ID do aplicativo** do aplicativo Web aqui. A **ID do cliente** configurada é *sempre* implicitamente considerada uma audiência permitida.|
 
 2. Selecione **OK** e, em seguida, **Salvar**.
 
 Agora você está pronto para usar o Azure Active Directory para autenticação no aplicativo do Serviço de Aplicativo.
 
-## <a name="configure-client-apps-to-access-your-app-service"></a>Configurar aplicativos cliente para acessar seu serviço de aplicativo
+## <a name="configure-client-apps-to-access-your-app-service"></a>Configurar aplicativos do cliente para acessar o Serviço de Aplicativo
 
 Na seção anterior, você registrou seu serviço de aplicativo ou Azure function para autenticar usuários. Esta seção explica como registrar aplicativos nativos de cliente ou daemon para que eles possam solicitar acesso a APIs expostas por seu serviço de aplicativo em nome de usuários ou por conta própria. A conclusão das etapas nesta seção não será necessária se você quiser autenticar os usuários.
 

@@ -4,10 +4,10 @@ description: Use a experiência guiada do centro de início rápido do Azure par
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.openlocfilehash: dbfe1ea99b09813edbfaa7bc248b4c71f1dd8a45
-ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103232980"
 ---
 # <a name="get-started-with-the-azure-quickstart-center"></a>Introdução ao Azure Quickstart Center

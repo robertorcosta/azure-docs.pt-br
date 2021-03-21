@@ -13,10 +13,10 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.openlocfilehash: ce4917f968ef1664a1d41f4eaff162df116bda4f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035077"
 ---
 # <a name="signing-key-rollover-in-the-microsoft-identity-platform"></a>Substituição de chave de assinatura na plataforma de identidade da Microsoft
@@ -68,7 +68,7 @@ A funcionalidade de Autenticação/Autorização (EasyAuth) dos Serviços de Apl
 ### <a name="web-applications--apis-protecting-resources-using-net-owin-openid-connect-ws-fed-or-windowsazureactivedirectorybearerauthentication-middleware"></a><a name="owin"></a>Aplicativos/APIs Web que protegem recursos usando .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication
 Se seu aplicativo estiver usando o .NET OWIN OpenID Connect, WS-Fed ou o middleware WindowsAzureActiveDirectoryBearerAuthentication, ele já terá a lógica necessária para tratar a substituição de chave automaticamente.
 
-Você pode confirmar que seu aplicativo está usando qualquer um deles procurando qualquer um dos trechos de código a seguir nos arquivos Startup.cs ou Startup.Auth.cs do seu aplicativo.
+Você pode confirmar que seu aplicativo está usando qualquer um deles procurando qualquer um dos trechos de código a seguir nos arquivos Startup. cs ou Startup. auth. cs do seu aplicativo.
 
 ```csharp
 app.UseOpenIdConnectAuthentication(
@@ -144,7 +144,7 @@ As etapas a seguir o ajudarão a verificar se a lógica está funcionando corret
 3. Na tabela **IssuingAuthorityKeys**, haverá pelo menos uma fila, que corresponde ao valor da impressão para a chave. Exclua todas as linhas na tabela.
 4. Clique com o botão direito do mouse em **Locatários** e clique em **Mostrar dados da tabela**.
 5. Na tabela **Locatários**, haverá pelo menos uma fila, que corresponde a um identificador único do locatário do diretório. Exclua todas as linhas na tabela. Se você não excluir as linhas em ambas as tabelas **Locatários** e **IssuingAuthorityKeys**, obterá um erro no runtime.
-6. Compile e execute o aplicativo. Depois de entrar na sua conta, você poderá interromper o aplicativo.
+6. Crie e execute o aplicativo. Depois de entrar na sua conta, você poderá interromper o aplicativo.
 7. Volte no **Explorador do Servidor** e olhe os valores na tabela **IssuingAuthorityKeys** e **Locatários**. Você notará que eles foram repopulados automaticamente com as informações apropriadas do documento de metadados federados.
 
 ### <a name="web-apis-protecting-resources-and-created-with-visual-studio-2013"></a><a name="vs2013"></a>APIs Web que protegem recursos e que foram criados com o Visual Studio 2013

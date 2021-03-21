@@ -9,12 +9,12 @@ ms.date: 03/01/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d4840dcbe67a0bd94c74b43164c24e0c45e9daf
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: feb77339c9c7f36eb17b43dfe2c220dfb54efa25
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103200650"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720518"
 ---
 # <a name="update-the-iot-edge-security-daemon-and-runtime"></a>Atualize o daemon de segurança do IoT Edge e o runtime
 
@@ -150,9 +150,9 @@ Verifique a versão do agente do IoT Edge e de módulos de hub do IoT Edge atual
 
 O agente do IoT Edge e as imagens de hub do IoT Edge são marcadas com a versão do IoT Edge a que estão associados. Há duas maneiras diferentes de usar marcas com as imagens de runtime:
 
-* **Marcas sem interrupção** – use os dois primeiros valores do número de versão para obter a imagem mais recente que corresponde a esses dígitos. Por exemplo, 1.0 é atualizado sempre que há uma nova versão para apontar para a versão 1.0.x mais recente. Se o runtime do contêiner em seu dispositivo IoT Edge extrair a imagem novamente, os módulos de runtime serão atualizados para a versão mais recente. Essa abordagem é sugerida para fins de desenvolvimento. Implantações do portal do Azure usam como padrão marcas sem interrupção.
+* **Marcas sem interrupção** – use os dois primeiros valores do número de versão para obter a imagem mais recente que corresponde a esses dígitos. Por exemplo, 1,1 é atualizado sempre que há uma nova versão para apontar para a versão 1.1. x mais recente. Se o runtime do contêiner em seu dispositivo IoT Edge extrair a imagem novamente, os módulos de runtime serão atualizados para a versão mais recente. Implantações do portal do Azure usam como padrão marcas sem interrupção. *Essa abordagem é sugerida para fins de desenvolvimento.*
 
-* **Marcas específicas** – use todos os três valores do número de versão para definir explicitamente a versão da imagem. Por exemplo, 1.0.7 não será alterado após sua versão inicial. Você pode declarar um novo número de versão no manifesto de implantação quando estiver pronto para atualizar. Essa abordagem é sugerida para fins de produção.
+* **Marcas específicas** – use todos os três valores do número de versão para definir explicitamente a versão da imagem. Por exemplo, o 1.1.0 não mudará após sua versão inicial. Você pode declarar um novo número de versão no manifesto de implantação quando estiver pronto para atualizar. *Essa abordagem é sugerida para fins de produção.*
 
 ### <a name="update-a-rolling-tag-image"></a>Atualizar uma imagem de tag sem interrupção
 
@@ -187,7 +187,7 @@ Se você usar marcas específicas em sua implantação (por exemplo, mcr.microso
 
    ![Atualizar versão do agente do Hub do Edge](./media/how-to-update-iot-edge/runtime-settings-edgeagent.png)
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 1. Selecione **revisão + criar**, examine a implantação e selecione **criar**.
 

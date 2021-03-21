@@ -8,10 +8,10 @@ ms.date: 03/03/2021
 ms.topic: article
 ms.service: azure
 ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
-ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/15/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103466262"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre os usuários do console do defender para IoT
@@ -197,7 +197,7 @@ Para configurar Active Directory:
 
 Se você estiver criando grupos de Active Directory para usuários do console de gerenciamento local, deverá criar uma regra de grupo de acesso para cada grupo de Active Directory. O console de gerenciamento local Active Directory credenciais não funcionarão se uma regra de grupo de acesso não existir para o grupo de usuários Active Directory. Consulte [definir o controle de acesso global](how-to-define-global-user-access-control.md).
 
-1. Selecione **Salvar**.
+1. Clique em **Salvar**.
 
 2. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
 
@@ -269,7 +269,7 @@ Para redefinir a senha de um usuário no console de gerenciamento local:
 
 1. Selecione **Atualizar**.
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Ativar e configurar seu sensor](how-to-activate-and-set-up-your-sensor.md) 
  [Ativar e configurar seu console](how-to-activate-and-set-up-your-on-premises-management-console.md) 

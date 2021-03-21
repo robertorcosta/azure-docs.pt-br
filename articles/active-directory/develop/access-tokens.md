@@ -14,15 +14,15 @@ ms.author: hirsin
 ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ms.openlocfilehash: 8630dd2fb1157fbeba99f2a06d73712ab46a63f4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102035060"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acesso da plataforma de identidade da Microsoft
 
-Os tokens de acesso permitem que os clientes chamem com segurança APIs da Web protegidas e são usados por APIs da Web para executar autenticação e autorização. De acordo com a especificação OAuth, os tokens de acesso são cadeias de caracteres opacas sem um formato definido – alguns provedores de identidade (IDPs) usam GUIDs, outros usam BLOBs criptografados. A plataforma de identidade da Microsoft usa uma variedade de formatos de token de acesso, dependendo da configuração da API que aceita o token. [APIs personalizadas registradas por desenvolvedores](quickstart-configure-app-expose-web-apis.md) na plataforma de identidade da Microsoft podem escolher entre dois formatos diferentes de tokens Web JSON (JWTs), chamados "v1" e "v2", e APIs desenvolvidas pela Microsoft, como Microsoft Graph ou APIs no Azure, têm formatos de token proprietários adicionais. Esses formatos proprietários podem ser tokens criptografados, JWTs ou tokens especiais semelhantes ao JWT que não serão validados.
+Os tokens de acesso permitem que os clientes chamem com segurança APIs da Web protegidas e são usados por APIs da Web para executar autenticação e autorização. De acordo com a especificação OAuth, os tokens de acesso são cadeias de caracteres opacas sem um formato definido – alguns provedores de identidade (IDPs) usam GUIDs, outros usam BLOBs criptografados. A plataforma de identidade da Microsoft usa vários formatos de token de acesso, dependendo da configuração da API que aceita o token. [APIs personalizadas registradas por desenvolvedores](quickstart-configure-app-expose-web-apis.md) na plataforma de identidade da Microsoft podem escolher entre dois formatos diferentes de tokens Web JSON (JWTs), chamados "v1" e "v2", e APIs desenvolvidas pela Microsoft, como Microsoft Graph ou APIs no Azure, têm formatos de token proprietários adicionais. Esses formatos proprietários podem ser tokens criptografados, JWTs ou tokens especiais semelhantes ao JWT que não serão validados.
 
 Os clientes devem tratar tokens de acesso como cadeias de caracteres opacas porque o conteúdo do token destina-se apenas ao recurso (a API). *Somente* para fins de validação e depuração, os desenvolvedores podem decodificar JWTs usando um site como [JWT.ms](https://jwt.ms). No entanto, lembre-se de que os tokens recebidos para uma API da Microsoft talvez nem sempre sejam um JWT e que você nem sempre possa decodificá-los.
 
@@ -288,7 +288,7 @@ Um logon *não baseado em senha* é aquele em que o usuário não digitou uma se
 
 - Usando seu rosto com o Windows Hello
 - Chave FIDO2
-- SMS
+- sms
 - Voz
 - PIN
 

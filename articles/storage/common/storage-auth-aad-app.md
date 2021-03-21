@@ -11,10 +11,10 @@ ms.author: tamram
 ms.subservice: common
 ms.custom: devx-track-csharp
 ms.openlocfilehash: baad1a0b173ae89fec9d160572224c6cb0aa615d
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103574621"
 ---
 # <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>Adquirir um token do Azure AD para autorizar solicitações de um aplicativo cliente
@@ -151,7 +151,7 @@ Install-Package Azure.Storage.Blobs
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview
 ```
 
-Em seguida, adicione as seguintes instruções using ao arquivo HomeController.cs:
+Em seguida, adicione as seguintes instruções using ao arquivo HomeController. cs:
 
 ```csharp
 using Microsoft.Identity.Web; //MSAL library for getting the access token
@@ -165,7 +165,7 @@ Install-Package Microsoft.Azure.Storage.Blob
 Install-Package Microsoft.Identity.Web -Version 0.4.0-preview //or a later version
 ```
 
-Em seguida, adicione as seguintes instruções using ao arquivo HomeController.cs:
+Em seguida, adicione as seguintes instruções using ao arquivo HomeController. cs:
 
 ```csharp
 using Microsoft.Identity.Client; //MSAL library for getting the access token
@@ -284,7 +284,7 @@ Atualize o *appsettings.jsno* arquivo com seus próprios valores, da seguinte ma
 
 ### <a name="update-the-storage-account-and-container-name"></a>Atualizar a conta de armazenamento e o nome do contêiner
 
-No arquivo *HomeController.cs* , atualize o URI que faz referência ao blob de blocos para usar o nome da sua conta de armazenamento e do contêiner, substituindo os valores entre colchetes angulares por seus próprios valores:
+No arquivo *HomeController. cs* , atualize o URI que faz referência ao blob de blocos para usar o nome da sua conta de armazenamento e do contêiner, substituindo os valores entre colchetes angulares com seus próprios valores:
 
 ```html
 https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt

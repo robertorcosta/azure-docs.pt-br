@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
-ms.openlocfilehash: 557fc6e358f371b47c1df314508e3565d843a28c
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 7583b4037d350b9190d6eae30c28b907b1d41d86
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102049178"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722847"
 ---
 # <a name="azure-activity-log"></a>Log de Atividades do Azure
 O log de atividades é um [log de plataforma](./platform-logs-overview.md) no Azure que fornece insights sobre eventos no nível de assinatura. Isso inclui informações como quando um recurso é modificado ou quando uma máquina virtual é iniciada. Veja o log de atividades no portal do Azure ou recupere as entradas com o PowerShell e a CLI. Para funcionalidade adicional, você deve criar uma configuração de diagnóstico para enviar o log de atividades para [Azure monitor logs](../logs/data-platform-logs.md), para os hubs de eventos do Azure para encaminhar fora do Azure ou para o armazenamento do Azure para arquivamento. Este artigo fornece detalhes sobre como exibir o log de atividades e enviá-lo para diferentes destinos.
@@ -27,6 +27,11 @@ Você pode acessar o log de atividades na maioria dos menus do portal do Azure. 
 ![Exibir log de atividades](./media/activity-log/view-activity-log.png)
 
 Para obter uma descrição das categorias de log de atividades, consulte [esquema de eventos do log de atividades do Azure](activity-log-schema.md#categories).
+
+## <a name="download-the-activity-log"></a>Baixar o log de atividades
+Selecione **baixar como CSV** para baixar os eventos no modo de exibição atual.
+
+![Baixar log de atividades](media/activity-log/download-activity-log.png)
 
 ### <a name="view-change-history"></a>Exibir histórico de alterações
 
@@ -201,7 +206,7 @@ Se um perfil de log já existir, primeiro você precisará remover o perfil de l
 
     | Propriedade | Obrigatório | Descrição |
     | --- | --- | --- |
-    | Name |Sim |Nome de seu perfil de log. |
+    | Nome |Sim |Nome de seu perfil de log. |
     | StorageAccountId |Não |ID de recurso da conta de armazenamento em que o log de atividades deve ser salvo. |
     | serviceBusRuleId |Não |ID da Regra de Barramento de Serviço para o namespace do Barramento de Serviço no qual você gostaria que os hubs de eventos fossem criados. Esta é uma cadeia de caracteres com o formato: `{service bus resource ID}/authorizationrules/{key name}` . |
     | Localização |Sim |Lista separada por vírgulas de regiões para as quais você gostaria de coletar eventos do Log de Atividades. |

@@ -12,10 +12,10 @@ manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 703e3b4c951bc4c3a22f82b9faa31789d1abf868
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103008715"
 ---
 # <a name="add-an-api-connector-to-a-user-flow"></a>Adicionar um conector de API a um fluxo de usuário
@@ -40,7 +40,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 
     ![Configurar um conector de API](./media/self-service-sign-up-add-api-connector/api-connector-config.png)
 
-8. Selecione **Salvar**.
+8. Clique em **Salvar**.
 
 ## <a name="securing-the-api-endpoint"></a>Protegendo o ponto de extremidade da API
 Você pode proteger seu ponto de extremidade de API usando a autenticação básica HTTP ou a autenticação de certificado de cliente HTTPS (versão prévia). Em ambos os casos, você fornece as credenciais que Azure Active Directory usarão ao chamar o ponto de extremidade da API. O ponto de extremidade de API, em seguida, verifica as credenciais e executa decisões de autorização.
@@ -125,7 +125,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
    ![Adicionar APIs ao fluxo do usuário](./media/self-service-sign-up-add-api-connector/api-connectors-user-flow-select.png)
 
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
@@ -255,7 +255,7 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | version                                            | String            | Sim      | A versão da API.                                                                                                                                                                                                                                                                |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
@@ -276,7 +276,7 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
@@ -300,11 +300,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da sua API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
-| status      | Integer | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
+| status      | Inteiro | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
 
 > [!NOTE]

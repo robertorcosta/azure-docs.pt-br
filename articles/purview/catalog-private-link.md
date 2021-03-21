@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: d9088e5c6302c41c64f2a2e9034e7c3d659e37eb
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.openlocfilehash: 09fa10e7f7751321601c5c4871b2cf36ccf6f01f
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102615628"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104720913"
 ---
 # <a name="use-private-endpoints-for-your-purview-account"></a>Usar pontos de extremidade privados para sua conta do alcance
 
@@ -24,13 +24,16 @@ Você pode usar pontos de extremidade privados para suas contas do alcance para 
 
 1. Preencha as informações básicas e defina o método de conectividade como ponto de extremidade privado na guia **rede** . Configure seus pontos de extremidade privados de ingestão fornecendo detalhes de **assinatura, vnet e sub-rede** que você deseja emparelhar com seu ponto de extremidades privado.
 
+    > [!NOTE]
+    > Crie um ponto de extremidade privado de ingestão somente se pretender habilitar o isolamento de rede para cenários de verificação de ponta a ponta, para suas fontes locais e do Azure. No momento, não há suporte para pontos de extremidade privados de ingestão trabalhando com suas fontes AWS.
+
     :::image type="content" source="media/catalog-private-link/create-pe-azure-portal.png" alt-text="Criar um ponto de extremidade privado no portal do Azure":::
 
 1. Opcionalmente, você também pode optar por configurar uma **zona de DNS privado** para cada ponto de extremidade particular de ingestão.
 
 1. Clique em Adicionar para adicionar um ponto de extremidade privado para sua conta do alcance.
 
-1. Na página criar ponto de extremidade privado, defina alcance sub-recurso como **conta**, escolha sua rede virtual e sub-rede e selecione a zona de DNS privado onde o DNS será registrado (você também pode utilizar seus servidores DNS ganhos ou criar registros DNS usando arquivos de host em suas máquinas virtuais).
+1. Na página criar ponto de extremidade privado, defina alcance sub-recurso como **conta**, escolha sua rede virtual e sub-rede e selecione a zona de DNS privado onde o DNS será registrado (você também pode utilizar seus próprios servidores DNS ou criar registros DNS usando arquivos de host em suas máquinas virtuais).
 
     :::image type="content" source="media/catalog-private-link/create-pe-account.png" alt-text="Seleções de criação de ponto de extremidade particular":::
 
@@ -89,6 +92,20 @@ As instruções abaixo são para acessar o alcance com segurança de uma VM do A
 6. Depois que a nova regra for criada, navegue de volta para a VM e tente fazer logon usando suas credenciais do AAD novamente. Se o logon for executado com sucesso, o portal do alcance estará pronto para uso. Mas, em alguns casos, o AAD será redirecionado para outros domínios para logon com base no tipo de conta do cliente. Por exemplo, para uma conta do live.com, o AAD será redirecionado para o live.com para logon, então essas solicitações serão bloqueadas novamente. Para contas de funcionários da Microsoft, o AAD acessará o msft.sts.microsoft.com para obter informações de logon. Verifique as solicitações de rede na guia rede do navegador para ver quais solicitações de domínio estão sendo bloqueadas, refaça a etapa anterior para obter seu IP e adicionar regras de porta de saída no grupo de segurança de rede para permitir solicitações para esse IP (se possível, adicione a URL e o IP ao arquivo de host da VM para corrigir a resolução de DNS). Se você souber os intervalos de IP do domínio de logon exato, também poderá adicioná-los diretamente às regras de rede.
 
 7. Agora, o logon no AAD deve ser bem-sucedido. O portal do alcance será carregado com êxito, mas a listagem de todas as contas do alcance não funcionará, pois ela só pode acessar uma conta alcance específica. Insira *Web. alcance. Azure. com/Resource/{PurviewAccountName}* para visitar diretamente a conta alcance para a qual você configurou com êxito um ponto de extremidade privado para.
+ 
+## <a name="ingestion-private-endpoints-and-scanning-sources-in-private-networks-vnets-and-behind-private-endpoints"></a>Pontos de extremidade particulares de ingestão e fontes de verificação em redes privadas, Vnets e atrás de pontos de extremidade privados
+
+Se você quiser garantir o isolamento de rede para seus metadados fluindo da origem que está sendo examinada para o alcance DataMap, siga estas etapas:
+1. Habilitar um **ponto de extremidade privado de ingestão** seguindo as etapas [nesta seção](#creating-an-ingestion-private-endpoint)
+1. Digitalize a origem usando um **ir auto-hospedado**.
+ 
+    1. Todos os tipos de origem locais, como SQL Server, Oracle, SAP e outros, atualmente têm suporte apenas por meio de verificações baseadas em IR de hospedagem interna. O IR auto-hospedado deve ser executado em sua rede privada e, em seguida, ser emparelhado com sua vnet no Azure. Sua vnet do Azure deve, então, ser habilitada no ponto de extremidade particular de ingestão seguindo as etapas [abaixo](#creating-an-ingestion-private-endpoint) 
+    1. Para todos os tipos de origem **do Azure** , como o armazenamento de BLOBs do Azure, o banco de dados SQL do Azure e outros, você deve escolher explicitamente executar a verificação usando o ir de hospedagem interna para garantir o isolamento de rede. Siga as etapas [aqui](manage-integration-runtimes.md) para configurar um ir auto-hospedado. Em seguida, configure sua verificação na origem do Azure escolhendo o IR auto-hospedado na lista suspensa **conectar via Integration Runtime** para garantir o isolamento de rede. 
+    
+    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Executando o exame do Azure usando o IR auto-hospedado":::
+
+> [!NOTE]
+> No momento, não há suporte para o método de credencial MSI quando você examina suas fontes do Azure usando um IR auto-hospedado. Você deve usar um dos outros métodos de credencial com suporte para essa origem do Azure.
 
 ## <a name="enable-private-endpoint-on-existing-purview-accounts"></a>Habilitar ponto de extremidade privado em contas de alcance existentes
 
@@ -101,7 +118,7 @@ Há duas maneiras de adicionar pontos de extremidade privados do alcance depois 
 
 1. Navegue até a conta alcance da portal do Azure, selecione as conexões de ponto de extremidade privado na seção **rede** de **configurações**.
 
-:::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Criar ponto de extremidade privado do portal":::
+    :::image type="content" source="media/catalog-private-link/pe-portal.png" alt-text="Criar ponto de extremidade privado da conta":::
 
 1. Clique em + privado ponto de extremidade para criar um novo ponto de extremidade privado.
 
@@ -115,6 +132,20 @@ Há duas maneiras de adicionar pontos de extremidade privados do alcance depois 
 
 > [!NOTE]
 > Você precisará seguir as mesmas etapas acima para o subrecurso de destino selecionado como **portal** também.
+
+#### <a name="creating-an-ingestion-private-endpoint"></a>Criando um ponto de extremidade privado de ingestão
+
+1. Navegue até a conta alcance da portal do Azure, selecione as conexões de ponto de extremidade privado na seção **rede** de **configurações**.
+1. Navegue até a guia **conexões de ponto de extremidade privado de ingestão** e clique em **+ novo** para criar um novo ponto de extremidade privado de ingestão.
+
+1. Preencha informações básicas e detalhes de vnet.
+ 
+    :::image type="content" source="media/catalog-private-link/ingestion-pe-fill-details.png" alt-text="Preencher detalhes do ponto de extremidade privado":::
+
+1. Clique em **criar** para concluir a configuração.
+
+> [!NOTE]
+> Pontos de extremidade privados de ingestão podem ser criados somente por meio da experiência de portal do Azure alcance descrita acima. Ele não pode ser criado no centro de links privado.
 
 ### <a name="using-the-private-link-center"></a>Usando o centro de links privado
 
@@ -132,6 +163,15 @@ Há duas maneiras de adicionar pontos de extremidade privados do alcance depois 
 
 > [!NOTE]
 > Você precisará seguir as mesmas etapas acima para o subrecurso de destino selecionado como **portal** também.
+
+## <a name="firewalls-to-restrict-public-access"></a>Firewalls para restringir o acesso público
+
+Para cortar o acesso à conta alcance completamente da Internet pública, siga as etapas abaixo. Essa configuração será aplicada ao ponto de extremidade privado e a conexões de ponto de extremidade privadas de ingestão.
+
+1. Navegue até a conta alcance da portal do Azure, selecione as conexões de ponto de extremidade privado na seção **rede** de **configurações**.
+1. Navegue até a guia firewall e verifique se a opção Ativar/desativar está definida como **negar**.
+
+    :::image type="content" source="media/catalog-private-link/private-endpoint-firewall.png" alt-text="Configurações do firewall de ponto de extremidade privado":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

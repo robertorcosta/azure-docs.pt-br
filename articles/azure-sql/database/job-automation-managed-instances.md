@@ -12,12 +12,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: ''
 ms.date: 02/01/2021
-ms.openlocfilehash: 6ba1ba9d8c809a805fe8691baf96350b70ec6a51
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3be01c304a40317e0d21baf6789ef1376cd89b80
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101691885"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608055"
 ---
 # <a name="automate-management-tasks-using-sql-agent-jobs-in-azure-sql-managed-instance"></a>Automatizar tarefas de gerenciamento usando trabalhos do SQL Agent no Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -81,7 +81,7 @@ As etapas do Trabalho do SQL Agent são sequências de ações que o SQL Agent d
 O SQL Agent permite que você crie diferentes tipos de etapas de trabalho, como etapas de trabalho Transact-SQL que executam um único lote Transact-SQL no banco de dados ou as etapas de comando/PowerShell do sistema operacional que podem executar script de sistema operacional personalizado, [etapas de trabalho do SSIS](../../data-factory/how-to-invoke-ssis-package-managed-instance-agent.md) que permitem carregar dados usando o tempo de execução do [](../managed-instance/replication-transactional-overview.md)
 
 > [!Note]
-> Para obter mais informações sobre como aproveitar o Integration Runtime do Azure SSIS com o SSISDB hospedado pelo SQL Instância Gerenciada do Azure, consulte [usar o Azure sql instância gerenciada com SQL Server Integration Services (SSIS) no Azure data Factory](/../azure/data-factory/how-to-use-sql-managed-instance-with-ir.md).
+> Para obter mais informações sobre como aproveitar o Integration Runtime do Azure SSIS com o SSISDB hospedado pelo SQL Instância Gerenciada do Azure, consulte [usar o Azure sql instância gerenciada com SQL Server Integration Services (SSIS) no Azure data Factory](../../data-factory/how-to-use-sql-managed-instance-with-ir.md).
 
 A [replicação transacional](../managed-instance/replication-transactional-overview.md) pode replicar as alterações de suas tabelas em outros bancos de dados no Azure SQL instância gerenciada, banco de dados SQL do azure ou SQL Server. Para obter informações, consulte [Configurar a replicação no Azure SQL instância gerenciada](../../azure-sql/managed-instance/replication-between-two-instances-configure-tutorial.md). 
 
@@ -97,7 +97,7 @@ Uma agenda especifica quando um trabalho é executado. Mais de um trabalho pode 
 
 Uma agenda pode definir as condições a seguir para a hora em que um trabalho é executado:
 
-- Sempre que SQL Server Agent é iniciado. O trabalho é ativado após cada failover.
+- Sempre que o SQL Server Agent é iniciado. O trabalho é ativado após cada failover.
 - Uma vez, em uma data e hora específicas, que é útil para a execução atrasada de algum trabalho.
 - Em uma agenda recorrente.
 
