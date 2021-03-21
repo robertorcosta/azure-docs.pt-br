@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2020
 ms.author: yelevin
 ms.openlocfilehash: 0b2a6088effc735076d56ba83dd85135392147b8
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100574991"
 ---
 # <a name="import-threat-intelligence-into-azure-sentinel"></a>Importar inteligência contra ameaças para o Azure Sentinel
@@ -326,7 +326,7 @@ Vamos examinar duas das tarefas mais comuns, criar novos indicadores de ameaça 
 
 1. Escolha o tipo de indicador e preencha os campos obrigatórios marcados com um asterisco vermelho (*) no **novo painel indicador** .
 
-1. Selecione **Aplicar**. O indicador é adicionado à grade de indicadores e também é enviado para a tabela ThreatIntelligenceIndicator em **logs**.
+1. Escolha **Aplicar**. O indicador é adicionado à grade de indicadores e também é enviado para a tabela ThreatIntelligenceIndicator em **logs**.
 
 A marcação de indicadores de ameaça é uma maneira fácil de agrupá-los para facilitar sua localização. Normalmente, você pode aplicar uma marca a indicadores relacionados a um incidente específico ou a indicadores que representam ameaças de um ator conhecido específico ou uma campanha de ataque bem conhecida. Você pode marcar os indicadores de ameaça individualmente ou indicadores de seleção múltipla e marcá-los todos de uma vez. Mostrado abaixo está um exemplo de marcação de vários indicadores com uma ID de incidente. Como a marcação é de forma livre, uma prática recomendada é criar convenções de nomenclatura padrão para as marcas de indicador de ameaça. Você pode aplicar várias marcas a cada indicador.
 

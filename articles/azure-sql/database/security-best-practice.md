@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.reviewer: ''
 ms.openlocfilehash: 1217d3af855e96b6d6a0f403c2ff351a6b957d9a
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96459662"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>Guia estratégico para tratar dos requisitos de segurança comuns com o banco de dados SQL do Azure e o Azure SQL Instância Gerenciada
@@ -231,7 +231,7 @@ Atribua apenas as [permissões](/sql/relational-databases/security/permissions-d
        - [CREATE ROLE](/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](/sql/t-sql/statements/create-server-role-transact-sql)
     1. Criar usuários necessários
-       - [CRIAR USUÁRIO](/sql/t-sql/statements/create-user-transact-sql)
+       - [CREATE USER](/sql/t-sql/statements/create-user-transact-sql)
     1. Adicionar usuários como membros a funções
        - [ALTER_ROLE](/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTERAR FUNÇÃO DE SERVIDOR](/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -338,7 +338,7 @@ Para os leitores que desejam aprofundar-se no SoD, recomendamos os seguintes rec
 - Para o banco de dados SQL do Azure e o SQL Instância Gerenciada:  
   - [Controle e concessão de acesso de banco de dados](logins-create-manage.md)
   - [Separação de mecanismos de tarefas para o desenvolvedor de aplicativos](/previous-versions/sql/sql-server-2008/cc974525(v=sql.100))
-  - [Separação de tarefas](https://www.microsoft.com/download/details.aspx?id=39269)
+  - [Separação de funções](https://www.microsoft.com/download/details.aspx?id=39269)
   - [Assinando procedimentos armazenados](/dotnet/framework/data/adonet/sql/signing-stored-procedures-in-sql-server)
 
 - Para o gerenciamento de recursos do Azure:
@@ -643,7 +643,7 @@ A proteção avançada contra ameaças permite que você detecte e responda a am
   - Ataque de injeção de SQL.
   - Roubo/vazamento de credenciais.
   - Abuso de privilégio.
-  - Vazamento de dados.
+  - Exfiltração dos dados.
 
 **Práticas recomendadas**:
 

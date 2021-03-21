@@ -7,10 +7,10 @@ author: bwren
 ms.author: bwren
 ms.date: 01/12/2021
 ms.openlocfilehash: a2f6023b86b96266be8e625fd5b0d6625500e3fc
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102551463"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Visão geral dos agentes de Azure Monitor
@@ -131,7 +131,7 @@ A extensão de Log Analytics para [Windows](../../virtual-machines/extensions/om
 
 Em computadores híbridos, use os [servidores habilitados para Arc do Azure](../../azure-arc/servers/manage-vm-extensions.md) para implantar o Log Analytics e Azure monitor as extensões de VM de dependência.
 
-## <a name="supported-operating-systems"></a>Sistemas operacionais compatíveis
+## <a name="supported-operating-systems"></a>Sistemas operacionais com suporte
 
 As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes de Azure Monitor. Consulte a documentação de cada agente para obter considerações exclusivas e sobre o processo de instalação. Consulte a documentação do Telegraf para seus sistemas operacionais com suporte. Todos os sistemas operacionais são considerados x64. Não há suporte para x86 em nenhum sistema operacional.
 
@@ -146,7 +146,7 @@ As tabelas a seguir listam os sistemas operacionais que têm suporte dos agentes
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
 | Windows Server 2008 R2                                   |   | X | X | X |
-| Windows 10 Enterprise<br>(incluindo várias sessões) e pro<br>(Somente cenários de servidor)  | X | X | X | X |
+| Windows 10 Enterprise<br>(incluindo várias sessões) e pro<br>(Somente cenários de servidor)  | X | X | X | X |
 | Windows 8 Enterprise e Pro<br>(Somente cenários de servidor)  |   | X | X |   |
 | Windows 7 SP1<br>(Somente cenários de servidor)                 |   | X | X |   |
 

@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: duau
 ms.openlocfilehash: 30a8208babab2991c9d9e86cc419ac50e1530d7b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098518"
 ---
 # <a name="azure-front-door-standardpremium-preview-health-probe-monitoring"></a>Monitoramento de investigação de integridade Premium (visualização) do Azure front door padrão
 
 > [!Note]
-> Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Veja [aqui](../front-door-overview.md).
+> Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Está procurando informações sobre o Azure Front Door? Veja [aqui](../front-door-overview.md).
 
 A porta frontal do Azure envia periodicamente uma solicitação HTTP ou HTTPS para cada um dos back-end. Essas solicitações permitem que a porta frontal do Azure determine a integridade de cada ponto de extremidade no pool de back-end. A porta frontal usa essas respostas da investigação para determinar os "melhores" recursos de back-end para rotear suas solicitações de cliente. 
 

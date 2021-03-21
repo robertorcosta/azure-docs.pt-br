@@ -9,16 +9,16 @@ ms.workload: infrastructure-services
 ms.date: 02/18/2021
 ms.author: qixwang
 ms.openlocfilehash: c916be9a54d62e16f488c94f4fa88a2207fb8788
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "101098520"
 ---
 # <a name="what-is-azure-front-door-standardpremium-preview-endpoint-manager"></a>O que é o Gerenciador de ponto de extremidade do Azure front door Standard/Premium (visualização)?
 
 > [!NOTE]
-> * Esta documentação é para o Azure front door Standard/Premium (versão prévia). Procurando informações sobre a porta frontal do Azure? Exibir os [documentos de porta frontal do Azure](../front-door-overview.md).
+> * Esta documentação é específica para o Azure Front Door Standard/Premium (Versão Prévia). Em busca de informações sobre o Azure Front Door? Veja a [Documentação do Azure Front Door](../front-door-overview.md).
 
 O Endpoint Manager fornece uma visão geral dos pontos de extremidade que você configurou para sua porta frontal do Azure. Um ponto de extremidade é um agrupamento lógico de domínios e suas configurações associadas. O Endpoint Manager ajuda você a gerenciar sua coleção de pontos de extremidade para a operação CRUD (criar, ler, atualizar e excluir). Você pode gerenciar os seguintes elementos para seus pontos de extremidade por meio do Endpoint Manager:
 
@@ -32,7 +32,7 @@ O Endpoint Manager fornece uma visão geral dos pontos de extremidade que você 
 Gerenciador de pontos de extremidade lista quantas instâncias de cada elemento são criadas dentro de um ponto de extremidade. O status de associação para cada elemento também será exibido. Por exemplo, você pode criar vários domínios e grupos de origem e atribuir a associação entre eles com rotas diferentes.
 
 > [!IMPORTANT]
-> * O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> * O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para saber mais, confira os [**Termos de uso complementares das versões prévias do Microsoft Azure**](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
