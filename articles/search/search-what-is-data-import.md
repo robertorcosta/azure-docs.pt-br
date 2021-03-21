@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.openlocfilehash: aa44a27fa5bf6b7b4ea649e1a9b9a69ef8cd78d3
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102049314"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Visão geral de importação de dados-Azure Pesquisa Cognitiva
@@ -99,7 +99,7 @@ Uma maneira rápida de executar uma verificação preliminar no carregamento do 
 > [!TIP]
 > Vários [exemplos de código do Azure pesquisa cognitiva](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search) incluem conjuntos de valores inseridos ou prontamente disponíveis, oferecendo uma maneira fácil de começar. O portal também fornece um indexador de exemplo e uma fonte de dados que consiste em um conjunto de dados de imóveis pequeno (denominado "realestate-us-sample"). Quando você executa o indexador pré-configurado na fonte de dados de exemplo, um índice é criado e carregado com documentos que podem ser consultados no Search Explorer ou pelo código que você escreve.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Visão geral do indexador](search-indexer-overview.md)
 + [Passo a passo do portal: criar, carregar, consultar um índice](search-get-started-portal.md)

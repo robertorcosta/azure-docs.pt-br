@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.openlocfilehash: 43804907d68ddd58e55c7ce453e0731d0cb4b9b5
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102560371"
 ---
 # <a name="language-support-for-computer-vision"></a>Suporte a idiomas para Pesquisa Visual Computacional
@@ -113,7 +113,7 @@ As APIs de OCR do Pesquisa Visual Computacional dão suporte a vários idiomas. 
 
 Algumas ações da API de [análise de imagem](https://westcentralus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-ga/operations/56f91f2e778daf14a499f21b) podem retornar resultados em outras linguagens, especificadas com o parâmetro de `language` consulta. Outras ações retornam resultados em inglês, independentemente do idioma especificado, e outras geram uma exceção para idiomas sem suporte. As ações são especificadas com `visualFeatures` os `details` parâmetros de consulta e. consulte a [visão geral](overview.md) para obter uma lista de todas as ações que você pode fazer com a análise de imagem.
 
-|Linguagem | Código de idioma | Categorias | Marcações | Descrição | Adulto | Marcas | Cor | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
+|Linguagem | Código de idioma | Categorias | Marcas | Descrição | Adulto | Marcas | Cor | Faces | ImageType | Objetos | Celebridades | Pontos de referência |
 |:---|:---:|:----:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 |Chinês | `zh`    | ✔ | ✔| ✔|-|-|-|-|-|❌|✔|✔|
 |Inglês | `en`   | ✔ | ✔| ✔|✔|✔|✔|✔|✔|✔|✔|✔|

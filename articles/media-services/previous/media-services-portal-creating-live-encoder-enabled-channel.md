@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 36a4eb2856beb3ae2b0227e92f0db26e01a1b616
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103012744"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Executar a transmissão ao vivo usando os serviços de mídia para criar fluxos de múltiplas taxas de bits com portal do Azure
@@ -177,7 +177,7 @@ Para assistir o evento, clique em **Assistir** no portal do Azure ou copie a URL
 
 O evento ativo é convertido automaticamente em conteúdo sob demanda quando é interrompido.
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Se você tiver terminado o fluxo de eventos e deseja limpar os recursos provisionados anteriormente, siga o procedimento a seguir.
 

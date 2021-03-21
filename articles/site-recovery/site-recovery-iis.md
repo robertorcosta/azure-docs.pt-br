@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/27/2018
 ms.author: mayg
 ms.openlocfilehash: 56ac58e47bffc73c7079af043ad567a77e8f3323
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101735498"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurar a recuperação de desastre para um aplicativo Web baseado em IIS de várias camadas
@@ -144,7 +144,7 @@ Se você tiver uma dependência específica do aplicativo baseada no endereço I
 
 1. No Portal do Azure, selecione seu cofre de Serviços de Recuperação.
 2. Selecione o plano de recuperação que você criou para o web farm do IIS.
-3. Selecione **Failover de Teste**.
+3. Selecione **failover de teste**.
 4. Para iniciar o processo de failover de teste, selecione o ponto de recuperação e a rede virtual do Azure.
 5. Quando o ambiente secundário estiver ativado, você poderá realizar validações.
 6. Quando as validações forem concluídas, para limpar o ambiente de failover de teste, selecione **Validações concluídas**.

@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
 ms.openlocfilehash: 66498fabadc0784a4a4ab1c3762daaaa9a5738c4
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102503208"
 ---
 # <a name="dev-tools-pack-installer-overview"></a>Visão geral do instalador do pacote de ferramentas de desenvolvimento
@@ -99,13 +99,13 @@ O instalador do pacote de ferramentas de desenvolvimento é uma solução única
         
     1. Para Mac:
     
-        1. Após o download, mova o arquivo Dev-Tools-Pack-Installer. app para a pasta aplicativos.
+        1. Após o download, mova o arquivo Dev-Tools-Pack-Installer.app para a pasta aplicativos.
         
-        1. Clique em **dev-Tools-Pack-Installer. app** para abrir o assistente de instalação.
+        1. Clique em **dev-Tools-Pack-Installer.app** para abrir o assistente de instalação.
         
         1. Se você receber uma caixa de diálogo de segurança "desenvolvedor não identificado":
         
-            1. Vá para preferências do sistema-> segurança & privacidade-> geral e clique no botão "abrir mesmo assim" ao lado de "Dev-Tools-Pack-Installer. app"
+            1. Vá para preferências do sistema-> segurança & privacidade-> geral e clique no botão "abrir mesmo assim" ao lado de "Dev-Tools-Pack-Installer.app"
         
             1. Clique no ícone de baixo para cima no encaixe novamente
         

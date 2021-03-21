@@ -4,10 +4,10 @@ description: Saiba como criar sua primeira função do Azure no Linux usando o p
 ms.topic: how-to
 ms.date: 04/29/2020
 ms.openlocfilehash: d6787e1dd8312e368964a1f555025beff9a06a23
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101732251"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Criar um aplicativo de funções em um Plano do Serviço de Aplicativo do Azure

@@ -13,10 +13,10 @@ ms.date: 09/26/2020
 ms.author: jmprieur
 ms.custom: aaddev
 ms.openlocfilehash: 5072ae58d3a9412237e70a9bc98970296ce1e1fa
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101686572"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>Uma API Web que chama APIs da Web: configuração de código
@@ -88,7 +88,7 @@ O Microsoft. Identity. Web fornece várias maneiras de descrever os certificados
 
 ## <a name="startupcs"></a>Startup.cs
 
-Sua API da Web precisará adquirir um token para a API downstream. Você o especifica adicionando a `.EnableTokenAcquisitionToCallDownstreamApi()` linha após `.AddMicrosoftIdentityWebApi(Configuration)` . Essa linha expõe o `ITokenAcquisition` serviço, que você pode usar em suas ações de controlador/páginas. No entanto, como você verá nos próximos dois pontos com marcadores, você pode fazer ainda mais. Você também precisará escolher uma implementação de cache de token, por exemplo `.AddInMemoryTokenCaches()` , em *Startup.cs*:
+Sua API da Web precisará adquirir um token para a API downstream. Você o especifica adicionando a `.EnableTokenAcquisitionToCallDownstreamApi()` linha após `.AddMicrosoftIdentityWebApi(Configuration)` . Essa linha expõe o `ITokenAcquisition` serviço, que você pode usar em suas ações de controlador/páginas. No entanto, como você verá nos próximos dois pontos com marcadores, você pode fazer ainda mais. Você também precisará escolher uma implementação de cache de token, por exemplo `.AddInMemoryTokenCaches()` , em *Startup. cs*:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -116,7 +116,7 @@ Se você não quiser adquirir o token por conta própria, *o Microsoft. Identity
 Se você quiser chamar Microsoft Graph, o Microsoft. Identity. Web permite que você use diretamente o `GraphServiceClient` (exposto pelo SDK do Microsoft Graph) em suas ações de API. Para expor Microsoft Graph:
 
 1. Adicione o pacote NuGet [Microsoft. Identity. Web. MicrosoftGraph](https://www.nuget.org/packages/Microsoft.Identity.Web.MicrosoftGraph) ao seu projeto.
-1. Adicione `.AddMicrosoftGraph()` depois `.EnableTokenAcquisitionToCallDownstreamApi()` no arquivo *Startup.cs* . `.AddMicrosoftGraph()` tem várias substituições. Usando a substituição que usa uma seção de configuração como um parâmetro, o código se torna:
+1. Adicione `.AddMicrosoftGraph()` depois `.EnableTokenAcquisitionToCallDownstreamApi()` no arquivo *Startup. cs* . `.AddMicrosoftGraph()` tem várias substituições. Usando a substituição que usa uma seção de configuração como um parâmetro, o código se torna:
 
 ```csharp
 using Microsoft.Identity.Web;
@@ -164,7 +164,7 @@ public class Startup
 
 Assim como acontece com os aplicativos Web, você pode escolher várias implementações de cache de token. Para obter detalhes, consulte [serialização de cache de token da Web da Microsoft Identity](https://aka.ms/ms-id-web/token-cache-serialization) no github.
 
-A imagem a seguir mostra as várias possibilidades de *Microsoft. Identity. Web* e seu impacto no arquivo *Startup.cs* :
+A imagem a seguir mostra as várias possibilidades de *Microsoft. Identity. Web* e seu impacto no arquivo *Startup. cs* :
 
 :::image type="content" source="media/scenarios/microsoft-identity-web-startup-cs.svg" alt-text="Diagrama de bloco mostrando opções de configuração de serviço no ponto de inicialização C S para chamar uma API Web e especificar uma implementação de cache de token":::
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 9f27a427df07302840ce719d35c7876f9dc17dbf
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "103012931"
 ---
 # <a name="upload-files-into-a-media-services-account-using-rest"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o REST
@@ -206,7 +206,7 @@ Depois que o arquivo foi carregado, você precisa criar um metadados no ativo pa
 1. Selecione **AssetFiles**  ->  **createfileinfos**.
 2. Pressione **Enviar**.
 
-    ![Carregar um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)
+    ![Fazer upload de um arquivo](./media/media-services-rest-upload-files/postman-create-file-info.png)
 
 O arquivo deve ser carregado e seus metadados definidos.
 

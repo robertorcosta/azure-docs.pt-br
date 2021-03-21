@@ -4,10 +4,10 @@ description: Saiba como especificar seu próprio repositório de artefatos para 
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: da4e345b18a46226853d71bbf66af0487f1a761f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102502188"
 ---
 # <a name="add-an-artifact-repository-to-your-lab-in-devtest-labs"></a>Adicionar um repositório de artefatos ao seu laboratório no DevTest Labs
@@ -71,7 +71,7 @@ Esta seção fornece etapas para adicionar um repositório de artefatos a um lab
    5. **Caminhos de pasta**. Insira, pelo menos, um caminho de pasta em relação a URL de clone que contém o artefato ou definições de modelo do Resource Manager. Ao especificar um subdiretório, verifique se você incluiu a barra "/" no caminho da pasta.
 
         ![Área de repositórios](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)
-6. Selecione **Salvar**.
+6. Clique em **Salvar**.
 
 ## <a name="use-azure-resource-manager-template"></a>Usar o modelo do Azure Resource Manager
 Os modelos de gerenciamento de recursos do Azure (Azure Resource Manager) são arquivos JSON que descrevem os recursos no Azure que você deseja criar. Para obter mais informações sobre esses modelos, consulte [criando modelos de Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md).
