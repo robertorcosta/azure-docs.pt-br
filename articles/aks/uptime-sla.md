@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
 ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102176324"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
@@ -107,7 +107,7 @@ Use o [`az aks update`][az-aks-update] comando para atualizar o cluster existent
   },
   ```
 
-## <a name="clean-up"></a>Limpar
+## <a name="clean-up"></a>Limpeza
 
 Para evitar cobranças, limpe todos os recursos que você criou. Para excluir o cluster, use o [`az group delete`][az-group-delete] comando para excluir o grupo de recursos AKs:
 

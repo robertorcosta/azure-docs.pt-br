@@ -2,7 +2,7 @@
 title: Backup e restauração-instantâneos, com redundância geográfica
 description: Saiba como o backup e a restauração funcionam no pool SQL dedicado do Azure Synapse Analytics. Use backups para restaurar seu data warehouse para um ponto de restauração na região primária. Use backups com redundância geográfica para restaurar para uma região geográfica diferente.
 services: synapse-analytics
-author: kevinvngo
+author: joannapea
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
@@ -11,12 +11,12 @@ ms.date: 11/13/2020
 ms.author: joanpo
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019"
-ms.openlocfilehash: 866fe01e11ee53188cea6ea490304462acc1f6a2
-ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
+ms.openlocfilehash: 0fa6777dc5b587150f630ed8ccc110d16448cc21
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/13/2021
-ms.locfileid: "103419993"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602240"
 ---
 # <a name="backup-and-restore-in-azure-synapse-dedicated-sql-pool"></a>Backup e restauração no pool SQL dedicado do Azure Synapse
 

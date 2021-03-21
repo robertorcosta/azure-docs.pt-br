@@ -1,18 +1,18 @@
 ---
 title: Ativar e configurar seu console de gerenciamento local
-description: A ativação e a configuração do console de gerenciamento garantem que os sensores sejam registrados no Azure e enviem informações para o console de gerenciamento local e que o console de gerenciamento local Execute tarefas de gerenciamento em sensores conectados.
+description: Ativar o console de gerenciamento garante que os sensores sejam registrados no Azure e enviem informações para o console de gerenciamento local e que o console de gerenciamento local Execute tarefas de gerenciamento em sensores conectados.
 author: shhazam-ms
 manager: rkarlin
 ms.author: shhazam
-ms.date: 1/12/2021
+ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: d326a90ffb957604dba74982d8983acedc6ab85d
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.service: defender-for-iot
+ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100522573"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104602718"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar seu console de gerenciamento local 
 
@@ -30,24 +30,32 @@ A ativação e a configuração do console de gerenciamento local garantem que:
 
 Para entrar no console de gerenciamento:
 
-- Abra um navegador da Web e insira o endereço IP e a senha que você recebeu para o console de gerenciamento local durante a instalação do sistema. Se você esqueceu sua senha, selecione **recuperar senha** e consulte [recuperação de senha](how-to-manage-the-on-premises-management-console.md#password-recovery).
+1. Navegue até o endereço IP que você recebeu para o console de gerenciamento local durante a instalação do sistema.
+ 
+1. Insira o nome de usuário e a senha que você recebeu para o console de gerenciamento local durante a instalação do sistema. 
 
-## <a name="upload-an-activation-file"></a>Carregar um arquivo de ativação
 
-Após o início da primeira vez, ative o console de gerenciamento local baixando um arquivo de ativação da página de **preços** do portal do Azure defender para IOT. Esse arquivo contém os dispositivos confirmados agregados definidos durante o processo de integração. Os **dispositivos confirmados** indicam o número de dispositivos que o defender para IOT monitorará por assinatura.
+Se você esqueceu sua senha, selecione a opção **recuperar senha**  e veja [recuperação de senha](how-to-manage-the-on-premises-management-console.md#password-recovery) para obter instruções sobre como recuperar sua senha.
 
-Para carregar um arquivo de ativação:
+## <a name="get-and-upload-an-activation-file"></a>Obter e carregar um arquivo de ativação
 
-1. Vá para a página de **preços** do defender para IOT.
+Depois de entrar pela primeira vez, você precisará ativar o console de gerenciamento local ao obter e carregar um arquivo de ativação. 
+
+Para obter um arquivo de ativação:
+
+1. Navegue até a página de **preços** do portal do Azure defender para IOT. 
+1. Selecione a assinatura para associar o console de gerenciamento local ao.
 1. Selecione a guia **baixar o arquivo de ativação para o console de gerenciamento** . O arquivo de ativação é baixado.
 
    :::image type="content" source="media/how-to-manage-sensors-from-the-on-premises-management-console/cloud_download_opm_activation_file.png" alt-text="Baixe o arquivo de ativação.":::
 
-1. Selecione **configurações do sistema** no console de gerenciamento.
-1. Selecione **ativação**.
-1. Selecione **escolher um arquivo** e selecione o arquivo que você salvou.
+Para carregar um arquivo de ativação:
 
-Após a ativação inicial, o número de dispositivos monitorados pode exceder o número de dispositivos confirmados definidos durante a integração. Isso pode acontecer, por exemplo, se você conectar mais sensores ao console de gerenciamento. Se houver uma discrepância entre o número de dispositivos monitorados e o número de dispositivos confirmados, um aviso aparecerá no console de gerenciamento. Se isso acontecer, você deverá carregar um novo arquivo de ativação.
+1. Navegue até a página **configurações do sistema** no console de gerenciamento local.
+1. Selecione o ícone de **ativação** :::image type="icon" source="media/how-to-manage-sensors-from-the-on-premises-management-console/activation-icon.png" border="false"::: .
+1. Selecione **escolher um arquivo** e selecione o arquivo baixado.
+
+Após a ativação inicial, o número de dispositivos monitorados pode exceder o número de dispositivos confirmados definidos durante a integração. Isso ocorre se você conectar mais sensores ao console de gerenciamento do. Se houver uma discrepância entre o número de dispositivos monitorados e o número de dispositivos confirmados, um aviso será exibido no console de gerenciamento. Se isso acontecer, carregue um novo arquivo de ativação.
 
 ## <a name="set-up-a-certificate"></a>Configurar um certificado
 
@@ -155,7 +163,7 @@ Para dar suporte a esse ambiente, você precisa criar uma topologia de negócios
 
 Os grupos de acesso permitem um melhor controle sobre onde os usuários gerenciam e analisam dispositivos na plataforma defender para IoT.
 
-### <a name="how-it-works"></a>Como isso funciona
+### <a name="how-it-works"></a>Como ele funciona
 
 Para cada site, você pode definir uma unidade de negócios e uma região. Em seguida, você pode adicionar zonas, que são entidades lógicas em sua rede. 
 
@@ -316,6 +324,6 @@ Para cancelar a atribuição e excluir um sensor:
 
 3. Para excluir o sensor não atribuído do site, selecione o sensor na lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Confira também
 
 [Solucionar problemas do sensor e do console de gerenciamento local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

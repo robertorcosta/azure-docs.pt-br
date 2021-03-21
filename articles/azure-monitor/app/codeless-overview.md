@@ -7,13 +7,13 @@ ms.author: jgol
 ms.date: 05/31/2020
 ms.reviewer: mbullwin
 ms.openlocfilehash: 9ead123338a410daf53569ff577dfc8c728a8ddf
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101708485"
 ---
-# <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>O que é a instrumentação automática ou a Azure Monitor de anexação de código Application Insights?
+# <a name="what-is-auto-instrumentation-or-codeless-attach---azure-monitor-application-insights"></a>O que é a instrumentação automática ou a anexação sem código do Application Insights do Azure Monitor?
 
 A instrumentação automática, ou anexação sem código, permite habilitar o monitoramento de aplicativos com Application Insights sem alterar seu código.  
 
@@ -26,7 +26,7 @@ O Application Insights é integrado a vários provedores de recursos e funciona 
 |Provedor de recursos/ambiente          | .NET            | .NET Core       | Java            | Node.js         | Python          |
 |---------------------------------------|-----------------|-----------------|-----------------|-----------------|-----------------|
 |Serviço de Azure App no Windows           | GA, OnBD *       | GA, aceitar      | Em andamento     | Em andamento     | Sem suporte   |
-|Serviço de Aplicativo do Azure no Linux             | N/D             | Sem suporte   | Em Andamento     | Visualização pública  | Sem suporte   |
+|Serviço de Aplicativo do Azure no Linux             | N/D             | Sem suporte   | Em andamento     | Visualização pública  | Sem suporte   |
 |Serviço de Azure App no AKS               | N/D             | Em design       | Em design       | Em design       | Sem suporte   |
 |Azure Functions-básico                | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       | GA, OnBD *       |
 |Dependências do Windows Azure Functions | Sem suporte   | Sem suporte   | Visualização pública  | Sem suporte   | Sem suporte   |
@@ -67,7 +67,7 @@ O [monitoramento de aplicativos Node.js no serviço de aplicativo no Linux](./az
 #### <a name="python"></a>Python
 Usar o SDK para [monitorar seu aplicativo Python](./opencensus-python.md) 
 
-## <a name="azure-functions"></a>Funções do Azure
+## <a name="azure-functions"></a>Azure Functions
 
 O monitoramento básico para Azure Functions é habilitado por padrão para coletar logs, desempenho, dados de erro e solicitações HTTP. Para aplicativos Java, você pode habilitar um monitoramento mais rico com rastreamento distribuído e obter os detalhes de transação de ponta a ponta. Essa funcionalidade para Java está em visualização pública e você pode [habilitá-la no portal do Azure](./monitor-functions.md).
 

@@ -7,20 +7,19 @@ ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: conceptual
 ms.date: 10/30/2020
-ms.openlocfilehash: 391a38cd3d1e2ffb790587b6c60ed54992d14d2d
-ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
+ms.openlocfilehash: 721939ee55976f9eb0c4dff24067036a9d0f4164
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103561984"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104591853"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrar o banco de dados MySQL usando importação e exportação
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 Este artigo explica duas abordagens comuns de importação e exportação de dados para um Banco de Dados do Azure para MySQL Server usando o MySQL Workbench.
 
-Para obter um guia de migração detalhado e abrangente, consulte o [Guia de migração do MySQL para o banco de dados do Azure](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
+Para obter diretrizes de migração detalhadas e abrangentes, consulte os [recursos do guia de migração](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). Para outros cenários de migração, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/). 
 
-Você também pode consultar o [Guia de migração de banco de dados](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) para obter informações detalhadas e casos de uso sobre como migrar bancos de dados para o banco de dados do Azure para MySQL. Este guia fornece diretrizes que levarão o planejamento e a execução bem-sucedidos de uma migração do MySQL para o Azure.
 
 ## <a name="before-you-begin"></a>Antes de começar
 Para seguir este guia de instruções, você precisa:

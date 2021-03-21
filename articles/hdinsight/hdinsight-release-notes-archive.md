@@ -6,10 +6,10 @@ ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
 ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101705646"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
@@ -1517,7 +1517,7 @@ Problemas corrigidos representam problemas selecionados que foram registrados an
 | BUG-98655              | [RANGER-2066](https://issues.apache.org/jira/browse/RANGER-2066)                                                                                                                                                                                                               | O acesso à família de colunas do HBase é autorizado por uma coluna marcada na família de colunas                                       |
 | BUG-99883              | [HIVE-19073](https://issues.apache.org/jira/browse/HIVE-19073), [HIVE-19145](https://issues.apache.org/jira/browse/HIVE-19145)                                                                                                                                                 | StatsOptimizer pode desconfigurar as colunas constante                                                                             |
 
-**Outros**
+**Outras**
 
 | **ID do Bug do Hortonworks** | **Apache JIRA**                                                                                                                        | **Resumo**                                                                                                                                |
 |------------------------|----------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|

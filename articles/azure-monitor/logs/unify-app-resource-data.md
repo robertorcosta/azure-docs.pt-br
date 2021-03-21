@@ -8,10 +8,10 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.openlocfilehash: 7f49bd23347b53f9a5287973c6b2aba82da50ca7
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100606553"
 ---
 # <a name="unify-multiple-azure-monitor-application-insights-resources"></a>Unificar vários recursos do Application Insights do Azure Monitor 
@@ -88,7 +88,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | ExceptionCount | itemCount | 
 | ExceptionHandledAt | handledAt |
 | ExceptionMessage | message | 
-| ExceptionType | tipo |
+| ExceptionType | type |
 | OperationID | operation_id |
 | OperationName | operation_Name | 
 | Sistema operacional | client_OS | 
@@ -106,7 +106,7 @@ A tabela a seguir mostra as diferenças de esquema entre o Log Analytics e o App
 | RoleInstance | cloud_RoleInstance |
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
-| TelemetryTYpe | tipo |
+| TelemetryTYpe | type |
 | URL | url |
 | UserAccountId | user_AccountId |
 

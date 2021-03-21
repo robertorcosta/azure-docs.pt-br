@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cadba181ea7d6a12ca64c78f3c7c58654d5f756f
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102500801"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Como planejar sua implementação de junção do Azure Active Directory híbrido
@@ -171,8 +171,8 @@ A tabela a seguir fornece detalhes sobre o suporte a esses UPNs do AD local no i
 | ----- | ----- | ----- | ----- |
 | Roteável | Federado | Da versão 1703 | Disponível para o público geral |
 | Não roteável | Federado | Da versão 1803 | Disponível para o público geral |
-| Roteável | Gerenciados | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows. O UPN local deve ser sincronizado com o     `onPremisesUserPrincipalName` atributo no Azure AD |
-| Não roteável | Gerenciados | Sem suporte | |
+| Roteável | Gerenciado | Da versão 1803 | Em geral, não há suporte para o SSPR do Azure AD na tela de bloqueio do Windows. O UPN local deve ser sincronizado com o     `onPremisesUserPrincipalName` atributo no Azure AD |
+| Não roteável | Gerenciado | Sem suporte | |
 
 ## <a name="next-steps"></a>Próximas etapas
 
