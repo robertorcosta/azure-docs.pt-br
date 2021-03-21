@@ -12,12 +12,12 @@ ms.date: 2/23/2021
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9a884cbe9ad30ce298318d217aa9ed1947c8f21
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: fa025f7e21f76b4dde547ccabf675511e9156359
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102123013"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104589320"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar restrições de locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -197,13 +197,13 @@ Para obter detalhes específicos, veja a documentação do servidor proxy.
 
 ## <a name="blocking-consumer-applications-public-preview"></a>Bloqueando aplicativos de consumidor (visualização pública)
 
-Os aplicativos da Microsoft que dão suporte a contas de consumidor e contas organizacionais, como [onedrive](https://onedrive.live.com/) ou [Microsoft Learn](https://docs.microsoft.com/learn/), podem, às vezes, ser hospedados na mesma URL.  Isso significa que os usuários que precisam acessar essa URL para fins de trabalho também têm acesso a ela para uso pessoal, o que pode não ser permitido sob suas diretrizes operacionais.
+Os aplicativos da Microsoft que dão suporte a contas de consumidor e contas organizacionais, como [onedrive](https://onedrive.live.com/) ou [Microsoft Learn](/learn/), podem, às vezes, ser hospedados na mesma URL.  Isso significa que os usuários que precisam acessar essa URL para fins de trabalho também têm acesso a ela para uso pessoal, o que pode não ser permitido sob suas diretrizes operacionais.
 
 Algumas organizações tentam corrigir isso bloqueando `login.live.com` para bloquear a autenticação de contas pessoais.  Isso tem várias desvantagens:
 
 1. `login.live.com`O bloqueio bloqueia o uso de contas pessoais em cenários de convidado B2B, que podem ser intrusos em visitantes e colaboração.
-1. [O piloto automático requer o uso `login.live.com` de](https://docs.microsoft.com/mem/autopilot/networking-requirements) para implantar. Os cenários do Intune e do AutoPilot podem falhar quando o `login.live.com` é bloqueado.
-1. A telemetria organizacional e as atualizações do Windows que dependem do serviço login.live.com para as IDs de dispositivo [deixarão de funcionar](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
+1. [O piloto automático requer o uso `login.live.com` de](/mem/autopilot/networking-requirements) para implantar. Os cenários do Intune e do AutoPilot podem falhar quando o `login.live.com` é bloqueado.
+1. A telemetria organizacional e as atualizações do Windows que dependem do serviço login.live.com para as IDs de dispositivo [deixarão de funcionar](/windows/deployment/update/windows-update-troubleshooting#feature-updates-are-not-being-offered-while-other-updates-are).
 
 ### <a name="configuration-for-consumer-apps"></a>Configuração para aplicativos de consumidor
 
@@ -216,7 +216,7 @@ Neste momento, a autenticação para aplicativos de consumidor não aparece nos 
 A `restrict-msa` política bloqueia o uso de aplicativos de consumidor, mas permite vários outros tipos de tráfego e autenticação:
 
 1. Tráfego sem usuário para dispositivos.  Isso inclui o tráfego para telepilot, Windows Update e telemetria organizacional.
-1. Autenticação B2B de contas de consumidor. Usuários com contas da Microsoft que são [convidadas para colaborar com um locatário](https://docs.microsoft.com/azure/active-directory/external-identities/redemption-experience#invitation-redemption-flow) autenticam-se no login.Live.com para acessar um locatário de recursos.
+1. Autenticação B2B de contas de consumidor. Usuários com contas da Microsoft que são [convidadas para colaborar com um locatário](../external-identities/redemption-experience.md#invitation-redemption-flow) autenticam-se no login.Live.com para acessar um locatário de recursos.
     1. Esse acesso é controlado usando o `Restrict-Access-To-Tenants` cabeçalho para permitir ou negar o acesso a esse locatário de recursos.
 1. Autenticação de "passagem", usada por muitos aplicativos do Azure, bem como Office.com, em que os aplicativos usam o Azure AD para conectar usuários do consumidor em um contexto de consumidor.
     1. Esse acesso também é controlado usando o `Restrict-Access-To-Tenants` cabeçalho para permitir ou negar o acesso ao locatário especial de "passagem" ( `f8cdef31-a31e-4b4a-93e4-5f571e91255a` ).  Se esse locatário não aparecer na `Restrict-Access-To-Tenants` lista de domínios permitidos, as contas de consumidor serão bloqueadas pelo Azure AD de entrar nesses aplicativos.
