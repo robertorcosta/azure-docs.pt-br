@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: c5c8e21f2ce3f6907547bf1b2fe4681eb937864b
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102119868"
 ---
 # <a name="json-claims-transformations"></a>Transformações de declarações JSON
@@ -58,11 +58,11 @@ O exemplo a seguir gera uma cadeia de caracteres JSON com base no valor de decla
 A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada para SendGrid (um provedor de email de terceiros). A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os números na notação de ponto implicam matrizes. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
 
 - Declarações de entrada:
-  - **email**, personalizações de tipo de Declaração  **de transformação. 0. para. 0. email**: " someone@example.com "
+  - **email**, tipo de declaração de transformação  **personalizations.0.to.0.email**: " someone@example.com "
   - **OTP**, tipo de declaração de transformação **personalizations.0.dynamic_template_data. OTP** "346349"
 - Parâmetro de entrada:
   - **template_id**: "d-4c56ffb40fa648b1aa6822283df94f60"
-  - **de. email**: " service@contoso.com "
+  - **from.email**: " service@contoso.com "
   - **personalizações. 0. assunto** "código de verificação de email da conta contoso"
 - Declaração de saída:
   - **requestBody**: valor JSON
@@ -115,7 +115,7 @@ O exemplo a seguir gera uma cadeia de caracteres JSON com base nos valores da de
 A transformação declarações a seguir gera uma declaração de cadeia de caracteres JSON que será o corpo da solicitação enviada a uma API REST. A estrutura do objeto JSON é definida pelas IDs na notação de ponto de InputParameters e TransformationClaimTypes do InputClaims. Os valores são provenientes dos valores de InputClaims e das propriedades de "valor" de InputParameters.
 
 - Declarações de entrada:
-  - **email**, tipo de declaração de transformação  **customerEntity. email**: " john.s@contoso.com "
+  - **email**, tipo de declaração de transformação  **customerEntity.email**: " john.s@contoso.com "
   - **ObjectID**, tipo de declaração de transformação **CustomerEntity. userobjectid** "01234567-89ab-cdef-0123-456789ABCDEF"
   - **determinado**, tipo de declaração de transformação **customerEntity. FirstName** "John"
   - **sobrenome**, tipo de declaração de transformação **customerEntity. LastName** "Smith"
@@ -183,7 +183,7 @@ Obter uma lista de elementos especificados de dados JSON.
 | Item | TransformationClaimType | Tipo de Dados | Observações |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | jsonSourceClaim | string | Os ClaimTypes que são usados pela transformação de declarações para obter as declarações. |
-| InputParameter | errorOnMissingClaims | booleano | Especifica se um erro deverá ser gerado se uma das declarações estiver ausente. |
+| InputParameter | errorOnMissingClaims | boolean | Especifica se um erro deverá ser gerado se uma das declarações estiver ausente. |
 | InputParameter | includeEmptyClaims | string | Especifica se você deseja incluir declarações vazias. |
 | InputParameter | jsonSourceKeyName | string | Nome da chave do elemento |
 | InputParameter | jsonSourceValueName | string | Nome do valor do elemento |

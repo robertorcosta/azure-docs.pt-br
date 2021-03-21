@@ -12,10 +12,10 @@ ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
 ms.openlocfilehash: bcff1ffd574db910c3206d82e4da0e9428db788f
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102631788"
 ---
 # <a name="technical-profiles"></a>Perfis técnicos
@@ -86,7 +86,7 @@ O elemento **TechnicalProfile** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 |---------|---------|---------|
-| Id | Sim | Um identificador exclusivo do perfil técnico. O perfil técnico pode ser referenciado usando esse identificador de outros elementos no arquivo de política. Os exemplos são **OrchestrationSteps** e **ValidationTechnicalProfile**. |
+| ID | Sim | Um identificador exclusivo do perfil técnico. O perfil técnico pode ser referenciado usando esse identificador de outros elementos no arquivo de política. Os exemplos são **OrchestrationSteps** e **ValidationTechnicalProfile**. |
 
 O elemento **TechnicalProfile** contém os seguintes elementos:
 
@@ -191,7 +191,7 @@ O elemento **Key** contém o seguinte atributo:
 
 | Atributo | Obrigatório | Descrição |
 | --------- | -------- | ----------- |
-| Id | Não | Um identificador exclusivo de um par de chaves específico referenciado por outros elementos no arquivo de política. |
+| ID | Não | Um identificador exclusivo de um par de chaves específico referenciado por outros elementos no arquivo de política. |
 | StorageReferenceId | Sim | Um identificador de um contêiner de chave de armazenamento referenciado por outros elementos no arquivo de política. |
 
 ## <a name="input-claims-transformations"></a>Transformações de declarações de entrada
