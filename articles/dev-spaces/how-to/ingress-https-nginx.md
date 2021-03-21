@@ -7,10 +7,10 @@ description: Saiba como configurar Azure Dev Spaces para usar um controlador de 
 keywords: Docker, Kubernetes, Azure, AKS, Serviço de Kubernetes do Azure, contêineres, Helm, malha de serviço, roteamento de malha de serviço, kubectl, k8s
 ms.custom: devx-track-js, devx-track-azurecli
 ms.openlocfilehash: c5ef14074c6e601bcd8a23ce62921d67b01ba3bb
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102198125"
 ---
 # <a name="use-a-custom-nginx-ingress-controller-and-configure-https"></a>Usar um controlador de entrada do NGINX personalizado e configurar o HTTPS
@@ -58,7 +58,7 @@ helm install nginx stable/nginx-ingress --namespace nginx --version 1.27.0
 ```
 
 > [!NOTE]
-> O exemplo acima cria um ponto de extremidade público para seu controlador de entrada. Se você precisar usar um ponto de extremidade privado para seu controlador de entrada, adicione o *--set Controller. Service. Annotations. " Service \\ . beta \\ . kubernetes \\ . Io/Azure-Load-balancer-interno "= true* parâmetro para o comando de *instalação Helm* . Por exemplo: 
+> O exemplo acima cria um ponto de extremidade público para seu controlador de entrada. Se você precisar usar um ponto de extremidade privado para seu controlador de entrada, adicione o *--set Controller. Service. Annotations. " Service \\ . beta \\ . kubernetes \\ . Io/Azure-Load-balancer-interno "= true* parâmetro para o comando de *instalação Helm* . Por exemplo:
 > ```console
 > helm install nginx stable/nginx-ingress --namespace nginx --set controller.service.annotations."service\.beta\.kubernetes\.io/azure-load-balancer-internal"=true --version 1.27.0
 > ```
@@ -255,7 +255,7 @@ Atualize o aplicativo de exemplo usando `helm` :
 helm upgrade bikesharingsampleapp . --namespace dev --atomic
 ```
 
-Navegue até o aplicativo de exemplo no espaço filho *dev/azureuser1* e observe que você é redirecionado para usar HTTPS. Observe também que a página é carregada, mas o navegador mostra alguns erros. Abrir o console do navegador mostra o erro relacionado a uma página HTTPS tentando carregar recursos HTTP. Por exemplo: 
+Navegue até o aplicativo de exemplo no espaço filho *dev/azureuser1* e observe que você é redirecionado para usar HTTPS. Observe também que a página é carregada, mas o navegador mostra alguns erros. Abrir o console do navegador mostra o erro relacionado a uma página HTTPS tentando carregar recursos HTTP. Por exemplo:
 
 ```console
 Mixed Content: The page at 'https://azureuser1.s.dev.bikesharingweb.nginx.MY_CUSTOM_DOMAIN/devsignin' was loaded over HTTPS, but requested an insecure resource 'http://azureuser1.s.dev.gateway.nginx.MY_CUSTOM_DOMAIN/api/user/allUsers'. This request has been blocked; the content must be served over HTTPS.

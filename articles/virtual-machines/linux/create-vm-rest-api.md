@@ -8,10 +8,10 @@ ms.topic: how-to
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 519939445e67f0f993662e2faf506eb186686156
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102554557"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Criar uma máquina virtual do Linux que usa autenticação SSH com a API REST
@@ -129,7 +129,7 @@ Para obter uma lista completa das definições disponíveis no corpo da solicita
 
 Há duas respostas bem-sucedidas para a operação criar ou atualizar uma máquina virtual:
 
-| Nome        | Tipo                                                                              | Descrição |
+| Nome        | Type                                                                              | Descrição |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Criado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Criado     |

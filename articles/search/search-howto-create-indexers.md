@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
 ms.openlocfilehash: 596eca0d73ffc4a590fae9b346658a2c31a1d68c
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676479"
 ---
 # <a name="creating-indexers-in-azure-cognitive-search"></a>Criando indexadores no Azure Pesquisa Cognitiva
@@ -85,7 +85,7 @@ Quando você estiver pronto para criar um indexador em um serviço de pesquisa r
 
 Todas as operações relacionadas a indexadores, incluindo solicitações GET para status ou definições, exigem uma [chave de API de administração](search-security-api-keys.md) na solicitação.
 
-### <a name="limits"></a>limites
+### <a name="limits"></a>Limites
 
 Todas as [camadas de serviço limitam](search-limits-quotas-capacity.md#indexer-limits) o número de objetos que você pode criar. Se você estiver experimentando a camada gratuita, só poderá ter três objetos de cada tipo e 2 minutos de processamento do indexador (não incluindo o processamento do Configurador de habilidades).
 

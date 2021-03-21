@@ -4,10 +4,10 @@ description: Este artigo descreve como usar Azure Lab Services para criar labora
 ms.topic: article
 ms.date: 06/26/2020
 ms.openlocfilehash: d4648def48557d70547ef7d41d6c3e516671849e
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452723"
 ---
 # <a name="use-azure-lab-services-for-your-next-hackathon"></a>Usar Azure Lab Services para seu próximo Hackathon
@@ -15,7 +15,7 @@ A Azure Lab Services foi projetada para ser leve e fácil de usar para que você
 
 Para usar os serviços de laboratório para seu Hackathon, certifique-se de que a conta de laboratório e seu laboratório sejam criados pelo menos alguns dias antes do início do seu Hackathon. Além disso, siga as orientações abaixo:
 
-## <a name="guidance"></a>Orientação
+## <a name="guidance"></a>Diretrizes
 
 - **Crie o laboratório em uma região ou local mais próximo dos participantes**. 
 

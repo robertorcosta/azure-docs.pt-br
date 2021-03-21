@@ -4,10 +4,10 @@ description: Saiba como criar um pool do lote com a política de zonal para ajud
 ms.topic: how-to
 ms.date: 01/28/2021
 ms.openlocfilehash: 56e718bedf504b8e69598c2d99ab8b889a470b89
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101725281"
 ---
 # <a name="create-an-azure-batch-pool-across-availability-zones"></a>Criar um pool do lote do Azure entre Zonas de Disponibilidade
