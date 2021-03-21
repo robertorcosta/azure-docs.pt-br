@@ -11,10 +11,10 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 11/07/2020
 ms.openlocfilehash: 139852949a3744fd603cb197b2e27fa32679aae0
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102042412"
 ---
 # <a name="automatic-registration-with-sql-iaas-agent-extension"></a>Registro automático com extensão do agente IaaS do SQL
@@ -47,7 +47,7 @@ Para registrar sua VM SQL Server com a extensão, você precisará de:
 
 Para habilitar o registro automático de suas VMs de SQL Server no portal do Azure, siga estas etapas:
 
-1. Entre no [Portal do Azure](https://portal.azure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 1. Navegue até a página de recursos de [**máquinas virtuais do SQL**](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.SqlVirtualMachine%2FSqlVirtualMachines) . 
 1. Selecione **automático SQL Server registro de VM** para abrir a página de **registro automático** . 
 
@@ -71,7 +71,7 @@ Para desabilitar o registro automático usando CLI do Azure, execute o seguinte 
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="azure-powershell"></a>[PowerShell do Azure](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Para desabilitar o registro automático usando Azure PowerShell, execute o seguinte comando: 
 
@@ -93,7 +93,7 @@ Para fazer isso, siga estas etapas:
 1. Execute o script, passando SubscriptionIds como parâmetros como   
    `.\EnableBySubscription.ps1 -SubscriptionList SubscriptionId1,SubscriptionId2`
 
-   Por exemplo:  
+   Por exemplo: 
 
    ```console
    .\EnableBySubscription.ps1 -SubscriptionList a1a1a-aa11-11aa-a1a1-a11a111a1,b2b2b2-bb22-22bb-b2b2-b2b2b2bb

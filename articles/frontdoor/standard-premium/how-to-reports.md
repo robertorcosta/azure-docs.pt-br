@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: yuajia
 ms.openlocfilehash: 9670d8204d04fc770bf3fe98a270a3f6ccbf234b
-ms.sourcegitcommit: 97c48e630ec22edc12a0f8e4e592d1676323d7b0
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101098548"
 ---
 # <a name="azure-front-door-standardpremium-preview-reports"></a>Relatórios Standard/Premium (visualização) do Azure front door
 
 > [!IMPORTANT]
-> O Azure front door Standard/Premium (visualização) está atualmente em visualização pública.
+> O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -281,13 +281,13 @@ Cada relatório CSV inclui algumas informações gerais e as informações estã
 | StartDateUTC | O início do intervalo de datas para o qual você gerou o relatório, em tempo universal coordenado (UTC) |
 | EndDateUTC | O final do intervalo de datas para o qual você gerou o relatório, em tempo universal coordenado (UTC) |
 | GeneratedTimeUTC | A data e a hora em que você gerou o relatório, em tempo universal coordenado (UTC) |
-| Local | A lista dos países em que as solicitações do cliente foram originadas. O valor é todos por padrão. Não aplicável ao relatório de segurança. |
+| Location | A lista dos países em que as solicitações do cliente foram originadas. O valor é todos por padrão. Não aplicável ao relatório de segurança. |
 | Protocolo | O protocolo da solicitação, HTTP ou HTTPs. Não aplicável à URL e ao tráfego principais por agente do usuário em relatórios e relatório de segurança. |
 | Agregação | A granularidade da agregação de dados em cada linha, a cada 5 minutos, a cada hora e todos os dias. Não aplicável ao tráfego por domínio, URL principal e tráfego por agente do usuário em relatórios e relatório de segurança. |
 
 ### <a name="data-in-traffic-by-domain"></a>Dados no tráfego por domínio
 
-* Domain 
+* Domínio 
 * Total de solicitações 
 * Taxa de Acertos do Cache 
 * Solicitações 3XX 
@@ -297,7 +297,7 @@ Cada relatório CSV inclui algumas informações gerais e as informações estã
 
 ### <a name="data-in-traffic-by-location"></a>Dados no tráfego por local
 
-* Local
+* Location
 * TotalRequests
 * Quest
 * BytesTransferredFromEdgeToClient

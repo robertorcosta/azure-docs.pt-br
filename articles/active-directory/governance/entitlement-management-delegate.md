@@ -17,10 +17,10 @@ ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 204d83b96e3cbe26759d678126d8826d0b2e492e
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100577853"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delegação e funções no gerenciamento de direitos do Azure AD
@@ -123,7 +123,7 @@ Para um usuário que não é um administrador global ou um administrador de usu�
 | Função do diretório do Azure Active Directory | Função de gerenciamento de direitos | Pode adicionar grupo de segurança | Pode adicionar Microsoft 365 grupo | Pode adicionar aplicativo | Pode adicionar site do SharePoint Online |
 | --- | :---: | :---: | :---: | :---: | :---: |
 | [Administrador global](../roles/permissions-reference.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Administrador de usuários](../roles/permissions-reference.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Administrador do usuário](../roles/permissions-reference.md) | N/D |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Administrador do Intune](../roles/permissions-reference.md) | Proprietário do catálogo | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Administrador do Exchange](../roles/permissions-reference.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |
 | [Administrador de serviços de equipes](../roles/permissions-reference.md) | Proprietário do catálogo |  | :heavy_check_mark: |  |  |

@@ -10,10 +10,10 @@ ms.date: 03/02/2021
 ms.author: tamram
 ms.subservice: common
 ms.openlocfilehash: 955d3330d3f08d7e7f024ec2c36941d02244d9ba
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726829"
 ---
 # <a name="azure-storage-redundancy"></a>Redundância do Armazenamento do Azure
@@ -193,7 +193,7 @@ A tabela a seguir mostra quais opções de redundância têm suporte em cada ser
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br />Managed disks do Azure | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> | Armazenamento de blob<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> |
+| Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br />Managed disks do Azure | Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure | Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> | Armazenamento de Blobs<br />Armazenamento de filas<br />Armazenamento de tabela<br />Arquivos do Azure<br /> |
 
 ### <a name="supported-storage-account-types"></a>Tipos de conta de armazenamento suportados
 

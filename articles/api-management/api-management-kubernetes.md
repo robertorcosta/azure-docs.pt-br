@@ -13,17 +13,17 @@ ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
 ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 48e5379c373f8bd98bc6de439482248cd07ae883
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98108391"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Usar o gerenciamento de API do Azure com microservices implantados no serviço kubernetes do Azure
 
 Os microserviços são perfeitos para a criação de APIs. Com o AKs ( [serviço kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/) ), você pode implantar e operar rapidamente uma [arquitetura baseada em microserviços](/azure/architecture/guide/architecture-styles/microservices) na nuvem. Em seguida, você pode aproveitar o [Gerenciamento de API do Azure](https://aka.ms/apimrocks) (gerenciamento de API) para publicar seus microserviços como APIs para consumo interno e externo. Este artigo descreve as opções de implantação do gerenciamento de API com o AKS. Ele assume o conhecimento básico do kubernetes, do gerenciamento de API e da rede do Azure. 
 
-## <a name="background"></a>Segundo plano
+## <a name="background"></a>Tela de fundo
 
 Ao publicar os microserviços como APIs para consumo, pode ser desafiador gerenciar a comunicação entre os microserviço e os clientes que os consomem. Há uma infinidade de preocupações abrangentes, como autenticação, autorização, limitação, Caching, transformação e monitoramento. Essas preocupações são válidas independentemente se os microserviços são expostos a clientes internos ou externos. 
 

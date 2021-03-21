@@ -7,10 +7,10 @@ ms.author: abnarain
 ms.topic: conceptual
 ms.date: 03/15/2018
 ms.openlocfilehash: fea572c2e75f62b5e7e7b4634e37da348bdcdaf1
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102183481"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Transformar dados executando um notebook do Databricks
@@ -106,7 +106,7 @@ Na definição da atividade do databricks acima, você especifica esses tipos de
 
 Para obter mais detalhes, consulte a [documentação do Databricks](/azure/databricks/dev-tools/api/latest/libraries#managedlibrarieslibrary) para tipos de biblioteca.
 
-## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre blocos de anotações e Data Factory
+## <a name="passing-parameters-between-notebooks-and-data-factory"></a>Passando parâmetros entre notebooks e o Data Factory
 
 Você pode passar data factory parâmetros para blocos de anotações usando a propriedade *baseparameters* na atividade do databricks.
 

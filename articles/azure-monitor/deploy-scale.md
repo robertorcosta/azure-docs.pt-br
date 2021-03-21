@@ -6,10 +6,10 @@ author: bwren
 ms.author: bwren
 ms.date: 06/08/2020
 ms.openlocfilehash: cc55cd17a547b9c63f2c26479d5797fae016d8d7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102044061"
 ---
 # <a name="deploy-azure-monitor-at-scale-using-azure-policy"></a>Implantar Azure Monitor em escala usando Azure Policy
@@ -120,7 +120,7 @@ A iniciativa será aplicada a cada máquina virtual à medida que ela for criada
 ![Correção da iniciativa](media/deploy-scale/initiative-remediation.png)
 
 
-## <a name="vm-insights"></a>Informações de VM
+## <a name="vm-insights"></a>Insights da VM
 O [virtual insights](vm/vminsights-overview.md) é a principal ferramenta em Azure monitor para monitorar máquinas virtuais. A habilitação das informações de VM instala o agente de Log Analytics e o agente de dependência. Em vez de executar essas tarefas manualmente, use Azure Policy para garantir que cada máquina virtual seja configurada ao criá-la.
 
 > [!NOTE]
@@ -129,9 +129,9 @@ O [virtual insights](vm/vminsights-overview.md) é a principal ferramenta em Azu
 
 As informações de VM incluem as seguintes iniciativas internas que instalam os dois agentes para habilitar o monitoramento completo. 
 
-|Name |Descrição |
+|Nome |Descrição |
 |:---|:---|
-|Habilitar informações de VM | Instala o agente de Log Analytics e o agente de dependência em VMs do Azure e VMs híbridas conectadas ao Azure Arc. |
+|Habilitar insights da VM | Instala o agente de Log Analytics e o agente de dependência em VMs do Azure e VMs híbridas conectadas ao Azure Arc. |
 |Habilitar Azure Monitor para conjuntos de dimensionamento de máquinas virtuais | Instala o agente de Log Analytics e o agente de dependência no conjunto de dimensionamento de máquinas virtuais do Azure. |
 
 
@@ -162,7 +162,7 @@ Você pode ter cenários em que deseja instalar o agente de Log Analytics, mas n
 > Não haveria nenhum motivo para implantar o agente de dependência por conta própria, pois ele requer que o agente de Log Analytics entregue seus dados a Azure Monitor.
 
 
-|Name |Descrição |
+|Nome |Descrição |
 |-----|------------|
 |Implantação de agente de Log Analytics de auditoria – imagem de VM (SO) não listada |Relata as VMs como não compatíveis se a imagem de VM (SO) não estiver definida na lista e o agente não estiver instalado. |
 |Implantar o agente do Log Analytics para VMs do Linux |Implante Log Analytics agente para VMs Linux se a imagem de VM (SO) estiver definida na lista e o agente não estiver instalado. |

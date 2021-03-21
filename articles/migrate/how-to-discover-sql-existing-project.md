@@ -7,10 +7,10 @@ ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 11/23/2020
 ms.openlocfilehash: ca0052eebd8d3c8e80943ca8c0e0346216436800
-ms.sourcegitcommit: 6386854467e74d0745c281cc53621af3bb201920
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/08/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "102452757"
 ---
 # <a name="discover-sql-server-instances-in-an-existing-project"></a>Descobrir SQL Server instâncias em um projeto existente 
@@ -20,7 +20,7 @@ Este artigo descreve como descobrir SQL Server instâncias e bancos de dados em 
 Descobrir SQL Server instâncias e bancos de dados em execução em computadores locais ajuda a identificar e personalizar um caminho de migração para o SQL do Azure. O dispositivo de migração do Azure executa essa descoberta usando as credenciais de domínio ou SQL Server credenciais de autenticação que têm acesso às instâncias de SQL Server e bancos de dados em execução nos servidores de destino. Esse processo de descoberta é sem agente, ou seja, nada é instalado nos servidores de destino.
 
 > [!Note]
-> A descoberta e a avaliação de instâncias de SQL Server e bancos de dados em execução em seu ambiente VMware agora estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu os [**pré-requisitos**](how-to-discover-sql-existing-project.md) neste artigo.
+> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no leste da Austrália e quiser experimentar esse recurso, verifique se você concluiu os [**pré-requisitos**](how-to-discover-sql-existing-project.md) neste artigo.
 
 ## <a name="before-you-start"></a>Antes de começar
 

@@ -9,10 +9,10 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/02/2021
 ms.openlocfilehash: 72243f896b2cf7dbab61a42514bee634da28d4c6
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101676318"
 ---
 # <a name="similarity-and-scoring-in-azure-cognitive-search"></a>Similaridade e pontuação no Azure Cognitive Search
@@ -117,7 +117,7 @@ Para uma consulta que tem como alvo os campos "Descrição" e "título", uma res
 
 Você pode consumir esses pontos de dados em [soluções de Pontuação personalizada](https://github.com/Azure-Samples/search-ranking-tutorial) ou usar as informações para depurar problemas de relevância de pesquisa.
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 + [Perfis de Pontuação](index-add-scoring-profiles.md)
 + [Referência da API REST](/rest/api/searchservice/)

@@ -8,10 +8,10 @@ ms.date: 01/25/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
 ms.openlocfilehash: 393495dabb77a5d177c97d37313433bb00ce5a36
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101726743"
 ---
 # <a name="azure-security-baseline-for-windows-virtual-desktop"></a>Linha de base de segurança do Azure para área de trabalho virtual do Windows
@@ -38,7 +38,7 @@ Para os grupos de segurança de rede associados à sua máquina virtual (que faz
 
 - [Descubra quais URLs devem ter permissão de acesso para a área de trabalho virtual do Windows](safe-url-list.md)
 
-- [Proteção de rede adaptável na central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md) 
+- [Proteção de Rede Adaptável na Central de Segurança do Azure](../security-center/security-center-adaptive-network-hardening.md) 
 
 - [Firewall do Azure para área de trabalho virtual do Windows ](../firewall/protect-windows-virtual-desktop.md)
 
