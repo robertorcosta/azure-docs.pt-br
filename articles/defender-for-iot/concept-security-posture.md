@@ -1,19 +1,14 @@
 ---
 title: Postura de segurança – parâmetro de comparação do CIS
-titleSuffix: Azure Defender for IoT
 description: Aprimore sua conformidade e sua postura de segurança usando o defender para IoT micro Agent.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/20/2021
 ms.topic: conceptual
-ms.service: azure
-ms.openlocfilehash: 8a3062d50d30c99ea2322bbff037a6f61e7b7b4c
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 574d1fe7415bf655c94d4076659e90c203cff1ba
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99809704"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784536"
 ---
 # <a name="security-posture--cis-benchmark"></a>Postura de segurança – parâmetro de comparação de CIS 
 

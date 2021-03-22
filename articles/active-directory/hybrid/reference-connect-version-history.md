@@ -12,12 +12,12 @@ ms.date: 03/16/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a19babffa63667b0d2deb954d432421a2b7868b8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 71eaccd615f5c3460e7b48b2e92d5f874c8de12e
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722133"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772103"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Histórico de lançamento de versões
 A equipe do Azure AD (Azure Active Directory) atualiza regularmente o Azure AD Connect com novos recursos e funcionalidades. Nem todas as adições são aplicáveis a todos os públicos.
@@ -58,7 +58,7 @@ Siga este link para ler mais sobre [atualização automática](how-to-connect-in
 >Para obter informações de histórico de versão sobre versões desativadas, consulte [Azure ad Connect arquivo de histórico de lançamento de versão](reference-connect-version-history-archive.md)
 
 
-## <a name="1623"></a>1.6.2.3
+## <a name="1624"></a>1.6.2.4
 
 >[!NOTE]
 > - Esta versão será disponibilizada somente para download.
@@ -66,7 +66,7 @@ Siga este link para ler mais sobre [atualização automática](how-to-connect-in
 > - Essa versão usa como padrão o servidor AADConnect para o novo ponto de extremidade v2. Observe que esse ponto de extremidade não tem suporte na nuvem nacional alemã, na nuvem nacional chinesa e na nuvem do governo dos EUA e, se você precisar implantar essa versão nessas nuvens, precisará seguir [estas instruções](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-endpoint-api-v2#rollback) para voltar ao ponto de extremidade v1. Não fazer isso resultará em erros na sincronização.
 
 ### <a name="release-status"></a>Status de liberação
-3/17/2021: liberado para download
+3/19/2021: liberado para download
 
 ### <a name="functional-changes"></a>Alterações funcionais
 

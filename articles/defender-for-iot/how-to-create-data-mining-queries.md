@@ -1,18 +1,14 @@
 ---
 title: Criar relatórios de mineração de dados
 description: gere informações abrangentes e granulares sobre seus dispositivos de rede em várias camadas, como protocolos, versões de firmware ou comandos de programação.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 01/20/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: edeb383317d4bdc0e7beef1f8390ddabd350f002
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99754959e7a3a08b4d763b85b0b9315476969774
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522472"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779062"
 ---
 # <a name="sensor-data-mining-queries"></a>Consultas de Data Mining de sensor
 
@@ -130,7 +126,7 @@ Para criar um relatório de mineração de dados:
 
    - Especifique um endereço MAC.
 
-4. Clique em **Salvar**. Os resultados do relatório são abertos na página de **mineração de dados** .
+4. Selecione **Salvar**. Os resultados do relatório são abertos na página de **mineração de dados** .
 
 :::image type="content" source="media/how-to-generate-reports/data-mining-page.png" alt-text="Relatar resultados como visto na página de mineração de dados.":::
 

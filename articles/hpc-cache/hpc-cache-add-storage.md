@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: v-erkel
-ms.openlocfilehash: bba6745a4cc0be30648e23501f9a9e2f0cc6c8db
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: afb896100ea60c21aaf37890d7b520bf38c6ce18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563226"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772715"
 ---
 # <a name="add-storage-targets"></a>Adicionar destinos de armazenamento
 
@@ -164,7 +164,7 @@ Um destino de armazenamento NFS tem configurações diferentes de um destino de 
 > Antes de criar um destino de armazenamento NFS, verifique se o sistema de armazenamento está acessível no cache do HPC do Azure e atende aos requisitos de permissão. A criação do destino de armazenamento falhará se o cache não puder acessar o sistema de armazenamento. Leia [requisitos de armazenamento NFS](hpc-cache-prerequisites.md#nfs-storage-requirements) e solucione problemas de [configuração do nas e destino de armazenamento NFS](troubleshoot-nas.md) para obter detalhes.
 
 ### <a name="choose-a-usage-model"></a>Escolher um modelo de uso
-<!-- referenced from GUI - update aka.ms link to point at new article when published -->
+<!-- referenced from GUI by aka.ms link -->
 
 Ao criar um destino de armazenamento que usa NFS para acessar seu sistema de armazenamento, você precisa escolher um modelo de uso para esse destino. Esse modelo determina como os dados são armazenados em cache.
 
@@ -195,16 +195,6 @@ Para obter detalhes sobre as outras opções, leia [entender modelos de uso](cac
 Esta tabela resume as diferenças entre todos os modelos de uso:
 
 [!INCLUDE [usage-models-table.md](includes/usage-models-table.md)]
-
-<!-- | Usage model | Caching mode | Back-end verification | Maximum write-back delay |
-|--|--|--|--|
-| Read heavy, infrequent writes | Read | Never | None |
-| Greater than 15% writes | Read/write | 8 hours | 20 minutes |
-| Clients bypass the cache | Read | 30 seconds | None |
-| Greater than 15% writes, frequent back-end checking (30 seconds) | Read/write | 30 seconds | 20 minutes |
-| Greater than 15% writes, frequent back-end checking (60 seconds) | Read/write | 60 seconds | 20 minutes |
-| Greater than 15% writes, frequent write-back | Read/write | 30 seconds | 30 seconds |
-| Read heavy, checking the backing server every 3 hours | Read | 3 hours | None | -->
 
 > [!NOTE]
 > O valor de **verificação de back-end** mostra quando o cache compara automaticamente seus arquivos com os arquivos de origem no armazenamento remoto. No entanto, você pode disparar uma comparação enviando uma solicitação de cliente que inclui uma operação readdirplus no sistema de armazenamento de back-end. Readdirplus é uma API padrão do NFS (também chamada de leitura estendida) que retorna os metadados do diretório, o que faz com que o cache compare e atualize arquivos.

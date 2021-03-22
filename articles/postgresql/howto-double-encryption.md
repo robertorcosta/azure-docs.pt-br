@@ -1,17 +1,17 @@
 ---
 title: Criptografia dupla de infraestrutura-portal do Azure-banco de dados do Azure para PostgreSQL
 description: Saiba como configurar e gerenciar a criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL.
-author: mksuni
-ms.author: sumuth
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 06/30/2020
-ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/14/2021
+ms.openlocfilehash: 0b1079a084072556ae79a18a12f6b35f74c92775
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93242221"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771644"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Criptografia dupla de infraestrutura para o banco de dados do Azure para PostgreSQL
 
@@ -23,7 +23,7 @@ Saiba como usar o como configurar e gerenciar a criptografia dupla de infraestru
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---portal"></a>Criar um servidor de banco de dados do Azure para PostgreSQL com criptografia dupla de infraestrutura-Portal
 
-Siga estas etapas para criar um servidor de banco de dados do Azure para MySQL com criptografia dupla de infraestrutura do portal do Azure:
+Siga estas etapas para criar um servidor de banco de dados do Azure para PostgreSQL com criptografia dupla de infraestrutura do portal do Azure:
 
 1. Selecione **Criar um recurso** (+) no canto superior esquerdo do portal.
 
@@ -45,7 +45,7 @@ Siga estas etapas para criar um servidor de banco de dados do Azure para MySQL c
 
 ## <a name="create-an-azure-database-for-postgresql-server-with-infrastructure-double-encryption---cli"></a>Criar um servidor de banco de dados do Azure para PostgreSQL com criptografia dupla de infraestrutura-CLI
 
-Siga estas etapas para criar um servidor de banco de dados do Azure para MySQL com criptografia dupla de infraestrutura da CLI:
+Siga estas etapas para criar um servidor de banco de dados do Azure para PostgreSQL com criptografia dupla de infraestrutura da CLI:
 
 Este exemplo cria um grupo de recursos chamado `myresourcegroup` no `westus` local.
 

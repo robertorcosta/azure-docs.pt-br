@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/28/2020
 ms.author: yelevin
-ms.openlocfilehash: 5a3b7d4f60877d1301f03aa4f015695a6a4639be
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77a8e208e463b8ab20d563421d447813b1ce84ee
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104580701"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772545"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Permissões no Azure Sentinel
 
@@ -56,7 +56,7 @@ Os usuários com requisitos de trabalho específicos podem precisar receber fun�
 
 - Trabalhando com guias estratégicos para automatizar as respostas a ameaças
 
-    O Azure Sentinel usa **Guias estratégicos** para resposta automatizada contra ameaças. Os guias estratégicos são criados em **aplicativos lógicos do Azure** e são um recurso do Azure separado. Talvez você queira atribuir a membros específicos de sua equipe de operações de segurança a capacidade de usar aplicativos lógicos para operações de orquestração de segurança, automação e resposta (disparar). Você pode usar a função [colaborador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor) ou a função [operador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-operator) para atribuir permissão explícita para usar guias estratégicos.
+    O Azure Sentinel usa **Guias estratégicos** para resposta automatizada contra ameaças. Os guias estratégicos são criados em **aplicativos lógicos do Azure** e são um recurso do Azure separado. Talvez você queira atribuir a membros específicos de sua equipe de operações de segurança a capacidade de usar aplicativos lógicos para operações de orquestração de segurança, automação e resposta (disparar). Você pode usar a função [colaborador do aplicativo lógico](../role-based-access-control/built-in-roles.md#logic-app-contributor) para atribuir permissão explícita para usar guias estratégicos.
 
 - Conectando fontes de dados ao Azure Sentinel
 

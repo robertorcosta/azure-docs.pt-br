@@ -6,14 +6,14 @@ ms.author: bagol
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/07/2021
+ms.date: 03/21/2021
 ms.custom: references_regions
-ms.openlocfilehash: ddd5c5de85da5ae8cec9d24d33dfd2bf035b5b34
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f77bd69f8266d9461481cd0a12a7b70107622de5
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102438721"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773446"
 ---
 # <a name="azure-purview-connector-for-amazon-s3"></a>Conector do Azure alcance para Amazon S3
 
@@ -49,29 +49,30 @@ A tabela a seguir mapeia as regiões em que os dados são armazenados na região
 | Região de armazenamento | Região de verificação |
 | ------------------------------- | ------------------------------------- |
 | Leste dos EUA (Ohio)                  | Leste dos EUA (Ohio)                        |
-| Leste dos EUA (N. Virgínia           | Leste dos EUA (Ohio)                        |
+| Leste dos EUA (N. Virgínia           | Leste dos EUA (Ohio) ou leste dos EUA (N. Virgínia                       |
 | Oeste dos EUA (N. California         | Leste dos EUA (Ohio)                        |
 | Oeste dos EUA (Oregon)                | Leste dos EUA (Ohio)                        |
 | África (cidade do cabo)              | Europa (Frankfurt)                    |
-| Pacífico Asiático (Hong Kong)        | Europa (Frankfurt)                    |
-| Pacífico Asiático (Mumbai)           | Europa (Frankfurt)                    |
-| Pacífico Asiático (Osaka-local)      | Europa (Frankfurt)                    |
-| Pacífico Asiático (Seul)            | Europa (Frankfurt)                    |
-| Pacífico Asiático (Singapura)        | Europa (Frankfurt)                    |
-| Pacífico Asiático (Sydney)           | Europa (Frankfurt)                    |
-| Pacífico Asiático (Tóquio)            | Europa (Frankfurt)                    |
+| Pacífico Asiático (Hong Kong)        | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                   |
+| Pacífico Asiático (Mumbai)           | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                   |
+| Pacífico Asiático (Osaka-local)      | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                   |
+| Pacífico Asiático (Seul)            | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                   |
+| Pacífico Asiático (Singapura)        | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                   |
+| Pacífico Asiático (Sydney)           | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                  |
+| Pacífico Asiático (Tóquio)            | Europa (Frankfurt) ou Pacífico Asiático (Sydney)                 |
 | Canadá (central)                | Leste dos EUA (Ohio)                        |
 | China (Pequim)                 | Sem suporte                    |
 | China (Ningxia)                 | Sem suporte                   |
 | Europa (Frankfurt)              | Europa (Frankfurt)                    |
-| Europa (Irlanda)                | Europa (Frankfurt)                    |
-| Europa (Londres)                 | Europa (Frankfurt)                    |
+| Europa (Irlanda)                | Europa (Frankfurt) ou Europa (Irlanda)                   |
+| Europa (Londres)                 | Europa (Frankfurt) ou Europa (Irlanda)                   |
 | Europa (Milão)                  | Europa (Frankfurt)                    |
 | Europa (Paris)                  | Europa (Frankfurt)                    |
 | Europa (Estocolmo)              | Europa (Frankfurt)                    |
 | Oriente Médio (Bahrein)           | Europa (Frankfurt)                    |
 | América do Sul (São Paulo)       | Leste dos EUA (Ohio)                        |
 | | |
+
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Verifique se você executou os seguintes pré-requisitos antes de adicionar os buckets do Amazon S3 como fontes de dados alcance e examinar seus dados S3.

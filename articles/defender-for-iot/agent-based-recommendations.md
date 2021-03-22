@@ -1,25 +1,14 @@
 ---
 title: Recomendações baseadas em agente
-titleSuffix: Azure Defender for IoT
 description: Saiba mais sobre o conceito de recomendações de segurança e como elas são usadas para dispositivos do defender para IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/16/2021
-ms.author: shhazam
-ms.openlocfilehash: e746f37fdf3b67467c1844ebea9191679d52d6d1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a29957f459edad8b768daea7bc4567d77c80b165
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103491258"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784978"
 ---
 # <a name="security-recommendations-for-iot-devices"></a>Recomendações de segurança para dispositivos IoT
 
@@ -46,9 +35,9 @@ As recomendações operacionais fornecem informações e sugestões para melhora
 
 | Severidade | Nome | fonte de dados | Descrição |
 |--|--|--|--|
-| Baixo | O Agent envia mensagens não utilizadas | Defender clássico-IoT-micro-Agent| 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas. |
-| Baixo | Configuração de configurações de segurança não ideal | Defender clássico-IoT-micro-Agent| A configuração de configurações de segurança não é ideal. |
-| Baixo | Conflito de configuração de configurações de segurança | Defender clássico-IoT-micro-Agent| Os conflitos foram identificados na configuração de configurações de segurança. |  |
+| Baixo | O Agent envia mensagens não utilizadas | Defender clássico-IoT-micro-Agent | 10% ou mais de mensagens de segurança foram menores que 4 KB durante as últimas 24 horas. |
+| Baixo | Configuração de configurações de segurança não ideal | Defender clássico-IoT-micro-Agent | A configuração de configurações de segurança não é ideal. |
+| Baixo | Conflito de configuração de configurações de segurança | Defender clássico-IoT-micro-Agent | Os conflitos foram identificados na configuração de configurações de segurança. |
 
 ## <a name="next-steps"></a>Próximas etapas
 

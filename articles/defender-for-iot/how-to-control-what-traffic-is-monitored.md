@@ -1,18 +1,14 @@
 ---
 title: Controlar qual tráfego é monitorado
 description: Os sensores executam automaticamente a detecção profunda de pacotes para ti e ficam sobre o tráfego e resolvem informações sobre dispositivos de rede, como atributos de dispositivo e comportamento de rede. Várias ferramentas estão disponíveis para controlar o tipo de tráfego que cada sensor detecta.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: bfe3e00c4930ba57c930eb1bc2f2dd4ed11886e0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b80ef4a4a1fca7383da80fda6fdf42831913f2bd
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522386"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784434"
 ---
 # <a name="control-what-traffic-is-monitored"></a>Controlar qual tráfego é monitorado
 
@@ -90,7 +86,7 @@ Para configurar sub-redes:
 
 10. Para exportar sub-redes configuradas, selecione **Exportar**. A tabela de sub-rede é baixada para sua estação de trabalho.
 
-11. Clique em **Salvar**.
+11. Selecione **Salvar**.
 
 ### <a name="importing-information"></a>Importando informações 
 
@@ -182,7 +178,7 @@ Para definir um intervalo de endereços DHCP:
     > [!NOTE]
     > Os intervalos que você importa de um arquivo CSV substituem as configurações de intervalo existentes.
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="configure-dns-servers-for-reverse-lookup-resolution"></a>Configurar servidores DNS para resolução de pesquisa inversa
 
@@ -277,7 +273,7 @@ Para configurar uma verificação automática:
 
 7. Para remover um intervalo, selecione :::image type="icon" source="media/how-to-control-what-traffic-is-monitored/remove-scan-icon.png" border="false"::: ao lado do intervalo.
 
-8. Clique em **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
+8. Selecione **Salvar**. A caixa de diálogo **Editar configuração de intervalos de verificação** fecha e o número de intervalos é exibido no painel **intervalos de digitalização** .
 
 Para executar uma verificação manual:
 

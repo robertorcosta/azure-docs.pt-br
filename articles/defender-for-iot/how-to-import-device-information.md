@@ -1,18 +1,14 @@
 ---
 title: Importar informações do dispositivo
 description: Os sensores do defender for IoT monitoram e analisam o tráfego espelhado. Nesses casos, talvez você queira importar dados para enriquecer informações sobre os dispositivos já detectados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 333ffbf4107dfd005ba7e7fae6a079a618e0c645
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: eb82a3e5d360913acfead06adc03194d80f7fccb
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100522233"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785623"
 ---
 # <a name="import-device-information-to-a-sensor"></a>Importar informações do dispositivo para um sensor
 

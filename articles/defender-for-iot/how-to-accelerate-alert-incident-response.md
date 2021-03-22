@@ -1,18 +1,14 @@
 ---
 title: Acelerar fluxos de trabalho de alerta
 description: Melhorar fluxos de trabalho de incidentes e alertas.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/02/2020
-ms.service: azure
 ms.topic: how-to
-ms.openlocfilehash: 0a445abe0f448c28742282aedd1a886fae0f5a43
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c12d1135b7a7bc87a38a609aeeb6ada8caa9a25e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526282"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779113"
 ---
 # <a name="accelerate-alert-workflows"></a>Acelerar fluxos de trabalho de alerta
 
@@ -81,16 +77,29 @@ Esses campos devem ser configurados na solução de parceiro para exibir o nome 
 ### <a name="default-alert-groups"></a>Grupos de alertas padrão
 
 Os seguintes grupos de alertas são definidos automaticamente:
-|  |  |  |
-|--|--|--|
-| Comportamento de comunicação anormal | Alertas personalizados | Acesso remoto |
-| Comportamento de comunicação HTTP anormal | Descoberta | Comandos de reiniciar e parar |
-| Autenticação | Alteração de firmware | Verificar |
-| Comportamento de comunicação não autorizado | Comandos ilegais | Tráfego do sensor |
-| Anomalias de largura de banda | Acesso à Internet | Suspeita de malware |
-| Estouro de buffer | Falhas de operação | Suspeita de atividade mal-intencionada |
-| Falhas de comando | Problemas operacionais |  |
-| Alterações de configuração | Programação |  |
+
+- Comportamento de comunicação anormal
+- Alertas personalizados
+- Acesso remoto
+- Comportamento de comunicação HTTP anormal
+- Descoberta
+- Comandos de reiniciar e parar
+- Autenticação
+- Alteração de firmware
+- Verificar
+- Comportamento de comunicação não autorizado
+- Comandos ilegais
+- Tráfego do sensor
+- Anomalias de largura de banda
+- Acesso à Internet
+- Suspeita de malware
+- Estouro de buffer 
+- Falhas de operação
+- Suspeita de atividade mal-intencionada
+- Falhas de comando
+- Problemas operacionais
+- Alterações de configuração
+- Programação
 
 Os grupos de alertas são predefinidos. Para obter detalhes sobre os alertas associados a grupos de alertas e sobre como criar grupos de alertas personalizados, entre em contato com [suporte da Microsoft](https://support.microsoft.com/supportforbusiness/productselection?sapId=82c8f35-1b8e-f274-ec11-c6efdd6dd099).
 
@@ -134,7 +143,7 @@ Para criar uma regra de alerta personalizada:
     - Indique se a regra dispara um **alarme** ou **evento**.
     - Atribua um nível de severidade ao alerta.
     - Indique se o alerta incluirá um arquivo PCAP.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 A regra é adicionada à lista **regras de alertas personalizados** , em que você pode examinar os parâmetros básicos da regra, a última vez que a regra foi disparada e muito mais. Você também pode habilitar e desabilitar a regra na lista.
 

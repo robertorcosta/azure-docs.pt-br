@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 79d6fecddf060909a74664ff29e08301f45d7042
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d85aad16049dee6496cb1eaf9def5451625ab876
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472312"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773463"
 ---
 # <a name="prerequisites-for-deploying-azure-cloud-services-extended-support"></a>Pré-requisitos para a implantação de serviços de nuvem do Azure (suporte estendido)
 
@@ -86,6 +86,9 @@ Remova as configurações de diagnóstico antigas para cada função no arquivo 
 
 ## <a name="required-service-definition-file-csdef-updates"></a>Atualizações necessárias do arquivo de definição de serviço (. csdef)
 
+> [!NOTE]
+> As alterações no arquivo de definição de serviço (. csdef) exigem que o arquivo de pacote (. cspkg) seja gerado novamente. Crie e reempacote seu. cspkg post fazendo as seguintes alterações no arquivo. csdef para obter as configurações mais recentes para seu serviço de nuvem
+
 ### <a name="1-virtual-machine-sizes"></a>1) tamanhos de máquina virtual
 Os tamanhos a seguir são preteridos no Azure Resource Manager. No entanto, se você quiser continuar a usá-los, atualize o `vmsize` nome com a Convenção de nomenclatura de Azure Resource Manager associada.  
 
@@ -130,7 +133,7 @@ As implantações que utilizaram os plug-ins antigos de diagnóstico precisam da
 
 ## <a name="key-vault-creation"></a>Criação de Key Vault 
 
-O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. Você pode criar um cofre de chaves no [portal do Azure](../key-vault/general/quick-create-portal.md) ou usando o [PowerShell](../key-vault/general/quick-create-powershell.md). O cofre de chaves deve ser criado na mesma região e assinatura que o serviço de nuvem. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
+O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados a Key Vault e, em seguida, referencie as impressões digitais do certificado no arquivo de configuração de serviço. Você também precisa habilitar Key Vault ' políticas de acesso ' (no Portal) para acesso a ' máquinas virtuais do Azure para implantação ' e ' Azure Resource Manager para implantação de modelo ' para que o recurso de serviços de nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos de Key Vault. Você pode criar um cofre de chaves no [portal do Azure](../key-vault/general/quick-create-portal.md) ou usando o [PowerShell](../key-vault/general/quick-create-powershell.md). O cofre de chaves deve ser criado na mesma região e assinatura que o serviço de nuvem. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).

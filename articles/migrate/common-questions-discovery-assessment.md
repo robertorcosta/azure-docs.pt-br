@@ -1,17 +1,17 @@
 ---
 title: Perguntas sobre descoberta, avaliação e análise de dependência em migrações para Azure
 description: Obtenha respostas para perguntas comuns sobre descoberta, avaliação e análise de dependência em migrações para Azure.
-author: vineetvikram
-ms.author: vivikram
+author: rashijoshi
+ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 6c4dfed27a105fad951ae12ca053b6d86772717a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f9fe4109d2b21f7c44ba340db53dc24311652441
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102032561"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782343"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -28,18 +28,15 @@ Este artigo responde a perguntas comuns sobre descoberta, avaliação e análise
 Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
 
-## <a name="how-many-vms-can-i-discover-with-an-appliance"></a>Quantas VMs posso descobrir com um dispositivo?
+## <a name="how-many-servers-can-i-discover-with-an-appliance"></a>Quantos servidores posso descobrir com um dispositivo?
 
-Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 servidores físicos usando um único dispositivo. Se você tiver mais computadores, leia sobre como [dimensionar uma avaliação do Hyper-V](scale-hyper-v-assessment.md), [dimensionando uma avaliação do VMware](scale-vmware-assessment.md)ou [dimensionando uma avaliação de servidor físico](scale-physical-assessment.md).
+Você pode descobrir até 10.000 servidores do ambiente VMware, até 5.000 servidores do ambiente Hyper-V e até 1000 servidores físicos usando um único dispositivo. Se você tiver mais servidores, leia sobre como [dimensionar uma avaliação do Hyper-V](scale-hyper-v-assessment.md), [dimensionando uma avaliação do VMware](scale-vmware-assessment.md)ou [dimensionando uma avaliação de servidor físico](scale-physical-assessment.md).
 
 ## <a name="how-do-i-choose-the-assessment-type"></a>Como fazer escolher o tipo de avaliação?
 
-- Use as **avaliações de VM do Azure** quando desejar avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md)locais, VMS do [Hyper-V](how-to-set-up-appliance-hyper-v.md)e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs do Azure. [Saiba mais](concepts-assessment-calculation.md)
+- Use as **avaliações de VM do Azure** quando desejar avaliar servidores de seu ambiente do [VMware](how-to-set-up-appliance-vmware.md) e do [Hyper-V](how-to-set-up-appliance-hyper-v.md) local e [servidores físicos](how-to-set-up-appliance-physical.md) para migração para VMs do Azure. [Saiba mais](concepts-assessment-calculation.md)
 
 - Use o tipo de avaliação **SQL do Azure** quando desejar avaliar sua SQL Server local do ambiente VMware para migração para o banco de dados SQL do Azure ou o SQL instância gerenciada do Azure. [Saiba mais](concepts-assessment-calculation.md)
-
-    > [!Note]
-    > A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 - Use as avaliações da **AVS (solução do Azure VMware)** quando desejar avaliar suas [VMs VMware](how-to-set-up-appliance-vmware.md) locais para migração para a [solução VMware do Azure (AVS)](../azure-vmware/introduction.md) usando esse tipo de avaliação. [Saiba mais](concepts-azure-vmware-solution-assessment-calculation.md)
 
@@ -48,10 +45,10 @@ Você pode descobrir até 10.000 VMs VMware, até 5.000 VMs Hyper-V e até 1000 
 
 ## <a name="why-is-performance-data-missing-for-someall-servers-in-my-azure-vm-andor-avs-assessment-report"></a>Por que os dados de desempenho estão ausentes para alguns/todos os servidores em minha VM do Azure e/ou relatório de avaliação do AVS?
 
-Para a avaliação “baseada em desempenho”, o relatório de avaliação exportado indica “PercentageOfCoresUtilizedMissing” ou “PercentageOfMemoryUtilizedMissing” quando o dispositivo de Migrações para Azure não pode coletar dados de desempenho das VMs locais. Verifique:
+Para a avaliação "baseada em desempenho", a exportação do relatório de avaliação diz "PercentageOfCoresUtilizedMissing" ou "PercentageOfMemoryUtilizedMissing" quando o dispositivo de migrações para Azure não pode coletar dados de desempenho para os servidores locais. Verifique:
 
-- Se as VMs estão ativadas pelo tempo para o qual está criando a avaliação
-- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar as VMs do Hyper-V. Nesse cenário, habilite a memória dinâmica nas VMs e ' recalcule ' a avaliação para refletir as alterações mais recentes. O dispositivo pode coletar valores de utilização de memória para VMs do Hyper-V somente quando a VM tiver a memória dinâmica habilitada.
+- Se os servidores estiverem ligados durante o período durante o qual você está criando a avaliação
+- Se apenas os contadores de memória estiverem ausentes e você estiver tentando avaliar os servidores no ambiente do Hyper-V. Nesse cenário, habilite a memória dinâmica nos servidores e ' recalcule ' a avaliação para refletir as alterações mais recentes. O dispositivo pode coletar valores de utilização de memória para servidores no ambiente Hyper-V somente quando o servidor tiver a memória dinâmica habilitada.
 
 - Se todos os contadores de desempenho estiverem ausentes, verifique se as conexões de saída nas portas 443 (HTTPS) são permitidas.
 
@@ -89,11 +86,6 @@ A classificação de confiança é calculada para avaliações de "baseadas em d
 
 - Para avaliações do SQL do Azure, poucas instâncias ou bancos de dados SQL foram criados após o início da descoberta. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas poucas instâncias ou bancos de dados SQL foram criados no ambiente apenas uma semana atrás. Nesse caso, os dados de desempenho para os novos servidores não estarão disponíveis durante toda a duração e a classificação de confiança será baixa. [Saiba mais](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
 
-## <a name="i-want-to-try-out-the-new-azure-sql-assessment-feature-in-azure-migrate"></a>Quero experimentar o novo recurso de avaliação do SQL do Azure no Migrações para Azure
-Para experimentar esse recurso, use [este link](https://go.microsoft.com/fwlink/?linkid=2155668L) para criar um projeto na região **Leste da Austrália**.
-- Veja os tutoriais de [descoberta](https://docs.microsoft.com/azure/migrate/tutorial-discover-vmware) e [avaliação](https://docs.microsoft.com/azure/migrate/tutorial-assess-sql) para começar.
-- Observe que a descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware estão atualmente em versão prévia.
-
 ## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Não consigo ver alguns servidores ao criar uma avaliação do SQL do Azure
 
 - A avaliação do SQL do Azure só pode ser feita em servidores que executam o local em que as instâncias do SQL foram descobertas. Se você não vir os servidores e as instâncias do SQL que deseja avaliar, aguarde algum tempo para a descoberta ser concluída e, em seguida, crie a avaliação. 
@@ -117,7 +109,7 @@ A descoberta do SQL é executada uma vez a cada 24 horas e talvez seja necessár
 ## <a name="my-assessment-is-in-outdated-state"></a>Minha avaliação está no estado Desatualizado
 
 ### <a name="azure-vmavs-assessment"></a>Avaliação de VM/AVS do Azure
-Se houver alterações locais nas VMs que estão em um grupo que foi avaliado, a avaliação será marcada como desatualizada. Uma avaliação pode ser marcada como "desatualizada" devido a uma ou mais alterações nas propriedades abaixo:
+Se houver alterações locais nos servidores que estão em um grupo que foi avaliado, a avaliação será marcada como desatualizada. Uma avaliação pode ser marcada como "desatualizada" devido a uma ou mais alterações nas propriedades abaixo:
 - Número de núcleos de processador
 - Memória alocada
 - Tipo de inicialização ou firmware
@@ -166,18 +158,18 @@ Para o Azure SQL Instância Gerenciada, não há custo de armazenamento adiciona
 - A avaliação da AVS pode ser feita em grupos que têm apenas computadores VMware. Remova os computadores não VMware do grupo se você pretende executar uma avaliação da AVS.
 - Se você estiver executando avaliações da AVS nas Migrações para Azure pela primeira vez, recomendamos criar um novo grupo de computadores VMware.
 
-## <a name="i-cant-see-some-vm-types-in-azure-government"></a>Não consigo ver alguns tipos de VM no Azure governamental
+## <a name="i-cant-see-some-vm-types-and-sizes-in-azure-government"></a>Não consigo ver alguns tipos e tamanhos de VM no Azure governamental
 
-Os tipos de VM com suporte para avaliação e migração dependem da disponibilidade no local do Azure governamental. Você pode [examinar e comparar](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) os tipos de VM no Azure governamental.
+Os tipos de VM e os tamanhos com suporte para avaliação e migração dependem da disponibilidade no local do Azure governamental. Você pode [examinar e comparar](https://azure.microsoft.com/global-infrastructure/services/?regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-iowa,usgov-texas,usgov-virginia&products=virtual-machines) os tipos de VM no Azure governamental.
 
-## <a name="the-size-of-my-vm-changed-can-i-run-an-assessment-again"></a>O tamanho da minha VM foi alterado. Posso executar uma avaliação novamente?
+## <a name="the-size-of-my-server-changed-can-i-run-an-assessment-again"></a>O tamanho do meu servidor foi alterado. Posso executar uma avaliação novamente?
 
-O dispositivo de migração do Azure coleta continuamente informações sobre o ambiente local.  Uma avaliação é um instantâneo point-in-time de VMs locais. Se você alterar as configurações em uma VM que deseja avaliar, use a opção recalcular para atualizar a avaliação com as alterações mais recentes.
+O dispositivo de migração do Azure coleta continuamente informações sobre o ambiente local.  Uma avaliação é um instantâneo point-in-time de servidores locais. Se você alterar as configurações em um servidor que deseja avaliar, use a opção recalcular para atualizar a avaliação com as alterações mais recentes.
 
-## <a name="how-do-i-discover-vms-in-a-multitenant-environment"></a>Como fazer descobrir VMs em um ambiente multilocatário?
+## <a name="how-do-i-discover-servers-in-a-multitenant-environment"></a>Como fazer descobrir servidores em um ambiente multilocatário?
 
-- **VMware**: se um ambiente for compartilhado entre locatários e você não quiser descobrir as VMs de um locatário na assinatura de outro locatário, crie VMware vCenter Server credenciais que possam acessar somente as VMs que você deseja descobrir. Em seguida, use essas credenciais quando iniciar a descoberta no dispositivo de migrações para Azure.
-- **Hyper-v**: a descoberta usa credenciais de host do Hyper-v. Se as VMs compartilharem o mesmo host do Hyper-V, não há como separar a descoberta no momento.  
+- **VMware**: se um ambiente for compartilhado entre locatários e você não quiser descobrir os servidores de um locatário na assinatura de outro locatário, crie VMware vCenter Server credenciais que possam acessar somente os servidores que você deseja descobrir. Em seguida, use essas credenciais quando iniciar a descoberta no dispositivo de migrações para Azure.
+- **Hyper-v**: a descoberta usa credenciais de host do Hyper-v. Se os servidores compartilharem o mesmo host do Hyper-V, não há como separar a descoberta no momento.  
 
 ## <a name="do-i-need-vcenter-server"></a>Preciso de vCenter Server?
 
@@ -185,9 +177,9 @@ Sim, as migrações para Azure exigem vCenter Server em um ambiente VMware para 
 
 ## <a name="what-are-the-sizing-options-in-an-azure-vm-assessment"></a>Quais são as opções de dimensionamento em uma avaliação de VM do Azure?
 
-Com o dimensionamento local, as migrações para Azure não consideram os dados de desempenho da VM para avaliação. As migrações para Azure avaliam os tamanhos de VM com base na configuração local. Com o dimensionamento baseado em desempenho, o dimensionamento é baseado nos dados de utilização.
+Com o dimensionamento local, as migrações para Azure não consideram os dados de desempenho do servidor para avaliação. As migrações para Azure avaliam os tamanhos de VM com base na configuração local. Com o dimensionamento baseado em desempenho, o dimensionamento é baseado nos dados de utilização.
 
-Por exemplo, se uma VM local tiver quatro núcleos e 8 GB de memória às 50% de utilização da CPU e 50% de utilização da memória:
+Por exemplo, se um servidor local tiver quatro núcleos e 8 GB de memória às 50% de utilização da CPU e 50% de utilização da memória:
 - O dimensionamento local recomendará um SKU de VM do Azure que tenha quatro núcleos e 8 GB de memória.
 - O dimensionamento baseado em desempenho recomendará uma SKU de VM que tenha dois núcleos e 4 GB de memória, pois a porcentagem de utilização é considerada.
 
@@ -230,7 +222,7 @@ Para computadores importados por meio de um arquivo CSV, a ferramenta de migraç
 
 ## <a name="what-is-dependency-visualization"></a>O que é a visualização de dependência?
 
-A visualização de dependência pode ajudá-lo a avaliar grupos de VMs para migrar com maior confiança. A visualização de dependência faz verificações entre as dependências do computador antes de executar uma avaliação. Ele ajuda a garantir que nada seja deixado para trás e ajuda a evitar interrupções inesperadas ao migrar para o Azure. As Migrações para Azure usam a solução Mapa do Serviço no Azure Monitor para habilitar a visualização de dependência. [Saiba mais](concepts-dependency-visualization.md).
+A visualização de dependência pode ajudá-lo a avaliar grupos de servidores para migrar com maior confiança. A visualização de dependência faz verificações entre as dependências do computador antes de executar uma avaliação. Ele ajuda a garantir que nada seja deixado para trás e ajuda a evitar interrupções inesperadas ao migrar para o Azure. As Migrações para Azure usam a solução Mapa do Serviço no Azure Monitor para habilitar a visualização de dependência. [Saiba mais](concepts-dependency-visualization.md).
 
 > [!NOTE]
 > A análise de dependência baseada em agente não está disponível no Azure governamental. Você pode usar a análise de dependência sem agente
@@ -241,11 +233,11 @@ As diferenças entre a visualização sem agente e a visualização baseada em a
 
 **Requisito** | **Sem agente** | **Baseado em agente**
 --- | --- | ---
-Suporte | Essa opção está atualmente em visualização e só está disponível para VMs VMware. [Examine](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operacionais com suporte. | Em disponibilidade geral (GA).
+Suporte | Essa opção está atualmente em visualização e só está disponível para servidores no ambiente VMware. [Examine](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) os sistemas operacionais com suporte. | Em disponibilidade geral (GA).
 Agente | Não é necessário instalar agentes em computadores que você deseja verificar. | Agentes a serem instalados em cada computador local que você deseja analisar: o [MMA (Microsoft Monitoring Agent)](../azure-monitor/agents/agent-windows.md)e o [Dependency Agent](../azure-monitor/agents/agents-overview.md#dependency-agent). 
 Pré-requisitos | [Examine](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Examine](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
 Log Analytics | Não necessário. | As Migrações para Azure usam a solução [Mapa do Serviço](../azure-monitor/vm/service-map.md) nos [logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
-Como ele funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
+Como isso funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 Dados | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 Visualização | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> O mapa pode ser exibido somente em uma hora.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
 Exportação de dados | Os últimos 30 dias de dados podem ser baixados em um formato CSV. | Os dados podem ser consultados com Log Analytics.
@@ -296,9 +288,9 @@ Para a visualização baseada em agente, você pode visualizar dependências de 
 
 Para a visualização sem agente, você pode exibir o mapa de dependências de um único servidor de uma duração de entre uma hora e 30 dias.
 
-## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-vms"></a>Posso Visualizar dependências de grupos com mais de 10 VMs?
+## <a name="can-i-visualize-dependencies-for-groups-of-more-than-10-servers"></a>Posso Visualizar dependências de grupos com mais de 10 servidores?
 
-Você pode [Visualizar dependências](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) para grupos que têm até 10 VMS. Se você tiver um grupo com mais de 10 VMs, é recomendável dividir o grupo em grupos menores e, em seguida, Visualizar as dependências.
+Você pode [Visualizar dependências](./how-to-create-a-group.md#refine-a-group-with-dependency-mapping) para grupos que têm até 10 servidores. Se você tiver um grupo com mais de 10 servidores, é recomendável dividir o grupo em grupos menores e, em seguida, Visualizar as dependências.
 
 ## <a name="next-steps"></a>Próximas etapas
 
