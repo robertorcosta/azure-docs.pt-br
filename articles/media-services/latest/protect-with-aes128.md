@@ -2,7 +2,7 @@
 Título: Criptografar vídeo com o AES-128: Descrição dos Serviços de Mídia do Azure: Saiba como criptografar vídeo com a criptografia AES de 128 bits e como usar o serviço de distribuição de chaves nos Serviços de Mídia do Azure.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: media ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 08/31/2020 ms.author: inhenkel
+ms.service: media-services ms.workload: mídia ms.tgt_pltfrm: na ms.devlang: na ms.topic: tutorial ms.date: 17/03/2021 ms.author: inhenkel
 
 ---
 # <a name="tutorial-encrypt-video-with-aes-128-and-use-the-key-delivery-service"></a>Tutorial: Criptografar vídeo com o AES-128 e usar o serviço de distribuição de chaves
@@ -89,7 +89,7 @@ Neste tutorial, criamos a entrada do trabalho com base em um arquivo que é inge
 
 ## <a name="wait-for-the-job-to-complete"></a>Aguarde a conclusão do trabalho
 
-O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você desejará ser notificado. O exemplo de código a seguir mostra como sondar o serviço para o status do [Trabalho](/rest/api/media/jobs). Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos. Para obter mais informações, confira [Encaminhar eventos para um ponto de extremidade da Web personalizado](job-state-events-cli-how-to.md).
+O trabalho leva algum tempo para ser concluído. Quando isso ocorrer, você desejará ser notificado. O exemplo de código a seguir mostra como sondar o serviço para o status do [Trabalho](/rest/api/media/jobs). Sondagem não é uma prática recomendada para aplicativos de produção devido à latência potencial. A sondagem pode ser acelerada, se houver uso excessivo em uma conta. Os desenvolvedores devem usar a Grade de Eventos. Para obter mais informações, confira [Encaminhar eventos para um ponto de extremidade da Web personalizado](monitoring/job-state-events-cli-how-to.md).
 
 O **Trabalho** normalmente passa pelos seguintes estados: **Agendado**, **Enfileirado**, **Processando**, **Concluído** (o estado final). Se o trabalho tiver encontrado um erro, você receberá o estado do **Erro**. Se o trabalho estiver para ser cancelado, você obterá **Cancelando** e **Cancelado** quando estiver pronto.
 

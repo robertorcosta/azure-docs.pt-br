@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 02/08/2021
+ms.date: 03/17/2021
 ms.author: kenwith
-ms.openlocfilehash: 100f66d6217533ff6eba7881f938e877b98c735e
-ms.sourcegitcommit: 24f30b1e8bb797e1609b1c8300871d2391a59ac2
+ms.openlocfilehash: 738b89ee9347a25e2d24369a48e966f0bec6daf0
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/10/2021
-ms.locfileid: "100091101"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104579460"
 ---
 # <a name="tutorial---customize-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Tutorial – Personalizar mapeamentos de atributos do provisionamento de usuário para aplicativos SaaS no Azure Active Directory
 
@@ -113,13 +113,13 @@ Os aplicativos e sistemas que dão suporte à personalização da lista de atrib
 - ServiceNow
 - Workday para o Active Directory/Workday para o Azure Active Directory
 - SuccessFactors para o Active Directory/SuccessFactors para o Azure Active Directory
-- Active Directory do Azure ([atributos do Azure AD Graph API padrão](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e há suporte para extensões de diretório personalizado)
+- Azure Active Directory ([os atributos padrão da API do Graph do Azure AD](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e as extensões de diretório personalizadas são compatíveis). Saiba mais sobre [como criar extensões](https://docs.microsoft.com/azure/active-directory/app-provisioning/user-provisioning-sync-attributes-for-mapping#create-an-extension-attribute-on-a-cloud-only-user) e [limitações conhecidas](https://docs.microsoft.com/azure/active-directory/app-provisioning/known-issues). 
 - Aplicativos compatíveis com [SCIM 2.0](https://tools.ietf.org/html/rfc7643)
 - O write-back do Azure Active Directory para Workday ou SuccessFactors dá suporte para atualizar metadados relevantes para atributos com suporte (XPATH e JSONPath), mas não dá suporte para adicionar novos atributos do Workday ou do SuccessFactors além daqueles incluídos no esquema padrão
 
 
 > [!NOTE]
-> Editar a lista de atributos com suporte é recomendado apenas para os administradores que personalizaram o esquema de seus aplicativos e sistemas e que tenham conhecimento de antemão de como seus atributos personalizados foram definidos. Às vezes, isso requer familiaridade com as APIs e as ferramentas dos desenvolvedores fornecidas por um aplicativo ou sistema. A capacidade de editar a lista de atributos compatíveis está bloqueada por padrão, mas os clientes podem habilitar a funcionalidade navegando até a seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Em seguida, acesse seu aplicativo para ver a lista de atributos, conforme descrito [acima](#editing-the-list-of-supported-attributes). 
+> Recomendamos editar a lista de atributos compatíveis somente para administradores que personalizaram o esquema de aplicativos e sistemas, bem como têm um conhecimento direto sobre de que modo os atributos personalizados foram definidos ou a hipótese de um atributo de origem não ser exibido de modo automático na interface do usuário do portal do Azure. Às vezes, isso requer familiaridade com as APIs e as ferramentas dos desenvolvedores fornecidas por um aplicativo ou sistema. A capacidade de editar a lista de atributos compatíveis está bloqueada por padrão, mas os clientes podem habilitar a funcionalidade navegando até a seguinte URL: https://portal.azure.com/?Microsoft_AAD_IAM_forceSchemaEditorEnabled=true. Em seguida, acesse seu aplicativo para ver a lista de atributos, conforme descrito [acima](#editing-the-list-of-supported-attributes). 
 
 Ao editar a lista de atributos com suporte, as seguintes propriedades são fornecidas:
 

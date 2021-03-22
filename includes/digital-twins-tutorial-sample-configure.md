@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 5/25/2020
 ms.author: baanders
-ms.openlocfilehash: ff9d1f0ff75a6df6c115ecfe2b8c5f71b12049e4
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 67a2799a93141ad84f458642d8499a58784cc19c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036106"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103463691"
 ---
 ## <a name="configure-the-sample-project"></a>Configurar o projeto de exemplo
 
@@ -38,3 +38,4 @@ Em seguida, configure o arquivo *appSettings.json* para ser copiado para o diret
 
 Mantenha o projeto _**AdtE2ESample**_ aberto no Visual Studio para continuar a usá-lo no tutorial.
 
+[!INCLUDE [Azure Digital Twins: local credentials prereq (outer)](digital-twins-local-credentials-outer.md)]
