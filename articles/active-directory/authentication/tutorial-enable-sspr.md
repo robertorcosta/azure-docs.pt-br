@@ -10,16 +10,16 @@ ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 924ff6091e7eb6633d36f75fd6d53745139454d7
-ms.sourcegitcommit: ad83be10e9e910fd4853965661c5edc7bb7b1f7c
+ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
+ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2020
-ms.locfileid: "96741058"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102198482"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
-A SSPR (redefinição de senha por autoatendimento) do Microsoft Azure AD (Active Directory) dá aos usuários a capacidade de alterar ou redefinir a senha, sem envolvimento do administrador ou do suporte técnico. Se a conta de um usuário estiver bloqueada ou se ele esquecer a senha, ele poderá seguir os avisos para desbloquear a si mesmo e voltar ao trabalho. Essa capacidade reduz as chamadas de suporte técnico e a perda de produtividade quando um usuário não consegue entrar no dispositivo ou em um aplicativo.
+A SSPR (redefinição de senha por autoatendimento) do Microsoft Azure AD (Active Directory) dá aos usuários a capacidade de alterar ou redefinir a senha, sem envolvimento do administrador ou do suporte técnico. Se a conta de um usuário estiver bloqueada ou se ele esquecer a senha, ele poderá seguir os avisos para desbloquear a si mesmo e voltar ao trabalho. Essa capacidade reduz as chamadas de suporte técnico e a perda de produtividade quando um usuário não consegue entrar no dispositivo ou em um aplicativo. Confira aqui um vídeo sobre [Como configurar e habilitar a redefinição de senha self-service em seu locatário](https://www.youtube.com/watch?v=rA8TvhNcCvQ) (**recomendado**). Também temos um vídeo para os administradores de TI sobre [como resolver as seis mensagens de erro mais comuns do usuário final com a SSPR](https://www.youtube.com/watch?v=9RPrNVLzT8I).
 
 > [!IMPORTANT]
 > Este tutorial mostra a um administrador como habilitar a redefinição de senha por autoatendimento. Se você for um usuário final já registrado para redefinição de senha por autoatendimento e precisar voltar à sua conta, vá para https://aka.ms/sspr.

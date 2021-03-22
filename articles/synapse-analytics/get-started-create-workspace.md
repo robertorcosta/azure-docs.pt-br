@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 12/31/2020
-ms.openlocfilehash: 3a2636ec73d20f3011d8413c794e68ef41b1829c
-ms.sourcegitcommit: f5b8410738bee1381407786fcb9d3d3ab838d813
+ms.openlocfilehash: 94d069a283249f2880743ba911c32bf3821d28c8
+ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98209178"
+ms.lasthandoff: 03/05/2021
+ms.locfileid: "102171476"
 ---
 # <a name="creating-a-synapse-workspace"></a>Como criar um workspace do Azure Synapse
 
@@ -27,15 +27,21 @@ Para concluir as etapas deste tutorial, você precisará ter acesso a um grupo d
 
 ## <a name="create-a-synapse-workspace-in-the-azure-portal"></a>Criar um workspace do Azure Synapse no portal do Azure
 
-1. Abra o [portal do Azure](https://portal.azure.com) e, na parte superior, procure por **Synapse**.
+1. Abra o [portal do Azure](https://portal.azure.com) e insira **Synapse** na barra de pesquisa sem pressionar Enter.
 1. Nos resultados da pesquisa, em **Serviços**, selecione **Azure Synapse Analytics**.
 1. Selecione **Adicionar** para criar um workspace.
-1. Na guia **Informações Básicas**, em Detalhes do Projeto, insira **Assinatura**, **Grupo de recursos** e **Região** preferenciais e escolha um nome de workspace. Neste tutorial, usaremos **myworkspace**.
-1. Em **Selecionar Data Lake Storage Gen2**, clique no botão **Da assinatura**.
-1. Em **Nome da conta**, clique em **Criar** e nomeie a nova conta de armazenamento **contosolake** ou outro nome semelhante, pois esse nome precisa ser exclusivo.
-1. Em **Nome do sistema de arquivos**, clique em **Criar** e nomeie-o **usuários**. Isso criará um contêiner de armazenamento chamado **usuários**
-1. O workspace usará essa conta de armazenamento como a conta de armazenamento "primária" para os logs do aplicativo e as tabelas do Spark.
-1. Marque a caixa "Atribuir a função Colaborador de Dados do Blob de Armazenamento a mim mesmo na conta do Data Lake Storage Gen2". 
+1. Na guia **Básico**, em **Detalhes do Projeto**, preencha os seguintes campos:
+      1. **Assinatura** – Escolha qualquer assinatura.
+      2. **Grupo de recursos** – Use qualquer grupo de recursos.
+      3. **Grupo de recursos** – Deixe em branco.
+1. Na guia **Básico**, em **Detalhes do workspace**, preencha os seguintes campos:
+      1. **Nome do workspace** – Escolha qualquer nome exclusivo globalmente. Neste tutorial, usaremos **myworkspace**.
+      1. **Região** – Escolha qualquer região.
+      1. **Selecionar o Data Lake Storage Gen2**
+        1. Clique no botão **Da assinatura**.
+        1. Em **Nome da conta**, clique em **Criar** e nomeie a nova conta de armazenamento **contosolake** ou outro nome semelhante, pois esse nome precisa ser exclusivo.
+        1. Em **Nome do sistema de arquivos**, clique em **Criar** e nomeie-o **usuários**. Isso criará um contêiner de armazenamento chamado **usuários**. O workspace usará essa conta de armazenamento como a conta de armazenamento "primária" para os logs do aplicativo e as tabelas do Spark.
+        1. Marque a caixa "Atribuir a função Colaborador de Dados do Blob de Armazenamento a mim mesmo na conta do Data Lake Storage Gen2". 
 1. Selecione **Examinar + criar** > **Criar**. Seu workspace fica pronto em alguns minutos.
 
 > [!NOTE]
