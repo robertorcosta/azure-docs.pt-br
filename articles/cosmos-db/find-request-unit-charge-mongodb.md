@@ -5,15 +5,15 @@ author: ThomasWeiss
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 10/14/2020
+ms.date: 03/19/2021
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: e488d1acfe116409caf571e7878e454628a9dea9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6b2944c1d29849ea44b5afd878d5b0e030358cc5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103201324"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801818"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-api-for-mongodb"></a>Localizar o encargo de unidade de solicitação para operações executadas na API Azure Cosmos DB para MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -34,13 +34,17 @@ O preço de RU é exposto por um [comando de banco de dados](https://docs.mongod
 
 1. Acesse o painel do **Data Explorer** e, em seguida, selecione o contêiner no qual deseja trabalhar.
 
-1. Selecione **Nova Consulta**.
+1. Selecione o **...** ao lado do nome do contêiner e selecione **nova consulta**.
 
 1. Insira uma consulta válida e, em seguida, selecione **Executar Consulta**.
 
-1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada.
+1. Selecione **Estatísticas da Consulta** para exibir o preço de solicitação real da solicitação executada. Esse editor de consultas permite executar e exibir encargos de unidade de solicitação somente para predicados de consulta. Você não pode usar esse editor para comandos de manipulação de dados, como instruções INSERT.
 
-:::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure":::
+   :::image type="content" source="./media/find-request-unit-charge/portal-mongodb-query.png" alt-text="Captura de tela do preço de solicitação de consulta MongoDB no portal do Azure":::
+
+1. Para obter encargos de solicitação para comandos de manipulação de dados, execute o `getLastRequestStatistics` comando de uma interface do usuário baseada em Shell, como Mongo Shell, [Robo 3T](mongodb-robomongo.md), [MongoDB Compass](mongodb-compass.md)ou uma extensão vs Code com script de Shell.
+
+   `db.runCommand({getLastRequestStatistics: 1})`
 
 ## <a name="use-the-mongodb-net-driver"></a>Usar o driver do .NET do MongoDB
 

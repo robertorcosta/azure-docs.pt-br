@@ -8,12 +8,12 @@ ms.service: api-management
 ms.topic: article
 ms.date: 03/12/2021
 ms.author: apimpm
-ms.openlocfilehash: 3f91ca21512b8cddcac7fe71fa3eec07e1a8745a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1a835d26b4c41c92b9849856a2f31b3550947bd8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720076"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801886"
 ---
 # <a name="api-management-policies-to-validate-requests-and-responses"></a>Políticas de gerenciamento de API para validar solicitações e respostas
 
@@ -115,7 +115,7 @@ Essa política pode ser usada nas [seções](./api-management-howto-policies.md#
 A `validate-parameters` política valida os parâmetros de cabeçalho, de consulta ou de caminho em solicitações em relação ao esquema de API.
 
 > [!IMPORTANT]
-> Se você importou uma API usando uma versão de API de gerenciamento anterior ao `2021-01-01-preview` , a `validate-parameters` política pode não funcionar. Talvez seja necessário reimportar sua API usando a versão `2021-01-01-preview` de API de gerenciamento ou posterior.
+> Se você importou uma API usando uma versão de API de gerenciamento anterior ao `2021-01-01-preview` , a `validate-parameters` política pode não funcionar. Talvez seja necessário [reimportar sua API usando a](/rest/api/apimanagement/2021-01-01-preview/apis/createorupdate) versão `2021-01-01-preview` de API de gerenciamento ou posterior.
 
 
 ### <a name="policy-statement"></a>Declaração de política
@@ -145,6 +145,7 @@ Neste exemplo, todos os parâmetros de consulta e caminho são validados no modo
         <parameter name="User-Agent" action="ignore" />
         <parameter name="Host" action="ignore" />
         <parameter name="Referrer" action="ignore" />
+    </headers>   
 </validate-parameters>
 ```
 

@@ -8,12 +8,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 3/19/2021
 ms.author: jeffpatt
-ms.openlocfilehash: 8ebd667b9f3f4ec1a6db4481e42282b3d8bae97d
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 9c6e57d45cb5647053283da687659cc5ff0217e9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104776144"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802175"
 ---
 # <a name="azure-files-and-azure-netapp-files-comparison"></a>Comparação de arquivos e Azure NetApp Files do Azure
 
@@ -25,7 +25,7 @@ A maioria das cargas de trabalho que exigem o armazenamento de arquivos em nuvem
 
 | Categoria | Arquivos do Azure | Azure NetApp Files |
 |---------|-------------------------|---------|
-| Descrição | O [arquivos do Azure](https://azure.microsoft.com/services/storage/files/) é um serviço totalmente gerenciado e altamente disponível e é otimizado para cargas de trabalho de acesso aleatório com atualizações de dados in-loco.<br><br> Os arquivos do Azure baseiam-se na mesma plataforma de armazenamento do Azure que outros serviços, como BLOBs do Azure. | [Azure NetApp files](https://azure.microsoft.com/services/netapp/) é um serviço nas de nível corporativo totalmente gerenciado e altamente disponível que pode lidar com as cargas de trabalho mais exigentes, de alto desempenho e de baixa latência que exigem recursos avançados de gerenciamento de dados. Ele permite a migração de cargas de trabalho, que são consideradas "migrada" sem.<br><br>  O seja é criado no sistema operacional bare-metal da NetApp com o ONTAP Storage OS em execução dentro do datacenter do Azure para uma experiência consistente do Azure e um desempenho local como. |
+| Description | O [arquivos do Azure](https://azure.microsoft.com/services/storage/files/) é um serviço totalmente gerenciado e altamente disponível e é otimizado para cargas de trabalho de acesso aleatório com atualizações de dados in-loco.<br><br> Os arquivos do Azure baseiam-se na mesma plataforma de armazenamento do Azure que outros serviços, como BLOBs do Azure. | [Azure NetApp files](https://azure.microsoft.com/services/netapp/) é um serviço nas de nível corporativo totalmente gerenciado e altamente disponível que pode lidar com as cargas de trabalho mais exigentes, de alto desempenho e de baixa latência que exigem recursos avançados de gerenciamento de dados. Ele permite a migração de cargas de trabalho, que são consideradas "migrada" sem.<br><br>  O seja é criado no sistema operacional bare-metal da NetApp com o ONTAP Storage OS em execução dentro do datacenter do Azure para uma experiência consistente do Azure e um desempenho local como. |
 | Protocolos | Premium<br><ul><li>SMB 2,1, 3,0</li><li>NFS 4,1 (visualização)</li></ul><br>Standard<br><ul><li>SMB 2,1, 3,0</li><li>REST</li></ul><br> Para saber mais, confira [protocolos de compartilhamento de arquivos disponíveis](https://docs.microsoft.com/azure/storage/files/storage-files-compare-protocols). | Todas as camadas<br><ul><li>SMB 1, 2. x, 3. x</li><li>NFS 3,0, 4,1</li><li>Acesso de protocolo duplo (NFSv3/SMB)</li></ul><br> Para saber mais, consulte como criar volumes [NFS](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes), [SMB](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes-smb)ou [de protocolo duplo](https://docs.microsoft.com/azure/azure-netapp-files/create-volumes-dual-protocol) . |
 | Disponibilidade de região | Premium<br><ul><li>mais de 30 regiões</li></ul><br>Standard<br><ul><li>Todas as regiões</li></ul><br> Para saber mais, confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage). | Todas as camadas<br><ul><li>mais de 25 regiões</li></ul><br> Para saber mais, confira [Produtos disponíveis por região](https://azure.microsoft.com/global-infrastructure/services/?products=storage). |
 | Redundância | Premium<br><ul><li>LRS</li><li>ZRS</li></ul><br>Standard<br><ul><li>LRS</li><li>ZRS</li><li>GRS</li><li>GZRS</li></ul><br> Para saber mais, confira [redundância](https://docs.microsoft.com/azure/storage/files/storage-files-planning#redundancy). | Todas as camadas<br><ul><li>HA local interno</li><li>[Replicação entre regiões](https://docs.microsoft.com/azure/azure-netapp-files/cross-region-replication-introduction)</li></ul> |

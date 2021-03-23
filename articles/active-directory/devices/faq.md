@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 509d267dcdaef58a9792609a60c8a9401e90e867
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: eb468dba1156087bdeb6086f5bc24b214e576e18
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103199705"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773293"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Perguntas frequentes sobre o gerenciamento de dispositivos do Azure Active Directory
 
@@ -267,7 +267,7 @@ Esse comportamento:
 
 **R:** Quando os usuários adicionam suas contas a aplicativos em um dispositivo ingressado no domínio, eles podem ser solicitados **a adicionar conta ao Windows?** Se o usuário escolher **Sim** no prompt, o dispositivo registra com o Azure AD. O tipo de relação de confiança é marcado como registrado no Azure AD. Depois de habilitar o ingresso do Azure AD híbrido na organização, o dispositivo também será incluído no Azure AD híbrido. Em seguida, dois estados de dispositivo aparecem para o mesmo dispositivo. 
 
-O ingresso do Azure AD híbrido tem precedência sobre o estado de registrado pelo Azure AD. Portanto, seu dispositivo é considerado um Azure AD híbrido associado a qualquer autenticação e avaliação de acesso condicional. Você pode excluir com segurança o registro do dispositivo registrado pelo Azure AD no portal do Azure AD. Saiba como [evitar ou limpar esse estado duplo no computador com Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
+Na maioria dos casos, a junção híbrida do Azure AD tem precedência sobre o estado registrado do Azure AD, resultando no seu dispositivo ser considerado híbrido do Azure AD ingressado para qualquer autenticação e avaliação de acesso condicional. No entanto, às vezes, esse estado duplo pode resultar em uma avaliação não determinística do dispositivo e causar problemas de acesso. É altamente recomendável atualizar para o Windows 10 versão 1803 e superior, onde limpamos automaticamente o estado registrado do Azure AD. Saiba como [evitar ou limpar esse estado duplo no computador com Windows 10](hybrid-azuread-join-plan.md#review-things-you-should-know). 
 
 ---
 

@@ -2,18 +2,18 @@
 author: memildin
 ms.service: security-center
 ms.topic: include
-ms.date: 03/14/2021
+ms.date: 03/21/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: c142f6a00275b4b21b6bbc64e51a5c4d7d957258
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5fc36e327a9530105182f0a23b3ef22ab324e01c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467982"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104803231"
 ---
-- O acesso a contas de armazenamento com firewall e configurações de rede virtual deve ser restrito as contas de armazenamento devem restringir o acesso à rede
-- As variáveis da conta de automação devem ser criptografadas as variáveis da conta de automação devem ser criptografadas
+- O acesso às contas de armazenamento com configurações de firewall e de rede virtual deve ser restrito
+- As variáveis da conta de automação devem ser criptografadas
 - O Cache do Azure para Redis deve residir em uma rede virtual
 - As contas do Azure Cosmos DB devem usar chaves gerenciadas pelo cliente para criptografar os dados inativos
 - Os workspaces do Azure Machine Learning devem ser criptografados com uma CMK (chave gerenciada pelo cliente)
@@ -31,21 +31,21 @@ ms.locfileid: "103467982"
 - Os cofres de chaves devem ter a proteção contra limpeza habilitada
 - Os cofres de chaves devem ter a exclusão temporária habilitada
 - Deverão ser aplicadas aos contêineres funcionalidades do Linux com privilégios mínimos
-- Somente as conexões seguras para o cache Redis devem ser habilitadas somente as conexões seguras para o cache do Azure para Redis devem ser habilitadas
+- Apenas conexões seguras com o Cache Redis devem ser habilitadas
 - As ações para substituir ou desabilitar o perfil do AppArmor de contêineres deverão ser restritas
 - Os contêineres com privilégios deverão ser evitados
 - Executar contêineres como usuário raiz deverá ser evitado
-- A transferência segura para contas de armazenamento deve ser habilitada a transferência segura para contas de armazenamento deve ser habilitada
-- Service Fabric clusters devem ter a propriedade ClusterProtectionLevel definida como EncryptAndSign Service Fabric clusters devem ter a propriedade ClusterProtectionLevel definida como EncryptAndSign
-- Os clusters de Service Fabric devem usar apenas Azure Active Directory para autenticação de cliente Service Fabric clusters só devem usar Azure Active Directory para autenticação de cliente
+- A transferência segura para contas de armazenamento deve ser habilitada
+- A propriedade ClusterProtectionLevel dos clusters do Service Fabric deve ser definida como EncryptAndSign
+- Os clusters do Service Fabric só devem usar o Azure Active Directory para autenticação de cliente
 - Os serviços deverão escutar somente em portas permitidas
 - O acesso público da conta de armazenamento não deve ser permitido
-- As contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager contas de armazenamento devem ser migradas para novos recursos de Azure Resource Manager
+- As contas de armazenamento devem ser migradas para os novos recursos do Azure Resource Manager
 - As contas de armazenamento devem restringir o acesso à rede usando regras de rede virtual
 - Usar redes e portas do host deverá ser restrito
 - O uso de montagens de volume do Pod HostPath deve ser restrito a uma lista conhecida para restringir o acesso ao nó de contêineres comprometidos
 - O período de validade dos certificados armazenados no Azure Key Vault não deve exceder 12 meses
-- As máquinas virtuais devem ser migradas para novas Azure Resource Manager recursos as máquinas virtuais devem ser migradas para novos recursos de Azure Resource Manager
+- As máquinas virtuais devem ser migradas para os novos recursos do Azure Resource Manager
 - O WAF (Firewall do Aplicativo Web) deve ser habilitado para o Gateway de Aplicativo
 - O WAF (Firewall de Aplicativo Web) deve ser habilitado para o serviço do Azure Front Door Service
 

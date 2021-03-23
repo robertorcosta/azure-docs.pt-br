@@ -1,18 +1,14 @@
 ---
 title: Criar e gerenciar usuários
 description: Crie e gerencie usuários de sensores e o console de gerenciamento local. Os usuários podem receber a função de administrador, analista de segurança ou usuário somente leitura.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 03/03/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: dff379c99fa7383c7f7844cf8d195a345e88a335
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2afc3cb2b9cfc0ac6b75c98198d9f0965b6dc04c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103466262"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779011"
 ---
 # <a name="about-defender-for-iot-console-users"></a>Sobre os usuários do console do defender para IoT
 
@@ -197,7 +193,7 @@ Para configurar Active Directory:
 
 Se você estiver criando grupos de Active Directory para usuários do console de gerenciamento local, deverá criar uma regra de grupo de acesso para cada grupo de Active Directory. O console de gerenciamento local Active Directory credenciais não funcionarão se uma regra de grupo de acesso não existir para o grupo de usuários Active Directory. Consulte [definir o controle de acesso global](how-to-define-global-user-access-control.md).
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 2. Para adicionar um servidor confiável, selecione **Adicionar servidor** e configurar outro servidor.
 

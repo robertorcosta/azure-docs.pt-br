@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: e2f6fb167ec8b1ea15f7f08cf77720e705b2e4a3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c251634710811820ba920b72c1759938758f5d2e
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721378"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802804"
 ---
 # <a name="hc-series-virtual-machine-overview"></a>Visão geral da máquina virtual da série HC
 
@@ -31,7 +31,7 @@ As CPUs Intel Xeon Platinum, Gold e prata também introduzem uma rede de malha 2
 
 O diagrama a seguir mostra a diferenciação de núcleos reservada para o hipervisor do Azure e a VM da série HC.
 
-![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HC](./media/hc-series-overview/segregation-cores.png)
+![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HC](./media/architecture/hc-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Especificações de hardware
 

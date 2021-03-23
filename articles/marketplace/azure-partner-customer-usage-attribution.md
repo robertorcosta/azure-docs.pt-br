@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771083"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799183"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribuição de uso do cliente do Azure
 
@@ -39,7 +39,9 @@ O controle do uso do Azure de aplicativos do Azure publicados no Marketplace com
 Se você usar APIs de Azure Resource Manager, será necessário adicionar sua ID de rastreamento de acordo com as [instruções abaixo](#use-resource-manager-apis) para passá-la para Azure Resource Manager à medida que o código implantar recursos. Essa ID é visível no Partner Center na página de configuração técnica do seu plano. 
 
 > [!NOTE]
-> Para aplicativos existentes do Azure, uma migração única foi realizada em março de 2021 para atualizar as IDs de controle na configuração técnica de cada plano. O uso de implantações passadas dessas ofertas permanecerá acompanhado nos sistemas da Microsoft.
+> Para aplicativos existentes do Azure, uma migração única começou em março de 2021 para atualizar as IDs de controle na configuração técnica de cada plano. O uso de implantações passadas dessas ofertas permanecerá acompanhado nos sistemas da Microsoft.
+>
+>Ao atualizar suas ofertas, você não precisa mais adicionar o tipo de recurso **Microsoft. Resources/Implantations** em seu arquivo de modelo principal.
 
 ## <a name="other-use-cases"></a>Outros casos de uso 
 

@@ -3,13 +3,13 @@ title: Como criar uma solicitação de suporte do Azure
 description: Os clientes que precisam de assistência podem usar o portal do Azure para encontrar soluções de autoatendimento e para criar e gerenciar solicitações de suporte.
 ms.assetid: fd6841ea-c1d5-4bb7-86bd-0c708d193b89
 ms.topic: how-to
-ms.date: 06/25/2020
-ms.openlocfilehash: 71aba8f2769a75805f47d90b71a8db4eeb26a97a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/16/2021
+ms.openlocfilehash: 395fc0d5905389ffb8f68d8bbc4c6f8b3a871d36
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100652387"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774857"
 ---
 # <a name="create-an-azure-support-request"></a>Como criar uma solicitação de suporte do Azure
 
@@ -42,7 +42,7 @@ Para criar uma solicitação de suporte, você deverá ser um [Proprietário](..
 
 Para iniciar uma solicitação de suporte de qualquer lugar no portal do Azure:
 
-1. Selecione o **?** no cabeçalho global. Em seguida, selecione **Ajuda + suporte**.
+1. Selecione o **?** no cabeçalho global, selecione **ajuda + suporte**.
 
    ![Ajuda e Suporte](./media/how-to-create-azure-support-request/helpandsupportnewlower.png)
 
@@ -52,7 +52,7 @@ Para iniciar uma solicitação de suporte de qualquer lugar no portal do Azure:
 
 ### <a name="go-to-help--support-from-a-resource-menu"></a>Ir para Ajuda + suporte em um menu de recursos
 
-Para iniciar uma solicitação de suporte no contexto do recurso no qual você está trabalhando atualmente:
+Para iniciar uma solicitação de suporte no contexto do recurso com o qual você está trabalhando no momento:
 
 1. No menu de recursos, na seção **Suporte + Solução de problemas** e selecione **Nova solicitação de suporte**.
 

@@ -5,21 +5,22 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: ff6d532d3c391ffecfbfb54a761c73ff24c823d9
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 03c4babc8fa70c951d80b720c4d4693968011532
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102040253"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772256"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Diretrizes para dados pessoais armazenados no Log Analytics e no Application Insights
 
 O Log Analytics é um armazenamento de dados no qual é possível localizar dados pessoais. O Application Insights armazena seus dados em uma partição do Log Analytics. Este artigo abordará onde, no Log Analytics e no Application Insights, esses dados normalmente estão localizados, bem como os recursos disponíveis para tratar os dados.
 
 > [!NOTE]
-> Para os fins deste artigo, _dados de log_ referem-se aos dados enviados para um espaço de trabalho do Log Analytics, enquanto _dados de aplicativo_ referem-se aos dados coletados pelo Application Insights.
+> Para os fins deste artigo, _dados de log_ referem-se aos dados enviados para um espaço de trabalho do Log Analytics, enquanto _dados de aplicativo_ referem-se aos dados coletados pelo Application Insights. Se você estiver usando um recurso de Application Insights baseado em espaço de trabalho, as informações sobre os dados de log serão aplicadas, mas se você estiver usando o recurso de Application Insights clássico, os dados do aplicativo se aplicarão.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+
 
 ## <a name="strategy-for-personal-data-handling"></a>Estratégia para tratamento de dados pessoais
 
@@ -27,7 +28,7 @@ Enquanto couber a você e à sua empresa determinar qual estratégia será adota
 
 * Sempre que possível, pare de coletar, ocultar, anonimizar ou ajustar os dados que estão sendo coletados para excluí-lo de ser considerado "privado". Isso é _sem dúvida_ a abordagem preferencial, evitando a necessidade de criar uma estratégia de tratamento de dados muito cara e impactante.
 * Quando não for possível, tente normalizar os dados para reduzir o impacto na plataforma e no desempenho dos dados. Por exemplo, em vez de registrar uma ID de usuário explícita, crie um dado de pesquisa que correlacionará o nome de usuário e os respectivos detalhes a uma ID interna que poderá ser registrada em outro lugar. Dessa forma, se um dos usuários solicitar que você exclua as informações pessoais, é possível que somente excluir a linha na tabela de consulta correspondente ao usuário seja suficiente. 
-* Por fim, se os dados privados precisarem ser coletados, compile um processo em torno do caminho de API de limpeza e do caminho de API de consulta existente para atender a qualquer obrigação necessária para exportar e excluir dados privados associados a um usuário. 
+* Por fim, se os dados privados precisarem ser coletados, compile um processo em torno do caminho de API de limpeza e do caminho de API de consulta existente para atender a qualquer obrigação necessária para exportar e excluir dados privados associados a um usuário.
 
 ## <a name="where-to-look-for-private-data-in-log-analytics"></a>Onde pesquisa dados privados no Log Analytics?
 

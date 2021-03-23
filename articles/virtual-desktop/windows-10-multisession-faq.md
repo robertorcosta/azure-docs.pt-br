@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: aafac1133b2bee54624d5f0b00061c5332fcd90b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5c03d3f9769aec0736d23f18372701e08ad93dac
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631873"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802787"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Perguntas frequentes sobre o Windows 10 Enterprise de várias sessões
 
@@ -33,9 +33,13 @@ O Windows 10 Enterprise Multi-Session é uma edição virtual do Windows 10 Ente
 
 O Windows 10 Enterprise Multi-Session não pode ser executado em ambientes de produção locais porque ele é otimizado para o serviço de área de trabalho virtual do Windows para Azure. Ele está relacionado ao contrato de licenciamento para executar o Windows 10 Enterprise Multi-Session fora do Azure para fins de produção. O Windows 10 Enterprise Multi-Session não será ativado nos serviços de gerenciamento de chaves (KMS) locais.
 
+## <a name="can-i-upgrade-a-windows-10-vm-to-windows-10-enterprise-multi-session"></a>Posso atualizar uma VM do Windows 10 para o Windows 10 Enterprise Multi-Session?
+
+Não. No momento, não é possível atualizar uma VM (máquina virtual) existente que esteja executando o Windows 10 Professional ou Enterprise para o Windows 10 Enterprise Multi-Session. Além disso, se você implantar uma VM de várias sessões do Windows 10 Enterprise e, em seguida, atualizar a chave do produto para outra edição, não será possível alternar a VM de volta para o Windows 10 Enterprise Multi-Session e precisará reimplantar a VM.
+
 ## <a name="how-do-i-customize-the-windows-10-enterprise-multi-session-image-for-my-organization"></a>Como fazer personalizar a imagem de várias sessões do Windows 10 Enterprise para minha organização?
 
-Você pode iniciar uma VM (máquina virtual) no Azure com Windows 10 Windows 10 Enterprise Multi-Session e personalizá-la Instalando aplicativos LOB, Sysprep/generalizar e, em seguida, criar uma imagem usando o portal do Azure.
+Você pode iniciar uma VM no Azure com Windows 10 Windows 10 Enterprise Multi-Session e personalizá-la Instalando aplicativos LOB, Sysprep/generalizar e, em seguida, criar uma imagem usando o portal do Azure.
 
 Para começar, crie uma VM no Azure com o Windows 10 Enterprise Multi-Session. Em vez de iniciar a VM no Azure, você pode baixar o VHD diretamente. Depois disso, você poderá usar o VHD que baixou para criar uma nova VM de geração 1 em um PC com Windows 10 com o Hyper-V habilitado.
 

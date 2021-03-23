@@ -3,16 +3,16 @@ title: Variáveis do sistema no Azure Data Factory
 description: Este artigo descreve as variáveis do sistema com suporte pelo Azure Data Factory. Você pode usar essas variáveis em expressões ao definir entidades do Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/12/2018
-ms.openlocfilehash: a5d2043c29db87876cc0d5ddb5b3708abad033c5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b85efa7ac4481ab9eb2b2637aee7d9e5e76e8f3f
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104591972"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104786049"
 ---
 # <a name="system-variables-supported-by-azure-data-factory"></a>Variáveis do sistema com suporte pelo Azure Data Factory
 

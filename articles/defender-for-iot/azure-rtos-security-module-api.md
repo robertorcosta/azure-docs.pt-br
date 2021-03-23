@@ -1,24 +1,15 @@
 ---
 title: Defender-IoT-micro-Agent para a API de RTOS do Azure
 description: API de referência para o defender-IoT-micro-Agent para RTOS do Azure.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: 9a285636ba10f7ca0668f597d0e9016cff73494a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e7000a7e6d8ba332432f1ececa12bd9543e9e4a7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103494284"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779385"
 ---
 # <a name="defender-iot-micro-agent-for-azure-rtos-api-preview"></a>Defender-IoT-micro-Agent para a API dos RTOS do Azure (versão prévia)
 
