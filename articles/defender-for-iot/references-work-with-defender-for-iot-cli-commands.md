@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com o Defender para comandos CLI de IoT
 description: Este artigo descreve os comandos do defender for IoT CLI para sensores e consoles de gerenciamento local.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 93efc89722d3152d92b6f8c8038deaa566741f7c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9cd3f4325db2bc45ddcd6cc011dd4993e385a43c
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100636553"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778671"
 ---
 # <a name="work-with-defender-for-iot-cli-commands"></a>Trabalhar com o Defender para comandos CLI de IoT
 
@@ -287,7 +283,7 @@ O comando dá suporte aos seguintes sinalizadores de entrada:
 | --chave | O \* arquivo. Key. O comprimento da chave deve ser no mínimo 2.048 bits. |
 | --cadeia | Caminho para o arquivo da cadeia de certificados (opcional). |
 | --aprovado | Frase secreta usada para criptografar o certificado (opcional). |
-| --passphrase-Set | O padrão é **false**, **não usado**. <br />Defina como **true** para usar a frase secreta anterior fornecida com o certificado anterior (opcional). |  |
+| --passphrase-Set | O padrão é **false**, **não usado**. <br />Defina como **true** para usar a frase secreta anterior fornecida com o certificado anterior (opcional). | 
 
 Quando você estiver usando a ferramenta:
 

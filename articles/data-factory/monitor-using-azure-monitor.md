@@ -3,16 +3,16 @@ title: Monitorar data factories usando o Azure Monitor
 description: Saiba como usar Azure Monitor para monitorar pipelines de Data Factory do/Azure habilitando logs de diagnóstico com informações de Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 09456c06f2a171ec32c1b885dc2b4e475fea5371
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 04aba71e49fedc8a4ca22aed576aaa978f733336
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550290"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783635"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -78,7 +78,7 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
     > [!NOTE]
     > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [referência de logs do AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações dessa data factory. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 
@@ -832,8 +832,8 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Entrada | Entrada | Dinâmico |
     | $. Properties. Der | Saída | Dinâmico |
     | $. Properties. Erro. errorCode | ErrorCode | INT |
-    | $. Properties. Erro. mensagem | ErrorMessage | string |
-    | $. Properties. Ao | Erro | Dinâmico |
+    | $. Properties. Erro. mensagem | ErrorMessage | Cadeia de caracteres |
+    | $. Properties. Ao | Error | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
     | $. Properties. Parâmetro | Parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |

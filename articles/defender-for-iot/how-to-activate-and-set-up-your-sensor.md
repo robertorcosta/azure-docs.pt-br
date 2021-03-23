@@ -1,18 +1,14 @@
 ---
 title: Ativar e configurar seu sensor
 description: Este artigo descreve como entrar e ativar um console do sensor.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 98d59ec4b37238005e89051064a60fa6a4407394
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 2fdfa0dd7048bf39ae5b53a729aef578054b30ac
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449825"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779181"
 ---
 # <a name="activate-and-set-up-your-sensor"></a>Ativar e configurar seu sensor
 
@@ -98,7 +94,7 @@ Para entrar e ativar:
 1. Insira uma frase secreta e carregue um arquivo PEM, se necessário.
 1. Selecione **Avançar**. A tela validação é aberta. Por padrão, a validação entre o console de gerenciamento e os sensores conectados está habilitada.
 1. Desative a alternância **Habilitar validação em todo o sistema** para desabilitar a validação. Recomendamos que você habilite a validação.
-1. Clique em **Salvar**.  
+1. Selecione **Salvar**.  
 
 Talvez seja necessário atualizar a tela depois de carregar o certificado assinado por uma autoridade de certificação.
 

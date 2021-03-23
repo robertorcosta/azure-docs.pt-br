@@ -1,18 +1,14 @@
 ---
 title: Gerenciar sensores individuais
 description: Saiba como gerenciar sensores individuais, incluindo o gerenciamento de arquivos de ativação, a realização de backups e a atualização de um sensor autônomo.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 02/02/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: c8bb44d323574f6815aa570b271ed4c0df1fc6be
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: df1d1dd6ca2085fb3ab12c104723c63e32249403
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100526911"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781952"
 ---
 # <a name="manage-individual-sensors"></a>Gerenciar sensores individuais
 
@@ -147,7 +143,7 @@ Para alterar a configuração de validação:
 
 1. Habilitar ou desabilitar a alternância **Habilitar validação de certificado** .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação será apresentado no console do.
 
@@ -355,7 +351,7 @@ Para alterar o nome:
 
 1. Na caixa de diálogo **Editar nome do sensor** , insira um nome.
 
-1. Clique em **Salvar**. O novo nome é aplicado.
+1. Selecione **Salvar**. O novo nome é aplicado.
 
 ### <a name="change-the-name-of-a-cloud-connected-sensor"></a>Alterar o nome de um sensor conectado à nuvem
 
@@ -406,7 +402,7 @@ Para alterar a configuração:
     | Nome do host | O nome do host do sensor |
     | Proxy | Host de proxy e nome da porta |
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="synchronize-time-zones-on-the-sensor"></a>Sincronizar fusos horários no sensor
 

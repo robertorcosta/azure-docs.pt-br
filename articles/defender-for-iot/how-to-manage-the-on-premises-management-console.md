@@ -1,18 +1,14 @@
 ---
 title: Gerenciar o console de gerenciamento local
 description: Saiba mais sobre as opções do console de gerenciamento local, como backup e restauração, definição do nome do host e configuração de um proxy para sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/12/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f3c9f8f78f17153c3d2eb7b014cf616253b3c0c9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 871c74eee4b74538a8a09188953916ff7376bc8d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618246"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781714"
 ---
 # <a name="manage-the-on-premises-management-console"></a>Gerenciar o console de gerenciamento local
 
@@ -90,7 +86,7 @@ Para alterar a configuração de validação:
 
 1. Ative ou desative a alternância **Habilitar validação de certificado** .
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Se a opção estiver habilitada e a validação falhar, a comunicação entre o console de gerenciamento e o sensor será interrompida e um erro de validação aparecerá no console.
 
@@ -322,7 +318,7 @@ Para editar o nome de host do console de gerenciamento configurado no servidor D
 
 3. Insira o nome do host configurado no servidor DNS organizacional. 
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ## <a name="define-vlan-names"></a>Definir nomes de VLAN
 
@@ -372,7 +368,7 @@ Para alterar o nome:
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/edit-management-console-configuration.png" alt-text="Captura de tela da edição da configuração da plataforma defender para IoT.":::
 
-3. Clique em **Salvar**. O novo nome é aplicado.
+3. Selecione **Salvar**. O novo nome é aplicado.
 
    :::image type="content" source="media/how-to-change-the-name-of-your-azure-consoles/name-changed.png" alt-text="Captura de tela que mostra o nome alterado do console.":::
 

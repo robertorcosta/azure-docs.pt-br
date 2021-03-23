@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 53f873013a6f16ce5a28ee5d915afa556057f643
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 94827916f28c9028d46bf7b5461a4fbd941b2a96
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744149"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773395"
 ---
 # <a name="apply-the-remote-desktop-extension-to-azure-cloud-services-extended-support"></a>Aplicar a extensão de Área de Trabalho Remota aos serviços de nuvem do Azure (suporte estendido)
 
@@ -27,8 +27,9 @@ O portal do Azure usa a extensão de área de trabalho remota para habilitar a �
 2. Selecione **Adicionar**.
 3. Escolha as funções para habilitar a área de trabalho remota para.
 4. Preencha os campos obrigatórios para nome de usuário, senha, expiração e certificado (não obrigatório).
+> Anotações A senha para a área de trabalho remota deve ter entre 3 e 8-123 caracteres e deve atender pelo menos três dos requisitos de complexidade de senha do seguinte: 1) contém um caractere de maiúscula 2) contém um caractere minúsculo 3) que contém um dígito 4, que contém um caractere especial 5) caracteres de controle não são permitidos
 
-    :::image type="content" source="media/remote-desktop-2.png" alt-text="Imagem mostra a colocação das informações necessárias para se conectar à área de trabalho remota.":::
+   :::image type="content" source="media/remote-desktop-2.png" alt-text="Imagem mostra a colocação das informações necessárias para se conectar à área de trabalho remota.":::
 
 5. Quando terminar, selecione **Avançar**. Levará alguns minutos para que as instâncias da função estejam prontas para receber conexões.
 
