@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/21/2020
-ms.openlocfilehash: 0bd6300f4b9dbcf76b5447a0fb58502b7aebf311
-ms.sourcegitcommit: 6a350f39e2f04500ecb7235f5d88682eb4910ae8
+ms.openlocfilehash: c6b1129ca4a63e9adc8bb679dce53ff728456f42
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2020
-ms.locfileid: "96451423"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601824"
 ---
 # <a name="what-is-azure-sql-database"></a>O que é o Banco de Dados SQL do Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -32,6 +32,9 @@ O Banco de Dados SQL permite definir e escalar facilmente o desempenho dinamicam
 
 Se você não está familiarizado com o Banco de Dados SQL do Azure, confira o vídeo *Visão geral do Banco de Dados SQL do Azure* da nossa [série detalhada de vídeos do SQL do Azure](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
+
+> [!TIP]
+> Como podemos aprimorar o SQL do Azure? [Responda à pesquisa](https://aka.ms/AzureSQLSurvey).
 
 ## <a name="deployment-models"></a>Modelos de implantação
 

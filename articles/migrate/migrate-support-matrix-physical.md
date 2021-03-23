@@ -1,21 +1,21 @@
 ---
-title: Suporte para avaliação de servidor físico nas migrações para Azure
-description: Saiba mais sobre o suporte para avaliação de servidor físico com a descoberta e avaliação de migrações para Azure
+title: Suporte para descoberta física e avaliação em migrações para Azure
+description: Saiba mais sobre o suporte para descoberta física e avaliação com a descoberta e avaliação de migrações para Azure
 author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 18176c5a79eda080c72b387781e6c7c9b0c66673
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: b62160861f686c6ea5a8ebfd03d904da2ad5d80a
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773191"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869439"
 ---
 # <a name="support-matrix-for-physical-server-discovery-and-assessment"></a>Matriz de suporte para avaliação e descoberta de servidor físico 
 
-Este artigo resume os pré-requisitos e requisitos de suporte ao avaliar servidores físicos para migração para o Azure, usando a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Se você quiser migrar servidores físicos para o Azure, examine a [matriz de suporte de migração](migrate-support-matrix-physical-migration.md).
+Este artigo resume os pré-requisitos e requisitos de suporte ao avaliar servidores físicos para migração para o Azure, usando a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Se você quiser migrar servidores físicos para o Azure, examine a [matriz de suporte de migração](migrate-support-matrix-physical-migration.md).
 
 Para avaliar servidores físicos, você cria um projeto e adiciona a ferramenta migrações do Azure: descoberta e avaliação ao projeto. Depois que a ferramenta for adicionada, implante o [dispositivo do Migrações para Azure](migrate-appliance.md). O dispositivo descobre continuamente servidores locais e envia metadados de servidores e dados de desempenho para o Azure. Após a conclusão da descoberta, você coleta servidores descobertos em grupos e executa uma avaliação de um grupo.
 
@@ -23,7 +23,7 @@ Para avaliar servidores físicos, você cria um projeto e adiciona a ferramenta 
 
 **Suporte** | **Detalhes**
 --- | ---
-**Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto](migrate-support-matrix.md#azure-migrate-projects).
+**Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores físicos em um único [projeto](migrate-support-matrix.md#project).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além dos servidores físicos, um projeto pode incluir servidores no VMware e no Hyper-V, até os limites de avaliação de cada um.
 **Discovery** | O dispositivo de migrações para Azure pode descobrir até 1000 servidores físicos.
 **Avaliação** | Você pode adicionar até 35.000 servidores em um único grupo.<br/><br/> Você pode avaliar até 35.000 servidores em uma única avaliação.
@@ -84,4 +84,4 @@ A [análise de dependência](concepts-dependency-visualization.md) ajuda a ident
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Prepare-se para a avaliação do servidor físico](./tutorial-discover-physical.md).
+[Prepare-se para descoberta física e avaliação](./tutorial-discover-physical.md).

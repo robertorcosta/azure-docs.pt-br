@@ -2,17 +2,21 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 1c78986a5c2777c0db7cca314d5a49494f733e22
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 4617dd6384d5062c4270949a2e75868a0090000f
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102428973"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605042"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
+|[O Cache do Azure para Redis deve desabilitar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F470baccb-7e51-4549-8b1a-3e5be069f663) |A desabilitação do acesso à rede pública aprimora a segurança, garantindo que o Cache do Azure para Redis não seja exposto na Internet pública. Em vez disso, você pode limitar a exposição do Cache do Azure para Redis criando pontos de extremidade privados. Saiba mais em: [https://docs.microsoft.com/azure/azure-cache-for-redis/cache-private-link](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-private-link). |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_PublicNetworkAccess_AuditDeny.json) |
 |[O Cache do Azure para Redis deve residir em uma rede virtual](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7d092e0a-7acd-40d2-a975-dca21cae48c4) |A implantação da Rede Virtual do Azure fornece segurança e isolamento aprimorados para seu Cache do Azure para Redis, bem como sub-redes, políticas de controle de acesso e outros recursos para restringir ainda mais o acesso. Quando uma instância do Cache do Azure para Redis é configurada com uma rede virtual, ela não é endereçada publicamente e só pode ser acessada de máquinas virtuais e aplicativos na rede virtual. |Audit, Deny, desabilitado |[1.0.3](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_CacheInVnet_Audit.json) |
+|[O Cache do Azure para Redis deve usar um link privado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7803067c-7d34-46e3-8c79-0ca68fc4036d) |Os pontos de extremidade privados permitem que você conecte a sua rede virtual aos serviços do Azure sem um endereço IP público na origem ou no destino. Quando os pontos de extremidade privados são mapeados para as instâncias do Cache do Azure para Redis, os riscos de vazamento de dados são reduzidos. Saiba mais em: [https://docs.microsoft.com/azure/azure-cache-for-redis/cache-private-link](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-private-link). |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_PrivateEndpoint_AuditIfNotExists.json) |
+|[Configurar o Cache do Azure para Redis para desabilitar o acesso à rede pública](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F30b3dfa5-a70d-4c8e-bed6-0083858f663d) |Desabilite o acesso à rede pública para o seu recurso do Cache do Azure para Redis para que ele não possa ser acessado pela Internet pública. Isso ajuda a proteger o cache contra riscos de vazamento de dados. |Modificar, Desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_PublicNetworkAccess_Modify.json) |
+|[Configurar o Cache do Azure para Redis para usar zonas DNS privadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fe016b22b-e0eb-436d-8fd7-160c4eaed6e2) |Use as zonas DNS privadas para substituir a resolução DNS de um ponto de extremidade privado. Uma zona DNS privada pode ser vinculada à sua rede virtual para resolver para o Cache do Azure para Redis. Saiba mais em: [https://aka.ms/privatednszone](https://aka.ms/privatednszone). |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_PrivateDNSZone_DeployIfNotExists.json) |
 |[Somente conexões seguras com o Cache do Azure para Redis devem ser habilitadas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F22bee202-a82f-4305-9a2a-6d7f44d4dedb) |Auditoria de habilitação de somente conexões via SSL ao Cache Redis do Azure. O uso de conexões seguras garante a autenticação entre o servidor e o serviço e protege os dados em trânsito dos ataques de camada de rede, como man-in-the-middle, espionagem e sequestro de sessão |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Cache/RedisCache_AuditSSLPort_Audit.json) |

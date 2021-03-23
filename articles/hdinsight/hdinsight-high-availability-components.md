@@ -4,12 +4,12 @@ description: Visão geral dos vários componentes de alta disponibilidade usados
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/07/2020
-ms.openlocfilehash: 336fe91174a8fc6d73d6e45c5fd1e2bf244eda52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 93d2317c85f93ce8a22f2d434fbc081a88265a74
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98945305"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863710"
 ---
 # <a name="high-availability-services-supported-by-azure-hdinsight"></a>Serviços de alta disponibilidade com suporte do Azure HDInsight
 
@@ -34,7 +34,7 @@ Essa infra-estrutura consiste em vários serviços e componentes de software, al
 - Serviço de alta disponibilidade subordinado
 - Serviço mestre de alta disponibilidade
 
-![infraestrutura de alta disponibilidade](./media/hdinsight-high-availability-components/high-availability-architecture.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/high-availability-architecture.png" alt-text="infraestrutura de alta disponibilidade" border="false":::
 
 Também há outros serviços de alta disponibilidade, que têm suporte de componentes de confiabilidade do Apache de código aberto. Esses componentes também estão presentes em clusters HDInsight:
 
@@ -91,7 +91,7 @@ O Master-ha-Service é executado somente no cabeçalho ativo, ele interrompe os 
 
 ### <a name="the-failover-process"></a>O processo de failover
 
-![processo de failover](./media/hdinsight-high-availability-components/failover-steps.png)
+:::image type="content" source="./media/hdinsight-high-availability-components/failover-steps.png" alt-text="processo de failover" border="false":::
 
 Um monitor de integridade é executado em cada cabeçalho junto com o controlador de failover mestre para enviar notificações de pulsação para o quorum Zookeeper. O cabeçalho é considerado um serviço de HA nesse cenário. O Health Monitor verifica se cada serviço de alta disponibilidade está íntegro e se está pronto para ingressar na eleição de liderança. Em caso afirmativo, esse cabeçalho competirá na eleição. Caso contrário, ele encerrará a eleição até que ela se torne pronta novamente.
 

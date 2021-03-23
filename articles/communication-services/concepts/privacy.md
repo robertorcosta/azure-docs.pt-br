@@ -5,15 +5,15 @@ author: chpalm
 manager: anvalent
 services: azure-communication-services
 ms.author: chpalm
-ms.date: 10/03/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6fbc20ec7145a474d9f3aada153f2d012aba34f8
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
-ms.locfileid: "102561340"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495701"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência de dados
 
@@ -51,12 +51,14 @@ Usando as APIs do portal do Azure ou do Azure Resource Manager com os Serviços 
 
 ### <a name="telephone-number-management"></a>Gerenciamento de números de telefone
 
-Os Serviços de Comunicação do Azure mantêm um diretório de números de telefone associados a um recurso dos Serviços de Comunicação. Use estas APIs para recuperar números de telefone e excluí-los:
+Os Serviços de Comunicação do Azure mantêm um diretório de números de telefone associados a um recurso dos Serviços de Comunicação. Use as [APIs de Administração de Número de Telefone](/rest/api/communication/phonenumberadministration) para recuperar números de telefone e excluí-los:
+
+- `Get All Phone Numbers`
 - `Release Phone Number`
 
 ### <a name="chat"></a>Chat
 
-Os threads e as mensagens do chat são retidos até que sejam explicitamente excluídos. Um thread totalmente ocioso será excluído automaticamente após 30 dias. Use [APIs de Chat](/rest/api/communication/chat/deletechatmessage/deletechatmessage) para obter, listar, atualizar e excluir mensagens.
+Os threads e as mensagens do chat são retidos até que sejam explicitamente excluídos. Um thread totalmente ocioso será excluído automaticamente após 30 dias. Use [APIs de Chat](/rest/api/communication/chat/chatthread) para obter, listar, atualizar e excluir mensagens.
 
 - `Get Thread`
 - `Get Message`

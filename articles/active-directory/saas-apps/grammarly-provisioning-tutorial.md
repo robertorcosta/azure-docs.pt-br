@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2021
 ms.author: Zhchia
-ms.openlocfilehash: acfe74577f58cbdc0b1fe235e7fc1f661543fd90
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ca01289ce66afe642081e5be17373e640dd1e46d
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608945"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864798"
 ---
 # <a name="tutorial-configure-grammarly-for-automatic-user-provisioning"></a>Tutorial: configurar a gramática para o provisionamento automático de usuário
 
@@ -85,7 +85,7 @@ Nesta seção, você verá orientações para seguir as etapas de configuração
 
     ![Captura de tela que mostra o Modo de Provisionamento definido como Automático.](common/provisioning-automatic.png)
 
-1. Na seção **credenciais de administrador** , insira suas informações de **URL do locatário** e do **token secreto** de forma gramatical. Selecione **testar conexão** para garantir que o Azure ad possa se conectar à gramática. Se a conexão falhar, verifique se sua conta gramatical tem permissões de administrador e tente novamente.
+1. Na seção **credenciais de administrador** , no campo inserir **URL do locatário** `https://sso.grammarly.com/scim/v2` , digite e, no campo **token secreto** , insira o token fornecido por gramática (consulte a etapa 2 acima). Clique em **testar conexão** para garantir que o Azure ad possa se conectar à gramática. Se a conexão falhar, verifique se sua conta gramatical tem permissões de administrador e tente novamente.
 
     ![Captura de tela que mostra as caixas URL do locatário e token secreto.](common/provisioning-testconnection-tenanturltoken.png)
 

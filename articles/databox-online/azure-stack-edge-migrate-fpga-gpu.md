@@ -6,32 +6,32 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 02/10/2021
+ms.date: 03/11/2021
 ms.author: alkohli
-ms.openlocfilehash: 1db6574f8ca22b6fe60899f00700ee19d61eab3b
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 24d6528a105d593d1cb4c9c66d981c8787f85633
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100382813"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103573262"
 ---
 # <a name="migrate-workloads-from-an-azure-stack-edge-pro-fpga-to-an-azure-stack-edge-pro-gpu"></a>Migrar cargas de trabalho de um Azure Stack Edge Pro FPGA para um Azure Stack Edge Pro GPU
 
-Este artigo descreve como migrar cargas de trabalho e dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo Azure Stack Edge Pro GPU. O procedimento de migração envolve uma visão geral da migração, incluindo uma comparação entre os dois dispositivos, as considerações de migração, as etapas detalhadas e a verificação seguida pela limpeza.
+Este artigo descreve como migrar cargas de trabalho e dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo Azure Stack Edge Pro GPU. O processo de migração começa com uma comparação dos dois dispositivos, um plano de migração e uma análise das considerações sobre a migração. O procedimento de migração fornece etapas detalhadas que termina com a verificação e a limpeza do dispositivo.
 
-<!--Azure Stack Edge Pro FPGA devices will reach end-of-life in February 2024. If you are considering new deployments, we recommend that you explore Azure Stack Edge Pro GPU devices for your workloads.-->
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 ## <a name="about-migration"></a>Sobre a migração
 
 A migração de dados é o processo de mover cargas de trabalho e dados do aplicativo de uma localização de armazenamento para outro. Isso implica fazer uma cópia exata dos dados atuais de uma organização de um dispositivo de armazenamento para outro (preferencialmente sem interromper ou desabilitar aplicativos ativos) e, depois, redirecionar toda a atividade de E/S (entrada/saída) para o novo dispositivo. 
 
-Este guia de migração fornece um passo a passo das etapas necessárias para migrar dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo Azure Stack Edge Pro GPU. Este documento destina-se a profissionais de TI (tecnologia da informação) e profissionais do conhecimento responsáveis por implantar, operar e gerenciar dispositivos do Azure Stack Edge no datacenter. 
+Este guia de migração fornece um passo a passo das etapas necessárias para migrar dados de um dispositivo Azure Stack Edge Pro FPGA para um dispositivo Azure Stack Edge Pro GPU. Este documento destina-se a profissionais de TI (tecnologia da informação) e profissionais do conhecimento responsáveis por implantar, operar e gerenciar dispositivos do Azure Stack Edge no datacenter.
 
 Neste artigo, o dispositivo Azure Stack Edge Pro FPGA é conhecido como o dispositivo de *origem* e o dispositivo Azure Stack Edge Pro GPU é o dispositivo de *destino*. 
 
 ## <a name="comparison-summary"></a>Resumo de comparação
 
-Esta seção fornece um resumo comparativo das funcionalidades dos dispositivos Azure Stack Edge Pro GPU versus Azure Stack Edge Pro FPGA. Os hardwares tanto no dispositivo de origem quanto no de destino são praticamente idênticos e diferem apenas em relação ao cartão de aceleração de hardware e à capacidade de armazenamento. 
+Esta seção fornece um resumo comparativo das funcionalidades dos dispositivos Azure Stack Edge Pro GPU versus Azure Stack Edge Pro FPGA. O hardware nos dispositivos de origem e de destino é praticamente idêntico; pode diferir apenas em relação ao cartão de aceleração de hardware e à capacidade de armazenamento.<!--Please verify: These components MAY, but need not necessarily, differ?-->
 
 |    Funcionalidade  | Azure Stack Edge Pro GPU (dispositivo de destino)  | Azure Stack Edge Pro FPGA (dispositivo de origem)|
 |----------------|-----------------------|------------------------|
@@ -55,11 +55,11 @@ Para criar o seu plano de migração, considere as seguintes informações:
 
 Antes de continuar com a migração, considere as seguintes informações: 
 
-- Um dispositivo Azure Stack Edge Pro GPU não pode ser ativado em um recurso Azure Stack Edge Pro FPGA. Um recurso deve ser criado para o dispositivo Azure Stack Edge Pro GPU, conforme descrito em [Criar um pedido do Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
+- Um dispositivo Azure Stack Edge Pro GPU não pode ser ativado em um recurso Azure Stack Edge Pro FPGA. Crie um recurso para o dispositivo Azure Stack Edge Pro GPU, conforme descrito em [Criar um pedido do Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md#create-a-new-resource).
 - Os modelos de machine learning implantados no dispositivo de origem que usavam o FPGA precisarão ser alterados para o dispositivo de destino com a GPU. Para obter ajuda com os modelos, você pode entrar em contato com o Suporte da Microsoft. Os modelos personalizados implantados no dispositivo de origem que não usaram o FPGA (usaram somente a CPU) devem funcionar no estado em que se encontram no dispositivo de destino (usando a CPU).
-- Os módulos de IoT Edge implantados no dispositivo de origem podem exigir alterações antes que eles possam ser implantados com êxito no dispositivo de destino. 
+- Os módulos do IoT Edge implantados no dispositivo de origem podem exigir alterações antes que possam ser implantados com êxito no dispositivo de destino. 
 - O dispositivo de origem dá suporte a protocolos NFS 3.0 e 4.1. O dispositivo de destino só dá suporte ao protocolo NFS 3.0.
-- O dispositivo de origem dá suporte aos protocolos SMB e NFS. O dispositivo de destino dá suporte ao armazenamento por meio do protocolo REST usando contas de armazenamento além dos protocolos SMB e NFS para compartilhamentos.
+- O dispositivo de origem dá suporte aos protocolos SMB e NFS. O dispositivo de destino dá suporte ao armazenamento por meio do protocolo REST usando contas de armazenamento, além dos protocolos SMB e NFS para compartilhamentos.
 - O acesso de compartilhamento no dispositivo de origem ocorre por meio do endereço IP, enquanto o acesso de compartilhamento no dispositivo de destino ocorre por meio do nome do dispositivo.
 
 ## <a name="migration-steps-at-a-glance"></a>Visão geral das etapas de migração
@@ -99,15 +99,15 @@ A nuvem do Edge compartilha dados do nível do seu dispositivo com o Azure. Siga
 
 - Faça uma lista de todos os compartilhamentos de nuvem do Edge e os usuários que você tem no dispositivo de origem.
 - Faça uma lista de todos os agendamentos da largura de banda que você tem. Você recriará esses agendamentos da largura de banda no seu dispositivo de destino.
-- Dependendo da largura de banda da rede disponível, configure agendamentos da largura de banda no seu dispositivo para maximizar os dados em camadas para a nuvem. Isso minimizaria os dados locais no dispositivo.
-- Verifique se os compartilhamentos estão totalmente em camadas na nuvem. Isso pode ser confirmado verificando o status do compartilhamento no portal do Azure.  
+- Dependendo da largura de banda da rede disponível, configure agendamentos da largura de banda no seu dispositivo para maximizar os dados em camadas para a nuvem. Isso minimiza os dados locais no dispositivo.
+- Verifique se os compartilhamentos estão totalmente em camadas na nuvem. As camadas podem ser confirmadas verificando o status do compartilhamento no portal do Azure.  
 
 #### <a name="data-in-edge-local-shares"></a>Dados nos compartilhamentos locais do Edge
 
 Os dados nos compartilhamentos locais do Edge permanecem no dispositivo. Siga estas etapas no seu dispositivo de *origem* por meio do portal do Azure. 
 
-- Faça uma lista dos compartilhamentos locais do Edge que você tem no dispositivo.
-- Considerando que essa é uma migração única dos dados, crie uma cópia dos dados de compartilhamento local do Edge para outro servidor local. Você pode usar ferramentas de cópia como `robocopy` (SMB) ou `rsync` (NFS) para copiar os dados. Opcionalmente, você pode já ter implantado uma solução de proteção de dados de terceiros para fazer backup dos dados nos seus compartilhamentos locais. As seguintes soluções de terceiros têm suporte para uso com dispositivos Azure Stack Edge Pro FPGA:
+- Faça uma lista dos compartilhamentos locais do Edge no dispositivo.
+- Como você fará uma só migração dos dados, crie uma cópia dos dados de compartilhamento local do Edge em outro servidor local. Você pode usar ferramentas de cópia como `robocopy` (SMB) ou `rsync` (NFS) para copiar os dados. Opcionalmente, você pode já ter implantado uma solução de proteção de dados de terceiros para fazer backup dos dados nos seus compartilhamentos locais. As seguintes soluções de terceiros têm suporte para uso com dispositivos Azure Stack Edge Pro FPGA:
 
     | Software de terceiros           | Referência à solução                               |
     |--------------------------------|---------------------------------------------------------|
@@ -157,9 +157,9 @@ Agora você copiará dados do dispositivo de origem para os compartilhamentos de
 
 Siga estas etapas para sincronizar os dados nos compartilhamentos de nuvem do Edge no seu dispositivo de destino:
 
-1. [Adicione compartilhamentos](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondentes aos nomes de compartilhamento criados no dispositivo de origem. Verifique se, ao criar compartilhamentos, **Selecionar o contêiner de blobs** está definido com a opção **Usar existente** e selecione o contêiner que foi usado com o dispositivo anterior.
+1. [Adicione compartilhamentos](azure-stack-edge-j-series-manage-shares.md#add-a-share) correspondentes aos nomes de compartilhamento criados no dispositivo de origem. Ao criar os compartilhamentos, verifique se **Selecionar contêiner de blobs** está definido como **Usar existente** e escolha o contêiner usado com o dispositivo anterior.
 1. [Adicione usuários](azure-stack-edge-j-series-manage-users.md#add-a-user) que tinham acesso ao dispositivo anterior.
-1. [Atualize os dados do compartilhamento](azure-stack-edge-j-series-manage-shares.md#refresh-shares) do Azure. Isso efetua pull de todos os dados de nuvem do contêiner existente para os compartilhamentos.
+1. [Atualize os dados do compartilhamento](azure-stack-edge-j-series-manage-shares.md#refresh-shares) do Azure. A atualização do compartilhamento efetuará pull de todos os dados de nuvem do contêiner existente para os compartilhamentos.
 1. Recrie os agendamentos da largura de banda a serem associados aos seus compartilhamentos. Confira [Adicionar um agendamento da largura de banda](azure-stack-edge-j-series-manage-bandwidth-schedules.md#add-a-schedule) para obter etapas detalhadas.
 
 
@@ -172,12 +172,12 @@ Depois que o dispositivo de substituição estiver totalmente configurado, habil
 Siga estas etapas para recuperar os dados de compartilhamentos locais:
 
 1. [Configure a computação no dispositivo](azure-stack-edge-gpu-deploy-configure-compute.md).
-1. Adicione todos os compartilhamentos locais no dispositivo de destino. Confira as etapas detalhadas em [Adicionar um compartilhamento local](azure-stack-edge-j-series-manage-shares.md#add-a-local-share).
+1. Adicione todos os compartilhamentos locais no dispositivo de destino. Confira as etapas detalhadas em [Adicionar um compartilhamento local](azure-stack-edge-gpu-manage-shares.md#add-a-local-share).
 1. O acesso aos compartilhamentos SMB no dispositivo de origem usará os endereços IP, enquanto no dispositivo de destino, você usará o nome do dispositivo. Confira [Conectar-se a um compartilhamento SMB no Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-smb-share). Para se conectar a compartilhamentos NFS no dispositivo de destino, você precisará usar os novos endereços IP associados ao dispositivo. Confira [Conectar-se a um compartilhamento NFS no Azure Stack Edge Pro GPU](azure-stack-edge-j-series-deploy-add-shares.md#connect-to-an-nfs-share). 
 
-    Se você copiou os seus dados de compartilhamento para um servidor intermediário em SMB/NFS, poderá copiar esses dados para os compartilhamentos no dispositivo de destino. Você também poderá copiar os dados diretamente do dispositivo de origem se o dispositivo de origem e de destino estiverem *online*.
+    Se você copiou os dados de compartilhamento para um servidor intermediário via SMB ou NFS, copie os dados do servidor intermediário para os compartilhamentos no dispositivo de destino. Se os dispositivos de origem e de destino estiverem *online*, você também poderá copiar os dados diretamente do dispositivo de origem.
 
-    Se você tivesse usado um software de terceiros para fazer backup dos dados nos compartilhamentos locais, seria necessário executar o procedimento de recuperação fornecido pela solução de proteção de dados escolhida. Confira as referências na tabela a seguir.
+    Se você usar um software de terceiros para fazer backup dos dados nos compartilhamentos locais, precisará executar o procedimento de recuperação fornecido pela solução de proteção de dados escolhida. Confira as referências na tabela a seguir.
 
     | Software de terceiros           | Referência à solução                               |
     |--------------------------------|---------------------------------------------------------|

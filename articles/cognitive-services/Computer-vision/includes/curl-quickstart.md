@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 12/02/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: c8221a15ddd92276c105f1e441c8da722655d576
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 914fe0bbf04fa8835cbe96e5bbb83604f0d07bc2
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102445181"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622013"
 ---
 Use a API REST da Pesquisa Visual Computacional para:
 
@@ -40,17 +40,21 @@ Use a API REST da Pesquisa Visual Computacional para:
 Para analisar uma imagem a fim de obter uma variedade de recursos visuais, execute as seguintes etapas:
 
 1. Copie o seguinte comando em um editor de texto.
+1. Acesse o portal do Azure. Se o recurso da Pesquisa Visual Computacional criado na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Acessar o Recurso** em **Próximas Etapas**. Encontre a chave de assinatura e o ponto de extremidade na página **Chave e ponto de extremidade** do recurso em **Gerenciamento de recursos**.
 1. Faça as alterações a seguir no comando quando necessário:
-    1. Substitua o valor de `<subscriptionKey>` pela sua chave de assinatura.
-    1. Substitua a primeira parte da URL de solicitação (`westcentralus`) pelo texto em sua URL de ponto de extremidade.
+    1. Substitua o valor de `PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE` pela sua chave de assinatura.
+    1. Substitua a primeira parte da URL de solicitação (`PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE`) pelo seu ponto de extremidade da Pesquisa Visual Computacional. O ponto de extremidade da Pesquisa Visual Computacional tem o formato `https://<your_computer_vision_resource_name>.cognitiveservices.azure.com/`.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Outra opção é alterar a URL da imagem no corpo da solicitação (`http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\`) para uma URL de uma imagem diferente a ser analisada.
 1. Abra una janela de prompt de comando.
 1. Cole o comando do editor de texto na janela do prompt de comando e, em seguida, execute-o.
 
 ```bash
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
+curl -H "Ocp-Apim-Subscription-Key: PASTE_YOUR_COMPUTER_VISION_SUBSCRIPTION_KEY_HERE" -H "Content-Type: application/json" "PASTE_YOUR_COMPUTER_VISION_ENDPOINT_HERE/vision/v3.1/analyze?visualFeatures=Categories,Description&details=Landmarks" -d "{\"url\":\"http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\"}"
 ```
+
+> [!IMPORTANT]
+> Lembre-se de remover a chave de assinatura do código quando terminar e nunca a poste publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Por exemplo, o [Azure Key Vault](../../../key-vault/general/overview.md).
 
 ### <a name="examine-the-response"></a>Examinar a resposta
 

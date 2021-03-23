@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: ea9d893f825822638803394e678e6e68f57a32d9
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: f7e12567269304b33a98ff1eb9727cfdf0afbdc4
+ms.sourcegitcommit: df1930c9fa3d8f6592f812c42ec611043e817b3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102507289"
+ms.lasthandoff: 03/13/2021
+ms.locfileid: "103418633"
 ---
 # <a name="device-update-for-azure-iot-hub-tutorial-using-the-package-agent-on-ubuntu-server-1804-x64"></a>Atualização de dispositivo para o tutorial do Hub IoT do Azure usando um agente de pacote no Ubuntu Server 18.04 x64
 
@@ -106,7 +106,7 @@ As etapas manuais mostradas abaixo para executar a instalação e a configuraç�
 
 A atualização de dispositivo para pacotes de software do Hub IoT do Azure está sujeita aos seguintes termos de licença:
   * [Licença de atualização de dispositivo para o Hub IoT](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
-  * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE.md)
+  * [Licença de cliente de otimização de entrega](https://github.com/microsoft/do-client/blob/main/LICENSE)
 
 Leia os termos da licença antes de usar o pacote. A instalação e o uso do pacote constitui a aceitação desses termos. Se você não concorda com os termos de licença, não utilize o pacote.
 
@@ -128,9 +128,11 @@ Leia os termos da licença antes de usar o pacote. A instalação e o uso do pac
 
 ## <a name="import-update"></a>Importar atualização
 
-1. Baixe o [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-apt-manifest.json) a seguir e [importe-o](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.1-importManifest.json). Esse manifesto APT instalará a versão disponível mais recente do `libcurl4-doc package` em seu dispositivo.
+1. Vá para [Versões da Atualização de dispositivo](https://github.com/Azure/iot-hub-device-update/releases) no GitHub e clique na lista suspensa "Ativos".
 
-   Como alternativa, você pode baixar esse [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-7.58-apt-manifest.json) e [importá-lo](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-2-2.0.1-importManifest.json). Isso instalará a versão v7.58.0 específica do `libcurl4-doc package` em seu dispositivo.
+3. Baixe o `apt-update-import-samples.zip` clicando nele.
+
+5. Extraia o conteúdo da pasta para descobrir várias amostras de atualização e os manifestos de importação correspondentes. 
 
 2. No portal do Azure, selecione a opção Atualizações do Dispositivo em Gerenciamento de Dispositivo Automático na barra de navegação à esquerda no Hub IoT.
 
@@ -138,7 +140,10 @@ Leia os termos da licença antes de usar o pacote. A instalação e o uso do pac
 
 4. Selecione "+ Importar nova atualização".
 
-5. Selecione o ícone de pasta ou caixa de texto em "Selecionar um arquivo de manifesto de importação". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o Manifesto de importação que você baixou anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecionar um ou mais arquivos de atualização". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o arquivo de manifesto de importação que você baixou anteriormente.
+5. Selecione o ícone de pasta ou caixa de texto em "Selecionar um arquivo de manifesto de importação". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o manifesto de importação `sample-package-update-1.0.1-importManifest.json` na pasta baixada anteriormente. Em seguida, selecione o ícone de pasta ou caixa de texto em "Selecionar um ou mais arquivos de atualização". Uma caixa de diálogo de seletor de arquivos aparecerá. Selecione o arquivo de atualização do manifesto APT `sample-1.0.1-libcurl4-doc-apt-manifest.json` baixado anteriormente.
+Essa atualização instalará a última versão disponível do `libcurl4-doc package` em seu dispositivo.
+
+   Como alternativa, você pode selecionar o arquivo de manifesto de importação `sample-package-update-2-2.0.1-importManifest.json` e o arquivo de atualização do manifesto APT `sample-2.0.1-libcurl4-doc-7.58-apt-manifest.json` da pasta baixada anteriormente. Isso instalará a versão v7.58.0 específica do `libcurl4-doc package` em seu dispositivo.
 
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Captura de tela mostrando a seleção do arquivo de atualização." lightbox="media/import-update/select-update-files.png":::
 
@@ -213,9 +218,9 @@ Agora você concluiu com êxito uma atualização de pacote de ponta a ponta usa
 
 ## <a name="bonus-steps"></a>Etapas de bônus
 
-1. Baixe o [arquivo de manifesto apt](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/libcurl4-doc-remove-apt-manifest.json) a seguir e [importe-o](https://github.com/Azure/iot-hub-device-update/tree/main/docs/sample-artifacts/sample-package-update-1.0.2-importManifest.json). Esse manifesto APT removerá o `libcurl4-doc package` instalado no dispositivo.
-
 1. Repita as seções "Importar atualização" e "Implantar atualização"
+
+3. Durante a etapa "Importar atualização", você pode selecionar o arquivo de manifesto de importação `sample-package-update-1.0.2-importManifest.json` e o arquivo de atualização do manifesto APT `sample-1.0.2-libcurl4-doc-remove-apt-manifest.json` da pasta baixada anteriormente. Essa atualização removerá o `libcurl4-doc package` instalado no dispositivo.
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

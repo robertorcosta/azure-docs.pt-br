@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
 ms.date: 02/24/2021
-ms.openlocfilehash: 7fc964abf7e6832341ad8b1ad55711b3a9993506
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: c16123fae63b89eff57b5c91864d9a947e01b386
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101712497"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104576910"
 ---
 # <a name="tutorial-create-a-cross-region-azure-load-balancer-using-the-azure-portal"></a>Tutorial: Criar um Azure Load Balancer entre regiões usando o portal do Azure
 
@@ -41,7 +41,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 ## <a name="sign-in-to-azure-portal"></a>Entre no portal do Azure
 
-[Entre](https://preview.portal.azure.com) na Versão Prévia do Portal do Azure.
+[Entre](https://portal.azure.com) no portal do Azure.
 
 ## <a name="create-cross-region-load-balancer"></a>Criar um balanceador de carga entre regiões
 
@@ -200,9 +200,6 @@ Neste tutorial, você:
 * Criou uma regra de balanceamento de carga.
 * Testou o balanceador de carga.
 
-Para obter mais informações sobre o balanceador de carga entre regiões, confira [Balanceador de carga entre regiões (versão prévia)](cross-region-overview.md).
-
-
-Prossiga para o próximo artigo para saber como:
+Para obter mais informações sobre o balanceador de carga entre regiões, confira:
 > [!div class="nextstepaction"]
-> [VMs com balanceamento de carga entre zonas de disponibilidade](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Balanceador de carga entre regiões (versão prévia)](cross-region-overview.md)

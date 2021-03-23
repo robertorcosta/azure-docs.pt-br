@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/02/2021
 ms.author: duau
-ms.openlocfilehash: 253fce7d47d694c03d470fefdf81318a6bff77b3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e893216eb8e2d7e44e3f272f6b965b84c6253f7f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102123047"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870323"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-azure-powershell-preview"></a>Adicionar suporte a IPv6 para emparelhamento privado usando Azure PowerShell (versão prévia)
 
@@ -177,6 +177,7 @@ Embora o suporte a IPv6 esteja disponível para conexões com implantações em 
 * Conexões Alcance Global entre circuitos do ExpressRoute
 * Uso do ExpressRoute com WAN virtual
 * FastPath com circuitos diretos não ExpressRoute
+* FastPath com circuitos nos seguintes locais de emparelhamento: Dubai
 * Coexistência com o gateway de VPN
 
 ## <a name="next-steps"></a>Próximas etapas

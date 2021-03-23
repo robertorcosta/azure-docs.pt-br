@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: overview
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0d12ce74cb961148776d81b3d7cabc281bbc59fc
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 60dfd448a66ca67a241f97570c91f683323a7d6d
+ms.sourcegitcommit: ec39209c5cbef28ade0badfffe59665631611199
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664149"
+ms.lasthandoff: 03/12/2021
+ms.locfileid: "103232368"
 ---
 # <a name="device-update-for-iot-hub-preview-overview"></a>Visão geral da Atualização de Dispositivo para o Hub IoT (versão prévia)
 
@@ -23,10 +23,11 @@ Para entender os benefícios completos da transformação digital habilitada par
 
 ## <a name="support-for-a-wide-range-of-iot-devices"></a>Suporte para uma ampla gama de dispositivos IoT
 
-A Atualização de Dispositivo para o Hub IoT foi desenvolvida para oferecer implantação de atualização otimizada e operações simplificadas por meio da integração com o [Hub IOT do Azure](https://azure.microsoft.com/en-us/services/iot-hub/). Essa integração facilita a adoção da Atualização de Dispositivo em qualquer solução existente. Fornece uma solução hospedada na nuvem para conectar virtualmente qualquer dispositivo. A Atualização de Dispositivo dá suporte a uma ampla gama de sistemas operacionais de IoT, incluindo Linux e [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operacional em tempo real), além de ser extensível por meio de software livre. 
+
+A Atualização de Dispositivo para o Hub IoT foi desenvolvida para oferecer implantação de atualização otimizada e operações simplificadas por meio da integração com o [Hub IOT do Azure](https://azure.microsoft.com/en-us/services/iot-hub/). Essa integração facilita a adoção da Atualização de Dispositivo em qualquer solução existente. Fornece uma solução hospedada na nuvem para conectar virtualmente qualquer dispositivo. A Atualização de Dispositivo dá suporte a uma ampla gama de sistemas operacionais de IoT, incluindo Linux e [Azure RTOS](https://azure.microsoft.com/en-us/services/rtos/) (sistema operacional em tempo real), além de ser extensível por meio de software livre. Estamos desenvolvendo a Atualização de Dispositivo para ofertas do Hub IoT em conjunto com nossos parceiros de semicondutor, incluindo a STMicroelectronics, a NXP, a Renesas e a Microchip. Confira os [exemplos](https://github.com/azure-rtos/samples/tree/PublicPreview/ADU) dos principais quadros de avaliação de semicondutores, que incluem os guias de introdução para saber como configurar, criar e implantar as atualizações OTA (over-the-air) para dispositivos da classe MCU. 
 
 Um binário do Simulador de Agente da Atualização de dispositivo e as imagens Yocto de referência do Raspberry Pi são fornecidos.
-A Atualização de Dispositivo para o Hub IoT também dá suporte à Atualização de Dispositivos Azure IoT Edge. Um Agente de Atualização de Dispositivo é fornecido para a plataforma Ubuntu Server 18.04 AMD64. A Atualização de Dispositivo para o Hub IoT também fornece código aberto, se você não estiver executando uma das plataformas acima. Isso permite portar o agente para a distribuição que você está executando.
+A Atualização de Dispositivo para o Hub IoT também dá suporte à Atualização de Dispositivos Azure IoT Edge. Um Agente de Atualização de Dispositivo é fornecido para a plataforma Ubuntu Server 18.04 AMD64. A Atualização de Dispositivo para o Hub IoT também fornece código aberto, se você não estiver executando uma das plataformas acima. Você pode portar o agente para a distribuição que está executando.
 
 A Atualização de Dispositivo funciona com o IoT Plug and Play e pode gerenciar qualquer dispositivo que dê suporte às interfaces PnP necessárias. Para obter mais informações, confira [Atualização de Dispositivo para o Hub IoT e IoT Plug and Play](device-update-plug-and-play.md).
 
@@ -36,7 +37,7 @@ A Atualização de Dispositivo para o Hub IoT é compatível com duas formas de 
 
 As atualizações baseadas em pacote são atualizações de destino que alteram apenas um componente ou aplicativo específico no dispositivo. Isso leva a um menor consumo de largura de banda e ajuda a reduzir o tempo para baixar e instalar a atualização. As atualizações de pacote geralmente permitem menos tempo de inatividade dos dispositivos ao aplicar uma atualização e evita a sobrecarga de criação de imagens.
 
-As atualizações de imagem fornecem um nível mais alto de confiança no estado final do dispositivo. Normalmente, é mais fácil replicar os resultados de uma atualização de imagem entre um ambiente de pré-produção e um ambiente de produção, já que não apresenta os mesmos desafios que os pacotes e suas dependências.
+As atualizações de imagem fornecem um nível mais alto de confiança no estado final do dispositivo. Normalmente, é mais fácil replicar os resultados de uma atualização de imagem entre um ambiente de pré-produção e um ambiente de produção, já que não são apresentados os mesmos desafios que os pacotes e suas dependências.
 Devido à natureza atômica, também é possível adotar facilmente um modelo de failover A/B.
 
 Não há resposta correta e você pode escolher de maneira diferente com base nos casos de uso específicos. A Atualização de Dispositivo para o Hub IoT dá suporte à forma de atualização de imagem e pacote, permitindo que você escolha o modelo de atualização correto para o ambiente do dispositivo.
@@ -79,7 +80,7 @@ Quando um comando de atualização é recebido em um dispositivo, ele executa a 
 
 ### <a name="importing"></a>Importação
 
-A importação é a capacidade de importar a atualização para a Atualização de Dispositivo. A Atualização de Dispositivo dá suporte à distribuição de uma única atualização por dispositivo. Isso a torna ideal para atualizações de imagem completa que atualizam uma partição de sistema operacional inteira de uma vez ou um Manifesto de apt que descreve todos os pacotes que você deseja atualizar no dispositivo. Para importar atualizações para a Atualização de Dispositivo, primeiro crie um manifesto de importação que descreva a atualização e, em seguida, carregue os arquivos de atualização e o manifesto de importação em um local acessível pela Internet. Depois disso, você pode usar o portal do Azure ou a API REST de importação de Atualização de Dispositivo para iniciar o processo assíncrono de importação de atualização. A Atualização de Dispositivo carrega, processa e disponibiliza os arquivos para distribuição para os dispositivos IoT.
+A importação é como as atualizações são ingeridas na Atualização de Dispositivo para que possam ser implantadas em dispositivos. A Atualização de Dispositivo dá suporte à distribuição de uma única atualização por dispositivo. Isso a torna ideal para atualizações de imagem completa que atualizam uma partição de sistema operacional inteira de uma vez ou um Manifesto de apt que descreve todos os pacotes que você deseja atualizar no dispositivo. Para importar atualizações para a Atualização de Dispositivo, primeiro crie um manifesto de importação que descreva a atualização e, em seguida, carregue os arquivos de atualização e o manifesto de importação em um local acessível pela Internet. Depois disso, você pode usar o portal do Azure ou a [API REST de Importação da Atualização de Dispositivo](https://github.com/Azure/iot-hub-device-update/tree/main/docs/publish-api-reference) para iniciar o processo assíncrono de importação de atualização. A Atualização de Dispositivo carrega, processa e disponibiliza os arquivos para distribuição para os dispositivos IoT.
 
 Para conteúdo confidencial, proteja o download usando uma SAS (assinatura de acesso compartilhado), como uma SAS ad hoc para o Armazenamento de Blobs do Azure. [Saiba mais sobre a SAS](https://docs.microsoft.com/azure/storage/common/storage-sas-overview)
 

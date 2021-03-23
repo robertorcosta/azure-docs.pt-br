@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 11/29/2019
-ms.openlocfilehash: c2fce6d4ee95a56cc087d50184fcd69ac113620f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 633f01d813fe4e6c56d88052cbc7440c43f350dc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98940851"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870493"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>Use MirrorMaker para replicar tópicos do Apache Kafka com Kafka no HDInsight
 
@@ -34,7 +34,7 @@ A configuração de espelhamento mais útil para a recuperação de desastre uti
 
 O seguinte diagrama ilustra o processo de espelhamento e como a comunicação flui entre os clusters:
 
-![Diagrama do processo de espelhamento](./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png)
+:::image type="content" source="./media/apache-kafka-mirroring/kafka-mirroring-vnets2.png" alt-text="Diagrama do processo de espelhamento" border="false":::
 
 Os clusters primário e secundário podem ser diferentes no número de nós e partições, e os deslocamentos nos tópicos também são diferentes. O espelhamento mantém o valor de chave que é usado para particionamento. Assim, a ordem de registros é preservada por chave.
 
@@ -84,14 +84,14 @@ Essa arquitetura apresenta dois clusters em diferentes grupos de recursos e rede
     1. Selecione **Adicionar**.
     1. Na tela **Adicionar emparelhamento** , insira os detalhes, conforme mostrado na captura abaixo.
 
-        ![Adicionar emparelhamento vnet Kafka do HDInsight](./media/apache-kafka-mirroring/hdi-add-vnet-peering.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Adicionar emparelhamento vnet Kafka do HDInsight" border="true":::
 
 ### <a name="configure-ip-advertising"></a>Configurar publicidade de IP
 
 Configure o anúncio de IP para permitir que um cliente se conecte usando endereços IP do agente em vez de nomes de domínio.
 
 1. Vá para o painel do Ambari para o cluster primário: `https://PRIMARYCLUSTERNAME.azurehdinsight.net` .
-1. Selecione **Serviços**  >  **Kafka**. CliSelectck a guia **configurações** .
+1. Selecione **Serviços**  >  **Kafka**. Selecione a guia **configurações** .
 1. Adicione as seguintes linhas de configuração à seção de **modelo Kafka-env** inferior. Clique em **Salvar**.
 
     ```
@@ -107,7 +107,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 1. Selecione **OK** em **salvar alterações de configuração**.
 1. Selecione **reiniciar**  >  **reiniciar todos os afetados** na notificação **reinicialização necessária** . Selecione **confirmar reiniciar tudo**.
 
-    ![O Apache Ambari reinicia todos os afetados](./media/apache-kafka-mirroring/ambari-restart-notification.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/ambari-restart-notification.png" alt-text="O Apache Ambari reinicia todos os afetados" border="true":::
 
 ### <a name="configure-kafka-to-listen-on-all-network-interfaces"></a>Configure o Kafka para escutar em todas as interfaces de rede.
     
@@ -120,7 +120,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
 1. Selecione **hosts** no painel do Ambari.
 1. Anote os endereços IP para os agentes e zookeepers. Os nós do agente têm o **WN** como as duas primeiras letras do nome do host e os nós Zookeeper têm **ZK** como as duas primeiras letras do nome do host.
 
-    ![Endereços IP do nó de exibição do Apache Ambari](./media/apache-kafka-mirroring/view-node-ip-addresses2.png)
+    :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Endereços IP do nó de exibição do Apache Ambari" border="true":::
 
 1. Repita as três etapas anteriores para o segundo cluster **Kafka-Secondary-cluster**: Configure o anúncio de IP, defina os ouvintes e anote os endereços IP do agente e do Zookeeper.
 
@@ -256,7 +256,7 @@ Configure o anúncio de IP para permitir que um cliente se conecte usando endere
         1. Altere o valor de `auto.create.topics.enable` para true e, em seguida, selecione __Salvar__. Adicione uma observação e, em seguida, selecione __salvar__ novamente.
         1. Selecione o serviço __Kafka__ , selecione __reiniciar__ e, em seguida, selecione __reiniciar todos os afetados__. Quando solicitado, selecione __confirmar reiniciar tudo__.
 
-        ![Kafka habilitar tópicos de criação automática](./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png)
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="Kafka habilitar tópicos de criação automática" border="true":::
 
 ## <a name="start-mirrormaker"></a>Iniciar MirrorMaker
 

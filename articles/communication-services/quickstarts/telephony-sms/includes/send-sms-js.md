@@ -2,20 +2,20 @@
 title: incluir arquivo
 description: incluir arquivo
 services: azure-communication-services
-author: dademath
-manager: nimag
+author: bertong
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
-ms.openlocfilehash: ad8266d936c272ee2f6bad254738622c3f81bf03
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.author: bertong
+ms.openlocfilehash: 0d142c477e1de2a2a34a8abfd948800cc0b607ee
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91757101"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622344"
 ---
 Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de SMS JavaScript dos Serviços de Comunicação para enviar mensagens SMS.
 
@@ -72,8 +72,9 @@ As classes e as interfaces a seguir lidam com alguns dos principais recursos da 
 | Name                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | SmsClient | Essa classe é necessária para toda a funcionalidade de SMS. Crie uma instância dela com suas informações de assinatura e use-a para enviar mensagens SMS. |
-| SendSmsOptions | Essa interface fornece opções para configurar o relatório de entrega. Se `enable_delivery_report` for definido como `true`, um evento será emitido quando a entrega for bem-sucedida. |
-| SendMessageRequest | Essa interface é o modelo para a criação da solicitação de SMS (por exemplo, configurar os números de telefone de envio e de destino e o conteúdo do SMS). |
+| SmsSendResult               | Essa classe contém o resultado do serviço de SMS.                                          |
+| SmsSendOptions | Essa interface fornece opções para configurar o relatório de entrega. Se `enableDeliveryReport` for definido como `true`, um evento será emitido quando a entrega for bem-sucedida. |
+| SmsSendRequest | Essa interface é o modelo para a criação da solicitação de SMS (por exemplo, configurar os números de telefone de envio e de destino e o conteúdo do SMS). |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -92,27 +93,66 @@ const connectionString = process.env['COMMUNICATION_SERVICES_CONNECTION_STRING']
 const smsClient = new SmsClient(connectionString);
 ```
 
-## <a name="send-an-sms-message"></a>Enviar uma mensagem SMS
+## <a name="send-a-1n-sms-message"></a>Enviar uma mensagem SMS 1:N
 
-Envie uma mensagem SMS chamando o método `send`. Adicione esse código ao final de **send-sms.js**:
+Para enviar uma mensagem SMS para uma lista de destinatários, chame a função `send` no SmsClient com uma lista de números de telefone de destinatários (se você quiser enviar uma mensagem para um só destinatário, inclua apenas um número na lista). Adicione esse código ao final de **send-sms.js**:
 
 ```javascript
 async function main() {
-  await smsClient.send({
-    from: "<leased-phone-number>",
-    to: ["<to-phone-number>"],
-    message: "Hello World 👋🏻 via Sms"
-  }, {
-    enableDeliveryReport: true //Optional parameter
+  const sendResults = await smsClient.send({
+    from: "<from-phone-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Hello World 👋🏻 via SMS"
   });
+
+  // individual messages can encounter errors during sending
+  // use the "successful" property to verify
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success: ", sendResult);
+    } else {
+      console.error("Something went wrong when trying to send this message: ", sendResult);
+    }
+  }
+}
+
+main();
+```
+Você deve substituir `<from-phone-number>` pelo número de telefone habilitado para SMS associado ao seu recurso dos Serviços de Comunicação e `<to-phone-number>` pelo número de telefone para o qual você deseja enviar uma mensagem.
+
+## <a name="send-a-1n-sms-message-with-options"></a>Enviar uma mensagem SMS 1:N com opções
+
+Você também pode transmitir um objeto de opções para especificar se o relatório de entrega deve ser habilitado e para definir marcas personalizadas.
+
+```javascript
+
+async function main() {
+  await smsClient.send({
+    from: "<from-phone-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Weekly Promotion!"
+  }, {
+    //Optional parameter
+    enableDeliveryReport: true,
+    tag: "marketing"
+  });
+
+  // individual messages can encounter errors during sending
+  // use the "successful" property to verify
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success: ", sendResult);
+    } else {
+      console.error("Something went wrong when trying to send this message: ", sendResult);
+    }
+  }
 }
 
 main();
 ```
 
-Você deve substituir `<leased-phone-number>` pelo número de telefone habilitado para SMS associado ao seu recurso dos Serviços de Comunicação e `<to-phone-number>` pelo número de telefone para o qual você deseja enviar uma mensagem.
-
 O parâmetro `enableDeliveryReport` é um parâmetro opcional que você pode usar para configurar o Relatório de Entrega. Isso é útil para cenários em que você deseja emitir eventos quando mensagens SMS são entregues. Confira o guia de início rápido [Manipular eventos de SMS](../handle-sms-events.md) para configurar o Relatório de Entrega das suas mensagens SMS.
+`tag` é um parâmetro opcional que pode ser usado para aplicar uma marca ao relatório de entrega.
 
 ## <a name="run-the-code"></a>Executar o código
 

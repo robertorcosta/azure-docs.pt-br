@@ -7,12 +7,12 @@ ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
 ms.service: azure
-ms.openlocfilehash: 7b609fec2a47dc0685b30dac12f43263127f70ef
-ms.sourcegitcommit: 27d616319a4f57eb8188d1b9d9d793a14baadbc3
+ms.openlocfilehash: 4b5db049e6d1cfe76bdd0d5cd6d7360e0b98bad0
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/15/2021
-ms.locfileid: "100523202"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103489804"
 ---
 # <a name="system-prerequisites"></a>Pré-requisitos do sistema
 Este artigo lista os pré-requisitos do sistema para executar o Azure Defender para IoT.
@@ -23,7 +23,7 @@ Este artigo lista os pré-requisitos do sistema para executar o Azure Defender p
 - Dispositivos de hardware para sensores NTA.
 - A função Colaborador da assinatura do Azure. Ela é necessária apenas durante a integração para definir os dispositivos confirmados e a conexão com o Azure Sentinel.
 - Função **Colaborador** do Hub IoT do Azure (camada Gratuita ou Standard), para gerenciamento conectado à nuvem. Verifique se o recurso **Azure Defender para IoT** está habilitado.
-- Para obter suporte ao módulo de segurança no nível do dispositivo, os agentes do Defender para IoT dão suporte a uma lista crescente de dispositivos e plataformas. Confira a [lista de plataformas com suporte](how-to-deploy-agent.md).
+- Para obter suporte do microagente do Defender para IoT no nível do dispositivo, os agentes do Defender para IoT dão suporte a uma lista crescente de dispositivos e plataformas. Confira a [lista de plataformas com suporte](how-to-deploy-agent.md).
 
 ## <a name="supported-service-regions"></a>Regiões de serviço com suporte
 
@@ -31,7 +31,7 @@ O Defender para IoT roteia todo o tráfego de todas as regiões europeias para o
 
 Para obter mais informações, confira [Regiões do hub IoT com suporte](https://azure.microsoft.com/global-infrastructure/services/?products=iot-hub).
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="see-also"></a>Consulte também
 
-[Identificar os dispositivos necessários](how-to-identify-required-appliances.md)
-[Sobre a configuração de rede do Azure Defender para IoT](how-to-set-up-your-network.md)
+- [Identificar os dispositivos necessários](how-to-identify-required-appliances.md)
+- [Sobre a configuração de rede do Azure Defender para IoT](how-to-set-up-your-network.md)

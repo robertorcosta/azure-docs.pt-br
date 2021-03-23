@@ -2,65 +2,98 @@
 title: Tutorial – Emparelhar ambientes locais com uma nuvem privada
 description: Saiba como criar um emparelhamento de Alcance Global do ExpressRoute com uma nuvem privada em uma Solução VMware no Azure.
 ms.topic: tutorial
-ms.date: 01/27/2021
-ms.openlocfilehash: 04be94849f1cd78ff915ca271845b283c8cfc64c
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.date: 03/17/2021
+ms.openlocfilehash: ae92bf89a08c5fade8757e3ee596c4ed4a5e6389
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100558828"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103494133"
 ---
 # <a name="tutorial-peer-on-premises-environments-to-a-private-cloud"></a>Tutorial: Emparelhar ambientes locais com uma nuvem privada
 
 O Alcance Global do ExpressRoute conecta seu ambiente local à nuvem privada da Solução VMware no Azure. A conexão de Alcance Global do ExpressRoute é estabelecida entre um circuito do ExpressRoute de nuvem privada e uma conexão existente do ExpressRoute para os ambientes locais. 
 
+O circuito do ExpressRoute que você usa ao [configurar a rede para sua nuvem privada do VMware no Azure](tutorial-configure-networking.md) exige que você crie e use chaves de autorização.  Você já usou uma chave de autorização do circuito do ExpressRoute e, neste tutorial, criará uma segunda chave de autorização para emparelhar com o circuito do ExpressRoute local.
+
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Usar o portal do Azure para habilitar o emparelhamento de Alcance Global do ExpressRoute do local para a nuvem privada.
+> * Criar uma segunda chave de autorização para o _circuito 2_, o circuito do ExpressRoute na nuvem privada.
+> * Usar o portal do Azure ou a CLI do Azure em um método do Cloud Shell na assinatura do _circuito 1_ para habilitar o emparelhamento do Alcance Global do ExpressRoute entre o local e a nuvem privada.
 
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 Antes de habilitar a conectividade entre dois circuitos do ExpressRoute usando o Alcance Global do ExpressRoute, examine a documentação sobre como [habilitar a conectividade em diferentes assinaturas do Azure](../expressroute/expressroute-howto-set-global-reach-cli.md#enable-connectivity-between-expressroute-circuits-in-different-azure-subscriptions).  
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Um circuito do ExpressRoute em funcionamento e separado, usado para conectar ambientes locais ao Azure.
+- Estabelecer a conectividade entre a nuvem privada da Solução VMware no Azure e o circuito do ExpressRoute emparelhado com o gateway do ExpressRoute em uma rede virtual do Azure (VNet) – o circuito 2 dos procedimentos de emparelhamento.
+- Um circuito do ExpressRoute em funcionamento e separado, usado para conectar ambientes locais ao Azure – esse é o circuito 1 da perspectiva dos procedimentos de emparelhamento.
+- [Bloco de endereço de rede](../expressroute/expressroute-routing.md#ip-addresses-used-for-peerings) A/29 não sobreposto para o emparelhamento de Alcance Global do ExpressRoute.
 - Verifique se todos os gateways, incluindo o serviço do provedor de ExpressRoute, dão suporte ao ASN (número do sistema autônomo) de 4 bytes. A Solução VMware no Azure usa ASNs públicos de 4 bytes para anunciar rotas.
 
+>[!IMPORTANT]
+>No contexto desses pré-requisitos, o circuito do ExpressRoute local é o _circuito 1_ e o circuito do ExpressRoute na nuvem privada está em uma assinatura diferente rotulada como _circuito 2_.
 
-## <a name="create-an-expressroute-authorization-key-in-the-on-premises-expressroute-circuit"></a>Criar uma chave de autorização do ExpressRoute no circuito local do ExpressRoute
+## <a name="create-an-expressroute-authorization-key-in-the-on-premises-circuit"></a>Criar uma chave de autorização do ExpressRoute no circuito local
 
-1. Na folha **Circuitos do ExpressRoute**, em Configurações, selecione **Autorizações**.
-
-2. Insira o nome da chave de autorização e selecione **Salvar**.
-
-    :::image type="content" source="media/expressroute-global-reach/start-request-auth-key-on-premises-expressroute.png" alt-text="Selecionar Autorizações e inserir o nome da chave de autorização.":::
-  
-     Depois de criada, a chave será exibida na lista de chaves de autorização do circuito.
+[!INCLUDE [request-authorization-key](includes/request-authorization-key.md)]
  
- 4. Anote a chave de autorização e a ID do ExpressRoute. Você os usará na próxima etapa para concluir o emparelhamento.
+## <a name="peer-private-cloud-to-on-premises-with-authorization-key"></a>Emparelhar a nuvem privada com o local com a chave de autorização
+Agora que você criou uma chave de autorização para o circuito do ExpressRoute da nuvem privada, poderá emparelhá-lo com o circuito do ExpressRoute local. O emparelhamento é feito da perspectiva do circuito do ExpressRoute local no **portal do Azure** ou na **CLI do Azure em um Cloud Shell**. Nos dois métodos, você usará a ID do recurso e a chave de autorização do circuito do ExpressRoute na nuvem privada para concluir o emparelhamento.
+
+### <a name="portal"></a>[Portal](#tab/azure-portal)
  
- 
- ## <a name="peer-private-cloud-to-on-premises"></a>Emparelhar uma nuvem privada com o ambiente local
+1. Entre no [portal do Azure](https://portal.azure.com) usando a mesma assinatura do circuito do ExpressRoute local.
 
-1. Na **Visão geral** da nuvem privada, em "Gerenciar", selecione **Conectividade > Alcance Global do ExpressRoute > Adicionar**.
+1. Na **Visão geral** da nuvem privada, em Gerenciar, selecione **Conectividade** > **Alcance Global do ExpressRoute** > **Adicionar**.
 
-    :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="No menu, selecione &quot;Conectividade&quot;, a guia &quot;Alcance Global do ExpressRoute&quot; e &quot;Adicionar&quot;.":::
+    :::image type="content" source="./media/expressroute-global-reach/expressroute-global-reach-tab.png" alt-text="Captura de tela mostrando a guia do Alcance Global do ExpressRoute na nuvem privada da Solução VMware no Azure.":::
 
-2. Insira a ID do ExpressRoute e a chave de autorização criada na seção anterior.
+1. Crie uma conexão de nuvem local. Execute uma das seguintes ações e selecione **Criar**:
 
-    :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Inserir a ID do ExpressRoute e a chave de autorização e selecionar Criar.":::
+   - Selecione o **circuito do ExpressRoute** na lista ou
+   - Se já tiver a ID do circuito, cole-a no campo e forneça a chave de autorização.
 
-3. Selecione **Criar**. A nova conexão é mostrada na lista conexões de nuvem locais.  
+   :::image type="content" source="./media/expressroute-global-reach/on-premises-cloud-connections.png" alt-text="Inserir a ID do ExpressRoute e a chave de autorização e selecionar Criar.":::   
+   
+   A nova conexão é mostrada na lista conexões de nuvem locais.
 
 >[!TIP]
 >Você pode excluir ou desconectar uma conexão da lista selecionando **Mais**.  
 >
 > :::image type="content" source="./media/expressroute-global-reach/on-premises-connection-disconnect.png" alt-text="Desconectar ou excluir uma conexão local":::
 
+### <a name="azure-cli"></a>[CLI do Azure](#tab/azure-cli)
+
+Ampliamos os [comandos da CLI](../expressroute/expressroute-howto-set-global-reach-cli.md) com detalhes e exemplos específicos para ajudar você a configurar o emparelhamento do Alcance Global do ExpressRoute entre ambientes locais e uma nuvem privada da Solução VMware no Azure.
+
+>[!TIP]
+>Para ser breve quanto à saída do comando da CLI do Azure, essas instruções podem usar um [argumento `–query`](https://docs.microsoft.com/cli/azure/query-azure-cli) para executar uma consulta JMESPath e mostrar apenas os resultados necessários.
+
+1. Entre no [portal do Azure](https://portal.azure.com) usando a mesma assinatura do circuito do ExpressRoute local. 
+
+1. Abra um Cloud Shell e deixe o shell como Bash.
+
+   :::image type="content" source="media/expressroute-global-reach/azure-portal-cloud-shell.png" alt-text="Captura de tela mostrando o Cloud Shell no portal do Azure.":::
+
+1. Crie o emparelhamento no circuito 1, passando a ID do recurso e a chave de autorização do circuito 2. 
+
+   ```azurecli-interactive
+   az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
+   ```
+
+   :::image type="content" source="media/expressroute-global-reach/azure-command-with-results.png" alt-text="Captura de tela mostrando o comando e os resultados de um emparelhamento bem-sucedido entre o circuito 1 e o circuito 2.":::
+
+Você pode se conectar dos ambientes locais à sua nuvem privada por meio do emparelhamento de Alcance Global do ExpressRoute.
+
+>[!TIP]
+>Você pode excluir o emparelhamento seguindo as instruções em [Desabilitar a conectividade entre suas redes locais](../expressroute/expressroute-howto-set-global-reach-cli.md#disable-connectivity-between-your-on-premises-networks).
+
+
+---
 
 ## <a name="next-steps"></a>Próximas etapas
 
