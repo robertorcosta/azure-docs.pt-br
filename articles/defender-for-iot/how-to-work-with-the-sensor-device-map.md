@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com o mapa do dispositivo do sensor
 description: O mapa do dispositivo fornece uma representação gráfica dos dispositivos de rede detectados. Use o mapa para analisar e gerenciar informações de dispositivo, fatias de rede e gerar relatórios.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/7/2021
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: edd1438a665e4917d5dd4cdcfba08d9cee01d3bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f7579cbca618baef404236556993c9831dd84bdf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523831"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784587"
 ---
 # <a name="investigate-sensor-detections-in-the-device-map"></a>Investigar as detecções do sensor no mapa do dispositivo
 
@@ -607,7 +603,7 @@ Para mesclar dispositivos:
 
    :::image type="content" source="media/how-to-work-with-maps/name-the-device-v2.png" alt-text="caixa de diálogo atributos":::
 
-4. Clique em **Salvar**.
+4. Selecione **Salvar**.
 
 ### <a name="authorize-and-unauthorize-devices"></a>Autorizar e desautorizar dispositivos
 

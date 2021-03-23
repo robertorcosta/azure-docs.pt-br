@@ -1,19 +1,14 @@
 ---
 title: Integração do Palo Alto
-titleSuffix: Azure Defender for IoT
 description: O defender para IoT integrou sua plataforma contínua de monitoramento de ameaças do ICS aos firewalls de última geração do Palo Alto para permitir o bloqueio de ameaças críticas, de forma mais rápida e eficiente.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: 85a7622223861f857ce75b8136b509ba279f3d96
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 49c00f9ad7cc1980a8690e35ed19351e20417c6a
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98557278"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783924"
 ---
 # <a name="about-the-palo-alto-integration"></a>Sobre a integração do Palo Alto
 

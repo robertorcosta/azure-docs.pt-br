@@ -4,14 +4,14 @@ description: Explica como definir configurações adicionais para o cache, como 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/17/2021
 ms.author: v-erkel
-ms.openlocfilehash: 06feefe3a934d1ee02793fab442852e5ef40899a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6e1e1283cb82dcb900da6473de65ef087a5cea82
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563365"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773225"
 ---
 # <a name="configure-additional-azure-hpc-cache-settings"></a>Definir configurações adicionais de cache do HPC do Azure
 
@@ -75,6 +75,8 @@ Se você precisar definir um servidor DNS personalizado para seu cache, use os c
   > [!NOTE]
   > The cache will use only the first DNS server it successfully finds. -->
 
+Considere usar um cache de teste para verificar e refinar a configuração do DNS antes de usá-lo em um ambiente de produção.
+
 ### <a name="refresh-storage-target-dns"></a>Atualizar DNS de destino de armazenamento
 
 Se o servidor DNS atualizar endereços IP, os destinos de armazenamento NFS associados ficarão temporariamente indisponíveis. Leia como atualizar os endereços IP do sistema DNS personalizados em [Editar destinos de armazenamento](hpc-cache-edit-storage.md#update-ip-address-custom-dns-configurations-only).
@@ -94,10 +96,10 @@ Esse recurso está disponível somente para destinos do armazenamento de BLOBs d
 
 Os instantâneos são feitos a cada oito horas, em UTC 0:00, 08:00 e 16:00.
 
-O cache HPC do Azure armazena instantâneos diários, semanais e mensais até que sejam substituídos por novos. Os limites são:
+O cache HPC do Azure armazena instantâneos diários, semanais e mensais até que sejam substituídos por novos. Os limites de retenção de instantâneo são:
 
 * Até 20 instantâneos diários
 * Até 8 instantâneos semanais
 * Até 3 instantâneos mensais
 
-Acesse os instantâneos do `.snapshot` diretório no namespace do destino do armazenamento de BLOBs.
+Acesse os instantâneos do `.snapshot` diretório na raiz do seu destino de armazenamento de BLOBs montado.

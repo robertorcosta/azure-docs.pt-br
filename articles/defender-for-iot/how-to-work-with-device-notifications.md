@@ -1,18 +1,14 @@
 ---
 title: Trabalhar com notificações de dispositivos
 description: As notificações fornecem informações sobre a atividade de rede que podem exigir sua atenção, juntamente com recomendações para lidar com essa atividade.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/12/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: cac8d609272be1d9f34b7e0d6404e0a0ea524df7
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0c2fc5a4c01a8a31512cd43c340bf3fadc259b1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523559"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781323"
 ---
 # <a name="work-with-device-notifications"></a>Trabalhar com notificações de dispositivos
 
@@ -24,11 +20,7 @@ As notificações fornecem informações sobre a atividade de rede que podem exi
 
 Responder às notificações melhora as informações fornecidas no mapa do dispositivo, inventário de dispositivos e consultas e relatórios de mineração de dados. Ele também fornece informações sobre alterações de rede legítimas e possíveis configurações incorretas de rede.
 
-Para acessar as notificações:
-
-- Selecione **configurações do sistema** e, em seguida, selecione **aprimoramento de dados**.
-
-## <a name="notifications-vs-alerts"></a>Notificações vs. alertas
+**Notificações vs. alertas**
 
 Além de receber notificações sobre a atividade de rede, você pode receber *alertas*. As notificações fornecem informações sobre alterações de rede ou propriedades de dispositivo não resolvidas que não apresentam uma ameaça. Os alertas fornecem informações sobre os desvios de rede e as alterações que podem apresentar uma ameaça à rede.
 
@@ -85,18 +77,6 @@ Para exibir notificações e manipular notificações:
 2. Instrua o sensor a aplicar informações recém detectadas a dispositivos selecionados selecionando **aprender**. Ou instrua o sensor a ignorar informações recém detectadas selecionando **ignorar**. O número de notificações que você pode aprender e ignorar simultaneamente, juntamente com o número de notificações que você deve tratar individualmente, é mostrado.
 
 **Novos IPS** e **nenhuma sub-rede** configurada eventos não podem ser tratados simultaneamente. Eles exigem confirmação manual.
-
-## <a name="improve-device-os-classification-data-enhancement"></a>Melhorar a classificação do so do dispositivo: aprimoramento de dados 
-
-O sensor autodetecta continuamente novos dispositivos de OT. Ele também detecta alterações automáticas em dispositivos descobertos anteriormente, incluindo tipos de sistema operacional.
-
-Em determinadas circunstâncias, os conflitos podem ser detectados em sistemas operacionais descobertos. Isso pode acontecer porque você tem uma versão do sistema operacional que se refere a sistemas de desktop ou de servidor. Se isso acontecer, você receberá uma notificação com as classificações opcionais do sistema operacional.
-
-:::image type="content" source="media/how-to-enrich-asset-information/enhance-data-screen.png" alt-text="Aprimore os dados.":::
-
-Investigue as recomendações para enriquecer a classificação do sistema operacional. Essas informações são exibidas no inventário do dispositivo, nos relatórios de mineração de dados e em outros monitores. Ele também pode melhorar a precisão de alertas, ameaças e análise de riscos.
-
-Quando você aceitar uma recomendação, as informações do tipo de sistema operacional serão atualizadas no sensor.
 
 ## <a name="see-also"></a>Veja também
 

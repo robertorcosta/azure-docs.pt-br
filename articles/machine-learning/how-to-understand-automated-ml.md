@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 12/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy21q2, automl
-ms.openlocfilehash: 6d8c56bc306a7ab0bf118d04f64d6523fc385cdd
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b60e5f656b675a1382b8b4776975723a437183bc
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102520771"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773106"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Avaliar os resultados do experimento do Machine Learning automatizado
 
@@ -91,6 +91,8 @@ weighted_accuracy|A precisão ponderada é a precisão em que cada amostra é po
 O ML automatizado não diferencia entre métricas binárias e multiclasse. As mesmas métricas de validação são relatadas se um conjunto de dado tem duas classes ou mais de duas classes. No entanto, algumas métricas são destinadas à classificação multiclasse. Quando aplicado a um DataSet binário, essas métricas não tratarão nenhuma classe como a `true` classe, como você pode esperar. As métricas que são claramente destinadas a multiclasse são sufixadas com `micro` , `macro` ou `weighted` . Os exemplos incluem,,, `average_precision_score` `f1_score` `precision_score` `recall_score` e `AUC` .
 
 Por exemplo, em vez de calcular a RECALL como `tp / (tp + fn)` , a média de recalls de várias classes ( `micro` , `macro` ou `weighted` ) é calculada em ambas as classes de um conjunto de uma classificação binária. Isso é equivalente a calcular a recall para a `true` classe e a `false` classe separadamente e, em seguida, pegar a média dos dois.
+
+O ML automatizado não calcula métricas binárias, que são métricas para conjuntos de valores de classificação binária. No entanto, essas métricas podem ser calculadas manualmente usando a [matriz de confusão](#confusion-matrix) que o ml automatizado gerou para essa execução específica. Por exemplo, você pode calcular a precisão, `tp / (tp + fp)` , com os valores verdadeiros positivos e falsos positivos mostrados em um gráfico de matriz de confusão 2x2.
 
 ## <a name="confusion-matrix"></a>Matriz de confusão
 

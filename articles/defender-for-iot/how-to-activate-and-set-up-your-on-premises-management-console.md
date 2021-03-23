@@ -1,18 +1,14 @@
 ---
 title: Ativar e configurar seu console de gerenciamento local
 description: Ativar o console de gerenciamento garante que os sensores sejam registrados no Azure e enviem informações para o console de gerenciamento local e que o console de gerenciamento local Execute tarefas de gerenciamento em sensores conectados.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 3/18/2021
 ms.topic: how-to
-ms.service: defender-for-iot
-ms.openlocfilehash: f659b25abbbad5f2150ed44766d30dc1f64dd3bb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 89ce6da3521248ff7373e23ae8831106cbee74de
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602718"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784621"
 ---
 # <a name="activate-and-set-up-your-on-premises-management-console"></a>Ativar e configurar seu console de gerenciamento local 
 
@@ -163,7 +159,7 @@ Para dar suporte a esse ambiente, você precisa criar uma topologia de negócios
 
 Os grupos de acesso permitem um melhor controle sobre onde os usuários gerenciam e analisam dispositivos na plataforma defender para IoT.
 
-### <a name="how-it-works"></a>Como ele funciona
+### <a name="how-it-works"></a>Como isso funciona
 
 Para cada site, você pode definir uma unidade de negócios e uma região. Em seguida, você pode adicionar zonas, que são entidades lógicas em sua rede. 
 
@@ -324,6 +320,6 @@ Para cancelar a atribuição e excluir um sensor:
 
 3. Para excluir o sensor não atribuído do site, selecione o sensor na lista de sensores não atribuídos e selecione :::image type="icon" source="media/how-to-activate-and-set-up-your-on-premises-management-console/delete-icon.png" border="false"::: .
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Veja também
 
 [Solucionar problemas do sensor e do console de gerenciamento local](how-to-troubleshoot-the-sensor-and-on-premises-management-console.md)

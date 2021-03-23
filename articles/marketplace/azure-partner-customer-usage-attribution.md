@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: cpercy737
 ms.author: camper
-ms.date: 03/09/2021
+ms.date: 03/19/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 8f84d77b5a424d5f7273c7e748c35c52882819c6
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 79f3276347aa64655f0c9086db5f152c4ff5fbcf
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608386"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771083"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribuição de uso do cliente do Azure
 
@@ -30,7 +30,7 @@ Há casos de uso secundários para atribuição de uso do cliente fora do Market
 >[!IMPORTANT]
 >- A atribuição de uso do cliente não se destina a acompanhar o trabalho de integradores de sistemas, provedores de serviços gerenciados ou ferramentas projetadas principalmente para implantar e gerenciar recursos do Azure.
 >- A atribuição de uso do cliente destina-se a novas implantações e não oferece suporte a recursos de acompanhamento que já foram implantados.
->- Nem todos os serviços do Azure são compatíveis com a atribuição de uso do cliente. Os AKS (serviços Kubernetess do Azure) e os conjuntos de dimensionamento de VM têm problemas conhecidos que causam a geração de relatórios de uso.
+>- Nem todos os serviços do Azure são compatíveis com a atribuição de uso do cliente. Os AKS (serviços Kubernetess do Azure), os conjuntos de dimensionamento de VM e o lote do Azure têm problemas conhecidos que causam a geração de relatórios de uso.
 
 ## <a name="commercial-marketplace-azure-apps"></a>Aplicativos do Azure no Marketplace comercial
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e61d2ff3807b65022d72414615af9fa729359358
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: df826a682eec15d09b60857e63c363b0f9941c01
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715710"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779929"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gerenciar pontos de extremidade e rotas no gêmeos digital do Azure (Portal)
 
@@ -151,6 +151,9 @@ Você pode restringir os tipos de eventos que estão sendo enviados definindo um
 Para adicionar um filtro de eventos durante a criação de uma rota de eventos, use a seção _Adicionar um filtro de rota de eventos_ da página *criar uma rota de eventos* . 
 
 Você pode selecionar entre algumas opções básicas de filtro comum ou usar as opções de filtro avançado para escrever seus próprios filtros personalizados.
+
+>[!NOTE]
+> Os filtros diferenciam **maiúsculas de minúsculas** e precisam corresponder ao caso de carga (que pode não corresponder necessariamente ao caso do modelo).
 
 #### <a name="use-the-basic-filters"></a>Usar os filtros básicos
 

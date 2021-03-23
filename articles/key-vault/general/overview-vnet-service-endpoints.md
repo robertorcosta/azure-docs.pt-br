@@ -9,12 +9,12 @@ ms.date: 01/02/2019
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: 36a94f780fa5c196e28730c051e161633ed3ee3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 148f67fb87072a8ffd25f0fe1dfdb444be052173
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102431050"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771610"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Pontos de extremidade de serviço de rede virtual para o Azure Key Vault
 
@@ -59,6 +59,7 @@ Segue uma lista de serviços confiáveis que poderão acessar um cofre de chaves
 |Barramento de Serviço do Azure|[Permitir o acesso a um cofre de chaves para o cenário de chaves gerenciadas pelo cliente](../../service-bus-messaging/configure-customer-managed-key.md)|
 |Importação/Exportação do Azure| [Usar chaves gerenciadas pelo cliente no Azure Key Vault para o serviço de importação/exportação](../../import-export/storage-import-export-encryption-key-portal.md)
 |Registro de Contêiner do Azure|[Criptografia do registro usando chaves gerenciadas pelo cliente](../../container-registry/container-registry-customer-managed-keys.md)
+|Gateway de Aplicativo do Azure |[Usando certificados Key Vault para ouvintes habilitados para HTTPS](../../application-gateway/key-vault-certs.md)
 
 > [!NOTE]
 > Você deve configurar as políticas relevantes de acesso ao cofre de chaves para permitir que os serviços correspondentes tenham acesso ao Key Vault.
