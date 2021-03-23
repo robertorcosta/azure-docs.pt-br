@@ -7,12 +7,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/19/2021
-ms.openlocfilehash: 1f9169d4f3f6361e557c41a4d612cf6c439257fb
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 23c5d138463a52f4ff4c52b4a919b71a87b7fd6d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722507"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802872"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Configurar uma conexão de um indexador Pesquisa Cognitiva do Azure para SQL Server em uma VM do Azure
 
@@ -87,9 +87,12 @@ Você pode descobrir o intervalo de endereços IP da `AzureCognitiveSearch` [mar
 
 ### <a name="include-the-azure-cognitive-search-portal-ip-addresses"></a>Incluir os endereços IP do portal de Pesquisa Cognitiva do Azure
 
-Se você estiver usando o portal do Azure para criar um indexador, a lógica do portal de Pesquisa Cognitiva do Azure também precisará acessar a VM do SQL Azure durante a criação. Os endereços IP do portal de Pesquisa Cognitiva do Azure podem ser encontrados por meio do ping `stamp2.search.ext.azure.com` , que é o domínio do Gerenciador de tráfego.
+Se você estiver usando o portal do Azure para criar um indexador, deverá conceder o acesso de entrada do portal à sua máquina virtual SQL Azure. Uma regra de entrada no Firewall requer que você forneça o endereço IP do Portal.
 
-Os clusters em regiões diferentes se conectam a esse Gerenciador de tráfego. O ping pode retornar o endereço IP e o domínio de `stamp2.search.ext.azure.com` , mas se o serviço estiver em uma região diferente, o IP e o nome de domínio serão diferentes. O endereço IP retornado do ping é o correto para portal do Azure em sua região.
+Para obter o endereço IP do portal, execute ping `stamp2.ext.search.windows.net` , que é o domínio do Gerenciador de tráfego. A solicitação atingirá o tempo limite, mas o endereço IP ficará visível na mensagem de status. Fo example, na mensagem "Pinging azsyrie.northcentralus.cloudapp.azure.com [52.252.175.48]", o endereço IP é "52.252.175.48".
+
+> [!NOTE]
+> Os clusters em regiões diferentes se conectam a diferentes gerenciadores de tráfego. Independentemente do nome de domínio, o endereço IP retornado do ping é o correto a ser usado ao definir uma regra de firewall de entrada para o portal do Azure em sua região.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: rosouz
 ms.custom: devx-track-python
-ms.openlocfilehash: 8487743efd4f18806ae03ed7529927736314988b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 470ae497acab4c75e83a13e485d1bcb118485ab9
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595668"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799506"
 ---
 # <a name="azure-cosmos-db-python-sdk-for-sql-api-release-notes-and-resources"></a>SDK do Python do Azure Cosmos DB para a API do SQL: Notas sobre a versão e recursos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -44,13 +44,13 @@ ms.locfileid: "104595668"
 |**Documentação da API**|[Documentação de referência da API do Python](https://docs.microsoft.com/python/api/azure-cosmos/azure.cosmos?view=azure-python&preserve-view=true)|
 |**Instruções de instalação do SDK**|[Instruções de instalação do SDK do Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cosmos/azure-cosmos)|
 |**Introdução**|[Introdução ao SDK do Python](create-sql-api-python.md)|
-|**Plataforma atual com suporte**|[Python 2.7](https://www.python.org/downloads/) e [Python 3.5.3+](https://www.python.org/downloads/)|
+|**Plataforma atual com suporte**|[Python 2,7](https://www.python.org/downloads/) e [Python 3.6 +](https://www.python.org/downloads/)|
 
 ## <a name="release-history"></a>Histórico de versões
 
 ## <a name="420"></a>4.2.0
 
-**Correções de bug**
+**Correções de bugs**
 - Corrigido o bug em que o token de continuação não é respeitado quando query_iterable é usado para obter resultados por página.
 - Corrigido o bug em que os tokens de recurso não estão sendo respeitados para leituras de documento e exclusões. 
 
@@ -64,7 +64,7 @@ ms.locfileid: "104595668"
 **Novos recursos**
 - Adicionada a capacidade de definir o TTL de armazenamento analítico ao criar um novo contêiner.
 
-**Correções de bug**
+**Correções de bugs**
 - Corrigido o suporte para `dicts` as entradas do as para Get_client APIs.
 - Correção da compatibilidade do Python 2/3 nos iteradores de consulta.
 - Erro de dica de tipo fixo.

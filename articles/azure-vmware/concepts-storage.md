@@ -3,12 +3,12 @@ title: Conceitos-armazenamento
 description: Saiba mais sobre os principais recursos de armazenamento nas nuvens privadas da solução Azure VMware.
 ms.topic: conceptual
 ms.date: 03/13/2021
-ms.openlocfilehash: 2551b11ada8b6118fb7524d9fe36f8b4b568aca1
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83a4a52f8414e656b5bc688796db6e93a53d4d76
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103462466"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801614"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Conceitos de armazenamento da solução VMware do Azure
 
@@ -44,7 +44,7 @@ Você pode usar os serviços de armazenamento do Azure em cargas de trabalho em 
 Agora que você abordou os conceitos de armazenamento da solução Azure VMware, talvez queira saber mais sobre:
 
 - [Conceitos de identidade de nuvem privada](concepts-identity.md).
-- [controle de acesso baseado em função do vSphere para a solução do Azure VMware](concepts-role-based-access-control.md).
+- [controle de acesso baseado em função do vSphere para a solução do Azure VMware](concepts-identity.md).
 - [Como habilitar o recurso de solução VMware do Azure](enable-azure-vmware-solution.md).
 - [Azure NetApp Files com a solução VMware do Azure](netapp-files-with-azure-vmware-solution.md)
 

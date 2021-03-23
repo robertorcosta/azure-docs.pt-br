@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: vm-sizes-hpc
 ms.topic: conceptual
-ms.date: 03/19/2021
+ms.date: 03/22/2021
 ms.author: amverma
 ms.reviewer: jushiman
-ms.openlocfilehash: f3e6f40833f3536bb915af74b7e0d80143fe0d13
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 92a46c7f9d7cf86787bb1707c41ae0e44c37fc60
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774789"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800900"
 ---
 # <a name="hb-series"></a>Série HB
 
@@ -33,12 +33,12 @@ As VMs da série HB apresentam 100 GB/s Mellanox EDR InfiniBand. Essas VMs são 
 
 | Tamanho | vCPU | Processador | Memória (GiB) | Largura de banda de memória GB/s | Frequência de CPU base (GHz) | Frequência de todos os núcleos (GHz, pico) | Frequência de núcleo único (GHz, pico) | Desempenho de RDMA (GB/s) | Suporte a MPI | Armazenamento temporário (GiB) | Discos de dados máximos | VNICs Ethernet máx. |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2,0 | 2.55 | 2.55 | 100 | Tudo | 700 | 4 | 8 |
+| Standard_HB60rs | 60 | AMD EPYC 7551 | 228 | 263 | 2.0 | 2.55 | 2.55 | 100 | Tudo | 700 | 4 | 8 |
 
 Saiba mais sobre:
-- [arquitetura e topologia de VM](./workloads/hpc/hb-series-overview.md),
-- [pilha de software](./workloads/hpc/hb-series-overview.md#software-specifications) com suporte, incluindo o sistema operacional com suporte e
-- [desempenho](./workloads/hpc/hb-series-performance.md) esperado da VM da série HB.
+- [Arquitetura e topologia de VM](./workloads/hpc/hb-series-overview.md)
+- [Pilha de software](./workloads/hpc/hb-series-overview.md#software-specifications) com suporte, incluindo sistema operacional com suporte
+- [Desempenho](./workloads/hpc/hb-series-performance.md) esperado da VM da série HB
 
 [!INCLUDE [hpc-include.md](./workloads/hpc/includes/hpc-include.md)]
 

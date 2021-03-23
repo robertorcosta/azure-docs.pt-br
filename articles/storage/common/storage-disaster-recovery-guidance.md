@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 03/22/2021
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f556c7acd903c108193f9c12a2849500645b119b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11d9b38d71d428a3c6c829b508318389338f5a15
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102506694"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800339"
 ---
 # <a name="disaster-recovery-and-storage-account-failover"></a>Recuperação de desastres e failover da conta de armazenamento
 
@@ -23,7 +23,7 @@ A Microsoft se empenha em garantir que os serviços do Azure estejam sempre disp
 
 O armazenamento do Azure dá suporte ao failover de conta para contas de armazenamento com redundância geográfica. Com o failover de conta, é possível iniciar o processo de failover da conta de armazenamento, se o ponto de extremidade primário ficar indisponível. O failover atualiza o ponto de extremidade secundário para torná-lo um ponto de extremidade primário de sua conta de armazenamento. Quando o failover estiver concluído, os clientes poderão começar a gravar no novo ponto de extremidade primário.
 
-O failover de conta está disponível para os tipos de conta de armazenamento de uso geral v1, de uso geral v2 e de blobs com as implantações do Azure Resource Manager. O failover de conta tem suporte para todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais no momento.
+O failover de conta está disponível para os tipos de conta de armazenamento de uso geral v1, de uso geral v2 e de blobs com as implantações do Azure Resource Manager. O failover de conta tem suporte para todas as regiões públicas, mas não está disponível em nuvens soberanas ou nacionais no momento. O failover de conta não tem suporte para contas de armazenamento com um namespace hierárquico habilitado.
 
 Este artigo descreve os conceitos e o processo envolvidos em um failover de conta e mostra como preparar sua conta de armazenamento para recuperação com o mínimo de impacto para o cliente. Para saber como iniciar um failover de conta no portal do Azure ou no PowerShell, consulte [Iniciar um failover de conta](storage-initiate-account-failover.md).
 
@@ -67,6 +67,8 @@ A Microsoft também recomenda que você projete seu aplicativo de forma a se pre
 ## <a name="understand-the-account-failover-process"></a>Entendendo o processo de failover de conta
 
 O failover de conta gerenciada pelo cliente permite que você falhe toda a conta de armazenamento para a região secundária se a primária ficar indisponível por qualquer motivo. Quando você força um failover para a região secundária, os clientes podem começar a gravar os dados no ponto de extremidade secundário depois que o failover estiver concluído. O failover normalmente leva cerca de uma hora.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ### <a name="how-an-account-failover-works"></a>Como um failover de conta funciona
 

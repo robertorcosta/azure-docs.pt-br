@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 03/11/2021
 ms.author: v-erkel
-ms.openlocfilehash: f45d5710f6feb8af2347ca298e07e8a4870d3d4f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5427389f007b7598274d35425a9b3e8e10a63e49
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470448"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798520"
 ---
 # <a name="set-up-the-aggregated-namespace"></a>Configurar o namespace agregado
 
@@ -30,6 +30,8 @@ Você pode classificar as colunas da tabela para entender melhor o namespace agr
 ## <a name="add-or-edit-namespace-paths"></a>Adicionar ou editar caminhos de namespace
 
 Você deve criar pelo menos um caminho de namespace antes que os clientes possam acessar o destino de armazenamento. (Leia [montar o cache do HPC do Azure](hpc-cache-mount.md) para obter mais informações sobre o acesso do cliente.)
+
+Se você adicionou recentemente um destino de armazenamento ou personalizado uma política de acesso, pode levar um minuto ou dois para que você possa criar um caminho de namespace.
 
 ### <a name="blob-namespace-paths"></a>Caminhos de namespace de BLOB
 

@@ -174,9 +174,6 @@
     - name: Azure Remote Rendering
       tocHref: /azure/remote-rendering/
       topicHref: /azure/remote-rendering/
-    - name: Compreensão de objeto do Azure
-      tocHref: /azure/object-understanding/
-      topicHref: /azure/object-understanding/
     - name: Registro de Contêiner
       tocHref: /azure/container-registry/
       topicHref: /azure/container-registry/
@@ -271,7 +268,7 @@
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
-    - name: Azure Stack Hub
+    - name: Azure Stack
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
       items:

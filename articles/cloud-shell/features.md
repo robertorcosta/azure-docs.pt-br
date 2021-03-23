@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2019
 ms.author: damaerte
-ms.openlocfilehash: a052364b06ac1b9b30cef76db10a79e8ed85b9a3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c707a6522d037ba3926b55579e501eadd2764416
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89470146"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798265"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Recursos e ferramentas do Azure Cloud Shell
 
@@ -82,14 +82,14 @@ O Cloud Shell inclui autenticação pré-configurada para ferramentas de softwar
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-|Idioma   |Versão   |
+|Linguagem   |Versão   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
 |Go         |1,9        |
 |Java       |1.8        |
 |Node.js    |8.16.0      |
 |PowerShell |[7.0.0](https://github.com/PowerShell/powershell/releases)       |
-|Python     |2.7 e 3.5 (padrão)|
+|Python     |2,7 e 3,7 (padrão)|
 
 ## <a name="next-steps"></a>Próximas etapas
 [Bash no guia de início rápido Cloud Shell](quickstart.md) <br>

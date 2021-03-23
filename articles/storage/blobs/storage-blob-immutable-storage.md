@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/01/2021
+ms.date: 03/16/2021
 ms.author: tamram
 ms.reviewer: hux
 ms.subservice: blobs
-ms.openlocfilehash: 8d04d1bd758480ec33a7480e4045d28ed750f22e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1d77e508e627520878dcc27b5a643473d11dd1d
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102430931"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800713"
 ---
 # <a name="store-business-critical-blob-data-with-immutable-storage"></a>Armazenar dados de blob comercialmente críticos com armazenamento imutável
 
@@ -48,7 +48,7 @@ O armazenamento imutável oferece suporte aos seguintes recursos:
 
 - **Suporte ao log de auditoria**: cada contêiner inclui um log de auditoria de política. Ele mostra até sete comandos de retenção baseados em tempo para políticas de retenção baseadas em tempo bloqueadas e contém a ID de usuário, o tipo de comando, os carimbos de data/hora e o intervalo de retenção. Para retenções legais, o log contém as marcações de ID de usuário, tipo de comando, carimbos de data/hora e retenção legal. Esse log é retido durante o tempo de vida da política, de acordo com as diretrizes regulatórias da SEC 17a-4 (f). O [log de atividades do Azure](../../azure-monitor/essentials/platform-logs-overview.md) mostra um log mais abrangente de todas as atividades do plano de controle; Embora a habilitação dos [logs de recursos do Azure](../../azure-monitor/essentials/platform-logs-overview.md) retenha e mostre operações de plano de dados. É responsabilidade do usuário armazenar esses logs de forma persistente, conforme o necessário para regulamentações ou outros fins.
 
-## <a name="how-it-works"></a>Como ele funciona
+## <a name="how-it-works"></a>Como isso funciona
 
 O armazenamento imutável para Armazenamento de Blobs do Azure é compatível com dois tipos de políticas WORM ou imutáveis: retenção baseada em tempo e retenções legais. Quando uma política de retenção baseada em tempo ou uma retenção legal é aplicada em um contêiner, todos os BLOBs existentes são movidos para um estado de WORM imutável em menos de 30 segundos. Todos os novos BLOBs que são carregados nesse contêiner de política protegida também serão movidos para um estado imutável. Depois que todos os BLOBs estiverem em um estado imutável, a política imutável será confirmada e quaisquer operações de substituição ou exclusão no contêiner imutável não serão permitidas. No caso de uma conta habilitada para o HNS, os BLOBs não podem ser renomeados ou movidos para um diretório diferente.
 
@@ -63,13 +63,15 @@ Para obter mais informações sobre como definir e bloquear políticas de reten�
 ## <a name="time-based-retention-policies"></a>Políticas de retenção baseadas em tempo
 
 > [!IMPORTANT]
-> Uma política de retenção baseada em tempo deve estar *bloqueada* para que o blob esteja em um estado compatível imutável (gravação e exclusão protegida) para SEC 17a-4 (f) e outra conformidade regulatória. É recomendável que você bloqueie a política em um período de tempo razoável, normalmente menos de 24 horas. O estado inicial de uma política de retenção baseada em tempo é *desbloqueado*, permitindo que você teste o recurso e faça alterações na política antes de bloqueá-lo. Embora o estado *desbloqueado* forneça proteção contra imutabilidade, não é recomendável usar o estado *desbloqueado* para qualquer outra finalidade que não seja a avaliação de recursos de curto prazo. 
+> Uma política de retenção baseada em tempo deve estar *bloqueada* para que o blob esteja em um estado compatível imutável (gravação e exclusão protegida) para SEC 17a-4 (f) e outra conformidade regulatória. A Microsoft recomenda que você bloqueie a política em um período de tempo razoável, normalmente menos de 24 horas. O estado inicial de uma política de retenção baseada em tempo é *desbloqueado*, permitindo que você teste o recurso e faça alterações na política antes de bloqueá-lo. Embora o estado *desbloqueado* forneça proteção contra imutabilidade, o uso do estado *desbloqueado* para qualquer finalidade diferente de avaliações de recursos de curto prazo não é recomendado.
+>
+> Quando uma política de retenção baseada em tempo é bloqueada, a política não pode ser removida e um máximo de cinco aumentos no período de retenção efetivo é permitido. O período de retenção não pode ser diminuído.
 
 Quando uma política de retenção baseada em tempo é aplicada em um contêiner, todos os BLOBs no contêiner permanecerão no estado imutável durante o período de retenção *efetivo* . O período de retenção efetivo para BLOBs é igual à diferença entre o tempo de **criação** do blob e o intervalo de retenção especificado pelo usuário. Como os usuários podem estender o intervalo de retenção, o armazenamento imutável usa o valor mais recente do intervalo de retenção especificado pelo usuário para calcular o período de retenção efetivo.
 
 Por exemplo, suponha que um usuário crie uma política de retenção baseada em tempo com um intervalo de retenção de cinco anos. Um blob existente nesse contêiner, _testblob1_, foi criado um ano atrás; Portanto, o período de retenção efetivo para _testblob1_ é de quatro anos. Quando um novo BLOB, _testblob2_, é carregado no contêiner, o período de retenção efetivo para o _testblob2_ é de cinco anos a partir do momento da criação.
 
-Uma política de retenção baseada em tempo desbloqueada é recomendada apenas para teste de recursos e uma política deve ser bloqueada para ser compatível com a SEC 17a-4 (f) e outra conformidade regulatória. Quando uma política de retenção baseada em tempo é bloqueada, a política não pode ser removida e um máximo de cinco aumentos no período de retenção efetivo é permitido.
+Uma política de retenção baseada em tempo desbloqueada é recomendada apenas para teste de recursos e uma política deve ser bloqueada para ser compatível com a SEC 17a-4 (f) e outra conformidade regulatória.
 
 Os seguintes limites se aplicam às políticas de retenção:
 

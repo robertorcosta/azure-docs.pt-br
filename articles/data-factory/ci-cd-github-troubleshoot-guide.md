@@ -1,5 +1,5 @@
 ---
-title: Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF
+title: Solucionar problemas de CI-CD, DevOps do Azure e problemas do GitHub no ADF
 description: Use métodos diferentes para solucionar problemas de CI-CD no ADF.
 author: ssabat
 ms.author: susabat
@@ -7,14 +7,14 @@ ms.reviewer: susabat
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/12/2021
-ms.openlocfilehash: 4be015b1a8ba4b6fc6ea3acc74318f9a8b298e8e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2b6f97f0966cb2c92dbd88c4a70188282ed3ed27
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103418089"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802026"
 ---
-# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solução de problemas de CI-CD, Azure DevOps e GitHub no ADF 
+# <a name="troubleshoot-ci-cd-azure-devops-and-github-issues-in-adf"></a>Solucionar problemas de CI-CD, DevOps do Azure e problemas do GitHub no ADF 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
@@ -101,8 +101,7 @@ Ao tentar publicar alterações em um Data Factory, você receberá a seguinte m
         "details": null
     }
 `
-
-#### <a name="symptom"></a>Sintoma
+### <a name="cause"></a>Causa
 
 Você desanexou a configuração do git e a configurou novamente com o sinalizador "importar recursos" selecionado, que define o Data Factory como "em sincronia". Isso significa que não há alterações para publicar.
 
@@ -150,11 +149,7 @@ Você criou uma função de cliente como o usuário e ela não tinha a permissã
 
 Para resolver o problema, você precisa adicionar a seguinte permissão à sua função: *Microsoft. datafactory/factories/queryFeaturesValue/Action*. Essa permissão deve ser incluída por padrão na função "colaborador de Data Factory".
 
-###  <a name="automatic-publishing-for-cicd-without-clicking-publish-button"></a>Publicação automática para CI/CD sem clicar no botão publicar  
-
-#### <a name="issue"></a>Problema
-
-A publicação manual com clique no botão no portal do ADF não habilita a operação de CI/CD automática.
+###  <a name="cannot-automate-publishing-for-cicd"></a>Não é possível automatizar a publicação para CI/CD 
 
 #### <a name="cause"></a>Causa
 
@@ -178,15 +173,14 @@ Azure Resource Manager restringe o tamanho do modelo a ser 4 MB. Limite o tamanh
 
 Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. Você pode ver todos os recursos e valores em um único arquivo. Para cenários avançados, os modelos vinculados permitem que você detalhe a solução em componentes de destino. Siga a prática recomendada em [usando modelos vinculados e aninhados](../azure-resource-manager/templates/linked-templates.md?tabs=azure-powershell).
 
-### <a name="cannot-connect-to-git-enterprise-cloud"></a>Não é possível se conectar ao GIT Enterprise Cloud 
+### <a name="cannot-connect-to-git-enterprise"></a>Não é possível se conectar ao GIT Enterprise  
 
 ##### <a name="issue"></a>Problema
 
-Não é possível se conectar ao GIT Enterprise Cloud devido a problemas de permissão. Você pode ver um erro como **422-entidade não processável.**
+Não é possível se conectar ao GIT Enterprise devido a problemas de permissão. Você pode ver um erro como **422-entidade não processável.**
 
 #### <a name="cause"></a>Causa
 
-* Você está usando o Git Enterprise no servidor local. 
 * Você não configurou o OAuth para ADF. 
 * A URL está configurada incorretamente.
 
@@ -194,7 +188,7 @@ Não é possível se conectar ao GIT Enterprise Cloud devido a problemas de perm
 
 Você concede acesso OAuth ao ADF primeiro. Em seguida, você precisa usar a URL correta para se conectar ao GIT Enterprise. A configuração deve ser definida para as organizações do cliente. Por exemplo, o ADF tentará *https://hostname/api/v3/search/repositories?q=user%3 <customer credential> ..* . primeiro e falhará. Em seguida, ele tentará *https://hostname/api/v3/orgs/ <org> / <repo> ...* e terá sucesso. 
  
-### <a name="recover-from-a-deleted-data-factory"></a>Recuperar de um data factory excluído
+### <a name="cannot-recover-from-a-deleted-data-factory"></a>Não é possível recuperar de um data factory excluído
 
 #### <a name="issue"></a>Problema
 O cliente excluiu o data Factory ou o grupo de recursos que contém o Data Factory. Ele gostaria de saber como restaurar um data factory excluído.
@@ -211,7 +205,7 @@ Para recuperar o Data Factory excluído que tem o controle do código-fonte, con
 
  * Crie um novo Azure Data Factory.
 
- * Reconfigure o Git com as mesmas configurações, mas certifique-se de importar recursos de Data Factory existentes para o repositório selecionado e escolha novo Branch.
+ * Reconfigure o Git com as mesmas configurações, mas certifique-se de importar recursos existentes do Data Factory para o repositório selecionado e escolha novo Branch.
 
  * Crie uma solicitação de pull para mesclar as alterações para a ramificação de colaboração e publicar.
 

@@ -39,30 +39,30 @@
           href: migrate-v2-to-v3.md
         - name: Avaliar pronúncia
           href: how-to-pronunciation-assessment.md
+        - name: Personalização
+          items:
+            - name: O que é a Fala Personalizada?
+              href: custom-speech-overview.md
+            - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
+              href: quickstarts/speech-studio-test-model.md
+            - name: Preparar dados para Fala Personalizada
+              href: how-to-custom-speech-test-and-train.md
+            - name: Inspecionar dados da Fala Personalizada
+              href: how-to-custom-speech-inspect-data.md
+            - name: Avaliar e aprimorar a precisão da Fala Personalizada
+              href: how-to-custom-speech-evaluate-data.md
+            - name: Treinar e implantar um modelo de Fala Personalizada
+              href: how-to-custom-speech-train-model.md
+            - name: CI/CD para Fala Personalizada
+              href: how-to-custom-speech-continuous-integration-continuous-deployment.md
+            - name: Criar transcrições rotuladas por humanos
+              href: how-to-custom-speech-human-labeled-transcriptions.md
+            - name: Ciclo de vida de modelo e de ponto de extremidade
+              href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Tutoriais
       items:
         - name: Melhorar a precisão com modelos de locatário
           href: tutorial-tenant-model.md
-    - name: Personalização
-      items:
-        - name: O que é a Fala Personalizada?
-          href: custom-speech-overview.md
-        - name: Testar um modelo usando arquivos de áudio no Estúdio de Fala
-          href: quickstarts/speech-studio-test-model.md
-        - name: Preparar dados para Fala Personalizada
-          href: how-to-custom-speech-test-and-train.md
-        - name: Inspecionar dados da Fala Personalizada
-          href: how-to-custom-speech-inspect-data.md
-        - name: Avaliar e aprimorar a precisão da Fala Personalizada
-          href: how-to-custom-speech-evaluate-data.md
-        - name: Treinar e implantar um modelo de Fala Personalizada
-          href: how-to-custom-speech-train-model.md
-        - name: CI/CD para Fala Personalizada
-          href: how-to-custom-speech-continuous-integration-continuous-deployment.md
-        - name: Criar transcrições rotuladas por humanos
-          href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: Ciclo de vida de modelo e de ponto de extremidade
-          href: how-to-custom-speech-model-and-endpoint-lifecycle.md
     - name: Referência
       items:
         - name: C++
@@ -71,6 +71,9 @@
         - name: C#
           displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
           href: /dotnet/api/microsoft.cognitiveservices.speech
+        - name: Go
+          displayName: 'Go SDK, Go dev kit,reference,reference docs,ref documentation'
+          href: 'https://pkg.go.dev/github.com/Microsoft/cognitive-services-speech-sdk-go'
         - name: Java
           displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
           href: /java/api/com.microsoft.cognitiveservices.speech
@@ -113,25 +116,25 @@
           href: long-audio-api.md
         - name: Obter eventos de pose facial para a sincronização labial
           href: how-to-speech-synthesis-viseme.md
-    - name: Personalização
-      items:
-        - name: Portal da Voz Personalizada
+        - name: Personalização
           items:
-            - name: O que é a Sintetização de Voz Personalizada?
-              href: custom-neural-voice.md
-            - name: Introdução à Voz Personalizada
-              displayName: 'custom voice, neural voice'
-              href: how-to-custom-voice.md
-            - name: Preparar dados
-              href: how-to-custom-voice-prepare-data.md
-            - name: Criar e usar modelos de Voz Personalizada
-              href: how-to-custom-voice-create-voice.md
-            - name: Amostras de memorando de voz
-              href: record-custom-voice-samples.md
-        - name: Criação de Conteúdo de Áudio
-          items:
+            - name: Portal da Voz Personalizada
+              items:
+                - name: O que é a Sintetização de Voz Personalizada?
+                  href: custom-neural-voice.md
+                - name: Introdução à Voz Personalizada
+                  displayName: 'custom voice, neural voice'
+                  href: how-to-custom-voice.md
+                - name: Preparar dados
+                  href: how-to-custom-voice-prepare-data.md
+                - name: Criar e usar modelos de Voz Personalizada
+                  href: how-to-custom-voice-create-voice.md
+                - name: Amostras de memorando de voz
+                  href: record-custom-voice-samples.md
             - name: Criação de Conteúdo de Áudio
-              href: how-to-audio-content-creation.md
+              items:
+                - name: Criação de Conteúdo de Áudio
+                  href: how-to-audio-content-creation.md
     - name: Uso responsável da IA
       items:
         - name: Sintetização de Voz Personalizada

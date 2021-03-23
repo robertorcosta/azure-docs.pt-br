@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/19/2020
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: cfaab3f095dbf2f1657f5ebb587a3de958d11cda
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 2f5dddd3d59ebe778d577176e439528a86bb42a7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721189"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802578"
 ---
 # <a name="hb-series-virtual-machines-overview"></a>Visão geral das máquinas virtuais da série HB
 
@@ -31,7 +31,7 @@ A fixação do processo funcionará em VMs da série HB porque expõemos o silí
 
 O diagrama a seguir mostra a diferenciação de núcleos reservada para o hipervisor do Azure e a VM da série HB.
 
-![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HB](./media/hb-series-overview/segregation-cores.png)
+![Segregação de núcleos reservada para a VM do Azure hypervisor e da série HB](./media/architecture/hb-segregation-cores.png)
 
 ## <a name="hardware-specifications"></a>Especificações de hardware
 

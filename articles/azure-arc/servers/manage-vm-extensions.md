@@ -1,14 +1,14 @@
 ---
 title: Gerenciamento de extensão de VM com servidores habilitados para Arc do Azure
 description: Os servidores habilitados para Arc do Azure podem gerenciar a implantação de extensões de máquina virtual que fornecem tarefas de automação e configuração pós-implantação com VMs não Azure.
-ms.date: 03/01/2021
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 039c52ccbee03636da0f5acc0fc5844be9b646f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9af2700f036352188e646188485285482ee70c69
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687899"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799574"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers"></a>Gerenciamento de extensão da máquina virtual com servidores habilitados para Azure Arc
 
@@ -42,6 +42,9 @@ A funcionalidade de extensão de VM está disponível somente na lista de [regi�
 Nesta versão, damos suporte às seguintes extensões de VM em computadores Windows e Linux.
 
 Para saber mais sobre o pacote do agente do computador conectado do Azure e detalhes sobre o componente do agente de extensão, consulte [visão geral do agente](agent-overview.md#agent-component-details).
+
+> [!NOTE]
+> Recentemente, o suporte para a extensão de VM DSC foi removido para servidores habilitados para Arc. Como alternativa, é recomendável usar a extensão de script personalizado para gerenciar a configuração pós-implantação de seu servidor ou computador.
 
 ### <a name="windows-extensions"></a>Extensões do Windows
 

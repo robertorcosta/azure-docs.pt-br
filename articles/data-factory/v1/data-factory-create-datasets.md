@@ -3,16 +3,16 @@ title: Criar conjuntos de os Azure Data Factory
 description: Saiba como criar conjuntos de dados no Azure Data Factory, com exemplos que usam propriedades como offset e anchorDateTime.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 4b222b387dad1c078cfe2a063ed310ef463b192e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 355d36d58935372e9d8a92599e8f810fec9ebf19
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100376829"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785335"
 ---
 # <a name="datasets-in-azure-data-factory-version-1"></a>Conjuntos de valores no Azure Data Factory (versão 1)
 > [!div class="op_single_selector" title1="Selecione a versão do serviço Data Factory que você está usando:"]
