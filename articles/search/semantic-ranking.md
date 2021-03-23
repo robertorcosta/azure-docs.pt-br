@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: bb65a53f1ba6e97a39bd0c0170c5c41da38aee8b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1406f865d60e6715b5f6a974225dc48958e8da6d
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720501"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775163"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classificação semântica no Azure Pesquisa Cognitiva
 
@@ -51,7 +51,7 @@ As entradas de resumo são a cadeia de caracteres longa da fase de preparação.
 
 A saída é uma [legenda semântica](semantic-how-to-query-request.md), em texto sem formatação e com destaques. A legenda é menor que a cadeia de caracteres longa, geralmente menos de 200 palavras por documento, e é considerada a mais representativa do documento. 
 
-Uma [resposta semântica](semantic-answers.md) também será retornada se você tiver especificado o parâmetro "respostas", se a consulta foi apresentada como uma pergunta e se uma passagem pode ser encontrada na cadeia de caracteres longa que se parece com uma resposta plausível para a pergunta.
+Uma [resposta semântica](semantic-answers.md) também será retornada se você tiver especificado o parâmetro "respostas", se a consulta foi apresentada como uma pergunta, e se uma passagem pode ser encontrada na cadeia de caracteres longa que provavelmente fornece uma resposta para a pergunta.
 
 ## <a name="scoring-and-ranking"></a>Pontuação e classificação
 

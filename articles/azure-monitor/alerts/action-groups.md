@@ -5,12 +5,12 @@ author: dkamstra
 ms.topic: conceptual
 ms.date: 02/25/2021
 ms.author: dukek
-ms.openlocfilehash: 0771249e94d3e00cbeaff00406a0dbf33777a14d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: fb067e603c181482a863dc9fd75556e32a801bc6
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490323"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104772341"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Criar e gerenciar grupos de ações no portal do Azure
 Um grupo de ações é uma coleção de preferências de notificação definidas pelo proprietário de uma assinatura do Azure. Alertas do Azure Monitor e da Integridade do Serviço usam grupos de ações para notificar usuários de que um alerta foi disparado. Vários alertas podem usar o mesmo grupo de ação ou grupos de ações diferentes dependendo dos requisitos do usuário. 
@@ -149,7 +149,7 @@ Se você não estiver recebendo notificações em seu *email primário*, poderá
 É possível ter um número limitado de ações de email em um grupo de ações. Confira o artigo [informações de limitação da taxa](./alerts-rate-limiting.md).
 
 ### <a name="function"></a>Função
-Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-get-started.md).
+Chama um ponto de extremidade de gatilho HTTP existente no [Azure Functions](../../azure-functions/functions-get-started.md). Para manipular uma solicitação, seu ponto de extremidade deve manipular o verbo HTTP POST.
 
 É possível ter um número limitado de ações de função em um grupo de ações.
 

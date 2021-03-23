@@ -9,21 +9,21 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: d4b0a4107b3894d65dd8e168cd58566d4a4b5090
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104720484"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104771304"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT]
 > A pesquisa semântica está em visualização pública, disponível apenas por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
-A pesquisa semântica é uma coleção de recursos relacionados à consulta que dão suporte a uma experiência de consulta mais natural e de alta qualidade. 
+A pesquisa semântica é uma coleção de recursos relacionados à consulta que adicionam relevância semântica e reconhecimento de linguagem aos resultados da pesquisa. A *classificação semântica* procura o contexto e a relação entre os termos, elevando as correspondências que fazem mais sentido, considerando a consulta. O reconhecimento de idioma localiza *legendas* e *respostas* em seu conteúdo que resumem o documento correspondente ou respondem a uma pergunta, que pode ser renderizada em uma página de resultados da pesquisa para uma experiência de pesquisa mais produtiva.
 
-Esses recursos incluem uma reclassificação semântica dos resultados da pesquisa, bem como a extração de legenda e de resposta, com o realce semântico de termos e frases relevantes. Os modelos pretremos de ponta são usados para extração e classificação. Para manter o desempenho rápido que os usuários esperam da pesquisa, o resumo semântico e a classificação são aplicados apenas aos primeiros 50 resultados, conforme pontuado pelo [algoritmo de Pontuação de similaridade padrão](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando esses resultados como o documento corpus, a classificação semântica gera novamente esses resultados com base na intensidade semântica da correspondência.
+Os modelos pretremos de ponta são usados para Resumo e classificação. Para manter o desempenho rápido que os usuários esperam da pesquisa, o resumo semântico e a classificação são aplicados apenas aos primeiros 50 resultados, conforme pontuado pelo [algoritmo de Pontuação de similaridade padrão](index-similarity-and-scoring.md#similarity-ranking-algorithms). Usando esses resultados como o documento corpus, a classificação semântica gera novamente esses resultados com base na intensidade semântica da correspondência.
 
 A tecnologia subjacente é do Bing e do Microsoft Research e integrada à infraestrutura de Pesquisa Cognitiva como um recurso complementar. Para obter mais informações sobre os investimentos de pesquisa e de ia de backup de pesquisa semântica, consulte [como o ia do Bing é a ativação do Azure pesquisa cognitiva (blog do Microsoft Research)](https://www.microsoft.com/research/blog/the-science-behind-semantic-search-how-ai-from-bing-is-powering-azure-cognitive-search/).
 

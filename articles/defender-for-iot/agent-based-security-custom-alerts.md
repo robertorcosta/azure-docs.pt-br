@@ -1,25 +1,14 @@
 ---
 title: Alertas personalizados de segurança baseados em agente
-titleSuffix: Azure Defender for IoT
 description: Saiba mais sobre alertas de segurança personalizáveis e correção recomendada usando o defender para recursos e serviço do dispositivo IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: shhazam-ms
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 2/16/2021
-ms.author: shhazam
-ms.openlocfilehash: 5d0eeb046d7a4ba474a1ed4a2cfb07a07f1c3888
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2fb1385c12cbd9d0479d8528f54aad8816393ad1
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493298"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104784910"
 ---
 # <a name="defender-for-iot-devices-custom-security-alerts"></a>Alertas de segurança personalizados para dispositivos do defender for IoT
 

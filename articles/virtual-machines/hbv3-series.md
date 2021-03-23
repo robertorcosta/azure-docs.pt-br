@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 03/12/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 21576b6714c05e5a0ed703c7a1452103c2c4b355
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b435547d7cd3b0fab781cc6cf3b617b13ac1120a
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103472809"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104774687"
 ---
 # <a name="hbv3-series"></a>Série HBv3
 
 As VMs da série HBv3 são otimizadas para aplicativos HPC, como dinâmica de fluidos, análise de elementos finitos explícitos e implícitos, modelagem do clima, processamento sísmico, simulação de reservatório e simulação DPE. O recurso de VMs HBv3 até 120 AMD EPYC™ 7003-Series (Milão) núcleos de CPU, 448 GB de RAM e nenhum hyperthreading. As VMs da série HBv3 também fornecem 350 GB/s de largura de banda de memória, até 32 MB de cache L3 por núcleo, até 7 GB/s de desempenho de SSD de dispositivo de bloco e frequências de relógio de até 3,675 GHz. 
 
-Todas as VMs da série HBv3 apresentam um cabeçalho HDR de 200 GB/s de rede NVIDIA para habilitar cargas de trabalho MPI de escala de supercomputador. Essas VMs são conectadas em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente. A malha InfiniBand HDR também dá suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo e seu uso é altamente recomendado.
+Todas as VMs da série HBv3 apresentam um cabeçalho HDR de 200 GB/s de rede NVIDIA para habilitar cargas de trabalho MPI de escala de supercomputador. Essas VMs são conectadas em uma árvore Fat sem bloqueio para desempenho de RDMA otimizado e consistente. A malha InfiniBand HDR também dá suporte ao roteamento adaptável e ao transporte conectado dinâmico (DCT, em outros transportes Standard RC e UD). Esses recursos aprimoram o desempenho, a escalabilidade e a consistência do aplicativo, e seu uso é altamente recomendado.
 
 [Armazenamento Premium](premium-storage-performance.md): com suporte<br>
 [Cache de armazenamento Premium](premium-storage-performance.md): com suporte<br>
@@ -28,7 +28,7 @@ Todas as VMs da série HBv3 apresentam um cabeçalho HDR de 200 GB/s de rede NVI
 [Suporte à geração de VM](generation-2.md): geração 1 e 2<br>
 [Rede acelerada](../virtual-network/create-vm-accelerated-networking-cli.md): em breve<br>
 [Discos do sistema operacional efêmero](ephemeral-os-disks.md): sem suporte <br>
-
+<br>
 
 |Tamanho |vCPU |Processador |Memória (GiB) |Largura de banda de memória GB/s |Frequência de CPU base (GHz) |Frequência de todos os núcleos (GHz, pico) |Frequência de núcleo único (GHz, pico) |Desempenho de RDMA (GB/s) |Suporte a MPI |Armazenamento temporário (GiB) |Discos de dados máximos |VNICs Ethernet máx. |
 |----|----|----|----|----|----|----|----|----|----|----|----|----|
@@ -38,11 +38,10 @@ Todas as VMs da série HBv3 apresentam um cabeçalho HDR de 200 GB/s de rede NVI
 |Standard_HB120-32rs_v3 |32  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
 |Standard_HB120-16rs_v3 |16  |AMD EPYC 7V13 |448 |350 |2.45 |3.1 |3,675 |200 |Tudo |2 * 960 |32 |8 |
 
-
 Saiba mais sobre:
-- [Arquitetura subjacente e topologia de VM](./workloads/hpc/hbv3-series-overview.md)
-- [Pilha de software com suporte](./workloads/hpc/hbv3-series-overview.md#software-specifications) , incluindo sistema operacional com suporte
-- [Desempenho](./workloads/hpc/hbv3-performance.md) esperado da VM da série HBv3.
+- [arquitetura e topologia de VM](./workloads/hpc/hbv3-series-overview.md),
+- [pilha de software](./workloads/hpc/hbv3-series-overview.md#software-specifications) com suporte, incluindo o sistema operacional com suporte e
+- [desempenho](./workloads/hpc/hbv3-performance.md) esperado da VM da série HBv3.
 
 [!INCLUDE [hpc-include](./workloads/hpc/includes/hpc-include.md)]
 

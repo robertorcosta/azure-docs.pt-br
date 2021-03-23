@@ -1,18 +1,14 @@
 ---
 title: Instalação do defender para IoT
 description: Saiba como instalar um sensor e o console de gerenciamento local do Azure defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/2/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 175f006adbc18d21e0f0c5d859737aedb00bc457
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5bdb292750ea041be68a22519583511f58b3b517
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103574655"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782241"
 ---
 # <a name="defender-for-iot-installation"></a>Instalação do defender para IoT
 
@@ -851,7 +847,7 @@ Para instalar o software:
 
 1. As credenciais de entrada são geradas e apresentadas automaticamente. Mantenha essas credenciais em um local seguro, pois elas são necessárias para a entrada e a administração.
 
-    | Nome de Usuário | Descrição |
+    | Nome de usuário | Descrição |
     |--|--|
     | Suporte | O usuário administrativo do gerenciamento de usuários. |
     | CyberX | O equivalente de raiz para acessar o dispositivo. |

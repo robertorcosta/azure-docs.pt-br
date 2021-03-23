@@ -1,24 +1,14 @@
 ---
 title: Selecionar e implantar agentes de segurança
 description: Saiba mais sobre como selecionar e implantar agentes de segurança do defender para IoT em dispositivos IoT.
-services: defender-for-iot
-ms.service: defender-for-iot
-documentationcenter: na
-author: mlottner
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/23/2019
-ms.author: mlottner
-ms.openlocfilehash: e35e3dd0bacc0b1e3a44d9338f612a70ca4b52bf
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c71c92ffa79c844f3529265320b46eadd0c158cf
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496517"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778841"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Selecionar e implantar um agente de segurança em seu dispositivo IoT
 
@@ -79,7 +69,7 @@ Responda às seguintes perguntas sobre seus dispositivos IoT para selecionar o a
 Ambos os tipos de agente oferecem o mesmo conjunto de recursos e oferecem suporte a opções de configuração semelhantes.
 Consulte [comparação do agente de segurança](how-to-deploy-agent.md#understand-security-agent-options) para saber mais.
 
-## <a name="supported-platforms"></a>Plataformas compatíveis
+## <a name="supported-platforms"></a>Plataformas com Suporte
 
 A lista a seguir inclui todas as plataformas com suporte no momento.
 

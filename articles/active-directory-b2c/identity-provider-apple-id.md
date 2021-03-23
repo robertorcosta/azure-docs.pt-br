@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 24377cf02b30a550043ee63267229039d680cd1c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4c3308ff9b1ffeb0f14c5808e0d4cdd71dabf335
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489127"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780116"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-apple-id--using-azure-active-directory-b2c-preview"></a>Configurar a inscrição e a entrada com uma ID da Apple usando Azure Active Directory B2C (versão prévia)
 
@@ -86,7 +86,7 @@ Para habilitar a entrada para usuários com uma ID da Apple no Azure Active Dire
 1. Insira a **ID de serviço da Apple (ID do cliente)**.
 1. Insira a **ID da chave da Apple**.
 1. Selecione e carregue os **dados de certificado da Apple**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 
 > [!IMPORTANT] 
@@ -101,7 +101,7 @@ Para permitir que os usuários entrem usando uma ID da Apple, você precisa adic
 1. No locatário do Azure AD B2C, selecione **Fluxos dos usuários**.
 1. Selecione um fluxo de usuário para o qual você deseja adicionar o provedor de identidade da Apple. 
 1. Em **provedores de identidade social**, selecione **Apple (versão prévia)**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Para testar sua política, selecione **executar fluxo de usuário**.
 1. Para **aplicativo**, selecione o aplicativo Web chamado *testapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Selecione o botão **executar fluxo de usuário** .
@@ -120,7 +120,7 @@ Use o arquivo. P8 baixado anteriormente para assinar o segredo do cliente em um 
 1. Crie uma [função do Azure](../azure-functions/functions-create-function-app-portal.md).
 1. Em **desenvolvedor**, selecione **código + teste**. 
 1. Copie o conteúdo do arquivo [Run. CSX](https://github.com/azure-ad-b2c/samples/blob/master/policies/sign-in-with-apple/azure-function/run.csx) e cole-o no editor.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 1. Faça uma `POST` solicitação HTTP e forneça as seguintes informações:
 
     - **appleTeamId**: sua ID da equipe de desenvolvedores da Apple
@@ -206,8 +206,8 @@ Você pode definir uma ID da Apple como um provedor de declarações adicionando
             <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
             <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="https://appleid.apple.com" AlwaysUseDefaultValue="true" />
             <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" AlwaysUseDefaultValue="true" />
-            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.firstName"/>
-            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.lastName"/>
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="user.name.firstName"/>
+            <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="user.name.lastName"/>
             <OutputClaim ClaimTypeReferenceId="email" PartnerClaimType="user.email"/>
           </OutputClaims>
           <OutputClaimsTransformations>

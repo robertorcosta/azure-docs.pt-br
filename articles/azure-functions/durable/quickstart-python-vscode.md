@@ -5,12 +5,12 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.openlocfilehash: 567388277f5a68ae23e8c806a8581c177c3fd1dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cccb42041ece65ad4f245c28dd7c5cf356d5e63c
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549457"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775146"
 ---
 # <a name="create-your-first-durable-function-in-python"></a>Criar sua primeira Durable Function em Python
 
@@ -213,7 +213,7 @@ Após verificar se a função foi executada corretamente no computador local, é
 
 ## <a name="test-your-function-in-azure"></a>Testar sua função no Azure
 
-1. Copie a URL do gatilho de HTTP do painel **Saída**. A URL que chama a função disparada por HTTP deve estar neste formato: `http://<functionappname>.azurewebsites.net/orchestrators/HelloOrchestrator`
+1. Copie a URL do gatilho de HTTP do painel **Saída**. A URL que chama a função disparada por HTTP deve estar neste formato: `http://<functionappname>.azurewebsites.net/api/orchestrators/HelloOrchestrator`
 
 2. Cole essa nova URL para a solicitação HTTP na barra de endereços do navegador. Ao usar o aplicativo publicado, você deve obter a mesma resposta de status como antes.
 

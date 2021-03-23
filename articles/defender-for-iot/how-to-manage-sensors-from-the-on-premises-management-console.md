@@ -1,18 +1,14 @@
 ---
 title: Gerenciar sensores do console de gerenciamento local
 description: Saiba como gerenciar sensores do console de gerenciamento do, incluindo a atualização de versões do sensor, o envio de configurações do sistema para sensores e a habilitação e a desabilitação de mecanismos em sensores.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/07/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: 73eb693ab9f06535fd523eb386969e2cce961eef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4706fbcf58b8e5f5eed6532f9a08f65c7716e07e
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523950"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104781918"
 ---
 # <a name="manage-sensors-from-the-management-console"></a>Gerenciar sensores do console de gerenciamento
 
@@ -64,7 +60,7 @@ Para aplicar as configurações do sistema:
 
 6. Na árvore do sensor, selecione os itens aos quais você deseja aplicar a configuração.
 
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 ## <a name="update-versions"></a>Versões de atualização
 
@@ -235,7 +231,7 @@ Para fazer backup de sensores:
 
    - Para fazer backup em um servidor externo, habilite a alternância de **caminho personalizado** e insira um local. Há suporte para os seguintes números e caracteres: `/, a-z, A-Z, 0-9, and, _` . 
 
-7. Clique em **Salvar**. 
+7. Selecione **Salvar**. 
 
 Para fazer backup imediatamente: 
 

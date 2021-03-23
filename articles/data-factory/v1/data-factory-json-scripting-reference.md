@@ -3,16 +3,16 @@ title: Azure Data Factory - Referência de Script do JSON
 description: Oferece esquemas JSON para entidades do Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: f17d851e517e1ea0297bf8169c42496068e57533
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 91228b7f3243299f47c101e59d0c652749ff963d
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100371253"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104779725"
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
 > [!NOTE]
@@ -2226,12 +2226,12 @@ Para definir um serviço vinculado do SAP Business Warehouse (BW), defina o **ty
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP BW. | string | Sim
+Servidor | Nome do servidor no qual reside a instância do SAP BW. | Cadeia de caracteres | Sim
 systemNumber | Número de sistema do sistema SAP BW. | Número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim
 clientId | ID de Cliente do cliente no sistema SAP W. | Número decimal de três dígitos representado como uma cadeia de caracteres. | Sim
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-password | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | string | Sim
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | Cadeia de caracteres | Sim
+password | Senha do usuário. | Cadeia de caracteres | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP BW. | Cadeia de caracteres | Sim
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | Não
 
 #### <a name="example"></a>Exemplo
@@ -2336,11 +2336,11 @@ Para definir um serviço vinculado do SAP HANA, defina o **type** do serviço vi
 
 Propriedade | Descrição | Valores permitidos | Obrigatório
 -------- | ----------- | -------------- | --------
-Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | string | Sim
+Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | Cadeia de caracteres | Sim
 authenticationType | Tipo de autenticação. | . "Básico" ou "Windows" | Sim
-Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | string | Sim
-password | Senha do usuário. | string | Sim
-gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | string | Sim
+Nome de Usuário | Nome do usuário que tem acesso ao servidor SAP | Cadeia de caracteres | Sim
+password | Senha do usuário. | Cadeia de caracteres | Sim
+gatewayName | O nome do gateway que o serviço Data Factory deve usar para se conectar à instância local do SAP HANA. | Cadeia de caracteres | Sim
 encryptedCredential | A cadeia de caracteres de credencial criptografada. | Cadeia de caracteres | Não
 
 #### <a name="example"></a>Exemplo
@@ -3147,7 +3147,7 @@ Para definir um serviço vinculado do Amazon S3, defina o **type** do serviço v
 
 | Propriedade | Descrição | Valores permitidos | Obrigatório |
 | --- | --- | --- | --- |
-| accessKeyID |ID da chave de acesso secreta. |string |Sim |
+| accessKeyID |ID da chave de acesso secreta. |Cadeia de caracteres |Sim |
 | secretAccessKey |A chave de acesso do secreta em si. |Cadeia de caracteres secreta criptografada |Sim |
 
 #### <a name="example"></a>Exemplo

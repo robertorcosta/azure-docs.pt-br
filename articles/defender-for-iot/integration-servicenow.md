@@ -1,19 +1,14 @@
 ---
 title: Sobre a integração do ServiceNow
-titleSuffix: Azure Defender for IoT
 description: O aplicativo de gerenciamento de ICS do defender para IoT para ServiceNow fornece analistas do SOC com visibilidade multidimensional nos protocolos e dispositivos IoT especializados implantados em ambientes industriais, juntamente com a análise comportamental com reconhecimento de ICS para detectar rapidamente comportamento suspeito ou anormal.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 1/17/2021
 ms.topic: article
-ms.service: azure
-ms.openlocfilehash: f2a4c3e79a762de19c6e8c029256cd70dedfe3dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e39c3d018003983f6dc5b5e16a9791de84d6005
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98557291"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785998"
 ---
 # <a name="the-defender-for-iot-ics-management-application-for-servicenow"></a>O aplicativo de gerenciamento de ICS do defender para IoT para ServiceNow
 
@@ -143,7 +138,7 @@ Para definir a regra:
   | Parâmetro | Descrição |
   |--|--|
   | Domínio | Insira o endereço IP do servidor ServiceNow. |
-  | Nome de Usuário | Insira o nome de usuário do servidor ServiceNow. |
+  | Nome de usuário | Insira o nome de usuário do servidor ServiceNow. |
   | Senha | Insira a senha do servidor ServiceNow. |
   | ID do Cliente | Insira a ID do cliente que você recebeu para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
   | Segredo do cliente | Insira a cadeia de caracteres secreta do cliente que você criou para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
@@ -176,7 +171,7 @@ Para adicionar uma instância do ServiceNow:
     | Instância do ServiceNow | Insira a URL da instância do ServiceNow. |
     | ID do Cliente | Insira a ID do cliente que você recebeu para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
     | Segredo do cliente | Insira a cadeia de caracteres secreta do cliente que você criou para o defender para IoT na página **registros do aplicativo** no ServiceNow. |
-    | Nome de Usuário | Insira o nome de usuário para esta instância. |
+    | Nome de usuário | Insira o nome de usuário para esta instância. |
     | Senha | Insira a senha para esta instância. |
 
 1. Selecione **SALVAR**.
@@ -331,7 +326,7 @@ Este artigo descreve as informações de alerta do dispositivo enviadas por push
 | Título | O título do alerta. |
 | Descrição | A descrição do alerta. |
 | Protocolo | O protocolo detectado no tráfego. |
-| Severity | A severidade do alerta definida pelo defender para IoT. |
+| Severidade | A severidade do alerta definida pelo defender para IoT. |
 | Dispositivo | O nome do sensor que detectou o tráfego. |
 | Nome de origem | O nome da origem. |
 | Endereço IP de origem| O endereço IP de origem. |
