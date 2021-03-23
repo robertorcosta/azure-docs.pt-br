@@ -2,14 +2,14 @@
 title: Escolher tamanhos e imagens de VM para pools
 description: Como escolher entre os tamanhos de VM disponíveis e as versões de so para nós de computação em pools do lote do Azure
 ms.topic: conceptual
-ms.date: 03/08/2021
+ms.date: 11/24/2020
 ms.custom: seodec18
-ms.openlocfilehash: 42b8743fac6a6c64e98271490f0bfc4671fa7698
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f108e1347ef6c3c7df45c4b3d807a754f4867097
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102455188"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104800475"
 ---
 # <a name="choose-a-vm-size-and-image-for-compute-nodes-in-an-azure-batch-pool"></a>Escolher um tamanho e uma imagem da VM para nós de computação em um pool do lote do Azure
 
@@ -35,11 +35,13 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | DC | Sem suporte |
 | Dv2, DSv2 | Todos os tamanhos |
 | Dv3, Dsv3 | Todos os tamanhos |
-| Dav4, Dasv4 | Todos os tamanhos |
+| Dav4 | Todos os tamanhos |
+| Dasv4 | Todos os tamanhos |
 | Ddv4, Ddsv4 |  Todos os tamanhos |
 | Dv4, Dsv4 | Sem suporte |
 | Ev3, Esv3 | Todos os tamanhos, exceto para E64is_v3 |
-| Eav4, Easv4 | Todos os tamanhos |
+| Eav4 | Todos os tamanhos |
+| Easv4 | Todos os tamanhos |
 | Edv4, Edsv4 |  Todos os tamanhos |
 | Ev4, Esv4 | Sem suporte |
 | F, Fs | Todos os tamanhos |
@@ -56,7 +58,7 @@ Os pools do lote na configuração de máquina virtual dão suporte a quase todo
 | NC | Todos os tamanhos |
 | NCv2 | Todos os tamanhos |
 | NCv3 | Todos os tamanhos |
-| NCasT4_v3 | Todos os tamanhos |
+| NCasT4_v3 | Nenhum - ainda não disponível |
 | ND | Todos os tamanhos |
 | NDv2 | Nenhum - ainda não disponível |
 | NV | Todos os tamanhos |
@@ -100,6 +102,8 @@ Use uma das APIs a seguir para retornar uma lista de imagens de VM do Windows e 
 - API REST do serviço de lote: [listar imagens com suporte](/rest/api/batchservice/account/listsupportedimages)
 - PowerShell: [Get-AzBatchSupportedImage](/powershell/module/az.batch/get-azbatchsupportedimage)
 - CLI do Azure: [AZ batch pool com suporte-imagens](/cli/azure/batch/pool/supported-images)
+
+É altamente recomendável evitar imagens com datas de fim da vida útil (EOL) de suporte do lote iminente. Essas datas podem ser descobertas por meio da [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), do [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)ou do [CLI do Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). Consulte o [Guia de práticas recomendadas do lote](best-practices.md) para obter mais informações sobre a seleção de imagem de VM do pool do lote.
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: bebe9424df24792f7450620657c5e2da5f08196a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102046509"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798843"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos de VM insights com pastas de trabalho
 
@@ -25,17 +25,17 @@ As pastas de trabalho são úteis para cenários como:
 
 A tabela a seguir resume as pastas de trabalho que a VM insights inclui para você começar.
 
-| Pasta de trabalho | Descrição | Escopo |
+| Pasta de trabalho | Description | Escopo |
 |----------|-------------|-------|
-| Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Em escala |
-| Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Em escala |
-| conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de suas VMs monitoradas. | Em escala |
-| Portas ativas | Fornece uma lista dos processos que foram vinculados às portas nas VMs monitoradas e suas atividades no período de tempo escolhido. | Em escala |
-| Abrir portas | Fornece o número de portas abertas em suas VMs monitoradas e os detalhes sobre essas portas abertas. | Em escala |
-| Conexões com falha | Exiba a contagem de conexões com falha em suas VMs monitoradas, a tendência de falha e se a porcentagem de falhas estiver aumentando com o passar do tempo. | Em escala |
-| Segurança e Auditoria | Uma análise de seu tráfego TCP/IP que relata sobre conexões gerais, conexões mal-intencionadas, em que os pontos de extremidade de IP residem globalmente.  Para habilitar todos os recursos, será necessário habilitar a detecção de segurança. | Em escala |
-| Tráfego de TCP | Um relatório classificado para suas VMs monitoradas e seus tráfegos de rede enviados, recebidos e totais em uma grade e exibidos como uma linha de tendência. | Em escala |
-| Comparação de tráfego | Essas pastas de trabalho permitem comparar as tendências de tráfego de rede para um único computador ou um grupo de computadores. | Em escala |
+| Desempenho | Fornece uma versão personalizável do nosso modo de exibição de lista e gráficos em uma única pasta de trabalho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou.| Várias VMs |
+| Contadores de desempenho | Uma exibição de gráfico N superior em um amplo conjunto de contadores de desempenho. | Várias VMs |
+| conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de suas VMs monitoradas. | Várias VMs |
+| Portas ativas | Fornece uma lista dos processos que foram vinculados às portas nas VMs monitoradas e suas atividades no período de tempo escolhido. | Várias VMs |
+| Abrir portas | Fornece o número de portas abertas em suas VMs monitoradas e os detalhes sobre essas portas abertas. | Várias VMs |
+| Conexões com falha | Exiba a contagem de conexões com falha em suas VMs monitoradas, a tendência de falha e se a porcentagem de falhas estiver aumentando com o passar do tempo. | Várias VMs |
+| Segurança e Auditoria | Uma análise de seu tráfego TCP/IP que relata sobre conexões gerais, conexões mal-intencionadas, em que os pontos de extremidade de IP residem globalmente.  Para habilitar todos os recursos, será necessário habilitar a detecção de segurança. | Várias VMs |
+| Tráfego de TCP | Um relatório classificado para suas VMs monitoradas e seus tráfegos de rede enviados, recebidos e totais em uma grade e exibidos como uma linha de tendência. | Várias VMs |
+| Comparação de tráfego | Essas pastas de trabalho permitem comparar as tendências de tráfego de rede para um único computador ou um grupo de computadores. | Várias VMs |
 | Desempenho | Fornece uma versão personalizável do nosso modo de exibição de desempenho que aproveita todos os contadores de desempenho de Log Analytics que você habilitou. | VM única | 
 | conexões | Conexões fornece uma exibição detalhada das conexões de entrada e saída de sua VM. | VM única |
  

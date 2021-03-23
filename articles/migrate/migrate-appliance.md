@@ -1,17 +1,17 @@
 ---
 title: Dispositivo de Migrações para Azure
 description: Fornece um resumo do suporte para o dispositivo de migrações para Azure.
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 08cd0e9d33dd88b9bdc418f3d1bbd382b2d80632
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: dadca1fadef9d2967f20cae13e40d01de73d39e4
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038757"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104778331"
 ---
 # <a name="azure-migrate-appliance"></a>Dispositivo de Migrações para Azure
 
@@ -23,10 +23,10 @@ O dispositivo de Migrações para Azure é usado nos cenários a seguir.
 
 **Cenário** | **Ferramenta** | **Usado para**
 --- | --- | ---
-**Descoberta e avaliação de servidores em execução no ambiente VMware** | Migrações para Azure: Avaliação de Servidor | Descobrir servidores em execução em seu ambiente VMware<br/><br/> Executar a descoberta de aplicativos instalados, análise de dependência sem agente e descobrir SQL Server instâncias e bancos de dados.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
+**Descoberta e avaliação de servidores em execução no ambiente VMware** | Migrações para Azure: descoberta e avaliação | Descobrir servidores em execução em seu ambiente VMware<br/><br/> Execute a descoberta de inventário de software instalado, análise de dependência sem agente e descubra SQL Server instâncias e bancos de dados.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
 **Migração sem agente de servidores em execução no ambiente VMware** | Migrações para Azure: Migração de Servidor | Descubra servidores em execução em seu ambiente VMware. <br/><br/> Replique servidores sem instalar agentes neles.
-**Descoberta e avaliação de servidores em execução no ambiente do Hyper-V** | Migrações para Azure: Avaliação de Servidor | Descobrir servidores em execução no ambiente do Hyper-V.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
-**Descoberta e avaliação de servidores físicos ou virtualizados locais** |  Migrações para Azure: Avaliação de Servidor |  Descubra servidores físicos ou virtualizados localmente.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
+**Descoberta e avaliação de servidores em execução no ambiente do Hyper-V** | Migrações para Azure: descoberta e avaliação | Descobrir servidores em execução no ambiente do Hyper-V.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
+**Descoberta e avaliação de servidores físicos ou virtualizados locais** |  Migrações para Azure: descoberta e avaliação |  Descubra servidores físicos ou virtualizados localmente.<br/><br/> Coletar metadados de desempenho e de configuração do servidor para avaliações.
 
 ## <a name="deployment-methods"></a>Métodos de implantação
 
@@ -38,7 +38,6 @@ O dispositivo pode ser implantado usando alguns métodos:
 - Para servidores físicos ou virtualizados locais ou qualquer outra nuvem, você sempre implanta o dispositivo usando um script do instalador do PowerShell. Consulte as etapas de implantação [aqui](how-to-set-up-appliance-physical.md).
 - Links para download estão disponíveis nas tabelas a seguir.
 
-
 ## <a name="appliance---vmware"></a>Dispositivo – VMware
 
 A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure para o VMware.
@@ -46,7 +45,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 > [!Note]
 > A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
-**Requisito** | **VMware** 
+**Requisito** | **VMware**
 --- | ---
 **Permissões** | Para acessar o Gerenciador de configuração de dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Serviços de dispositivo** | O dispositivo tem os seguintes serviços:<br/><br/> - **Gerenciador de configuração de dispositivo**: Este é um aplicativo Web que pode ser configurado com detalhes de origem para iniciar a descoberta e a avaliação de servidores.<br/> - **Agente de descoberta do VMware**: o agente coleta metadados de configuração do servidor que podem ser usados para criar avaliações locais.<br/>- **Agente de avaliação do VMware**: o agente coleta metadados de desempenho do servidor que podem ser usados para criar avaliações baseadas em desempenho.<br/>- **Serviço de atualização automática**: o serviço mantém todos os agentes em execução no dispositivo atualizados. Ele é executado automaticamente uma vez a cada 24 horas.<br/>- **Agente Dra**: Orquestra a replicação de servidor e coordena a comunicação entre servidores replicados e o Azure. Usado somente ao replicar servidores no Azure usando a migração sem agente.<br/>- **Gateway**: envia dados replicados para o Azure. Usado somente ao replicar servidores no Azure usando a migração sem agente.<br/>- **Descoberta e agente de avaliação do SQL**: envia os metadados de configuração e desempenho de instâncias de SQL Server e bancos de dados para o Azure.
@@ -62,7 +61,7 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 ## <a name="appliance---hyper-v"></a>Dispositivo – Hyper-V
 
-**Requisito** | **Hyper-V** 
+**Requisito** | **Hyper-V**
 --- | ---
 **Permissões** | Para acessar o Gerenciador de configuração de dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Serviços de dispositivo** | O dispositivo tem os seguintes serviços:<br/><br/> - **Gerenciador de configuração de dispositivo**: Este é um aplicativo Web que pode ser configurado com detalhes de origem para iniciar a descoberta e a avaliação de servidores.<br/> - **Agente de descoberta**: o agente coleta metadados de configuração do servidor que podem ser usados para criação como avaliações locais.<br/>- **Agente de avaliação**: o agente coleta metadados de desempenho do servidor que podem ser usados para criar avaliações baseadas em desempenho.<br/>- **Serviço de atualização automática**: o serviço mantém todos os agentes em execução no dispositivo atualizados. Ele é executado automaticamente uma vez a cada 24 horas.
@@ -77,17 +76,16 @@ A tabela a seguir resume os requisitos do dispositivo de Migrações para Azure 
 
 ## <a name="appliance---physical"></a>Dispositivo – Físico
 
-**Requisito** | **Físico** 
+**Requisito** | **Físico**
 --- | ---
 **Permissões** | Para acessar o Gerenciador de configuração de dispositivo localmente ou remotamente, você precisa ter uma conta de usuário local ou de domínio com privilégios administrativos no servidor do dispositivo.
 **Serviços de dispositivo** | O dispositivo tem os seguintes serviços:<br/><br/> - **Gerenciador de configuração de dispositivo**: Este é um aplicativo Web que pode ser configurado com detalhes de origem para iniciar a descoberta e a avaliação de servidores.<br/> - **Agente de descoberta**: o agente coleta metadados de configuração do servidor que podem ser usados para criação como avaliações locais.<br/>- **Agente de avaliação**: o agente coleta metadados de desempenho do servidor que podem ser usados para criar avaliações baseadas em desempenho.<br/>- **Serviço de atualização automática**: o serviço mantém todos os agentes em execução no dispositivo atualizados. Ele é executado automaticamente uma vez a cada 24 horas.
-**Limites do projeto** |  Um dispositivo só pode ser registrado com um único projeto.<br/> Um único projeto pode ter vários dispositivos registrados.<br/> 
+**Limites do projeto** |  Um dispositivo só pode ser registrado com um único projeto.<br/> Um único projeto pode ter vários dispositivos registrados.<br/>
 **Limites de descoberta** | Um dispositivo pode descobrir até 1000 servidores físicos.
 **Implantação com suporte** | Implante em um servidor existente que esteja executando o Windows Server 2016 usando o script do instalador do PowerShell.
 **Script do PowerShell** | Baixe o script (AzureMigrateInstaller.ps1) em um arquivo zip do projeto ou [aqui](https://go.microsoft.com/fwlink/?linkid=2140334). [Saiba mais](tutorial-discover-physical.md).<br/><br/> O tamanho do download é 85,8 MB.
 **Verificação de script** | [Verifique](tutorial-discover-physical.md#verify-security) o script do instalador do PowerShell baixado do projeto verificando os valores de hash.
 **Requisitos de hardware e rede** |  O dispositivo deve ser executado no servidor com o Windows Server 2016, 16 GB de RAM, 8 vCPUs, cerca de 80 GB de armazenamento em disco.<br/> O dispositivo precisa de um endereço IP estático ou dinâmico e requer acesso à Internet, diretamente ou por meio de um proxy.<br/><br/> Se você executar o dispositivo em um servidor existente, verifique se ele está executando o Windows Server 2016 e atende aos requisitos de hardware.<br/>_(Atualmente, a implantação do dispositivo tem suporte apenas no Windows Server 2016.)_
-
 
 ## <a name="url-access"></a>acesso à URL
 
@@ -95,7 +93,7 @@ O dispositivo de Migrações para Azure precisa de conectividade com a Internet.
 
 - Quando você implanta o dispositivo, as Migrações para Azure realizam uma verificação de conectividade para as URLs necessárias.
 - É preciso permitir o acesso a todas as URLs da lista. Se você estiver apenas fazendo a avaliação, poderá ignorar as URLs marcadas como necessárias para a migração sem agente do VMware.
--  Se estiver usando um proxy baseado em URL para se conectar à Internet, certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
+- Se estiver usando um proxy baseado em URL para se conectar à Internet, certifique-se de que o proxy resolva todos os registros CNAME recebidos ao pesquisar as URLs.
 
 ### <a name="public-cloud-urls"></a>URLs de nuvem pública
 
@@ -132,7 +130,6 @@ download.microsoft.com/download | Permitir downloads do centro de download da Mi
 *.blob.core.usgovcloudapi.net  |  **Usado para migração sem agente do VMware**<br/><br/>Carregue dados para armazenamento para migração.
 *.applicationinsights.us | Carregar logs de dispositivo usados para monitoramento interno.
 
-
 ## <a name="collected-data---vmware"></a>Dados coletados – VMware
 
 O dispositivo coleta metadados de configuração, metadados de desempenho e dados de dependências do servidor (se a [análise de dependência](concepts-dependency-visualization.md) sem agente for usada).
@@ -144,12 +141,12 @@ Os metadados descobertos pelo dispositivo de migrações para Azure ajudam a des
 Aqui está a lista completa de metadados de servidor que o dispositivo coleta e envia para o Azure.
 
 **DADOS** | **CONTADOR**
---- | --- 
-**Detalhes do servidor** | 
-ID de servidor | vm.Config.InstanceUuid 
+--- | ---
+**Detalhes do servidor** |
+ID de servidor | vm.Config.InstanceUuid
 Nome do servidor | vm.Config.Name
 ID do vCenter Server | VMwareClient.Instance.Uuid
-Descrição da VM | vm.Summary.Config.Annotation
+Descrição do servidor | vm.Summary.Config.Annotation
 Nome do produto de licença | vm.Client.ServiceContent.About.LicenseProductName
 Tipo de sistema operacional | vm.SummaryConfig.GuestFullName
 Tempo de inicialização | vm.Config.Firmware
@@ -160,7 +157,7 @@ Lista de tamanhos de disco | vm.Config.Hardware.Device.ToList().FindAll(x => is 
 Lista de adaptadores de rede | vm.Config.Hardware.Device.ToList().FindAll(x => is VirtualEthernet).count
 Utilização da CPU | cpu.usage.average
 Utilização da memória |mem.usage.average
-**Detalhes por disco** | 
+**Detalhes por disco** |
 Valor de chave do disco | disk.Key
 Número de Dikunit | disk.UnitNumber
 Valor de chave de controlador de disco | disk.ControllerKey.Value
@@ -170,53 +167,51 @@ Operações de leitura por segundo | virtualDisk.numberReadAveraged.average
 Operações de gravação por segundo | virtualDisk.numberWriteAveraged.average
 Taxa de transferência de leitura (MB por segundo) | virtualDisk.read.average
 Taxa de transferência de gravação (MB por segundo) | virtualDisk.write.average
-**Detalhes por NIC** | 
+**Detalhes por NIC** |
 Nome do adaptador de rede | nic.Key
 Endereço MAC | ((VirtualEthernetCard)nic).MacAddress
 Endereços IPv4 | vm.Guest.Net
 Endereços IPv6 | vm.Guest.Net
 Taxa de transferência de leitura (MB por segundo) | net.received.average
 Taxa de transferência de gravação (MB por segundo) | net.transmitted.average
-**Detalhes do caminho de inventário** | 
+**Detalhes do caminho de inventário** |
 Nome | container.GetType().Name
 Tipo de objeto filho | container.ChildType
 Detalhes de referência | container.MoRef
 Detalhes do pai | Container.Parent
-Detalhes da pasta por VM | ((Folder)container).ChildEntity.Type
-Detalhes do datacenter por VM | ((Datacenter)container).VmFolder
+Detalhes da pasta por servidor | ((Folder)container).ChildEntity.Type
+Detalhes do datacenter por servidor | ((Datacenter)container).VmFolder
 Detalhes do datacenter por pasta do host | ((Datacenter)container).HostFolder
 Detalhes do cluster por host | ((ClusterComputeResource)container).Host
-Detalhes do host por VM | ((HostSystem)container).VM
+Detalhes do host por servidor | ((HostSystem)container).VM
 
 ### <a name="performance-data"></a>Dados de desempenho
 
-
-Aqui estão os dados de desempenho da VM do VMware coletados e enviados para o Azure pelo dispositivo.
+Aqui estão os dados de desempenho que um dispositivo coleta para um servidor em execução no VMware e envia para o Azure.
 
 **Dados** | **Contador** | **Impacto de avaliação**
 --- | --- | ---
-Utilização da CPU | cpu.usage.average | Tamanho/custo recomendado da VM
-Utilização da memória | mem.usage.average | Tamanho/custo recomendado da VM
-Taxa de transferência de leitura do disco (MB por segundo) | virtualDisk.read.average | Cálculo do tamanho do disco, custo de armazenamento, tamanho da VM
-Taxa de transferência de gravações do disco (MB por segundo) | virtualDisk.write.average | Cálculo do tamanho do disco, custo de armazenamento, tamanho da VM
-Operações de leitura do disco por segundo | virtualDisk.numberReadAveraged.average | Cálculo do tamanho do disco, custo de armazenamento, tamanho da VM
-Operações de gravação do disco por segundo | virtualDisk.numberWriteAveraged.average  | Cálculo do tamanho do disco, custo de armazenamento, tamanho da VM
-Taxa de transferência de leitura de NIC (MB por segundo) | net.received.average | Cálculo de tamanho da VM
-Taxa de transferência de gravações de NIC (MB por segundo) | net.transmitted.average  |Cálculo de tamanho da VM
+Utilização da CPU | cpu.usage.average | Tamanho do servidor recomendado/custo
+Utilização da memória | mem.usage.average | Tamanho do servidor recomendado/custo
+Taxa de transferência de leitura do disco (MB por segundo) | virtualDisk.read.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho do servidor
+Taxa de transferência de gravações do disco (MB por segundo) | virtualDisk.write.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho do servidor
+Operações de leitura do disco por segundo | virtualDisk.numberReadAveraged.average | Cálculo para tamanho do disco, custo de armazenamento, tamanho do servidor
+Operações de gravação do disco por segundo | virtualDisk.numberWriteAveraged.average  | Cálculo para tamanho do disco, custo de armazenamento, tamanho do servidor
+Taxa de transferência de leitura de NIC (MB por segundo) | net.received.average | Cálculo para o tamanho do servidor
+Taxa de transferência de gravações de NIC (MB por segundo) | net.transmitted.average  |Cálculo para o tamanho do servidor
 
+### <a name="installed-software-inventory"></a>Inventário de software instalado
 
-### <a name="installed-applications-data"></a>Dados de aplicativos instalados
+O dispositivo coleta dados sobre o inventário de software instalado em servidores.
 
-O dispositivo coleta dados sobre os aplicativos, funções e recursos instalados em servidores.
+#### <a name="windows-server-software-inventory-data"></a>Dados de inventário de software do Windows Server
 
-#### <a name="windows-server-application-data"></a>Dados de aplicativos do Windows Server
-
-Aqui estão os dados de aplicativos que o dispositivo coleta de cada Windows Server descoberto em seu ambiente VMware.
+Aqui estão os dados de inventário de software que o dispositivo coleta de cada Windows Server descoberto em seu ambiente VMware.
 
 **Dados** | **Local do Registro** | **Chave**
 --- | --- | ---
 Nome do Aplicativo  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
-Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Versão  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion
 Provedor  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publicador
 
 #### <a name="windows-server-features-data"></a>Dados de recursos do Windows Server
@@ -236,9 +231,9 @@ Aqui estão os dados de SQL Server que o dispositivo coleta de cada Windows Serv
 **Dados**  | **Local do Registro**  | **Chave**
 --- | --- | ---
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL servidor \ instância Names\SQL  | installedInstance
-Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition 
+Edition  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Edition
 Service Pack  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | SP
-Versão  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Versão 
+Versão  | HKLM: \ \\ SOFTWARE\Microsoft\Microsoft SQL Server \% \<InstanceName>  | Versão
 
 #### <a name="windows-server-operating-system-data"></a>Dados do sistema operacional Windows Server
 
@@ -250,12 +245,12 @@ Nome  | Win32_operatingsystem  | Legenda
 Versão  | Win32_operatingsystem  | Versão
 Arquitetura  | Win32_operatingsystem  | OSArchitecture
 
-#### <a name="linux-server-application-data"></a>Dados de aplicativos do servidor Linux
+#### <a name="linux-server-software-inventory-data"></a>Dados de inventário de software do servidor Linux
 
-Aqui estão os dados de aplicativos que o dispositivo coleta de cada servidor Linux descoberto em seu ambiente VMware. Com base no sistema operacional do servidor, um ou mais comandos são executados.
+Aqui estão os dados de inventário de software que o dispositivo coleta de cada servidor Linux descoberto em seu ambiente VMware. Com base no sistema operacional do servidor, um ou mais comandos são executados.
 
 **Dados**  | **Comandos**
---- | --- 
+--- | ---
 Nome | rpm, dpkg-Query, snap
 Versão | rpm, dpkg-Query, snap
 Provedor | rpm, dpkg-Query, snap
@@ -265,8 +260,8 @@ Provedor | rpm, dpkg-Query, snap
 Aqui estão os dados do sistema operacional que o dispositivo coleta de cada servidor Linux descoberto em seu ambiente VMware.
 
 **Dados**  | **Comandos**
---- | --- 
-Nome <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version 
+--- | ---
+Nome <br/> version | Coletado de um ou mais dos seguintes arquivos:<br/> <br/>/etc/os-release  <br> /usr/lib/os-release  <br> /etc/enterprise-release  <br> /etc/redhat-release  <br> /etc/oracle-release  <br> /etc/SuSE-release  <br> /etc/lsb-release  <br> /etc/debian_version
 Arquitetura | uname
 
 ### <a name="sql-server-instances-and-databases-data"></a>SQL Server de instâncias e dados de bancos de dados
@@ -296,13 +291,13 @@ O banco de dados está habilitado para o Change Data Capture ou não | sys.datab
 
 **Metadados do servidor** | **Exibições/Propriedades do SQL Server**
 --- | ---
-Nome do servidor |SERVERPROPERTY 
+Nome do servidor |SERVERPROPERTY
 FQDN | Cadeia de conexão derivada da descoberta de aplicativos instalados
 ID da instalação | sys.dm_server_registry
 Versão do servidor __ | SERVERPROPERTY
 Edição do servidor | SERVERPROPERTY
 Plataforma de host do servidor (Windows/Linux) | SERVERPROPERTY
-Nível de produto do servidor (RTM SP CTP) | SERVERPROPERTY 
+Nível de produto do servidor (RTM SP CTP) | SERVERPROPERTY
 Caminho de backup padrão | SERVERPROPERTY
 Caminho padrão dos arquivos de dados | SERVERPROPERTY e Software\Microsoft\MSSQLServer\MSSQLServer
 Caminho padrão dos arquivos de log | SERVERPROPERTY e Software\Microsoft\MSSQLServer\MSSQLServer
@@ -313,8 +308,8 @@ ID de servidor exclusivo | sys.dm_server_registry
 HA habilitado ou não | SERVERPROPERTY
 Extensão do pool de buffers habilitada ou não | sys.dm_os_buffer_pool_extension_configuration
 Cluster de failover configurado ou não | SERVERPROPERTY
-Servidor usando somente o modo de autenticação do Windows | SERVERPROPERTY 
-O servidor instala o polybase | SERVERPROPERTY 
+Servidor usando somente o modo de autenticação do Windows | SERVERPROPERTY
+O servidor instala o polybase | SERVERPROPERTY
 Não. de CPUs lógicas no sistema | sys.dm_server_registry, sys.dm_os_sys_info
 Taxa do número de núcleos lógicos ou físicos expostos por um pacote de processador físico | sys.dm_os_schedulers, sys.dm_os_sys_info
 N º de CPUs físicas no sistema | sys.dm_os_schedulers, sys.dm_os_sys_info
@@ -351,8 +346,8 @@ A análise de dependência sem agente coleta os dados de conexão e de processo.
 
 Aqui estão os dados de conexão que o dispositivo coleta de cada servidor Windows, habilitado para análise de dependência sem agente.
 
-**Dados** | **Comandos** 
---- | --- 
+**Dados** | **Comandos**
+--- | ---
 Porta local | netstat
 Endereço IP local | netstat
 Porta remota | netstat
@@ -373,19 +368,18 @@ Nome do aplicativo | Win32_Process | Parâmetro VersionInfo.ProductName da propr
 
 Aqui estão os dados de conexão que o dispositivo coleta de cada servidor Linux, habilitado para análise de dependência sem agente.
 
-**Dados** | **Comandos** 
+**Dados** | **Comandos**
 --- | ---
-Porta local | netstat 
-Endereço IP local | netstat 
-Porta remota | netstat 
-Endereço IP remoto | netstat 
-Estado de conexão do TCP | netstat 
+Porta local | netstat
+Endereço IP local | netstat
+Porta remota | netstat
+Endereço IP remoto | netstat
+Estado de conexão do TCP | netstat
 Quantidade de conexões ativas | netstat
-ID do Processo  | netstat 
+ID do Processo  | netstat
 Nome do processo | ps
 Argumentos do processo | ps
 Nome do aplicativo | dpkg ou rpm
-
 
 ## <a name="collected-data---hyper-v"></a>Dados coletados – Hyper-V
 
@@ -400,20 +394,20 @@ Aqui está a lista completa de metadados de servidor que o dispositivo coleta e 
 --- | --- | ---
 **Detalhes do servidor** | 
 Número de série do BIOS | Msvm_BIOSElement | BIOSSerialNumber
-Tipo de VM (Ger. 1 ou 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
-Nome de exibição da VM | Msvm_VirtualSystemSettingData | ElementName
-Versão da VM | Msvm_ProcessorSettingData | VirtualQuantity
+Tipo de servidor (Gen 1 ou 2) | Msvm_VirtualSystemSettingData | VirtualSystemSubType
+Nome de exibição do servidor | Msvm_VirtualSystemSettingData | ElementName
+Versão do servidor __ | Msvm_ProcessorSettingData | VirtualQuantity
 Memória (bytes) | Msvm_MemorySettingData | VirtualQuantity
-Memória máxima que pode ser consumida pela VM | Msvm_MemorySettingData | Limite
+Memória máxima que pode ser consumida pelo servidor | Msvm_MemorySettingData | Limite
 Memória dinâmica habilitada | Msvm_MemorySettingData | DynamicMemoryEnabled
 Nome/versão/FQDN do sistema operacional | Msvm_KvpExchangeComponent | Dados do nome GuestIntrinsicExchangeItems
-Status de energia da VM | Msvm_ComputerSystem | EnabledState
-**Detalhes por disco** | 
+Status de energia do servidor | Msvm_ComputerSystem | EnabledState
+**Detalhes por disco** |
 Identificador de disco | Msvm_VirtualHardDiskSettingData | VirtualDiskId
 Tipo de disco rígido virtual | Msvm_VirtualHardDiskSettingData | Type
 Tamanho do disco rígido virtual | Msvm_VirtualHardDiskSettingData | MaxInternalSize
 Pai do disco rígido virtual | Msvm_VirtualHardDiskSettingData | ParentPath
-**Detalhes por NIC** | 
+**Detalhes por NIC** |
 Endereços IP (NICs sintéticas) | Msvm_GuestNetworkAdapterConfiguration | IPAddresses
 DHCP habilitado (NICs sintéticas) | Msvm_GuestNetworkAdapterConfiguration | DHCPEnabled
 ID da NIC (NICs sintéticas) | Msvm_SyntheticEthernetPortSettingData | InstanceID
@@ -427,17 +421,16 @@ Aqui estão os dados de desempenho do servidor que o dispositivo coleta e envia 
 
 **Classe do contador de desempenho** | **Contador** | **Impacto de avaliação**
 --- | --- | ---
-Processador virtual hipervisor Hyper-V | % de runtime do convidado | Tamanho/custo recomendado da VM
-VM de memória dinâmica Hyper-V | Pressão atual (%)<br/> Memória física visível do convidado (MB) | Tamanho/custo recomendado da VM
-Dispositivo de armazenamento virtual Hyper-V | Bytes lidos/segundo | Cálculo do tamanho do disco, custo de armazenamento, tamanho da VM
-Dispositivo de armazenamento virtual Hyper-V | Bytes gravados/segundo | Cálculo do tamanho do disco, custo de armazenamento, tamanho da VM
-Adaptador de rede virtual Hyper-V | Bytes recebidos/segundo | Cálculo de tamanho da VM
-Adaptador de rede virtual Hyper-V | Bytes enviados/segundo | Cálculo de tamanho da VM
+Processador virtual hipervisor Hyper-V | % de runtime do convidado | Tamanho do servidor recomendado/custo
+Servidor de Memória Dinâmica Hyper-V | Pressão atual (%)<br/> Memória física visível do convidado (MB) | Tamanho do servidor recomendado/custo
+Dispositivo de armazenamento virtual Hyper-V | Bytes lidos/segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho do servidor
+Dispositivo de armazenamento virtual Hyper-V | Bytes gravados/segundo | Cálculo para tamanho do disco, custo de armazenamento, tamanho do servidor
+Adaptador de rede virtual Hyper-V | Bytes recebidos/segundo | Cálculo para o tamanho do servidor
+Adaptador de rede virtual Hyper-V | Bytes enviados/segundo | Cálculo para o tamanho do servidor
 
-- A utilização da CPU é a soma de todo o uso, para todos os processadores virtuais anexados a uma VM.
+- A utilização da CPU é a soma de todo o uso, para todos os processadores virtuais anexados a um servidor.
 - A utilização da memória é (Pressão atual * Memória física visível do convidado)/100.
 - Os valores de utilização de disco e rede são coletados dos contadores de desempenho do Hyper-V listados.
-
 
 ## <a name="collected-data---physical"></a>Dados coletados – físicos
 
@@ -472,8 +465,8 @@ Endereço MAC da NIC | Win32_NetworkAdapterConfiguration | MACAddress
 
 Aqui está a lista completa de metadados do servidor do Linux que o dispositivo coleta e envia para o Azure.
 
-**Dados** | **Comandos** 
---- | --- 
+**Dados** | **Comandos**
+--- | ---
 FQDN | cat /proc/sys/kernel/hostname, hostname -f
 Contagem do núcleo do processador |  /proc/cpuinfo \| awk '/^processor/{print $3}' \| wc -l
 Memória alocada | cat /proc/meminfo \| grep MemTotal \| awk '{printf "%.0f", $2/1024}'
@@ -507,8 +500,8 @@ Detalhes do disco | Win32_PerfFormattedData_PerfDisk_PhysicalDisk | DiskWritesPe
 
 Aqui estão os dados de desempenho do servidor do Linux coletados e enviados para o Azure pelo dispositivo.
 
-**Dados** | **Comandos** 
---- | --- 
+**Dados** | **Comandos**
+--- | ---
 Uso da CPU | cat /proc/stat/| grep 'cpu' /proc/stat
 Uso de memória | free \| grep Mem \| awk '{print $3/$2 * 100.0}'
 Contagem de NIC | lshw -class network \| grep eth[0-60] \| wc -l
@@ -540,7 +533,7 @@ A atualização automática pode ser ativada usando um destes métodos:
 
 Como excluir a chave do Registro:
 
-1. Abra o Editor do Registro no computador que está executando o dispositivo.
+1. No servidor que executa o dispositivo, abra o editor do registro.
 2. Navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance**.
 3. Exclua a chave do Registro **AutoUpdate**, que foi criada anteriormente para desativar a atualização automática.
 
@@ -556,7 +549,7 @@ Como ativar usando o Configuration Manager do dispositivo, após a conclusão da
 É possível verificar a versão dos serviços do dispositivo por meio de um destes métodos:
 
 - No Gerenciador de configurações de dispositivo, vá para configurar o painel de **pré-requisitos** .
-- No computador do dispositivo, em **Painel de Controle** > **Programas e Recursos**.
+- No dispositivo, nos   >  **programas e recursos** do painel de controle.
 
 Para fazer check-in no Gerenciador de configurações do dispositivo:
 
@@ -577,12 +570,12 @@ Como verificar no painel de controle:
 Se você estiver executando uma versão mais antiga para qualquer um dos serviços, deverá desinstalar o serviço e atualizar manualmente para a versão mais recente.
 
 1. Para verificar as versões mais recentes do serviço do dispositivo, [baixe](https://aka.ms/latestapplianceservices) o arquivo LatestComponents.json.
-2.    Após o download, abra o arquivo LatestComponents.json no bloco de notas.
+2. Após o download, abra o arquivo LatestComponents.json no bloco de notas.
 3. Localize a versão mais recente do serviço no arquivo e o link de download para ela. Por exemplo:
 
     "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
 
-4.    Baixe a versão mais recente de um serviço desatualizado, usando o link de download no arquivo.
+4. Baixe a versão mais recente de um serviço desatualizado, usando o link de download no arquivo.
 5. Após o download, execute o comando a seguir em uma janela de comando do administrador para verificar a integridade do MSI baixado.
 
     ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ``` Por exemplo:  C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
@@ -591,11 +584,8 @@ Se você estiver executando uma versão mais antiga para qualquer um dos serviç
 6. Agora, execute o MSI para instalar o serviço. Trata-se de uma instalação silenciosa, e a janela de instalação é fechada após a conclusão.
 7. Após a conclusão da instalação, verifique a versão do serviço em **Painel de controle** > **Programas e Recursos**. A versão do serviço já deverá estar atualizada para a mais recente mostrada no arquivo json.
 
-
-
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba como](how-to-set-up-appliance-vmware.md) configurar o dispositivo para o VMware.
 - [Saiba como](how-to-set-up-appliance-hyper-v.md) configurar o dispositivo para o Hyper-V.
 - [Saiba como](how-to-set-up-appliance-physical.md) configurar o dispositivo para servidores físicos.
-

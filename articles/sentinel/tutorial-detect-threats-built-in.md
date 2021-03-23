@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/06/2020
+ms.date: 03/19/2021
 ms.author: yelevin
-ms.openlocfilehash: b8a304d523052f1fe839f94608806df51d35fdf9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 951c616961ff68b810ca135d09a6f6253cb2b7ba
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589915"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773548"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Tutorial: Detectar ameaças prontas para uso
 
@@ -57,7 +57,9 @@ Os seguintes tipos de modelo estão disponíveis:
     Esses modelos são baseados em algoritmos proprietários do Microsoft Machine Learning, portanto, você não pode ver a lógica interna de como eles funcionam e quando eles são executados. Como a lógica está oculta e, portanto, não é personalizável, você só pode criar uma regra com cada modelo desse tipo.
 
     > [!IMPORTANT]
-    > Os modelos de regra de análise comportamental do Machine Learning estão atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+    > - Os modelos de regra de análise comportamental do Machine Learning estão atualmente em **Visualização**. Consulte os [termos de uso suplementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais adicionais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+    >
+    > - Ao criar e habilitar qualquer regra com base nos modelos de análise de comportamento de ML, **você concede à Microsoft permissão para copiar dados ingeridos fora da geografia do seu espaço de trabalho do Azure Sentinel** , conforme necessário para o processamento pelos mecanismos e modelos do Machine Learning.
 
 - **Agendado**
 

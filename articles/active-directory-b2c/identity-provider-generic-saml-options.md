@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 43c57950d317de42df666ddd25cbcb2e9a4c9611
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 32f9df410dabf1902e9a7d9aadbf47288bfa90f5
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488866"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798231"
 ---
 # <a name="configure-saml-identity-provider-options-with-azure-active-directory-b2c"></a>Configurar opções do provedor de identidade SAML com Azure Active Directory B2C
 
@@ -85,9 +85,11 @@ Veja a seguir um exemplo de um serviço de logon único de metadados do Azure AD
 </IDPSSODescriptor>
 ```
 
-As respostas SAML são transmitidas para Azure AD B2C via associação HTTP POST. Azure AD B2C metadados de política definem a `AssertionConsumerService` Associação para `urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST` .
+### <a name="assertion-consumer-service"></a>Serviço de consumidor de asserção
 
-Veja a seguir um exemplo de um elemento de serviço de consumidor de declaração de metadados de política de Azure AD B2C.
+O serviço de consumidor de asserção (ou ACS) é onde as respostas SAML do provedor de identidade podem ser enviadas e recebidas por Azure AD B2C. As respostas SAML são transmitidas para Azure AD B2C via associação HTTP POST. O local do ACS aponta para a política base de sua terceira parte confiável. Por exemplo, se a política de confiança for *B2C_1A_signup_signin*, o ACS será a política de base do *B2C_1A_signup_signin*, como *B2C_1A_TrustFrameworkBase*.
+
+Veja a seguir um exemplo de um elemento de serviço de consumidor de declaração de metadados de política de Azure AD B2C. 
 
 ```xml
 <SPSSODescriptor AuthnRequestsSigned="true" protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol">

@@ -1,18 +1,14 @@
 ---
 title: Obter informações sobre os dispositivos descobertos por um sensor específico
 description: O inventário de dispositivos exibe uma ampla gama de atributos de dispositivo que um sensor detecta.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.service: azure
-ms.openlocfilehash: c15dc62cad796f5f74f2316d148e217052dc9678
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4daec83f44a545d7837a7e73e847f56b1f5770e7
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100523984"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104782088"
 ---
 # <a name="investigate-sensor-detections-in-a-device-inventory"></a>Investigar as detecções do sensor em um inventário de dispositivos
 
@@ -65,7 +61,7 @@ Para ocultar e exibir colunas, personalize a tabela de inventário do dispositiv
 
 3. Altere o local das colunas na tabela usando setas.
 
-4. Clique em **Salvar**. A janela **configurações de inventário de dispositivo** é fechada e as novas configurações aparecem na tabela.
+4. Selecione **Salvar**. A janela **configurações de inventário de dispositivo** é fechada e as novas configurações aparecem na tabela.
 
 ### <a name="create-temporary-device-inventory-filters"></a>Criar filtros de inventário de dispositivo temporários
 

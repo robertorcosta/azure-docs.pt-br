@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/18/2021
 ms.author: tyao
 ms.custom: references_regions
-ms.openlocfilehash: 6a1ec6e0b8862c6ad2b884b019e908e7d2a59a1e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 88c000c96e632f970db075fafb13ea5eb4bbddfc
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101715506"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799914"
 ---
 # <a name="secure-your-origin-with-private-link-in-azure-front-door-standardpremium-preview"></a>Proteja sua origem com o link privado no Azure front door Standard/Premium (visualização)
 
@@ -30,7 +30,7 @@ O [link privado do Azure](../../private-link/private-link-overview.md) permite a
 > Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos.
 > Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-O SKU Premium da porta do Azure pode se conectar à sua origem por trás do aplicativo Web e da conta de armazenamento usando o serviço de link privado, eliminando a necessidade de sua origem ser acessível publicamente.
+O SKU Premium da porta do Azure pode se conectar à sua origem por meio do serviço de vínculo privado. Seus aplicativos podem ser hospedados em sua VNet privada ou por trás de um serviço de PaaS, como o aplicativo Web e a conta de armazenamento, eliminando a necessidade de sua origem ser acessível publicamente.
 
 :::image type="content" source="../media/concept-private-link/front-door-private-endpoint-architecture.png" alt-text="Arquitetura de pontos de extremidade privados da porta frontal":::
 

@@ -8,17 +8,17 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/08/2021
+ms.date: 03/22/2021
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 8b3224333a3915b7827242004d1dec0f4695f479
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f451d08dfbde643d91705f54296e9757a51c9d88
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581908"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798386"
 ---
 # <a name="set-up-a-password-reset-flow-in-azure-active-directory-b2c"></a>Configurar um fluxo de redefinição de senha no Azure Active Directory B2C
 
@@ -35,6 +35,9 @@ A [jornada de inscrição e entrada](add-sign-up-and-sign-in-policy.md) permite 
 ![Fluxo de redefinição de senha](./media/add-password-reset-policy/password-reset-flow.png)
 
 O fluxo de redefinição de senha se aplica a contas locais em Azure AD B2C que usam um [endereço de email](identity-provider-local.md#email-sign-in) ou [nome de usuário](identity-provider-local.md#username-sign-in) com uma senha para entrar.
+
+> [!TIP]
+> O fluxo de redefinição de senha de autoatendimento permite que os usuários alterem sua senha quando o usuário esquece sua senha e deseja redefini-la. Considere configurar um [fluxo de alteração de senha](add-password-change-policy.md) para dar suporte a casos em que um usuário sabe sua senha e deseja alterá-la.
 
 Uma prática comum após a migração de usuários para Azure AD B2C com senhas aleatórias é fazer com que os usuários verifiquem seus endereços de email e redefinam suas senhas durante a primeira conexão. Também é comum forçar o usuário a redefinir sua senha depois que um administrador altera sua senha; consulte [forçar redefinição de senha](force-password-reset.md) para habilitar esse recurso.
 
@@ -302,7 +305,7 @@ Para permitir que os usuários do seu aplicativo redefinam sua senha, você cria
 
 ### <a name="test-the-user-flow"></a>Testar o fluxo de usuário
 
-1. Selecione o fluxo de usuário que você criou para abrir sua página de visão geral e, em seguida, selecione **executar fluxo de usuário**.
+1. Selecione o fluxo de usuário que você criou para abrir a página de visão geral e, em seguida, selecione **Executar fluxo de usuário**.
 1. Para **Aplicativo**, selecione o aplicativo Web denominado *webapp1* que você registrou anteriormente. A **URL de resposta** deve mostrar `https://jwt.ms`.
 1. Clique em **executar fluxo de usuário**, verifique o endereço de email da conta que você criou anteriormente e, em seguida, selecione **continuar**.
 1. Agora você pode alterar a senha do usuário. Altere a senha e selecione **Continuar**. O token é retornado para `https://jwt.ms` e deve ser exibido para você.

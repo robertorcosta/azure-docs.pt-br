@@ -3,12 +3,12 @@ title: Práticas recomendadas
 description: Conheça as práticas recomendadas e dicas úteis para desenvolver suas soluções de lote do Azure.
 ms.date: 03/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 697ac5d213bbe2e52134cad519f69c233f1cd593
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7ef94b07a5131726c42a94088fd3ee1f413dbec7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583268"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802345"
 ---
 # <a name="azure-batch-best-practices"></a>Melhores práticas do Lote do Azure
 
@@ -31,7 +31,12 @@ Os [pools](nodes-and-pools.md#pools) são os recursos de computação para execu
 
 - Os **pools devem ter mais de um nó de computação:** Não há garantia de que os nós individuais estejam sempre disponíveis. Embora não sejam comuns, falhas de hardware, atualizações de sistema operacional e outros problemas podem fazer com que nós individuais fiquem offline. Se a carga de trabalho do Lote exigir um progresso determinístico e garantido, você deverá alocar pools com vários nós.
 
-- **Não reutilizar nomes de recursos:** Os recursos do lote (trabalhos, pools, etc.) geralmente são fornecidos e passam ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
+- **Não use imagens com datas de fim da vida útil (EOL) iminentes.**
+    É altamente recomendável evitar imagens com datas de fim da vida útil (EOL) de suporte do lote iminente. Essas datas podem ser descobertas por meio da [ `ListSupportedImages` API](https://docs.microsoft.com/rest/api/batchservice/account/listsupportedimages), do [PowerShell](https://docs.microsoft.com/powershell/module/az.batch/get-azbatchsupportedimage)ou do [CLI do Azure](https://docs.microsoft.com/cli/azure/batch/pool/supported-images). É sua responsabilidade atualizar periodicamente sua exibição das datas de EOL pertinentes aos seus pools e migrar suas cargas de trabalho antes que a data de EOL ocorra. Se você estiver usando uma imagem personalizada com um agente de nó especificado, será necessário garantir que siga as datas de término do suporte ao lote para a imagem para a qual sua imagem personalizada é derivada ou alinhada.
+
+- **Não reutilize nomes de recursos.**
+    Os recursos do Lote (trabalhos, pools etc.) geralmente entram e saem ao longo do tempo. Por exemplo, você pode criar um pool na segunda-feira, excluí-lo na terça-feira e, em seguida, criar outro pool na quinta-feira. Os novos recursos criados devem receber um nome exclusivo que você não usou antes. Isso pode ser feito usando um GUID (como o nome do recurso inteiro ou como parte dele) ou inserindo a hora em que o recurso foi criado no nome do recurso. O Lote permite [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), que pode ser usado para atribuir a um recurso um nome fácil, mesmo que a ID de recurso real seja algo amigável para as pessoas. Se você usar nomes exclusivos, isso facilita diferenciar um recurso específico que fez algo em logs e métricas. Ele também removerá a ambiguidade se você precisar arquivar um caso de suporte para um recurso.
+
 
 - **Continuidade durante a manutenção e a falha do pool:** É melhor fazer com que seus trabalhos usem pools dinamicamente. Se seus trabalhos usarem o mesmo pool para tudo, haverá a chance de que seus trabalhos não sejam executados se algo der errado com o pool. Isso é especialmente importante para cargas de trabalho com detecção de hora. Para corrigir isso, selecione ou crie um pool dinamicamente ao agendar cada trabalho ou tenha uma maneira de substituir o nome do pool para que você possa ignorar um pool não íntegro.
 

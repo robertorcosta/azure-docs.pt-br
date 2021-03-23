@@ -6,15 +6,15 @@ ms.service: virtual-machines
 ms.subservice: spot
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 03/22/2021
 ms.author: cynthn
 ms.reviewer: jagaveer
-ms.openlocfilehash: 33172004ac4361de51b92389fbf56bd699f7124f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9a2ad2eb197af613919efa4414da1759cd47e2e7
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102096438"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104802736"
 ---
 # <a name="deploy-azure-spot-virtual-machines-using-azure-powershell"></a>Implantar máquinas virtuais do Azure Spot usando o Azure PowerShell
 
@@ -76,20 +76,53 @@ Get-AzVM -ResourceGroupName $resourceGroup | `
 
 ## <a name="simulate-an-eviction"></a>Simular uma remoção
 
-Você pode [simular uma remoção](/rest/api/compute/virtualmachines/simulateeviction) de uma máquina virtual de ponto do Azure, para testar como seu aplicativo responderá a uma remoção repentina. 
+Você pode simular uma remoção de uma máquina virtual do Azure Spot usando REST, PowerShell ou CLI, para testar como seu aplicativo responderá a uma remoção repentina.
 
-Substitua o seguinte pelas suas informações: 
+Na maioria dos casos, você desejará usar as máquinas virtuais da API REST [– simular a remoção](/rest/api/compute/virtualmachines/simulateeviction) para ajudar com o teste automatizado de aplicativos. Para REST, um `Response Code: 204` significa que a remoção simulada foi bem-sucedida. Você pode combinar remoções simuladas com o [serviço de evento agendado](scheduled-events.md)para automatizar como seu aplicativo responderá quando a VM for removida.
 
-- `subscriptionId`
-- `resourceGroupName`
-- `vmName`
+Para ver os eventos agendados em ação, Assista [à sexta-feira do Azure-usando o azure eventos agendados para se preparar para a manutenção da VM](https://channel9.msdn.com/Shows/Azure-Friday/Using-Azure-Scheduled-Events-to-Prepare-for-VM-Maintenance).
 
 
-```rest
-POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}/simulateEviction?api-version=2020-06-01
+### <a name="quick-test"></a>Teste rápido
+
+Para um teste rápido mostrar como uma remoção simulada funcionará, vamos examinar a consulta do serviço de evento agendado para ver a aparência dele quando você simular uma remoção usando o PowerShell.
+
+O serviço de evento agendado é habilitado para seu serviço na primeira vez que você fizer uma solicitação de eventos. 
+
+Remoto para sua VM e, em seguida, abra um prompt de comando. 
+
+No prompt de comando em sua VM, digite:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
 ```
 
-`Response Code: 204` significa que a remoção simulada foi bem-sucedida. 
+Essa primeira resposta pode levar até 2 minutos. De agora em diante, eles devem exibir a saída quase imediatamente.
+
+Em um computador que tem o módulo AZ PowerShell instalado (como seu computador local), simule uma remoção usando [set-AzVM](https://docs.microsoft.com/powershell/module/az.compute/set-azvm). Substitua o nome do grupo de recursos e o nome da VM pelos seus próprios. 
+
+```azurepowershell-interactive
+Set-AzVM -ResourceGroupName "mySpotRG" -Name "mySpotVM" -SimulateEviction
+```
+
+A saída da resposta terá `Status: Succeeded` se a solicitação tiver sido feita com êxito.
+
+Volte rapidamente para sua conexão remota para sua máquina virtual Spot e consulte o ponto de extremidade de Eventos Agendados novamente. Repita o comando a seguir até obter uma saída que contenha mais informações:
+
+```
+curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-version=2019-08-01
+```
+
+Quando o serviço de evento agendado obtiver a notificação de remoção, você receberá uma resposta semelhante a esta:
+
+```output
+{"DocumentIncarnation":1,"Events":[{"EventId":"A123BC45-1234-5678-AB90-ABCDEF123456","EventStatus":"Scheduled","EventType":"Preempt","ResourceType":"VirtualMachine","Resources":["myspotvm"],"NotBefore":"Tue, 16 Mar 2021 00:58:46 GMT","Description":"","EventSource":"Platform"}]}
+```
+
+Você pode ver isso `"EventType":"Preempt"` , e o recurso é o recurso da VM `"Resources":["myspotvm"]` . 
+
+Você também pode ver quando a VM será removida verificando o `"NotBefore"` valor. A VM não será removida antes do tempo fornecido em `NotBefore` , portanto, essa é sua janela para que seu aplicativo seja fechado normalmente.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

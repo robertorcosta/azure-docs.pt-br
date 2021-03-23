@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: d01f80a803c5b0f9da067dd23ab8cdb4cc591a79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b9c5db14bec87b30e51d39b1430ecc1f3cbef855
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609033"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798282"
 ---
 # <a name="monitor-your-sql-deployments-with-sql-insights-preview"></a>Monitorar suas implantações do SQL com o SQL insights (versão prévia)
 O SQL insights monitora o desempenho e a integridade de suas implantações do SQL.  Ele pode ajudar a fornecer desempenho previsível e disponibilidade de cargas de trabalho vitais que você criou em um back-end do SQL identificando gargalos e problemas de desempenho. O SQL insights armazena seus dados em [logs de Azure monitor](../logs/data-platform-logs.md), o que permite que ele forneça agregação e filtragem poderosas e analise as tendências de dados ao longo do tempo. Você pode exibir esses dados de Azure Monitor nos modos de exibição fornecidos como parte dessa oferta e você pode se aprofundar diretamente nos dados de log para executar consultas e analisar tendências.
@@ -59,7 +59,7 @@ Consulte [habilitar insights do SQL](sql-insights-enable.md) para o procedimento
 
 
 ## <a name="data-collected-by-sql-insights"></a>Dados coletados pelo SQL insights
-Na visualização pública, o SQL insights dá suporte apenas ao método remoto de monitoramento. O agente Telegraf não está instalado no SQL Server. Ele usa o plug-in de entrada SQL Server para Telegraf e usa os três grupos de consultas para os diferentes tipos de monitores de ti do SQL: banco de dados SQL do Azure, Azure SQL Instância Gerenciada, SQL Server em execução em uma VM do Azure. 
+Na visualização pública, o SQL insights dá suporte apenas ao método remoto de monitoramento. O [agente Telegraf](https://www.influxdata.com/time-series-platform/telegraf/) não está instalado no SQL Server. Ele usa o [plug-in de entrada SQL Server para Telegraf](https://www.influxdata.com/integration/microsoft-sql-server/) e usa os três grupos de consultas para os diferentes tipos de monitores de ti do SQL: banco de dados SQL do Azure, azure SQL instância gerenciada, SQL Server em execução em uma VM do Azure. 
 
 As tabelas a seguir resumem o seguinte:
 

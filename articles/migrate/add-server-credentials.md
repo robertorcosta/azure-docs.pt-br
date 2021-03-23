@@ -1,34 +1,34 @@
 ---
-title: Forneça credenciais de servidor para descobrir aplicativos, dependências e SQL Server instâncias e bancos de dados
+title: Forneça credenciais de servidor para descobrir inventário de software, dependências e instâncias de SQL Server e bancos de dados
 description: Saiba como fornecer credenciais de servidor no Gerenciador de configurações de dispositivo
-author: vikram1988
-ms.author: vibansa
+author: vineetvikram
+ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 01/26/2021
-ms.openlocfilehash: 2359855ce3949eb022a03f6e8e2dbc05f98907db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/18/2021
+ms.openlocfilehash: 990ca661eb6ec17c7f8aca246c15f89fcf8975a8
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054445"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785216"
 ---
-# <a name="provide-server-credentials-to-discover-applications-dependencies-and-sql-server-instances-and-databases"></a>Forneça credenciais de servidor para descobrir aplicativos, dependências e SQL Server instâncias e bancos de dados
+# <a name="provide-server-credentials-to-discover-software-inventory-dependencies-and-sql-server-instances-and-databases"></a>Forneça credenciais de servidor para descobrir inventário de software, dependências e instâncias de SQL Server e bancos de dados
 
 Siga este artigo para saber como adicionar várias credenciais de servidor no Gerenciador de configuração de dispositivo para executar o inventário de software (descobrir aplicativos instalados), a análise de dependência sem agente e descobrir SQL Server instâncias e bancos de dados.
 
 > [!Note]
 > A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
-O [dispositivo de migrações para Azure](migrate-appliance.md) é um dispositivo leve usado pelas migrações para Azure: avaliação do servidor para descobrir servidores locais em execução no ambiente VMware e enviar metadados de configuração e desempenho do servidor para o Azure. O dispositivo também pode ser usado para executar o inventário de software, a análise de dependência sem agente e a descoberta de instâncias de SQL Server e bancos de dados.
+O [dispositivo de migrações para Azure](migrate-appliance.md) é um dispositivo leve usado pelas migrações para Azure: descoberta e avaliação para descobrir servidores locais em execução no ambiente VMware e enviar metadados de configuração e desempenho do servidor para o Azure. O dispositivo também pode ser usado para executar o inventário de software, a análise de dependência sem agente e a descoberta de instâncias de SQL Server e bancos de dados.
 
-Se você quiser aproveitar esses recursos, poderá fornecer credenciais de servidor seguindo as etapas abaixo. O dispositivo tentará mapear automaticamente as credenciais para os servidores para executar os recursos de descoberta.
+Se você quiser usar esses recursos, poderá fornecer credenciais de servidor seguindo as etapas abaixo. O dispositivo tentará mapear automaticamente as credenciais para os servidores para executar os recursos de descoberta.
 
 ## <a name="add-credentials-for-servers-running-in-vmware-environment"></a>Adicionar credenciais para servidores em execução no ambiente VMware
 
 ### <a name="types-of-server-credentials-supported"></a>Tipos de credenciais de servidor com suporte
 
-Você pode adicionar várias credenciais de servidor no Gerenciador de configuração de dispositivo que pode ser domínio, não domínio (Windows ou Linux) ou SQL Server credenciais de autenticação.
+Você pode adicionar várias credenciais de servidor no Gerenciador de configuração de dispositivo, que pode ser domínio, não domínio (Windows ou Linux) ou SQL Server credenciais de autenticação.
 
 Os tipos de credenciais de servidor com suporte são listados na tabela a seguir:
 
@@ -55,7 +55,7 @@ Recurso | Credenciais do Windows | Credenciais do Linux
 - É recomendável criar uma conta de usuário de domínio dedicado com as [permissões necessárias](add-server-credentials.md#required-permissions), que tem como escopo executar o inventário de software, a análise de dependência sem agente e a descoberta de instâncias de SQL Server e bancos de dados nos servidores desejados.
 - É recomendável fornecer pelo menos uma credencial de domínio validada com êxito ou pelo menos uma credencial que não seja de domínio para iniciar o inventário de software.
 - Para descobrir SQL Server instâncias e bancos de dados, você pode fornecer credenciais de domínio, se tiver configurado o modo de autenticação do Windows em seus servidores SQL.
--  Você também pode fornecer SQL Server credenciais de autenticação se tiver configurado SQL Server modo de autenticação em seus SQL Servers, mas é recomendável fornecer pelo menos uma credencial de domínio validada com êxito ou pelo menos uma credencial do Windows (não domínio) para que o dispositivo possa primeiro concluir o inventário de software.
+- Você também pode fornecer SQL Server credenciais de autenticação se tiver configurado SQL Server modo de autenticação em seus SQL Servers, mas é recomendável fornecer pelo menos uma credencial de domínio validada com êxito ou pelo menos uma credencial do Windows (não domínio) para que o dispositivo possa primeiro concluir o inventário de software.
 
 ## <a name="credentials-handling-on-appliance"></a>Tratamento de credenciais no dispositivo
 

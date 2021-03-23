@@ -3,12 +3,12 @@ title: Referência de configurações de aplicativo para Azure Functions
 description: Documentação de referência para as configurações de aplicativo ou variáveis de ambiente do Azure Functions.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: fb00f0fe16342bf603d534c34a860278dc21deac
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 327f120d387a3a08f0de9db2da718d530346e545
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104595967"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104773072"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Referência de configurações de aplicativo para Azure Functions
 
@@ -186,22 +186,24 @@ Especifica o número máximo de processos de trabalho de idioma, com um valor pa
 |---|------------|
 |\_contagem de \_ processos de trabalho do Functions \_|2|
 
-## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
-
-Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
-
-|Chave|Valor de exemplo|Valor máximo|
-|---|------------|---------|
-|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
-
-
 ## <a name="functions_worker_runtime"></a>FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO
 
-O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso irá corresponder ao idioma que está sendo usado em seu aplicativo (por exemplo, "dotnet"). Para funções em vários idiomas, você precisará publicá-las em vários aplicativos, cada um com um valor de runtime de trabalho correspondente.  Os valores válidos são `dotnet` (C#/f #), `node` (JavaScript/TypeScript), `java` (Java), `powershell` (PowerShell) e `python` (Python).
+O runtime do trabalho de linguagem deve ser carregado no aplicativo de funções.  Isso corresponde ao idioma que está sendo usado em seu aplicativo (por exemplo, `dotnet` ). A partir da versão 2. x do tempo de execução de Azure Functions, um determinado aplicativo de funções só pode dar suporte a um único idioma.   
 
 |Chave|Valor de exemplo|
 |---|------------|
-|FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO|dotnet|
+|FUNÇÕES\_TRABALHADOR\_TEMPO DE EXECUÇÃO|nó|
+
+Valores válidos: 
+
+| Valor | Idioma |
+|---|---|
+| `dotnet` | [C# (biblioteca de classes)](functions-dotnet-class-library.md)<br/>[C# (script)](functions-reference-csharp.md) |
+| `dotnet-isolated` | [C# (processo isolado)](dotnet-isolated-process-guide.md) |
+| `java` | [Java](functions-reference-java.md) |
+| `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
+| `powershell` | [PowerShell](functions-reference-powershell.md) |
+| `python` | [Python](functions-reference-python.md) |
 
 ## <a name="pip_extra_index_url"></a>\_URL de \_ índice \_ extra de Pip
 
@@ -212,6 +214,14 @@ O valor dessa configuração indica uma URL de índice de pacote personalizado p
 |\_URL de \_ índice \_ extra de Pip|http://my.custom.package.repo/simple |
 
 Para saber mais, confira [dependências personalizadas](functions-reference-python.md#remote-build-with-extra-index-url) na referência do desenvolvedor do Python.
+
+## <a name="python_threadpool_thread_count"></a>\_contagem de \_ threads de THREADPOOL do Python \_
+
+Especifica o número máximo de threads que um trabalho do Python Language usaria para executar invocações de função, com um valor padrão de `1` para a versão do Python `3.8` e abaixo. Para a versão do Python `3.9` e superior, o valor é definido como `None` . Observe que essa configuração não garante o número de threads que seriam definidos durante as execuções. A configuração permite que o Python expanda o número de threads para o valor especificado. A configuração se aplica somente a aplicativos do Python functions. Além disso, a configuração se aplica à invocação de funções síncronas e não a corrotinas.
+
+|Chave|Valor de exemplo|Valor máximo|
+|---|------------|---------|
+|\_contagem de \_ threads de THREADPOOL do Python \_|2|32|
 
 ## <a name="scale_controller_logging_enabled"></a>registro em log do controlador de escala \_ \_ \_ habilitado
 

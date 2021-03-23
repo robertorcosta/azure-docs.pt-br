@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.openlocfilehash: 04de6dce6cbab4dc0716ae841707b1d61d6bc375
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4aed956fc7052f844080b830aa4cc3b2a07235a1
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93073750"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799387"
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comuns do Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,7 +48,7 @@ Casos de uso de IoT normalmente compartilham alguns padrões sobre como consomem
 
 :::image type="content" source="./media/use-cases/iot.png" alt-text="Arquitetura de referência de IoT do Azure Cosmos DB" border="false":::
 
-Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem inclusão de dados de alta taxa de transferência com baixa latência. Dados consumidos que precisem ser processados para obter informações em tempo real poderão ser encaminhados para o Azure Stream Analytics para análise em tempo real. Os dados podem ser carregados no Azure Cosmos DB para consultas ad hoc. Depois que os dados são carregados no Azure Cosmos DB, eles estão prontos para serem consultados. Além disso, os novos dados e as alterações nos dados existentes podem ser lidos no feed de alterações. O feed de alterações é um log persistente, acrescentar somente que armazena alterações em contêineres Cosmos em ordem sequencial. Todos os dados ou somente as alterações nos dados no Azure Cosmos DB podem ser usados como dados de referência como parte da análise em tempo real. Além disso, os dados podem ser refinados ainda mais e processados com a conexão dos dados do Azure Cosmos DB com o HDInsight para trabalhos do Pig, do Hive ou trabalhos de Mapear/Reduzir.  Depois, os dados refinados são carregados novamente no Azure Cosmos DB para relatórios.   
+Picos de dados podem ser processados por Hubs de eventos do Azure que oferecem inclusão de dados de alta taxa de transferência com baixa latência. Dados consumidos que precisem ser processados para obter informações em tempo real poderão ser encaminhados para o Azure Stream Analytics para análise em tempo real. Os dados podem ser carregados no Azure Cosmos DB para consultas ad hoc. Depois que os dados são carregados no Azure Cosmos DB, eles estão prontos para serem consultados. Além disso, os novos dados e as alterações nos dados existentes podem ser lidos no feed de alterações. O feed de alterações é um log persistente, acrescentar somente que armazena alterações em contêineres Cosmos em ordem sequencial. Em seguida, todos os dados ou apenas alterações nos dados no Azure Cosmos DB podem ser usados como dados de referência como parte da análise em tempo real. Além disso, os dados podem ser refinados ainda mais e processados com a conexão dos dados do Azure Cosmos DB com o HDInsight para trabalhos do Pig, do Hive ou trabalhos de Mapear/Reduzir.  Depois, os dados refinados são carregados novamente no Azure Cosmos DB para relatórios.   
 
 Para obter uma solução de IoT de exemplo que usa o Azure Cosmos DB, os Hubs de Eventos e o Storm, veja o [repositório hdinsight-storm-examples no GitHub](https://github.com/hdinsight/hdinsight-storm-examples/).
 
