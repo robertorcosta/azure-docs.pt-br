@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.custom: template-how-to
-ms.openlocfilehash: 826759907bfe5ec3359bf5c9125909466372c68f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 313ea98da0426af945dfdea00d33440ab2955cc7
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608139"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023071"
 ---
 # <a name="azure-percept-dk-dev-kit-troubleshooting"></a>Solução de problemas do Azure Percept DK (Kit de desenvolvimento)
 
@@ -45,7 +45,7 @@ scp [remote username]@[IP address]:[remote file path]/[file name].txt [local hos
 
 ```[local host file path]``` refere-se ao local no computador host para o qual você gostaria de copiar o arquivo. txt. ```[remote username]``` é o nome de usuário SSH escolhido durante a [experiência de instalação](./quickstart-percept-dk-set-up.md). Se você não configurou um logon SSH durante o OOBE, seu nome de usuário remoto é ```root``` .
 
-Para obter informações adicionais sobre os comandos de Azure IoT Edge, consulte a [documentação de solução de problemas de dispositivo Azure IOT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
+Para obter informações adicionais sobre os comandos de Azure IoT Edge, consulte a [documentação de solução de problemas de dispositivo Azure IOT Edge](../iot-edge/troubleshoot.md).
 
 |Categoria:         |Comando:                    |Função:                  |
 |------------------|----------------------------|---------------------------|
@@ -105,5 +105,3 @@ Há três LEDs pequenos na parte superior do invólucro da placa da operadora. U
 |LED 2 (Wi-Fi)   |Piscar rapidamente |A autenticação foi bem-sucedida, a associação de dispositivo está em andamento. |
 |LED 2 (Wi-Fi)   |Ligado (sólido) |A autenticação e a Associação foram bem-sucedidas; o dispositivo está conectado a uma rede Wi-Fi. |
 |LED 3           |NA         |O LED não está em uso. |
-
-

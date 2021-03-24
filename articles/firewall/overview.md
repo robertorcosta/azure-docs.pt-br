@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperf-fy21q1
-ms.date: 02/24/2021
+ms.date: 03/10/2021
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 6e5b553ea3be7e5b4b1d8cb396b35fdf2d5796a9
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 0982f0293b452c29a1c9fbb46cb24d47e70c0f5e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721762"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102615560"
 ---
 # <a name="what-is-azure-firewall"></a>O que é o Firewall do Azure?
 
@@ -83,6 +83,6 @@ O Firewall do Azure tem os seguintes problemas conhecidos:
 
 ## <a name="next-steps"></a>Próximas etapas
 
+- [Início rápido: Criar um Firewall do Azure e uma política de firewall – modelo do ARM](../firewall-manager/quick-firewall-policy.md)
+- [Início Rápido: Implantar o Firewall do Azure com as Zonas de Disponibilidade – Modelo do ARM](deploy-template.md)
 - [Tutorial: Implantar e configurar o Firewall do Azure usando o portal do Azure](tutorial-firewall-deploy-portal.md)
-- [Implantar Firewall do Azure usando um modelo](deploy-template.md)
-- [Criar um ambiente de teste do Firewall do Azure](scripts/sample-create-firewall-test.md)

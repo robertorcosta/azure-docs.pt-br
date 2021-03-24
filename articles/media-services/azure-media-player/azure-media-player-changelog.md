@@ -6,11 +6,11 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: overview
 ms.date: 09/23/2020
-ms.openlocfilehash: 9d126f591da1bffebbfd29119c56927cfbb21dcd
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c63a8efc4bbcf6e5a124d439e6f9f91397e2fa53
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92370569"
 ---
 # <a name="changelog"></a>Log de alteração
@@ -198,7 +198,7 @@ Retornar erros KeyDelivery significativos para chamar aplicativos
 
 ### <a name="changes"></a>Alterações ###
 
-- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/cea708captionssettings)-->
+- [Alteração][Legenda ao vivo] Alteração do nome da API para legendas CEA de 608 para 708. Para obter mais informações, confira [Configurações de legendas do CEA-708](/javascript/api/azuremediaplayer/amp.player.cea708captionssettings)-->
 
 ## <a name="220-official-release"></a>2.2.0 (versão oficial) ##
 
@@ -727,7 +727,7 @@ Retornar erros KeyDelivery significativos para chamar aplicativos
 - [Correção de bug] Atualização da experiência de carregamento da interface do usuário atualizada para o modo de reprodução automática
 - [Correção de bug] Problema do carregador AMD e definição de conflitos de método
 - [Correção de bug] Problema de carregamento do aplicativo Cordova no WP 8.1
-- [Correção de bug] O conteúdo protegido consulta o ProtectionType compatível com a plataforma/a tecnologia para selecionar a tecnologia apropriada para reprodução.  Corrige o problema conhecido anterior ' _Atualmente, o conteúdo do PlayReady no Chrome (desktop)/Safari 8 (no OSX Yosemite) não faz fallback para o player do Silverlight_ '
+- [Correção de bug] O conteúdo protegido consulta o ProtectionType compatível com a plataforma/a tecnologia para selecionar a tecnologia apropriada para reprodução.  Corrige o problema conhecido anterior '_Atualmente, o conteúdo do PlayReady no Chrome (desktop)/Safari 8 (no OSX Yosemite) não faz fallback para o player do Silverlight_'
 - [Correção de bug] Exceção não capturada no WinServer 2012 R2 devido ao Media Foundation não estar instalado neste computador por padrão.  Tentativa de usar APIs de marca de vídeo HTML, que não são implementadas, gerando assim um erro. A mitigação atual é capturar esse erro e retornar false em vez de gerar o erro.
 - [Correção de bug] O segmento inicial sempre e obtido após a busca ou uma falha de HTTP para evitar falhas durante a reprodução
 - [Correção de bug] Desativação do acompanhamento do progresso simulado e das atualizações de tempo quando o erro ocorria.

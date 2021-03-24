@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 6a5460a691658bda1cd60e503be8c98433c9c343
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: de003025e98109599ecd69c0459e29950c9bd1fd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101720147"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950562"
 ---
 # <a name="examples-of-an-attestation-policy"></a>Exemplos de uma política de atestado
 
@@ -35,9 +35,9 @@ c:[type=="x-ms-sgx-mrsigner"] => issue(type="<custom-name>", value=c.value);
 };
 
 ```
-Para obter mais informações sobre as declarações de entrada geradas pelo Atestado do Azure, confira [conjuntos de declarações](/azure/attestation/claim-sets). As declarações de entrada podem ser usadas pelos autores de política para definir as regras de autorização em uma política personalizada. 
+Para obter mais informações sobre as declarações de entrada geradas pelo Atestado do Azure, confira [conjuntos de declarações](./claim-sets.md). As declarações de entrada podem ser usadas pelos autores de política para definir as regras de autorização em uma política personalizada. 
 
-A seção de regras de emissão não é obrigatória. Os usuários podem utilizar essa seção para gerar declarações de saída adicionais no token de atestado com nomes personalizados. Para obter mais informações sobre as declarações de saída geradas pelo serviço no token de atestado, confira [conjuntos de declarações](/azure/attestation/claim-sets).
+A seção de regras de emissão não é obrigatória. Os usuários podem utilizar essa seção para gerar declarações de saída adicionais no token de atestado com nomes personalizados. Para obter mais informações sobre as declarações de saída geradas pelo serviço no token de atestado, confira [conjuntos de declarações](./claim-sets.md).
 
 ## <a name="default-policy-for-an-sgx-enclave"></a>Política padrão para um enclave SGX
 
@@ -59,7 +59,7 @@ issuancerules
 };
 ```
 
-As declarações usadas na política padrão são consideradas preteridas, mas têm suporte completo e continuarão sendo incluídas no futuro. É recomendável usar os nomes de declarações não preteridas. Para obter mais informações sobre os nomes de declaração recomendados, confira [conjuntos de declarações](/azure/attestation/claim-sets). 
+As declarações usadas na política padrão são consideradas preteridas, mas têm suporte completo e continuarão sendo incluídas no futuro. É recomendável usar os nomes de declarações não preteridas. Para obter mais informações sobre os nomes de declaração recomendados, confira [conjuntos de declarações](./claim-sets.md). 
 
 ## <a name="sample-custom-policy-to-support-multiple-sgx-enclaves"></a>Exemplo de política personalizada para dar suporte a vários enclaves de SGX
 
