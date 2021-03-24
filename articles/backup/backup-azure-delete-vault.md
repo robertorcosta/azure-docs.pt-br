@@ -3,12 +3,12 @@ title: Excluir um cofre de Serviços de Recuperação do Microsoft Azure
 description: Neste artigo, saiba como remover dependências e, em seguida, excluir um cofre dos serviços de recuperação de backup do Azure.
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 8df2528edebbb654e501b8aaaac91c24d932604c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1526e9aeef1574f261dcb1a58ee12a12fbf08866
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670555"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864951"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Excluir um cofre dos serviços de recuperação de backup do Azure
 
@@ -48,6 +48,7 @@ Para excluir um cofre corretamente, você deve seguir as etapas nesta ordem:
   - **Servidores de gerenciamento do mAbs ou do DPM**: Vá para o menu do painel do cofre > backup **Infrastructure**  >  **Management Servers**. Se você tiver o DPM ou o Servidor de Backup do Azure (MABS), todos os itens listados aqui deverão ser excluídos ou desregistrados junto com seus dados de backup. [Siga estas etapas](#delete-protected-items-on-premises) para excluir os servidores de gerenciamento.
 
 - **Etapa 4**: você deve garantir que todas as contas de armazenamento registradas sejam excluídas. Acesse o menu do painel do cofre >  >  **as contas de armazenamento** de infraestrutura de backup. Se você tiver contas de armazenamento listadas aqui, deverá cancelar o registro de todas elas. Para saber como cancelar o registro da conta, consulte [cancelar o registro de uma conta de armazenamento](manage-afs-backup.md#unregister-a-storage-account).
+- **Etapa 5**: Verifique se não há nenhum ponto de extremidade privado criado para o cofre. Vá para o menu do painel do cofre > **conexões de ponto de extremidade privado** em ' configurações ' > se o cofre tiver conexões de ponto de extremidade privadas criadas ou tentar ser criadas, verifique se elas foram removidas antes de continuar com a exclusão do cofre. 
 
 Depois de concluir essas etapas, você poderá continuar a [excluir o cofre](#delete-the-recovery-services-vault).
 

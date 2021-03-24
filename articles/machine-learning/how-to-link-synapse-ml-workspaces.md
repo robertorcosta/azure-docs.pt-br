@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/08/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d1c4defc53c4af0fb481a57c0a455e987fdd480a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9d2b416955234cae7a30ac65dff7d64dedad3b1d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102519989"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889103"
 ---
 # <a name="link-azure-synapse-analytics-and-azure-machine-learning-workspaces-preview"></a>Vincular o Azure Synapse Analytics e os espaços de trabalho do Azure Machine Learning (versão prévia)
 
@@ -102,12 +102,14 @@ Vincule seu espaço de trabalho do Machine Learning e o espaço de trabalho Syna
 1. Entre no [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selecione **Serviços vinculados** na seção **gerenciar** do painel esquerdo.
 1. Selecione **Adicionar integração**.
-1. No formulário **vincular espaço de trabalho** , preencha os campos 
-    Campo| Descrição    
-    ---|---
-    Nome| Forneça um nome para o serviço vinculado. Esse nome é o que será usado para fazer referência a esse serviço vinculado específico.
-    Nome da assinatura | Selecione o nome da sua assinatura associada ao seu espaço de trabalho do Machine Learning. 
-    Espaço de trabalho Synapse | Selecione o espaço de trabalho Synapse ao qual você deseja vincular.
+1. No formulário **vincular espaço de trabalho** , preencha os campos
+
+    |Campo| Descrição    
+    |---|---
+    |Nome| Forneça um nome para o serviço vinculado. Esse nome é o que será usado para fazer referência a esse serviço vinculado específico.
+    |Nome da assinatura | Selecione o nome da sua assinatura associada ao seu espaço de trabalho do Machine Learning. 
+    |Espaço de trabalho Synapse | Selecione o espaço de trabalho Synapse ao qual você deseja vincular.
+    
 1. Selecione **Avançar** para abrir o formulário **selecionar pools do Spark (opcional)** . Neste formulário, você seleciona o pool do Spark Synapse a ser anexado ao seu espaço de trabalho
 
 1. Selecione **Avançar** para abrir o formulário de **revisão** e verificar suas seleções.

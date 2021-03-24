@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 3ae81a9c05f0c88a52db6409bf870ee0427f09db
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101696035"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103010418"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registrar e verificar a fonte do Oracle (versão prévia)
 
@@ -31,7 +31,7 @@ A fonte do Oracle dá suporte à **Verificação completa** para extrair metadad
 
 3.  Verifique se o \"Pacote Redistribuível do Visual C++ 2012, Atualização 4\" está instalado no computador do runtime de integração auto-hospedada. Se ele ainda não estiver instalado, baixe-o [aqui](https://www.microsoft.com/download/details.aspx?id=30679).
 
-4.  Você precisará baixar manualmente um driver do Oracle JDBC denominado "oracle.jdbc.driver.OracleDriver\' em sua máquina virtual em que o runtime de integração auto-hospedada está em execução.
+4.  Você precisará baixar manualmente um driver JDBC do Oracle [daqui](https://www.oracle.com/database/technologies/appdev/jdbc-downloads.html) em sua máquina virtual na qual o runtime de integração auto-hospedada está em execução.
 
     > [!Note] 
     > O driver deve estar acessível para todas as contas na VM. Não o instale em uma conta de usuário.

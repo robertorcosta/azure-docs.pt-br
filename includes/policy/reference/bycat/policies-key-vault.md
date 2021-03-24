@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/05/2021
+ms.date: 03/17/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 6adedaacb0cc9d96de8bee77d536e9c12d105b89
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 73bef40c911fa0bd696bfcee4b1a0268cb09669c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102429015"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104605074"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -23,6 +23,7 @@ ms.locfileid: "102429015"
 |[\[Versão prévia\]: os certificados devem usar os tipos de chave permitidos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1151cede-290b-4ba0-8b38-0ad145ac888f) |Gerenciar seus requisitos de conformidade organizacional restringindo os tipos de chave permitidos para certificados. |auditar, negar, desabilitado |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_AllowedKeyTypes.json) |
 |[\[Versão prévia\]: os certificados que usam a criptografia de curva elíptica devem ter nomes de curva permitidos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fbd78111f-4953-4367-9fd5-7e08808b54bf) |Gerenciar os nomes de curva elíptica permitidos para os Certificados ECC armazenados no cofre de chaves. Mais informações podem ser encontradas em [https://aka.ms/akvpolicy](https://aka.ms/akvpolicy). |auditar, negar, desabilitado |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_EC_AllowedCurveNames.json) |
 |[\[Versão prévia\]: os certificados que usam a criptografia RSA devem ter o tamanho mínimo de chave especificado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fcee51871-e572-4576-855c-047c820360f0) |Gerenciar seus requisitos de conformidade organizacional especificando um tamanho mínimo de chave para os certificados RSA armazenados no cofre de chaves. |auditar, negar, desabilitado |[2.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/Certificates_RSA_MinimumKeySize.json) |
+|[Implantar – defina as configurações de diagnóstico do Azure Key Vault no workspace do Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F951af2fa-529b-416e-ab6e-066fd85ac459) |Implanta as configurações de diagnóstico do Azure Key Vault para transmitir logs de recursos para um workspace do Log Analytics quando qualquer Key Vault que não tenha essas configurações de diagnóstico for criado ou atualizado. |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/DataConnectorsAzureKeyVault_PolicyAssignment.json) |
 |[Implantar – Defina as configurações de diagnóstico para um Hub de Eventos a ser habilitado no HSM Gerenciado do Azure Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa6d2c800-5230-4a40-bff3-8268b4987d42) |Implanta as configurações de diagnóstico do HSM Gerenciado do Azure Key Vault que serão transmitidas para um Hub de Eventos regional quando qualquer HSM Gerenciado do Azure Key Vault que não tenha essas configurações de diagnóstico for criado ou atualizado. |DeployIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/ManagedHsm_DiagnosticLog_Deploy.json) |
 |[Aplicar as Configurações de Diagnóstico do Key Vault no Hub de Eventos](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fed7c8c13-51e7-49d1-8a43-8490431a0da2) |Implanta as configurações de diagnóstico do Key Vault a serem transmitidas para um Hub de Eventos regional em qualquer Key Vault criado ou atualizado que não tenha essas configurações de diagnóstico. |deployIfNotExists |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/KeyVault_DiagnosticLog_Deploy.json) |
 |[\[Versão prévia\]: o Firewall deve estar habilitado no Key Vault](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F55615ac9-af46-4a59-874e-391cc3dfb490) |O firewall do cofre de chaves impede que o tráfego não autorizado alcance o seu cofre de chaves e fornece uma camada adicional de proteção para os seus segredos. Habilite o firewall para garantir que somente o tráfego de redes permitidas possa acessar o seu cofre de chaves. |Audit, desabilitado |[1.0.2 – versão prévia](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Key%20Vault/AzureKeyVaultFirewallEnabled_Audit.json) |

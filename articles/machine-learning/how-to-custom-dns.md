@@ -11,12 +11,12 @@ author: jhirono
 ms.date: 03/12/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 67341fcc7be21e4fa62c6e52a921fe397c8ffeb6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a5224aab8db65cf22e952185d07147f6f007e088
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417613"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956274"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Como usar seu workspace com um servidor DNS personalizado
 
@@ -43,7 +43,10 @@ A lista a seguir contém os nomes de domínio totalmente qualificados (FQDN) usa
 
 * `<workspace-GUID>.workspace.<region>.cert.api.azureml.ms`
 * `<workspace-GUID>.workspace.<region>.api.azureml.ms`
-* `ml-<workspace-name>-<region>-<workspace-guid>.notebooks.azure.net`
+* `ml-<workspace-name, truncated>-<region>-<workspace-guid>.notebooks.azure.net`
+
+    > [!NOTE]
+    > O nome do espaço de trabalho para esse FQDN pode estar truncado. O truncamento é feito para manter o FQDN menor ou igual a 63 caracteres.
 * `<instance-name>.<region>.instances.azureml.ms`
 
     > [!NOTE]

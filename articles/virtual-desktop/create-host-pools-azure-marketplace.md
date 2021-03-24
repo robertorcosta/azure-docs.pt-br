@@ -4,15 +4,15 @@ description: Como criar um pool de host da Área de Trabalho Virtual do Windows 
 author: Heidilohr
 ms.topic: tutorial
 ms.custom: references_regions
-ms.date: 02/17/2021
+ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 46a029a3b803428d6250b74059190f66183be452
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: 60566b95447c1b69fb257435f45a11524ac5d8b2
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100651452"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102617329"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
 
@@ -101,18 +101,16 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
 1. Em **Grupo de recursos**, escolha o grupo de recursos no qual você deseja criar as máquinas virtuais. Esse pode ser um grupo de recursos diferente daquele usado para o pool de host.
 
-2. Escolha a **Localização da máquina virtual** em que você deseja criar as máquinas virtuais. Podem ser iguais ou diferentes da região selecionada para o pool de host.
+2. Depois disso, forneça um **Prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números começando em 0.
 
-3. Em seguida, escolha o **Tamanho da máquina virtual** que você deseja usar. Você pode manter o tamanho padrão no estado em que se encontra ou selecionar **Alterar tamanho** para alterar o tamanho. Se você selecionar **Alterar tamanho**, na janela exibida, escolha o tamanho da máquina virtual adequado para sua carga de trabalho.
+3. Escolha a **Localização da máquina virtual** em que você deseja criar as máquinas virtuais. Podem ser iguais ou diferentes da região selecionada para o pool de host.
+   
+4. Em seguida, escolha a opção de disponibilidade mais adequada às suas necessidades. Para saber mais sobre qual opção é adequada para você, confira [Opções de disponibilidade para máquinas virtuais no Azure](../virtual-machines/availability.md) e [nossas Perguntas Frequentes](faq.md#which-availability-option-is-best-for-me).
+   
+   > [!div class="mx-imgBorder"]
+   > [Uma captura de tela do menu suspenso da zona de disponibilidade. A opção "zona de disponibilidade" está realçada.](media/availability-zone.png)
 
-4. Em **Número de VMs**, forneça o número de VMs que você deseja criar para o pool de host.
-
-    >[!NOTE]
-    >O processo de instalação pode criar até 400 VMs durante a configuração do pool de host. Cada processo de instalação da VM cria quatro objetos em seu grupo de recursos. Como os processos de criação não verificam sua cota de assinatura, verifique se o número de VMs inseridas está dentro dos limites de API e de VM do Azure para seu grupo de recursos e assinatura. Você pode adicionar mais VMs depois de concluir a criação do pool de host.
-
-5. Depois disso, forneça um **Prefixo de nome** para nomear as máquinas virtuais que o processo de configuração cria. O sufixo será `-` com números começando em 0.
-
-6. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Você pode escolher **Galeria** ou **Blob de Armazenamento**.
+5. Em seguida, escolha a imagem que precisa ser usada para criar a máquina virtual. Você pode escolher **Galeria** ou **Blob de Armazenamento**.
 
     - Se você escolher **Galeria**, selecione uma das imagens recomendadas no menu suspenso:
 
@@ -122,23 +120,30 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
       - Windows 10 Enterprise multissessão, versão 2004
       - Windows 10 Enterprise multissessão, versão 2004 + Aplicativos Microsoft 365
 
-     Se você não vir a imagem desejada, selecione **Procurar todas as imagens e discos**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores. Verifique se a imagem escolhida é uma das [imagens do sistema operacional com suporte](overview.md#supported-virtual-machine-os-images).
+      Se você não vir a imagem desejada, selecione **Ver todas as imagens**, o que permite que você selecione outra imagem na galeria ou uma imagem fornecida pela Microsoft e outros editores. Verifique se a imagem escolhida é uma das [imagens do sistema operacional com suporte](overview.md#supported-virtual-machine-os-images).
 
-     > [!div class="mx-imgBorder"]
-     > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma captura de tela do Marketplace com uma lista de imagens da Microsoft exibida.](media/marketplace-images.png)
 
-     Você também pode ir até **Meus Itens** e escolher uma imagem personalizada que você já carregou.
+      Você também pode ir até **Meus Itens** e escolher uma imagem personalizada que você já carregou.
 
-     > [!div class="mx-imgBorder"]
-     > ![Uma captura de tela da guia Meus Itens.](media/my-items.png)
+      > [!div class="mx-imgBorder"]
+      > ![Uma captura de tela da guia Meus Itens.](media/my-items.png)
 
-    - Se você escolher **Blob de Armazenamento**, poderá aproveitar seu build de imagem por meio do Hyper-V ou em uma VM do Azure. Basta inserir a localização da imagem no blob de armazenamento como um URI.
+    - Se você escolher **Blob de Armazenamento**, poderá usar seu build de imagem por meio do Hyper-V ou em uma VM do Azure. Basta inserir a localização da imagem no blob de armazenamento como um URI.
+   
+   A localização da imagem é independente da opção de disponibilidade, mas a resiliência de zona da imagem determina se essa imagem pode ser usada com a zona de disponibilidade. Se você selecionar uma zona de disponibilidade ao criar a imagem, verifique se você está usando uma imagem da galeria com a resiliência de zona habilitada. Para saber mais sobre qual opção de resiliência de zona você deve usar, confira [as Perguntas Frequentes](faq.md#which-availability-option-is-best-for-me).
 
-7. Escolha o tipo de discos do SO que você deseja que suas VMs usem: SSD Standard, SSD Premium ou HDD Standard.
+6. Em seguida, escolha o **Tamanho da máquina virtual** que você deseja usar. Você pode manter o tamanho padrão no estado em que se encontra ou selecionar **Alterar tamanho** para alterar o tamanho. Se você selecionar **Alterar tamanho**, na janela exibida, escolha o tamanho da máquina virtual adequado para sua carga de trabalho.
 
-8. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual que você selecionou devem ser configurados para usar o IP do controlador de domínio.
+7. Em **Número de VMs**, forneça o número de VMs que você deseja criar para o pool de host.
 
-9. Em seguida, selecione se deseja um IP público para as máquinas virtuais. Recomendamos que você selecione **Não** porque um IP privado é mais seguro.
+    >[!NOTE]
+    >O processo de instalação pode criar até 400 VMs durante a configuração do pool de host. Cada processo de instalação da VM cria quatro objetos em seu grupo de recursos. Como os processos de criação não verificam sua cota de assinatura, verifique se o número de VMs inseridas está dentro dos limites de API e de VM do Azure para seu grupo de recursos e assinatura. Você pode adicionar mais VMs depois de concluir a criação do pool de host.
+
+8. Escolha o tipo de discos do SO que você deseja que suas VMs usem: SSD Standard, SSD Premium ou HDD Standard.
+
+9. Em Rede e Segurança, selecione a **Rede virtual** e a **Sub-rede** em que você deseja colocar as máquinas virtuais criadas. Verifique se a rede virtual consegue se conectar ao controlador de domínio, pois você precisará ingressar as máquinas virtuais dentro da rede virtual ao domínio. Os servidores DNS da rede virtual que você selecionou devem ser configurados para usar o IP do controlador de domínio.
 
 10. Selecione o tipo de grupo de segurança desejado: **Básico**, **Avançado** ou **Nenhum**.
 
@@ -154,9 +159,9 @@ Para configurar sua máquina virtual dentro do processo de configuração do poo
 
 11. Depois disso, selecione se deseja que as máquinas virtuais sejam ingressadas em um domínio específico e em uma unidade organizacional. Se você escolher **Sim**, especifique o domínio para ingressar. Opcionalmente, você pode adicionar uma unidade organizacional específica na qual deseja que as máquinas virtuais estejam. Se você escolher **Não**, as VMs serão unidas ao domínio que corresponde ao sufixo da **UPN de ingresso no domínio do AD**.
 
-  - Ao especificar uma unidade organizacional, lembre-se de usar o caminho completo (nome diferenciado) e não usar aspas.
+    - Ao especificar uma unidade organizacional, lembre-se de usar o caminho completo (nome diferenciado) e não usar aspas.
 
-12. Em Conta do administrador, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou. Essa conta não pode ter a MFA (autenticação multifator) habilitada. Ao ingressar em um domínio do Azure AD DS (Azure Active Directory Domain Services), a conta precisa fazer parte do grupo de administradores do Azure AD DS e a senha da conta precisa funcionar no Azure AD DS.
+12. Em Conta do Administrador de Domínio, insira as credenciais para o administrador da rede virtual do Domínio do Active Directory que você selecionou. Essa conta não pode ter a MFA (autenticação multifator) habilitada. Ao ingressar em um domínio do Azure AD DS (Azure Active Directory Domain Services), a conta precisa fazer parte do grupo de administradores do Azure AD DS e a senha da conta precisa funcionar no Azure AD DS.
 
 13. Selecione **Avançar: Workspace >** .
 
@@ -168,7 +173,7 @@ O processo de instalação do pool de host cria um grupo de aplicativos de deskt
 
 Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
-1. Selecione **Sim**.
+1. Selecione **Sim** na barra superior.
 
    Se você selecionar **Não**, poderá registrar o grupo de aplicativos mais tarde, mas recomendamos que você faça o registro do workspace assim que puder para que seu pool de host funcione corretamente.
 
