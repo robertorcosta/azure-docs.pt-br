@@ -6,12 +6,12 @@ ms.custom: devx-track-csharp, devx-track-azurecli
 ms.topic: article
 ms.date: 06/02/2020
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 1223ff5c56d3c7d58b324d2099980bc0b5408125
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5e4351529fb7b6a66f554182a195bc26f79c0e2b
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97655961"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889477"
 ---
 # <a name="configure-an-aspnet-core-app-for-azure-app-service"></a>Configurar um aplicativo de ASP.NET Core para o serviço Azure App
 
@@ -125,7 +125,7 @@ namespace SomeNamespace
 }
 ```
 
-Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *appsettings.jsem*, por exemplo, o valor do serviço de aplicativo terá precedência sobre a *appsettings.jsno* valor. O *appsettings.jslocal no* valor permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite que você execute o aplicativo no produto com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
+Se você definir uma configuração de aplicativo com o mesmo nome no serviço de aplicativo e no *appsettings.jsem*, por exemplo, o valor do serviço de aplicativo terá precedência sobre a *appsettings.jsno* valor. O *appsettings.jslocal no* valor permite que você depure o aplicativo localmente, mas o valor do serviço de aplicativo permite executar o aplicativo em produção com as configurações de produção. As cadeias de conexão funcionam da mesma maneira. Dessa forma, você pode manter os segredos do aplicativo fora do seu repositório de código e acessar os valores apropriados sem alterar seu código.
 
 > [!NOTE]
 > Observe que os [dados de configuração hierárquica](/aspnet/core/fundamentals/configuration/#hierarchical-configuration-data) no *appsettings.jsem* é acessado usando o `:` delimitador padrão para o .NET Core. Para substituir uma definição de configuração hierárquica específica no serviço de aplicativo, defina o nome da configuração do aplicativo com o mesmo formato delimitado na chave. Você pode executar o exemplo a seguir no [Cloud Shell](https://shell.azure.com):

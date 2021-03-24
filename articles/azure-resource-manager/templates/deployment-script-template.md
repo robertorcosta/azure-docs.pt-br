@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 03/18/2021
+ms.date: 03/23/2021
 ms.author: jgao
-ms.openlocfilehash: 130deea4e5998d696065df4854a47bf7ffd1183c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9f4c21a4b7e58c4eed3a62ea844eb11ccf4ecb49
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594235"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889375"
 ---
 # <a name="use-deployment-scripts-in-arm-templates"></a>Usar scripts de implantação em modelos ARM
 
@@ -131,6 +131,9 @@ O JSON a seguir é um exemplo. Para obter mais informações, consulte o [esquem
 > [!NOTE]
 > O exemplo é para fins de demonstração. As propriedades `scriptContent` e `primaryScriptUri` não podem coexistir em um modelo.
 
+> [!NOTE]
+> O _scriptContent_ mostra um script com várias linhas.  O portal do Azure e o pipeline DevOps do Azure não podem analisar um script de implantação com várias linhas. Você pode encadear os comandos do PowerShell (usando ponto e vírgula ou _\\ r \\ n_ ou _\\ n_) em uma linha ou usar a `primaryScriptUri` propriedade com um arquivo de script externo. Há muitas ferramentas de escape/desescape de cadeia de caracteres JSON gratuitas disponíveis. Por exemplo, [https://www.freeformatter.com/json-escape.html](https://www.freeformatter.com/json-escape.html).
+
 Detalhes do valor da propriedade:
 
 - `identity`: Para a API de script de implantação versão 2020-10-01 ou posterior, uma identidade gerenciada atribuída pelo usuário é opcional, a menos que você precise executar ações específicas do Azure no script.  Para a versão de API 2019-10-01-Preview, uma identidade gerenciada é necessária, pois o serviço de script de implantação a usa para executar os scripts. No momento, somente há suporte para a identidade gerenciada atribuída pelo usuário.
@@ -159,9 +162,6 @@ Detalhes do valor da propriedade:
 
 - `environmentVariables`: Especifique as variáveis de ambiente para passar para o script. Para obter mais informações, consulte [Desenvolver scripts de implantação](#develop-deployment-scripts).
 - `scriptContent`: especifique o conteúdo do script. Para executar um script externo, use `primaryScriptUri`. Para mais exemplos, consulte [Usar script embutido](#use-inline-scripts) e [Usar script externo](#use-external-scripts).
-  > [!NOTE]
-  > O portal do Azure não pode analisar um script de implantação com várias linhas. Para implantar um modelo com o script de implantação do portal do Azure, você pode encadear os comandos do PowerShell usando ponto e vírgula em uma linha ou usar a `primaryScriptUri` propriedade com um arquivo de script externo.
-
 - `primaryScriptUri`: Especifique uma URL acessível publicamente para o script de implantação primário com as extensões de arquivo com suporte. Para obter mais informações, consulte [usar scripts externos](#use-external-scripts).
 - `supportingScriptUris`: Especifique uma matriz de URLs acessíveis publicamente para dar suporte a arquivos que são chamados no `scriptContent` ou no `primaryScriptUri` . Para obter mais informações, consulte [usar scripts externos](#use-external-scripts).
 - `timeout`: especifique o tempo de execução máximo permitido do script especificado no [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). O valor padrão é **P1D**.

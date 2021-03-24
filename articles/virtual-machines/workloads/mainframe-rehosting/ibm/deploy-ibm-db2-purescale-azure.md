@@ -3,15 +3,16 @@ title: Implantar o IBM DB2 pureScale no Azure
 description: Aprenda como implantar uma arquitetura de exemplo usada recentemente para migrar uma empresa de seu ambiente IBM DB2 em execução no z/OS para o IBM DB2 pureScale no Azure.
 author: njray
 ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 ms.topic: how-to
 ms.date: 11/09/2018
 ms.author: edprice
-ms.openlocfilehash: 481816ca0c1fecfee9396f6cc40582695b0952f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 33ff6174d7e5107076dda177731c9daec7e57266
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102550188"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956138"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Implantar o IBM DB2 pureScale no Azure
 

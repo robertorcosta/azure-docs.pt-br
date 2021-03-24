@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: jingwang
-ms.openlocfilehash: 45e71b636d43633d5b157db2815ddd19c31395b3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6d9bb17e0e68c563c6d8cc18669d8c298d4f267b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608122"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951820"
 ---
 # <a name="copy-data-from-and-to-a-rest-endpoint-by-using-azure-data-factory"></a>Copiar dados de e para um ponto de extremidade REST usando Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -494,7 +494,7 @@ O modelo define dois parâmetros:
 5. Selecione atividade **da Web** . Em **configurações**, especifique a **URL**, o **método**, os **cabeçalhos** e o **corpo** correspondentes para recuperar o token de portador OAuth da API de logon do serviço do qual você deseja copiar dados. O espaço reservado no modelo demonstra um exemplo de OAuth Azure Active Directory (AAD). Observe que a autenticação do AAD tem suporte nativo do conector REST, aqui está apenas um exemplo para o fluxo OAuth. 
 
     | Propriedade | Descrição |
-    |:--- |:--- |:--- |
+    |:--- |:--- |
     | URL |Especifique a URL da qual recuperar o token de portador OAuth. por exemplo, no exemplo, ele é https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/token |. 
     | Método | O método HTTP. Os valores permitidos são **post** e **Get**. | 
     | Cabeçalhos | O cabeçalho é definido pelo usuário, que faz referência a um nome de cabeçalho na solicitação HTTP. | 
@@ -505,7 +505,7 @@ O modelo define dois parâmetros:
 6. Em **copiar dados** atividade, selecione a guia *origem* , você pode ver que o token de portador (access_token) recuperado da etapa anterior seria passado para a atividade copiar dados como **autorização** em cabeçalhos adicionais. Confirme as configurações das propriedades a seguir antes de iniciar uma execução de pipeline.
 
     | Propriedade | Descrição |
-    |:--- |:--- |:--- | 
+    |:--- |:--- |
     | Método de solicitação | O método HTTP. Valores permitidos são **Obtenha** (padrão) e **Post**. | 
     | Cabeçalhos adicionais | Cabeçalhos de solicitação HTTP adicionais.| 
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: sample
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a75896dde7a23ea346e0af73ed145094e78812ca
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: b09587d90024a8c376be8b0d93f7ef7b6cc51a1e
+ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654486"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103008477"
 ---
 # <a name="azure-active-directory-b2c-code-samples"></a>Exemplos de código do Azure Active Directory B2C
 
@@ -47,9 +47,10 @@ As tabelas a seguir fornecem links para exemplos de aplicativos, incluindo iOS, 
 
 | Amostra | Descrição |
 |--------| ----------- |
+| [ms-identity-javascript-react-tutorial](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial/tree/main/3-Authorization-II/2-call-api-b2c) | Um SPA (aplicativo de página única) que chama uma API Web. A autenticação é feita com o Azure AD B2C usando o React da MSAL. Este exemplo usa o fluxo de código de autorização com PKCE. |
 | [ms-identity-b2c-javascript-spa](https://github.com/Azure-Samples/ms-identity-b2c-javascript-spa) | Um SPA (aplicativo de página única) que chama uma API Web. A autenticação é feita com o Azure AD B2C usando o MSAL.js. Este exemplo usa o fluxo de código de autorização com PKCE. |
-| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Um SPA (aplicativo de página única) que chama o Microsoft Graph para gerenciar usuários em um diretório B2C. A autenticação é feita com o Azure AD B2C usando o MSAL.js. Este exemplo usa o fluxo de código de autorização com PKCE.|
 | [javascript-msal-singlepageapp](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp) | Um SPA (aplicativo de página única) que chama uma API Web. A autenticação é feita com o Azure AD B2C usando o MSAL.js. Este exemplo usa o fluxo implícito.|
+| [javascript-nodejs-management](https://github.com/Azure-Samples/ms-identity-b2c-javascript-nodejs-management/tree/main/Chapter1) | Um SPA (aplicativo de página única) que chama o Microsoft Graph para gerenciar usuários em um diretório B2C. A autenticação é feita com o Azure AD B2C usando o MSAL.js. Este exemplo usa o fluxo de código de autorização com PKCE.|
 
 ## <a name="consoledaemon-apps"></a>Aplicativos de console/daemon
 

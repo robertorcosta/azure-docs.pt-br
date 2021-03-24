@@ -10,12 +10,12 @@ ms.author: mhopkins
 ms.reviewer: yzheng
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: a625ad780d01f3d19d26f2b9626ead3ae455b86b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8310de465a6416102a7ce4e614ead7029e6be87a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102631465"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950919"
 ---
 # <a name="use-azure-storage-blob-inventory-to-manage-blob-data-preview"></a>Usar o inventário de blob do armazenamento do Azure para gerenciar dados de BLOB (versão prévia)
 
@@ -26,7 +26,7 @@ O recurso de inventário de blob de armazenamento do Azure fornece uma visão ge
 O inventário de BLOBs tem suporte para contas de armazenamento de blob de blocos versão 2 (GPv2) e Premium de uso geral. Esse recurso tem suporte com ou sem o recurso de [namespace hierárquico](data-lake-storage-namespace.md) habilitado.
 
 > [!IMPORTANT]
-> No momento, o inventário de Bob está em **Visualização**. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
+> O inventário de blob está em **Visualização** no momento. Consulte os [termos de uso complementares para Microsoft Azure visualizações](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) de termos legais que se aplicam aos recursos do Azure que estão em versão beta, visualização ou, de outra forma, ainda não foram lançadas em disponibilidade geral.
 
 ### <a name="preview-regions"></a>Regiões de visualização
 

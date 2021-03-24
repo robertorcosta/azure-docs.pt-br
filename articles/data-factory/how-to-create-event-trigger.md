@@ -7,12 +7,12 @@ ms.author: chez
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: deaa414a17240e8cdbdad7f4ba9b3e596b4f191f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: ae8b1eab81e3c898c25a613f552a49c8de64f49d
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780320"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889120"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-a-storage-event"></a>Criar um gatilho que executa um pipeline em resposta a um evento de armazenamento
 
@@ -43,10 +43,10 @@ Esta seção mostra como criar um gatilho de evento de armazenamento dentro da i
 
     :::image type="content" source="media/how-to-create-event-trigger/event-based-trigger-image1.png" alt-text="Captura de tela da página autor para criar um novo gatilho de evento de armazenamento na interface do usuário Data Factory.":::
 
-1. Selecione sua conta de armazenamento na lista suspensa de assinatura do Azure ou manualmente usando a ID do recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é opcional, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
+1. Selecione sua conta de armazenamento na lista suspensa de assinatura do Azure ou manualmente usando a ID do recurso da conta de armazenamento. Escolha em qual contêiner você deseja que os eventos ocorram. A seleção de contêiner é necessária, mas lembre-se de que a seleção de todos os contêineres pode levar a um grande número de eventos.
 
    > [!NOTE]
-   > O gatilho de evento de armazenamento atualmente dá suporte apenas a Azure Data Lake Storage Gen2 e contas de armazenamento da versão 2 de uso geral. Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 disparadores de eventos de armazenamento por conta de armazenamento.
+   > O gatilho de evento de armazenamento atualmente dá suporte apenas a Azure Data Lake Storage Gen2 e contas de armazenamento da versão 2 de uso geral. Devido a uma limitação da grade de eventos do Azure, Azure Data Factory dá suporte apenas a um máximo de 500 disparadores de eventos de armazenamento por conta de armazenamento. Se você atingir o limite, entre em contato com o suporte para obter recomendações e aumente o limite após a avaliação por equipe de grade de eventos. 
 
    > [!NOTE]
    > Para criar um novo ou modificar um gatilho de evento de armazenamento existente, a conta do Azure usada para fazer logon no Data Factory e publicar o gatilho de evento de armazenamento deve ter a permissão de controle de acesso baseado em função (RBAC do Azure) na conta de armazenamento. Nenhuma permissão adicional é necessária: a entidade de serviço para o Azure Data Factory _não precisa de_ permissão especial para a conta de armazenamento ou a grade de eventos. Para obter mais informações sobre o controle de acesso, consulte seção [controle de acesso baseado em função](#role-based-access-control) .
@@ -54,7 +54,7 @@ Esta seção mostra como criar um gatilho de evento de armazenamento dentro da i
 1. As propriedades **Caminho do blob começa com**  e **Caminho do blob termina com** permitem especificar os contêineres, as pastas e os nomes de blob para os quais você deseja receber eventos. Seu gatilho de evento de armazenamento exige que pelo menos uma dessas propriedades seja definida. É possível usar diversos padrões tanto para o **caminho do Blob que começa com** como para o **caminho do Blob que termina com propriedades**, conforme mostrado nos exemplos mais adiante neste artigo.
 
     * **O caminho do blob começa com:** O caminho do blob deve começar com um caminho de pasta. Os valores válidos incluem `2018/` e `2018/april/shoes.csv`. Este campo não poderá ser selecionado se um contêiner não estiver selecionado.
-    * **O caminho de blob termina com:** O caminho do blob deve terminar com uma extensão ou nome de arquivo. Os valores válidos incluem `shoes.csv` e `.csv`. O nome do contêiner e da pasta são opcionais, mas, quando especificados, devem ser separados por um segmento de `/blobs/`. Por exemplo, um contêiner chamado 'ordens' pode ter um valor de `/orders/blobs/2018/april/shoes.csv`. Para especificar uma pasta em qualquer contêiner, omita o caractere '/' à esquerda. Por exemplo, `april/shoes.csv` disparará um evento em qualquer arquivo chamado `shoes.csv` na pasta a chamada “abril” em qualquer contêiner.
+    * **O caminho de blob termina com:** O caminho do blob deve terminar com uma extensão ou nome de arquivo. Os valores válidos incluem `shoes.csv` e `.csv`. Nomes de contêiner e pasta, quando especificados, devem ser separados por um `/blobs/` segmento. Por exemplo, um contêiner chamado 'ordens' pode ter um valor de `/orders/blobs/2018/april/shoes.csv`. Para especificar uma pasta em qualquer contêiner, omita o caractere '/' à esquerda. Por exemplo, `april/shoes.csv` disparará um evento em qualquer arquivo chamado `shoes.csv` na pasta a chamada “abril” em qualquer contêiner.
     * Observe que o caminho de blob **começa com** e **termina com** é o único padrão correspondente permitido no gatilho de evento de armazenamento. Não há suporte para outros tipos de correspondência de curingas para o tipo de gatilho.
 
 1. Selecione se o gatilho responderá a um evento de **Blob criado**, **Blob excluído** ou ambos. No local de armazenamento especificado, cada evento vai disparar os pipelines do Azure Data Factory associados ao gatilho.

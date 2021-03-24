@@ -7,18 +7,18 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: overview
 ms.service: azure-object-anchors
-ms.openlocfilehash: cbe52004dddbe74aa02347c026028a8ffd4cf8d7
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: b4284411fbe09a0d0ce8412e6e5a5df464f35564
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102034177"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462857"
 ---
 # <a name="azure-object-anchors-overview"></a>Visão geral das Âncoras de Objeto do Azure
 
-As Âncoras de Objeto do Azure permitem que um aplicativo detecte um objeto no mundo físico usando um modelo 3D e estime sua pose com 6DoF. A pose com 6DoF (6 graus de liberdade) é definida como uma rotação e uma translação entre um modelo 3D e a respectiva contraparte física, o objeto real. 
+As Âncoras de Objeto do Azure permitem que um aplicativo detecte um objeto no mundo físico usando um modelo 3D e estime sua pose com 6DoF. A pose com 6DoF (6 graus de liberdade) é definida como uma rotação e uma translação entre um modelo 3D e a respectiva contraparte física, o objeto real.
 
-As Âncoras de Objeto do Azure são compostas por um serviço gerenciado para conversão de modelo e um SDK de cliente de runtime para o HoloLens. O serviço aceita um modelo de objeto 3D e gera como saída um modelo de Âncoras de Objeto do Azure. O modelo de Âncoras de Objeto do Azure é usado juntamente com o SDK de runtime a fim de permitir que um aplicativo HoloLens carregue um modelo de objeto e detecte e rastreie as instâncias desse modelo no mundo físico.
+As Âncoras de Objeto do Azure são compostas por um serviço para conversão de modelo e um SDK de cliente de runtime para o HoloLens. O serviço aceita um modelo de objeto 3D e gera como saída um modelo de Âncoras de Objeto do Azure. O modelo de Âncoras de Objeto do Azure é usado juntamente com o SDK de runtime a fim de permitir que um aplicativo HoloLens carregue um modelo de objeto e detecte e rastreie as instâncias desse modelo no mundo físico.
 
 :::image type="content" source="./media/aoa-overview.jpg" alt-text="Âncoras de Objeto do Azure em ação":::
 
@@ -26,11 +26,11 @@ As Âncoras de Objeto do Azure são compostas por um serviço gerenciado para co
 
 Alguns casos de uso de exemplo habilitados pelas Âncoras de Objeto do Azure incluem:
 
-- **Treinamento**. Crie experiências de treinamento de realidade misturada para seus funcionários, sem a necessidade de inserir marcadores ou gastar tempo ajustando manualmente o alinhamento do holograma. Se você quiser aprimorar suas experiências de treinamento de realidade misturada com detecção e rastreamento automatizados, faça a ingestão do modelo no serviço de Âncoras de Objeto e você estará um passo mais próximo de uma experiência sem marcador.
+- **Treinamento**. Crie experiências de treinamento de Realidade Misturada para seus funcionários sem a necessidade de inserir marcadores nem gastar tempo ajustando manualmente o alinhamento do holograma. Se quiser aprimorar suas experiências de treinamento de Realidade Misturada com detecção e rastreamento automatizados, faça a ingestão do modelo no serviço de Âncoras de Objeto do Azure e você estará um passo mais próximo de uma experiência sem marcador.
 
-- **Diretrizes de tarefa**. Orientar os funcionários na realização de um conjunto de tarefas pode se tornar um esforço bem mais simples usando a Realidade Misturada. A sobreposição de instruções digitais e melhores práticas, aplicadas no objeto físico – seja a peça de uma máquina no chão de fábrica ou a cafeteira na cozinha da equipe – pode reduzir bastante a dificuldade para concluir um conjunto de tarefas. Para disparar essas experiências normalmente é necessário alguma forma de marcador ou alinhamento manual, mas com as Âncoras de Objeto, você pode criar uma experiência que detecta automaticamente o objeto relacionado à tarefa em questão. Então, prosseguir por meio de diretrizes de Realidade Misturada sem marcadores ou alinhamento manual.
+- **Diretrizes de tarefa**. Orientar os funcionários na realização de um conjunto de tarefas pode se tornar um esforço bem mais simples usando a Realidade Misturada. A sobreposição de instruções digitais e melhores práticas, aplicadas no objeto físico – seja a peça de uma máquina no chão de fábrica ou a cafeteira na cozinha da equipe – pode reduzir bastante a dificuldade para concluir um conjunto de tarefas. Para disparar essas experiências, normalmente é necessária alguma forma de marcador ou alinhamento manual. No entanto, com as Âncoras de Objeto do Azure, você pode criar uma experiência que detecta automaticamente o objeto relacionado à tarefa em questão. Então, prosseguir por meio de diretrizes de Realidade Misturada sem marcadores ou alinhamento manual.
 
-- **Localização de ativos**. Se você já tiver um modelo 3D de algum objeto no espaço físico, as Âncoras de Objeto poderão permitir que você localize e rastreie instâncias desse objeto no ambiente físico.
+- **Localização de ativos**. Se você já tiver um modelo 3D de algum objeto no espaço físico, as Âncoras de Objeto do Azure poderão permitir que você localize e rastreie instâncias desse objeto no ambiente físico.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -43,7 +43,7 @@ As seções a seguir fornecem informações sobre como começar a criar e usar a
 > [Unity HoloLens](quickstarts/get-started-unity-hololens.md)
 
 > [!div class="nextstepaction"]
-> [HoloLens no Unity com MRTK](quickstarts/get-started-unity-hololens-mrtk.md)
+> [Unity HoloLens com MRTK](quickstarts/get-started-unity-hololens-mrtk.md)
 
 > [!div class="nextstepaction"]
 > [HoloLens DirectX](quickstarts/get-started-hololens-directx.md)

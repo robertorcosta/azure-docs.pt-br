@@ -3,24 +3,24 @@ title: Hotpatch para Windows Server Azure Edition (versão prévia)
 description: Saiba como o hotpatch para Windows Server Azure Edition funciona e como habilitá-lo
 author: ju-shim
 ms.service: virtual-machines
-ms.subservice: automanage
+ms.subservice: hotpatch
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
 ms.author: jushiman
-ms.openlocfilehash: 710e6902be6ebe28caaf40fb446e4ee7cd2bf4dc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 92b8bf240dfd73cc9191675db07f20816b7156a8
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687559"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953384"
 ---
 # <a name="hotpatch-for-new-virtual-machines-preview"></a>Hotpatch para novas máquinas virtuais (visualização)
 
-HotPatching é uma nova maneira de instalar atualizações em novas VMs (máquinas virtuais) do Windows Server Azure Edition que não exigem uma reinicialização após a instalação. Este artigo aborda informações sobre o hotpatch para VMs do Windows Server Azure Edition, que tem os seguintes benefícios:
+A aplicação de patch dinâmica é uma nova maneira de instalar atualizações em novas VMs (máquinas virtuais) do Windows Server Azure Edition que não exigem uma reinicialização após a instalação. Este artigo aborda informações sobre o hotpatch para VMs do Windows Server Azure Edition, que tem os seguintes benefícios:
 * Menor impacto na carga de trabalho com menos reinicializações
-* Implantação mais rápida de atualizações à medida que os pacotes são menores, são instalados mais rapidamente e facilitam a orquestração de patch com o Gerenciador de atualização do Azure
-* Melhor proteção, pois os pacotes de atualização do hotpatch têm como escopo as atualizações de segurança do Windows que são instaladas mais rapidamente sem reinicialização
+* Implantação mais rápida de atualizações à medida que os pacotes são menores, são instalados mais rapidamente e facilitam a orquestração de patch com o Gerenciador de Atualizações do Azure
+* Melhor proteção, pois os pacotes de atualização de patch dinâmico têm como escopo as atualizações de segurança do Windows que são instaladas mais rapidamente sem reinicialização
 
 ## <a name="how-hotpatch-works"></a>Como o hotpatch funciona
 
@@ -129,21 +129,21 @@ az provider register --namespace Microsoft.Compute
 
 ## <a name="patch-installation"></a>Instalação de patch
 
-Durante a versão prévia, a [aplicação automática de patches de convidado de VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) é habilitada automaticamente para todas as VMs criadas com o _Windows Server 2019 datacenter: edição do Azure_. Com a aplicação automática de patches de convidado de VM habilitada:
-* Os patches classificados como críticos ou de segurança são baixados e aplicados automaticamente na VM.
+Durante a versão prévia, a [aplicação automática de patches de convidado de VM](../virtual-machines/automatic-vm-guest-patching.md) é habilitada automaticamente para todas as VMs criadas com o _Windows Server 2019 datacenter: edição do Azure_. Com a aplicação automática de patches de convidado de VM habilitada:
+* Os patches classificados como Críticos ou de Segurança são baixados e aplicados automaticamente à VM.
 * Os patches são aplicados fora do horário de pico no fuso horário da VM.
-* A orquestração de patch é gerenciada pelo Azure e os patches são aplicados após os [princípios de disponibilidade-primeiro](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching).
-* A integridade da máquina virtual, conforme determinado por meio de sinais de integridade da plataforma, é monitorada para detectar falhas de patch.
+* A orquestração de patches é gerenciada pelo Azure e os patches são aplicados seguindo os [princípios de priorização de disponibilidade](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching).
+* A integridade da máquina virtual, conforme determinado por sinais de integridade da plataforma, é monitorada para detectar falhas de patch.
 
 ### <a name="how-does-automatic-vm-guest-patching-work"></a>Como funciona a aplicação automática de patches de convidado de VM?
 
-Quando a [aplicação automática de patches de convidado de VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) está habilitada em uma VM, os patches críticos e de segurança disponíveis são baixados e aplicados automaticamente. Esse processo é ativado automaticamente todos os meses quando novos patches são lançados. A avaliação e a instalação do patch são automáticas e o processo inclui a reinicialização da VM, conforme necessário.
+Quando a [aplicação automática de patches de convidado de VM](../virtual-machines/automatic-vm-guest-patching.md) está habilitada em uma VM, os patches críticos e de segurança disponíveis são baixados e aplicados automaticamente. Esse processo é ativado automaticamente todos os meses quando novos patches são lançados. A avaliação e a instalação do patch são automáticas e o processo inclui a reinicialização da VM, conforme necessário.
 
 Com o hotpatch habilitado no _Windows Server 2019 datacenter: VMs de edição do Azure_ , as atualizações de segurança mais mensais são entregues como hotpatches que não exigem reinicializações. As últimas atualizações cumulativas enviadas em meses de linha de base planejados ou não planejados exigirão reinicializações de VM. Patches de segurança ou críticos adicionais também podem estar disponíveis periodicamente, o que pode exigir reinicializações de VM.
 
 A VM é avaliada automaticamente a cada poucos dias e várias vezes em qualquer período de 30 dias para determinar os patches aplicáveis para essa VM. Essa avaliação automática garante que todos os patches ausentes sejam descobertos na primeira oportunidade possível.
 
-Os patches são instalados dentro de 30 dias após as versões mensais dos patches, após os [princípios de disponibilidade-princípio](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#availability-first-patching). Os patches são instalados somente fora do horário de pico para a VM, dependendo do fuso horário da VM. A VM deve estar em execução durante os horários de pico para que os patches sejam instalados automaticamente. Se uma VM for desligada durante uma avaliação periódica, a VM será avaliada e os patches aplicáveis serão instalados automaticamente durante a próxima avaliação periódica quando a VM estiver ligada. A próxima avaliação periódica geralmente ocorre em alguns dias.
+Os patches são instalados dentro de 30 dias após as versões mensais dos patches, após os [princípios de disponibilidade-princípio](../virtual-machines/automatic-vm-guest-patching.md#availability-first-patching). Os patches são instalados somente fora do horário de pico para a VM, dependendo do fuso horário da VM. A VM deve estar em execução durante os horários de pico para que os patches sejam instalados automaticamente. Se uma VM for desligada durante uma avaliação periódica, a VM será avaliada e os patches aplicáveis serão instalados automaticamente durante a próxima avaliação periódica quando a VM estiver ligada. A próxima avaliação periódica geralmente ocorre em alguns dias.
 
 Atualizações de definições e outros patches não classificados como críticos ou segurança não serão instalados por meio de aplicação automática de patches de convidado de VM.
 
@@ -151,7 +151,7 @@ Atualizações de definições e outros patches não classificados como crítico
 
 Para exibir o status do patch para sua VM, navegue até a seção **convidado + atualizações de host** para sua vm no portal do Azure. Na seção **atualizações do sistema operacional convidado** , clique em ' ir para hotpatch (visualização) ' para exibir o status do patch mais recente para sua VM.
 
-Nessa tela, você verá o status de hotpatch para sua VM. Você também pode examinar se há patches disponíveis para sua VM que não foram instaladas. Conforme descrito na seção "instalação de patch" acima, todas as atualizações de segurança e críticas serão instaladas automaticamente em sua VM usando [aplicação automática de patches de convidado de VM](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching) e nenhuma ação extra será necessária. Patches com outras classificações de atualização não são instalados automaticamente. Em vez disso, eles são visíveis na lista de patches disponíveis na guia "conformidade da atualização". Você também pode exibir o histórico de implantações de atualização em sua VM por meio do ' histórico de atualização '. O histórico de atualizações dos últimos 30 dias é exibido, juntamente com os detalhes da instalação do patch.
+Nessa tela, você verá o status de hotpatch para sua VM. Você também pode examinar se há patches disponíveis para sua VM que não foram instaladas. Conforme descrito na seção "instalação de patch" acima, todas as atualizações de segurança e críticas serão instaladas automaticamente em sua VM usando [aplicação automática de patches de convidado de VM](../virtual-machines/automatic-vm-guest-patching.md) e nenhuma ação extra será necessária. Patches com outras classificações de atualização não são instalados automaticamente. Em vez disso, eles são visíveis na lista de patches disponíveis na guia "conformidade da atualização". Você também pode exibir o histórico de implantações de atualização em sua VM por meio do ' histórico de atualização '. O histórico de atualizações dos últimos 30 dias é exibido, juntamente com os detalhes da instalação do patch.
 
 
 :::image type="content" source="media\automanage-hotpatch\hotpatch-management-ui.png" alt-text="Gerenciamento de hotpatch.":::
@@ -225,5 +225,5 @@ Há algumas considerações importantes para executar uma VM de edição do Wind
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre o Azure Gerenciamento de Atualizações [aqui](https://docs.microsoft.com/azure/automation/update-management/overview).
-* Saiba mais sobre aplicação automática de patches de convidado de VM [aqui](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching)
+* Saiba mais sobre o Azure Gerenciamento de Atualizações [aqui](../automation/update-management/overview.md).
+* Saiba mais sobre aplicação automática de patches de convidado de VM [aqui](../virtual-machines/automatic-vm-guest-patching.md)

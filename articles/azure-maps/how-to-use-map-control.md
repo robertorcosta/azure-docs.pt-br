@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 27d9d5d30dc4c96516d23acba6a11b411827071e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b283cacf94ff3567428787e50a3d7db9ba91fd9c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100378699"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104864033"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usar o controle de mapeamento do Azure Mapas
 
@@ -258,10 +258,10 @@ Se acessar diretamente os serviços REST do Azure Maps, altere o domínio da URL
 
 Se você estiver desenvolvendo com uma estrutura JavaScript, um dos seguintes projetos open-source pode ser útil:
 
-- [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) – um wrapper Angular 10 alternativo nos mapas do Azure.
-- [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) – um componente Blazor dos Azure Mapas.
-- [Componente React do Azure Mapas](https://github.com/WiredSolutions/react-azure-maps) – um wrapper React para o controle dos Azure Mapas.
-- [Vue Azure Mapas](https://github.com/rickyruiz/vue-azure-maps) – um componente dos Azure Mapas para o aplicativo Vue.
+* [ng-azure-maps](https://github.com/arnaudleclerc/ng-azure-maps) – um wrapper Angular 10 alternativo nos mapas do Azure.
+* [AzureMapsControl.Components](https://github.com/arnaudleclerc/AzureMapsControl.Components) – um componente Blazor dos Azure Mapas.
+* [Componente React do Azure Mapas](https://github.com/WiredSolutions/react-azure-maps) – um wrapper React para o controle dos Azure Mapas.
+* [Vue Azure Mapas](https://github.com/rickyruiz/vue-azure-maps) – um componente dos Azure Mapas para o aplicativo Vue.
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -275,10 +275,10 @@ Saiba como definir o estilo de um mapa:
 > [!div class="nextstepaction"]
 > [Escolher um estilo de mapa](choose-map-style.md)
 
-Para adicionar mais dados ao seu mapa:
+Conheça as práticas recomendadas e veja exemplos:
 
 > [!div class="nextstepaction"]
-> [Criar um mapa](map-create.md)
+> [Práticas recomendadas](web-sdk-best-practices.md)
 
 > [!div class="nextstepaction"]
 > [Exemplos de código](/samples/browse/?products=azure-maps)

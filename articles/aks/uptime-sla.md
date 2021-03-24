@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 01/08/2021
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: fae95e6f3a73d7539f81e1486c4ad021f181aa11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 69a4955f28bbd42cd7bf5651bd057412e15303de
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176324"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952908"
 ---
 # <a name="azure-kubernetes-service-aks-uptime-sla"></a>SLA de tempo de atividade do Serviço de Kubernetes do Azure (AKS)
 
@@ -37,9 +37,6 @@ O SLA de tempo de atividade é um recurso pago e habilitado por cluster. O preç
 * Instalar o [CLI do Azure](/cli/azure/install-azure-cli) versão 2.8.0 ou posterior
 
 ## <a name="creating-a-new-cluster-with-uptime-sla"></a>Criando um novo cluster com SLA de tempo de atividade
-
-> [!NOTE]
-> Atualmente, se você habilitar o SLA de tempo de atividade, não será possível removê-lo de um cluster.
 
 Para criar um novo cluster com o SLA de tempo de atividade, use a CLI do Azure.
 
@@ -106,6 +103,15 @@ Use o [`az aks update`][az-aks-update] comando para atualizar o cluster existent
     "tier": "Paid"
   },
   ```
+
+## <a name="opt-out-of-uptime-sla"></a>Recusar SLA de tempo de atividade
+
+Você pode atualizar o cluster para mudar para a camada gratuita e recusar o SLA de tempo de atividade.
+
+```azurecli-interactive
+# Update an existing cluster to opt out of Uptime SLA
+ az aks update --resource-group myResourceGroup --name myAKSCluster --no-uptime-sla
+ ```
 
 ## <a name="clean-up"></a>Limpeza
 

@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: ef916e0e8b32c96382a731d4a307e2b2a98ba1ea
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1c2be47060004d464003c00cbbddb3b58a136e3c
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96753851"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871139"
 ---
 # <a name="build-migration-plan-with-azure-migrate"></a>Criar um plano de migração com as Migrações para Azure
 
@@ -31,33 +31,33 @@ Resposta a alterações de conformidade regulatória | Preparação para novas f
 Novos requisitos de soberania de dados | Escala conforme as demandas de mercado
 Redução de interrupções e melhorias de estabilidade de ti | Escala conforme as demandas geográficas
 
-Identificar sua motivação ajuda você a fixar suas metas de migração estratégica. A próxima etapa é identificar e planejar um caminho de migração adequado para suas cargas de trabalho. A ferramenta [migrações para Azure: Server Assessment](migrate-services-overview.md#azure-migrate-server-assessment-tool) ajuda a avaliar cargas de trabalho locais e fornece orientações e ferramentas para ajudá-lo a migrar.
+Identificar sua motivação ajuda você a fixar suas metas de migração estratégica. A próxima etapa é identificar e planejar um caminho de migração adequado para suas cargas de trabalho. A ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) ajuda a avaliar cargas de trabalho locais e fornece orientações e ferramentas para ajudá-lo a migrar.
 
 ## <a name="understand-your-digital-estate"></a>Compreender seu patrimônio digital
 
-Comece identificando a infraestrutura, os aplicativos e as dependências locais. Isso ajuda a identificar cargas de trabalho para migração para o Azure e a reunir projeções de custos otimizados. A ferramenta Avaliação do Servidor ajuda a identificar as cargas de trabalho que você tem em uso, as dependências entre as cargas de trabalho e a otimização da carga de trabalho.
+Comece identificando a infraestrutura, os aplicativos e as dependências locais. Isso ajuda a identificar cargas de trabalho para migração para o Azure e a reunir projeções de custos otimizados. A ferramenta de descoberta e avaliação ajuda a identificar as cargas de trabalho que você tem em uso, as dependências entre as cargas de trabalho e a otimização da carga de trabalho.
 
 ### <a name="workloads-in-use"></a>Cargas de trabalho em uso
 
-As Migrações para Azure usam um dispositivo leve que inclua esse serviço para executar a descoberta sem agente de VMs VMware locais, VMs Hyper-V, outros computadores virtualizados e servidores físicos. A descoberta contínua coleta informações de configuração de computador e metadados de desempenho, bem como dados de aplicativos. Confira aqui o que o dispositivo coleta dos computadores locais: 
+As migrações para Azure usam um dispositivo leve de migrações para Azure para executar a descoberta sem agente de VMs VMware locais, VMs do Hyper-V, outros servidores virtualizados e servidores físicos. A descoberta contínua coleta informações de configuração do servidor e metadados de desempenho, bem como dados de aplicativos. Veja o que o dispositivo coleta de servidores locais: 
 
-- Metadados do computador, disco e NIC.
+- Metadados de servidor, disco e NIC.
 
 - Aplicativos instalados, funções e recursos.
 
 - Dados de desempenho, incluindo utilização de CPU e memória, IOPS de disco e taxa de transferência.
 
-Depois de coletar dados, você pode exportar a lista de inventário de aplicativos para localizar aplicativos e instâncias do SQL Server em execução em seus computadores. Você pode usar a ferramenta Avaliação de Banco de Dados das Migrações para Azure para compreender a preparação do SQL Server.
+Depois de coletar dados, você pode exportar a lista de inventário de aplicativos para localizar aplicativos e SQL Server instâncias em execução em seus servidores. Você pode usar a ferramenta Avaliação de Banco de Dados das Migrações para Azure para compreender a preparação do SQL Server.
 
  ![Inventário de aplicativos no Portal](./media/concepts-migration-planning/application-inventory-portal.png)
 
  ![Exportação de inventário de aplicativos](./media/concepts-migration-planning/application-inventory-export.png)
 
-Em conjunto com os dados descobertos pela ferramenta Avaliação do Servidor, você pode usar seus dados do CMDB (Configuration Management Database) para criar uma exibição do seu servidor e do acervo do banco de dados e entender como seus servidores são distribuídos entre unidades de negócios, proprietários de aplicativos, áreas geográficas etc. Isso ajuda a decidir quais cargas de trabalho priorizar para migração. 
+Junto com os dados descobertos com a ferramenta de descoberta e avaliação, você pode usar seus dados de CMDB (banco de dados de gerenciamento de configuração) para criar uma exibição do seu servidor e do banco do dados e entender como os servidores são distribuídos entre unidades de negócios, proprietários de aplicativos, geografias, etc. Isso ajuda a decidir quais cargas de trabalho priorizar para a migração. 
 
 ### <a name="dependencies-between-workloads"></a>Dependências entre cargas de trabalho
 
-Após a descoberta do servidor, você pode [analisar as dependências](concepts-dependency-visualization.md) para visualizar e identificar dependências entre servidores e estratégias de otimização a fim de mover servidores interdependentes para o Azure. A visualização ajuda a entender se certos computadores estão em uso ou se podem ser desativados, em vez de migrados.  A análise das dependências ajuda a garantir que nada seja deixado para trás e a evitar interrupções durante a migração. Com o inventário do aplicativo e a análise de dependência concluídos, você pode criar grupos de servidores de alta confiança e começar a avaliá-los.
+Após a descoberta do servidor, você pode [analisar as dependências](concepts-dependency-visualization.md) para visualizar e identificar dependências entre servidores e estratégias de otimização a fim de mover servidores interdependentes para o Azure. A visualização ajuda a entender se determinados servidores estão em uso ou se eles podem ser descomissionados, em vez de serem migrados.  A análise das dependências ajuda a garantir que nada seja deixado para trás e a evitar interrupções durante a migração. Com o inventário do aplicativo e a análise de dependência concluídos, você pode criar grupos de servidores de alta confiança e começar a avaliá-los.
 
  ![Mapeamento de dependências](./media/concepts-migration-planning/expand-client-group.png)
 
@@ -72,10 +72,10 @@ O Azure fornece flexibilidade para redimensionar sua capacidade de nuvem ao long
 
 Você pode exportar o relatório de avaliação e filtrá-lo nestas categorias a fim de compreender a preparação para o Azure:
 
-- **Pronto para o Azure**: os computadores podem ser migrados como estão para o Azure, sem alterações. 
-- **Condicionalmente pronto para o Azure**: os computadores podem ser migrados para o Azure, mas precisam de pequenas alterações, de acordo com as diretrizes de correção fornecidas na avaliação.
-- **Não está pronto para o Azure**: os computadores não podem ser migrados para o Azure no estado em que se encontram. Os problemas devem ser corrigidos de acordo com as diretrizes de correção, antes da migração. 
-- **Preparação desconhecida**: as Migrações para Azure não podem determinar a preparação do computador devido a metadados insuficientes.
+- **Pronto para o Azure**: os servidores podem ser migrados no estado em que se encontram para o Azure, sem nenhuma alteração. 
+- **Condicionalmente pronto para o Azure**: os servidores podem ser migrados para o Azure, mas precisam de pequenas alterações, de acordo com as diretrizes de correção fornecidas na avaliação.
+- **Não está pronto para o Azure**: os servidores não podem ser migrados para o Azure no estado em que se encontram. Os problemas devem ser corrigidos de acordo com as diretrizes de correção, antes da migração. 
+- **Preparação desconhecida**: as migrações para Azure não podem determinar a preparação do servidor, devido a metadados insuficientes.
 
 Usando avaliações de banco de dados, você pode avaliar a preparação de seu acervo de dados do SQL Server para migração para o Banco de Dados SQL do Azure ou as Instâncias Gerenciadas de SQL do Azure. A avaliação mostra a porcentagem do status de preparação para a migração de cada uma das instâncias do SQL Server. Além disso, para cada instância, você pode ver o destino recomendado no Azure, possíveis bloqueadores de migração, uma contagem de alterações interruptivas, preparação para o BD ou a VM do SQL do Azure e um nível de compatibilidade. Você pode se aprofundar para entender o impacto dos bloqueadores de migração e as recomendações para corrigi-los.
 
@@ -83,7 +83,7 @@ Usando avaliações de banco de dados, você pode avaliar a preparação de seu 
 
 ### <a name="sizing-recommendations"></a>Recomendações de dimensionamento
 
-Depois que um computador é marcado como pronto para o Azure, a Avaliação do Servidor faz recomendações de dimensionamento que identificam o SKU e o tipo de disco da VM do Azure para seus computadores. Você pode obter recomendações de dimensionamento com base no histórico de desempenho (para otimizar recursos conforme ao migrar) ou com base nas configurações do computador local, sem histórico de desempenho. Em uma avaliação de banco de dados, você pode ver recomendações para o SKU do banco de dados, o tipo de preço e o nível de computação.  
+Depois que um servidor é marcado como pronto para o Azure, a descoberta e a avaliação fazem recomendações de dimensionamento que identificam a SKU e o tipo de disco da VM do Azure para seus servidores. Você pode obter recomendações de dimensionamento com base no histórico de desempenho (para otimizar os recursos à medida que migra) ou com base nas configurações do servidor local, sem o histórico de desempenho. Em uma avaliação de banco de dados, você pode ver recomendações para o SKU do banco de dados, o tipo de preço e o nível de computação.  
 
 ### <a name="get-compute-costs"></a>Obter custos de computação
 
@@ -93,18 +93,18 @@ A opção de dimensionamento com base no desempenho nas avaliações das Migraç
 - **Benefício Híbrido do Azure**: com o [Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/), você pode usar licenças locais do Windows Server com assinaturas ativas do Software Assurance ou do Linux no Azure e combinar com as opções de instâncias reservadas.
 - **Enterprise Agreement**: os [EAs (Enterprise Agreements)](../cost-management-billing/manage/ea-portal-agreements.md) do Azure podem oferecer economia para assinaturas e serviços do Azure.
 - **Ofertas**: há várias [ofertas do Azure](https://azure.microsoft.com/support/legal/offer-details/). Por exemplo, [Desenvolvimento/Teste Pago Conforme o Uso](https://azure.microsoft.com/pricing/dev-test/) ou [Desenvolvimento/Teste Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/), para fornecer taxas mais baixas em VMs de desenvolvimento/teste
-- **Tempo de atividade da VM**: você pode examinar os dias por mês e as horas por dia em que as VMs do Azure são executadas. Desligar os computadores quando eles não estão em uso pode reduzir os custos (não aplicável a RIs).
+- **Tempo de atividade da VM**: você pode examinar os dias por mês e as horas por dia em que as VMs do Azure são executadas. Desligar os servidores quando eles não estão em uso pode reduzir seus custos (não aplicável ao RIs).
 - **Região de destino**: você pode criar avaliações em diferentes regiões para descobrir se a migração para uma região específica pode ser mais econômica. 
 
 ### <a name="visualize-data"></a>Visualizar dados
 
-Você pode exibir relatórios de Avaliação do Servidor (com informações de preparação para o Azure e distribuição de custo mensal) no portal. Você também pode exportar avaliações e enriquecer seu plano de migração com visualizações adicionais. É possível criar várias avaliações, com diferentes combinações de propriedades, e escolher o conjunto de propriedades que funciona melhor para seu negócio.  
+Você pode exibir relatórios de descoberta e avaliação (com as informações de preparação do Azure e a distribuição de custo mensal) no Portal. Você também pode exportar avaliações e enriquecer seu plano de migração com visualizações adicionais. É possível criar várias avaliações, com diferentes combinações de propriedades, e escolher o conjunto de propriedades que funciona melhor para seu negócio.  
 
  ![Visão geral de avaliações](./media/concepts-migration-planning/assessment-summary.png)
 
 ### <a name="evaluate-gapsblockers"></a>Avaliar lacunas/bloqueadores
 
-Conforme você descobre os aplicativos e as cargas de trabalho que deseja migrar, identifique as restrições de tempo de inatividade para eles e procure por dependências operacionais entre seus aplicativos e a infraestrutura subjacente. Essa análise ajuda você a planejar migrações que atendam ao seu RTO (objetivo de tempo de recuperação) e garantam pouca ou nenhuma perda de dados. Antes de migrar, recomendamos que você examine e mitigue quaisquer problemas de compatibilidade ou recursos sem suporte que possam bloquear a migração do servidor/banco de dados SQL. O relatório de Avaliação do Servidor das Migrações para Azure e a Avaliação do Banco de Dados das Migrações para Azure podem ajudar nisso. 
+Conforme você descobre os aplicativos e as cargas de trabalho que deseja migrar, identifique as restrições de tempo de inatividade para eles e procure por dependências operacionais entre seus aplicativos e a infraestrutura subjacente. Essa análise ajuda você a planejar migrações que atendam ao seu RTO (objetivo de tempo de recuperação) e garantam pouca ou nenhuma perda de dados. Antes de migrar, recomendamos que você examine e mitigue quaisquer problemas de compatibilidade ou recursos sem suporte que possam bloquear a migração do servidor/banco de dados SQL. O relatório de avaliação e descoberta de migrações para Azure e a avaliação de banco de dados de migração do Azure podem ajudar com isso. 
 
 ### <a name="prioritize-workloads"></a>Priorizar cargas de trabalho
 
@@ -118,12 +118,12 @@ Algumas recomendações:
 
     **State** | **Ação**
     --- | ---
-    **VMs prontas para o Azure** | Exporte o relatório de avaliação e filtre todos os computadores com o estado *Pronto para o Azure*. Esse pode ser o primeiro grupo de computadores que você reúne e desloca para o Azure usando a ferramenta [Migração do Servidor das Migrações para Azure](migrate-services-overview.md#azure-migrate-server-migration-tool).
-    **Sistemas operacionais sem suporte** | Exporte o relatório de avaliação e filtre todos os computadores que executam o Windows Server 2008 R2/Windows Server 2008. Esses sistemas operacionais estão no final do suporte, e apenas o Azure fornece três anos gratuitos de atualizações de segurança quando você os migra para o Azure. Se você combinar o Benefício Híbrido do Azure e usar RIs, a economia poderá ser muito maior.
+    **VMs prontas para o Azure** | Exporte o relatório de avaliação e filtre todos os servidores com o estado *pronto para o Azure*. Esse pode ser o primeiro grupo de servidores que você move e muda para o Azure, usando a ferramenta [migrações para Azure: Server Migration](migrate-services-overview.md#azure-migrate-server-migration-tool) .
+    **Sistemas operacionais sem suporte** | Exporte o relatório de avaliação e filtre todos os servidores que executam o Windows Server 2008 R2/Windows Server 2008. Esses sistemas operacionais estão no final do suporte, e apenas o Azure fornece três anos gratuitos de atualizações de segurança quando você os migra para o Azure. Se você combinar o Benefício Híbrido do Azure e usar RIs, a economia poderá ser muito maior.
     **Migração do SQL Server** | Use as recomendações da avaliação de banco de dados para migrar bancos de dados que estão prontos para o Banco de Dados SQL do Azure, usando a ferramenta Migração de Banco de Dados das Migrações para Azure. Migre os bancos de dados prontos para a VM do SQL do Azure usando a ferramenta Migração do Servidor das Migrações para Azure.
     **Software sem suporte** | Exporte seu inventário de aplicativos e filtre qualquer software/extensão que possa estar chegando ao fim do suporte. Priorize esses aplicativos para migração.
-    **Computadores subprovisionados** | Exporte o relatório de avaliação e filtre para computadores com baixa utilização de CPU (%) e de memória (%).  Migre para uma VM do Azure de tamanho certo e economize em custos para recursos subutilizados.
-    **Computadores superprovisionados** | Exporte o relatório de avaliação e filtre para computadores com alta utilização de CPU (%) e de memória (%).  Solucione as restrições de capacidade, evite que os computadores sobrecarregados apresentam falhas e aumente o desempenho migrando esses computadores para o Azure. No Azure, use os recursos de dimensionamento automático para atender à demanda.<br/><br/> Analise relatórios de avaliação para investigar as restrições de armazenamento. Analise taxa de transferência e IOPS de disco e o tipo de disco recomendado.
+    **Servidores provisionados** | Exportar o relatório de avaliação e filtrar servidores com baixa utilização da CPU (%) e utilização de memória (%).  Migre para uma VM do Azure de tamanho certo e economize em custos para recursos subutilizados.
+    **Servidores superprovisionados** | Exportar o relatório de avaliação e filtrar para servidores com alta utilização da CPU (%) e utilização de memória (%).  Solucione restrições de capacidade, impeça a interrupção de servidores sobrerestritos e aumente o desempenho migrando esses servidores para o Azure. No Azure, use os recursos de dimensionamento automático para atender à demanda.<br/><br/> Analise relatórios de avaliação para investigar as restrições de armazenamento. Analise taxa de transferência e IOPS de disco e o tipo de disco recomendado.
 
 - **Comece aos poucos e vá aumentando**: comece movendo aplicativos e cargas de trabalho que apresentam o mínimo de risco e complexidade, para criar confiança em sua estratégia de migração. Analise as recomendações de avaliação das Migrações para Azure junto com seu repositório CMDB para localizar e migrar cargas de trabalho de desenvolvimento/teste que podem ser candidatas a migrações piloto. Comentários e aprendizados de migrações piloto podem ser úteis à medida que você começa a migrar cargas de trabalho de produção.  
 - **Fique em conformidade**: o Azure mantém o maior portfólio de conformidade do setor, em termos de amplitude e profundidade de ofertas. Use os requisitos de conformidade para priorizar as migrações, de modo que os aplicativos e as cargas de trabalho estejam em conformidade com padrões e leis nacionais, regionais e específicos do setor. Isso é importante sobretudo para organizações que lidam com processos comercialmente críticos, mantêm informações confidenciais ou estão em setores altamente regulamentados. Nesses tipos de organizações, os padrões e regulamentações são abundantes e podem mudar com frequência, sendo difícil acompanhá-los.  
