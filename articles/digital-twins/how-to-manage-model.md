@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86efd7781c7353b4846c77eba01ed34fb63067ff
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 75911e91bb61b84d2e9315421f794739f2b5088b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102433243"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953690"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gerenciar modelos de gêmeos digitais do Azure
 
@@ -179,7 +179,7 @@ Coisas que você **pode** fazer:
 * Ler propriedades
 * Ler relações de saída
 * Adicionar e excluir relações de entrada (como em, outros gêmeos ainda podem formar relações *com* este "or")
-  - O `target` na definição de relação ainda pode refletir o DTMI do modelo excluído. Uma relação sem um destino definido também pode funcionar aqui.
+  - O `target` na definição de relação ainda pode refletir o DTMI do modelo excluído. Uma relação sem um destino definido também pode funcionar aqui.      
 * Excluir relações
 * Excluir o
 

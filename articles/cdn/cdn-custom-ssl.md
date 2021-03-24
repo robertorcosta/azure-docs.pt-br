@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/27/2021
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 61ba50f8ec9e1de18238160b23096670753cffd6
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 275afc504a5e7b92ae3274c02372eee6b488c782
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100367496"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102616393"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado da CDN do Azure
 
@@ -356,6 +356,11 @@ A tabela a seguir mostra o andamento da operação que ocorre quando você desab
 7. *Como funcionam as renovações de certificado com o modelo Traga Seu Próprio Certificado?*
 
     Para garantir que um certificado mais recente seja implantado na infraestrutura do PoP, carregue seu novo certificado no Azure Key Vault. Em suas configurações de TLS na CDN do Azure, escolha a versão mais recente do certificado e selecione salvar. Em seguida, a CDN do Azure propagará o novo certificado atualizado. 
+
+8. *É necessário reabilitar o HTTPS após a reinicialização do ponto de extremidade?*
+
+    Sim. Se você está usando a **CDN do Azure da Akamai**, se o ponto de extremidade parar e reiniciar, você deve reabilitar a configuração HTTPS se a configuração estava ativa antes.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,14 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: 35fdd5032a6b666aaf8d0b29a83f0c83818ef230
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: beef869b891fe6e3f0ea2f667763cb310008b2fc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561993"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101653262"
 ---
 # <a name="quickstart-acquire-an-access-token-and-call-the-microsoft-graph-api-from-an-electron-desktop-app"></a>Início rápido: Adquirir um token de acesso e chamar a API do Microsoft Graph em um aplicativo da área de trabalho do Electron
 
@@ -29,11 +29,11 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 * [Visual Studio Code](https://code.visualstudio.com/download) ou outro editor de código
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-application"></a>Registrar e baixar o aplicativo de início rápido
-> 
+> ## <a name="register-and-download-the-sample-application"></a>Registrar e baixar o aplicativo de exemplo
+>
 > Siga as etapas abaixo para começar.
-> 
-> #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
+>
+> #### <a name="step-1-register-the-application"></a>Etapa 1: Registrar o aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
 > 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
@@ -48,7 +48,7 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 > 1. Selecione **Configurar**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
 > Para que o exemplo de código deste início rápido funcione, você precisará adicionar uma URL de resposta como **msal://redirect**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essa alteração para mim]()
@@ -56,7 +56,7 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-windows-desktop/green-check.png) Seu aplicativo já está configurado com esses atributos.
 
-#### <a name="step-2-download-your-electron-project"></a>Etapa 2: Baixar o seu projeto Electron
+#### <a name="step-2-download-the-electron-sample-project"></a>Etapa 2: Baixar o projeto de exemplo do Electron
 
 > [!div renderon="docs"]
 > [Baixe o exemplo de código](https://github.com/azure-samples/ms-identity-javascript-nodejs-desktop/archive/main.zip)
@@ -69,7 +69,7 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-electron-project"></a>Etapa 3: Configurar o seu projeto Electron
+> #### <a name="step-3-configure-the-electron-sample-project"></a>Etapa 3: Configurar o projeto de exemplo do Electron
 >
 > 1. Extraia o arquivo zip para uma pasta local próxima da raiz do disco, por exemplo, *C:\Azure-Samples*.
 > 1. Edite *.env* e substitua os valores dos campos `TENANT_ID` e `CLIENT_ID` pelo seguinte snippet:
@@ -170,7 +170,7 @@ async function getTokenInteractive(authWindow, tokenRequest) {
 
     /**
      * Proof Key for Code Exchange (PKCE) Setup
-     * 
+     *
      * MSAL enables PKCE in the Authorization Code Grant Flow by including the codeChallenge and codeChallengeMethod
      * parameters in the request passed into getAuthCodeUrl() API, as well as the codeVerifier parameter in the
      * second leg (acquireTokenByCode() API).
@@ -181,11 +181,11 @@ async function getTokenInteractive(authWindow, tokenRequest) {
     pkceCodes.verifier = verifier;
     pkceCodes.challenge = challenge;
 
-    const authCodeUrlParams = { 
-        redirectUri: redirectUri 
+    const authCodeUrlParams = {
+        redirectUri: redirectUri
         scopes: tokenRequest.scopes,
         codeChallenge: pkceCodes.challenge, // PKCE Code Challenge
-        codeChallengeMethod: pkceCodes.challengeMethod // PKCE Code Challenge Method 
+        codeChallengeMethod: pkceCodes.challengeMethod // PKCE Code Challenge Method
     };
 
     const authCodeUrl = await pca.getAuthCodeUrl(authCodeUrlParams);
@@ -197,14 +197,14 @@ async function getTokenInteractive(authWindow, tokenRequest) {
     });
 
     const authCode = await listenForAuthCode(authCodeUrl, authWindow); // see below
-    
-    const authResponse = await pca.acquireTokenByCode({ 
-        redirectUri: redirectUri, 
-        scopes: tokenRequest.scopes, 
+
+    const authResponse = await pca.acquireTokenByCode({
+        redirectUri: redirectUri,
+        scopes: tokenRequest.scopes,
         code: authCode,
-        codeVerifier: pkceCodes.verifier // PKCE Code Verifier 
+        codeVerifier: pkceCodes.verifier // PKCE Code Verifier
     });
-    
+
     return authResponse;
 }
 
@@ -214,7 +214,7 @@ async function getTokenInteractive(authWindow, tokenRequest) {
  * @param {object} authWindow: Electron window object
  */
 async function listenForAuthCode(navigateUrl, authWindow) {
-    
+
     authWindow.loadURL(navigateUrl);
 
     return new Promise((resolve, reject) => {

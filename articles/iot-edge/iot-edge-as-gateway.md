@@ -4,19 +4,19 @@ description: Use o Azure IoT Edge para criar um dispositivo de gateway transpare
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/10/2020
+ms.date: 03/23/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: ca8f02b375420590bcf1cc732c067a165e22b3fa
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa8b7372af91fc7cb194dfc3a6212cb4ce1fa0a2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492703"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027339"
 ---
 # <a name="how-an-iot-edge-device-can-be-used-as-a-gateway"></a>Como um dispositivo IoT Edge pode ser usado como um gateway
 
@@ -24,12 +24,7 @@ ms.locfileid: "103492703"
 
 IoT Edge dispositivos podem operar como gateways, fornecendo uma conexão entre outros dispositivos na rede e no Hub IoT.
 
-O módulo Hub de IoT Edge atua como o Hub IoT, portanto, pode manipular conexões de qualquer dispositivo que tenha uma identidade com o Hub IoT, incluindo outros dispositivos IoT Edge. Esse tipo de padrão de gateway é chamado *transparente* porque as mensagens podem passar de dispositivos downstream para o Hub IOT, como se não houvesse um gateway entre eles.
-
-<!-- 1.2.0 -->
-::: moniker range=">=iotedge-2020-11"
-A partir da versão 1,2 de IoT Edge, os gateways transparentes podem lidar com conexões downstream de outros dispositivos IoT Edge.
-::: moniker-end
+O módulo Hub de IoT Edge atua como o Hub IoT e, portanto, pode manipular conexões de outros dispositivos que têm uma identidade com o mesmo Hub IoT. Esse tipo de padrão de gateway é chamado *transparente* porque as mensagens podem passar de dispositivos downstream para o Hub IOT, como se não houvesse um gateway entre eles.
 
 Para dispositivos que não podem se conectar ao Hub IoT por conta própria, IoT Edge gateways podem fornecer essa conexão. Esse tipo de padrão de gateway é chamado de *conversão* porque o dispositivo IOT Edge precisa executar o processamento em mensagens de dispositivo de downstream de entrada antes que elas possam ser encaminhadas ao Hub IOT. Esses cenários exigem módulos adicionais no gateway de IoT Edge para manipular as etapas de processamento.
 
@@ -51,17 +46,19 @@ Para obter mais informações sobre como o Hub de IoT Edge gerencia a comunicaç
 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
-
-IoT Edge dispositivos não podem ser downstream de um gateway de IoT Edge.
-
 ![Diagrama-padrão de gateway transparente](./media/iot-edge-as-gateway/edge-as-gateway-transparent.png)
+
+>[!NOTE]
+>No IoT Edge versão 1,1 e mais antiga, os dispositivos IoT Edge não podem ser downstream de um gateway de IoT Edge.
+>
+>A partir da versão 1,2 de IoT Edge, os gateways transparentes podem lidar com conexões de dispositivos de IoT Edge downstream. Para obter mais informações, alterne para a versão [IoT Edge 1,2](?view=iotedge-2020-11&preserve-view=true) deste artigo.
 
 ::: moniker-end
 
-<!-- 1.2.0 -->
+<!-- 1.2 -->
 ::: moniker range=">=iotedge-2020-11"
 
-A partir da versão 1.2.0, os dispositivos IoT Edge podem se conectar por meio de gateways transparentes.
+A partir da versão 1,2 de IoT Edge, os gateways transparentes podem lidar com conexões de dispositivos de IoT Edge downstream.
 
 <!-- TODO add a downstream IoT Edge device to graphic -->
 
@@ -118,7 +115,7 @@ Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte 
 <!-- 1.1 -->
 ::: moniker range="iotedge-2018-06"
 
-| Recurso | Dispositivo IoT | IoT por trás de um gateway |
+| Funcionalidade | Dispositivo IoT | IoT por trás de um gateway |
 | ---------- | ---------- | -------------------- |
 | [Mensagens do dispositivo para a nuvem (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sim – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-D2C IoT filho](./media/iot-edge-as-gateway/check-yes.png) |
 | [Mensagens de nuvem para dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sim – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-C2D filho de IoT](./media/iot-edge-as-gateway/check-yes.png) |
@@ -131,7 +128,7 @@ Use a tabela a seguir para ver como recursos diferentes do Hub IoT têm suporte 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"
 
-| Recurso | Dispositivo IoT | IoT por trás de um gateway | Dispositivo do IoT Edge | IoT Edge por trás de um gateway |
+| Funcionalidade | Dispositivo IoT | IoT por trás de um gateway | Dispositivo do IoT Edge | IoT Edge por trás de um gateway |
 | ---------- | ---------- | --------------------------- | --------------- | -------------------------------- |
 | [Mensagens do dispositivo para a nuvem (D2C)](../iot-hub/iot-hub-devguide-messages-d2c.md) |  ![Sim – IoT D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-D2C IoT filho](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-IoT Edge D2C](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-filho IoT Edge D2C](./media/iot-edge-as-gateway/check-yes.png) |
 | [Mensagens de nuvem para dispositivo (C2D)](../iot-hub/iot-hub-devguide-messages-c2d.md) | ![Sim – IoT C2D](./media/iot-edge-as-gateway/check-yes.png) | ![Sim-C2D filho de IoT](./media/iot-edge-as-gateway/check-yes.png) | ![C2D não-IoT Edge](./media/iot-edge-as-gateway/crossout-no.png) | ![C2D filho sem IoT Edge](./media/iot-edge-as-gateway/crossout-no.png) |
@@ -173,7 +170,7 @@ A conversão de identidade fornece os benefícios da conversão de protocolo e, 
 
 A tabela a seguir explica como os recursos do Hub IoT são estendidos para dispositivos downstream em ambos os padrões de gateway de tradução.
 
-| Recurso | Conversão de protocolo | Conversão de identidade |
+| Funcionalidade | Conversão de protocolo | Conversão de identidade |
 | ---------- | -------------------- | -------------------- |
 | Identidades armazenadas no registro de identidade do Hub IoT | Somente a identidade do dispositivo de gateway | Identidades de todos os dispositivos conectados |
 | Dispositivo gêmeo | Somente o gateway tem um dispositivo e módulo gêmeos | Cada dispositivo conectado tem seu próprio dispositivo gêmeo |
