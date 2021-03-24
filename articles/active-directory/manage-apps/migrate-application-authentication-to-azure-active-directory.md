@@ -14,12 +14,12 @@ ms.date: 02/05/2021
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629f71c429d6af8583cb15b9ebc96efe6867f78b
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 1e05a7af3f0b95470432b4fb9602e1b41da9f72f
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888882"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952959"
 ---
 # <a name="migrate-application-authentication-to-azure-active-directory"></a>Migrar a autenticação de aplicativo para o Azure Active Directory
 
@@ -573,7 +573,7 @@ Você pode orientar seus usuários sobre como descobrir seus aplicativos:
 
 Os usuários podem baixar um **navegador gerenciado pelo Intune**:
 
-- **Para dispositivos Android**, na [Google Play Store](/azure/active-directory/authentication/howto-mfa-userstates)
+- **Para dispositivos Android**, na [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune)
 
 - **Para dispositivos da Apple**, da [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) ou eles podem baixar o [aplicativo móvel meus aplicativos para IOS](https://apps.apple.com/us/app/my-apps-azure-active-directory/id824048653)
 
