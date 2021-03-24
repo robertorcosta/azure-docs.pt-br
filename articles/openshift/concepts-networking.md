@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
-ms.openlocfilehash: b785a6b73f595072f5d723bad8c119ddc4dc0f11
-ms.sourcegitcommit: 58ff80474cd8b3b30b0e29be78b8bf559ab0caa1
+ms.openlocfilehash: 5d69aacb6e3f25e3414aa446c4c5ae7852cabdfc
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100636314"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "101720895"
 ---
 # <a name="network-concepts-for-azure-red-hat-openshift-aro"></a>Conceitos de rede no ARO (Red Hat OpenShift no Azure)
 
@@ -60,7 +60,7 @@ A lista a seguir abrange os componentes de rede importantes em um cluster do Red
 
 * **Entrada**: A política de rede de entrada tem suporte como parte da [SDN do OpenShift](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). Essa política de rede é habilitada por padrão e a imposição é realizada pelos usuários. Embora a política de rede de entrada esteja em conformidade com V1 NetworkPolicy, os Tipos de IPBlock e de Saída não têm suporte.
 
-* **Saída**: As políticas de rede de saída têm suporte usando o recurso de [firewall de saída](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) no OpenShift. Há apenas uma política de saída por namespace/projeto. As políticas de saída não têm suporte no namespace "padrão" e são avaliadas em ordem (primeiro ao último).
+* **Saída**: As políticas de rede de saída têm suporte usando o recurso de [firewall de saída](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) no OpenShift. Há apenas uma política de saída por namespace/projeto. As políticas de saída não têm suporte no namespace "padrão" e são avaliadas em ordem (primeira à última).
 
 ## <a name="networking-basics-in-openshift"></a>Noções básicas de rede no OpenShift
 

@@ -9,10 +9,10 @@ ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
 ms.openlocfilehash: cbff2e774fae1f71624aa3cdbd83bfb21e3a9586
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101721456"
 ---
 # <a name="tutorial-modify-and-build-the-live-video-analytics-gateway-modules"></a>Tutorial: Modificar e criar os módulos de gateway da Análise Dinâmica de Vídeo
@@ -76,7 +76,7 @@ Abra a pasta do repositório local *live-video-analytics* com o VS Code.
 
 1. A versão da imagem do **LvaEdgeGatewayModule** é incrementada toda vez que o build é concluído. Você precisará usar essa versão no arquivo de manifesto de implantação.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Se você tiver concluído o aplicativo, remova todos os recursos criados da seguinte maneira:
 

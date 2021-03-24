@@ -4,12 +4,12 @@ description: Aprenda a configurar as políticas do Apache Ranger para o Hive no 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: fbe4361033321f2ba81478c41a138937f70b5498
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 15c406576b373577a2a3a50108acad7ccbf36699
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705697"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863251"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Configurar políticas do Apache Hive no HDInsight com o Enterprise Security Package
 
@@ -30,7 +30,7 @@ Aprenda a configurar as políticas do Apache Ranger para o Apache Hive. Neste ar
 
 2. Faça logon usando o nome de usuário e a senha de domínio de administrador de cluster:
 
-    ![Home page do HDInsight ESP Ranger](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-ranger-home-page.png" alt-text="Home page do HDInsight ESP Ranger" border="true":::
 
     Atualmente, o Ranger só funciona com o Hive e o Yarn.
 
@@ -57,7 +57,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
     |Selecionar usuário|hiveuser1|
     |Permissões|select|
 
-    ![Configuração de políticas de hive do HDInsight](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
+    :::image type="content" source="./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png" alt-text="Configuração de políticas do hive do HDInsight" border="true":::para o HDInsight.
 
     > [!NOTE]  
     > Se um usuário de domínio não estiver populado em Selecionar Usuário, aguarde alguns instantes para que o Ranger seja sincronizado com o AAD.
@@ -101,7 +101,7 @@ Na última seção, você configurou duas políticas.  hiveuser1 tem a permissã
 
 1. Na guia **Dados**, navegue até **Obter Dados** > **De Outras Fontes** > **Do ODBC** para abrir a janela **Do ODBC**.
 
-    ![Abrir o assistente de conexão de dados](./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png)
+    :::image type="content" source="./media/apache-domain-joined-run-hive/simbahiveodbc-excel-dataconnection1.png" alt-text="Abrir o assistente de conexão de dados" border="true":::
 
 1. Na lista suspensa, selecione o nome da fonte de dados que você criou na última seção e, em seguida, selecione **OK**.
 

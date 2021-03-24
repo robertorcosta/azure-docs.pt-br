@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/04/2021
 ms.author: jeedes
-ms.openlocfilehash: f8d488118dc5e69f5c48aef0d408f5fd0e5d4b2b
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 056585355242de20e543265b3d8b06863e434f22
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102491160"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955560"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-smartlook"></a>Tutorial: integração de SSO (logon único) do Azure Active Directory com o Smartlook
 
@@ -147,10 +147,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Clique em **Testar este aplicativo** no portal do Azure e você será conectado de modo automático ao Smartlook para o qual configurou o SSO 
 
-Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco do Smartlook em Meus Aplicativos, caso ele esteja configurado no modo SP, você será redirecionado à página de entrada do aplicativo para iniciar o fluxo de logon. Caso ele esteja configurado no modo IDP, você será conectado de modo automático ao Smartlook para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Use também os Meus Aplicativos da Microsoft para testar o aplicativo em qualquer modo. Ao clicar no bloco do Smartlook em Meus Aplicativos, caso ele esteja configurado no modo SP, você será redirecionado à página de entrada do aplicativo para iniciar o fluxo de logon. Caso ele esteja configurado no modo IDP, você será conectado de modo automático ao Smartlook para o qual configurou o SSO. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o Smartlook, será possível impor um controle de sessão que fornecerá proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o Smartlook, será possível impor um controle de sessão que fornecerá proteção contra exfiltração e infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

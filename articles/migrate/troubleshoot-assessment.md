@@ -6,16 +6,16 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 09fbc97b84365cc1d6d40b8e1147e1b8e951cc1f
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 78e54543c94cd6e8434023b61516242c2491f353
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780694"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863591"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Solucionar problemas de visualização de avaliação/dependência
 
-Este artigo ajuda você a solucionar problemas com a visualização de dependência e avaliação com as [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-server-assessment-tool).
+Este artigo ajuda você a solucionar problemas com a visualização de dependência e avaliação com as [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool).
 
 
 ## <a name="assessment-readiness-issues"></a>Problemas de preparação da avaliação
@@ -222,7 +222,7 @@ Após a migração de servidores com a visualização de dependência habilitada
 Na análise de dependência sem agente, os nomes de processo são capturados em uma base de melhor esforço. Em determinados cenários, embora os nomes do servidor de origem e de destino e a porta de destino sejam capturados, não é possível determinar os nomes dos processos em ambas as extremidades da dependência. Nesses casos, o processo é marcado como "processo desconhecido".
 
 ## <a name="my-log-analytics-workspace-is-not-listed-when-trying-to-configure-the-workspace-in-azure-migrate"></a>Meu espaço de trabalho Log Analytics não está listado ao tentar configurar o espaço de trabalho em migrações para Azure
-Atualmente, as Migrações para Azure dão suporte à criação do espaço de trabalho do OMS nas regiões leste dos EUA, Sudeste Asiático e Oeste da Europa. Se o espaço de trabalho for criado fora da migração do Azure em qualquer outra região, ele não poderá ser associado a um projeto de migrações para Azure no momento.
+Atualmente, as Migrações para Azure dão suporte à criação do espaço de trabalho do OMS nas regiões leste dos EUA, Sudeste Asiático e Oeste da Europa. Se o espaço de trabalho for criado fora da migração do Azure em qualquer outra região, ele não poderá ser associado a um projeto no momento.
 
 
 ## <a name="capture-network-traffic"></a>Capturar o tráfego de rede
