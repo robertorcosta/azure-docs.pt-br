@@ -5,20 +5,72 @@ description: Exiba informações importantes relativas ao BGP para solução de 
 services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
-ms.devlang: powershell
 ms.topic: sample
-ms.date: 02/22/2021
+ms.date: 03/10/2021
 ms.author: alzam
-ms.openlocfilehash: 097568dddd5c8568d4523cdeb05ab0c889c31670
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: f97bbccc980705699af822ba2730233239cdfd5f
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742743"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103148773"
 ---
-# <a name="view-bgp-metrics-and-status-using-powershell"></a>Exibir métricas e status do BGP usando o PowerShell
+# <a name="view-bgp-metrics-and-status"></a>Exibir métricas e status do BGP
 
-Use **Get-AzVirtualNetworkGatewayBGPPeerStatus** para exibir todos os pares de BGP e o status
+Você pode exibir as métricas e o status do BGP usando o portal do Azure ou o Azure PowerShell.
+
+## <a name="azure-portal"></a>Portal do Azure
+
+No portal do Azure, você pode ver os pares, as rotas aprendidas e as rotas anunciadas do BGP. Você também pode baixar arquivos .csv que contêm esses dados.
+
+1. No [portal do Azure](https://portal.azure.com), navegue até seu gateway de rede virtual.
+1. Em **Monitoramento**, selecione **Pares de BGP** para abrir a página de pares no nível de protocolo BGP.
+
+   :::image type="content" source="./media/bgp-diagnostics/bgp-portal.jpg" alt-text="Captura de tela de métrica no portal do Azure.":::
+
+### <a name="learned-routes"></a>Rotas aprendidas
+
+1. Você pode exibir até 50 rotas aprendidas no portal.
+
+   :::image type="content" source="./media/bgp-diagnostics/learned-routes.jpg" alt-text="Captura de tela das rotas aprendidas.":::
+
+1. Você também pode baixar o arquivo de rotas aprendidas. Se você tem mais de 50 rotas aprendidas, a única maneira de ver todas elas é baixando e abrindo o arquivo .csv. Para baixar, selecione **Baixar rotas aprendidas**.
+
+   :::image type="content" source="./media/bgp-diagnostics/download-routes.jpg" alt-text="Captura de tela do download das rotas aprendidas.":::
+1. Em seguida, veja o arquivo.
+
+   :::image type="content" source="./media/bgp-diagnostics/learned-routes-file.jpg" alt-text="Captura de tela das rotas aprendidas baixadas.":::
+
+### <a name="advertised-routes"></a>Rotas anunciadas
+
+1. Para ver as rotas anunciadas, selecione o **...** no final da rede que deseja ver e clique em **Exibir rotas anunciadas**.
+
+   :::image type="content" source="./media/bgp-diagnostics/select-route.png" alt-text="Captura de tela mostrando como ver rotas anunciadas." lightbox="./media/bgp-diagnostics/route-expand.png":::
+1. Na página **Rotas anunciadas para o par**, você pode ver até 50 rotas anunciadas.
+
+   :::image type="content" source="./media/bgp-diagnostics/advertised-routes.jpg" alt-text="Captura de tela das rotas anunciadas.":::
+1. Você também pode baixar o arquivo de rotas anunciadas. Se você tem mais de 50 rotas anunciadas, a única maneira de ver todas elas é baixando e abrindo o arquivo .csv. Para baixar, selecione **Baixar rotas anunciadas**.
+
+   :::image type="content" source="./media/bgp-diagnostics/download-advertised.jpg" alt-text="Captura de tela da seleção das rotas anunciadas baixadas.":::
+1. Em seguida, veja o arquivo.
+
+   :::image type="content" source="./media/bgp-diagnostics/advertised-routes-file.jpg" alt-text="Captura de tela das rotas anunciadas baixadas.":::
+
+### <a name="bgp-peers"></a>Pares de BGP
+
+1. Você pode ver até 50 pares de BGP no portal.
+
+   :::image type="content" source="./media/bgp-diagnostics/peers.jpg" alt-text="Captura de tela dos pares de BGP.":::
+1. Você também pode baixar o arquivo de pares de BGP. Se você tem mais de 50 pares de BGP, a única maneira de ver todos eles é baixando e abrindo o arquivo .csv. Para baixar, selecione **Baixar pares de BGP** na página do portal.
+
+   :::image type="content" source="./media/bgp-diagnostics/download-peers.jpg" alt-text="Captura de tela do download de pares de BGP.":::
+1. Em seguida, veja o arquivo.
+
+   :::image type="content" source="./media/bgp-diagnostics/peers-file.jpg" alt-text="Captura de tela dos pares de BGP baixados.":::
+
+## <a name="powershell"></a>PowerShell
+
+Use **Get-AzVirtualNetworkGatewayBGPPeerStatus** para ver todos os pares de BGP e o status.
 
 [!INCLUDE [VPN Gateway PowerShell instructions](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
@@ -71,14 +123,6 @@ Use **Get-AzVirtualNetworkGatewayAdvertisedRoute** para exibir todas as rotas qu
 Get-AzVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName gatewayName -ResourceGroupName resourceGroupName -Peer 10.0.0.254
 ```
 
-## <a name="clean-up-resources"></a>Limpar os recursos
-
-Quando os recursos criados não forem mais necessários, use o comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para excluir o grupo de recursos. Esse comando exclui o grupo de recursos e todos os recursos que ele contém.
-
-```azurepowershell-interactive
-Remove-AzResourceGroup -Name ResourceGroupName
-```
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/).
+Para obter mais informações sobre o BGP, confira [Configurar BGP para o Gateway de VPN](bgp-howto.md).

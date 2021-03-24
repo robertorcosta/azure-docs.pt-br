@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: bdd8fd336da12b5549875cf53f9e221cc431c2b9
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 8531d0b2252e6ddff75509046b5a4576b99d339f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773208"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870782"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Matriz de suporte para avaliação do Hyper-V
 
-Este artigo resume os pré-requisitos e requisitos de suporte ao descobrir e avaliar servidores locais em execução em um ambiente Hyper-V para migração para o Azure, usando a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-server-assessment-tool) . Se você quiser migrar servidores em execução no Hyper-V para o Azure, examine a [matriz de suporte de migração](migrate-support-matrix-hyper-v-migration.md).
+Este artigo resume os pré-requisitos e requisitos de suporte ao descobrir e avaliar servidores locais em execução em um ambiente Hyper-V para migração para o Azure, usando a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) . Se você quiser migrar servidores em execução no Hyper-V para o Azure, examine a [matriz de suporte de migração](migrate-support-matrix-hyper-v-migration.md).
 
 Para configurar a descoberta e a avaliação de servidores em execução no Hyper-V, você cria um projeto e adiciona a ferramenta migrações do Azure: descoberta e avaliação ao projeto. Depois que a ferramenta for adicionada, implante o [dispositivo do Migrações para Azure](migrate-appliance.md). O dispositivo descobre continuamente servidores locais e envia metadados de servidor e dados de desempenho para o Azure. Após a conclusão da descoberta, você coleta servidores descobertos em grupos e executa uma avaliação de um grupo.
 
@@ -23,7 +23,7 @@ Para configurar a descoberta e a avaliação de servidores em execução no Hype
 
 **Suporte** | **Detalhes**
 --- | ---
-**Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores em um único [projeto](migrate-support-matrix.md#azure-migrate-projects).
+**Limites de avaliação** | Você pode descobrir e avaliar até 35.000 servidores em um único [projeto](migrate-support-matrix.md#project).
 **Limites do projeto** | Você pode criar vários projetos em uma assinatura do Azure. Além dos servidores no Hyper-V, um projeto pode incluir servidores em servidores físicos e VMware, até os limites de avaliação de cada um.
 **Discovery** | O dispositivo de migrações para Azure pode descobrir até 5000 servidores em execução no Hyper-V.<br/><br/> O dispositivo pode se conectar a até 300 hosts Hyper-V.
 **Avaliação** | Você pode adicionar até 35.000 servidores em um único grupo.<br/><br/> Você pode avaliar até 35.000 servidores em uma única avaliação para um grupo.

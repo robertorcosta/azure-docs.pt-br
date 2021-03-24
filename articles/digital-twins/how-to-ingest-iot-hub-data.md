@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3223a1c8e20d8b0caced5d940132c32fa0aba97c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149073"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889460"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingerir telemetria do Hub IoT no gêmeos digital do Azure
 
@@ -50,7 +50,7 @@ Para criar um termostato de texto, você primeiro precisará carregar o [modelo]
 O modelo se parece com este:
 :::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
 
-Para **carregar esse modelo em sua instância do gêmeos**, execute o seguinte comando CLI do Azure, que carrega o modelo acima como JSON embutido. Você pode executar o comando em [Azure cloud Shell](/cloud-shell/overview.md) no navegador ou em seu computador se tiver a CLI [instalada localmente](/cli/azure/install-azure-cli.md).
+Para **carregar esse modelo em sua instância do gêmeos**, execute o seguinte comando CLI do Azure, que carrega o modelo acima como JSON embutido. Você pode executar o comando em [Azure cloud Shell](/cloud-shell/overview.md) no navegador ou em seu computador se tiver a CLI [instalada localmente](/cli/azure/install-azure-cli).
 
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}

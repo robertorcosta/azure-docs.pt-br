@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: estfan, logicappspm, azla
 ms.topic: article
 ms.date: 03/09/2021
-ms.openlocfilehash: 7796fc7e2032559ca3ff5c738c46fe025719942d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: b038a0530d392c80fc14d09486f298657fe0da17
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102556614"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889324"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Autenticar o acesso a recursos do Azure usando identidades gerenciadas em Aplicativos Lógicos do Azure
 
@@ -27,7 +27,7 @@ Atualmente, somente [gatilhos e ações internas específicas](../logic-apps/log
 
 * Gerenciamento de API do Azure
 * Serviços de Aplicativo do Azure
-* Azure Functions
+* Funções do Azure
 * HTTP
 * HTTP + webhook
 
@@ -402,52 +402,54 @@ Estas etapas mostram como usar a identidade gerenciada com um gatilho ou uma aç
 
      Para obter mais informações, consulte [exemplo: autenticar gatilho de conector gerenciado ou ação com uma identidade gerenciada](#authenticate-managed-connector-managed-identity).
 
-     As conexões que você cria para usar uma identidade gerenciada são um tipo de conexão especial que funciona apenas com uma identidade gerenciada. Em tempo de execução, a conexão usa a identidade gerenciada habilitada no aplicativo lógico. Essa configuração é salva no objeto da definição de recurso do aplicativo lógico `parameters` , que contém o `$connections` objeto que inclui ponteiros para a ID de recurso da conexão junto com a ID de recurso da identidade, se a identidade atribuída pelo usuário estiver habilitada.
+### <a name="connections-that-use-managed-identities"></a>Conexões que usam identidades gerenciadas
 
-     Este exemplo mostra a aparência da configuração quando o aplicativo lógico habilita a identidade gerenciada atribuída pelo sistema:
+As conexões que usam uma identidade gerenciada são um tipo de conexão especial que funciona apenas com uma identidade gerenciada. Em tempo de execução, a conexão usa a identidade gerenciada habilitada no aplicativo lógico. Essa configuração é salva no objeto da definição de recurso do aplicativo lógico `parameters` , que contém o `$connections` objeto que inclui ponteiros para a ID de recurso da conexão junto com a ID de recurso da identidade, se a identidade atribuída pelo usuário estiver habilitada.
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+Este exemplo mostra a aparência da configuração quando o aplicativo lógico habilita a identidade gerenciada atribuída pelo sistema:
 
-     Este exemplo mostra a aparência da configuração quando o aplicativo lógico habilita uma identidade gerenciada atribuída pelo usuário:
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+ ```
 
-     ```json
-     "parameters": {
-        "$connections": {
-           "value": {
-              "<action-name>": {
-                 "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
-                 "connectionName": "{connection-name}",
-                 "connectionProperties": {
-                    "authentication": {
-                       "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
-                       "type": "ManagedServiceIdentity"
-                    }
-                 },
-                 "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
-              }
-           }
-        }
-     }
-     ```
+Este exemplo mostra a aparência da configuração quando o aplicativo lógico habilita uma identidade gerenciada atribuída pelo usuário:
 
-     Durante o tempo de execução, o serviço de aplicativos lógicos verifica se qualquer gatilho de conector gerenciado e ações no aplicativo lógico são configurados para usar a identidade gerenciada e se todas as permissões necessárias estão configuradas para usar a identidade gerenciada para acessar os recursos de destino especificados pelo gatilho e pelas ações. Se for bem-sucedido, o serviço de aplicativos lógicos recuperará o token do Azure AD que está associado à identidade gerenciada e usará essa identidade para autenticar o acesso ao recurso de destino e executar a operação configurada em gatilho e ações.
+```json
+"parameters": {
+   "$connections": {
+      "value": {
+         "<action-name>": {
+            "connectionId": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/connections/{connection-name}",
+            "connectionName": "{connection-name}",
+            "connectionProperties": {
+               "authentication": {
+                  "identity": "/subscriptions/{Azure-subscription-ID}/resourceGroups/{resourceGroupName}/providers/microsoft.managedidentity/userassignedidentities/{managed-identity-name}",
+                  "type": "ManagedServiceIdentity"
+               }
+            },
+            "id": "/subscriptions/{Azure-subscription-ID}/providers/Microsoft.Web/locations/{Azure-region}/managedApis/{managed-connector-type}"
+         }
+      }
+   }
+}
+```
+
+Durante o tempo de execução, o serviço de aplicativos lógicos verifica se qualquer gatilho de conector gerenciado e ações no aplicativo lógico são configurados para usar a identidade gerenciada e se todas as permissões necessárias estão configuradas para usar a identidade gerenciada para acessar os recursos de destino especificados pelo gatilho e pelas ações. Se for bem-sucedido, o serviço de aplicativos lógicos recuperará o token do Azure AD que está associado à identidade gerenciada e usará essa identidade para autenticar o acesso ao recurso de destino e executar a operação configurada em gatilho e ações.
 
 <a name="authenticate-built-in-managed-identity"></a>
 

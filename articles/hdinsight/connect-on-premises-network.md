@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/04/2020
-ms.openlocfilehash: cd787e1c846bfe4728577cbbce069385ce064a10
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f26813176d4286a052772d2096427231759aacc2
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98943403"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863370"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Conectar o HDInsight à sua rede local
 
@@ -37,7 +37,7 @@ Essas configurações habilitam o seguinte comportamento:
 
 No diagrama a seguir, linhas verdes são solicitações de recursos que terminam com o sufixo DNS da rede virtual. Linhas azuis são as solicitações para recursos na rede local ou na Internet pública.
 
-![Diagrama de como as solicitações DNS são resolvidas na configuração](./media/connect-on-premises-network/on-premises-to-cloud-dns.png)
+:::image type="content" source="./media/connect-on-premises-network/on-premises-to-cloud-dns.png" alt-text="Diagrama de como as solicitações DNS são resolvidas na configuração" border="false":::
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -64,7 +64,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
   
 1. No menu superior, selecione **+ Criar um recurso**.
 
-    ![Criar uma máquina virtual do Ubuntu](./media/connect-on-premises-network/azure-portal-create-resource.png)
+    :::image type="content" source="./media/connect-on-premises-network/azure-portal-create-resource.png" alt-text="Criar uma máquina virtual do Ubuntu":::
 
 1. Selecione   >  **máquina virtual** de computação para ir para a página **criar uma máquina virtual** .
 
@@ -72,7 +72,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
   
     | Campo | Valor |
     | --- | --- |
-    |Subscription |Selecione a assinatura apropriada.|
+    |Assinatura |Selecione a assinatura apropriada.|
     |Resource group |Selecione o grupo de recursos que contém a rede virtual criada anteriormente.|
     |Nome da máquina virtual | Insira um nome amigável que identifica esta máquina virtual. Este exemplo usa **DNSProxy**.|
     |Região | Selecione a mesma região que a rede virtual criada anteriormente.  Nem todos os tamanhos de VM estão disponíveis em todas as regiões.  |
@@ -83,7 +83,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
     |Senha ou chave pública SSH | O campo disponível é determinado por sua escolha de **Tipo de autenticação**.  Insira o valor apropriado.|
     |Porta de entrada públicas|Selecione **Permitir portas selecionadas**. Em seguida, selecione **SSH (22)** na lista suspensa **selecionar portas de entrada** .|
 
-    ![Configuração básica da máquina virtual](./media/connect-on-premises-network/virtual-machine-basics.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-machine-basics.png" alt-text="Configuração básica da máquina virtual":::
 
     Deixe outras entradas com os valores padrão e, em seguida, selecione **Rede**.
 
@@ -95,7 +95,7 @@ Estas etapas usam o [portal do Azure](https://portal.azure.com) para criar uma M
     |Sub-rede | Selecione a sub-rede padrão que da rede virtual que você criou anteriormente. __Não__ selecione a sub-rede usada pelo gateway de VPN.|
     |IP público | Use o valor preenchido automaticamente.  |
 
-    ![Configurações de rede virtual do HDInsight](./media/connect-on-premises-network/virtual-network-settings.png)
+    :::image type="content" source="./media/connect-on-premises-network/virtual-network-settings.png" alt-text="Configurações de rede virtual do HDInsight":::
 
     Deixe outras entradas com os valores padrão e, em seguida, selecione **Revisar + criar**.
 
@@ -109,7 +109,7 @@ Depois que a máquina virtual tiver sido criada, você receberá uma notificaç�
 
 2. Anote os valores de **RÓTULO DE NOME DNS/ENDEREÇO IP PÚBLICO** e **ENDEREÇO IP PRIVADO** para uso posterior.
 
-   ![Endereços IP públicos e privados](./media/connect-on-premises-network/virtual-machine-ip-addresses.png)
+   :::image type="content" source="./media/connect-on-premises-network/virtual-machine-ip-addresses.png" alt-text="Endereços IP públicos e privados":::
 
 ### <a name="install-and-configure-bind-dns-software"></a>Instalar e configurar o Bind (software DNS)
 
@@ -245,7 +245,7 @@ Para configurar a rede virtual a fim de usar o servidor DNS personalizado em vez
 
 5. Clique em __Salvar__.  <br />  
 
-    ![Definir o servidor DNS personalizado para a rede](./media/connect-on-premises-network/configure-custom-dns.png)
+    :::image type="content" source="./media/connect-on-premises-network/configure-custom-dns.png" alt-text="Definir o servidor DNS personalizado para a rede":::
 
 ## <a name="configure-on-premises-dns-server"></a>Configurar servidor DNS local
 

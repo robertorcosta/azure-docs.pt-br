@@ -2,16 +2,16 @@
 title: Tutorial – adicionar marcas a recursos em um arquivo Bicep do Azure Resource Manager
 description: Adicione marcas aos recursos que você implanta em seus arquivos Bicep. As marcas permitem que você organize logicamente os recursos.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 05bb68609705ac4c13ad77d2c74db7c105ba23fb
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ea5e078eb692d002b3f86cd43663dd042d692611
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742761"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632588"
 ---
 # <a name="tutorial-add-tags-in-azure-resource-manager-bicep-files"></a>Tutorial: Adicionar marcas a arquivos Bicep do Azure Resource Manager
 
@@ -37,7 +37,7 @@ Após implantar esses recursos, você pode precisar controlar custos e localizar
 
 Marque recursos para adicionar valores que ajudam você a identificar seu uso. Por exemplo, você pode adicionar marcas que listam o ambiente e o projeto. Você pode adicionar marcas que identificam um centro de custo ou a equipe que tem a propriedade do recurso. Adicione valores que façam sentido para sua organização.
 
-O exemplo a seguir realça as alterações no arquivo Bicep. Copie o arquivo inteiro e substitua o arquivo Bicep pelo conteúdo dele.
+O exemplo a seguir mostra as alterações no arquivo Bicep. Copie o arquivo inteiro e substitua o arquivo Bicep pelo conteúdo dele.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.bicep" range="1-81" highlight="27-30,38,51,71":::
 

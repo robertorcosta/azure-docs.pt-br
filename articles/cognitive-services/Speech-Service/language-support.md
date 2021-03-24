@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/07/2021
 ms.author: trbye
 ms.custom: references_regions
-ms.openlocfilehash: 43456655d057ee79ed347e4a94c008d825bfa639
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 17511778f63a2d7270178042c4bb414cdd6630c3
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470227"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955458"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Idiomas compatíveis e suporte de voz para o serviço de Fala
 
@@ -36,7 +36,7 @@ To get pronunciation bits:
 https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
 -->
 
-| Idioma                 | Localidade (BCP-47) | Personalizações  | [Detecção de idioma](how-to-automatic-language-detection.md) |
+| Linguagem                 | Localidade (BCP-47) | Personalizações  | [Detecção de idioma](how-to-automatic-language-detection.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|
 | Árabe (Bahrein), padrão moderno  | `ar-BH` | Texto                                   | Sim                           | 
 | Árabe (Egito)                     | `ar-EG` | Texto                                   | Sim                          |
@@ -74,7 +74,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Inglês (África do Sul)             | `en-ZA` | Texto                                   |                           |
 | Inglês (Tanzânia)                 | `en-TZ` | Texto                                   |                           |
 | Inglês (Reino Unido)           | `en-GB` | Áudio (20201019)<br>Texto<br>Pronúncia| Sim                          |
-| Inglês (Estados Unidos)            | `en-US` | Áudio (20201019)<br>Texto<br>Pronúncia| Sim                          |
+| Inglês (Estados Unidos)            | `en-US` | Áudio (20201019, 20210223)<br>Texto<br>Pronúncia| Sim                          |
 | Estoniano (Estônia)                  | `et-EE` | Texto                                   |                           |
 | Filipino (Filipinas)             | `fil-PH`| Texto                                   |                           |
 | Finlandês (Finlândia)                  | `fi-FI` | Texto                                   |     Sim                      |
@@ -152,7 +152,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 > Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
 
-| Idioma | Locale | Gênero | Nome da voz | Suporte de estilo |
+| Linguagem | Locale | Gênero | Nome da voz | Suporte de estilo |
 |---|---|---|---|---|
 | Árabe (Egito) | `ar-EG` | Feminino | `ar-EG-SalmaNeural` | Geral |
 | Árabe (Egito) | `ar-EG` | Masculino | `ar-EG-ShakirNeural`<sup>Novo</sup> | Geral |
@@ -274,7 +274,7 @@ Vozes neurais podem ser usadas para interagir com chatbots e assistentes de voz 
 
 As vozes neurais a seguir estão em visualização pública. 
 
-| Idioma                         | Locale  | Gênero | Nome da voz                             | Suporte de estilo |
+| Linguagem                         | Locale  | Gênero | Nome da voz                             | Suporte de estilo |
 |----------------------------------|---------|--------|----------------------------------------|---------------|
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaohanNeural` | Geral, vários estilos disponíveis [usando o SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
 | Chinês (mandarim, simplificado) | `zh-CN` | Feminino | `zh-CN-XiaomoNeural` | Geral, vários estilos e execução de função disponíveis [usando SSML](speech-synthesis-markup.md#adjust-speaking-styles) |
@@ -314,7 +314,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 > **As vozes en-US-AriaRUS** e **en-US-GuyRUS** também são criadas a partir de exemplos que usam uma taxa de amostra de 24 kHz.
 > Todas as vozes podem fazer amostragem ou redução para outras taxas de amostra ao resumir.
 
-| Idioma | Localidade (BCP-47) | Gênero | Nome da voz |
+| Linguagem | Localidade (BCP-47) | Gênero | Nome da voz |
 |--|--|--|--|
 | Árabe (árabe) | `ar-EG` | Feminino | `ar-EG-Hoda`|
 | Árabe (Arábia Saudita) | `ar-SA` | Masculino | `ar-SA-Naayf`|
@@ -404,7 +404,7 @@ Mais de 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades
 
 A voz personalizada está disponível na camada padrão e neural. Os idiomas com suporte são diferentes para essas duas camadas. 
 
-| Idioma | Locale | Standard | Neural |
+| Linguagem | Locale | Standard | Neural |
 |--|--|--|--|
 | Chinês (mandarim, simplificado) | `zh-CN` | Sim | Sim |
 | Chinês (mandarim, simplificado), bilíngüe inglês | `zh-CN` bilíngüe | Sim | Sim |
@@ -511,7 +511,7 @@ A API de **Tradução de Fala** é compatível com diferentes idiomas para conve
 
 Veja na tabela a seguir os idiomas com suporte para as várias APIs de Reconhecimento do Locutor. Confira a [visão geral](speaker-recognition-overview.md) para obter informações adicionais sobre o Reconhecimento do Locutor.
 
-| Idioma | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
+| Linguagem | Localidade (BCP-47) | Verificação dependente do texto | Verificação independente do texto | Identificação independente do texto |
 |----|----|----|----|----|
 |Inglês (EUA)  |  en-US  |  sim  |  sim  |  sim |
 |Chinês (mandarim, simplificado) | zh-CN     |     n/d |     sim |     sim|

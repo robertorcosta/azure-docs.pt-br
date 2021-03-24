@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/20/2020
 ms.author: duau
-ms.openlocfilehash: 6fdcedd19c02251035a838d34ba51e786595134b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: de6a94b36dab9dd5662062be99f4515d78558b5e
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212441"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889647"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Perguntas frequentes sobre a porta frontal do Azure
 
@@ -102,7 +102,7 @@ Para bloquear seu aplicativo para aceitar o tráfego somente de sua porta de fre
 
 - Procure o `Front Door ID` valor na seção visão geral da página do portal de porta frontal. Em seguida, você pode filtrar o cabeçalho de entrada '**X-Azure-FDID**' enviado pela porta frontal ao seu back-end com esse valor para garantir que apenas sua própria instância de porta frontal específica seja permitida (porque os intervalos de IP acima são compartilhados com outras instâncias de porta frontal de outros clientes).
 
-- Aplique a filtragem de regra em seu servidor Web de back-end para restringir o tráfego com base no valor de cabeçalho ' X-Azure-FDID ' resultante. Observe que alguns serviços como Azure App serviço fornecem esse recurso de [filtragem baseado em cabeçalho](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance-preview) sem a necessidade de alterar seu aplicativo ou host.
+- Aplique a filtragem de regra em seu servidor Web de back-end para restringir o tráfego com base no valor de cabeçalho ' X-Azure-FDID ' resultante. Observe que alguns serviços como Azure App serviço fornecem esse recurso de [filtragem baseado em cabeçalho](../app-service/app-service-ip-restrictions.md#restrict-access-to-a-specific-azure-front-door-instance) sem a necessidade de alterar seu aplicativo ou host.
 
   Aqui está um exemplo de [Microsoft serviços de informações da Internet (IIS)](https://www.iis.net/):
 

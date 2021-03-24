@@ -2,20 +2,20 @@
 title: incluir arquivo
 description: incluir arquivo
 services: azure-communication-services
-author: danieldoolabh
-manager: nimag
+author: lakshmans
+manager: ankita
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 09/03/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dadoolab
-ms.openlocfilehash: a24d9531b7b2d2d2f31eec275da7db7e48b9c74a
-ms.sourcegitcommit: 4c89d9ea4b834d1963c4818a965eaaaa288194eb
+ms.author: lakshmans
+ms.openlocfilehash: e8424f6b5b7617b00de6dedbece3325f3c5513c8
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2020
-ms.locfileid: "96615884"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103622071"
 ---
 Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes de SMS Python dos Serviços de Comunicação para enviar mensagens SMS.
 
@@ -51,8 +51,6 @@ Use um editor de texto para criar um arquivo chamado **send-sms.py** no diretór
 
 ```python
 import os
-from azure.communication.sms import PhoneNumber
-from azure.communication.sms import SendSmsOptions
 from azure.communication.sms import SmsClient
 
 try:
@@ -76,8 +74,8 @@ As classes e as interfaces a seguir lidam com alguns dos principais recursos da 
 
 | Name                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| SmsClient | Essa classe é necessária para toda a funcionalidade de SMS. Crie uma instância dela com suas informações de assinatura e use-a para enviar mensagens SMS. |
-| SendSmsOptions | Essa classe fornece opções para configurar o relatório de entrega. Se enable_delivery_report for definido como True, um evento será emitido quando a entrega for bem-sucedida |
+| SmsClient | Essa classe é necessária para toda a funcionalidade de SMS. Crie uma instância dela com suas informações de assinatura e use-a para enviar mensagens SMS.                                                                                                                 |
+| SmsSendResult               | Essa classe contém o resultado do serviço de SMS.                                          |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -92,24 +90,47 @@ connection_string = os.getenv('COMMUNICATION_SERVICES_CONNECTION_STRING')
 sms_client = SmsClient.from_connection_string(connection_string)
 ```
 
-## <a name="send-an-sms-message"></a>Enviar uma mensagem SMS
+## <a name="send-a-11-sms-message"></a>Enviar uma mensagem SMS 1:1
 
-Envie uma mensagem SMS chamando o método Send. Adicione esse código ao final do bloco `try` em **send-sms.py**:
+Para enviar uma mensagem SMS para um só destinatário, chame o método ```send``` no **SmsClient** com o número de telefone de um destinatário. Você também pode transmitir parâmetros opcionais para especificar se o relatório de entrega deve ser habilitado e para definir marcas personalizadas. Adicione esse código ao final do bloco `try` em **send-sms.py**:
 
 ```python
 
 # calling send() with sms values
-sms_response = sms_client.send(
-        from_phone_number=PhoneNumber("<leased-phone-number>"),
-        to_phone_numbers=[PhoneNumber("<to-phone-number>")],
-        message="Hello World via SMS",
-        send_sms_options=SendSmsOptions(enable_delivery_report=True)) # optional property
+sms_responses = sms_client.send(
+    from_="<from-phone-number>",
+    to="<to-phone-number>,
+    message="Hello World via SMS",
+    enable_delivery_report=True, # optional property
+    tag="custom-tag") # optional property
 
 ```
 
-Substitua `<leased-phone-number>` por um número de telefone habilitado para SMS associado ao seu serviço de comunicação e `<to-phone-number>` pelo número de telefone para o qual deseja enviar uma mensagem. 
+Substitua `<from-phone-number>` por um número de telefone habilitado para SMS associado ao seu serviço de comunicação e `<to-phone-number>` pelo número de telefone para o qual deseja enviar uma mensagem. 
 
-O parâmetro `send_sms_options` é um parâmetro opcional que você pode usar para configurar o Relatório de Entrega. Isso é útil para cenários em que você deseja emitir eventos quando mensagens SMS são entregues. Confira o guia de início rápido [Manipular eventos de SMS](../handle-sms-events.md) para configurar o Relatório de Entrega das suas mensagens SMS.
+## <a name="send-a-1n-sms-message"></a>Enviar uma mensagem SMS 1:N
+
+Para enviar uma mensagem SMS para uma lista de destinatários, chame o método ```send``` no **SmsClient** com uma lista de números de telefone de destinatários. Você também pode transmitir parâmetros opcionais para especificar se o relatório de entrega deve ser habilitado e para definir marcas personalizadas. Adicione esse código ao final do bloco `try` em **send-sms.py**:
+
+```python
+
+# calling send() with sms values
+sms_responses = sms_client.send(
+    from_="<from-phone-number>",
+    to=["<to-phone-number-1>", "<to-phone-number-2>"],
+    message="Hello World via SMS",
+    enable_delivery_report=True, # optional property
+    tag="custom-tag") # optional property
+
+```
+
+Substitua `<from-phone-number>` por um número de telefone habilitado para SMS associado ao seu serviço de comunicação e `<to-phone-number-1>` e `<to-phone-number-2>` pelos números de telefone aos quais deseja enviar uma mensagem. 
+
+## <a name="optional-parameters"></a>Parâmetros Opcionais
+
+O parâmetro `enable_delivery_report` é um parâmetro opcional que você pode usar para configurar o Relatório de Entrega. Isso é útil para cenários em que você deseja emitir eventos quando mensagens SMS são entregues. Confira o guia de início rápido [Manipular eventos de SMS](../handle-sms-events.md) para configurar o Relatório de Entrega das suas mensagens SMS.
+
+O parâmetro `tag` é um parâmetro opcional que pode ser usado para configurar a marcação personalizada.
 
 ## <a name="run-the-code"></a>Executar o código
 

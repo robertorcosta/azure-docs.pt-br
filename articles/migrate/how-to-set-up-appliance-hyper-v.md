@@ -6,16 +6,16 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 85ab07e0b81bf258a56956f5f0f7e80bad6a32fe
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104775214"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104863676"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurar um dispositivo para servidores no Hyper-V
 
-Siga este artigo para configurar o dispositivo migrações para Azure para descoberta e avaliação de servidores no Hyper-V com a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-server-assessment-tool) .
+Siga este artigo para configurar o dispositivo migrações para Azure para descoberta e avaliação de servidores no Hyper-V com a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) .
 
 O [dispositivo de migrações para Azure](migrate-appliance.md)  é um dispositivo leve usado pelas migrações para Azure: descoberta e avaliação/migração para descobrir servidores locais no Hyper-V e enviar dados de desempenho/metadados do servidor para o Azure.
 
@@ -24,31 +24,31 @@ Você pode implantar o dispositivo usando dois métodos:
 - Configurado em um servidor no Hyper-V usando um VHD baixado. Esse método descrito neste artigo.
 - Configurado em um servidor no Hyper-V ou servidor físico com um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deve ser usado se você não puder configurar um servidor usando um VHD ou se estiver no Azure governamental.
 
-Depois de criar o dispositivo, você verifica se ele pode se conectar ao migrações para Azure: descoberta e avaliação, configurá-lo pela primeira vez e registrá-lo com o projeto de migrações para Azure.
+Depois de criar o dispositivo, você verifica se ele pode se conectar ao migrações para Azure: descoberta e avaliação, configurá-lo pela primeira vez e registrá-lo no projeto.
 
 ## <a name="appliance-deployment-vhd"></a>Implantação de dispositivo (VHD)
 
 Para configurar o dispositivo usando um modelo VHD:
 
-- Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+- Forneça um nome de dispositivo e gere uma chave de projeto no Portal.
 - Baixe um VHD compactado do Hyper-V no portal do Azure.
 - Crie o dispositivo e verifique se ele pode se conectar ao migrações para Azure: descoberta e avaliação.
-- Configure o dispositivo pela primeira vez e registre-o no projeto das Migrações para Azure usando a chave de projeto das Migrações para Azure.
+- Configure o dispositivo pela primeira vez e registre-o com o projeto usando a chave do projeto.
 
-### <a name="generate-the-azure-migrate-project-key"></a>Gerar a chave do projeto das Migrações para Azure
+### <a name="generate-the-project-key"></a>Gerar a chave do projeto
 
 1. Em **metas de migração**  >  **Windows, Linux e SQL Server**  >  **Migrations Azure: descoberta e avaliação**, selecione **descobrir**.
 2. Em **descobrir servidores**  >  **os servidores são virtualizados?**, selecione **Sim, com o Hyper-V**.
 3. Em **1: gerar chave do projeto**, forneça um nome para o dispositivo de migrações para Azure que você irá configurar para a descoberta de servidores no Hyper-V. o nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página descobrir servidores durante a criação de recursos.
-1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
+1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
 ### <a name="download-the-vhd"></a>Baixar o VHD
 
 Em **2: Baixar o dispositivo das Migrações para Azure**, selecione o arquivo .VHD e clique em **Baixar**.
 
-   ![Seleções para Descobrir computadores](./media/tutorial-assess-hyper-v/servers-discover.png)
+   ![Seleções para descobrir servidores](./media/tutorial-assess-hyper-v/servers-discover.png)
 
 
    ![Seleções para Gerar Chave](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)

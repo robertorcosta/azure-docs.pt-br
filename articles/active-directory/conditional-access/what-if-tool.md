@@ -11,18 +11,20 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3ac799203cade3a907acbe28dee3a8023891db2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 119540738ac2703afd79891d9bf8a4a9ff0c7472
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93077635"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952755"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Solucionar problemas usando a ferramenta What If no Acesso Condicional
 
 O [acesso condicional](./overview.md) é um recurso do Azure Active Directory (AD do Azure) que permite controlar como os usuários autorizados acessam seus aplicativos de nuvem. Como você sabe o que esperar das políticas de acesso condicional em seu ambiente? Para responder a essa pergunta, você pode usar a **ferramenta de What If de acesso condicional**.
 
 Este artigo explica como você pode usar essa ferramenta para testar suas políticas de acesso condicional.
+
+> [!VIDEO https://www.youtube.com/embed/M_iQVM-3C3E]
 
 ## <a name="what-it-is"></a>O que é
 
@@ -58,7 +60,7 @@ Esta seção fornece informações sobre as configurações de execução de sim
 
 :::image type="content" source="./media/what-if-tool/02.png" alt-text="Captura de tela da página de What If de portal do Azure, com campos para um usuário, aplicativos de nuvem, um endereço I P, uma plataforma de dispositivo, um aplicativo cliente e um risco de entrada." border="false":::
 
-### <a name="user"></a>Usuário
+### <a name="user"></a>User
 
 Você só pode selecionar um usuário. Esse é o único campo obrigatório.
 

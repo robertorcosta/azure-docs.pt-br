@@ -14,12 +14,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99b74319581b4e74c63045afe73ee66b6efcf53c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 64f74f3aff1153118c54c83bf526c036a775da40
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104585308"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955218"
 ---
 # <a name="azure-ad-built-in-roles"></a>Funções internas do Azure AD
 
@@ -71,7 +71,7 @@ Como uma melhor prática, recomendamos que você atribua essa função a menos d
 > | [Administrador de Grupos](#groups-administrator) | Os membros dessa função podem criar/gerenciar grupos, criar/gerenciar configurações de grupos, como políticas de nomenclatura e expiração, bem como exibir a atividade dos grupos e os relatórios de auditoria. | fdd7a751-b60b-444a-984c-02652fe8fa1c |
 > | [Emissor do Convite ao Convidado](#guest-inviter) | Pode convidar usuários convidados independentemente da configuração “membros podem convidar pessoas”. | 95e79109-95c0-4d8e-aee3-d01accf2d47b |
 > | [Administrador de Assistência Técnica](#helpdesk-administrator) | Pode redefinir senhas para não administradores e Administradores de Assistência Técnica. | 729827e3-9c14-49f7-bb1b-9608f156bbb8 |
-> | [Administrador de Identidade Híbrida](#hybrid-identity-administrator) | Pode gerenciar o AD para o provisionamento de nuvem do Azure AD e configurações de Federação. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
+> | [Administrador de Identidade Híbrida](#hybrid-identity-administrator) | Pode gerenciar o AD para provisionamento de nuvem do Azure AD, Azure AD Connect e configurações de Federação. | 8ac3fc64-6eca-42ea-9e69-59f4c7b60eb2 |
 > | [Administrador do Insights](#insights-administrator) | Tem acesso administrativo no aplicativo Microsoft 365 insights. | eb1f4a8d-243a-41f0-9fbd-c7cdf6c5ef7c |
 > | [Líder de negócios do Insights](#insights-business-leader) | Pode exibir e compartilhar dashboards e ideias por meio do aplicativo M365 insights. | 31e939ad-9672-4796-9c2e-873181342d2d |
 > | [Administrador do Intune](#intune-administrator) | Pode gerenciar todos os aspectos do produto Intune. | 3a2c62db-5318-420d-8d74-23affee5d9d5 |
@@ -997,7 +997,7 @@ Essa função era anteriormente chamada de “Administrador de senha” no [port
 
 ## <a name="hybrid-identity-administrator"></a>Administrador de Identidade Híbrida
 
-Os usuários nessa função podem criar, gerenciar e implantar a configuração de provisionamento do AD para o Azure AD usando o provisionamento de nuvem, bem como gerenciar configurações de Federação. Os usuários também podem solucionar problemas e monitorar logs usando essa função.
+Os usuários nessa função podem criar, gerenciar e implantar a configuração de provisionamento do AD para o Azure AD usando o provisionamento de nuvem, bem como gerenciar Azure AD Connect e configurações de Federação. Os usuários também podem solucionar problemas e monitorar logs usando essa função.
 
 > [!div class="mx-tableFixed"]
 > | Ações | Descrição |

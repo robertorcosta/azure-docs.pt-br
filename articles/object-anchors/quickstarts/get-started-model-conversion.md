@@ -7,12 +7,12 @@ ms.author: crtreasu
 ms.date: 02/22/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.openlocfilehash: 93443a321f22d232f8b2bfa6a0fe5a05a5e18175
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 69d23b9d02eb176a2e42985ef5c3673e83d9bb7e
+ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101747355"
+ms.lasthandoff: 03/10/2021
+ms.locfileid: "102607893"
 ---
 # <a name="quickstart-create-an-object-anchors-model-from-a-3d-model"></a>Início Rápido: criar um modelo das Âncoras de Objeto com base em um modelo 3D
 
@@ -102,7 +102,7 @@ Agora você pode converter seu modelo 3D.
 
     | Campo                    | Descrição                       |
     | ---                      | ---                               |
-    | InputAssetPath           | O caminho absoluto para um modelo 3D no seu computador local (existe um modelo de amostra na pasta `assets/models` que você pode usar). Os formatos de arquivo com suporte são `fbx`, `ply`, `obj`, `glb` e `gltf`. |
+    | InputAssetPath           | O caminho absoluto para um modelo 3D em seu computador local. Os formatos de arquivo com suporte são `fbx`, `ply`, `obj`, `glb` e `gltf`. |
     | AssetDimensionUnit       | A unidade de medida do modelo 3D. Todas as unidades de medição com suporte podem ser acessadas por meio da enumeração `Azure.MixedReality.ObjectAnchors.Conversion.AssetLengthUnit`. |
     | Gravidade                  | A direção do vetor de gravidade do modelo 3D. Esse vetor 3D fornece a direção para baixo no sistema de coordenadas do seu modelo. Por exemplo, se um `y` negativo representa a direção para baixo no espaço 3D do modelo, esse valor é `Vector3(0.0f, -1.0f, 0.0f)`. |
 

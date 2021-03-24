@@ -5,16 +5,16 @@ services: automation
 ms.subservice: update-management
 ms.date: 03/19/2021
 ms.topic: conceptual
-ms.openlocfilehash: e24a90f05ef52c5164ce966e905e9c27055d1bf4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e5deefabd6a37dbfece9f32abdce5d5144681238
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670606"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950052"
 ---
 # <a name="update-management-overview"></a>Visão geral do Gerenciamento de Atualizações
 
-Você pode usar Gerenciamento de Atualizações na automação do Azure para gerenciar atualizações do sistema operacional para suas máquinas virtuais Windows e Linux no Azure, em ambientes locais e em outros ambientes de nuvem. Você pode rapidamente avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar o processo de instalação das atualizações necessárias para os servidores.
+Você pode usar o Gerenciamento de Atualizações na Automação do Azure para gerenciar atualizações do sistema operacional para suas máquinas virtuais do Windows e do Linux no Azure, em ambientes locais e em outros ambientes de nuvem. Você pode rapidamente avaliar o status de atualizações disponíveis em todos os computadores de agente e gerenciar o processo de instalação das atualizações necessárias para os servidores.
 
 > [!NOTE]
 > Você não pode usar um computador configurado com o Gerenciamento de Atualizações para executar scripts personalizados da Automação do Azure. Este computador só pode executar o script de atualização assinado pela Microsoft.
@@ -22,7 +22,7 @@ Você pode usar Gerenciamento de Atualizações na automação do Azure para ger
 > [!NOTE]
 > Neste momento, não há suporte para habilitar o Gerenciamento de Atualizações diretamente de um servidor habilitado para Arc. Confira [Habilitar o Gerenciamento de Atualizações em sua conta de automação](../../automation/update-management/enable-from-automation-account.md) para entender os requisitos e como habilitá-los para o servidor.
 
-Para baixar e instalar os patches *críticos* e de *segurança* disponíveis automaticamente em sua VM do Azure, examine [aplicação automática de patches de convidado de VM](../../virtual-machines/windows/automatic-vm-guest-patching.md) para VMs do Windows.
+Para baixar e instalar os patches *críticos* e de *segurança* disponíveis automaticamente em sua VM do Azure, examine [aplicação automática de patches de convidado de VM](../../virtual-machines/automatic-vm-guest-patching.md) para VMs do Windows.
 
 Antes de implantar Gerenciamento de Atualizações e habilitar seus computadores para gerenciamento, verifique se você entendeu as informações nas seções a seguir.  
 

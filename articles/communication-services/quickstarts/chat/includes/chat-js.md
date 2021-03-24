@@ -6,16 +6,16 @@ author: mikben
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 9/1/2020
+ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: 18282bbe902599c471775a853704e459ea44bac1
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9f62f262e1baa70982e667379a9bf4357197ecb4
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101661607"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103495367"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar, é preciso:
@@ -140,22 +140,22 @@ Use o método `createThread` para criar uma conversa de chat.
 - Use `topic` para fornecer um tópico para esse chat. Os tópicos podem ser atualizados após a conversa do chat ser criada usando a função `UpdateThread`.
 - Use `participants` para listar os participantes a serem adicionados ao thread de chat.
 
-Quando resolvido, o método `createChatThread` retorna um `CreateChatThreadResponse`. Esse modelo contém uma propriedade `chatThread` na qual você pode acessar o `id` do thread recém-criado. Você pode usar o `id` para obter uma instância de um `ChatThreadClient`. O `ChatThreadClient` pode então ser usado para executar a operação dentro do thread, como enviar mensagens ou listar participantes.
+Quando resolvido, o método `createChatThread` retorna um `CreateChatThreadResult`. Esse modelo contém uma propriedade `chatThread` na qual você pode acessar o `id` do thread recém-criado. Você pode usar o `id` para obter uma instância de um `ChatThreadClient`. O `ChatThreadClient` pode então ser usado para executar a operação dentro do thread, como enviar mensagens ou listar participantes.
 
 ```JavaScript
 async function createChatThread() {
     let createThreadRequest = {
         topic: 'Preparation for London conference',
         participants: [{
-                    user: { communicationUserId: '<USER_ID_FOR_JACK>' },
+                    id: { communicationUserId: '<USER_ID_FOR_JACK>' },
                     displayName: 'Jack'
                 }, {
-                    user: { communicationUserId: '<USER_ID_FOR_GEETA>' },
+                    id: { communicationUserId: '<USER_ID_FOR_GEETA>' },
                     displayName: 'Geeta'
                 }]
     };
-    let createThreadResponse = await chatClient.createChatThread(createThreadRequest);
-    let threadId = createThreadResponse.chatThread.id;
+    let createChatThreadResult = await chatClient.createChatThread(createThreadRequest);
+    let threadId = createChatThreadResult.chatThread.id;
     return threadId;
     }
 
@@ -184,7 +184,7 @@ Thread created: <thread_id>
 O método `getChatThreadClient` retorna um `chatThreadClient` para uma conversa que já existe. Ele pode ser usado para executar operações no thread criado: adicionar participantes, enviar mensagens etc. threadId é a ID exclusiva do thread de chat existente.
 
 ```JavaScript
-let chatThreadClient = await chatClient.getChatThreadClient(threadId);
+let chatThreadClient = chatClient.getChatThreadClient(threadId);
 console.log(`Chat Thread client for threadId:${threadId}`);
 
 ```
@@ -195,35 +195,33 @@ Chat Thread client for threadId: <threadId>
 
 ## <a name="send-a-message-to-a-chat-thread"></a>Enviar uma mensagem para uma conversa de chat
 
-Use o método `sendMessage` para enviar uma mensagem de chat para a conversa recém-criada, identificada por threadId.
+Use o método `sendMessage` para enviar uma mensagem a um thread identificado por threadId.
 
-`sendMessageRequest` descreve os campos obrigatórios da solicitação de mensagem de chat:
+`sendMessageRequest` é usado para descrever a solicitação da mensagem:
 
 - Use `content` para fornecer o conteúdo da mensagem de chat;
 
-`sendMessageOptions` descreve os campos opcionais da solicitação de mensagem de chat:
+`sendMessageOptions` é usado para descrever os parâmetros opcionais da operação:
 
-- Use `priority` para especificar o nível de prioridade da mensagem do chat, como 'Normal' ou 'Alto'. Essa propriedade pode ser usada para exibir um indicador de interface do usuário para o usuário destinatário no seu aplicativo a fim de chamar atenção para a mensagem ou executar uma lógica de negócios personalizada.
 - Use `senderDisplayName` para especificar o nome de exibição do remetente;
+- Use `type` para especificar o tipo de mensagem, como 'texto' ou 'html';
 
-A resposta `sendChatMessageResult` contém uma ID, que é a ID exclusiva dessa mensagem.
+`SendChatMessageResult` é a resposta retornada do envio de uma mensagem; ela contém uma ID, que é a ID exclusiva da mensagem.
 
 ```JavaScript
-
 let sendMessageRequest =
 {
     content: 'Hello Geeta! Can you share the deck for the conference?'
 };
 let sendMessageOptions =
 {
-    priority: 'Normal',
-    senderDisplayName : 'Jack'
+    senderDisplayName : 'Jack',
+    type: 'text'
 };
 let sendChatMessageResult = await chatThreadClient.sendMessage(sendMessageRequest, sendMessageOptions);
 let messageId = sendChatMessageResult.id;
-console.log(`Message sent!, message id:${messageId}`);
-
 ```
+
 Adicione este código no lugar do comentário `<SEND MESSAGE TO A CHAT THREAD>` em **client.js**, atualize a guia do navegador e verifique o console.
 ```console
 Message sent!, message id:<number>
@@ -286,7 +284,7 @@ Depois que uma conversa de chat é criada, você pode adicionar e remover usuár
 Antes de chamar o método `addParticipants`, adquira um novo token de acesso e uma identidade para esse usuário. O usuário precisará desse token de acesso para inicializar o cliente de chat.
 
 `addParticipantsRequest` descreve o objeto de solicitação, em que `participants` lista os participantes a serem adicionados ao thread de chat;
-- `user`, obrigatório, é o usuário de comunicação a ser adicionado à conversa de chat.
+- `id`, obrigatório, é o identificador de comunicação a ser adicionado ao thread de chat.
 - `displayName`, opcional, é o nome de exibição do participante do thread.
 - `shareHistoryTime`, opcional, é a hora a partir da qual o histórico de chats é compartilhado com o participante. Para compartilhar o histórico desde o início da conversa de chat, defina essa propriedade como qualquer data igual ou inferior à hora de criação da conversa. Para não compartilhar nenhum histórico anterior ao momento em que o participante foi adicionado, defina-a como a data atual. Para compartilhar o histórico parcial, defina-a como a data de sua escolha.
 
@@ -296,7 +294,7 @@ let addParticipantsRequest =
 {
     participants: [
         {
-            user: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
+            id: { communicationUserId: '<NEW_PARTICIPANT_USER_ID>' },
             displayName: 'Jane'
         }
     ]
