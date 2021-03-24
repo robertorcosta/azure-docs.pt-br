@@ -2,6 +2,8 @@
 title: Cargas de trabalho de mainframe com suporte no Azure | Microsoft Docs
 description: Use um emulador de mainframe e outros serviços de parceiros da Microsoft para hospedar novamente suas cargas de trabalho de mainframe, como sistemas baseados em Z da IBM, usando o Microsoft Azure.
 services: virtual-machines
+ms.service: virtual-machines
+ms.subservice: mainframe-rehosting
 documentationcenter: ''
 author: njray
 manager: edprice
@@ -9,13 +11,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 05/09/2020
 ms.topic: article
-ms.service: multiple
-ms.openlocfilehash: 679cc68a0f43d6bff74fef85d705544db2f2585b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 467cae97f9b4efe4782ac802cccd84271d475ea7
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102558246"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955424"
 ---
 # <a name="mainframe-workloads-supported-on-azure"></a>Cargas de trabalho de mainframe com suporte no Azure
 

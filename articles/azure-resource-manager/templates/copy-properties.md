@@ -3,12 +3,12 @@ title: Definir várias instâncias de uma propriedade
 description: Use a operação de cópia em um modelo de Azure Resource Manager (modelo ARM) para iterar várias vezes ao criar uma propriedade em um recurso.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: 958deba6152ffa3bcb1d2d79cd026c0cb2eebcbe
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1bee4fb672fc0794d5372a4af60b1270105f1755
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521654"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889001"
 ---
 # <a name="property-iteration-in-arm-templates"></a>Iteração de propriedade em modelos ARM
 
@@ -18,14 +18,14 @@ Você só pode usar `copy` com recursos de nível superior, mesmo quando estiver
 
 Você também pode usar a cópia com [recursos](copy-resources.md), [variáveis](copy-variables.md)e [saídas](copy-outputs.md).
 
-## <a name="syntax"></a>Sintaxe
+## <a name="syntax"></a>Syntax
 
 O elemento Copy tem o seguinte formato geral:
 
 ```json
 "copy": [
   {
-    "name": "<name-of-loop>",
+    "name": "<name-of-property>",
     "count": <number-of-iterations>,
     "input": <values-for-the-property>
   }

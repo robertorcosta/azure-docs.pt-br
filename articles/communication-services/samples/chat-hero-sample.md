@@ -6,15 +6,15 @@ author: ddematheu2
 manager: nimag
 services: azure-communication-services
 ms.author: dademath
-ms.date: 07/20/2020
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 15c697902681ece210895dfd4608547c59bbcad0
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: 0eb396935b42b040ab9f152a4965922664deb451
+ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489558"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103487813"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introdução ao exemplo de destaque de chat de grupo
 
@@ -116,7 +116,7 @@ Para obter mais informações, consulte os seguintes artigos:
 
 ## <a name="additional-reading"></a>Leituras adicionais
 
-- [GitHub de Comunicação do Azure](https://github.com/Azure/communication) – Encontre mais exemplos e informações na página oficial do GitHub
+- [Amostras](./overview.md) – encontre mais amostras e exemplos em nossa página de visão geral de amostras.
 - [Redux](https://redux.js.org/) – gerenciamento de estado do lado do cliente
 - [FluentUI](https://aka.ms/fluent-ui) – biblioteca de interface do usuário da Microsoft
 - [React](https://reactjs.org/) – biblioteca para criar interfaces do usuário

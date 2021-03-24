@@ -3,14 +3,13 @@ title: Visão geral da visualização da infraestrutura do BareMetal no Azure
 description: Visão geral da infraestrutura do BareMetal no Azure.
 ms.custom: references_regions
 ms.topic: conceptual
-ms.subservice: workloads
 ms.date: 1/4/2021
-ms.openlocfilehash: 94cee52eccd8cc9e9631b47bdf84892d763d86d3
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 603aa6504531ef8a75fccbc9d9cc6de648b42373
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104776130"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954625"
 ---
 #  <a name="what-is-baremetal-infrastructure-preview-on-azure"></a>O que é a visualização de infraestrutura do BareMetal no Azure?
 

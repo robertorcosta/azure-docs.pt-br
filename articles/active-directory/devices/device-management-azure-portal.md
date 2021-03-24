@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23c74a8a35255162c7c9ddee6c917d4d98d83b89
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4269ba32a22538eeba35ba484fae0c98cd219b7c
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561644"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952772"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gerenciar identidades de dispositivo usando o portal do Azure
 
@@ -174,7 +174,7 @@ Você deve receber uma das seguintes funções para exibir ou gerenciar as confi
 > - É recomendável usar a [ação do usuário "registrar ou unir dispositivos"](../conditional-access/concept-conditional-access-cloud-apps.md#user-actions) no acesso condicional para impor a autenticação multifator para ingressar ou registrar um dispositivo. 
 > - Você deve definir essa configuração como **não** se estiver usando a política de acesso condicional para exigir autenticação multifator. 
 
-- **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**.
+- **Número máximo de dispositivos** – essa configuração permite que você selecione o número máximo de dispositivos registrados no Azure ad ou do AD do Azure que um usuário pode ter no Azure AD. Se um usuário atingir esta cota, ele não poderá adicionar mais dispositivos até que um ou mais dos seus dispositivos existentes sejam removidos. O valor padrão é **50**. Você pode aumentar o valor de até 100 e, se inserir um valor acima de 100, o Azure AD o definirá como 100. Você também pode usar um valor ilimitado para impor nenhum limite diferente dos limites de cota existentes.
 
 > [!NOTE]
 > A configuração **de número máximo de dispositivos** se aplica a dispositivos que estão ingressados no Azure ad ou no Azure ad registrados. Essa configuração não se aplica a dispositivos ingressados no Azure AD híbrido.

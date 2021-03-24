@@ -8,12 +8,12 @@ ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 01/14/2021
 ms.author: alsin
-ms.openlocfilehash: 2bdf04143121e1286ffc7bfa86b4a9ee291ae6ef
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 18165ce5f39b32fe1c5af28bc88e8e1bd0e9cb62
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561848"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955543"
 ---
 # <a name="troubleshoot-common-automanage-onboarding-errors"></a>Solucionar erros comuns de integração de autogerenciamento
 O autogerenci pode falhar ao carregar um computador no serviço. Este documento explica como solucionar problemas de falhas de implantação, compartilha alguns motivos comuns pelos quais as implantações podem falhar e descreve as próximas etapas potenciais na mitigação.
@@ -38,7 +38,11 @@ Erro |  Atenuação
 :-----|:-------------|
 Erro de permissões insuficientes na conta de autogerenciamento | Isso pode acontecer se você tiver movido recentemente uma assinatura que contém uma nova conta de autogerenciamento para um novo locatário. As etapas para resolver isso estão localizadas [aqui](./repair-automanage-account.md).
 A região do espaço de trabalho não corresponde aos requisitos de mapeamento de região | O autogerenci não conseguiu carregar seu computador, mas o espaço de trabalho Log Analytics ao qual o computador está vinculado não está mapeado para uma região de automação com suporte. Verifique se o espaço de trabalho Log Analytics existente e a conta de automação estão localizados em um [mapeamento de região com suporte](../automation/how-to/region-mappings.md).
-"Acesso negado devido à atribuição de negação com o nome ' atribuição de negação do sistema criada pelo aplicativo gerenciado '" | Um [denyAssignment](https://docs.microsoft.com/azure/role-based-access-control/deny-assignments) foi criado em seu recurso, o que impediu o autogerenciamento de acessar seu recurso. Isso pode ter sido causado por um [plano gráfico](https://docs.microsoft.com/azure/governance/blueprints/concepts/resource-locking) ou um [aplicativo gerenciado](https://docs.microsoft.com/azure/azure-resource-manager/managed-applications/overview).
+"Acesso negado devido à atribuição de negação com o nome ' atribuição de negação do sistema criada pelo aplicativo gerenciado '" | Um [denyAssignment](../role-based-access-control/deny-assignments.md) foi criado em seu recurso, o que impediu o autogerenciamento de acessar seu recurso. Isso pode ter sido causado por um [plano gráfico](../governance/blueprints/concepts/resource-locking.md) ou um [aplicativo gerenciado](../azure-resource-manager/managed-applications/overview.md).
+"Informações do sistema operacional: nome = ' (NULL) ', ver = ' (NULL) ', status do agente = ' não está pronto '." | Verifique se você está executando uma [versão mínima do agente com suporte](/troubleshoot/azure/virtual-machines/support-extensions-agent-version), se o agente está em execução ([Linux](/troubleshoot/azure/virtual-machines/linux-azure-guest-agent) e [Windows](/troubleshoot/azure/virtual-machines/windows-azure-guest-agent)) e se o agente está atualizado ([Linux](../virtual-machines/extensions/update-linux-agent.md) e [Windows](../virtual-machines/extensions/agent-windows.md)).
+"A VM relatou uma falha ao processar a extensão ' Iaasantimalware da '" | Verifique se você não tem outra oferta de antimalware/antivírus já instalada em sua VM. Se isso falhar, contate o suporte.
+Espaço de trabalho ASC: o autogerenci não dá suporte atualmente ao serviço de Log Analytics no _local_. | Verifique se sua VM está localizada em uma [região com suporte](./automanage-virtual-machines.md#supported-regions).
+A implantação de modelo falhou por causa da violação de política. Consulte os detalhes para obter mais informações. | Há uma política que impede o autogerenciamento de integrar sua VM. Verifique as políticas que são aplicadas à sua assinatura ou grupo de recursos que contém a VM que você deseja integrar ao autogerenci.
 "A atribuição falhou; Não há informações adicionais disponíveis " | Abra um caso com suporte Microsoft Azure.
 
 ## <a name="next-steps"></a>Próximas etapas

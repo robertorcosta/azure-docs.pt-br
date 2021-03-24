@@ -6,16 +6,16 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 04/16/2020
-ms.openlocfilehash: 1217b51ea91758d25b76394b27d3b21b2e9808b3
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 64be28838abb5d5021f0a8cefc0eed2c2516498b
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780864"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865223"
 ---
 # <a name="set-up-an-appliance-for-servers-in-vmware-environment"></a>Configurar um dispositivo para servidores no ambiente VMware
 
-Siga este artigo para configurar o dispositivo migrações para Azure para avaliação com a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-server-assessment-tool) e para a migração sem agente usando a ferramenta [migrações para Azure: servidor de migração](migrate-services-overview.md#azure-migrate-server-migration-tool) .
+Siga este artigo para configurar o dispositivo migrações para Azure para avaliação com a ferramenta [migrações para Azure: descoberta e avaliação](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) e para a migração sem agente usando a ferramenta [migrações para Azure: servidor de migração](migrate-services-overview.md#azure-migrate-server-migration-tool) .
 
 O [dispositivo de migrações para Azure](migrate-appliance.md) é um dispositivo leve usado pelas migrações para Azure: descoberta e avaliação e migração de servidor para descobrir servidores em execução no vCenter Server, enviar metadados de configuração e desempenho do servidor para o Azure e para replicação de servidores usando a migração sem agente.
 
@@ -24,23 +24,23 @@ Você pode implantar o dispositivo usando dois métodos:
 - Crie um servidor em vCenter Server usando um modelo OVA baixado. Esse é o método descrito neste artigo.
 - Configure o dispositivo em um servidor existente usando um script do instalador do PowerShell. [Esse método](deploy-appliance-script.md) deve ser usado se você não puder usar o modelo ova ou se estiver no Azure governamental.
 
-Depois de criar o dispositivo, você verifica se ele pode se conectar ao migrações para Azure: descoberta e avaliação, registrá-lo com o projeto de migrações para Azure e configurar o dispositivo para iniciar a descoberta.
+Depois de criar o dispositivo, você verifica se ele pode se conectar ao migrações para Azure: descoberta e avaliação, registrá-lo com o projeto e configurar o dispositivo para iniciar a descoberta.
 
 ## <a name="deploy-with-ova"></a>Implantar usando um modelo OVA
 
 Para configurar o dispositivo usando um modelo OVA, siga as etapas abaixo:
-1. Forneça um nome de dispositivo e gere uma chave de projeto das Migrações para Azure no portal.
+1. Forneça um nome de dispositivo e gere uma chave de projeto no Portal.
 1. Baixe um arquivo de modelo OVA e importe-o para o vCenter Server. Verifique se o OVA é seguro.
 1. Crie a VM do dispositivo com base no arquivo OVA e verifique se ele pode se conectar às Migrações para Azure.
-1. Configure o dispositivo pela primeira vez e registre-o no projeto usando a chave de projeto das Migrações para Azure.
+1. Configure o dispositivo pela primeira vez e registre-o com o projeto usando a chave do projeto.
 
-### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
+### <a name="1-generate-the-project-key"></a>1. gerar a chave do projeto
 
 1. Em **objetivos de migração**  >  **servidores**  >  **migrações para Azure: descoberta e avaliação**, selecione **descobrir**.
 2. Em **descobrir servidores**  >  **os servidores são virtualizados?**, selecione **Sim, com VMware vSphere hipervisor**.
-3. Em **1: Gerar chave de projeto das Migrações para Azure**, forneça um nome para o dispositivo das Migrações para Azure que você vai configurar para a descoberta de servidores em seu ambiente VMware. O nome deverá conter até 14 caracteres alfanuméricos.
+3. Em **1: gerar chave do projeto**, forneça um nome para o dispositivo de migrações para Azure que você irá configurar para a descoberta de servidores em seu ambiente VMware. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir durante a criação de recursos.
-1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto das Migrações para Azure** é gerada.
+1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
 
 ### <a name="2-download-the-ova-template"></a>2. Baixar o modelo OVA
@@ -117,7 +117,7 @@ Configure o dispositivo pela primeira vez.
 
 ## <a name="register-the-appliance-with-azure-migrate"></a>Registrar o dispositivo nas Migrações para Azure
 
-1. Cole a **chave do projeto das Migrações para Azure** copiada do portal. Se você não tiver a chave, vá para **descoberta e avaliação> descobrir> gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração de chave e copie a chave correspondente.
+1. Cole a **chave do projeto** copiada do Portal. Se você não tiver a chave, vá para **descoberta e avaliação> descobrir> gerenciar dispositivos existentes**, selecione o nome do dispositivo fornecido no momento da geração de chave e copie a chave correspondente.
 1. Será necessário um código do dispositivo para a autenticação com o Azure. Clicar em **Logon** abrirá uma janela restrita com o código do dispositivo, conforme mostrado abaixo.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Janela restrita mostrando o código do dispositivo":::
@@ -154,8 +154,6 @@ Na **Etapa 3: Fornecer credenciais de servidor para executar o inventário de so
 
 :::image type="content" source="./media/tutorial-discover-vmware/appliance-server-credentials-mapping.png" alt-text="Painel 3 no Configuration Manager do dispositivo para obter detalhes do servidor":::
 
-> [!Note]
-> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 Se você quiser aproveitar esses recursos, poderá fornecer credenciais de servidor seguindo as etapas abaixo. O dispositivo tentará mapear automaticamente as credenciais para os servidores para executar os recursos de descoberta.
 

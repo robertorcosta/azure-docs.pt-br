@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 02/22/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7164c3dd5c98544f3cb2944cb33cfd0e9703e36d
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: cec386b798b843a5badc9d52d9c71bd7df54b59a
+ms.sourcegitcommit: 27cd3e515fee7821807c03e64ce8ac2dd2dd82d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563328"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103601926"
 ---
 # <a name="azure-files-networking-considerations"></a>Considerações de rede dos Arquivos do Azure 
 Você pode se conectar a um compartilhamento de arquivo do Azure de duas maneiras:
@@ -25,6 +25,15 @@ Este artigo se concentra em como configurar a rede para quando seu caso de uso c
 A configuração de rede para compartilhamentos de arquivos do Azure é feita na conta de armazenamento do Azure. Uma conta de armazenamento é um constructo de gerenciamento que representa um pool compartilhado de armazenamento no qual você pode implantar vários compartilhamentos de arquivos bem como outros recursos de armazenamento, como filas ou contêineres de blob. As contas de armazenamento expõem várias configurações que ajudam a proteger o acesso à rede para seus compartilhamentos de arquivos: pontos de extremidade de rede, configurações de firewall da conta de armazenamento e criptografia em trânsito. 
 
 Recomendamos ler [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) antes de ler este guia conceitual.
+
+:::row:::
+    :::column:::
+        <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jd49W33DxkQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    :::column-end:::
+    :::column:::
+        Este vídeo é um guia e uma demonstração de como expor com segurança compartilhamentos de arquivos do Azure diretamente para os operadores de informações e aplicativos em cinco etapas simples. As seções abaixo fornecem links e contexto adicional para a documentação referenciada no vídeo.
+   :::column-end:::
+:::row-end:::
 
 ## <a name="accessing-your-azure-file-shares"></a>Acessar seus compartilhamentos de arquivos do Azure
 Quando você implanta um compartilhamento de arquivo do Azure em uma conta de armazenamento, o compartilhamento de arquivo é imediatamente acessível por meio do ponto de extremidade público da conta de armazenamento. Isso significa que as solicitações autenticadas, como solicitações autorizadas pela identidade de logon de um usuário, podem se originar de maneira segura de dentro ou fora do Azure. 

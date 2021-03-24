@@ -2,15 +2,15 @@
 title: Tutorial – Exportar modelo JSON do portal do Azure para desenvolvimento de Bicep
 description: Saiba como usar um modelo JSON exportado para concluir o desenvolvimento de Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0cba91a8c021f4baa90d1a4264bf84d3c56930ec
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 3bc7ed4ada4f7810e9864778c7f76a0573c9dc89
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742759"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102632489"
 ---
 # <a name="tutorial-use-exported-json-template-from-the-azure-portal"></a>Tutorial: Usar modelo JSON exportado do portal do Azure
 
@@ -79,7 +79,7 @@ Atualmente, o portal do Azure dá suporte somente à exportação de modelos JSO
 
 O modelo exportado descompilado fornece a maior parte do Bicep necessário, mas você precisará personalizá-lo para o arquivo Bicep. Preste atenção especial nas diferenças em parâmetros e variáveis entre o arquivo Bicep e o arquivo Bicep exportado. Obviamente, o processo de exportação não conhece os parâmetros e as variáveis que você já definiu no arquivo Bicep.
 
-O exemplo a seguir realça as adições ao arquivo Bicep. Ele contém o código exportado, além de algumas alterações. Primeiro, ele altera o nome do parâmetro para que corresponda à convenção de nomenclatura. Em segundo lugar, ele usa o parâmetro de localização para a localização do Plano do Serviço de Aplicativo. Terceiro, ele remove algumas das propriedades em que o valor padrão está ok.
+O exemplo a seguir mostra as adições ao arquivo Bicep. Ele contém o código exportado, além de algumas alterações. Primeiro, ele altera o nome do parâmetro para que corresponda à convenção de nomenclatura. Em segundo lugar, ele usa o parâmetro de localização para a localização do Plano do Serviço de Aplicativo. Terceiro, ele remove algumas das propriedades em que o valor padrão está ok.
 
 Copie o arquivo inteiro e substitua o arquivo Bicep pelo conteúdo dele.
 

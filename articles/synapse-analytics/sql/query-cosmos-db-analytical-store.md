@@ -9,12 +9,13 @@ ms.subservice: sql
 ms.date: 03/02/2021
 ms.author: jovanpop
 ms.reviewer: jrasnick
-ms.openlocfilehash: a574cacbabf1c0d1730430153a3c0afcad6582c6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: cosmos-db
+ms.openlocfilehash: 10262b168b91370956c9559ba688c72213ba7618
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694352"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104870986"
 ---
 # <a name="query-azure-cosmos-db-data-with-a-serverless-sql-pool-in-azure-synapse-link"></a>Consultar dados de Azure Cosmos DB com um pool SQL sem servidor no link Synapse do Azure
 
@@ -416,7 +417,7 @@ Neste exemplo, o número de casos é armazenado como `int32` `int64` valores, ou
 
 Possíveis erros e ações de solução de problemas estão listados na tabela a seguir.
 
-| Erro | Causa raiz |
+| Error | Causa raiz |
 | --- | --- |
 | Erros de sintaxe:<br/> -Sintaxe incorreta próxima a `Openrowset`<br/> - `...` Não é uma `BULK OPENROWSET` opção de provedor reconhecida.<br/> -Sintaxe incorreta próxima a `...` | Possíveis causas raiz:<br/> -Não está usando CosmosDB como o primeiro parâmetro.<br/> -Usando um literal de cadeia de caracteres em vez de um identificador no terceiro parâmetro.<br/> -Não especificando o terceiro parâmetro (nome do contêiner). |
 | Ocorreu um erro na cadeia de conexão CosmosDB. | -A conta, o banco de dados ou a chave não está especificado. <br/> -Há alguma opção em uma cadeia de conexão que não é reconhecida.<br/> -Um ponto e vírgula ( `;` ) é colocado no final de uma cadeia de conexão. |

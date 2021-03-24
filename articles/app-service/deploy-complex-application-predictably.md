@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 8742b590af89954cb8480e5282827bcd5228673b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aec23c28e075dd38fa65f1315f9abd9e21cdc9cb
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101095841"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951463"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Provisionar e implantar microsserviços previsíveis no Azure
 Este tutorial mostra como provisionar e implantar um aplicativo composto por [microsserviços](https://en.wikipedia.org/wiki/Microservices) no [Serviço de Aplicativo do Azure](https://azure.microsoft.com/services/app-service/) como uma única unidade e de maneira previsível usando modelos do grupo de recursos JSON e scripts do PowerShell. 
@@ -45,7 +45,7 @@ Para obter mais informações, consulte [usando Azure PowerShell com Azure Resou
 Essa [ferramenta de visualização](https://resources.azure.com) permite que você explore as definições de JSON de todos os grupos de recursos em sua assinatura e os recursos individuais. Na ferramenta, você pode editar as definições de JSON de um recurso, excluir uma hierarquia inteira de recursos e criar novos recursos.  As informações prontamente disponíveis nesta ferramenta são muito úteis para a criação de modelos, pois mostram quais propriedades você precisa definir para um determinado tipo de recurso, os valores corretos, etc. Você pode até mesmo criar seu grupo de recursos no [portal do Azure](https://portal.azure.com/)e, em seguida, inspecionar suas definições de JSON na ferramenta do Explorer para ajudá-lo a modelar o grupo de recursos.
 
 ### <a name="deploy-to-azure-button"></a>Botão Implantar no Azure
-Se você usa GitHub para controle do código-fonte, você pode colocar um [botão Implantar no Azure](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-to-azure-button) em seu arquivo LEIAME.MD, que permite uma implantação pronta para uso da interface do usuário para Azure. Embora seja possível fazê-lo para qualquer aplicativo simples, você pode estender isso para habilitar a implantação de um grupo de recursos inteiro, colocando um arquivo azuredeploy.json na raiz do repositório. Esse arquivo JSON, que contém o modelo de grupo de recursos, será usado pelo botão Implantar no Azure para criar o grupo de recursos. Para obter um exemplo, consulte a amostra [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que você usará neste tutorial.
+Se você usa GitHub para controle do código-fonte, você pode colocar um [botão Implantar no Azure](../azure-resource-manager/templates/deploy-to-azure-button.md) em seu arquivo LEIAME.MD, que permite uma implantação pronta para uso da interface do usuário para Azure. Embora seja possível fazê-lo para qualquer aplicativo simples, você pode estender isso para habilitar a implantação de um grupo de recursos inteiro, colocando um arquivo azuredeploy.json na raiz do repositório. Esse arquivo JSON, que contém o modelo de grupo de recursos, será usado pelo botão Implantar no Azure para criar o grupo de recursos. Para obter um exemplo, consulte a amostra [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) , que você usará neste tutorial.
 
 ## <a name="get-the-sample-resource-group-template"></a>Obter o modelo de grupo de recursos de exemplo
 Agora vamos direto ao ponto.

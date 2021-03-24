@@ -3,12 +3,12 @@ title: Módulos bicep
 description: Descreve como definir e consumir um módulo e como usar escopos de módulo.
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 6abe73b51c7762b01c0bf345c68a7110c063603a
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608984"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889698"
 ---
 # <a name="use-bicep-modules"></a>Usar módulos bicep
 
@@ -80,7 +80,7 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
 
 - **módulo**: palavra-chave.
 - **nome simbólico** (stgModule): identificador para o módulo.
-- **arquivo de módulo**: o caminho para o módulo neste exemplo é especificado usando um caminho relativo (./storageAccount.bicep). Todos os caminhos em bicep devem ser especificados usando o separador de diretório de barra (/) para garantir a compilação consistente entre plataformas. Não há suporte para o caractere de barra invertida () do Windows \\ .
+- **arquivo de módulo**: o caminho para o módulo neste exemplo é especificado usando um caminho relativo (./storageAccount.bicep). Todos os caminhos no Bicep devem ser especificados usando o separador de diretório de barra (/) para garantir a compilação consistente multiplataforma. Não há suporte para o caractere de barra invertida () do Windows \\ .
 - A propriedade **_Name_** (storageDeploy) é necessária ao consumir um módulo. Quando bicep gera o IL do modelo, esse campo é usado como o nome do recurso de implantação aninhado, que é gerado para o módulo:
 
     ```json
@@ -89,7 +89,7 @@ output storageEndpoint object = stgModule.outputs.storageEndpoint
     "resources": [
       {
         "type": "Microsoft.Resources/deployments",
-        "apiVersion": "2019-10-01",
+        "apiVersion": "2020-10-01",
         "name": "storageDeploy",
         "properties": {
           ...

@@ -9,17 +9,17 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.custom: references_regions
-ms.openlocfilehash: e0656c06f446ed6241b64040f063ed7ba419a942
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 7e3bfa9d91929530ae53c87ceabf639a16a5a0e6
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104771304"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888899"
 ---
 # <a name="semantic-search-in-azure-cognitive-search"></a>Pesquisa semântica no Azure Pesquisa Cognitiva
 
 > [!IMPORTANT]
-> A pesquisa semântica está em visualização pública, disponível apenas por meio da API REST de visualização. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
+> A pesquisa semântica está em visualização pública, disponível por meio da API REST de visualização e do Portal. Os recursos de visualização são oferecidos no estado em que se encontram, sob [termos de uso suplementares](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)e não têm a garantia de ter a mesma implementação em disponibilidade geral. Esses recursos são faturáveis. Para obter mais informações, consulte [disponibilidade e preços](semantic-search-overview.md#availability-and-pricing).
 
 A pesquisa semântica é uma coleção de recursos relacionados à consulta que adicionam relevância semântica e reconhecimento de linguagem aos resultados da pesquisa. A *classificação semântica* procura o contexto e a relação entre os termos, elevando as correspondências que fazem mais sentido, considerando a consulta. O reconhecimento de idioma localiza *legendas* e *respostas* em seu conteúdo que resumem o documento correspondente ou respondem a uma pergunta, que pode ser renderizada em uma página de resultados da pesquisa para uma experiência de pesquisa mais produtiva.
 
