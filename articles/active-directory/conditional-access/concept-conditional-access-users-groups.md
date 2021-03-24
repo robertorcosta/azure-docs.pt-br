@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b878abbead68b3268891e1f35087e5942969730c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4e1f4c7272c3db3b1e4cd834a621b66f519c6f69
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579052"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952806"
 ---
 # <a name="conditional-access-users-and-groups"></a>Acesso condicional: usuários e grupos
 
@@ -38,7 +38,7 @@ As opções a seguir estão disponíveis para inclusão ao criar uma política d
    - Todos os usuários convidados e externos
       - Essa seleção inclui quaisquer convidados B2B e usuários externos, incluindo qualquer usuário com o `user type` atributo definido como `guest` . Essa seleção também se aplica a qualquer usuário externo conectado de uma organização diferente, como um provedor de soluções de nuvem (CSP). 
    - Funções de diretório
-      - Permite que os administradores selecionem funções de diretório internas específicas do Azure AD usadas para determinar a atribuição de política. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída. Não há suporte para outros tipos de função, incluindo funções de diretório administrativas com escopo de unidade, funções personalizadas.
+      - Permite que os administradores selecionem funções de diretório internas específicas do Azure AD usadas para determinar a atribuição de política. Por exemplo, as organizações podem criar uma política mais restritiva em usuários com a função de administrador global atribuída. Não há suporte para outros tipos de função, incluindo funções administrativas com escopo de unidade e funções personalizadas.
    - Usuários e grupos
       - Permite direcionar conjuntos específicos de usuários. Por exemplo, as organizações podem selecionar um grupo que contém todos os membros do departamento de RH quando um aplicativo de RH é selecionado como o aplicativo de nuvem. Um grupo pode ser qualquer tipo de grupo no Azure AD, incluindo grupos de segurança e distribuição dinâmicos ou atribuídos. A política será aplicada a usuários e grupos aninhados.
 

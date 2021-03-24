@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 08a8dde815a6dea5d69e5e2a385cbaa03fba681a
-ms.sourcegitcommit: d1b0cf715a34dd9d89d3b72bb71815d5202d5b3a
+ms.openlocfilehash: 0c1b67e42e7988a836ec58ac022b11d736210bca
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/08/2021
-ms.locfileid: "99832687"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865614"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-azure-powershell"></a>Implantar um Serviço de Nuvem (suporte estendido) usando o Azure PowerShell
 
@@ -88,7 +88,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) dos Servi�
     $networkProfile = @{loadBalancerConfiguration = $loadBalancerConfig} 
     ```
  
-9. Criar um Cofre de Chaves. Esse Key Vault será usado para armazenar certificados associados às funções do Serviço de Nuvem (suporte estendido). Verifique se você habilitou "Políticas de acesso" (no portal) para ter acesso às "Máquinas Virtuais do Azure para implantação" e o "Azure Resource Manager para implantação de modelo". O Key Vault precisa estar localizado na mesma região e assinatura que o Serviço de Nuvem e ter um nome exclusivo. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
+9. Criar um Cofre de Chaves. Esse Key Vault será usado para armazenar certificados associados às funções do Serviço de Nuvem (suporte estendido). O Key Vault precisa estar localizado na mesma região e assinatura que o Serviço de Nuvem e ter um nome exclusivo. Para obter mais informações, confira [Usar certificados com os Serviços de Nuvem do Azure (suporte estendido)](certificates-and-key-vault.md).
 
     ```powershell
     New-AzKeyVault -Name "ContosKeyVault” -ResourceGroupName “ContosOrg” -Location “East US” 
@@ -97,6 +97,7 @@ Examine os [pré-requisitos de implantação](deploy-prerequisite.md) dos Servi�
 10. Atualize a política de acesso para o Key Vault e conceda à sua conta de usuário permissões para o certificado. 
 
     ```powershell
+    Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -EnabledForDeployment
     Set-AzKeyVaultAccessPolicy -VaultName 'ContosKeyVault' -ResourceGroupName 'ContosOrg' -UserPrincipalName 'user@domain.com' -PermissionsToCertificates create,get,list,delete 
     ```
 

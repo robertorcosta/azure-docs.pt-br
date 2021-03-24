@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 03/02/2021
 ms.custom: how-to, devx-track-python, data4ml, synapse-azureml
-ms.openlocfilehash: d7cc948d3631e69882eb252672e5a3eb5d5f9751
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9ced4da7f71a0499e538e499644d89240611f1ea
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104867433"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956206"
 ---
 # <a name="attach-apache-spark-pools-powered-by-azure-synapse-analytics-for-data-wrangling-preview"></a>Anexar pools de Apache Spark (da plataforma Azure Synapse Analytics) for Data Wrangling (versão prévia)
 
@@ -127,6 +127,21 @@ ws.compute_targets['Synapse Spark pool alias']
 
 ## <a name="launch-synapse-spark-pool-for-data-preparation-tasks"></a>Iniciar o pool do Spark Synapse para tarefas de preparação de dados
 
+Para iniciar a preparação de dados com o pool de Apache Spark, especifique o nome do pool de Apache Spark:
+
+> [!IMPORTANT]
+> Para continuar usando o pool de Apache Spark, você deve indicar qual recurso de computação usar em suas tarefas de Wrangling de dados com `%synapse` para linhas de código únicas e `%%synapse` para várias linhas. 
+
+```python
+%synapse start -c SynapseSparkPoolAlias
+```
+
+Depois que a sessão for iniciada, você poderá verificar os metadados da sessão.
+
+```python
+%synapse meta
+```
+
 Você pode especificar um [ambiente de Azure Machine Learning](concept-environments.md) a ser usado durante a sessão de Apache Spark. Somente as dependências Conda especificadas no ambiente entrarão em vigor. Não há suporte para a imagem do Docker.
 
 >[!WARNING]
@@ -146,21 +161,11 @@ env.python.conda_dependencies.add_conda_package("numpy==1.17.0")
 env.register(workspace=ws)
 ```
 
-Para iniciar a preparação de dados com o pool de Apache Spark, especifique o nome do pool de Apache Spark e forneça sua ID de assinatura, o grupo de recursos do espaço de trabalho do Machine Learning, o nome do espaço de trabalho do Machine Learning e o ambiente a ser usado durante a sessão de Apache Spark. 
-
-> [!IMPORTANT]
-> Para continuar usando o pool de Apache Spark, você deve indicar qual recurso de computação usar em suas tarefas de Wrangling de dados com `%synapse` para linhas de código únicas e `%%synapse` para várias linhas. 
+Para iniciar a preparação de dados com o pool de Apache Spark e seu ambiente personalizado, especifique o nome do pool de Apache Spark e o ambiente a ser usado durante a sessão de Apache Spark. Além disso, você pode fornecer sua ID de assinatura, o grupo de recursos de espaço de trabalho do Machine Learning e o nome do espaço de trabalho do Machine Learning.
 
 ```python
-%synapse start -c SynapseSparkPoolAlias -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName -e myenv
+%synapse start -c SynapseSparkPoolAlias -e myenv -s AzureMLworkspaceSubscriptionID -r AzureMLworkspaceResourceGroupName -w AzureMLworkspaceName
 ```
-
-Depois que a sessão for iniciada, você poderá verificar os metadados da sessão.
-
-```python
-%synapse meta
-```
-
 ## <a name="load-data-from-storage"></a>Carregar dados do armazenamento
 
 Quando a sessão de Apache Spark for iniciada, leia os dados que você deseja preparar. Há suporte para o carregamento de dados no armazenamento de BLOBs do Azure e Azure Data Lake Storage as gerações 1 e 2.
@@ -226,14 +231,22 @@ df = spark.read.csv("abfss://<container name>@<storage account>.dfs.core.windows
 
 ### <a name="read-in-data-from-registered-datasets"></a>Ler dados de conjuntos de dados registrados
 
-Você também pode obter um conjunto de dados registrado existente em seu espaço de trabalho e executar a preparação de dado nele convertendo-o em um dataframe do Spark.  
+Você também pode obter um conjunto de dados registrado existente em seu espaço de trabalho e executar a preparação de dado nele convertendo-o em um dataframe do Spark.
 
-O exemplo a seguir obtém um TabularDataset registrado, `blob_dset` , que faz referência a arquivos no armazenamento de BLOBs e os converte em um dataframe do Spark. Quando você converte seus conjuntos de dados em um dataframe do Spark, você pode aproveitar as `pyspark` bibliotecas de exploração e de preparação do dado.  
+O exemplo a seguir autentica o espaço de trabalho, obtém um TabularDataset registrado, `blob_dset` , que faz referência a arquivos no armazenamento de BLOBs e os converte em um dataframe do Spark. Quando você converte seus conjuntos de dados em um dataframe do Spark, você pode aproveitar as `pyspark` bibliotecas de exploração e de preparação do dado.  
 
 ``` python
 
 %%synapse
 from azureml.core import Workspace, Dataset
+
+subscription_id = "<enter your subscription ID>"
+resource_group = "<enter your resource group>"
+workspace_name = "<enter your workspace name>"
+
+ws = Workspace(workspace_name = workspace_name,
+               subscription_id = subscription_id,
+               resource_group = resource_group)
 
 dset = Dataset.get_by_name(ws, "blob_dset")
 spark_df = dset.to_spark_dataframe()

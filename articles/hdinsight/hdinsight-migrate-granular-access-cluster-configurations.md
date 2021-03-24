@@ -6,12 +6,12 @@ ms.author: tyfox
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/20/2020
-ms.openlocfilehash: a30768f4904c9e5be2edc020f12260cf3a54c889
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47569309f35848e82488abd549751f6f1e5a1baa
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102425882"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954863"
 ---
 # <a name="migrate-to-granular-role-based-access-for-cluster-configurations"></a>Migrar para acesso baseado em função granular para configurações de cluster
 
@@ -27,8 +27,8 @@ Também estamos introduzindo uma nova função de [operador de cluster HDInsight
 
 | Função                                  | Anteriormente                                                                                        | Em frente       |
 |---------------------------------------|--------------------------------------------------------------------------------------------------|-----------|
-| Leitor                                | -Acesso de leitura, incluindo segredos.                                                                   | -Acesso de leitura, **excluindo** segredos |           |   |   |
-| Operador de Cluster do HDInsight<br>(Nova função) | N/D                                                                                              | -Acesso de leitura/gravação, incluindo segredos         |   |   |
+| Leitor                                | -Acesso de leitura, incluindo segredos.                                                                   | -Acesso de leitura, **excluindo** segredos | 
+| Operador de Cluster do HDInsight<br>(Nova função) | N/D                                                                                              | -Acesso de leitura/gravação, incluindo segredos         | 
 | Colaborador                           | -Acesso de leitura/gravação, incluindo segredos.<br>-Crie e gerencie todos os tipos de recursos do Azure.<br>-Executar ações de script.     | Nenhuma alteração |
 | Proprietário                                 | -Acesso de leitura/gravação, incluindo segredos.<br>-Acesso completo a todos os recursos<br>-Delegar acesso a outras pessoas.<br>-Executar ações de script. | Nenhuma alteração |
 

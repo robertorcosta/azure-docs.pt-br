@@ -2,14 +2,13 @@
 title: Conectar unidades de instância do BareMetal no Azure
 description: Saiba como identificar e interagir com as unidades de instância do BareMetal o portal do Azure ou CLI do Azure.
 ms.topic: how-to
-ms.subservice: workloads
 ms.date: 03/19/2021
-ms.openlocfilehash: 60a36deb00ab6c2399d25a880bce8fe624d9609f
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 42de1618813ba33934e3f8eeeee8dc7ac27d9824
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104776119"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104951650"
 ---
 # <a name="connect-baremetal-instance-units-in-azure"></a>Conectar unidades de instância do BareMetal no Azure
  

@@ -3,12 +3,12 @@ title: Barramento de serviço do Azure-expiração de mensagem
 description: Este artigo explica a expiração e a vida útil das mensagens do barramento de serviço do Azure. Após esse prazo, a mensagem não é mais entregue.
 ms.topic: conceptual
 ms.date: 02/17/2021
-ms.openlocfilehash: 74df8909633c2fa048c23c559ffdd315a8616e11
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5d60d84bdc0d437d97c369296a414d55beda4167
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102042820"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952313"
 ---
 # <a name="message-expiration-time-to-live"></a>Expiração da mensagem (vida útil)
 O conteúdo de uma mensagem ou um comando ou consulta que uma mensagem transmite para um destinatário, está quase sempre sujeito a alguma forma de prazo de expiração de nível de aplicativo. Após o prazo, o conteúdo não é mais entregue ou a operação solicitada não é mais executada.
@@ -46,7 +46,7 @@ As filas, os tópicos e as assinaturas do barramento de serviço podem ser criad
  
 A limpeza automática é útil em cenários de desenvolvimento e teste nos quais as entidades são criadas dinamicamente e não são limpas após o uso, devido a alguma interrupção do teste ou da execução da depuração. Isso também é útil quando um aplicativo cria entidades dinâmicas, como uma fila de resposta, para receber respostas de volta para um processo do servidor Web ou em outro objeto de duração relativamente curta, no qual é difícil limpar essas entidades de forma confiável quando a instância do objeto desaparece.
 
-O recurso é habilitado usando a propriedade **exclusão automática em ociosidade** no namespace. Essa propriedade é definida como a duração para a qual uma entidade pode estar ociosa (não utilizada) antes de ser excluída automaticamente. O valor mínimo para essa propriedade é 5.
+O recurso é habilitado usando a propriedade **exclusão automática em ociosidade** no namespace. Essa propriedade é definida como a duração para a qual uma entidade pode estar ociosa (não utilizada) antes de ser excluída automaticamente. O valor mínimo dessa propriedade é 5 minutos.
  
 ## <a name="idleness"></a>Ociosidade
 

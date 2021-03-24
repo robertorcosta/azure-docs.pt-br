@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 0bfdea6c0bbbe40e4c72ab9da70a1b16d4bc4d3a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9ee0e8d8fa660313cb007d53c2bbbfc9b19feec9
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175661"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889766"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Estruturas de aprendizado profundo e de ia para o Azure VM de Ciência de Dados
 Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
@@ -27,7 +27,7 @@ Estruturas de aprendizado profundo no DSVM estão listadas abaixo.
 | Versão (ões) com suporte | |
 | Edições DSVM com suporte      | Ubuntu 16.04    |
 | Como é configurado/instalado no DSVM?  | O Caffe é instalado em `/opt/caffe`.   Os exemplos estão em `/opt/caffe/examples` .|
-| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do navegador é aberta com blocos de anotações de exemplo. Binários são instalados em /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,5, que é ativado por padrão. Para alternar para o Python 2,7, execute `source activate root` para alternar para o ambiente Anaconda.|    
+| Como executá-lo      | Use o X2Go para entrar em sua VM e, em seguida, inicie um novo terminal e insira o seguinte:<br/>`cd /opt/caffe/examples`<br/>`source activate root`<br/>`jupyter notebook`<br/><br/>Uma nova janela do navegador é aberta com blocos de anotações de exemplo. Binários são instalados em /opt/caffe/build/install/bin.<br/><br/>A versão instalada do Caffe requer o Python 2,7 e não funcionará com o Python 3,6, que é ativado por padrão. Para alternar para o Python 2,7, execute `source activate root` para alternar para o ambiente Anaconda.|    
 
 ## <a name="caffe2"></a>[Caffe2](https://github.com/caffe2/caffe2)
 
