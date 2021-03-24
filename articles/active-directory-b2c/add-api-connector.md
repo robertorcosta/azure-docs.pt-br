@@ -5,17 +5,17 @@ services: active-directory-b2c
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: how-to
-ms.date: 10/15/2020
+ms.date: 03/24/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.custom: it-pro
-ms.openlocfilehash: 59246c3739ad4de27e65641cc9d2154b33a6ee5e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d1b52ed0f862b544d4b90d466ddc1d2a231ca44
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008426"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023411"
 ---
 # <a name="add-an-api-connector-to-a-sign-up-user-flow-preview"></a>Adicionar um conector de API a um fluxo de usuário de inscrição (versão prévia)
 
@@ -38,7 +38,7 @@ Para usar um [conector de API](api-connectors-overview.md), primeiro crie o cone
 
     ![Configurar um conector de API](./media/add-api-connector/api-connector-config.png)
 
-8. Clique em **Salvar**.
+8. Selecione **Salvar**.
 
 ## <a name="securing-the-api-endpoint"></a>Protegendo o ponto de extremidade da API
 Você pode proteger seu ponto de extremidade de API usando a autenticação básica HTTP ou a autenticação de certificado de cliente HTTPS (versão prévia). Em ambos os casos, você fornece as credenciais que Azure AD B2C usarão ao chamar o ponto de extremidade da API. O ponto de extremidade de API, em seguida, verifica as credenciais e executa decisões de autorização.
@@ -51,14 +51,22 @@ A autenticação básica HTTP é definida em [RFC 2617](https://tools.ietf.org/h
 > [!IMPORTANT]
 > Essa funcionalidade está em visualização e é fornecida sem um contrato de nível de serviço. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-A autenticação de certificado de cliente é uma autenticação mútua baseada em certificado, em que o cliente fornece um certificado de cliente para o servidor para provar sua identidade. Nesse caso, Azure AD B2C usarão o certificado que você carrega como parte da configuração do conector de API. Isso acontece como parte do handshake SSL. Somente os serviços que têm certificados adequados podem acessar seu serviço de API REST. O certificado do cliente é um certificado digital X.509. Em ambientes de produção, ele deve ser assinado por uma autoridade de certificação. 
+A autenticação de certificado de cliente é um método de autenticação baseado em certificado mútuo em que o cliente fornece um certificado de cliente para o servidor para provar sua identidade. Nesse caso, Azure AD B2C usarão o certificado que você carrega como parte da configuração do conector de API. Isso acontece como parte do handshake SSL. O serviço de API pode, então, limitar o acesso somente a serviços que tenham os certificados adequados. O certificado do cliente é um certificado digital do PKCS12 (PFX) X. 509. Em ambientes de produção, ele deve ser assinado por uma autoridade de certificação. 
 
+Para criar um certificado, você pode usar [Azure Key Vault](../key-vault/certificates/create-certificate.md), que tem opções para certificados autoassinados e integrações com provedores de emissor de certificados para certificados assinados. As configurações recomendadas incluem:
+- **Assunto**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
+- **Tipo de conteúdo**: `PKCS #12`
+- **Tipo de ação de tempo de vida**: `Email all contacts at a given percentage lifetime` ou `Email all contacts a given number of days before expiry`
+- **Chave privada exportável**: `Yes` (para poder exportar o arquivo PFX)
 
-Para criar um certificado, você pode usar [Azure Key Vault](../key-vault/certificates/create-certificate.md), que tem opções para certificados autoassinados e integrações com provedores de emissor de certificados para certificados assinados. Em seguida, você pode [exportar o certificado](../key-vault/certificates/how-to-export-certificate.md) e carregá-lo para uso na configuração de conectores de API. Observe que a senha só é necessária para os arquivos de certificado protegidos por uma senha. Você também pode usar o [cmdlet New-SelfSignedCertificate](./secure-rest-api.md#prepare-a-self-signed-certificate-optional) do PowerShell para gerar um certificado autoassinado.
+Em seguida, você pode [exportar o certificado](../key-vault/certificates/how-to-export-certificate.md). Como alternativa, você pode usar o [cmdlet New-SelfSignedCertificate](../active-directory-b2c/secure-rest-api.md#prepare-a-self-signed-certificate-optional) do PowerShell para gerar um certificado autoassinado.
 
-Para Azure App serviço e Azure Functions, consulte [Configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) para saber como habilitar e validar o certificado do ponto de extremidade da API.
+Depois de ter um certificado, você pode carregá-lo como parte da configuração do conector de API. Observe que a senha só é necessária para os arquivos de certificado protegidos por uma senha.
 
-É recomendável definir alertas de lembrete para quando seu certificado expirar. Para carregar um novo certificado em um conector de API existente, selecione o conector de API em **conectores de API (versão prévia)** e clique em **carregar novo certificado**. O certificado carregado mais recentemente que não está expirado e ultrapassado a data de início será usado automaticamente pelo Azure AD B2C.
+Sua API deve implementar a autorização com base em certificados de cliente enviados para proteger os pontos de extremidade de API. Para Azure App serviço e Azure Functions, consulte [Configurar a autenticação mútua TLS](../app-service/app-service-web-configure-tls-mutual-auth.md) para saber como habilitar e *validar o certificado do seu código de API*.  Você também pode usar o gerenciamento de API do Azure para [verificar as propriedades de certificado do cliente](
+../api-management/api-management-howto-mutual-certificates-for-clients.md)  em relação aos valores desejados usando expressões de política.
+
+É recomendável definir alertas de lembrete para quando seu certificado expirar. Será necessário gerar um novo certificado e repetir as etapas acima. O serviço de API pode continuar a aceitar temporariamente os certificados novos e antigos enquanto o novo certificado é implantado. Para carregar um novo certificado em um conector de API existente, selecione o conector de API em **conectores de API** e clique em **carregar novo certificado**. O certificado carregado mais recentemente que não expirou e é passado pela data de início será automaticamente usado pelo Azure Active Directory.
 
 ### <a name="api-key"></a>Chave de API
 Alguns serviços usam um mecanismo de "chave de API" para ofuscar o acesso aos pontos de extremidade HTTP durante o desenvolvimento. Por [Azure Functions](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys), você pode fazer isso incluindo o `code` como um parâmetro de consulta na **URL do ponto de extremidade**. Por exemplo, `https://contoso.azurewebsites.net/api/endpoint` <b>`?code=0123456789`</b> ). 
@@ -123,7 +131,7 @@ Siga estas etapas para adicionar um conector de API a um fluxo de usuário de in
 
    ![Adicionar APIs ao fluxo do usuário](./media/add-api-connector/api-connectors-user-flow-select.png)
 
-6. Clique em **Salvar**.
+6. Selecione **Salvar**.
 
 ## <a name="after-signing-in-with-an-identity-provider"></a>Depois de entrar com um provedor de identidade
 
@@ -254,11 +262,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro                                          | Type              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
+| Parâmetro                                          | Tipo              | Obrigatório | Descrição                                                                                                                                                                                                                                                                            |
 | -------------------------------------------------- | ----------------- | -------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | ação                                             | String            | Sim      | O valor precisa ser `Continue`.                                                                                                                                                                                                                                                              |
-| \<builtInUserAttribute>                            | \<attribute-type> | Não       | Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
-| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | Não       | A declaração não precisa conter `_<extensions-app-id>_` . Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.  |
+| \<builtInUserAttribute>                            | \<attribute-type> | No       | Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.                                              |
+| \<extension\_{extensions-app-id}\_CustomAttribute> | \<attribute-type> | No       | A declaração não precisa conter `_<extensions-app-id>_` . Os valores retornados podem substituir os valores coletados de um usuário. Eles também podem ser retornados no token, se selecionado como uma **declaração de aplicativo**.  |
 
 ### <a name="example-of-a-blocking-response"></a>Exemplo de uma resposta de bloqueio
 
@@ -274,7 +282,7 @@ Content-type: application/json
 
 ```
 
-| Parâmetro   | Type   | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo   | Obrigatório | Descrição                                                                |
 | ----------- | ------ | -------- | -------------------------------------------------------------------------- |
 | version     | String | Sim      | A versão da API.                                                    |
 | ação      | String | Sim      | O valor deve ser `ShowBlockPage`                                              |
@@ -298,11 +306,11 @@ Content-type: application/json
 }
 ```
 
-| Parâmetro   | Type    | Obrigatório | Descrição                                                                |
+| Parâmetro   | Tipo    | Obrigatório | Descrição                                                                |
 | ----------- | ------- | -------- | -------------------------------------------------------------------------- |
 | version     | String  | Sim      | A versão da sua API.                                                    |
 | ação      | String  | Sim      | O valor precisa ser `ValidationError`.                                           |
-| status      | Inteiro | Sim      | Deve ser `400` um valor para uma resposta do ValidationError.                        |
+| status      | Inteiro/cadeia de caracteres | Yes      | Deve ser `400` um valor ou `"400"` para uma resposta do ValidationError.  |
 | userMessage | String  | Sim      | Mensagem a ser exibida ao usuário.                                            |
 
 > [!NOTE]
