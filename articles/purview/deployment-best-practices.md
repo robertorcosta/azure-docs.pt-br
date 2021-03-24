@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
 ms.date: 11/23/2020
-ms.openlocfilehash: 48966e481f9cf8796c866b5c15a4e2a8616eade7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e02ad9187743603d46259d70965e49d6839ecd71
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97695863"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949831"
 ---
 # <a name="azure-purview-deployment-best-practices"></a>Práticas recomendadas de implantação do Azure alcance
 
@@ -91,7 +91,7 @@ Algumas das principais partes interessadas que você talvez queira incluir:
 |**Analista de Dados**|Capaz de estruturar um problema de negócios e analisar dados para ajudar os líderes a tomar decisões de negócios|
 |**Arquiteto de dados**|Crie bancos de dados para aplicativos de linha de negócios de missão crítica, juntamente com o design e a implementação da segurança do dado|
 |**Engenheiro de dados**|Operar e manter a pilha de dados, extrair dados de fontes diferentes, integrar e preparar dados, configurar pipelines de dados|
-|**Cientista de dados**|Crie modelos analíticos e configure os produtos de dados a serem acessados por APIs|
+|**Cientista de Dados**|Crie modelos analíticos e configure os produtos de dados a serem acessados por APIs|
 |**Administrador do BD**|Possui, rastreia e resolve incidentes e solicitações relacionados ao banco de dados dentro de SLAs (contratos de nível de serviço); Pode configurar pipelines de dados|
 |**DevOps**|Desenvolvimento e implementação de aplicativos de linha de negócios; pode incluir a gravação de scripts e recursos de orquestração|
 |**Especialista em segurança de dados**|Avalie a segurança geral da rede e dos dados, o que envolve a entrada e a saída de dados de alcance|
@@ -150,7 +150,7 @@ No alcance, há várias áreas em que os administradores de catálogo precisam g
 
 ### <a name="plan-and-implement-different-integration-points-with-purview"></a>Planejar e implementar diferentes pontos de integração com o alcance
 
-É provável que uma organização madura já tenha um catálogo de dados existente. A principal questão é se deseja continuar a usar a tecnologia existente e a sincronização com o alcance. O alcance permite a publicação de informações por meio de APIs do Atlas, mas elas realmente não têm o objetivo de dar suporte a esse tipo de cenário. Algumas organizações podem decidir inicialmente inicializar o uso de alcance migrando os ativos de dados existentes de outras soluções de catálogo de dados. Isso pode ser feito por meio de APIs do Atlas como uma abordagem unidirecional. A sincronização entre diferentes tecnologias de catálogo não deve ser considerada no design de longo prazo. O que normalmente aconteceu é que cada unidade de negócios pode continuar a usar as soluções existentes para ativos de dados mais antigos, enquanto o alcance seria usado para examinar as fontes de dados mais recentes.
+É provável que uma organização madura já tenha um catálogo de dados existente. A principal questão é se deseja continuar a usar a tecnologia existente e a sincronização com alcance ou não. Para lidar com a sincronização com os produtos existentes em uma organização, o alcance fornece as APIs REST do Atlas. As APIs do Atlas fornecem um mecanismo poderoso e flexível que manipula cenários de push e pull. As informações podem ser publicadas no alcance usando as APIs do Atlas para inicializar ou enviar por push as atualizações mais recentes de outro sistema para o alcance. As informações disponíveis no alcance também podem ser lidas usando as APIs do Atlas e, em seguida, sincronizadas de volta para os produtos existentes. 
 
 Para outros cenários de integração, como tíquete, interface do usuário personalizada e orquestração, você pode usar as APIs do Atlas e os pontos de extremidade do Kafka. Em geral, há quatro pontos de integração com alcance:
 

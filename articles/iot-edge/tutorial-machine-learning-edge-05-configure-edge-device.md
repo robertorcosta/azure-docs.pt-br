@@ -9,16 +9,21 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: amqp, devx-track-azurecli
-ms.openlocfilehash: 0ed085a161ced22efb1e5022e34b6f9b0344f942
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: b59f8343c9dff07a32accd471f70ddf9f5309b8d
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101721422"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103463078"
 ---
 # <a name="tutorial-configure-an-azure-iot-edge-device"></a>Tutorial: Configurar um dispositivo do Azure IoT Edge
 
+[!INCLUDE [iot-edge-version-201806](../../includes/iot-edge-version-201806.md)]
+
 Neste artigo, configuramos uma máquina virtual do Azure que executa o Linux para ser um dispositivo do Azure IoT Edge que atua como um gateway transparente. Uma configuração de gateway transparente permite que os dispositivos conectem-se ao Hub IoT do Azure por meio do gateway sem saber que o gateway existe. Ao mesmo tempo, um usuário que interage com os dispositivos no Hub IoT desconhece o dispositivo de gateway intermediário. Por fim, adicionaremos análise de borda ao nosso sistema adicionando módulos do IoT Edge ao gateway transparente.
+
+>[!NOTE]
+>Os conceitos neste conjunto de tutoriais se aplicam a todas as versões do IoT Edge, mas o dispositivo de exemplo que você cria para experimentar o cenário é executado no IoT Edge versão 1.1.
 
 As etapas deste artigo normalmente são realizadas por um desenvolvedor de nuvem.
 

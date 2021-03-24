@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: 414dc161d7cba2e89d15c47b8da5abdfb7cb3338
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4323884b2dee3eeccfe71ec7817d92467450e88e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101712157"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950018"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usar a API REST de gerenciamento de sessão
 
@@ -20,13 +20,13 @@ Para usar a funcionalidade de renderização remota do Azure, você precisa cria
 
 A referência da API REST pode ser encontrada [aqui](/rest/api/mixedreality/2021-01-01preview/remoterendering) e as definições de Swagger [aqui](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mixedreality/data-plane/Microsoft.MixedReality).
 Fornecemos um script do PowerShell no [repositório de exemplos do arr](https://github.com/Azure/azure-remote-rendering) na pasta *Scripts* , chamada *RenderingSession.ps1*, que demonstra o uso de nosso serviço. O script e sua configuração são descritos aqui: [exemplo de scripts do PowerShell](../samples/powershell-example-scripts.md).
-Também fornecemos SDKs para [.net](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/mixedreality/Azure.MixedReality.RemoteRendering), Java e Python.
+Também fornecemos SDKs para [.net](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/remoterendering/Azure.MixedReality.RemoteRendering/README.md) e [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/remoterendering/azure-mixedreality-remoterendering/README.md).
 
 > [!IMPORTANT]
 > A latência é um fator importante ao usar a renderização remota. Para obter a melhor experiência, crie sessões na região mais próxima de você. O [teste de latência do Azure](https://www.azurespeed.com/Azure/Latency) pode ser usado para determinar qual região está mais próxima de você.
 
 > [!IMPORTANT]
-> Um SDK do ARR Runtime é necessário para que um dispositivo cliente se conecte a uma sessão de renderização. Esses SDKs estão disponíveis em [.net](/dotnet/api/microsoft.azure.remoterendering?view=remoterendering) e [C++](/cpp/api/remote-rendering/). Além da conexão com o serviço, esses SDKs também podem ser usados para iniciar e parar sessões.
+> Um SDK do ARR Runtime é necessário para que um dispositivo cliente se conecte a uma sessão de renderização. Esses SDKs estão disponíveis em [.net](/dotnet/api/microsoft.azure.remoterendering) e [C++](/cpp/api/remote-rendering/). Além da conexão com o serviço, esses SDKs também podem ser usados para iniciar e parar sessões.
 
 ## <a name="next-steps"></a>Próximas etapas
 
