@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/16/2021
-ms.openlocfilehash: 2a91062a701ca1b07f47f381a04cdf06c57c5746
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 8943986bf8e8c082889d3a0b18618ac54c75e6d6
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721521"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105022969"
 ---
 # <a name="configure-data-collection-for-the-azure-monitor-agent-preview"></a>Configurar a coleta de dados para o agente de Azure Monitor (versão prévia)
 
@@ -92,7 +92,7 @@ A tabela a seguir mostra exemplos de filtragem de eventos usando um XPath person
 | Descrição |  XPath |
 |:---|:---|
 | Coletar somente eventos do sistema com a ID do evento = 4648 |  `System!*[System[EventID=4648]]`
-| Coletar somente eventos do sistema com a ID do evento = 4648 e um nome de processo de consent.exe |  `System!*[System[(EventID=4648) and (EventData[@Name='ProcessName']='C:\Windows\System32\consent.exe')]]`
+| Coletar somente eventos do sistema com a ID do evento = 4648 e um nome de processo de consent.exe | `Security!*[System[(EventID=4648)]] and *[EventData[Data[@Name='ProcessName']='C:\Windows\System32\consent.exe']]` |
 | Coletar todos os eventos críticos, de erro, de aviso e de informações do log de eventos do sistema, exceto a ID do evento = 6 (Driver carregado) |  `System!*[System[(Level=1 or Level=2 or Level=3) and (EventID != 6)]]` |
 | Coletar todos os eventos de segurança de êxito e falha, exceto o ID de evento 4624 (logon bem-sucedido) |  `Security!*[System[(band(Keywords,13510798882111488)) and (EventID != 4624)]]` |
 

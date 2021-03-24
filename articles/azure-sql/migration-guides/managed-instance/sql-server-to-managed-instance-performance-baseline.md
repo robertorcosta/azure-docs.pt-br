@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server Instância Gerenciada SQL: análise de desempenho'
+title: 'SQL Server para o SQL Instância Gerenciada do Azure: análise de desempenho'
 description: Aprenda a criar e comparar uma linha de base de desempenho ao migrar seus bancos de dados SQL Server para o SQL Instância Gerenciada do Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: mokabiru
 ms.date: 11/06/2020
-ms.openlocfilehash: 28eedd3a22a0a5adc6e9a37c9e0f0fa0214a4e47
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a97dabe36efb252b04c1b5c8fa741d33a6c92703
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564432"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023666"
 ---
-# <a name="migration-performance-sql-server-to-sql-managed-instance-performance-analysis"></a>Desempenho da migração: SQL Server para a análise de desempenho do SQL Instância Gerenciada
+# <a name="migration-performance-sql-server-to--azure-sql-managed-instance-performance-analysis"></a>Desempenho da migração: SQL Server para a análise de desempenho do SQL Instância Gerenciada do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Crie uma linha de base de desempenho para comparar o desempenho de sua carga de trabalho em um Instância Gerenciada SQL com sua carga de trabalho original em execução no SQL Server. 

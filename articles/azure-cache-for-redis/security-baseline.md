@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 516a66ef64512cbe4fa4c3589e651c14ddf18550
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38b6251c4b464214d66f7240dab9d5d23812f946
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101647618"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023207"
 ---
 # <a name="azure-security-baseline-for-azure-cache-for-redis"></a>Linha de base de segurança do Azure para o cache do Azure para Redis
 
@@ -34,7 +34,7 @@ Você também pode especificar regras de firewall com um intervalo de endereços
 
 - [Como configurar o suporte de rede virtual para um cache Premium do Azure para Redis](cache-how-to-premium-vnet.md)
 
-- [Como configurar o cache do Azure para regras de firewall do Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
+- [Como configurar o cache do Azure para regras de firewall do Redis](./cache-configure.md#firewall)
 
 **Responsabilidade**: Cliente
 
@@ -68,7 +68,7 @@ Habilite a proteção contra DDoS Standard no VNets associado ao cache do Azure 
 
 - [Como configurar o suporte de rede virtual para um cache Premium do Azure para Redis](cache-how-to-premium-vnet.md)
 
-- [Gerenciar a Proteção contra DDoS do Azure Standard usando o portal do Azure](/azure/virtual-network/manage-ddos-protection)
+- [Gerenciar a Proteção contra DDoS do Azure Standard usando o portal do Azure](../ddos-protection/manage-ddos-protection.md)
 
 **Responsabilidade**: Cliente
 
@@ -118,7 +118,7 @@ Você também pode usar ASG (grupos de segurança de aplicativo) para ajudar a s
 
 - [Marcas de serviço de rede virtual](../virtual-network/service-tags-overview.md)
 
-- [Grupos de segurança de aplicativo](/azure/virtual-network/security-overview#application-security-groups)
+- [Grupos de segurança de aplicativo](../virtual-network/network-security-groups-overview.md#application-security-groups)
 
 **Responsabilidade**: Cliente
 
@@ -145,7 +145,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretrizes**: use marcas para recursos de rede associados ao seu cache do Azure para a implantação do Redis para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -155,9 +155,9 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretrizes**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados ao cache do Azure para instâncias Redis. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -171,7 +171,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretrizes**: Habilite as configurações de diagnóstico do Log de Atividades do Azure e envie os logs para um workspace do Log Analytics, um hub de eventos do Azure ou uma conta de armazenamento do Azure para arquivar. Os logs de atividade fornecem informações sobre as operações que foram realizadas no cache do Azure para instâncias Redis no nível do plano de controle. Usando os dados do log de atividades do Azure, você pode determinar "o que, quem e quando" para qualquer operação de gravação (PUT, POST, excluir) executada no nível do plano de controle para o cache do Azure para instâncias Redis.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -183,7 +183,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 Embora as métricas estejam disponíveis habilitando as configurações de diagnóstico, o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -195,7 +195,7 @@ Embora as métricas estejam disponíveis habilitando as configurações de diagn
 
 Observe que o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-- [Como definir parâmetros de retenção de log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -207,9 +207,9 @@ Observe que o log de auditoria no plano de dados ainda não está disponível pa
 
 Observe que o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
-- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](/azure/azure-monitor/platform/activity-log-collect)
+- [Como coletar e analisar os logs de atividades do Azure no espaço de trabalho Log Analytics no Azure Monitor](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -221,7 +221,7 @@ Observe que o log de auditoria no plano de dados ainda não está disponível pa
 
 Embora as métricas estejam disponíveis habilitando as configurações de diagnóstico, o log de auditoria no plano de dados ainda não está disponível para o cache do Azure para Redis.
 
-- [Como configurar alertas para o cache do Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-monitor#alerts)
+- [Como configurar alertas para o cache do Azure para Redis](./cache-how-to-monitor.md#alerts)
 
 **Responsabilidade**: Cliente
 
@@ -235,9 +235,9 @@ Embora as métricas estejam disponíveis habilitando as configurações de diagn
 
 **Diretrizes**: Azure Active Directory (Azure AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
 **Responsabilidade**: Cliente
 
@@ -251,7 +251,7 @@ O acesso do plano de dados ao cache do Azure para Redis é controlado por meio d
 
 Não é recomendável que você crie senhas padrão em seu aplicativo. Em vez disso, você pode armazenar suas senhas em Azure Key Vault e, em seguida, usar o Azure AD para recuperá-las.
 
-- [Como regenerar o cache do Azure para chaves de acesso Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#settings)
+- [Como regenerar o cache do Azure para chaves de acesso Redis](./cache-configure.md#settings)
 
 **Responsabilidade**: Compartilhado
 
@@ -323,7 +323,7 @@ Além disso, use as detecções de risco do Azure Active Directory para ver aler
 
 - [Como implantar o Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
-- [Entenda as detecções de risco do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Entenda as detecções de risco do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 **Responsabilidade**: Cliente
 
@@ -353,7 +353,7 @@ A autenticação do Azure AD não pode ser usada para acesso direto ao cache do 
 
 **Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudá-lo a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -367,7 +367,7 @@ A autenticação do Azure AD não pode ser usada para acesso direto ao cache do 
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas de log desejados no Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -379,7 +379,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: para o desvio do comportamento de logon da conta no plano de controle, use os recursos de proteção de identidade e de detecção de riscos do Azure Active Directory (Azure AD) para configurar respostas automatizadas para detectar ações suspeitas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -397,7 +397,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -407,15 +407,15 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretriz**: implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. O cache do Azure para instâncias Redis deve ser separado por rede virtual/sub-rede e marcado adequadamente. Opcionalmente, use o cache do Azure para Redis firewall para definir regras de forma que somente as conexões de cliente de intervalos de endereços IP especificados possam se conectar ao cache.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Como implantar o cache do Azure para Redis em uma vnet](cache-how-to-premium-vnet.md)
 
-- [Como configurar o cache do Azure para regras de firewall do Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-configure#firewall)
+- [Como configurar o cache do Azure para regras de firewall do Redis](./cache-configure.md#firewall)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -439,7 +439,7 @@ A Microsoft gerencia a infraestrutura subjacente para o cache do Azure para Redi
 
 - [Entender a criptografia em trânsito para o cache do Azure para Redis](cache-best-practices.md)
 
-- [Entender as portas necessárias usadas em cenários de cache de vnet](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-how-to-premium-vnet#outbound-port-requirements)
+- [Entender as portas necessárias usadas em cenários de cache de vnet](./cache-how-to-premium-vnet.md#outbound-port-requirements)
 
 **Responsabilidade**: Compartilhado
 
@@ -493,7 +493,7 @@ Os dados no armazenamento do Azure são criptografados e descriptografados de fo
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para as instâncias de produção do cache do Azure para Redis e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -527,7 +527,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 - [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -539,7 +539,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -557,11 +557,11 @@ Além disso, use Azure Policy para colocar restrições no tipo de recursos que 
 
 Para saber mais, consulte as referências a seguir:
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar grupos de gerenciamento](/azure/governance/management-groups/create)
+- [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas de recurso](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas de recurso](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -596,7 +596,7 @@ Para saber mais, consulte as referências a seguir:
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -624,7 +624,7 @@ Para saber mais, consulte as referências a seguir:
 
 Para saber mais, consulte as referências a seguir:
 
-- [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?preserve-view=true&view=azps-4.8.0)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -648,9 +648,9 @@ Para saber mais, consulte as referências a seguir:
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas ou modelos de Azure Resource Manager para o cache do Azure para instâncias Redis e recursos relacionados, use Azure Repos para armazenar e gerenciar com segurança seu código.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação do Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilidade**: Cliente
 
@@ -684,7 +684,7 @@ Para saber mais, consulte as referências a seguir:
 
 - [Como criar um Key Vault](../key-vault/general/quick-create-portal.md)
 
-- [Como autenticar-se no Key Vault](/azure/key-vault/managed-identity)
+- [Como autenticar-se no Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Responsabilidade**: Cliente
 
@@ -772,7 +772,7 @@ Teste periodicamente a restauração de dados de seus segredos de Azure Key Vaul
 
 - [Como usar o cache do Azure para importação de Redis](cache-how-to-import-export-data.md)
 
-- [Como restaurar segredos de Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultsecret?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar segredos de Key Vault](/powershell/module/az.keyvault/restore-azkeyvaultsecret?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -868,5 +868,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)
