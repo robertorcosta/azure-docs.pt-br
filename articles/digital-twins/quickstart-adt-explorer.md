@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: f1b25b853977b3a1f4871e232a562d6a3cfd2fae
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: feeb3e63375e918498e704add6dac672d6a46de3
+ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102434184"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103574570"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-azure-digital-twins-explorer"></a>Início Rápido – Explorar um cenário de exemplo dos Gêmeos Digitais do Azure usando o Azure Digital Twins Explorer
 
@@ -93,13 +93,15 @@ Abra uma janela do console na localização da pasta **Azure_Digital_Twins__ADT_
 
 1. Insira a URL da instância dos Gêmeos Digitais do Azure coletada anteriormente na seção [Configurar uma instância dos Gêmeos Digitais do Azure](#set-up-an-azure-digital-twins-instance) no formato *https://{nome do host da instância}* .
 
->[!NOTE]
-> Você pode revisitar ou editar essas informações a qualquer momento selecionando o mesmo ícone para abrir a caixa **Entrar** novamente. Ela manterá os valores que você passou.
-
 > [!TIP]
 > Se uma mensagem de erro `SignalRService.subscribe` aparecer quando você se conectar, verifique se a URL dos Gêmeos Digitais do Azure começa com *https://* .
+>
+> Se um erro de autenticação for exibido, o ideal será verificar as **variáveis de ambiente** para ver se as credenciais incluídas nelas são válidas para os Gêmeos Digitais do Azure. A `DefaultAzureCredential` tenta se autenticar nos tipos de credenciais em uma [ordem específica](/dotnet/api/overview/azure/identity-readme#defaultazurecredential), e as variáveis de ambiente são avaliadas primeiro.
 
 Se você vir uma janela pop-up **Permissões solicitadas** da Microsoft, dê o consentimento para esse aplicativo e aceite para continuar.
+
+>[!NOTE]
+> Você pode revisitar ou editar essas informações a qualquer momento selecionando o mesmo ícone para abrir a caixa **Entrar** novamente. Ela manterá os valores que você passou.
 
 ## <a name="add-the-sample-data"></a>Adicionar os dados de exemplo
 

@@ -3,16 +3,16 @@ title: Criar seu primeiro data factory (PowerShell)
 description: Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando o Azure PowerShell.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.openlocfilehash: 60fb3a8c1fed8e8005ba0b8f67865a7d39c754d5
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: f25e3d9f3b3d6319493856e3b15c894301289c29
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392044"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104783008"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-azure-powershell"></a>Tutorial: Criar seu primeiro Azure data factory usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.locfileid: "100392044"
 
 Neste artigo, você usa o Azure PowerShell para criar seu primeiro data factory do Azure. Para fazer o tutorial usando outras ferramentas/SDKs, selecione uma das opções da lista suspensa.
 
-O pipeline deste tutorial tem uma atividade: **Atividade do Hive no HDInsight**. Esta atividade executa um script de hive em um cluster do HDInsight do Azure que transforma os dados de entrada para gerar dados de saída. O pipeline é agendado para ser executado uma vez por mês entre os horários de início e término especificados. 
+O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Esta atividade executa um script de hive em um cluster do HDInsight do Azure que transforma os dados de entrada para gerar dados de saída. O pipeline é agendado para ser executado uma vez por mês entre os horários de início e término especificados. 
 
 > [!NOTE]
 > O pipeline de dados neste tutorial transforma os dados de entrada para gerar dados de saída. Ele não copia dados de um armazenamento de dados de origem para um armazenamento de dados de destino. Para ver um tutorial sobre como copiar dados usando o Azure Data Factory, consulte [Tutorial: Copiar dados do Armazenamento de Blobs para o Banco de Dados SQL](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
@@ -254,7 +254,7 @@ Agora, você cria o conjunto de dados de saída para representar os dados de sa�
     ```
 
 ## <a name="create-pipeline"></a>Criar um pipeline
-Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** . A fatia de entrada está disponível mensalmente (frequência: Mês, intervalo: 1), a fatia de saída é produzida mensalmente e a propriedade do agendador para a atividade também está definida como mensalmente. As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Atualmente, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
+Nesta etapa, você cria seu primeiro pipeline com a atividade **HDInsightHive** . A fatia de entrada está disponível mensalmente (frequência: mês, intervalo: 1), a fatia de saída é produzida mensalmente e a propriedade do agendador para a atividade também é definida como mensal. As configurações para o conjunto de dados de saída e o agendador de atividades devem corresponder. Atualmente, o conjunto de dados de saída é o que aciona a agenda, então você deve criar um conjunto de dados de saída, mesmo que a atividade não produza qualquer saída. Se a atividade não receber entradas, ignore a criação de conjunto de dados de entrada. As propriedades usadas no JSON a seguir são explicadas no final desta seção.
 
 1. Crie um arquivo JSON denominado MyFirstPipelinePSH.json na pasta C:\ADFGetStarted com o conteúdo a seguir:
 
@@ -403,7 +403,7 @@ Neste tutorial, você criou uma data factory do Azure para processar dados ao ex
 4. Foi criado um **pipeline** com uma atividade **Hive do HDInsight**.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight do Azure sob demanda. Para ver como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um Blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
+Neste artigo, você criou um pipeline com uma atividade de transformação (atividade do HDInsight) que executa um script Hive em um cluster do HDInsight do Azure sob demanda. Para saber como usar uma Atividade de Cópia para copiar dados de um Blob do Azure para o SQL do Azure, confira [Tutorial: Copiar dados de um blob do Azure para o SQL do Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 
 ## <a name="see-also"></a>Consulte Também
 

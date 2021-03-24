@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, seoapr2020, devx-track-csharp
 ms.date: 04/28/2020
-ms.openlocfilehash: 6e2758fd650547978924c25f8f3faf1e3e7194f6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8093db9c53d9c34014d1b315d53539b3f2cffb30
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101699378"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866702"
 ---
 # <a name="use-c-with-mapreduce-streaming-on-apache-hadoop-in-hdinsight"></a>Use C# com fluxo de MapReduce no Apache Hadoop no HDInsight
 
@@ -150,7 +150,7 @@ Em seguida, você precisa carregar o *mapeador* e os aplicativos *redutor* no ar
 
 1. Expanda o cluster HDInsight no qual você deseja implantar esse aplicativo. Uma entrada com o texto **(Conta de armazenamento padrão)** é listada.
 
-   ![Conta de armazenamento, cluster HDInsight, Gerenciador de Servidores, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png)
+   :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-storage-account.png" alt-text="Conta de armazenamento, cluster HDInsight, Gerenciador de Servidores, Visual Studio" border="true":::
 
    * Se a entrada **(conta de armazenamento padrão)** puder ser expandida, você estará usando uma **conta de armazenamento do Azure** como armazenamento padrão para o cluster. Para exibir os arquivos no armazenamento padrão do cluster, expanda a entrada e clique duas vezes em **(contêiner padrão)**.
 
@@ -160,7 +160,7 @@ Em seguida, você precisa carregar o *mapeador* e os aplicativos *redutor* no ar
 
     * Se você estiver usando uma **conta de armazenamento do Azure**, selecione o ícone **carregar blob** .
 
-        ![Ícone de upload do HDInsight para mapeador, Visual Studio](./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png)
+        :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="Ícone de upload do HDInsight para mapeador, Visual Studio" border="true":::
 
         Na caixa de diálogo **carregar novo arquivo** , em **nome do arquivo**, selecione **procurar**. Na caixa de diálogo **carregar blob** , vá para a pasta *bin\Debug* do projeto *mapeador* e escolha o arquivo *mapper.exe* . Por fim, selecione **abrir** e, em seguida, **OK** para concluir o carregamento.
 

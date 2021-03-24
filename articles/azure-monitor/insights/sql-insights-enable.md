@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/15/2021
-ms.openlocfilehash: 5ab51fc4ea64dfd678f5c9acfc80b5e380782153
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ac37a6de4197d5e7cae20d2bde759b98fe474047
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104609040"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889613"
 ---
 # <a name="enable-sql-insights-preview"></a>Habilitar insights do SQL (versão prévia)
 Este artigo descreve como habilitar o [SQL insights](sql-insights-overview.md) para monitorar suas implantações do SQL. O monitoramento é executado de uma máquina virtual do Azure que faz uma conexão com suas implantações SQL e usa DMVs (exibições de gerenciamento dinâmico) para coletar dados de monitoramento. Você pode controlar quais conjuntos de valores são coletados e a frequência da coleta usando um perfil de monitoramento.
@@ -92,13 +92,16 @@ Cada tipo de SQL oferece métodos para sua máquina virtual de monitoramento par
 
 ### <a name="azure-sql-databases"></a>Bancos de Dados SQL do Azure  
 
-[Tutorial – conectar-se a um SQL Server do Azure usando um ponto de extremidade privado do Azure-portal do Azure](../../private-link/tutorial-private-endpoint-sql-portal.md) fornece um exemplo de como configurar um ponto de extremidade privado que você pode usar para acessar seu banco de dados.  Se você usar esse método, será necessário garantir que suas máquinas virtuais de monitoramento estejam na mesma VNET e sub-rede que você usará para o ponto de extremidade privado.  Em seguida, você pode criar o ponto de extremidade privado no banco de dados se ainda não tiver feito isso. 
+O SQL insights dá suporte ao acesso ao banco de dados SQL do Azure por meio de seu ponto de extremidade público, bem como da rede virtual.
 
-Se você usar uma [configuração de firewall](../../azure-sql/database/firewall-configure.md) para fornecer acesso ao banco de dados SQL, será necessário adicionar uma regra de firewall para fornecer acesso a partir do endereço IP público da máquina virtual de monitoramento. Você pode acessar as configurações de firewall na página **visão geral do banco de dados SQL do Azure** no Portal. 
+Para acesso por meio do ponto de extremidade público, você adicionaria uma regra na página **configurações do firewall** e na seção Configurações do [Firewall de IP](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-firewall-rules) .  Para especificar o acesso de uma rede virtual, você pode definir [regras de firewall de rede virtual](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#virtual-network-firewall-rules) e definir as [marcas de serviço exigidas pelo agente de Azure monitor](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).  [Este artigo](https://docs.microsoft.com/azure/azure-sql/database/network-access-controls-overview#ip-vs-virtual-network-firewall-rules) descreve as diferenças entre esses dois tipos de regras de firewall.
 
 :::image type="content" source="media/sql-insights-enable/set-server-firewall.png" alt-text="Definir firewall do servidor" lightbox="media/sql-insights-enable/set-server-firewall.png":::
 
 :::image type="content" source="media/sql-insights-enable/firewall-settings.png" alt-text="Configurações de firewall." lightbox="media/sql-insights-enable/firewall-settings.png":::
+
+> [!NOTE]
+> Atualmente, o SQL insights não dá suporte ao ponto de extremidade privado do Azure para o banco de dados SQL do Azure.  É recomendável usar [marcas de serviço](https://docs.microsoft.com/azure/virtual-network/service-tags-overview) no grupo de segurança de rede ou nas configurações de firewall de rede virtual às quais o agente de [Azure monitor dá suporte](https://docs.microsoft.com/azure/azure-monitor/agents/azure-monitor-agent-overview#networking).
 
 ### <a name="azure-sql-managed-instances"></a>Instâncias Gerenciadas de SQL do Azure 
 

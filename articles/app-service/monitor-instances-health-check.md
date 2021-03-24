@@ -6,12 +6,12 @@ author: msangapu-msft
 ms.topic: article
 ms.date: 12/03/2020
 ms.author: msangapu
-ms.openlocfilehash: 0e08d016ab85587d451ad2a1e296e7f494ba283e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e9d92c60e74ac9106246ccd445afaca926065e5f
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596018"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104871190"
 ---
 # <a name="monitor-app-service-instances-using-health-check"></a>Monitorar instâncias do serviço de aplicativo usando a verificação de integridade
 
@@ -57,7 +57,7 @@ Além de configurar as opções de verificação de integridade, você também p
 
 A verificação de integridade se integra aos recursos de autenticação e autorização do serviço de aplicativo. Nenhuma configuração adicional será necessária se esses recursos de segurança estiverem habilitados. No entanto, se você estiver usando seu próprio sistema de autenticação, o caminho de verificação de integridade deverá permitir o acesso anônimo. Se o site for somente HTTP **s** habilitado, a solicitação de verificação de integridade será enviada via http **s**.
 
-Grandes equipes de desenvolvimento empresarial geralmente precisam aderir aos requisitos de segurança para APIs expostas. Para proteger o ponto de extremidade de verificação de integridade, você deve primeiro usar recursos como [restrições de IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade de verificação de integridade exigindo as `User-Agent` correspondências de solicitação de entrada `ReadyForRequest/1.0` . A User-Agent não pode ser falsificada, pois a solicitação já estava protegida por recursos de segurança anteriores.
+Grandes equipes de desenvolvimento empresarial geralmente precisam aderir aos requisitos de segurança para APIs expostas. Para proteger o ponto de extremidade de verificação de integridade, você deve primeiro usar recursos como [restrições de IP](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [certificados de cliente](app-service-ip-restrictions.md#set-an-ip-address-based-rule)ou uma rede virtual para restringir o acesso ao aplicativo. Você pode proteger o ponto de extremidade de verificação de integridade exigindo as `User-Agent` correspondências de solicitação de entrada `HealthCheck/1.0` . A User-Agent não pode ser falsificada, pois a solicitação já estava protegida por recursos de segurança anteriores.
 
 ## <a name="monitoring"></a>Monitoramento
 

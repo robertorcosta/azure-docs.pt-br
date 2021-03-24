@@ -3,13 +3,13 @@ author: v-dalc
 ms.service: databox
 ms.author: alkohli
 ms.topic: include
-ms.date: 03/02/2021
-ms.openlocfilehash: 57415ec76a3e8d9fc3c160b47668d3419ff6ea5c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 34d0d55ba6eb403055be96758b57b7bd0c2ab704
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622027"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104987977"
 ---
 Use as respostas de tempo de execução do agente de IoT Edge para solucionar erros relacionados a computação. Aqui está uma lista das possíveis respostas:
 
@@ -66,3 +66,43 @@ Na interface do usuário da Web local do seu dispositivo, execute as seguintes e
 1. Escolha **Aplicar**. O intervalo de IP alterado deve entrar em vigor imediatamente.
 
 Para obter mais informações, consulte [alterar IPS de serviço externo para contêineres](../articles/databox-online/azure-stack-edge-j-series-manage-compute.md#change-external-service-ips-for-containers).
+
+### <a name="configure-static-ips-for-iot-edge-modules"></a>Configurar IPs estáticos para módulos IoT Edge
+
+#### <a name="problem-description"></a>Descrição do problema
+
+O kubernetes atribui IPs dinâmicos a cada módulo IoT Edge em seu dispositivo Azure Stack Edge pro GPU. Um método é necessário para configurar IPs estáticos para os módulos.
+
+#### <a name="suggested-solution"></a>Solução sugerida
+
+Você pode especificar endereços IP fixos para seus módulos de IoT Edge por meio da seção K8s-experimental, conforme descrito abaixo: 
+
+```yaml
+{
+  "k8s-experimental": {
+    "serviceOptions" : {
+      "loadBalancerIP" : "100.23.201.78",
+      "type" : "LoadBalancer"
+    }
+  }
+}
+```
+### <a name="expose-kubernetes-service-as-cluster-ip-service-for-internal-communication"></a>Expor o serviço kubernetes como serviço de IP de cluster para comunicação interna
+
+#### <a name="problem-description"></a>Descrição do problema
+
+Por padrão, o tipo de serviço de IoT é do tipo balanceador de carga e atribuído endereços IP voltados externamente. Talvez você não queira um endereço IP voltado para o externo para seu aplicativo. Talvez seja necessário expor os pods no cluster KUbernetes para acesso como outros pods e não como um serviço de balanceador de carga exposto externamente. 
+
+#### <a name="suggested-solution"></a>Solução sugerida
+
+Você pode usar as opções de criação por meio da seção K8s-experimental. A opção de serviço a seguir deve funcionar com associações de porta.
+
+```yaml
+{
+"k8s-experimental": {
+  "serviceOptions" : {
+    "type" : "ClusterIP"
+    }
+  }
+}
+```

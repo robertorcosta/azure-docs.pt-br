@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2021
 ms.author: jeedes
-ms.openlocfilehash: 0b048e0cb282332c47dade7f13162012d4a0f526
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 9fdcd8a82b901e00e28f0ddd89ba53d9a2e3fbae
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101654078"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952663"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao uniFLOW Online
 
@@ -199,8 +199,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do uniFLOW Online e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do uniFLOW Online em Meus Aplicativos, será redirecionado à URL de logon do uniFLOW Online. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do uniFLOW Online em Meus Aplicativos, será redirecionado à URL de logon do uniFLOW Online. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o uniFLOW Online, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração de dados confidenciais da organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Depois de configurar o uniFLOW Online, você poderá impor o controle de sessão, que fornece proteção contra exportação e infiltração de dados confidenciais da organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

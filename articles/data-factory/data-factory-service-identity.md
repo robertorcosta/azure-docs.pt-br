@@ -4,20 +4,20 @@ description: Saiba mais sobre identidade gerenciada para Azure Data Factory.
 author: linda33wj
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 07/06/2020
+ms.date: 03/23/2021
 ms.author: jingwang
-ms.openlocfilehash: e0d3b551265a480a700f374ddfcf89dd4d93333f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 89da1a22bb3fd0eff22a7bed7ed70b72f220fbf9
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100389154"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104888984"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidade gerenciada para o Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Este artigo ajuda você a entender o que é a identidade gerenciada para Data Factory (anteriormente conhecido como Identidade de Serviço Gerenciada/MSI) e como ela funciona.
+Este artigo ajuda você a entender o que é uma identidade gerenciada para Data Factory (anteriormente conhecido como Identidade de Serviço Gerenciada/MSI) e como ela funciona.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

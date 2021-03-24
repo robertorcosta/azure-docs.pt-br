@@ -2,20 +2,20 @@
 title: incluir arquivo
 description: incluir arquivo
 services: azure-communication-services
-author: dademath
-manager: nimag
+author: peiliu
+manager: rejooyan
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
-ms.date: 07/28/2020
+ms.date: 03/11/2021
 ms.topic: include
 ms.custom: include file
-ms.author: dademath
-ms.openlocfilehash: a084295aec2cafadd07d47e85a0116a89d37c985
-ms.sourcegitcommit: c2dd51aeaec24cd18f2e4e77d268de5bcc89e4a7
+ms.author: peiliu
+ms.openlocfilehash: 96cdeb7c35cd1ccd503f7ce01e1098a6b83884c3
+ms.sourcegitcommit: 18a91f7fe1432ee09efafd5bd29a181e038cee05
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2020
-ms.locfileid: "94816613"
+ms.lasthandoff: 03/16/2021
+ms.locfileid: "103621975"
 ---
 Comece a usar os Serviços de Comunicação do Azure usando a biblioteca de clientes SMS do C# dos Serviços de Comunicação para enviar mensagens SMS.
 
@@ -27,7 +27,7 @@ A realização deste início rápido gera um pequeno custo de alguns centavos de
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - A versão mais recente da [biblioteca de clientes do .NET Core](https://dotnet.microsoft.com/download/dotnet-core) para o seu sistema operacional.
 - Um recurso e uma cadeia de conexão ativos dos Serviços de Comunicação. [Crie um recurso dos Serviços de Comunicação](../../create-communication-resource.md).
 - Um número de telefone habilitado para SMS. [Obter um número de telefone](../get-phone-number.md).
@@ -59,13 +59,17 @@ dotnet build
 Ainda no diretório do aplicativo, instale o pacote da biblioteca de clientes SMS dos Serviços de Comunicação do Azure para .NET usando o comando `dotnet add package`.
 
 ```console
-dotnet add package Azure.Communication.Sms --version 1.0.0-beta.3
+dotnet add package Azure.Communication.Sms --version 1.0.0-beta.4
 ```
 
 Adicione uma diretiva `using` à parte superior de **Program.cs** para incluir o namespace `Azure.Communication`.
 
 ```csharp
 
+using System;
+using System.Collections.Generic;
+
+using Azure;
 using Azure.Communication;
 using Azure.Communication.Sms;
 
@@ -78,7 +82,8 @@ As classes e as interfaces a seguir lidam com alguns dos principais recursos da 
 | Name                                       | Descrição                                                                                                                                                       |
 | ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | SmsClient     | Essa classe é necessária para toda a funcionalidade de SMS. Crie uma instância dela com suas informações de assinatura e use-a para enviar mensagens SMS.                           |
-| SendSmsOptions | Essa classe fornece opções para configurar o relatório de entrega. Se enable_delivery_report for definido como True, um evento será emitido quando a entrega for bem-sucedida |
+| SmsSendResult               | Essa classe contém o resultado do serviço de SMS.                                          |
+| SmsSendOptions | Essa classe fornece opções para configurar o relatório de entrega. Se enable_delivery_report for definido como True, um evento será emitido quando a entrega for bem-sucedida |
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
@@ -93,22 +98,43 @@ string connectionString = Environment.GetEnvironmentVariable("COMMUNICATION_SERV
 SmsClient smsClient = new SmsClient(connectionString);
 ```
 
-## <a name="send-an-sms-message"></a>Enviar uma mensagem SMS
+## <a name="send-a-11-sms-message"></a>Enviar uma mensagem SMS 1:1
 
-Envie uma mensagem SMS chamando o método Send. Adicione este código ao final do método `Main` no **Program.cs**:
+Para enviar uma mensagem SMS para um só destinatário, chame a função `Send` ou `SendAsync` no SmsClient. Adicione este código ao final do método `Main` no **Program.cs**:
 
 ```csharp
-smsClient.Send(
-    from: new PhoneNumber("<leased-phone-number>"),
-    to: new PhoneNumber("<to-phone-number>"),
-    message: "Hello World via SMS",
-    new SendSmsOptions { EnableDeliveryReport = true } // optional
+SmsSendResult sendResult = smsClient.Send(
+    from: "<from-phone-number>", // Your E.164 formatted from phone number used to send SMS
+    to: "<to-phone-number>", // E.164 formatted recipient phone number
+    message: "Hello World via SMS"
 );
+
+Console.WriteLine($"Sms id: {sendResult.MessageId}");
+```
+Você deve substituir `<from-phone-number>` pelo número de telefone habilitado para SMS associado ao seu recurso dos Serviços de Comunicação e `<to-phone-number>` pelo número de telefone para o qual você deseja enviar uma mensagem.
+
+## <a name="send-a-1n-sms-message-with-options"></a>Enviar uma mensagem SMS 1:N com opções
+Para enviar uma mensagem SMS para uma lista de destinatários, chame a função `Send` ou `SendAsync` no SmsClient com uma lista de números de telefone de destinatários. Você também pode transmitir parâmetros opcionais para especificar se o relatório de entrega deve ser habilitado e para definir marcas personalizadas.
+
+```csharp
+Response<IEnumerable<SmsSendResult>> response = smsClient.Send(
+    from: "<from-phone-number>", // Your E.164 formatted from phone number used to send SMS
+    to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" }, // E.164 formatted recipient phone numbers
+    message: "Weekly Promotion!",
+    options: new SmsSendOptions(enableDeliveryReport: true) // OPTIONAL
+    {
+        Tag = "marketing", // custom tags
+    });
+
+IEnumerable<SmsSendResult> results = response.Value;
+foreach (SmsSendResult result in results)
+{
+    Console.WriteLine($"Sms id: {result.MessageId}");
+    Console.WriteLine($"Send Result Successful: {result.Successful}");
+}
 ```
 
-Você deve substituir `<leased-phone-number>` pelo número de telefone habilitado para SMS associado ao seu recurso dos Serviços de Comunicação e `<to-phone-number>` pelo número de telefone para o qual você deseja enviar uma mensagem.
-
-O parâmetro `EnableDeliveryReport` é um parâmetro opcional que você pode usar para configurar o Relatório de Entrega. Isso é útil para cenários em que você deseja emitir eventos quando mensagens SMS são entregues. Confira o guia de início rápido [Manipular eventos de SMS](../handle-sms-events.md) para configurar o Relatório de Entrega das suas mensagens SMS.
+O parâmetro `enableDeliveryReport` é um parâmetro opcional que você pode usar para configurar o Relatório de Entrega. Isso é útil para cenários em que você deseja emitir eventos quando mensagens SMS são entregues. Confira o guia de início rápido [Manipular eventos de SMS](../handle-sms-events.md) para configurar o Relatório de Entrega das suas mensagens SMS.
 
 ## <a name="run-the-code"></a>Executar o código
 

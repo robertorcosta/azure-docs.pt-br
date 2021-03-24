@@ -1,14 +1,14 @@
 ---
 title: Exemplos de consulta avançada
 description: Use o Azure Resource Graph para executar algumas consultas avançadas, incluindo o trabalho com colunas, a listagem das marcas usadas e a correspondência de recursos com expressões regulares.
-ms.date: 01/27/2021
+ms.date: 03/23/2021
 ms.topic: sample
-ms.openlocfilehash: 5a87d63e597622ae5c0d8c8f48bc37281d4fd530
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: c6a140b0392affea252e05d63055232532305c75
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99560347"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104949848"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Exemplos de consultas avançadas do Resource Graph
 
@@ -28,7 +28,6 @@ Vamos percorrer as seguintes consultas avançadas:
 - [Listar todas as extensões instaladas em uma máquina virtual](#join-vmextension)
 - [Localizar contas de armazenamento com uma tag específica no grupo de recursos](#join-findstoragetag)
 - [Combinar resultados de duas consultas em um único resultado](#unionresults)
-- [Incluir os nomes de locatário e assinatura com DisplayNames](#displaynames)
 - [Resumir a máquina virtual pela propriedade estendida dos estados de energia](#vm-powerstate)
 - [Contagem de atribuições de Configuração de Convidado que não estão em conformidade](#count-gcnoncompliant)
 - [Consultar detalhes de relatórios de atribuição de Configuração de Convidado](#query-gcreports)
@@ -559,26 +558,6 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 - Portal do Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com</a>
 - Portal do Azure Government: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.us</a>
 - Portal do Azure China 21Vianet: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.cn</a>
-
----
-
-## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Incluir os nomes de locatário e assinatura com DisplayNames
-
-Essa consulta usa o parâmetro **Include** com a opção _DisplayNames_ para adicionar **subscriptionDisplayName** e **tenantDisplayName** aos resultados. Esse parâmetro está disponível apenas para a CLI do Azure e o Azure PowerShell.
-
-```azurecli-interactive
-az graph query -q "limit 1" --include displayNames
-```
-
-```azurepowershell-interactive
-Search-AzGraph -Query "limit 1" -Include DisplayNames
-```
-
-Uma alternativa para obter o nome da assinatura é usar o operador `join` e conectar-se à tabela **ResourceContainers** e ao tipo `Microsoft.Resources/subscriptions`. `join` funciona na CLI do Azure, no Azure PowerShell, no portal e em todos os SDK com suporte. Para obter um exemplo, confira [Exemplo – Cofre de chaves com o nome da assinatura](#join).
-
-> [!NOTE]
-> Se a consulta não usar **project** para especificar as propriedades retornadas, **subscriptionDisplayName** e **tenantDisplayName** serão incluídos automaticamente nos resultados.
-> Se a consulta usar **project**, cada um dos campos _DisplayName_ deverá ser incluído explicitamente no **project** ou eles não serão retornados nos resultados, mesmo quando o parâmetro **Include** for usado. O parâmetro **Include** não funciona com [tabelas](../concepts/query-language.md#resource-graph-tables).
 
 ---
 

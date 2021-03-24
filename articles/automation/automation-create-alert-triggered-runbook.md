@@ -5,16 +5,16 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0483b171ee65ac55d65261140738bc5c1838873f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ea7979ad4a401d317ec126b7abfe354690475235
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101732285"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953095"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>Usar um alerta para disparar um runbook de Automação do Azure
 
-Você pode usar o [Azure Monitor](../azure-monitor/overview.md) para monitorar logs e métricas de nível básico para a maioria dos serviços no Azure. Você pode chamar runbooks de automação do Azure usando [grupos de ação](../azure-monitor/platform/action-groups.md) para automatizar tarefas com base em alertas. Este artigo mostra como configurar e executar um runbook usando alertas.
+Você pode usar o [Azure Monitor](../azure-monitor/overview.md) para monitorar logs e métricas de nível básico para a maioria dos serviços no Azure. Você pode chamar runbooks de automação do Azure usando [grupos de ação](../azure-monitor/alerts/action-groups.md) para automatizar tarefas com base em alertas. Este artigo mostra como configurar e executar um runbook usando alertas.
 
 ## <a name="alert-types"></a>Tipos de alerta
 

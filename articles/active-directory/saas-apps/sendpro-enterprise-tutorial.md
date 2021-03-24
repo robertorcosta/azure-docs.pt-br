@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/19/2021
 ms.author: jeedes
-ms.openlocfilehash: b7ae2e024fa68b01d5053d58ea2a066ae681e4e2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 2acb234d04a0158b22b9078db903e6be562b892b
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435586"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954659"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sendpro-enterprise"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao SendPro Enterprise
 
@@ -128,11 +128,9 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do SendPro Enterprise e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do SendPro Enterprise em Meus Aplicativos, isso o redirecionará para a URL de logon do SendPro Enterprise. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do SendPro Enterprise em Meus Aplicativos, isso o redirecionará para a URL de logon do SendPro Enterprise. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de configurar o SendPro Enterprise, será possível impor um controle de sessão que fornecerá proteção contra a exfiltração e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Depois de configurar o SendPro Enterprise, será possível impor um controle de sessão que fornecerá proteção contra a exfiltração e a infiltração dos dados confidenciais da sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

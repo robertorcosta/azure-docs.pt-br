@@ -8,10 +8,10 @@ ms.author: lagayhar
 ms.date: 04/10/2019
 ms.custom: mvc
 ms.openlocfilehash: 6b8cc951301ec315f758478eda1c0736882e66f2
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100597051"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorar e alertar sobre a integridade do aplicativo com o Azure Application Insights
@@ -24,7 +24,7 @@ Você aprenderá como:
 > * Criar um teste de disponibilidade para verificar continuamente a resposta do aplicativo
 > * Enviar email aos administradores quando ocorrer um problema
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial:
 

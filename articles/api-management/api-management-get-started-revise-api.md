@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: apimpm
 ms.openlocfilehash: acb121bb00df481c926ebed9594bf0fe1b9b17ed
-ms.sourcegitcommit: 5a999764e98bd71653ad12918c09def7ecd92cf6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/16/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100546628"
 ---
 # <a name="tutorial-use-revisions-to-make-non-breaking-api-changes-safely"></a>Tutorial: Usar revisões para fazer alterações sem interrupções na API com segurança
@@ -37,7 +37,7 @@ Neste tutorial, você aprenderá como:
 ## <a name="prerequisites"></a>Pré-requisitos
 
 + Conheça a [terminologia do Gerenciamento de API do Azure](api-management-terminology.md).
-+ Conclua o início rápido a seguir: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
++ Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
 
 ## <a name="add-a-new-revision"></a>Adicionar uma nova revisão
