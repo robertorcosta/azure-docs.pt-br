@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/21/2020
 ms.author: duau
-ms.openlocfilehash: 17677ea89b04659de66b9bda35975b96ff33473a
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6c6d33a36c4a0b71932e8c19c8f6dd105c33817c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101740776"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configurar HTTPS em um domínio personalizado do Front Door
@@ -133,7 +133,12 @@ Conceda permissão ao Azure Front Door para acessar os certificados na sua conta
     O Azure Front Door contém as informações a seguir: 
     - As contas do Key Vault para sua ID de assinatura. 
     - Os certificados (segredos) no cofre de chaves selecionado. 
-    - As versões de certificado disponíveis.
+    - As versões de certificado disponíveis. 
+
+> [!NOTE]
+> Deixar a versão do certificado em branco resultaria em:
+> - A versão mais recente do certificado ser selecionada.
+> - Rotação automática dos certificados até a versão mais recente, quando uma versão mais recente do certificado estiver disponível em seu Key Vault.
  
 5. Quando você usa seu próprio certificado, a validação de domínio não é necessária. Avance para a [Aguardar a propagação](#wait-for-propagation).
 
@@ -150,7 +155,7 @@ Se você estiver usando seu próprio certificado, a validação de domínio não
 
 O registro CNAME deve estar no formato a seguir, em que *Nome* é o nome de domínio personalizado e *Valor* é o nome de host .azurefd.net padrão do Front Door:
 
-| Nome            | Tipo  | Valor                 |
+| Nome            | Type  | Valor                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -273,7 +278,7 @@ Neste tutorial, você aprendeu a:
 
 * Carregar um certificado no Key Vault.
 * Validar um domínio.
-* Habilitar HTTPS para seu domínio personalizado.
+* Habilitar o HTTPS para o domínio personalizado.
 
 Para saber como configurar uma política de filtragem geográfica para o Front Door, prossiga para o próximo tutorial.
 

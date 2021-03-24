@@ -3,12 +3,12 @@ title: Idioma bicep para modelos de Azure Resource Manager
 description: Descreve a linguagem bicep para implantar a infraestrutura no Azure por meio de modelos de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.openlocfilehash: 0edd0063ea08978b89c3ad3067f41ae743451df7
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: 74028c682b48a492c2e8f13bef538d1694370cbd
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889681"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104955900"
 ---
 # <a name="what-is-bicep-preview"></a>O que é o bicep (versão prévia)?
 
@@ -16,11 +16,15 @@ Bicep é uma linguagem para a implantação declarativa de recursos do Azure. Vo
 
 A sintaxe JSON para criar o modelo pode ser detalhada e exigir uma expressão complicada. O bicep melhora essa experiência sem perder nenhum dos recursos de um modelo JSON. É uma abstração transparente sobre o JSON para modelos de ARM. Cada arquivo bicep é compilado em um modelo ARM padrão. Os tipos de recursos, as versões de API e as propriedades que são válidas em um modelo ARM são válidas em um arquivo bicep. Há algumas [limitações conhecidas](#known-limitations) na versão atual.
 
+O bicep está atualmente em versão prévia. Para acompanhar o status do trabalho, consulte o [repositório do projeto bicep](https://github.com/Azure/bicep).
+
 Para saber mais sobre o bicep, consulte o vídeo a seguir.
+
+> [!VIDEO https://www.youtube.com/embed/sc1kJfcRQgY]
 
 ## <a name="get-started"></a>Introdução
 
-Para começar com o bicep, [Instale as ferramentas](https://github.com/Azure/bicep/blob/main/docs/installing.md).
+Para começar com o bicep, [Instale as ferramentas](bicep-install.md).
 
 Depois de instalar as ferramentas, experimente o [tutorial do bicep](./bicep-tutorial-create-first-bicep.md). A série de tutoriais orienta você pela estrutura e pelos recursos do bicep. Você implanta arquivos bicep e converte um modelo ARM no arquivo bicep equivalente.
 

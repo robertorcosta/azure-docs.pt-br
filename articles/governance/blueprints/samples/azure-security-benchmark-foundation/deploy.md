@@ -1,14 +1,14 @@
 ---
 title: Implantar o exemplo de blueprint do Azure Security Benchmark Foundation
 description: Etapas de implantação do exemplo de blueprint do Azure Security Benchmark Foundation, incluindo detalhes do parâmetro do artefato de blueprint.
-ms.date: 02/18/2020
+ms.date: 03/12/2021
 ms.topic: sample
-ms.openlocfilehash: e48f3da383bdb6d5c9960595f3c0fdcabc27dc75
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: af41dd50c976ac6c0570b8a089211fa310ef4ef1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101740674"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103232606"
 ---
 # <a name="deploy-the-azure-security-benchmark-foundation-blueprint-sample"></a>Implantar o exemplo de blueprint do Azure Security Benchmark Foundation
 
