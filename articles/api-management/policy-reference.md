@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para o Gerenciamento de API do Azure
 description: Lista as definições de políticas internas do Azure Policy para o Gerenciamento de API do Azure. Essas definições de políticas internas fornecem abordagens para gerenciar seus recursos do Azure.
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 author: georgewallace
 ms.author: gwallace
 ms.service: api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: d144208df1b5bf02bba7f0517e888e44fde47871
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a4d8fdb59e8427b2a515a650487752a9b6265b7e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605845"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035364"
 ---
 # <a name="azure-policy-built-in-policy-definitions-for-azure-api-management"></a>Definições de política internas do Azure Policy para o Gerenciamento de API do Azure
 

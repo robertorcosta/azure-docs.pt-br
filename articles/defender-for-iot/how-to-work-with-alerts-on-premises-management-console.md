@@ -3,12 +3,12 @@ title: Trabalhar com alertas no console de gerenciamento local
 description: Use o console de gerenciamento local para obter uma visão empresarial das ameaças recentes em sua rede e entender melhor como os usuários do sensor estão lidando com elas.
 ms.date: 12/06/2020
 ms.topic: how-to
-ms.openlocfilehash: a99c489c54b2671a463c0c3dad1909c74b4fa203
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 604650f0cb08eac4a3ab1cfd3fdcbf2e7ff0d19e
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104781459"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032133"
 ---
 # <a name="work-with-alerts-on-the-on-premises-management-console"></a>Trabalhar com alertas no console de gerenciamento local 
 
@@ -242,6 +242,7 @@ As regras que você cria usando a API aparecem na janela de **regra de exclusão
 
 :::image type="content" source="media/how-to-work-with-alerts-on-premises-management-console/edit-exclusion-rule-screen.png" alt-text="Captura de tela da exibição Editar regra de exclusão.":::
 
-## <a name="see-also"></a>Veja também
+## <a name="next-steps"></a>Próximas etapas
 
-[Trabalhar com alertas em seu sensor](how-to-work-with-alerts-on-your-sensor.md)
+[Trabalhe com alertas em seu sensor](how-to-work-with-alerts-on-your-sensor.md).
+Examine os [alertas do mecanismo do defender para IOT](alert-engine-messages.md).

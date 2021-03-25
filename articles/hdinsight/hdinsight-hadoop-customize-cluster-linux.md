@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020, devx-track-azurecli, contperf-fy21q2
 ms.date: 03/09/2021
-ms.openlocfilehash: 0b0fc1062f9e57ab716aa0fa88f90924f0485b08
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: efd145732ecc119e2fdf9b73ca59729232a37d4c
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104864866"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105109515"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalização de clusters do HDInsight através de ações de script
 
@@ -22,27 +22,32 @@ Ações de script também podem ser publicadas no Azure Marketplace como um apli
 
 Uma ação de script é Bash script executado em nós em um cluster HDInsight. Estas são as características e os recursos das ações de script:
 
-- Devem estar armazenados em um URI que possa ser acessado do cluster do HDInsight. Estes são os possíveis locais de armazenamento:
+- O URI do script bash (o local para acessar o arquivo) deve estar acessível do provedor de recursos do HDInsight e do cluster.
+- Estes são os possíveis locais de armazenamento:
 
-  - Para clusters regulares (não ESP):
-    - Data Lake Storage Gen1/Gen2: a entidade de serviço que o HDInsight usa para acessar Data Lake Storage deve ter acesso de leitura ao script. O formato de URI dos scripts armazenados no Data Lake Storage Gen1 é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
-    - Um blob em uma conta do Armazenamento do Azure que seja a conta de armazenamento principal ou adicional para o cluster do HDInsight. O HDInsight recebe acesso a ambos esses tipos de contas de armazenamento durante a criação do cluster.
+   - Para clusters regulares (não ESP):
+     - Um blob em uma conta do Armazenamento do Azure que seja a conta de armazenamento principal ou adicional para o cluster do HDInsight. O HDInsight recebe acesso a ambos esses tipos de contas de armazenamento durante a criação do cluster.
+    
+       > [!IMPORTANT]  
+       > Não gire a chave de armazenamento nesta conta de armazenamento do Azure, pois isso causará ações de script subsequentes com scripts armazenados ali para falhar.
 
-    > [!IMPORTANT]  
-    > Não gire a chave de armazenamento nesta conta de armazenamento do Azure, pois isso causará ações de script subsequentes com scripts armazenados ali para falhar.
+     - Data Lake Storage Gen1: a entidade de serviço que o HDInsight usa para acessar Data Lake Storage deve ter acesso de leitura ao script. O formato de URI de script bash é `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file` . 
 
-    - Um serviço de compartilhamento de arquivos público acessível por meio de `http://` caminhos. Os exemplos são blob do Azure, GitHub ou OneDrive. Para obter exemplos de URIs, confira [Exemplos de ações de script](#example-script-action-scripts).
+     - Não é recomendável usar Data Lake Storage Gen2 para ações de script. `abfs://` Não tem suporte para o URI de script bash. `https://` Os URIs são possíveis, mas eles funcionam para contêineres que têm acesso público e o firewall aberto para o provedor de recursos do HDInsight e, portanto, não é recomendado.
+
+     - Um serviço de compartilhamento de arquivos público acessível por meio de `https://` caminhos. Os exemplos são blob do Azure, GitHub ou OneDrive. Para obter exemplos de URIs, confira [Exemplos de ações de script](#example-script-action-scripts).
+
   - Para clusters com ESP, há `wasb://` suporte para os `wasbs://` URIs ou `http[s]://` .
 
-- Isso pode estar restrito à execução somente em determinados tipos de nó. Por exemplo, nós de cabeçalho ou nós de trabalho.
-- Pode ser persistente ou *ad hoc*.
+- As ações de script podem ser restritas para serem executadas somente em determinados tipos de nó. Por exemplo, nós de cabeçalho ou nós de trabalho.
+- As ações de script podem ser persistentes ou *ad hoc*.
 
   - As ações de script persistentes devem ter um nome exclusivo. Os scripts persistentes são usados para personalizar novos nós de trabalho adicionados ao cluster por meio de operações de escalonamento. Um script persistente também pode aplicar alterações a outro tipo de nó quando ocorrem operações de escalonamento. Um exemplo é um nó de cabeçalho.
   - Scripts *ad hoc* não são persistentes. As ações de script usadas durante a criação do cluster são mantidas automaticamente. Eles não são aplicados a nós de trabalho adicionados ao cluster após o script ter sido executado. Em seguida, você pode promover um script *ad hoc* para um script persistente ou rebaixar um script persistente para um script *ad hoc* . Os scripts que falham não são persistentes, mesmo que você indique especificamente que eles devem ser.
 
-- Eles podem aceitar parâmetros usados pelo script durante a execução.
-- São executados com os privilégios no nível de raiz nos nós de cluster.
-- Pode ser usado por meio do SDK do .NET portal do Azure, Azure PowerShell, CLI do Azure ou HDInsight.
+- As ações de script podem aceitar parâmetros que são usados pelo script durante a execução.
+- As ações de script são executadas com privilégios de nível raiz nos nós de cluster.
+- As ações de script podem ser usadas por meio do SDK do .NET portal do Azure, Azure PowerShell, CLI do Azure ou HDInsight.
 - Ações de script que removem ou modificam arquivos de serviço na VM podem afetar a integridade e a disponibilidade do serviço.
 
 O cluster mantém um histórico de todos os scripts que foram executados. O histórico é útil quando você precisa localizar a ID de um script para operações de promoção ou rebaixamento.

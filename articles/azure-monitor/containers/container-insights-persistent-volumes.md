@@ -3,12 +3,12 @@ title: Configurar o monitoramento de PV com insights de contêiner | Microsoft D
 description: Este artigo descreve como você pode configurar o monitoramento de clusters kubernetes com volumes persistentes com informações de contêiner.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 578cfe128b7445f8b09771999d1e653e92c4befa
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102200692"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026097"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Configurar o monitoramento de PV com informações de contêiner
 
@@ -19,7 +19,7 @@ O insights de contêiner inicia automaticamente o monitoramento do uso de PV col
 
 | Nome da métrica | Dimensão métrica (marcas) | Descrição da métrica | | `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterid, ClusterName | Espaço usado em bytes para um volume persistente específico com uma declaração usada por um pod específico. `capacityBytes` é dobrado como uma dimensão no campo marcas para reduzir o custo de ingestão de dados e simplificar as consultas. |
 
-Saiba mais sobre como configurar as métricas de PV coletadas [aqui](https://aka.ms/ci/pvconfig).
+Saiba mais sobre como configurar as métricas de PV coletadas [aqui](./container-insights-agent-config.md).
 
 ## <a name="pv-inventory"></a>Inventário de PV
 
@@ -48,7 +48,7 @@ Você pode encontrar uma visão geral do inventário de volume persistente na pa
 :::image type="content" source="./media/container-insights-persistent-volumes/pv-details-workbook-example.PNG" alt-text="Exemplo da pasta de trabalho detalhes do Azure Monitor PV":::
 
 ### <a name="persistent-volume-usage-recommended-alert"></a>Alerta de uso de volume persistente recomendado
-Você pode habilitar um alerta recomendado para alertá-lo quando o uso de PV médio para um pod estiver acima de 80%. Saiba mais sobre alertas [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts) e como substituir o limite padrão [aqui](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-metric-alerts#configure-alertable-metrics-in-configmaps).
+Você pode habilitar um alerta recomendado para alertá-lo quando o uso de PV médio para um pod estiver acima de 80%. Saiba mais sobre alertas [aqui](./container-insights-metric-alerts.md) e como substituir o limite padrão [aqui](./container-insights-metric-alerts.md#configure-alertable-metrics-in-configmaps).
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre as métricas de PV coletadas [aqui](./container-insights-agent-config.md).

@@ -8,12 +8,12 @@ ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: allensu
-ms.openlocfilehash: e6b7648188e2307da4ef40e0ab3daf6201f9d89d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c1ac3f2fa1ef3f1a24077064ad3ad3f3c30c5f3f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101694862"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048350"
 ---
 # <a name="create-a-public-ip-address-using-the-azure-portal"></a>Criar um endereço IP público usando o portal do Azure
 
@@ -33,7 +33,7 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
 4. Na página **endereço IP público** , selecione **criar**.
 5. Na página **criar endereço IP público** , insira ou selecione as seguintes informações: 
 
-    | Configuração                 | Valor                       |
+    | Setting                 | Valor                       |
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Standard**         |
@@ -45,14 +45,14 @@ Use as etapas a seguir para criar um endereço IP público com redundância de z
     | Rótulo do nome DNS          | Deixe o valor em branco.    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo**, insira **MyResource**. </br> Selecione **OK**. |
-    | Location                | Selecione **Leste dos EUA 2**      |
+    | Localização                | Selecione **Leste dos EUA 2**      |
     | Zona de disponibilidade       | Selecione **com redundância de zona**, sem zona ou selecione uma zona específica (veja a observação abaixo) |
 
 :::image type="content" source="./media/create-public-ip-portal/create-standard-ip.png" alt-text="Criar endereço IP padrão no portal do Azure" border="false":::
 
 > [!NOTE]
 > Essas seleções são válidas em regiões com [zonas de disponibilidade](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones). </br>
-Você pode selecionar uma zona específica nessas regiões, embora ela não seja resiliente a falhas zonais. </br> Para obter mais informações sobre zonas de disponibilidade, consulte [visão geral das zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-overview).
+Você pode selecionar uma zona específica nessas regiões, embora ela não seja resiliente a falhas zonais. </br> Para obter mais informações sobre zonas de disponibilidade, consulte [visão geral das zonas de disponibilidade](../availability-zones/az-overview.md).
 
 \* = Camada relacionada à funcionalidade de [balanceador de carga entre regiões](../load-balancer/cross-region-overview.md) , atualmente em visualização.
 
@@ -69,7 +69,7 @@ Nesta seção, crie um endereço IP público básico chamado **myBasicPublicIP**
 4. Na página **endereço IP público** , selecione **criar**.
 5. Na página **criar endereço IP público** , insira ou selecione as seguintes informações: 
 
-    | Configuração                 | Valor                       |
+    | Setting                 | Valor                       |
     | ---                     | ---                         |
     | Versão IP              | Selecionar IPv4                 |    
     | SKU                     | Selecione **Básico**         |
@@ -79,7 +79,7 @@ Nesta seção, crie um endereço IP público básico chamado **myBasicPublicIP**
     | Rótulo do nome DNS          | Deixe o valor em branco    |
     | Subscription            | Selecione sua assinatura.   |
     | Resource group          | Selecione **criar novo**, insira **MyResource**. </br> Selecione **OK**. |
-    | Location                | Selecione **Leste dos EUA 2**      |
+    | Localização                | Selecione **Leste dos EUA 2**      |
 
 :::image type="content" source="./media/create-public-ip-portal/create-basic-ip.png" alt-text="Criar endereço IP padrão no portal do Azure" border="false":::
 

@@ -9,10 +9,10 @@ ms.topic: sample
 ms.date: 02/10/2021
 ms.author: alzam
 ms.openlocfilehash: 0a89ce2b73ca9da64f86c81ea00b1f46ea18f996
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100385805"
 ---
 # <a name="create-a-vpn-gateway-with-p2s-radius-authentication---powershell-script-sample"></a>Criar um gateway de VPN com autenticação RADIUS do P2S – Exemplo de script do PowerShell

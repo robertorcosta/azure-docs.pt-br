@@ -2,19 +2,19 @@
 title: 'Tutorial: usar uma função do Azure para processar documentos armazenados'
 titleSuffix: Azure Cognitive Services
 description: Este guia mostra como usar uma função do Azure para disparar o processamento de documentos que são carregados em um contêiner do Armazenamento de Blobs do Azure.
-author: PatrickFarley
+author: laujan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 10/28/2020
-ms.author: pafarley
-ms.openlocfilehash: ee91a9e881ee5e8707feb862162b4272e3552d5f
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.date: 03/19/2021
+ms.author: lajanuar
+ms.openlocfilehash: 8c72a018f03b5284d3fc53be02d9eb526cdfcf28
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102714861"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "104722235"
 ---
 # <a name="tutorial-use-an-azure-function-to-process-stored-documents"></a>Tutorial: usar uma função do Azure para processar documentos armazenados
 
@@ -150,7 +150,7 @@ O bloco de código a seguir chama a API de [Análise de Layout](https://westcent
 # This is the call to the Form Recognizer endpoint
     endpoint = r"Your Form Recognizer Endpoint"
     apim_key = "Your Form Recognizer Key"
-    post_url = endpoint + "/formrecognizer/v2.1-preview.2/Layout/analyze"
+    post_url = endpoint + "/formrecognizer/v2.1-preview.3/Layout/analyze"
     source = myblob.read()
 
     headers = {

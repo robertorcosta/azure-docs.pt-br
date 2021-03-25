@@ -3,12 +3,12 @@ title: Usar pontos de extremidade privados para integrar Azure Functions a uma r
 description: Este tutorial mostra como conectar uma função a uma rede virtual do Azure e bloqueá-la usando pontos de extremidade privados.
 ms.topic: article
 ms.date: 2/22/2021
-ms.openlocfilehash: 3dd5e700b3081f1c1ef8e4601385c707a5738321
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: e8ca853908b366b99e150f04ced404f42acc7d21
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630462"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027407"
 ---
 # <a name="tutorial-integrate-azure-functions-with-an-azure-virtual-network-by-using-private-endpoints"></a>Tutorial: integrar Azure Functions com uma rede virtual do Azure usando pontos de extremidade privados
 
@@ -24,7 +24,7 @@ Neste tutorial, você aprenderá a:
 > * Implante um aplicativo de funções que usa o barramento de serviço e os gatilhos HTTP.
 > * Bloqueie seu aplicativo de funções por trás de um ponto de extremidade privado.
 > * Teste para ver se seu aplicativo de funções é seguro dentro da rede virtual.
-> * Limpar os recursos.
+> * Limpe os recursos.
 
 ## <a name="create-a-function-app-in-a-premium-plan"></a>Criar um aplicativo de funções em um plano Premium
 
@@ -320,7 +320,7 @@ Para usar seu aplicativo de funções com redes virtuais, você precisa associá
     | **Branch** | main | A ramificação principal do repositório que você criou. |
     | **Pilha de runtime** | .NET | O código de exemplo está em C#. |
 
-1. Clique em **Salvar**. 
+1. Selecione **Salvar**. 
 
     :::image type="content" source="./media/functions-create-vnet/12-deploy-portal.png" alt-text="Captura de tela de como implantar código Azure Functions por meio do Portal.":::
 
@@ -332,7 +332,7 @@ Parabéns! Você implantou com êxito o aplicativo de funções de exemplo.
 
 Agora, crie o ponto de extremidade privado para bloquear seu aplicativo de funções. Esse ponto de extremidade privado conectará seu aplicativo de funções de forma privada e segura à sua rede virtual usando um endereço IP privado. 
 
-Para obter mais informações, consulte a [documentação do ponto de extremidade particular](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+Para obter mais informações, consulte a [documentação do ponto de extremidade particular](../private-link/private-endpoint-overview.md).
 
 1. Em seu aplicativo de funções, no menu à esquerda, selecione **rede**.
 

@@ -6,12 +6,12 @@ ms.author: bahusse
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 2/11/2021
-ms.openlocfilehash: 0197b533f80ccb1524de2bbb9fc5c642f2626bbc
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b8ee1f22429c1002ba8c3db5c41f5a186cc59451
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655250"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046463"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Arquitetura de conectividade no banco de dados do Azure para MySQL
 Este artigo explica a arquitetura de conectividade do banco de dados do Azure para MySQL e também como o tráfego é direcionado para a instância do banco de dados do Azure para MySQL de clientes dentro e fora do Azure.
@@ -110,7 +110,7 @@ Somente nós de gateway serão encerrados. Quando os usuários se conectam a seu
 ### <a name="how-can-you-validate-if-your-connections-are-going-to-old-gateway-nodes-or-new-gateway-nodes"></a>Como você pode validar se suas conexões vão para nós de gateway antigos ou novos nós de gateway?
 Execute ping no FQDN do servidor, por exemplo  ``ping xxx.mysql.database.azure.com`` . Se o endereço IP retornado for um dos IPs listados em endereços IP do gateway (encerramento) no documento acima, significa que sua conexão está passando pelo gateway antigo. Contrarily, se o endereço IP retornado for um dos IPs listados em endereços IP de gateway, significa que a conexão está passando pelo novo gateway.
 
-Você também pode testar por [PSPing](https://docs.microsoft.com/sysinternals/downloads/psping) ou TCPPing o servidor de banco de dados do seu aplicativo cliente com a porta 3306 e garantir que o endereço IP de retorno não seja um dos endereços IP de descomissionamento
+Você também pode testar por [PSPing](/sysinternals/downloads/psping) ou TCPPing o servidor de banco de dados do seu aplicativo cliente com a porta 3306 e garantir que o endereço IP de retorno não seja um dos endereços IP de descomissionamento
 
 ### <a name="how-do-i-know-when-the-maintenance-is-over-and-will-i-get-another-notification-when-old-ip-addresses-are-decommissioned"></a>Como fazer saber quando a manutenção terminará e receberei outra notificação quando os endereços IP antigos forem encerrados?
 Você receberá um email para informá-lo quando iniciar o trabalho de manutenção. A manutenção pode levar até um mês, dependendo do número de servidores que precisamos migrar nas regiões al. Prepare seu cliente para se conectar ao servidor de banco de dados usando o FQDN ou usando o novo endereço IP da tabela acima. 
