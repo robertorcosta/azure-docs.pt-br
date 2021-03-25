@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/03/2021
 ms.author: trbye
-ms.openlocfilehash: c91e95e96ef7b61f8c4537125b659c254e7bd3c8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c860d1da844cb3dfc319fa192115d6a0343cc4e0
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102109387"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043185"
 ---
 | Linguagem de programação | Plataforma | Referência do SDK |
 |----------------------|----------|---------------|
@@ -19,7 +19,7 @@ ms.locfileid: "102109387"
 | Java <sup>2</sup> | Android, Windows, Linux, macOS | [Java SDK](/java/api/com.microsoft.cognitiveservices.speech) |
 | JavaScript | Browser, Node.js | [SDK do JavaScript](/javascript/api/microsoft-cognitiveservices-speech-sdk/) |
 | Objective-C/Swift | iOS, macOS | [SDK do Objective-C](/objectivec/cognitive-services/speech/) |
-| Python | Windows, Linux, macOS | [SDK do Python](https://aka.ms/csspeech/pythonref) |
+| Python | Windows, Linux, macOS | [SDK do Python](/python/api/azure-cognitiveservices-speech/) |
 
 <sup>1 o SDK de fala do .NET é baseado no .NET Standard 2,0, portanto, ele dá suporte a várias plataformas. Para obter mais informações, consulte <a href="https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support" target="_blank">suporte à <span class="docon docon-navigate-external x-hidden-focus"></span> implementação do .net </a>.</sup>
 

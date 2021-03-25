@@ -8,10 +8,10 @@ ms.service: postgresql
 ms.topic: overview
 ms.date: 09/21/2020
 ms.openlocfilehash: 18d944cd2b3bfde1a0ee5fc53e83e4016b11b01f
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100379209"
 ---
 # <a name="azure-database-for-postgresql-single-server"></a>Servidor Único do Banco de Dados do Azure para PostgreSQL
@@ -19,7 +19,7 @@ ms.locfileid: "100379209"
 O [Banco de Dados do Azure para PostgreSQL](./overview.md) desenvolvido com o PostgreSQL community edition está disponível em três modos de implantação:
 
 - Servidor único
-- Servidor Flexível (Versão Prévia)
+- Servidor Flexível (versão prévia)
 - Hiperescala (Citus)
 
 Neste artigo, forneceremos uma visão geral e introdução aos conceitos principais do modelo de implantação de servidor único. Para saber mais sobre o modo de implantação de servidor flexível, confira a [visão geral do servidor flexível](./flexible-server/overview.md) e a Visão Geral de Hiperescala (Citus), respectivamente.

@@ -1,5 +1,5 @@
 ---
-title: Fluxo de trabalho de CI/CD usando GitOps-kubernetes habilitado para arco do Azure
+title: Fluxo de trabalho de CI/CD usando GitOps – Kubernetes habilitado para Azure Arc
 services: azure-arc
 ms.service: azure-arc
 ms.date: 03/03/2021
@@ -8,12 +8,12 @@ author: tcare
 ms.author: tcare
 description: Este artigo fornece uma visão geral conceitual de um fluxo de trabalho de CI/CD usando o GitOps
 keywords: GitOps, kubernetes, K8s, Azure, Helm, Arc, AKS, serviço kubernetes do Azure, contêineres, CI, CD, Azure DevOps
-ms.openlocfilehash: a51a9f2b32f1088cec390dc4d74300a38f37b160
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 47633ed5bec1a07c878983d0e93e03149d8967ba
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121772"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025859"
 ---
 # <a name="cicd-workflow-using-gitops---azure-arc-enabled-kubernetes"></a>Fluxo de trabalho de CI/CD usando GitOps-kubernetes habilitado para arco do Azure
 
@@ -30,7 +30,7 @@ Considere um aplicativo implantado em um ou mais ambientes kubernetes.
 ### <a name="application-repo"></a>Repositório de aplicativos
 O repositório de aplicativos contém o código do aplicativo no qual os desenvolvedores trabalham durante o loop interno. Os modelos de implantação do aplicativo residem nesse repositório em um formato genérico, como Helm ou Kustomize. Os valores específicos do ambiente não são armazenados. As alterações neste repositório invocam um pipeline de PR ou CI que inicia o processo de implantação.
 ### <a name="container-registry"></a>Registro de Contêiner
-O registro de contêiner contém todas as imagens do primeiro e de terceiros usadas nos ambientes kubernetes. Marque imagens de aplicativo de primeira parte com marcas legíveis e a confirmação de git usada para criar a imagem. Armazene imagens de terceiros em cache para segurança, velocidade e resiliência. Defina um plano para teste e integração oportunos de atualizações de segurança. Para obter mais informações, consulte o guia de [conteúdo do ACR consume e manter público](https://docs.microsoft.com/azure/container-registry/tasks-consume-public-content) para obter um exemplo.
+O registro de contêiner contém todas as imagens do primeiro e de terceiros usadas nos ambientes kubernetes. Marque imagens de aplicativo de primeira parte com marcas legíveis e a confirmação de git usada para criar a imagem. Armazene imagens de terceiros em cache para segurança, velocidade e resiliência. Defina um plano para teste e integração oportunos de atualizações de segurança. Para obter mais informações, consulte o guia de [conteúdo do ACR consume e manter público](../../container-registry/tasks-consume-public-content.md) para obter um exemplo.
 ### <a name="pr-pipeline"></a>PR pipeline
 O PRs para o repositório de aplicativos é restringido em uma execução bem-sucedida do pipeline de PR. Esse pipeline executa os Gates de qualidade básica, como refiapos e testes de unidade no código do aplicativo. O pipeline testa o aplicativo e fiapos Dockerfiles e Helm modelos usados para implantação em um ambiente kubernetes. As imagens do Docker devem ser criadas e testadas, mas não enviadas por push. Mantenha a duração do pipeline relativamente curta para permitir a iteração rápida.
 ### <a name="ci-pipeline"></a>Pipeline de CI

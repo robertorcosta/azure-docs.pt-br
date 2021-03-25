@@ -6,12 +6,12 @@ ms.date: 10/29/2020
 author: kryalama
 ms.custom: devx-track-java
 ms.author: kryalama
-ms.openlocfilehash: 35e53454e5b2c6265082bbedb4a8b60e82df7191
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 991e52c13a5730b83552abb6b922d4d7a57c5429
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101734563"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024108"
 ---
 # <a name="telemetry-processors-preview---azure-monitor-application-insights-for-java"></a>Processadores de telemetria (versão prévia) – Application Insights do Azure Monitor para Java
 
@@ -21,10 +21,13 @@ ms.locfileid: "101734563"
 O agente do Java 3,0 para Application Insights pode processar dados de telemetria antes de os dados serem exportados.
 
 Aqui estão alguns casos de uso para processadores de telemetria:
- * Crie dados confidenciais.
+ * Mascarar dados confidenciais.
  * Adicionar dimensões personalizadas condicionalmente.
  * Atualize o nome do span, que é usado para agregar telemetria semelhante no portal do Azure.
- * Descartar atributos de span para controlar os custos de ingestão.
+ * Descartar atributos de span específicos para controlar os custos de ingestão.
+
+> [!NOTE]
+> Se você pretende descartar spans (inteiros) específicos para controlar o custo de ingestão, consulte [substituições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="terminology"></a>Terminologia
 
@@ -36,7 +39,7 @@ Antes de aprender sobre os processadores de telemetria, você deve entender o te
 
 Para processadores de telemetria, esses componentes de span são importantes:
 
-* Nome
+* Name
 * Atributos
 
 O nome do span é a exibição primária para solicitações e dependências no portal do Azure. Atributos de span representam propriedades padrão e personalizadas de uma determinada solicitação ou dependência.

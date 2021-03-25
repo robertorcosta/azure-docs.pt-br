@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: 4c8ee3a65c26d1eb3acb7b9f4c18f11e870e4b82
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102434419"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043186"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -114,7 +114,7 @@ A **transcrição do Call Center** está disponível por meio do serviço de fal
 
 ### <a name="codec-compressed-audio-input"></a>Entrada de áudio compactada por codec
 
-Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos de entrada de áudio compactados </a>.
+Várias das linguagens de programação SDK de fala dão suporte a fluxos de entrada de áudio compactados por codec. Para obter mais informações, consulte <a href="/azure/cognitive-services/speech-service/how-to-use-codec-compressed-audio-input-streams" target="_blank">usar formatos de entrada de áudio compactados </a>.
 
 A **entrada de áudio compactada por codec** está disponível nas seguintes plataformas:
 

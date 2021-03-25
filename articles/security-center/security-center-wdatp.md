@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 03/08/2021
 ms.author: memildin
-ms.openlocfilehash: 17e54dfc5c369a8cbb35db50ff2cbab131d34c2d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 085f3a5295d60b83536683a57a34b51abccd3067
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102453760"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043012"
 ---
 # <a name="protect-your-endpoints-with-security-centers-integrated-edr-solution-microsoft-defender-for-endpoint"></a>Proteja seus pontos de extremidade com a solução EDR integrada da central de segurança: Microsoft defender para Endpoint
 
@@ -74,7 +74,7 @@ Depois de configurar o local, você não poderá alterá-lo. Se você tiver sua 
 1. Confirme se seu computador atende aos requisitos necessários para o defender for Endpoint:
 
     - Para **todas as versões do Windows**:
-        - Definir as configurações de rede descritas em [definir o proxy do dispositivo e as configurações de conectividade da Internet](https://docs.microsoft.com/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
+        - Definir as configurações de rede descritas em [definir o proxy do dispositivo e as configurações de conectividade da Internet](/windows/security/threat-protection/microsoft-defender-atp/configure-proxy-internet)
         - Se você estiver implantando o defender no ponto de extremidade em computadores locais, conecte-o ao arco do Azure conforme explicado em [conectar computadores híbridos com os servidores habilitados para Arc do Azure](../azure-arc/servers/learn/quick-enable-hybrid-vm.md)
     - Além disso, para **computadores com Windows Server 2019**, confirme se eles estão executando um agente válido e têm a extensão extensão microsoftmonitoringagent
 

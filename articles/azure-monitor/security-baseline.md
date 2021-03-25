@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 39dff9b48fb292d8a1c145ae3e592786ddb027a4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 86d660ef6133231172684f18ad3250392df5f509
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102198822"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026114"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Linha de base de segurança do Azure para Azure Monitor
 
@@ -36,9 +36,9 @@ As regras de rede virtual permitem que Azure Monitor só aceitem comunicações 
 
 Use Log Analytics gateway para enviar dados a um espaço de trabalho do Log Analytics no Azure Monitor em nome dos computadores que não podem se conectar diretamente à Internet, impedindo a necessidade de computadores conectados à Internet. 
 
-- [Como configurar o link privado para Azure Monitor](/azure/azure-monitor/platform/private-link-security)
+- [Como configurar o link privado para Azure Monitor](./logs/private-link-security.md)
 
-- [Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor](/azure/azure-monitor/platform/gateway)
+- [Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor](./agents/gateway.md)
 
 **Responsabilidade**: Cliente
 
@@ -50,9 +50,9 @@ Use Log Analytics gateway para enviar dados a um espaço de trabalho do Log Anal
 
 Ao usar Azure Monitor com o link privado, você obtém acesso ao log de rede, como ' dados processados pelo ponto de extremidade privado (IN/OUT) '.
 
-- [Requisitos de rede para agentes de Azure Monitor](/azure/azure-monitor/platform/log-analytics-agent#network-requirements)
+- [Requisitos de rede para agentes de Azure Monitor](./agents/log-analytics-agent.md#network-requirements)
 
-- [Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor](/azure/azure-monitor/platform/gateway)
+- [Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor](./agents/gateway.md)
 
 - [Como habilitar logs de fluxo do grupo de segurança de rede](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 
@@ -78,11 +78,11 @@ Ao usar Azure Monitor com o link privado, você obtém acesso ao log de rede, co
 
 **Diretrizes**: Azure monitor faz parte dos serviços principais do Azure e não pode ser implantada como um serviço separadamente. Azure Monitor componentes, incluindo o agente de Azure Monitor, e o SDK do Application Insights podem ser implantados com seus recursos, e isso pode afetar a postura de segurança desses recursos.
 
-- [Requisitos de rede para agentes de Azure Monitor](/azure/azure-monitor/platform/log-analytics-agent#network-requirements)
+- [Requisitos de rede para agentes de Azure Monitor](./agents/log-analytics-agent.md#network-requirements)
 
-- [Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor](/azure/azure-monitor/platform/gateway) 
+- [Conectar computadores sem acesso à Internet usando o gateway de Log Analytics no Azure Monitor](./agents/gateway.md) 
 
-- [Consulte Introdução ao Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
+- [Consulte Introdução ao Application Insights](./app/app-insights-overview.md#get-started)
 
 - [Como configurar testes da Web de disponibilidade](app/monitor-web-app-availability.md)
 
@@ -94,9 +94,9 @@ Ao usar Azure Monitor com o link privado, você obtém acesso ao log de rede, co
 
 **Diretrizes**: Use o log de atividades do Azure para monitorar as configurações de recursos e detectar alterações nos recursos de rede relacionados a Azure monitor. Crie alertas dentro de Azure Monitor que serão disparados quando ocorrerem alterações nesses recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](./essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](./alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -112,9 +112,9 @@ Ao usar Azure Monitor com o link privado, você obtém acesso ao log de rede, co
 
 Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a um SIEM de terceiros.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](./essentials/diagnostic-settings.md)
 
-- [Como coletar logs de host interno da máquina virtual do Azure com Azure Monitor](/azure/azure-monitor/learn/quick-collect-azurevm)
+- [Como coletar logs de host interno da máquina virtual do Azure com Azure Monitor](./vm/quick-collect-azurevm.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -132,9 +132,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 **Diretrizes**: Azure monitor usa logs de atividade, o log de atividades é habilitado automaticamente e registra as operações executadas em recursos de Azure monitor, como: quem iniciou a operação, quando a operação ocorreu, o status da operação e outras informações úteis de auditoria. 
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](./essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Entender o registro em log e diferentes tipos de log no Azure](./essentials/platform-logs-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -148,9 +148,9 @@ Como alternativa, você pode habilitar e integrar dados ao Azure Sentinel ou a u
 
 **Diretrizes**: em Azure monitor, defina seu período de retenção de espaço de trabalho de log Analytics de acordo com os regulamentos de conformidade de sua organização. Use contas de armazenamento do Azure para qualquer armazenamento de longo prazo/arquivamento de seus logs.
 
-- [Alterar o período de retenção de dados em Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Alterar o período de retenção de dados em Log Analytics](./logs/manage-cost-storage.md#change-the-data-retention-period)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsabilidade**: Cliente
 
@@ -164,9 +164,9 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introdução às consultas de Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Introdução às consultas de Log Analytics](./logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](./logs/get-started-queries.md)
 
 **Responsabilidade**: Cliente
 
@@ -180,7 +180,7 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar sobre dados de log do log Analytics](./alerts/tutorial-response.md)
 
 **Responsabilidade**: Cliente
 
@@ -194,9 +194,9 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 **Diretrizes**: o Azure RBAC (controle de acesso baseado em função) do Azure permite que você gerencie o acesso aos recursos do Azure por meio de atribuições de função. Você pode atribuir essas funções a usuários, grupos de entidades de serviço e identidades gerenciadas. Há funções internas predefinidas para determinados recursos, e essas funções podem ser inventariadas ou consultadas por meio de ferramentas como a CLI do Azure, o Azure PowerShell ou o portal do Azure.
 
-- [Como obter uma função de diretório no Azure Active Directory (Azure AD) com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter uma função de diretório no Azure Active Directory (Azure AD) com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsabilidade**: Cliente
 
@@ -284,7 +284,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -296,7 +296,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Orientação**: você tem acesso a atividades de entrada do Azure Active Directory (Azure AD), auditoria e risco de log de eventos, que permitem a integração com qualquer ferramenta Siem/monitoramento. Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no workspace do Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
@@ -326,7 +326,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
-- [Gerenciar acesso a dados de log e workspaces no Azure Monitor](/azure/azure-monitor/platform/manage-access)
+- [Gerenciar acesso a dados de log e workspaces no Azure Monitor](./logs/manage-access.md)
 
 **Responsabilidade**: Cliente
 
@@ -352,7 +352,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 Application Insights e Log Analytics continuam a permitir que os dados TLS 1,1 e TLS 1,0 sejam ingeridos. Os dados podem ser restritos ao TLS 1,2 Configurando no lado do cliente.
 
-- [Como enviar dados com segurança usando o TLS 1,2](/azure/azure-monitor/platform/data-security#sending-data-securely-using-tls-12)
+- [Como enviar dados com segurança usando o TLS 1,2](./logs/data-security.md#sending-data-securely-using-tls-12)
 
 **Responsabilidade**: Compartilhado
 
@@ -373,7 +373,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Orientação**: Use o RBAC (controle de acesso baseado em função) do Azure para gerenciar o acesso a Azure monitor.
 
-- [Funções, permissões e segurança no Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security)
+- [Funções, permissões e segurança no Azure Monitor](./roles-permissions-security.md)
 
 - [Como configurar o RBAC do Azure](../role-based-access-control/role-assignments-portal.md)
 
@@ -385,9 +385,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Azure monitor garante que todos os dados e consultas salvas sejam criptografadas em repouso usando chaves gerenciadas pela Microsoft (MMK). O Azure Monitor também fornece uma opção de criptografia usando sua própria chave armazenada em seu Azure Key Vault e acessada pelo armazenamento usando a autenticação de identidade gerenciada atribuída pelo sistema. Essa chave gerenciada pelo cliente (CMK) pode ser protegida por HSM de software ou hardware.
 
-- [Azure Monitor chaves gerenciadas pelo cliente](/azure/azure-monitor/platform/customer-managed-keys)
+- [Azure Monitor chaves gerenciadas pelo cliente](./logs/customer-managed-keys.md)
 
-- [Segurança de dados do Log Analytics](/azure/azure-monitor/platform/data-security)
+- [Segurança de dados do Log Analytics](./logs/data-security.md)
 
 - [Coleta, retenção e armazenamento de dados no Application Insights](app/data-retention-privacy.md)
 
@@ -401,7 +401,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem em Azure monitor e recursos relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](./alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -431,13 +431,13 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use CLI do Azure para consultar e descobrir Azure monitor recursos em suas assinaturas. Configure permissões apropriadas (leitura) no seu locatário e enumere todas as assinaturas do Azure, bem como os recursos em suas assinaturas.
 
-- [CLI do Azure Monitor](https://docs.microsoft.com/cli/azure/monitor)
+- [CLI do Azure Monitor](/cli/azure/monitor)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&preserve-view=true)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
-- [Funções, permissões e segurança no Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security)
+- [Funções, permissões e segurança no Azure Monitor](./roles-permissions-security.md)
 
 **Responsabilidade**: Cliente
 
@@ -493,7 +493,7 @@ Use o Azure Resource Graph para consultar e descobrir recursos dentro das assina
 
 **Diretrizes**: reconcilie o inventário regularmente e garanta que Azure monitor recursos relacionados não autorizados sejam excluídos da assinatura em tempo hábil.  
 
-- [Excluir o espaço de trabalho Log Analytics do Azure](/azure/azure-monitor/platform/delete-workspace)
+- [Excluir o espaço de trabalho Log Analytics do Azure](./logs/delete-workspace.md)
 
 **Responsabilidade**: Cliente
 
@@ -505,7 +505,7 @@ Use o Azure Resource Graph para consultar e descobrir recursos dentro das assina
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -535,9 +535,9 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 Se estiver usando recursos do APM de streaming ao vivo, torne o canal seguro com uma chave de API secreta além da chave de instrumentação.
 
-- [Secure APM Live Metrics Stream](https://docs.microsoft.com/azure/azure-monitor/app/live-stream#secure-the-control-channel)
+- [Secure APM Live Metrics Stream](./app/live-stream.md#secure-the-control-channel)
 
-- [Como exibir os aliases disponíveis do Azure Policy](https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir os aliases disponíveis do Azure Policy](/powershell/module/az.resources/get-azpolicyalias?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Tutorial: Criar e gerenciar políticas para impor a conformidade](../governance/policy/tutorials/create-and-manage.md)
 
@@ -567,7 +567,7 @@ Se estiver usando recursos do APM de streaming ao vivo, torne o canal seguro com
 
 **Diretrizes**: Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure e modelos de Azure Resource Manager. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -581,7 +581,7 @@ Se estiver usando recursos do APM de streaming ao vivo, torne o canal seguro com
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Aliases de Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Aliases de Azure Policy](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilidade**: Cliente
 
@@ -661,7 +661,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 **Diretrizes**: Use Azure Resource Manager para exportar o Azure monitor e os recursos relacionados em um modelo de JavaScript Object Notation (JSON) que pode ser usado como backup para Azure monitor e configurações relacionadas.  Use a automação do Azure para executar os scripts de backup automaticamente. 
 
-- [Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager](./logs/resource-manager-workspace.md)
 
 - [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
@@ -675,11 +675,11 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 **Diretrizes**: Use Azure Resource Manager para exportar o Azure monitor e os recursos relacionados em um modelo de JavaScript Object Notation (JSON) que pode ser usado como backup para Azure monitor e configurações relacionadas. Fazer backup de chaves gerenciadas pelo cliente dentro de Azure Key Vault se Azure Monitor recursos relacionados estiverem usando chaves gerenciadas pelo cliente,
 
-- [Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager](/azure/azure-monitor/platform/template-workspace-configuration)
+- [Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager](./logs/resource-manager-workspace.md)
 
 - [Exportação única e de vários recursos para um modelo no portal do Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -689,9 +689,9 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 **Orientação**: garanta a capacidade de executar a restauração periodicamente usando Azure Resource Manager arquivos de modelo com suporte. Teste a restauração de chaves de backup gerenciadas pelo cliente.
 
-- [Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager](/azure/azure-monitor/samples/resource-manager-workspace)
+- [Gerenciar Log Analytics espaço de trabalho usando modelos de Azure Resource Manager](./logs/resource-manager-workspace.md)
 
-- [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -703,7 +703,7 @@ Use a detecção de ameaças da central de segurança do Azure para serviços de
 
 Além disso, habilite a proteção de Soft-Delete e limpeza no Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada. Se o armazenamento do Azure for usado para armazenar Azure Resource Manager backups de modelo, habilite a exclusão reversível para salvar e recuperar seus dados quando BLOBs ou instantâneos de blob forem excluídos.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -807,5 +807,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)
