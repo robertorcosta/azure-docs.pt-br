@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/19/2021
+ms.date: 03/24/2021
 ms.author: b-juche
-ms.openlocfilehash: add907923cc2284939acd972237fd4ec74ee2d12
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: d238b566c1286b9b765fb574cd72ee68ccf4b4a7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863999"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048367"
 ---
 # <a name="create-and-manage-active-directory-connections-for-azure-netapp-files"></a>Criar e gerenciar conexões de Active Directory para Azure NetApp Files
 
@@ -86,6 +86,8 @@ Uma sub-rede deve ser delegada ao Azure NetApp Files.
 * O Azure NetApp Files dá suporte à [assinatura LDAP](/troubleshoot/windows-server/identity/enable-ldap-signing-in-windows-server), que permite a transmissão segura de tráfego LDAP entre o serviço de Azure NetApp Files e os [controladores de domínio de Active Directory](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)de destino. Se você estiver seguindo as diretrizes do Microsoft Advisory [ADV190023](https://portal.msrc.microsoft.com/en-us/security-guidance/advisory/ADV190023) para autenticação LDAP, habilite o recurso de assinatura ldap no Azure NetApp files marcando a caixa **assinatura LDAP** na janela [ingressar Active Directory](#create-an-active-directory-connection) . 
 
     A configuração de [Associação de canal LDAP](https://support.microsoft.com/help/4034879/how-to-add-the-ldapenforcechannelbinding-registry-entry) sozinha não tem nenhum efeito no serviço de Azure NetApp files. No entanto, se você usar a associação de canal LDAP e o LDAP seguro (por exemplo, LDAPs ou `start_tls` ), a criação do volume SMB falhará.
+
+* Para DNS não integrado ao AD, você deve adicionar um registro de DNS A/PTR para permitir que Azure NetApp Files funcionem usando um "nome amigável". 
 
 ## <a name="decide-which-domain-services-to-use"></a>Decidir quais Serviços de Domínio usar 
 

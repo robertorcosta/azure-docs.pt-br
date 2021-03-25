@@ -7,10 +7,10 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.openlocfilehash: 1ba2b7d648c86912118b83a566bf2eb0800baee2
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747290"
 ---
 # <a name="frequently-asked-questions-about-azure-managed-instance-for-apache-cassandra-preview"></a>Perguntas frequentes sobre a Instância Gerenciada do Azure para Apache Cassandra (versão prévia)
@@ -91,5 +91,5 @@ Configurações para metadados de tabela, como filtro de bloom, cache, chance de
 Para obter mais informações sobre perguntas frequentes de outras APIs, consulte:
 
 * [Criar um cluster da instância gerenciada no portal do Azure](create-cluster-portal.md)
-* [Implantar um Cluster do Apache Spark Gerenciado com o Azure Databricks](deploy-cluster-databricks.md)
+* [Implantar um cluster do Apache Spark gerenciado com o Azure Databricks](deploy-cluster-databricks.md)
 * [Gerenciar recursos da Instância Gerenciada do Azure para Apache Cassandra usando a CLI do Azure](manage-resources-cli.md)

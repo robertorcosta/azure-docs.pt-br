@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 09/30/2020
 ms.author: rolyon
 ms.custom: contperf-fy21q1, azuread-video-2020
-ms.openlocfilehash: 5bf9b79621ae1cd2c73f2e3ce18b0780bcdd2a71
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4241e476b2f778ff63057d0491b5dc8666c7520c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100559342"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "100650857"
 ---
 # <a name="what-is-azure-role-based-access-control-azure-rbac"></a>O que é o RBAC do Azure (controle de acesso baseado em função do Azure)?
 
@@ -86,7 +86,7 @@ Para obter mais informações, confira [Etapas para atribuir uma função do Azu
 
 ## <a name="multiple-role-assignments"></a>Atribuições de função múltiplas
 
-O que acontece se você tem várias atribuições de função sobrepostas? O RBAC do Azure é um modelo aditivo e, portanto, suas permissões efetivas são a soma das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A soma das permissões de Colaborador e das permissões de Leitor é, efetivamente, a função Colaborador para o grupo de recursos. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
+O que acontece se você tem várias atribuições de função sobrepostas? O RBAC do Azure é um modelo aditivo e, portanto, suas permissões efetivas são a soma das atribuições de função. Considere o exemplo a seguir em que um usuário recebe a função Colaborador no escopo da assinatura e a função Leitor em um grupo de recursos. A soma das permissões de Colaborador e de Leitor é, efetivamente, a função de Colaborador para a assinatura. Portanto, nesse caso, a atribuição de função Leitor não tem nenhum impacto.
 
 ![Atribuições de função múltiplas](./media/overview/rbac-multiple-roles.png)
 

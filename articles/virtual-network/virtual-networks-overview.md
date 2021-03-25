@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/03/2020
 ms.author: kumud
-ms.openlocfilehash: e1efd02d60ba874178f24da2b441fc122e4a1912
-ms.sourcegitcommit: d59abc5bfad604909a107d05c5dc1b9a193214a8
+ms.openlocfilehash: 849127ed0846928a77795ac0a1ea3f7a091468b5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/14/2021
-ms.locfileid: "98218520"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100635941"
 ---
 # <a name="what-is-azure-virtual-network"></a>O que é a Rede Virtual do Azure?
 
 A Rede Virtual do Azure (VNet) é o bloco de construção fundamental de sua rede privada no Azure. Ela permite vários tipos de recursos do Azure, como VMs (Máquinas Virtuais) do Azure, a fim de se comunicar de forma segura com a Internet, com as redes locais e com outras VMs. A VNet é semelhante a uma rede tradicional que você operaria em seu próprio data center, mas traz benefícios adicionais da infraestrutura do Azure, como escala, disponibilidade e isolamento.
 
 ## <a name="why-use-an-azure-virtual-network"></a>Por que usar uma rede virtual do Azure?
-A rede virtual do Azure permite que os recursos do Azure se comuniquem com segurança entre si, com a Internet e com redes locais. Os principais cenários em que você pode concluir uma rede virtual incluem: a comunicação de recursos do Azure com a Internet, a comunicação entre recursos do Azure, a comunicação com recursos locais, a filtragem de tráfego de rede, o roteamento do tráfego de rede e a integração aos serviços do Azure.
+A rede virtual do Azure permite que os recursos do Azure se comuniquem com segurança entre si, com a Internet e com redes locais. Os principais cenários do que você pode realizar com uma rede virtual incluem: a comunicação de recursos do Azure com a Internet, a comunicação entre recursos do Azure, a comunicação com recursos locais, a filtragem de tráfego de rede, o roteamento do tráfego de rede e a integração aos serviços do Azure.
 
 ### <a name="communicate-with-the-internet"></a>Comunicação com a Internet
 

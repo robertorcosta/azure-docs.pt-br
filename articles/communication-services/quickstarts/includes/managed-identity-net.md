@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: c1b74b43c6ef884c68282dcaaae8dfc9a5541453
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 52c5c0d9d13eba29e6f9cb6d50725d51b6877d47
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622082"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110709"
 ---
 ## <a name="add-managed-identity-to-your-communication-services-solution-net"></a>Adicionar identidade gerenciada à sua solução de serviços de comunicação (.NET)
 
-### <a name="install-the-client-library-packages"></a>Instalar os pacotes de biblioteca de cliente
+### <a name="install-the-sdk-packages"></a>Instalar os pacotes do SDK
 
 ```console
 dotnet add package Azure.Communication.Identity  --version 1.0.0-beta.5
@@ -16,9 +16,9 @@ dotnet add package Azure.Communication.Sms  --version 1.0.0-beta.4
 dotnet add package Azure.Identity
 ```
 
-### <a name="use-the-client-library-packages"></a>Usar os pacotes de biblioteca de cliente
+### <a name="use-the-sdk-packages"></a>Usar os pacotes do SDK
 
-Adicione as seguintes `using` diretivas ao seu código para usar as bibliotecas de cliente de armazenamento do Azure e identidade do Azure.
+Adicione as seguintes `using` diretivas ao seu código para usar a identidade do Azure e os SDKs de armazenamento do Azure.
 
 ```csharp
 using Azure.Identity;
