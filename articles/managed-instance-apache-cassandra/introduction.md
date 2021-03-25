@@ -7,10 +7,10 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: overview
 ms.date: 03/02/2021
 ms.openlocfilehash: d99c62e7d88510c351f87d85b4f8c5c271767cb3
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747283"
 ---
 # <a name="what-is-azure-managed-instance-for-apache-cassandra-preview"></a>O que é a Instância Gerenciada do Azure para Apache Cassandra? (Visualização)
@@ -57,4 +57,4 @@ Introdução com um dos nossos guias de início rápido:
 
 * [Criar um cluster de instância gerenciada a partir do portal do Azure](create-cluster-portal.md)
 * [Implantar um cluster do Apache Spark gerenciado com o Azure Databricks](deploy-cluster-databricks.md)
-* [Gerenciar uma Instância Gerenciada do Azure para recursos do Apache Cassandra usando a CLI do Azure](manage-resources-cli.md)
+* [Gerenciar recursos da Instância Gerenciada do Azure para Apache Cassandra usando a CLI do Azure](manage-resources-cli.md)

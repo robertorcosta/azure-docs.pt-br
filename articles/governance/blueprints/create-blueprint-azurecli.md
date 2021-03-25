@@ -4,10 +4,10 @@ description: Neste início rápido, você usa o Azure Blueprints para criar, def
 ms.date: 01/27/2021
 ms.topic: quickstart
 ms.openlocfilehash: 6ce3031c93f973c2efb251fad371a6f3750ae0fd
-ms.sourcegitcommit: 436518116963bd7e81e0217e246c80a9808dc88c
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/27/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98920233"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Início Rápido: definir e atribuir um Blueprint do Azure com a CLI do Azure

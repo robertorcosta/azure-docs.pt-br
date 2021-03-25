@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: 22e48239631850d82cbb3e3208748416087da87c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103422132"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043063"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Escale com eficiência uma habilidade personalizada
 
@@ -42,7 +42,7 @@ Na [habilidade personalizada](cognitive-search-custom-skill-web-api.md) , defina
 
 3. Defina `timeout` como um valor suficiente para que a habilidade responda com uma resposta válida.
 
-4. Na `indexer` definição, defina [`batchSize`](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters) como o número de documentos que devem ser lidos da fonte de dados e aprimorados simultaneamente.
+4. Na `indexer` definição, defina [`batchSize`](/rest/api/searchservice/create-indexer#indexer-parameters) como o número de documentos que devem ser lidos da fonte de dados e aprimorados simultaneamente.
 
 ### <a name="considerations"></a>Considerações
 
@@ -106,5 +106,5 @@ Parabéns! Sua habilidade personalizada agora é dimensionada diretamente para m
 
 + [Habilidades de energia: um repositório de habilidades personalizadas](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Adicionar uma habilidade personalizada a um pipeline de enriquecimento de ia](cognitive-search-custom-skill-interface.md)
-+ [Adicionar uma habilidade de Azure Machine Learning](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill)
-+ [Usar sessões de depuração para testar alterações](https://docs.microsoft.com/azure/search/cognitive-search-debug-session)
++ [Adicionar uma habilidade de Azure Machine Learning](./cognitive-search-aml-skill.md)
++ [Usar sessões de depuração para testar alterações](./cognitive-search-debug-session.md)
