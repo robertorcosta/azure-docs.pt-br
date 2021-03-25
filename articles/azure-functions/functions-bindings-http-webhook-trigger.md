@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: e8641cada03577cf22e6627bdf53b2a8a0e836ef
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4550be7ae8c543eea1bdfa085db6f23fe668a121
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102216376"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025689"
 ---
 # <a name="azure-functions-http-trigger"></a>Gatilho de HTTP do Azure Functions
 
@@ -596,7 +596,7 @@ Usando esta configuração, a função é agora endereçável com a seguinte rot
 http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 ```
 
-Essa configuração permite que o código de função dê suporte a dois parâmetros no endereço, na _categoria_ e na _ID_. Para obter mais informações sobre como os parâmetros de rota são indexados em uma URL, consulte [Routing in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/routing#route-constraint-reference).
+Essa configuração permite que o código de função dê suporte a dois parâmetros no endereço, na _categoria_ e na _ID_. Para obter mais informações sobre como os parâmetros de rota são indexados em uma URL, consulte [Routing in ASP.NET Core](/aspnet/core/fundamentals/routing#route-constraint-reference).
 
 # <a name="c"></a>[C#](#tab/csharp)
 

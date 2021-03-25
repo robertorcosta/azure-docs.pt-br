@@ -9,12 +9,13 @@ ms.subservice: synapse-link
 ms.date: 08/10/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 13891f9614e658be39adbb69fed1503a0c66d5e4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: cosmos-db
+ms.openlocfilehash: 755782b117ef5a5619ddde3e1573fe1805117e77
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93309218"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868555"
 ---
 # <a name="copy-data-from-azure-cosmos-db-into-a-dedicated-sql-pool-using-apache-spark"></a>Copiar dados do Azure Cosmos DB para um pool de SQL dedicado usando o Apache Spark
 
@@ -50,7 +51,7 @@ Nesse exemplo, usamos um contêiner HTAP chamado **RetailSales**. Ele faz parte 
 * weekStarting: long (nullable = true)
 * _etag: string (nullable = true)
 
-Agregaremos as vendas ( *quantity* , *revenue* – preço x quantidade) por *productCode* e *weekStarting* para fins de relatório. Por fim, exportaremos esses dados para uma tabela do pool de SQL dedicado chamada **dbo.productsales**.
+Agregaremos as vendas (*quantity*, *revenue* – preço x quantidade) por *productCode* e *weekStarting* para fins de relatório. Por fim, exportaremos esses dados para uma tabela do pool de SQL dedicado chamada **dbo.productsales**.
 
 ## <a name="configure-a-spark-notebook"></a>Configurar um notebook do Spark
 Crie um notebook do Spark com o Scala tendo o Spark (Scala) como a linguagem principal. Usaremos a configuração padrão do notebook para a sessão.

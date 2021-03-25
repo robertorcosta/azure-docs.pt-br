@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: TomSh
-ms.openlocfilehash: 1159736d59e15fa36c0feb7e5d5b5553953fb6b9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b5f9df4e6f682b5d1e9e3cd35affe6e4191e3d53
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564504"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047772"
 ---
 # <a name="introduction-to-azure-security"></a>Introdução à segurança do Azure
 
@@ -204,11 +204,11 @@ A rede do Azure dá suporte a vários cenários de acesso remoto seguro. Entre e
 
 ### <a name="azure-private-link"></a>Link Privado do Azure
 
-O [link privado do Azure](https://azure.microsoft.com/services/private-link/) permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços de parceiro/cliente hospedados no Azure de forma privada em sua rede virtual por um [ponto de extremidade privado](https://docs.microsoft.com/azure/private-link/private-endpoint-overview). A configuração e o consumo usando o Link Privado do Azure são consistentes entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados. O tráfego da sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
+O [link privado do Azure](https://azure.microsoft.com/services/private-link/) permite que você acesse os serviços de PaaS do Azure (por exemplo, armazenamento do Azure e banco de dados SQL) e serviços de parceiro/cliente hospedados no Azure de forma privada em sua rede virtual por um [ponto de extremidade privado](../../private-link/private-endpoint-overview.md). A configuração e o consumo usando o Link Privado do Azure são consistentes entre os serviços de parceiro de PaaS do Azure, de propriedade do cliente e de parceiros compartilhados. O tráfego da sua rede virtual para o serviço do Azure sempre permanece na rede de backbone do Microsoft Azure.
 
-Os [pontos de extremidade privados](https://docs.microsoft.com/azure/private-link/private-endpoint-overview) permitem que você proteja seus recursos críticos de serviço do Azure apenas para suas redes virtuais. O ponto de extremidade privado do Azure usa um endereço IP privado de sua VNet para conectar você de forma privada e segura a um serviço fornecido pelo link privado do Azure, efetivamente colocando o serviço em sua VNet. Expor sua rede virtual à Internet pública não é mais necessário para consumir serviços no Azure. 
+Os [pontos de extremidade privados](../../private-link/private-endpoint-overview.md) permitem que você proteja seus recursos críticos de serviço do Azure apenas para suas redes virtuais. O ponto de extremidade privado do Azure usa um endereço IP privado de sua VNet para conectar você de forma privada e segura a um serviço fornecido pelo link privado do Azure, efetivamente colocando o serviço em sua VNet. Expor sua rede virtual à Internet pública não é mais necessário para consumir serviços no Azure. 
 
-Você também pode criar seu próprio serviço de vínculo privado em sua rede virtual. O [serviço de vínculo privado do Azure](https://docs.microsoft.com/azure/private-link/private-link-service-overview) é a referência para seu próprio serviço que é alimentado pelo link privado do Azure. Seu serviço que está sendo executado por trás do Azure Standard Load Balancer pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada de suas próprias redes virtuais. Seus clientes podem criar um ponto de extremidade privado dentro de sua rede virtual e mapeá-lo para esse serviço. Expor seu serviço para a Internet pública não é mais necessário para processar serviços no Azure. 
+Você também pode criar seu próprio serviço de vínculo privado em sua rede virtual. O [serviço de vínculo privado do Azure](../../private-link/private-link-service-overview.md) é a referência para seu próprio serviço que é alimentado pelo link privado do Azure. Seu serviço que está sendo executado por trás do Azure Standard Load Balancer pode ser habilitado para acesso de link privado para que os consumidores de seu serviço possam acessá-lo de forma privada de suas próprias redes virtuais. Seus clientes podem criar um ponto de extremidade privado dentro de sua rede virtual e mapeá-lo para esse serviço. Expor seu serviço para a Internet pública não é mais necessário para processar serviços no Azure. 
 
 ### <a name="vpn-gateway"></a>Gateway de VPN
 

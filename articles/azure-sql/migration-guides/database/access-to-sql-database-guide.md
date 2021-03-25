@@ -9,25 +9,27 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: e323b1c15d78da4e8c1a82ae8848df7f59b0dd87
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 99e0fd3665a0269710a9b0994a1340745f77236f
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104657205"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027305"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guia de migração: acesso ao banco de dados SQL do Azure
 
 Este guia de migração ensina você a migrar seus bancos de dados do Microsoft Access para o Azure SQL usando o Assistente de Migração do SQL Server para acesso.
 
-Para obter outros guias de migração, confira [Migração de banco de dados](https://datamigration.microsoft.com/). 
+Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para migrar seu banco de dados do Access para o banco de dados SQL do Azure, você precisa:
 
-- verificar se seu ambiente de origem é compatível. 
-- [Assistente de migração do SQL Server para acesso](https://www.microsoft.com/download/details.aspx?id=54255). 
+- Verificar se seu ambiente de origem é compatível. 
+- [Assistente de Migração do SQL Server para Access](https://www.microsoft.com/download/details.aspx?id=54255). 
+- Conectividade e permissões suficientes para acessar a origem e o destino. 
+
 
 ## <a name="pre-migration"></a>Pré-migração
 
@@ -36,24 +38,27 @@ Depois de atender aos pré-requisitos, você estará pronto para descobrir a top
 
 ### <a name="assess"></a>Avaliar 
 
-Crie uma avaliação usando o [Assistente de migração do SQL Server para acesso](https://www.microsoft.com/download/details.aspx?id=54255). 
+Use o Assistente de Migração do SQL Server (SSMA) para acesso a revisar objetos e dados do banco de dados e avaliar os bancos de dado para a migração. 
 
 Para criar uma avaliação, siga estas etapas: 
 
-1. Abra Assistente de Migração do SQL Server para acesso. 
-1. Selecione **Arquivo** e, em seguida, escolha **Novo Projeto**. Forneça um nome para o projeto de migração. 
+1. Abra o [Assistente de Migração do SQL Server para Access](https://www.microsoft.com/download/details.aspx?id=54255). 
+1. Selecione **Arquivo** e, em seguida, escolha **Novo Projeto**. 
+1. Forneça um nome de projeto, um local para salvar seu projeto e, em seguida, selecione banco de dados SQL do Azure como o destino de migração no menu suspenso. Selecione **OK**:
 
    ![Escolher novo projeto](./media/access-to-sql-database-guide/new-project.png)
 
-1. Selecione **Adicionar bancos de dados** e escolha os bancos de dados a serem adicionados ao novo projeto. 
+1. Selecione **Adicionar bancos de dados** e escolha os bancos de dados a serem adicionados ao novo projeto:
 
    ![Escolha Adicionar bancos de dados](./media/access-to-sql-database-guide/add-databases.png)
 
-1. No **Gerenciador de metadados do Access**, clique com o botão direito do mouse no banco de dados e escolha **criar relatório**. 
+1. No **Gerenciador de metadados do Access**, clique com o botão direito do mouse no banco de dados e escolha **criar relatório**. Como alternativa, você pode escolher **criar relatório** na barra de navegação depois de selecionar o esquema:
 
    ![Clique com o botão direito do mouse no banco de dados e escolha criar relatório](./media/access-to-sql-database-guide/create-report.png)
 
-1. Examine a avaliação de exemplo. Por exemplo: 
+1. Examine o relatório HTML para entender as estatísticas de conversão e outros erros ou avisos. Você também pode abrir o relatório no Excel para obter um inventário de objetos do Access e o esforço necessário para executar conversões de esquema. O local padrão do relatório está na pasta de relatório dentro de SSMAProjects
+
+   Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyAccessMigration\report\report_<date>`
 
    ![Examinar a avaliação do relatório de exemplo](./media/access-to-sql-database-guide/sample-assessment.png)
 
@@ -63,7 +68,7 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 
 1. Selecione **Ferramentas** no menu. 
 1. Selecione **Configurações do Projeto**. 
-1. Selecione a guia **Mapeamentos de tipo**. 
+1. Selecione a guia **mapeamentos de tipo** :
 
    ![Mapeamentos de tipo](./media/access-to-sql-database-guide/type-mappings.png)
 
@@ -74,37 +79,43 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 
 Para converter objetos de banco de dados, siga estas etapas: 
 
-1. Selecione **conectar-se ao banco de dados SQL do Azure** e fornecer detalhes de conexão.
+1. Selecione **conectar ao banco de dados SQL do Azure**. 
+    1. Insira os detalhes de conexão para conectar seu banco de dados no banco de dados SQL do Azure.
+    1. Escolha o banco de dados SQL de destino na lista suspensa ou forneça um novo nome, caso em que um banco de dados será criado no servidor de destino. 
+    1. Forneça detalhes de autenticação. 
+    1. Selecione **conectar**:
 
    ![Conectar-se ao Banco de Dados SQL do Azure](./media/access-to-sql-database-guide/connect-to-sqldb.png)
 
-1. Clique com o botão direito do mouse no banco de dados no **Gerenciador de metadados do Access** e escolha **converter esquema**. Como alternativa, você pode escolher **converter esquema** na barra de navegação superior depois de selecionar o banco de dados.
+1. Clique com o botão direito do mouse no banco de dados em **Gerenciador de Metadados do Access** e escolha **Converter esquema**. Como alternativa, você pode escolher **converter esquema** na barra de navegação superior depois de selecionar o banco de dados:
 
    ![Clique com o botão direito do mouse no banco de dados e escolha converter esquema](./media/access-to-sql-database-guide/convert-schema.png)
+   
 
-   Comparar consultas convertidas em consultas originais: 
-
-   ![As consultas convertidas podem ser comparadas com o código-fonte](./media/access-to-sql-database-guide/query-comparison.png)
-
-   Comparar objetos convertidos com objetos originais: 
+1. Após a conclusão da conversão, compare e revise os objetos convertidos para os objetos originais para identificar possíveis problemas e solucioná-los com base nas recomendações:
 
    ![Os objetos convertidos podem ser comparados com a origem](./media/access-to-sql-database-guide/table-comparison.png)
 
-1. Adicional Para converter um objeto individual, clique com o botão direito do mouse no objeto e escolha **converter esquema**. Os objetos convertidos aparecem em negrito no **Gerenciador de metadados do Access**: 
+   Compare o texto Transact-SQL convertido com o código original e examine as recomendações:
+
+   ![As consultas convertidas podem ser comparadas com o código-fonte](./media/access-to-sql-database-guide/query-comparison.png)
+
+1. (Opcional) Para converter um objeto individual, clique com o botão direito do mouse no objeto e escolha **Converter esquema**. Os objetos convertidos aparecem em negrito no **Gerenciador de metadados do Access**: 
 
    ![Objetos em negrito no Gerenciador de metadados foram convertidos](./media/access-to-sql-database-guide/converted-items.png)
  
-1. Selecione **examinar resultados** no painel saída e examine os erros no painel **lista de erros** . 
+1. Selecione **Examinar resultados** no painel Saída e examine os erros no painel **Lista de erros**. 
+1. Salve o projeto localmente para realizar um exercício de correção de esquema offline. Selecione **Salvar Projeto** no menu **Arquivo**. Isso lhe dá a oportunidade de avaliar os esquemas de origem e de destino offline e executar a correção antes de publicar o esquema no banco de dados SQL.
 
 
 ## <a name="migrate"></a>Migrar
 
 Depois de concluir a avaliação de seus bancos de dados e resolver quaisquer discrepâncias, a próxima etapa é executar o processo de migração. A migração de dados é uma operação de carregamento em massa que move linhas de dados para o banco de dado SQL do Azure em transações. O número de linhas a serem carregadas no banco de dados SQL do Azure em cada transação é definido nas configurações do projeto.
 
-Para migrar dados usando o SSMA para Access, siga estas etapas: 
+Para publicar o esquema e migrar os dados usando o SSMA para Access, siga estas etapas: 
 
 1. Se você ainda não fez isso, selecione **conectar ao banco de dados SQL do Azure** e forneça detalhes de conexão. 
-1. Clique com o botão direito do mouse no banco de dados do **Gerenciador de metadados do banco de dados SQL do Azure** e escolha **sincronizar com o banco** Essa ação publica o esquema MySQL no banco de dados SQL do Azure.
+1. Publicar o esquema: clique com o botão direito do mouse no banco de dados do **Gerenciador de metadados do banco de dados SQL do Azure** e escolha **sincronizar com Banco de dados**. Esta ação publica o esquema MySQL no banco de dados SQL do Azure:
 
    ![Sincronizar com Banco de dados](./media/access-to-sql-database-guide/synchronize-with-database.png)
 
@@ -112,17 +123,15 @@ Para migrar dados usando o SSMA para Access, siga estas etapas:
 
    ![Examinar a sincronização com o banco de dados](./media/access-to-sql-database-guide/synchronize-with-database-review.png)
 
-1. Use o **Gerenciador de metadados do Access** para marcar as caixas ao lado dos itens que você deseja migrar. Se você quiser migrar todo o banco de dados, marque a caixa ao lado do banco de dados. 
-1. Clique com o botão direito do mouse no banco de dados ou objeto que você deseja migrar e escolha **migrar data**. 
-   Para migrar dados para um banco de dado inteiro, marque a caixa de seleção ao lado do nome do banco de dados. Para migrar dados de tabelas individuais, expanda o banco de dado, expanda tabelas e marque a caixa de seleção ao lado da tabela. Para omitir dados de tabelas individuais, desmarque a caixa de seleção.
+1. Migrar os dados: clique com o botão direito do mouse no banco ou no objeto que você deseja migrar no **Gerenciador de metadados do Access** e escolha **migrar dados**. Como alternativa, você pode selecionar **Migrar Dados** na barra de navegação de linha superior. Para migrar dados para um banco de dado inteiro, marque a caixa de seleção ao lado do nome do banco de dados. Para migrar dados de tabelas individuais, expanda o banco de dados, expanda Tabelas e marque a caixa de seleção ao lado da tabela. Para omitir dados de tabelas individuais, desmarque a caixa de seleção:
 
     ![Migrar dados](./media/access-to-sql-database-guide/migrate-data.png)
 
-    Examine os dados migrados: 
+1. Após a conclusão da migração, exiba o **Relatório da Migração de Dados**:  
 
     ![Migrar análise de dados](./media/access-to-sql-database-guide/migrate-data-review.png)
 
-1. Conecte-se ao banco de dados SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração revisando os data e o esquema.
+1. Conecte-se ao banco de dados SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração revisando os data e o esquema:
 
    ![Validar no SSMA](./media/access-to-sql-database-guide/validate-data.png)
 
@@ -130,7 +139,7 @@ Para migrar dados usando o SSMA para Access, siga estas etapas:
 
 ## <a name="post-migration"></a>Pós-migração 
 
-Depois de concluir com êxito o estágio de **migração** , você precisa passar por uma série de tarefas de pós-implantação para garantir que tudo esteja funcionando da maneira mais tranqüila e eficiente possível.
+Depois de concluir com êxito o estágio de **migração**, você precisará passar por uma série de tarefas de pós-migração para garantir que tudo esteja funcionando da maneira mais estável e eficiente possível.
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos
 
@@ -138,29 +147,29 @@ Depois que os dados são migrados para o ambiente de destino, todos os aplicativ
 
 ### <a name="perform-tests"></a>Executar testes
 
-A abordagem de teste para a migração de banco de dados consiste em executar as seguintes atividades:
+A abordagem de teste para a migração de banco de dados consiste na execução das seguintes atividades:
 
-  1. **Desenvolver testes de validação**. Para testar a migração de banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
+  1. **Desenvolver testes de validação**. Para testar a migração do banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
 
-  2. **Configure o ambiente de teste**. O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
+  2. **Configurar ambiente de teste**. O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
 
-  3. **Executar testes de validação**. Execute os testes de validação em relação à origem e ao destino e, em seguida, analise os resultados.
+  3. **Executar testes de validação**. Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 
-  4. **Executar testes de desempenho**. Execute o teste de desempenho em relação à origem e ao destino e, em seguida, analise e compare os resultados.
+  4. **Executar testes de desempenho**. Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
 
 ### <a name="optimize"></a>Otimizar
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho.
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho.
 
-Para obter detalhes adicionais sobre esses problemas e etapas específicas para atenuá-los, consulte o [Guia de validação e otimização após a migração](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+Para obter detalhes adicionais sobre esses problemas e etapas específicas para atenuá-los, confira o [Guia de validação e otimização após a migração](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 ## <a name="migration-assets"></a>Ativos de migração 
 
-Para obter assistência adicional com a conclusão deste cenário de migração, consulte os recursos a seguir, que foram desenvolvidos para dar suporte a um compromisso de projeto de migração real.
+Para obter assistência adicional com a conclusão desse cenário de migração, confira os recursos a seguir, que foram desenvolvidos para dar suporte a um projeto de migração do mundo real.
 
 | **Título/link**                                                                                                                                          | **Descrição**                                                                                                                                                                                                                                                                                                                              |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Modelo e ferramenta de avaliação de carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Essa ferramenta fornece as melhores plataformas de destino "melhor ajuste", preparação para a nuvem e nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ele oferece um cálculo simples, com um clique e geração de relatórios que ajuda muito a acelerar as avaliações de grandes imóveis, fornecendo um processo de decisão de plataforma de destino automatizado e uniforme. |
+| [Modelo e Ferramenta de Avaliação de Carga de Trabalho de Dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Essa ferramenta dá sugestão das plataformas de destino de "melhor ajuste", da preparação para a nuvem e do nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ela oferece um cálculo simples, com um único clique, e oferece a geração de relatórios que ajudam muito a acelerar avaliações de grandes volumes fornecendo um processo de decisão de plataforma de destino uniforme e automatizado. |
 
 
 Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.

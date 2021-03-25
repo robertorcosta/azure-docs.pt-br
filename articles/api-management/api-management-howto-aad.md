@@ -11,14 +11,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/04/2019
+ms.date: 03/22/2021
 ms.author: apimpm
-ms.openlocfilehash: 2d3f382635e9a8b8a562f7a7f60f256d68b90b8f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 743a7e7d34457405aa4be42b196dc994506c6587
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "91363198"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035788"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autorizar contas de desenvolvedor usando o Active Directory do Azure no Gerenciamento de API do Azure
 
@@ -47,7 +47,15 @@ Este artigo mostra como habilitar o acesso ao portal do desenvolvedor para os us
     Os controles que permitem que você insira outras informações necessárias aparecem no painel. Os controles incluem **ID do cliente** e **Segredo do cliente**. (Você obterá informações sobre esses controles posteriormente neste artigo.)
 9. Anote o conteúdo da **URL de redirecionamento**.
     
-   ![Etapas para adicionar um provedor de identidade no portal do Azure](./media/api-management-howto-aad/api-management-with-aad001.png)  
+
+    :::image type="content" source="media/api-management-howto-aad/api-management-with-aad001.png" alt-text="Adicionar provedor de identidade no portal do Azure":::
+    > [!NOTE]
+    > Há duas URLs de redirecionamento:<br/>
+    > **Redirecionar** pontos de URL para o portal do desenvolvedor mais recente do gerenciamento de API.<br/>
+    > **Redirecionar URL (Portal preterido)** – aponta para o portal do desenvolvedor preterido do gerenciamento de API.
+    >
+    > É recomendável usar a última URL de redirecionamento do portal do desenvolvedor.
+   
 10. No navegador, abra uma guia diferente. 
 11. Navegue até o [portal do Azure-registros de aplicativo](https://go.microsoft.com/fwlink/?linkid=2083908) para registrar um aplicativo no Active Directory.
 12. Em **Gerenciar**, selecione **Registros de aplicativo**.

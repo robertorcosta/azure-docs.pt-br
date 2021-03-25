@@ -4,12 +4,12 @@ description: Saiba como personalizar o recurso de autenticação e autorização
 ms.topic: article
 ms.date: 07/08/2020
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 50587feff29e1c02a639d63d0c99156dcec4f68e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc2916cbccc21262467533b0b497b14f4f4b941c
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180863"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034870"
 ---
 # <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Uso avançado de autenticação e autorização no Serviço de Aplicativo do Azure
 
@@ -351,7 +351,7 @@ Há duas versões da API de gerenciamento para o recurso de autenticação/autor
            "allowedExternalRedirectUrls": null,
            "defaultProvider": "AzureActiveDirectory",
            "clientId": "3197c8ed-2470-480a-8fae-58c25558ac9b",
-           "clientSecret": null,
+           "clientSecret": "",
            "clientSecretSettingName": "MICROSOFT_IDENTITY_AUTHENTICATION_SECRET",
            "clientSecretCertificateThumbprint": null,
            "issuer": "https://sts.windows.net/0b2ef922-672a-4707-9643-9a5726eec524/",
