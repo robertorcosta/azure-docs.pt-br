@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server Instância Gerenciada SQL: guia de migração'
+title: 'SQL Server para o SQL Instância Gerenciada do Azure: guia de migração'
 description: Este guia ensina a migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 6dcbf4a570fb5cdb58c914ea5e4b1164ed6a76ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a1dcb72c30268dd82052e29232e79a485d86f72d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564483"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025298"
 ---
-# <a name="migration-guide-sql-server-to-sql-managed-instance"></a>Guia de migração: SQL Server para SQL Instância Gerenciada
+# <a name="migration-guide-sql-server-to-azure-sql-managed-instance"></a>Guia de migração: SQL Server para SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Este guia ajuda você a migrar sua instância do SQL Server para o SQL Instância Gerenciada do Azure. 
@@ -30,7 +30,7 @@ Você pode migrar SQL Server em execução no local ou em:
 - Mecanismo de computação (Google Cloud Platform-GCP)  
 - SQL de nuvem para SQL Server (Google Cloud Platform – GCP) 
 
-Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-managed-instance-overview.md). Para outros cenários, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/).
+Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-managed-instance-overview.md). Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-managed-instance-overview/migration-process-flow-small.png" alt-text="Fluxo do processo de migração":::
 
@@ -40,6 +40,8 @@ Para migrar seu SQL Server para o SQL Instância Gerenciada do Azure, certifique
 
 - Escolha um [método de migração](sql-server-to-managed-instance-overview.md#compare-migration-options) e as ferramentas correspondentes necessárias para o método escolhido
 - Instale o [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) em um computador que possa se conectar ao seu SQL Server de origem
+- Conectividade e as permissões adequadas para acessar a origem e o destino. 
+
 
 
 ## <a name="pre-migration"></a>Pré-migração
@@ -183,7 +185,7 @@ Depois de verificar se os dados são os mesmos na origem e no destino, você pod
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-atualização para garantir que tudo esteja funcionando de forma tranqüila e eficiente. 
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho. 
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho. 
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos 
 

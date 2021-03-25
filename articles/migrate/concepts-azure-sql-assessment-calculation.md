@@ -5,16 +5,16 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: conceptual
 ms.date: 02/07/2021
-ms.openlocfilehash: e4e726f742d46a4b63563f55c191cf21e49d06fc
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 2bb68c8c183e3de132bc7cf4504714a260ea2683
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104778314"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025111"
 ---
 # <a name="assessment-overview-migrate-to-azure-sql"></a>Visão geral da avaliação (migrar para o SQL do Azure)
 
-Este artigo fornece uma visão geral das avaliações para migrar instâncias de SQL Server locais de um ambiente VMware para bancos de dados SQL do Azure ou instâncias gerenciadas usando a [ferramenta migrações para Azure: descoberta e avaliação](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-server-assessment-tool).
+Este artigo fornece uma visão geral das avaliações para migrar instâncias de SQL Server locais de um ambiente VMware para bancos de dados SQL do Azure ou instâncias gerenciadas usando a [ferramenta migrações para Azure: descoberta e avaliação](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-discovery-and-assessment-tool).
 
 ## <a name="whats-an-assessment"></a>O que é uma avaliação?
 Uma avaliação com a ferramenta de descoberta e avaliação é um instantâneo pontual dos dados e mede a prontidão e estima o efeito da migração de servidores locais para o Azure.
@@ -113,7 +113,7 @@ Se você selecionar o tipo de implantação de destino como **recomendado** nas 
  Ready | Ready | Banco de BD SQL do Azure ou <br/>MI de SQL do Azure | Sim
  Ready | Não está pronto ou<br/> Unknown | BD SQL do Azure | Sim
  Não está pronto ou<br/>Unknown | Ready | MI de SQL do Azure | Sim
- Não está pronto. | Não está pronto. | Potencialmente preparado para a VM do Azure | Não
+ Não está pronto. | Não está pronto. | Potencialmente preparado para a VM do Azure | No
  Não está pronto ou<br/>Unknown | Não está pronto ou<br/>Unknown | Unknown | Não
 
 > [!NOTE]

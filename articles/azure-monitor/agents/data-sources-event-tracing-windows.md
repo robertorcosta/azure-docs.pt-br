@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: jamesfit
 author: jimmyfit
 ms.date: 01/29/2021
-ms.openlocfilehash: 096d16bb2c7249ec99f37fbee9d8ffc8f0e45db2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 73135d95a56dc03790b3b7368a276ebfc99275fd
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102050759"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025060"
 ---
 # <a name="collecting-event-tracing-for-windows-etw-events-for-analysis-azure-monitor-logs"></a>Coleta de eventos do ETW (rastreamento de eventos para Windows) para logs de Azure Monitor de análise
 
@@ -71,7 +71,7 @@ Depois que os eventos correspondentes são gerados, você deve começar a ver os
 
 ### <a name="step-4-configure-log-analytics-storage-account-collection"></a>Etapa 4: configurar a coleta de conta de armazenamento Log Analytics
 
-Siga [estas instruções](https://docs.microsoft.com/azure/azure-monitor/essentials/diagnostics-extension-logs#collect-logs-from-azure-storage) para coletar os logs do armazenamento do Azure. Uma vez configurados, os dados do evento ETW devem aparecer no Log Analytics na tabela **ETWEvent** .
+Siga [estas instruções](./diagnostics-extension-logs.md#collect-logs-from-azure-storage) para coletar os logs do armazenamento do Azure. Uma vez configurados, os dados do evento ETW devem aparecer no Log Analytics na tabela **ETWEvent** .
 
 ## <a name="next-steps"></a>Próximas etapas
 - Usar [campos personalizados](../logs/custom-fields.md) para criar a estrutura em seus eventos ETW

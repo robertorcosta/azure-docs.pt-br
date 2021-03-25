@@ -10,12 +10,12 @@ author: julieMSFT
 ms.author: jrasnick
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
-ms.openlocfilehash: aa32083d48c868435ce77114f3a036b8bec47201
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8a76a637c4862032b100308d8b02bced76af38fe
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608953"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023394"
 ---
 # <a name="migrating-a-data-warehouse-to-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Migrando um data warehouse para um pool SQL dedicado no Azure Synapse Analytics 
 As seções a seguir fornecem uma visão geral do que está envolvido na migração de uma solução de data warehouse existente para o pool SQL dedicado do Azure Synapse Analytics.
@@ -27,7 +27,7 @@ Considere o uso do Azure Synapse Analytics quando você:
 - Ter um ou mais terabytes de dados.
 - Planeje executar análises em quantidades substanciais de dados.
 - Precisa da capacidade de dimensionar a computação e o armazenamento.
-- Você quer economizar custos pausando recursos de computação quando não precisar deles.
+- Quiser economizar nos custos pausando os recursos de computação quando não precisar deles.
 
 Em vez da análise de Synapse do Azure, considere outras opções para cargas de trabalho operacionais (OLTP) que têm:
 - Leituras e gravações de alta frequência.
@@ -87,17 +87,16 @@ A execução de uma migração bem-sucedida exige que você migre os esquemas, o
 - O gato (equipe de consultoria para clientes) tem algumas diretrizes excelentes do Azure Synapse Analytics (anteriormente conhecido como SQL DW) publicadas como postagens no blog. Certifique-se de dar uma olhada em seu artigo, [migrando dados para o Azure SQL data warehouse na prática](https://docs.microsoft.com/archive/blogs/sqlcat/migrating-data-to-azure-sql-data-warehouse-in-practice), para obter diretrizes adicionais sobre a migração.
 
 ## <a name="migration-assets-from-real-world-engagements"></a>Ativos de migração de compromissos do mundo real
-Para obter assistência adicional com a conclusão deste cenário de migração, consulte os recursos a seguir, que foram desenvolvidos para dar suporte a um compromisso de projeto de migração real.
+Para obter assistência adicional com a conclusão desse cenário de migração, confira os recursos a seguir, que foram desenvolvidos para dar suporte a um projeto de migração do mundo real.
 
-| Título/link                              | Descrição                                                                                                                       |
+| Título/link                              | Description                                                                                                                       |
 | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| [Modelo e ferramenta de avaliação de carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Essa ferramenta fornece as melhores plataformas de destino "melhor ajuste", preparação para a nuvem e nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ele oferece um cálculo simples, com um clique e geração de relatórios que ajuda muito a acelerar as avaliações de grandes imóveis, fornecendo um processo de decisão de plataforma de destino automatizado e uniforme. |
+| [Modelo e Ferramenta de Avaliação de Carga de Trabalho de Dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Essa ferramenta dá sugestão das plataformas de destino de "melhor ajuste", da preparação para a nuvem e do nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ela oferece um cálculo simples, com um único clique, e oferece a geração de relatórios que ajudam muito a acelerar avaliações de grandes volumes fornecendo um processo de decisão de plataforma de destino uniforme e automatizado. |
 | [Tratamento de problemas de codificação de dados ao carregar dados no Azure Synapse Analytics](https://azure.microsoft.com/en-us/blog/handling-data-encoding-issues-while-loading-data-to-sql-data-warehouse/) | Este blog destina-se a fornecer informações sobre alguns dos problemas de codificação de dados que você pode encontrar ao usar o polybase para carregar dados para SQL Data Warehouse. Este artigo também fornece algumas opções que você pode usar para superar esses problemas e carregar os dados com êxito. |
 | [Obtendo tamanhos de tabela no pool SQL dedicado do Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Getting%20table%20sizes%20in%20SQL%20DW.pdf) | Uma das principais tarefas que um arquiteto deve executar é obter métricas sobre um novo ambiente após a migração: coletando tempos de carregamento do local para a nuvem, coletando tempos de carregamento do polybase, etc. Dessas tarefas, uma das mais importantes é determinar o tamanho do armazenamento em SQL Data Warehouse em comparação com a plataforma atual do cliente. |
 | [Utilitário para mover os logons SQL Server locais para o Azure Synapse Analytics](https://github.com/Microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/MoveLogins) | Um script do PowerShell que cria um script de comando T-SQL para recriar logons e Selecionar usuários de banco de dados de um SQL Server "local" para um serviço de PaaS do SQL do Azure. A ferramenta permite o mapeamento automático de contas do Windows AD para contas do Azure AD ou pode fazer pesquisas de UPN para cada logon no Windows Active Directory local. A ferramenta também move SQL Server logons nativos. As funções de servidor e banco de dados personalizadas são inseridas em script, bem como associação de função e permissões de usuário e função de banco de dados. Os bancos de dados independentes ainda não têm suporte e apenas um subconjunto de possíveis SQL Server permissões são incluídos no script; ou seja, as permissões Grant com Grant não têm suporte (árvores de permissão complexas). Mais detalhes estão disponíveis no documento de suporte e o script tem comentários para facilitar a compreensão. |
 
-> [!NOTE]
-> Esses recursos acima foram desenvolvidos como parte do programa de início de migração de dados (DM JumpStart), que é patrocinado pela equipe de engenharia do grupo de dados do Azure. A principal responsabilidade do DM JumpStart é desbloquear e acelerar as oportunidades complexas de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft. Se você acredita que sua organização estaria interessada em participar do programa DM JumpStart, entre em contato com sua equipe de conta e peça que eles enviem uma indicação.
+Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
 
 ## <a name="videos"></a>Vídeos
 - Observe como o [Walgreens migrou seu sistema de inventário de varejo](https://www.youtube.com/watch?v=86dhd8N1lH4) com cerca de 100 TB de dados de Netezza para a análise de Synapse do Azure (anteriormente conhecido como SQL DW) em tempo recorde. 

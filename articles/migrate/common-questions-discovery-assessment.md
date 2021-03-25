@@ -6,12 +6,12 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: f9fe4109d2b21f7c44ba340db53dc24311652441
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 0701ff53202d53131ceac8ceabb148fb5ff4f2b2
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104782343"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025145"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Descoberta, avaliação e análise de dependência-perguntas comuns
 
@@ -85,6 +85,9 @@ A classificação de confiança é calculada para avaliações de "baseadas em d
 - Para avaliações de VM do Azure e AVS, poucos servidores foram criados após o início da descoberta. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas poucos servidores foram criados no ambiente apenas uma semana atrás. Nesse caso, os dados de desempenho para os novos servidores não estarão disponíveis durante toda a duração e a classificação de confiança será baixa. [Saiba mais](./concepts-assessment-calculation.md#confidence-ratings-performance-based)
 
 - Para avaliações do SQL do Azure, poucas instâncias ou bancos de dados SQL foram criados após o início da descoberta. Por exemplo, se você estiver criando uma avaliação para o histórico de desempenho do último mês, mas poucas instâncias ou bancos de dados SQL foram criados no ambiente apenas uma semana atrás. Nesse caso, os dados de desempenho para os novos servidores não estarão disponíveis durante toda a duração e a classificação de confiança será baixa. [Saiba mais](./concepts-azure-sql-assessment-calculation.md#confidence-ratings)
+
+## <a name="i-want-to-try-out-the-new-azure-sql-assessment"></a>Quero experimentar a nova avaliação do Azure SQL
+A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Veja uma introdução [neste tutorial](tutorial-discover-vmware.md). Se você quiser experimentar esse recurso em um projeto existente, verifique se você concluiu os [pré-requisitos](how-to-discover-sql-existing-project.md) neste artigo.
 
 ## <a name="i-cant-see-some-servers-when-i-am-creating-an-azure-sql-assessment"></a>Não consigo ver alguns servidores ao criar uma avaliação do SQL do Azure
 
@@ -237,7 +240,7 @@ Suporte | Essa opção está atualmente em visualização e só está disponíve
 Agente | Não é necessário instalar agentes em computadores que você deseja verificar. | Agentes a serem instalados em cada computador local que você deseja analisar: o [MMA (Microsoft Monitoring Agent)](../azure-monitor/agents/agent-windows.md)e o [Dependency Agent](../azure-monitor/agents/agents-overview.md#dependency-agent). 
 Pré-requisitos | [Examine](concepts-dependency-visualization.md#agentless-analysis) os pré-requisitos e os requisitos de implantação. | [Examine](concepts-dependency-visualization.md#agent-based-analysis) os pré-requisitos e os requisitos de implantação.
 Log Analytics | Não necessário. | As Migrações para Azure usam a solução [Mapa do Serviço](../azure-monitor/vm/service-map.md) nos [logs do Azure Monitor](../azure-monitor/logs/log-query-overview.md) para visualização de dependência. [Saiba mais](concepts-dependency-visualization.md#agent-based-analysis).
-Como isso funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
+Como ele funciona | Captura dados de conexão TCP em computadores habilitados para visualização de dependência. Após a descoberta, ele coleta dados em intervalos de cinco minutos. | Mapa do Serviço agentes instalados em um computador coletam dados sobre processos TCP e conexões de entrada/saída para cada processo.
 Dados | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta. | Nome do servidor do computador de origem, processo, nome do aplicativo.<br/><br/> Nome do servidor do computador de destino, processo, nome do aplicativo e porta.<br/><br/> Número de conexões, latência e informações de transferência de dados são coletadas e disponibilizadas para consultas de Log Analytics. 
 Visualização | O mapa de dependências de um único servidor pode ser exibido durante uma duração de uma hora a 30 dias. | Mapa de dependências de um único servidor.<br/><br/> O mapa pode ser exibido somente em uma hora.<br/><br/> Mapa de dependências de um grupo de servidores.<br/><br/> Adicionar e remover servidores de um grupo da exibição de mapa.
 Exportação de dados | Os últimos 30 dias de dados podem ser baixados em um formato CSV. | Os dados podem ser consultados com Log Analytics.

@@ -4,12 +4,12 @@ ms.service: azure-migrate
 ms.topic: include
 ms.date: 02/22/2021
 ms.author: mathoma
-ms.openlocfilehash: 5ad1c0f4016793230329cc35b12969a8c21db22b
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 3638ab779482a57368476e32d66bd0b61b295fe5
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102488215"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104617"
 ---
 > [!NOTE]
-> Se você estiver avaliando todo o espaço de dados de SQL Server em escala no VMWare, use as [migrações para Azure](/azure/migrate/how-to-create-azure-sql-assessment) para obter recomendações de implantação do Azure SQL, dimensionamento de destino e estimativas mensais. 
+> Se você estiver avaliando todo o espaço de dados de SQL Server em escala no VMWare, use as [migrações para Azure](../articles/migrate/how-to-create-azure-sql-assessment.md) para obter recomendações de implantação do Azure SQL, dimensionamento de destino e estimativas mensais.
