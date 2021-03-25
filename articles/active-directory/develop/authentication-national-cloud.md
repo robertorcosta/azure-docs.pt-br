@@ -13,12 +13,12 @@ ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: marsma, negoe,celested
 ms.custom: aaddev,references_regions
-ms.openlocfilehash: 719d89fafe57e7f5132698404bcc0a41a9f9db37
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 41bb7287aaa045e191d61abb00f470018fda9cbe
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104780065"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031589"
 ---
 # <a name="national-clouds"></a>Nuvens nacionais
 
@@ -55,7 +55,7 @@ A tabela a seguir lista as URLs base para os pontos de extremidade do Azure Acti
 |----------------|-------------------------|
 | Azure AD for US Government | `https://login.microsoftonline.us` |
 | Azure AD Alemanha| `https://login.microsoftonline.de` |
-| Azure AD China operado pela 21Vianet | `https://login.partner.microsoftonline.cn/common` |
+| Azure AD China operado pela 21Vianet | `https://login.partner.microsoftonline.cn` |
 | Azure AD (serviço global)| `https://login.microsoftonline.com` |
 
 Você pode formar solicitações para os pontos de extremidade de token ou de autorização do Azure Active Directory se usar a URL base correta específica à região. Por exemplo, para o Azure Alemanha:
