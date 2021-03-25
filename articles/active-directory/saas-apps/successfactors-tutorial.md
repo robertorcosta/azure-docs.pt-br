@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/26/2020
 ms.author: jeedes
 ms.openlocfilehash: a903eb6000cdd5212ad358cae4952e27a4719070
-ms.sourcegitcommit: 78ecfbc831405e8d0f932c9aafcdf59589f81978
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98725254"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-successfactors"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o SuccessFactors
