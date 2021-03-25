@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 458c93fd3e13a958137c762a0979af918a70d930
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 3132ec8fb3cb123653887d92a2f33788f40564c0
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023021"
+ms.locfileid: "105033816"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Estenda o IoT Central do Azure com análises personalizadas usando Azure Databricks
 
@@ -37,7 +37,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Crie um aplicativo IoT Central no site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Plano de preços | Standard |
 | Modelo de aplicativo | Análise na loja – monitoramento de condição |
@@ -59,7 +59,7 @@ Use o [portal do Azure para criar um grupo de recursos](https://portal.azure.com
 
 Use o [portal do Azure para criar um namespace de hubs de eventos](https://portal.azure.com/#create/Microsoft.EventHub) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome    | Escolha o nome do namespace |
 | Tipo de preço | Basic |
@@ -72,7 +72,7 @@ Use o [portal do Azure para criar um namespace de hubs de eventos](https://porta
 
 Use o [portal do Azure para criar um serviço de Azure Databricks](https://portal.azure.com/#create/Microsoft.Databricks) com as seguintes configurações:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome do workspace    | Escolha o nome do seu espaço de trabalho |
 | Subscription | Sua assinatura |
@@ -109,7 +109,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
 1. Selecione **+ novo destino**.
 1. Use os valores na tabela a seguir para criar um destino:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ----- | ----- |
     | Nome do destino | Hub de eventos de telemetria |
     | Tipo de destino | Hubs de eventos do Azure |
@@ -117,7 +117,7 @@ No site do [Azure IOT central Application Manager](https://aka.ms/iotcentral) , 
 
     O **Hub de eventos** é mostrado como **centralexport**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Captura de tela mostrando destino de exportação de dados":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-1.png" alt-text="Captura de tela mostrando destino de exportação de dados.":::
 
 1. Selecione **Salvar**.
 
@@ -127,7 +127,7 @@ Para criar a definição de exportação:
 
 1. Use os valores na tabela a seguir para configurar a exportação:
 
-    | Configuração | Valor |
+    | Setting | Valor |
     | ------- | ----- |
     | Nome da exportação | Exportação do hub de eventos |
     | habilitado | Ativado |
@@ -136,7 +136,7 @@ Para criar a definição de exportação:
 
 1. Selecione **Salvar**.
 
-    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Captura de tela mostrando definição de exportação de dados":::
+    :::image type="content" source="media/howto-create-custom-analytics/data-export-2.png" alt-text="Captura de tela mostrando a definição de exportação de dados.":::
 
 Aguarde até que o status de exportação seja **íntegro** na página de **exportação de dados** antes de continuar.
 
@@ -150,13 +150,13 @@ Na página **Azure Databricks** , na lista de tarefas comuns, selecione **novo c
 
 Use as informações na tabela a seguir para criar o cluster:
 
-| Configuração | Valor |
+| Setting | Valor |
 | ------- | ----- |
 | Nome do cluster | centralanalysis |
 | Modo de cluster | Standard |
 | Versão do Databricks Runtime | 5,5 LTS (escala 2,11, Spark 2.4.5) |
 | Versão do Python | 3 |
-| Habilitar o dimensionamento automático | No |
+| Habilitar o dimensionamento automático | Não |
 | Terminar após minutos de inatividade | 30 |
 | Tipo de trabalho | Standard_DS3_v2 |
 | Trabalhos | 1 |

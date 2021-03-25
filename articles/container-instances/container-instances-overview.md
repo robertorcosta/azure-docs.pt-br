@@ -2,14 +2,14 @@
 title: Contêineres sem servidor no Azure
 description: O serviço das Instâncias de Contêiner do Azure oferece a maneira mais rápida e mais simples de executar contêineres isolados no Azure, sem a necessidade de gerenciar máquinas virtuais nem adotar um orquestrador de nível superior.
 ms.topic: overview
-ms.date: 08/10/2020
+ms.date: 03/22/2021
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 873f7cc51d1b369503a72501ae000000ff06f805
-ms.sourcegitcommit: 87a6587e1a0e242c2cfbbc51103e19ec47b49910
+ms.openlocfilehash: c445687db7a154b6fc86e962d2c2340ad6297431
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103573006"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799064"
 ---
 # <a name="what-is-azure-container-instances"></a>O que são as Instâncias de Contêiner do Azure?
 
