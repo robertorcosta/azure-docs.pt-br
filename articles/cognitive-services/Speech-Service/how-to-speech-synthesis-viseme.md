@@ -12,12 +12,12 @@ ms.date: 03/03/2021
 ms.author: yulili
 ms.custom: references_regions
 zone_pivot_groups: programming-languages-speech-services-nomore-variant
-ms.openlocfilehash: 7a196ff8c80a6f92e1205f5553a54913e281b52b
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: f74a242db2686eb4571ebbea80b88a75dda205d4
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025876"
+ms.locfileid: "105044060"
 ---
 # <a name="get-facial-pose-events"></a>Obter eventos de pose facial
 
@@ -31,7 +31,7 @@ Não há nenhuma correspondência de um para um entre visemes e fonemas.
 Geralmente, vários fonemas correspondem a um único viseme, pois vários fonemas têm a mesma aparência quando produzidos, como `s` e `z` .
 Consulte a [tabela de mapeamento entre visemes e fonemas](#map-phonemes-to-visemes).
 
-Usando o visemes, você pode criar um assistente de difusão de notícias mais natural e inteligente, jogos e caracteres de desenho mais interativos e vídeos mais intuitivos de ensino de linguagem. A audição deficiente também pode pegar o conteúdo de fala visual e "Lip-Read" que mostra visemes em uma face animada.
+Usando o visemes, você pode criar um assistente de difusão de notícias mais natural e inteligente, jogos e caracteres de desenho mais interativos e vídeos mais intuitivos de ensino de linguagem. As pessoas com deficiência auditiva também podem pegar um conteúdo de fala visual e "Lip-Read" que mostra visemes em uma face animada.
 
 ## <a name="get-viseme-events-with-the-speech-sdk"></a>Obter eventos do viseme com o SDK de fala
 

@@ -10,12 +10,13 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c42b79cb8b92b5f96f31eb58f091ff0ce79b84f5
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.custom: b2c-support
+ms.openlocfilehash: f2473955db5439911280360b169f469b8c93eb93
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101652123"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043590"
 ---
 # <a name="overview-of-user-accounts-in-azure-active-directory-b2c"></a>Visão geral das contas de usuários no Azure Active Directory B2C
 
@@ -36,7 +37,8 @@ Uma conta corporativa é criada da mesma maneira para todos os locatários com b
 
 Ao adicionar uma nova conta corporativa, será necessário considerar as seguintes configurações:
 
-- **Nome** e **Nome de usuário** - A propriedade **Nome** contém o nome e sobrenome do usuário. O **Nome de usuário** é o identificador que o usuário insere para entrar. O nome de usuário inclui o domínio completo. A parte do nome de domínio do nome de usuário deve ser o nome de domínio padrão inicial *seu-domínio.onmicrosoft.com* ou um nome de domínio personalizado [não federado verificado,](../active-directory/fundamentals/add-custom-domain.md) como *contoso.com*.
+- **Nome** e **Nome de usuário** - A propriedade **Nome** contém o nome e sobrenome do usuário. O **Nome de usuário** é o identificador que o usuário insere para entrar. O nome de usuário inclui o domínio completo. A parte do nome de domínio do nome de usuário deve ser o nome de domínio padrão inicial *seu-domínio.onmicrosoft.com* ou um nome de domínio personalizado [não federado verificado,](../active-directory/fundamentals/add-custom-domain.md) como *contoso.com*. 
+- **Email** – o novo usuário também pode entrar usando um endereço de email. Não há suporte para caracteres especiais ou caracteres multibyte em email, por exemplo, caracteres japoneses.
 - **Perfil** - A conta é configurada com um perfil de dados do usuário. É possível inserir um nome, sobrenome, cargo e nome do departamento. É possível editar o perfil depois que a conta é criada.
 - **Grupos** – Use grupos para executar tarefas de gerenciamento, como atribuir licenças ou permissões a muitos usuários ou dispositivos de uma vez. Você pode colocar a nova conta em um [grupo](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) existente no locatário.
 - **Função do diretório** - É necessário especificar o nível de acesso que a conta de usuário tem aos recursos no locatário. Os níveis de permissão a seguir estão disponíveis:
@@ -49,21 +51,21 @@ Ao adicionar uma nova conta corporativa, será necessário considerar as seguint
 
 É possível usar as seguintes informações para criar uma nova conta corporativa:
 
-- [Azure portal](../active-directory/fundamentals/add-users-azure-active-directory.md)
+- [Portal do Azure](../active-directory/fundamentals/add-users-azure-active-directory.md)
 - [Microsoft Graph](/graph/api/user-post-users)
 
 ### <a name="update-a-user-profile"></a>Atualizar um perfil do usuário
 
 É possível usar as seguintes informações para atualizar o perfil de um usuário:
 
-- [Azure portal](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
+- [Portal do Azure](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md)
 - [Microsoft Graph](/graph/api/user-update)
 
 ### <a name="reset-a-password-for-a-user"></a>Redefinir uma senha para um usuário
 
 É possível usar as seguintes informações para redefinir a senha de um usuário:
 
-- [Azure portal](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
+- [Portal do Azure](../active-directory/fundamentals/active-directory-users-reset-password-azure-portal.md)
 - [Microsoft Graph](/graph/api/user-update)
 
 ## <a name="guest-user"></a>Usuário Convidado

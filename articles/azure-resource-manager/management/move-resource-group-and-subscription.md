@@ -2,14 +2,14 @@
 title: Mover recursos para uma nova assinatura ou grupo de recursos
 description: Use o Azure Resource Manager para mover recursos para um novo grupo de recursos ou uma nova assinatura.
 ms.topic: conceptual
-ms.date: 09/15/2020
+ms.date: 03/23/2021
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1dd8877324b7eb0aac3ac12e3eeadb7c75b7795e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 31710354d39c5c74fcbd3ce1bfb2917d79dfd670
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104670198"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108631"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -18,6 +18,12 @@ Este artigo mostra como mover recursos do Azure para outra assinatura do Azure o
 O grupo de origem e o grupo de destino ficam bloqueados durante a operação de movimentação. As operações de gravação e exclusão são bloqueadas nos grupos de recursos até que a migração seja concluída. Esse bloqueio significa que você não pode adicionar, atualizar ou excluir recursos nos grupos de recursos. Não significa que os recursos estão congelados. Por exemplo, se você mover um servidor lógico do Azure SQL e seus bancos de dados para um novo grupo de recursos ou assinatura, os aplicativos que usam os bancos de dados não terão nenhum tempo de inatividade. Eles ainda podem ler e gravar nos bancos de dados. O bloqueio pode durar por um máximo de quatro horas, mas a maioria das mudanças é concluída em muito menos tempo.
 
 Mover um recurso só o move para um novo grupo de recursos ou assinatura. Não altera o local do recurso.
+
+## <a name="changed-resource-id"></a>ID do recurso alterado
+
+Ao mover um recurso, você altera sua ID de recurso. O formato padrão para uma ID de recurso é `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}` . Quando você move um recurso para um novo grupo de recursos ou assinatura, você altera um ou mais valores nesse caminho.
+
+Se você usar a ID do recurso em qualquer lugar, será necessário alterar esse valor. Por exemplo, se você tiver um [painel personalizado](../../azure-portal/quickstart-portal-dashboard-azure-cli.md) no portal que faça referência a uma ID de recurso, você precisará atualizar esse valor. Procure os scripts ou modelos que precisam ser atualizados para a nova ID de recurso.
 
 ## <a name="checklist-before-moving-resources"></a>Lista de verificação antes de mover recursos
 
@@ -36,7 +42,7 @@ Há algumas etapas importantes a serem executadas antes de mover um recurso. Ao 
    * [Diretrizes de movimentação de máquinas virtuais](./move-limitations/virtual-machines-move-limitations.md)
    * Para mover uma assinatura do Azure para um novo grupo de gerenciamento, consulte [mover assinaturas](../../governance/management-groups/manage.md#move-subscriptions).
 
-1. Se você mover um recurso que tenha uma função do Azure atribuída diretamente ao recurso (ou a um recurso filho), a atribuição de função não será movida e se tornará órfã. Após a movimentação, você deve recriar a atribuição de função. Eventualmente, a atribuição de função órfãa será removida automaticamente, mas é uma prática recomendada remover a atribuição de função antes de mover o recurso.
+1. Se você mover um recurso que tenha uma função do Azure atribuída diretamente ao recurso (ou a um recurso filho), a atribuição de função não será movida e se tornará órfã. Após a movimentação, você deve recriar a atribuição de função. Eventualmente, a atribuição de função órfão é removida automaticamente, mas é recomendável remover a atribuição de função antes da movimentação.
 
     Para obter informações sobre como gerenciar atribuições de função, consulte [listar atribuições de função do Azure](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) e [atribuir funções do Azure](../../role-based-access-control/role-assignments-portal.md).
 

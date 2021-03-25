@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 11/09/2020
-ms.openlocfilehash: afb396bc364a2fa2db923fbcbe6bfe1b7aedbc26
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2fad19bd84418d41aca1b2e0770eaa3cde488b0
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103467537"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043352"
 ---
 # <a name="recommended-settings-for-network-isolation"></a>Configurações recomendadas para isolamento de rede
 
@@ -60,7 +60,7 @@ Pesquisa Cognitiva instância pode ser isolada por meio de um ponto de extremida
 
 Se o serviço de aplicativo QnA Maker for restrito usando um Ambiente do Serviço de Aplicativo, use a mesma VNet para criar uma conexão de ponto de extremidade privada para a instância de Pesquisa Cognitiva. Crie uma nova entrada DNS na VNet para mapear o ponto de extremidade Pesquisa Cognitiva para o endereço IP do ponto de extremidade particular Pesquisa Cognitiva. 
 
-Se um Ambiente do Serviço de Aplicativo não for usado para o serviço de aplicativo QnAMaker, crie primeiro um novo recurso de VNet e, em seguida, crie a conexão de ponto de extremidade privada para a instância de Pesquisa Cognitiva. Nesse caso, o serviço de aplicativo QnA Maker precisa [ser integrado à VNet](https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet) para se conectar à instância de pesquisa cognitiva. 
+Se um Ambiente do Serviço de Aplicativo não for usado para o serviço de aplicativo QnAMaker, crie primeiro um novo recurso de VNet e, em seguida, crie a conexão de ponto de extremidade privada para a instância de Pesquisa Cognitiva. Nesse caso, o serviço de aplicativo QnA Maker precisa [ser integrado à VNet](../../../app-service/web-sites-integrate-with-vnet.md) para se conectar à instância de pesquisa cognitiva. 
 
 #  <a name="qna-maker-managed-preview-release"></a>[QnA Maker gerenciado (versão prévia)](#tab/v2)
 

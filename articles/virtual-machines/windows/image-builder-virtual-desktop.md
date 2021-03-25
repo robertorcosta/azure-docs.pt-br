@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-windows
 ms.collection: windows
 ms.subservice: imaging
-ms.openlocfilehash: 01b253747791fc29abf4434bebfd85865099f9ee
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 69718b219d239ac13e5d932b05a7dd29619adaa3
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602011"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105045579"
 ---
 # <a name="create-a-windows-virtual-desktop-image-using-azure-vm-image-builder-and-powershell"></a>Criar uma imagem de área de trabalho virtual do Windows usando o Azure VM Builder e o PowerShell
 
@@ -22,11 +22,11 @@ Este artigo mostra como criar uma imagem de área de trabalho virtual do Windows
 
 * Instalando o [FsLogix](https://github.com/DeanCefola/Azure-WVD/blob/master/PowerShell/FSLogixSetup.ps1).
 * Executando um [script de otimização de área de trabalho virtual do Windows](https://github.com/The-Virtual-Desktop-Team/Virtual-Desktop-Optimization-Tool) do repositório da Comunidade.
-* Instale [o Microsoft Teams](https://docs.microsoft.com/azure/virtual-desktop/teams-on-wvd).
-* [Reiniciar](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-restart-customizer)
-* Executar [Windows Update](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-json?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json&bc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fbreadcrumb%2Ftoc.json#windows-update-customizer)
+* Instale [o Microsoft Teams](../../virtual-desktop/teams-on-wvd.md).
+* [Reiniciar](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-restart-customizer)
+* Executar [Windows Update](../linux/image-builder-json.md?bc=%2fazure%2fvirtual-machines%2fwindows%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#windows-update-customizer)
 
-Mostraremos como automatizar isso usando o construtor de imagem de VM do Azure e distribuir a imagem para uma [Galeria de imagens compartilhada](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries), na qual é possível replicar para outras regiões, controlar a escala e compartilhar a imagem dentro e fora de suas organizações.
+Mostraremos como automatizar isso usando o construtor de imagem de VM do Azure e distribuir a imagem para uma [Galeria de imagens compartilhada](../shared-image-galleries.md), na qual é possível replicar para outras regiões, controlar a escala e compartilhar a imagem dentro e fora de suas organizações.
 
 
 Para simplificar a implantação de uma configuração do Image Builder, este exemplo usa um modelo de Azure Resource Manager com o modelo do Image Builder aninhado dentro do. Isso lhe dá alguns outros benefícios, como variáveis e entradas de parâmetro. Você também pode passar parâmetros da linha de comando.
@@ -73,7 +73,7 @@ Este artigo destina-se a ser um exercício de copiar e colar.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Você deve ter os CmdLets mais recentes do Azure PowerShell instalados, consulte [aqui](https://docs.microsoft.com/powershell/azure/overview) para obter detalhes da instalação.
+Você deve ter os CmdLets mais recentes do Azure PowerShell instalados, consulte [aqui](/powershell/azure/overview) para obter detalhes da instalação.
 
 ```PowerShell
 # Register for Azure Image Builder Feature
@@ -279,7 +279,7 @@ $getStatus.LastRunStatusMessage
 $getStatus.LastRunStatusRunSubState
 ```
 ## <a name="create-a-vm"></a>Criar uma máquina virtual
-Agora que a compilação foi concluída, você pode criar uma VM a partir da imagem, usar os exemplos [aqui](https://docs.microsoft.com/powershell/module/az.compute/new-azvm#examples).
+Agora que a compilação foi concluída, você pode criar uma VM a partir da imagem, usar os exemplos [aqui](/powershell/module/az.compute/new-azvm#examples).
 
 ## <a name="clean-up"></a>Limpeza
 
