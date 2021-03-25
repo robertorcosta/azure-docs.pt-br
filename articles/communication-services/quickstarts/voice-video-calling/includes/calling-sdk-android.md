@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: 8d4e573cefd595669d9cb2cf9a7b83595eea7971
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 40d9f03526e5232c0a7b33f64ff35a8501702609
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103622263"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107699"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,9 +23,8 @@ ms.locfileid: "103622263"
 ### <a name="install-the-package"></a>Instalar o pacote
 
 > [!NOTE]
-> Este documento usa a versão 1.0.0-beta.8 da biblioteca de clientes de chamada.
+> Este documento usa a versão 1.0.0-beta. 8 do SDK de chamada.
 
-<!-- TODO: update with instructions on how to download, install and add package to project -->
 Localize o nível de projeto build.gradle e certifique-se de adicionar `mavenCentral()` à lista de repositórios em `buildscript` e `allprojects`
 ```groovy
 buildscript {
@@ -59,11 +58,11 @@ dependencies {
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e as interfaces administram alguns dos principais recursos da biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure:
+As classes e interfaces a seguir tratam de alguns dos principais recursos dos serviços de comunicação do Azure que chamam o SDK:
 
-| Name                                  | Descrição                                                  |
+| Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient| O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
+| CallClient| O CallClient é o ponto de entrada principal para o SDK de chamada.|
 | CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
 | CommunicationTokenCredential | O CommunicationTokenCredential é usado como a credencial de token para criar uma instância do CallAgent.|
 | CommunicationIdentifier | O CommunicationIdentifier é usado como um tipo diferente de participante que poderia fazer parte de uma chamada.|
@@ -224,10 +223,10 @@ Um conjunto de permissões é necessário para que o aplicativo Android possa re
 
 Para se registrar para obter notificações por push, o aplicativo precisa chamar `registerPushNotification()` em uma instância *CallAgent* com um token de registro de dispositivo.
 
-Para obter o token de registro do dispositivo, adicione a biblioteca de clientes do Firebase ao arquivo *build.gradle* do seu módulo de aplicativo adicionando as seguintes linhas na seção `dependencies`, caso elas ainda não tenham sido adicionadas:
+Para obter o token de registro do dispositivo, adicione o SDK do firebase ao arquivo *Build. gradle* do seu módulo de aplicativo adicionando as seguintes linhas na `dependencies` seção se ele ainda não estiver lá:
 
 ```
-    // Add the client library for Firebase Cloud Messaging
+    // Add the SDK for Firebase Cloud Messaging
     implementation 'com.google.firebase:firebase-core:16.0.8'
     implementation 'com.google.firebase:firebase-messaging:20.2.4'
 ```
@@ -244,7 +243,7 @@ Adicione o seguinte plug-in ao início do arquivo, caso ele ainda não tenha sid
 apply plugin: 'com.google.gms.google-services'
 ```
 
-Selecione *Sincronizar Agora* na barra de ferramentas. Adicione o snippet de código a seguir para obter o token de registro do dispositivo gerado pela biblioteca de clientes do Firebase Cloud Messaging para a instância do aplicativo cliente. Verifique se as importações abaixo foram adicionadas ao cabeçalho da atividade principal da instância. Elas são necessárias para que o snippet recupere o token:
+Selecione *Sincronizar Agora* na barra de ferramentas. Adicione o seguinte trecho de código para obter o token de registro de dispositivo gerado pelo firebase Cloud Messaging SDK para a instância do aplicativo cliente, certifique-se de adicionar as importações abaixo ao cabeçalho da atividade principal para a instância. Elas são necessárias para que o snippet recupere o token:
 
 ```
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -272,7 +271,7 @@ Adicione esse snippet para recuperar o token:
                     }
                 });
 ```
-Registre o token de registro de dispositivo com a biblioteca de clientes dos Serviços de Chamada para obter notificações por push da chamada de entrada:
+Registre o token de registro de dispositivo com o SDK de serviços de chamada para notificações por push de chamada de entrada:
 
 ```java
 String deviceRegistrationToken = "<Device Token from previous section>";
@@ -288,7 +287,7 @@ catch(Exception e) {
 
 Para receber notificações por push de chamadas de entrada, chame *handlePushNotification()* em uma instância *CallAgent* com um conteúdo.
 
-Para obter o conteúdo do Firebase Cloud Messaging, comece criando um serviço (Arquivo > Novo > Serviço > Serviço) que estende a classe da biblioteca de clientes do Firebase *FirebaseMessagingService* e substitui o método `onMessageReceived`. Esse método é o manipulador de eventos chamado quando o Firebase Cloud Messaging entrega a notificação por push ao aplicativo.
+Para obter a carga do firebase Cloud Messaging, comece criando um novo serviço (arquivo > novo serviço de > serviço de >) que estende a classe *FirebaseMessagingService* firebase SDK e substituir o `onMessageReceived` método. Esse método é o manipulador de eventos chamado quando o Firebase Cloud Messaging entrega a notificação por push ao aplicativo.
 
 ```java
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -318,7 +317,7 @@ Adicione a seguinte definição de serviço ao arquivo `AndroidManifest.xml`, de
         </service>
 ```
 
-- Depois que o conteúdo for recuperado, ele poderá ser passado para a biblioteca de clientes dos *Serviços de Comunicação* para ser analisada em um objeto *IncomingCallInformation* interno que será administrado chamando o método *handlePushNotification* em uma instância *CallAgent*. Uma instância `CallAgent` é criada chamando o método `createCallAgent(...)` na classe `CallClient`.
+- Depois que a carga é recuperada, ela pode ser passada para o SDK *dos serviços de comunicação* a ser analisado em um objeto *IncomingCallInformation* interno que será tratado chamando o método *handlePushNotification* em uma instância *CallAgent* . Uma instância `CallAgent` é criada chamando o método `createCallAgent(...)` na classe `CallClient`.
 
 ```java
 try {

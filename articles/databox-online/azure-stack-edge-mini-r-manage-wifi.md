@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/28/2020
+ms.date: 03/24/2021
 ms.author: alkohli
-ms.openlocfilehash: f00be43d023d912d4b0b6e825dfe9d3e0ca2d250
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a2cc0707c344c3ca537795666a3f60f648026596
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96466149"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043760"
 ---
 # <a name="use-the-local-web-ui-to-manage-wireless-connectivity-on-your-azure-stack-edge-mini-r"></a>Use a interface do usuário da Web local para gerenciar a conectividade sem fio em seu Azure Stack Edge mini R
 
@@ -56,6 +56,8 @@ Execute as etapas a seguir na interface do usuário local do seu dispositivo par
     
     Um perfil de rede sem fio contém o SSID (nome da rede), a chave de senha e as informações de segurança para se conectar a uma rede sem fio. Você pode obter o perfil de Wi-Fi do seu ambiente com seu administrador de rede.
 
+    Para obter informações sobre como preparar seus perfis de Wi-Fi, consulte [usar perfis de Wi-Fi com dispositivos de borda de Azure Stack mini](azure-stack-edge-mini-r-use-wifi-profiles.md).
+
     !["Configurações de rede Wi-Fi da porta" na IU da Web local 2](./media/azure-stack-edge-mini-r-deploy-configure-network-compute-web-proxy/add-wifi-profile-2.png)
 
     Após o perfil ser adicionado, a lista de perfis Wi-Fi é atualizada de maneira a refletir o novo perfil. O perfil deve mostrar o **Status da conexão** **Desconectado**. 
@@ -96,7 +98,7 @@ Você pode excluir um perfil de Wi-Fi que você está usando para a conectividad
 
 2. Em Wi-Fi configurações de perfil, selecione **excluir Wi-Fi perfil**.
 
-3. Na folha **excluir perfil de Wi-Fi** , escolha o perfil que você deseja excluir. Escolha **Aplicar**.
+3. Na folha **excluir perfil de Wi-Fi** , escolha o perfil que você deseja excluir. Selecione **Aplicar**.
 
 
 ## <a name="configure-cisco-wi-fi-profile"></a>Configurar o perfil do Cisco Wi-Fi

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 02/10/2021
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: cf441108c9fd0ae87f265604f6f0706d92516746
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b725b7fcde8ad24934d74d3ce849260312d2f5f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101646547"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043607"
 ---
 # <a name="tutorial-configure-microsoft-dynamics-365-fraud-protection-with-azure-active-directory-b2c"></a>Tutorial: configurar a proteção contra fraudes do Microsoft Dynamics 365 com o Azure Active Directory B2C
 
@@ -98,12 +98,12 @@ Consulte a [documentação do serviço de aplicativo](../app-service/app-service
 
 Defina as configurações do aplicativo no [serviço de aplicativo no Azure](../app-service/configure-common.md#configure-app-settings). Isso permite que as configurações sejam configuradas com segurança sem verificá-las em um repositório. A API REST precisa das seguintes configurações fornecidas:
 
-| Configurações do aplicativo | Fonte | Observações |
+| Configurações do aplicativo | Fonte | Anotações |
 | :-------- | :------------| :-----------|
 |FraudProtectionSettings: InstanceId | Configuração do Microsoft DFP |     |
 |FraudProtectionSettings:DeviceFingerprintingCustomerId | Sua ID do cliente de impressão digital do dispositivo Microsoft |     |
-| FraudProtectionSettings:ApiBaseUrl |  Sua URL base do portal DFP da Microsoft   | Remova "-int" para chamar a API de produção
-|  TokenProviderConfig: recurso | https://api.dfp.dynamics-int.com |   Remova "-int" para chamar a API de produção  |
+| FraudProtectionSettings:ApiBaseUrl |  Sua URL base do portal DFP da Microsoft   | Remova "-int" para chamar a API de produção|
+|  TokenProviderConfig: recurso  |     | Remova "-int" para chamar a API de produção|
 |   TokenProviderConfig: ClientId       |Sua ID do aplicativo cliente do Azure AD de comerciante de proteção contra fraude      |       |
 | TokenProviderConfig: autoridade | https://login.microsoftonline.com/<directory_ID> | Sua autoridade de locatário do Azure AD de comerciante de proteção contra fraudes |
 | TokenProviderConfig: CertificateThumbprint * | A impressão digital do certificado a ser usada para autenticar em seu aplicativo cliente do Azure AD de comerciante |
@@ -117,7 +117,7 @@ Defina as configurações do aplicativo no [serviço de aplicativo no Azure](../
 
 Nas [políticas personalizadas](https://github.com/azure-ad-b2c/partner-integrations/tree/master/samples/Dynamics-Fraud-Protection/Policies)fornecidas, localize os espaços reservados a seguir e substitua-os pelos valores correspondentes da sua instância.
 
-| Espaço reservado | Substitua por | Observações |
+| Espaço reservado | Substitua por | Anotações |
 | :-------- | :------------| :-----------|
 |{your_tenant_name} | Seu nome curto do locatário |  "seulocatario" de yourtenant.onmicrosoft.com   |
 |{your_tenantId} | ID do locatário do seu locatário de Azure AD B2C |  01234567-89ab-cdef-0123-456789ABCDEF   |

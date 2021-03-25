@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/03/2021
 ms.author: bagol
-ms.openlocfilehash: 26124f8f650e1006244b4871e26962d417d90fd4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: fc1246d079760fd86513840aebbffa34d192f8ed
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102054464"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044168"
 ---
 # <a name="manage-access-to-azure-sentinel-data-by-resource"></a>Gerenciar o acesso ao Azure sentinela de dados por recurso
 
@@ -36,7 +36,7 @@ Quando os usuários têm acesso ao Azure sentinela de dados por meio dos recurso
 
 - **Via Azure monitor**. Use esse método quando desejar criar consultas que abranjam vários recursos e/ou grupos de recursos. Ao navegar para logs e pastas de trabalho no Azure Monitor, defina o escopo para um ou mais grupos de recursos ou recursos específicos.
 
-Habilite o RBAC de contexto de recurso no Azure Monitor. Para obter mais informações, consulte [gerenciar o acesso a dados de log e espaços de trabalho no Azure monitor](/azure/azure-monitor/logs/manage-access).
+Habilite o RBAC de contexto de recurso no Azure Monitor. Para obter mais informações, consulte [gerenciar o acesso a dados de log e espaços de trabalho no Azure monitor](../azure-monitor/logs/manage-access.md).
 
 > [!NOTE]
 > Se seus dados não forem um recurso do Azure, como dados de syslog, CEF ou AAD, ou dados coletados por um coletor personalizado, você precisará configurar manualmente a ID de recurso usada para identificar os dados e habilitar o acesso.
@@ -66,7 +66,7 @@ A lista a seguir descreve os cenários em que outras soluções de acesso a dado
 |---------|---------|
 |**Uma subsidiária tem uma equipe SoC que requer uma experiência completa do Azure Sentinel**.     |  Nesse caso, use uma arquitetura de vários espaços de trabalho para separar as permissões de dados. <br><br>Para obter mais informações, consulte: <br>- [Estenda o Azure Sentinel entre espaços de trabalho e locatários](extend-sentinel-across-workspaces-tenants.md)<br>    - [Trabalhe com incidentes em muitos espaços de trabalho ao mesmo tempo](multiple-workspace-view.md)          |
 |**Você deseja fornecer acesso a um tipo específico de evento**.     |  Por exemplo, forneça um administrador do Windows com acesso aos eventos de segurança do Windows em todos os sistemas. <br><br>Nesses casos, use o [RBAC em nível de tabela](https://techcommunity.microsoft.com/t5/azure-sentinel/table-level-rbac-in-azure-sentinel/ba-p/965043) para definir permissões para cada tabela.       |
-| **Limitar o acesso a um nível mais granular, não baseado no recurso ou apenas a um subconjunto dos campos em um evento**   |   Por exemplo, talvez você queira limitar o acesso aos logs do Office 365 com base na subsidiária de um usuário. <br><br>Nesse caso, forneça acesso a dados usando a integração interna com [Power bi dashboards e relatórios](/azure/azure-monitor/platform/powerbi).      |
+| **Limitar o acesso a um nível mais granular, não baseado no recurso ou apenas a um subconjunto dos campos em um evento**   |   Por exemplo, talvez você queira limitar o acesso aos logs do Office 365 com base na subsidiária de um usuário. <br><br>Nesse caso, forneça acesso a dados usando a integração interna com [Power bi dashboards e relatórios](../azure-monitor/visualize/powerbi.md).      |
 | | |
 
 ## <a name="explicitly-configure-resource-context-rbac"></a>Configurar explicitamente o RBAC de contexto de recurso
@@ -77,11 +77,11 @@ Por exemplo, os dados em seu espaço de trabalho do Azure Sentinel que não são
 
 **Para configurar explicitamente o RBAC de contexto de recurso**:
 
-1. Certifique-se de que você [habilitou o RBAC de contexto de recurso](/azure/azure-monitor/platform/manage-access) em Azure monitor. 
+1. Certifique-se de que você [habilitou o RBAC de contexto de recurso](../azure-monitor/logs/manage-access.md) em Azure monitor. 
 
-1. [Crie um grupo de recursos](/azure/azure-resource-manager/management/manage-resource-groups-portal) para cada equipe de usuários que precisa acessar seus recursos sem todo o ambiente do Azure Sentinel.
+1. [Crie um grupo de recursos](../azure-resource-manager/management/manage-resource-groups-portal.md) para cada equipe de usuários que precisa acessar seus recursos sem todo o ambiente do Azure Sentinel.
 
-    Atribua [permissões de leitor de log](/azure/azure-monitor/platform/manage-access#resource-permissions) para cada membro da equipe.
+    Atribua [permissões de leitor de log](../azure-monitor/logs/manage-access.md#resource-permissions) para cada membro da equipe.
 
 1. Atribua recursos aos grupos da equipe de recursos que você criou e marque os eventos com as IDs de recurso relevantes.
 
@@ -110,7 +110,7 @@ Se você tiver várias equipes, certifique-se de que você tenha VMs de encaminh
 Por exemplo, separar suas VMs garante que os eventos de syslog que pertencem à equipe A sejam coletados usando a VM do coletor A.
 
 > [!TIP]
-> - Ao usar uma VM local ou outra VM de nuvem, como AWS, como encaminhador de log, verifique se ela tem uma ID de recurso implementando o [arco do Azure](/azure/azure-arc/servers/overview).
+> - Ao usar uma VM local ou outra VM de nuvem, como AWS, como encaminhador de log, verifique se ela tem uma ID de recurso implementando o [arco do Azure](../azure-arc/servers/overview.md).
 > - Para dimensionar o ambiente de VM de encaminhamento de log, considere criar um [conjunto de dimensionamento de VM](https://techcommunity.microsoft.com/t5/azure-sentinel/scaling-up-syslog-cef-collection/ba-p/1185854) para coletar os logs de CEF e Sylog.
 
 
@@ -145,7 +145,7 @@ Por exemplo, o código a seguir mostra um exemplo de arquivo de configuração L
 >
 ### <a name="resource-ids-with-the-log-analytics-api-collection"></a>IDs de recurso com a coleção de API Log Analytics
 
-Ao coletar usando a [API do coletor de dados log Analytics](/azure/azure-monitor/platform/data-collector-api), você pode atribuir a eventos com uma ID de recurso usando o cabeçalho de solicitação HTTP [*x-MS-AzureResourceId*](/azure/azure-monitor/platform/data-collector-api#request-headers) .
+Ao coletar usando a [API do coletor de dados log Analytics](../azure-monitor/logs/data-collector-api.md), você pode atribuir a eventos com uma ID de recurso usando o cabeçalho de solicitação HTTP [*x-MS-AzureResourceId*](../azure-monitor/logs/data-collector-api.md#request-headers) .
 
 Se você estiver usando o RBAC de contexto de recurso e quiser que os eventos coletados pela API estejam disponíveis para usuários específicos, use a ID de recurso do grupo de recursos que você [criou para os usuários](#explicitly-configure-resource-context-rbac).
 
