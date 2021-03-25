@@ -4,25 +4,20 @@ description: Fornece um resumo das configurações de suporte e limitações do 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 922bd532275cdd6b09df83b0e9d36fdec1da0b47
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707210"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107271"
 ---
-# <a name="azure-disk-backup-support-matrix-in-preview"></a>Matriz de suporte do backup em disco do Azure (em versão prévia)
-
->[!IMPORTANT]
->O backup em disco do Azure está em versão prévia sem um contrato de nível de serviço e não é recomendado para cargas de trabalho de produção. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
->
->[Preencha este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR1vE8L51DIpDmziRt_893LVUNFlEWFJBN09PTDhEMjVHS05UWFkxUlUzUS4u) para se inscrever na versão prévia.
+# <a name="azure-disk-backup-support-matrix"></a>Matriz de suporte de Backup de Disco do Azure
 
 Você pode usar o [backup do Azure](./backup-overview.md) para proteger os discos do Azure. Este artigo resume a disponibilidade da região, os cenários com suporte e as limitações.
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-O backup em disco do Azure está disponível em versão prévia nas seguintes regiões: oeste dos EUA, Oeste EUA Central, leste dos EUA 2, Canadá central, Oeste do Reino Unido, Norte da Suíça, Oeste da Suíça, Austrália Central, Austrália Central 2, Coreia central, sul da Coreia, oeste do Japão, Ásia Oriental, Norte dos EAU, sul do Brasil, Índia central. 
+O backup em disco do Azure está disponível nas seguintes regiões: oeste dos EUA, oeste dos EUA 2, Oeste EUA Central, leste dos EUA, leste dos EUA 2, EUA Central, Sul EUA Central, norte EUA Central, Canadá central, sul do Brasil, norte da África do Sul, Sul do Reino Unido, Oeste do Reino Unido, Europa Ocidental, Europa Setentrional, Norte da Suíça, Oeste da Suíça, Centro-oeste da Alemanha, França central, Noruega Oriental, Norte dos EAU, Austrália Central, Austrália Central , Leste da Austrália, Coreia central, sul da Coreia, leste do Japão, oeste do Japão, Ásia Oriental, Sudeste Asiático, Índia central. 
 
 Mais regiões serão anunciadas quando forem disponibilizadas.
 

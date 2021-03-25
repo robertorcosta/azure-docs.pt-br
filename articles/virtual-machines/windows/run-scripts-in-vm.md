@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/02/2018
 ms.topic: how-to
 manager: carmonm
-ms.openlocfilehash: ab7d20a83c4cb8cb7a36c4603a5b0b2e69b0662f
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 24ff0d8089055f83c76156cf5fb163313faf9492
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102560660"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043471"
 ---
 # <a name="run-scripts-in-your-windows-vm"></a>Executar scripts na sua VM Windows
 
@@ -58,7 +58,7 @@ O [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md) 
 
 ## <a name="serial-console"></a>Console serial
 
-O [Console serial](../troubleshooting/serial-console-windows.md) fornece acesso direto a uma VM, semelhante a ter um teclado conectado à VM.
+O [Console serial](/troubleshoot/azure/virtual-machines/serial-console-windows) fornece acesso direto a uma VM, semelhante a ter um teclado conectado à VM.
 
 * Execute comandos em máquinas virtuais do Azure.
 * Pode ser executado usando um console baseado em texto para o computador no portal do Azure.
@@ -72,4 +72,4 @@ Saiba mais sobre os diferentes recursos disponíveis para executar scripts e com
 * [Extensão de script personalizado](../extensions/custom-script-windows.md)
 * [Executar Comando](run-command.md)
 * [Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)
-* [Console serial](../troubleshooting/serial-console-windows.md)
+* [Console serial](/troubleshoot/azure/virtual-machines/serial-console-windows)

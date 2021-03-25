@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/03/2021
 ms.author: yelevin
-ms.openlocfilehash: 30cd0181ff2c5fbb8918921be3515818128a98d0
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 270e7f748f0d7fda14d93ac753ba655117f7ad36
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102048226"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044134"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Recursos úteis para trabalhar com o Azure Sentinel
 
@@ -39,7 +39,7 @@ O Azure Sentinel usa Azure Monitor KQL (linguagem de consulta Kusto) do Log Anal
 
 Crie automação no Azure Sentinel usando aplicativos lógicos do Azure, com uma galeria crescente de guias estratégicos internos. 
 
-Para obter mais informações, consulte [conectores de aplicativos lógicos do Azure](https://docs.microsoft.com/connectors/).
+Para obter mais informações, consulte [conectores de aplicativos lógicos do Azure](/connectors/).
 
 ## <a name="comment-on-our-blogs-and-forums"></a>Comentário sobre nossos Blogs e fóruns
 
@@ -67,4 +67,3 @@ Baixe o conteúdo de exemplo do repositório GitHub da Comunidade particular par
 
 > [!div class="nextstepaction"]
 > [Ler histórias de casos de uso do cliente](https://customers.microsoft.com/en-us/search?sq=%22Azure%20Sentinel%20%22&ff=&p=0&so=story_publish_date%20desc)
-

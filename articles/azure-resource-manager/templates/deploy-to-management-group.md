@@ -3,12 +3,12 @@ title: Implantar recursos no grupo de gerenciamento
 description: Descreve como implantar recursos no escopo do grupo de gerenciamento em um modelo de Azure Resource Manager.
 ms.topic: conceptual
 ms.date: 03/18/2021
-ms.openlocfilehash: 603b7e32e6f4e1181a8ef2df67382b5e21ed6715
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dc7418d9e93fb50590c5e2502b3a3ffb3847273f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889800"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105043301"
 ---
 # <a name="management-group-deployments-with-arm-templates"></a>Implantações de grupo de gerenciamento com modelos ARM
 
@@ -25,7 +25,7 @@ Para plantas do Azure, use:
 * [blueprintAssignments](/azure/templates/microsoft.blueprint/blueprintassignments)
 * [versões](/azure/templates/microsoft.blueprint/blueprints/versions)
 
-Para políticas do Azure, use:
+Para Azure Policy, use:
 
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
 * [policyDefinitions](/azure/templates/microsoft.authorization/policydefinitions)
