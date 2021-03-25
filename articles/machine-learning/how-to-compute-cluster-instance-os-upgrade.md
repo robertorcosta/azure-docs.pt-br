@@ -11,18 +11,18 @@ ms.subservice: core
 ms.date: 03/03/2021
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 5f853c19015a70d596c32532a9c280c785b4597b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 710a860b1ed87f176b6f42b4963dad17acb323b1
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608951"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954047"
 ---
 # <a name="upgrade-compute-instance-and-compute-cluster-host-os"></a>Atualizar instância de computação e sistema operacional de host de cluster de computação
 
 Azure Machine Learning __cluster de computação__ e __instância de computação__ são infraestrutura de computação gerenciada. Como um serviço gerenciado, a Microsoft gerencia o sistema operacional host e os pacotes e as versões de software que estão instalados.
 
-O sistema operacional host para cluster de computação e instância de computação tem sido Ubuntu 16, 4 LTS. Em **30 de abril de 2021**, o Ubuntu está terminando o suporte para 16, 4. A partir de __15 de março de 2021__, a Microsoft atualizará automaticamente o sistema operacional do host para o Ubuntu 18, 4 LTS. A atualização para 18, 4 garantirá atualizações de segurança contínuas e suporte da comunidade Ubuntu. Para obter mais informações sobre o suporte final do Ubuntu para 16, 4, consulte o [blog de lançamento do Ubuntu](https://wiki.ubuntu.com/Releases).
+O sistema operacional host para cluster de computação e instância de computação tem sido Ubuntu 16, 4 LTS. Em **30 de abril de 2021**, o Ubuntu está terminando o suporte para 16, 4. A partir de __15 de março de 2021__, a Microsoft atualizará automaticamente o sistema operacional do host para o Ubuntu 18, 4 LTS. A atualização para 18, 4 garantirá atualizações de segurança contínuas e suporte da comunidade Ubuntu. Esta atualização será distribuída nas regiões do Azure e estará disponível em todas as regiões até __09 de abril de 2021__. Para obter mais informações sobre o suporte final do Ubuntu para 16, 4, consulte o [blog de lançamento do Ubuntu](https://wiki.ubuntu.com/Releases).
 
 > [!TIP]
 > * O sistema operacional host não é a versão do sistema operacional que você pode especificar para um [ambiente](how-to-use-environments.md) ao treinar ou implantar um modelo. Ambientes executados dentro do Docker. O Docker é executado no sistema operacional do host.
@@ -30,11 +30,11 @@ O sistema operacional host para cluster de computação e instância de computa�
 > * Ao usar uma instância de computação Azure Machine Learning com base no Ubuntu 18, 4, a versão padrão do Python é _python 3,8_.
 ## <a name="creating-new-resources"></a>Criando novos recursos
 
-Cluster de computação ou instâncias de computação criadas após __15 de março de 2021,__ use o Ubuntu 18, 4 LTS como o sistema operacional do host por padrão. Não é possível selecionar um sistema operacional host diferente.
+Cluster de computação ou instâncias de computação criadas após __09 de abril de 2021,__ use o Ubuntu 18, 4 LTS como o sistema operacional do host por padrão. Não é possível selecionar um sistema operacional host diferente.
 
 ## <a name="upgrade-existing-resources"></a>Atualizar recursos existentes
 
-Se você tiver clusters de computadores ou instâncias de computação existentes criados antes de __15 de março de 2021__, será necessário tomar medidas para atualizar o sistema operacional do host para o Ubuntu 18, 4:
+Se você tiver clusters de computadores ou instâncias de computação existentes criados antes de __15 de março de 2021__, você precisará tomar medidas para atualizar o sistema operacional do host para o Ubuntu 18, 4. Dependendo da região de acesso Azure Machine Learning, recomendamos que você execute essas ações após __09 de abril de 2021__ para garantir que nossas alterações foram distribuídas para todas as regiões:
 
 * __Azure Machine Learning cluster de computação__:
 

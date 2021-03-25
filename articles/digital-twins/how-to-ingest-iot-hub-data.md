@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 2fd0d9d2b6e80d54bdd45b7a13fab7bfa33841c9
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: de16932f1f77e569302b222fe2948de3046fabd6
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889460"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950579"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Ingerir telemetria do Hub IoT no gêmeos digital do Azure
 
@@ -39,7 +39,7 @@ Este "como" descreve como enviar mensagens do Hub IoT para o Azure digital gême
 
 Sempre que um evento de telemetria de temperatura é enviado pelo dispositivo termostato, uma função processa a telemetria e a propriedade de *temperatura* de uma folha digital é atualizada. Este cenário é descrito em um diagrama abaixo:
 
-:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Um diagrama que mostra um gráfico de fluxo. No gráfico, um dispositivo de Hub IoT envia a telemetria de temperatura por meio do Hub IoT para uma função no Azure, que atualiza uma propriedade de temperatura em um gêmeos no Azure digital." border="false":::
+:::image type="content" source="media/how-to-ingest-iot-hub-data/events.png" alt-text="Diagrama do dispositivo do Hub IoT enviando telemetria de temperatura por meio do Hub IoT para uma função no Azure, que atualiza uma propriedade de temperatura em um entrelaçamento no Azure digital gêmeos." border="false":::
 
 ## <a name="add-a-model-and-twin"></a>Adicionar um modelo e um gêmeo
 
@@ -47,14 +47,7 @@ Nesta seção, você configurará uma atualização [digital](concepts-twins-gra
 
 Para criar um termostato de texto, você primeiro precisará carregar o [modelo](concepts-models.md) termostato em sua instância, que descreve as propriedades de um termostato e será usado posteriormente para criar o cópia. 
 
-O modelo se parece com este:
-:::code language="json" source="~/digital-twins-docs-samples/models/Thermostat.json":::
-
-Para **carregar esse modelo em sua instância do gêmeos**, execute o seguinte comando CLI do Azure, que carrega o modelo acima como JSON embutido. Você pode executar o comando em [Azure cloud Shell](/cloud-shell/overview.md) no navegador ou em seu computador se tiver a CLI [instalada localmente](/cli/azure/install-azure-cli).
-
-```azurecli-interactive
-az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
-```
+[!INCLUDE [digital-twins-thermostat-model-upload.md](../../includes/digital-twins-thermostat-model-upload.md)]
 
 Em seguida, você precisará **criar um pressione 1 usando esse modelo**. Use o comando a seguir para criar um termostato nome do grupo chamado **thermostat67** e defina 0,0 como um valor de temperatura inicial.
 
@@ -62,13 +55,8 @@ Em seguida, você precisará **criar um pressione 1 usando esse modelo**. Use o 
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
 ```
 
->[!NOTE]
-> Se você estiver usando Cloud Shell no ambiente do PowerShell, talvez seja necessário escapar os caracteres de aspas nos campos JSON embutidos para que seus valores sejam analisados corretamente. Aqui estão os comandos para carregar o modelo e criar o entrelaçamento com essa modificação:
->
-> Carregar modelo:
-> ```azurecli-interactive
-> az dt model create --models '{  \"@id\": \"dtmi:contosocom:DigitalTwins:Thermostat;1\",  \"@type\": \"Interface\",  \"@context\": \"dtmi:dtdl:context;2\",  \"contents\": [    {      \"@type\": \"Property\",      \"name\": \"Temperature\",      \"schema\": \"double\"    }  ]}' -n {digital_twins_instance_name}
-> ```
+> [!Note]
+> Se você estiver usando Cloud Shell no ambiente do PowerShell, talvez seja necessário escapar os caracteres de aspas nos campos JSON embutidos para que seus valores sejam analisados corretamente. Aqui está o comando para criar o entrelaçamento com esta modificação:
 >
 > Criar a:
 > ```azurecli-interactive
@@ -117,7 +105,7 @@ Salve seu código de função.
 
 #### <a name="step-3-publish-the-function-app-to-azure"></a>Etapa 3: publicar o aplicativo de funções no Azure
 
-Publique o projeto em um aplicativo de funções no Azure.
+Publique o projeto com a função *IoTHubtoTwins. cs* em um aplicativo de funções no Azure.
 
 Para obter instruções sobre como fazer isso, consulte a seção [**publicar o aplicativo de funções no Azure**](how-to-create-azure-function.md#publish-the-function-app-to-azure) do artigo *como: configurar uma função para processamento de dados* .
 

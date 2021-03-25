@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7bcfe1afc063d89bc6a5339bf62521cd644b8ca
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130010"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048333"
 ---
 # <a name="register-a-saas-application"></a>Registrar um aplicativo SaaS
 
@@ -48,7 +48,7 @@ Para que você possa usar os recursos do AD do Azure em qualquer aplicativo dese
 A **ID do aplicativo do Azure ad** está associada à sua ID do editor, portanto, certifique-se de que a mesma *ID do aplicativo* seja usada em todas as suas ofertas.
 
 >[!Note]
->Se um Publicador tiver duas contas diferentes no Partner Center, duas IDs de aplicativo do Azure AD diferentes deverão ser usadas.  Cada conta de parceiro no Partner Center deve usar uma ID de aplicativo do Azure AD exclusiva para todas as ofertas de SaaS que são publicadas por meio dessa conta.
+>Se o Publicador tiver duas ou mais contas diferentes no Partner Center, os detalhes de registro do aplicativo do Azure AD poderão ser usados somente em uma conta. Não há suporte para o uso da mesma ID de locatário, par de ID de aplicativo para uma oferta em uma conta de Publicador diferente.
 
 ## <a name="how-to-get-the-publishers-authorization-token"></a>Como obter o token de autorização do editor
 

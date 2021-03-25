@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: solução de problemas, atualização, Bug, Kinect, comentários, recuperação, registro em log, dicas
-ms.openlocfilehash: 6b83e2952a9039a52aa3b905e376e5d3beccaf8c
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: da5242a09934a756093a9e02b6d474e6c75fecda
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026582"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108733"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conhecidos e solução de problemas do Azure Kinect
 
@@ -193,7 +193,7 @@ O SDK de acompanhamento de corpo dá suporte a CPU, CUDA, DirectML (somente Wind
 > O tempo de execução do ONNX exibe avisos para opcodes que não são acelerados. Eles podem ser ignorados com segurança.
 
 O tempo de execução do ONNX inclui variáveis de ambiente para controlar o cache de modelo TensorRT. Os valores recomendados são:
-- ORT_TENSORRT_CACHE_ENABLE = 1 
+- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
 - ORT_TENSORRT_CACHE_PATH = "PathName"
 
 A pasta deve ser criada antes de iniciar o rastreamento de corpo.

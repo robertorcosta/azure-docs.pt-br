@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: 58649e9a864e64ab5781cff3b663e190dac50cb6
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105050447"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110535"
 ---
 # <a name="create-a-test-offer"></a>Criar uma oferta de teste
 
@@ -80,7 +80,7 @@ Use a oferta de desenvolvimento para experimentar os modelos de preços. Depois 
 A oferta de desenvolvimento deve ter planos com preço zero ou muito baixo nos planos. A oferta de PROD terá os preços que você deseja cobrar aos clientes.
 
 > [!NOTE]
-> As informações que o usuário deve observar mesmo se skimmingPurchases feitas na visualização serão processadas para ofertas de desenvolvimento e de produção. Se uma oferta tiver um preço de $100/mo, sua empresa será cobrada $100. Se isso acontecer, você poderá abrir um [tíquete de suporte](support.md) e emitirei um pagamento pelo valor total (e não terá nenhuma taxa de agência).
+> As compras feitas na visualização serão processadas para as ofertas de desenvolvimento e de produção. Se uma oferta tiver um preço de $100/mo, sua empresa será cobrada $100. Se isso acontecer, você poderá abrir um [tíquete de suporte](support.md) e emitirei um pagamento pelo valor total (e não terá nenhuma taxa de agência).
 
 #### <a name="pricing-model"></a>Modelo de preços
 

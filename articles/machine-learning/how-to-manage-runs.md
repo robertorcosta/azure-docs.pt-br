@@ -1,7 +1,7 @@
 ---
 title: Iniciar, monitorar e cancelar execuções de treinamento em Python
 titleSuffix: Azure Machine Learning
-description: Saiba como iniciar, status e gerenciar seu experimento de aprendizado de máquina é executado com o SDK Azure Machine Learning Python.
+description: Saiba como iniciar, monitorar e rastrear seu experimento de aprendizado de máquina é executado com o SDK Azure Machine Learning Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,24 +12,24 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 977498abb17fe592cef344f407a662d3b79749b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634747"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110263"
 ---
-# <a name="start-monitor-and-track-runs"></a>Iniciar, monitorar e rastrear execuções 
+# <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorar e acompanhar o histórico de execução 
 
-O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md)e [Azure Machine Learning Studio](https://ml.azure.com) fornecem vários métodos para monitorar, organizar e gerenciar suas execuções para treinamento e experimentação.
+O [SDK do Azure Machine Learning para Python](/python/api/overview/azure/ml/intro), [Machine Learning CLI](reference-azure-machine-learning-cli.md)e [Azure Machine Learning Studio](https://ml.azure.com) fornecem vários métodos para monitorar, organizar e acompanhar suas execuções para treinamento e experimentação. O histórico de execuções de ML é uma parte importante de um processo de desenvolvimento ML explicativo e repetível.
 
-Este artigo mostra exemplos das seguintes tarefas:
+Este artigo mostra como executar as seguintes tarefas:
 
 * Monitorar desempenho de execução.
 * Monitore o status de execução por notificação por email.
 * Marcar e localizar execuções.
 * Adicione uma descrição de execução. 
-* Executar pesquisa. 
+* Execute a pesquisa em seu histórico de execuções. 
 * As execuções de cancelamento ou falha.
 * Criar execuções filhas.
  
@@ -103,7 +103,7 @@ Você precisará dos seguintes itens:
     
         Para obter mais informações, consulte [az ml folder attach](/cli/azure/ext/azure-cli-ml/ml/folder?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-folder-attach).
     
-    2. Para iniciar a execução, use o comando a seguir. Ao usar esse comando, especifique o nome do arquivo runconfig (o texto antes de \*.runconfig se você estiver olhando seu sistema de arquivos) em relação ao parâmetro -c.
+    2. Para iniciar a execução, use o comando a seguir. Ao usar esse comando, especifique o nome do arquivo runconfig (o texto antes de \* . runconfig se você estiver olhando o sistema de arquivos) em relação ao parâmetro-c.
     
         ```azurecli-interactive
         az ml run submit-script -c sklearn -e testexperiment train.py
@@ -134,7 +134,7 @@ Você precisará dos seguintes itens:
         print(notebook_run.get_status())
         ```
     
-    * Para obter a ID de execução, o tempo de execução e os detalhes adicionais sobre a execução, use o [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) método.
+    * Para obter a ID de execução, o tempo de execução e outros detalhes sobre a execução, use o [`get_details()`](/python/api/azureml-core/azureml.core.workspace.workspace#get-details--) método.
     
         ```python
         print(notebook_run.get_details())
@@ -405,9 +405,9 @@ Para criar várias execuções filhas com eficiência, use o [`create_children()
 
 As execuções filhas também podem ser enviadas de uma execução pai. Isso permite que você crie hierarquias de execuções pai e filho. Não é possível criar uma execução filho sem pai: mesmo que a execução pai não faça nada, mas inicie execuções filhas, ainda é necessário criar a hierarquia. Os status de todas as execuções são independentes: um pai pode estar no `"Completed"` estado bem-sucedido mesmo que uma ou mais execuções filhas tenham sido canceladas ou com falha.  
 
-Você pode desejar que seu filho seja executado para usar uma configuração de execução diferente da execução do pai. Por exemplo, você pode usar uma configuração menos eficiente baseada em CPU para o pai, ao usar configurações baseadas em GPU para seus filhos. Outro desejo comum é passar cada um dos diferentes argumentos e dados filho. Para personalizar uma execução filho, crie um `ScriptRunConfig` objeto para a execução do filho. O código abaixo faz o seguinte:
+Você pode desejar que seu filho seja executado para usar uma configuração de execução diferente da execução do pai. Por exemplo, você pode usar uma configuração menos eficiente baseada em CPU para o pai, ao usar configurações baseadas em GPU para seus filhos. Outro desejo comum é passar cada um dos diferentes argumentos e dados filho. Para personalizar uma execução filho, crie um `ScriptRunConfig` objeto para a execução do filho. O código abaixo:
 
-- Recuperar um recurso de computação chamado `"gpu-cluster"` a partir do espaço de trabalho `ws`
+- Recupera um recurso de computação chamado `"gpu-cluster"` a partir do espaço de trabalho `ws`
 - Itera sobre valores de argumento diferentes a serem passados para os `ScriptRunConfig` objetos filhos
 - Cria e envia uma nova execução de filho, usando o recurso de computação personalizado e o argumento
 - Bloqueia até que todas as execuções do filho sejam concluídas
@@ -455,7 +455,7 @@ print(parent_run.get_children())
 
 ### <a name="log-to-parent-or-root-run"></a>Log para a execução de pai ou raiz
 
-Você pode usar o `Run.parent` campo para acessar a execução que iniciou a execução do filho atual. Um caso de uso comum para isso é quando você deseja consolidar os resultados de log em um único lugar. Observe que o filho é executado de forma assíncrona e não há nenhuma garantia de ordenação ou sincronização além da capacidade do pai de aguardar a conclusão de suas execuções filhas.
+Você pode usar o `Run.parent` campo para acessar a execução que iniciou a execução do filho atual. Um caso de uso comum para usar o `Run.parent` é combinar resultados de log em um único local. Observe que o filho é executado de forma assíncrona e não há nenhuma garantia de ordenação ou sincronização além da capacidade do pai de aguardar a conclusão de suas execuções filhas.
 
 ```python
 # in child (or even grandchild) run
