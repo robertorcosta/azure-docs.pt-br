@@ -9,10 +9,10 @@ ms.custom: subject-armqs
 ms.author: danlep
 ms.date: 10/06/2020
 ms.openlocfilehash: 97b556e0329644b973def8333ddb5e70e370b0bc
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/07/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "91826974"
 ---
 # <a name="quickstart-create-a-geo-replicated-container-registry-by-using-an-arm-template"></a>Início Rápido: Criar um registro de contêiner com replicação geográfica usando um modelo do Resource Manager
@@ -65,7 +65,7 @@ Mais exemplos de modelo do Registro de Contêiner do Azure podem ser encontrados
 
 1. Depois que o Registro tiver sido criado com êxito, você receberá uma notificação:
 
-     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Propriedades do modelo":::
+     :::image type="content" source="media/container-registry-get-started-geo-replication-template/deployment-notification.png" alt-text="Notificação do portal":::
 
  O portal do Azure é usado para implantar o modelo. Além do portal do Azure, você pode usar o Azure PowerShell, a CLI do Azure e a API REST. Para saber mais sobre outros métodos de implantação, confira [Implantar modelos](../azure-resource-manager/templates/deploy-cli.md).
 
@@ -77,11 +77,11 @@ Use o portal do Azure ou uma ferramenta como a CLI do Azure para examinar as pro
 
 1. Na página **Visão geral**, observe o **Servidor de logon** do Registro. Use esse URI ao usar o Docker para marcar e enviar imagens por push para o Registro. Para obter informações, confira [Enviar por push sua primeira imagem usando a CLI do Docker](container-registry-get-started-docker-cli.md).
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Propriedades do modelo":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-overview.png" alt-text="Visão geral do Registro":::
 
 1. Na página **Replicações**, confirme os locais da réplica inicial e da réplica adicionada por meio do modelo. Se desejar, adicione mais réplicas nesta página.
 
-    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Propriedades do modelo":::
+    :::image type="content" source="media/container-registry-get-started-geo-replication-template/registry-replications.png" alt-text="Replicações do Registro":::
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
@@ -99,4 +99,4 @@ Neste guia de início rápido, você criou um Registro de Contêiner do Azure co
 Para obter um tutorial passo a passo que orienta você durante o processo de criação de um modelo, confira:
 
 > [!div class="nextstepaction"]
-> Criar e implantar seu primeiro modelo do Resource Manager[
+> [Tutorial: Criar e implantar seu primeiro modelo do Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)

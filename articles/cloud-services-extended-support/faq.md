@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 3338f7b6bd418cea2bfdbbcd40692b9342f48cfa
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4db23982dfaed1447023edb417a3732dac94bdc4
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98744184"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025230"
 ---
 # <a name="frequently-asked-questions-for-azure-cloud-services-extended-support"></a>Perguntas frequentes sobre os Serviços de Nuvem do Microsoft Azure (suporte estendido)
 Este artigo aborda as perguntas frequentes relacionadas aos serviços de nuvem do Azure (suporte estendido).
@@ -82,6 +82,8 @@ Arquivos de modelo e parâmetro são usados somente para automação de implanta
 ### <a name="how-does-my-application-code-change-on-cloud-services-extended-support"></a>Como o código do aplicativo é alterado nos serviços de nuvem (suporte estendido)
 Não há nenhuma alteração necessária para o pacote de código do aplicativo no cspkg. Seus aplicativos existentes continuarão a funcionar como antes. 
 
+### <a name="does-cloud-services-extended-support-allow-ctp-package-format"></a>Os serviços de nuvem (suporte estendido) permitem o formato de pacote CTP?
+Não há suporte para o formato de pacote CTP em serviços de nuvem (suporte estendido). No entanto, ele permite um limite de tamanho de pacote avançado de 800 MB
 
 ## <a name="migration"></a>Migração
 
