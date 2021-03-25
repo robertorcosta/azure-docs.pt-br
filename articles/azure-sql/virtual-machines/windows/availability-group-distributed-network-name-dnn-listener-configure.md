@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/07/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7c3950b1aeae2b4e90b1ae4acfb9439c2cb159ca
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: bf5c4c39ea8f5705cc9788fdcf2cddd01dcb4087
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025995"
+ms.locfileid: "105034700"
 ---
 # <a name="configure-a-dnn-listener-for-an-availability-group"></a>Configurar um ouvinte de DNN para um grupo de disponibilidade
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -145,7 +145,7 @@ Um valor de `1` for `is_distributed_network_name` indica que o ouvinte é um ouv
 
 ## <a name="update-connection-string"></a>Atualizar cadeia de conexão
 
-Atualize cadeias de conexão para aplicativos para que eles se conectem ao ouvinte DNN. Para garantir a conectividade rápida no failover, adicione `MultiSubnetFailover=True` à cadeia de conexão se o cliente SQL oferecer suporte a ela.
+Atualize cadeias de conexão para aplicativos para que eles se conectem ao ouvinte DNN. Cadeias de conexão para ouvintes DNN devem fornecer o número da porta DNN. Para garantir a conectividade rápida no failover, adicione `MultiSubnetFailover=True` à cadeia de conexão se o cliente SQL oferecer suporte a ela.
 
 ## <a name="test-failover"></a>Failover de Teste
 

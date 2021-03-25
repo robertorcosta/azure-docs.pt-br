@@ -1,5 +1,5 @@
 ---
-title: Migrar do Oracle
+title: 'Oracle para banco de dados do Azure para PostgreSQL: guia de migração'
 titleSuffix: Azure Database for PostgreSQL
 description: Este guia ensina a migrar seu esquema Oracle para o banco de dados do Azure para PostgreSQL.
 author: sr-msft
@@ -8,12 +8,12 @@ ms.service: postgresql
 ms.subservice: migration-guide
 ms.topic: how-to
 ms.date: 03/18/2021
-ms.openlocfilehash: ec6cf87b3fd326c905b4843dc30ae6ce15379305
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b41f894a7e4742b75ea06684a960221d4a5b7641
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608932"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024754"
 ---
 # <a name="migrate-oracle-to-azure-database-for-postgresql"></a>Migrar o Oracle para o banco de dados do Azure para PostgreSQL
 
@@ -72,7 +72,7 @@ Depois de provisionar a VM e o banco de dados do Azure para PostgreSQL, duas con
 
 ## <a name="pre-migration"></a>Pré-migração 
 
-Depois de verificar se o seu ambiente de origem tem suporte e garantir que você tenha resolvido todos os pré-requisitos, você está pronto para iniciar o estágio pré-migração. Essa parte do processo envolve a condução de um inventário dos bancos de dados que você precisa migrar, avaliar esses bancos de dados quanto a possíveis problemas de migração ou bloqueadores e, em seguida, resolver quaisquer itens que você possa ter descoberto. Para migrações de heterogêneos, como Oracle para o banco de dados do Azure para PostgreSQL, esse estágio também envolve a conversão dos esquemas nos bancos de dados de origem para serem compatíveis com o ambiente de destino.
+Depois de verificar se o seu ambiente de origem tem suporte e garantir que você tenha resolvido todos os pré-requisitos, você está pronto para iniciar o estágio pré-migração. Essa parte do processo envolve a execução de um inventário dos bancos de dados que você precisa migrar, a avaliação desses bancos de dados quanto a possíveis problemas de migração ou bloqueadores e, em seguida, a resolução dos itens que você possa ter descoberto. Para migrações de heterogêneos, como Oracle para o banco de dados do Azure para PostgreSQL, esse estágio também envolve a conversão dos esquemas nos bancos de dados de origem para serem compatíveis com o ambiente de destino.
 
 ### <a name="discover"></a>Descobrir
 
@@ -258,7 +258,7 @@ Consulte as [soluções alternativas de migração White Paper Oracle para banco
 
 ## <a name="migrate"></a>Migrações 
 
-Depois de ter os pré-requisitos necessários em vigor e concluir as tarefas associadas **ao estágio de pré-migração,** você estará pronto para executar a migração de dados e de esquema.
+Depois de implementar os pré-requisitos necessários e concluir as tarefas associadas à fase de **pré-migração**, você já poderá executar a migração de dados e de esquema.
 
 ### <a name="migrate-schema-and-data"></a>Migrar esquema e dados
 
@@ -292,7 +292,7 @@ Nesse caso, é recomendável que a validação seja aprimorada verificando a par
 
 ## <a name="post-migration"></a>Pós-migração 
 
-Depois de concluir com êxito o estágio de **migração** , você precisa passar por uma série de tarefas de pós-implantação para garantir que tudo esteja funcionando da maneira mais tranqüila e eficiente possível.
+Depois de concluir com êxito o estágio de **migração**, você precisará passar por uma série de tarefas de pós-migração para garantir que tudo esteja funcionando da maneira mais estável e eficiente possível.
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos
 
@@ -312,11 +312,11 @@ ora2pg -t TEST -c config/ora2pg.conf > migration_diff.txt
 
 ### <a name="optimize"></a>Otimizar
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho.
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho.
 
 ## <a name="migration-assets"></a>Ativos de migração 
 
-Para obter assistência adicional com a conclusão deste cenário de migração, consulte os recursos a seguir, que foram desenvolvidos para dar suporte a um compromisso de projeto de migração real.
+Para obter assistência adicional com a conclusão desse cenário de migração, confira os recursos a seguir, que foram desenvolvidos para dar suporte a um projeto de migração do mundo real.
 
 | **Link do título** | **Descrição**    |
 | -------------- | ------------------ |
@@ -342,4 +342,4 @@ Para obter mais informações, consulte:
 - [Suporte a transações autônomas no PostgreSQL](http://blog.dalibo.com/2016/08/19/Autonoumous_transactions_support_in_PostgreSQL.html) 
 
 Para conteúdo de vídeo: 
-- [Visão geral da jornada de migração e das ferramentas/serviços recomendados para executar a avaliação e a migração](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
+- [Visão geral do percurso de migração e das ferramentas/serviços recomendados para executar a avaliação e a migração](https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/).
