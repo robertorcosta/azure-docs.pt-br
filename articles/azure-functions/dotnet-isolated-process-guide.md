@@ -5,12 +5,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.custom: template-concept
-ms.openlocfilehash: be11c32cf06b9873e10247d7ccc4a84133a6c688
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 4da685c247427e78297df1753779ee9b5c7866b8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104774925"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023190"
 ---
 # <a name="guide-for-running-functions-on-net-50-in-azure"></a>Guia para executar funções no .NET 5,0 no Azure
 
@@ -147,21 +147,23 @@ Para gravar em uma associação de saída, você deve aplicar um atributo de ass
 
 ### <a name="multiple-output-bindings"></a>Várias associações de saída
 
-Os dados gravados em uma associação de saída são sempre o valor de retorno da função. Se você precisar gravar em mais de uma associação de saída, deverá criar um tipo de retorno personalizado. Esse tipo de retorno deve ter o atributo de associação de saída aplicado a uma ou mais propriedades da classe. O exemplo a seguir grava em uma resposta HTTP e em uma associação de saída de fila:
+Os dados gravados em uma associação de saída são sempre o valor de retorno da função. Se você precisar gravar em mais de uma associação de saída, deverá criar um tipo de retorno personalizado. Esse tipo de retorno deve ter o atributo de associação de saída aplicado a uma ou mais propriedades da classe. O exemplo a seguir de um gatilho HTTP é gravado na resposta HTTP e em uma associação de saída de fila:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/MultiOutput/MultiOutput.cs" id="docsnippet_multiple_outputs":::
+
+A resposta de um gatilho HTTP é sempre considerada uma saída, portanto, um atributo de valor de retorno não é necessário.
 
 ### <a name="http-trigger"></a>Gatilho HTTP
 
 Os gatilhos HTTP convertem a mensagem de solicitação HTTP de entrada em um objeto [HttpRequestData] que é passado para a função. Esse objeto fornece dados da solicitação, incluindo `Headers` , `Cookies` , `Identities` , `URL` e uma mensagem opcional `Body` . Esse objeto é uma representação do objeto de solicitação HTTP e não da solicitação em si. 
 
-Da mesma forma, a função retorna um objeto [HttpReponseData], que fornece dados usados para criar a resposta HTTP, incluindo a mensagem `StatusCode` , `Headers` e, opcionalmente, uma mensagem `Body` .  
+Da mesma forma, a função retorna um objeto [HttpResponseData] , que fornece dados usados para criar a resposta http, incluindo a mensagem `StatusCode` , `Headers` e, opcionalmente, uma mensagem `Body` .  
 
 O código a seguir é um gatilho HTTP 
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Http/HttpFunction.cs" id="docsnippet_http_trigger" :::
 
-## <a name="logging"></a>Registro em log
+## <a name="logging"></a>Log
 
 No .NET isolado, você pode gravar em logs usando uma instância [ILogger] Obtida de um objeto [FunctionContext] passado para sua função. Chame o método [GetLogger] , passando um valor de cadeia de caracteres que é o nome da categoria na qual os logs são gravados. A categoria geralmente é o nome da função específica da qual os logs são gravados. Para saber mais sobre categorias, consulte o [artigo monitoramento](functions-monitoring.md#log-levels-and-categories). 
 
@@ -182,7 +184,7 @@ Esta seção descreve o estado atual das diferenças funcionais e comportamentai
 | Versões do .NET | LTS (.NET Core 3,1) | Atual (.NET 5,0) |
 | Pacotes principais | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) | [Microsoft. Azure. Functions. Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft. Azure. Functions. Worker. Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | 
 | Pacotes de extensão de associação | [Microsoft. Azure. webjobs. Extensions. *](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  | Em [Microsoft. Azure. Functions. Worker. Extensions. *](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | 
-| Registro em log | [ILogger] passado para a função | [ILogger] obtido de [FunctionContext] |
+| Log | [ILogger] passado para a função | [ILogger] obtido de [FunctionContext] |
 | Tokens de cancelamento | [Com suporte](functions-dotnet-class-library.md#cancellation-tokens) | Sem suporte |
 | Associações de saída | Parâmetros de saída | Valores retornados |
 | Tipos de associação de saída |  `IAsyncCollector`, [DocumentClient], [BrokeredMessage]e outros tipos específicos do cliente | Tipos simples, tipos serializáveis JSON e matrizes. |
