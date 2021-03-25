@@ -9,14 +9,14 @@ author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.date: 10/02/2020
-ms.openlocfilehash: 0ce9575f078058c821ffffe1b9fe45eed5a4ad94
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 22411e5a80f555a3ead05d39466a7a175923d9bc
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101724159"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104767"
 ---
-* Depois de selecionar a plataforma apropriada na etapa 4 de definir configurações de [plataforma](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#configure-platform-settings) , configure seus **URIs de redirecionamento** e **tokens de acesso** no painel lateral à direita da interface do usuário.
+* Depois de selecionar a plataforma apropriada na etapa 4 de definir configurações de [plataforma](../articles/active-directory/develop/quickstart-register-app.md#configure-platform-settings) , configure seus **URIs de redirecionamento** e **tokens de acesso** no painel lateral à direita da interface do usuário.
 
     * Os **URIs de Redirecionamento** devem corresponder ao endereço fornecido pela solicitação de autenticação:
 
@@ -41,4 +41,4 @@ ms.locfileid: "101724159"
 
     [![Especifique o tipo de permissão de API exigido por seu aplicativo](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png)](media/time-series-insights-aad-registration/active-directory-app-permission-grant.png#lightbox)
 
-* [Adicione credenciais](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app#add-credentials) se o aplicativo for chamar as APIs do seu ambiente como ele mesmo. As credenciais permitem que seu aplicativo se autentique como ele mesmo, sem nenhuma interação com um usuário no runtime.
+* [Adicione credenciais](../articles/active-directory/develop/quickstart-register-app.md#add-credentials) se o aplicativo for chamar as APIs do seu ambiente como ele mesmo. As credenciais permitem que seu aplicativo se autentique como ele mesmo, sem nenhuma interação com um usuário no runtime.

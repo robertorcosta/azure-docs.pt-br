@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/10/2020
-ms.openlocfilehash: 1b5fd10b3e0bd84aa7d34a918f4f2376130d2e45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 9c4b15fa2a8be32aa7397ae425f28f1deaac6b71
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102052255"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024601"
 ---
 # <a name="vm-insights-guest-health-alerts-preview"></a>Alertas de integridade do convidado de insights da VM (versão prévia)
 A integridade de convidado do insights de VM permite que você exiba a integridade de uma máquina virtual conforme definido por um conjunto de medidas de desempenho que são amostradas em intervalos regulares. Um alerta pode ser criado quando uma máquina virtual ou monitor é alterado para um estado não íntegro. Você pode exibir e gerenciar esses alertas com [aqueles criados por regras de alerta no Azure monitor](../alerts/alerts-overview.md) e optar por ser notificado proativamente quando um novo alerta for criado.
@@ -35,7 +35,7 @@ Um [alerta do Azure](../alerts/alerts-overview.md) será criado para cada máqui
 Se um alerta já estiver no estado **acionado** quando o estado da máquina virtual for alterado, um segundo alerta não será criado, mas a severidade do mesmo alerta será alterada para corresponder ao estado da máquina virtual. Por exemplo, se a máquina virtual mudar para o estado **crítico** quando um alerta de **aviso** já estava no estado **acionado** , a severidade desse alerta será alterada para **Sev1**. Se a máquina virtual for alterada para um estado de **aviso** quando um alerta **Sev1** já estava no estado **acionado** , a severidade desse alerta será alterada para **Sev2**. Se a máquina virtual voltar a um estado **íntegro** , o alerta será resolvido com a gravidade alterada para **Sev4**.
 
 ## <a name="viewing-alerts"></a>Exibindo alertas
-Exibir alertas criados pela integridade de convidado do insights de VM com outros [alertas no portal do Azure](../platform/alerts-overview.md#alerts-experience). Você pode selecionar **alertas** no menu **Azure monitor** para exibir alertas de todos os recursos monitorados ou selecionar **alertas** no menu de uma máquina virtual para exibir alertas apenas para essa máquina virtual.
+Exibir alertas criados pela integridade de convidado do insights de VM com outros [alertas no portal do Azure](../alerts/alerts-overview.md#alerts-experience). Você pode selecionar **alertas** no menu **Azure monitor** para exibir alertas de todos os recursos monitorados ou selecionar **alertas** no menu de uma máquina virtual para exibir alertas apenas para essa máquina virtual.
 
 ## <a name="alert-properties"></a>Propriedades do Alerta
 

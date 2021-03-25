@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/08/2021
-ms.openlocfilehash: 0a9a58e91202d42640264aba00e1a583be1cde70
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4e7b25315aaadffe7f34b28195c25b77a36fa5f8
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705646"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104872142"
 ---
 # <a name="archived-release-notes"></a>Notas de versão arquivadas
 
@@ -385,7 +385,7 @@ As marcas de serviço simplificam a segurança para máquinas virtuais do Azure 
 #### <a name="custom-ambari-db"></a>BD Ambari personalizado
 O HDInsight agora permite que você use seu próprio banco de BD SQL para Apache Ambari. Você pode configurar esse Ambari DB personalizado no portal do Azure ou por meio do modelo do Resource Manager.  Esse recurso permite que você escolha o banco de BD SQL correto para suas necessidades de processamento e capacidade. Você também pode fazer upgrade facilmente para atender aos requisitos de crescimento de negócios. Para obter mais informações, consulte [Configurar clusters do HDInsight com um AMBARI DB personalizado](hdinsight-custom-ambari-db.md).
 
-![BD Ambari personalizado](./media/hdinsight-release-notes/custom-ambari-db.png)
+:::image type="content" source="./media/hdinsight-release-notes/custom-ambari-db.png" alt-text="BD Ambari personalizado":::
 
 ### <a name="deprecation"></a>Reprovação
 Nenhuma desativação para esta versão. Para se preparar para desativações futuras, confira [Alterações futuras](#upcoming-changes).

@@ -2,16 +2,16 @@
 title: Tutorial – Usar modelos de início rápido para o desenvolvimento de Bicep no Azure Resource Manager
 description: Saiba como usar os modelos de Início Rápido do Azure para concluir o desenvolvimento de Bicep.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/10/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 12dcf4bfc00c299d94d45a5bd02bf9eea576cc73
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: cf655885e01fe6bca99a82c82d6bbbc4c1a080b3
+ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742745"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "102632418"
 ---
 # <a name="tutorial-use-azure-quickstart-templates-for-azure-resource-manager-bicep-development"></a>Tutorial – Usar modelos de início rápido do Azure para o desenvolvimento de Bicep no Azure Resource Manager
 

@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 08/17/2020
 ms.author: inhenkel
 ms.custom: CLI
-ms.openlocfilehash: a6349188a2c6b4da68009df93fbea5fa6eabacf1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f0d0322f6f5f14b94a67285fe8688d72c941b3a4
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244715"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104482"
 ---
 <!-- ### Create a storage account -->
 
@@ -20,7 +20,7 @@ Você deve ter uma conta de armazenamento **principal** e pode ter qualquer núm
 
 Neste exemplo, criamos uma conta de uso geral v2, LRS Padrão. Caso deseje fazer experimentos com contas de armazenamento, use `--sku Standard_LRS`. No entanto, ao escolher um SKU para produção, você deverá considerar `--sku Standard_RAGRS`, que fornece replicação geográfica para a continuidade dos negócios. Para obter mais informações, confira [Contas de armazenamento](/cli/azure/storage/account).
 
-O comando a seguir cria uma conta de armazenamento que será associada à conta dos Serviços de Mídia. No script a seguir, você pode substituir `storageaccountforams` pelo seu valor. `amsResourceGroup` deve corresponder ao valor que você deu para o grupo de recursos na etapa anterior. O nome da conta de armazenamento deve ter comprimento menor que 24.
+O comando a seguir cria uma conta de armazenamento que será associada à conta dos Serviços de Mídia. No script abaixo, substitua `storageaccountforams` pelo seu próprio nome de exclusivos por um comprimento inferior a 24 caracteres. `amsResourceGroup` deve corresponder ao valor que você deu para o grupo de recursos na etapa anterior.
 
 ```azurecli
 az storage account create --name storageaccountforams --kind StorageV2 --sku Standard_LRS -l westus2 -g amsResourceGroup

@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 05/19/2020
+ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3395afbe95b2a7f35893a0ce7f60c3871597acd0
-ms.sourcegitcommit: 8a74ab1beba4522367aef8cb39c92c1147d5ec13
+ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/20/2021
-ms.locfileid: "98611845"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104798707"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Sincronização de nuvem piloto para uma floresta do AD sincronizada existente 
 
@@ -208,20 +208,7 @@ Caso o piloto não funcione conforme o esperado, você poderá voltar para a con
 1.  Desabilite a configuração de provisionamento no portal do Azure. 
 2.  Desabilite todas as regras de sincronização personalizadas criadas para o Provisionamento de Nuvem usando a ferramenta Editor de Regras de Sincronização. A desabilitação deve causar sincronização completa em todos os conectores.
 
-## <a name="configure-azure-ad-connect-sync-to-exclude-the-pilot-ou"></a>Configurar a sincronização do Azure AD Connect para excluir a UO piloto
-Depois de verificar se os usuários da UO piloto são gerenciados com êxito pela sincronização de nuvem, você poderá reconfigurar o Azure AD Connect para excluir a UO piloto criada acima.  O agente de provisionamento de nuvem tratará a sincronização para esses usuários no futuro.  Use as etapas a seguir para o escopo do Azure AD Connect.
 
- 1. No servidor que está executando o Azure AD Connect, clique duas vezes no ícone de Azure AD Connect.
- 2. Clique em **Configurar**
- 3. Selecione **Personalizar as opções de sincronização** e clique em avançar.
- 4. Entre no Azure AD e clique em **Próximo**.
- 5. Na tela **Conectar seus diretórios**, clique em **Avançar**.
- 6. Na tela **Filtragem de domínio e UO**, selecione **Sincronizar domínios e UOs selecionados**.
- 7. Expanda seu domínio e **desmarque** a UO de **CPUsers**.  Clique em **Próximo**.
-![escopo](media/tutorial-existing-forest/scope-1.png)</br>
- 9. Na tela **Recursos opcionais**, clique em **Próximo**.
- 10. Na tela **Pronto para configurar**, clique em **Configurar**.
- 11. Após a conclusão, clique em **Sair**. 
 
 ## <a name="next-steps"></a>Próximas etapas 
 

@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 11/05/2020
 ms.author: v-jawe
-ms.openlocfilehash: b4a63f76cbcd9e98295f5edcf7ff2d06979e6556
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 590ad577f3648ea9214ec4dcb6b6cab59dd5a3f1
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102244600"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104557"
 ---
 ## <a name="quickstart-face-client-library-for-javascript"></a>Início Rápido: Biblioteca de clientes de Detecção Facial para JavaScript
 
@@ -79,7 +79,7 @@ Crie variáveis para a chave e o ponto de extremidade do Azure do recurso.
 > [!IMPORTANT]
 > Acesse o portal do Azure. Se o recurso da Detecção Facial que você criou na seção **Pré-requisitos** tiver sido implantado com êxito, clique no botão **Ir para o recurso** em **Próximas Etapas**. Encontre a chave e o ponto de extremidade na página da **chave e do ponto de extremidade** do recurso, em **gerenciamento de recursos**. 
 >
-> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) de Serviços Cognitivos para obter mais informações.
+> Lembre-se de remover a chave do seu código quando terminar e nunca poste-a publicamente. Para produção, considere o uso de uma maneira segura de armazenar e acessar suas credenciais. Confira o artigo [segurança](../../../cognitive-services-security.md) de Serviços Cognitivos para obter mais informações.
 
 ```javascript
 key = "<paste-your-face-key-here>"
@@ -114,7 +114,7 @@ Os snippets de código abaixo mostram como realizar as seguintes tarefas com a b
 
 ## <a name="authenticate-the-client"></a>Autenticar o cliente
 
-Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto **[ApiKeyCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials)** com sua chave e use-o com seu ponto de extremidade para criar um objeto **[FaceClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/faceclient)** .
+Instancie um cliente com o ponto de extremidade e a chave. Crie um objeto **[ApiKeyCredentials](/javascript/api/@azure/ms-rest-js/apikeycredentials)** com sua chave e use-o com seu ponto de extremidade para criar um objeto **[FaceClient](/javascript/api/@azure/cognitiveservices-face/faceclient)** .
 
 :::code language="js" source="~/cognitive-services-quickstart-code/javascript/Face/sdk_quickstart.js" id="credentials":::
 
@@ -216,7 +216,7 @@ Se quiser limpar e remover uma assinatura dos Serviços Cognitivos, você poder�
 Neste guia de início rápido, você aprendeu a usar a biblioteca de clientes de Detecção Facial para JavaScript para realizar as tarefas de reconhecimento facial de base. Em seguida, explore a documentação de referência para saber mais sobre a biblioteca.
 
 > [!div class="nextstepaction"]
-> [Referência de API de Detecção Facial (JavaScript)](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-face/)
+> [Referência de API de Detecção Facial (JavaScript)](/javascript/api/@azure/cognitiveservices-face/)
 
 * [O que é o serviço de Detecção Facial?](../../overview.md)
 * O código-fonte desta amostra pode ser encontrado no [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/Face/sdk_quickstart.js).

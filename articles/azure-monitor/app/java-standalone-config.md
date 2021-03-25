@@ -6,12 +6,12 @@ ms.date: 11/04/2020
 author: MS-jgol
 ms.custom: devx-track-java
 ms.author: jgol
-ms.openlocfilehash: e58d69634712a9cc640ba9e4785a7bf1effaf88c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 91ad5a6d95c634300db83d66df8f0407b4544cde
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103224649"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024159"
 ---
 # <a name="configuration-options---azure-monitor-application-insights-for-java"></a>Opções de configuração-Azure Monitor Application Insights para Java
 
@@ -122,6 +122,17 @@ Você também pode definir o percentual de amostragem usando a variável de ambi
 > [!NOTE]
 > Para o percentual de amostragem, escolha um percentual que esteja próximo a 100/N, em que N é um inteiro. Atualmente, a amostragem não dá suporte a outros valores.
 
+## <a name="sampling-overrides-preview"></a>Substituições de amostragem (visualização)
+
+Este recurso está em versão prévia, Iniciando em 3.0.3-BETA. 2.
+
+As substituições de amostragem permitem que você substitua a [porcentagem de amostragem padrão](#sampling), por exemplo:
+* Defina o percentual de amostragem como 0 (ou algum valor pequeno) para verificações de integridade ruidosas.
+* Defina o percentual de amostragem como 0 (ou algum valor pequeno) para chamadas de dependência com ruído.
+* Defina o percentual de amostragem como 100 para um tipo de solicitação importante (por exemplo, `/login` ) mesmo que você tenha a amostragem padrão configurada para algo menor.
+
+Para obter mais informações, confira a documentação de [substituições de amostragem](./java-standalone-sampling-overrides.md) .
+
 ## <a name="jmx-metrics"></a>Métricas JMX
 
 Se você quiser coletar algumas métricas JMX adicionais:
@@ -176,9 +187,13 @@ Esse recurso está em visualização.
 Ele permite que você configure regras que serão aplicadas à telemetria de solicitação, dependência e rastreamento, por exemplo:
  * Mascarar dados confidenciais
  * Adicionar dimensões personalizadas condicionalmente
- * Atualizar o nome de telemetria usado para agregação e exibição
+ * Atualize o nome do span, que é usado para agregar telemetria semelhante no portal do Azure.
+ * Descartar atributos de span específicos para controlar os custos de ingestão.
 
 Para obter mais informações, confira a documentação do [processador de telemetria](./java-standalone-telemetry-processors.md) .
+
+> [!NOTE]
+> Se você pretende descartar spans (inteiros) específicos para controlar o custo de ingestão, consulte [substituições de amostragem](./java-standalone-sampling-overrides.md).
 
 ## <a name="auto-collected-logging"></a>Registro em log coletado automaticamente
 
