@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 10/08/2020
 ms.author: allensu
 ms.custom: ''
-ms.openlocfilehash: d2d3bd43a0f17167e855d7e678a96cd79fe42237
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a003becba0bc1e42d8fe0c0c5b199402a430a8e1
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92777734"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105034751"
 ---
 # <a name="failover-across-multiple-endpoints-with-azure-traffic-manager"></a>Failover em vários pontos de extremidade com o Gerenciador de tráfego do Azure
 
@@ -94,7 +94,10 @@ Depois de configurar os perfis CDN e Gerenciador de tráfego, siga estas etapas 
     > [!NOTE]
     > Se o domínio está atualmente ativo e não pode ser interrompido, siga esta etapa pela última vez. Verifique se os pontos de extremidade do CDN e os domínios do gerenciador de tráfego estão ativos antes de atualizar o DNS do seu domínio personalizado para o Gerenciador de Tráfego.
     >
-
+   
+    > [!NOTE]
+    > Para implemeting, esse failover scenerio ambos os pontos de extremidade precisam estar em perfis diferentes, e os perfis diferentes devem ser por um provedor de CDN diferente para evitar conflitos de nome de domínio.
+    > 
 
 2.  Do seu perfil de CDN do Azure, selecione o primeiro ponto de extremidade do CDN (Akamai). Selecione **Adicionar domínio personalizado** e entrada **cdndemo101.dustydogpetcare.online**. Verifique se a marca de seleção para validar o domínio personalizado está verde. 
 
