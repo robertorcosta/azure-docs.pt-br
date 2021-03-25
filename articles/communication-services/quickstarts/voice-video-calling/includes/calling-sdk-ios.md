@@ -4,12 +4,12 @@ ms.service: azure-communication-services
 ms.topic: include
 ms.date: 03/10/2021
 ms.author: mikben
-ms.openlocfilehash: e9c889dcffe42fde244f8a35ce42032e84d78fff
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d36bf92a1b1bdef4e45b22b934728b3e8c46c3da
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488069"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107697"
 ---
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -23,7 +23,7 @@ ms.locfileid: "103488069"
 ### <a name="creating-the-xcode-project"></a>Como criar o projeto do Xcode
 
 > [!NOTE]
-> Este documento usa a versão 1.0.0-beta.8 da biblioteca de clientes de chamada.
+> Este documento usa a versão 1.0.0-beta. 8 do SDK de chamada.
 
 No Xcode, crie um projeto do iOS e selecione o modelo **Aplicativo de Modo de Exibição Único**. Este guia de início rápido usa a [estrutura SwiftUI](https://developer.apple.com/xcode/swiftui/), portanto, você deve definir a **Linguagem** como **Swift** e a **Interface do Usuário** como **SwiftUI**. Você não criará testes de unidade ou testes da interface do usuário neste guia de início rápido. Fique à vontade para desmarcar **Incluir Testes de Unidade** e **Incluir Testes da Interface do Usuário**.
 
@@ -68,12 +68,12 @@ import AVFoundation
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As classes e as interfaces a seguir administram alguns dos principais recursos da biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS.
+As classes e interfaces a seguir tratam de alguns dos principais recursos dos serviços de comunicação do Azure que chamam o SDK para iOS.
 
 
 | Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
-| CallClient | O CallClient é o ponto de entrada principal para a biblioteca de clientes de Chamada.|
+| CallClient | O CallClient é o ponto de entrada principal para o SDK de chamada.|
 | CallAgent | O CallAgent é usado para iniciar e gerenciar chamadas. |
 | CommunicationTokenCredential | O CommunicationTokenCredential é usado como a credencial de token para criar uma instância do CallAgent.| 
 | CommunicationIdentifier | O CommunicationIdentifier é usado para representar a identidade do usuário, que pode ser uma das seguintes: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
@@ -131,7 +131,7 @@ callClient?.createCallAgent(userCredential: userCredential!,
 
 ## <a name="place-an-outgoing-call"></a>Realizar uma chamada de saída
 
-Para criar e iniciar uma chamada, você precisa chamar uma das APIs no `CallAgent` e fornecer a Identidade dos Serviços de Comunicação de um usuário que você provisionou usando a biblioteca de clientes do Gerenciamento dos Serviços de Comunicação.
+Para criar e iniciar uma chamada, você precisa chamar uma das APIs no `CallAgent` e fornecer a identidade dos serviços de comunicação de um usuário que você provisionou usando o SDK de gerenciamento de serviços de comunicação.
 
 A criação e o início da chamada são síncronos. Você receberá uma instância de chamada que permite assinar todos os eventos na chamada.
 

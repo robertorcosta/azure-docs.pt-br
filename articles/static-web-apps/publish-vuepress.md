@@ -9,10 +9,10 @@ ms.date: 05/08/2020
 ms.author: aapowell
 ms.custom: devx-track-js
 ms.openlocfilehash: 6f0616df885a7f8fcd76337c810bc368aa02f3c8
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "100650432"
 ---
 # <a name="tutorial-publish-a-vuepress-site-to-azure-static-web-apps-preview"></a>Tutorial: Publicar um site do VuePress na Versão Prévia dos Aplicativos Web Estáticos do Azure
@@ -110,8 +110,8 @@ As etapas a seguir mostram como criar um novo aplicativo de Aplicativos Web Est�
 ### <a name="create-the-application"></a>Criar o aplicativo
 
 1. Navegue até o [portal do Azure](https://portal.azure.com)
-1. Clique em **Criar um Recurso**.
-1. Pesquise **Aplicativos Web Estáticos**
+1. Clique em **Criar um Recurso**
+1. Pesquise por **Aplicativos Web Estáticos**
 1. Clique em **Aplicativos Web Estáticos (Versão Prévia)**
 1. Clique em **Criar**
 

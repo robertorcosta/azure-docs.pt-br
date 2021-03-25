@@ -4,10 +4,10 @@ description: Este padrão do Azure Policy fornece um exemplo de como agrupar def
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: aa09cafe636a4665dba6a2e746c13b95ff304895
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072910"
 ---
 # <a name="azure-policy-pattern-group-policy-definitions"></a>Padrão do Azure Policy: definições de política de grupo

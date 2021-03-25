@@ -9,12 +9,12 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 74a48b05e7e3b00d331da4fcf66092490ae70374
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: f52d907c36c7900d5f5eada3ca4a7328e42f9729
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103490663"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110841"
 ---
 # <a name="client-and-server-architecture"></a>Arquitetura de cliente e servidor
 
@@ -34,7 +34,7 @@ Cada aplicativo dos serviços de comunicação do Azure terá **aplicativos clie
 
 ## <a name="user-access-management"></a>Gerenciamento de acesso do usuário
 
-As bibliotecas de cliente dos serviços de comunicação do Azure exigem o `user access tokens` acesso seguro aos recursos dos serviços de comunicação. `User access tokens` deve ser gerado e gerenciado por um serviço confiável devido à natureza confidencial do token e à cadeia de conexão necessária para gerá-los. A falha de gerenciar tokens de acesso corretamente pode resultar em cobranças adicionais devido ao uso indevido de recursos. É altamente recomendável fazer uso de um serviço confiável para o gerenciamento de usuários. O serviço confiável irá gerar os tokens e passá-los de volta para o cliente usando a criptografia adequada. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
+Os SDKs dos serviços de comunicação do Azure exigem o `user access tokens` acesso seguro aos recursos dos serviços de comunicação. `User access tokens` deve ser gerado e gerenciado por um serviço confiável devido à natureza confidencial do token e à cadeia de conexão necessária para gerá-los. A falha de gerenciar tokens de acesso corretamente pode resultar em cobranças adicionais devido ao uso indevido de recursos. É altamente recomendável fazer uso de um serviço confiável para o gerenciamento de usuários. O serviço confiável irá gerar os tokens e passá-los de volta para o cliente usando a criptografia adequada. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
 
 :::image type="content" source="../media/scenarios/archdiagram-access.png" alt-text="Diagrama mostrando a arquitetura de token de acesso do usuário.":::
 
@@ -42,7 +42,7 @@ Para obter informações adicionais, consulte [melhores práticas de gerenciamen
 
 ## <a name="browser-communication"></a>Comunicação do navegador
 
-As bibliotecas de cliente JavaScript de comunicações do Azure podem habilitar aplicativos Web com interação avançada de Rich Text, voz e vídeo. O aplicativo interage diretamente com os serviços de comunicação do Azure por meio da biblioteca de cliente para acessar o plano de dados e fornecer comunicação de texto, voz e vídeo em tempo real. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
+Os SDKs de JavaScript de comunicações do Azure podem habilitar aplicativos Web com interação avançada de Rich Text, voz e vídeo. O aplicativo interage diretamente com os serviços de comunicação do Azure por meio do SDK para acessar o plano de dados e fornecer comunicação de texto, voz e vídeo em tempo real. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
 
 :::image type="content" source="../media/scenarios/archdiagram-browser.png" alt-text="Diagrama mostrando a arquitetura do navegador para os serviços de comunicação.":::
 
@@ -54,7 +54,7 @@ Muitos cenários são mais bem atendidos com aplicativos nativos. Os serviços d
 
 ## <a name="voice-and-sms-over-the-public-switched-telephony-network-pstn"></a>Voz e SMS sobre a rede de telefonia comutada pública (PSTN)
 
-A comunicação por meio do sistema telefônico pode aumentar consideravelmente o alcance do seu aplicativo. Para dar suporte a cenários de voz e SMS PSTN, os serviços de comunicação do Azure ajudam a [adquirir números de telefone](../quickstarts/telephony-sms/get-phone-number.md) diretamente do portal do Azure ou usando bibliotecas de cliente e APIs REST. Depois que os números de telefone são adquiridos, eles podem ser usados para alcançar clientes usando a chamada PSTN e o SMS nos cenários de entrada e de saída. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
+A comunicação por meio do sistema telefônico pode aumentar consideravelmente o alcance do seu aplicativo. Para dar suporte a cenários de voz e SMS de PSTN, os serviços de comunicação do Azure ajudam a [adquirir números de telefone](../quickstarts/telephony-sms/get-phone-number.md) diretamente do portal do Azure ou usando APIs REST e SDKs. Depois que os números de telefone são adquiridos, eles podem ser usados para alcançar clientes usando a chamada PSTN e o SMS nos cenários de entrada e de saída. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
 
 > [!Note]
 > Durante a visualização pública, o provisionamento de números de telefone dos EUA está disponível para clientes com endereços de cobrança localizados dentro dos EUA e do Canadá.
@@ -65,7 +65,7 @@ Para obter mais informações sobre números de telefone PSTN, consulte [tipos d
 
 ## <a name="humans-communicating-with-bots-and-other-services"></a>Pessoas se comunicando com bots e outros serviços
 
-Os serviços de comunicação do Azure dão suporte à comunicação humana para o sistema por meio de canais de texto e voz, com serviços que acessam diretamente o plano de dados dos serviços de comunicação do Azure. Por exemplo, você pode fazer com que um bot responda a chamadas telefônicas recebidas ou participe de um bate-papo na Web. Os serviços de comunicação do Azure fornecem bibliotecas de cliente que habilitam esses cenários para chamada e chat. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
+Os serviços de comunicação do Azure dão suporte à comunicação humana para o sistema por meio de canais de texto e voz, com serviços que acessam diretamente o plano de dados dos serviços de comunicação do Azure. Por exemplo, você pode fazer com que um bot responda a chamadas telefônicas recebidas ou participe de um bate-papo na Web. Os serviços de comunicação do Azure fornecem SDKs que habilitam esses cenários para chamar e bater papo. Um fluxo de arquitetura de exemplo pode ser encontrado abaixo:
 
 :::image type="content" source="../media/scenarios/archdiagram-bot.png" alt-text="Diagrama mostrando a arquitetura de bot dos serviços de comunicação.":::
 
@@ -73,7 +73,7 @@ Os serviços de comunicação do Azure dão suporte à comunicação humana para
 
 Talvez você queira trocar dados arbitrários entre os usuários, por exemplo, para sincronizar uma experiência mista compartilhada ou de jogos. O plano de dados em tempo real usado para comunicação de texto, voz e vídeo está disponível diretamente de duas maneiras:
 
-- **Chamando a biblioteca de cliente** -os dispositivos em uma chamada têm acesso a APIs para enviar e receber dados pelo canal de chamada. Essa é a maneira mais fácil de adicionar comunicação de dados a uma interação existente.
+- **Chamar o SDK** -os dispositivos em uma chamada têm acesso a APIs para enviar e receber dados pelo canal de chamada. Essa é a maneira mais fácil de adicionar comunicação de dados a uma interação existente.
 - **Stun/Turn** – os serviços de comunicação do Azure tornam os stun em conformidade com os padrões e tornam os serviços disponíveis para você. Isso permite que você crie uma camada de transporte altamente personalizada sobre esses primitivos padronizados. Você pode criar seu próprio cliente compatível com padrões ou usar bibliotecas de software livre, como [WinRTC](https://github.com/microsoft/winrtc).
 
 ## <a name="next-steps"></a>Próximas etapas
