@@ -11,10 +11,10 @@ ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
 ms.openlocfilehash: 4ca7286676c441b2fa96883e0c187497f59d6222
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93082614"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Criar um aplicativo Angular com a API do Azure Cosmos DB para MongoDB – criar uma conta do Cosmos
@@ -67,7 +67,7 @@ Depois que a conta do Azure Cosmos DB foi criada:
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="A captura de tela mostra a Visão geral de uma conta do Azure Cosmos DB.":::
 
-4. Role para baixo no painel de navegação esquerdo e clique na guia **Replicar dados globalmente** ; ela exibe um mapa em que você pode ver as diferentes áreas em que pode replicar. Por exemplo, você pode clicar em Sudeste da Austrália ou Leste da Austrália e replicar os dados n a Austrália. Você pode aprender mais sobre replicação global em [Como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md). Por enquanto, vamos apenas manter uma instância; saberemos como replicá-la se for o caso.
+4. Role para baixo no painel de navegação esquerdo e clique na guia **Replicar dados globalmente**; ela exibe um mapa em que você pode ver as diferentes áreas em que pode replicar. Por exemplo, você pode clicar em Sudeste da Austrália ou Leste da Austrália e replicar os dados n a Austrália. Você pode aprender mais sobre replicação global em [Como distribuir dados globalmente com o Azure Cosmos DB](distribute-data-globally.md). Por enquanto, vamos apenas manter uma instância; saberemos como replicá-la se for o caso.
 
     :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="A captura de tela mostra uma Conta do Azure Cosmos DB com a opção Replicar dados globalmente selecionada.":::
 
