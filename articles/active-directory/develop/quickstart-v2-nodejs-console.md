@@ -1,21 +1,21 @@
 ---
 title: 'Início rápido: Chamar o Microsoft Graph em um aplicativo de console Node.js | Azure'
 titleSuffix: Microsoft identity platform
-description: Neste guia de início rápido, você verá como um aplicativo de console Node.js pode obter um token de acesso e chamar uma API protegida pelo ponto de extremidade da plataforma de identidade da Microsoft usando a própria identidade do aplicativo
+description: Neste início rápido, você baixa e executa um exemplo de código que mostra como um aplicativo de console Node.js pode obter um token de acesso e chamar uma API protegida por um ponto de extremidade da plataforma de identidade da Microsoft usando a própria identidade do aplicativo
 services: active-directory
 author: derisen
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
-ms.date: 02/11/2021
+ms.date: 02/17/2021
 ms.author: v-doeris
-ms.openlocfilehash: c550cc8009f0138b9f1803399fbc592b34efbfab
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 4360810d460c5fc8598ce302ad8b82f65d2d819e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561994"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "101653738"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-nodejs-console-app-using-apps-identity"></a>Início rápido: Adquirir um token e chamar a API do Microsoft Graph em um aplicativo de console Node.js usando a identidade do aplicativo
 
@@ -29,12 +29,12 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 * [Visual Studio Code](https://code.visualstudio.com/download) ou outro editor de código
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-application"></a>Registrar e baixar o aplicativo de início rápido
+> ## <a name="register-and-download-the-sample-application"></a>Registrar e baixar o aplicativo de exemplo
 >
 > Siga as etapas abaixo para começar.
 >
 > [!div renderon="docs"]
-> #### <a name="step-1-register-your-application"></a>Etapa 1: Registre seu aplicativo
+> #### <a name="step-1-register-the-application"></a>Etapa 1: Registrar o aplicativo
 > Para registrar seu aplicativo e adicionar as informações de registro do aplicativo à solução manualmente, siga estas etapas:
 >
 > 1. Entre no <a href="https://portal.azure.com/" target="_blank">portal do Azure</a>.
@@ -50,9 +50,9 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 > 1. No nó **Usuário**, selecione **User.Read.All** e selecione **Adicionar permissões**.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> ### <a name="download-and-configure-your-quickstart-app"></a>Baixar e configurar seu aplicativo de início rápido
+> ### <a name="download-and-configure-the-sample-app"></a>Baixar e configurar o aplicativo de exemplo
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Etapa 1: Configurar seu aplicativo no portal do Azure
+> #### <a name="step-1-configure-the-application-in-azure-portal"></a>Etapa 1: Configurar o aplicativo no portal do Azure
 > Para o exemplo de código deste início rápido funcionar, você precisará criar um segredo do cliente e adicionar a permissão de aplicativo **User.Read.All** da API do Graph.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Fazer essas alterações para mim]()
@@ -60,7 +60,7 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 > > [!div id="appconfigured" class="alert alert-info"]
 > > ![Já configurado](media/quickstart-v2-netcore-daemon/green-check.png) Seu aplicativo já está configurado com esses atributos.
 
-#### <a name="step-2-download-your-nodejs-project"></a>Etapa 2: Baixar seu projeto Node.js
+#### <a name="step-2-download-the-nodejs-sample-project"></a>Etapa 2: Baixar o projeto de exemplo do Node.js
 
 > [!div renderon="docs"]
 > [Baixe o exemplo de código](https://github.com/azure-samples/ms-identity-javascript-nodejs-console/archive/main.zip)
@@ -73,7 +73,7 @@ Este guia de início rápido usa a [Biblioteca de Autenticação da Microsoft pa
 > > `Enter_the_Supported_Account_Info_Here`
 
 > [!div renderon="docs"]
-> #### <a name="step-3-configure-your-nodejs-project"></a>Etapa 3: Configurar seu projeto Node.js
+> #### <a name="step-3-configure-the-nodejs-sample-project"></a>Etapa 3: Configurar o projeto de exemplo do Node.js
 >
 > 1. Extraia o arquivo zip para uma pasta local próxima da raiz do disco, por exemplo, *C:\Azure-Samples*.
 > 1. Edite *.env* e substitua os valores dos campos `TENANT_ID`, `CLIENT_ID` e `CLIENT_SECRET` pelo seguinte snippet:
@@ -172,7 +172,7 @@ const msalConfig = {
         clientId: "Enter_the_Application_Id_Here",
         authority: "https://login.microsoftonline.com/Enter_the_Tenant_Id_Here",
         clientSecret: "Enter_the_Client_Secret_Here",
-   } 
+   }
 };
 const cca = new msal.ConfidentialClientApplication(msalConfig);
 ```

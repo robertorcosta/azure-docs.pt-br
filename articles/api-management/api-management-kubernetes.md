@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/14/2019
 ms.author: apimpm
-ms.openlocfilehash: 293a47bc3e8499d7eda4e64bb68bc95eb4c85ab0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 36dfc8c906c52c6822e583db3a08c891306f7e78
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98108391"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047925"
 ---
 # <a name="use-azure-api-management-with-microservices-deployed-in-azure-kubernetes-service"></a>Usar o gerenciamento de API do Azure com microservices implantados no serviço kubernetes do Azure
 
 Os microserviços são perfeitos para a criação de APIs. Com o AKs ( [serviço kubernetes do Azure](https://azure.microsoft.com/services/kubernetes-service/) ), você pode implantar e operar rapidamente uma [arquitetura baseada em microserviços](/azure/architecture/guide/architecture-styles/microservices) na nuvem. Em seguida, você pode aproveitar o [Gerenciamento de API do Azure](https://aka.ms/apimrocks) (gerenciamento de API) para publicar seus microserviços como APIs para consumo interno e externo. Este artigo descreve as opções de implantação do gerenciamento de API com o AKS. Ele assume o conhecimento básico do kubernetes, do gerenciamento de API e da rede do Azure. 
 
-## <a name="background"></a>Tela de fundo
+## <a name="background"></a>Segundo plano
 
 Ao publicar os microserviços como APIs para consumo, pode ser desafiador gerenciar a comunicação entre os microserviço e os clientes que os consomem. Há uma infinidade de preocupações abrangentes, como autenticação, autorização, limitação, Caching, transformação e monitoramento. Essas preocupações são válidas independentemente se os microserviços são expostos a clientes internos ou externos. 
 
@@ -95,7 +95,7 @@ Quando você publica APIs por meio do Gerenciamento de API, é fácil e normal p
 
 ### <a name="option-3-deploy-apim-inside-the-cluster-vnet"></a>Opção 3: implantar o APIM dentro da VNet do cluster
 
-Em alguns casos, os clientes com restrições regulatórias ou requisitos de segurança estritos podem encontrar a opção 1 e 2 soluções não viáveis devido a pontos de extremidade publicamente expostos. Em outros, o cluster AKS e os aplicativos que consomem os microserviços podem residir na mesma VNet, portanto, não há motivo para expor o cluster publicamente, pois todo o tráfego da API permanecerá na VNet. Para esses cenários, você pode implantar o gerenciamento de API na VNet do cluster. A [camada Premium de gerenciamento de API](https://aka.ms/apimpricing) dá suporte à implantação de VNet. 
+Em alguns casos, os clientes com restrições regulatórias ou requisitos de segurança estritos podem encontrar a opção 1 e 2 soluções não viáveis devido a pontos de extremidade publicamente expostos. Em outros, o cluster AKS e os aplicativos que consomem os microserviços podem residir na mesma VNet, portanto, não há motivo para expor o cluster publicamente, pois todo o tráfego da API permanecerá na VNet. Para esses cenários, você pode implantar o gerenciamento de API na VNet do cluster. As [camadas do desenvolvedor de gerenciamento de API e Premium](https://aka.ms/apimpricing) oferecem suporte à implantação de VNet. 
 
 Há dois modos de [implantar o gerenciamento de API em uma VNet](./api-management-using-with-vnet.md) – externo e interno. 
 

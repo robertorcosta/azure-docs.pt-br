@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.service: azure-object-anchors
-ms.openlocfilehash: 74663f05c5ff995a090c7cd35e4edf46a754da17
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 551374824610c0257aaf52c45768d31849026524
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102034601"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047534"
 ---
 # <a name="runtime-sdk-overview"></a>Visão geral do SDK do Runtime
 
@@ -25,59 +25,59 @@ Todos os tipos descritos abaixo podem ser encontrados no namespace **Microsoft. 
 
 ### <a name="objectmodel"></a>ObjectModel
 
-Um [ObjectModel](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectmodel) representa a geometria de um objeto físico e codifica os parâmetros necessários para detecção e estimativa de pose. Ele deve ser criado usando o [serviço âncoras de objeto](../quickstarts/get-started-model-conversion.md). Em seguida, um aplicativo pode carregar o arquivo de modelo gerado usando a API de âncoras de objeto e consultar a malha inserida nesse modelo para visualização.
+Um [ObjectModel](/dotnet/api/microsoft.azure.objectanchors.objectmodel) representa a geometria de um objeto físico e codifica os parâmetros necessários para detecção e estimativa de pose. Ele deve ser criado usando o [serviço âncoras de objeto](../quickstarts/get-started-model-conversion.md). Em seguida, um aplicativo pode carregar o arquivo de modelo gerado usando a API de âncoras de objeto e consultar a malha inserida nesse modelo para visualização.
 
 ### <a name="objectsearcharea"></a>ObjectSearchArea
 
-Um [ObjectSearchArea](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) especifica o espaço para procurar um ou vários objetos. Ele é definido por uma ID de nó de grafo espacial e limites espaciais no sistema de coordenadas representado pela ID do nó do grafo espacial. O SDK de tempo de execução de âncoras de objeto dá suporte a quatro tipos de limites, ou seja, **campo de exibição**, **caixa delimitadora**, **esfera** e um **local**.
+Um [ObjectSearchArea](/dotnet/api/microsoft.azure.objectanchors.objectsearcharea) especifica o espaço para procurar um ou vários objetos. Ele é definido por uma ID de nó de grafo espacial e limites espaciais no sistema de coordenadas representado pela ID do nó do grafo espacial. O SDK de tempo de execução de âncoras de objeto dá suporte a quatro tipos de limites, ou seja, **campo de exibição**, **caixa delimitadora**, **esfera** e um **local**.
 
 ### <a name="objectquery"></a>ObjectQuery
 
-Um [ObjectQuery](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery) informa a um **objeto** que indica como localizar objetos de um determinado modelo. Ele fornece os seguintes parâmetros ajustáveis, cujos valores padrão podem ser recuperados de um modelo de objeto.
+Um [ObjectQuery](/dotnet/api/microsoft.azure.objectanchors.objectquery) informa a um **objeto** que indica como localizar objetos de um determinado modelo. Ele fornece os seguintes parâmetros ajustáveis, cujos valores padrão podem ser recuperados de um modelo de objeto.
 
 #### <a name="minsurfacecoverage"></a>MinSurfaceCoverage
 
-A propriedade [MinSurfaceCoverage](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) indica o valor a considerar uma instância como detectada.
+A propriedade [MinSurfaceCoverage](/dotnet/api/microsoft.azure.objectanchors.objectquery.minsurfacecoverage) indica o valor a considerar uma instância como detectada.
 
 Para cada candidato de objeto, um **observador** computa a proporção de superfícies sobrepostas entre o modelo de objeto transformado e a cena e, em seguida, ele relatará o candidato ao aplicativo somente quando a taxa de cobertura estiver acima de um determinado limite.
 
 #### <a name="isexpectedtobestandingongroundplane"></a>IsExpectedToBeStandingOnGroundPlane
 
-A propriedade [IsExpectedToBeStandingOnGroundPlane](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) indica se espera-se que o objeto de destino fique no plano de chão.
+A propriedade [IsExpectedToBeStandingOnGroundPlane](/dotnet/api/microsoft.azure.objectanchors.objectquery.isexpectedtobestandingongroundplane) indica se espera-se que o objeto de destino fique no plano de chão.
 
 Um plano de chão é o menor piso horizontal na área de pesquisa. Ele fornece uma boa restrição sobre as representações de objeto possíveis. Ativar esse sinalizador orientará o **observador** para estimar a pose em um espaço limitado e poderá melhorar a precisão. Esse parâmetro será ignorado se o modelo não for esperado para o plano de chão.
 
 #### <a name="expectedmaxverticalorientationindegrees"></a>ExpectedMaxVerticalOrientationInDegrees
 
-A propriedade [ExpectedMaxVerticalOrientationInDegrees](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) indica o ângulo máximo esperado em graus entre a direção de cima de uma instância de objeto e gravidade.
+A propriedade [ExpectedMaxVerticalOrientationInDegrees](/dotnet/api/microsoft.azure.objectanchors.objectquery.expectedmaxverticalorientationindegrees) indica o ângulo máximo esperado em graus entre a direção de cima de uma instância de objeto e gravidade.
 
 Esse parâmetro fornece outra restrição na direção para cima de uma pose estimada. Por exemplo, se um objeto estiver correto, esse parâmetro poderá ser 0. As âncoras de objeto não devem detectar objetos que são diferentes do modelo. Se um modelo estiver ativo, então ele não detectará uma instância disposta lado à direita. Um novo modelo seria usado para layout de lado abaixo. A mesma regra se aplica a Articulation.
 
 #### <a name="maxscalechange"></a>MaxScaleChange
 
-A propriedade [MaxScaleChange](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) indica a alteração máxima de escala do objeto (dentro de 0 ~ 1) em relação ao mapeamento espacial. A escala estimada é aplicada aos vértices de objetos transformados centralizados na origem e alinhada ao eixo. Escalas estimadas não podem ser a escala real entre um modelo CAD e sua representação física, mas alguns valores que permitem que o aplicativo processe um modelo de objeto próximo ao mapeamento espacial no objeto físico.
+A propriedade [MaxScaleChange](/dotnet/api/microsoft.azure.objectanchors.objectquery.maxscalechange) indica a alteração máxima de escala do objeto (dentro de 0 ~ 1) em relação ao mapeamento espacial. A escala estimada é aplicada aos vértices de objetos transformados centralizados na origem e alinhada ao eixo. Escalas estimadas não podem ser a escala real entre um modelo CAD e sua representação física, mas alguns valores que permitem que o aplicativo processe um modelo de objeto próximo ao mapeamento espacial no objeto físico.
 
 #### <a name="searchareas"></a>SearchAreas
 
-A propriedade [SearchAreas](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) indica uma matriz de limites espaciais onde encontrar objeto (s).
+A propriedade [SearchAreas](/dotnet/api/microsoft.azure.objectanchors.objectquery.searchareas) indica uma matriz de limites espaciais onde encontrar objeto (s).
 
 O **observador** procurará objetos no espaço de União de todas as áreas de pesquisa especificadas em uma consulta. Nesta versão, retornaremos no máximo um objeto com maior confiança para reduzir a latência.
 
 ### <a name="objectinstance"></a>ObjectInstance
 
-Um [ObjectInstance](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectinstance) representa uma posição hipotética em que uma instância de um determinado modelo pode estar no sistema de coordenadas do HoloLens. Cada instância vem com uma `SurfaceCoverage` propriedade para indicar a qualidade da pose estimada.
+Um [ObjectInstance](/dotnet/api/microsoft.azure.objectanchors.objectinstance) representa uma posição hipotética em que uma instância de um determinado modelo pode estar no sistema de coordenadas do HoloLens. Cada instância vem com uma `SurfaceCoverage` propriedade para indicar a qualidade da pose estimada.
 
 Uma instância é criada por meio do `ObjectObserver.DetectAsync` método de chamada e, em seguida, atualizada automaticamente em segundo plano quando ativa. Um aplicativo pode escutar o evento de estado alterado em uma determinada instância ou alterar o modo de controle para pausar/retomar a atualização. Uma instância será automaticamente removida do **observador** quando o rastreamento for perdido.
 
 ### <a name="objectobserver"></a>Objectobservador
 
-Um [Objectobservador](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.objectobserver) carrega modelos de objeto, detecta suas instâncias e relata DOF de cada instância no sistema de coordenadas do HoloLens.
+Um [Objectobservador](/dotnet/api/microsoft.azure.objectanchors.objectobserver) carrega modelos de objeto, detecta suas instâncias e relata DOF de cada instância no sistema de coordenadas do HoloLens.
 
 Embora qualquer instância ou modelo de objeto seja criado a partir de um **observador**, seus tempos de vida são independentes. Um aplicativo pode descartar um observador e continuar a usar o modelo ou instância de objeto.
 
 ### <a name="objectdiagnosticssession"></a>ObjectDiagnosticsSession
 
-O [ObjectDiagnosticSession](https://docs.microsoft.com/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) registra o diagnóstico e grava dados em um arquivo morto.
+O [ObjectDiagnosticSession](/dotnet/api/microsoft.azure.objectanchors.diagnostics.objectdiagnosticssession) registra o diagnóstico e grava dados em um arquivo morto.
 
 Um arquivo de diagnóstico inclui a nuvem do ponto de cena, o status do observador e as informações sobre os modelos. Essas informações são úteis para identificar possíveis problemas de tempo de execução. Consulte mais informações em [Perguntas Frequentes](../faq.md).
 

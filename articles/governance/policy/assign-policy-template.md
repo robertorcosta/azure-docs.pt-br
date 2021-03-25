@@ -5,10 +5,10 @@ ms.date: 08/17/2020
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 09/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "89651429"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo ARM
@@ -24,7 +24,7 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 ## <a name="prerequisites"></a>Pré-requisitos:
 
-caso você não tenha uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
+Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
@@ -72,7 +72,7 @@ Alguns recursos adicionais:
 
 Selecione **Conformidade** no lado esquerdo da página. Em seguida, localize as _VMs de auditoria que não usam a atribuição de política de discos gerenciados_ que você criou.
 
-:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Botão para implantar o modelo do ARM para atribuir um Azure Policy ao Azure." border="false":::
+:::image type="content" source="./media/assign-policy-template/policy-compliance.png" alt-text="Captura de tela dos detalhes de conformidade na página Conformidade com a Política." border="false":::
 
 Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão em **Recursos sem conformidade**.
 
@@ -86,7 +86,7 @@ Para remover a atribuição criada, siga estas etapas:
 
 1. Clique com o botão direito do mouse na atribuição de política _Auditar VMs que não usam discos gerenciados_ e selecione **Excluir atribuição**.
 
-   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Botão para implantar o modelo do ARM para atribuir um Azure Policy ao Azure." border="false":::
+   :::image type="content" source="./media/assign-policy-template/delete-assignment.png" alt-text="Captura de tela do uso do menu de contexto para excluir uma atribuição da página Conformidade." border="false":::
 
 ## <a name="next-steps"></a>Próximas etapas
 

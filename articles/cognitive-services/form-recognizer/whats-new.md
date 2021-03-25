@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 03/15/2021
 ms.author: lajanuar
-ms.openlocfilehash: 47e145c5d96ba54b02f5453ff97d16dec302eabd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81115f5a9ed802f1d07c45ec928dc4b84ea2917b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493502"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048741"
 ---
 <!-- markdownlint-disable MD024 -->
 # <a name="whats-new-in-form-recognizer"></a>O que há de novo no Reconhecimento de Formulários?
@@ -117,7 +117,7 @@ o **v 2.0** inclui a seguinte atualização:
 * **Suporte a moeda** – detecção e extração de símbolos de moeda global.
 * O reconhecimento de formulários **do Azure gov** agora também está disponível no Azure gov.
 * **Recursos de segurança aprimorados**: 
-  * **Traga seu próprio** reconhecedor de formulário de chave criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente, também conhecidas como BYOK (traga sua própria chave)](./form-recognizer-encryption-of-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
+  * **Traga seu próprio** reconhecedor de formulário de chave criptografa automaticamente seus dados quando persistidos na nuvem para protegê-los e ajudá-lo a atender aos compromissos de segurança e conformidade da organização. Por padrão, sua assinatura usa chaves de criptografia gerenciadas pela Microsoft. Agora você também pode gerenciar sua assinatura com suas próprias chaves de criptografia. [As chaves gerenciadas pelo cliente, também conhecidas como BYOK (traga sua própria chave)](./encrypt-data-at-rest.md), oferecem maior flexibilidade para criar, girar, desabilitar e revogar controles de acesso. Você também pode auditar as chaves de criptografia usadas para proteger seus dados.  
   * **Pontos de extremidade privados** – permite que você em uma rede virtual (VNet) [acesse dados com segurança por meio de um link privado.](../../private-link/private-link-overview.md)
 
 ## <a name="june-2020"></a>Junho de 2020
