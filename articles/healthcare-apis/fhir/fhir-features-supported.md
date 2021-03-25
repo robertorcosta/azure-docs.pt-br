@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 1/30/2021
 ms.author: cavoeg
-ms.openlocfilehash: a31fb48443cf760186faad705b8be21a62846a44
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 9bd61d65d6d64dac6081d3491deb8a15efc4a45b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017717"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048412"
 ---
 # <a name="features"></a>Recursos
 
@@ -35,14 +35,14 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 | atualizar com bloqueio otimista | Sim       | Sim       | Sim       |                                                     |
 | atualizar (condicional)           | Sim       | Sim       | Sim       |                                                     |
 | distribuído                          | Não        | Não        | Não        |                                                     |
-| excluir                         | Sim       | Sim       | Sim       |  Consulte a observação abaixo                                                   |
+| excluir                         | Sim       | Sim       | Sim       |  Consulte a observação abaixo.                                   |
 | excluir (condicional)           | Não        | Não        | Não        |                                                     |
 | history                        | Sim       | Sim       | Sim       |                                                     |
 | create                         | Sim       | Sim       | Sim       | Suporte para POST/PUT                               |
 | criar (condicional)           | Sim       | Sim       | Sim       | Problema [#1382](https://github.com/microsoft/fhir-server/issues/1382) |
-| pequisa                         | Parcial   | Parcial   | Parcial   | Veja abaixo                                           |
-| pesquisa encadeada                 | Não        | Sim       | Não        |                                                     |
-| pesquisa encadeada inversa         | Não        | Sim       | Não        |                                                     |
+| pequisa                         | Parcial   | Parcial   | Parcial   | Consulte a seção de pesquisa abaixo.                           |
+| pesquisa encadeada                 | Sim       | Sim       | Parcial   | Veja a observação 2 abaixo.                                   |
+| pesquisa encadeada inversa         | Sim       | Sim       | Parcial   | Veja a observação 2 abaixo.                                   |
 | funcionalidades                   | Sim       | Sim       | Sim       |                                                     |
 | lote                          | Sim       | Sim       | Sim       |                                                     |
 | transaction                    | Não        | Sim       | Não        |                                                     |
@@ -51,6 +51,12 @@ As versões anteriores também têm suporte no momento incluem: `3.0.2`
 
 > [!Note]
 > A exclusão definida pela especificação de FHIR requer que, após a exclusão, leituras próximas não específicas de uma versão de um recurso retornem um código de status HTTP 410 e o recurso não seja mais encontrado na pesquisa. A API do Azure para FHIR também permite que você exclua completamente (incluindo todo o histórico) o recurso. Para excluir completamente o recurso, você pode passar uma configuração de parâmetro `hardDelete` para true ( `DELETE {server}/{resource}/{id}?hardDelete=true` ). Se você não passar esse parâmetro ou definido `hardDelete` como false, as versões históricas do recurso ainda estarão disponíveis.
+
+
+ **Observação 2**
+* Adiciona o suporte do MVP para pesquisa de FHIR encadeada e revertida em CosmosDB. 
+
+  Na API do Azure para FHIR e o servidor FHIR de código-fonte aberto com suporte de Cosmos, a pesquisa encadeada e a pesquisa encadeada inversa é uma implementação MVP. Para realizar uma pesquisa encadeada no Cosmos DB, a implementação percorre a expressão de pesquisa e emite subconsultas para resolver os recursos correspondentes. Isso é feito para cada nível da expressão. Se qualquer consulta retornar mais de 100 resultados, um erro será gerado. Por padrão, a pesquisa encadeada está atrás de um sinalizador de recurso. Para usar a pesquisa encadeada em Cosmos DB, use o cabeçalho `x-ms-enable-chained-search: true` . Para obter mais detalhes, consulte [PR 1695](https://github.com/microsoft/fhir-server/pull/1695).
 
 ## <a name="search"></a>Search
 

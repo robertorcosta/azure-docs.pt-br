@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: article
 ms.custom: references_regions
-ms.openlocfilehash: dd91622344263dc366a76c913ce0be95718550cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 789233ce1ede751276f965143716694c6feca3ca
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101705153"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032779"
 ---
 # <a name="system-requirements"></a>Requisitos de sistema
 
@@ -111,12 +111,10 @@ O seguinte software deve ser instalado:
 
 ## <a name="unity"></a>Unity
 
-Para desenvolvimento com o Unity, instale
-
-* Unity 2019.3.1 [(baixar)](https://unity3d.com/get-unity/download)
-* Instale estes módulos no Unity:
-  * **UWP** – Suporte ao Build da Plataforma Universal do Windows
-  * **IL2CPP** – Suporte ao Build do Windows (IL2CPP)
+Para desenvolvimento com o Unity, instale uma versão atual do Unity 2019,3 ou 2019,4 LTS [(download)](https://unity3d.com/get-unity/download). É recomendável usar o Hub do Unity para gerenciar instalações.
+Certifique-se de incluir os seguintes módulos na instalação do Unity:
+* **UWP** – Suporte ao Build da Plataforma Universal do Windows
+* **IL2CPP** – Suporte ao Build do Windows (IL2CPP)
 
 ## <a name="next-steps"></a>Próximas etapas
 

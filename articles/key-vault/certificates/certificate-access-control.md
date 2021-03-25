@@ -11,10 +11,10 @@ ms.topic: overview
 ms.date: 10/12/2020
 ms.author: sebansal
 ms.openlocfilehash: 1308debb34d724f93526b776f19e0cbf1914d945
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92128513"
 ---
 # <a name="certificate-access-control"></a>Controle de acesso de certificado
@@ -24,24 +24,24 @@ ms.locfileid: "92128513"
  As seguintes permissões podem ser usadas, por entidade de segurança, na entrada de controle de acesso segredos em um cofre de chaves e refletem com maior exatidão as operações permitidas em um objeto de segredo:  
 
 - Permissões para operações de gerenciamento do certificado
-  - **obter** : Obtém a versão atual do certificado ou qualquer versão de um certificado
-  - **lista** : Lista os certificados atuais ou versões de um certificado  
-  - **atualizar** : Atualizar um certificado
-  - **criar** : Criar certificado do Key Vault
-  - **importar** : Importar o material do certificado em um certificado de Key Vault
-  - **excluir** : Excluir um certificado, sua política e todas as suas versões  
-  - **recuperar** : Recuperar um certificado excluído
-  - **backup** : Faz backup de um certificado em um cofre de chaves
-  - **restaurar** : Restaurar um backup de certificado em um Key Vault
-  - **managecontacts** : Gerenciar contatos de certificados do Key Vault  
-  - **manageissuers** : Gerenciar as autoridades/emissores de certificado do Key Vault
-  - **getissuers** : Obter as autoridades/emissores de um certificado
-  - **listissuers** : Lista as autoridades/emissores de um certificado  
-  - **setissuers** : Cria ou atualiza emissores de certificado do Key Vault  
-  - **deleteissuers** : Exclui autoridades/emissores do certificado do Azure Key Vault  
+  - **obter**: Obtém a versão atual do certificado ou qualquer versão de um certificado
+  - **lista**: Lista os certificados atuais ou versões de um certificado  
+  - **atualizar**: Atualizar um certificado
+  - **criar**: Criar certificado do Key Vault
+  - **importar**: Importar o material do certificado em um certificado de Key Vault
+  - **excluir**: Excluir um certificado, sua política e todas as suas versões  
+  - **recuperar**: Recuperar um certificado excluído
+  - **backup**: Faz backup de um certificado em um cofre de chaves
+  - **restaurar**: Restaurar um backup de certificado em um Key Vault
+  - **managecontacts**: Gerenciar contatos de certificados do Key Vault  
+  - **manageissuers**: Gerenciar as autoridades/emissores de certificado do Key Vault
+  - **getissuers**: Obter as autoridades/emissores de um certificado
+  - **listissuers**: Lista as autoridades/emissores de um certificado  
+  - **setissuers**: Cria ou atualiza emissores de certificado do Key Vault  
+  - **deleteissuers**: Exclui autoridades/emissores do certificado do Azure Key Vault  
  
 - Permissões para operações com privilégio
-  - **limpar** : Limpar (exclui permanentemente) um certificado excluído
+  - **limpar**: Limpar (exclui permanentemente) um certificado excluído
 
 Para obter mais informações, veja [Operações de certificado na referência de API REST do Key Vault](/rest/api/keyvault). Para obter informações sobre como estabelecer permissões, confira [Cofres – Atualizar política de acesso](/rest/api/keyvault/vaults/updateaccesspolicy).
 

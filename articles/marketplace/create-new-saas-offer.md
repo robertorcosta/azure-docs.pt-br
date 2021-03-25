@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 09/02/2020
-ms.openlocfilehash: f689993ce56a1125a1d1de8f65ce05d01f776ea9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/19/2021
+ms.openlocfilehash: f652858f22e26eb7167a0cc7a2cfb8ef4b600ace
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93130061"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047293"
 ---
 # <a name="how-to-create-a-saas-offer-in-the-commercial-marketplace"></a>Como criar uma oferta de SaaS no Marketplace comercial
 
@@ -22,6 +22,9 @@ Como um editor de mercado comercial, você pode criar uma oferta de SaaS (softwa
 ## <a name="before-you-begin"></a>Antes de começar
 
 Se você ainda não tiver feito isso, leia [planejar uma oferta de SaaS para o Marketplace comercial](plan-saas-offer.md). Ele explicará os requisitos técnicos para seu aplicativo SaaS e as informações e os ativos que você precisará ao criar sua oferta. A menos que você planeje publicar uma listagem simples (opção de listagem de **contato comigo** ) no Marketplace comercial, seu aplicativo SaaS deve atender aos requisitos técnicos de autenticação.
+
+> [!IMPORTANT]
+> Recomendamos que você crie uma oferta de desenvolvimento/teste (DEV) separada e uma oferta de produção (PROD) separada. Este artigo descreve como criar uma oferta de produção. Para obter detalhes sobre como criar uma oferta de desenvolvimento, consulte [criar uma oferta de desenvolvimento e teste](create-saas-dev-test-offer.md).
 
 ## <a name="create-a-new-saas-offer"></a>Criar uma oferta de SaaS
 
