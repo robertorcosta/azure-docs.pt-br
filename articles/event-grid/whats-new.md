@@ -4,10 +4,10 @@ description: Conheça as novidades da Grade de Eventos do Azure, como as última
 ms.topic: overview
 ms.date: 07/23/2020
 ms.openlocfilehash: 7528cef7007704bbf434f16622707da8920eec2b
-ms.sourcegitcommit: 9eda79ea41c60d58a4ceab63d424d6866b38b82d
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96350000"
 ---
 # <a name="whats-new-in-azure-event-grid"></a>O que há de novo na Grade de Eventos do Azure?

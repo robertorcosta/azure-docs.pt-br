@@ -4,12 +4,12 @@ description: Os pools de imagens personalizadas são uma maneira eficiente de co
 ms.topic: conceptual
 ms.date: 03/04/2021
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 8623c47952540717ae50538fd7b0282c9c8629bb
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a9ff30f52ae19e3d6a7bc58ca81eabeb91d21146
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102124237"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024057"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usar a Galeria de imagens compartilhadas para criar um pool de imagens personalizado
 
@@ -67,7 +67,7 @@ As etapas a seguir mostram como preparar uma VM, gerar um instantâneo e criar u
 Se você estiver criando uma nova VM para a imagem, use uma imagem interna do Azure Marketplace com suporte no Lote como a imagem base para sua imagem gerenciada. Somente imagens internas podem ser usadas como uma imagem base. Para obter uma lista de referências de imagens do Azure Marketplace com suporte no Lote do Azure, confira a operação [Listar SKUs do agente de nó](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus).
 
 > [!NOTE]
-> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes par máquinas virtuais [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms) ou [Windows](../virtual-machines/windows/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms).
+> Você não pode usar uma imagem de terceiros que tenham licenças adicionais e termos de compra como sua imagem de base. Para obter informações sobre essas imagens do Marketplace, consulte as diretrizes para VMs do [Linux](../virtual-machines/linux/cli-ps-findimage.md#check-the-purchase-plan-information) ou do [Windows](../virtual-machines/windows/cli-ps-findimage.md#view-purchase-plan-properties).
 
 Siga estas diretrizes ao criar VMs:
 

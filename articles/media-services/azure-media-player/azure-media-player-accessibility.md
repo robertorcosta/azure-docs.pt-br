@@ -7,10 +7,10 @@ ms.service: media-services
 ms.topic: overview
 ms.date: 04/20/2020
 ms.openlocfilehash: 2231c2969bbfce1668002ad4f5f719e0b8e13de5
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "81727603"
 ---
 # <a name="accessibility"></a>Acessibilidade #
@@ -49,4 +49,4 @@ O Player de Mídia do Azure dá suporte ao controle por meio da tecla de atalho 
 ## <a name="next-steps"></a>Próximas etapas
 
 <!---Some context for the following links goes here--->
-- [Início Rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)
+- [Início rápido do Player de Mídia do Azure](azure-media-player-quickstart.md)
