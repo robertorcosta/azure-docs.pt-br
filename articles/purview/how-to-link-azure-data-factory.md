@@ -6,13 +6,13 @@ ms.author: csugunan
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 03/08/2021
-ms.openlocfilehash: 8812806e535e8e34ca07fdb13e6223bfa0c91d6b
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/24/2021
+ms.openlocfilehash: c9f2a21a1183637ec4648868cccd6f343b003f0c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102449604"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026616"
 ---
 # <a name="how-to-connect-azure-data-factory-and-azure-purview"></a>Como conectar Azure Data Factory e o Azure alcance
 
@@ -110,26 +110,26 @@ A integração entre Data Factory e alcance dá suporte apenas a um subconjunto 
 | Armazenamento de dados | Com suporte | 
 | ------------------- | ------------------- | 
 | Armazenamento do Blobs do Azure | Sim |
-| Pesquisa Cognitiva do Azure | Sim | 
-| Azure Cosmos DB (API do SQL) \* | Sim | 
-| API do Azure Cosmos DB para MongoDB \* | Sim |
+| Pesquisa Cognitiva do Azure | Yes | 
+| Azure Cosmos DB (API do SQL) \* | Yes | 
+| API do Azure Cosmos DB para MongoDB \* | Yes |
 | Data Explorer do Azure \* | Sim | 
 | Azure Data Lake Storage Gen1 | Sim | 
 | Azure Data Lake Storage Gen2 | Sim | 
-| Banco de dados do Azure para Maria DB \* | Sim | 
-| Banco de dados do Azure para MySQL \* | Sim | 
+| Banco de dados do Azure para Maria DB \* | Yes | 
+| Banco de dados do Azure para MySQL \* | Yes | 
 | Banco de dados do Azure para PostgreSQL \* | Sim |
 | Armazenamento de Arquivos do Azure | Sim | 
-| Banco de dados SQL do Azure \* | Sim | 
-| Instância Gerenciada do SQL do Azure \* | Sim | 
+| Banco de dados SQL do Azure \* | Yes | 
+| Instância Gerenciada do SQL do Azure \* | Yes | 
 | Análise de Synapse do Azure \* | Sim | 
 | Armazenamento de Tabelas do Azure | Sim |
-| Amazon S3 | Sim | 
-| Sessão \* | Sim | 
-| SAP ECC \* | Sim |
-| Tabela SAP | Sim |
-| SQL Server \* | Sim | 
-| Teradata \* | Sim |
+| Amazon S3 | Yes | 
+| Sessão \* | Yes | 
+| SAP ECC \* | Yes |
+| Tabela SAP | Yes |
+| SQL Server \* | Yes | 
+| Teradata \* | Yes |
 
 *\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
 
@@ -148,6 +148,11 @@ Atualmente, se você usar os seguintes recursos de atividade de cópia, ainda n�
 - Copiar dados para o coletor baseado em arquivo com a configuração de máximo de linhas por arquivo.
 - Adicione colunas adicionais durante a cópia.
 
+Em adicionais à linhagem, o esquema de ativos de dados (mostrado na guia esquema > de ativos) é relatado para os seguintes conectores:
+
+- Arquivos CSV e parquet no blob do Azure, armazenamento de arquivos do Azure, ADLS Gen1, ADLS Gen2 e Amazon S3
+- Data Explorer do Azure, banco de dados SQL do Azure, SQL Instância Gerenciada do Azure, análise de Synapse do Azure, SQL Server, Teradata
+
 ### <a name="data-factory-data-flow-support"></a>Suporte a Data Factory de fluxo de dados
 
 | Armazenamento de dados | Com suporte |
@@ -155,8 +160,8 @@ Atualmente, se você usar os seguintes recursos de atividade de cópia, ainda n�
 | Armazenamento do Blobs do Azure | Sim |
 | Azure Data Lake Storage Gen1 | Sim |
 | Azure Data Lake Storage Gen2 | Sim |
-| Banco de dados SQL do Azure \* | Sim |
-| Análise de Synapse do Azure \* | Sim |
+| Banco de dados SQL do Azure \* | Yes |
+| Análise de Synapse do Azure \* | Yes |
 
 *\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
 
@@ -168,10 +173,10 @@ Atualmente, se você usar os seguintes recursos de atividade de cópia, ainda n�
 | Azure Data Lake Storage Gen1 | Sim |
 | Azure Data Lake Storage Gen2 | Sim |
 | Armazenamento de Arquivos do Azure | Sim |
-| Banco de dados SQL do Azure \* | Sim |
-| Instância Gerenciada do SQL do Azure \*| Sim |
-| Análise de Synapse do Azure \* | Sim |
-| SQL Server \* | Sim |
+| Banco de dados SQL do Azure \* | Yes |
+| Instância Gerenciada do SQL do Azure \*| Yes |
+| Análise de Synapse do Azure \* | Yes |
+| SQL Server \* | Yes |
 
 *\* Atualmente, o Azure alcance não dá suporte a consulta ou procedimento armazenado para linhagem ou verificação. A linhagem é limitada apenas a fontes de tabela e exibição.*
 

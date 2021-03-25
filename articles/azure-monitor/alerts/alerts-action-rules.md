@@ -3,16 +3,16 @@ title: Regras de ação para alertas de Azure Monitor
 description: Noções básicas sobre as regras de ação no Azure Monitor são e como configurá-las e gerenciá-las.
 ms.topic: conceptual
 ms.date: 03/15/2021
-ms.openlocfilehash: f70d798270ad82193f7ae5935d34f8f418d35e05
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 12e7cf8e72c5423b4a2edd6ea2a0f4537e328b08
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471685"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105036774"
 ---
 # <a name="action-rules-preview"></a>Regras de ação (visualização)
 
-As regras de ação ajudam a definir ou suprimir ações em qualquer escopo de Azure Resource Manager (assinatura do Azure, grupo de recursos ou recurso de destino). Eles têm vários filtros que ajudam a restringir o subconjunto específico de instâncias de alerta nas quais você deseja agir.
+As regras de ação permitem adicionar ou suprimir os grupos de ações nos alertas acionados. Uma única regra pode abranger diferentes escopos de recursos de destino, por exemplo, qualquer alerta sobre um recurso específico (como uma máquina virtual específica) ou qualquer alerta disparado em qualquer recurso em uma assinatura. Opcionalmente, você pode adicionar vários filtros para controlar quais alertas são cobertos por uma regra e definir uma agenda para ele, por exemplo, para que ele esteja em vigor somente fora do horário comercial ou durante uma janela de manutenção planejada.
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4rBZ2]
 
@@ -31,7 +31,7 @@ Embora as regras de alerta ajudem a definir o grupo de ações que dispara quand
 As regras de ação ajudam a simplificar esse processo. Ao definir as ações em escala, um grupo de ações pode ser disparado para qualquer alerta gerado no escopo configurado. No exemplo anterior, a equipe pode definir uma regra de ação em **ContosoRG** que disparará o mesmo grupo de ações para todos os alertas gerados nele.
 
 > [!NOTE]
-> Regras de ação atualmente não se aplicam aos alertas de integridade do serviço do Azure.
+> As regras de ação não se aplicam aos alertas de integridade do serviço do Azure.
 
 ## <a name="configuring-an-action-rule"></a>Configuração de uma regra de ação
 
@@ -308,7 +308,7 @@ Na [página lista de alertas](./alerts-managing-alert-instances.md), você pode 
 
 A supressão sempre tem precedência no mesmo escopo.
 
-### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso que é monitorado em duas regras de ação separadas? Obtenho uma ou duas notificações? Por exemplo, **VM2** no cenário a seguir:
+### <a name="what-happens-if-i-have-a-resource-that-is-covered-by-two-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>O que acontece se eu tiver um recurso que é coberto por duas regras de ação? Obtenho uma ou duas notificações? Por exemplo, **VM2** no cenário a seguir:
 
    `action rule AR1 defined for VM1 and VM2 with action group AG1`
 

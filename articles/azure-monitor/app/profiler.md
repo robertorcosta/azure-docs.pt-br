@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2a5ba6cb0778e0c013f150d787d694b23f0497bd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: a53db9deb07863010c792943c71eb0af5d845af8
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102218002"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026498"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Criar o perfil ativo de aplicativos do Serviço de Aplicativo do Azure com o Application Insights
 
@@ -58,7 +58,7 @@ Você pode definir esses valores usando [modelos de Azure Resource Manager](./az
 
 ## <a name="enable-profiler-for-other-clouds"></a>Habilitar o Profiler para outras nuvens
 
-Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](../../azure-government/compare-azure-government-global-azure.md#application-insights) e o [Azure China](/azure/china/resources-developer-guide).
 
 |Configurações de Aplicativo    | Nuvem do governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
@@ -83,4 +83,3 @@ Os arquivos do criador de perfil podem ser excluídos ao usar o WebDeploy para i
 [Enablement UI]: ./media/profiler/Enablement_UI.png
 [profiler-app-setting]:./media/profiler/profiler-app-setting.png
 [disable-profiler-webjob]: ./media/profiler/disable-profiler-webjob.png
-
