@@ -4,15 +4,15 @@ description: Esse padrão de Política do Azure fornece exemplos de como usar os
 ms.date: 08/17/2020
 ms.topic: sample
 ms.openlocfilehash: 3f644cdbfc45b06d1ad5db8e7727c0fa69742f00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/09/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "88545583"
 ---
 # <a name="azure-policy-pattern-logical-operators"></a>Padrão do Azure Policy: operadores lógicos
 
-Uma definição de política pode conter várias instruções condicionais. Talvez você precise que cada instrução seja verdadeira ou que apenas algumas delas sejam verdadeiras. Para dar suporte a essas necessidades, a linguagem tem [operadores lógicos](../concepts/definition-structure.md#logical-operators) para **not**, **allOf**e **anyOf**. Eles são opcionais e podem ser aninhados para criar cenários complexos.
+Uma definição de política pode conter várias instruções condicionais. Talvez você precise que cada instrução seja verdadeira ou que apenas algumas delas sejam verdadeiras. Para dar suporte a essas necessidades, a linguagem tem [operadores lógicos](../concepts/definition-structure.md#logical-operators) para **not**, **allOf** e **anyOf**. Eles são opcionais e podem ser aninhados para criar cenários complexos.
 
 ## <a name="sample-1-one-logical-operator"></a>Exemplo 1: Um operador lógico
 
