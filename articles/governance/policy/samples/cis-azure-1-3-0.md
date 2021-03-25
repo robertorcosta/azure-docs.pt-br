@@ -1,15 +1,15 @@
 ---
 title: Detalhes de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark 1.3.0
 description: Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark 1.3.0. Cada controle é mapeado para uma ou mais definições do Azure Policy que auxiliam na avaliação.
-ms.date: 03/05/2021
+ms.date: 03/17/2021
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 1d4a2520131babdc9d94dce530dc8acfe737c3c2
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: 9c268e1146b61656ec3a98153c9bd9060075c93d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102435584"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104604722"
 ---
 # <a name="details-of-the-cis-microsoft-azure-foundations-benchmark-130-regulatory-compliance-built-in-initiative"></a>Detalhes da iniciativa interna de Conformidade Regulatória do CIS Microsoft Azure Foundations Benchmark 1.3.0
 
@@ -150,7 +150,7 @@ Em seguida, encontre e selecione a definição da iniciativa interna de Conformi
 |---|---|---|---|
 |[A notificação por email para alertas de severidade alta deve ser habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6e2593d9-add6-4083-9c9b-4b7d2188c899) |Para que as pessoas relevantes em sua organização sejam notificadas quando houver uma potencial violação de segurança em uma das suas assinaturas, habilite notificações por email para alertas de severidade alta na Central de Segurança. |AuditIfNotExists, desabilitado |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_Email_notification.json) |
 
-## <a name="storage-accounts"></a>Contas de armazenamento
+## <a name="storage-accounts"></a>Contas de Armazenamento
 
 ### <a name="ensure-that-secure-transfer-required-is-set-to-enabled"></a>Garantir que "Transferência segura necessária" esteja definida como "Habilitado"
 
@@ -217,7 +217,7 @@ Em seguida, encontre e selecione a definição da iniciativa interna de Conformi
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Os servidores SQL devem ser configurados com 90 dias ou mais de retenção de auditoria](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Servidores SQL devem ser configurados com 90 dias ou mais de retenção de auditoria. |AuditIfNotExists, desabilitado |[2.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
+|[Os SQL Servers devem reter dados de auditoria por pelo menos 90 dias](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F89099bee-89e0-4b26-a5f4-165451757743) |Para fins de investigação de incidentes, é recomendável definir a retenção de dados para os dados de auditoria dos SQL Servers para pelo menos 90 dias. Confirme que você está atendendo às regras de retenção necessárias para as regiões em que está operando. Às vezes, isso é necessário para que você tenha conformidade com os padrões regulatórios. |AuditIfNotExists, desabilitado |[2.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/SQL/SqlServerAuditingRetentionDays_Audit.json) |
 
 ### <a name="ensure-that-advanced-threat-protection-atp-on-a-sql-server-is-set-to-enabled"></a>Verifique se a ATP (Proteção Avançada contra Ameaças) em um SQL Server está definida como 'Habilitada'
 
@@ -451,7 +451,7 @@ Em seguida, encontre e selecione a definição da iniciativa interna de Conformi
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[O Observador de Rede deve ser habilitado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure. |auditIfNotExists |[1.1.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
+|[O Observador de Rede deve ser habilitado](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb6e2945c-0b7b-40f5-9233-7a5323b5cdc6) |O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Network/NetworkWatcher_Enabled_Audit.json) |
 
 ## <a name="virtual-machines"></a>Máquinas Virtuais
 
@@ -493,7 +493,7 @@ Em seguida, encontre e selecione a definição da iniciativa interna de Conformi
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[As atualizações do sistema devem ser instaladas em suas máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |A falta de atualizações do sistema de segurança em seus servidores será monitorada pela Central de Segurança do Azure como recomendações |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
+|[As atualizações do sistema devem ser instaladas em suas máquinas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F86b3d65f-7626-441e-b690-81a8b71cff60) |A falta de atualizações do sistema de segurança em seus servidores será monitorada pela Central de Segurança do Azure como recomendações |AuditIfNotExists, desabilitado |[4.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_MissingSystemUpdates_Audit.json) |
 
 ### <a name="ensure-that-the-endpoint-protection-for-all-virtual-machines-is-installed"></a>Garantir que a proteção de ponto de extremidade para todas as máquinas virtuais esteja instalada
 
@@ -602,9 +602,9 @@ Em seguida, encontre e selecione a definição da iniciativa interna de Conformi
 
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Verificar se a "versão do Python" é a última, se usada como parte do aplicativo de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, versões mais recentes são lançadas para o software Python devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomendamos o uso da versão mais recente do Python para aplicativos de API, a fim de aproveitar as correções de segurança, se houver, e/ou as novas funcionalidades da última versão. Atualmente, essa política se aplica somente a aplicativos Web do Linux. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[Garantir que a "versão do Python" seja a última, se usada como parte do aplicativo de funções](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, versões mais recentes são lançadas para o software Python devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomendamos o uso da última versão do Python para aplicativos de funções, a fim de aproveitar as correções de segurança, se houver, e/ou as novas funcionalidades da última versão. Atualmente, essa política se aplica somente a aplicativos Web do Linux. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[Garantir que a "versão do Python" seja a última, se usada como parte do aplicativo Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, versões mais recentes são lançadas para o software Python devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomendamos o uso da última versão do Python para aplicativos Web, a fim de aproveitar as correções de segurança, se houver, e/ou as novas funcionalidades da última versão. Atualmente, essa política se aplica somente a aplicativos Web do Linux. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[Verificar se a "versão do Python" é a última, se usada como parte do aplicativo de API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, versões mais recentes são lançadas para o software Python devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomendamos o uso da versão mais recente do Python para aplicativos de API, a fim de aproveitar as correções de segurança, se houver, e/ou as novas funcionalidades da última versão. Atualmente, essa política se aplica somente a aplicativos Web do Linux. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[Garantir que a "versão do Python" seja a última, se usada como parte do aplicativo de funções](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, versões mais recentes são lançadas para o software Python devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomendamos o uso da última versão do Python para aplicativos de funções, a fim de aproveitar as correções de segurança, se houver, e/ou as novas funcionalidades da última versão. Atualmente, essa política se aplica somente a aplicativos Web do Linux. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[Garantir que a "versão do Python" seja a última, se usada como parte do aplicativo Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, versões mais recentes são lançadas para o software Python devido a falhas de segurança ou para incluir funcionalidades adicionais. Recomendamos o uso da última versão do Python para aplicativos Web, a fim de aproveitar as correções de segurança, se houver, e/ou as novas funcionalidades da última versão. Atualmente, essa política se aplica somente a aplicativos Web do Linux. |AuditIfNotExists, desabilitado |[3.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 
 ### <a name="ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>Garantir que a 'versão do Java' seja a última, se usada para executar o aplicativo Web
 
