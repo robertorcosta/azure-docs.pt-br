@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: a285f26a406caa88d91da5647b3b79cffc9b614f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: bd83367ae073e03f03188cdf62cb60faaad7ac97
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102217407"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026446"
 ---
 # <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Solucionar problemas ao habilitar Application Insights Depurador de Instantâneos ou exibir instantâneos
 Se você tiver habilitado Application Insights Depurador de Instantâneos para seu aplicativo, mas não estiver vendo instantâneos para exceções, poderá usar estas instruções para solucionar problemas.
@@ -20,7 +20,7 @@ Pode haver vários motivos diferentes pelos quais os instantâneos não são ger
 
 ## <a name="make-sure-youre-using-the-appropriate-snapshot-debugger-endpoint"></a>Verifique se você está usando o ponto de extremidade de Depurador de Instantâneos apropriado
 
-Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](../../azure-government/compare-azure-government-global-azure.md#application-insights) e o [Azure China](/azure/china/resources-developer-guide).
 
 Para aplicativos e serviço de aplicativo usando o SDK do Application Insights, você precisa atualizar a cadeia de conexão usando as substituições com suporte para Depurador de Instantâneos conforme definido abaixo:
 
@@ -28,7 +28,7 @@ Para aplicativos e serviço de aplicativo usando o SDK do Application Insights, 
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 Por Aplicativo de funções, você precisa atualizar o `host.json` usando as substituições com suporte abaixo:
 

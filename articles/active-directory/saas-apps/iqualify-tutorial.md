@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
 ms.openlocfilehash: f2baeaf72bb77dfe9247380b8b26f3860cbfd5b0
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "95999154"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iqualify-lms"></a>Tutorial: Integração do Azure Active Directory com o iQualify LMS
@@ -30,7 +30,7 @@ A integração do iQualify LMS ao Azure AD oferece os seguintes benefícios:
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](../manage-apps/what-is-single-sign-on.md).
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/) antes de começar.
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD ao iQualify LMS, você precisará dos seguintes itens:
 
@@ -181,7 +181,7 @@ Para configurar o logon único do Azure AD com o iQualify, execute as seguintes 
 
 1. Quando estiver conectado, clique no avatar no canto superior direito e escolha **Configurações da conta**
 
-    ![Configurações da conta](./media/iqualify-tutorial/setting1.png)
+    ![Configurações de conta](./media/iqualify-tutorial/setting1.png)
 
 1. Na área de configurações de conta, clique no menu da faixa de opções à esquerda e escolha **INTEGRAÇÕES**
 

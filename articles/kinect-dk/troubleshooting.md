@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 03/05/2021
 ms.topic: conceptual
 keywords: solução de problemas, atualização, Bug, Kinect, comentários, recuperação, registro em log, dicas
-ms.openlocfilehash: 32a86deb0b6ab70e42ae3d659504256baae76202
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 6b83e2952a9039a52aa3b905e376e5d3beccaf8c
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654757"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026582"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemas conhecidos e solução de problemas do Azure Kinect
 
@@ -189,18 +189,24 @@ A documentação C# do SDK do acompanhamento de corpo está localizada [aqui](ht
 
 O SDK de acompanhamento de corpo dá suporte a CPU, CUDA, DirectML (somente Windows) e ambientes de execução de TensorRT para inferência do modelo de estimativa de pose. O `K4ABT_TRACKER_PROCESSING_MODE_GPU` padrão é a execução de CUDA na execução do Linux e do DirectML no Windows. Três modos adicionais foram adicionados para selecionar ambientes de execução específicos: `K4ABT_TRACKER_PROCESSING_MODE_GPU_CUDA` , `K4ABT_TRACKER_PROCESSING_MODE_GPU_DIRECTML` e `K4ABT_TRACKER_PROCESSING_MODE_GPU_TENSORRT` .
 
+> [!NOTE]  
+> O tempo de execução do ONNX exibe avisos para opcodes que não são acelerados. Eles podem ser ignorados com segurança.
+
 O tempo de execução do ONNX inclui variáveis de ambiente para controlar o cache de modelo TensorRT. Os valores recomendados são:
-- ORT_TENSORRT_ENGINE_CACHE_ENABLE = 1 
-- ORT_TENSORRT_ENGINE_CACHE_PATH = "PathName"
+- ORT_TENSORRT_CACHE_ENABLE = 1 
+- ORT_TENSORRT_CACHE_PATH = "PathName"
 
 A pasta deve ser criada antes de iniciar o rastreamento de corpo.
+
+> [!IMPORTANT]  
+> O TensorRT processa previamente o modelo antes da inferência, resultando em tempos de inicialização estendidos quando comparado a outros ambientes de execução. O cache de mecanismo limita isso à primeira execução, mas é experimental e é específico para o modelo, versão de tempo de execução ONNX, versão TensorRT e modelo de GPU.
 
 O ambiente de execução TensorRT dá suporte a FP32 (padrão) e FP16. FP16s de aumento de desempenho de aproximadamente 2x para diminuir a precisão mínima. Para especificar FP16:
 - ORT_TENSORRT_FP16_ENABLE = 1
 
 ## <a name="required-dlls-for-onnx-runtime-execution-environments"></a>DLLs necessárias para ambientes de execução do ONNX Runtime
 
-|Modo      | CUDA 11,1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
+|Mode      | CUDA 11,1            | CUDNN 8.0.5          | TensorRT 7.2.1       |
 |----------|----------------------|----------------------|----------------------|
 | CPU      | cudart64_110         | cudnn64_8            | -                    |
 |          | cufft64_10           |                      |                      |

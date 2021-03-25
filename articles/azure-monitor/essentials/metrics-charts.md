@@ -6,12 +6,12 @@ services: azure-monitor
 ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
-ms.openlocfilehash: d728dfb364cb0f82326a472196cb28d79b85b1e9
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: a8a4f84db140ca442371cb71886bebf9214d3e43
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102031425"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026531"
 ---
 # <a name="advanced-features-of-the-azure-metrics-explorer"></a>Recursos avançados do Gerenciador de métricas do Azure
 
@@ -261,7 +261,7 @@ Ao clicar na opção falha, você será levado a uma folha falha personalizada q
 
 ### <a name="common-problems-with-drill-into-logs"></a>Problemas comuns com Drill in de logs
 
-* Log e consultas estão desabilitadas-para exibir consultas e logs recomendados, você deve rotear seus logs de diagnóstico para Log Analytics. Leia [este documento](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) para saber como fazer isso. 
+* Log e consultas estão desabilitadas-para exibir consultas e logs recomendados, você deve rotear seus logs de diagnóstico para Log Analytics. Leia [este documento](./diagnostic-settings.md) para saber como fazer isso. 
 * Os logs de atividade são fornecidos apenas – o recurso drill in logs só está disponível para os provedores de recursos selecionados. Por padrão, os logs de atividade são fornecidos. 
 
  
@@ -278,4 +278,3 @@ Se você não vir nenhum dado em seu gráfico, examine as seguintes informaçõe
 ## <a name="next-steps"></a>Próximas etapas
 
 Para criar painéis acionáveis usando métricas, consulte [criando painéis de KPI personalizados](../app/tutorial-app-dashboards.md).
-

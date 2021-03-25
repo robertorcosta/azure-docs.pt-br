@@ -1,7 +1,7 @@
 ---
 title: Bibliotecas de cliente e APIs REST para os serviços de comunicação do Azure
 titleSuffix: An Azure Communication Services concept document
-description: Saiba mais sobre as bibliotecas de cliente dos serviços de comunicação do Azure e as APIs REST.
+description: Saiba mais sobre os SDKs dos serviços de comunicação do Azure e as APIs REST.
 author: mikben
 manager: jken
 services: azure-communication-services
@@ -9,37 +9,37 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
-ms.openlocfilehash: 01a5f4a947f0b89b5881eddb3c743b9a9b184b19
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: effd7658bbfe7359e1f99f9452857824c2c45c2f
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103495633"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105107883"
 ---
 # <a name="client-libraries-and-rest-apis"></a>Bibliotecas de cliente e APIs REST
 
 [!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 
-As funcionalidades dos serviços de comunicação do Azure são organizadas conceitualmente em seis áreas. Algumas áreas têm bibliotecas de cliente totalmente abertas. A biblioteca de cliente de chamada usa interfaces de rede proprietárias e está fechada no momento e a biblioteca de chat inclui uma dependência de código-fonte fechado. Exemplos e detalhes técnicos adicionais para bibliotecas de cliente são publicados no [repositório GitHub dos serviços de comunicação do Azure](https://github.com/Azure/communication).
+As funcionalidades dos serviços de comunicação do Azure são organizadas conceitualmente em seis áreas. Algumas áreas têm SDKs totalmente abertos. O SDK de chamada usa interfaces de rede proprietárias e está fechado no momento, e a biblioteca de chat inclui uma dependência de código-fonte fechado. Exemplos e detalhes técnicos adicionais para SDKs são publicados no [repositório GitHub dos serviços de comunicação do Azure](https://github.com/Azure/communication).
 
 ## <a name="client-libraries"></a>Bibliotecas de cliente
 
 | Assembly               | Protocolos             |Abrir vs. fonte fechada| Namespaces                          | Funcionalidades                                                      |
 | ---------------------- | --------------------- | ---|-------------------------- | --------------------------------------------------------------------------- |
 | Azure Resource Manager | REST | Aberto            | Azure. ResourceManager. comunicação | Provisionar e gerenciar recursos de serviços de comunicação             |
-| Comum                 | REST | Aberto               | Azure. Communication. comum          | Fornece tipos de base para outras bibliotecas de cliente |
+| Comum                 | REST | Aberto               | Azure. Communication. comum          | Fornece tipos de base para outros SDKs |
 | Identidade         | REST | Aberto               | Azure. Communication. Identity  | Gerenciar usuários, tokens de acesso |
 | Números de telefone         | REST | Aberto               | Azure. Communication. PhoneNumbers  | Gerenciando números de telefone |
 | Chat                   | REST com sinalização proprietária | Abrir com pacote de sinalização de origem fechado    | Azure. Communication. chat            | Adicionar chat com base em texto em tempo real aos seus aplicativos  |
 | sms                    | REST | Aberto              | Azure. Communication. SMS             | Enviar e receber mensagens SMS |
 | Chamando                | Transporte proprietário | Fechadas |Azure. Communication. chamando         | Aproveite o uso de voz, vídeo, compartilhamento de tela e outros recursos de comunicação de dados em tempo real          |
 
-Observe que as bibliotecas de cliente de Azure Resource Manager, identidade e SMS se concentram na integração de serviços e, em muitos casos, surgem problemas de segurança se você integrar essas funções a aplicativos de usuário final. As bibliotecas de cliente comuns e de chat são adequadas para aplicativos de serviço e cliente. A biblioteca de cliente de chamada é projetada para aplicativos cliente. Uma biblioteca de cliente focada em cenários de serviço está em desenvolvimento.
+Observe que os SDKs de Azure Resource Manager, identidade e SMS se concentram na integração de serviços e, em muitos casos, surgem problemas de segurança se você integrar essas funções a aplicativos de usuário final. Os SDKs comuns e de bate-papo são adequados para aplicativos de serviço e cliente. O SDK de chamada foi projetado para aplicativos cliente. Um SDK voltado para cenários de serviço está em desenvolvimento.
 
 ### <a name="languages-and-publishing-locations"></a>Idiomas e locais de publicação
 
-Os locais de publicação para pacotes de biblioteca de cliente individual são detalhados abaixo.
+Os locais de publicação para pacotes SDK individuais são detalhados abaixo.
 
 | Área           | JavaScript | .NET | Python | Java SE | iOS | Android | Outro                          |
 | -------------- | ---------- | ---- | ------ | ---- | -------------- | -------------- | ------------------------------ |
@@ -60,8 +60,8 @@ As APIs de serviços de comunicação são documentadas junto com outras APIs RE
 
 ### <a name="ios-and-android-support-details"></a>detalhes de suporte do iOS e Android
 
-- Serviços de comunicação bibliotecas de cliente do iOS destino versão 13 + e Xcode 11 +.
-- Bibliotecas de cliente Java do Android destino nível da API do Android 21 + e Android Studio 4.0 +
+- Serviços de comunicação destino do IOS SDKs versão 13 + e Xcode 11 +.
+- Os SDKs do Java Android direcionam o nível de API do Android 21 + e Android Studio 4.0 +
 
 ### <a name="net-support-details"></a>Detalhes do suporte do .NET
 
@@ -82,9 +82,9 @@ Suporte por meio do .NET Core 2,0:
 - Xamarin iOS 10,14
 - Xamarin Mac 3,8
 
-## <a name="calling-client-library-timeouts"></a>Tempos limite da biblioteca de clientes em chamada
+## <a name="calling-sdk-timeouts"></a>Chamando tempos limite do SDK
 
-Os tempos limite a seguir se aplicam aos serviços de comunicação que chamam as bibliotecas de cliente:
+Os tempos limite a seguir se aplicam aos SDKs de chamada dos serviços de comunicação:
 
 | Ação           | Tempo limite em segundos |
 | -------------- | ---------- |
@@ -100,30 +100,30 @@ Os tempos limite a seguir se aplicam aos serviços de comunicação que chamam a
 ## <a name="api-stability-expectations"></a>Expectativas de estabilidade da API
 
 > [!IMPORTANT]
-> Esta seção fornece diretrizes sobre APIs REST e bibliotecas de cliente marcadas como **estáveis**. As APIs marcadas pré-lançamento, visualização ou beta podem ser alteradas ou preteridas **sem aviso prévio**.
+> Esta seção fornece diretrizes sobre APIs REST e SDKs marcados como **estáveis**. As APIs marcadas pré-lançamento, visualização ou beta podem ser alteradas ou preteridas **sem aviso prévio**.
 
-No futuro, podemos desativar versões das bibliotecas de cliente dos serviços de comunicação e podemos introduzir alterações significativas em nossas APIs REST e bibliotecas de cliente lançadas. Os serviços de comunicação do Azure *geralmente* seguirão duas políticas de suporte para desativar versões de serviço:
+No futuro, podemos desativar versões dos SDKs dos serviços de comunicação e podemos introduzir alterações significativas em nossas APIs REST e SDKs lançados. Os serviços de comunicação do Azure *geralmente* seguirão duas políticas de suporte para desativar versões de serviço:
 
-- Você será notificado pelo menos três anos antes de ser necessário alterar o código devido a uma alteração na interface dos serviços de comunicação. Todas as APIs REST documentadas e APIs de biblioteca de cliente geralmente aproveitam um aviso de pelo menos três anos antes de as interfaces serem encerradas.
-- Você será notificado pelo menos um ano antes de atualizar os assemblies da biblioteca de cliente para a versão secundária mais recente. Essas atualizações necessárias não devem exigir nenhuma alteração de código porque estão na mesma versão principal. Isso é especialmente verdadeiro para as bibliotecas de chamada e de chat que têm componentes em tempo real que frequentemente exigem atualizações de segurança e desempenho. É altamente recomendável que você mantenha as bibliotecas de cliente dos serviços de comunicação atualizadas.
+- Você será notificado pelo menos três anos antes de ser necessário alterar o código devido a uma alteração na interface dos serviços de comunicação. Todas as APIs REST documentadas e APIs do SDK geralmente aproveitam um aviso de pelo menos três anos antes do encerramento das interfaces.
+- Você será notificado pelo menos um ano antes de atualizar os assemblies do SDK para a versão secundária mais recente. Essas atualizações necessárias não devem exigir nenhuma alteração de código porque estão na mesma versão principal. Isso é especialmente verdadeiro para as bibliotecas de chamada e de chat que têm componentes em tempo real que frequentemente exigem atualizações de segurança e desempenho. É altamente recomendável que você mantenha os SDKs dos serviços de comunicação atualizados.
 
-### <a name="api-and-client-library-decommissioning-examples"></a>Exemplos de descomissionamento da biblioteca de cliente e API
+### <a name="api-and-sdk-decommissioning-examples"></a>Exemplos de descomissionamento de API e SDK
 
 **Você integrou a versão v24 da API REST do SMS em seu aplicativo. A comunicação do Azure libera v25.**
 
 Você receberá três anos de aviso antes que essas APIs parem de funcionar e sejam forçadas a atualizar para o v25. Essa atualização pode exigir uma alteração de código.
 
-**Você integrou a versão v 2.02 da biblioteca de cliente que está chamando em seu aplicativo. A comunicação do Azure libera v 2.05.**
+**Você integrou a versão v 2.02 do SDK de chamada ao seu aplicativo. A comunicação do Azure libera v 2.05.**
 
-Talvez seja necessário atualizar para a versão v 2.05 da biblioteca de cliente de chamada em 12 meses após o lançamento do v 2.05. Isso deve ser uma simples substituição do artefato sem a necessidade de uma alteração de código porque v 2.05 está na versão principal V2 e não tem alterações significativas.
+Talvez seja necessário atualizar para a versão v 2.05 do SDK de chamada em 12 meses do lançamento do v 2.05. Isso deve ser uma simples substituição do artefato sem a necessidade de uma alteração de código porque v 2.05 está na versão principal V2 e não tem alterações significativas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para obter mais informações, consulte as visões gerais da biblioteca de cliente a seguir:
+Para obter mais informações, consulte as visões gerais do SDK a seguir:
 
-- [Visão geral da biblioteca de cliente de chamada](../concepts/voice-video-calling/calling-sdk-features.md)
-- [Visão geral da biblioteca de cliente de chat](../concepts/chat/sdk-features.md)
-- [Visão geral da biblioteca de cliente SMS](../concepts/telephony-sms/sdk-features.md)
+- [Visão geral do SDK de chamada](../concepts/voice-video-calling/calling-sdk-features.md)
+- [Visão geral do SDK do chat](../concepts/chat/sdk-features.md)
+- [Visão geral do SDK do SMS](../concepts/telephony-sms/sdk-features.md)
 
 Para começar a usar os serviços de comunicação do Azure:
 

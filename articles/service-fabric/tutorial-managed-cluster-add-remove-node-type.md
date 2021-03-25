@@ -4,10 +4,10 @@ description: Neste tutorial, saiba como adicionar e remover os tipos de nós de 
 ms.topic: tutorial
 ms.date: 09/28/2020
 ms.openlocfilehash: bb33512652677fc4e46d8ba3668dca985bbcfe01
-ms.sourcegitcommit: a055089dd6195fde2555b27a84ae052b668a18c7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/26/2021
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "98791233"
 ---
 # <a name="tutorial-add-and-remove-node-types-from-a-service-fabric-managed-cluster-preview"></a>Tutorial: Adicionar e remover os tipos de nós de um cluster gerenciado do Service Fabric (versão prévia)

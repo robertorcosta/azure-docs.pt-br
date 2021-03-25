@@ -6,14 +6,14 @@ author: vhorne
 ms.service: firewall-manager
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 02/16/2021
+ms.date: 02/17/2021
 ms.author: victorh
-ms.openlocfilehash: 26d7336d60449db11122c9921a3a59807bd82911
-ms.sourcegitcommit: de98cb7b98eaab1b92aa6a378436d9d513494404
+ms.openlocfilehash: 9cc263d311bd550a92a0c8f14ab5ce86d72e9ee3
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100561990"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "100633624"
 ---
 # <a name="quickstart-create-an-azure-firewall-and-a-firewall-policy---arm-template"></a>Início rápido: Criar um Firewall do Azure e uma política de firewall – modelo do ARM
 
@@ -39,7 +39,7 @@ Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o 
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
-Este modelo cria um hub virtual seguro usando o Gerenciador de Firewall do Azure, juntamente com os recursos necessários para dar suporte ao cenário.
+Este modelo cria uma rede virtual do hub, juntamente com os recursos necessários para dar suporte ao cenário.
 
 O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-azurefirewall-create-with-firewallpolicy-apprule-netrule-ipgroups/).
 
