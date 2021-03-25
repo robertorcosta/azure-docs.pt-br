@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server Instância Gerenciada SQL: visão geral da migração'
+title: 'SQL Server para o SQL Instância Gerenciada do Azure: visão geral da migração'
 description: Saiba mais sobre as diferentes ferramentas e opções disponíveis para migrar seus bancos de dados do SQL Server para o SQL Instância Gerenciada do Azure.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: ac2b535b2e6b7a6b4169d08dd1768d69e685a216
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1c187ae83ce87c9d4d8da4aa1a5dc38163261b52
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102561986"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105024890"
 ---
-# <a name="migration-overview-sql-server-to-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL Instância Gerenciada
+# <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Saiba mais sobre as diferentes opções de migração e considerações para migrar seus SQL Server para o SQL Instância Gerenciada do Azure. 
@@ -30,7 +30,7 @@ Você pode migrar SQL Server em execução no local ou em:
 - Mecanismo de computação (Google Cloud Platform-GCP)  
 - SQL de nuvem para SQL Server (Google Cloud Platform – GCP) 
 
-Para outros cenários, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/). 
+Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 ## <a name="overview"></a>Visão geral
 
@@ -60,7 +60,7 @@ Algumas diretrizes gerais para ajudá-lo a escolher a camada de serviço e as ca
 - Use a latência de e/s de linha de base do subsistema de arquivos para escolher entre as camadas de serviço Uso Geral (latência maior que 5 ms) e Comercialmente Crítico (latência inferior a 3 ms). 
 - Use a taxa de transferência de linha de base para prefixar o tamanho dos arquivos de dados e de log para atingir o desempenho esperado de e/s. 
 
-Você pode escolher recursos de computação e armazenamento durante a implantação e, em seguida, alterá-los depois de usar o [portal do Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para seu aplicativo. 
+Você pode escolher recursos de computação e armazenamento durante a implantação e, em seguida, [alterá-los depois de usar o portal do Azure](../../database/scale-resources.md) sem incorrer em tempo de inatividade para seu aplicativo. 
 
 > [!IMPORTANT]
 > Qualquer discrepância nos requisitos de [rede virtual de instância gerenciada](../../managed-instance/connectivity-architecture-overview.md#network-requirements) pode impedi-lo de criar novas instâncias ou usar aquelas existentes. Saiba mais sobre como [criar novas](../../managed-instance/virtual-network-subnet-create-arm-template.md)   e [configurar redes existentes](../../managed-instance/vnet-existing-add-subnet.md)   . 
@@ -100,9 +100,9 @@ A tabela a seguir lista as ferramentas de migração recomendadas:
 
 A tabela a seguir lista as ferramentas de migração alternativas: 
 
-|Tecnologia |Descrição  |
+|**Tecnologia** |**Descrição**  |
 |---------|---------|
-|[Replicação transacional](../../managed-instance/replication-transactional-overview.md) | Replique os dados das tabelas SQL Server de origem para o SQL Instância Gerenciada fornecendo uma opção de migração de tipo Publicador de assinante, mantendo a consistência transacional. |  |
+|[Replicação transacional](../../managed-instance/replication-transactional-overview.md) | Replique os dados das tabelas SQL Server de origem para o SQL Instância Gerenciada fornecendo uma opção de migração de tipo Publicador de assinante, mantendo a consistência transacional. | 
 |[Cópia em massa](/sql/relational-databases/import-export/import-and-export-bulk-data-by-using-the-bcp-utility-sql-server)| O [utilitário bcp (programa de cópia em massa)](/sql/tools/bcp-utility) copia dados de uma instância do SQL Server em um arquivo de dados. Use o utilitário BCP para exportar os dados de sua origem e importar o arquivo de dados para o SQL de destino Instância Gerenciada.</br></br> Para operações de cópia em massa de alta velocidade a fim de mover dados para o Azure SQL Database, a [ferramenta de cópia em massa inteligente](/samples/azure-samples/smartbulkcopy/smart-bulk-copy/) pode ser usada para maximizar as velocidades de transferência aproveitando as tarefas de cópia paralelas. | 
 |[Assistente para importar/exportar/BACPAC](../../database/database-import.md?tabs=azure-powershell)| [BACPAC](/sql/relational-databases/data-tier-applications/data-tier-applications#bacpac) é um arquivo do Windows com uma `.bacpac` extensão que encapsula o esquema e os dados de um banco de dado. O BACPAC pode ser usado para exportar dados de um SQL Server de origem e para importar o arquivo de volta para o SQL Instância Gerenciada do Azure.  |  
 |[ADF (Azure Data Factory)](../../../data-factory/connector-azure-sql-managed-instance.md)| A [atividade de cópia](../../../data-factory/copy-activity-overview.md) no Azure data Factory migra dados do banco de SQL Server de origem (s) para o SQL instância gerenciada usando conectores internos e um [Integration Runtime](../../../data-factory/concepts-integration-runtime.md).</br> </br> O ADF dá suporte a uma ampla gama de [conectores](../../../data-factory/connector-overview.md) para mover dados de fontes de SQL Server para o SQL instância gerenciada. |
@@ -241,7 +241,7 @@ Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para iniciar a migração de seu SQL Server para o SQL Instância Gerenciada do Azure, consulte o [SQL Server guia de migração de instância gerenciada do SQL](sql-server-to-managed-instance-guide.md).
+Para começar a migrar seus SQL Server para o SQL Instância Gerenciada do Azure, consulte o [SQL Server guia de migração de instância gerenciada do SQL do Azure](sql-server-to-managed-instance-guide.md).
 
 - Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudá-lo com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, consulte [serviços e ferramentas para a migração de dados](../../../dms/dms-tools-matrix.md).
 

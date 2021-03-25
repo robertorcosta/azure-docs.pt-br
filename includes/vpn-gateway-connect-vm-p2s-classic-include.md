@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/06/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4fc14083b0912cf18f98c229adcb297b89bc8971
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 4732abacc80a24d268f0e5cb7d100079e5a8d90b
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "95563943"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105155"
 ---
 Criar uma Conexão de Área de Trabalho Remota para conectar-se a uma VM implantada na sua VNet. A melhor maneira de verificar se você pode se conectar à sua VM é usando seu endereço IP privado em vez do nome do computador. Dessa forma, você está testando para ver se pode conectar-se e não se a resolução de nomes está configurada corretamente. 
 
@@ -32,4 +32,4 @@ Se houver problemas para se conectar a uma máquina virtual em sua conexão VPN,
 - Se você puder se conectar à VM usando o endereço IP privado, mas não o nome do computador, verifique se você configurou o DNS corretamente. Para obter mais informações sobre como funciona a resolução de nome para VMs, confira [Resolução de nomes para VMs](../articles/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 - Verifique se o pacote de configuração de cliente VPN foi gerado depois que os endereços IP do servidor DNS foram especificados para a VNet. Se você atualizar os endereços IP do servidor DNS, gere e instale um novo pacote de configuração de cliente VPN.
 
-Para obter mais informações sobre solução de problemas, confira [Solucionar problemas de conexões da Área de Trabalho Remota a uma VM](../articles/virtual-machines/troubleshooting/troubleshoot-rdp-connection.md).
+Para obter mais informações sobre solução de problemas, confira [Solucionar problemas de conexões da Área de Trabalho Remota a uma VM](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).

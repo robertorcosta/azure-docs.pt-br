@@ -1,5 +1,5 @@
 ---
-title: 'Oracle para SQL Instância Gerenciada: guia de migração'
+title: 'Oracle para Azure SQL Instância Gerenciada: guia de migração'
 description: Este guia ensina a migrar seus esquemas Oracle para o Azure SQL Instância Gerenciada usando o Assistente de Migração do SQL Server para Oracle.
 ms.service: sql-managed-instance
 ms.subservice: migration-guide
@@ -10,33 +10,33 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: c54ec2cc6e17d9693e25f1471922da8c7c023e36
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1c2fbc90d3956ab831e6d9fac4e1e2d3540e1c6d
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104602801"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025417"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guia de migração: Oracle para Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
 
 Este guia ensina a migrar seus esquemas Oracle para o Azure SQL Instância Gerenciada usando o Assistente de Migração do SQL Server para Oracle. 
 
-Para outros cenários, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/).
+Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para migrar seu esquema Oracle para o SQL Instância Gerenciada você precisa: 
 
-- Para verificar se há suporte para o ambiente de origem. 
-- Para baixar o [Assistente de migração do SQL Server (SSMA) para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
+- Verificar se seu ambiente de origem é compatível. 
+- Baixar o [SSMA (Assistente de Migração do SQL Server) para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 - Um Instância Gerenciada de destino [do Azure SQL](../../managed-instance/instance-create-quickstart.md). 
-- As [permissões necessárias para o SSMA para Oracle e para](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) o [provedor](/sql/ssma/oracle/connect-to-oracle-oracletosql).
+- As [permissões necessárias para o SSMA para Oracle](/sql/ssma/oracle/connecting-to-oracle-database-oracletosql) e para o [provedor](/sql/ssma/oracle/connect-to-oracle-oracletosql).
  
 
 ## <a name="pre-migration"></a>Pré-migração
 
-Depois de atender aos pré-requisitos, você estará pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da migração. Essa parte do processo envolve a condução de um inventário dos bancos de dados que você precisa migrar, avaliar esses bancos de dados quanto a possíveis problemas de migração ou bloqueadores e, em seguida, resolver quaisquer itens que você possa ter descoberto.
+Depois de atender aos pré-requisitos, você estará pronto para descobrir a topologia do seu ambiente e avaliar a viabilidade da migração. Essa parte do processo envolve a execução de um inventário dos bancos de dados que você precisa migrar, a avaliação desses bancos de dados quanto a possíveis problemas de migração ou bloqueadores e, em seguida, a resolução dos itens que você possa ter descoberto.
 
 
 
@@ -49,11 +49,11 @@ Para criar uma avaliação, siga estas etapas:
 
 1. Abra [Assistente de migração do SQL Server para Oracle](https://www.microsoft.com/en-us/download/details.aspx?id=54258). 
 1. Selecione **Arquivo** e, em seguida, escolha **Novo Projeto**. 
-1. Forneça um nome de projeto, um local para salvar seu projeto e, em seguida, selecione Azure SQL Instância Gerenciada como o destino de migração no menu suspenso. Selecione **OK**.
+1. Forneça um nome de projeto, um local para salvar seu projeto e, em seguida, selecione Azure SQL Instância Gerenciada como o destino de migração no menu suspenso. Selecione **OK**:
 
    ![Novo Projeto](./media/oracle-to-managed-instance-guide/new-project.png)
 
-1. Selecione **conectar-se ao Oracle**. Insira valores nos detalhes da conexão Oracle na caixa de diálogo **conectar ao Oracle** .
+1. Selecione **conectar-se ao Oracle**. Insira valores nos detalhes da conexão Oracle na caixa de diálogo **conectar ao Oracle** :
 
    ![Conectar-se ao Oracle](./media/oracle-to-managed-instance-guide/connect-to-oracle.png)
 
@@ -61,7 +61,7 @@ Para criar uma avaliação, siga estas etapas:
 
    ![Escolher esquema Oracle](./media/oracle-to-managed-instance-guide/select-schema.png)
 
-1. Clique com o botão direito do mouse no esquema Oracle que você deseja migrar no **Gerenciador de metadados Oracle** e escolha **criar relatório**. Isso vai gerar um relatório HTML. Como alternativa, você pode escolher **criar relatório** na barra de navegação depois de selecionar o banco de dados.
+1. Clique com o botão direito do mouse no esquema Oracle que você deseja migrar no **Gerenciador de metadados Oracle** e escolha **criar relatório**. Isso vai gerar um relatório HTML. Como alternativa, você pode escolher **criar relatório** na barra de navegação depois de selecionar o banco de dados:
 
    ![Criar Relatório](./media/oracle-to-managed-instance-guide/create-report.png)
 
@@ -78,7 +78,7 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 
 1. Selecione **Ferramentas** no menu. 
 1. Selecione **Configurações do Projeto**. 
-1. Selecione a guia **Mapeamentos de tipo**. 
+1. Selecione a guia **mapeamentos de tipo** :
 
    ![Mapeamentos de tipo](./media/oracle-to-managed-instance-guide/type-mappings.png)
 
@@ -91,32 +91,34 @@ Para converter o esquema, siga estas etapas:
 1. (Opcional) Adicione consultas dinâmicas ou ad hoc a instruções. Clique com o botão direito do mouse no nó e escolha **Adicionar instruções**.
 1. Selecione **conectar-se ao Azure SQL instância gerenciada**. 
     1. Insira os detalhes de conexão para conectar seu banco de dados no Azure SQL Instância Gerenciada.
-    1. Escolha o banco de dados de destino na lista suspensa.
-    1. Selecione **Conectar**.
+    1. Escolha o banco de dados de destino na lista suspensa ou forneça um novo nome, caso em que um banco de dados será criado no servidor de destino. 
+    1. Forneça detalhes de autenticação. 
+    1. Selecione **conectar**:
 
     ![Conectar-se à Instância Gerenciada do SQL](./media/oracle-to-managed-instance-guide/connect-to-sql-managed-instance.png)
 
-1. Clique com o botão direito do mouse no esquema Oracle no **Gerenciador de metadados Oracle** e escolha **converter esquema**. Como alternativa, você pode escolher **Converter esquema** na barra de navegação superior depois de selecionar o esquema.
+1. Clique com o botão direito do mouse no esquema Oracle no **Gerenciador de metadados Oracle** e escolha **converter esquema**. Como alternativa, você pode escolher **converter esquema** na barra de navegação superior depois de selecionar o esquema:
 
    ![Converter esquema](./media/oracle-to-managed-instance-guide/convert-schema.png)
 
-1. Após a conclusão da conversão, compare e revise os objetos convertidos para os objetos originais para identificar possíveis problemas e solucioná-los com base nas recomendações.
+1. Após a conclusão da conversão, compare e revise os objetos convertidos para os objetos originais para identificar possíveis problemas e solucioná-los com base nas recomendações:
 
    ![Comparar recomendações de tabela](./media/oracle-to-managed-instance-guide/table-comparison.png)
 
-   Compare o texto Transact-SQL convertido com os procedimentos armazenados originais e examine as recomendações: 
+   Compare o texto Transact-SQL convertido com o código original e examine as recomendações: 
 
    ![Comparar recomendações de procedimento](./media/oracle-to-managed-instance-guide/procedure-comparison.png)
 
-1. Salve o projeto localmente para realizar um exercício de correção de esquema offline. Selecione **Salvar Projeto** no menu **Arquivo**.
+1. Selecione **Examinar resultados** no painel Saída e examine os erros no painel **Lista de erros**. 
+1. Salve o projeto localmente para realizar um exercício de correção de esquema offline. Selecione **Salvar Projeto** no menu **Arquivo**. Isso lhe dá a oportunidade de avaliar os esquemas de origem e de destino offline e executar a correção antes de publicar o esquema no SQL Instância Gerenciada.
 
 ## <a name="migrate"></a>Migrar
 
-Depois de concluir a avaliação de seus bancos de dados e resolver quaisquer discrepâncias, a próxima etapa é executar o processo de migração. A migração envolve duas etapas – publicação do esquema e migração dos dados. 
+Depois de concluir a avaliação de seus bancos de dados e resolver quaisquer discrepâncias, a próxima etapa é executar o processo de migração. A migração envolve duas etapas: publicação do esquema e migração dos dados. 
 
 Para publicar o esquema e migrar seus dados, siga estas etapas:
 
-1. Publicar o esquema: clique com o botão direito do mouse no banco de dados do nó **bancos** de dados no **Gerenciador de metadados do SQL instância gerenciada do Azure** e escolha **sincronizar com o banco de dados**.
+1. Publicar o esquema: clique com o botão direito do mouse no esquema ou objeto que você deseja migrar no **Gerenciador de metadados Oracle** e escolha **migrar dados**. Como alternativa, você pode selecionar **Migrar Dados** na barra de navegação de linha superior. Para migrar dados para um banco de dado inteiro, marque a caixa de seleção ao lado do nome do banco de dados. Para migrar dados de tabelas individuais, expanda o banco de dados, expanda Tabelas e marque a caixa de seleção ao lado da tabela. Para omitir dados de tabelas individuais, desmarque a caixa de seleção:
 
    ![Sincronizar com Banco de dados](./media/oracle-to-managed-instance-guide/synchronize-with-database.png)
 
@@ -129,18 +131,17 @@ Para publicar o esquema e migrar seus dados, siga estas etapas:
    ![Migrar dados](./media/oracle-to-managed-instance-guide/migrate-data.png)
 
 1. Forneça detalhes de conexão para Oracle e Azure SQL Instância Gerenciada.
-1. Veja o **Relatório de migração de dados**.
+1. Após a conclusão da migração, exiba o **Relatório da Migração de Dados**:  
 
    ![Relatório de migração de dados](./media/oracle-to-managed-instance-guide/data-migration-report.png)
 
-1. Conecte-se ao seu Instância Gerenciada SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração examinando os dados e o esquema.
+1. Conecte-se ao seu Instância Gerenciada SQL do Azure usando [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e valide a migração examinando os dados e o esquema:
 
    ![Validar no SSMA](./media/oracle-to-managed-instance-guide/validate-data.png)
 
 
 Como alternativa, você também pode usar SQL Server Integration Services (SSIS) para executar a migração. Para obter mais informações, consulte: 
 
-- [Assistente de Migração do SQL Server: como avaliar e migrar dados de plataformas de dados que não são da Microsoft para SQL Server](https://blogs.msdn.microsoft.com/datamigration/2016/11/16/sql-server-migration-assistant-how-to-assess-and-migrate-databases-from-non-microsoft-data-platforms-to-sql-server/)
 - [Introdução com SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services: SSIS para Azure e movimentação de dados híbridos](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
 
@@ -149,54 +150,54 @@ Como alternativa, você também pode usar SQL Server Integration Services (SSIS)
 
 ## <a name="post-migration"></a>Pós-migração 
 
-Depois de concluir com êxito o estágio de **migração** , você precisa passar por uma série de tarefas de pós-implantação para garantir que tudo esteja funcionando da maneira mais tranqüila e eficiente possível.
+Depois de concluir com êxito o estágio de **migração**, você precisará passar por uma série de tarefas de pós-migração para garantir que tudo esteja funcionando da maneira mais estável e eficiente possível.
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos
 
 Depois que os dados são migrados para o ambiente de destino, todos os aplicativos que antes consumiam a origem, precisam começar a consumir o destino. Em alguns casos isso exigirá alterações nos aplicativos.
 
-O [Kit de ferramentas de migração de acesso a dados](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) é uma extensão para Visual Studio Code que permite que você analise seu código-fonte Java e detecte chamadas e consultas à API de acesso a dados, fornecendo a você uma exibição de painel único do que precisa ser resolvido para dar suporte ao novo back-end. Para saber mais, confira o blog [migrar nosso aplicativo Java do Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727) . 
+O [Data Access Migration Toolkit](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) é uma extensão para Visual Studio Code que permite analisar o código-fonte Java e detectar consultas e chamadas à API de acesso a dados, fornecendo uma visão de painel único do que precisa ser resolvido para dar suporte ao novo back-end do banco de dados. Para saber mais, confira o blog [Migrar nosso aplicativo Java do Oracle](https://techcommunity.microsoft.com/t5/microsoft-data-migration/migrate-your-java-applications-from-oracle-to-sql-server-with/ba-p/368727). 
 
 ### <a name="perform-tests"></a>Executar testes
 
-A abordagem de teste para a migração de banco de dados consiste em executar as seguintes atividades:
+A abordagem de teste para a migração de banco de dados consiste na execução das seguintes atividades:
 
-1.  **Desenvolver testes de validação**. Para testar a migração de banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
+1.  **Desenvolver testes de validação**. Para testar a migração do banco de dados, você precisa usar consultas SQL. Você deve criar as consultas de validação para executar nos bancos de dados de origem e de destino. Suas consultas de validação devem abranger o escopo que você definiu.
 
-2.  **Configure o ambiente de teste**. O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
+2.  **Configurar ambiente de teste**. O ambiente de teste deve conter uma cópia do banco de dados de origem e do banco de dados de destino. Lembre-se de isolar o ambiente de teste.
 
-3.  **Executar testes de validação**. Execute os testes de validação em relação à origem e ao destino e, em seguida, analise os resultados.
+3.  **Executar testes de validação**. Execute os testes de validação na origem e no destino e, em seguida, analise os resultados.
 
-4.  **Executar testes de desempenho**. Execute o teste de desempenho em relação à origem e ao destino e, em seguida, analise e compare os resultados.
+4.  **Executar testes de desempenho**. Execute o teste de desempenho na origem e no destino e, em seguida, analise e compare os resultados.
 
 ### <a name="optimize"></a>Otimizar
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho.
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho.
 
 > [!NOTE]
-> Para obter detalhes adicionais sobre esses problemas e etapas específicas para atenuá-los, consulte o [Guia de validação e otimização após a migração](/sql/relational-databases/post-migration-validation-and-optimization-guide).
+> Para obter detalhes adicionais sobre esses problemas e etapas específicas para atenuá-los, confira o [Guia de validação e otimização após a migração](/sql/relational-databases/post-migration-validation-and-optimization-guide).
 
 
 ## <a name="migration-assets"></a>Ativos de migração 
 
-Para obter assistência adicional com a conclusão deste cenário de migração, consulte os recursos a seguir, que foram desenvolvidos para dar suporte a um compromisso de projeto de migração real.
+Para obter assistência adicional com a conclusão desse cenário de migração, confira os recursos a seguir, que foram desenvolvidos para dar suporte a um projeto de migração do mundo real.
 
 | **Título/link**                                                                                                                                          | **Descrição**                                                                                                                                                                                                                                                                                                                                                                                       |
 | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [Modelo e ferramenta de avaliação de carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Essa ferramenta fornece as melhores plataformas de destino "melhor ajuste", preparação para a nuvem e nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ele oferece um cálculo simples, com um clique e geração de relatórios que ajuda muito a acelerar as avaliações de grandes imóveis, fornecendo um processo de decisão de plataforma de destino automatizado e uniforme.                                                          |
-| [Artefatos de script de inventário do Oracle](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | Esse ativo inclui uma consulta PL/SQL que atinge as tabelas do sistema Oracle e fornece uma contagem de objetos por tipo de esquema, tipo de objeto e status. Ele também fornece uma estimativa aproximada de "dados brutos" em cada esquema e o dimensionamento de tabelas em cada esquema, com resultados armazenados em um formato CSV.                                                                                                               |
-| [Automatize a coleta de avaliação do Oracle SSMA & consolidação](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Esse conjunto de recursos usa um arquivo. csv como entrada (sources.csv nas pastas do projeto) para produzir os arquivos XML necessários para executar a avaliação do SSMA no modo de console. O source.csv é fornecido pelo cliente com base em um inventário de instâncias existentes do Oracle. Os arquivos de saída são AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml e VariableValueFile.xml.|
-| [Os erros comuns do SSMA para Oracle e como corrigi-los](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Com o Oracle, você pode atribuir uma condição não escalar na cláusula WHERE. No entanto, SQL Server não dá suporte a esse tipo de condição. Como resultado, o Assistente de Migração do SQL Server (SSMA) para Oracle não converte consultas com uma condição não escalar na cláusula WHERE, em vez disso, gera um erro O2SS0001. Este white paper fornece mais detalhes sobre o problema e as maneiras de resolvê-lo.          |
-| [Manual de migração do Oracle para SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se concentra nas tarefas associadas à migração de um esquema Oracle para a versão mais recente do SQL serverbase. Se a migração exigir alterações nos recursos/funcionalidades, o possível impacto de cada alteração nos aplicativos que usam o banco de dados deve ser considerado com cuidado.                                                     |
+| [Modelo e Ferramenta de Avaliação de Carga de Trabalho de Dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Essa ferramenta dá sugestão das plataformas de destino de "melhor ajuste", da preparação para a nuvem e do nível de correção de aplicativo/banco de dados para uma determinada carga de trabalho. Ela oferece um cálculo simples, com um único clique, e oferece a geração de relatórios que ajudam muito a acelerar avaliações de grandes volumes fornecendo um processo de decisão de plataforma de destino uniforme e automatizado.                                                          |
+| [Artefatos de script de inventário do Oracle](https://github.com/Microsoft/DataMigrationTeam/tree/master/Oracle%20Inventory%20Script%20Artifacts)                 | Esse ativo inclui uma consulta PL/SQL que afeta as tabelas do sistema Oracle e fornece uma contagem de objetos por tipo de esquema, tipo de objeto e status. Ele também fornece uma estimativa aproximada de "dados brutos" em cada esquema e o dimensionamento de tabelas em cada esquema, com resultados armazenados em um formato CSV.                                                                                                               |
+| [Automatizar a Coleta e Fusão de Avaliação da Oracle do SSMA](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Automate%20SSMA%20Oracle%20Assessment%20Collection%20%26%20Consolidation)                                             | Esse conjunto de recursos usa um arquivo .csv como entrada (sources.csv nas pastas do projeto) para produzir os arquivos xml necessários para executar a avaliação do SSMA no modo de console. O source.csv é fornecido pelo cliente com base em um inventário de instâncias existentes do Oracle. Os arquivos de saída são AssessmentReportGeneration_source_1.xml, ServersConnectionFile.xml e VariableValueFile.xml.|
+| [Erros comuns do SSMA para Oracle e como corrigi-los](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Com o Oracle, você pode atribuir uma condição não escalar na cláusula WHERE. No entanto, SQL Server não dá suporte a esse tipo de condição. Como resultado, o SSMA (Assistente de Migração do SQL Server) para Oracle não converte consultas com uma condição não escalar na cláusula WHERE, em vez de gerar um erro O2SS0001. Este white paper fornece mais detalhes sobre o problema e as maneiras de resolvê-lo.          |
+| [Manual de migração do Oracle para SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se concentra nas tarefas associadas à migração de um esquema do Oracle para a versão mais recente da base do SQL Server. Se a migração exigir alterações nos recursos/funcionalidades, o possível impacto de cada alteração nos aplicativos que usam o banco de dados precisa ser considerado com cuidado.                                                     |
 
 Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudá-lo com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, consulte o artigo [serviço e ferramentas para a migração de dados](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudar você com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, confira o artigo [Serviços e ferramentas para migração de dados](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
 
 - Para saber mais sobre o Azure SQL Instância Gerenciada, consulte: 
-  - [Uma visão geral do Azure SQL Instância Gerenciada](../../database/sql-database-paas-overview.md)
+  - [Uma visão geral do Azure SQL Instância Gerenciada](../../managed-instance/sql-managed-instance-paas-overview.md)
   - [Calculadora do custo total de propriedade (TCO) do Azure](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
 
 
