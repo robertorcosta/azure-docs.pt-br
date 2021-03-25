@@ -7,10 +7,10 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.openlocfilehash: 3050dda4b3c0e1a05d751a4f5969bba69ad0506d
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
+ms.lasthandoff: 03/20/2021
 ms.locfileid: "101747344"
 ---
 # <a name="differences-between-azure-managed-instance-for-apache-cassandra-preview-and-azure-cosmos-db-cassandra-api"></a>Diferenças entre a Instância Gerenciada do Azure para Apache Cassandra (versão prévia) e a API do Cassandra para Azure Cosmos DB 
@@ -44,6 +44,6 @@ A tabela a seguir mostra cenários comuns, requisitos de carga de trabalho e asp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Comece com um de nossos inícios rápidos:
+Introdução com um dos nossos guias de início rápido:
 
 * [Criar um cluster da instância gerenciada no portal do Azure](create-cluster-portal.md)

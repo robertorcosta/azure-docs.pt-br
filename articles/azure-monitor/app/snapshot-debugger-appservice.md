@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 03/26/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 5a637a6f355be32f82878a52a30c77d020190651
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 26538f48213d025c6fe71fb55abb17a025a23b45
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102211610"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105025672"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-app-service"></a>Habilitar Depurador de Instantâneos para aplicativos .NET no serviço Azure App
 
@@ -56,13 +56,13 @@ Depois de implantar um aplicativo, siga as etapas abaixo para habilitar o depura
 
 ## <a name="enable-snapshot-debugger-for-other-clouds"></a>Habilitar Depurador de Instantâneos para outras nuvens
 
-Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](https://docs.microsoft.com/azure/azure-government/compare-azure-government-global-azure#application-insights) e o [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide) por meio da cadeia de conexão Application insights.
+Atualmente, as únicas regiões que exigem modificações de ponto de extremidade são o [Azure governamental](../../azure-government/compare-azure-government-global-azure.md#application-insights) e o [Azure China](/azure/china/resources-developer-guide) por meio da cadeia de conexão Application insights.
 
 |Propriedade da cadeia de conexão    | Nuvem do governo dos EUA | Nuvem da China |   
 |---------------|---------------------|-------------|
 |SnapshotEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
 
-Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](https://docs.microsoft.com/azure/azure-monitor/app/sdk-connection-string?tabs=net#connection-string-with-explicit-endpoint-overrides).
+Para obter mais informações sobre outras substituições de conexão, consulte [Application insights documentação](./sdk-connection-string.md?tabs=net#connection-string-with-explicit-endpoint-overrides).
 
 ## <a name="disable-snapshot-debugger"></a>Desabilitar Depurador de Instantâneos
 
@@ -120,4 +120,3 @@ Para um serviço de Azure App, você pode definir configurações de aplicativo 
 
 [Enablement UI]: ./media/snapshot-debugger/enablement-ui.png
 [snapshot-debugger-app-setting]:./media/snapshot-debugger/snapshot-debugger-app-setting.png
-

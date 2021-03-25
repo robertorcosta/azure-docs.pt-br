@@ -9,13 +9,13 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
-ms.date: 03/11/2021
-ms.openlocfilehash: bd91c29ca97c2096c4d8f3df19dbb9eab306b8e7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.date: 03/23/2021
+ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103149742"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105047245"
 ---
 # <a name="maintenance-window-preview"></a>Janela de manutenção (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -27,14 +27,14 @@ O recurso janela de manutenção permite configurar o agendamento de manutençã
 
 ## <a name="overview"></a>Visão geral
 
-Periodicamente, o Azure realiza a [manutenção planejada](planned-maintenance.md) do banco de dados SQL e recursos de instância gerenciada do SQL Durante o evento de manutenção do SQL do Azure, os bancos de dados estão totalmente disponíveis, mas podem estar sujeitos a failovers curtos nos respectivos SLAs de disponibilidade para o [banco de dados SQL](https://azure.microsoft.com/support/legal/sla/sql-database) e a [instância gerenciada do SQL](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance), pois a reconfiguração de recursos é necessária em alguns casos.
+Periodicamente, o Azure realiza a [manutenção planejada](planned-maintenance.md) do banco de dados SQL e recursos de instância gerenciada do SQL Durante o evento de manutenção do SQL do Azure, os bancos de dados estão totalmente disponíveis, mas podem estar sujeitos a reconfigurações curtas nos respectivos SLAs de disponibilidade para o [banco de dados SQL](https://azure.microsoft.com/support/legal/sla/sql-database) e a [instância gerenciada do SQL](https://azure.microsoft.com/support/legal/sla/azure-sql-sql-managed-instance).
 
-A janela de manutenção destina-se a cargas de trabalho de produção que não são resilientes a failovers de instância ou banco de dados e não podem absorver interrupções de conexão curtas causadas por eventos de manutenção planejados Ao escolher uma janela de manutenção que você preferir, você pode minimizar o impacto da manutenção planejada, pois ela estará ocorrendo fora do horário comercial de pico. Cargas de trabalho resilientes e cargas de trabalho de não produção podem depender da política de manutenção padrão do Azure SQL.
+A janela de manutenção destina-se a cargas de trabalho de produção que não são resilientes a reconfigurações de banco de dados ou instância e não podem absorver interrupções de conexão curtas causadas por eventos de manutenção planejados Ao escolher uma janela de manutenção que você preferir, você pode minimizar o impacto da manutenção planejada, pois ela estará ocorrendo fora do horário comercial de pico. Cargas de trabalho resilientes e cargas de trabalho de não produção podem depender da política de manutenção padrão do Azure SQL.
 
 A janela de manutenção pode ser configurada na criação ou para recursos existentes do SQL do Azure. Ele pode ser configurado usando o portal do Azure, PowerShell, CLI ou API do Azure.
 
 > [!Important]
-> A configuração da janela de manutenção é uma operação assíncrona de execução longa, semelhante à alteração da camada de serviço do recurso SQL do Azure. O recurso está disponível durante a operação, exceto um failover curto que ocorre no final da operação e normalmente dura até 8 segundos, mesmo no caso de transações de longa execução interrompidas. Para minimizar o impacto do failover, você deve executar a operação fora do horário de pico.
+> A configuração da janela de manutenção é uma operação assíncrona de execução longa, semelhante à alteração da camada de serviço do recurso SQL do Azure. O recurso está disponível durante a operação, exceto uma pequena reconfiguração que ocorre no final da operação e normalmente dura até 8 segundos, mesmo no caso de transações de longa execução interrompidas. Para minimizar o impacto da reconfiguração, você deve executar a operação fora do horário de pico.
 
 ### <a name="gain-more-predictability-with-maintenance-window"></a>Obter mais previsibilidade com a janela de manutenção
 
@@ -98,7 +98,7 @@ A escolha de uma janela de manutenção diferente do padrão está disponível a
 
 Para obter o benefício máximo das janelas de manutenção, verifique se os aplicativos cliente estão usando a política de conexão de redirecionamento. Redirecionar é a política de conexão recomendada, em que os clientes estabelecem conexões diretamente com o nó que hospeda o banco de dados, levando à latência reduzida e à taxa de transferência aprimorada.  
 
-* No banco de dados SQL do Azure, todas as conexões que usam a política de conexão proxy podem ser afetadas pela janela de manutenção escolhida e uma janela de manutenção de nó de gateway. No entanto, as conexões de cliente usando a política de conexão de redirecionamento recomendada não são afetadas por um failover de manutenção de nó de gateway. 
+* No banco de dados SQL do Azure, todas as conexões que usam a política de conexão proxy podem ser afetadas pela janela de manutenção escolhida e uma janela de manutenção de nó de gateway. No entanto, as conexões de cliente que usam a política de conexão de redirecionamento recomendada não são afetadas por uma reconfiguração de manutenção de nó de gateway. 
 
 * Na instância gerenciada do SQL do Azure, os nós de gateway são hospedados [no cluster virtual](../../azure-sql/managed-instance/connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture) e têm a mesma janela de manutenção que a instância gerenciada, mas usar a política de conexão de redirecionamento ainda é recomendado para minimizar o número de interrupções durante o evento de manutenção.
 
@@ -115,7 +115,7 @@ Todas as instâncias hospedadas em um cluster virtual compartilham a janela de m
 A duração esperada da configuração da janela de manutenção na instância gerenciada pode ser calculada usando a [duração estimada das operações de gerenciamento de instância](/azure/azure-sql/managed-instance/management-operations-overview#duration).
 
 > [!Important]
-> Um failover curto ocorre no final da operação de manutenção e normalmente dura até 8 segundos, mesmo no caso de transações de longa execução interrompidas. Para minimizar o impacto do failover, você deve agendar a operação fora do horário de pico.
+> Uma reconfiguração curta acontece ao final da operação de manutenção e normalmente dura até 8 segundos, mesmo no caso de transações de longa execução interrompidas. Para minimizar o impacto da reconfiguração, você deve agendar a operação fora do horário de pico.
 
 ### <a name="ip-address-space-requirements"></a>Requisitos de espaço de endereço IP
 Cada novo cluster virtual na sub-rede requer endereços IP adicionais de acordo com a [alocação de endereço IP do cluster virtual](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). A alteração da janela de manutenção para a instância gerenciada existente também requer uma [capacidade IP adicional temporária](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) como no cenário de dimensionamento de vCores para a camada de serviço correspondente.

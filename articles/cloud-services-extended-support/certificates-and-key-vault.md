@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 7357703af41afc913ef63dff6ecae3d230c9eca0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d771e77fcca05b090e5d47d70ae93ece8f79e3e
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104583285"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865682"
 ---
 # <a name="use-certificates-with-azure-cloud-services-extended-support"></a>Usar certificados com os serviços de nuvem do Azure (suporte estendido)
 
@@ -27,9 +27,8 @@ O Key Vault é usado para armazenar certificados associados aos Serviços de Nuv
 
     :::image type="content" source="media/certs-and-key-vault-1.png" alt-text="Imagem mostra a seleção de políticas de acesso na folha do cofre de chaves.":::
 
-3. Verifique se as políticas de acesso incluem as seguintes propriedades:
+3. Verifique se as políticas de acesso incluem a seguinte propriedade:
     - **Habilitar o acesso às máquinas virtuais do Azure para implantação**
-    - **Habilitar o acesso ao Azure Resource Manager para implantação de modelo** 
 
     :::image type="content" source="media/certs-and-key-vault-2.png" alt-text="Imagem mostra a janela políticas de acesso na portal do Azure.":::
  
@@ -50,6 +49,9 @@ O Key Vault é usado para armazenar certificados associados aos Serviços de Nuv
     ```json
     <Certificate name="<your cert name>" thumbprint="<thumbprint in key vault" thumbprintAlgorithm="sha1" /> 
     ```
+6.  Para implantação por meio do modelo ARM, o certificateUrl pode ser encontrado navegando até o certificado no cofre de chaves rotulado como identificador secreto
+
+    :::image type="content" source="media/certs-and-key-vault-6.png" alt-text="Imagem mostra o campo identificador secreto no cofre de chaves.":::
 
 ## <a name="next-steps"></a>Próximas etapas 
 - Examine os [pré-requisitos de implantação](deploy-prerequisite.md) para serviços de nuvem (suporte estendido).

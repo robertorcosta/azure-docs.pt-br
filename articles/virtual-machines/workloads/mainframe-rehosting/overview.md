@@ -10,12 +10,12 @@ editor: edprice
 ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
-ms.openlocfilehash: 7e4b41497a0ed49ab0b39ab2c93c0142fce6416e
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 1baba0afc08c6a4df63c38cafe9231411ecf8f1f
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104951310"
+ms.locfileid: "105048843"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Hospedagem de mainframe em máquinas virtuais do Azure
 
@@ -118,7 +118,7 @@ Consulte também:
 
 - [White papers sobre tópicos de mainframe](mainframe-white-papers.md)
 - [Migração de mainframe](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [Solução de problemas](../../troubleshooting/index.yml)
+- [Solução de problemas](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->

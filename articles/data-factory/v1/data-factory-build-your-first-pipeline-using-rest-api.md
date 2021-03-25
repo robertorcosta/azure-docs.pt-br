@@ -3,16 +3,16 @@ title: Compilar seu primeiro data factory (REST)
 description: Neste tutorial, você cria um pipeline de exemplo do Azure Data Factory usando a API REST do Data Factory.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 11/01/2017
-ms.openlocfilehash: 9aa3e7f2b5f382e1212955479d8e35f91b458bf0
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: eb9ce65985521fb3f82032f04aec62538a157639
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100392010"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104785454"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Tutorial: Criar seu primeiro data factory do Azure usando a API REST do Data Factory
 > [!div class="op_single_selector"]
@@ -38,7 +38,7 @@ O pipeline neste tutorial tem uma atividade: **atividade hive do HDInsight**. Es
 > Um pipeline pode ter mais de uma atividade. E você pode encadear duas atividades (executar uma atividade após a outra) definindo o conjunto de dados de saída de uma atividade como o conjunto de dados de entrada da outra atividade. Para saber mais, confira [Agendamento e execução no Data Factory](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Pré-requisitos
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -116,7 +116,7 @@ Crie os arquivos JSON a seguir na pasta onde curl.exe está localizado.
 
 A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | clusterSize |Tamanho do cluster HDInsight. |
 | timeToLive |Especifica que o tempo ocioso do cluster HDInsight antes de ser excluído. |
@@ -162,7 +162,7 @@ O JSON define um conjunto de dados chamado **AzureBlobInput**, que representa da
 
 A tabela a seguir fornece descrições das propriedades de JSON usadas no snippet de código:
 
-| Propriedade | DESCRIÇÃO |
+| Propriedade | Descrição |
 |:--- |:--- |
 | type |A propriedade type é definida como AzureBlob porque os dados residem no armazenamento de blobs do Azure. |
 | linkedServiceName |refere-se ao StorageLinkedService que você criou anteriormente. |
@@ -316,7 +316,7 @@ Observe os seguintes pontos:
   3. Execute os próximos dois comandos para invocar a API REST a fim de criar o data factory e imprima os resultados da operação.
 * Para criar instâncias do Data Factory, você precisa ser um colaborador/administrador da assinatura do Azure
 * O nome do data factory pode ser registrado futuramente como um nome DNS e tornar-se visível publicamente.
-* Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um destes procedimentos e tente publicar novamente:
+* Se você receber o erro: "**Esta assinatura não está registrada para usar o namespace Microsoft.DataFactory**", siga um dos seguintes procedimentos e tente a publicação novamente:
 
   * No Azure PowerShell, execute o comando a seguir para registrar o provedor do Data Factory:
 

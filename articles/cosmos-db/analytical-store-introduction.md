@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2021
 ms.author: rosouz
 ms.custom: seo-nov-2020
-ms.openlocfilehash: bca4eb7f5f266a639916c0f8e520f025d259c39b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9a8ecf65426dfe92b84582ff98b567ea400c9209
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104577352"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027169"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store"></a>O que é Azure Cosmos DB repositório analítico?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -110,9 +110,10 @@ As seguintes restrições são aplicáveis aos dados operacionais em Azure Cosmo
 
 * Atualmente, não damos suporte a nomes de colunas de leitura do Azure Synapse Spark que contenham espaços em branco (espaço em branco).
 
-* Espere um comportamento diferente em relação aos `NULL` valores:
-  * Os pools do Spark no Azure Synapse lerá esses valores como 0 (zero).
-  * Os pools sem SQL Server no Azure Synapse lerá esses valores como `NULL` .
+* Espere um comportamento diferente em relação aos `null` valores explícitos:
+  * Os pools do Spark no Azure Synapse lerá esses valores como `0` (zero).
+  * Os pools sem SQL Server no Azure Synapse lerá esses valores como `NULL` se o primeiro documento da coleção tiver, para a mesma propriedade, um valor com um tipo de dados diferente de `integer` .
+  * Os pools sem SQL Server no Azure Synapse lerá esses valores como `0` (zero) se o primeiro documento da coleção tiver, para a mesma propriedade, um valor que seja um `integer` .
 
 * Espere um comportamento diferente em relação às colunas ausentes:
   * Os pools do Spark no Azure Synapse irão representar essas colunas como `undefined` .
@@ -144,6 +145,11 @@ A representação de esquema bem definida cria uma representação de tabela sim
 
 > [!NOTE]
 > Se o repositório analítico de Azure Cosmos DB seguir a representação de esquema bem definida e a especificação acima for violada por determinados itens, esses itens não serão incluídos no repositório analítico.
+
+* Espere um comportamento diferente em relação a tipos diferentes no esquema bem definido:
+  * Os pools do Spark no Azure Synapse representarão esses valores como `undefined` .
+  * Os pools sem SQL Server no Azure Synapse irão representar esses valores como `NULL` .
+
 
 **Representação de esquema de fidelidade total**
 

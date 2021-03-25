@@ -5,12 +5,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 04/01/2020
-ms.openlocfilehash: c73cb99d62295312980fe5f1b248d23efa2eb0c5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 55792cc1890702b904db00b7e3cb3ac3a78c63f1
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102432376"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104866515"
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -121,7 +121,7 @@ Você pode usar o bootstrap no modelo do Resource Manager:
 }
 ```
 
-![O Hadoop personaliza o modelo de Azure Resource Manager de inicialização de cluster](./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png)
+:::image type="content" source="./media/hdinsight-hadoop-customize-cluster-bootstrap/hdinsight-customize-cluster-bootstrap-arm.png" alt-text="O Hadoop personaliza o modelo de Azure Resource Manager de inicialização de cluster":::
 
 Exemplo de trecho do modelo do Resource Manager para alternar a configuração em spark2-padrões para limpar periodicamente os logs de eventos do armazenamento.  
 
@@ -135,7 +135,7 @@ Exemplo de trecho do modelo do Resource Manager para alternar a configuração e
 }
 ```
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 * [Criar clusters Apache Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md) fornece instruções sobre como criar um cluster HDInsight usando outras opções personalizadas.
 * [Desenvolver scripts de ação de script para o HDInsight](hdinsight-hadoop-script-actions-linux.md)

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/15/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 86f40944af9fb49b0402a33e5009b99d60be61f0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c5381a93308b5b3c8988cb8e25df541af1043418
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103489178"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105031300"
 ---
 # <a name="custom-email-verification-with-sendgrid"></a>Verificação de email personalizada com SendGrid
 
@@ -43,7 +43,7 @@ Em seguida, armazene a chave de API SendGrid em uma chave de política de Azure 
 1. Selecione **Chaves de Política** e, em seguida, escolha **Adicionar**.
 1. Para **Opções**, escolha **manual**.
 1. Insira um **Nome** para a chave de política. Por exemplo, `SendGridSecret`. O prefixo `B2C_1A_` será adicionado automaticamente ao nome da chave.
-1. Em **Segredo**, insira o segredo do cliente que você registrou anteriormente.
+1. Em **segredo**, insira a chave de API do SendGrid que você registrou anteriormente.
 1. Para **Uso de chave**, selecione **Assinatura**.
 1. Selecione **Criar**.
 

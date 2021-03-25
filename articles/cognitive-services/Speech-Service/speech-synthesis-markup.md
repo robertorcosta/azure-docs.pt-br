@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: ffa8528da454fd29c937a2d49accdda617fe62dd
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: aa5e499df976c08fef8f0b81eff1e189eebb5503
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104869014"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105026301"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -876,7 +876,7 @@ Não vamos ler os elementos de indicador.
 O elemento Bookmark pode ser usado para fazer referência a um local específico na sequência de texto ou de marca.
 
 > [!NOTE]
-> `bookmark` o elemento funciona apenas para `en-US-AriaNeural` voz na região oeste dos EUA ( `westus` ) por enquanto.
+> `bookmark` o elemento funciona apenas para `en-US-AriaNeural` voz na região oeste dos EUA 2 ( `westus2` ) por enquanto.
 
 **Sintaxe**
 
