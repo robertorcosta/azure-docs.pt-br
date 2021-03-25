@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 11/07/2020
 ms.author: allensu
-ms.openlocfilehash: bba912930a9dff0a79e0b0d81025b7524c238db0
-ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
+ms.openlocfilehash: f74a143859f0a6629c88f0dcb61a97697f49d0be
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2020
-ms.locfileid: "94368671"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104889222"
 ---
 # <a name="quickstart-create-a-private-endpoint-using-azure-cli"></a>Início Rápido: criar um Ponto de Extremidade Privado usando a CLI do Azure
 
@@ -183,9 +183,9 @@ az network private-endpoint create \
 
 ## <a name="configure-the-private-dns-zone"></a>Configurar a zona DNS privada
 
-Nesta seção, você vai criar e configurar a zona DNS privada usando o comando [az network private-dns zone create](/cli/azure/ext/privatedns/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
+Nesta seção, você vai criar e configurar a zona DNS privada usando o comando [az network private-dns zone create](/cli/azure/network/private-dns/zone#ext_privatedns_az_network_private_dns_zone_create).  
 
-Você usará o comando [az network private-dns link vnet create](/cli/azure/ext/privatedns/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para criar o link da rede virtual para a zona DNS.
+Você usará o comando [az network private-dns link vnet create](/cli/azure/network/private-dns/link/vnet#ext_privatedns_az_network_private_dns_link_vnet_create) para criar o link da rede virtual para a zona DNS.
 
 Você criará um grupo de zonas DNS com o comando [az network private-endpoint dns-zone-group create](/cli/azure/network/private-endpoint/dns-zone-group#az_network_private_endpoint_dns_zone_group_create).
 

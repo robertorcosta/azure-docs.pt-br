@@ -8,17 +8,17 @@ ms.topic: overview
 ms.workload: infrastructure-services
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 2a5c298c201aa2a1f968c2a96dcfd6963a410cf7
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: ef3d415f4f0ca82e79df84ef48acc0323a69099a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149215"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104952143"
 ---
 # <a name="what-is-azure-front-door"></a>O que é o Azure Front Door?
 
 > [!IMPORTANT]
-> Esta documentação é para o Azure Front Door. Procurando informações sobre o Azure Front Door Standard/Premium (versão prévia)? Veja [aqui](/standard-premium/overview.md).
+> Esta documentação é para o Azure Front Door. Procurando informações sobre o Azure Front Door Standard/Premium (versão prévia)? Veja [aqui](standard-premium/overview.md).
 
 O Azure Front Door é um ponto de entrada global e escalonável que usa a rede de borda global da Microsoft para criar aplicativos Web rápidos, seguros e amplamente escalonáveis. Com o Front Door, é possível transformar os seus aplicativos consumidores e empresariais globais em modernos aplicativos robustos altamente personalizados e com alto desempenho, com conteúdo que alcança um público global por meio do Azure.
 

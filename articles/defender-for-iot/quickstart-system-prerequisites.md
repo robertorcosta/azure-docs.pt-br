@@ -1,18 +1,14 @@
 ---
 title: Pré-requisitos do sistema
 description: Obtenha os pré-requisitos do sistema necessários para executar o Azure Defender para IoT.
-author: shhazam-ms
-manager: rkarlin
-ms.author: shhazam
 ms.date: 11/30/2020
 ms.topic: quickstart
-ms.service: azure
-ms.openlocfilehash: 4b5db049e6d1cfe76bdd0d5cd6d7360e0b98bad0
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 78d5948554ae531c4b2f77d67bb916d5290db943
+ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103489804"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104780932"
 ---
 # <a name="system-prerequisites"></a>Pré-requisitos do sistema
 Este artigo lista os pré-requisitos do sistema para executar o Azure Defender para IoT.
