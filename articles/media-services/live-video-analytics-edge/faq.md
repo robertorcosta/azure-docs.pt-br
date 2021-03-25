@@ -3,12 +3,12 @@ title: Análise de vídeo ao vivo em IoT Edge perguntas frequentes – Azure
 description: Este artigo responde às perguntas mais frequentes sobre a análise de vídeo ao vivo em IoT Edge.
 ms.topic: conceptual
 ms.date: 12/01/2020
-ms.openlocfilehash: 72a07a1a509aebcd7ba4048d0c84e913481c978e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 661b6155ce2d95e2111a1fa338fd5df438e61e7d
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702242"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032780"
 ---
 # <a name="live-video-analytics-on-iot-edge-faq"></a>Perguntas frequentes sobre a análise de vídeo ao vivo IoT Edge
 
@@ -129,7 +129,7 @@ As soluções variam dependendo do protocolo de comunicação usado pelo servido
    
 *Use o protocolo gRPC*: 
 
-* Com o módulo de análise de vídeo ao vivo 1,0, quando você usa um protocolo gRPC (chamada de procedimento remoto de uso geral), a única maneira de fazer isso é se o servidor gRPC expõe modelos de ia diferentes por meio de portas diferentes. Neste [exemplo de código](https://raw.githubusercontent.com/Azure/live-video-analytics/master/MediaGraph/topologies/grpcExtension/topology.json), uma única porta, 44000, expõe todos os modelos Yolo. Teoricamente, o servidor Yolo gRPC poderia ser reescrito para expor alguns modelos na porta 44000 e outros na porta 45000. 
+* Com o módulo de análise de vídeo ao vivo 1,0, quando você usa um protocolo gRPC (chamada de procedimento remoto de uso geral), a única maneira de fazer isso é se o servidor gRPC expõe modelos de ia diferentes por meio de portas diferentes. Neste [exemplo de código](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/grpcExtensionOpenVINO/2.0/topology.json), uma única porta, 44000, expõe todos os modelos Yolo. Teoricamente, o servidor Yolo gRPC poderia ser reescrito para expor alguns modelos na porta 44000 e outros na porta 45000. 
 
 * Com o módulo de análise de vídeo ao vivo 2,0, uma nova propriedade é adicionada ao nó de extensão gRPC. Essa propriedade, **extensionConfiguration**, é uma cadeia de caracteres opcional que pode ser usada como parte do contrato gRPC. Quando você tem vários modelos de ia empacotados em um único servidor de inferência, não é necessário expor um nó para todos os modelos de ia. Em vez disso, para uma instância de grafo, você, como o provedor de extensão, pode definir como selecionar os diferentes modelos de ia usando a propriedade **extensionConfiguration** . Durante a execução, a análise de vídeo ao vivo passa essa cadeia de caracteres para o servidor inferência, que pode usá-la para invocar o modelo de ia desejado. 
 
