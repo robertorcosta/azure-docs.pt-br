@@ -4,12 +4,12 @@ description: Fornece um resumo de configurações compatíveis e limitações do
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.custom: references_regions
-ms.openlocfilehash: 655a90ebc3164f076c333760beffcef5acefcd91
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2877b0085f31f39849e04678d5e0ddd65e3888e2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103225540"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564459"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Matriz de suporte Backup do Azure
 
@@ -40,7 +40,7 @@ A tabela a seguir descreve os recursos dos cofres de Serviços de Recuperação:
 **Mover dados entre cofres** | Não há suporte para a movimentação de dados de backup entre cofres.
 **Modificar o tipo de armazenamento do cofre** | Você pode modificar o tipo de replicação de armazenamento (armazenamento com redundância geográfica ou armazenamento com redundância local) para um cofre antes que os backups sejam armazenados. Após o início dos backups no cofre, o tipo de replicação não poderá ser modificado.
 **ZRS (armazenamento com redundância de zona)** | Disponível nas regiões Sul do Reino Unido (UKS) e Sul Ásia Oriental (SEA).
-**Pontos de extremidade privados** | Consulte [esta seção](https://docs.microsoft.com/azure/backup/private-endpoints#before-you-start) para obter os requisitos para criar pontos de extremidade privados para um cofre de serviço de recuperação.  
+**Pontos de extremidade privados** | Consulte [esta seção](./private-endpoints.md#before-you-start) para obter os requisitos para criar pontos de extremidade privados para um cofre de serviço de recuperação.  
 
 ## <a name="on-premises-backup-support"></a>Suporte de backup local
 

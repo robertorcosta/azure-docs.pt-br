@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87072ecc4bff054d64c3d8576f821e725959ea7e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ca28c2a1943912ce6a244929e7438edd7680d131
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657784"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565955"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Linha de base de segurança do Azure para banco de dados SQL do Azure
 
@@ -32,13 +32,13 @@ Para permitir que o tráfego alcance o Banco de Dados SQL do Azure, use as marca
 
 As regras de rede virtual permitem que o banco de dados SQL do Azure aceite somente comunicações que são enviadas de sub-redes selecionadas dentro de uma rede virtual.
 
-- [Como configurar o Link Privado para o Banco de Dados SQL do Azure](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+- [Como configurar o Link Privado para o Banco de Dados SQL do Azure](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
-- [Como usar pontos de extremidade de serviço de rede virtual e regras para servidores de banco de dados](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)
+- [Como usar pontos de extremidade de serviço de rede virtual e regras para servidores de banco de dados](./vnet-service-endpoint-rule-overview.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -68,9 +68,9 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 **Orientação**: habilite a proteção contra DDoS Standard nas redes virtuais associadas às suas instâncias de SQL Server para proteger contra ataques de negação de serviço distribuídos. Use a inteligência contra ameaças integrada da Central de Segurança do Azure para negar comunicações com endereços IP da Internet maliciosos conhecidos ou não usados.
 
-- [Como configurar a proteção contra DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Como configurar a proteção contra DDoS](../../ddos-protection/manage-ddos-protection.md)
 
-- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](/azure/security-center/security-center-alerts-data-services)
+- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../../security-center/azure-defender.md)
 
 **Responsabilidade**: Cliente
 
@@ -92,7 +92,7 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 **Orientação**: habilitar a ATP (proteção avançada contra ameaças) para o banco de dados SQL do Azure.  Os usuários receberão um alerta em caso de atividades suspeitas em bancos de dados, possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de consultas e acesso a banco de dados. A proteção avançada contra ameaças também integra alertas com a central de segurança do Azure. 
 
-- [Entender e usar a proteção avançada contra ameaças para o banco de dados SQL do Azure](/azure/sql-database/sql-database-threat-detection-overview)
+- [Entender e usar a proteção avançada contra ameaças para o banco de dados SQL do Azure](./threat-detection-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -104,7 +104,7 @@ Também envie logs de fluxo de NSG para um workspace do Log Analytics e use a An
 
 Ao usar pontos de extremidade de serviço para o banco de dados SQL do Azure, são necessários endereços IP públicos de saída para o banco de dados SQL do Azure: NSGs (grupos de segurança de rede) devem ser abertos para IPs do banco de dados SQL do Azure para permitir a conectividade. Você pode fazer isso usando marcas de serviço NSG para o banco de dados SQL do Azure.
 
-- [Entender as marcas de serviço com pontos de extremidade de serviço para o banco de dados SQL do Azure](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview#limitations)
+- [Entender as marcas de serviço com pontos de extremidade de serviço para o banco de dados SQL do Azure](./vnet-service-endpoint-rule-overview.md#limitations)
 
 - [Entender e usar marcas de serviço](../../virtual-network/service-tags-overview.md)
 
@@ -136,7 +136,7 @@ Use qualquer uma das definições de Azure Policy internas relacionadas à marca
 
 Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar ações em recursos com base em suas marcas.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -146,9 +146,9 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados às instâncias de servidor do banco de dados SQL do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -164,11 +164,11 @@ Você pode usar Azure PowerShell ou CLI do Azure para pesquisar ou executar aç�
 
 Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no Análise de SQL do Azure, uma solução de nuvem que monitora o desempenho de bancos de dados SQL do Azure e instâncias gerenciadas do SQL do Azure em escala e entre várias assinaturas. Pode ajudá-lo a coletar e visualizar as métricas de desempenho do Banco de Dados SQL do Azure e tem uma inteligência interna para solução de problemas de desempenho.
 
-- [Como configurar a auditoria para o banco de dados SQL do Azure](/azure/sql-database/sql-database-auditing)
+- [Como configurar a auditoria para o banco de dados SQL do Azure](./auditing-overview.md)
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](/azure/sql-database/sql-database-metrics-diag-logging)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md)
 
-- [Como transmitir diagnósticos para Análise de SQL do Azure](/azure/sql-database/sql-database-metrics-diag-logging#stream-into-azure-sql-analytics)
+- [Como transmitir diagnósticos para Análise de SQL do Azure](./metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-sql-analytics)
 
 **Responsabilidade**: Cliente
 
@@ -178,11 +178,11 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Orientação**: habilite a auditoria na instância do servidor do banco de dados SQL do Azure e escolha um local de armazenamento para os logs de auditoria (armazenamento do azure, log Analytics ou Hub de eventos).
 
-- [Como habilitar a auditoria para o Azure SQL Server](/azure/sql-database/sql-database-auditing)
+- [Como habilitar a auditoria para o Azure SQL Server](./auditing-overview.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -192,11 +192,11 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Orientação**: ao armazenar os logs do banco de dados SQL do Azure em um espaço de trabalho log Analytics, defina o período de retenção de log de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -206,7 +206,7 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Orientação**: analisar e monitorar os logs de comportamentos anormais e examinar os resultados regularmente. Use a proteção avançada contra ameaças da central de segurança do Azure para alertar sobre atividades incomuns relacionadas à instância do banco de dados SQL do Azure. Como alternativa, configure alertas com base em valores de métrica ou entradas do log de atividades do Azure relacionadas às instâncias do banco de dados SQL do Azure.
 
-- [Entenda a proteção avançada contra ameaças e os alertas para o Azure SQL Server](/azure/sql-database/sql-database-threat-detection-overview)
+- [Entenda a proteção avançada contra ameaças e os alertas para o Azure SQL Server](./threat-detection-overview.md)
 
 - [Como configurar alertas personalizados para o banco de dados SQL do Azure](alerts-insights-configure-portal.md)
 
@@ -218,7 +218,7 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Diretrizes**: Use a central de segurança do Azure proteção avançada contra ameaças para bancos de dados SQL do Azure para monitoramento e alertas na atividade anômala. Habilite o Azure defender para SQL para seus bancos de dados SQL. O Azure defender para SQL inclui a funcionalidade de descoberta e classificação de dados confidenciais, identificando e redução de vulnerabilidades de banco de dado potenciais e detecção de atividades anormais que podem indicar uma ameaça ao seu banco de dados.
 
-- [Entenda a proteção avançada contra ameaças e os alertas para o banco de dados SQL do Azure](/azure/sql-database/sql-database-threat-detection-overview)
+- [Entenda a proteção avançada contra ameaças e os alertas para o banco de dados SQL do Azure](./threat-detection-overview.md)
 
 - [Como habilitar o Azure defender para SQL para o banco de dados SQL do Azure](azure-defender-for-sql.md)
 
@@ -226,7 +226,7 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -240,9 +240,9 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Diretrizes**: Azure Active Directory (Azure AD) tem funções internas que devem ser explicitamente atribuídas e que podem ser consultadas. Use o módulo do PowerShell do Azure AD para executar consultas ad hoc para descobrir contas que são membros de grupos administrativos.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?amp;preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?amp;preserve-view=true&view=azureadps-2.0)
 
 **Responsabilidade**: Cliente
 
@@ -252,7 +252,7 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 **Diretrizes**: Azure Active Directory (Azure AD) não tem o conceito de senhas padrão. Ao provisionar uma instância do banco de dados SQL do Azure, é recomendável que você opte por integrar a autenticação ao Azure AD.
 
-- [Como configurar e gerenciar a autenticação do Azure AD com o Azure SQL](/azure/sql-database/azure-sql/database/authentication-aad-configure)
+- [Como configurar e gerenciar a autenticação do Azure AD com o Azure SQL](/azure/azure-sql/database/authentication-aad-configure)
 
 **Responsabilidade**: Cliente
 
@@ -298,11 +298,11 @@ Além disso, você pode transmitir a telemetria do diagnóstico do Azure SQL no 
 
 Use a proteção avançada contra ameaças para o banco de dados SQL do Azure para detectar atividades anormais que indicam tentativas incomuns e potencialmente prejudiciais de acessar ou explorar bancos de dados.
 
-- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na central de segurança do Azure](../../security-center/security-center-identity-access.md)
 
-- [Examinar a proteção avançada contra ameaças e os alertas potenciais](https://docs.microsoft.com/azure/azure-sql/database/threat-detection-overview#alerts)
+- [Examinar a proteção avançada contra ameaças e os alertas potenciais](./threat-detection-overview.md#alerts)
 
 **Responsabilidade**: Cliente
 
@@ -328,7 +328,7 @@ Use a proteção avançada contra ameaças para o banco de dados SQL do Azure pa
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -360,7 +360,7 @@ Use a proteção avançada contra ameaças para o banco de dados SQL do Azure pa
 
 **Diretrizes**: Use a proteção de identidade do Azure Active Directory (AD do Azure) e as detecções de risco para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Além disso, você pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir as entradas de risco do Azure AD](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir as entradas de risco do Azure AD](../../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -386,11 +386,11 @@ Use a proteção avançada contra ameaças para o banco de dados SQL do Azure pa
 
 **Diretriz**: Use marcas para ajudar a controlar os recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -400,13 +400,13 @@ Use a proteção avançada contra ameaças para o banco de dados SQL do Azure pa
 
 **Diretriz**: implemente assinaturas e/ou grupos de gerenciamento separados para desenvolvimento, teste e produção. Os recursos devem ser separados por vnet/sub-rede, marcados adequadamente e protegidos em um NSG ou firewall do Azure. Os recursos que armazenam ou processam dados confidenciais devem ser isolados. Usar link privado; implante o Azure SQL Server dentro de sua vnet e conecte-se de forma privada usando pontos de extremidade privados.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
-- [Como configurar o Link Privado para o Banco de Dados SQL do Azure](/azure/sql-database/sql-database-private-endpoint-overview#how-to-set-up-private-link-for-azure-sql-database)
+- [Como configurar o Link Privado para o Banco de Dados SQL do Azure](./private-endpoint-overview.md#how-to-set-up-private-link-for-azure-sql-database)
 
 **Responsabilidade**: Cliente
 
@@ -418,7 +418,7 @@ Use a proteção avançada contra ameaças para o banco de dados SQL do Azure pa
 
 Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata todo o conteúdo do cliente como confidencial e faz todo o esforço possível para proteger contra perda e exposição de dados do cliente. Para garantir que os dados do cliente no Azure permaneçam seguros, a Microsoft implementou e mantém um conjunto de recursos e controles robustos de proteção de dados.
 
-- [Como configurar o link privado e NSGs para impedir que os dados vazamento em suas instâncias do banco de dados SQL do Azure](/azure/sql-database/sql-database-private-endpoint-overview)
+- [Como configurar o link privado e NSGs para impedir que os dados vazamento em suas instâncias do banco de dados SQL do Azure](./private-endpoint-overview.md)
 
 - [Entender a proteção de dados do cliente no Azure](../../security/fundamentals/protection-customer-data.md)
 
@@ -430,11 +430,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use o recurso de descoberta e classificação de dados do banco de dados SQL do Azure. A descoberta e a classificação de dados fornecem recursos avançados incorporados ao banco de dados SQL do Azure para descobrir, classificar, rotular &amp; a proteção de informações confidenciais em seus bancos.
 
-- [Como usar a descoberta e a classificação de dados para o Azure SQL Server](/azure/sql-database/sql-database-data-discovery-and-classification)
+- [Como usar a descoberta e a classificação de dados para o Azure SQL Server](./data-discovery-and-classification-overview.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -444,9 +444,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure Active Directory (AD do Azure) para autenticar e controlar o acesso às instâncias do banco de dados SQL do Azure.
 
-- [Como integrar o Azure SQL Server ao Azure AD para autenticação](/azure/sql-database/sql-database-aad-authentication)
+- [Como integrar o Azure SQL Server ao Azure AD para autenticação](./authentication-aad-overview.md)
 
-- [Como controlar o acesso no Azure SQL Server](/azure/sql-database/sql-database-control-access)
+- [Como controlar o acesso no Azure SQL Server](./logins-create-manage.md)
 
 **Responsabilidade**: Cliente
 
@@ -456,11 +456,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: a TDE (Transparent Data Encryption) ajuda a proteger o banco de dados SQL do Azure, a instância gerenciada do Azure SQL e o Azure data warehouse contra a ameaça de atividades offline mal-intencionadas criptografando os dados em repouso. Ela realiza a criptografia e a descriptografia em tempo real do banco de dados, de backups associados e de arquivos de log de transações em repouso, sem a necessidade de alterações no aplicativo. Por padrão, o TDE está habilitado para todos os bancos de dados implantados recentemente no banco de dados SQL e no SQL Instância Gerenciada. A chave de criptografia TDE pode ser gerenciada pela Microsoft ou pelo cliente.
 
-- [Como gerenciar a Transparent Data Encryption e usar suas próprias chaves de criptografia](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal#manage-transparent-data-encryption)
+- [Como gerenciar a Transparent Data Encryption e usar suas próprias chaves de criptografia](./transparent-data-encryption-tde-overview.md?tabs=azure-portal#manage-transparent-data-encryption)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -470,7 +470,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para as instâncias de produção do banco de dados SQL do Azure e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -484,15 +484,15 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: habilite o Azure defender para SQL para o banco de dados SQL do Azure e siga as recomendações da central de segurança do Azure sobre a execução de avaliações de vulnerabilidade em seus servidores SQL do Azure.
 
-- [Como executar avaliações de vulnerabilidade no banco de dados SQL do Azure](/azure/sql-database/sql-vulnerability-assessment)
+- [Como executar avaliações de vulnerabilidade no banco de dados SQL do Azure](./sql-vulnerability-assessment.md)
 
 - [Como habilitar o Azure defender para SQL](azure-defender-for-sql.md)
 
-- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../../security-center/deploy-vulnerability-assessment-vm.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -502,7 +502,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: habilitar verificações recorrentes periódicas para suas instâncias do banco de dados SQL do Azure; Isso irá configurar uma avaliação de vulnerabilidade para executar automaticamente uma verificação no banco de dados uma vez por semana. Um resumo dos resultados da verificação será enviado aos endereços de email fornecidos. Compare os resultados para verificar se as vulnerabilidades foram corrigidas.
 
-- [Como exportar um relatório de avaliação de vulnerabilidade na central de segurança do Azure](/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment)
+- [Como exportar um relatório de avaliação de vulnerabilidade na central de segurança do Azure](./sql-vulnerability-assessment.md#export-an-assessment-report)
 
 **Responsabilidade**: Cliente
 
@@ -512,11 +512,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use as classificações de risco padrão (Pontuação segura) fornecidas pela central de segurança do Azure.
 
-- [Entender a pontuação segura da central de segurança do Azure](/azure/security-center/security-center-secure-score)
+- [Entender a pontuação segura da central de segurança do Azure](../../security-center/secure-score-security-controls.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -534,7 +534,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 - [Como criar consultas com o Azure Resource Graph](../../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?amp;preserve-view=true&view=azps-4.8.0)
 
 - [Entender o RBAC do Azure](../../role-based-access-control/overview.md)
 
@@ -546,7 +546,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 **Diretrizes**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar Marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar Marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -556,11 +556,11 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 **Orientação**: use marcação, grupos de gerenciamento e assinaturas separadas, quando apropriado, para organizar e acompanhar ativos. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -594,7 +594,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 - [Como configurar e gerenciar o Azure Policy](../../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo de recurso específico com o Azure Policy](../../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -640,9 +640,9 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use o Azure DevOps ou Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?amp;preserve-view=true&view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação do Azure Repos](/azure/devops/repos/?amp;preserve-view=true&view=azure-devops)
 
 **Responsabilidade**: Cliente
 
@@ -662,7 +662,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 **Orientação**: Aproveite a central de segurança do Azure para executar verificações de linha de base para seus bancos de dados e servidores SQL do Azure.
 
-- [Como corrigir recomendações na central de segurança do Azure](/azure/security-center/security-center-sql-service-recommendations)
+- [Como corrigir recomendações na central de segurança do Azure](../../security-center/security-center-remediate-recommendations.md)
 
 **Responsabilidade**: Cliente
 
@@ -672,7 +672,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos em suas assin
 
 **Diretrizes**: Use Azure Key Vault para armazenar chaves de criptografia para Transparent Data Encryption do banco de dados SQL do Azure (TDE).
 
-- [Como proteger dados confidenciais armazenados no Azure SQL Server e armazenar as chaves de criptografia no Azure Key Vault](/azure/sql-database/sql-database-always-encrypted-azure-key-vault)
+- [Como proteger dados confidenciais armazenados no Azure SQL Server e armazenar as chaves de criptografia no Azure Key Vault](./always-encrypted-azure-key-vault-configure.md)
 
 **Responsabilidade**: Cliente
 
@@ -726,11 +726,11 @@ Examine previamente qualquer conteúdo que esteja sendo carregado em recursos n�
 
 Para atender aos diferentes requisitos de conformidade, você pode selecionar períodos de retenção diferentes para backups semanais, mensais e/ou anuais. O consumo do armazenamento depende da frequência selecionada para os backups e dos períodos de retenção.
 
-- [Entenda os backups e a continuidade dos negócios com o Azure SQL Server](/azure/sql-database/sql-database-business-continuity)
+- [Entenda os backups e a continuidade dos negócios com o Azure SQL Server](./business-continuity-high-availability-disaster-recover-hadr-overview.md)
 
 **Responsabilidade**: Compartilhado
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -742,13 +742,13 @@ Para atender aos diferentes requisitos de conformidade, você pode selecionar pe
 
 Se estiver usando chaves gerenciadas pelo cliente para Transparent Data Encryption, verifique se as chaves estão sendo submetidas a backup.
 
-- [Entender os backups no Azure SQL Server](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups?tabs=single-database)
+- [Entender os backups no Azure SQL Server](./automated-backups-overview.md?tabs=single-database)
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. SQL**:
 
@@ -758,9 +758,9 @@ Se estiver usando chaves gerenciadas pelo cliente para Transparent Data Encrypti
 
 **Orientação**: garanta a capacidade de executar periodicamente a restauração de dados de conteúdo no backup do Azure. Se necessário, teste o conteúdo de restauração em uma VLAN isolada. Teste a restauração de chaves de backup gerenciadas pelo cliente.
 
-- [Como restaurar chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?amp;preserve-view=true&view=azps-4.8.0)
 
-- [Como recuperar backups do banco de dados SQL do Azure usando a restauração pontual](/azure/sql-database/sql-database-recovery-using-backups#point-in-time-restore)
+- [Como recuperar backups do banco de dados SQL do Azure usando a restauração pontual](./recovery-using-backups.md#point-in-time-restore)
 
 **Responsabilidade**: Cliente
 
@@ -770,7 +770,7 @@ Se estiver usando chaves gerenciadas pelo cliente para Transparent Data Encrypti
 
 **Diretrizes**: habilite a exclusão reversível em Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 
@@ -860,5 +860,5 @@ Se estiver usando chaves gerenciadas pelo cliente para Transparent Data Encrypti
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../../security/benchmarks/security-baselines-overview.md)

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: larryfr
 author: BlackMist
 ms.date: 02/18/2021
-ms.openlocfilehash: 04ed2e76797474a65d5c7c669066926225c1c1f9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: a21411e4d1ee30e4f79687bfc07a53575497ca1f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471750"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562215"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Notas de versão do Azure Machine Learning
 
@@ -56,9 +56,9 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
 ## <a name="2021-02-28"></a>2021-02-28
 ### <a name="azure-machine-learning-studio-notebooks-experience-february-update"></a>Experiência do Azure Machine Learning Studio notebooks (atualização de fevereiro)
 + **Novos recursos**
-  + [Terminal nativo (GA)](https://docs.microsoft.com/azure/machine-learning/how-to-access-terminal). Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do terminal integrado.
+  + [Terminal nativo (GA)](./how-to-access-terminal.md). Agora, os usuários terão acesso a um terminal integrado, bem como a uma operação git por meio do terminal integrado.
   + [Trechos de bloco de anotações (visualização)](https://azure.github.io/azureml-web/docs/vs-code-snippets/snippets). Trechos de código comuns do Azure ML agora estão disponíveis ao seu alcance. Navegue até o painel trechos de código, acessível por meio da barra de ferramentas ou ative o menu de trechos no código usando Ctrl + espaço.  
-  + [Atalhos de teclado](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#shortcut-keys). Paridade completa com atalhos de teclado disponíveis no Jupyter. 
+  + [Atalhos de teclado](./how-to-run-jupyter-notebooks.md#useful-keyboard-shortcuts). Paridade completa com atalhos de teclado disponíveis no Jupyter. 
   + Indicar parâmetros de célula. Mostra os usuários quais células em um bloco de anotações são células de parâmetro e podem executar blocos de anotações com parâmetros via [Papermill](https://github.com/nteract/papermill) na instância de computação.
   + Gerenciador de sessão de terminal e kernel: os usuários poderão gerenciar todos os kernels e sessões de terminal em execução em sua computação.
   + Botão de compartilhamento. Agora, os usuários podem compartilhar qualquer arquivo no explorador de arquivos do bloco de anotações clicando com o botão direito do mouse no arquivo e usando o botão compartilhar.
@@ -68,7 +68,7 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
   + Tempos de carregamento de página aprimorados
   + desempenho aprimorado 
   + Velocidade aprimorada e confiabilidade do kernel
-  + Roda giratória adicionada para mostrar o progresso de todas as [operações de instância de computação](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#status-indicators)em andamento.
+  + Roda giratória adicionada para mostrar o progresso de todas as [operações de instância de computação](./how-to-run-jupyter-notebooks.md#status-indicators)em andamento.
   + Clique com o botão direito do mouse no explorador de arquivos. Clicar com o botão direito do mouse em qualquer arquivo agora abrirá as operações de arquivo. 
 
 
@@ -79,7 +79,7 @@ __Feed RSS__: Receba uma notificação quando esta página for atualizada copian
   + **azureml-core**
     + [Recurso experimental] Adicionar suporte para vincular o espaço de trabalho Synapse ao AML como um serviço vinculado
     + [Recurso experimental] Adicionar suporte para anexar o pool do Synapse Spark ao AML como uma computação
-    + [Recurso experimental] Adicione suporte para acesso a dados com base em identidade. Os usuários podem registrar datastore ou conjuntos de registros sem fornecer credenciais. Nesse caso, o token do AAD dos usuários ou a identidade gerenciada do destino de computação serão usados para autenticação. Saiba mais [aqui](https://aka.ms/data-access).
+    + [Recurso experimental] Adicione suporte para acesso a dados com base em identidade. Os usuários podem registrar datastore ou conjuntos de registros sem fornecer credenciais. Nesse caso, o token do AAD dos usuários ou a identidade gerenciada do destino de computação serão usados para autenticação. Saiba mais [aqui](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Recurso experimental] Adicionar suporte para [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**
@@ -1052,7 +1052,7 @@ Agora você pode criar, editar e compartilhar arquivos e blocos de anotações d
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
     
-| Ferramenta baseada na Web  |     Descrição  |
+| Ferramenta baseada na Web  |     Description  |
 |---|---|
 | Blocos de anotações do Azure ML Studio   |     Primeira criação na classe para arquivos de bloco de anotações e suporte a todas as operações disponíveis no SDK do Python do Azure ML. | 
 
@@ -1564,7 +1564,7 @@ No estúdio, você pode treinar, testar, implantar e gerenciar Azure Machine Lea
 
 Acesse as seguintes ferramentas de criação baseadas na Web no estúdio:
 
-| Ferramenta baseada na Web | Descrição | 
+| Ferramenta baseada na Web | Description | 
 |-|-|-|
 | VM do notebook (visualização) | Estação de trabalho baseada em nuvem totalmente gerenciada | 
 | [Machine Learning automatizado](tutorial-first-experiment-automated-ml.md) (visualização) | Não há experiência de código para automatizar o desenvolvimento de modelos do Machine Learning | 

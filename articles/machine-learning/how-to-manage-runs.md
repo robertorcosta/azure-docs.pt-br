@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 03/04/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 26880fd6e3688dd95cc9f16072a35d5c4ce7c31e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: f148a5b267edd3fc1dd33ef17d5ad01005b4a903
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110263"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566278"
 ---
 # <a name="start-monitor-and-track-run-history"></a>Iniciar, monitorar e acompanhar o histórico de execução 
 
@@ -211,7 +211,7 @@ Você precisará dos seguintes itens:
     1. Nos **detalhes de destino**, selecione o **espaço de trabalho enviar para log Analytics**  e especifique a **assinatura** e o **espaço de trabalho log Analytics**. 
 
     > [!NOTE]
-    > O **espaço de trabalho do azure log Analytics** é um tipo diferente de recurso do Azure do que o **espaço de trabalho do Azure Machine Learning Service**. Se não houver nenhuma opção nessa lista, você poderá [criar um log Analytics espaço de trabalho](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace). 
+    > O **espaço de trabalho do azure log Analytics** é um tipo diferente de recurso do Azure do que o **espaço de trabalho do Azure Machine Learning Service**. Se não houver nenhuma opção nessa lista, você poderá [criar um log Analytics espaço de trabalho](../azure-monitor/logs/quick-create-workspace.md). 
     
     ![Onde salvar a notificação por email](./media/how-to-manage-runs/log-location.png)
 
@@ -219,7 +219,7 @@ Você precisará dos seguintes itens:
 
     ![Nova regra de alerta](./media/how-to-manage-runs/new-alert-rule.png)
 
-1. Consulte [como criar e gerenciar alertas de log usando o Azure monitor](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-log).
+1. Consulte [como criar e gerenciar alertas de log usando o Azure monitor](../azure-monitor/alerts/alerts-log.md).
 
 ## <a name="run-description"></a>Descrição da execução 
 

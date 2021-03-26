@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: 9e5a6737d2e37392efd305910ff5370adc84940f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9fe49f44e157708c3083e2c73757988877fbfcb5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104596732"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563456"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure v3
 
@@ -88,7 +88,7 @@ A versão 3 fornece:
 
 #### <a name="action-required"></a>Ação necessária
 
-Para minimizar a interrupção em suas cargas de trabalho, examine o [Guia de migração](https://go.microsoft.com/fwlink/?linkid=2149150&clcid=0x409) para fazer a transição do código da API e dos SDKs da versão 2 para a API e o SDK da versão 3 antes de 29 de fevereiro de 2024.
+Para minimizar a interrupção em suas cargas de trabalho, examine o [Guia de migração](./migrate-v-2-v-3-migration-introduction.md) para fazer a transição do código da API e dos SDKs da versão 2 para a API e o SDK da versão 3 antes de 29 de fevereiro de 2024.
 **Depois de 29 de fevereiro de 2024**, os serviços de mídia do Azure deixarão de aceitar o tráfego na API REST da versão 2, a API de gerenciamento de conta do ARM versão 2015-10-01 ou dos SDKs do cliente .NET da versão 2. Isso inclui todos os SDKS de cliente de software livre de terceiros que podem chamar a API da versão 2.  
 
 Consulte o anúncio oficial de [atualizações do Azure](https://azure.microsoft.com/updates/update-your-azure-media-services-rest-api-and-sdks-to-v3-by-29-february-2024/).
@@ -134,7 +134,7 @@ Consulte os exemplos mais recentes no repositório do Hub **[Media-Services-V3-n
 
 Os eventos ao vivo agora dão suporte a um modo de cobrança de menor custo para "em espera". Isso permite que os clientes aloquem previamente eventos ao vivo a um custo menor para a criação de "pools ativos". Os clientes podem usar os eventos em tempo real para fazer a transição para o estado de execução mais rápido do que a partir do frio na criação.  Isso reduz o tempo para iniciar o canal de forma significativa e permite a alocação rápida do pool de computadores em execução em um modo de preço mais baixo.
 Consulte os detalhes de preços mais recentes [aqui](https://azure.microsoft.com/pricing/details/media-services).
-Para obter mais informações sobre o estado de espera e os outros Estados de eventos ao vivo, consulte o artigo sobre [Estados e cobrança de eventos ao vivo.](https://docs.microsoft.com/azure/media-services/latest/live-event-states-billing)
+Para obter mais informações sobre o estado de espera e os outros Estados de eventos ao vivo, consulte o artigo sobre [Estados e cobrança de eventos ao vivo.](./live-event-states-billing.md)
 
 ## <a name="december-2020"></a>Dezembro de 2020
 

@@ -7,17 +7,17 @@ ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: b8f5fbc076859be9f5ff5a215f92811d543ed7e4
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 21ccafe3e15f902e35657a9aa31516bbaeb3b4c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104800101"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557999"
 ---
 # <a name="how-to-generate-a-sas-uri-for-a-vm-image"></a>Como gerar um URI de SAS para uma imagem de VM
 
 > [!NOTE]
-> Você não precisa de um URI de SAS para publicar sua VM. Você pode simplesmente compartilhar uma imagem no parter Center. Consulte [criar uma máquina virtual usando uma base aprovada](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-approved-base) ou [criar uma máquina virtual usando suas próprias instruções de imagem](https://docs.microsoft.com/azure/marketplace/azure-vm-create-using-own-image) .
+> Você não precisa de um URI de SAS para publicar sua VM. Você pode simplesmente compartilhar uma imagem no parter Center. Consulte [criar uma máquina virtual usando uma base aprovada](./azure-vm-create-using-approved-base.md) ou [criar uma máquina virtual usando suas próprias instruções de imagem](./azure-vm-create-using-own-image.md) .
 
 A geração de URIs SAS para seus VHDs tem estes requisitos:
 

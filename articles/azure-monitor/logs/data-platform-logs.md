@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/22/2020
 ms.author: bwren
-ms.openlocfilehash: 5066264777c66369205489fb27a6f9206c5da521
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6cb85bc1da7d98d3e2ad46229588a91d971ce014
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101707992"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567282"
 ---
 # <a name="azure-monitor-logs-overview"></a>Visão geral dos Logs do Azure Monitor
 Os logs de Azure Monitor são um recurso de Azure Monitor que coleta e organiza dados de log e de desempenho de [recursos monitorados](../monitor-reference.md). Dados de fontes diferentes, como [logs de plataforma](../essentials/platform-logs-overview.md) de serviços do Azure, dados de log e de desempenho de [agentes de máquinas virtuais](../agents/agents-overview.md)e dados de uso e desempenho de [aplicativos](../app/app-insights-overview.md) podem ser consolidados em um único espaço de trabalho para que possam ser analisados juntos usando uma linguagem de consulta sofisticada capaz de analisar rapidamente milhões de registros. Você pode executar uma consulta simples que recupera apenas um conjunto específico de registros ou executar uma análise de dados sofisticada para identificar padrões críticos em seus dados de monitoramento. Trabalhar com consultas de log e seus resultados interativamente usando Log Analytics, usá-las em uma regra de alerta para ser notificada proativamente sobre problemas ou visualizar seus resultados em uma pasta de trabalho ou painel.
@@ -23,7 +23,7 @@ Os logs de Azure Monitor são um recurso de Azure Monitor que coleta e organiza 
 ## <a name="what-can-you-do-with-azure-monitor-logs"></a>O que você pode fazer com os Logs do Azure Monitor?
 A tabela a seguir descreve algumas das diferentes maneiras que você pode usar logs no Azure Monitor:
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analisar** | Use [log Analytics](./log-analytics-tutorial.md) no portal do Azure para gravar [consultas de log](./log-query-overview.md) e analisar interativamente os dados de log usando um mecanismo de análise poderoso |
 | **Alerta** | Configurar uma [regra de alerta de log](../alerts/alerts-log.md) que envia uma notificação ou realiza [ação automatizada](../alerts/action-groups.md) quando os resultados da consulta correspondem a um resultado específico. |

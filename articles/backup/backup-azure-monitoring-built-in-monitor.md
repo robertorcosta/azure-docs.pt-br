@@ -4,12 +4,12 @@ description: Neste artigo, saiba mais sobre os recursos de monitoramento e notif
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 2273b66be88cb22a15d0779ed2918ba3d94da1ce
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 83ed5af00bb61d7a8929e710b52e60c33c0f479b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101713364"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559206"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitorando cargas de trabalho de backup do Azure
 
@@ -79,7 +79,7 @@ Para soluções de backup de carga de trabalho do Azure, como SQL e SAP HANA, ba
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Exceções quando um alerta não é gerado
 
-Há algumas exceções quando um alerta não é gerado em uma falha. São eles:
+Há algumas exceções quando um alerta não é gerado em uma falha. Eles são:
 
 - O usuário cancelou explicitamente o trabalho em execução
 - O trabalho falha porque outro trabalho de backup está em andamento (nada para agir aqui, pois acabamos de aguardar a conclusão do trabalho anterior)
@@ -130,7 +130,7 @@ Atualmente, esse recurso está disponível para bancos de dados do Azure para se
 - Falha de backup (para obter alertas de falha de backup, você precisa registrar o sinalizador AFEC chamado **EnableAzureBackupJobFailureAlertsToAzureMonitor** por meio do portal de visualização)
 - Falha na restauração (para obter alertas de falha de restauração, você precisa registrar o sinalizador AFEC chamado **EnableAzureBackupJobFailureAlertsToAzureMonitor** por meio do portal de visualização)
 
-Para obter mais informações sobre alertas de Azure Monitor, consulte [visão geral de alertas no Azure](https://docs.microsoft.com/azure/azure-monitor/alerts/alerts-overview).
+Para obter mais informações sobre alertas de Azure Monitor, consulte [visão geral de alertas no Azure](../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

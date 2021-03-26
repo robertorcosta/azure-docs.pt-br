@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 02/26/2021
 ms.topic: conceptual
 ms.custom: how-to, contperf-fy20q4, devx-track-python, data4ml
-ms.openlocfilehash: a4d1d1c4f4d6354d0206bf598a0622112dc99453
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 0c4f1fbc0ed27dbf3b7347e0e4c12f1926ac1377
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518697"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566244"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Movendo dados para e entre as etapas de pipeline de ML (Python)
 
@@ -245,7 +245,7 @@ step1_output_ds = step1_output_data.register_on_complete(name='processed_data',
 O Azure não exclui automaticamente os dados intermediários gravados com o `OutputFileDatasetConfig` . Para evitar encargos de armazenamento para grandes quantidades de dados desnecessários, você deve:
 
 * Exclua programaticamente dados intermediários no final de uma execução de pipeline, quando ele não for mais necessário
-* Use o armazenamento de BLOBs com uma política de armazenamento de curto prazo para dados intermediários (consulte [otimizar custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal)) 
+* Use o armazenamento de BLOBs com uma política de armazenamento de curto prazo para dados intermediários (consulte [otimizar custos automatizando as camadas de acesso do armazenamento de BLOBs do Azure](../storage/blobs/storage-lifecycle-management-concepts.md?tabs=azure-portal)) 
 * Examine regularmente e exclua dados não mais necessários
 
 Para obter mais informações, consulte [planejar e gerenciar custos para Azure Machine Learning](concept-plan-manage-cost.md).
