@@ -4,12 +4,12 @@ description: Saiba como navegar pelas práticas recomendadas para executar consu
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 63484d882d8ccd387257c6f246c2048a09c77bc8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 549eab1547b75eb9461b23df2c157290943b4ed9
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98933103"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869779"
 ---
 # <a name="gateway-deep-dive-and-best-practices-for-apache-hive-in-azure-hdinsight"></a>Aprofundamento e práticas recomendadas do gateway para Apache Hive no Azure HDInsight
 
@@ -21,7 +21,7 @@ O gateway do HDInsight é a única parte de um cluster HDInsight que pode ser ac
 
 O diagrama a seguir fornece uma ilustração aproximada de como o Gateway fornece uma abstração na frente de todas as diferentes possibilidades de resolução do host no HDInsight.
 
-![Diagrama de resolução do host](./media/gateway-best-practices/host-resolution-diagram.png "Diagrama de resolução do host")
+:::image type="content" source="./media/gateway-best-practices/host-resolution-diagram.png " alt-text="Diagrama de resolução do host" border="true":::
 
 ## <a name="motivation"></a>Motivação
 
@@ -39,7 +39,7 @@ A degradação do desempenho do gateway em relação a consultas de um grande ta
 
 O diagrama a seguir ilustra as etapas envolvidas em uma consulta SELECT.
 
-![Diagrama de resultados](./media/gateway-best-practices/result-retrieval-diagram.png "Diagrama de resultados")
+:::image type="content" source="./media/gateway-best-practices/result-retrieval-diagram.png " alt-text="Diagrama de resultados" border="true":::
 
 Apache Hive é uma abstração relacional sobre um sistema de arquivos compatível com HDFS. Essa abstração significa que as instruções **Select** no hive correspondem às operações de **leitura** no sistema de arquivos. As operações de **leitura** são convertidas no esquema apropriado antes de serem relatadas ao usuário. A latência desse processo aumenta com o tamanho dos dados e o total de saltos necessários para alcançar o usuário final.
 

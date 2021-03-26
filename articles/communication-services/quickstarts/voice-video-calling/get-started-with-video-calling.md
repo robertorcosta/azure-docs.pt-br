@@ -4,17 +4,21 @@ titleSuffix: An Azure Communication Services quickstart
 description: Neste guia de início rápido, você aprenderá a adicionar as funcionalidades de chamada de vídeo ao seu aplicativo usando os Serviços de Comunicação do Azure.
 author: xumo-95
 ms.author: mikben
-ms.date: 07/24/2020
+ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 00721a5c7763663a17b1e67cf0ac3ae59fd9448a
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 82f4d9028fa94d4df0ff089fda213d64e13d56ec
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102204516"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103487863"
 ---
 # <a name="quickstart-add-11-video-calling-to-your-app-javascript"></a>Guia de início rápido: Adicionar uma chamada de vídeo 1:1 ao seu aplicativo (JavaScript)
+
+## <a name="download-code"></a>Código de download
+
+Encontre o código finalizado para este guia de início rápido no [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 - Obtenha uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -323,7 +327,7 @@ Abra o navegador e navegue até http://localhost:8080/. Você deve ver o seguint
 Você pode fazer uma chamada de vídeo de saída 1:1 fornecendo uma ID de usuário no campo de texto e clicando no botão Iniciar Chamada. 
 
 ## <a name="sample-code"></a>Exemplo de código
-É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/Add%201%20on%201%20video%20calling).
+É possível baixar o aplicativo de exemplo do [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-video-calling).
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua o recurso ou o grupo de recursos. Excluir o grupo de recursos também exclui todos os recursos associados a ele. Saiba mais sobre [como limpar recursos](https://docs.microsoft.com/azure/communication-services/quickstarts/create-communication-resource?tabs=windows&pivots=platform-azp#clean-up-resources).

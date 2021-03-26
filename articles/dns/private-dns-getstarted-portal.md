@@ -8,10 +8,10 @@ ms.topic: quickstart
 ms.date: 10/20/2020
 ms.author: rohink
 ms.openlocfilehash: d298dfd5f3ad0beb56a511c124bab056ca25fd27
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92310059"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Início Rápido: Criar uma zona DNS privada do Azure usando o portal do Azure
@@ -77,7 +77,7 @@ Para vincular a zona DNS privado a uma rede virtual, você deverá criar um link
 3. Selecione **Adicionar**.
 4. Digite **myLink** como o **Nome do link**.
 5. Para **Rede virtual**, selecione **myAzureVNet**.
-6. Marque a caixa de seleção**Habilitar o registro automático**.
+6. Marque a caixa de seleção **Habilitar o registro automático**.
 7. Selecione **OK**.
 
 ## <a name="create-the-test-virtual-machines"></a>Criar as máquinas virtuais de teste
