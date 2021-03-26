@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 03/17/2021
+ms.date: 03/24/2021
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: f087209cf7368f2051bae87bf79e7d485a278137
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d3639f04cbfbef85585978cf1cd14128ae1d4748
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104605086"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105032996"
 ---
 |Nome<br /><sub>(Portal do Azure)</sub> |Descrição |Efeito(s) |Versão<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -25,5 +25,5 @@ ms.locfileid: "104605086"
 |[A rede virtual do workspace gerenciado nos workspaces do Azure Synapse deve ser habilitada](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2d9dbfa3-927b-4cf0-9d0f-08747f971650) |A habilitação de uma rede virtual de workspace gerenciado garante que o seu workspace seja isolado da rede de outros workspaces. A integração de dados e os recursos do Spark implantados nessa rede virtual também fornecem isolamento no nível do usuário para atividades do Spark. |Audit, Deny, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceManagedVnet_Audit.json) |
 |[Os pontos de extremidade privados gerenciados pelo Azure Synapse só devem se conectar aos recursos em locatários aprovados do Azure Active Directory](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3a003702-13d2-4679-941b-937e58c443f0) |Proteja seu workspace do Azure Synapse permitindo apenas conexões com recursos em locatários aprovados do Azure AD (Active Directory). Os locatários aprovados do Azure AD podem ser definidos durante a atribuição de política. |Auditoria, desabilitado, negação |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/Workspace_DataExfiltrationPrevention_Deny.json) |
 |[As configurações de auditoria do workspace do Azure Synapse devem ter grupos de ações configurados para capturar atividades críticas](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F2b18f286-371e-4b80-9887-04759970c0d3) |Para garantir que os logs de auditoria sejam tão minuciosos quanto possível, a propriedade AuditActionsAndGroups deve incluir todos os grupos relevantes. É recomendável adicionar pelo menos SUCCESSFUL_DATABASE_AUTHENTICATION_GROUP, FAILED_DATABASE_AUTHENTICATION_GROUP e BATCH_COMPLETED_GROUP. Às vezes, isso é necessário para que você tenha conformidade com os padrões regulatórios. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditing_ActionsAndGroups_Audit.json) |
-|[Os workspaces do Azure Synapse devem ser configurados com uma retenção de auditoria de 90 dias ou mais.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F529ea018-6afc-4ed4-95bd-7c9ee47b00bc) |Para fins de investigação de incidentes, é recomendável definir a retenção de dados de auditoria do workspace do Azure Synapse para pelo menos 90 dias. Confirme que você está atendendo às regras de retenção necessárias para as regiões em que está operando. Às vezes, isso é necessário para que você tenha conformidade com os padrões regulatórios. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditingRetentionDays_Audit.json) |
+|[Os workspaces do Azure Synapse com auditoria do SQL para o destino da conta de armazenamento devem ser configurados com uma retenção de 90 dias ou mais](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F529ea018-6afc-4ed4-95bd-7c9ee47b00bc) |Para fins de investigação de incidentes, é recomendável configurar a retenção de dados para a auditoria do SQL do workspace do Azure Synapse para o destino de conta de armazenamento para pelo menos 90 dias. Confirme que você está cumprindo as regras de retenção necessárias para as regiões em que está operando. Às vezes, isso é necessário para que você tenha conformidade com os padrões regulatórios. |AuditIfNotExists, desabilitado |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/SynapseWorkspaceSqlAuditingRetentionDays_Audit.json) |
 |[A avaliação de vulnerabilidade deve ser habilitada em seus workspaces do Azure Synapse](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0049a6b3-a662-4f3e-8635-39cf44ace45a) |Descubra, acompanhe e corrija potenciais vulnerabilidades configurando verificações de avaliação de vulnerabilidades SQL recorrentes em seus workspaces do Azure Synapse. |AuditIfNotExists, desabilitado |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Synapse/ASC_SQLVulnerabilityAssessmentOnSynapse_Audit.json) |
