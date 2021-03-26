@@ -3,12 +3,12 @@ title: Implantar recursos com CLI do Azure e modelo
 description: Use Azure Resource Manager e CLI do Azure para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager ou em um arquivo bicep.
 ms.topic: conceptual
 ms.date: 03/04/2021
-ms.openlocfilehash: d0c48a5cf05d6cec495a7a96e181910a0849a1ac
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1fc3397409634f29690af05ca2a85e67c30b6d89
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521689"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954948"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -85,7 +85,7 @@ A implantação pode levar alguns minutos para ser concluída. Quando ela for co
 ## <a name="deploy-remote-template"></a>Implantar modelo remoto
 
 > [!NOTE]
-> Atualmente, CLI do Azure não dá suporte à implantação de arquivos bicep remotos. Para implantar um arquivo bicep remoto, use a CLI bicep para compilar o arquivo bicep em um modelo JSON primeiro.
+> Atualmente, CLI do Azure não dá suporte à implantação de arquivos bicep remotos. Use a [CLI do bicep](./bicep-install.md#development-environment) para compilar o arquivo bicep para um modelo JSON e, em seguida, carregue o arquivo JSON no local remoto.
 
 Em vez de armazenar modelos de ARM em seu computador local, você pode preferir armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
 

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 09/12/2019
 ms.author: ramamill
-ms.openlocfilehash: a31a28728dd0521262bd0518cc49a385f4314302
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 96c3dce17ab78e08b28bb41c0100e51a72a666e7
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87416223"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105110246"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Executar um failback de VMs Hyper-V
 
@@ -26,7 +26,7 @@ Este artigo descreve como executar failback de VMs do Azure que foram criadas ap
 ## <a name="before-you-start"></a>Antes de começar
 
 1. [Examine os tipos de failback](failover-failback-overview.md#hyper-v-reprotectionfailback) você pode usar – recuperação de localização original e recuperação de localização alternativa.
-2. Verifique se as VMs do Azure estão usando uma conta de armazenamento e não os discos gerenciados. Não há suporte para o failback de VMs do Hyper-V replicadas usando discos gerenciados.
+2. Verifique se as VMs do Azure estão usando uma conta de armazenamento e não os discos gerenciados. O failback de máquinas virtuais Hyper-V, que realizaram failover em computadores do Azure usando discos gerenciados, não tem suporte.
 3. Verifique se o host Hyper-V local (ou o servidor do System Center VMM, se você estiver usando o com Site Recovery) está em execução e conectado ao Azure. 
 4. Verifique se o failover e a confirmação foram concluídos para as VMs. Você não precisa configurar nenhum componente Site Recovery específico para failback de VMs do Hyper-V do Azure.
 5. O tempo necessário para concluir a sincronização de dados e iniciar a VM local dependerá de vários fatores. Para acelerar o download de dados, você pode configurar o agente de serviços de recuperação da Microsoft para usar mais threads para paralelizar o download. [Saiba mais](https://support.microsoft.com/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage).

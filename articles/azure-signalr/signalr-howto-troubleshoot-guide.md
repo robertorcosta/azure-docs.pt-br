@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
-ms.openlocfilehash: 8eade7596e36389b1e345dc6f0aab1029dc100e0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e26def56fbd03626c3efc660db57012ee1b767ea
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104589151"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105048197"
 ---
 # <a name="troubleshooting-guide-for-azure-signalr-service-common-issues"></a>Guia de solução de problemas comuns do serviço Signaler do Azure
 
@@ -348,7 +348,7 @@ Para o Signalr ASP.NET, um problema conhecido foi corrigido no SDK 1.6.0. Atuali
 
 ## <a name="thread-pool-starvation"></a>Privação do pool de threads
 
-Se o servidor estiver sem uso, isso significa que nenhum thread está funcionando no processamento de mensagens. Todos os threads estão sendo deslocados em um determinado método.
+Se o servidor estiver sem uso, isso significa que nenhum thread está funcionando no processamento de mensagens. Todos os threads não estão respondendo em um determinado método.
 
 Normalmente, esse cenário é causado por Async over Sync ou por `Task.Result` / `Task.Wait()` em métodos assíncronos.
 

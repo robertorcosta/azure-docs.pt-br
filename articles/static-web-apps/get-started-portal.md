@@ -7,12 +7,12 @@ ms.service: static-web-apps
 ms.topic: quickstart
 ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: c54a56843be5121e16449d95fb18c24901a95a8d
-ms.sourcegitcommit: 227b9a1c120cd01f7a39479f20f883e75d86f062
+ms.openlocfilehash: b19c37a45131e3689fdc9726d186f220ab5ba9fe
+ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/18/2021
-ms.locfileid: "100650551"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "103149521"
 ---
 # <a name="quickstart-building-your-first-static-site-in-the-azure-portal"></a>Início Rápido: Como criar seu primeiro site estático no portal do Azure
 
@@ -116,8 +116,8 @@ Se você não quiser continuar usando esse aplicativo, poderá excluir a instân
 1. Abra o [portal do Azure](https://portal.azure.com)
 1. Pesquise **my-first-web-static-app** na barra de pesquisa superior.
 1. Selecione o nome do aplicativo
-1. Escolha o botão **Excluir**
-1. Selecione **Sim** para confirmar a ação de exclusão
+1. Selecione o botão **Excluir**
+1. Selecione **Sim** para confirmar a ação de exclusão (essa ação pode levar alguns minutos para ser concluída)
 
 ## <a name="next-steps"></a>Próximas etapas
 

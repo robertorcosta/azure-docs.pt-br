@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/10/2021
 ms.author: jeedes
-ms.openlocfilehash: d1c1fba8da908133d1e4e4836832de3bed68476d
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.openlocfilehash: 31a653df08108bc4f5d75e6dbbc6f31144be8b7e
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103202357"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104956019"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thrive-lxp"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Thrive LXP
 
@@ -132,10 +132,8 @@ Nesta seção, você testará a configuração de logon único do Azure AD com a
 
 * Acesse diretamente a URL de Logon do Thrive LXP e inicie o fluxo de logon nela.
 
-* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Thrive LXP em Meus Aplicativos, isso vai redirecionar você à URL de Logon do Thrive LXP. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+* Você pode usar os Meus Aplicativos da Microsoft. Quando você clicar no bloco do Thrive LXP em Meus Aplicativos, isso vai redirecionar você à URL de Logon do Thrive LXP. Para obter mais informações sobre os Meus Aplicativos, confira [Introdução aos Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Após configurar o Thrive LXP, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
-
-
+Após configurar o Thrive LXP, você poderá impor controles de sessão, que protegem contra exfiltração e infiltração de dados confidenciais de sua organização em tempo real. O controle da sessão é estendido do acesso condicional. [Saiba como impor o controle de sessão com o Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

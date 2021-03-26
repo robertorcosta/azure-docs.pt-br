@@ -13,12 +13,12 @@ ms.author: rolyon
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66b004a0371b76f82d525972feefab9c89efb2d
-ms.sourcegitcommit: 6272bc01d8bdb833d43c56375bab1841a9c380a5
+ms.openlocfilehash: 3fad2c683890776908afbfbf15ee91d46d564783
+ms.sourcegitcommit: 3ea12ce4f6c142c5a1a2f04d6e329e3456d2bda5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/23/2021
-ms.locfileid: "98742039"
+ms.lasthandoff: 03/15/2021
+ms.locfileid: "103466755"
 ---
 # <a name="overview-of-role-based-access-control-in-azure-active-directory"></a>Visão geral do controle de acesso baseado em função no Azure Active Directory
 
@@ -60,7 +60,7 @@ Uma atribuição de função é um recurso do Azure AD que anexa uma *definiçã
 - Definição de função
 - Escopo do recurso
 
-Você pode [criar atribuições de função](custom-create.md) usando o portal do Azure, o Azure AD PowerShell ou a API do Graph. Você também pode [exibir as atribuições de uma função personalizada](custom-view-assignments.md#view-the-assignments-of-a-role).
+Você pode [criar atribuições de função](custom-create.md) usando o portal do Azure, o Azure AD PowerShell ou a API do Graph. Você também pode [listar as atribuições de função](view-assignments.md).
 
 O diagrama a seguir mostra um exemplo de uma atribuição de função. Neste exemplo, foi atribuída a Chris Green a função personalizada de Administrador de registro de aplicativo no escopo do registro de aplicativo do Construtor de Widgets da Contoso. A atribuição concede a Chris as permissões da função de Administrador de registro de aplicativo apenas para esse registro de aplicativo específico.
 
@@ -89,4 +89,4 @@ O uso de funções internas no Azure AD é gratuito, enquanto as funções perso
 
 - [Entender as funções do Azure AD](concept-understand-roles.md)
 - Criar atribuições de função personalizada usando [o portal do Azure, o Azure AD PowerShell e a API do Graph](custom-create.md)
-- [Exibir as atribuições de uma função personalizada](custom-view-assignments.md)
+- [Listar atribuições de função](view-assignments.md)

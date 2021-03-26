@@ -1,5 +1,5 @@
 ---
-title: 'SQL Server ao banco de dados SQL: guia de migração'
+title: 'SQL Server ao banco de dados SQL do Azure: guia de migração'
 description: Siga este guia para migrar seus bancos de dados SQL Server para o banco de dados SQL do Azure.
 ms.service: sql-database
 ms.subservice: migration-guide
@@ -10,14 +10,14 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 03/19/2021
-ms.openlocfilehash: 9205301cb77941e4ea7ca026710d44ba82f6a937
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: ce155015373a096595dc61d75c876633e2e4f00a
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103563837"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105027177"
 ---
-# <a name="migration-guide-sql-server-to-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL
+# <a name="migration-guide-sql-server-to-azure-sql-database"></a>Guia de migração: SQL Server para o banco de dados SQL do Azure
 [!INCLUDE[appliesto--sqldb](../../includes/appliesto-sqldb.md)]
 
 Este guia ajuda você a migrar sua instância de SQL Server para o banco de dados SQL do Azure. 
@@ -30,7 +30,7 @@ Você pode migrar SQL Server em execução no local ou em:
 - Mecanismo de computação (Google Cloud Platform-GCP)  
 - SQL de nuvem para SQL Server (Google Cloud Platform – GCP) 
 
-Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-sql-database-overview.md). Para outros cenários, consulte o [Guia de migração de banco de dados](https://datamigration.microsoft.com/).
+Para obter mais informações de migração, consulte [visão geral da migração](sql-server-to-sql-database-overview.md). Para obter outros guias de migração, confira [Migração de banco de dados](https://docs.microsoft.com/data-migration). 
 
 :::image type="content" source="media/sql-server-to-database-overview/migration-process-flow-small.png" alt-text="Fluxo do processo de migração":::
 
@@ -38,9 +38,11 @@ Para obter mais informações de migração, consulte [visão geral da migraçã
 
 Para migrar seu SQL Server para o banco de dados SQL do Azure, verifique se você tem os seguintes pré-requisitos: 
 
-- Um [método de migração](sql-server-to-sql-database-overview.md#compare-migration-options) escolhido e as ferramentas correspondentes 
-- [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado em um computador que pode se conectar ao seu SQL Server de origem
-- Um [banco de dados SQL do Azure](../../database/single-database-create-quickstart.md) de destino
+- Um [método de migração](sql-server-to-sql-database-overview.md#compare-migration-options) escolhido e as ferramentas correspondentes.
+- [Assistente de migração de dados (DMA)](https://www.microsoft.com/download/details.aspx?id=53595) instalado em um computador que pode se conectar ao seu SQL Server de origem.
+- Um [banco de dados SQL do Azure](../../database/single-database-create-quickstart.md)de destino. 
+- Conectividade e as permissões adequadas para acessar a origem e o destino. 
+
 
 
 ## <a name="pre-migration"></a>Pré-migração
@@ -169,7 +171,7 @@ Para acelerar a migração para o banco de dados SQL do Azure, você deve consid
 
 Depois de concluir com êxito o estágio de migração, passe por uma série de tarefas de pós-atualização para garantir que tudo esteja funcionando de forma tranqüila e eficiente. 
 
-A fase de pós-migração é crucial para reconciliar quaisquer problemas de precisão de dados e verificar a integridade, bem como resolver problemas de desempenho com a carga de trabalho. 
+A fase de pós-migração é crucial para reconciliar problemas de precisão de dados e verificar a integridade dos dados, além de resolver problemas de desempenho com a carga de trabalho. 
 
 ### <a name="remediate-applications"></a>Corrigir aplicativos 
 
