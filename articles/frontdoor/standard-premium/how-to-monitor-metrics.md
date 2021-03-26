@@ -8,12 +8,12 @@ ms.service: frontdoor
 ms.topic: how-to
 ms.date: 02/18/2021
 ms.author: yuajia
-ms.openlocfilehash: bb10fb337972db2696960b530f2d7538bd36a2fb
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 72388eb8006ff1b9628db5066dc63e6a0811f3d5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101098318"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557319"
 ---
 # <a name="real-time-monitoring-in-azure-front-door-standardpremium"></a>Monitoramento em tempo real no Azure front door Standard/Premium
 
@@ -22,11 +22,11 @@ ms.locfileid: "101098318"
 
 O Azure front door Standard/Premium é integrado com o Azure Monitor e tem 11 métricas para ajudar a monitorar o Azure front door Standard/Premium em tempo real para controlar, solucionar problemas e depurar problemas.  
 
-As medidas Standard/Premium da porta de front-end do Azure e envia suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no Portal. As métricas podem ser exibidas em gráficos ou na grade de sua escolha e podem ser acessadas por meio do portal, do PowerShell, da CLI e da API. Para obter mais informações, consulte [Azure monitor métricas](../../azure-monitor/platform/data-platform-metrics.md).  
+As medidas Standard/Premium da porta de front-end do Azure e envia suas métricas em intervalos de 60 segundos. As métricas podem levar até 3 minutos para aparecer no Portal. As métricas podem ser exibidas em gráficos ou na grade de sua escolha e podem ser acessadas por meio do portal, do PowerShell, da CLI e da API. Para obter mais informações, consulte [Azure monitor métricas](../../azure-monitor/essentials/data-platform-metrics.md).  
 
 As métricas padrão são gratuitas. Você pode habilitar métricas adicionais para um custo extra. 
 
-Você pode configurar alertas para cada métrica, como um limite para 4XXErrorRate ou 5XXErrorRate. Quando a taxa de erro exceder o limite, ela disparará um alerta conforme configurado. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/platform/alerts-metric.md). 
+Você pode configurar alertas para cada métrica, como um limite para 4XXErrorRate ou 5XXErrorRate. Quando a taxa de erro exceder o limite, ela disparará um alerta conforme configurado. Para obter mais informações, confira [Criar, exibir e gerenciar alertas de métrica usando o Azure Monitor](../../azure-monitor/alerts/alerts-metric.md). 
 
 > [!IMPORTANT]
 > O Azure Front Door Standard/Premium (versão prévia) está na fase de versão prévia pública.
@@ -35,7 +35,7 @@ Você pode configurar alertas para cada métrica, como um limite para 4XXErrorRa
 
 ## <a name="metrics-supported-in-azure-front-door-standardpremium"></a>Métricas com suporte no Azure front door Standard/Premium
 
-| Métricas  | Descrição | Dimensões |
+| Métricas  | Description | Dimensões |
 | ------------- | ------------- | ------------- |
 | Taxa de acertos de bytes | A porcentagem de egresso do cache de AFD, computada com relação à saída total. </br> **Taxa de acertos de bytes** = (saída da borda-saída da origem)/egress da borda. </br> **Cenários excluídos no cálculo da taxa de acertos de bytes**:</br> 1. você não configurou explicitamente nenhum cache por meio do mecanismo de regras ou do comportamento de cache de cadeia de caracteres de consulta. </br> 2. você configurou explicitamente a diretiva de controle de cache com cache não armazenado ou privado. </br>3. a taxa de acertos de bytes pode ser baixa se a maior parte do tráfego é encaminhada para a origem, em vez de ser servida do cache com base em suas configurações ou cenários. | Ponto de extremidade |
 | RequestCount | O número de solicitações de cliente atendidas pela CDN. | Ponto de extremidade, país do cliente, região do cliente, status do HTTP, grupo de status HTTP |
@@ -75,7 +75,7 @@ Você pode configurar alertas para cada métrica, como um limite para 4XXErrorRa
 
 1. Selecione **nova regra de alerta** para as métricas listadas na seção métricas.
 
-O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](../../azure-monitor/platform/alerts-overview.md).
+O alerta será cobrado com base em Azure Monitor. Para obter mais informações sobre alertas, consulte [Azure monitor alertas](../../azure-monitor/alerts/alerts-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

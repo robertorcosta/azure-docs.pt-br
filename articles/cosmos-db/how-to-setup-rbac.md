@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/24/2021
 ms.author: thweiss
-ms.openlocfilehash: ec12deb5a7c77674026b849585552fd873aee5c1
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f8028d69e376e2b71549be52267e2f6cbdb1f8ce
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045987"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568640"
 ---
 # <a name="configure-role-based-access-control-with-azure-active-directory-for-your-azure-cosmos-db-account-preview"></a>Configurar o controle de acesso baseado em função com Azure Active Directory para sua conta de Azure Cosmos DB (versão prévia)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ O RBAC do plano de dados Azure Cosmos DB se baseia em conceitos que normalmente 
 
 A tabela a seguir lista todas as ações expostas pelo modelo de permissão.
 
-| Nome | Operação (ões) de banco de dados correspondente |
+| Name | Operação (ões) de banco de dados correspondente |
 |---|---|
 | `Microsoft.DocumentDB/databaseAccounts/readMetadata` | Ler metadados da conta. Consulte [solicitações de metadados](#metadata-requests) para obter detalhes. |
 | `Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/create` | Criar um novo item. |
@@ -323,9 +323,9 @@ Para usar o Azure Cosmos DB RBAC em seu aplicativo, é necessário atualizar a m
 
 A maneira como você cria uma `TokenCredential` instância está além do escopo deste artigo. Há várias maneiras de criar essa instância, dependendo do tipo de identidade do AAD que você deseja usar (entidade de usuário, entidade de serviço, grupo, etc.). O mais importante `TokenCredential` é que sua instância deve resolver para a identidade (ID da entidade de segurança) à qual você atribuiu suas funções. Você pode encontrar exemplos de criação de uma `TokenCredential` classe:
 
-- [no .NET](https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme#credential-classes)
-- [em Java](https://docs.microsoft.com/java/api/overview/azure/identity-readme#credential-classes)
-- [em JavaScript](https://docs.microsoft.com/javascript/api/overview/azure/identity-readme#credential-classes)
+- [no .NET](/dotnet/api/overview/azure/identity-readme#credential-classes)
+- [em Java](/java/api/overview/azure/identity-readme#credential-classes)
+- [em JavaScript](/javascript/api/overview/azure/identity-readme#credential-classes)
 
 Os exemplos a seguir usam uma entidade de serviço com uma `ClientSecretCredential` instância do.
 

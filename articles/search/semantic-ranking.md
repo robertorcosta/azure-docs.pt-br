@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/22/2021
-ms.openlocfilehash: c3a0a8bd5805757b92e3f5b046335c8883b4ba72
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: bf311eb2b2d0ff7a9c17380d2e384bc05c6f05f3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104888916"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562028"
 ---
 # <a name="semantic-ranking-in-azure-cognitive-search"></a>Classificação semântica no Azure Pesquisa Cognitiva
 
@@ -24,32 +24,34 @@ A classificação semântica é uma extensão do pipeline de execução de consu
 
 A classificação semântica é muito demorada para o recurso e o tempo. Para concluir o processamento dentro da latência esperada de uma operação de consulta, as entradas para o classificador semântico são consolidadas e reduzidas para que as etapas de resumo e reclassificação subjacentes possam ser concluídas o mais rápido possível.
 
-## <a name="preparation-for-semantic-ranking"></a>Preparação para classificação semântica
+## <a name="pre-processing"></a>Pré-processando
 
-Antes da Pontuação de relevância, o conteúdo deve ser reduzido para várias entradas que podem ser manipuladas com eficiência pelo classificador semântico. A redução de conteúdo inclui a seguinte sequência de etapas.
+Antes da Pontuação de relevância, o conteúdo deve ser reduzido para um número gerenciável de entradas que podem ser tratadas com eficiência pelo classificador semântico.
 
-1. A redução de conteúdo começa usando o conjunto de resultados inicial retornado pelo [algoritmo de classificação de similaridade](index-ranking-similarity.md) padrão usado para pesquisa de palavra-chave. Os resultados da pesquisa podem incluir até 1.000 correspondências, mas a classificação semântica processará apenas os 50 principais. 
+1. Primeiro, a redução de conteúdo começa com o conjunto de resultados inicial retornado pelo [algoritmo de classificação de similaridade](index-ranking-similarity.md) padrão usado para pesquisa de palavra-chave. Para qualquer consulta específica, os resultados podem ser alguns documentos, até o limite máximo de 1.000. Como o processamento de um grande número de correspondências levaria muito tempo, apenas os 50 principais progressos para a classificação semântica.
 
-   Dada a consulta, os resultados iniciais podem ser muito menores que 50, dependendo de quantas correspondências foram encontradas. Seja qual for a contagem de documentos, o conjunto de resultados inicial será o corpus do documento para classificação semântica.
+   Seja qual for a contagem de documentos, seja uma ou 50, o conjunto de resultados inicial estabelecerá a primeira iteração do documento corpus para classificação semântica.
 
-1. No Corpus do documento, o conteúdo de cada campo em "searchFields" é extraído e combinado em uma cadeia de caracteres longa.
+1. Em seguida, em Corpus, o conteúdo de cada campo em "searchFields" é extraído e combinado em uma cadeia de caracteres longa.
 
-1. Todas as cadeias de caracteres que são excessivamente longas são cortadas para garantir que o comprimento geral atenda aos requisitos de entrada da etapa de resumo. Esse exercício de corte é o motivo pelo qual é importante posicionar os campos concisos primeiro em "searchFields", para garantir que eles sejam incluídos na cadeia de caracteres. Se você tiver documentos muito grandes com campos com texto pesado, qualquer coisa após o limite máximo será ignorada.
+1. Após a consolidação de cadeias de caracteres, todas as cadeias que são excessivamente longas são cortadas para garantir que o comprimento geral atenda aos requisitos de entrada da etapa de resumo.
+
+   Esse exercício de corte é o motivo pelo qual é importante posicionar os campos concisos primeiro em "searchFields", para garantir que eles sejam incluídos na cadeia de caracteres. Se você tiver documentos muito grandes com campos com texto pesado, qualquer coisa após o limite máximo será ignorada.
 
 Cada documento agora é representado por uma única cadeia de caracteres longa.
 
 > [!NOTE]
-> As entradas de parâmetro para os modelos são tokens, não caracteres ou palavras. A geração de tokens é determinada em parte pela atribuição do analisador em campos pesquisáveis. Para obter informações sobre como as cadeias de caracteres são indexadas, você pode examinar a saída do token de um analisador usando a [API REST do Test Analyzer](/rest/api/searchservice/test-analyzer).
+> A cadeia de caracteres é composta de tokens, não caracteres ou palavras. A geração de tokens é determinada em parte pela atribuição do analisador em campos pesquisáveis. Se você estiver usando um analisador especializado, como nGram ou EdgeNGram, talvez queira excluir esse campo de searchFields. Para obter informações sobre como as cadeias de caracteres são indexadas, você pode examinar a saída do token de um analisador usando a [API REST do Test Analyzer](/rest/api/searchservice/test-analyzer).
 
-## <a name="summarization"></a>Resumo
+## <a name="extraction"></a>Extração
 
-Após a redução da cadeia de caracteres, agora é possível passar as entradas reduzidas por meio da compreensão da leitura do computador e dos modelos de representação de linguagem para determinar quais frases e frases melhor resumem o documento, em relação à consulta.
+Após a redução da cadeia de caracteres, agora é possível passar as entradas reduzidas por meio da compreensão da leitura do computador e dos modelos de representação de linguagem para determinar quais frases e frases melhor resumem o documento, em relação à consulta. Essa fase extrai o conteúdo da cadeia de caracteres que avançará para o classificador semântico.
 
-As entradas de resumo são as cadeias de caracteres longas que são obtidas para cada documento na fase de preparação. De uma determinada entrada, o modelo de resumo encontra uma passagem que melhor representa o documento correspondente. Essa passagem também constitui uma [legenda semântica](semantic-how-to-query-request.md) para o documento. Cada legenda está disponível em texto sem formatação, com destaques e tem menos de 200 palavras por documento.
+As entradas de resumo são as cadeias de caracteres longas obtidas para cada documento na fase de preparação. De cada cadeia de caracteres, o modelo de resumo encontra uma passagem que é a mais representativa. Essa passagem também constitui uma [legenda semântica](semantic-how-to-query-request.md) para o documento. Cada legenda está disponível em uma versão de texto sem formatação e em uma versão de realce, com frequência menor que 200 palavras por documento.
 
 Uma [resposta semântica](semantic-answers.md) também será retornada se você tiver especificado o parâmetro "respostas", se a consulta foi apresentada como uma pergunta, e se uma passagem pode ser encontrada na cadeia de caracteres longa que provavelmente fornece uma resposta para a pergunta.
 
-## <a name="scoring-and-ranking"></a>Pontuação e classificação
+## <a name="semantic-ranking"></a>Classificação semântica
 
 1. As legendas são avaliadas para relevância conceitual e semântica, em relação à consulta fornecida.
 

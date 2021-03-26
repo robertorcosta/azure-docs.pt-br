@@ -13,12 +13,12 @@ ms.date: 09/15/2020
 ms.author: brandwe
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 24a538686e101d40daba008f30a72ffc5078047a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 05bfcc86c72d9eb393da919035ce198948b943f2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104674506"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559121"
 ---
 # <a name="microsoft-enterprise-sso-plug-in-for-apple-devices-preview"></a>Plug-in do SSO corporativo da Microsoft para dispositivos Apple (versão prévia)
 
@@ -52,14 +52,14 @@ Para usar o plug-in Microsoft Enterprise SSO para dispositivos Apple:
 - O dispositivo deve ser *registrado no MDM*, por exemplo, por meio de Microsoft Intune.
 - A configuração deve ser *enviada por push para o dispositivo* para habilitar o plug-in de SSO corporativo. A Apple requer essa restrição de segurança.
 
-requisitos do iOS:
-- o iOS 13,0 ou posterior deve estar instalado no dispositivo.
-- Um aplicativo da Microsoft que fornece o plug-in Microsoft Enterprise SSO para dispositivos Apple deve ser instalado no dispositivo. Durante a visualização pública, esse aplicativo é o [Microsoft Authenticator aplicativo](/intune/user-help/user-help-auth-app-overview.md).
+### <a name="ios-requirements"></a>requisitos do iOS:
+- o iOS 13,0 ou superior deve estar instalado no dispositivo.
+- Um aplicativo da Microsoft que fornece o plug-in Microsoft Enterprise SSO para dispositivos Apple deve ser instalado no dispositivo. Para a visualização pública, esses aplicativos são o [Microsoft Authenticator aplicativo](/azure/active-directory/user-help/user-help-auth-app-overview).
 
 
-requisitos do macOS:
-- o macOS 10,15 ou posterior deve estar instalado no dispositivo. 
-- Um aplicativo da Microsoft que fornece o plug-in Microsoft Enterprise SSO para dispositivos Apple deve ser instalado no dispositivo. Durante a visualização pública, esse aplicativo é o [portal da empresa do Intune aplicativo](/intune/user-help/enroll-your-device-in-intune-macos-cp.md).
+### <a name="macos-requirements"></a>requisitos do macOS:
+- o macOS 10,15 ou superior deve estar instalado no dispositivo. 
+- Um aplicativo da Microsoft que fornece o plug-in Microsoft Enterprise SSO para dispositivos Apple deve ser instalado no dispositivo. Para a visualização pública, esses aplicativos incluem o [aplicativo portal da empresa do Intune](/mem/intune/user-help/enroll-your-device-in-intune-macos-cp).
 
 ## <a name="enable-the-sso-plug-in"></a>Habilitar o plug-in SSO
 

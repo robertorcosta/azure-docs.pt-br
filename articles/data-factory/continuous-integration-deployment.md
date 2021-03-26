@@ -7,12 +7,12 @@ ms.author: weetok
 ms.reviewer: jburchel
 ms.topic: conceptual
 ms.date: 03/11/2021
-ms.openlocfilehash: aa2c5801e61fb73219934c5d38e894520c41ab26
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 24aa3bc455bf716c074526d707594bd3b4170619
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104784026"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564170"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integração e entrega contínuas no Azure Data Factory
 
@@ -335,7 +335,7 @@ Esta é uma explicação de como o modelo anterior é construído, dividido por 
 * Embora a personalização específica de tipo esteja disponível para conjuntos de dados, você pode fornecer uma configuração sem ter explicitamente uma configuração de nível \*. No exemplo anterior, todas as propriedades de conjunto de dados em `typeProperties` são parametrizadas.
 
 > [!NOTE]
-> Os **alertas e as matrizes do Azure** , se configurados para um pipeline, não têm suporte atualmente como parâmetros para implantações do ARM. Para reaplicar os alertas e as matrizes em um novo ambiente, siga [Data Factory monitoramento, alertas e matrizes.](https://docs.microsoft.com/azure/data-factory/monitor-using-azure-monitor#data-factory-metrics)
+> Os **alertas e as matrizes do Azure** , se configurados para um pipeline, não têm suporte atualmente como parâmetros para implantações do ARM. Para reaplicar os alertas e as matrizes em um novo ambiente, siga [Data Factory monitoramento, alertas e matrizes.](./monitor-using-azure-monitor.md#data-factory-metrics)
 > 
 
 ### <a name="default-parameterization-template"></a>Modelo de parametrização padrão

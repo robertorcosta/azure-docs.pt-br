@@ -3,34 +3,34 @@ title: Funções do sistema em logs de Azure Monitor
 description: Gravar consultas personalizadas em logs de Azure Monitor usando funções do sistema
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 1d26adfd2bd1a3fc1506a334b4b661b66172192d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: acb45e6ad0250a1f8d10377fdd509e40051f25b9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510446"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564901"
 ---
 # <a name="system-functions-on-azure-monitor-logs"></a>Funções do sistema em logs de Azure Monitor
 
 O backup do Azure fornece um conjunto de funções, chamadas de funções de sistema ou funções de solução, que estão disponíveis por padrão em seus espaços de trabalho de Log Analytics (LA).
  
-Essas funções operam em dados nas [tabelas brutas de backup do Azure](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model) em la e retornam dados formatados que ajudam a recuperar facilmente as informações de todas as suas entidades relacionadas ao backup, usando consultas simples. Os usuários podem passar parâmetros para essas funções para filtrar os dados retornados por essas funções. 
+Essas funções operam em dados nas [tabelas brutas de backup do Azure](./backup-azure-reports-data-model.md) em la e retornam dados formatados que ajudam a recuperar facilmente as informações de todas as suas entidades relacionadas ao backup, usando consultas simples. Os usuários podem passar parâmetros para essas funções para filtrar os dados retornados por essas funções. 
 
 É recomendável usar funções do sistema para consultar os dados de backup na LA espaços de trabalho para criar relatórios personalizados, pois eles fornecem vários benefícios, conforme detalhado na seção abaixo.
 
 ## <a name="benefits-of-using-system-functions"></a>Benefícios do uso de funções do sistema
 
-* **Consultas mais simples**: o uso de funções ajuda a reduzir o número de junções necessárias em suas consultas. Por padrão, as funções retornam esquemas "achatados", que incorporam todas as informações pertencentes à entidade (instância de backup, trabalho, cofre e assim por diante) que estão sendo consultadas. Por exemplo, se você precisar obter uma lista de trabalhos de backup bem-sucedidos por nome de item de backup e seu contêiner associado, uma chamada simples para a função **_AzureBackup_getJobs ()** fornecerá todas essas informações para cada trabalho. Por outro lado, consultar as tabelas brutas diretamente exigiria que você executasse várias junções entre as tabelas [AddonAzureBackupJobs](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#addonazurebackupjobs) e [CoreAzureBackup](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model#coreazurebackup) .
+* **Consultas mais simples**: o uso de funções ajuda a reduzir o número de junções necessárias em suas consultas. Por padrão, as funções retornam esquemas "achatados", que incorporam todas as informações pertencentes à entidade (instância de backup, trabalho, cofre e assim por diante) que estão sendo consultadas. Por exemplo, se você precisar obter uma lista de trabalhos de backup bem-sucedidos por nome de item de backup e seu contêiner associado, uma chamada simples para a função **_AzureBackup_getJobs ()** fornecerá todas essas informações para cada trabalho. Por outro lado, consultar as tabelas brutas diretamente exigiria que você executasse várias junções entre as tabelas [AddonAzureBackupJobs](./backup-azure-reports-data-model.md#addonazurebackupjobs) e [CoreAzureBackup](./backup-azure-reports-data-model.md#coreazurebackup) .
 
-* **Transição mais suave do evento de diagnóstico herdado**: usar funções do sistema ajuda a fazer a transição tranqüila do [evento de diagnóstico herdado](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event) (AzureBackupReport no modo AzureDiagnostics) para os [eventos específicos do recurso](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#diagnostics-events-available-for-azure-backup-users). Todas as funções do sistema fornecidas pelo backup do Azure permitem que você especifique um parâmetro que permite que você escolha se a função deve consultar dados somente das tabelas específicas do recurso ou consultar dados da tabela herdada e das tabelas específicas do recurso (com eliminação de duplicação de registros).
+* **Transição mais suave do evento de diagnóstico herdado**: usar funções do sistema ajuda a fazer a transição tranqüila do [evento de diagnóstico herdado](./backup-azure-diagnostic-events.md#legacy-event) (AzureBackupReport no modo AzureDiagnostics) para os [eventos específicos do recurso](./backup-azure-diagnostic-events.md#diagnostics-events-available-for-azure-backup-users). Todas as funções do sistema fornecidas pelo backup do Azure permitem que você especifique um parâmetro que permite que você escolha se a função deve consultar dados somente das tabelas específicas do recurso ou consultar dados da tabela herdada e das tabelas específicas do recurso (com eliminação de duplicação de registros).
     * Se você tiver migrado com êxito para as tabelas específicas de recursos, poderá optar por excluir a tabela herdada de ser consultada pela função.
     * Se você estiver atualmente no processo de migração e tiver alguns dados nas tabelas herdadas que você precisa para análise, você pode optar por incluir a tabela herdada. Quando a transição for concluída e você não precisar mais de dados da tabela herdada, poderá simplesmente atualizar o valor do parâmetro passado para a função em suas consultas, para excluir a tabela herdada.
-    * Se você ainda estiver usando apenas a tabela herdada, as funções continuarão a funcionar se você optar por incluir a tabela herdada por meio do mesmo parâmetro. No entanto, é recomendável [mudar para as tabelas específicas do recurso](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) no início.
+    * Se você ainda estiver usando apenas a tabela herdada, as funções continuarão a funcionar se você optar por incluir a tabela herdada por meio do mesmo parâmetro. No entanto, é recomendável [mudar para as tabelas específicas do recurso](./backup-azure-diagnostic-events.md#steps-to-move-to-new-diagnostics-settings-for-a-log-analytics-workspace) no início.
 
 * **Reduz a possibilidade de quebra de consultas personalizadas**: se o backup do Azure apresentar melhorias no esquema das tabelas de la subjacentes para acomodar cenários de relatório futuros, a definição das funções também será atualizada para levar em conta as alterações de esquema. Portanto, se você usar funções do sistema para criar consultas personalizadas, suas consultas não serão interrompidas, mesmo se houver alterações no esquema subjacente das tabelas.
 
 > [!NOTE]
-> As funções do sistema são mantidas pela Microsoft e suas definições não podem ser editadas pelos usuários. Se você precisar de funções editáveis, poderá criar [funções salvas](https://docs.microsoft.com/azure/azure-monitor/logs/functions) em la.
+> As funções do sistema são mantidas pela Microsoft e suas definições não podem ser editadas pelos usuários. Se você precisar de funções editáveis, poderá criar [funções salvas](../azure-monitor/logs/functions.md) em la.
 
 ## <a name="types-of-system-functions-offered-by-azure-backup"></a>Tipos de funções de sistema oferecidas pelo backup do Azure
 
@@ -68,13 +68,13 @@ Essa função retorna a lista de todos os cofres de serviços de recuperação e
 | -------------- | --------------- |
 | UniqueId | Chave primária denotando a ID exclusiva do cofre |
 | ID | Azure Resource Manager (ARM) ID do cofre |
-| Nome | Nome do cofre |
+| Name | Nome do cofre |
 | SubscriptionId | ID da assinatura na qual o cofre existe |
-| Location | Local no qual o cofre existe |
+| Localização | Local no qual o cofre existe |
 | VaultStore_StorageReplicationType | Tipo de replicação de armazenamento associado ao cofre |
-| Marcas | Marcas do cofre |
+| Marcações | Marcas do cofre |
 | TimeGenerated | Carimbo de data/hora do registro |
-| Type |  Tipo do cofre, que é "Microsoft. Recoveryservices/cofres"|
+| Tipo |  Tipo do cofre, que é "Microsoft. Recoveryservices/cofres"|
 
 #### <a name="_azurebackup_getpolicies"></a>_AzureBackup_GetPolicies ()
 
@@ -99,7 +99,7 @@ Essa função retorna a lista de políticas de backup que estão sendo usadas em
 | -------------- | --------------- |
 | UniqueId | Chave primária denotando a ID exclusiva da política |
 | ID | Azure Resource Manager (ARM) ID da política |
-| Nome | Nome da política |
+| Name | Nome da política |
 | Solução de backup | Solução de backup à qual a política está associada. Por exemplo, backup de VM do Azure, SQL no backup de VM do Azure e assim por diante. |
 | TimeGenerated | Carimbo de data/hora do registro |
 | VaultUniqueId | Chave estrangeira que se refere ao cofre associado à política |
@@ -120,8 +120,8 @@ Essa função retorna uma lista de todos os trabalhos relacionados a backup e re
 
 | **Nome do parâmetro** | **Descrição** | **Obrigatório?** | **Valor de exemplo** |
 | -------------------- | ------------- | --------------- | ----------------- |
-| RangeStart     | Use esse parâmetro junto com o parâmetro RangeEnd para recuperar a lista de todos os trabalhos que foram iniciados no período de RangeStart para RangeEnd. | Y | "2021-03-03 00:00:00" |
-| RangeEnd     | Use esse parâmetro junto com o parâmetro RangeStart para recuperar a lista de todos os trabalhos que foram iniciados no período de RangeStart para RangeEnd. | Y |"2021-03-10 00:00:00"|
+| RangeStart     | Use esse parâmetro junto com o parâmetro RangeEnd para recuperar a lista de todos os trabalhos que foram iniciados no período de RangeStart para RangeEnd. | S | "2021-03-03 00:00:00" |
+| RangeEnd     | Use esse parâmetro junto com o parâmetro RangeStart para recuperar a lista de todos os trabalhos que foram iniciados no período de RangeStart para RangeEnd. | S |"2021-03-10 00:00:00"|
 | VaultSubscriptionList   | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de assinaturas em que existem dados de backup. A especificação de uma lista separada por vírgulas de IDs de assinatura como um parâmetro para essa função ajuda a recuperar somente os trabalhos associados aos cofres nas assinaturas especificadas. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros em todas as assinaturas. | N | "00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de regiões em que existem dados de backup. A especificação de uma lista separada por vírgulas de regiões como um parâmetro para essa função ajuda a recuperar somente os trabalhos associados aos cofres nas regiões especificadas. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros em todas as regiões. | N | "lesteus, oesteus"|
 | VaultList    | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de cofres. A especificação de uma lista separada por vírgulas de nomes de cofre como um parâmetro para essa função ajuda a recuperar trabalhos pertencentes apenas aos cofres especificados. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise trabalhos em todos os cofres. | N |"vault1, vault2, vault3"|
@@ -246,8 +246,8 @@ Essa função retorna uma lista de todas as entidades de cobrança relacionadas 
 | -------------- | --------------- |
 | UniqueId | Chave primária denotando a ID exclusiva do grupo de cobrança |
 | FriendlyName | Nome amigável do grupo de cobrança |
-| Nome | Nome do grupo de cobrança |
-| Type | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
+| Name | Nome do grupo de cobrança |
+| Tipo | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
 | SourceSizeInMBs | Tamanho de front-end do grupo de cobrança em MBs |
 | VaultStore_StorageConsumptionInMBs | Armazenamento em nuvem total consumido pelo grupo de cobrança no cofre-camada padrão |
 | BackupSolution | Solução de backup à qual o grupo de cobrança está associado. Por exemplo, backup de VM do Azure, SQL no backup de VM do Azure e assim por diante. |
@@ -272,8 +272,8 @@ Essa função retorna registros históricos para cada instância de backup, perm
 
 | **Nome do parâmetro** | **Descrição** | **Obrigatório?** | **Valor de exemplo** |
 | -------------------- | ------------- | --------------- | ----------------- |
-| RangeStart     | Use esse parâmetro junto com o parâmetro RangeEnd para recuperar todos os registros relacionados à instância de backup no período de tempo de RangeStart para RangeEnd. | Y | "2021-03-03 00:00:00" |
-| RangeEnd     | Use esse parâmetro junto com o parâmetro RangeStart para recuperar todos os registros relacionados à instância de backup no período de tempo de RangeStart para RangeEnd. | Y |"2021-03-10 00:00:00"|
+| RangeStart     | Use esse parâmetro junto com o parâmetro RangeEnd para recuperar todos os registros relacionados à instância de backup no período de tempo de RangeStart para RangeEnd. | S | "2021-03-03 00:00:00" |
+| RangeEnd     | Use esse parâmetro junto com o parâmetro RangeStart para recuperar todos os registros relacionados à instância de backup no período de tempo de RangeStart para RangeEnd. | S |"2021-03-10 00:00:00"|
 | VaultSubscriptionList   | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de assinaturas em que existem dados de backup. A especificação de uma lista separada por vírgulas de IDs de assinatura como um parâmetro para essa função ajuda a recuperar somente as instâncias de backup que estão nas assinaturas especificadas. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros em todas as assinaturas. | N | "00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de regiões em que existem dados de backup. A especificação de uma lista separada por vírgulas de regiões como um parâmetro para essa função ajuda a recuperar somente as instâncias de backup que estão nas regiões especificadas. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros em todas as regiões. | N | "lesteus, oesteus"|
 | VaultList    |Use esse parâmetro para filtrar a saída da função para um determinado conjunto de cofres. A especificação de uma lista separada por vírgulas de nomes de cofre como um parâmetro para essa função ajuda a recuperar registros de instâncias de backup pertencentes apenas aos cofres especificados. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros de instâncias de backup em todos os cofres. | N |"vault1, vault2, vault3"|
@@ -326,8 +326,8 @@ Essa função retorna registros históricos para cada entidade de cobrança, per
 
 | **Nome do parâmetro** | **Descrição** | **Obrigatório?** | **Valor de exemplo** |
 | -------------------- | ------------- | --------------- | ----------------- |
-| RangeStart     | Use esse parâmetro junto com o parâmetro RangeEnd para recuperar todos os registros relacionados ao grupo de cobrança no período de tempo de RangeStart para RangeEnd. | Y | "2021-03-03 00:00:00" |
-| RangeEnd     | Use esse parâmetro junto com o parâmetro RangeStart para recuperar todos os registros relacionados ao grupo de cobrança no período de tempo de RangeStart para RangeEnd. | Y |"2021-03-10 00:00:00"|
+| RangeStart     | Use esse parâmetro junto com o parâmetro RangeEnd para recuperar todos os registros relacionados ao grupo de cobrança no período de tempo de RangeStart para RangeEnd. | S | "2021-03-03 00:00:00" |
+| RangeEnd     | Use esse parâmetro junto com o parâmetro RangeStart para recuperar todos os registros relacionados ao grupo de cobrança no período de tempo de RangeStart para RangeEnd. | S |"2021-03-10 00:00:00"|
 | VaultSubscriptionList  | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de assinaturas em que existem dados de backup. A especificação de uma lista separada por vírgulas de IDs de assinatura como um parâmetro para essa função ajuda a recuperar somente os grupos de cobrança que estão nas assinaturas especificadas. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros em todas as assinaturas. | N | "00000000-0000-0000-0000-000000000000, 11111111-1111-1111-1111-111111111111"|
 | VaultLocationList     | Use esse parâmetro para filtrar a saída da função para um determinado conjunto de regiões em que existem dados de backup. A especificação de uma lista separada por vírgulas de regiões como um parâmetro para essa função ajuda a recuperar somente os grupos de cobrança que estão nas regiões especificadas. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros em todas as regiões. | N | "lesteus, oesteus"|
 | VaultList    |Use esse parâmetro para filtrar a saída da função para um determinado conjunto de cofres. A especificação de uma lista separada por vírgulas de nomes de cofre como um parâmetro para essa função ajuda a recuperar registros de instâncias de backup pertencentes apenas aos cofres especificados. Por padrão, o valor desse parâmetro é ' * ', que faz com que a função pesquise registros de grupos de cobrança em todos os cofres. | N |"vault1, vault2, vault3"|
@@ -343,8 +343,8 @@ Essa função retorna registros históricos para cada entidade de cobrança, per
 | -------------- | --------------- |
 | UniqueId | Chave primária denotando a ID exclusiva do grupo de cobrança |
 | FriendlyName | Nome amigável do grupo de cobrança |
-| Nome | Nome do grupo de cobrança |
-| Type | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
+| Name | Nome do grupo de cobrança |
+| Tipo | Tipo de grupo de cobrança. Por exemplo, ProtectedContainer ou BackupItem |
 | SourceSizeInMBs | Tamanho de front-end do grupo de cobrança em MBs |
 | VaultStore_StorageConsumptionInMBs | Armazenamento em nuvem total consumido pelo grupo de cobrança no cofre-camada padrão |
 | BackupSolution | Solução de backup à qual o grupo de cobrança está associado. Por exemplo, backup de VM do Azure, SQL no backup de VM do Azure e assim por diante. |
@@ -390,4 +390,4 @@ Abaixo estão algumas consultas de exemplo para ajudá-lo a começar a usar as f
     ````
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre os relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Saiba mais sobre os relatórios de backup](./configure-reports.md)

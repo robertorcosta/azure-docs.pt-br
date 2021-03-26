@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 1c2fbc90d3956ab831e6d9fac4e1e2d3540e1c6d
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 6cf6e8e3f19b11a49e91b781b1ef6d83bf647903
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105025417"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562980"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-managed-instance"></a>Guia de migração: Oracle para Azure SQL Instância Gerenciada
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -142,11 +142,8 @@ Para publicar o esquema e migrar seus dados, siga estas etapas:
 
 Como alternativa, você também pode usar SQL Server Integration Services (SSIS) para executar a migração. Para obter mais informações, consulte: 
 
-- [Introdução com SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services)
+- [Introdução com SQL Server Integration Services](/sql/integration-services/sql-server-integration-services)
 - [SQL Server Integration Services: SSIS para Azure e movimentação de dados híbridos](https://download.microsoft.com/download/D/2/0/D20E1C5F-72EA-4505-9F26-FEF9550EFD44/SSIS%20Hybrid%20and%20Azure.docx)
-
-    
-
 
 ## <a name="post-migration"></a>Pós-migração 
 
@@ -194,7 +191,7 @@ Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudar você com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, confira o artigo [Serviços e ferramentas para migração de dados](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudar você com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, confira o artigo [Serviços e ferramentas para migração de dados](../../../dms/dms-tools-matrix.md).
 
 - Para saber mais sobre o Azure SQL Instância Gerenciada, consulte: 
   - [Uma visão geral do Azure SQL Instância Gerenciada](../../managed-instance/sql-managed-instance-paas-overview.md)

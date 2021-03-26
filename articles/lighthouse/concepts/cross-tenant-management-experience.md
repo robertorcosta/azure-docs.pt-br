@@ -3,12 +3,12 @@ title: Experiências de gerenciamento entre locatários
 description: O gerenciamento de recursos delegados do Azure permite uma experiência de gerenciamento entre locatários.
 ms.date: 03/23/2021
 ms.topic: conceptual
-ms.openlocfilehash: ba3cee2ecd7efcbb33c19d7ed159083e843c84a8
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: a774eb08989e8fc45a117d83d81a5b510e8202b4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104952109"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559903"
 ---
 # <a name="cross-tenant-management-experiences"></a>Experiências de gerenciamento entre locatários
 
@@ -56,8 +56,8 @@ A maioria das tarefas e serviços pode ser realizada em recursos delegados em lo
   - Garantir que o mesmo conjunto de políticas seja aplicado nos ambientes híbridos dos clientes
   - Usar a central de segurança do Azure para monitorar a conformidade entre os ambientes híbridos dos clientes
 - Gerenciar clusters kubernetes híbridos em escala – [kubernetes habilitado para Arc do Azure (versão prévia)](../../azure-arc/kubernetes/overview.md):
-  - [Gerenciar clusters kubernetes que estão conectados](../../azure-arc/kubernetes/connect-cluster.md) a assinaturas delegadas e/ou grupos de recursos no Azure
-  - [Usar o GitOps](../../azure-arc/kubernetes/use-gitops-connected-cluster.md) para clusters conectados
+  - [Gerenciar clusters kubernetes que estão conectados](../../azure-arc/kubernetes/quickstart-connect-cluster.md) a assinaturas delegadas e/ou grupos de recursos no Azure
+  - [Usar o GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md) para clusters conectados
   - Impor políticas entre clusters conectados
 
 [Automação do Azure](../../automation/index.yml):

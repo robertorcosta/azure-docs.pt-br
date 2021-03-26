@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 03/01/2021
 ms.author: alkohli
-ms.openlocfilehash: b962d66349bbed112114c010e8d185ba16c74c8d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 67110a2a2bd7f34c735edd126cfc655f45247fc2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102443073"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560226"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-pro-device"></a>Gerenciamento de carga de trabalho do kubernetes no dispositivo pro Edge Azure Stack
 
@@ -83,7 +83,7 @@ Ao implantar aplicativos, considere as seguintes informações:
 
 Para implantar localmente um aplicativo por meio do kubectl, consulte:
 
-- [Implante um aplicativo sem estado em seu Azure Stack Edge pro via kubectl](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Implante um aplicativo sem estado em seu Azure Stack Edge pro via kubectl](./azure-stack-edge-gpu-deploy-stateless-application-kubernetes.md).
 
 Para implantar um aplicativo por meio do IoT Edge, consulte:
 

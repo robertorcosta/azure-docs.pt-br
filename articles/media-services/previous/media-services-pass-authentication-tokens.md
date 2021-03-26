@@ -3,25 +3,23 @@ title: Passar os tokens de autenticação para os Serviços de Mídia do Azure |
 description: Saiba como enviar os tokens de autenticação do cliente para o serviço de entrega de chaves dos Serviços de Mídia do Azure
 services: media-services
 keywords: Proteção de conteúdo, gerenciamento de direitos digitais, autenticação de token
-documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
-editor: ''
 ms.assetid: 7c3b35d9-1269-4c83-8c91-490ae65b0817
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/10/2021
+ms.date: 03/22/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4daec8ef5f2cc1da3a211113e7236dfd22803d
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 1fe692e1eb20956f339c9b861f50163cee9c5063
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008226"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564646"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Saiba como os clientes passam tokens para o serviço de entrega de chaves dos Serviços de Mídia do Azure
 
@@ -33,7 +31,7 @@ Os clientes frequentemente perguntam como um player pode passar tokens para o se
 
 - Por meio do cabeçalho de autorização HTTP.
     > [!NOTE]
-    > O prefixo "Portador" é esperado para as especificações de OAuth 2.0. Um player de exemplo com a configuração do token está hospedado na [página de demonstração](https://ampdemo.azureedge.net/) do Player de Mídia do Azure. Para definir a fonte de vídeo, escolha **AES (Token JWT)** ou **AES (Token SWT)**. O token é passado por meio do cabeçalho de autorização.
+    > O prefixo "Portador" é esperado para as especificações de OAuth 2.0. Para definir a fonte de vídeo, escolha **AES (Token JWT)** ou **AES (Token SWT)**. O token é passado por meio do cabeçalho de autorização.
 
 - Com a adição de um parâmetro de consulta de URL com “token=tokenvalue”.  
     > [!NOTE]

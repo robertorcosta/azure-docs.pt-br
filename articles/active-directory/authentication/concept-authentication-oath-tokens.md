@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.author: justinha
 author: justinha
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 568048597f83616ed07954af744c94761250b5c0
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b535d59376de455962d367a8ad6f02a037649d9d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471616"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557880"
 ---
 # <a name="authentication-methods-in-azure-active-directory---oath-tokens"></a>Métodos de autenticação em tokens Azure Active Directory OATH 
 
@@ -51,7 +51,7 @@ Helga@contoso.com,1234567,2234567abcdef1234567abcdef,60,Contoso,HardwareKey
 > [!NOTE]
 > Verifique se você incluiu a linha de cabeçalho no arquivo CSV. Se um UPN tiver uma aspa simples, escape-o com outra aspa simples. Por exemplo, se o UPN for my ' user@domain.com , altere-o para meu ' ' user@domain.com ao carregar o arquivo.
 
-Após a formatação correta com um arquivo CSV, um administrador pode entrar no portal do Azure, navegar para **Azure Active Directory > Segurança > MFA > Tokens OATH** e carregar o arquivo CSV resultante.
+Uma vez formatado corretamente como um arquivo CSV, um administrador global pode entrar no portal do Azure, navegar até **Azure Active Directory > Security > MFA > tokens OATH** e carregar o arquivo CSV resultante.
 
 Dependendo do tamanho do arquivo CSV, ele poderá levar alguns minutos para ser processado. Selecione o botão **Atualizar** para obter o status atual. Se houver erros no arquivo, você poderá baixar um arquivo CSV que lista os erros para que você possa resolvê-los. Os nomes de campo no arquivo CSV baixado são diferentes da versão carregada.  
 

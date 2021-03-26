@@ -6,12 +6,12 @@ ms.author: chugu
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: 62bd5d2e70d3a66998907305fecee4dcc87cdb23
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 190def0e6e2f77d330d2307753dc9e9d53c55dd7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102451720"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564126"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usar o Azure SQL Instância Gerenciada com o SQL Server Integration Services (SSIS) no Azure Data Factory
 
@@ -39,7 +39,7 @@ Agora você pode mover suas cargas de trabalho, pacotes e projetos do SSIS (SQL 
             - Dentro da mesma rede virtual que a instância gerenciada, com uma **sub-rede diferente**.
             - Dentro de uma rede virtual diferente da instância gerenciada, por meio do emparelhamento de rede virtual (que é limitado à mesma região devido a restrições de emparelhamento de VNet global) ou a uma conexão da rede virtual com a rede virtual.
 
-            Para obter mais informações sobre a conectividade do SQL Instância Gerenciada, consulte [conectar seu aplicativo ao SQL do Azure instância gerenciada](/azure/sql-database/sql-database-managed-instance-connect-app).
+            Para obter mais informações sobre a conectividade do SQL Instância Gerenciada, consulte [conectar seu aplicativo ao SQL do Azure instância gerenciada](../azure-sql/managed-instance/connect-application-instance.md).
 
         1. [Configure a rede virtual](#configure-virtual-network).
 

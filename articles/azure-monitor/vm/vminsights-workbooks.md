@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2020
-ms.openlocfilehash: 874df4301165aaf253dd0f4316adee7ab9ce7ce5
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 695aa760d554946883f72692f0bed1babad933b1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798843"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568793"
 ---
 # <a name="create-interactive-reports-vm-insights-with-workbooks"></a>Criar relatórios interativos de VM insights com pastas de trabalho
 
@@ -103,13 +103,13 @@ Cada seção tem suas próprias configurações avançadas, que podem ser acessa
 
 ![Captura de tela da caixa de diálogo Configurações avançadas na seção pasta de trabalho das máquinas virtuais do Azure Monitor. O ícone que abre a caixa de diálogo é realçado.](media/vminsights-workbooks/007-settings-expanded.png)
 
-|         |          |
+| Setting | Descrição |
 | ---------------- |:-----|
-| **Largura personalizada**    | Torna um item um tamanho arbitrário, para que você possa ajustar muitos itens em uma única linha, permitindo que você organize melhor seus gráficos e tabelas em relatórios interativos sofisticados.  |
-| **Condicionalmente visível** | Especifique para ocultar as etapas com base em um parâmetro no modo de leitura. |
-| **Exportar um parâmetro**| Permitir que uma linha selecionada na grade ou no gráfico cause etapas posteriores para alterar valores ou tornar-se visível.  |
-| **Mostrar consulta quando não estiver em edição** | Exibe a consulta acima do gráfico ou tabela, mesmo quando estiver no modo de leitura.
-| **Mostrar abrir no botão análise ao não editar** | Adiciona o ícone de análise azul ao canto direito do gráfico para permitir o acesso com um clique.|
+| Largura personalizada    | Torna um item um tamanho arbitrário, para que você possa ajustar muitos itens em uma única linha, permitindo que você organize melhor seus gráficos e tabelas em relatórios interativos sofisticados.  |
+| Condicionalmente visível | Especifique para ocultar as etapas com base em um parâmetro no modo de leitura. |
+| Exportar um parâmetro| Permitir que uma linha selecionada na grade ou no gráfico cause etapas posteriores para alterar valores ou tornar-se visível.  |
+| Mostrar consulta quando não estiver em edição | Exibe a consulta acima do gráfico ou tabela, mesmo quando estiver no modo de leitura.
+| Mostrar abrir no botão análise ao não editar | Adiciona o ícone de análise azul ao canto direito do gráfico para permitir o acesso com um clique.|
 
 A maioria dessas configurações é bastante intuitiva, mas para entender **um parâmetro de exportação** é melhor examinar uma pasta de trabalho que usa essa funcionalidade.
 
@@ -152,12 +152,12 @@ Os parâmetros são lineares, começando na parte superior de uma pasta de traba
  
 Há quatro tipos diferentes de parâmetros, que atualmente têm suporte:
 
-|                  |      |
+| Parâmetro | Descrição |
 | ---------------- |:-----|
-| **Text**    | Permite que o usuário edite uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
-| **Lista suspensa** | Permite que o usuário escolha entre um conjunto de valores. |
-| **Seletor de intervalo de tempo**| Permite que o usuário escolha entre um conjunto predefinido de valores de intervalo de tempo ou escolha um intervalo de tempo personalizado.|
-| **Seletor de recursos** | Permite que o usuário escolha entre os recursos selecionados para a pasta de trabalho.|
+| Texto    | Permite que o usuário edite uma caixa de texto e, opcionalmente, você pode fornecer uma consulta para preencher o valor padrão. |
+| Lista suspensa | Permite que o usuário escolha entre um conjunto de valores. |
+| Seletor de intervalo de tempo| Permite que o usuário escolha entre um conjunto predefinido de valores de intervalo de tempo ou escolha um intervalo de tempo personalizado.|
+| Seletor de recursos | Permite que o usuário escolha entre os recursos selecionados para a pasta de trabalho.|
 
 ### <a name="using-a-text-parameter"></a>Usando um parâmetro de texto
 

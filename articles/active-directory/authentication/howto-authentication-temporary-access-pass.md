@@ -7,23 +7,23 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: justinha
-author: inbarckms
+author: justinha
 manager: daveba
 ms.reviewer: inbarckms
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44b80b9c6847cfdc8402cb3b4983f15873e367d3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 0805ac84318a4fee98c30127ac80c0dac2b96309
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579375"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558254"
 ---
 # <a name="configure-temporary-access-pass-in-azure-ad-to-register-passwordless-authentication-methods-preview"></a>Configurar a passagem de acesso temporário no Azure AD para registrar métodos de autenticação com senha (versão prévia)
 
 Os métodos de autenticação sem senha, como FIDO2 e entrada por telefone sem senha por meio do aplicativo Microsoft Authenticator, permitem que os usuários se conectem de forma segura com uma senha. Os usuários podem inicializar métodos com senha de uma das duas maneiras:
 
 - Usando métodos existentes de autenticação multifator do Azure AD 
-- Usando uma aprovação de acesso temporária 
+- Usando uma passagem de acesso temporária (toque) 
 
 Uma passagem de acesso temporária é uma senha com tempo limitado emitida por um administrador que atende aos requisitos de autenticação fortes e pode ser usada para integrar outros métodos de autenticação, incluindo aqueles com senha. Uma aprovação de acesso temporária também facilita a recuperação quando um usuário perde ou esqueceu seu fator de autenticação forte, como uma chave de segurança FIDO2 ou um aplicativo Microsoft Authenticator, mas precisa entrar para registrar novos métodos de autenticação forte.
 
@@ -49,13 +49,13 @@ Para configurar a política de método de autenticação do Pass Access temporá
    O valor padrão e o intervalo de valores permitidos são descritos na tabela a seguir.
 
 
-   | Configuração          | Valores padrão | Valores permitidos               | Comentários                                                                                                                                                                                                                                                                 |   |
-   |------------------|----------------|------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---|
-    Tempo de vida mínimo | 1 hora         | 10 a 43200 minutos (30 dias) | Número mínimo de minutos durante os quais a passagem de acesso temporária é válida.                                                                                                                                                                                                                         |   |
-   | Tempo de vida máximo | 24 horas       | 10 a 43200 minutos (30 dias) | Número máximo de minutos durante os quais a passagem de acesso temporária é válida.                                                                                                                                                                                                                         |   |
-   | Tempo de vida padrão | 1 hora         | 10 a 43200 minutos (30 dias) | Os valores padrão podem ser substituídos por passagens individuais, dentro do tempo de vida mínimo e máximo configurado pela política                                                                                                                                                |   |
-   | Uso único     | Falso          | Verdadeiro/falso                 | Quando a política é definida como false, as passagens no locatário podem ser usadas uma ou mais de uma vez durante sua validade (tempo de vida máximo). Ao impor o uso único na política de aprovação de acesso temporário, todas as passagens criadas no locatário serão criadas como um único uso. |   |
-   | Comprimento           | 8              | 8-48 caracteres              | Define o comprimento da senha.                                                                                                                                                                                                                                      |   |
+   | Setting | Valores padrão | Valores permitidos | Comentários |
+   |---|---|---|---|
+   | Tempo de vida mínimo | 1 hora | 10 a 43200 minutos (30 dias) | Número mínimo de minutos durante os quais a passagem de acesso temporária é válida. |
+   | Tempo de vida máximo | 24 horas | 10 a 43200 minutos (30 dias) | Número máximo de minutos durante os quais a passagem de acesso temporária é válida. |
+   | Tempo de vida padrão | 1 hora | 10 a 43200 minutos (30 dias) | Os valores padrão podem ser substituídos por passagens individuais, dentro do tempo de vida mínimo e máximo configurado pela política. |
+   | Uso único | Falso | Verdadeiro/falso | Quando a política é definida como false, as passagens no locatário podem ser usadas uma ou mais de uma vez durante sua validade (tempo de vida máximo). Ao impor o uso único na política de aprovação de acesso temporário, todas as passagens criadas no locatário serão criadas como um único uso. |
+   | Comprimento | 8 | 8-48 caracteres | Define o comprimento da senha. |
 
 ## <a name="create-a-temporary-access-pass-in-the-azure-ad-portal"></a>Criar uma passagem de acesso temporária no portal do AD do Azure
 

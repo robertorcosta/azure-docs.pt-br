@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 40fcdae9a94b2b48eb4c665f4e0c9c3e58962f4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4fb2ea534954ae6c64d0da2d992ce8b1c8a62c0c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576774"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557557"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matriz de suporte para migração do VMware
 
@@ -57,18 +57,18 @@ A tabela resume os requisitos de migração sem agente para VMs VMware.
 **Tamanho do disco** | disco do sistema operacional de 2 TB;  32 TB para discos de dados.
 **Limites de disco** |  Até 60 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Sem suporte.
-**Discos independentes** | Sem suporte.
+**Cluster de disco compartilhado** | Não há suporte.
+**Discos independentes** | Não há suporte.
 **Discos de RDM/PassThrough** | Se as VMs tiverem discos RDM ou de passagem, esses discos não serão replicados para o Azure.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Não há suporte para VMs com destinos iSCSI para migração sem agente.
-**E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Sem suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
-**NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**E/s de vários caminhos** | Não há suporte.
+**VMotion de armazenamento** | Não há suporte. A replicação não funcionará se uma VM usar o Storage vMotion.
+**NICs agrupadas** | Não há suporte.
+**IPv6** | Não há suporte.
 **Disco de destino** | As VMs só podem ser migradas para discos gerenciados (HDD padrão, SSD Standard, SSD Premium) no Azure.
 **Replicação simultânea** | Até 300 replicando VMs simultaneamente por vCenter Server com 1 dispositivo. Até 500 replicando VMs simultaneamente por vCenter Server quando um dispositivo de [expansão](./how-to-scale-out-for-migration.md) adicional é implantado. 
-**Instalação automática do agente de VM do Azure (agente do Windows e Linux)** | Com suporte para o Windows Server 2008 R2 em diante. <br/> Com suporte para RHEL6, RHEL7, CentOS7, Ubuntu 14, 4, Ubuntu 16, 4, Ubuntu 18.04. Examine a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements)) para esses sistemas operacionais Linux.
+**Instalação automática do agente de VM do Azure (agente do Windows e Linux)** | Com suporte para o Windows Server 2008 R2 em diante. <br/> Com suporte para RHEL6, RHEL7, CentOS7, Ubuntu 14, 4, Ubuntu 16, 4, Ubuntu 18.04. Examine a lista de [pacotes necessários](../virtual-machines/extensions/agent-linux.md#requirements)) para esses sistemas operacionais Linux.
 
 > [!TIP]
 >  Usando o portal do Azure você poderá selecionar até 10 VMs de cada vez para configurar a replicação. Para replicar mais VMs, você pode usar o portal e adicionar as VMs a serem replicadas em vários lotes de 10 VMs ou usar a interface do PowerShell de migrações para Azure para configurar a replicação. Verifique se você não configurou a replicação simultânea em mais do que o número máximo de VMs com suporte para replicações simultâneas.
@@ -123,15 +123,15 @@ A tabela resume o suporte de VM do VMware para VMs VMware que você deseja migra
 **Tamanho do disco** | disco do sistema operacional de 2 TB; 32 TB para discos de dados.
 **Limites de disco** |  Até 63 discos por VM.
 **Discos/volumes criptografados** | VMs com discos/volumes criptografados não têm suporte para migração.
-**Cluster de disco compartilhado** | Sem suporte.
+**Cluster de disco compartilhado** | Não há suporte.
 **Discos independentes** | Com suporte.
 **Discos de passagem** | Com suporte.
 **NFS** | Volumes NFS montados como volumes nas VMs não serão replicados.
 **destinos iSCSI** | Com suporte.
-**E/s de vários caminhos** | Sem suporte.
-**VMotion de armazenamento** | Compatível
-**NICs agrupadas** | Sem suporte.
-**IPv6** | Sem suporte.
+**E/s de vários caminhos** | Não há suporte.
+**VMotion de armazenamento** | Com suporte
+**NICs agrupadas** | Não há suporte.
+**IPv6** | Não há suporte.
 
 
 
@@ -166,9 +166,9 @@ Contagem do disco do sistema operacional | 1
 Contagem de disco de dados | 64 ou menos. 
 Tamanho do disco de dados | Até 32 TB
 Adaptadores de rede | Há suporte para vários adaptadores.
-VHD compartilhado | Sem suporte. 
-Disco FC | Sem suporte. 
-BitLocker | Sem suporte.<br/><br/> O BitLocker deve ser desabilitado antes da migração do computador.
+VHD compartilhado | Não há suporte. 
+Disco FC | Não há suporte. 
+BitLocker | Não há suporte.<br/><br/> O BitLocker deve ser desabilitado antes da migração do computador.
 Nome da VM | De 1 a 63 caracteres.<br/><br/> Restrito a letras, números e hifens.<br/><br/> O nome do computador precisa começar e terminar com uma letra ou um número. 
 Conectar após a migração-Windows | Para se conectar às VMs do Azure que executam o Windows após a migração:<br/><br/> -Antes da migração, habilite o RDP na VM local.<br/><br/> Certifique-se de que as regras TCP e UDP são adicionadas ao perfil **Público** e que o RDP é permitido no **Firewall do Windows** > **Aplicativos Permitidos** para todos os perfis.<br/><br/> Para acesso VPN site a site, habilite o RDP e permita que o RDP no **Firewall do Windows** tenha  ->  **aplicativos e recursos permitidos** para redes privadas e de **domínio** .<br/><br/> Além disso, verifique se a política de SAN do sistema operacional está definida como **OnlineAll**. [Saiba mais](prepare-for-migration.md).
 Conectar após a migração-Linux | Para se conectar às VMs do Azure após a migração usando SSH:<br/><br/> Antes da migração, no computador local, verifique se o serviço Secure Shell está definido como iniciar e se as regras de firewall permitem uma conexão SSH.<br/><br/> Após o failover, na VM do Azure, permita conexões de entrada para a porta SSH para as regras do grupo de segurança de rede na VM com failover e para a sub-rede do Azure à qual ela está conectada.<br/><br/> Além disso, adicione um endereço IP público para a VM.  

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 03/18/2021
-ms.openlocfilehash: 8617c32eac86d8e47678c06e3b028a475b4a5efb
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 77007f0d9ffac39ecb6f21957dd8cd1bf7a0b945
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593842"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565700"
 ---
 # <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Solucionar problemas de fluxos de dados de mapeamento em Azure Data Factory
 
@@ -302,7 +302,7 @@ Este artigo explora métodos comuns de solução de problemas para mapeamento de
 
 ### <a name="error-code-df-excel-invalidrange"></a>Código de erro: DF-Excel-InvalidRange
 - **Mensagem**: intervalo inválido fornecido.
-- **Recomendação**: Verifique o valor do parâmetro e especifique o intervalo válido pela seguinte referência: [formato do Excel no Azure data Factory-Dataset Propriedades](https://docs.microsoft.com/azure/data-factory/format-excel#dataset-properties).
+- **Recomendação**: Verifique o valor do parâmetro e especifique o intervalo válido pela seguinte referência: [formato do Excel no Azure data Factory-Dataset Propriedades](./format-excel.md#dataset-properties).
 
 ### <a name="error-code-df-excel-worksheetnotexist"></a>Código de erro: DF-Excel-WorksheetNotExist
 - **Mensagem**: a planilha do Excel não existe.
@@ -369,4 +369,3 @@ Para obter mais ajuda com a solução de problemas, consulte estes recursos:
 *  [Vídeos do Azure](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 *  [Fórum do Stack Overflow para Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 *  [Informações do Twitter sobre o Data Factory](https://twitter.com/hashtag/DataFactory)
-

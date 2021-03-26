@@ -7,12 +7,12 @@ ms.topic: how-to
 author: kriti-ms
 ms.author: krsh
 ms.date: 03/10/2021
-ms.openlocfilehash: 9ffba221625c57332cd695125651d92adc11cf60
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 467b7d605b57c479d84fc995b4e0dc53b3ac5275
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103200371"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558288"
 ---
 # <a name="test-a-virtual-machine-image"></a>Testar uma imagem de máquina virtual
 
@@ -28,7 +28,7 @@ Para implantar uma VM da imagem da Galeria de imagens compartilhada:
 1. Clique em Revisar + Criar. Depois que a validação for aprovada, clique em criar
 
 > [!NOTE]
-> Se você precisar criar uma VM de um arquivo VHD, siga as instruções nos artigos a seguir, [Prepare um modelo de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#prepare-an-azure-resource-manager-template) ou [implante uma VM do Azure usando o PowerShell](https://docs.microsoft.com/azure/marketplace/azure-vm-image-test#deploy-an-azure-vm-using-powershell).
+> Se você precisar criar uma VM de um arquivo VHD, siga as instruções nos artigos a seguir, [Prepare um modelo de Azure Resource Manager](#connect-the-certification-tool-to-a-vm-image) ou [implante uma VM do Azure usando o PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
 
 Este artigo descreve como testar e enviar uma imagem de VM (máquina virtual) no Marketplace comercial para garantir que ela atenda aos requisitos mais recentes de publicação do Azure Marketplace.
 

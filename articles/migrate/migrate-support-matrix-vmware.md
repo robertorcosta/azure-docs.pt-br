@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 03/17/2021
-ms.openlocfilehash: 520aedd9dbb618788107bc83c5d72ad237acea22
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 4d51fc13e3587c21a7340b35db10d3cf36ab74b5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870731"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557540"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matriz de suporte para avaliação do VMware 
 
@@ -94,8 +94,8 @@ A [descoberta de aplicativos](how-to-discover-applications.md) identifica as ins
 **Serviços SQL com suporte** | Há suporte apenas para SQL Server Mecanismo de Banco de Dados. <br/> Não há suporte para a descoberta de SQL Server Reporting Services (SSRS), SQL Server Integration Services (SSIS) e SQL Server Analysis Services (SSAS).
 
 > [!Note]
-> As Migrações para Azure criptografarão a comunicação entre o dispositivo das Migrações para Azure e as instâncias do SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como TRUE); a camada de transporte usará o SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor do dispositivo precisa ser configurado para [**confiar na autoridade raiz do certificado**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Se nenhum certificado tiver sido provisionado no servidor quando ele foi inicializado, o SQL Server vai gerar um certificado autoassinado usado para criptografar pacotes de logon. [**Saiba mais**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+> As Migrações para Azure criptografarão a comunicação entre o dispositivo das Migrações para Azure e as instâncias do SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como TRUE); a camada de transporte usará o SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor do dispositivo precisa ser configurado para [**confiar na autoridade raiz do certificado**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Se nenhum certificado tiver sido provisionado no servidor quando ele foi inicializado, o SQL Server vai gerar um certificado autoassinado usado para criptografar pacotes de logon. [**Saiba mais**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 ## <a name="dependency-analysis-requirements-agentless"></a>Requisitos de análise de dependência (sem agente)
 

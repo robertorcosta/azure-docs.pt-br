@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 9576730d9c4f8d4d237dce9ce8f207ea14b04f45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: d91c88da1416071b5eee2a8eb10e3029086839e9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103471589"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561773"
 ---
 # <a name="enable-logging-in-ml-training-runs"></a>Habilitar log em execuções de treinamento de ML
 
@@ -41,7 +41,7 @@ Registre em log vários tipos de dados, incluindo valores escalares, listas, tab
 
 ### <a name="logging-run-metrics"></a>Métricas de execução de log 
 
-Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas. Observe os [limites de serviço](https://docs.microsoft.com/azure/machine-learning/resource-limits-quotas-capacity#metrics) para essas métricas registradas. 
+Use os métodos a seguir nas APIs de log para influenciar as visualizações de métricas. Observe os [limites de serviço](./resource-limits-quotas-capacity.md#metrics) para essas métricas registradas. 
 
 |Valor conectado|Código de exemplo| Formato no portal|
 |----|----|----|

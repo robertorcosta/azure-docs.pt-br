@@ -9,12 +9,12 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: zxue
 ms.date: 03/03/2021
-ms.openlocfilehash: d8f7a2b2f31fb192147c1950866cff77064a3671
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: a884dac90273e98868fed6bfe1cbed23b939d286
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017648"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557693"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Habilitar o log de diagnóstico na API do Azure para FHIR
 
@@ -42,7 +42,7 @@ Você pode exibir as métricas em monitoramento | Métricas do Portal. As métri
     2. **Transmita para o Hub de eventos** para ingestão por um serviço de terceiros ou uma solução analítica personalizada. Você precisará criar um namespace do hub de eventos e uma política do hub de eventos antes de configurar esta etapa.
     3. **Transmitir para o** espaço de trabalho Log Analytics no Azure monitor. Você precisará criar seu espaço de trabalho do log Analytics antes de poder selecionar essa opção.
 
-6. Selecione **AuditLogs** e/ou todas as **métricas**. As métricas incluem nome do serviço, disponibilidade, tamanho dos dados, latência total, total de solicitações, total de erros e carimbo de data/hora. Você pode encontrar mais detalhes sobre as [métricas com suporte](https://docs.microsoft.com/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
+6. Selecione **AuditLogs** e/ou todas as **métricas**. As métricas incluem nome do serviço, disponibilidade, tamanho dos dados, latência total, total de solicitações, total de erros e carimbo de data/hora. Você pode encontrar mais detalhes sobre as [métricas com suporte](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Configurações de diagnóstico do Azure FHIR. Selecione AuditLogs e/ou todas as métricas." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -72,7 +72,7 @@ Neste momento, a API do Azure para o serviço FHIR retorna os seguintes campos n
 |RequestUri|String|O URI de solicitação 
 |ResultType|String|Os valores disponíveis atualmente foram **iniciados**, **tiveram êxito** ou **falharam**
 |StatusCode|int|O código de status HTTP. (por exemplo, 200) 
-|TimeGenerated|Datetime|Data e hora do evento|
+|TimeGenerated|DateTime|Data e hora do evento|
 |Propriedades|String| Descreve as propriedades do fhirResourceType
 |SourceSystem|String| Sistema de origem (sempre o Azure, neste caso)
 |TenantId|String|ID do locatário

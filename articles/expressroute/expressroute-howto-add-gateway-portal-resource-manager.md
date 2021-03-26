@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/03/2021
 ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 6c6969fdf413c4eb5e7bbcf046fc397834d6c0a2
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: e70b41dfba03b7439313350746724c6f8e90bc34
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102038910"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564765"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Tutorial: Configurar um gateway de rede virtual para ExpressRoute usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ As etapas para essa tarefa usam uma VNet com base nos valores na lista de refer�
 Você pode exibir um [Vídeo](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-vpn-gateway-for-your-virtual-network) dessas etapas antes de iniciar sua configuração.
 
 > [!IMPORTANT]
-> A compatibilidade com IPv6 para emparelhamento privado está atualmente em **Versão Prévia Pública**. Se você quiser conectar sua rede virtual a um circuito do ExpressRoute com o emparelhamento privado configurado baseado em IPv6, verifique se a rede virtual é de pilha dupla e se segue as diretrizes do [IPv6 para VNet do Azure](https://docs.microsoft.com/azure/virtual-network/ipv6-overview).
+> A compatibilidade com IPv6 para emparelhamento privado está atualmente em **Versão Prévia Pública**. Se você quiser conectar sua rede virtual a um circuito do ExpressRoute com o emparelhamento privado configurado baseado em IPv6, verifique se a rede virtual é de pilha dupla e se segue as diretrizes do [IPv6 para VNet do Azure](../virtual-network/ipv6-overview.md).
 > 
 > 
 

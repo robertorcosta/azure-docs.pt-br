@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: e5e01c8d1ac16e5e8be405660a0726796789e645
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ad8968fdb6548da29a031f0e44bd3671f67b5553
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101738966"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557710"
 ---
 # <a name="azure-security-baseline-for-azure-resource-graph"></a>Linha de base de segurança do Azure para o grafo de recursos do Azure
 
@@ -30,7 +30,7 @@ Para ver como o grafo de recursos do Azure é completamente mapeado para o bench
 
 **Diretrizes**: o grafo de recursos do Azure fornece acesso a tipos de recursos e propriedades com base em controles de acesso baseado em função do Azure (RBAC do Azure). Auditar e examinar o acesso concedido a entidades de segurança (usuários, grupos e contas de serviço) regularmente para garantir que as consultas retornem os resultados para os recursos apropriados.
 
-- [Permissões no Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Permissões no Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [Como usar as revisões de acesso de identidade do Azure](../../../active-directory/governance/access-reviews-overview.md)
 
@@ -46,7 +46,7 @@ Para ver como o grafo de recursos do Azure é completamente mapeado para o bench
 
 **Diretrizes**: Use o RBAC do Azure para controlar o acesso a dados e recursos. Para usar o grafo de recursos do Azure, você também deve ter acesso apropriado aos recursos que deseja consultar. Esse acesso deve ser definido como somente leitura e concedido somente à equipe necessária.
 
-- [Permissões no Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview#permissions-in-azure-resource-graph)
+- [Permissões no Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph)
 
 - [Como configurar o RBAC do Azure](../../../role-based-access-control/role-assignments-rest.md)
 
@@ -96,5 +96,5 @@ Para ver como o grafo de recursos do Azure é completamente mapeado para o bench
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../../../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../../../security/benchmarks/security-baselines-overview.md)

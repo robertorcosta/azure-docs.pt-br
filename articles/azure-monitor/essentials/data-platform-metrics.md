@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 8ecfd74a4d486a83add490501c2f7af4a4003b85
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 68e947a6e13ba5195815fe966ec69ec6a2f4b8e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101700967"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562963"
 ---
 # <a name="azure-monitor-metrics-overview"></a>Visão geral das métricas de Azure Monitor
 Azure Monitor métricas é um recurso de Azure Monitor que coleta dados numéricos de [recursos monitorados](../monitor-reference.md) em um banco de dados de série temporal. Métricas são valores numéricos que são coletados em intervalos regulares e descrevem algum aspecto de um sistema em um determinado momento. As métricas no Azure Monitor são leves e capazes de dar suporte a cenários quase em tempo real, tornando-os particularmente úteis para alertas e detecção rápida de problemas. Você pode analisá-los interativamente com o Metrics Explorer, ser notificado proativamente com um alerta quando um valor ultrapassar um limite ou visualizá-los em uma pasta de trabalho ou painel.
@@ -27,7 +27,7 @@ Azure Monitor métricas é um recurso de Azure Monitor que coleta dados numéric
 ## <a name="what-can-you-do-with-azure-monitor-metrics"></a>O que você pode fazer com as Métricas do Azure Monitor?
 A tabela a seguir lista as diferentes maneiras pelas quais você pode usar métricas em Azure Monitor.
 
-|  |  |
+|  | Description |
 |:---|:---|
 | **Analisar** | Use o [Metrics Explorer](metrics-charts.md) para analisar as métricas coletadas em um gráfico e comparar métricas de recursos diferentes. |
 | **Alerta** | Configurar uma [regra de alerta da métrica](../alerts/alerts-metric.md) que envia uma notificação ou realiza uma [ação automatizada](../alerts/action-groups.md) quando o valor da métrica ultrapassa o limite definido. |

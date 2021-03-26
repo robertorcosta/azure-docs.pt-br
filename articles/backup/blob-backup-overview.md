@@ -3,12 +3,12 @@ title: Visão geral do backup operacional para BLOBs do Azure
 description: Saiba mais sobre o backup operacional para BLOBs do Azure (em versão prévia).
 ms.topic: conceptual
 ms.date: 02/16/2021
-ms.openlocfilehash: b10191c8a01d3cc7a92dee8ca9bf59a506497a60
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1f6bc98b92a2af4b05cae766a2186f2970b7133c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101744069"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558747"
 ---
 # <a name="overview-of-operational-backup-for-azure-blobs-in-preview"></a>Visão geral do backup operacional para BLOBs do Azure (em versão prévia)
 
@@ -22,7 +22,7 @@ O backup operacional de BLOBs é uma solução de **backup local** . Portanto, o
 
 O backup operacional usa recursos da plataforma de BLOB para proteger seus dados e permitir a recuperação quando necessário:
 
-- **Restauração pontual**: a [restauração pontual de blob](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview) permite restaurar dados de BLOB para um estado anterior. Isso, por sua vez, usa a **exclusão reversível**, o **feed de alterações** e o **controle de versão de blob** para reter dados durante a duração especificada. O backup operacional cuida da habilitação da restauração pontual, bem como dos recursos subjacentes para garantir que os dados sejam retidos durante o período especificado.
+- **Restauração pontual**: a [restauração pontual de blob](../storage/blobs/point-in-time-restore-overview.md) permite restaurar dados de BLOB para um estado anterior. Isso, por sua vez, usa a **exclusão reversível**, o **feed de alterações** e o **controle de versão de blob** para reter dados durante a duração especificada. O backup operacional cuida da habilitação da restauração pontual, bem como dos recursos subjacentes para garantir que os dados sejam retidos durante o período especificado.
 
 - **Excluir bloqueio**: o bloqueio de exclusão impede que a conta de armazenamento seja excluída acidentalmente ou por usuários não autorizados. O backup operacional quando configurado também aplica automaticamente um bloqueio de exclusão para reduzir as possibilidades de perda de dados devido à exclusão da conta de armazenamento.
 
@@ -63,9 +63,9 @@ O backup operacional oferece a opção de restaurar todos os blobs de blocos na 
 
 Você não incorrerá em nenhum encargo de gerenciamento ou taxa de instância ao usar o backup operacional para BLOBs. No entanto, você incorrerá nos seguintes encargos:
 
-- As restaurações são feitas usando a restauração de ponto no tempo BLOB e atraim encargos com base na quantidade de dados processados. Para obter mais informações, consulte [preços de restauração pontual](https://docs.microsoft.com/azure/storage/blobs/point-in-time-restore-overview#pricing-and-billing).
+- As restaurações são feitas usando a restauração de ponto no tempo BLOB e atraim encargos com base na quantidade de dados processados. Para obter mais informações, consulte [preços de restauração pontual](../storage/blobs/point-in-time-restore-overview.md#pricing-and-billing).
 
-- Retenção de dados devido à [exclusão reversível para BLOBs](https://docs.microsoft.com/azure/storage/blobs/soft-delete-blob-overview), [suporte ao feed de alterações no armazenamento de BLOBs do Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blob-change-feed)e [controle de versão de blob](https://docs.microsoft.com/azure/storage/blobs/versioning-overview).
+- Retenção de dados devido à [exclusão reversível para BLOBs](../storage/blobs/soft-delete-blob-overview.md), [suporte ao feed de alterações no armazenamento de BLOBs do Azure](../storage/blobs/storage-blob-change-feed.md)e [controle de versão de blob](../storage/blobs/versioning-overview.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 

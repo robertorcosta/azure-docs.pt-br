@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 6ab310681ae7b63cb4e9f4e07984983727ae5ff2
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: ea75b9c1e8c7a1a242406b5a7f73db1b05c70276
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953911"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562198"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Linha de base de segurança do Azure para automação
 
@@ -544,7 +544,7 @@ Ao usar Hybrid runbook Workers, os discos virtuais nas máquinas virtuais são c
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. Automation**:
 
@@ -743,7 +743,7 @@ Você também pode usar recomendações da central de segurança do Azure como u
 
 - [Compreendendo os efeitos do Azure Policy](../governance/policy/concepts/effects.md)
 
-- [Implantar uma conta de automação usando um modelo de Azure Resource Manager](/azure/automation/quickstart-create-account-template#deploy-the-template)
+- [Implantar uma conta de automação usando um modelo de Azure Resource Manager](/azure/automation/quickstart-create-automation-account-template)
 
 - [Azure Policy os internos de exemplo para a automação do Azure](policy-reference.md)
 

@@ -8,12 +8,12 @@ author: cpercy737
 ms.author: camper
 ms.date: 03/22/2021
 ms.custom: devx-track-terraform
-ms.openlocfilehash: ed7f27b0b8fde902f4ae9b65b9f6b4ada78f79c6
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: 53edd3ec9a8d30d0c25f994db4a8b6f0199c2169
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104799183"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558407"
 ---
 # <a name="azure-customer-usage-attribution"></a>Atribuição de uso do cliente do Azure
 
@@ -34,7 +34,7 @@ Há casos de uso secundários para atribuição de uso do cliente fora do Market
 
 ## <a name="commercial-marketplace-azure-apps"></a>Aplicativos do Azure no Marketplace comercial
 
-O controle do uso do Azure de aplicativos do Azure publicados no Marketplace comercial é amplamente automático. Ao carregar um modelo do Resource Manager como parte da [configuração técnica do plano do aplicativo do Azure do Marketplace](https://docs.microsoft.com/azure/marketplace/create-new-azure-apps-offer-solution#define-the-technical-configuration), o Partner Center adicionará uma ID de rastreamento legível por Azure Resource Manager.
+O controle do uso do Azure de aplicativos do Azure publicados no Marketplace comercial é amplamente automático. Ao carregar um modelo do Resource Manager como parte da [configuração técnica do plano do aplicativo do Azure do Marketplace](./create-new-azure-apps-offer-solution.md#define-the-technical-configuration), o Partner Center adicionará uma ID de rastreamento legível por Azure Resource Manager.
 
 Se você usar APIs de Azure Resource Manager, será necessário adicionar sua ID de rastreamento de acordo com as [instruções abaixo](#use-resource-manager-apis) para passá-la para Azure Resource Manager à medida que o código implantar recursos. Essa ID é visível no Partner Center na página de configuração técnica do seu plano. 
 

@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 03/04/2021
 ms.author: alkohli
-ms.openlocfilehash: 43853f2eba05794540a72fe64e748fcafd9073d2
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 16dc95d4e32c683634aa2d96fc2af281612346e1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102637640"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568300"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-using-azure-cli-and-python"></a>Implantar VMs no dispositivo de GPU Azure Stack Edge Pro usando a CLI do Azure e o Python
 
@@ -355,7 +355,7 @@ Antes de começar a criar e gerenciar uma VM no dispositivo Azure Stack Edge Pro
 
    A ID de cliente do Azure Resource Manager é embutida em código. A ID de locatário do Azure Resource Manager e a ID de assinatura do Azure Resource Manager estão presentes na saída do comando `az login` executado anteriormente. O segredo do cliente do Azure Resource Manager é a senha do Azure Resource Manager definida por você.
 
-   Para obter mais informações, confira [Senha do Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
+   Para obter mais informações, confira [Senha do Azure Resource Manager](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password).
 
 5. Altere o perfil para a versão 2019-03-01-hybrid. Para alterar a versão do perfil, execute o seguinte comando:
 

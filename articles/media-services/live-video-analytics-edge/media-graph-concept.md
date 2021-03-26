@@ -3,12 +3,12 @@ title: Conceito de grafo de mídia-Azure
 description: Um grafo de mídia permite definir onde a mídia deve ser capturada, como ela deve ser processada e onde os resultados devem ser entregues. Este artigo fornece uma descrição detalhada do conceito de grafo de mídia.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6f23e7db8cecb46106a63fdecdb6ba04dbd99682
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ad23acbbbdd0c15e92e471ee22a229470a8a3a75
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97401093"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557659"
 ---
 # <a name="media-graph"></a>Grafo de mídia
 
@@ -74,7 +74,7 @@ Um nó de origem RTSP permite que você ingerir a mídia de um servidor [RTSP](h
 
 #### <a name="iot-hub-message-source"></a>Origem da mensagem do Hub IoT 
 
-Assim como outros [módulos de IOT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-module), a análise de vídeo ao vivo no módulo IOT Edge pode receber mensagens por meio do hub de [IOT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub). Essas mensagens podem ser enviadas de outros módulos ou de aplicativos em execução no dispositivo de borda ou da nuvem. Essas mensagens são entregues (roteadas) a uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de origem de mensagem do Hub IoT permite que essas mensagens alcancem um grafo de mídia. Essas mensagens ou sinais podem ser usados internamente no grafo de mídia, normalmente para ativar as Gates de sinais (consulte [sinais de sinal](#signal-gate-processor) abaixo). 
+Assim como outros [módulos de IOT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge), a análise de vídeo ao vivo no módulo IOT Edge pode receber mensagens por meio do hub de [IOT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub). Essas mensagens podem ser enviadas de outros módulos ou de aplicativos em execução no dispositivo de borda ou da nuvem. Essas mensagens são entregues (roteadas) a uma [entrada nomeada](../../iot-edge/module-composition.md#sink) no módulo. Um nó de origem de mensagem do Hub IoT permite que essas mensagens alcancem um grafo de mídia. Essas mensagens ou sinais podem ser usados internamente no grafo de mídia, normalmente para ativar as Gates de sinais (consulte [sinais de sinal](#signal-gate-processor) abaixo). 
 
 Por exemplo, você pode ter um módulo IoT Edge que gera uma mensagem quando uma porta é aberta. A mensagem desse módulo pode ser roteada para IoT Edge Hub, de onde ele pode ser roteado para a origem da mensagem do Hub IoT de um grafo de mídia. Dentro do grafo de mídia, a origem da mensagem do Hub IoT pode passar o evento para um processador de porta de sinal, que pode então ativar a gravação do vídeo de uma fonte RTSP em um arquivo. 
 

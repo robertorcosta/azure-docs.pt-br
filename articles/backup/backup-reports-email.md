@@ -3,12 +3,12 @@ title: Enviar relatórios de backup do Azure
 description: Criar tarefas automatizadas para receber relatórios periódicos por email
 ms.topic: conceptual
 ms.date: 03/01/2021
-ms.openlocfilehash: 8c18d4c7a3c7a9ba343296961fa9a44614366405
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d3ec76fa1a23657578979e65c0e54bb428722244
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510437"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561331"
 ---
 # <a name="email-azure-backup-reports"></a>Enviar relatórios de backup do Azure
 
@@ -30,7 +30,7 @@ Para configurar tarefas de email por meio de relatórios de backup, execute as s
 
 ## <a name="authorize-connections-to-azure-monitor-logs-and-office-365"></a>Autorizar conexões a Azure Monitor logs e Office 365
 
-O aplicativo lógico usa o conector [azuremonitorlogs](https://docs.microsoft.com/connectors/azuremonitorlogs/) para consultar os espaços de trabalho da la e usa o conector do [Outlook](https://docs.microsoft.com/connectors/office365connector/) para enviar emails. Você precisará executar uma autorização única para esses dois conectores. 
+O aplicativo lógico usa o conector [azuremonitorlogs](/connectors/azuremonitorlogs/) para consultar os espaços de trabalho da la e usa o conector do [Outlook](/connectors/office365connector/) para enviar emails. Você precisará executar uma autorização única para esses dois conectores. 
  
 Para executar a autorização, siga as etapas abaixo:
 
@@ -79,4 +79,4 @@ Para solucionar o problema:
 Se os problemas persistirem, entre em contato com o suporte da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
-[Saiba mais sobre os relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports)
+[Saiba mais sobre os relatórios de backup](./configure-reports.md)

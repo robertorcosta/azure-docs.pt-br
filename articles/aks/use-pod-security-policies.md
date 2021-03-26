@@ -4,12 +4,12 @@ description: Saiba como controlar as inmissões Pod usando o PodSecurityPolicy n
 services: container-service
 ms.topic: article
 ms.date: 02/12/2021
-ms.openlocfilehash: cb317e5e0d1f558121e675f569bad37811768ca6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102180302"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544240"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
@@ -21,7 +21,7 @@ ms.locfileid: "102180302"
 > É altamente recomendável começar a testar cenários com o Azure Policy para AKS, que oferece políticas internas para proteger pods e iniciativas internas que mapeiam para políticas de segurança Pod. Para migrar da política de segurança de Pod, você precisa executar as seguintes ações em um cluster.
 > 
 > 1. [Desabilitar política de segurança de Pod](#clean-up-resources) no cluster
-> 1. Habilitar o [complemento de Azure Policy][kubernetes-policy-reference]
+> 1. Habilitar o [complemento de Azure Policy][azure-policy-add-on]
 > 1. Habilitar as políticas do Azure desejadas de [políticas internas disponíveis][policy-samples]
 > 1. Examinar [as alterações de comportamento entre a política de segurança de Pod e Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
@@ -462,7 +462,6 @@ Para obter mais informações sobre como limitar o tráfego de rede Pod, consult
 [kubectl-logs]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#logs
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubernetes-policy-reference]: https://kubernetes.io/docs/concepts/policy/pod-security-policy/#policy-reference
-
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
 [aks-quickstart-portal]: kubernetes-walkthrough-portal.md
@@ -479,3 +478,4 @@ Para obter mais informações sobre como limitar o tráfego de rede Pod, consult
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [policy-samples]: ./policy-reference.md#microsoftcontainerservice
+[azure-policy-add-on]: ../governance/policy/concepts/policy-for-kubernetes.md

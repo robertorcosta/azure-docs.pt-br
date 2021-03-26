@@ -2,13 +2,13 @@
 title: Implantar recursos com o PowerShell e o modelo
 description: Use Azure Resource Manager e Azure PowerShell para implantar recursos no Azure. Os recursos são definidos em um modelo do Resource Manager ou em um arquivo bicep.
 ms.topic: conceptual
-ms.date: 03/04/2021
-ms.openlocfilehash: e1d2197064b94d428855bbb36aadbb5eb88d4032
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.date: 03/25/2021
+ms.openlocfilehash: 11a293ca58fc6acf3bd99bb0169d817dae11fb94
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950851"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543798"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-powershell"></a>Implantar recursos com modelos do Resource Manager e o Azure PowerShell
 
@@ -118,6 +118,8 @@ A implantação pode levar vários minutos para ser concluída.
 > Atualmente, Azure PowerShell não dá suporte à implantação de arquivos bicep remotos. Use a [CLI do bicep](./bicep-install.md#development-environment) para compilar o arquivo bicep para um modelo JSON e, em seguida, carregue o arquivo JSON no local remoto.
 
 Em vez de armazenar modelos de ARM em seu computador local, você pode preferir armazená-los em um local externo. É possível armazenar modelos em um repositório de controle de código-fonte (como o GitHub). Ou ainda armazená-los em uma conta de armazenamento do Azure para acesso compartilhado na sua organização.
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 Se você estiver implantando em um grupo de recursos que não existe, crie o grupo de recursos. O nome do grupo de recursos pode incluir somente caracteres alfanuméricos, pontos, sublinhados, hifens e parênteses. Pode ter até 90 caracteres. O nome não pode terminar com um ponto.
 

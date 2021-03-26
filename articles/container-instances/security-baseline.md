@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1ab927c973c6a5de6f3f3f8d88c504ec572b7148
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: f63fc7ae28d80707149046637cf39c60a45748fd
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047585"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566567"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Linha de base de segurança do Azure para instâncias de contêiner
 
@@ -32,7 +32,7 @@ Para ver como as instâncias de contêiner são completamente mapeadas para o be
 
 Controle o acesso à rede de saída de uma sub-rede delegada para instâncias de contêiner do Azure usando o Firewall do Azure. 
 
-- [Implantar instâncias de contêiner em uma rede virtual do Azure](/azure/container-instances/container-instance-vnet)
+- [Implantar instâncias de contêiner em uma rede virtual do Azure](/azure/container-instances/container-instances-vnet)
 
 - [Como implantar e configurar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
 

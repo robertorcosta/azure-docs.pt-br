@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/17/2021
 ms.topic: conceptual
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0b68b78499aa3bf0d84d8bd0fa5ab55d1f969113
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 878748fcfc9b096e340b53c06969962af99f603f
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101678987"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561161"
 ---
 # <a name="device-update-apt-manifest"></a>Manifesto de APT de atualização de dispositivo
 
@@ -103,7 +103,7 @@ Se a versão for omitida, a versão mais recente disponível do pacote especific
 > O Gerenciador de pacotes APT ignora os requisitos de controle de versão fornecidos por um pacote quando os pacotes dependentes a serem instalados estão sendo resolvidos automaticamente. A menos que sejam dadas as versões explícitas dos pacotes dependentes, elas usarão o mais recente, mesmo que o próprio pacote possa especificar um requisito estrito (=) em uma determinada versão. Essa resolução automática pode levar a erros relacionados a uma dependência não atendida. [Saiba mais](https://unix.stackexchange.com/questions/350192/apt-get-not-properly-resolving-a-dependency-on-a-fixed-version-in-a-debian-ubunt)
 
 Se você estiver atualizando uma versão específica do daemon de segurança do Azure IoT Edge, deverá incluir a versão desejada do `iotedge` pacote e seu pacote dependente `libiothsm-std` em seu manifesto apt.
-[Saiba mais](https://docs.microsoft.com/azure/iot-edge/how-to-update-iot-edge#update-the-security-daemon)
+[Saiba mais](../iot-edge/how-to-update-iot-edge.md#update-the-security-daemon)
 
 > [!NOTE]
 > Um manifesto apt pode ser usado para atualizar o agente de atualização de dispositivo e suas dependências. Liste o nome do agente de atualização de dispositivo e a versão desejada no manifesto apt, como você faria para qualquer outro pacote. Esse manifesto apt pode ser importado e implantado por meio da atualização do dispositivo para o pipeline do Hub IoT. 
@@ -202,4 +202,3 @@ Essa atualização inclui o pacote foo e também inclui o pacote de barras.
 
 > [!div class="nextstepaction"]
 > [Importar nova atualização](import-update.md)
-

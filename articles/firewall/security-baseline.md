@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7766b57b5a3b9ffc73691303b5d8bcaa63fce4c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: ab3f651c610127399da83addd6463ae8cb3748a9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721660"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565241"
 ---
 # <a name="azure-security-baseline-for-azure-firewall"></a>Linha de base de segurança do Azure para o Firewall do Azure
 
@@ -36,7 +36,7 @@ Além disso, use a central de segurança do Azure e siga as recomendações de p
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. Network**:
 
@@ -52,7 +52,7 @@ Além disso, use a central de segurança do Azure e siga as recomendações de p
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. Network**:
 
@@ -72,7 +72,7 @@ Observe que você não pode criar sua própria marca de serviço nem especificar
 
 - [Marcas de serviço do Firewall do Azure](service-tags.md)
 
-- [Marcas de serviço disponíveis](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags)
+- [Marcas de serviço disponíveis](../virtual-network/service-tags-overview.md#available-service-tags)
 
 - [Grupos de IPs no firewall do Azure](ip-groups.md)
 
@@ -90,7 +90,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Exemplos de Azure Policy para rede](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network)
 
 - [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -104,9 +104,9 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 - [Monitorar os logs e as métricas do Firewall do Azure](firewall-diagnostics.md)
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view#view-the-activity-log)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -120,7 +120,7 @@ Você também pode usar plantas do Azure para simplificar implantações do Azur
 
 **Diretrizes**: a Microsoft mantém fontes de tempo para recursos do Azure para o Firewall do Azure. Os clientes precisam criar uma regra de rede para permitir esse acesso ou para um servidor de horário que você usa em seu ambiente.
 
-- [Acesso ao servidor NTP](https://docs.microsoft.com/azure/firewall/protect-windows-virtual-desktop#additional-considerations)
+- [Acesso ao servidor NTP](./protect-windows-virtual-desktop.md#additional-considerations)
 
 **Responsabilidade**: Compartilhado
 
@@ -144,7 +144,7 @@ Observação: ambos os logs podem ser salvos em uma conta de armazenamento, tran
 
 Lista de ações de recursos em logs de atividades: Azure Resource Manager operações do provedor de recursos
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor ](/azure/azure-monitor/platform/diagnostic-settings)
+- [Como coletar logs e métricas de plataforma com Azure Monitor ](../azure-monitor/essentials/diagnostic-settings.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -188,9 +188,9 @@ Para obter mais informações, consulte os links de referência abaixo.
 
 - [Logs e métricas do Firewall do Azure](logs-and-metrics.md)
 
-- [Alterar o período de retenção de dados em Log Analytics](/azure/azure-monitor/platform/manage-cost-storage)
+- [Alterar o período de retenção de dados em Log Analytics](../azure-monitor/logs/manage-cost-storage.md)
 
-- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](/azure/storage/common/storage-monitor-storage-account#configure-logging)
+- [Como configurar a política de retenção para logs de conta de armazenamento do Azure](../storage/common/manage-storage-analytics-logs.md#configure-logging)
 
 **Responsabilidade**: Cliente
 
@@ -214,7 +214,7 @@ Azure Monitor logs podem ser usados para monitoramento geral em tempo real de se
 
 - [Logs e métricas do Firewall do Azure](logs-and-metrics.md)
 
-- [Logs de Diagnóstico](https://docs.microsoft.com/azure/firewall/logs-and-metrics#diagnostic-logs)
+- [Logs de Diagnóstico](./logs-and-metrics.md#diagnostic-logs)
 
 **Responsabilidade**: Cliente
 
@@ -230,7 +230,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 - [Como gerenciar alertas na central de segurança do Azure](../security-center/security-center-managing-and-responding-alerts.md)
 
-- [Como alertar sobre dados de log do log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidade**: Cliente
 
@@ -258,7 +258,7 @@ Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel.
 
 Você também pode habilitar um acesso just-in-time/apenas o suficiente usando Azure Active Directory (Azure AD) Privileged Identity Management funções privilegiadas para serviços da Microsoft e Azure Resource Manager.
 
-- [Saiba mais sobre o Privileged Identity Management](/azure/active-directory/privileged-identity-management)
+- [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsabilidade**: Cliente
 
@@ -334,7 +334,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 **Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -348,7 +348,7 @@ Você também pode habilitar um acesso just-in-time/apenas o suficiente usando A
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no espaço de trabalho Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
@@ -386,11 +386,11 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos de firewall do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio do controle de acesso baseado em função do Azure.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -414,7 +414,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 Siga as recomendações da central de segurança do Azure para criptografia em repouso e criptografia em trânsito, quando aplicável. 
 
-- [Entender a criptografia em trânsito com o Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Entender a criptografia em trânsito com o Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsabilidade**: Compartilhado
 
@@ -456,7 +456,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem no firewall do Azure.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -470,7 +470,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 **Diretrizes**: aplique marcas ao firewall do Azure e recursos relacionados, fornecendo metadados para organizá-los logicamente em uma taxonomia. 
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -482,7 +482,7 @@ Siga as recomendações da central de segurança do Azure para criptografia em r
 
 - [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create-management-group-portal)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
@@ -526,7 +526,7 @@ Use o grafo de recursos do Azure para consultar/descobrir recursos de firewall d
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/concepts/effects#deny)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/concepts/effects.md#deny)
 
 **Responsabilidade**: Cliente
 
@@ -594,7 +594,7 @@ No momento, o Azure Policy não tem suporte total para o Firewall do Azure.
 
 **Diretrizes**: Use o Azure DevOps para armazenar e gerenciar com segurança seu código, como políticas personalizadas do Azure e modelos de Azure Resource Manager. Para acessar os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -608,7 +608,7 @@ No momento, o Azure Policy não tem suporte total para o Firewall do Azure.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como usar aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Como usar aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilidade**: Cliente
 
@@ -682,7 +682,7 @@ No momento, o Azure Policy não tem suporte total para o Firewall do Azure.
 
 **Diretrizes**: Use o DevOps do Azure para armazenar e gerenciar com segurança seu código, como políticas personalizadas do azure, Azure Resource Manager modelos. Para proteger os recursos que você gerencia no Azure DevOps, você pode conceder ou negar permissões a usuários específicos, grupos de segurança internos ou grupos definidos no Azure Active Directory (AD do Azure), se integrados ao Azure DevOps, ou Active Directory se integrado ao TFS.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
 - [Sobre permissões e grupos no Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -784,5 +784,5 @@ A exportação contínua permite exportar alertas e recomendações de forma man
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

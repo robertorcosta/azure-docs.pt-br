@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 03/03/2021
 ms.author: mjbrown
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a7796b70d4d32e7023fbc88086a737dd76ae7723
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: b94b30851a5206c2183d999a3c024351cf415c90
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102122707"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568232"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configurar o firewall de IP no Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -108,7 +108,7 @@ Quando você acessa sua conta do Azure Cosmos DB a partir de um computador na In
 
 Para acessar uma lista atual de intervalos de IP de saída para adicionar às suas configurações de firewall, consulte [baixar intervalos de IP do Azure e marcas de serviço](https://www.microsoft.com/download/details.aspx?id=56519).
 
-Para automatizar a lista, consulte [usar a API de descoberta de marca de serviço (visualização pública)](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api-public-preview).
+Para automatizar a lista, consulte [usar a API de descoberta de marca de serviço (visualização pública)](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview).
 
 ## <a name="configure-an-ip-firewall-by-using-a-resource-manager-template"></a><a id="configure-ip-firewall-arm"></a>Configurar um firewall IP usando um modelo do Resource Manager
 

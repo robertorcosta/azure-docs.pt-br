@@ -6,12 +6,12 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: b9d40848abdd85beeca592001b697e3c50b7cd59
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 15f76488790249f7e301d4474772c500c8829b77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103008555"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565632"
 ---
 # <a name="import-new-update"></a>Importar nova atualização
 Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT. Se você ainda não tiver feito isso, não se esqueça de se familiarizar com os conceitos básicos de [importação](import-concepts.md).
@@ -21,7 +21,7 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
 * [Acesso a um hub IOT com a atualização de dispositivo para o Hub IOT habilitado](create-device-update-account.md). É recomendável que você use uma camada S1 (padrão) ou superior para o Hub IoT. 
 * Um dispositivo IoT (ou simulador) provisionado para atualização de dispositivo no Hub IoT.
    * Se estiver usando um dispositivo real, você precisará de um arquivo de imagem de atualização para atualização de imagem ou [arquivo de manifesto apt](device-update-apt-manifest.md) para atualização de pacote.
-* [PowerShell 5](https://docs.microsoft.com/powershell/scripting/install/installing-powershell) ou posterior.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) ou posterior.
 * Navegadores compatíveis:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome
@@ -57,8 +57,8 @@ Saiba como importar uma nova atualização para a atualização de dispositivo p
 
     | Parâmetro | Descrição |
     | --------- | ----------- |
-    | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso. Deve corresponder à [Propriedade do dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)do _fabricante_ .
-    | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira. Deve corresponder à [Propriedade do dispositivo](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-plug-and-play#device-properties)de _modelo_ .
+    | deviceManufacturer | Fabricante do dispositivo ao qual a atualização é compatível, por exemplo, contoso. Deve corresponder à [Propriedade do dispositivo](./device-update-plug-and-play.md#device-properties)do _fabricante_ .
+    | deviceModel | Modelo do dispositivo ao qual a atualização é compatível, por exemplo, torradeira. Deve corresponder à [Propriedade do dispositivo](./device-update-plug-and-play.md#device-properties)de _modelo_ .
     | updateprovider | Entidade que está criando ou diretamente responsável pela atualização. Em geral, ele será um nome de empresa.
     | updatename | Identificador para uma classe de atualizações. A classe pode ser qualquer coisa que você escolher. Em geral, ele será um nome de dispositivo ou modelo.
     | updateVersion | Número de versão que distingue essa atualização de outras que têm o mesmo nome e provedor. Não corresponde a uma versão de um componente de software individual no dispositivo (mas pode se você escolher).

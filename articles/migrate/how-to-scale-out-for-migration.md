@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 1425eafd92737e08596499e395dc62af3d967207
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104607646"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563997"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Dimensionar a migração sem agente de máquinas virtuais VMware para o Azure
 
@@ -54,7 +54,7 @@ Para adicionar um dispositivo de expansão, siga as etapas mencionadas abaixo:
 ### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
 
 1. Em **gerar chave de projeto de migrações para Azure**, forneça um nome de sufixo para o dispositivo de expansão. O sufixo pode conter apenas caracteres alfanuméricos e tem um limite de tamanho de 14 caracteres.
-2. Clique em **gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página de descoberta durante a criação de recursos.
+2. Clique em **gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir durante a criação de recursos.
 3. Copie a chave gerada. Você precisará da chave mais tarde para concluir o registro do dispositivo de expansão.
 
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. Baixe o instalador para o dispositivo de expansão
@@ -106,14 +106,14 @@ Antes de começar, verifique se [esses pontos de extremidade do Azure](migrate-a
 
    Como alternativa, você pode abrir o Gerenciador de configurações na área de trabalho do servidor de dispositivo de escalabilidade horizontal usando o atalho para o Gerenciador de configurações.
 - Aceite os **termos de licença** e leia as informações de terceiros.
-- No Configuration Manager > **configurar os pré-requisitos**, faça o seguinte:
+- No Configuration Manager > **Configurar pré-requisitos**, siga estas etapas:
    - **Conectividade**: o dispositivo verifica se o servidor tem acesso à Internet. Se o servidor usar um proxy:
      1. Clique em **Configurar proxy** para especificar o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta).
      2. Especifique as credenciais caso o proxy exija autenticação.
      3. Há suporte apenas para o proxy HTTP.
      4. Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
    - **Sincronização do horário**: O horário no dispositivo deve ser sincronizado com o horário na Internet para que a descoberta funcione corretamente.
-   - **Instalar as atualizações**: O dispositivo garante que as atualizações mais recentes serão instaladas. Depois que a verificação for concluída, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos serviços em execução no servidor do dispositivo.
+   - **Instalar as atualizações**: O dispositivo garante que as atualizações mais recentes serão instaladas. Após a conclusão da verificação, você poderá clicar em **Exibir serviços de dispositivo** para ver o status e as versões dos serviços em execução no servidor de dispositivo.
    - **Instalar o VDDK**: o dispositivo verifica se o VDDK (Kit de Desenvolvimento de Disco Virtual) do VMware vSphere está instalado. Se ele não estiver instalado, baixe o VDDK 6,7 do VMware e extraia o conteúdo do zip baixado para o local especificado no dispositivo, conforme fornecido nas **instruções de instalação** na tela do dispositivo Configuration Manager.
 
 
@@ -130,7 +130,7 @@ Antes de começar, verifique se [esses pontos de extremidade do Azure](migrate-a
 3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.
 1. Depois de fazer logon com êxito, volte para a guia anterior com o Gerenciador de configuração de dispositivo.
 1. Se a conta de usuário do Azure usada para o registro em log tiver as permissões corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
-:::image type="content" source="./media/how-to-scale-out-for-migration/registration-scale-out.png" alt-text="Painel 2 no Gerenciador de configurações de dispositivo":::
+:::image type="content" source="./media/how-to-scale-out-for-migration/registration-scale-out.png" alt-text="Painel 2 no Configuration Manager do dispositivo":::
 
 #### <a name="import-appliance-configuration-from-primary-appliance"></a>Importar a configuração do dispositivo do dispositivo primário
 
@@ -176,4 +176,4 @@ Neste artigo, você aprendeu que:
 - Como replicar VMs usando um dispositivo de expansão
 
 
-[Saiba mais](https://docs.microsoft.com/azure/migrate/tutorial-migrate-vmware) sobre como migrar servidores para o Azure usando migrações para Azure: ferramenta de migração de servidor.
+[Saiba mais](./tutorial-migrate-vmware.md) sobre como migrar servidores para o Azure usando migrações para Azure: ferramenta de migração de servidor.
