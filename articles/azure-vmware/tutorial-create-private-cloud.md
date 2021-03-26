@@ -1,18 +1,18 @@
 ---
-title: Tutorial – Criar e implantar uma nuvem privada da Solução VMware no Azure
+title: Tutorial – Implantar uma nuvem privada da Solução VMware no Azure
 description: Saiba como criar e implantar uma nuvem privada da Solução VMware no Azure
 ms.topic: tutorial
 ms.date: 02/22/2021
-ms.openlocfilehash: 2afd88bca05a9bcab309faff373bedf6a22e9f4b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: ed916305cd1a67162f07c24e3bf97766e5389b74
+ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101725385"
+ms.lasthandoff: 03/14/2021
+ms.locfileid: "103462160"
 ---
-# <a name="tutorial-create-an-azure-vmware-solution-private-cloud"></a>Tutorial: Criar uma nuvem privada da Solução VMware no Azure
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud"></a>Tutorial: Implantar uma nuvem privada da Solução VMware no Azure
 
-Neste tutorial, você aprenderá a criar e implantar uma nuvem privada da Solução VMware no Azure. A implantação inicial mínima de hosts é três. Mais hosts podem ser adicionados, um de cada vez, até atingir um máximo de 16 hosts por cluster. 
+A Solução VMware no Azure permite implantar um cluster de vSphere no Azure. A implantação inicial mínima é de três hosts. Mais hosts podem ser adicionados, um de cada vez, até atingir um máximo de 16 hosts por cluster.
 
 Como a Solução VMware no Azure não permite que você gerencie a nuvem privada com o vCenter local na inicialização, é necessária uma configuração adicional. Esses procedimentos e os pré-requisitos relacionados são abordados neste tutorial.
 
@@ -48,7 +48,7 @@ Selecione **Experimentar** no canto superior direito de um bloco de código. Voc
 
 #### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um grupo de recursos com o comando `[az group create](/cli/azure/group)`. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+Crie um grupo de recursos usando o comando ['az group create'](/cli/azure/group). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli-interactive
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/19/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.openlocfilehash: 1a76f79f31d1f4518c069afb7fccbad5bd22d4e2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 04aef540bc134e5ec307be6a232ce47f0923e528
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101744117"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105046344"
 ---
 # <a name="manage-the-datadog-resource"></a>Gerenciar o recurso do Datadog
 
@@ -28,7 +28,7 @@ Os detalhes incluem:
 - Nome do grupo de recursos
 - Localização/região
 - Subscription
-- Marcas
+- Marcações
 - Link de logon único para a organização do Datadog
 - Oferta/plano do Datadog
 - Termo de cobrança
@@ -61,7 +61,7 @@ Você pode filtrar a lista de recursos por tipo de recurso, nome do grupo de rec
 Os logs de coluna **para Datadog** indicam se o recurso está enviando logs para Datadog. Se o recurso não estiver enviando logs, esse campo indicará por que os logs não estão sendo enviados ao Datadog. Os motivos podem ser:
 
 - O recurso não dá suporte ao envio de logs. Somente os tipos de recursos com categorias de log de monitoramento podem ser configurados para enviar logs para Datadog.
-- O limite de cinco configurações de diagnóstico foi atingido. Cada recurso do Azure pode ter no máximo cinco configurações de diagnóstico. Para obter mais informações, consulte [configurações de diagnóstico](../../azure-monitor/platform/diagnostic-settings.md).
+- O limite de cinco configurações de diagnóstico foi atingido. Cada recurso do Azure pode ter no máximo cinco configurações de diagnóstico. Para obter mais informações, consulte [configurações de diagnóstico](../../azure-monitor/essentials/diagnostic-settings.md).
 - Erro. O recurso está configurado para enviar logs para Datadog, mas é bloqueado por um erro.
 - Logs não configurados. Somente os recursos do Azure que têm as marcas de recurso apropriadas são configuradas para enviar logs para Datadog.
 - Região sem suporte. O recurso do Azure está em uma região que atualmente não dá suporte ao envio de logs para Datadog.

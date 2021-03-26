@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 30b30697750a0b9068cfcde19ea4bf9c474f9ad9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
+ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424539"
+ms.lasthandoff: 03/11/2021
+ms.locfileid: "102634967"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -120,6 +120,8 @@ Isso abrirá o Gerenciador de Pacotes do NuGet. Selecione a guia *Atualizações
 De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está aberto, localize o projeto _**SampleFunctionsApp**_ no painel *Gerenciador de Soluções*.
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
+
+Para que o seu aplicativo de funções possa acessar os Gêmeos Digitais do Azure, será necessário ter uma identidade gerenciada pelo sistema com permissões para acessar a sua instância dos Gêmeos Digitais do Azure. Você vai configurar tudo isso a seguir.
 
 ### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
 

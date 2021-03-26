@@ -16,12 +16,12 @@ ms.date: 04/13/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d7d4888c17ffe46340aa85b8d2a1cc4fa7ed34
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 3200dc6ad7756f77dc0d74df83a33c7e89d4bedb
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581823"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044559"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quickstart"></a>Azure Active Directory autenticação de passagem: início rápido
 
@@ -84,21 +84,21 @@ Depois de baixar a versão mais recente do agente, prossiga com as instruções 
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
 
-Habilite a Autenticação de passagem por meio do [Azure AD Connect](whatis-hybrid-identity.md).
+Habilite a autenticação de passagem por meio de [Azure ad Connect](whatis-hybrid-identity.md).
 
 >[!IMPORTANT]
 >É possível habilitar a Autenticação de passagem no servidor primário ou de preparo do Azure AD Connect. É altamente recomendável habilitá-la do servidor primário. Se você estiver configurando um servidor de preparo do Azure AD Connect no futuro, você **devem** continuar para escolher a autenticação de passagem como a opção de entrada; escolhendo outra opção será **desabilitar** Autenticação de passagem no locatário e substituir a configuração no servidor primário.
 
-Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página **Entrada de usuário** escolha **Autenticação de Passagem** como o **Método de logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
+Se estiver instalando o Azure AD Connect pela primeira vez, escolha o [caminho de instalação personalizado](how-to-connect-install-custom.md). Na página de **entrada do usuário** , escolha autenticação de **passagem** como o método de **logon**. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor do Azure AD Connect. Além disso, o recurso de autenticação de passagem estará habilitado em seu locatário.
 
 ![Azure AD Connect: entrada do usuário](./media/how-to-connect-pta-quick-start/sso3.png)
 
-Se já tiver instalado o Azure AD Connect usando o caminho de [instalação expressa](how-to-connect-install-express.md) ou de [instalação personalizada](how-to-connect-install-custom.md), selecione a tarefa **Alterar entrada do usuário** no Azure AD Connect e selecione **Avançar**. Depois selecione **Autenticação de Passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
+Se você já tiver instalado o Azure AD Connect usando a [instalação expressa](how-to-connect-install-express.md) ou o caminho de [instalação personalizada](how-to-connect-install-custom.md) , selecione a tarefa **alterar entrada do usuário** em Azure ad Connect e, em seguida, selecione **Avançar**. Em seguida, selecione **autenticação de passagem** como o método de entrada. Após a conclusão bem-sucedida, um Agente de autenticação de passagem estará instalado no mesmo servidor que o Azure AD Connect, e o recurso estará habilitado em seu locatário.
 
 ![Azure AD Connect: alterar entrada do usuário](./media/how-to-connect-pta-quick-start/changeusersignin.png)
 
 >[!IMPORTANT]
->A Autenticação de Passagem é um recurso no nível do locatário. A ativação desse recurso afeta a entrada de usuários em _todos_ os domínios gerenciados no seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para Autenticação de Passagem, veja o nosso plano detalhado de implantação publicado [aqui](https://aka.ms/adfstoptadpdownload).
+>A Autenticação de Passagem é um recurso no nível do locatário. Ligá-lo afeta a entrada para usuários em _todos_ os domínios gerenciados em seu locatário. Se estiver alternando dos Serviços de Federação do Active Directory (AD FS) para Autenticação de passagem, você deve esperar pelo menos 12 horas antes de desligar a infraestrutura do AD FS. Esse tempo de espera é para garantir que os usuários continuem entrando no Exchange ActiveSync durante a transição. Para obter mais ajuda sobre a migração do AD FS para Autenticação de Passagem, veja o nosso plano detalhado de implantação publicado [aqui](https://aka.ms/adfstoptadpdownload).
 
 ## <a name="step-3-test-the-feature"></a>Etapa 3: testar o recurso
 

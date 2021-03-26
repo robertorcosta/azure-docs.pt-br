@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 03/10/2021
 ms.topic: conceptual
-ms.openlocfilehash: e41e9af418b08210f5f0f40de9951d03711dc8e7
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c3d1dfc5d6ea16a128f5f3bc1129f5f50bc9cb61
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102616109"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954666"
 ---
 # <a name="management-of-azure-automation-data"></a>Gerenciamento de dados da Automação do Azure
 
@@ -56,7 +56,7 @@ A tabela a seguir resume a política de retenção para diferentes recursos.
 | Relatórios de Nó |Um relatório de nó é removido de forma permanente 90 dias depois que um novo relatório é gerado para esse nó. |
 | Runbooks |Um runbook é removido permanentemente 30 dias depois que um usuário exclui o recurso ou 30 dias depois que um usuário exclui a conta que contém o recurso<sup>1</sup>. |
 
-<sup>1</sup> O runbook pode ser recuperado dentro do período de 30 dias, criando um incidente de suporte do Azure com suporte Microsoft Azure. Vá para o [site de suporte do Azure](/support/options) e selecione **Enviar uma solicitação de suporte**.
+<sup>1</sup> O runbook pode ser recuperado dentro do período de 30 dias, criando um incidente de suporte do Azure com suporte Microsoft Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/support/options/) e selecione **Enviar uma solicitação de suporte**.
 
 ## <a name="data-backup"></a>Backup de dados
 

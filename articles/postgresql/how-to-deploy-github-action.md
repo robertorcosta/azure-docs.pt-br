@@ -8,15 +8,15 @@ ms.author: sumuth
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
 ms.openlocfilehash: 2e546801f95d9d884bdfb3f09a18b3fa6e2d78a1
-ms.sourcegitcommit: dfc4e6b57b2cb87dbcce5562945678e76d3ac7b6
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97364972"
 ---
 # <a name="quickstart-use-github-actions-to-connect-to-azure-postgresql"></a>Início Rápido: Usar o GitHub Actions para se conectar ao PostgreSQL do Azure
 
-<Token>**APLICA-SE A:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Banco de Dados do Azure para PostgreSQL – Servidor Único :::image type="icon" source="./media/applies-to/yes.png" border="false":::Banco de Dados do Azure para PostgreSQL – Servidor Flexível </Token>
+<Token>**APLICA-SE A:** :::image type="icon" source="./media/applies-to/yes.png" border="false":::Banco de Dados do Azure para PostgreSQL – Servidor Único :::image type="icon" source="./media/applies-to/yes.png" border="false":::Banco de Dados do Azure para PostgreSQL – Servidor Flexível</Token>
 
 Comece a usar o [GitHub Actions](https://docs.github.com/en/actions) usando um fluxo de trabalho para implantar atualizações de banco de dados no [Banco de Dados do Azure para PostgreSQL](https://azure.microsoft.com/services/postgresql/).
 

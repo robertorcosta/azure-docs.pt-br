@@ -7,12 +7,12 @@ ms.date: 03/30/2020
 ms.topic: article
 ms.service: virtual-machines
 ms.subservice: mainframe-rehosting
-ms.openlocfilehash: 7c9a9f355def492f04f47b49045fadb5afb6acd6
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 9ef9dd27183b6c23762dcdc2d5a844123d35559a
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950528"
+ms.locfileid: "105045953"
 ---
 # <a name="set-up-micro-focus-cics-bankdemo-for-micro-focus-enterprise-developer-40-on-azure"></a>Configurar o micro Focus CICS BankDemo para o micro Focus Enterprise Developer 4,0 no Azure
 
@@ -276,5 +276,5 @@ Parabéns! Agora você está executando um aplicativo CICS no Azure usando o mic
 - [Executar o servidor corporativo em contêineres do Docker no Azure](run-enterprise-server-container.md)
 - [Migração de mainframe-Portal](/archive/blogs/azurecat/mainframe-migration-to-azure-portal)
 - [Máquinas virtuais](../../../linux/overview.md)
-- [Solução de problemas](../../../troubleshooting/index.yml)
+- [Solução de problemas](/troubleshoot/azure/virtual-machines/welcome-virtual-machines)
 - [Desmistificando a migração do mainframe para o Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/en-us/)
