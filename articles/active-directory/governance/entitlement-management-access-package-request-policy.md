@@ -16,12 +16,12 @@ ms.date: 09/16/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b6bc00af8d54c8748dd82b934974282e0e8da0e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 87792b8469c78e20a8716bd925d71933f9d97c5e
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102426953"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105560481"
 ---
 # <a name="change-request-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Configurações de solicitação de alteração para um pacote de acesso no gerenciamento de direitos do Azure AD
 
@@ -85,7 +85,7 @@ Siga estas etapas se desejar permitir que os usuários em seu diretório possam 
 
 1. Selecione uma das seguintes opções:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Usuários e grupos específicos** | Escolha esta opção se desejar que apenas os usuários e grupos em seu diretório especificados possam solicitar esse pacote de acesso. |
     | **Todos os membros (exceto convidados)** | Escolha esta opção se desejar que todos os usuários Membros em seu diretório possam solicitar esse pacote de acesso. Essa opção não inclui nenhum usuário convidado que você possa ter convidado em seu diretório. |
@@ -122,7 +122,7 @@ Siga estas etapas se desejar permitir que os usuários que não estão em seu di
 
 1. Selecione uma das seguintes opções:
 
-    |  |  |
+    |  | Description |
     | --- | --- |
     | **Organizações conectadas específicas** | Escolha esta opção se desejar selecionar em uma lista de organizações que o administrador adicionou anteriormente. Todos os usuários das organizações selecionadas podem solicitar esse pacote de acesso. |
     | **Todas as organizações conectadas configuradas** | Escolha esta opção se todos os usuários de todas as suas organizações conectadas configuradas puderem solicitar esse pacote de acesso. Somente os usuários de organizações conectadas configuradas podem solicitar pacotes de acesso que são mostrados aos usuários de todas as organizações configuradas. |
@@ -196,7 +196,7 @@ Para alterar as configurações de solicitação e aprovação de um pacote do A
 
     ![Pacote de acesso-configuração de política de habilitação de política](./media/entitlement-management-access-package-approval-policy/enable-requests.png)
 
-1. Clique em **Próximo**.
+1. Clique em **Avançar**.
 
 1. Se você quiser exigir que os solicitantes forneçam informações adicionais ao solicitar acesso a um pacote do Access, use as etapas em [configurações de aprovação de alteração e informações do solicitante (versão prévia) para um pacote de acesso no gerenciamento de direitos do Azure ad](entitlement-management-access-package-approval-policy.md#collect-additional-requestor-information-for-approval-preview) para configurar informações do solicitante (versão prévia).
 

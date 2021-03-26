@@ -3,12 +3,12 @@ title: Implantar a Análise Dinâmica de Vídeo no Azure Stack Edge
 description: Este artigo lista as etapas que ajudarão você a implantar a análise de vídeo ao vivo em seu Azure Stack Edge.
 ms.topic: how-to
 ms.date: 09/09/2020
-ms.openlocfilehash: d49167890009d58b21c3678cb89f608bad665abd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: b5be85e93b81f5cf50284533f21e688384558494
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730262"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561144"
 ---
 # <a name="deploy-live-video-analytics-on-azure-stack-edge"></a>Implantar a Análise Dinâmica de Vídeo no Azure Stack Edge
 
@@ -236,7 +236,7 @@ Siga estas instruções para se conectar ao seu hub IoT usando a extensão do Az
 
 * **Kubectl (kubernetes API Access)**
 
-    * Siga a documentação para configurar seu computador para [acessar o cluster kubernetes](https://docs.microsoft.com/azure/databox-online/azure-stack-edge-gpu-create-kubernetes-cluster).
+    * Siga a documentação para configurar seu computador para [acessar o cluster kubernetes](../../databox-online/azure-stack-edge-gpu-create-kubernetes-cluster.md).
     * Todos os módulos implantados IoT Edge usam o `iotedge` namespace. Certifique-se de incluir isso ao usar o kubectl.  
 
 * **Logs de módulo**

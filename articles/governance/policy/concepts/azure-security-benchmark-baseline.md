@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 9916ad6d3b6cb1a63d34004915666226b7836490
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 6e8bb4cf715c6cb8d0729399c1985376de18687b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101740335"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561280"
 ---
 # <a name="azure-security-baseline-for-azure-policy"></a>Linha de base de segurança do Azure para Azure Policy
 
@@ -30,9 +30,9 @@ Azure Policy usa a _Propriedade_ do termo no local de _responsabilidade_. Para o
 
 **Diretrizes**: Azure Policy usa logs de atividade, que são habilitados automaticamente, para incluir origem do evento, data, usuário, carimbo de data/hora, endereços de origem, endereços de destino e outros elementos úteis.
 
-- [Como coletar logs e métricas de plataforma com Azure Monitor](/azure/azure-monitor/platform/diagnostic-settings)
+- [Como coletar logs e métricas de plataforma com Azure Monitor](../../../azure-monitor/essentials/diagnostic-settings.md)
 
-- [Entender o registro em log e diferentes tipos de log no Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Entender o registro em log e diferentes tipos de log no Azure](../../../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -48,7 +48,7 @@ Azure Policy usa a _Propriedade_ do termo no local de _responsabilidade_. Para o
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. GuestConfiguration**:
 
@@ -74,7 +74,7 @@ Azure Policy usa a _Propriedade_ do termo no local de _responsabilidade_. Para o
 
 **Orientação**: Use o controle de acesso baseado em função do Azure (RBAC do Azure) para controlar o acesso a Azure Policy.
 
-- [Permissões do Azure RBAC no Azure Policy](https://docs.microsoft.com/azure/governance/policy/overview#azure-rbac-permissions-in-azure-policy)
+- [Permissões do Azure RBAC no Azure Policy](../overview.md#azure-rbac-permissions-in-azure-policy)
 
 - [Como configurar o RBAC do Azure](../../../role-based-access-control/role-assignments-portal.md)
 
@@ -86,7 +86,7 @@ Azure Policy usa a _Propriedade_ do termo no local de _responsabilidade_. Para o
 
 **Diretrizes**: Use Azure monitor com logs de atividade para criar alertas para quando as alterações ocorrerem no Azure Policy.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](../../../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -128,5 +128,5 @@ Azure Policy usa a _Propriedade_ do termo no local de _responsabilidade_. Para o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../../../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../../../security/benchmarks/security-baselines-overview.md)
