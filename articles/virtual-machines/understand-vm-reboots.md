@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/08/2021
 ms.author: mimckitt
 ms.reviewer: cynthn
-ms.openlocfilehash: af371a8f7da5ef32e95d4096b69c5d52ce3e3700
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 9342e0c39b558cf8b6ff5773d623ce55062f9ab5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102510442"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607466"
 ---
 # <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Entender reinicializações de VM-manutenção versus tempo de inatividade
 Há três cenários que podem levar a máquinas virtuais no Azure sendo afetadas: manutenção de hardware não planejada, tempo de inatividade inesperado e manutenção planejada.
@@ -34,7 +34,7 @@ Para reduzir o impacto do tempo de inatividade devido a um ou mais desses evento
 
 * Usar [zonas de disponibilidade](../availability-zones/az-overview.md) para proteger contra falhas de data center
 * Configurar várias máquinas virtuais em um [conjunto de disponibilidade](availability-set-overview.md) para redundância
-* Usar [eventos agendados para o Linux](/linux/scheduled-events.md) ou [eventos agendados](/windows/scheduled-events.md) para que o Windows responda proativamente a eventos de impacto da VM
+* Usar [eventos agendados para o Linux](/azure/virtual-machines/linux/scheduled-events) ou [eventos agendados](/azure/virtual-machines/windows/scheduled-events) para que o Windows responda proativamente a eventos de impacto da VM
 * Configurar cada camada de aplicativo em conjuntos de disponibilidade separados
 * Combinar um [balanceador de carga](../load-balancer/load-balancer-overview.md) com zonas de disponibilidade ou conjuntos
 

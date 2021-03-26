@@ -37,7 +37,7 @@ O limite máximo de unidades de streaming é, em geral, 10. Entre em contato con
 
 A tabela descreve os tipos:
 
-|Type|Unidades de escala|Descrição|
+|Tipo|Unidades de escala|Description|
 |--------|--------|--------|  
 |**Standard**|0|O ponto de extremidade de streaming padrão é um tipo **padrão** — ele pode ser alterado para o tipo Premium ajustando `scaleUnits` .|
 |**Premium**|>0|**Premium** Os pontos de extremidade de streaming são adequados para cargas de trabalho avançadas e para fornecer capacidade de largura de banda dedicada e escalonável. Você passa para um tipo **Premium** ajustando `scaleUnits` (unidades de streaming). `scaleUnits` fornece capacidade de saída dedicada que pode ser comprada em incrementos de 200 Mbps. Ao usar o tipo **Premium** , cada unidade habilitada fornece capacidade de largura de banda adicional para o aplicativo. |
@@ -63,6 +63,54 @@ Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|U
 
 <sup>1</sup> é usado somente diretamente no ponto de extremidade de streaming quando a CDN não está habilitada no ponto de extremidade.<br/>
 
+### <a name="versions"></a>Versões
+
+|Tipo|StreamingEndpointVersion|ScaleUnits|CDN|Cobrança|
+|--------------|----------|-----------------|-----------------|-----------------|
+|Clássico|1.0|0|NA|Gratuita|
+|Ponto de extremidade de streaming padrão (visualização)|2.0|0|Sim|Pago|
+|Unidades de Streaming Premium|1.0|>0|Yes|Pago|
+|Unidades de Streaming Premium|2.0|>0|Yes|Pago|
+
+### <a name="features"></a>Recursos
+
+Recurso|Standard|Premium
+---|---|---
+Produtividade |Até 600 Mbps e pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.|200 Mbps por UA (unidade de streaming). Pode fornecer uma taxa de transferência muito mais eficiente quando uma CDN é usada.
+CDN|Azure CDN, CDN de terceiros ou sem CDN.|Azure CDN, CDN de terceiros ou sem CDN.
+A cobrança é rateada| Diariamente|Diariamente
+Criptografia dinâmica|Sim|Sim
+Empacotamento dinâmico|Sim|Sim
+Escala|Escala verticalmente automaticamente com a taxa de transferência de destino.|Unidades de streaming adicionais.
+Filtragem de IP/G20/host personalizado <sup>1</sup>|Sim|Sim
+Download progressivo|Sim|Sim
+Uso recomendado |Recomendado para a grande maioria dos cenários de streaming.|Uso profissional. 
+
+<sup>1</sup> é usado somente diretamente no ponto de extremidade de streaming quando a CDN não está habilitada no ponto de extremidade.<br/>
+
+Para obter informações de SLA, consulte [preços e SLA](https://azure.microsoft.com/pricing/details/media-services/).
+
+## <a name="migration-between-types"></a>Migração entre tipos
+
+De | Para | Ação
+---|---|---
+Clássico|Standard|Necessidade de aceitação
+Clássico|Premium| Escala (unidades de streaming adicionais)
+Standard/Premium|Clássico|Não disponível (se a versão do ponto de extremidade de streaming for 1.0. É permitido alterar para o clássico configurando scaleunits para “0”)
+Standard (com/sem CDN)|Premium com as mesmas configurações|Permitido no estado **iniciado**. (por meio do Portal do Azure)
+Premium (com/sem CDN)|Standard com as mesmas configurações|Permitido no estado **iniciado** (por meio do Portal do Azure)
+Standard (com/sem CDN)|Premium com configuração diferente|Permitido no estado **parado** (por meio do Portal do Azure). Não permitido no estado de execução.
+Premium (com/sem CDN)|Standard com configuração diferente|Permitido no estado **parado** (por meio do Portal do Azure). Não permitido no estado de execução.
+Versão 1.0 com UA > = 1 com CDN|Standard/Premium sem qualquer CDN|Permitido no estado **parado**. Não permitido no estado **iniciado**.
+Versão 1.0 com UA > = 1 com CDN|Standard com/sem CDN|Permitido no estado **parado**. Não permitido no estado **iniciado**. A CDN da Versão 1.0 será excluída e uma nova será criada e iniciada.
+Versão 1.0 com UA > = 1 com CDN|Premium com/sem CDN|Permitido no estado **parado**. Não permitido no estado **iniciado**. A CDN Clássica será excluída e uma nova será criada e iniciada.
+
+
+
+
+
+
+
 ## <a name="streaming-endpoint-properties"></a>Propriedades de ponto de extremidade de streaming
 
 Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremidade de streaming. Para exemplos de como criar um novo ponto de extremidade de streaming e descrições de todas as propriedades, consulte [Ponto de Extremidade de Streaming](/rest/api/media/streamingendpoints/create).
@@ -83,7 +131,7 @@ Esta seção fornece detalhes sobre algumas das propriedades do ponto de extremi
 - `crossSiteAccessPolicies`: Usado para especificar políticas de acesso entre sites para vários clientes. Para obter mais informações, consulte [Especificação de arquivo de política entre domínios](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) e [Disponibilizando um serviço entre limites de domínios](/previous-versions/azure/azure-services/gg185950(v=azure.100)). As configurações se aplicam somente a Smooth Streaming.
 - `customHostNames`: Usado para configurar um ponto de extremidade de streaming para aceitar o tráfego direcionado para um nome de host personalizado. Essa propriedade é válida para pontos de extremidade de streaming Standard e Premium e pode ser definida quando `cdnEnabled` : false.
 
-    A propriedade do nome de domínio deve ser confirmada pelos serviços de mídia. Os serviços de mídia verificam a propriedade do nome de domínio exigindo um `CName` registro que contém a ID da conta dos serviços de mídia como um componente a ser adicionado ao domínio em uso. Por exemplo, para "sports.contoso.com" ser usado como um nome do host personalizado para o ponto de extremidade de streaming, um registro para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes do host de verificação dos Serviços de Mídia. O nome do host de verificação é composto de verifydns. \<mediaservices-dns-zone> .
+    A propriedade do nome de domínio deve ser confirmada pelos serviços de mídia. Os serviços de mídia verificam a propriedade do nome de domínio exigindo um `CName` registro que contém a ID da conta dos serviços de mídia como um componente a ser adicionado ao domínio em uso. Por exemplo, para "sports.contoso.com" ser usado como um nome do host personalizado para o ponto de extremidade de streaming, um registro para `<accountId>.contoso.com` deve ser configurado para apontar para um dos nomes do host de verificação dos Serviços de Mídia. O nome do host de verificação é composto de verifydns. `\<mediaservices-dns-zone>` .
 
     A seguir estão as zonas DNS esperadas a serem usadas no registro de verificação para diferentes regiões do Azure.
   

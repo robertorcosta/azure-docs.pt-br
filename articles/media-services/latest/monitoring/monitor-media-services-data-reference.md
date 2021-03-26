@@ -6,17 +6,18 @@ ms.author: inhenkel
 manager: femila
 ms.topic: reference
 ms.service: media-services
+ms.custom: subject-monitoring
 ms.date: 03/17/2021
-ms.openlocfilehash: 866b2faf473f06fc3f85cdb434d6555504a7f6a8
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 66fce608515d16c5418ddd18e00319a3cbf088f7
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598177"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609081"
 ---
 # <a name="monitoring-media-services-data-reference"></a>Monitorando a referência de dados dos serviços de mídia
 
-Este artigo aborda os dados que são úteis para monitorar os serviços de mídia. Para obter mais informações sobre todas as métricas de plataforma com suporte no Azure Monitor, examine as [métricas com suporte com Azure monitor](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
+Este artigo aborda os dados que são úteis para monitorar os serviços de mídia. Para obter mais informações sobre todas as métricas de plataforma com suporte no Azure Monitor, examine as [métricas com suporte com Azure monitor](../../../azure-monitor/essentials/metrics-supported.md).
 
 ## <a name="media-services-metrics"></a>Métricas dos serviços de mídia
 
@@ -59,7 +60,7 @@ As métricas de [pontos de extremidade de streaming](/rest/api/media/streamingen
 
 ## <a name="metric-dimensions"></a>Dimensões de métrica
 
-Para obter mais informações sobre o que são dimensões de métrica, confira [Métricas multidimensionais](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics#multi-dimensional-metrics).
+Para obter mais informações sobre o que são dimensões de métrica, confira [Métricas multidimensionais](../../../azure-monitor/essentials/data-platform-metrics.md#multi-dimensional-metrics).
 
 <!--**PLACEHOLDER** for dimensions table.-->
 
@@ -67,7 +68,7 @@ Para obter mais informações sobre o que são dimensões de métrica, confira [
 
 ## <a name="media-services-diagnostic-logs"></a>Logs de diagnóstico dos serviços de mídia
 
-Os logs de diagnóstico fornecem dados avançados e frequentes sobre a operação de um recurso do Azure. Para obter mais informações, consulte [como coletar e consumir dados de log de seus recursos do Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/platform-logs-overview.md).
+Os logs de diagnóstico fornecem dados avançados e frequentes sobre a operação de um recurso do Azure. Para obter mais informações, consulte [como coletar e consumir dados de log de seus recursos do Azure](../../../azure-monitor/essentials/platform-logs-overview.md).
 
 Os serviços de mídia oferecem suporte aos seguintes logs de diagnóstico:
 
@@ -81,7 +82,7 @@ Os serviços de mídia oferecem suporte aos seguintes logs de diagnóstico:
 
 ## <a name="schemas"></a>Esquemas
 
-Para obter uma descrição detalhada do esquema de logs de diagnóstico de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](https://docs.microsoft.com/azure/azure-monitor/essentials/resource-logs-schema.md).
+Para obter uma descrição detalhada do esquema de logs de diagnóstico de nível superior, consulte [serviços, esquemas e categorias com suporte para logs de diagnóstico do Azure](../../../azure-monitor/essentials/resource-logs-schema.md).
 
 ## <a name="key-delivery-log-schema-properties"></a>Propriedades do esquema do log de distribuição de chaves
 

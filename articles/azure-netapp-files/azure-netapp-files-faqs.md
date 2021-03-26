@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: b-juche
-ms.openlocfilehash: f7d1e3bebf2fbdea3075d97e3829e38a3930909b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3ca4938d8666fd60ebac9e75bb2da1780e0914d3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566125"
+ms.locfileid: "105607993"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Perguntas frequentes sobre Azure NetApp Files
 
@@ -208,9 +208,9 @@ Não. O Gerenciador de Armazenamento do Azure não dá suporte a Azure NetApp Fi
 
 ### <a name="how-do-i-determine-if-a-directory-is-approaching-the-limit-size"></a>Como fazer determinar se um diretório está se aproximando do tamanho do limite?
 
-Você pode usar o `stat` comando de um cliente para ver se um diretório está se aproximando do limite de tamanho máximo para metadados de diretório (320 MB).
+Você pode usar o `stat` comando de um cliente para ver se um diretório está se aproximando do limite de tamanho máximo para metadados de diretório (320 MB).   
 
-Para um diretório de 320 MB, o número de blocos é 655360, sendo que cada tamanho de bloco é de 512 bytes.  (Ou seja, 320x1024x1024/512.)  
+Para um diretório de 320 MB, o número de blocos é 655360, sendo que cada tamanho de bloco é de 512 bytes.  (Ou seja, 320x1024x1024/512.)  Esse número se traduz em aproximadamente 4 milhões arquivos máximos para um diretório de 320 MB. No entanto, o número real de arquivos máximos pode ser menor, dependendo de fatores como o número de arquivos que contêm caracteres não-ASCII no diretório. Como tal, você deve usar o `stat` comando da seguinte maneira para determinar se seu diretório está se aproximando do seu limite.  
 
 Exemplos:
 

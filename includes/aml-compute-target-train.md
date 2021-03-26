@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/17/2020
-ms.openlocfilehash: 081eea7842652884363603bc5ba742ba48539f85
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 7c89527218e34bea0819a1e2446441216cde45ae
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102503600"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105604"
 ---
 **Os destinos de computação podem ser reutilizados pelos trabalhos de treinamento.** Por exemplo, após anexar uma VM remota ao seu workspace, você pode reutilizá-la para vários trabalhos. Para pipelines de machine learning, use a [etapa do pipeline](/python/api/azureml-pipeline-steps/azureml.pipeline.steps) apropriada para cada destino de computação.
 
@@ -30,3 +30,6 @@ Você pode usar qualquer um dos recursos a seguir para um destino de computaçã
 |[Azure Data Lake Analytics](../articles/machine-learning/how-to-attach-compute-targets.md#adla) | &nbsp; | Sim | &nbsp; |
 |[Azure HDInsight](../articles/machine-learning/how-to-attach-compute-targets.md#hdinsight) | &nbsp; | Sim | &nbsp; |
 |[Lote do Azure](../articles/machine-learning/how-to-attach-compute-targets.md#azbatch) | &nbsp; | Sim | &nbsp; |
+
+> [!TIP]
+> A instância de computação tem um disco de SO de 120 GB. Se você ficar sem espaço em disco, libere espaço suficiente antes de tentar parar/reiniciar a instância de computação.

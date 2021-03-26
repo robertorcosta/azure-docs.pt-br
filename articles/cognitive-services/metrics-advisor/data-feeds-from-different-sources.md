@@ -10,16 +10,16 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: c4d1d23da5fd9678cc5b9477ddeed0daf4f5ac36
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 4fd01256d94fbcb18fe8437be00c84e49d98f7d0
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96348612"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606140"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Adicionar feeds de dados de diferentes fontes de dados ao orientador de métricas
 
-Use este artigo para encontrar as configurações e os requisitos para conectar diferentes tipos de fontes de dados ao orientador de métricas. Certifique-se de ler como integrar [seus dados](how-tos/onboard-your-data.md) para saber mais sobre os principais conceitos para usar seus dados com o assistente de métricas. 
+Use este artigo para encontrar as configurações e os requisitos para conectar diferentes tipos de fontes de dados ao orientador de métricas. Certifique-se de ler como integrar [seus dados](how-tos/onboard-your-data.md) para saber mais sobre os principais conceitos para usar seus dados com o assistente de métricas. \
 
 ## <a name="supported-authentication-types"></a>Tipos de autenticação com suporte
 
@@ -43,7 +43,7 @@ Use este artigo para encontrar as configurações e os requisitos para conectar 
 |[**Azure Data Explorer (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
 |[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br> |
 |[**Banco de dados SQL/SQL Server do Azure**](#sql) | Basic<br>ManagedIdentity<br>Entidade de serviço<br>Entidade de serviço do Key Vault<br>AzureSQLConnectionString
-|[**Armazenamento de Tabelas do Azure**](#table) | Basic | 
+|[**Armazenamento de tabelas do Azure**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Solicitação http**](#http) | Basic | 
 |[**InfluxDB (InfluxQL)**](#influxdb) | Basic |
@@ -51,7 +51,7 @@ Use este artigo para encontrar as configurações e os requisitos para conectar 
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Crie uma **entidade de credencial** e use-a para autenticação em suas fontes de dados. As seções a seguir especificam os parâmetros necessários para a autenticação *básica* . 
+Crie uma entidade de credencial * * e use-a para autenticação em suas fontes de dados. As seções a seguir especificam os parâmetros necessários para a autenticação *básica* . 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
@@ -159,7 +159,7 @@ Somente um carimbo de data/hora é permitido por arquivo JSON.
   * `%h` é a hora formatada como `HH`
   * `%M` é o minuto formatado como `mm`
 
-Atualmente, o assistente de métricas dá suporte ao esquema de dados nos arquivos JSON como a seguir. Por exemplo:
+Atualmente, o assistente de métricas dá suporte ao esquema de dados nos arquivos JSON da seguinte maneira. Por exemplo:
 
 ``` JSON
 [
@@ -212,15 +212,14 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Armazenamento de Tabelas do Azure</span>
 
-* **Cadeia de conexão**: Veja [Exibir e copiar uma cadeia de conexão](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%2fazure%2fstorage%2ftables%2ftoc.json#view-account-access-keys) para obter informações sobre como recuperar a cadeia de conexão do armazenamento de tabelas do Azure.
+* **Cadeia de conexão**: Crie uma URL de SAS (assinatura de acesso compartilhado) e preencha aqui. A maneira mais direta de gerar uma URL SAS é usando o portal do Azure. Usando o portal do Azure, você pode navegar graficamente. Para criar uma URL SAS por meio do portal do Azure, primeiro, navegue até a conta de armazenamento que você deseja acessar na seção Configurações e clique em assinatura de acesso compartilhado. Marque pelo menos as caixas de seleção "tabela" e "objeto" e clique no botão gerar SAS e cadeia de conexão. A URL da SAS do serviço tabela é o que você precisa para copiar e preencher a caixa de texto no espaço de trabalho do assistente de métricas.
 
 * **Nome da tabela**: especifique uma tabela a ser consultada. Isso pode ser encontrado em sua instância de conta de armazenamento do Azure. Clique em **tabelas** na seção **serviço tabela** .
 
-* **Consulta** do Você pode usar o `@StartTime` em sua consulta. `@StartTime` é substituído por uma cadeia de caracteres de formato AAAA-MM-ddTHH: mm: SS no script.
+* **Consulta** do Você pode usar o `@StartTime` em sua consulta. `@StartTime` é substituído por uma cadeia de caracteres de formato AAAA-MM-ddTHH: mm: SS no script. Dica: Use o Gerenciador de armazenamento do Azure para criar uma consulta com um intervalo de tempo específico e verifique se ele é executado corretamente e, em seguida, faça a substituição.
 
     ``` mssql
-    let StartDateTime = datetime(@StartTime); let EndDateTime = StartDateTime + 1d; 
-    SampleTable | where Timestamp >= StartDateTime and Timestamp < EndDateTime | project Timestamp, Market, RPM
+    date ge datetime'@StartTime' and date lt datetime'@EndTime'
     ```
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>

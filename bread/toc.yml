@@ -204,7 +204,13 @@
       topicHref: /azure/vmware-cloudsimple/
     - name: Documentação do portal do Azure
       tocHref: /azure/azure-portal/
-      topicHref: /azure/azure-portal/\
+      topicHref: /azure/azure-portal/
+    - name: Documentação do portal do Azure
+      tocHref: /azure/virtual-machines/
+      topicHref: /azure/azure-portal/index
+    - name: Documentação do portal do Azure
+      tocHref: /power-bi
+      topicHref: /azure/azure-portal/index
     - name: Internet das coisas
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-fundamentals/
@@ -268,7 +274,7 @@
     - name: Serviço SignalR
       tocHref: /azure/azure-signalr/
       topicHref: /azure/azure-signalr/
-    - name: Azure Stack
+    - name: Azure Stack Hub
       tocHref: /azure/azure-stack/
       topicHref: /azure/azure-stack/
       items:

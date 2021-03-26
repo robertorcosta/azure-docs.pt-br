@@ -10,12 +10,12 @@ ms.author: wiassaf
 ms.reviewer: sstein
 ms.custom: references_regions
 ms.date: 03/23/2021
-ms.openlocfilehash: 9c1e5af065e70cf7ec7b7c3b09fc9e3376858481
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 9d7ab0498673ad7006087b66575eea9371b96d11
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047245"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105565870"
 ---
 # <a name="maintenance-window-preview"></a>Janela de manutenção (visualização)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -55,7 +55,7 @@ Depois que a seleção da janela de manutenção for feita e a configuração do
 Configurar e usar a janela de manutenção é gratuito para todos os [tipos de oferta](https://azure.microsoft.com/support/legal/offer-details/)qualificados: pré-pago, provedor de soluções de nuvem (CSP), Microsoft contrato Enterprise ou contrato de cliente da Microsoft.
 
 > [!Note]
-> Uma oferta do Azure é o tipo de assinatura do Azure que você tem. Por exemplo, uma assinatura com [tarifas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p/)e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) são ofertas do Azure. Cada oferta ou plano tem diferentes termos e benefícios. Sua oferta ou plano é mostrado na visão geral da assinatura. Para obter mais informações sobre como alternar sua assinatura para uma oferta diferente, consulte [alterar sua assinatura do Azure para uma oferta diferente](/azure/cost-management-billing/manage/switch-azure-offer).
+> Uma oferta do Azure é o tipo de assinatura do Azure que você tem. Por exemplo, uma assinatura com [tarifas pagas conforme o uso](https://azure.microsoft.com/offers/ms-azr-0003p/), [Azure via Open](https://azure.microsoft.com/offers/ms-azr-0111p/)e [Visual Studio Enterprise](https://azure.microsoft.com/offers/ms-azr-0063p/) são ofertas do Azure. Cada oferta ou plano tem diferentes termos e benefícios. Sua oferta ou plano é mostrado na visão geral da assinatura. Para obter mais informações sobre como alternar sua assinatura para uma oferta diferente, consulte [alterar sua assinatura do Azure para uma oferta diferente](../../cost-management-billing/manage/switch-azure-offer.md).
 
 ## <a name="advance-notifications"></a>Notificações antecipadas
 
@@ -108,17 +108,17 @@ Para obter mais informações sobre a política de conexão do cliente na instâ
 
 ## <a name="considerations-for-azure-sql-managed-instance"></a>Considerações sobre a instância gerenciada do SQL do Azure
 
-A instância gerenciada do SQL do Azure consiste em componentes de serviço hospedados em um conjunto dedicado de máquinas virtuais isoladas que são executadas dentro da sub-rede da rede virtual do cliente. Essas máquinas virtuais formam [cluster (s) virtual (es)](/azure/azure-sql/managed-instance/connectivity-architecture-overview#high-level-connectivity-architecture) que podem hospedar várias instâncias gerenciadas. A janela de manutenção configurada em instâncias de uma sub-rede pode influenciar o número de clusters virtuais na sub-rede e a distribuição de instâncias entre clusters virtuais. Isso pode exigir uma consideração de alguns efeitos.
+A instância gerenciada do SQL do Azure consiste em componentes de serviço hospedados em um conjunto dedicado de máquinas virtuais isoladas que são executadas dentro da sub-rede da rede virtual do cliente. Essas máquinas virtuais formam [cluster (s) virtual (es)](../managed-instance/connectivity-architecture-overview.md#high-level-connectivity-architecture) que podem hospedar várias instâncias gerenciadas. A janela de manutenção configurada em instâncias de uma sub-rede pode influenciar o número de clusters virtuais na sub-rede e a distribuição de instâncias entre clusters virtuais. Isso pode exigir uma consideração de alguns efeitos.
 
 ### <a name="maintenance-window-configuration-is-long-running-operation"></a>A configuração da janela de manutenção é uma operação de longa execução 
 Todas as instâncias hospedadas em um cluster virtual compartilham a janela de manutenção. Por padrão, todas as instâncias gerenciadas são hospedadas no cluster virtual com a janela de manutenção padrão. A especificação de outra janela de manutenção para a instância gerenciada durante sua criação ou depois significa que ela deve ser colocada no cluster virtual com a janela de manutenção correspondente. Se não houver tal cluster virtual na sub-rede, um novo deverá ser criado primeiro para acomodar a instância. Acomodar a instância adicional no cluster virtual existente pode exigir o redimensionamento do cluster. Ambas as operações contribuem para a duração da configuração da janela de manutenção para uma instância gerenciada.
-A duração esperada da configuração da janela de manutenção na instância gerenciada pode ser calculada usando a [duração estimada das operações de gerenciamento de instância](/azure/azure-sql/managed-instance/management-operations-overview#duration).
+A duração esperada da configuração da janela de manutenção na instância gerenciada pode ser calculada usando a [duração estimada das operações de gerenciamento de instância](../managed-instance/management-operations-overview.md#duration).
 
 > [!Important]
 > Uma reconfiguração curta acontece ao final da operação de manutenção e normalmente dura até 8 segundos, mesmo no caso de transações de longa execução interrompidas. Para minimizar o impacto da reconfiguração, você deve agendar a operação fora do horário de pico.
 
 ### <a name="ip-address-space-requirements"></a>Requisitos de espaço de endereço IP
-Cada novo cluster virtual na sub-rede requer endereços IP adicionais de acordo com a [alocação de endereço IP do cluster virtual](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#determine-subnet-size). A alteração da janela de manutenção para a instância gerenciada existente também requer uma [capacidade IP adicional temporária](/azure/azure-sql/managed-instance/vnet-subnet-determine-size#address-requirements-for-update-scenarios) como no cenário de dimensionamento de vCores para a camada de serviço correspondente.
+Cada novo cluster virtual na sub-rede requer endereços IP adicionais de acordo com a [alocação de endereço IP do cluster virtual](../managed-instance/vnet-subnet-determine-size.md#determine-subnet-size). A alteração da janela de manutenção para a instância gerenciada existente também requer uma [capacidade IP adicional temporária](../managed-instance/vnet-subnet-determine-size.md#address-requirements-for-update-scenarios) como no cenário de dimensionamento de vCores para a camada de serviço correspondente.
 
 ### <a name="ip-address-change"></a>Alteração de endereço IP
 A configuração e a alteração da janela de manutenção causam a alteração do endereço IP da instância, dentro do intervalo de endereços IP da sub-rede.
@@ -137,8 +137,3 @@ A configuração e a alteração da janela de manutenção causam a alteração 
 * [Banco de Dados SQL do Azure](sql-database-paas-overview.md) 
 * [Instância gerenciada do SQL](../managed-instance/sql-managed-instance-paas-overview.md)
 * [Planejar eventos de manutenção do Azure no banco de dados SQL do Azure e instância gerenciada do SQL do Azure](planned-maintenance.md)
-
-
-
-
-

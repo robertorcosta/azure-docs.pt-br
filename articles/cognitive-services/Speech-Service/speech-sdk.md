@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: afba973570d75eace8cae8d1ed6ed470db21ef0e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 65e55d8e9d81f4045dde29c943f034ed0a24bf4c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043186"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608078"
 ---
 # <a name="about-the-speech-sdk"></a>Sobre o SDK de Fala
 
@@ -67,17 +67,17 @@ O suporte ao **Assistente de voz** está disponível nas seguintes plataformas:
   - Java/Windows & Linux & macOS & Android (SDK de dispositivos de fala)
   - Go
 
-#### <a name="keyword-spotting"></a>Palavra-chave parando
+#### <a name="keyword-recognition"></a>Reconhecimento de palavra-chave
 
-O conceito de decepções de [palavra-chave](./custom-keyword-basics.md) tem suporte no SDK de fala. A palavra-chave que está sendo demarcada é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
+O conceito de [reconhecimento de palavra-chave](./custom-keyword-basics.md) tem suporte no SDK de fala. Reconhecimento de palavra-chave é o ato de identificar uma palavra-chave em fala, seguida de uma ação após ouvir a palavra-chave. Por exemplo, "Ei Cortana" ativaria o assistente da Cortana.
 
-A **palavra-chave (KWs)** está disponível nas seguintes plataformas:
+O **reconhecimento de palavra-chave** está disponível nas seguintes plataformas:
 
   - C++/Windows & Linux
   - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (SDK de dispositivos de fala)
-  - A funcionalidade de KWS (palavra-chave) pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala
+  - A funcionalidade de reconhecimento de palavra-chave pode funcionar com qualquer tipo de microfone, o suporte a reconhecimento de palavra-chave oficial, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos
 
 ### <a name="meeting-scenarios"></a>Cenários de reunião
 

@@ -1,18 +1,18 @@
 ---
 title: Mover regiões do Azure-portal do Azure-banco de dados do Azure para PostgreSQL-servidor único
 description: Mova um banco de dados do Azure para o servidor PostgreSQL de uma região do Azure para outra usando uma réplica de leitura e a portal do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 06/29/2020
-ms.openlocfilehash: d237d5709f8d2bb47de3e89b0b7103b195376e11
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 204815d36baf9fe6e7fe8c0e194ac7acc14f72e4
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92489737"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606463"
 ---
 # <a name="move-an-azure-database-for-azure-database-for-postgresql---single-server-to-another-region-by-using-the-azure-portal"></a>Mover um banco de dados do Azure para o banco de dados do Azure para PostgreSQL-servidor único para outra região usando o portal do Azure
 
@@ -36,7 +36,7 @@ Para preparar o servidor de origem para replicação usando o portal do Azure, u
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 1. Selecione o servidor do banco de dados do Azure para PostgreSQL existente que você deseja usar como o servidor de origem. Essa ação abre a página **Visão geral** do runbook.
 1. No menu do servidor, selecione **replicação**. Se o suporte à replicação do Azure for definido como pelo menos **réplica**, você poderá criar réplicas de leitura. 
-1. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Clique em **Salvar**.
+1. Se o suporte à replicação do Azure não estiver definido como pelo menos **réplica**, defina-o. Selecione **Salvar**.
 1. Reinicie o servidor para aplicar a alteração selecionando **Sim**.
 1. Você receberá duas notificações de portal do Azure quando a operação for concluída. Há uma notificação para atualizar o parâmetro do servidor. Há outra notificação para a reinicialização do servidor que segue imediatamente.
 1. Atualize a página de portal do Azure para atualizar a barra de ferramentas de replicação. Agora você pode criar réplicas de leitura para este servidor.

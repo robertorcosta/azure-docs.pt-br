@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 297bc24c570298dddf10a101a0c0c528bddecc10
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: d8c3a2d961cc5b6fd719b77dae07b6e46c3d8b65
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889817"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604831"
 ---
 # <a name="known-issues-with-h-series-and-n-series-vms"></a>Problemas conhecidos com VMs da série H e da série N
 
@@ -24,9 +24,18 @@ No Ubuntu-18, 4, o adaptador Mellanox OFED mostrou incompatibilidade com a vers�
 A solução temporária é usar a imagem **canônica: UbuntuServer: 18_04-LTS-Gen2:18.04.202101290** Marketplace ou mais antiga e não para atualizar o kernel.
 Esse problema deve ser resolvido com um MOFED mais recente (TBD).
 
-## <a name="known-issues-on-hbv3"></a>Problemas conhecidos no HBv3
-- Atualmente, o InfiniBand tem suporte apenas na VM 120-Core (Standard_HB120rs_v3).
-- Atualmente, a rede acelerada do Azure não tem suporte na série HBv3 em todas as regiões.
+## <a name="mpi-qp-creation-errors"></a>Erros de criação de MPI QP
+Se, no meio da execução de qualquer carga de trabalho MPI, erros de criação de InfiniBand QP, como mostrado abaixo, são apresentados, sugerimos reinicializar a VM e tentar novamente a carga de trabalho. Esse problema será corrigido no futuro.
+
+```bash
+ib_mlx5_dv.c:150  UCX  ERROR mlx5dv_devx_obj_create(QP) failed, syndrome 0: Invalid argument
+```
+
+Você pode verificar os valores do número máximo de pares de fila quando o problema é observado da seguinte maneira.
+```bash
+[user@azurehpc-vm ~]$ ibv_devinfo -vv | grep qp
+max_qp: 4096
+```
 
 ## <a name="accelerated-networking-on-hb-hc-hbv2-and-ndv2"></a>Rede acelerada em HB, HC, HBv2 e NDv2
 

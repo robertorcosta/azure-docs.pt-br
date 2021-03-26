@@ -11,14 +11,14 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 7be5732b4e8897a9bc993b4e84b781e5f39bce55
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: f4b661ee66d3fb045dfa4891f1f1c1643927167c
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565607"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105044032"
 ---
-# <a name="get-all-azure-ad-proxy-application-apps-published-with-no-certificate-uploaded"></a>Obter todos os aplicativos do Proxy de Aplicativo do Azure AD publicados sem nenhum certificado carregado
+# <a name="get-all-application-proxy-apps-published-with-no-certificate-uploaded"></a>Obter todos os aplicativos do Proxy de Aplicativo publicados sem certificado carregado
 
 Este exemplo de script do PowerShell lista todos os aplicativos do Proxy de Aplicativo do Azure AD (Azure Active Directory) que estão usando domínios personalizados, mas que não têm um certificado TLS/SSL válido carregado.
 

@@ -2,7 +2,7 @@
 Título: Modelo do ARM da conta dos Serviços de Mídia: Descrição dos Serviços de Mídia do Azure: Este artigo mostra como usar um modelo do ARM para criar uma conta dos Serviços de Mídia.
 services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
 
-ms.service: media-services ms.workload: ms.topic: quickstart ms.date: 11/24/2020 ms.author: inhenkel ms.custom: subject-armqs
+ms.service: media-services ms.workload: ms.topic: guia de início rápido ms.date: 23/03/2021 ms.author: inhenkel ms.custom: subject-armqs
 
 ---
 
@@ -18,10 +18,9 @@ Este artigo mostra como usar um modelo do ARM (Azure Resource Manager) para cria
 
 Os leitores que têm experiência com modelos do ARM podem prosseguir para a [seção sobre implantação](#deploy-the-template).
 
-<!-- this section will be added when the template is merged. If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+Se seu ambiente atender aos pré-requisitos e você estiver familiarizado com o uso de modelos ARM, selecione o botão **Implantar no Azure**. O modelo será aberto no portal do Azure.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/<template's URI>)
--->
+[![Implantar no Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-media-services-create%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -31,81 +30,16 @@ Se você nunca implantou um modelo do ARM antes, é útil ler mais sobre os [mod
 
 ## <a name="review-the-template"></a>Examinar o modelo
 
-<!-- this will be added when the template is merged. The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/101-media-services-account-create/).
+O modelo usado neste início rápido é proveniente dos [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-media-services-create/).
 
-The syntax for the JSON code fence is:
+A sintaxe do limite de código JSON é:
 
-:::code language="json" source="~/quickstart-templates/101-media-services-account-create/azuredeploy.json"::: -->
-
-```json
-{
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "mediaServiceName": {
-      "type": "string",
-      "metadata": {
-        "description": "Name of the Media Services account. A Media Services account name is unique in a given region, all lowercase letters or numbers with no spaces."
-      }
-    }
-  },
-  "variables": {
-    "storageName": "[concat('storage', uniqueString(resourceGroup().id))]"
-  },
-  "resources": [
-    {
-      "name": "[parameters('mediaServiceName')]",
-      "type": "Microsoft.Media/mediaServices",
-      "apiVersion": "2018-07-01",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[resourceId('Microsoft.Storage/storageAccounts', variables('storageName'))]"
-      ],
-      "properties": {
-        "storageAccounts": [
-          {
-            "id": "[resourceId('microsoft.storage/storageaccounts/', variables('storageName'))]",
-            "type": "Primary"
-          }
-        ]
-      }
-    },
-    {
-      "name": "[variables('storageName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "sku": {
-        "name": "Standard_LRS",
-        "tier": "Standard"
-      },
-      "kind": "StorageV2",
-      "apiVersion": "2017-10-01",
-      "location": "[resourceGroup().location]",
-      "tags": {},
-      "scale": null,
-      "properties": {
-          "encryption": {
-              "services": {
-                  "file": {
-                      "enabled": true
-                  },
-                  "blob": {
-                      "enabled": true
-                  }
-              },
-              "keySource": "Microsoft.Storage"
-          },
-          "accessTier": "Hot"
-      }
-    }
-  ]
-}
-
-```
+:::code language="json" source="~/quickstart-templates/101-media-services-create/azuredeploy.json":::
 
 Três tipos de recursos do Azure são definidos no modelo:
 
-- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): cria uma conta dos Serviços de Mídia
 - [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts): cria uma conta de armazenamento
+- [Microsoft.Media/mediaservices](/azure/templates/microsoft.media/mediaservices): cria uma conta dos Serviços de Mídia
 
 ## <a name="set-the-account"></a>Definir a conta
 

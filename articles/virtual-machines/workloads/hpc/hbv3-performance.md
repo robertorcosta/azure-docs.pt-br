@@ -1,25 +1,25 @@
 ---
-title: Desempenho do tamanho da VM da série HBv3
-description: Saiba mais sobre os resultados de testes de desempenho para tamanhos de VM da série HBv3 no Azure.
+title: Desempenho e escalabilidade de tamanhos de VM da série HBv3
+description: Saiba mais sobre o desempenho e a escalabilidade dos tamanhos de VM da série HBv3 no Azure.
 services: virtual-machines
 author: vermagit
 ms.service: virtual-machines
 ms.subservice: workloads
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 03/12/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 87c3e4e9b509589624a228ea2e1f4b68e86e3fa8
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: bf64cfc8ad00fc7f761019ed2fa66089434a96ba
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721131"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604763"
 ---
 # <a name="hbv3-series-virtual-machine-performance"></a>Desempenho da máquina virtual da série HBv3
 
-Usuários de acesso antecipado de VMs HBv3 podem esperar os seguintes valores de desempenho em microbenchmarks HPC comuns
+As expectativas de desempenho usando o HPC comum são os seguintes:
 
 | Carga de trabalho                                        | HBv3                                                              |
 |-------------------------------------------------|-------------------------------------------------------------------|
@@ -30,7 +30,7 @@ Usuários de acesso antecipado de VMs HBv3 podem esperar os seguintes valores de
 
 ## <a name="process-pinning"></a>Fixação de processo
 
-A fixação de processos funciona bem em VMs da série HBv3 porque expõemos o silício subjacente como está para a VM convidada. É altamente recomendável fixar o processo para desempenho e consistência ideais.
+A [fixação de processos](compiling-scaling-applications.md#process-pinning) funciona bem em VMs da série HBv3 porque expõemos o silício subjacente como está para a VM convidada. É altamente recomendável fixar o processo para desempenho e consistência ideais.
 
 ## <a name="mpi-latency"></a>Latência MPI
 
@@ -45,11 +45,12 @@ O teste de largura de banda MPI do OSU MicroBenchMark Suite pode ser executado c
 ./mvapich2-2.3.install/bin/mpirun_rsh -np 2 -hostfile ~/hostfile MV2_CPU_MAPPING=[INSERT CORE #] ./mvapich2-2.3/osu_benchmarks/mpi/pt2pt/osu_bw
 ```
 ## <a name="mellanox-perftest"></a>Adaptador Mellanox Perftest
-O [pacote Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) tem muitos testes de InfiniBand, como latência (ib_send_lat) e largura de banda (ib_send_bw). Um exemplo de comando é mostrado abaixo. 
+O [pacote Mellanox Perftest](https://community.mellanox.com/s/article/perftest-package) tem muitos testes de InfiniBand, como latência (ib_send_lat) e largura de banda (ib_send_bw). Um exemplo de comando é mostrado abaixo.
 ```console
 numactl --physcpubind=[INSERT CORE #]  ib_send_lat -a
 ```
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre o [dimensionamento de aplicativos MPI](compiling-scaling-applications.md).
+- Examine os resultados de desempenho e escalabilidade dos aplicativos HPC nas VMs HBv3 no [artigo TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/hpc-performance-and-scalability-results-with-azure-hbv3-vms/bc-p/2235843).
 - Leia sobre os comunicados mais recentes, exemplos de carga de trabalho do HPC e resultados de desempenho nos [Blogs da comunidade técnica de computação do Azure](https://techcommunity.microsoft.com/t5/azure-compute/bg-p/AzureCompute).
 - Para uma exibição arquitetônica de nível superior da execução de cargas de trabalho do HPC, consulte [computação de alto desempenho (HPC) no Azure](/azure/architecture/topics/high-performance-computing/).

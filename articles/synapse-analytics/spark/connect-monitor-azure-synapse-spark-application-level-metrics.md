@@ -2,19 +2,19 @@
 title: Tutorial – Conectar e monitorar as métricas no nível do aplicativo Spark do Azure Synapse
 description: Tutorial – Saiba como integrar o servidor local existente do Prometheus ao workspace do Azure Synapse para métricas de aplicativo do Azure Spark quase em tempo real usando o conector do Synapse Prometheus.
 services: synapse-analytics
-author: hrasheed-msft
+author: julieMSFT
 ms.author: jejiang
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
 ms.date: 01/22/2021
-ms.openlocfilehash: cb27401b2925c800ebde3b554c076f0d8cb747ca
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 956d2f8f14b224609542783a8b18d3cdee43fff9
+ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104593009"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105035618"
 ---
 # <a name="tutorial-connect-and-monitor-azure-synapse-spark-application-level-metrics"></a>Tutorial: conectar e monitorar as métricas no nível do aplicativo Spark do Azure Synapse
 
@@ -152,7 +152,7 @@ Você pode usar o fluxo de credenciais do cliente para obter um token de acesso.
 | grant_type    | True     | Especifica o tipo de concessão solicitada. Em um fluxo de Concessão de Credenciais de Cliente, o valor deve ser client_credentials. |
 | client_id     | True     | A ID do aplicativo (entidade de serviço) que você registrou no portal do Azure ou na CLI do Azure.        |
 | client_secret | True     | O segredo gerado para o aplicativo (entidade de serviço)                                                  |
-| recurso      | True     | O URI de recurso do Synapse deve ser https://dev.azuresynapse.net                                                  |
+| recurso      | True     | O URI de recurso do Azure Synapse deveria ser "https://dev.azuresynapse.net"                                                  |
 
 ```bash
 curl -X GET -H 'Content-Type: application/x-www-form-urlencoded' \
