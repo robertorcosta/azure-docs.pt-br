@@ -1,14 +1,14 @@
 ---
 title: Saiba Azure Policy para kubernetes
 description: Saiba como o Azure Policy usa o Rego e o Open Policy Agent para gerenciar clusters que executam o Kubernetes no Azure ou localmente.
-ms.date: 12/01/2020
+ms.date: 03/22/2021
 ms.topic: conceptual
-ms.openlocfilehash: 0aaf610cd5712ee195ed2a4108cf9e5ca9c65183
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 60ffcfac688eb40f47efefb74f79d27a2cb82446
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100577105"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104868147"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Noções básicas sobre clusters do Azure Policy para Kubernetes
 
@@ -68,7 +68,7 @@ As seguintes limitações se aplicam somente ao complemento Azure Policy para AK
 
 Veja a seguir as recomendações gerais para usar o complemento Azure Policy:
 
-- O complemento Azure Policy requer 3 componentes de gatekeeper para executar: 1 pod de auditoria e 2 réplicas pod de webhook. Esses componentes consomem mais recursos, pois a contagem de recursos kubernetes e atribuições de política aumenta no cluster, o que exige operações de auditoria e imposição.
+- O complemento de Azure Policy requer três componentes de gatekeeper para executar: 1 pod de auditoria e 2 réplicas de pod de webhook. Esses componentes consomem mais recursos, pois a contagem de recursos kubernetes e atribuições de política aumenta no cluster, o que exige operações de auditoria e imposição.
 
   - Para menos de 500 pods em um único cluster com um máximo de 20 restrições: 2 vCPUs e 350 MB de memória por componente.
   - Para mais de 500 pods em um único cluster com um máximo de 40 restrições: 3 vCPUs e 600 MB de memória por componente.
@@ -85,7 +85,7 @@ A recomendação a seguir aplica-se somente ao AKS e ao complemento Azure Policy
 
 ## <a name="install-azure-policy-add-on-for-aks"></a>Instalar complemento do Azure Policy para AKS
 
-Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de serviço, sua assinatura precisará habilitar os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights**.
+Antes de instalar o complemento Azure Policy ou habilitar qualquer um dos recursos de serviço, sua assinatura deve habilitar os provedores de recursos **Microsoft. PolicyInsights** .
 
 1. Você precisa do CLI do Azure versão 2.12.0 ou posterior instalado e configurado. Execute `az --version` para encontrar a versão. Se você precisar instalar ou atualizar, confira [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
@@ -93,15 +93,12 @@ Antes de instalar o complemento do Azure Policy ou habilitar um dos recursos de 
 
    - Portal do Azure:
 
-     Registre os provedores de recursos **Microsoft.ContainerService** e **Microsoft.PolicyInsights**. Para obter as etapas, confira [Provedores e tipos de recurso](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
+     Registre os provedores de recursos **Microsoft. PolicyInsights** . Para obter as etapas, confira [Provedores e tipos de recurso](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
    - CLI do Azure:
 
      ```azurecli-interactive
      # Log in first with az login if you're not using Cloud Shell
-
-     # Provider register: Register the Azure Kubernetes Service provider
-     az provider register --namespace Microsoft.ContainerService
 
      # Provider register: Register the Azure Policy provider
      az provider register --namespace Microsoft.PolicyInsights
@@ -440,14 +437,13 @@ Algumas outras considerações:
 
 - Se a assinatura do cluster estiver registrada na central de segurança do Azure, as políticas de kubernetes da central de segurança do Azure serão aplicadas automaticamente no cluster.
 
-- Quando uma política de negação é aplicada ao cluster com recursos kubernetes existentes, qualquer recurso preexistente que não esteja em conformidade com a nova política continuará a ser executado. Quando o recurso sem conformidade é reagendado em um nó diferente, o gatekeeper bloqueia a criação do recurso.
+- Quando uma política de negação é aplicada ao cluster com recursos de kubernetes existentes, qualquer recurso pré-existente que não esteja em conformidade com a nova política continuará a ser executado. Quando o recurso sem conformidade é reagendado em um nó diferente, o gatekeeper bloqueia a criação do recurso.
 
 - Quando um cluster tem uma política de negação que valida os recursos, o usuário não verá uma mensagem de rejeição ao criar uma implantação. Por exemplo, considere uma implantação kubernetes que contém replicasets e pods. Quando um usuário é executado `kubectl describe deployment $MY_DEPLOYMENT` , ele não retorna uma mensagem de rejeição como parte dos eventos. No entanto, `kubectl describe replicasets.apps $MY_DEPLOYMENT` retorna os eventos associados à rejeição.
 
 ## <a name="logging"></a>Registro em log
 
-Como um controlador/contêiner do Kubernetes, os pods _azure-policy_ e _gatekeeper_ mantêm os logs no cluster do Kubernetes. Os logs podem ser expostos na página **Insights** do cluster do Kubernetes.
-Para obter mais informações, confira [Monitorar o desempenho do cluster do Kubernetes com o Azure Monitor para contêineres](../../../azure-monitor/containers/container-insights-analyze.md).
+Como um controlador/contêiner kubernetes, a _política do Azure_ e os pods de _gatekeeper_ mantêm logs no cluster kubernetes. Os logs podem ser expostos na página **Insights** do cluster do Kubernetes. Para obter mais informações, confira [Monitorar o desempenho do cluster do Kubernetes com o Azure Monitor para contêineres](../../../azure-monitor/containers/container-insights-analyze.md).
 
 Para exibir os logs do complemento, use `kubectl`:
 

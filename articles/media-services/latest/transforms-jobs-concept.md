@@ -1,9 +1,7 @@
 ---
 # <a name="mandatory-fields-see-more-on-akamsskyeyemeta"></a>Campos obrigatórios. Veja mais em aka.ms/skyeye/meta.
-Título: transformações e trabalhos nos serviços de mídia: descrição dos serviços de mídia do Azure: saiba como criar transformações para descrever as regras para processar seus vídeos nos serviços de mídia do Azure.
-services: media-services documentationcenter: '' author: IngridAtMicrosoft manager: femila editor: ''
-
-MS. Service: Media-Services MS. Workload: MS. Topic: conceitual MS. Date: 03/17/2021 MS. Author: inhenkel
+Título: transformações e trabalhos nos serviços de mídia: descrição dos serviços de mídia do Azure: as transformações descrevem as regras para processar seus vídeos nos serviços de mídia do Azure.
+serviços: mídia-serviços autor: IngridAtMicrosoft Manager: femila MS. Service: Media-Services MS. Topic: conceitual MS. Date: 03/22/2021 MS. Author: inhenkel
 ---
 
 # <a name="transforms-and-jobs-in-media-services"></a>Transformações e trabalhos nos serviços de mídia
@@ -90,12 +88,6 @@ O diagrama a seguir mostra o objeto de **trabalho** e os objetos que ele faz ref
 Clique na imagem para exibi-la em tamanho normal.  
 
 [![Diagrama que mostra o objeto de trabalho e os objetos referenciados, incluindo as relações de derivação de classe entre os objetos.](./media/api-diagrams/job-small.png)](./media/api-diagrams/job-large.png#lightbox)
-
-## <a name="configure-media-reserved-units"></a>Configurar unidades reservadas de mídia
-
-Para trabalhos de análise de vídeo e análise de áudio disparados pelos serviços de mídia V3 ou Video Indexer, é altamente recomendável provisionar sua conta com 10 MRUs (unidades reservadas de mídia) S3. Se você precisar de mais de 10 MRUs do S3, abra um ticket de suporte usando o [Portal do Microsoft Azure](https://portal.azure.com/).
-
-Para obter detalhes, confira [Dimensionar o processamento de mídia com a CLI](media-reserved-units-cli-how-to.md).
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
