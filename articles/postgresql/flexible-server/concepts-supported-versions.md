@@ -1,17 +1,17 @@
 ---
 title: Versões com suporte – banco de dados do Azure para PostgreSQL-servidor flexível
 description: Descreve as versões principais e secundárias do PostgreSQL com suporte no banco de dados do Azure para PostgreSQL – servidor flexível.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 474545b7c5eca64b558e5fe26e23e6800b0cab96
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5fda7ebb5a72dd9bbfab0ba72511540cf141563f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102037159"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608843"
 ---
 # <a name="supported-postgresql-major-versions-in-azure-database-for-postgresql---flexible-server"></a>Versões principais do PostgreSQL com suporte no banco de dados do Azure para PostgreSQL – servidor flexível
 

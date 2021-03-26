@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: c088625528190ad116676fbb51cec9f8de4b1578
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 21012848ba3624df6110eaea182beccc4646d234
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104600795"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609268"
 ---
 # <a name="querying-in-azure-cognitive-search"></a>Consultando no Azure Pesquisa Cognitiva
 
@@ -77,7 +77,7 @@ Se você antecipar o uso intensivo de operadores boolianos, o que é mais prová
 
 ## <a name="autocomplete-and-suggested-queries"></a>Preenchimento automático e consultas sugeridas
 
-[Os resultados de preenchimento automático ou sugerido](search-autocomplete-tutorial.md) são alternativas ao que disparam **`search`** solicitações de consulta sucessivas com base em entradas de cadeias de caracteres parciais (depois de cada caractere) em uma experiência de pesquisa conforme o tipo. Você pode usar **`autocomplete`** **`suggestions`** [o e o](tutorial-csharp-type-ahead-and-suggestions.md)parâmetro juntos ou separadamente, conforme descrito neste tutorial, mas não pode usá-los com o **`search`** . Os termos concluídos e as consultas sugeridas são derivados do conteúdo do índice. O mecanismo nunca retornará uma cadeia de caracteres ou sugestão que não existe em seu índice. Para obter mais informações, consulte [preenchimento automático (API REST)](/rest/api/searchservice/autocomplete) e [sugestões (API REST)](/rest/api/searchservice/suggestions).
+[Os resultados de preenchimento automático ou sugerido](search-add-autocomplete-suggestions.md) são alternativas ao que disparam **`search`** solicitações de consulta sucessivas com base em entradas de cadeias de caracteres parciais (depois de cada caractere) em uma experiência de pesquisa conforme o tipo. Você pode usar **`autocomplete`** **`suggestions`** [o e o](tutorial-csharp-type-ahead-and-suggestions.md)parâmetro juntos ou separadamente, conforme descrito neste tutorial, mas não pode usá-los com o **`search`** . Os termos concluídos e as consultas sugeridas são derivados do conteúdo do índice. O mecanismo nunca retornará uma cadeia de caracteres ou sugestão que não existe em seu índice. Para obter mais informações, consulte [preenchimento automático (API REST)](/rest/api/searchservice/autocomplete) e [sugestões (API REST)](/rest/api/searchservice/suggestions).
 
 ## <a name="filter-search"></a>Pesquisa de filtro
 

@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: d80caf767d923ce2539ca254a8312371155a3104
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 015fa201fe1c31dde2e30c2fe689ac13452b1b01
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553724"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607585"
 ---
 # <a name="troubleshoot-shared-image-galleries-in-azure"></a>Solucionar problemas de galerias de imagens compartilhadas no Azure
 
@@ -52,7 +52,7 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 **Causa**: você tentou excluir uma galeria que contém pelo menos uma definição de imagem existente. Uma galeria deve estar vazia antes que possa ser excluída.  
 **Solução alternativa**: exclua todas as definições de imagem dentro da galeria e, em seguida, continue a excluir a galeria. Se a definição de imagem contiver versões de imagem, você deverá excluir as versões da imagem antes de excluir as definições de imagem.
 
-**Mensagem**: *o nome da Galeria ' <galleryname \> ' não é exclusivo na assinatura ' <subscriptionId> '. Escolha outro nome de galeria.*  
+**Mensagem**: *o nome da Galeria ' <galleryname \> ' não é exclusivo na assinatura ' <subscriptionID> '. Escolha outro nome de galeria.*  
 **Causa**: você tem uma galeria existente com o mesmo nome e tentou criar outra galeria com o mesmo nome.  
 **Solução alternativa**: escolha um nome diferente para a galeria.
 
@@ -127,7 +127,7 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 **Causa**: você tentou excluir uma definição de imagem que contém versões de imagem. Uma definição de imagem deve estar vazia antes que possa ser excluída.  
 **Solução alternativa**: exclua todas as versões de imagem dentro da definição de imagem e, em seguida, prossiga para excluir a definição de imagem.
 
-**Mensagem**: *não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo <PropertyType \> . Não é possível corresponder o valor do identificador <\> ao nome de um enumerador válido. Especifique um dos seguintes nomes de enumerador e tente novamente: <Choice1 \> , <Choice2 \> ,...*  
+**Mensagem**: *não é possível associar o parâmetro <propriedade \> . Não é possível converter valor <valor \> para o tipo <PropertyType \> . Não é possível corresponder o valor do identificador <\> ao nome de um enumerador válido. Especifique um dos seguintes nomes de enumerador e tente novamente: <opção \_ 1 \> , <opção \_ 2 \> ,...*  
 **Causa**: a propriedade tem uma lista restrita de valores possíveis e <valor \> não é um deles.  
 **Solução alternativa**: escolha um dos possíveis valores de <opção \> .
 
@@ -185,7 +185,7 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 **Causa**: quando você está criando uma versão de imagem usando uma lista de discos e/ou instantâneos de disco, dois ou mais discos ou instantâneos de disco têm a mesma ID de recurso.  
 **Solução alternativa**: remova ou altere quaisquer IDs de origem de disco duplicadas.
 
-**Mensagem**: *a id da propriedade <ResourceId \> no caminho ' properties. storageProfile. <diskImages \> . Source.ID ' é inválido. Espere uma ID de recurso totalmente qualificada que comece com '/subscriptions/{subscriptionId} ' ou '/providers/{resourceProviderNamespace}/'.*  
+**Mensagem**: *a id da propriedade <ResourceId \> no caminho ' properties. storageProfile. <diskImages \> . Source.ID ' é inválido. Espere uma ID de recurso totalmente qualificada que comece com '/subscriptions/ <subscriptionID> ' ou '/Providers/ <resourceProviderNamespace> /'.*  
 **Causa**: o valor de resourceid <\> está formatado incorretamente.  
 **Solução alternativa**: Verifique se a ID do recurso está correta.
 
@@ -303,7 +303,7 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 **Causa**: a definição de imagem usada para implantar a máquina virtual não contém nenhuma versão de imagem incluída na versão mais recente.  
 **Solução alternativa**: Verifique se há pelo menos uma versão de imagem que tenha ' excluir do mais recente ' definida como false. 
 
-**Mensagem**: *o cliente tem permissão para executar a ação ' Microsoft. Compute/galerias/images/Versions/Read ' no escopo <ResourceId \> , no entanto, o locatário atual <tenantId1 \> não está autorizado a acessar a assinatura vinculada <subscriptionId2 \> .*  
+**Mensagem**: *o cliente tem permissão para executar a ação ' Microsoft. Compute/galerias/images/Versions/Read ' no escopo <ResourceId \> , no entanto, o locatário atual <tenantid \> não está autorizado a acessar a assinatura vinculada <SubscriptionId \> .*  
 **Causa**: a máquina virtual ou o conjunto de dimensionamento foi criado por meio de uma imagem SIG em outro locatário. Você tentou fazer uma alteração na máquina virtual ou no conjunto de dimensionamento, mas não tem acesso à assinatura que possui a imagem.  
 **Solução alternativa**: entre em contato com o proprietário da assinatura da versão da imagem para conceder acesso de leitura à versão da imagem.
 
@@ -327,12 +327,17 @@ Se você tiver problemas ao executar qualquer operação em galerias de imagens 
 **Causa**: a imagem de origem atual do conjunto de dimensionamento é uma imagem de origem generalizada, mas está sendo atualizada com uma imagem de origem especializada. A imagem de origem atual e a nova imagem de origem para um conjunto de dimensionamento devem ser do mesmo estado.  
 **Solução alternativa**: para atualizar o conjunto de dimensionamento, use uma versão de imagem generalizada.
 
-**Mensagem**: o *conjunto de criptografia de disco <diskEncryptionSetId \> na Galeria de imagens compartilhadas <VersionId \> pertence à assinatura <subscriptionId1 \> e não pode ser usado com \> o recurso ' ' na assinatura <subscriptionId2*  
+**Mensagem**: o *conjunto de criptografia de disco <diskEncryptionSetID \> na Galeria de imagens compartilhadas <VersionId \> pertence à assinatura <SubscriptionId \_ 1 \> e não pode ser usado com o recurso ' ' na assinatura <SubscriptionId \_ 2 \>*  
 **Causa**: o conjunto de criptografia de disco usado para criptografar a versão da imagem reside em uma assinatura diferente da assinatura para hospedar a versão da imagem.  
 **Solução alternativa**: Use a mesma assinatura para a versão de imagem e o conjunto de criptografia de disco.
 
 **Mensagem**: *a criação da VM ou do conjunto de dimensionamento de máquinas virtuais leva muito tempo.*  
 **Solução alternativa**: Verifique se o **OSType** da versão da imagem da qual você está tentando criar a VM ou o conjunto de dimensionamento de máquinas virtuais tem o mesmo **OSType** da fonte que você usou para criar a versão da imagem. 
+
+**Mensagem**: *o recurso com ID <vmID \> tem um plano diferente [' { \" name \" : \" <name> \" , \" Publisher \" : \" <publisher> \" , \" Product \" : \" <product> \" , \" promotionCode \" : \" <promotionCode> \" } '] que o plano de imagem da Galeria pai [' NULL '].*  
+**Causa**: a definição da imagem pai para a versão da imagem que está sendo implantada não tem informações do plano de compra.  
+**Solução alternativa**: Crie uma definição de imagem com os mesmos detalhes do plano de compra da mensagem de erro e crie a versão da imagem na definição da imagem.
+
 
 ## <a name="creating-a-disk-from-an-image-version"></a>Criando um disco com base em uma versão de imagem ##
 

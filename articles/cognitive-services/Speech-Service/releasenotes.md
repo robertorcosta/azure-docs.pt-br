@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/18/2021
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: d3d10eb496899287e93a96f0cbb06dedf83c601d
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 86a656630f6c41e2cf6682d0160cce345d1f564d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048622"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606616"
 ---
 # <a name="speech-service-release-notes"></a>Notas de versão do Serviço de Fala
 
@@ -422,7 +422,7 @@ Mantenha-se íntegro!
 
 * Precisão de pronúncia de nível de palavra aprimorada em cinco idiomas.
 
-    | Linguagem | Redução de erros de pronúncia |
+    | Idioma | Redução de erros de pronúncia |
     |---|---|
     | `en-GB` | 51% |
     | `ko-KR` | 17% |
@@ -435,7 +435,7 @@ Mantenha-se íntegro!
 * Leitura de moeda
     * Corrigido o problema com a leitura de moeda para `es-ES` e `es-MX`
      
-    | Linguagem | Entrada | Leitura após aperfeiçoamento |
+    | Idioma | Entrada | Leitura após aperfeiçoamento |
     |---|---|---|
     | `es-MX` | $1.58 | un peso Cincuenta y Ocho centavos |
     | `es-ES` | $1.58 | Dólar Cincuenta y Ocho centavos |
@@ -711,13 +711,13 @@ Essa é uma liberação de correção de bug e afeta apenas o SDK nativo/gerenci
 **Correções de bugs**
 
 - Corrigir o FromSubscription quando usado com a transcrição de conversa.
-- Correção de bug na palavra-chave para assistentes de voz.
+- Corrija o bug no reconhecimento de palavra-chave para assistentes de voz.
 
 ## <a name="speech-sdk-150-2019-may-release"></a>Speech SDK 1.5.0:2019-maio de lançamento
 
 **Novos recursos**
 
-- A palavra-chave (KWS) está disponível agora para Windows e Linux. A funcionalidade do KWS pode funcionar com qualquer tipo de microfone, o suporte oficial do KWS, no entanto, está limitado atualmente às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala.
+- O reconhecimento de palavra-chave agora está disponível para Windows e Linux. Essa funcionalidade pode funcionar com qualquer tipo de microfone, mas o suporte oficial está atualmente limitado às matrizes de microfone encontradas no hardware do Azure Kinect DK ou no SDK dos dispositivos de fala.
 - A funcionalidade de dica de frase está disponível por meio do SDK. Para mais informações, consulte [aqui](./get-started-speech-to-text.md).
 - A funcionalidade de transcrição de conversa está disponível por meio do SDK. Consulte [aqui](./conversation-transcription.md).
 - Adicione suporte para assistentes de voz usando o canal de fala de linha direta.

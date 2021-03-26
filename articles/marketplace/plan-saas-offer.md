@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: b1bb749400cfb1e289a0a335275f4654d37145e9
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 2f12f33bf6108784b2eec252fb12d03eebd2a45c
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105046497"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604916"
 ---
 # <a name="how-to-plan-a-saas-offer-for-the-commercial-marketplace"></a>Como planejar uma oferta de SaaS para o Marketplace comercial
 
@@ -37,9 +37,9 @@ A tabela a seguir mostra as opções de listagem para as ofertas de SaaS no Mark
 
 Para obter mais informações sobre essas opções de listagem, consulte [recursos de transação do Marketplace comercial](marketplace-commercial-transaction-capabilities-and-considerations.md).
 
-Depois que sua oferta for publicada, a opção de listagem escolhida para sua oferta será exibida como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a captura de tela a seguir mostra uma página de listagem de oferta no Azure Marketplace com os botões **obter agora** e **testar unidade** .
+Depois que sua oferta for publicada, a opção de listagem escolhida para sua oferta será exibida como um botão no canto superior esquerdo da página de listagem da sua oferta. Por exemplo, a captura de tela a seguir mostra uma página de listagem de oferta no Azure Marketplace com o botão **obter agora** .
 
-![Ilustra uma listagem de oferta na loja online.](./media/listing-options.png)
+![Ilustra uma listagem de oferta na loja online.](./media/saas/listing-options-saas-full.png)
 
 ## <a name="technical-requirements"></a>Requisitos técnicos
 
@@ -138,7 +138,7 @@ Se você optar por usar o contrato padrão, terá a opção de adicionar os term
 
 Ao [criar uma nova oferta de SaaS](create-new-saas-offer.md) no Partner Center, você inserirá texto, imagens, vídeos opcionais e outros detalhes na página de **listagem da oferta** . Essas são as informações que os clientes verão quando descobrirem sua listagem de ofertas no Marketplace comercial, conforme mostrado no exemplo a seguir.
 
-:::image type="content" source="./media/example-saas-1.png" alt-text="Ilustra como essa oferta aparece em Microsoft AppSource.":::
+:::image type="content" source="./media/saas/example-saas-1.png" alt-text="Ilustra como essa oferta aparece em Microsoft AppSource.":::
 
 **Descrições de chamada**
 

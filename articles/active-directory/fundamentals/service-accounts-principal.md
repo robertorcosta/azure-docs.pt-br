@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bab8e8c6dfb944e496c636d53217e63175be9fbc
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 297c0a53fb2ab4ee0b2c5291cabf5a63c8841664
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587841"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604695"
 ---
 # <a name="securing-service-principals"></a>Proteção de entidades de serviço
 
@@ -84,7 +84,7 @@ Usando a CLI do Azure
 
 `az ad sp list`
 
-Usando o PowerShell
+Usar o PowerShell
 
 `Get-AzureADServicePrincipal -All:$true` 
 
@@ -96,6 +96,7 @@ Para obter mais informações [, consulte Get-AzureADServicePrincipal](/powershe
 Para avaliar a segurança de suas entidades de serviço, certifique-se de avaliar os privilégios e o armazenamento de credenciais.
 
 Reduza os desafios potenciais usando as informações a seguir.
+
 |Desafios | Atenuações|
 | - | - |
 | Detectar o usuário que consentiu em um aplicativo multilocatário e detectar concessões de autorização ilícita para um aplicativo multilocatário | Execute o PowerShell a seguir para localizar aplicativos multilocatários.<br>`Get-AzureADServicePrincipal -All:$true ? {$_.Tags -eq WindowsAzureActiveDirectoryIntegratedApp"}`<br>Desabilite o consentimento do usuário. <br>Permitir consentimento do usuário de Publicadores verificados, para permissões selecionadas (recomendado) <br> Use o acesso condicional para bloquear entidades de serviço de locais não confiáveis. Configure-os no contexto do usuário e seus tokens devem ser usados para disparar a entidade de serviço.|

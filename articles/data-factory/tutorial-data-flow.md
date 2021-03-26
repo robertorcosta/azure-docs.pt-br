@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 03/11/2021
-ms.openlocfilehash: 52509dbf529076eaa0af73ea48db9a7f3fd10241
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2363afc4c84ee7606410ceecd6819c12d0333dbb
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104584509"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563286"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformar dados usando fluxos de dados de mapeamento
 
@@ -24,7 +24,7 @@ Se estiver se familiarizando com o Azure Data Factory, confira [Introdução ao 
 Neste tutorial, você usará a interface do usuário do Azure Data Factory (UX) para criar um pipeline que copia e transforma dados de uma fonte de Gen2 de Azure Data Lake Storage (ADLS) para um coletor ADLS Gen2 usando o fluxo de dados de mapeamento. O padrão de configuração neste tutorial pode ser expandido após a transformação de dados usando o fluxo de dados de mapeamento
 
  >[!NOTE]
-   >Este tutorial destina-se a mapear fluxos de dados em geral. Os fluxos de dados estão disponíveis nos pipelines Azure Data Factory e Synapse. Se você for novo em fluxos de dados em pipelines do Azure Synapse, siga o [fluxo de dados usando pipelines Synapse do Azure](https://docs.microsoft.com/azure/synapse-analytics/concepts-data-flow-overview) 
+   >Este tutorial destina-se a mapear fluxos de dados em geral. Os fluxos de dados estão disponíveis nos pipelines Azure Data Factory e Synapse. Se você for novo em fluxos de dados em pipelines do Azure Synapse, siga o [fluxo de dados usando pipelines Synapse do Azure](../synapse-analytics/concepts-data-flow-overview.md) 
    
 Neste tutorial, você executa as seguintes etapas:
 
@@ -54,7 +54,7 @@ Nesta etapa, você cria um data factory e abre o Data Factory UX para criar um p
 
    O nome do Azure Data Factory deve ser *globalmente exclusivo*. Se você receber uma mensagem de erro sobre o valor do nome, insira um nome diferente para o data factory. (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
-    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Nova data factory mensagem de erro para o nome duplicado.":::
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 4. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 5. Em **Grupo de Recursos**, use uma das seguintes etapas:
 

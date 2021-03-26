@@ -8,43 +8,46 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: aa5530dd279e8b45382fe6841b6f193a652c0ba3
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 7be40ac5f6cda7a81d68ca0b17f377891dd58480
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566788"
+ms.locfileid: "105606038"
 ---
-# <a name="known-issues-azure-communication-services-client-libraries"></a>Problemas conhecidos: bibliotecas de cliente dos serviços de comunicação do Azure
-Este artigo fornece informações sobre limitações e problemas conhecidos relacionados às bibliotecas de cliente dos serviços de comunicação do Azure.
+# <a name="known-issues-azure-communication-services-sdks"></a>Problemas conhecidos: SDKs dos serviços de comunicação do Azure
+Este artigo fornece informações sobre limitações e problemas conhecidos relacionados aos SDKs dos serviços de comunicação do Azure.
 
 > [!IMPORTANT]
 > Há vários fatores que podem afetar a qualidade da sua experiência de chamada. Consulte a documentação de **[requisitos de rede](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** para saber mais sobre as práticas recomendadas de configuração e teste de rede dos serviços de comunicação.
 
 
-## <a name="javascript-client-library"></a>Biblioteca de clientes JavaScript
+## <a name="javascript-sdk"></a>SDK do JavaScript
 
-Esta seção fornece informações sobre problemas conhecidos associados a bibliotecas de cliente de voz e vídeo JavaScript em serviços de comunicação do Azure.
+Esta seção fornece informações sobre problemas conhecidos associados aos SDKs de chamada de vídeo e voz JavaScript dos serviços de comunicação do Azure.
 
-### <a name="after-refreshing-the-page-user-is-not-removed-from-the-call-immediately"></a>Depois de atualizar a página, o usuário não é removido da chamada imediatamente 
-Se o usuário estiver em uma chamada e decidir atualizar a página, a biblioteca de cliente do Communication Services poderá não ser capaz de informar o serviço de mídia dos serviços de comunicação que está prestes a se desconectar. O serviço de mídia dos serviços de comunicação não removerá tal usuário imediatamente da chamada, mas esperará que um usuário ingresse novamente supondo problemas com a conectividade de rede. O usuário será removido da chamada depois que o serviço de mídia atingir o tempo limite.
+### <a name="refreshing-a-page-doesnt-immediately-remove-the-user-from-their-call"></a>A atualização de uma página não remove imediatamente o usuário da chamada
 
-Incentivamos os desenvolvedores a criarem experiências que não exigem que os usuários finais atualizem a página do seu aplicativo enquanto participam de uma chamada. Se o usuário for atualizar a página, a melhor maneira de tratá-la para o aplicativo é reutilizar a mesma ID de usuário dos serviços de comunicação para o usuário depois de retornar ao aplicativo após a atualização.
+Se um usuário estiver em uma chamada e decidir atualizar a página, o serviço de mídia dos serviços de comunicação não removerá esse usuário imediatamente da chamada. Ele aguardará que o usuário ingresse novamente. O usuário será removido da chamada depois que o serviço de mídia atingir o tempo limite.
 
-Para a perspectiva de outros participantes na chamada, esse usuário permanecerá na chamada por período de tempo predefinido (1-2 minutos). Se o usuário for reingressar com a mesma ID de usuário dos serviços de comunicação, ele será representado como o mesmo objeto existente na `remoteParticipants` coleção.
-Se o usuário anterior estivesse enviando vídeo, a `videoStreams` coleção manterá as informações de fluxo anteriores até que o serviço seja atingido e removido, neste cenário, o aplicativo pode decidir observar quaisquer novos fluxos adicionados à coleção e renderizar um com o mais alto `id` . 
+É melhor criar experiências do usuário que não exijam que os usuários finais atualizem a página de seu aplicativo enquanto estiverem em uma chamada. Se um usuário atualizar a página, reutilize a mesma ID de usuário dos serviços de comunicação depois de retornar ao aplicativo.
+
+Da perspectiva de outros participantes na chamada, o usuário permanecerá na chamada por período de tempo (1-2 minutos). Se o usuário se reassociar com a mesma ID de usuário dos serviços de comunicação, ele será representado como o mesmo objeto existente na `remoteParticipants` coleção.
+
+Se o usuário estava enviando vídeo antes de atualizar, a `videoStreams` coleção manterá as informações de fluxo anteriores até que o serviço expire e a remova. Nesse cenário, o aplicativo pode decidir observar quaisquer novos fluxos adicionados à coleção e renderizar um com o mais alto `id` . 
 
 
 ### <a name="its-not-possible-to-render-multiple-previews-from-multiple-devices-on-web"></a>Não é possível renderizar várias visualizações de vários dispositivos na Web
-Essa é uma limitação conhecida. Consulte a [visão geral da biblioteca de cliente de chamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) para obter mais informações.
+Essa é uma limitação conhecida. Para obter mais informações, consulte a [visão geral do SDK de chamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features).
 
-### <a name="enumeration-of-the-microphone-and-speaker-devices-is-not-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>A enumeração dos dispositivos de microfone e de alto-falantes não é possível no Safari quando o aplicativo é executado no iOS ou no iPadOS 
+### <a name="enumerating-devices-isnt-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>A enumeração de dispositivos não é possível no Safari quando o aplicativo é executado no iOS ou no iPadOS
+
 Os aplicativos não podem enumerar/selecionar dispositivos MIC/viva-voz (como Bluetooth) no Safari iOS/iPad. Essa é uma limitação conhecida do sistema operacional.
 
 Se você estiver usando o Safari no macOS, seu aplicativo não poderá enumerar/selecionar alto-falantes por meio do Gerenciador de Dispositivos de serviços de comunicação. Nesse cenário, os dispositivos devem ser selecionados por meio do sistema operacional. Se você usar o Chrome no macOS, o aplicativo poderá enumerar/selecionar dispositivos por meio do Gerenciador de Dispositivos de serviços de comunicação.
 
 ### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>A conectividade de áudio é perdida ao receber mensagens SMS ou chamadas durante uma chamada VoIP contínua
-Os navegadores móveis não mantêm a conectividade no estado de segundo plano. Isso pode levar a uma experiência de chamada degradada se a chamada VoIP foi interrompida por mensagem de texto ou chamada PSTN de entrada que envia o aplicativo por push para o plano de fundo.
+Os navegadores móveis não mantêm a conectividade no estado de segundo plano. Isso pode levar a uma experiência de chamada degradada se a chamada VoIP foi interrompida por um evento que envia o aplicativo por push para o plano de fundo.
 
 <br/>Biblioteca de cliente: chamando (JavaScript)
 <br/>Navegadores: Safari, Chrome
@@ -55,7 +58,7 @@ Os navegadores móveis não mantêm a conectividade no estado de segundo plano. 
 Alternar entre dispositivos de vídeo pode fazer com que o fluxo de vídeo seja pausado enquanto o fluxo é adquirido do dispositivo selecionado.
 
 #### <a name="possible-causes"></a>Possíveis causas
-A transmissão e a alternância entre os dispositivos de mídia são computacionalmente intensivas. Alternar com frequência pode causar degradação do desempenho. Os desenvolvedores são incentivados a interromper um fluxo de dispositivo antes de iniciar outro.
+Alternar entre dispositivos frequentemente pode causar degradação do desempenho. Os desenvolvedores são incentivados a interromper um fluxo de dispositivo antes de iniciar outro.
 
 ### <a name="bluetooth-headset-microphone-is-not-detected-therefore-is-not-audible-during-the-call-on-safari-on-ios"></a>O microfone do headset Bluetooth não é detectado, portanto não é audível durante a chamada no Safari no iOS
 Não há suporte para Headsets Bluetooth no Safari no iOS. Seu dispositivo Bluetooth não será listado nas opções de microfone disponíveis e outros participantes não poderão ouvi-lo se você tentar usar o Bluetooth no Safari.
@@ -75,7 +78,7 @@ Os usuários podem experimentar a qualidade de vídeo degradada quando os dispos
 
 
 ### <a name="camera-switching-makes-the-screen-freeze"></a>A alternância de câmera faz o congelamento da tela 
-Quando um usuário de serviços de comunicação ingressa em uma chamada usando a biblioteca de cliente de chamada de JavaScript e, em seguida, pressiona o botão de alternância de câmera, a interface do usuário pode ficar completamente sem resposta até que o aplicativo seja atualizado ou o navegador seja enviado por push para o plano de fundo pelo usuário.
+Quando um usuário de serviços de comunicação ingressa em uma chamada usando o SDK de chamada de JavaScript e, em seguida, acessa o botão de alternância de câmera, a interface do usuário pode ficar sem resposta até que o aplicativo seja atualizado ou o navegador seja enviado por push para o plano de fundo por usuários.
 
 <br/>Dispositivos afetados: Google pixel 4a
 <br/>Biblioteca de cliente: chamando (JavaScript)
@@ -97,4 +100,4 @@ Se os usuários decidirem ativar/desativar o vídeo rapidamente enquanto a chama
 Sob Investigação.
 
 ###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>Às vezes, leva muito tempo para renderizar vídeos de participantes remotos
-Durante uma chamada de grupo em andamento, o _usuário A_ envia vídeo e, em seguida, o _usuário B_ une a chamada. Às vezes, o usuário B não vê vídeo A partir do usuário A ou o vídeo de um usuário começa a renderizar após um longo atraso. Isso pode ser causado por um ambiente de rede que requer configuração adicional. Consulte a documentação de [requisitos de rede](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) para obter diretrizes de configuração de rede.
+Durante uma chamada de grupo em andamento, o _usuário A_ envia vídeo e, em seguida, o _usuário B_ une a chamada. Às vezes, o usuário B não vê vídeo A partir do usuário A ou o vídeo de um usuário começa a renderizar após um longo atraso. Esse problema pode ser causado por um ambiente de rede que requer configuração adicional. Consulte a documentação de [requisitos de rede](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) para obter diretrizes de configuração de rede.

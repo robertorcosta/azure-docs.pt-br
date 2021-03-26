@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 11/30/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: ac5b1df5ff246623b73dbc41d18216396e6ed7ef
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 6861fd7a92c26fad883f14fb430a03b237c90122
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102549848"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609251"
 ---
 # <a name="use-azure-monitor-with-your-azure-synapse-analytics-workspace"></a>Use Azure Monitor com seu espaço de trabalho do Azure Synapse Analytics
 
@@ -171,9 +171,9 @@ Crie ou adicione configurações de diagnóstico para seu espaço de trabalho, p
 1. Dê um nome à sua configuração, selecione **Enviar para log Analytics** e, em seguida, selecione um espaço de trabalho no **espaço de trabalho log Analytics**.
 
     > [!NOTE]
-    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [referência de logs do AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [referência de logs do AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
 Após alguns instantes, a nova configuração aparecerá na lista de configurações para seu espaço de trabalho, pool de SQL dedicado ou pool de Apache Spark. Os logs de diagnóstico são transmitidos para esse espaço de trabalho assim que novos dados de evento são gerados. Até 15 minutos podem decorrer entre o momento em que um evento é emitido e quando ele aparece no Log Analytics.
 

@@ -5,14 +5,14 @@ author: mimcco
 ms.author: mimcco
 ms.service: azure-percept
 ms.topic: how-to
-ms.date: 02/18/2021
+ms.date: 03/25/2021
 ms.custom: template-how-to
-ms.openlocfilehash: f34013bdb14481bfe872a9b3c4234d603bc2d7ec
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c4fc7d7564ecd30326fbec832639b2a81d55e6d5
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102635562"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605647"
 ---
 # <a name="azure-percept-audio-and-speech-module-troubleshooting"></a>Solução de problemas do módulo de áudio e fala do Azure Percept
 
@@ -20,16 +20,24 @@ Use as diretrizes abaixo para solucionar problemas do aplicativo assistente de v
 
 ## <a name="collecting-speech-module-logs"></a>Coletando logs do módulo de fala
 
-Para executar esses comandos, [Conecte-se ao ponto de acesso do Azure PERCEPT DK Wi-Fi e conecte-se ao kit de desenvolvimento por SSH](./how-to-ssh-into-percept-dk.md) e insira os comandos no terminal SSH.
+Para executar esses comandos, use o [ssh no kit de desenvolvimento](./how-to-ssh-into-percept-dk.md) e insira os comandos no prompt do cliente SSH.
+
+Coletar logs do módulo de fala:
 
 ```console
 sudo iotedge logs azureearspeechclientmodule
 ```
 
-Para redirecionar qualquer saída para um arquivo. txt para análise adicional, use a seguinte sintaxe:
+Para redirecionar a saída para um arquivo. txt para análise adicional, use a seguinte sintaxe:
 
 ```console
 sudo [command] > [file name].txt
+```
+
+Altere as permissões do arquivo. txt para que ele possa ser copiado:
+
+```console
+sudo chmod 666 [file name].txt
 ```
 
 Depois de redirecionar a saída para um arquivo. txt, copie o arquivo para o computador host por meio do SCP:
@@ -38,11 +46,11 @@ Depois de redirecionar a saída para um arquivo. txt, copie o arquivo para o com
 scp [remote username]@[IP address]:[remote file path]/[file name].txt [local host file path]
 ```
 
-[caminho do arquivo de host local] refere-se ao local no computador host para o qual você gostaria de copiar o arquivo. txt. [nome de usuário remoto] é o nome de usuário SSH escolhido durante a [experiência de integração](./quickstart-percept-dk-set-up.md). Se você não configurou um logon SSH durante a experiência de integração do Azure Percept DK, seu nome de usuário remoto é raiz.
+[caminho do arquivo de host local] refere-se ao local no computador host para o qual você gostaria de copiar o arquivo. txt. [nome de usuário remoto] é o nome de usuário SSH escolhido durante a [experiência de instalação](./quickstart-percept-dk-set-up.md).
 
 ## <a name="checking-runtime-status-of-the-speech-module"></a>Verificando o status do tempo de execução do módulo de fala
 
-Verifique se o status de tempo de execução de **azureearspeechclientmodule** é mostrado como **em execução**. Para localizar o status de tempo de execução dos seus módulos de dispositivo, abra o [portal do Azure](https://portal.azure.com/) e navegue até **todos os recursos**  ->  **\<your IoT hub>**  ->  **IOT Edge**  ->  **\<your device ID>** . Clique na guia **módulos** para ver o status de tempo de execução de todos os módulos instalados.
+Verifique se o status de tempo de execução de **azureearspeechclientmodule** é mostrado como **em execução**. Para localizar o status de tempo de execução dos seus módulos de dispositivo, abra o [portal do Azure](https://portal.azure.com/) e navegue até **todos os recursos**  ->  **[seu hub IOT]**  ->  **IOT Edge**  ->  **[sua ID de dispositivo]**. Clique na guia **módulos** para ver o status de tempo de execução de todos os módulos instalados.
 
 :::image type="content" source="./media/troubleshoot-audio-accessory-speech-module/over-the-air-iot-edge-device-page.png" alt-text="Página de dispositivo do Edge no portal do Azure.":::
 
@@ -50,10 +58,10 @@ Se o status de tempo de execução de **azureearspeechclientmodule** não estive
 
 ## <a name="understanding-ear-som-led-indicators"></a>Entendendo indicadores de LED de SoM Ear
 
-Você pode usar indicadores de LED para entender em qual estado seu dispositivo está. Normalmente, leva cerca de 2 minutos para que o módulo seja inicializado completamente após a *ativação*. Como ele percorre as etapas de inicialização, você verá:
+Você pode usar indicadores de LED para entender em qual estado seu dispositivo está. Normalmente, leva cerca de 2 minutos para que o módulo seja inicializado completamente após o dispositivo ligar. À medida que ele passa pelas etapas de inicialização, você verá:
 
-1. 1 LED de centro-branco-o dispositivo está ligado.
-2. 1 LED branco central piscando-a autenticação está em andamento.
+1. LED do centro branco ativado (estático): o dispositivo está ligado.
+2. LED de centro-branco aceso (piscando): a autenticação está em andamento.
 3. Todos os três LEDs serão alterados para azul quando o dispositivo for autenticado e estiver pronto para uso.
 
 |LED|Estado do LED|Status de SoM Ear|

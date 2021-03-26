@@ -5,15 +5,15 @@ author: vermagit
 ms.service: virtual-machines
 ms.subservice: hpc
 ms.topic: article
-ms.date: 03/18/2021
+ms.date: 03/25/2021
 ms.author: amverma
 ms.reviewer: cynthn
-ms.openlocfilehash: 65a06a60b502b0e189ebe8a5e203553494f5d128
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 4ab2c599bea4b2e3e682755a80a2ee348e4de7ef
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104721285"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105606769"
 ---
 # <a name="scaling-hpc-applications"></a>Dimensionamento de aplicativos HPC
 
@@ -43,6 +43,9 @@ As sugestões a seguir se aplicam à eficiência, ao desempenho e à consistênc
    ```bash
    Max Connections = (processes per node) x (number of nodes per job) x (number of nodes per job) 
    ```
+
+## <a name="adaptive-routing"></a>Roteamento adaptável
+O AR (roteamento adaptável) permite que as VMs (máquinas virtuais) do Azure executando EDR e HDR InfiniBand detectem e evitem automaticamente o congestionamento da rede, selecionando dinamicamente caminhos de rede mais ideais. Como resultado, o AR oferece maior latência e largura de banda na rede InfiniBand, que, por sua vez, impulsiona o desempenho e a eficiência de dimensionamento. Para obter mais detalhes, consulte o [artigo TechCommunity](https://techcommunity.microsoft.com/t5/azure-compute/adaptive-routing-on-azure-hpc/ba-p/1205217).
 
 ## <a name="process-pinning"></a>Fixação de processo
 

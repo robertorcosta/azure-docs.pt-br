@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff9fe969c90a2bb4aa9f954b984f511fb490ba3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8c8024a2083d09fcbd53a37f0d391c4589748eea
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579137"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105605069"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Acesso Condicional: Aplicativos na nuvem ou ações
 
@@ -31,7 +31,7 @@ Os aplicativos de nuvem ou as ações são um sinal importante em uma política 
 
 Muitos aplicativos de nuvem da Microsoft existentes estão incluídos na lista de aplicativos entre os quais você pode selecionar. 
 
-Os administradores podem atribuir uma política de Acesso Condicional aos aplicativos de nuvem da Microsoft a seguir. Alguns aplicativos, como o Office 365 e o gerenciamento de Microsoft Azure, incluem vários aplicativos ou serviços filho relacionados. A lista a seguir não é exaustiva e está sujeita a alterações.
+Os administradores podem atribuir uma política de Acesso Condicional aos aplicativos de nuvem da Microsoft a seguir. Alguns aplicativos, como o Office 365 e o gerenciamento de Microsoft Azure, incluem vários aplicativos ou serviços filho relacionados. Nós adicionamos continuamente mais aplicativos, portanto, a lista a seguir não é exaustiva e está sujeita a alterações.
 
 - [Office 365](#office-365)
 - Azure Analysis Services
@@ -66,6 +66,8 @@ Os administradores podem atribuir uma política de Acesso Condicional aos aplica
 - Skype for Business Online
 - VPN (Rede Privada Virtual)
 - Windows Defender ATP
+
+Os aplicativos que estão disponíveis para acesso condicional passaram por uma integração e um processo de validação. Isso não inclui todos os aplicativos da Microsoft, pois muitos são serviços de back-end e não devem ter a política aplicada diretamente a eles. Se você estiver procurando um aplicativo que está ausente, você pode entrar em contato com a equipe de aplicativo específica ou fazer uma solicitação no [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory?category_id=167259).
 
 ### <a name="office-365"></a>Office 365
 
