@@ -8,12 +8,12 @@ author: shashankbarsin
 ms.author: shasb
 description: Atualizações do agente de controle para kubernetes habilitados para o Azure Arc
 keywords: Kubernetes, Arc, Azure, K8s, contêineres, agente, atualização
-ms.openlocfilehash: 172654f655e594c295a8807b417c32d7849bd4b1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d81a00ed4f30f446aeed96d59a455935c652b7d5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102121908"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104954540"
 ---
 # <a name="upgrading-azure-arc-enabled-kubernetes-agents"></a>Atualizando agentes kubernetes habilitados para o Azure Arc
 
@@ -84,6 +84,6 @@ Uma versão secundária dos agentes kubernetes habilitados para o Arc do Azure �
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Percorra nosso guia de início rápido para [conectar um cluster kubernetes ao Azure Arc](./connect-cluster.md).
-* Já tem um kubernetes do Azure conectado ao cluster? [Crie configurações em seu cluster kubernetes habilitado para Arc](./use-gitops-connected-cluster.md).
+* Percorra nosso guia de início rápido para [conectar um cluster kubernetes ao Azure Arc](./quickstart-connect-cluster.md).
+* Já tem um kubernetes do Azure conectado ao cluster? [Crie configurações em seu cluster kubernetes habilitado para Arc](./tutorial-use-gitops-connected-cluster.md).
 * Saiba como [usar Azure Policy para aplicar configurações em escala](./use-azure-policy.md).
