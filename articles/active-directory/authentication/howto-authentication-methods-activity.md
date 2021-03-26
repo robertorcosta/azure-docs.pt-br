@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/04/2021
+ms.date: 03/16/2021
 ms.author: justinha
 author: sopand
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0865fb2bda04f5a7e9ba2ef73a717946fa656a5
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5a1cb71917fdb30ffccda21bedffe1c7f2a428c1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175304"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557948"
 ---
 # <a name="authentication-methods-activity"></a>Atividade de métodos de autenticação 
 
@@ -107,7 +107,7 @@ Usando os controles na parte superior da lista, você pode pesquisar um usuário
 O relatório detalhes do registro mostra as seguintes informações para cada usuário:
 
 - Nome UPN
-- Nome
+- Name
 - Compatível com MFA (capaz, sem capacidade)
 - Com capacidade de senha (capaz, sem capacidade)
 - SSPR registrado (registrado, não registrado)
@@ -135,6 +135,7 @@ O relatório detalhes do registro mostra as seguintes informações para cada us
 
 - Os dados no relatório não são atualizados em tempo real e podem refletir uma latência de até algumas horas.
 - Os registros de aprovação de acesso temporário não são refletidos na guia registro do relatório, pois eles só são válidos por um curto período de tempo.
+- Os métodos **PhoneAppNotification** ou **PhoneAppOTP** que um usuário pode ter configurado não são exibidos no painel. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

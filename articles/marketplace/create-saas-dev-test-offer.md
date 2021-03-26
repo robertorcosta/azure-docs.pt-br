@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 03/25/2021
-ms.openlocfilehash: dbf284305aa3201faeb77668af4198bafbf578b5
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 893d38d7dcf2ef0910bc46d3e9bfd168c2a89162
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110535"
+ms.locfileid: "105543356"
 ---
 # <a name="create-a-test-offer"></a>Criar uma oferta de teste
 
@@ -27,7 +27,7 @@ As seções a seguir descrevem as diferenças de configuração entre as ofertas
 
 Recomendamos que você use o mesmo alias na caixa **alias** de ambas as ofertas, mas acrescente "_test" ao alias da oferta de desenvolvimento. Por exemplo, se o alias da sua oferta de PROD for "contososolution", o alias da oferta de desenvolvimento deverá ser "contososolution_test". Dessa forma, você pode identificar facilmente qual sua oferta de desenvolvimento de sua oferta de produção.
 
-Na seção **clientes potenciais do cliente** , use o e a tabela do Azure ou um ambiente de teste do CRM para a oferta de desenvolvimento. Use o sistema de gerenciamento de leads pretendido para a oferta de produção.
+Na seção **clientes potenciais do cliente** , use uma tabela do Azure ou um ambiente de teste do CRM para a oferta de desenvolvimento. Use o sistema de gerenciamento de leads pretendido para a oferta de produção.
 
 ## <a name="properties-page"></a>Página Propriedades
 
@@ -39,7 +39,7 @@ Configure essa página da mesma nas ofertas de desenvolvimento e de produção.
 
 ## <a name="preview-audience"></a>Público-alvo de versão prévia
 
-Na oferta de desenvolvimento, inclua o nome da entidade de usuário do Azure Active Directory (AAD) ou o endereço de email do conta Microsoft (MSA) dos desenvolvedores e testadores, incluindo você mesmo. Observe que o nome principal de usuário de um usuário no AAD pode ser diferente do email do usuário. Por exemplo, jane.doe@contoso.com não funcionará, mas janedoe@contoso.com funcionará. Essas são as pessoas que terão acesso à oferta de desenvolvimento quando você compartilhar o link de **Visualização** durante a fase de desenvolvimento e teste.
+Na oferta de desenvolvimento, inclua os nomes da entidade de usuário do Azure Active Directory (AAD) ou os endereços de email do conta Microsoft (MSA) de desenvolvedores e testadores, incluindo você mesmo. O nome principal de usuário de um usuário no AAD pode ser diferente do email desse usuário. Por exemplo, jane.doe@contoso.com não funcionará, mas janedoe@contoso.com vai. Os usuários designados terão acesso à oferta de desenvolvimento quando você compartilhar o link de **Visualização** durante a fase de desenvolvimento e teste.
 
 Na oferta de produção, inclua o nome da entidade de usuário do Azure AD ou o email da conta da Microsoft dos usuários que irão validar a oferta antes de selecionar o botão Ativar ao **vivo** para publicar a oferta ao vivo.
 
@@ -77,10 +77,10 @@ Selecione os mesmos mercados para as ofertas de desenvolvimento e produção.
 
 Use a oferta de desenvolvimento para experimentar os modelos de preços. Depois de verificar quais modelos ou modelo de preços funcionam melhor, você criará os planos na oferta de produção com os modelos de preços e os preços desejados.
 
-A oferta de desenvolvimento deve ter planos com preço zero ou muito baixo nos planos. A oferta de PROD terá os preços que você deseja cobrar aos clientes.
+A oferta de desenvolvimento deve ter planos com preço zero ou baixo nos planos. A oferta de PROD terá os preços que você deseja cobrar aos clientes.
 
-> [!NOTE]
-> As compras feitas na visualização serão processadas para as ofertas de desenvolvimento e de produção. Se uma oferta tiver um preço de $100/mo, sua empresa será cobrada $100. Se isso acontecer, você poderá abrir um [tíquete de suporte](support.md) e emitirei um pagamento pelo valor total (e não terá nenhuma taxa de agência).
+> [!IMPORTANT]
+> As compras feitas na visualização serão processadas para as ofertas de desenvolvimento e de produção. Se uma oferta tiver um preço de $100/mo, sua empresa será cobrada $100. Se isso acontecer, você poderá abrir um [tíquete de suporte](support.md) e emitirei um pagamento pelo valor total (e não levará nenhuma taxa de serviço de armazenamento).
 
 #### <a name="pricing-model"></a>Modelo de preços
 
@@ -97,7 +97,7 @@ Para reduzir o custo de teste dos modelos de preços, incluindo dimensões de me
 | $50 e acima | Use este intervalo de preços para testar o pagamento. Para obter informações sobre nossa programação de pagamento, consulte [agendas e processos](/partner-center/payout-policy-details)de pagamento. |
 |||
 
-Para evitar a cobrança de uma taxa de processamento em seu teste, abra um [tíquete de suporte](support.md).
+Para evitar a cobrança de uma taxa de serviço de armazenamento em seu teste, abra um [tíquete de suporte](support.md).
 
 #### <a name="free-trial"></a>Avaliação gratuita
 

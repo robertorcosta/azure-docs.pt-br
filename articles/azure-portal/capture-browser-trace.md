@@ -1,14 +1,14 @@
 ---
 title: Capturar um rastreamento de navegador para solucionar problemas
 description: Capturar informações de rede de um rastreamento de navegador para ajudar a solucionar problemas com o portal do Azure.
-ms.date: 05/11/2020
+ms.date: 03/25/2021
 ms.topic: troubleshooting
-ms.openlocfilehash: 504a32fb63022f97e8049c7c1ccc7721bbac31ab
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 63bc3e93187274db607b5f60216de461729801dc
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "96745988"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563473"
 ---
 # <a name="capture-a-browser-trace-for-troubleshooting"></a>Capturar um rastreamento de navegador para solucionar problemas
 
@@ -190,13 +190,13 @@ As etapas a seguir mostram como usar as ferramentas para desenvolvedores no Fire
 
     ![Captura de tela dos resultados do rastreamento do navegador](media/capture-browser-trace/firefox-browser-trace-results.png)
 
-1. Depois de reproduzir o comportamento de portal inesperado, selecione **Exportar/Importar HAR** e **Salvar Tudo como HAR**.
+1. Depois de reproduzir o comportamento de portal inesperado, selecione **salvar tudo como Har**.
 
     ![Captura de tela de "Exportar HAR"](media/capture-browser-trace/firefox-network-export-har.png)
 
 1. Pare o Gravador de Passos no Windows ou a gravação de tela no Mac e salve a gravação.
 
-1. De volta ao painel de ferramentas para desenvolvedores do navegador, selecione a guia **Console**. Clique com o botão direito do mouse em uma das mensagens e selecione **Exportar Mensagem Visível para** e salve a saída do console em um arquivo de texto.
+1. De volta ao painel Ferramentas de desenvolvedor do navegador, selecione a guia **console** . Clique com o botão direito do mouse em uma das mensagens, selecione **Exportar mensagens visíveis para** e salve a saída do console em um arquivo de texto.
 
     ![Captura de tela da saída do console](media/capture-browser-trace/firefox-console-select.png)
 

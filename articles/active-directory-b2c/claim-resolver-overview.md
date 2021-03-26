@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 03/04/2021
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b69492dc41786a677043df5e77c9d12aa26893f6
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 929463e346311d58da5ac75b28c774bcfe258f08
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102119766"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557523"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Sobre resolvedores de declaração em políticas personalizadas do Azure Active Directory B2C
 
@@ -72,12 +72,12 @@ As seções a seguir listam os resolvedores de declarações disponíveis.
 | {OIDC:LoginHint} |  O parâmetro de cadeia de caracteres da consulta `login_hint`. | someone@contoso.com |
 | {OIDC:MaxAge} | O `max_age`. | N/D |
 | {OIDC:Nonce} |O parâmetro de cadeia de caracteres da consulta `Nonce`. | defaultNonce |
-| {OIDC: senha}| A senha do usuário do [fluxo de credenciais de senha do proprietário do recurso](ropc-custom.md) .| password1| 
+| {OIDC: senha}| A senha do usuário do [fluxo de credenciais de senha do proprietário do recurso](add-ropc-policy.md) .| password1| 
 | {OIDC:Prompt} | O parâmetro de cadeia de caracteres da consulta `prompt`. | login |
 | {OIDC: RedirectUri} |O parâmetro de cadeia de caracteres da consulta `redirect_uri`. | https://jwt.ms |
 | {OIDC:Resource} |O parâmetro de cadeia de caracteres da consulta `resource`. | N/D |
 | {OIDC: escopo} |O parâmetro de cadeia de caracteres da consulta `scope`. | openid |
-| {OIDC: username}| O nome de usuário do [fluxo de credenciais de senha do proprietário do recurso](ropc-custom.md) .| emily@contoso.com| 
+| {OIDC: username}| O nome de usuário do [fluxo de credenciais de senha do proprietário do recurso](add-ropc-policy.md) .| emily@contoso.com| 
 
 ### <a name="context"></a>Contexto
 

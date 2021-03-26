@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações ao 
 ms.topic: conceptual
 ms.date: 02/16/2021
 ms.custom: references_regions
-ms.openlocfilehash: ade43350bbe3fa1bcf58f47e93b948db3a5b21bc
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 12d289fdc3f84e7cbb3489a3ece283179e51772c
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101744164"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561892"
 ---
 # <a name="support-matrix-for-azure-blobs-backup-in-preview"></a>Matriz de suporte para backup de BLOBs do Azure (em versão prévia)
 
@@ -27,9 +27,9 @@ O backup operacional de BLOBs usa restauração pontual de BLOB, controle de ver
 
 **Outras limitações:**
 
-- Se você excluiu um contêiner durante o período de retenção, esse contêiner não será restaurado com a operação de restauração pontual. Se você tentar restaurar um intervalo de BLOBs que inclui BLOBs em um contêiner excluído, a operação de restauração pontual falhará. Para obter mais informações sobre como proteger contêineres da exclusão, consulte [exclusão reversível para contêineres (versão prévia)](https://docs.microsoft.com/azure/storage/blobs/soft-delete-container-overview).
-- Se um blob tiver se movido entre as camadas quente e fria no período entre o momento atual e o ponto de restauração, o blob será restaurado para sua camada anterior. Não há suporte para a restauração de blobs de blocos na camada de arquivo. Por exemplo, se um blob na camada quente foi movido para a camada de arquivamento dois dias atrás e uma operação de restauração restaura a um ponto três dias atrás, o BLOB não é restaurado para a camada quente. Para restaurar um blob arquivado, primeiro mova-o para fora da camada de arquivo morto. Para obter mais informações, consulte [dados de blob reidratar da camada de arquivo morto](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration).
-- Um bloco que foi carregado por meio do [bloco Put](https://docs.microsoft.com/rest/api/storageservices/put-block) ou [Put bloco da URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url), mas não confirmado via [lista de blocos Put](https://docs.microsoft.com/rest/api/storageservices/put-block-list), não faz parte de um blob e, portanto, não é restaurado como parte de uma operação de restauração.
+- Se você excluiu um contêiner durante o período de retenção, esse contêiner não será restaurado com a operação de restauração pontual. Se você tentar restaurar um intervalo de BLOBs que inclui BLOBs em um contêiner excluído, a operação de restauração pontual falhará. Para obter mais informações sobre como proteger contêineres da exclusão, consulte [exclusão reversível para contêineres (versão prévia)](../storage/blobs/soft-delete-container-overview.md).
+- Se um blob tiver se movido entre as camadas quente e fria no período entre o momento atual e o ponto de restauração, o blob será restaurado para sua camada anterior. Não há suporte para a restauração de blobs de blocos na camada de arquivo. Por exemplo, se um blob na camada quente foi movido para a camada de arquivamento dois dias atrás e uma operação de restauração restaura a um ponto três dias atrás, o BLOB não é restaurado para a camada quente. Para restaurar um blob arquivado, primeiro mova-o para fora da camada de arquivo morto. Para obter mais informações, consulte [dados de blob reidratar da camada de arquivo morto](../storage/blobs/storage-blob-rehydration.md).
+- Um bloco que foi carregado por meio do [bloco Put](/rest/api/storageservices/put-block) ou [Put bloco da URL](/rest/api/storageservices/put-block-from-url), mas não confirmado via [lista de blocos Put](/rest/api/storageservices/put-block-list), não faz parte de um blob e, portanto, não é restaurado como parte de uma operação de restauração.
 - Um blob com uma concessão ativa não pode ser restaurado. Se um blob com uma concessão ativa estiver incluído no intervalo de BLOBs a serem restaurados, a operação de restauração falhará automaticamente. Interrompa todas as concessões ativas antes de iniciar a operação de restauração.
 - Os instantâneos não são criados ou excluídos como parte de uma operação de restauração. Somente o blob de base é restaurado para seu estado anterior.
 

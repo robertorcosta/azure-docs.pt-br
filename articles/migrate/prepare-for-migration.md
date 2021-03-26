@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 06/08/2020
-ms.openlocfilehash: 8083b9edd49f65f29fe9c9b2cfa30edfacf89507
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: d8f9d4e0b002348f286f45c6b45c96531c5d6530
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102614880"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558220"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Preparar computadores locais para migração para Azure
 
@@ -86,7 +86,7 @@ As alterações necessárias estão resumidas na tabela.
 --- | --- | --- | ---
 **Configurar a política de SAN como Todos Online**<br/><br/> Isso verifica se os volumes do Windows na VM do Azure usam as mesmas atribuições de letra da unidade que a VM local. | Defina automaticamente para computadores que executam o Windows Server 2008 R2 ou posterior.<br/><br/> Configure manualmente para sistemas operacionais anteriores. | Defina automaticamente na maioria dos casos. | Configure manualmente.
 **Instalar a Integração Convidada do Hyper-V** | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) em computadores que executam o Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-vmware-vms) em computadores que executam o Windows Server 2003. | [Instale manualmente](prepare-windows-server-2003-migration.md#install-on-hyper-v-vms) em computadores que executam o Windows Server 2003.
-**Habilite o Console Serial do Azure**.<br/><br/>[Habilite o console](../virtual-machines/troubleshooting/serial-console-windows.md) em VMs do Azure para ajudar na solução de problemas. Não é necessário reinicializar a VM. A VM do Azure será inicializada com a imagem de disco. A inicialização da imagem de disco é equivalente a uma reinicialização para a nova VM. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
+**Habilite o Console Serial do Azure**.<br/><br/>[Habilite o console](/troubleshoot/azure/virtual-machines/serial-console-windows) em VMs do Azure para ajudar na solução de problemas. Não é necessário reinicializar a VM. A VM do Azure será inicializada com a imagem de disco. A inicialização da imagem de disco é equivalente a uma reinicialização para a nova VM. | Habilitar manualmente | Habilitar manualmente | Habilitar manualmente
 **Conectar-se após a migração**<br/><br/> Para se conectar após a migração, há várias etapas a serem seguidas antes da migração. | [Instalar](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Instalar](#prepare-to-connect-to-azure-windows-vms) manualmente. | [Instalar](#prepare-to-connect-to-azure-windows-vms) manualmente.
 
 
@@ -126,7 +126,7 @@ Para outras versões, prepare os computadores conforme resumido na tabela.
 **Ação** | **Detalhes** | **Versão do Linux**
 --- | --- | ---
 **Instalar o Integration Services do Linux para Hyper-V** | Recompile a imagem de inicialização do Linux, de modo que ela contenha os drivers necessários do Hyper-V. A recompilação da imagem de inicialização verifica se a VM será inicializada no Azure. | A maioria das novas versões das distribuições do Linux tem isso incluído por padrão.<br/><br/> Se não estiver incluído, instale manualmente para todas as versões, exceto aquelas informadas acima.
-**Habilitar o log do Console Serial do Azure** | A habilitação do log do console ajuda a solucionar problemas. Não é necessário reinicializar a VM. A VM do Azure será inicializada com a imagem de disco. A inicialização da imagem de disco é equivalente a uma reinicialização para a nova VM.<br/><br/> Siga [estas instruções](../virtual-machines/troubleshooting/serial-console-linux.md) para habilitar.
+**Habilitar o log do Console Serial do Azure** | A habilitação do log do console ajuda a solucionar problemas. Não é necessário reinicializar a VM. A VM do Azure será inicializada com a imagem de disco. A inicialização da imagem de disco é equivalente a uma reinicialização para a nova VM.<br/><br/> Siga [estas instruções](/troubleshoot/azure/virtual-machines/serial-console-linux) para habilitar.
 **Atualizar arquivo do mapa do dispositivo** | Atualize o arquivo do mapa do dispositivo com as associações nome do dispositivo/volume, a fim de usar identificadores de dispositivo persistentes. | Instale manualmente para todas as versões, exceto aquelas informadas acima. (Aplicável somente em cenário do VMware baseado em agente)
 **Atualizar entradas fstab** |  Atualize entradas para usar identificadores de volume persistentes.    | Atualize manualmente para todas as versões, exceto aquelas informadas acima.
 **Remover regra udev** | Remova as regras udev que reservam os nomes de interface em endereços MAC etc. | Remova manualmente para todas as versões, exceto aquelas informadas acima.
@@ -148,7 +148,7 @@ A tabela a seguir resume as etapas executadas automaticamente para os sistemas o
 
 Saiba mais sobre as etapas para [executar uma VM do Linux no Azure](../virtual-machines/linux/create-upload-generic.md) e obtenha instruções para algumas distribuições populares do Linux.
 
-Examine a lista de [pacotes necessários](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux#requirements) para instalar o agente de VM do Linux. As Migrações para Azure instalarão o agente de VM do Linux de modo automático para versões que incluem: RHEL6, RHEL7, CentOS7 (a versão 6 deverá ter suporte semelhante ao RHEL), Ubuntu 14.04, Ubuntu 16.04 e Ubuntu 18.04 ao usar um método sem agente de migração do VMware.
+Examine a lista de [pacotes necessários](../virtual-machines/extensions/agent-linux.md#requirements) para instalar o agente de VM do Linux. As Migrações para Azure instalarão o agente de VM do Linux de modo automático para versões que incluem: RHEL6, RHEL7, CentOS7 (a versão 6 deverá ter suporte semelhante ao RHEL), Ubuntu 14.04, Ubuntu 16.04 e Ubuntu 18.04 ao usar um método sem agente de migração do VMware.
 
 ## <a name="check-azure-vm-requirements"></a>Verificar os requisitos de VM do Azure
 
@@ -187,7 +187,7 @@ Após a migração, conclua estas etapas nas VMs do Azure criadas:
 
 1. Para se conectar à VM pela Internet, atribua um endereço IP público à VM. É necessário usar um endereço IP público diferente para a VM do Azure daquele que usou para o computador local. [Saiba mais](../virtual-network/virtual-network-public-ip-address.md).
 2. Verifique se as regras do NSG (grupo de segurança de rede) na VM permitem conexões de entrada à porta RDP ou SSH.
-3. Confira [Diagnóstico de inicialização](../virtual-machines/troubleshooting/boot-diagnostics.md#enable-boot-diagnostics-on-existing-virtual-machine) para visualizar a VM.
+3. Confira [Diagnóstico de inicialização](/troubleshoot/azure/virtual-machines/boot-diagnostics#enable-boot-diagnostics-on-existing-virtual-machine) para visualizar a VM.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -200,4 +200,4 @@ Para VMs do VMware, a Migração de Servidor dá suporte à [migração sem agen
 
 - **VMs do VMware**: verifique [os requisitos de migração e o suporte](migrate-support-matrix-vmware-migration.md) para as VMs do VMware.
 - **VMs do Hyper-V**: Verifique os [requisitos de migração e suporte](migrate-support-matrix-hyper-v-migration.md) para VMs Hyper-V.
-- **Computadores físicos**: verifique [os requisitos de migração e o suporte](migrate-support-matrix-physical-migration.md) para computadores físicos locais e outros servidores virtualizados. 
+- **Computadores físicos**: verifique [os requisitos de migração e o suporte](migrate-support-matrix-physical-migration.md) para computadores físicos locais e outros servidores virtualizados.

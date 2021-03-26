@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 1e1a8cb24b47277b38bd2d64b733a6f28ee8acff
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 57862a450d313f5d8850b14047ecc3d25d6ba5c1
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101742478"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563677"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Linha de base de segurança do Azure para hubs de eventos
 
@@ -44,7 +44,7 @@ Você também pode proteger seu namespace de hubs de eventos do Azure usando fir
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. EventHub**:
 
@@ -68,7 +68,7 @@ Você também pode proteger seu namespace de hubs de eventos do Azure usando fir
 
 - [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure](../security-center/azure-defender.md)
 
 **Responsabilidade**: Cliente
 
@@ -112,9 +112,9 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Política interna do Azure para namespace de hubs de eventos](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub)
+- [Política interna do Azure para namespace de hubs de eventos](../governance/policy/samples/built-in-policies.md#event-hub)
 
-- [Exemplos de Azure Policy para rede](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#network)
+- [Exemplos de Azure Policy para rede](../governance/policy/samples/built-in-policies.md#network)
 
 - [Como criar um blueprint do Azure](../governance/blueprints/create-blueprint-portal.md)
 
@@ -126,7 +126,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 **Orientação**: use marcas para redes virtuais e outros recursos relacionados à segurança de rede e ao fluxo de tráfego associados aos seus hubs de eventos.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -136,9 +136,9 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados aos hubs de eventos do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -154,7 +154,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 - [Como definir configurações de diagnóstico para hubs de eventos do Azure](event-hubs-diagnostic-logs.md)
 
-- [Noções básicas sobre o log de atividades do Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Noções básicas sobre o log de atividades do Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -168,11 +168,11 @@ Além disso, você pode habilitar as configurações de diagnóstico do log de a
 
 - [Como habilitar configurações de diagnóstico para hubs de eventos do Azure](event-hubs-diagnostic-logs.md)
 
-- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](/azure/azure-monitor/platform/diagnostic-settings-legacy)
+- [Como habilitar as configurações de diagnóstico para o Log de Atividades do Azure](../azure-monitor/essentials/activity-log.md)
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. EventHub**:
 
@@ -182,7 +182,7 @@ Além disso, você pode habilitar as configurações de diagnóstico do log de a
 
 **Diretrizes**: em Azure monitor, defina seu período de retenção de espaço de trabalho de log Analytics de acordo com os regulamentos de conformidade da sua organização para capturar e examinar incidentes relacionados ao Hub de eventos.
 
-- [Como definir parâmetros de retenção de log para espaços de trabalho do Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log para espaços de trabalho do Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -192,9 +192,9 @@ Além disso, você pode habilitar as configurações de diagnóstico do log de a
 
 **Diretrizes**: analise e monitore os logs de comportamento anormal e Examine regularmente os resultados relacionados aos seus hubs de eventos. Use o Log Analytics do Azure Monitor para revisar os logs e realizar consultas nos dados de log. Como alternativa, você pode habilitar o e os dados integrados ao Azure Sentinel ou a uma solução de gerenciamento de eventos e informações do sistema de terceiros.
 
-- [Para obter mais informações sobre o espaço de trabalho Log Analytics](/azure/azure-monitor/log-query/get-started-portal)
+- [Para obter mais informações sobre o espaço de trabalho Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -208,11 +208,11 @@ Além disso, você pode habilitar as configurações de diagnóstico do log de a
 
 Como alternativa, você pode habilitar e dados integrados para o Azure Sentinel. 
 
-- [Entender o log de atividades do Azure](/azure/azure-monitor/platform/platform-logs-overview)
+- [Entender o log de atividades do Azure](../azure-monitor/essentials/platform-logs-overview.md)
 
 - [Como definir configurações de diagnóstico para hubs de eventos do Azure](event-hubs-diagnostic-logs.md)
 
-- [Como alertar sobre Log Analytics dados de log do espaço de trabalho](/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar sobre Log Analytics dados de log do espaço de trabalho](../azure-monitor/alerts/tutorial-response.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -310,9 +310,9 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 **Diretrizes**: Use Azure Active Directory (AD do Azure) Privileged Identity Management para geração de logs e alertas quando atividades suspeitas ou inseguras ocorrerem no ambiente. Use as detecções de risco do Azure AD para exibir alertas e relatórios sobre o comportamento do usuário arriscado. Para logs adicionais, envie alertas de detecção de riscos da central de segurança do Azure para Azure Monitor e configure alertas/notificações personalizados usando grupos de ação.
 
-- [Entenda as detecções de risco do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risk-events)
+- [Entenda as detecções de risco do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
-- [Como configurar grupos de ação para alertas e notificações personalizados](/azure/azure-monitor/platform/action-groups)
+- [Como configurar grupos de ação para alertas e notificações personalizados](../azure-monitor/alerts/action-groups.md)
 
 **Responsabilidade**: Cliente
 
@@ -346,7 +346,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 Além disso, gire regularmente as assinaturas de acesso compartilhado dos seus hubs de eventos.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -362,7 +362,7 @@ Além disso, gire regularmente as assinaturas de acesso compartilhado dos seus h
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas de log desejados no Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 - [Autorizar o acesso a recursos de hubs de eventos usando o Azure AD](authorize-access-azure-active-directory.md)
 
@@ -374,7 +374,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use a proteção de identidade e os recursos de detecção de risco no Azure Active Directory (Azure AD) para configurar respostas automatizadas para detectar ações suspeitas relacionadas aos recursos habilitados para os hubs de eventos. Você deve habilitar respostas automatizadas por meio do Azure Sentinel para implementar as respostas de segurança da sua organização.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -388,7 +388,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: atualmente não disponível; O Sistema de Proteção de Dados do Cliente ainda não tem suporte para hubs de eventos.
 
-- [Lista de serviços suportados do Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista de serviços suportados do Sistema de Proteção de Dados do Cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilidade**: Cliente
 
@@ -402,7 +402,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Orientação**: use marcas em recursos relacionados aos seus hubs de eventos para auxiliar no rastreamento de recursos do Azure que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -414,13 +414,13 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 Você também pode proteger o namespace de hubs de eventos do Azure usando firewalls. Os hubs de eventos do Azure oferecem suporte a controles de acesso baseados em IP para o suporte de firewall de entrada. Você pode definir regras de firewall usando o portal do Azure, Azure Resource Manager modelos ou por meio do CLI do Azure ou Azure PowerShell.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
 - [Configurar regras de firewall IP para namespaces de hubs de eventos do Azure](event-hubs-ip-filtering.md)
 
-- [Como criar e utilizar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e utilizar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Como criar uma Rede Virtual](../virtual-network/quick-create-portal.md)
 
@@ -440,7 +440,7 @@ A Microsoft gerencia a infraestrutura subjacente para os hubs de eventos do Azur
 
 - [Integração dos Hubs de Eventos do Azure com o Link Privado do Azure](private-link-service.md)
 
-- [Entender os grupos de segurança de rede e as marcas de serviço](/azure/virtual-network/security-overview)
+- [Entender os grupos de segurança de rede e as marcas de serviço](../virtual-network/network-security-groups-overview.md)
 
 - [Entender a proteção de dados do cliente no Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -484,7 +484,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para as instâncias de produção dos hubs de eventos do Azure e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -512,7 +512,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -522,11 +522,11 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Diretrizes**: use marcação, grupos de gerenciamento e assinaturas separadas, quando apropriado, para organizar e rastrear namespaces dos hubs de eventos do Azure e recursos relacionados. Reconcilie o inventário regularmente e garanta que os recursos não autorizados sejam excluídos da assinatura em tempo hábil.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar Grupos de Gerenciamento](/azure/governance/management-groups/create)
+- [Como criar Grupos de Gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -562,7 +562,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -592,7 +592,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 Informações adicionais estão disponíveis nos links referenciados.
 
-- [Política interna do Azure para namespace de hubs de eventos](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub)
+- [Política interna do Azure para namespace de hubs de eventos](../governance/policy/samples/built-in-policies.md#event-hub)
 
 - [Como exibir os aliases de Azure Policy disponíveis](/powershell/module/az.resources/get-azpolicyalias)
 
@@ -639,15 +639,15 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 **Orientação**: para máquinas virtuais do Azure ou aplicativos Web em execução no serviço Azure app que está sendo usado para acessar seus hubs de eventos, use identidade de serviço gerenciada em conjunto com Azure Key Vault para simplificar e proteger o gerenciamento de assinatura de acesso compartilhado para suas implantações de hubs de eventos do Azure. Verifique se Key Vault está configurado com a exclusão reversível habilitada.
 
-- [Autenticar uma identidade gerenciada com o Azure Active Directory (Azure AD) para acessar recursos de hubs de eventos](https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest)
+- [Autenticar uma identidade gerenciada com o Azure Active Directory (Azure AD) para acessar recursos de hubs de eventos](./authenticate-managed-identity.md?tabs=latest)
 
 - [Configurar chaves gerenciadas pelo cliente para hubs de eventos](configure-customer-managed-key.md)
 
 - [Como integrar com identidades gerenciadas do Azure](../azure-app-configuration/howto-integrate-azure-managed-service-identity.md)
 
-- [Como criar um Key Vault](/azure/key-vault/quick-create-portal)
+- [Como criar um Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Como fornecer Key Vault autenticação com uma identidade gerenciada](/azure/key-vault/managed-identity)
+- [Como fornecer Key Vault autenticação com uma identidade gerenciada](../key-vault/general/assign-access-policy-portal.md)
 
 **Responsabilidade**: Cliente
 
@@ -659,7 +659,7 @@ Informações adicionais estão disponíveis nos links referenciados.
 
 Use identidades gerenciadas para fornecer aos serviços do Azure uma identidade gerenciada automaticamente no Azure Active Directory (Azure AD). Identidades gerenciadas permitem que você se autentique em qualquer serviço que ofereça suporte à autenticação do Azure AD, incluindo Azure Key Vault, sem nenhuma credencial em seu código.
 
-- [Autenticar uma identidade gerenciada com o Azure AD para acessar recursos de hubs de eventos](https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest)
+- [Autenticar uma identidade gerenciada com o Azure AD para acessar recursos de hubs de eventos](./authenticate-managed-identity.md?tabs=latest)
 
 - [Configurar chaves gerenciadas pelo cliente para hubs de eventos](configure-customer-managed-key.md)
 
@@ -703,7 +703,7 @@ O antimalware da Microsoft está habilitado no host subjacente que dá suporte a
 
 **Orientação**: configurar a recuperação de desastre geográfico para os hubs de eventos do Azure. Quando datacenters ou regiões inteiras do Azure (se nenhuma zona de disponibilidade for usada) enfrentam tempo de inatividade, é essencial para o processamento de dados continuar a operar em uma região ou datacenter diferente. Como tal, a recuperação de desastre em área geográfica e a replicação geográfica são recursos importantes para qualquer empresa. Os Hubs de Eventos do Azure dão suporte à recuperação de desastre de área geográfica e à replicação geográfica no nível do namespace. 
 
-- [Entender a recuperação de desastres geograficamente para os hubs de eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones)
+- [Entender a recuperação de desastres geograficamente para os hubs de eventos do Azure](./event-hubs-geo-dr.md#availability-zones)
 
 **Responsabilidade**: Cliente
 
@@ -739,11 +739,11 @@ Garanta backups automatizados regulares de seus segredos de Key Vault com o segu
 
 Configure a exclusão reversível para a conta de armazenamento do Azure que é usada para capturar dados de hubs de eventos. Observe que esse recurso não tem suporte para o Azure Data Lake Storage Gen 2 ainda.
 
-- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 - [Configurar um cofre de chaves com chaves](configure-customer-managed-key.md)
 
-- [Exclusão reversível para blobs do Armazenamento do Azure ](https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Exclusão reversível para blobs do Armazenamento do Azure ](//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 
@@ -831,5 +831,5 @@ Configure a exclusão reversível para a conta de armazenamento do Azure que é 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

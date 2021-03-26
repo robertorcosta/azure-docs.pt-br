@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/08/2021
 ms.author: alkohli
-ms.openlocfilehash: 922480eb2f4795729919c6ed039ccf61f19875b3
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 84bf14caeec163c31004a430fa954fc36f4be68b
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630360"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562776"
 ---
 # <a name="azure-stack-edge-2101-release-notes"></a>Notas de versão do Azure Stack Edge 2101
 
@@ -49,7 +49,7 @@ A tabela a seguir fornece um resumo dos problemas conhecidos na versão 2101.
 |**3.**|Kubernetes |O registro de contêiner do Edge não funciona quando o proxy Web está habilitado.|A funcionalidade estará disponível em uma versão futura. |
 |**4.**|Kubernetes |O registro de contêiner do Edge não funciona com módulos IoT Edge.| |
 |**5.**|Kubernetes |Kubernetes não dá suporte a ":" em nomes de variáveis de ambiente que são usados por aplicativos .NET. Isso também é necessário para a grade de eventos IoT Edge módulo para funcionar no dispositivo Azure Stack Edge e em outros aplicativos. Para obter mais informações, consulte a [documentação do ASP.NET Core](/aspnet/core/fundamentals/configuration/?tabs=basicconfiguration&view=aspnetcore-3.1&preserve-view=true#environment-variables).|Substitua ":" por duplo sublinhado. Para obter mais informações, consulte [kubernetes Issue](https://github.com/kubernetes/kubernetes/issues/53201)|
-|**6.** |Azure Arc + cluster kubernetes |Por padrão, quando o recurso `yamls` é excluído do repositório git, os recursos correspondentes não são excluídos do cluster kubernetes.  |Para permitir a exclusão de recursos quando eles são excluídos do repositório git, defina `--sync-garbage-collection` em Arc OperatorParams. Para obter mais informações, consulte [excluir uma configuração](../azure-arc/kubernetes/use-gitops-connected-cluster.md#additional-parameters). |
+|**6.** |Azure Arc + cluster kubernetes |Por padrão, quando o recurso `yamls` é excluído do repositório git, os recursos correspondentes não são excluídos do cluster kubernetes.  |Para permitir a exclusão de recursos quando eles são excluídos do repositório git, defina `--sync-garbage-collection` em Arc OperatorParams. Para obter mais informações, consulte [excluir uma configuração](../azure-arc/kubernetes/tutorial-use-gitops-connected-cluster.md#additional-parameters). |
 |**7.**|NFS |Os aplicativos que usam montagens de compartilhamento NFS em seu dispositivo para gravar dados devem usar a gravação exclusiva. Isso garante que as gravações sejam gravadas no disco.| |
 |**8.**|Configuração de computação |A configuração de computação falha em configurações de rede em que gateways ou comutadores ou roteadores respondem a solicitações de ARP (protocolo de resolução de endereço) para sistemas que não existem na rede.| |
 |**9.**|Computação e kubernetes |Se kubernetes for configurado primeiro no seu dispositivo, ele reivindicará todas as GPUs disponíveis. Portanto, não é possível criar Azure Resource Manager VMs usando GPUs depois de configurar o kubernetes. |Se o dispositivo tiver duas GPUs, você poderá criar uma VM que usa a GPU e, em seguida, configurar o kubernetes. Nesse caso, o kubernetes usará a GPU 1 disponível restante. |

@@ -6,12 +6,12 @@ ms.author: vimeht
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: a0201882b74d2acf57c246d2dc63530ca8b1f010
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5956b7b74d27a4f9a2b79ee3950c8ac765610c70
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101692493"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558475"
 ---
 # <a name="device-update-for-iot-hub-resource-management"></a>Atualização de Dispositivo para gerenciamento de recursos do Hub IoT
 
@@ -127,7 +127,11 @@ Para que outros usuários tenham acesso à atualização de dispositivo, os usu�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Importe uma atualização usando a atualização de dispositivo para o Hub IoT.](import-update.md)
+Tente atualizar um dispositivo usando um dos seguintes tutoriais rápidos:
+
+ - [Atualização de dispositivo em um simulador](device-update-simulator.md)
+ - [Atualização de dispositivo no Raspberry Pi](device-update-raspberry-pi.md)
+ - [Atualização de dispositivo no Agente do pacote do Ubuntu Server 18.04 x64](device-update-ubuntu-agent.md)
 
 [Saiba mais sobre a conta e a instância de atualização de dispositivo.](device-update-resources.md) 
 

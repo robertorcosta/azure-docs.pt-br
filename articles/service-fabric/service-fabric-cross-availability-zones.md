@@ -5,12 +5,12 @@ author: peterpogorski
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: pepogors
-ms.openlocfilehash: 95ee4e5f326dd9b76645d22ff735bc36437c72fb
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: a49fd6f97a9130fa0369d2a36cdc38e59613afc1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870102"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105544376"
 ---
 # <a name="deploy-an-azure-service-fabric-cluster-across-availability-zones"></a>Implantar um cluster de Service Fabric do Azure entre Zonas de Disponibilidade
 Zonas de Disponibilidade no Azure é uma oferta de alta disponibilidade que protege seus aplicativos e dados de falhas do datacenter. Uma zona de disponibilidade é um local físico exclusivo equipado com energia, resfriamento e rede independentes em uma região do Azure.
@@ -347,6 +347,8 @@ Set-AzureRmPublicIpAddress -PublicIpAddress $PublicIP
 ## <a name="preview-enable-multiple-availability-zones-in-single-virtual-machine-scale-set"></a>Apresentação Habilitar várias zonas de disponibilidade em um único conjunto de dimensionamento de máquinas virtuais
 
 A solução mencionada anteriormente usa um nodeType por AZ. A solução a seguir permitirá que os usuários implantem 3 AZ no mesmo nodeType.
+
+**Como esse recurso está atualmente em versão prévia, ele não tem suporte para cenários de produção no momento.**
 
 O modelo de exemplo completo está presente [aqui](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/15-VM-Windows-Multiple-AZ-Secure).
 

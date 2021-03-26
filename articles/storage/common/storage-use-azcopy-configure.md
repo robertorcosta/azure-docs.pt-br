@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 244012f0945f467fe79e95d652ba22e3b62a1b7a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 9c699cd865746bf430193eba38ec6fa79575692e
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100596948"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543441"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Configurar, otimizar e solucionar problemas do AzCopy
 
@@ -103,14 +103,16 @@ Antes de definir essa variável, recomendamos que você execute um teste de par�
 
 ### <a name="optimize-memory-use"></a>Otimizar o uso de memória
 
-Defina a `AZCOPY_BUFFER_GB` variável de ambiente para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use ao baixar e carregar arquivos.
-Expresse esse valor em gigabytes (GB).
+Defina a `AZCOPY_BUFFER_GB` variável de ambiente para especificar a quantidade máxima de memória do sistema que você deseja que o AzCopy use para o armazenamento em buffer ao baixar e carregar arquivos. Expresse esse valor em gigabytes (GB).
 
 | Sistema operacional | Comando  |
 |--------|-----------|
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **macOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+> [!NOTE]
+> O acompanhamento de trabalhos sempre incorre em sobrecarga adicional no uso de memória. A quantidade varia de acordo com o número de transferências em um trabalho. Buffers são o maior componente de uso de memória. Você pode ajudar a controlar a sobrecarga usando `AZCOPY_BUFFER_GB` o para atender aproximadamente às suas necessidades, mas nenhum sinalizador para limitar o uso geral da memória está disponível.
 
 ### <a name="optimize-file-synchronization"></a>Otimizar a sincronização de arquivos
 

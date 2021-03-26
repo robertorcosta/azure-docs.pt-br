@@ -1,18 +1,18 @@
 ---
 title: Visão geral do Azure Percept Studio
 description: Saiba mais sobre o Azure Percept Studio
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
 ms.custom: template-concept
-ms.openlocfilehash: 8aae976e94ebbef22a86e19f00bfe6248338c4d0
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: e6f9641179a9c2490dcb65316a80b4ba7fd4b639
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953665"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567688"
 ---
 # <a name="azure-percept-studio-overview"></a>Visão geral do Azure Percept Studio
 
@@ -23,6 +23,8 @@ No estúdio, você pode ver seus dispositivos habilitados para ia de borda como 
 Os fluxos de trabalho no Azure Percept Studio integram muitos serviços de AI e IoT do Azure, como o Hub IoT do Azure, o Visão Personalizada, o Speech Studio e o Azure ML, para que você possa usar esses serviços para criar uma solução de ponta a ponta sem conhecimento significativo preexistente. Se você já estiver familiarizado com esses serviços do Azure, também poderá se conectar e modificar os recursos de serviço do Azure existentes fora do Azure Percept Studio.
 
 Independentemente de se você for um desenvolvedor de modelo e solução de ia para iniciantes ou avançado, trabalhando em um protótipo ou migrando para uma solução de produção, o Azure Percept Studio oferece acesso a fluxos de trabalho que você pode usar para reduzir o conflito em relação à criação de soluções de ia de borda.
+
+## <a name="video-walkthrough"></a>Passo a passo em vídeo
 
 </br>
 

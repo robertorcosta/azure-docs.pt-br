@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: mathapli
 ms.author: mathapli
 ms.date: 01/18/2021
-ms.openlocfilehash: adcd91d58b3bb5fde3ffa81c828c58d4b6db48d4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7a9fa4a6f44e88caa6f98d5e1c56adaa065fa29a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101721150"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105558701"
 ---
 # <a name="troubleshoot-virtual-machine-certification"></a>Solucionar problemas de certificação de máquina virtual
 
@@ -32,7 +32,7 @@ Para habilitar extensões de VM:
 1. Selecione sua VM do Linux.
 1. Vá para **configurações de diagnóstico**.
 1. Habilite matrizes base atualizando a **conta de armazenamento**.
-1. Clique em **Salvar**.
+1. Selecione **Salvar**.
 
    ![Captura de tela que exibe como habilitar o monitoramento em nível de convidado.](./media/create-vm/vm-certification-issues-solutions-1.png)
 
@@ -620,11 +620,10 @@ Para concluir o processo de publicação, consulte [revisar e publicar ofertas](
 * Versão do Python acima de 2,8 
 
 
-Para obter mais informações, visite [extensão de VM](https://docs.microsoft.com/azure/virtual-machines/extensions/diagnostics-linux).
+Para obter mais informações, visite [extensão de VM](../virtual-machines/extensions/diagnostics-linux.md).
      
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Configurar propriedades da oferta de VM](azure-vm-create-properties.md)
 - [Recompensas do Marketplace ativas](partner-center-portal/marketplace-rewards.md)
 - Se você tiver dúvidas ou comentários para aprimoramento, entre em contato com o [suporte do Partner Center](https://aka.ms/marketplacepublishersupport).
- 

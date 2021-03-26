@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 795b938913dad149739c4591bc2a9c221d784c84
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3b3303ae04f9300025c3c42fc63abe8b2aa46a83
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101716357"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563711"
 ---
 # <a name="azure-security-baseline-for-container-registry"></a>Linha de base de segurança do Azure para registro de contêiner
 
@@ -37,7 +37,7 @@ Por trás de um firewall, configure as regras de acesso de firewall e as marcas 
 
 **Responsabilidade**: Cliente
 
-**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/home/mbaldwin/docs/asb/azure-docs-pr/articles/governance/policy/samples/azure-security-benchmark.md) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/security-center-recommendations.md). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/home/mbaldwin/docs/asb/azure-docs-pr/articles/security-center/azure-defender.md) para os serviços relacionados.
+**Monitoramento da central de segurança do Azure**: o [benchmark de segurança do Azure](/azure/governance/policy/samples/azure-security-benchmark) é a iniciativa de política padrão para a central de segurança e é a base para as [recomendações da central de segurança](/azure/security-center/security-center-recommendations). As definições de Azure Policy relacionadas a esse controle são habilitadas automaticamente pela central de segurança. Os alertas relacionados a esse controle podem exigir um plano do [Azure defender](/azure/security-center/azure-defender) para os serviços relacionados.
 
 **Azure Policy definições internas-Microsoft. ContainerRegistry**:
 
@@ -62,9 +62,9 @@ Por trás de um firewall, configure as regras de acesso de firewall e as marcas 
 Você pode usar o acesso à rede just in time da central de segurança do Azure para configurar o NSGs para limitar a exposição de pontos de extremidade a endereços IP aprovados por um período limitado.
 Além disso, use a proteção de rede adaptável da central de segurança do Azure para recomendar configurações de NSG que limitam portas e IPs de origem com base no tráfego real e na inteligência contra ameaças.
 
-- [Como configurar a proteção contra DDoS](/azure/virtual-network/manage-ddos-protection)
+- [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 - [Como implantar o Firewall do Azure](../firewall/tutorial-firewall-deploy-portal.md)
-- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/security-center-alerts-service-layer.md)
+- [Compreender a inteligência contra ameaças integrada da Central de Segurança do Azure](../security-center/azure-defender.md)
 - [Entender a proteção de rede adaptável da central de segurança do Azure](../security-center/security-center-adaptive-network-hardening.md)
 - [Controle de acesso à rede just in time da central de segurança do Azure](../security-center/security-center-just-in-time.md)
 
@@ -104,7 +104,7 @@ Implante a solução de firewall de sua escolha em cada um dos limites de rede d
 
 **Orientação**: para recursos que precisam de acesso ao seu registro de contêiner, use marcas de serviço de rede virtual para o serviço de registro de contêiner do Azure para definir os controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço "AzureContainerRegistry" no campo de origem ou de destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
-- [Permitir acesso por marca de serviço](https://docs.microsoft.com/azure/container-registry/container-registry-firewall-access-rules#allow-access-by-service-tag)
+- [Permitir acesso por marca de serviço](./container-registry-firewall-access-rules.md#allow-access-by-service-tag)
 
 **Responsabilidade**: Cliente
 
@@ -138,9 +138,9 @@ Você pode usar plantas do Azure para simplificar implantações do Azure de gra
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados aos seus registros de contêiner. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -182,7 +182,7 @@ Você pode usar plantas do Azure para simplificar implantações do Azure de gra
 
 **Diretriz**: No Azure Monitor, defina o período de retenção do workspace do Log Analytics de acordo com os regulamentos de conformidade da sua organização. Use contas de Armazenamento do Microsoft Azure para armazenamentos de longo prazo/arquivamento.
 
-- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log para workspaces do Log Analytics](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -194,9 +194,9 @@ Você pode usar plantas do Azure para simplificar implantações do Azure de gra
 
 - [Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria](container-registry-diagnostics-audit-logs.md)
 
-- [Compreender o workspace do Log Analytics](/azure/azure-monitor/log-query/get-started-portal)
+- [Compreender o workspace do Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidade**: Cliente
 
@@ -208,7 +208,7 @@ Você pode usar plantas do Azure para simplificar implantações do Azure de gra
 
 - [Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria](container-registry-diagnostics-audit-logs.md)
 
-- [Como alertar sobre dados de log do log Analytics](/azure/azure-monitor/learn/tutorial-response)
+- [Como alertar sobre dados de log do log Analytics](../azure-monitor/alerts/tutorial-response.md)
 
 **Responsabilidade**: Cliente
 
@@ -248,11 +248,11 @@ Você pode usar plantas do Azure para simplificar implantações do Azure de gra
 
 Para cada registro de contêiner do Azure, acompanhe se a conta interna do administrador está habilitada ou desabilitada. Desabilite a conta quando ela não estiver em uso.
 
-- [Como obter uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?preserve-view=true&view=azureadps-2.0)
 
-- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0&amp;preserve-view=true)
+- [Como obter membros de uma função de diretório no Azure AD com o PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?preserve-view=true&view=azureadps-2.0)
 
-- [Conta de administrador do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Conta de administrador do registro de contêiner do Azure](./container-registry-authentication.md#admin-account)
 
 **Responsabilidade**: Cliente
 
@@ -264,7 +264,7 @@ Para cada registro de contêiner do Azure, acompanhe se a conta interna do admin
 
 Se a conta de administrador padrão de um registro de contêiner do Azure estiver habilitada, as senhas complexas serão criadas automaticamente e deverão ser giradas. Desabilite a conta quando ela não estiver em uso.
 
-- [Conta de administrador do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Conta de administrador do registro de contêiner do Azure](./container-registry-authentication.md#admin-account)
 
 **Responsabilidade**: Cliente
 
@@ -278,7 +278,7 @@ Além disso, crie procedimentos para habilitar a conta de administrador interno 
 
 - [Entender a identidade e o acesso da central de segurança do Azure](../security-center/security-center-identity-access.md)
 
-- [Conta de administrador do registro de contêiner do Azure](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Conta de administrador do registro de contêiner do Azure](./container-registry-authentication.md#admin-account)
 
 **Responsabilidade**: Cliente
 
@@ -292,7 +292,7 @@ Para acesso individual ao registro de contêiner, use logon individual integrado
 
 - [Entender o SSO com o Azure AD](../active-directory/manage-apps/what-is-single-sign-on.md)
 
-- [Logon individual para um registro de contêiner](https://docs.microsoft.com/azure/container-registry/container-registry-authentication#admin-account)
+- [Logon individual para um registro de contêiner](./container-registry-authentication.md#admin-account)
 
 **Responsabilidade**: Cliente
 
@@ -325,7 +325,7 @@ Para acesso individual ao registro de contêiner, use logon individual integrado
 
 **Diretrizes**: Use os relatórios de segurança do Azure Active Directory (AD do Azure) para a geração de logs e alertas quando uma atividade suspeita ou não segura ocorrer no ambiente. Use a Central de Segurança do Azure para monitorar a atividade de identidade e acesso.
 
-- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -357,7 +357,7 @@ Para acesso individual ao registro de contêiner, use logon individual integrado
 
 **Diretrizes**: o Azure Active Directory (Azure AD) fornece logs para ajudar a descobrir contas obsoletas. Além disso, use as revisões de acesso de identidade do Azure para gerenciar com eficiência as associações de grupo, o acesso aos aplicativos empresariais e as atribuições de função. O acesso de usuários pode ser examinado regularmente para garantir que somente os usuários corretos tenham acesso contínuo.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring/)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de acesso de identidade do Azure](../active-directory/governance/access-reviews-overview.md)
 
@@ -371,7 +371,7 @@ Para acesso individual ao registro de contêiner, use logon individual integrado
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no workspace do Log Analytics.
 
-- [Como integrar os logs de atividades do Azure ao Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure ao Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
@@ -381,7 +381,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use os recursos de proteção de risco e identidade do Azure Active Directory (Azure AD) para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. 
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -393,7 +393,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Orientação**: não disponível; No momento, não há suporte para Sistema de Proteção de Dados do Cliente no registro de contêiner do Azure.
 
-- [Lista de serviços com suporte Sistema de Proteção de Dados do Cliente](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability)
+- [Lista de serviços com suporte Sistema de Proteção de Dados do Cliente](../security/fundamentals/customer-lockbox-overview.md#supported-services-and-scenarios-in-general-availability)
 
 **Responsabilidade**: Cliente
 
@@ -409,7 +409,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 Imagens de contêiner de versão e de marca ou outros artefatos em um registro e bloqueio de imagens ou repositórios, para auxiliar no rastreamento de imagens que armazenam ou processam informações confidenciais.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Recomendações para marcação e controle de versão de imagens de contêiner](container-registry-image-tag-version.md)
 
@@ -425,11 +425,11 @@ Imagens de contêiner de versão e de marca ou outros artefatos em um registro e
 
 Os recursos devem ser separados por uma rede virtual ou sub-rede, marcados adequadamente e protegidos por um NSG (grupo de segurança de rede) ou firewall do Azure.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar grupos de gerenciamento](/azure/governance/management-groups/create)
+- [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 - [Restringir o acesso a um registro de contêiner do Azure usando uma rede virtual do Azure ou regras de firewall](container-registry-vnet.md)
 
@@ -461,7 +461,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 Siga as recomendações da central de segurança do Azure para criptografia em repouso e criptografia em trânsito, quando aplicável.
 
-- [Entender a criptografia em trânsito com o Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-overview#encryption-of-data-in-transit)
+- [Entender a criptografia em trânsito com o Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
 **Responsabilidade**: Compartilhado
 
@@ -509,7 +509,7 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 - [Noções básicas sobre a criptografia em repouso do Azure](../security/fundamentals/encryption-atrest.md)
 
-- [Chaves gerenciadas pelo cliente no registro de contêiner do Azure](https://aka.ms/acr/cmk)
+- [Chaves gerenciadas pelo cliente no registro de contêiner do Azure](./container-registry-customer-managed-keys.md)
 
 **Responsabilidade**: Cliente
 
@@ -533,9 +533,9 @@ Para a plataforma subjacente que é gerenciada pela Microsoft, a Microsoft trata
 
 **Orientação**: siga as recomendações da central de segurança do Azure sobre como executar avaliações de vulnerabilidade em suas imagens de contêiner. Opcionalmente, implante soluções de terceiros do Azure Marketplace para executar avaliações de vulnerabilidade de imagem.
 
-- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](/azure/security-center/security-center-vulnerability-assessment-recommendations)
+- [Como implementar recomendações de avaliação de vulnerabilidade da central de segurança do Azure](../security-center/deploy-vulnerability-assessment-vm.md)
 
-- [Integração do Registro de Contêiner do Azure com a Central de Segurança (versão prévia)](/azure/security-center/azure-container-registry-integration)
+- [Integração do Registro de Contêiner do Azure com a Central de Segurança (versão prévia)](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsabilidade**: Cliente
 
@@ -567,7 +567,7 @@ Automatize as atualizações de imagem de contêiner quando atualizações de im
 
 **Orientação**: integre o registro de contêiner do Azure (ACR) com a central de segurança do Azure para habilitar a verificação periódica de imagens de contêiner para vulnerabilidades. Opcionalmente, implante soluções de terceiros do Azure Marketplace para executar verificações de vulnerabilidade de imagem periódica.
 
-- [Integração do Registro de Contêiner do Azure com a Central de Segurança (versão prévia)](/azure/security-center/azure-container-registry-integration)
+- [Integração do Registro de Contêiner do Azure com a Central de Segurança (versão prévia)](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsabilidade**: Cliente
 
@@ -577,7 +577,7 @@ Automatize as atualizações de imagem de contêiner quando atualizações de im
 
 **Orientação**: integre o registro de contêiner do Azure (ACR) com a central de segurança do Azure para habilitar a verificação periódica de imagens de contêiner para vulnerabilidades e classificar riscos. Opcionalmente, implante soluções de terceiros do Azure Marketplace para executar verificações de vulnerabilidade de imagem periódica e classificação de risco.
 
-- [Integração do Registro de Contêiner do Azure com a Central de Segurança (versão prévia)](/azure/security-center/azure-container-registry-integration)
+- [Integração do Registro de Contêiner do Azure com a Central de Segurança (versão prévia)](../security-center/defender-for-container-registries-introduction.md)
 
 **Responsabilidade**: Cliente
 
@@ -595,7 +595,7 @@ Embora os recursos clássicos do Azure possam ser descobertos por meio do Resour
 
 - [Como criar consultas com o Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-- [Como exibir suas assinaturas do Azure](https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-4.8.0&amp;preserve-view=true)
+- [Como exibir suas assinaturas do Azure](/powershell/module/az.accounts/get-azsubscription?preserve-view=true&view=azps-4.8.0)
 
 - [Entender o RBAC do Azure](../role-based-access-control/overview.md)
 
@@ -657,9 +657,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 - [Logs de registro de contêiner do Azure para avaliação de diagnóstico e auditoria](container-registry-diagnostics-audit-logs.md)
 
-- [Compreender o workspace do Log Analytics](/azure/azure-monitor/log-query/get-started-portal)
+- [Compreender o workspace do Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidade**: Cliente
 
@@ -691,7 +691,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como negar um tipo de recurso específico com o Azure Policy](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#general)
+- [Como negar um tipo de recurso específico com o Azure Policy](../governance/policy/samples/built-in-policies.md#general)
 
 **Responsabilidade**: Cliente
 
@@ -719,7 +719,7 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: Use configurações específicas do sistema operacional ou recursos de terceiros para limitar a capacidade dos usuários de executar scripts nos recursos de computação do Azure.
 
-- [Por exemplo, como controlar a execução de script do PowerShell em ambientes Windows](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-7&amp;preserve-view=true)
+- [Por exemplo, como controlar a execução de script do PowerShell em ambientes Windows](/powershell/module/microsoft.powershell.security/set-executionpolicy?preserve-view=true&view=powershell-7)
 
 **Responsabilidade**: Cliente
 
@@ -791,9 +791,9 @@ Use o Azure Resource Graph para consultar/descobrir recursos em suas assinaturas
 
 **Orientação**: se estiver usando definições de Azure Policy personalizadas, use Azure Repos para armazenar e gerenciar seu código com segurança.
 
-- [Como armazenar código no Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops&amp;preserve-view=true)
+- [Como armazenar código no Azure DevOps](/azure/devops/repos/git/gitworkflow?preserve-view=true&view=azure-devops)
 
-- [Documentação do Azure Repos](https://docs.microsoft.com/azure/devops/repos/?view=azure-devops&amp;preserve-view=true)
+- [Documentação do Azure Repos](/azure/devops/repos/?preserve-view=true&view=azure-devops)
 
 **Responsabilidade**: Cliente
 
@@ -945,7 +945,7 @@ Fazer backup de chaves gerenciadas pelo cliente no Azure Key Vault usando ferram
 
 - [Importar imagens de contêiner para um registro de contêiner](container-registry-import-images.md)
 
-- [Como fazer backup de chaves do cofre de chaves no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como fazer backup de chaves do cofre de chaves no Azure](/powershell/module/az.keyvault/backup-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -955,7 +955,7 @@ Fazer backup de chaves gerenciadas pelo cliente no Azure Key Vault usando ferram
 
 **Diretrizes**: testar a restauração de chaves de backup gerenciadas pelo cliente no Azure Key Vault usando ferramentas de linha de comando do Azure ou SDKs.
 
-- [Como restaurar chaves de Azure Key Vault no Azure](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey?view=azps-4.8.0&amp;preserve-view=true)
+- [Como restaurar chaves de Azure Key Vault no Azure](/powershell/module/az.keyvault/restore-azkeyvaultkey?preserve-view=true&view=azps-4.8.0)
 
 **Responsabilidade**: Cliente
 
@@ -965,7 +965,7 @@ Fazer backup de chaves gerenciadas pelo cliente no Azure Key Vault usando ferram
 
 **Orientação**: você pode habilitar Soft-Delete em Azure Key Vault para proteger as chaves contra exclusão acidental ou mal-intencionada.
 
-- [Como habilitar a exclusão reversível no Key Vault](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal)
+- [Como habilitar a exclusão reversível no Key Vault](../storage/blobs/soft-delete-blob-overview.md?tabs=azure-portal)
 
 **Responsabilidade**: Cliente
 
@@ -1059,5 +1059,5 @@ Além disso, marque claramente as assinaturas (por exemplo, produção, não pro
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

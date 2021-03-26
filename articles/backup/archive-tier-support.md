@@ -3,12 +3,12 @@ title: Suporte à camada de arquivo morto (versão prévia)
 description: Saiba mais sobre o suporte de camada de arquivo morto para o backup do Azure
 ms.topic: conceptual
 ms.date: 02/18/2021
-ms.openlocfilehash: 6c597d640f24dc4c680bfd5db16f9df09017ee54
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 322bc9d7e2160cc9156c793859b9fda833b3df09
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609845"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563966"
 ---
 # <a name="archive-tier-support-preview"></a>Suporte à camada de arquivo morto (versão prévia)
 
@@ -46,7 +46,7 @@ Clientes com suporte:
     install-module -name Az.RecoveryServices -Repository PSGallery -RequiredVersion 4.0.0-preview -AllowPrerelease -force
     ```
 
-1. Conecte-se ao Azure usando o cmdlet [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) .
+1. Conecte-se ao Azure usando o cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) .
 1. Entre em sua assinatura:
 
    `Set-AzContext -Subscription "SubscriptionName"`
@@ -128,7 +128,7 @@ $rp = Get-AzRecoveryServicesBackupRecoveryPoint -VaultId $vault.ID -Item $bckItm
 
 Para pontos de recuperação no arquivamento, o backup do Azure fornece uma metodologia de restauração integrada.
 
-A restauração integrada é um processo de duas etapas. A primeira etapa envolve reidratar os pontos de recuperação armazenados no arquivo morto e armazená-los temporariamente na camada padrão do cofre por uma duração (também conhecida como a duração do reidratação), variando de um período de 10 a 30 dias. O padrão é 15 dias. Há duas prioridades diferentes de reidratação – padrão e alta prioridade. Saiba mais sobre a [prioridade reidratação](https://docs.microsoft.com/azure/storage/blobs/storage-blob-rehydration#rehydrate-an-archived-blob-to-an-online-tier).
+A restauração integrada é um processo de duas etapas. A primeira etapa envolve reidratar os pontos de recuperação armazenados no arquivo morto e armazená-los temporariamente na camada padrão do cofre por uma duração (também conhecida como a duração do reidratação), variando de um período de 10 a 30 dias. O padrão é 15 dias. Há duas prioridades diferentes de reidratação – padrão e alta prioridade. Saiba mais sobre a [prioridade reidratação](../storage/blobs/storage-blob-rehydration.md#rehydrate-an-archived-blob-to-an-online-tier).
 
 >[!NOTE]
 >

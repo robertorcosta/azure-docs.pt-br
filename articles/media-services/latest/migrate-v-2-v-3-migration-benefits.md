@@ -7,14 +7,14 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
-ms.openlocfilehash: b6d51e05598f60de0e9c8fb85472b7c14bba990e
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 114635722a0a131fc146eb2ab69984effb211a88
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104598381"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559750"
 ---
 # <a name="step-1---understand-the-benefits-of-migrating-to-media-services-api-v3"></a>Etapa 1-entender os benefícios da migração para a API do Media Services V3
 
@@ -23,6 +23,8 @@ ms.locfileid: "104598381"
 <hr color="#5ea0ef" size="10">
 
 ![etapas de migração 2](./media/migration-guide/steps-1.svg)
+
+## <a name="use-the-latest-api"></a>Usar a API mais recente
 
 Incentivamos você a começar a usar a versão 2020-05-01 da API dos serviços de mídia do Azure v3 agora para obter os benefícios porque novos recursos, funcionalidades e otimizações de desempenho estão disponíveis apenas na API v3 atual.
 
@@ -60,7 +62,3 @@ Houve melhorias significativas nos serviços de mídia com v3.
 | **Monitoring** | |
 | Suporte à notificação [do Azure EventGrid](monitoring/reacting-to-media-services-events.md) | As notificações do EventGrid são mais ricas em recursos. Há mais tipos de notificações, suporte mais amplo ao SDK para receber as notificações em seu próprio aplicativo e mais serviços do Azure existentes que podem atuar como manipuladores de eventos. |
 | [Suporte a Azure Monitor e integração no portal do Azure](monitoring/monitor-events-portal-how-to.md) | Isso permite que os clientes visualizem o uso de cota de contas dos serviços de mídia, estatísticas em tempo real de pontos de extremidade de streaming e ingestão e arquivamento de estatísticas para eventos ao vivo. Agora, os clientes podem definir alertas e executar as ações necessárias com base em dados de métrica em tempo real. |
-
-## <a name="next-steps"></a>Próximas etapas
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

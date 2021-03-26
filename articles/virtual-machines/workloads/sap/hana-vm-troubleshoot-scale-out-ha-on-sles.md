@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: f4c1de484ce2659a7e84a1546a7c49c1d77a7d56
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e64abc008433c895e21690ccab8cc532ec1b34b1
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101674494"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543849"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificar e solucionar problemas de instalação de alta disponibilidade de expansão do SAP HANA no SLES 12 SP3 
 
@@ -29,9 +29,9 @@ ms.locfileid: "101674494"
 [suse-cloud-netconfig]:https://www.suse.com/c/multi-nic-cloud-netconfig-ec2-azure/
 [sap-list-port-numbers]:https://help.sap.com/viewer/ports
 [sles-12-ha-paper]:https://www.suse.com/documentation/sle-ha-12/pdfdoc/book_sleha/book_sleha.pdf
-[sles-zero-downtime-paper]:https://www.suse.com/media/presentation/TUT90846_towards_zero_downtime%20_how_to_maintain_sap_hana_system_replication_clusters.pdf
+[sles-zero-downtime-paper]:https://www.youtube.com/embed/0FW3J6GbxOk
 [sap-nw-ha-guide-sles]:high-availability-guide-suse.md
-[sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[sles-12-for-sap]:https://www.scribd.com/document/377847444/Suse-Linux-Enterprise-Server-for-Sap-Applications-12-Sp1
 
 
 Este artigo ajuda você a verificar a configuração de cluster do Pacemaker para expansão do SAP HANA executado em máquinas virtuais (VMs) do Azure. A configuração do cluster foi realizada em combinação com SAP HSR (HANA System Replication) e SAPHanaSR-ScaleOut do pacote RPM SUSE. Todos os testes foram realizados em SUSE SLES 12 SP3 apenas. As seções do artigo abrangem diferentes áreas e incluem exemplos de comandos e trechos de arquivos de configuração. Recomendamos essas amostras como um método para verificar e verificar toda a configuração do cluster.

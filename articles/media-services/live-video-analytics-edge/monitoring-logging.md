@@ -3,12 +3,12 @@ title: Monitoramento e registro em log – Azure
 description: Este artigo fornece uma visão geral do monitoramento e registro em log na análise de vídeo ao vivo no IoT Edge.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: e81b1e98fb30bb8876c78c8c911585f5448db8f2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 08b2f5cce80581d71ce73e97ab30900aa8957c77
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101730228"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564474"
 ---
 # <a name="monitoring-and-logging"></a>Monitoramento e registro em log
 
@@ -208,7 +208,7 @@ Os tipos de evento são atribuídos a um namespace de acordo com este esquema:
 
 #### <a name="event-classes"></a>Classes de evento
 
-|Nome da classe|Descrição|
+|Nome da classe|Description|
 |---|---|
 |Análise  |Eventos gerados como parte da análise de conteúdo.|
 |Diagnósticos    |Eventos que ajudam no diagnóstico de problemas e desempenho.|
@@ -230,7 +230,7 @@ A hora do evento é formatada em uma cadeia de caracteres ISO 8601. Representa a
 
 Essas métricas serão relatadas da análise de vídeo ao vivo no módulo IoT Edge:  
 
-|Nome da métrica|Type|Rótulo|Descrição|
+|Nome da métrica|Tipo|Rótulo|Descrição|
 |-----------|----|-----|-----------|
 |lva_active_graph_instances|Medidor|iothub, edge_device, module_name, graph_topology|Número total de grafos ativos por topologia.|
 |lva_received_bytes_total|Contador|iothub, edge_device, module_name, graph_topology, graph_instance, graph_node|Número total de bytes recebidos por um nó. Com suporte apenas para fontes RTSP.|
@@ -312,7 +312,7 @@ Siga estas etapas para habilitar a coleta de métricas da análise de vídeo ao 
    Nesse caso, na portal do Azure, vá para o Hub IoT e selecione **métricas** no painel esquerdo. Você deve ver as métricas ali.
 
 ### <a name="log-analytics-metrics-collection"></a>Coleta de métricas Log Analytics
-Usando o [ponto de extremidade Prometheus](https://prometheus.io/docs/practices/naming/) juntamente com [log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/log-analytics-tutorial), você pode gerar e [monitorar métricas](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported) como, por exemplo, o usado CPUPercent, MemoryUsedPercent, etc.   
+Usando o [ponto de extremidade Prometheus](https://prometheus.io/docs/practices/naming/) juntamente com [log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md), você pode gerar e [monitorar métricas](../../azure-monitor/essentials/metrics-supported.md) como, por exemplo, o usado CPUPercent, MemoryUsedPercent, etc.   
 
 > [!NOTE]
 > A configuração a seguir não coleta logs, **somente métricas**. É possível estender o módulo coletor para também coletar e carregar logs.

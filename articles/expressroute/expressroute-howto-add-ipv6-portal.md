@@ -7,19 +7,19 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 03/09/2021
 ms.author: duau
-ms.openlocfilehash: 9b85caa3611c484fc17423637dc36ce20b48b823
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 7f5afc05a8d03d33366a2f76318bcf5e039d4d30
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868470"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561654"
 ---
 # <a name="add-ipv6-support-for-private-peering-using-the-azure-portal-preview"></a>Adicionar suporte a IPv6 para emparelhamento privado usando o portal do Azure (versão prévia)
 
 Este artigo descreve como adicionar suporte a IPv6 para se conectar via ExpressRoute a seus recursos no Azure usando o portal do Azure. 
 
 > [!Note]
-> Este recurso está disponível atualmente para visualização em [regiões do Azure com zonas de disponibilidade](https://docs.microsoft.com/azure/availability-zones/az-region#azure-regions-with-availability-zones). O circuito do ExpressRoute, portanto, pode ser criado usando qualquer local de emparelhamento, mas as implantações baseadas em IPv6 que se conectam devem estar em uma região com Zonas de Disponibilidade.
+> Este recurso está disponível atualmente para visualização em [regiões do Azure com zonas de disponibilidade](../availability-zones/az-region.md#azure-regions-with-availability-zones). O circuito do ExpressRoute, portanto, pode ser criado usando qualquer local de emparelhamento, mas as implantações baseadas em IPv6 que se conectam devem estar em uma região com Zonas de Disponibilidade.
 
 ## <a name="register-for-public-preview"></a>Registrar-se para visualização pública
 Antes de adicionar o suporte a IPv6, você deve primeiro registrar sua assinatura. Para registrar, execute os seguintes comandos por meio do Azure PowerShell:

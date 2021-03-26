@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/01/2021
-ms.openlocfilehash: c1d4c9be1f76e62be3c17d4dec22479db003b77a
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 31c19f62f0328fca05562eaa2f19b7a79c0f3e15
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102608250"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562691"
 ---
 # <a name="pre-certification-checklist-for-iot-edge-modules"></a>Lista de verificação de pré-certificação para módulos de IoT Edge
 
@@ -25,7 +25,7 @@ Depois que a imagem do módulo do Edge estiver pronta para envio, execute estas 
 
 ### <a name="steps-to-perform-in-the-azure-portal"></a>Etapas a serem executadas no portal do Azure
 
-1. Abra o [Portal do Azure](https://partner.microsoft.com/).
+1. Abra o [portal do Azure](https://partner.microsoft.com/).
 1. Crie um grupo de recursos.
 1. Crie um Hub IoT.
 1. Criar um dispositivo IoT Edge.
@@ -55,7 +55,7 @@ A equipe de certificação usa o seguinte hardware para validar imagens em difer
 #### <a name="steps"></a>Etapas
 
 1. Certifique-se de que dispositivos/VM criados possam ser acessados por meio de recriação.
-1. Baixe [IOT Edge tempo de execução](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge) no dispositivo.
+1. Baixe [IOT Edge tempo de execução](../iot-edge/how-to-install-iot-edge.md) no dispositivo.
 1. Atualize a cadeia de conexão copiada na etapa 5 para o arquivo config. YAML.
 1. Reinicie o módulo do Edge com `sudo systemctl restart iotedge` .
 1. Verifique se o módulo está implantado no dispositivo com `sudo iotedge list` ; ele deve estar em estado de execução.
@@ -78,6 +78,6 @@ Verifique o seguinte:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Implantar módulos do Marketplace comercial](https://docs.microsoft.com/azure/iot-edge/how-to-deploy-modules-portal#deploy-from-azure-marketplace)
-- [Publicar o módulo de borda no Partner Center](https://docs.microsoft.com/azure/marketplace/partner-center-portal/azure-iot-edge-module-creation)
-- [Implantar o módulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart-linux)  
+- [Implantar módulos do Marketplace comercial](../iot-edge/how-to-deploy-modules-portal.md#deploy-from-azure-marketplace)
+- [Publicar o módulo de borda no Partner Center](./partner-center-portal/azure-iot-edge-module-creation.md)
+- [Implantar o módulo IoT Edge](../iot-edge/quickstart-linux.md)

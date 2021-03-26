@@ -7,12 +7,12 @@ ms.topic: article
 author: sayantanroy83
 ms.author: sroy
 ms.date: 3/08/2021
-ms.openlocfilehash: 3b109048be4a94990c26e31aa5bc2ad36fdd0211
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1cdd3dba8203ce9e8daeaa963f1722389d89d19d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102583672"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563813"
 ---
 # <a name="prerequisites-to-programmatically-access-analytics-data"></a>Pré-requisitos para acessar dados de análise programaticamente
 
@@ -24,7 +24,7 @@ Para acessar dados de análise do Marketplace comercial programaticamente, você
 
 ## <a name="create-azure-active-directory-application"></a>Criar aplicativo do Active Directory do Azure
 
-As credenciais de usuário regulares não podem ser usadas para acesso programático de dados de análise do Marketplace comercial. Um aplicativo Azure Active Directory (AD do Azure) precisa ser criado junto com um segredo para acessar as APIs de análise. Para saber como criar um aplicativo e um segredo do Azure AD, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app).
+As credenciais de usuário regulares não podem ser usadas para acesso programático de dados de análise do Marketplace comercial. Um aplicativo Azure Active Directory (AD do Azure) precisa ser criado junto com um segredo para acessar as APIs de análise. Para saber como criar um aplicativo e um segredo do Azure AD, consulte [início rápido: registrar um aplicativo com a plataforma de identidade da Microsoft](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="associate-the-azure-ad-application-to-the-partner-center-tenant"></a>Associar o aplicativo do Azure AD ao locatário do Partner Center
 
@@ -41,7 +41,7 @@ O aplicativo do Azure AD criado no portal do Azure precisa ser vinculado à sua 
 
 ## <a name="generate-an-azure-ad-token"></a>Gerar um token do Azure AD
 
-Você precisa gerar um token do Azure AD usando a ID do aplicativo (cliente). Essa ID ajuda a identificar exclusivamente o aplicativo cliente na plataforma de identidade da Microsoft e o segredo do cliente da etapa anterior. Para obter as etapas para gerar um token do Azure AD, confira [chamadas de serviço a serviços usando credenciais de cliente (segredo compartilhado ou certificado)](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow).
+Você precisa gerar um token do Azure AD usando a ID do aplicativo (cliente). Essa ID ajuda a identificar exclusivamente o aplicativo cliente na plataforma de identidade da Microsoft e o segredo do cliente da etapa anterior. Para obter as etapas para gerar um token do Azure AD, confira [chamadas de serviço a serviços usando credenciais de cliente (segredo compartilhado ou certificado)](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md).
 
 > [!NOTE]
 > O token é válido por uma hora.

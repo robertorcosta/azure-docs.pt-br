@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/18/2021
 ms.author: cavoeg
-ms.openlocfilehash: aefb2b4a70fae4ad082243529c8eaf877fb35f22
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: a5b3daa499546f3a30b5a4d133d77786a1916b6a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105045290"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105559189"
 ---
 # <a name="how-to-export-fhir-data"></a>Como exportar dados do FHIR
 
@@ -47,8 +47,7 @@ Além disso, a verificação do status de exportação por meio da URL retornada
 
 Atualmente, damos suporte a $export para ADLS Gen2 contas de armazenamento habilitadas, com a seguinte limitação:
 
-- O usuário não pode tirar proveito de [namespaces hierárquicos](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace), mas não há uma maneira de direcionar a exportação para um subdiretório específico dentro do contêiner. Só fornecemos a capacidade de direcionar um contêiner específico (onde criamos uma nova pasta para cada exportação).
-
+- O usuário não pode tirar proveito de [namespaces hierárquicos](../../storage/blobs/data-lake-storage-namespace.md), mas não há uma maneira de direcionar a exportação para um subdiretório específico dentro do contêiner. Só fornecemos a capacidade de direcionar um contêiner específico (onde criamos uma nova pasta para cada exportação).
 - Depois que uma exportação for concluída, nunca exportaremos nada para essa pasta novamente, pois as exportações subsequentes para o mesmo contêiner estarão dentro de uma pasta recém-criada.
 
 
@@ -62,13 +61,13 @@ Há dois parâmetros de cabeçalho necessários que devem ser definidos para tra
 ### <a name="query-parameters"></a>Parâmetros de consulta
 A API do Azure para FHIR dá suporte aos seguintes parâmetros de consulta. Todos esses parâmetros são opcionais:
 
-|Parâmetro de consulta        | Definido pela especificação de FHIR?    |  Descrição|
+|Parâmetro de consulta        | Definido pela especificação de FHIR?    |  Description|
 |------------------------|---|------------|
-| \_outputFormat | Sim | Atualmente dá suporte a três valores para alinhar à especificação FHIR: Application/FHIR + ndjson, Application/ndjson ou apenas ndjson. Todos os trabalhos de exportação serão retornados `ndjson` e o valor passado não terá efeito sobre o comportamento do código. |
-| \_since | Sim | Permite exportar apenas os recursos que foram modificados desde o momento fornecido |
-| \_Escreva | Sim | Permite especificar quais tipos de recursos serão incluídos. Por exemplo, \_ digite = paciente retornaria apenas os recursos do paciente|
-| \_typefilter | Sim | Para solicitar uma filtragem refinada, você pode usar \_ TypeFilter juntamente com o \_ parâmetro de tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgulas de consultas FHIR que restringem ainda mais os resultados |
-| \_Container | Não |  Especifica o contêiner dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um contêiner for especificado, os dados serão exportados para esse contêiner em uma nova pasta com o nome. Se o contêiner não for especificado, ele será exportado para um novo contêiner usando o carimbo de data/hora e a ID do trabalho. |
+| \_outputFormat | Yes | Atualmente dá suporte a três valores para alinhar à especificação FHIR: Application/FHIR + ndjson, Application/ndjson ou apenas ndjson. Todos os trabalhos de exportação serão retornados `ndjson` e o valor passado não terá efeito sobre o comportamento do código. |
+| \_since | Yes | Permite exportar apenas os recursos que foram modificados desde o momento fornecido |
+| \_Escreva | Yes | Permite especificar quais tipos de recursos serão incluídos. Por exemplo, \_ digite = paciente retornaria apenas os recursos do paciente|
+| \_typefilter | Yes | Para solicitar uma filtragem refinada, você pode usar \_ TypeFilter juntamente com o \_ parâmetro de tipo. O valor do parâmetro _typeFilter é uma lista separada por vírgulas de consultas FHIR que restringem ainda mais os resultados |
+| \_Container | No |  Especifica o contêiner dentro da conta de armazenamento configurada onde os dados devem ser exportados. Se um contêiner for especificado, os dados serão exportados para esse contêiner em uma nova pasta com o nome. Se o contêiner não for especificado, ele será exportado para um novo contêiner usando o carimbo de data/hora e a ID do trabalho. |
 
 > [!Note]
 > Somente as contas de armazenamento na mesma assinatura da API do Azure para FHIR podem ser registradas como destino para operações de $export.

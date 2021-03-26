@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4584b0a605bd63c1f71082014d3c0622ca7d2c37
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 16cd14aa447fb56af4cd9dd809696aecdc0c47a5
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104587824"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105557829"
 ---
 # <a name="securing-managed-identities"></a>Proteção de identidades gerenciadas
 
@@ -38,7 +38,7 @@ Identidades gerenciadas são mais bem usadas para comunicações entre serviços
 
 Um sistema de origem solicita acesso a um serviço de destino. Qualquer recurso do Azure pode ser um sistema de origem. Por exemplo, uma VM do Azure, instância de função do Azure e instâncias de serviços Azure Apps dão suporte a identidades gerenciadas.
 
-[!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
+   > [!VIDEO https://www.youtube.com/embed/5lqayO_oeEo]
 
 ### <a name="how-authentication-and-authorization-work"></a>Como funciona a autenticação e a autorização
 
@@ -86,7 +86,7 @@ Há várias maneiras pelas quais você pode encontrar identidades gerenciadas:
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
-1. No Azure AD, selecione aplicativo empresarial.
+1. Em Azure Active Directory, selecione aplicativos empresariais.
 
 2. Selecione o filtro para "identidades gerenciadas" 
 
@@ -120,7 +120,7 @@ Você pode fazer isso enumerando os membros de seus grupos altamente privilegiad
 
 ## <a name="move-to-managed-identities"></a>Mover para identidades gerenciadas
 
-Se você estiver usando uma entidade de serviço ou uma conta de usuário do Azure AD, avalie se você pode usar um gerenciado para eliminar a necessidade de proteger, girar e gerenciar credenciais. 
+Se você estiver usando uma entidade de serviço ou uma conta de usuário do Azure AD, avalie se você pode usar uma identidade gerenciada para eliminar a necessidade de proteger, girar e gerenciar credenciais. 
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -8,16 +8,16 @@ ms.subservice: core
 ms.author: gopalv
 author: gvashishtha
 ms.reviewer: larryfr
-ms.date: 01/13/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy, devx-track-azurecli
 adobe-target: true
-ms.openlocfilehash: ed397e9f8db721a6baa641fc958af0dda570ce57
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4d2aa4d43fbc8cf9040702afb1877e0271b2eab2
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103561933"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568283"
 ---
 # <a name="deploy-machine-learning-models-to-azure"></a>Implantar modelos de aprendizado de máquina no Azure
 
@@ -195,11 +195,50 @@ Uma configuração de inferência mínima pode ser escrita como:
 ```json
 {
     "entryScript": "score.py",
-    "sourceDirectory": "./working_dir"
+    "sourceDirectory": "./working_dir",
+    "environment": {
+    "docker": {
+        "arguments": [],
+        "baseDockerfile": null,
+        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "enabled": false,
+        "sharedVolumes": true,
+        "shmSize": null
+    },
+    "environmentVariables": {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE"
+    },
+    "name": "my-deploy-env",
+    "python": {
+        "baseCondaEnvironment": null,
+        "condaDependencies": {
+            "channels": [
+                "conda-forge",
+                "pytorch"
+            ],
+            "dependencies": [
+                "python=3.6.2",
+                "torchvision"
+                {
+                    "pip": [
+                        "azureml-defaults",
+                        "azureml-telemetry",
+                        "scikit-learn==0.22.1",
+                        "inference-schema[numpy-support]"
+                    ]
+                }
+            ],
+            "name": "project_environment"
+        },
+        "condaDependenciesFile": null,
+        "interpreterPath": "python",
+        "userManagedDependencies": false
+    },
+    "version": "1"
 }
 ```
 
-Isso especifica que a implantação do Machine Learning usará o arquivo `score.py` no `./working_dir` diretório para processar as solicitações de entrada.
+Isso especifica que a implantação do Machine Learning usará o arquivo `score.py` no `./working_dir` diretório para processar solicitações de entrada e que usará a imagem do Docker com os pacotes do Python especificados no `project_environment` ambiente.
 
 [Consulte este artigo](./reference-azure-machine-learning-cli.md#inference-configuration-schema) para obter uma discussão mais completa sobre as configurações de inferência. 
 
@@ -290,7 +329,7 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 Se preferir não registrar seu modelo, você pode passar o parâmetro "sourceDirectory" no seu inferenceconfig.jspara especificar um diretório local a partir do qual servir seu modelo.
 
 ```azurecli-interactive
-az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json
+az ml model deploy --ic inferenceconfig.json --dc deploymentconfig.json --name my_deploy
 ```
 
 # <a name="python"></a>[Python](#tab/python)
@@ -316,13 +355,13 @@ Durante a implantação do modelo, você pode ver a alteração do estado do ser
 
 A tabela a seguir descreve os diferentes Estados de serviço:
 
-| Estado WebService | Descrição | Estado final?
+| Estado WebService | Description | Estado final?
 | ----- | ----- | ----- |
-| Transição | O serviço está em processo de implantação. | Não |
-| Unhealthy | O serviço foi implantado, mas está inacessível no momento.  | Não |
-| Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | Não |
-| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Sim |
-| Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Sim |
+| Transição | O serviço está em processo de implantação. | No |
+| Unhealthy | O serviço foi implantado, mas está inacessível no momento.  | No |
+| Não agendável | O serviço não pode ser implantado no momento devido à falta de recursos. | No |
+| Com falha | O serviço falhou ao ser implantado devido a um erro ou falha. | Yes |
+| Íntegros | O serviço está íntegro e o ponto de extremidade está disponível. | Yes |
 
 > [!TIP]
 > Durante a implantação, as imagens do Docker para destinos de computação são criadas e carregadas do ACR (registro de contêiner do Azure). Por padrão, Azure Machine Learning cria um ACR que usa a camada de serviço *básica* . Alterar o ACR para o seu espaço de trabalho para a camada Standard ou Premium pode reduzir o tempo necessário para criar e implantar imagens em seus destinos de computação. Para obter mais informações, confira [Níveis de serviço do Registro de Contêiner do Azure](../container-registry/container-registry-skus.md).

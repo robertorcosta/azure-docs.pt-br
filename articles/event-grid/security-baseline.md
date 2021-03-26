@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/17/2021
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 80b630bb2f06d3eb634b9d9d32649ea8a47c0b0b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 1bc1df4582c83b093b6ed25d03cc73aef9a81483
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739136"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563932"
 ---
 # <a name="azure-security-baseline-for-event-grid"></a>Linha de base de segurança do Azure para a grade de eventos
 
@@ -32,15 +32,15 @@ Para ver como a grade de eventos do Azure é mapeada completamente para o benchm
 
 A grade de eventos do Azure também dá suporte a controles de acesso baseados em IP públicos para publicação em tópicos e domínios. Com controles baseados em IP, você pode limitar os editores a um tópico ou domínio a apenas um conjunto de computadores e serviços de nuvem aprovados. Esse recurso complementa os mecanismos de autenticação com suporte na grade de eventos. 
 
-- [Mais detalhes sobre pontos de extremidade privados da grade de eventos](https://docs.microsoft.com/azure/event-grid/network-security#private-endpoints)
+- [Mais detalhes sobre pontos de extremidade privados da grade de eventos](./network-security.md#private-endpoints)
 
-- [Mais detalhes sobre o firewall de IP da grade de eventos](https://docs.microsoft.com/azure/event-grid/network-security#ip-firewall)
+- [Mais detalhes sobre o firewall de IP da grade de eventos](./network-security.md#ip-firewall)
 
 - [Segurança de rede da grade de eventos do Azure](network-security.md) 
 
 - [Visão geral do Link Privado do Azure](../private-link/private-link-overview.md)
 
-- [Grupo de segurança de rede do Azure](/azure/virtual-network/security-overview)
+- [Grupo de segurança de rede do Azure](../virtual-network/network-security-groups-overview.md)
 
 **Responsabilidade**: Cliente
 
@@ -80,7 +80,7 @@ Habilite a proteção contra DDoS Standard nessas redes virtuais para proteger c
 
 - [Como configurar a proteção contra DDoS](../ddos-protection/manage-ddos-protection.md)
 
-- [Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure](/azure/security-center/security-center-alerts-service-layer)
+- [Para obter mais informações sobre a inteligência de ameaças integrada da central de segurança do Azure](../security-center/azure-defender.md)
 
 **Responsabilidade**: Cliente
 
@@ -132,7 +132,7 @@ Implante a solução de firewall de sua escolha em cada um dos limites de rede d
 
 **Orientação**: para recursos em redes virtuais que precisam acessar os recursos da grade de eventos do Azure, use as marcas de serviço de rede virtual para definir os controles de acesso à rede em grupos de segurança de rede ou no firewall do Azure. Você pode usar marcas de serviço em vez de endereços IP específicos ao criar regras de segurança. Ao especificar o nome da marca de serviço (por exemplo, AzureEventGrid) no campo de origem ou destino apropriado de uma regra, você pode permitir ou negar o tráfego para o serviço correspondente. A Microsoft gerencia os prefixos de endereço englobados pela marca de serviço e atualiza automaticamente a marca de serviço em caso de alteração de endereços.
 
-- [Como usar a marca de serviço para a grade de eventos do Azure](https://docs.microsoft.com/azure/event-grid/network-security#service-tags)
+- [Como usar a marca de serviço para a grade de eventos do Azure](./network-security.md#service-tags)
 
 - [Para obter mais informações sobre como usar marcas de serviço](../virtual-network/service-tags-overview.md)
 
@@ -149,7 +149,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 - Os domínios da Grade de Eventos do Azure devem usar links privados
 
 - Os tópicos da grade de eventos do Azure devem usar links privados do Azure
-- [políticas internas para recursos de grade de eventos](https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-grid)
+- [políticas internas para recursos de grade de eventos](../governance/policy/samples/built-in-policies.md#event-grid)
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
@@ -161,7 +161,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Orientação**: use marcas para recursos de rede associados aos recursos da grade de eventos do Azure para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -171,9 +171,9 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Orientação**: Use o log de atividades do Azure para monitorar as configurações de recursos de rede e detectar alterações de recursos de rede relacionados à grade de eventos do Azure. Crie alertas no Azure Monitor que serão disparados quando ocorrerem alterações em recursos de rede críticos.
 
-- [Como exibir e recuperar eventos do log de atividades do Azure](/azure/azure-monitor/platform/activity-log-view)
+- [Como exibir e recuperar eventos do log de atividades do Azure](../azure-monitor/essentials/activity-log.md#view-the-activity-log)
 
-- [Como criar alertas no Azure Monitor](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas no Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -217,7 +217,7 @@ Você também pode fazer uso de definições de política internas relacionadas 
 
 **Orientação**: em Azure monitor, defina o período de retenção de log para log Analytics espaços de trabalho associados aos recursos da grade de eventos do Azure de acordo com os regulamentos de conformidade da sua organização.
 
-- [Como definir parâmetros de retenção de log](/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period)
+- [Como definir parâmetros de retenção de log](../azure-monitor/logs/manage-cost-storage.md#change-the-data-retention-period)
 
 **Responsabilidade**: Cliente
 
@@ -235,9 +235,9 @@ Como alternativa, você pode habilitar o e os dados integrados para o Azure Sent
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
-- [Introdução às consultas de Log Analytics](/azure/azure-monitor/log-query/log-analytics-tutorial)
+- [Introdução às consultas de Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md)
 
-- [Como realizar consultas personalizadas no Azure Monitor](/azure/azure-monitor/log-query/get-started-queries)
+- [Como realizar consultas personalizadas no Azure Monitor](../azure-monitor/logs/get-started-queries.md)
 
 **Responsabilidade**: Cliente
 
@@ -257,7 +257,7 @@ Além disso, você pode integrar seu espaço de trabalho do Log Analytics ao Azu
 
 - [Detalhes do esquema de log de diagnóstico da grade de eventos](diagnostic-logs.md)
 
-- [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](/azure/azure-monitor/platform/alerts-log)
+- [Criar, exibir e gerenciar alertas de log usando o Azure Monitor](../azure-monitor/alerts/alerts-log.md)
 
 - [Como integrar o Azure Sentinel](../sentinel/quickstart-onboard.md)
 
@@ -329,7 +329,7 @@ A grade de eventos pode habilitar uma identidade de serviço gerenciada para os 
 
 - [Autenticar clientes de publicação (grade de eventos do Azure)](security-authenticate-publishing-clients.md)
 
-- [Saiba mais sobre o Privileged Identity Management](/azure/active-directory/privileged-identity-management/)
+- [Saiba mais sobre o Privileged Identity Management](../active-directory/privileged-identity-management/index.yml)
 
 **Responsabilidade**: Cliente
 
@@ -363,7 +363,7 @@ A grade de eventos pode habilitar uma identidade de serviço gerenciada para os 
 
 **Diretrizes**: Use os relatórios de segurança do Azure Active Directory (AD do Azure) e o monitoramento para detectar quando atividades suspeitas ou inseguras ocorrem no ambiente. Use a Central de Segurança do Azure para monitorar a atividade de identidade e acesso.
 
-- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](/azure/active-directory/reports-monitoring/concept-user-at-risk)
+- [Como identificar usuários do Azure AD sinalizados em relação a atividades arriscadas](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como monitorar a atividade de identidade e acesso dos usuários na Central de Segurança do Azure](../security-center/security-center-identity-access.md)
 
@@ -401,11 +401,11 @@ A grade de eventos pode habilitar uma identidade de serviço gerenciada para os 
 
 Use Azure AD Privileged Identity Management (PIM) para a geração de logs e alertas quando atividades suspeitas ou inseguras ocorrerem no ambiente.
 
-- [Entender os relatórios do Azure AD](/azure/active-directory/reports-monitoring)
+- [Entender os relatórios do Azure AD](../active-directory/reports-monitoring/index.yml)
 
 - [Como usar as revisões de identidade e acesso do Azure AD](../active-directory/governance/access-reviews-overview.md)
 
-- [Implantar o Azure AD Privileged Identity Management (PIM)](/azure/active-directory/privileged-identity-management/pim-deployment-plan)
+- [Implantar o Azure AD Privileged Identity Management (PIM)](../active-directory/privileged-identity-management/pim-deployment-plan.md)
 
 **Responsabilidade**: Cliente
 
@@ -417,7 +417,7 @@ Use Azure AD Privileged Identity Management (PIM) para a geração de logs e ale
 
 Você pode simplificar esse processo criando configurações de diagnóstico para contas de usuário do Azure AD e enviando logs de auditoria e logs de entrada para um espaço de trabalho Log Analytics. Você pode configurar os alertas desejados no espaço de trabalho Log Analytics.
 
-- [Como integrar os logs de atividades do Azure com o Azure Monitor](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Como integrar os logs de atividades do Azure com o Azure Monitor](../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 **Responsabilidade**: Cliente
 
@@ -427,7 +427,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: Use os recursos de proteção de identidade do Azure Active Directory (Azure AD) para configurar respostas automatizadas para ações suspeitas detectadas relacionadas a identidades de usuário. Você também pode ingerir dados no Azure Sentinel para uma investigação mais aprofundada.
 
-- [Como exibir entradas suspeitas do Azure Active Directory](/azure/active-directory/reports-monitoring/concept-risky-sign-ins)
+- [Como exibir entradas suspeitas do Azure Active Directory](../active-directory/identity-protection/overview-identity-protection.md)
 
 - [Como configurar e habilitar políticas de risco de proteção de identidade](../active-directory/identity-protection/howto-identity-protection-configure-risk-policies.md)
 
@@ -455,7 +455,7 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
  
  
  
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -465,11 +465,11 @@ Você pode simplificar esse processo criando configurações de diagnóstico par
 
 **Diretrizes**: implemente o isolamento usando assinaturas e grupos de gerenciamento separados para domínios de segurança individuais, como tipo de ambiente e nível de sensibilidade de dados. Você pode restringir o nível de acesso aos recursos do Azure que seus aplicativos e ambientes empresariais exigem. Você pode controlar o acesso aos recursos do Azure por meio do RBAC do Azure.
 
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar grupos de gerenciamento](/azure/governance/management-groups/create)
+- [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -519,7 +519,7 @@ Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trat
 
 **Diretrizes**: Use Azure monitor com o log de atividades do Azure para criar alertas para quando as alterações ocorrerem para as instâncias de produção dos recursos da grade de eventos do Azure e outros recursos críticos ou relacionados.
 
-- [Como criar alertas para eventos do log de atividades do Azure](/azure/azure-monitor/platform/alerts-activity-log)
+- [Como criar alertas para eventos do log de atividades do Azure](../azure-monitor/alerts/alerts-activity-log.md)
 
 **Responsabilidade**: Cliente
 
@@ -569,7 +569,7 @@ Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trat
 
 **Diretriz**: Aplique marcas aos recursos do Azure, fornecendo metadados para organizá-los logicamente em uma taxonomia.
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -581,11 +581,11 @@ Para a plataforma subjacente, que é gerenciada pela Microsoft, a Microsoft trat
  
  
  
-- [Como criar assinaturas adicionais do Azure](/azure/billing/billing-create-subscription)
+- [Como criar assinaturas adicionais do Azure](../cost-management-billing/manage/create-subscription.md)
 
-- [Como criar grupos de gerenciamento](/azure/governance/management-groups/create)
+- [Como criar grupos de gerenciamento](../governance/management-groups/create-management-group-portal.md)
 
-- [Como criar e usar marcas](/azure/azure-resource-manager/resource-group-using-tags)
+- [Como criar e usar marcas](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -764,7 +764,7 @@ Azure Resource Manager tem a capacidade de exportar o modelo no JavaScript Objec
 
 - [Como configurar e gerenciar o Azure Policy](../governance/policy/tutorials/create-and-manage.md)
 
-- [Como usar aliases](https://docs.microsoft.com/azure/governance/policy/concepts/definition-structure#aliases)
+- [Como usar aliases](../governance/policy/concepts/definition-structure.md#aliases)
 
 **Responsabilidade**: Cliente
 
@@ -930,7 +930,7 @@ Atualmente, a grade de eventos não dá suporte a chaves gerenciadas pelo client
 
 - [Alertas na Central de Segurança do Azure](../security-center/security-center-alerts-overview.md)
 
-- [Usar marcas para organizar seus recursos do Azure](/azure/azure-resource-manager/resource-group-using-tags)
+- [Usar marcas para organizar seus recursos do Azure](../azure-resource-manager/management/tag-resources.md)
 
 **Responsabilidade**: Cliente
 
@@ -1000,5 +1000,5 @@ Atualmente, a grade de eventos não dá suporte a chaves gerenciadas pelo client
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Confira a [Visão geral do Azure Security Benchmark V2](/azure/security/benchmarks/overview)
-- Saiba mais sobre a [Linhas de base de segurança do Azure](/azure/security/benchmarks/security-baselines-overview)
+- Confira a [Visão geral do Azure Security Benchmark V2](../security/benchmarks/overview.md)
+- Saiba mais sobre a [Linhas de base de segurança do Azure](../security/benchmarks/security-baselines-overview.md)

@@ -3,12 +3,12 @@ title: Matriz de proteção UR1 do MABS (Servidor de Backup do Azure) v3
 description: Este artigo fornece uma matriz de suporte listando todas as cargas de trabalho, tipos de dados e instalações que o Servidor de Backup do Azure protege.
 ms.date: 03/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: d8f2a38db468ec57cdc0a4f0813fe7ae8e341d52
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: cfdd227135a2124e22a604bad4bd41594a38fb37
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102609763"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105561263"
 ---
 # <a name="mabs-azure-backup-server-v3-ur1-protection-matrix"></a>Matriz de proteção UR1 do MABS (Servidor de Backup do Azure) v3
 
@@ -127,7 +127,7 @@ Servidor de Backup do Azure pode proteger as cargas de trabalho de cluster que e
   * Servidor de Arquivos
   * Hyper-V
 
-  Essas cargas de trabalho podem ser executadas em um único servidor ou em uma configuração de cluster. Para proteger uma carga de trabalho que não esteja em um domínio confiável, confira [preparar computadores em grupos e domínios não confiáveis](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm) para obter detalhes exatos sobre o que tem suporte e qual autenticação é necessária.
+  Essas cargas de trabalho podem ser executadas em um único servidor ou em uma configuração de cluster. Para proteger uma carga de trabalho que não esteja em um domínio confiável, confira [preparar computadores em grupos e domínios não confiáveis](/system-center/dpm/prepare-environment-for-dpm) para obter detalhes exatos sobre o que tem suporte e qual autenticação é necessária.
 
 ## <a name="unsupported-data-types"></a>Tipos de dados sem suporte
 

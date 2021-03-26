@@ -2,13 +2,13 @@
 title: Vincular modelos para implantação
 description: Descreve como usar modelos vinculados em um modelo de Azure Resource Manager (modelo ARM) para criar uma solução de modelo modular. Mostra como passar valores de parâmetros, especificar um arquivo de parâmetro e URLs criadas dinamicamente.
 ms.topic: conceptual
-ms.date: 01/26/2021
-ms.openlocfilehash: 6076cbae43e420ac354b5c9d7d101a9c541c078d
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 981e9f10e118012911108d634fbb8bdb9524cb88
+ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889171"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105543968"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
@@ -444,6 +444,8 @@ Você pode referenciar modelos usando parâmetros que incluem HTTP ou HTTPS. Por
 Se você estiver vinculando a um modelo no GitHub, use a URL bruta. O link tem o formato: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` . Para obter o link bruto, selecione **RAW**.
 
 :::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Selecionar URL bruta":::
+
+[!INCLUDE [Deploy templates in private GitHub repo](../../../includes/resource-manager-private-github-repo-templates.md)]
 
 ### <a name="parameters-for-linked-template"></a>Parâmetros para o modelo vinculado
 

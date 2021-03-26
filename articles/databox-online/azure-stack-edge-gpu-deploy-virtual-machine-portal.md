@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 02/22/2021
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro device so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 6054e7e79acaa6abf304508221c63143b9d14a45
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c11a89d91693075ca54c0689223dcf2af06df521
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102436525"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568504"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-the-azure-portal"></a>Implantar VMs em seu dispositivo Azure Stack Edge pro GPU via portal do Azure
 
@@ -52,7 +52,7 @@ O resumo de alto nível do fluxo de trabalho de implantação é o seguinte:
 
 Antes de começar a criar e gerenciar VMs em seu dispositivo por meio do portal do Azure, verifique se:
 
-1. Você concluiu as configurações de rede em seu dispositivo Azure Stack Edge pro, conforme descrito na [etapa 1: configurar Azure Stack dispositivo pro Edge](azure-stack-edge-j-series-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
+1. Você concluiu as configurações de rede em seu dispositivo Azure Stack Edge pro, conforme descrito na [etapa 1: configurar Azure Stack dispositivo pro Edge](./azure-stack-edge-gpu-connect-resource-manager.md#step-1-configure-azure-stack-edge-pro-device).
 
     1. Você habilitou uma interface de rede para computação. Esse IP do adaptador de rede é usado para criar um comutador virtual para a implantação da VM. Na interface do usuário local do seu dispositivo, vá para **computação**. Selecione o adaptador de rede que será usado para criar um comutador virtual.
 

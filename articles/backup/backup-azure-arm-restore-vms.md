@@ -4,12 +4,12 @@ description: Restaure uma máquina virtual do Azure de um ponto de recuperação
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 506c764250347bfccc3f80dcb055f1203583748c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 83681d2bb3622857fb9141a3cec79d92d278a814
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103016518"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568742"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Como restaurar dados de VM do Azure no portal do Azure
 
@@ -249,10 +249,10 @@ Há algumas coisas a serem observadas após a restauração de uma VM:
 - Extensões presentes durante a configuração do backup serão instaladas, mas não habilitadas. Se encontrar um problema, reinstale as extensões.
 - Se a VM de backup tiver um endereço IP estático, a VM restaurada terá um endereço IP dinâmico para evitar conflitos. Você pode [adicionar um endereço IP estático à VM restaurada](/powershell/module/az.network/set-aznetworkinterfaceipconfig#description).
 - Uma VM restaurada não tem um conjunto de disponibilidade. Se você usar a opção restaurar disco, poderá [especificar um conjunto de disponibilidade](../virtual-machines/windows/tutorial-availability-sets.md) ao criar uma VM a partir do disco usando o modelo ou o PowerShell fornecido.
-- Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](../virtual-machines/troubleshooting/reset-password.md). Recomendamos o uso de chaves SSH nessas distribuições, para que você não precise redefinir a senha após a restauração.
+- Se você usar uma distribuição Linux baseada em inicialização da nuvem, como o Ubuntu, a senha será bloqueada após a restauração por motivos de segurança. Use uma extensão VMAccess na VM restaurada para [redefinir a senha](/troubleshoot/azure/virtual-machines/reset-password). Recomendamos o uso de chaves SSH nessas distribuições, para que você não precise redefinir a senha após a restauração.
 - Se não for possível acessar uma VM depois de restaurada porque a VM tem uma relação quebrada com o controlador de domínio, siga as etapas abaixo para abrir a VM:
   - Anexe o disco do sistema operacional como um disco de dados a uma VM recuperada.
-  - Instale manualmente o agente de VM se o agente do Azure for considerado sem resposta seguindo este [link](../virtual-machines/troubleshooting/install-vm-agent-offline.md).
+  - Instale manualmente o agente de VM se o agente do Azure for considerado sem resposta seguindo este [link](/troubleshoot/azure/virtual-machines/install-vm-agent-offline).
   - Habilitar o acesso ao console serial na VM para permitir o acesso de linha de comando à VM
 
   ```cmd

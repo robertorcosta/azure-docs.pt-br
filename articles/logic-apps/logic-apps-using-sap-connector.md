@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 03/24/2021
 tags: connectors
-ms.openlocfilehash: 86bc43e043e7d67ff149391b111831df8171f34e
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: c81e40f769ab9eefdd919f3336591dc065d6cfc9
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105048758"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564106"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Conectar aos sistemas SAP a partir do Aplicativos Lógicos do Azure
 
@@ -568,7 +568,7 @@ Você pode [exportar todos os logs de configuração e de serviço do seu gatewa
 
 #### <a name="capture-etw-events"></a>Capturar eventos ETW
 
-Opcionalmente, os usuários avançados podem capturar eventos ETW diretamente. Você pode [consumir seus dados em diagnóstico do Azure nos hubs de eventos](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) ou [coletar seus dados para Azure monitor logs](/azure/azure-monitor/agents/diagnostics-extension-logs). Para obter mais informações, consulte as [práticas recomendadas para coletar e armazenar dados](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Você pode usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/README.md) para trabalhar com os arquivos ETL resultantes ou pode escrever seu próprio programa. Este tutorial usa PerfView:
+Opcionalmente, os usuários avançados podem capturar eventos ETW diretamente. Você pode [consumir seus dados em diagnóstico do Azure nos hubs de eventos](../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) ou [coletar seus dados para Azure monitor logs](../azure-monitor/agents/diagnostics-extension-logs.md). Para obter mais informações, consulte as [práticas recomendadas para coletar e armazenar dados](/azure/architecture/best-practices/monitoring#collecting-and-storing-data). Você pode usar o [Perfview](https://github.com/Microsoft/perfview/blob/master/README.md) para trabalhar com os arquivos ETL resultantes ou pode escrever seu próprio programa. Este tutorial usa PerfView:
 
 1. No menu Perfview, selecione **coletar** &gt; **coletar** para capturar os eventos.
 
@@ -763,7 +763,7 @@ Aqui está um exemplo que mostra como extrair IDocs individuais de um pacote usa
 
    ![Adicionar gatilho SAP ao aplicativo lógico](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 
-1. [Adicione uma ação de resposta ao seu aplicativo lógico](/azure/connectors/connectors-native-reqres#add-a-response-action) para responder imediatamente com o status de sua solicitação do SAP. É uma prática recomendada adicionar essa ação imediatamente após o gatilho, para liberar o canal de comunicação com seu servidor SAP. Escolha um dos seguintes códigos de status ( `statusCode` ) para usar em sua ação de resposta:
+1. [Adicione uma ação de resposta ao seu aplicativo lógico](../connectors/connectors-native-reqres.md#add-a-response-action) para responder imediatamente com o status de sua solicitação do SAP. É uma prática recomendada adicionar essa ação imediatamente após o gatilho, para liberar o canal de comunicação com seu servidor SAP. Escolha um dos seguintes códigos de status ( `statusCode` ) para usar em sua ação de resposta:
 
     * **202 aceito**, o que significa que a solicitação foi aceita para processamento, mas o processamento ainda não foi concluído.
 

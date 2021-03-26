@@ -3,7 +3,7 @@ title: Relatórios padrão da proteção contra DDoS do Azure e logs de fluxo
 description: Saiba como configurar relatórios e logs de fluxo.
 services: ddos-protection
 documentationcenter: na
-author: yitoh
+author: aletheatoh
 ms.service: ddos-protection
 ms.devlang: na
 ms.topic: article
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/28/2020
 ms.author: yitoh
-ms.openlocfilehash: cc5b3b85d6d13fda532da0993fa7f733126b8eae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7f8e3df927b74cff7e4dc8bf1456600740c07088
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100591877"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105567671"
 ---
 # <a name="view-and-configure-ddos-diagnostic-logging"></a>Exibir e configurar o log de diagnóstico de DDoS
 
@@ -29,7 +29,7 @@ Os seguintes logs de diagnóstico estão disponíveis para a proteção contra D
 - **DDoSMitigationReports**: os relatórios de mitigação de ataques usam os dados do protocolo NetFlow que são agregados para fornecer informações detalhadas sobre o ataque em seu recurso. Sempre que um recurso IP público estiver sob ataque, a geração de relatórios começará assim que a atenuação for iniciada. Também será gerado um relatório de incremental a cada 5 minutos e um relatório de pós-atenuação para todo o período de mitigação. Isso é para garantir que, no caso de o ataque de DDoS continuar por mais tempo, você poderá exibir o instantâneo mais recentes do relatório de atenuação a cada 5 minutos e um resumo completo quando a mitigação de ataque estiver concluída. 
 - **Biometria: fornece** todas as métricas possíveis disponíveis durante a duração de um ataque de DDoS. 
 
-Neste tutorial, você aprenderá a:
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Configure os logs de diagnóstico de DDoS, incluindo notificações, relatórios de mitigação e logs de fluxo de mitigação. 
@@ -77,7 +77,7 @@ A tabela a seguir lista os nomes e as descrições de campo:
 | **Recurso** | O nome do seu endereço IP público. |
 | **ResourceType** | Isso sempre será `PUBLICIPADDRESS` . |
 | **OperationName** | Para notificações, isso será `DDoSProtectionNotifications` .  |
-| **Mensagem** | Detalhes do ataque. |
+| **Message** | Detalhes do ataque. |
 | **Tipo** | Tipo de notificação. Os valores possíveis incluem `MitigationStarted` . `MitigationStopped`. |
 | **PublicIpAddress** | Seu endereço IP público. |
 
@@ -93,7 +93,7 @@ A tabela a seguir lista os nomes e as descrições de campo:
 | **Recurso** | O nome do seu endereço IP público. |
 | **ResourceType** | Isso sempre será `PUBLICIPADDRESS` . |
 | **OperationName** | Para logs de fluxo, isso será `DDoSMitigationFlowLogs` . |
-| **Mensagem** | Detalhes do ataque. |
+| **Message** | Detalhes do ataque. |
 | **SourcePublicIpAddress** | O endereço IP público do cliente que gera o tráfego para seu endereço IP público. |
 | **SourcePort** | Número da porta que varia de 0 a 65535. |
 | **DestPublicIpAddress** | Seu endereço IP público. |
@@ -130,7 +130,7 @@ A tabela a seguir lista os nomes e as descrições de campo:
 
 Este [modelo](https://aka.ms/ddosdiaglogs) cria uma definição de Azure Policy para habilitar automaticamente o log de diagnóstico em todos os logs de IP público em um escopo definido.
 
-[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FEnable%2520Diagnostic%2520Logging%2FAzure%2520Policy%2FDDoSLogs.json)
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FPolicy%20-%20DDOS%20Enable%20Diagnostic%20Logging%2FAzure%20Policy%2FDDoSLogs.json)
 
 ## <a name="view-log-data-in-workbooks"></a>Exibir dados de log em pastas de trabalho
 
@@ -144,7 +144,7 @@ Você pode conectar os logs ao Azure Sentinel, exibir e analisar seus dados em p
 
 Você pode usar [este modelo de Azure Resource Manager (ARM)](https://aka.ms/ddosworkbook) para implantar uma pasta de trabalho do Attack Analytics. Esta pasta de trabalho permite que você visualize dados de ataque em vários painéis filtráveis para entender facilmente o que está em jogo. 
 
-[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%2520DDoS%2520Protection%2FAzure%2520DDoS%2520Protection%2520Workbook%2FAzureDDoSWorkbook_ARM.json)
+[![Implantar no Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2FAzure-Network-Security%2Fmaster%2FAzure%20DDoS%20Protection%2FWorkbook%20-%20Azure%20DDOS%20monitor%20workbook%2FAzureDDoSWorkbook_ARM.json)
 
 ![Pasta de trabalho proteção contra DDoS](./media/ddos-attack-telemetry/ddos-attack-analytics-workbook.png)
 
