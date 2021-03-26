@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 01/19/2021
-ms.openlocfilehash: 5748bf3d428102e296067dc5d1927ba487d575bc
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 257fc6544061c2ef9c3fdbfb8c33bc06ed2db6e3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102518714"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566328"
 ---
 # <a name="run-jupyter-notebooks-in-your-workspace"></a>Executar blocos de anotações do Jupyter em seu espaço de trabalho
 
@@ -195,7 +195,7 @@ Uma célula está no modo de comando quando não há um cursor de texto solicita
 
    :::image type="content" source="media/how-to-run-jupyter-notebooks/command-mode.png" alt-text="Célula do bloco de anotações no modo de comando ":::
 
-| Atalho                      | Descrição                          |
+| Atalho                      | Description                          |
 | ----------------------------- | ------------------------------------|
 | Digite                         | Entrar no modo de edição             |        
 | Shift + Enter                 | Executar célula, selecione abaixo         |     
@@ -203,11 +203,11 @@ Uma célula está no modo de comando quando não há um cursor de texto solicita
 | Alt + Enter                   | Célula de execução, Inserir célula de código abaixo    |
 | Controle/comando + Alt + Enter | Executar célula, Inserir célula de redução abaixo|
 | Alt + R                       | Executar tudo      |                       
-| Y                             | Converter célula em código    |                         
+| S                             | Converter célula em código    |                         
 | M                             | Converter célula em redução  |                       
 | Para cima/K                          | Selecionar célula acima    |               
 | Para baixo/J                        | Selecionar célula abaixo    |               
-| A                             | Inserir célula de código acima  |            
+| Um                             | Inserir célula de código acima  |            
 | B                             | Inserir célula de código abaixo   |           
 | Controle/Comando + Shift + A   | Inserir célula de redução acima    |      
 | Controle/Comando + Shift + B   | Inserir célula de redução abaixo   |       
@@ -239,7 +239,7 @@ O modo de edição é indicado por um cursor de texto solicitando que você digi
 
 Usando os atalhos de tecla a seguir, você pode navegar e executar o código com mais facilidade em blocos de anotações do Azure Machine Learning no modo de edição.
 
-| Atalho                      | Descrição|                                     
+| Atalho                      | Description|                                     
 | ----------------------------- | ----------------------------------------------- |
 | Escape                        | Entrar no modo de comando|  
 | Controle/comando + espaço       | Ativar o IntelliSense |
@@ -273,7 +273,7 @@ Usando os atalhos de tecla a seguir, você pode navegar e executar o código com
 
 * Se você não puder se conectar a um bloco de anotações, verifique se a comunicação de soquete da Web **não** está desabilitada. Para a funcionalidade de Jupyter da instância de computação funcionar, a comunicação de soquete da Web deve ser habilitada. Verifique se a sua rede permite conexões WebSocket com *. instances.azureml.net e *. instances.azureml.ms. 
 
-* Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser [acessada de dentro da rede virtual](https://docs.microsoft.com/azure/machine-learning/how-to-secure-training-vnet#compute-instance). Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para < nome da instância >. < região >. instances.azureml.ms com endereço IP privado do ponto de extremidade privado do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli) .
+* Quando a instância de computação é implantada em um espaço de trabalho de link privado, ela só pode ser [acessada de dentro da rede virtual](./how-to-secure-training-vnet.md#compute-instance). Se você estiver usando o arquivo DNS ou hosts personalizado, adicione uma entrada para < nome da instância >. < região >. instances.azureml.ms com endereço IP privado do ponto de extremidade privado do espaço de trabalho. Para obter mais informações, consulte o artigo [DNS personalizado](./how-to-custom-dns.md?tabs=azure-cli) .
     
 ## <a name="next-steps"></a>Próximas etapas
 

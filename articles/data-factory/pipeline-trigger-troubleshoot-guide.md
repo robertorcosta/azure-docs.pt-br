@@ -7,12 +7,12 @@ ms.date: 03/13/2021
 ms.topic: troubleshooting
 ms.author: susabat
 ms.reviewer: susabat
-ms.openlocfilehash: f5039e5a49da202b2dbfa20e56639365ed597c79
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 72f2a5eec25b9acc2aedd7b006fe3380141781c8
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103461990"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563405"
 ---
 # <a name="troubleshoot-pipeline-orchestration-and-triggers-in-azure-data-factory"></a>Solucionar problemas de orquestração e gatilhos de pipeline no Azure Data Factory
 
@@ -95,7 +95,7 @@ Azure Data Factory avalia o resultado de todas as atividades de nível folha. Os
 
 * Implemente verificações de nível de atividade seguindo [como lidar com falhas e erros de pipeline](https://techcommunity.microsoft.com/t5/azure-data-factory/understanding-pipeline-failures-and-error-handling/ba-p/1630459).
 * Use os aplicativos lógicos do Azure para monitorar pipelines em intervalos regulares seguindo [a consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory).
-* [Monitorar visualmente o pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Monitorar visualmente o pipeline](./monitor-visually.md)
 
 ### <a name="how-to-monitor-pipeline-failures-in-regular-intervals"></a>Como monitorar falhas de pipeline em intervalos regulares
 
@@ -105,7 +105,7 @@ Talvez seja necessário monitorar pipelines de Data Factory com falha em interva
 
 **Resolução**
 * Você pode configurar um aplicativo lógico do Azure para consultar todos os pipelines com falha a cada 5 minutos, conforme descrito em [consulta por fábrica](/rest/api/datafactory/pipelineruns/querybyfactory). Em seguida, você pode relatar incidentes para seu sistema de tíquetes.
-* [Monitorar visualmente o pipeline](https://docs.microsoft.com/azure/data-factory/monitor-visually)
+* [Monitorar visualmente o pipeline](./monitor-visually.md)
 
 ### <a name="degree-of-parallelism--increase-does-not-result-in-higher-throughput"></a>O grau de aumento de paralelismo não resulta em maior taxa de transferência
 
@@ -146,8 +146,8 @@ Isso pode acontecer se você não tiver implementado o recurso de vida útil par
 
 **Resolução**
 
-* Se cada atividade de cópia estiver demorando até 2 minutos para ser iniciada e o problema ocorrer principalmente em uma junção de VNet (não no Azure IR), esse talvez seja um problema de desempenho de cópia. Para examinar as etapas de solução de problemas, vá para a [melhoria do desempenho da cópia.](https://docs.microsoft.com/azure/data-factory/copy-activity-performance-troubleshooting)
-* Você pode usar o recurso de vida útil para diminuir o tempo de inicialização do cluster para atividades de fluxo de dados. Examine o [fluxo de dados Integration Runtime.](https://docs.microsoft.com/azure/data-factory/control-flow-execute-data-flow-activity#data-flow-integration-runtime)
+* Se cada atividade de cópia estiver demorando até 2 minutos para ser iniciada e o problema ocorrer principalmente em uma junção de VNet (não no Azure IR), esse talvez seja um problema de desempenho de cópia. Para examinar as etapas de solução de problemas, vá para a [melhoria do desempenho da cópia.](./copy-activity-performance-troubleshooting.md)
+* Você pode usar o recurso de vida útil para diminuir o tempo de inicialização do cluster para atividades de fluxo de dados. Examine o [fluxo de dados Integration Runtime.](./control-flow-execute-data-flow-activity.md#data-flow-integration-runtime)
 
  ### <a name="hitting-capacity-issues-in-shirself-hosted-integration-runtime"></a>Atingindo problemas de capacidade no SHIR (auto-hospedado Integration Runtime)
  
@@ -157,7 +157,7 @@ Isso pode acontecer se você não tiver escalado verticalmente de SHIR de acordo
 
 **Resolução**
 
-* Se você encontrar um problema de capacidade do SHIR, atualize a VM para aumentar o nó para balancear as atividades. Se você receber uma mensagem de erro sobre uma falha ou erro geral do IR autohospedado, uma atualização de IR autohospedada ou problemas de conectividade de IR para hospedagem interna, que podem gerar uma fila longa, vá para [solucionar problemas de tempo de execução de integração auto-hospedado.](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-troubleshoot-guide)
+* Se você encontrar um problema de capacidade do SHIR, atualize a VM para aumentar o nó para balancear as atividades. Se você receber uma mensagem de erro sobre uma falha ou erro geral do IR autohospedado, uma atualização de IR autohospedada ou problemas de conectividade de IR para hospedagem interna, que podem gerar uma fila longa, vá para [solucionar problemas de tempo de execução de integração auto-hospedado.](./self-hosted-integration-runtime-troubleshoot-guide.md)
 
 ### <a name="error-messages-due-to-long-queues-for-adf-copy-and-data-flow"></a>Mensagens de erro devido a filas longas para fluxo de dados e cópia do ADF
 
@@ -166,10 +166,10 @@ Isso pode acontecer se você não tiver escalado verticalmente de SHIR de acordo
 Mensagens de erro relacionadas à fila longa podem aparecer por vários motivos. 
 
 **Resolução**
-* Se você receber uma mensagem de erro de qualquer origem ou destino por meio de conectores, que podem gerar uma fila longa, acesse [Guia de solução de problemas de conector.](https://docs.microsoft.com/azure/data-factory/connector-troubleshoot-guide)
-* Se você receber uma mensagem de erro sobre o mapeamento de fluxo de dados, que pode gerar uma fila longa, vá para [Guia de solução de problemas de fluxos de dados.](https://docs.microsoft.com/azure/data-factory/data-flow-troubleshoot-guide)
-* Se você receber uma mensagem de erro sobre outras atividades, como databricks, atividades personalizadas ou HDI, que podem gerar uma fila longa, acesse o [Guia de solução de problemas de atividade.](https://docs.microsoft.com/azure/data-factory/data-factory-troubleshoot-guide)
-* Se você receber uma mensagem de erro sobre a execução de pacotes do SSIS, que podem gerar uma fila longa, vá para o [Guia de solução de problemas de execução de pacotes do Azure-SSIS](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-ssis-activity-faq) e guia de solução de problemas de gerenciamento de [Integration Runtime.](https://docs.microsoft.com/azure/data-factory/ssis-integration-runtime-management-troubleshoot)
+* Se você receber uma mensagem de erro de qualquer origem ou destino por meio de conectores, que podem gerar uma fila longa, acesse [Guia de solução de problemas de conector.](./connector-troubleshoot-guide.md)
+* Se você receber uma mensagem de erro sobre o mapeamento de fluxo de dados, que pode gerar uma fila longa, vá para [Guia de solução de problemas de fluxos de dados.](./data-flow-troubleshoot-guide.md)
+* Se você receber uma mensagem de erro sobre outras atividades, como databricks, atividades personalizadas ou HDI, que podem gerar uma fila longa, acesse o [Guia de solução de problemas de atividade.](./data-factory-troubleshoot-guide.md)
+* Se você receber uma mensagem de erro sobre a execução de pacotes do SSIS, que podem gerar uma fila longa, vá para o [Guia de solução de problemas de execução de pacotes do Azure-SSIS](./ssis-integration-runtime-ssis-activity-faq.md) e guia de solução de problemas de gerenciamento de [Integration Runtime.](./ssis-integration-runtime-management-troubleshoot.md)
 
 
 ## <a name="next-steps"></a>Próximas etapas

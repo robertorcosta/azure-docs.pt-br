@@ -6,12 +6,12 @@ ms.author: mimcco
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.openlocfilehash: 086d7ec9d2bcae96ee64745a4382c4748aea291e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: cfc20a30104e24a3950c71bdd8377544803d2f25
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105572317"
+ms.locfileid: "105604406"
 ---
 # <a name="azure-percept-firewall-configuration-and-security-recommendations"></a>Recomendações de segurança e configuração do firewall Percept do Azure
 
@@ -38,3 +38,8 @@ O Azure Percept DK oferece uma grande variedade de recursos de segurança pronto
 - Verifique se a criptografia de dados em repouso está habilitada
 - Monitorar continuamente a postura do dispositivo e responder rapidamente aos alertas
 - Limitar o número de administradores que têm acesso ao dispositivo
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"]
+> [Saiba mais sobre a segurança do Percept do Azure](./overview-percept-security.md)

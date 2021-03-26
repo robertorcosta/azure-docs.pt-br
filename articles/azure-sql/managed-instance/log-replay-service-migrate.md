@@ -9,19 +9,19 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein
 ms.date: 03/01/2021
-ms.openlocfilehash: 0bc00aea67fa2f71599ee62e657e1ca1b0627681
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1b2a3f018b16258622b817648cb00e230313bf49
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102199842"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564510"
 ---
 # <a name="migrate-databases-from-sql-server-to-sql-managed-instance-by-using-log-replay-service-preview"></a>Migrar bancos de dados do SQL Server para o SQL Instância Gerenciada usando o serviço de reprodução de log (versão prévia)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Este artigo explica como configurar manualmente a migração de banco de dados do SQL Server 2008-2019 para o SQL Instância Gerenciada do Azure usando o serviço de reprodução de log (LRS), atualmente em visualização pública. LRS é um serviço de nuvem habilitado para o SQL Instância Gerenciada e é baseado em SQL Server tecnologia de envio de logs. 
 
-O [serviço de migração de banco de dados do Azure](/azure/dms/tutorial-sql-server-to-managed-instance) e o LRS usam a mesma tecnologia de migração subjacente e as mesmas APIs. Ao liberar o LRS, estamos permitindo ainda mais migrações personalizadas complexas e arquitetura híbrida entre o SQL Server local e o SQL Instância Gerenciada.
+O [serviço de migração de banco de dados do Azure](../../dms/tutorial-sql-server-to-managed-instance.md) e o LRS usam a mesma tecnologia de migração subjacente e as mesmas APIs. Ao liberar o LRS, estamos permitindo ainda mais migrações personalizadas complexas e arquitetura híbrida entre o SQL Server local e o SQL Instância Gerenciada.
 
 ## <a name="when-to-use-log-replay-service"></a>Quando usar o serviço de reprodução de log
 
@@ -66,7 +66,7 @@ Depois que o LRS for interrompido, automaticamente por meio de preenchimento aut
     
 | Operação | Detalhes |
 | :----------------------------- | :------------------------- |
-| **1. copiar backups de banco de dados de SQL Server para o armazenamento de BLOBs**. | Copie backups completos, diferenciais e de log de SQL Server para um contêiner de armazenamento de BLOBs usando [Azcopy](/azure/storage/common/storage-use-azcopy-v10) ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Use qualquer nome de arquivo. LRS não requer uma Convenção de nomenclatura de arquivo específica.<br /><br />Ao migrar vários bancos de dados, você precisará de uma pasta separada para cada um deles. |
+| **1. copiar backups de banco de dados de SQL Server para o armazenamento de BLOBs**. | Copie backups completos, diferenciais e de log de SQL Server para um contêiner de armazenamento de BLOBs usando [Azcopy](../../storage/common/storage-use-azcopy-v10.md) ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/). <br /><br />Use qualquer nome de arquivo. LRS não requer uma Convenção de nomenclatura de arquivo específica.<br /><br />Ao migrar vários bancos de dados, você precisará de uma pasta separada para cada um deles. |
 | **2. Inicie o LRS na nuvem**. | Você pode reiniciar o serviço com uma opção de cmdlets: PowerShell ([Start-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/start-azsqlinstancedatabaselogreplay)) ou CLI do Azure ([cmdlets az_sql_midb_log_replay_start](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_start)). <br /><br /> Inicie o LRS separadamente para cada banco de dados que aponta para uma pasta de backup no armazenamento de BLOBs. <br /><br /> Depois de iniciar o serviço, ele usará backups do contêiner de armazenamento de BLOBs e começará a restaurá-los no SQL Instância Gerenciada.<br /><br /> Se você iniciou o LRS no modo contínuo, depois que todos os backups inicialmente carregados forem restaurados, o serviço observará os novos arquivos carregados na pasta. O serviço aplicará continuamente logs com base na cadeia LSN (número de sequência de log) até que seja interrompido. |
 | **2,1. Monitore o progresso da operação**. | Você pode monitorar o progresso da operação de restauração com uma opção de cmdlets: PowerShell ([Get-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/get-azsqlinstancedatabaselogreplay)) ou CLI do Azure ([cmdlets az_sql_midb_log_replay_show](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_show)). |
 | **2,2. pare a operação se necessário**. | Se você precisar interromper o processo de migração, terá a opção de cmdlets: PowerShell ([Stop-azsqlinstancedatabaselogreplay](/powershell/module/az.sql/stop-azsqlinstancedatabaselogreplay)) ou CLI do Azure ([az_sql_midb_log_replay_stop](/cli/azure/sql/midb/log-replay#az_sql_midb_log_replay_stop)). <br /><br /> Parar a operação excluirá o banco de dados que você está restaurando no SQL Instância Gerenciada. Depois de parar uma operação, você não pode retomar o LRS para um banco de dados. Você precisa reiniciar o processo de migração do zero. |
@@ -164,7 +164,7 @@ O armazenamento de BLOBs do Azure é usado como armazenamento intermediário par
 
 Na migração de bancos de dados para uma instância gerenciada usando o LRS, você pode usar as seguintes abordagens para carregar backups no armazenamento de BLOBs:
 - Usando SQL Server o [backup nativo para a funcionalidade de URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url)
-- Usando [Azcopy](/azure/storage/common/storage-use-azcopy-v10) ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer) para carregar backups em um contêiner de BLOB
+- Usando [Azcopy](../../storage/common/storage-use-azcopy-v10.md) ou [Gerenciador de armazenamento do Azure](https://azure.microsoft.com/en-us/features/storage-explorer) para carregar backups em um contêiner de BLOB
 - Usando Gerenciador de Armazenamento no portal do Azure
 
 ### <a name="make-backups-from-sql-server-directly-to-blob-storage"></a>Fazer backups de SQL Server diretamente para o armazenamento de BLOBs

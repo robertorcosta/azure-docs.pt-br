@@ -12,12 +12,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 774c78cbb09d2e5e60dfc0cafc0082b25e9b1b45
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 248d5e163eb046edd130d69307a1c553d434b92d
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103602961"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105604661"
 ---
 # <a name="selective-password-hash-synchronization-configuration-for-azure-ad-connect"></a>Configuração de sincronização de hash de senha seletiva para Azure AD Connect
 
@@ -36,6 +36,9 @@ Para reduzir o esforço administrativo de configuração, primeiro você deve co
 
 > [!Important]
 > Com qualquer opção de configuração escolhida, uma sincronização inicial necessária (sincronização completa) para aplicar as alterações será executada automaticamente no próximo ciclo de sincronização.
+
+> [!Important]
+> Configurar a sincronização de hash de senha seletiva influencia diretamente o Write-back de senha. As alterações de senha ou redefinições de senha iniciadas no Azure Active Directory write-back para o local Active Directory somente se o usuário estiver no escopo para a sincronização de hash de senha. 
 
 ### <a name="the-admindescription-attribute"></a>O atributo adminDescription
 Ambos os cenários dependem da definição do atributo adminDescription de usuários para um valor específico.  Isso permite que as regras sejam aplicadas e é o que faz o PHS seletivo funcionar.
@@ -93,7 +96,7 @@ Se esse atributo não for preenchido ou o valor for algo diferente de **PHSFilte
  3. A primeira regra desabilitará a sincronização de hash de senha. Forneça o seguinte nome para a nova regra personalizada: **in from ad-usuário AccountEnabled-Filter users from PHS**.
  Altere o valor de precedência para um número inferior a 100 (por exemplo, **90** ou o que for o menor valor disponível em seu ambiente).
  Verifique se as caixas de seleção **habilitam a sincronização de senha** e **desabilitadas** estão desmarcadas e c.
- Clique em **Próximo**.
+ Clique em **Avançar**.
   ![Editar entrada](media/how-to-connect-selective-password-hash-synchronization/exclude-3.png)
  4. Em **filtro de escopo**, clique em **Adicionar cláusula**.
  Selecione **adminDescription** na coluna atributo, **igual** na coluna operador e digite **PHSFiltered** como o valor.
@@ -106,7 +109,7 @@ Se esse atributo não for preenchido ou o valor for algo diferente de **PHSFilte
  7. Forneça o seguinte nome para a nova regra personalizada: **in from ad-User AccountEnabled-Users inclusos para PHS**.
  Altere o valor de precedência para um número inferior ao da regra criada anteriormente (neste exemplo, que será **89**).
  Verifique se a caixa de seleção **habilitar Sincronização de senha** está marcada e se a caixa de seleção **desabilitado** está desmarcada.
- Clique em **Próximo**.  
+ Clique em **Avançar**.  
      ![Editar nova regra](media/how-to-connect-selective-password-hash-synchronization/exclude-7.png)
  8. Em **filtro de escopo**, clique em **Adicionar cláusula**.
  Selecione **adminDescription** na coluna atributo, não **igual** na coluna operador e digite **PHSFiltered** como o valor.
@@ -134,6 +137,9 @@ Depois que todas as configurações forem concluídas, você precisará editar o
    
   ![Editar atributo](media/how-to-connect-selective-password-hash-synchronization/exclude-11.png)
 
+Você também pode usar o seguinte comando do PowerShell para editar o atributo **adminDescription** de um usuário:
+
+```Set-ADUser myuser -Replace @{adminDescription="PHSFiltered"}```
 
 ## <a name="excluded-users-is-larger-than-included-users"></a>Usuários excluídos são maiores do que os usuários incluídos
 A seção a seguir descreve como habilitar a sincronização de hash de senha seletiva quando o número de usuários a serem **excluídos** é **maior** do que o número de usuários a serem **incluídos**.
@@ -162,7 +168,7 @@ Se esse atributo não for preenchido ou o valor for algo diferente de **PHSInclu
  3. A primeira regra desabilitará a sincronização de hash de senha. Forneça o seguinte nome para a nova regra personalizada: **in from ad-usuário AccountEnabled-Filter users from PHS**.
  Altere o valor de precedência para um número inferior a 100 (por exemplo, **90** ou o que for o menor valor disponível em seu ambiente).
  Verifique se as caixas de seleção **habilitar Sincronização de senha** e **desabilitado** estão desmarcadas.
- Clique em **Próximo**.
+ Clique em **Avançar**.
   ![Definir precedência](media/how-to-connect-selective-password-hash-synchronization/include-3.png)
  4. Em **filtro de escopo**, clique em **Adicionar cláusula**.
 Selecione **adminDescription** na coluna atributo, não **igual** na coluna operador e digite **PHSIncluded** como o valor.
@@ -175,7 +181,7 @@ Selecione **adminDescription** na coluna atributo, não **igual** na coluna oper
  7. Forneça o seguinte nome para a nova regra personalizada: **in from ad-User AccountEnabled-Users inclusos para PHS**.
  Altere o valor de precedência para um número inferior ao da regra criada anteriormente (neste exemplo, que será **89**).
  Verifique se a caixa de seleção **habilitar Sincronização de senha** está marcada e se a caixa de seleção **desabilitado** está desmarcada.
- Clique em **Próximo**.
+ Clique em **Avançar**.
      ![Habilitar sincronização de senha](media/how-to-connect-selective-password-hash-synchronization/include-7.png)
  8. Em **filtro de escopo**, clique em **Adicionar cláusula**.
  Selecione **adminDescription** na coluna atributo, **igual** na coluna operador e digite **PHSIncluded** como o valor.
@@ -202,7 +208,9 @@ Depois que todas as configurações forem concluídas, você precisará editar o
 
   ![Editar atributos](media/how-to-connect-selective-password-hash-synchronization/include-11.png)
  
- 
+ Você também pode usar o seguinte comando do PowerShell para editar o atributo **adminDescription** de um usuário:
+
+ ```Set-ADUser myuser -Replace @{adminDescription="PHSIncluded"}``` 
 
 ## <a name="next-steps"></a>Próximas etapas
 - [O que é sincronização de hash da senha?](whatis-phs.md)

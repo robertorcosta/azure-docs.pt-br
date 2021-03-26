@@ -3,12 +3,12 @@ title: Configurar relatórios de Backup do Azure
 description: Configurar e exibir relatórios para o Backup do Azure usando o Log Analytics e as pastas de trabalho do Azure
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f3d9dfa33e71d827a338258001f2b52af62b06
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0720af0848aa8263587dfd9573d205abf73303d4
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102509346"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562317"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 
@@ -148,7 +148,7 @@ Há dois tipos de exibições de adesão de política disponíveis:
 
 * **Adesão de política por período de tempo**: usando essa exibição, você pode identificar quantos itens tiveram pelo menos um backup bem-sucedido em um determinado dia e quantos não tiveram um backup bem-sucedido nesse dia. Você pode clicar em uma linha para ver os detalhes de todos os trabalhos de backup que foram disparados no dia selecionado. Observe que se você aumentar o intervalo de tempo para um valor maior, como os últimos 60 dias, a grade será renderizada no modo de exibição semanal e exibirá a contagem de todos os itens que tiveram pelo menos um backup bem-sucedido em cada dia da semana determinada. Da mesma forma, há uma exibição mensal para intervalos de tempo maiores.
 
-No caso de itens com backup semanal, essa grade ajuda a identificar todos os itens que tiveram pelo menos um backup bem-sucedido na semana determinada. Para um intervalo de tempo maior, como os últimos 120 dias, a grade é renderizada na exibição mensal e exibe a contagem de todos os itens que tiveram pelo menos um backup bem-sucedido em cada semana no mês determinado. Consulte [convenções usadas em relatórios de backup](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports) para obter mais detalhes sobre os modos de exibição diário, semanal e mensal.
+No caso de itens com backup semanal, essa grade ajuda a identificar todos os itens que tiveram pelo menos um backup bem-sucedido na semana determinada. Para um intervalo de tempo maior, como os últimos 120 dias, a grade é renderizada na exibição mensal e exibe a contagem de todos os itens que tiveram pelo menos um backup bem-sucedido em cada semana no mês determinado. Consulte [convenções usadas em relatórios de backup](#conventions-used-in-backup-reports) para obter mais detalhes sobre os modos de exibição diário, semanal e mensal.
 
 ![Adesão de política por período de tempo](./media/backup-azure-configure-backup-reports/policy-adherence-by-time-period.png)
 
@@ -166,7 +166,7 @@ Depois que o aplicativo lógico for criado, você precisará autorizar conexões
 
 Os relatórios de backup usam [funções de sistema em logs de Azure monitor](backup-reports-system-functions.md). Essas funções operam em dados nas tabelas brutas de backup do Azure em LA e retornam dados formatados que ajudam a recuperar facilmente as informações de todas as suas entidades relacionadas ao backup, usando consultas simples. 
 
-Para criar suas próprias pastas de trabalho de relatório usando relatórios de backup como base, você pode navegar até relatórios de backup, clicar em **Editar** na parte superior do relatório e Exibir/editar as consultas que estão sendo usadas nos relatórios. Consulte a [documentação de pastas de trabalho do Azure](https://docs.microsoft.com/azure/azure-monitor/visualize/workbooks-overview) para saber mais sobre como criar relatórios personalizados. 
+Para criar suas próprias pastas de trabalho de relatório usando relatórios de backup como base, você pode navegar até relatórios de backup, clicar em **Editar** na parte superior do relatório e Exibir/editar as consultas que estão sendo usadas nos relatórios. Consulte a [documentação de pastas de trabalho do Azure](../azure-monitor/visualize/workbooks-overview.md) para saber mais sobre como criar relatórios personalizados. 
 
 ## <a name="export-to-excel"></a>Exportar para o Excel
 

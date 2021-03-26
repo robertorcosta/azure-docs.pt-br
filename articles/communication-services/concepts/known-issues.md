@@ -1,38 +1,54 @@
 ---
-title: Serviços de comunicação do Azure-perguntas frequentes/problemas conhecidos
+title: Serviços de comunicação do Azure-problemas conhecidos
 description: Saiba mais sobre os serviços de comunicação do Azure
-author: mikben
+author: rinarish
 manager: jken
 services: azure-communication-services
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: troubleshooting
 ms.service: azure-communication-services
-ms.openlocfilehash: 2c6ac34d8daf00578cb1d03833a28eb8535708b7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: aa5530dd279e8b45382fe6841b6f193a652c0ba3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103493634"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105566788"
 ---
-# <a name="faq--known-issues"></a>Perguntas frequentes/problemas conhecidos
-Este artigo fornece informações sobre problemas conhecidos e perguntas frequentes relacionadas aos serviços de comunicação do Azure.
+# <a name="known-issues-azure-communication-services-client-libraries"></a>Problemas conhecidos: bibliotecas de cliente dos serviços de comunicação do Azure
+Este artigo fornece informações sobre limitações e problemas conhecidos relacionados às bibliotecas de cliente dos serviços de comunicação do Azure.
 
-## <a name="faq"></a>Perguntas frequentes
+> [!IMPORTANT]
+> Há vários fatores que podem afetar a qualidade da sua experiência de chamada. Consulte a documentação de **[requisitos de rede](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements)** para saber mais sobre as práticas recomendadas de configuração e teste de rede dos serviços de comunicação.
 
-### <a name="why-is-the-quality-of-my-video-degraded"></a>Por que a qualidade do meu vídeo está degradada?
 
-A qualidade dos fluxos de vídeo é determinada pelo tamanho do renderizador do lado do cliente que foi usado para iniciar esse fluxo. Ao assinar um fluxo remoto, um receptor determinará sua própria resolução com base nas dimensões do processador do lado do cliente do remetente.
+## <a name="javascript-client-library"></a>Biblioteca de clientes JavaScript
 
-### <a name="why-is-it-not-possible-to-enumerateselect-micspeaker-devices-on-safari"></a>Por que não é possível enumerar/selecionar dispositivos de Mic/viva-voz no Safari?
+Esta seção fornece informações sobre problemas conhecidos associados a bibliotecas de cliente de voz e vídeo JavaScript em serviços de comunicação do Azure.
 
-Os aplicativos não podem enumerar/selecionar dispositivos MIC/viva-voz (como Bluetooth) no Safari iOS/iPad. É uma limitação do sistema operacional-há sempre apenas um dispositivo.
+### <a name="after-refreshing-the-page-user-is-not-removed-from-the-call-immediately"></a>Depois de atualizar a página, o usuário não é removido da chamada imediatamente 
+Se o usuário estiver em uma chamada e decidir atualizar a página, a biblioteca de cliente do Communication Services poderá não ser capaz de informar o serviço de mídia dos serviços de comunicação que está prestes a se desconectar. O serviço de mídia dos serviços de comunicação não removerá tal usuário imediatamente da chamada, mas esperará que um usuário ingresse novamente supondo problemas com a conectividade de rede. O usuário será removido da chamada depois que o serviço de mídia atingir o tempo limite.
 
-Para o Safari no MacOS-o aplicativo não pode enumerar/selecionar o palestrante por meio dos serviços de comunicação Gerenciador de Dispositivos-eles precisam ser selecionados por meio do sistema operacional. Se você usar o Chrome no MacOS, o aplicativo poderá enumerar/selecionar dispositivos por meio do Gerenciador de Dispositivos de serviços de comunicação.
+Incentivamos os desenvolvedores a criarem experiências que não exigem que os usuários finais atualizem a página do seu aplicativo enquanto participam de uma chamada. Se o usuário for atualizar a página, a melhor maneira de tratá-la para o aplicativo é reutilizar a mesma ID de usuário dos serviços de comunicação para o usuário depois de retornar ao aplicativo após a atualização.
 
-## <a name="known-issues"></a>Problemas conhecidos
+Para a perspectiva de outros participantes na chamada, esse usuário permanecerá na chamada por período de tempo predefinido (1-2 minutos). Se o usuário for reingressar com a mesma ID de usuário dos serviços de comunicação, ele será representado como o mesmo objeto existente na `remoteParticipants` coleção.
+Se o usuário anterior estivesse enviando vídeo, a `videoStreams` coleção manterá as informações de fluxo anteriores até que o serviço seja atingido e removido, neste cenário, o aplicativo pode decidir observar quaisquer novos fluxos adicionados à coleção e renderizar um com o mais alto `id` . 
 
-Esta seção fornece informações sobre problemas conhecidos associados aos serviços de comunicação do Azure.
+
+### <a name="its-not-possible-to-render-multiple-previews-from-multiple-devices-on-web"></a>Não é possível renderizar várias visualizações de vários dispositivos na Web
+Essa é uma limitação conhecida. Consulte a [visão geral da biblioteca de cliente de chamada](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/calling-sdk-features) para obter mais informações.
+
+### <a name="enumeration-of-the-microphone-and-speaker-devices-is-not-possible-in-safari-when-the-application-runs-on-ios-or-ipados"></a>A enumeração dos dispositivos de microfone e de alto-falantes não é possível no Safari quando o aplicativo é executado no iOS ou no iPadOS 
+Os aplicativos não podem enumerar/selecionar dispositivos MIC/viva-voz (como Bluetooth) no Safari iOS/iPad. Essa é uma limitação conhecida do sistema operacional.
+
+Se você estiver usando o Safari no macOS, seu aplicativo não poderá enumerar/selecionar alto-falantes por meio do Gerenciador de Dispositivos de serviços de comunicação. Nesse cenário, os dispositivos devem ser selecionados por meio do sistema operacional. Se você usar o Chrome no macOS, o aplicativo poderá enumerar/selecionar dispositivos por meio do Gerenciador de Dispositivos de serviços de comunicação.
+
+### <a name="audio-connectivity-is-lost-when-receiving-sms-messages-or-calls-during-an-ongoing-voip-call"></a>A conectividade de áudio é perdida ao receber mensagens SMS ou chamadas durante uma chamada VoIP contínua
+Os navegadores móveis não mantêm a conectividade no estado de segundo plano. Isso pode levar a uma experiência de chamada degradada se a chamada VoIP foi interrompida por mensagem de texto ou chamada PSTN de entrada que envia o aplicativo por push para o plano de fundo.
+
+<br/>Biblioteca de cliente: chamando (JavaScript)
+<br/>Navegadores: Safari, Chrome
+<br/>Sistema operacional: iOS, Android
 
 ### <a name="repeatedly-switching-video-devices-may-cause-video-streaming-to-temporarily-stop"></a>Alternar repetidamente dispositivos de vídeo pode fazer com que o streaming de vídeo pare temporariamente
 
@@ -40,3 +56,45 @@ Alternar entre dispositivos de vídeo pode fazer com que o fluxo de vídeo seja 
 
 #### <a name="possible-causes"></a>Possíveis causas
 A transmissão e a alternância entre os dispositivos de mídia são computacionalmente intensivas. Alternar com frequência pode causar degradação do desempenho. Os desenvolvedores são incentivados a interromper um fluxo de dispositivo antes de iniciar outro.
+
+### <a name="bluetooth-headset-microphone-is-not-detected-therefore-is-not-audible-during-the-call-on-safari-on-ios"></a>O microfone do headset Bluetooth não é detectado, portanto não é audível durante a chamada no Safari no iOS
+Não há suporte para Headsets Bluetooth no Safari no iOS. Seu dispositivo Bluetooth não será listado nas opções de microfone disponíveis e outros participantes não poderão ouvi-lo se você tentar usar o Bluetooth no Safari.
+
+#### <a name="possible-causes"></a>Possíveis causas
+Essa é uma limitação conhecida do sistema operacional macOS/iOS/iPadOS. 
+
+Com o Safari no **MacOS** e **Ios/iPadOS**, não é possível enumerar/selecionar dispositivos de alto-falantes por meio dos serviços de comunicação Gerenciador de dispositivos uma vez que a enumeração/seleção de alto-falantes não é suportada pelo Safari. Nesse cenário, a seleção do dispositivo deve ser atualizada por meio do sistema operacional.
+
+### <a name="rotation-of-a-device-can-create-poor-video-quality"></a>A rotação de um dispositivo pode criar qualidade de vídeo ruim
+Os usuários podem experimentar a qualidade de vídeo degradada quando os dispositivos são girados.
+
+<br/>Dispositivos afetados: Google pixel 5, Google pixel 3A, Apple iPad 8 e Apple iPad X
+<br/>Biblioteca de cliente: chamando (JavaScript)
+<br/>Navegadores: Safari, Chrome
+<br/>Sistema operacional: iOS, Android
+
+
+### <a name="camera-switching-makes-the-screen-freeze"></a>A alternância de câmera faz o congelamento da tela 
+Quando um usuário de serviços de comunicação ingressa em uma chamada usando a biblioteca de cliente de chamada de JavaScript e, em seguida, pressiona o botão de alternância de câmera, a interface do usuário pode ficar completamente sem resposta até que o aplicativo seja atualizado ou o navegador seja enviado por push para o plano de fundo pelo usuário.
+
+<br/>Dispositivos afetados: Google pixel 4a
+<br/>Biblioteca de cliente: chamando (JavaScript)
+<br/>Navegadores: Chrome
+<br/>Sistema operacional: iOS, Android
+
+
+#### <a name="possible-causes"></a>Possíveis causas
+Sob Investigação.
+
+### <a name="if-the-video-signal-was-stopped-while-the-call-is-in-connecting-state-the-video-will-not-be-sent-after-the-call-started"></a>Se o sinal de vídeo foi interrompido enquanto a chamada está no estado "conectando", o vídeo não será enviado após a chamada ser iniciada 
+Se os usuários decidirem ativar/desativar o vídeo rapidamente enquanto a chamada estiver no `Connecting` estado-isso pode levar a um problema com o fluxo adquirido para a chamada. Incentivamos os desenvolvedores a criarem seus aplicativos de uma maneira que não exija que o vídeo seja ativado/desativado enquanto a chamada estiver no `Connecting` estado. Esse problema pode causar um desempenho de vídeo degradado nos seguintes cenários:
+
+ - Se o usuário começar com áudio e iniciar e parar o vídeo enquanto a chamada estiver em `Connecting` estado.
+ - Se o usuário começar com áudio e iniciar e parar o vídeo enquanto a chamada estiver em `Lobby` estado.
+
+
+#### <a name="possible-causes"></a>Possíveis causas
+Sob Investigação.
+
+###  <a name="sometimes-it-takes-a-long-time-to-render-remote-participant-videos"></a>Às vezes, leva muito tempo para renderizar vídeos de participantes remotos
+Durante uma chamada de grupo em andamento, o _usuário A_ envia vídeo e, em seguida, o _usuário B_ une a chamada. Às vezes, o usuário B não vê vídeo A partir do usuário A ou o vídeo de um usuário começa a renderizar após um longo atraso. Isso pode ser causado por um ambiente de rede que requer configuração adicional. Consulte a documentação de [requisitos de rede](https://docs.microsoft.com/azure/communication-services/concepts/voice-video-calling/network-requirements) para obter diretrizes de configuração de rede.

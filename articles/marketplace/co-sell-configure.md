@@ -8,16 +8,16 @@ author: palanis-MSFT
 ms.author: palanis
 ms.reviewer: stmummer
 ms.date: 3/17/2021
-ms.openlocfilehash: e8019a30d4f5bf24814d88fc749cefd6b529b73b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: db502f4652a6ae541a504249475898e3e771f90d
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104608972"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105563388"
 ---
 # <a name="configure-co-sell-for-a-commercial-marketplace-offer"></a>Configurar a televenda para uma oferta de Marketplace comercial
 
-Este artigo descreve como configurar a guia **co-venda com a Microsoft** para uma oferta de Marketplace comercial. Fornecer informações sobre essa guia é totalmente opcional, mas é necessário para atingir o [status de incentivados de venda de cooperação e](https://aka.ms/CertificationPolicies#3000-requirements-for-co-sell-status)de covenda de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Essas informações não estão disponíveis diretamente para os clientes. Para obter mais informações sobre as vendas conjuntas, consulte [visão geral de venda com os vendedores e parceiros da Microsoft](marketplace-co-sell.md) e [venda conjunta com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
+Este artigo descreve como configurar a guia **co-venda com a Microsoft** para uma oferta de Marketplace comercial. Fornecer informações sobre essa guia é totalmente opcional, mas é necessário para atingir o [status de incentivados de venda de cooperação e](/legal/marketplace/certification-policies#3000-requirements-for-co-sell-status)de covenda de IP. As informações fornecidas serão usadas pelas equipes de vendas da Microsoft para saber mais sobre sua oferta ao avaliar seu ajuste para as necessidades do cliente. Essas informações não estão disponíveis diretamente para os clientes. Para obter mais informações sobre as vendas conjuntas, consulte [visão geral de venda com os vendedores e parceiros da Microsoft](marketplace-co-sell.md) e [venda conjunta com a Microsoft](https://partner.microsoft.com/membership/co-sell-with-microsoft).
 
 A opção de venda conjunta está disponível para os seguintes tipos de oferta.
 
@@ -164,7 +164,7 @@ Suas informações de contato permitem que as equipes de vendas da Microsoft e o
 
 1. Selecione **salvar rascunho** para salvar as alterações antes de continuar.
 1. Depois de concluir todas as seções necessárias da oferta, você pode enviá-las para análise e publicação. Selecione **revisar e publicar**.
-1. Realize uma destas ações:
+1. Realize um dos seguintes procedimentos:
 
     - Se você concluiu ou atualizou a guia **co-venda com a Microsoft** para uma oferta que já foi publicada anteriormente e não tiver atualizado outras guias, recomendamos que você marque apenas a caixa de seleção **covenda** .
 

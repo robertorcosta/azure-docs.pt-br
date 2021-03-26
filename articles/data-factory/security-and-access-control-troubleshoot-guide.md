@@ -6,12 +6,12 @@ ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/24/2021
 ms.author: lle
-ms.openlocfilehash: fa410441203c50d96c0de1d9188fb73b6fd4d577
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5e94ea989002d3d3c6d0e96123d5b8ddb5f078c3
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101706108"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105568028"
 ---
 # <a name="troubleshoot-azure-data-factory-security-and-access-control-issues"></a>Solucionar problemas Azure Data Factory segurança e controle de acesso
 
@@ -182,7 +182,7 @@ Por exemplo: o coletor de armazenamento de BLOBs do Azure estava usando Azure IR
 
 #### <a name="cause"></a>Causa
 
-O ADF ainda pode usar o IR da VNet gerenciada, mas você pode encontrar esse erro porque o ponto de extremidade público para o armazenamento de BLOBs do Azure na VNet gerenciada não é confiável com base no resultado do teste, e o armazenamento de BLOBs do Azure e Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada pelo ADF de acordo [&](https://docs.microsoft.com/azure/data-factory/managed-virtual-network-private-endpoint#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network)com
+O ADF ainda pode usar o IR da VNet gerenciada, mas você pode encontrar esse erro porque o ponto de extremidade público para o armazenamento de BLOBs do Azure na VNet gerenciada não é confiável com base no resultado do teste, e o armazenamento de BLOBs do Azure e Azure Data Lake Gen2 não têm suporte para serem conectados por meio do ponto de extremidade público da rede virtual gerenciada pelo ADF de acordo [&](./managed-virtual-network-private-endpoint.md#outbound-communications-through-public-endpoint-from-adf-managed-virtual-network)com
 
 #### <a name="solution"></a>Solução
 

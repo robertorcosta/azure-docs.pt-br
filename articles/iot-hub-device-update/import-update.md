@@ -6,22 +6,22 @@ ms.author: andbrown
 ms.date: 2/11/2021
 ms.topic: how-to
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 15f76488790249f7e301d4474772c500c8829b77
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 3644f26f989fec05ee76afd9f930c31b25234c7f
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565632"
+ms.locfileid: "105608520"
 ---
 # <a name="import-new-update"></a>Importar nova atualização
 Saiba como importar uma nova atualização para a atualização de dispositivo para o Hub IoT. Se você ainda não tiver feito isso, não se esqueça de se familiarizar com os conceitos básicos de [importação](import-concepts.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Acesso a um hub IOT com a atualização de dispositivo para o Hub IOT habilitado](create-device-update-account.md). É recomendável que você use uma camada S1 (padrão) ou superior para o Hub IoT. 
+* [Acesso a um hub IOT com a atualização de dispositivo para o Hub IOT habilitado](create-device-update-account.md). 
 * Um dispositivo IoT (ou simulador) provisionado para atualização de dispositivo no Hub IoT.
    * Se estiver usando um dispositivo real, você precisará de um arquivo de imagem de atualização para atualização de imagem ou [arquivo de manifesto apt](device-update-apt-manifest.md) para atualização de pacote.
-* [PowerShell 5](/powershell/scripting/install/installing-powershell) ou posterior.
+* [PowerShell 5](/powershell/scripting/install/installing-powershell) ou posterior (inclui instalações do Linux, MacOS e Windows)
 * Navegadores compatíveis:
   * [Microsoft Edge](https://www.microsoft.com/edge)
   * Google Chrome

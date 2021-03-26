@@ -1,14 +1,14 @@
 ---
 title: Visão geral do agente do computador conectado
 description: Este artigo fornece uma visão geral detalhada do agente de servidores habilitados para Arc do Azure disponível, que dá suporte ao monitoramento de máquinas virtuais hospedadas em ambientes híbridos.
-ms.date: 03/15/2021
+ms.date: 03/25/2021
 ms.topic: conceptual
-ms.openlocfilehash: 1fd863ccacc7768401e35254a98c7bb494b3d358
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2db1758240dca448409af9f4ec00c01d684c920a
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103470482"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105609217"
 ---
 # <a name="overview-of-azure-arc-enabled-servers-agent"></a>Visão geral do agente de servidores habilitados para Arc do Azure
 
@@ -18,6 +18,8 @@ O agente de máquina conectado de servidores habilitados para Arc do Azure permi
 >A partir da versão geral dos servidores habilitados para Arc do Azure em setembro de 2020, todas as versões de pré-lançamento do agente do computador conectado do Azure (agentes com versões inferiores a 1,0) estão sendo **preteridas** até **2 de fevereiro de 2021**.  Este período de tempo permite que você atualize para a versão 1,0 ou superior antes que os agentes de pré-lançamento não possam mais se comunicar com o serviço de servidores habilitados para Arc do Azure.
 
 ## <a name="agent-component-details"></a>Detalhes do componente do agente
+
+:::image type="content" source="media/agent-overview/connected-machine-agent.png" alt-text="Visão geral do agente de servidores habilitados para Arc." border="false":::
 
 O pacote do agente do computador conectado do Azure contém vários componentes lógicos, que são agrupados.
 
@@ -52,7 +54,7 @@ As informações de metadados a seguir são solicitadas pelo agente do Azure:
 
 * Local do recurso (região)
 * ID da máquina virtual
-* Marcas
+* Marcações
 * Azure Active Directory certificado de identidade gerenciado
 * Atribuições de política de configuração de convidado
 * Solicitações de extensão – instalar, atualizar e excluir.

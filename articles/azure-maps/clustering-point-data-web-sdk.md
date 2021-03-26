@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 0af327f624d0fed648012ce1d12bacabca688cec
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f798b4a7964eba112ed9948b2db4f6d5c3edd1e3
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044180"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105608350"
 ---
 # <a name="clustering-point-data"></a>Clustering de dados de ponto
 
@@ -26,7 +26,7 @@ Ao visualizar muitos pontos de dados no mapa, eles poderão se sobrepor uns aos 
 
 ## <a name="enabling-clustering-on-a-data-source"></a>Habilitar o clustering na fonte de dados
 
-Habilite o clustering na classe `DataSource` definindo a opção `cluster` como true. Defina `clusterRadius` para selecionar pontos próximos e os combinar em um cluster. O valor de `clusterRadius` está em pixels. Use `clusterMaxZoom` para especificar um nível de zoom no qual desabilitar a lógica de clustering. Aqui está um exemplo de como habilitar o clustering em uma fonte de dados.
+Habilite o clustering na `DataSource` classe definindo a `cluster` opção como `true` . Defina `clusterRadius` para selecionar pontos próximos e os combinar em um cluster. O valor de `clusterRadius` está em pixels. Use `clusterMaxZoom` para especificar um nível de zoom no qual desabilitar a lógica de clustering. Aqui está um exemplo de como habilitar o clustering em uma fonte de dados.
 
 ```javascript
 //Create a data source and enable clustering.

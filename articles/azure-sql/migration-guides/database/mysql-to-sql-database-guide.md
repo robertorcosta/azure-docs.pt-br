@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 14b2c1f98ae977548edb635b8a8a7a956b3f2dd7
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 6b8d3afc214f6b78fcc11b3592cd51dadf37bf96
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023768"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564136"
 ---
 # <a name="migration-guide--mysql-to-azure-sql-database"></a>Guia de migração: MySQL para banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -172,7 +172,7 @@ Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é
 
 - Certifique-se de conferir a [calculadora de TCO (custo total de propriedade) do Azure](https://aka.ms/azure-tco) para ajudar a estimar a economia de custos que você pode obter ao migrar suas cargas de trabalho para o Azure.
 
-- Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudar você com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, confira o artigo [Serviços e ferramentas para migração de dados](https://docs.microsoft.com/azure/dms/dms-tools-matrix).
+- Para obter uma matriz de serviços e ferramentas da Microsoft e de terceiros que estão disponíveis para ajudar você com vários cenários de migração de banco de dados e de aplicativos, bem como tarefas de especialidade, confira o artigo [Serviços e ferramentas para migração de dados](../../../dms/dms-tools-matrix.md).
 
 - Para obter outros guias de migração, confira [Migração de banco de dados](https://datamigration.microsoft.com/). 
 
