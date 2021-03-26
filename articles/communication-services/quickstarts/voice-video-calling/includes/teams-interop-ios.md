@@ -1,19 +1,19 @@
 ---
 title: Início Rápido – Participar de uma reunião no Teams usando um aplicativo iOS
-description: Neste tutorial, você aprende a participar de uma reunião no Teams usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS
+description: Neste tutorial, você aprende a participar de uma reunião no Teams usando o SDK de Chamada dos Serviços de Comunicação do Azure para iOS
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 68f1abb5335386634874d9696738a8e552ebbe9c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 8ff85dc5571f549027e208409db3f4e80c68b205
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487965"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108156"
 ---
-Neste início rápido, você aprenderá a participar de uma reunião no Teams usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para iOS.
+Neste guia de início rápido, você aprenderá a participar de uma reunião no Teams usando o SDK de Chamada dos Serviços de Comunicação do Azure para iOS.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -178,7 +178,7 @@ struct ContentView_Previews: PreviewProvider {
 ## <a name="get-the-teams-meeting-link"></a>Obter o link de reunião do Teams
 
 O link de reunião do Teams pode ser recuperado usando APIs do Graph. Isso é detalhado na [documentação do Graph](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta).
-A biblioteca de clientes de Chamada dos Serviços de Comunicação aceita um link de reunião completo do Teams. Esse link é retornado como parte do recurso `onlineMeeting`, acessível sob a [propriedade `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Você também pode obter as informações da reunião necessárias na URL **Participar da Reunião** indicada no convite da própria reunião do Teams.
+O SDK de Chamada de Serviços de Comunicação aceita um link de reunião completo do Teams. Esse link é retornado como parte do recurso `onlineMeeting`, acessível sob a [propriedade `joinWebUrl`](/graph/api/resources/onlinemeeting?view=graph-rest-beta). Você também pode obter as informações da reunião necessárias na URL **Participar da Reunião** indicada no convite da própria reunião do Teams.
 
 ## <a name="launch-the-app-and-join-teams-meeting"></a>Iniciar o aplicativo e participar da reunião do Teams
 

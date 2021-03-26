@@ -1,19 +1,19 @@
 ---
 title: Início Rápido – Participar de uma reunião no Teams usando um aplicativo Web
-description: Neste tutorial, você aprende a participar de uma reunião no Teams usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para JavaScript
+description: Neste tutorial, você aprende a participar de uma reunião no Teams usando o SDK de Chamada dos Serviços de Comunicação do Azure para JavaScript
 author: chpalm
 ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 43f6241f0da0ecc9c68cf60e9f1a0482509374f3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 4b6cf48c577bb6f22f497007c4b1c1b57ab6f187
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487966"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108158"
 ---
-Neste início rápido, você aprenderá a participar de uma reunião no Teams usando a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para JavaScript.
+Neste guia de início rápido, você aprenderá a participar de uma reunião no Teams usando o SDK de Chamada dos Serviços de Comunicação do Azure para JavaScript.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

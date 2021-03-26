@@ -8,19 +8,19 @@ ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-web-ios-android
-ms.openlocfilehash: a9ef74c04c1f709348ae1d6dd97558ee6bedccf3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 39c35bc90986126d099e68023e15b97c58d0ac26
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104654961"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105108155"
 ---
 # <a name="quickstart-join-your-calling-app-to-a-teams-meeting"></a>Início Rápido: Ingressar seu aplicativo de chamada em uma reunião do Teams
 
 > [!IMPORTANT]
 > Para habilitar/desabilitar a [interoperabilidade de locatários do Teams](../../concepts/teams-interop.md), preencha [este formulário](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR21ouQM6BHtHiripswZoZsdURDQ5SUNQTElKR0VZU0VUU1hMOTBBMVhESS4u).
 
-Comece a usar os Serviços de Comunicação do Azure conectando sua solução de chamada ao Microsoft Teams usando a biblioteca de clientes JavaScript.
+Comece a usar os Serviços de Comunicação do Azure conectando sua solução de chamada ao Microsoft Teams usando o SDK de JavaScript.
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop-javascript.md)]
@@ -43,5 +43,5 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 Para obter mais informações, consulte os seguintes artigos:
 
 - Confira nosso [exemplo de destaque da chamada](../../samples/calling-hero-sample.md)
-- Saiba mais sobre as [funcionalidades da biblioteca de clientes de chamada](./calling-client-samples.md)
+- Conheça os recursos do [SDK de Chamada](./calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../../concepts/voice-video-calling/about-call-types.md)

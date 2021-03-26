@@ -10,16 +10,16 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: f3da6fd75ac485a3e22a428934928795f1feae28
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07aa1cb361f5f1853dbf93e5f4e064b1ed14f1de
+ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103487899"
+ms.lasthandoff: 03/25/2021
+ms.locfileid: "105152764"
 ---
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
-O **Exemplo de Destaque de Chamadas em Grupo** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes Web de Chamadas dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo.
+O **Exemplo de Destaque de Chamadas em Grupo** dos Serviços de Comunicação do Azure demonstra como o SDK da Web de Chamadas dos Serviços de Comunicação pode ser usado para criar uma experiência de chamada em grupo.
 
 Neste guia de início rápido de Exemplo, aprenderemos como o exemplo funciona antes de o executarmos no computador local. Em seguida, implantaremos o exemplo no Azure usando seus próprios recursos de Serviços de Comunicação do Azure.
 
@@ -96,7 +96,7 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- Familiarize-se com [usar a biblioteca de clientes de chamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize-se com o [uso do SDK de Chamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Leituras adicionais
