@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: df0a28c4d2ba78e9b7a6b52e26537540164d28e0
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: ccc6acfd27a1430a4f6a31886c06322c5c09e224
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105564272"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628366"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>Migração de instância de SQL Server para o SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -89,7 +89,7 @@ A linha de base de desempenho é um conjunto de parâmetros como o uso médio/m�
 Alguns dos parâmetros que você precisa medir em sua instância de SQL Server são:
 
 - [Monitore o uso da CPU em sua instância do SQL Server](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Monitor-CPU-usage-on-SQL-Server/ba-p/680777#M131) e registre o uso médio e máximo da CPU.
-- [Monitore o uso de memória em sua instância do SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage?view=sql-server-2017), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
+- [Monitore o uso de memória em sua instância do SQL Server](/sql/relational-databases/performance-monitor/monitor-memory-usage) e determine a quantidade de memória usada por diferentes componentes, como pool de buffers, cache de planos, pool de repositório de coluna, [OLTP na memória](/sql/relational-databases/in-memory-oltp/monitor-and-troubleshoot-memory-usage), etc. Além disso, você deve encontrar os valores médio e de pico do contador de desempenho de memória expectativa de vida da página.
 - Monitore o uso de e/s de disco na instância de SQL Server de origem usando [Sys.dm_io_virtual_file_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-io-virtual-file-stats-transact-sql) exibição ou [contadores de desempenho](/sql/relational-databases/performance-monitor/monitor-disk-usage).
 - Monitore a carga de trabalho e o desempenho de consulta ou sua instância de SQL Server examinando exibições de gerenciamento dinâmico ou Repositório de Consultas se você estiver migrando de uma versão do SQL Server 2016 +. Identifique a duração média e o uso da CPU das consultas mais importantes em sua carga de trabalho para compará-las com as consultas em execução na instância gerenciada.
 
@@ -100,7 +100,7 @@ Como resultado dessa atividade, você deve ter os valores de média e de pico do
 
 ## <a name="deploy-to-an-optimally-sized-managed-instance"></a>Implantar em uma instância gerenciada de tamanho ideal
 
-O SQL Instância Gerenciada é adaptado para cargas de trabalho locais que estão planejando migrar para a nuvem. Ele apresenta um [novo modelo de compra](../database/service-tiers-vcore.md) que fornece maior flexibilidade na seleção do nível certo de recursos para suas cargas de trabalho. No ambiente local, você provavelmente está acostumado a dimensionar essas cargas de trabalho usando núcleos físicos e largura de banda de E/S. O modelo de compra para a instância gerenciada baseia-se em núcleos virtuais, ou “vCores”, com armazenamento adicional e E/S disponíveis separadamente. O modelo vCore é uma maneira mais simples de compreender os requisitos de computação na nuvem em relação ao que você utiliza no local atualmente. Esse novo modelo permite que você dimensione adequadamente o ambiente de destino na nuvem. Algumas diretrizes gerais que podem ajudá-lo a escolher a camada de serviço e as características certas são descritas aqui:
+O SQL Instância Gerenciada é adaptado para cargas de trabalho locais que estão planejando migrar para a nuvem. Ele apresenta um [novo modelo de compra](../database/service-tiers-vcore.md) que fornece maior flexibilidade na seleção do nível certo de recursos para suas cargas de trabalho. No ambiente local, você provavelmente está acostumado a dimensionar essas cargas de trabalho usando núcleos físicos e largura de banda de E/S. O modelo de compra para a instância gerenciada é baseado em núcleos virtuais, ou "vCores", com armazenamento adicional e e/s disponíveis separadamente. O modelo vCore é uma maneira mais simples de compreender os requisitos de computação na nuvem em relação ao que você utiliza no local atualmente. Esse novo modelo permite que você dimensione adequadamente o ambiente de destino na nuvem. Algumas diretrizes gerais que podem ajudá-lo a escolher a camada de serviço e as características certas são descritas aqui:
 
 - Com base no uso da CPU de linha de base, você pode provisionar uma instância gerenciada que corresponda ao número de núcleos que você está usando em SQL Server, tendo em mente que as características da CPU talvez precisem ser dimensionadas para corresponder às [características da VM em que a instância gerenciada está instalada](resource-limits.md#hardware-generation-characteristics).
 - Com base no uso de memória de linha de base, escolha [a camada de serviço que tem memória correspondente](resource-limits.md#hardware-generation-characteristics). A quantidade de memória não pode ser escolhida diretamente, portanto, você precisaria selecionar a instância gerenciada com a quantidade de vCores que tem memória correspondente (por exemplo, 5,1 GB/vCore em Gen5).

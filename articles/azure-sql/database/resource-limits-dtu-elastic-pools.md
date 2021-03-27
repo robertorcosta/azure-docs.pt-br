@@ -11,12 +11,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 07/28/2020
-ms.openlocfilehash: d87c5d162b96209c0ce3d3276dc518f42373590f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa520b7d77a283e7dda883e99475947a8ccfa862
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92780805"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625612"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-purchasing-model"></a>Recursos limites para pools elásticos usando o modelo de compra de DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -154,7 +154,7 @@ Para o mesmo número de DTUs, os recursos fornecidos para um pool elástico pode
 Se todas as DTUs de um pool elástico forem usadas, cada banco de dados no pool receberá uma quantidade igual de recursos para processar as consultas. O serviço de Banco de Dados SQL fornece integridade de compartilhamento de recursos entre os bancos de dados ao garantir fatias iguais de tempo de computação. A integridade de compartilhamento de recursos do pool elástico é adicional a qualquer quantidade de recursos garantidos de outra forma a cada banco de dados quando o mínimo de DTUs por banco de dados é definido com um valor diferente de zero.
 
 > [!NOTE]
-> Para `tempdb` limites, consulte [limites de tempdb](/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database).
+> Para `tempdb` limites, consulte [limites de tempdb](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
 
 ### <a name="database-properties-for-pooled-databases"></a>Propriedades do banco de dados para bancos de dados em pool
 

@@ -100,7 +100,7 @@ A operação tem o seguinte corpo (em que um evento de passagem ao vivo é criad
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]
@@ -161,7 +161,7 @@ DISTRIBUÍDO ```https://management.azure.com/subscriptions/:subscriptionId/resou
         "language": "en-US"
       }
     ],
-    "vanityUrl": false,
+    "useStaticHostname": false,
     "streamOptions": [
       "Default"
     ]

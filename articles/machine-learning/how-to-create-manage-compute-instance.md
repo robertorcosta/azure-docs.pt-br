@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 6c29bf87c5f0ecaaeb6d608069791431a949c89b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 2778f52b312e5d2fda7879b834fcd204285b7144
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103009956"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628944"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Criar e gerenciar uma instância de computação Azure Machine Learning
 
@@ -95,7 +95,7 @@ az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 
 Para obter mais informações, consulte a referência do [AZ ml computetarget Create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
 
-# <a name="studio"></a>[Estúdio](#tab/azure-studio)
+# <a name="studio"></a>[Studio](#tab/azure-studio)
 
 Em seu espaço de trabalho no Azure Machine Learning Studio, crie uma nova instância de computação na seção **computação** ou na seção **blocos de anotações** quando estiver pronto para executar um dos seus blocos de anotações.
 
@@ -127,6 +127,9 @@ O cientista de dados pode iniciar, parar e reiniciar a instância de computaçã
 
 Iniciar, parar, reiniciar e excluir uma instância de computação. Uma instância de computação não reduz verticalmente automaticamente, portanto, certifique-se de interromper o recurso para evitar encargos contínuos.
 
+> [!TIP]
+> A instância de computação tem um disco de SO de 120 GB. Se você ficar sem espaço em disco, [use o terminal](how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de parar ou reiniciar a instância de computação.
+
 # <a name="python"></a>[Python](#tab/python)
 
 Nos exemplos abaixo, o nome da instância de computação é **instância**
@@ -138,7 +141,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
     instance.get_status()
     ```
 
-* Parar
+* Stop
 
     ```python
     # stop() is used to stop the ComputeInstance
@@ -172,7 +175,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
 
 Nos exemplos abaixo, o nome da instância de computação é **instância**
 
-* Parar
+* Stop
 
     ```azurecli-interactive
     az ml computetarget stop computeinstance -n instance -v
@@ -204,7 +207,7 @@ Nos exemplos abaixo, o nome da instância de computação é **instância**
 
     Para obter mais informações, consulte [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget#ext-azure-cli-ml-az-ml-computetarget-delete).
 
-# <a name="studio"></a>[Estúdio](#tab/azure-studio)
+# <a name="studio"></a>[Studio](#tab/azure-studio)
 
 Em seu workspace no Azure Machine Learning Studio, selecione **Computação** e, em seguida, selecione **Instância de Computação** na parte superior.
 
@@ -225,6 +228,7 @@ Para cada instância de computação em seu espaço de trabalho que você criou 
 * Obtenha detalhes sobre uma instância de computação específica, como endereço IP e região.
 
 ---
+
 
 O [RBAC do Azure](../role-based-access-control/overview.md) permite que você controle quais usuários no espaço de trabalho podem criar, excluir, iniciar, parar, reiniciar uma instância de computação. Todos os usuários na função colaborador e proprietário do workspace podem criar, excluir, iniciar, parar e reiniciar instâncias de computação no workspace. No entanto, somente o criador de uma instância de computação específica ou o usuário atribuído se ele foi criado em seu nome, tem permissão para acessar Jupyter, JupyterLab e RStudio nessa instância de computação. Uma instância de computação é dedicada a um único usuário que tem acesso de raiz e pode acessar o terminal por meio de Jupyter/JupyterLab/RStudio. A instância de computação terá entrada de usuário único e todas as ações usarão a identidade desse usuário para o RBAC do Azure e a atribuição de execuções de experimento. O acesso SSH é controlado por meio do mecanismo de chave pública/privada.
 

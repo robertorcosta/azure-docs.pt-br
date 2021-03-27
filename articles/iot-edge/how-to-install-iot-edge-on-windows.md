@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/20/2021
 ms.author: v-tcassi
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 9eeb30d8d3ab0c884472a001149021c4d5cc362c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8b549d868aed443e19d639ba6f6df7db20e014b1
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105558696"
+ms.locfileid: "105612093"
 ---
 # <a name="install-and-provision-azure-iot-edge-for-linux-on-a-windows-device-preview"></a>Instalar e provisionar o Azure IoT Edge para Linux em um dispositivo Windows (versão prévia)
 
@@ -117,7 +117,16 @@ Se você quiser implantar em um dispositivo de destino remoto em vez de no dispo
 
    ![Selecione seu dispositivo para verificar se há suporte](./media/how-to-install-iot-edge-on-windows/evaluate-supported-device.png)
 
-1. Aceite as configurações padrão na guia **configurações do 2,2** .
+1. Na guia **configurações do 2,2** , examine as definições de configuração de sua implantação. Quando estiver satisfeito com as configurações, selecione **Avançar**.
+
+   ![Examinar as definições de configuração de sua implantação](./media/how-to-install-iot-edge-on-windows/default-deployment-configuration-settings.png)
+
+   >[!NOTE]
+   >Se você estiver usando uma máquina virtual do Windows, é recomendável usar um comutador padrão em vez de um comutador externo para garantir que a máquina virtual Linux criada na implantação possa obter um endereço IP.
+   >
+   >Usar um comutador padrão atribui a máquina virtual Linux um endereço IP interno. Esse endereço IP interno não pode ser acessado de fora da máquina virtual do Windows, mas pode ser conectado localmente enquanto estiver conectado à máquina virtual do Windows.
+   >
+   >Se você estiver usando o Windows Server, observe que o Azure IoT Edge para Linux no Windows não oferece suporte automaticamente à opção padrão. Para uma máquina virtual local do Windows Server, verifique se a máquina virtual Linux pode obter um endereço IP por meio do comutador externo. Para uma máquina virtual do Windows Server no Azure, configure um comutador interno antes de implantar o IoT Edge para Linux no Windows.
 
 1. Na guia **implantação do 2,3** , você pode observar o progresso da implantação. O processo completo inclui baixar o Azure IoT Edge para Linux no pacote do Windows, instalar o pacote, configurar o dispositivo de host e configurar a máquina virtual Linux. Esse processo pode levar vários minutos para ser concluído. Uma implantação bem-sucedida está configurada abaixo.
 
@@ -168,7 +177,7 @@ Instale IoT Edge para Linux no Windows no dispositivo de destino, se ainda não 
    ```
 
    > [!NOTE]
-   > Você pode executar esse comando sem parâmetros ou, opcionalmente, personalizar a implantação com parâmetros. Você pode consultar [a referência de script do IOT Edge para Linux no Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver seus significados.
+   > Você pode executar esse comando sem parâmetros ou, opcionalmente, personalizar a implantação com parâmetros. Você pode consultar [a referência de script do IOT Edge para Linux no Windows PowerShell](reference-iot-edge-for-linux-on-windows-scripts.md#deploy-eflow) para ver os significados de parâmetro e os valores padrão.
 
 1. Insira ' Y ' para aceitar os termos de licença.
 

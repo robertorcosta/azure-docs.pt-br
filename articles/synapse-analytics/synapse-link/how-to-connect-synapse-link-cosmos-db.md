@@ -2,20 +2,20 @@
 title: Conectar-se ao Link do Azure Synapse para Azure Cosmos DB
 description: Saiba como conectar um banco de dados do Azure Cosmos DB a um espaço de trabalho do Azure Synapse com o Link do Azure Synapse.
 services: synapse-analytics
-author: ArnoMicrosoft
+author: Rodrigossz
 ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 03/02/2021
-ms.author: acomet
+ms.author: rosouz
 ms.reviewer: jrasnick
 ms.custom: cosmos-db
-ms.openlocfilehash: 1c2dedfcbfd937215320c90d63c60d2e868939b7
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 9a73ea697a48a5b2514f4701b8a24896e9a04c1f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104868589"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627686"
 ---
 # <a name="connect-to-azure-synapse-link-for-azure-cosmos-db"></a>Conectar-se ao Link do Azure Synapse para Azure Cosmos DB
 

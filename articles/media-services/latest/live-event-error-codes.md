@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: error-reference
-ms.date: 02/12/2020
+ms.date: 03/26/2021
 ms.author: inhenkel
-ms.openlocfilehash: 5463f1d8376cbe1a6e81d17c1f95a84e67f3b418
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7c30649fe3486f812569cb51f609356a6cbfd58f
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104581075"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627533"
 ---
 # <a name="media-services-live-event-error-codes"></a>Códigos de erro de eventos dinâmicos dos serviços de mídia
 
@@ -83,7 +83,8 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](mo
 >| Descrição|Envio muito rápido de dados pelo codificador. |
 >| Solução sugerida|Isso acontece quando o codificador aumenta um grande conjunto de fragmentos em um breve período.  Teoricamente, isso pode acontecer quando o codificador não pode enviar dados por push devido a um problema de rede e os dados de intermitências quando a rede está disponível. Localize o motivo do log do codificador ou do log do sistema. |
 >|**Códigos de erro desconhecidos** |
->| Descrição| Esses códigos de erro podem variar de erro de memória para entradas duplicadas no mapa de hash. |
+>| Descrição| Esses códigos de erro podem variar de erro de memória para entradas duplicadas no mapa de hash. Isso pode acontecer quando o codificador envia um grande conjunto de fragmentos em um breve período.  Isso também pode acontecer quando o codificador não podia enviar dados por push devido a um problema de rede e, em seguida, envia todos os fragmentos atrasados de uma vez quando a rede fica disponível. |
+>|Solução sugerida| Verifique os logs do codificador.|
 
 ## <a name="other-error-codes"></a>Outros códigos de erro
 
@@ -95,13 +96,13 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](mo
 >|Solução sugerida| Nenhum.||
 >|**MPI_SYSTEM_MAINTENANCE** ||Sim|
 >| Descrição|O codificador foi desconectado devido à atualização do serviço ou à manutenção do sistema. ||
->|Solução sugerida|Verifique se o codificador habilita ' conexão automática '. Esse é o recurso de codificador para recuperar a desconexão de sessão inesperada. ||
+>|Solução sugerida|Verifique se o codificador habilita ' conexão automática '. Ele permite que o codificador se reconecte ao ponto de extremidade de evento ao vivo redundante que não está em manutenção. ||
 >|**MPE_BAD_URL_SYNTAX** ||Sim|
 >| Descrição|A URL de ingestão está formatada incorretamente. ||
 >|Solução sugerida|Verifique se a URL de ingestão está formatada corretamente. Para RTMP, deve ser `rtmp[s]://hostname:port/live/GUID_APPID/streamname` ||
 >|**MPE_CLIENT_TERMINATED_SESSION** ||Sim|
 >| Descrição|O codificador desconectou a sessão.  ||
->|Solução sugerida|Isso não é erro. Esse é o caso em que o codificador iniciou a desconexão, incluindo a desconexão normal. Se essa for uma desconexão inesperada, verifique o log do codificador ou do sistema. |
+>|Solução sugerida|Isso não é erro. O codificador iniciou a desconexão, incluindo a desconexão normal. Se essa for uma desconexão inesperada, verifique os logs do codificador. |
 >|**MPE_INGEST_BITRATE_NOT_MATCH** ||Não|
 >| Descrição|A taxa de dados de entrada não coincide com a taxa de bits esperada. ||
 >|Solução sugerida|Esse é um aviso que ocorre quando a taxa de dados de entrada é muito lenta ou rápida. Verifique o log do codificador ou do sistema.||
@@ -109,7 +110,7 @@ Você pode ver um dos erros a seguir do evento [LiveEventEncoderDisconnected](mo
 >| Descrição| Há discontinuty em dados de entrada.||
 >|Solução sugerida| Esse é um aviso de que o codificador descarta dados devido a um problema de rede ou a um problema de recurso do sistema. Verifique o log do codificador ou do sistema. Monitore o recurso do sistema (CPU, memória ou rede) também. Se a CPU do sistema for muito alta, tente reduzir a taxa de bits ou use a opção de codificador H/W da placa gráfica do sistema.||
 
-## <a name="see-also"></a>Confira também
+## <a name="see-also"></a>Consulte também
 
 [Códigos de erro de ponto de extremidade de streaming (origem)](streaming-endpoint-error-codes.md)
 

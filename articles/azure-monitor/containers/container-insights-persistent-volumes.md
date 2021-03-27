@@ -3,12 +3,12 @@ title: Configurar o monitoramento de PV com insights de contêiner | Microsoft D
 description: Este artigo descreve como você pode configurar o monitoramento de clusters kubernetes com volumes persistentes com informações de contêiner.
 ms.topic: conceptual
 ms.date: 03/03/2021
-ms.openlocfilehash: 16c87177a8911a7b88284606f54f7bf6e0e0daa3
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 7c6ddd62bf06d313987289e444962378cea43fc8
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026097"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105627890"
 ---
 # <a name="configure-pv-monitoring-with-container-insights"></a>Configurar o monitoramento de PV com informações de contêiner
 
@@ -17,7 +17,9 @@ A partir do Agent versão *ciprod10052020*, o agente integrado do Azure monitor 
 
 O insights de contêiner inicia automaticamente o monitoramento do uso de PV coletando as seguintes métricas em intervalos de 60 a s e armazenando-as na tabela **InsightMetrics** .
 
-| Nome da métrica | Dimensão métrica (marcas) | Descrição da métrica | | `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterid, ClusterName | Espaço usado em bytes para um volume persistente específico com uma declaração usada por um pod específico. `capacityBytes` é dobrado como uma dimensão no campo marcas para reduzir o custo de ingestão de dados e simplificar as consultas. |
+| Nome da métrica | Dimensão métrica (marcas) | Descrição da métrica |
+|-----|-----------|----------|
+| `pvUsedBytes`| podUID, podName, pvcName, pvcNamespace, capacityBytes, clusterid, ClusterName| Espaço usado em bytes para um volume persistente específico com uma declaração usada por um pod específico. `capacityBytes` é dobrado como uma dimensão no campo marcas para reduzir o custo de ingestão de dados e simplificar as consultas.|
 
 Saiba mais sobre como configurar as métricas de PV coletadas [aqui](./container-insights-agent-config.md).
 
@@ -27,7 +29,7 @@ Azure Monitor para contêineres inicia automaticamente o monitoramento de PVs co
 
 |Dados |Fonte de dados| Tipo de Dados| Campos|
 |-----|-----------|----------|-------|
-|Inventário de volumes persistentes em um cluster kubernetes |API Kube |`KubePVInventory` | PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, timegerou, Clusterid, ClusterName, _ResourceId |
+|Inventário de volumes persistentes em um cluster kubernetes |API Kube |`KubePVInventory` |    PVName, PVCapacityBytes, PVCName, PVCNamespace, PVStatus, PVAccessModes, PVType, PVTypeInfo, PVStorageClassName, PVCreationTimestamp, timegerou, Clusterid, ClusterName, _ResourceId |
 
 ## <a name="monitor-persistent-volumes"></a>Monitorar volumes persistentes
 

@@ -2,24 +2,19 @@
 title: Listar definições de função do Azure-RBAC do Azure
 description: Saiba como listar funções personalizadas e internas do Azure usando portal do Azure, Azure PowerShell, CLI do Azure ou API REST.
 services: active-directory
-documentationcenter: ''
 author: rolyon
 manager: mtillman
-ms.assetid: 8078f366-a2c4-4fbb-a44b-fc39fd89df81
 ms.service: role-based-access-control
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/17/2020
+ms.date: 03/26/2021
 ms.author: rolyon
-ms.reviewer: bagovind
-ms.openlocfilehash: 3c9018322c9e5075ff59024f9d791e7431035e3d
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f354e3bb7fc0f7ced17d43acacf29c726ce1329c
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100555947"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629131"
 ---
 # <a name="list-azure-role-definitions"></a>Listar definições de função do Azure
 
@@ -33,6 +28,10 @@ Para ver a lista de funções de administrador para Azure Active Directory, cons
 
 Siga estas etapas para listar todas as funções no portal do Azure.
 
+Se você estiver interessado em exibir uma experiência de funções atualizada, confira a guia **funções (visualização)** , que está atualmente em visualização pública. A guia **funções (visualização)** exibe a mesma lista de funções que a guia **funções** com alguns recursos adicionais. Você pode usar a guia funções para trabalhar com suas funções, no entanto, se você criar ou excluir funções personalizadas, talvez seja necessário atualizar manualmente a página para ver as alterações mais recentes.
+
+#### <a name="roles"></a>[Funções](#tab/roles/)
+
 1. No portal do Azure, clique em **todos os serviços** e, em seguida, selecione qualquer escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**, ou um recurso.
 
 1. Clique no recurso específico.
@@ -43,7 +42,29 @@ Siga estas etapas para listar todas as funções no portal do Azure.
 
    Você pode ver o número de usuários e grupos atribuídos a cada função no escopo atual.
 
-   ![Lista de funções](./media/role-definitions-list/roles-list.png)
+   ![Lista de funções](./media/role-definitions-list/roles-list-current.png)
+
+#### <a name="roles-preview"></a>[Funções (visualização)](#tab/roles-preview/)
+
+1. No portal do Azure, clique em **todos os serviços** e, em seguida, selecione qualquer escopo. Por exemplo, você pode selecionar **grupos de gerenciamento**, **assinaturas**, **grupos de recursos**, ou um recurso.
+
+1. Clique no recurso específico.
+
+1. Clique em **Controle de acesso (IAM)** .
+
+1. Clique na guia **funções (visualização)** para ver uma lista de todas as funções internas e personalizadas.
+
+   ![Lista de funções usando a experiência de visualização](./media/role-definitions-list/roles-list.png)
+
+1. Para ver as permissões de uma função específica, na coluna **detalhes** , clique no link **Exibir** .
+
+    Um painel de permissões é exibido.
+
+1. Clique na guia **permissões** para exibir e pesquisar as permissões para a função selecionada.
+
+   ![Permissões de função usando a experiência de visualização](./media/role-definitions-list/role-permissions.png)
+
+---
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 

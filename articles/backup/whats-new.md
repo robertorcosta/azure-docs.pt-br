@@ -3,12 +3,12 @@ title: Novidades no Backup do Azure
 description: Saiba mais sobre os novos recursos no backup do Azure.
 ms.topic: conceptual
 ms.date: 11/11/2020
-ms.openlocfilehash: 48c8c189d956c4003d24511a54975fe86a982832
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c5e6734c6a962fa43d79fc90fdfaa85923b6339f
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102095707"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612476"
 ---
 # <a name="whats-new-in-azure-backup"></a>Novidades no Backup do Azure
 
@@ -19,6 +19,7 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
 ## <a name="updates-summary"></a>Resumo de atualizações
 
 - Março de 2021
+  - [O backup em disco do Azure já está disponível para o público geral](#azure-disk-backup-is-now-generally-available)
   - [O centro de backup já está disponível para o público geral](#backup-center-is-now-generally-available)
   - [Suporte de camada de arquivo para backup do Azure (em versão prévia)](#archive-tier-support-for-azure-backup-in-preview)
 - Fevereiro de 2021
@@ -39,6 +40,12 @@ Você pode saber mais sobre as novas versões ao marcar esta página ou [inscrev
   - [SAP HANA de backup em máquinas virtuais RHEL do Azure (em versão prévia)](#backup-sap-hana-in-rhel-azure-virtual-machines-in-preview)
   - [ZRS (armazenamento com redundância de zona) para dados de backup (em versão prévia)](#zone-redundant-storage-zrs-for-backup-data-in-preview)
   - [Exclusão reversível para cargas de trabalho de SQL Server e SAP HANA em VMs do Azure](#soft-delete-for-sql-server-and-sap-hana-workloads)
+
+## <a name="azure-disk-backup-is-now-generally-available"></a>O backup em disco do Azure já está disponível para o público geral
+
+O backup do Azure oferece gerenciamento de ciclo de vida de instantâneo para o Azure Managed Disks automatizando a criação periódica de instantâneos e retendo-os para durações configuradas usando a política de backup.
+
+Para obter mais informações, consulte [visão geral do backup de disco do Azure](disk-backup-overview.md).
 
 ## <a name="backup-center-is-now-generally-available"></a>O centro de backup já está disponível para o público geral
 

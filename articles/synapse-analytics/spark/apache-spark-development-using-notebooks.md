@@ -10,12 +10,12 @@ ms.date: 10/19/2020
 ms.author: ruxu
 ms.reviewer: ''
 ms.custom: devx-track-python
-ms.openlocfilehash: d5ff3fb988a7e907308ccccc8d0900d45a0601c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c5dfd442bb52a5b1d319bd0a40b656d549134e7e
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101671604"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612294"
 ---
 # <a name="create-develop-and-maintain-synapse-studio-notebooks-in-azure-synapse-analytics"></a>Criar, desenvolver e manter blocos de anotações do Synapse Studio no Azure Synapse Analytics
 
@@ -41,9 +41,6 @@ A equipe de Synapse colocou o novo componente de notebooks no Synapse Studio par
 |%% HTML| Sem suporte |&#9745;|
 |Arrastar e soltar para mover uma célula| Sem suporte |&#9745;|
 |Saída de exibição persistente ()|&#9745;| Não disponível |
-|Cancelar tudo| &#9745;| Não disponível|
-|Executar todas as células acima|&#9745;| Não disponível |
-|Executar todas as células abaixo|&#9745;| Não disponível |
 |Formatar célula de texto com botões da barra de ferramentas|&#9745;| Não disponível |
 |Desfazer operação de célula| &#9745;| Não disponível |
 
@@ -273,38 +270,53 @@ Selecione o botão **executar tudo** para executar todas as células no bloco de
    ![run-all-cells](./media/apache-spark-development-using-notebooks/synapse-run-all.png)
 
 
-# <a name="classical-notebook"></a>[Notebook clássico](#tab/classical)
-
 ### <a name="run-all-cells-above-or-below"></a>Executar todas as células acima ou abaixo
+
+# <a name="classical-notebook"></a>[Notebook clássico](#tab/classical)
 
 Para acessar o menu de ações adicionais de célula na extrema direita, selecione as reticências ( **...** ). Em seguida, selecione **Executar células acima** para executar todas as células acima da atual em sequência. Selecione **Executar células abaixo** para executar todas as células abaixo da atual em sequência.
 
    ![run-cells-above-or-below](./media/apache-spark-development-using-notebooks/synapse-run-cells-above-or-below.png)
 
+# <a name="preview-notebook"></a>[Visualizar bloco de notas](#tab/preview)
+
+Expanda a lista suspensa do botão **executar tudo** e selecione **executar células acima** para executar todas as células acima da atual em sequência. Selecione **Executar células abaixo** para executar todas as células abaixo da atual em sequência.
+
+   ![Azure-Notebook-Run-Cells-Above-ou-abaixo](./media/apache-spark-development-using-notebooks/synapse-aznb-run-cells-above-or-below.png)
+
+---
 
 ### <a name="cancel-all-running-cells"></a>Cancelar todas as células em execução
+
+# <a name="classical-notebook"></a>[Notebook clássico](#tab/classical)
 Selecione o botão **cancelar tudo** para cancelar as células ou células em execução aguardando na fila. 
    ![cancelar-todas as células](./media/apache-spark-development-using-notebooks/synapse-cancel-all.png) 
 
 # <a name="preview-notebook"></a>[Visualizar bloco de notas](#tab/preview)
 
-Cancelar todas as células em execução ainda não está disponível para a experiência de visualização do bloco de anotações. 
+Selecione o botão **cancelar tudo** para cancelar as células ou células em execução aguardando na fila. 
+   ![Azure-Notebook-cancelar-todas-células](./media/apache-spark-development-using-notebooks/synapse-aznb-cancel-all.png) 
 
 ---
 
 
 
-### <a name="reference-notebook"></a>Bloco de anotações de referência
+### <a name="notebook-reference"></a>Referência do bloco de anotações
 
 # <a name="classical-notebook"></a>[Notebook clássico](#tab/classical)
 
-Sem suporte.
+Não há suporte.
 
 # <a name="preview-notebook"></a>[Visualizar bloco de notas](#tab/preview)
 
 Você pode usar o ```%run <notebook path>``` comando mágico para fazer referência a outro bloco de anotações no contexto do bloco de anotações atual. Todas as variáveis definidas no bloco de anotações de referência estão disponíveis no bloco de anotações atual. ```%run``` o comando mágico dá suporte a chamadas aninhadas, mas não oferece suporte a chamadas recursivas. Você receberá uma exceção se a profundidade da instrução for maior que cinco. ```%run``` Atualmente, o comando só dá suporte para passar um caminho de bloco de anotações como parâmetro. 
 
 Exemplo: ``` %run /path/notebookA ```.
+
+> [!NOTE]
+> Não há suporte para a referência do bloco de anotações no pipeline do Synapse.
+>
+>
 
 ---
 
@@ -346,7 +358,10 @@ Você também pode especificar as configurações de sessão do Spark por meio d
     }
 }
 ```
-
+> [!NOTE]
+> O comando mágico de configuração de sessão do Spark não tem suporte no pipeline Synapse.
+>
+>
 
 ## <a name="bring-data-to-a-notebook"></a>Trazer dados para um notebook
 
@@ -420,6 +435,11 @@ Nas propriedades do notebook, você pode configurar se deseja incluir a saída d
 ## <a name="magic-commands"></a>Comandos magic
 Você pode usar comandos mágicos Jupyter familiares nos notebooks do Azure Synapse Studio. Examine a lista a seguir como os comandos mágicos disponíveis atuais. Conte-nos [seus casos de uso no GitHub](https://github.com/MicrosoftDocs/azure-docs/issues/new) para que possamos continuar a criar mais comandos mágicos para atender às suas necessidades.
 
+> [!NOTE]
+> Somente os comandos mágicos a seguir têm suporte no pipeline Synapse:%% pyspark,%% Spark,%% Csharp,%% SQL. 
+>
+>
+
 # <a name="classical-notebook"></a>[Notebook clássico](#tab/classical)
 
 Magics de linha disponíveis: [%lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [%time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit)
@@ -430,7 +450,7 @@ Mágicas de célula disponíveis: [%% time](https://ipython.readthedocs.io/en/st
 
 # <a name="preview-notebook"></a>[Visualizar bloco de notas](#tab/preview)
 
-Mágicas de linha disponíveis: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Execute](#reference-notebook), [% Load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
+Mágicas de linha disponíveis: [% lsmagic](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-lsmagic), [% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [% history](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history), [% Execute](#notebook-reference), [% Load](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-load)
 
 Mágicas de célula disponíveis: [%% time](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-time), [%% timeit](https://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-timeit), [%% Capture](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-capture), [%% WriteFile](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-writefile), [%% SQL](#use-multiple-languages), [%% pyspark](#use-multiple-languages), [%% Spark](#use-multiple-languages), [%% Csharp](#use-multiple-languages), [%% HTML](https://ipython.readthedocs.io/en/stable/interactive/magics.html#cellmagic-html), [%% Configure](#spark-session-config-magic-command)
 
@@ -550,7 +570,7 @@ Usando os atalhos de tecla a seguir, você pode navegar e executar o código com
 ---
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Confira os blocos de anotações de exemplo do Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
+- [Confira os notebooks de exemplo do Azure Synapse](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Início Rápido: Criar um Pool do Apache Spark no Azure Synapse Analytics usando ferramentas da Web](../quickstart-apache-spark-notebook.md)
 - [O que é Apache Spark no Azure Synapse Analytics](apache-spark-overview.md)
 - [Use .NET para Apache Spark com Azure Synapse Analytics](spark-dotnet.md)
