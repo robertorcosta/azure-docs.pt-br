@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 5365ba8c4fbc07c487dd40cfcdc9d566990c493c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 3370389027805cfb5a68b5b0551d14dc31154804
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105607024"
+ms.locfileid: "105611830"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Rede HSM Dedicado do Azure
 
@@ -133,7 +133,7 @@ Command Result : 0 (Success)
 
 ### <a name="alternative-to-using-global-vnet-peering"></a>Alternativa ao uso do Emparelhamento VNET global
 Há algumas arquiteturas que você pode usar como uma alternativa ao emparelhamento VNet global.
-1.  Usar [conexão de gateway de VPN de vnet para vnet](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
+1.  Usar [conexão de gateway de VPN de vnet para vnet](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal) 
 2.  Conecte a VNET do HSM a outra VNET com um circuito ER. Isso funciona melhor quando um caminho local direto é necessário ou VNET VPN. 
 
 #### <a name="hsm-with-direct-express-route-connectivity"></a>HSM com conectividade de rota do Direct Express

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: 3f41a68feafe2f0a3eae1e0026a4c350b0959aec
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
+ms.openlocfilehash: 4bc9ed87a243a1efb45d7db660ccdd86a19d9801
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036978"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628230"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>O que é uma instância de computação do Azure Machine Learning?
 
@@ -180,7 +180,7 @@ Uma instância de computação:
 Você pode usar a instância de computação como um destino de implantação de inferência local para cenários de teste/depuração.
 
 > [!TIP]
-> A instância de computação tem o disco do sistema operacional de 120 GB. Se você ficar sem espaço em disco, desmarque espaço suficiente antes de tentar parar/reiniciar a instância de computação.
+> A instância de computação tem um disco de SO de 120 GB. Se você ficar sem espaço em disco, [use o terminal](how-to-access-terminal.md) para limpar pelo menos 1-2 GB antes de [parar ou reiniciar](how-to-create-manage-compute-instance.md#manage) a instância de computação.
 
 
 ## <a name="what-happened-to-notebook-vm"></a><a name="notebookvm"></a>O que aconteceu com a VM do Notebook?

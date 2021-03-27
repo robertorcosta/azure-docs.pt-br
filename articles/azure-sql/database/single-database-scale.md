@@ -11,12 +11,12 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: sstein
 ms.date: 02/22/2021
-ms.openlocfilehash: ce8d4bf36524e3e7e7b3b8c974aa189fa000d845
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: 5852899175f9cc9f2725b875c6e1ce9fd682768d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104773242"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625255"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Escalar recursos de banco de dados individual no Banco de Dados SQL do Azure
 
@@ -61,7 +61,10 @@ A latência estimada para alterar a camada de serviço, dimensionar o tamanho de
 > Além disso, para os bancos de dados Standard (S2-S12) e Uso Geral, a latência para mover um banco de dados para dentro/para fora de um pool elástico ou entre pools elásticos será proporcional ao tamanho do banco de dados se o banco de dados estiver usando o armazenamento de compartilhamento de arquivos Premium ([PFS](../../storage/files/storage-files-introduction.md)).
 >
 > Para determinar se um banco de dados está usando o armazenamento PFS, execute a consulta a seguir no contexto do banco de dados. Se o valor na coluna AccountType for `PremiumFileStorage` ou `PremiumFileStorage-ZRS` , o banco de dados estará usando o armazenamento PFS.
- 
+
+[!NOTE]
+ A propriedade com redundância de zona permanecerá a mesma por padrão ao Dimensionar da Comercialmente Crítico para a camada de Uso Geral. A latência para esse downgrade quando a redundância de zona é habilitada, bem como a latência para alternar para a redundância de zona para a camada de Uso Geral será proporcional ao tamanho do banco de dados.
+
 ```sql
 SELECT s.file_id,
        s.type_desc,

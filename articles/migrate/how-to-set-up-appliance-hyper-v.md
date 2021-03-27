@@ -6,12 +6,12 @@ ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: how-to
 ms.date: 03/13/2021
-ms.openlocfilehash: 71fe30212b31e810bfe3e1ba10f80be6b09ad4fc
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 8f0e7ec2566928897d2b84357b599506520e8d95
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863676"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612017"
 ---
 # <a name="set-up-an-appliance-for-servers-on-hyper-v"></a>Configurar um dispositivo para servidores no Hyper-V
 
@@ -39,7 +39,7 @@ Para configurar o dispositivo usando um modelo VHD:
 
 1. Em **metas de migração**  >  **Windows, Linux e SQL Server**  >  **Migrations Azure: descoberta e avaliação**, selecione **descobrir**.
 2. Em **descobrir servidores**  >  **os servidores são virtualizados?**, selecione **Sim, com o Hyper-V**.
-3. Em **1: gerar chave do projeto**, forneça um nome para o dispositivo de migrações para Azure que você irá configurar para a descoberta de servidores no Hyper-V. o nome deve ser alfanumérico com 14 caracteres ou menos.
+3. Em **1: gerar chave do projeto**, forneça um nome para o dispositivo de migrações para Azure que você irá configurar para a descoberta de servidores no Hyper-V. O nome deve ser alfanumérico com 14 caracteres ou menos.
 1. Clique em **Gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página descobrir servidores durante a criação de recursos.
 1. Após a criação bem-sucedida dos recursos do Azure, uma **chave de projeto** é gerada.
 1. Copie a chave, pois você precisará dela para concluir o registro do dispositivo durante a configuração dele.
@@ -53,7 +53,6 @@ Em **2: Baixar o dispositivo das Migrações para Azure**, selecione o arquivo .
 
    ![Seleções para Gerar Chave](./media/tutorial-assess-hyper-v/generate-key-hyperv.png)
 
-
 ### <a name="verify-security"></a>Verificar a segurança
 
 Verifique se o arquivo compactado é seguro antes de implantá-lo.
@@ -63,9 +62,7 @@ Verifique se o arquivo compactado é seguro antes de implantá-lo.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Exemplo de uso: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
 
-
-
-
+Verifique o valor de hash mais recente comparando o resultado do comando acima com o valor documentado [aqui](https://docs.microsoft.com/azure/migrate/tutorial-discover-hyper-v#verify-security)
 
 ## <a name="create-the-appliance"></a>Criar o dispositivo
 
@@ -85,7 +82,6 @@ Importe o arquivo baixado e crie um dispositivo.
 5. Em **escolher rede**, especifique o comutador virtual que o servidor usará. O comutador precisa de conectividade com a Internet para enviar dados ao Azure.
 6. Em **Resumo**, examine as configurações. Em seguida, clique em **Concluir**.
 7. No Gerenciador do Hyper-V, > **Máquinas Virtuais**, inicie a máquina virtual.
-
 
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
@@ -128,8 +124,6 @@ Configure o dispositivo pela primeira vez.
 1. Depois de fazer logon com êxito, volte para a guia anterior usando o gerenciador de configuração do dispositivo.
 4. Se a conta de usuário do Azure usada para o registro em log tiver as [permissões](./tutorial-discover-hyper-v.md#prepare-an-azure-user-account) corretas nos recursos do Azure criados durante a geração de chave, o registro do dispositivo será iniciado.
 1. Depois que o dispositivo for registrado com êxito, você poderá ver os detalhes do registro clicando em **Exibir detalhes**.
-
-
 
 ### <a name="delegate-credentials-for-smb-vhds"></a>Delegar credenciais para VHDs de SMB
 

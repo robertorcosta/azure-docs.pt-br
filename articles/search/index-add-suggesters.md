@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/26/2021
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6bf5e53d9f4a867c146cb01376fcd28d2797819c
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: a03ca4bcad9bb577db68e2728ff9dbebb5779a7a
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606208"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626819"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Criar um Sugestor para habilitar o preenchimento automático e os resultados sugeridos em uma consulta
 
-No Azure Pesquisa Cognitiva, typeahead ou "Pesquisar conforme o tipo" é habilitado por meio de um *Sugestor*. Um Sugestor é uma estrutura de dados interna que consiste em uma coleção de campos. Os campos passam por geração de tokens adicionais, gerando sequências de prefixo para dar suporte a correspondências em termos parciais. Por exemplo, um Sugestor que inclui um campo cidade terá combinações de prefixo "Sea", "assento", "assento" e "seattl" para o termo "Seattle".
+No Azure Pesquisa Cognitiva, typeahead ou "Pesquisar conforme o tipo" é habilitado por meio de um *Sugestor*. Um Sugestor fornece uma lista de campos que passam por geração de tokens adicionais, gerando sequências de prefixo para dar suporte a correspondências em termos parciais. Por exemplo, um Sugestor que inclui um campo cidade com um valor de "Seattle" terá combinações de prefixo "Sea", "assento", "assento" e "seattl" para dar suporte a typeahead.
 
 As correspondências em termos parciais podem ser uma consulta autocompletada ou uma correspondência sugerida. O mesmo Sugestor dá suporte a ambas as experiências.
 
@@ -171,11 +171,13 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 ## <a name="sample-code"></a>Código de exemplo
 
-+ [Crie seu primeiro aplicativo em C# (lição 3 – adicionar a pesquisa conforme o tipo)](tutorial-csharp-type-ahead-and-suggestions.md) exemplo demonstra consultas sugeridas, preenchimento automático e navegação facetada. Este exemplo de código é executado em um serviço de Pesquisa Cognitiva do Azure de área restrita e usa um índice de hotéis pré-carregado com um Sugestor já criado, portanto, tudo o que você precisa fazer é pressionar F5 para executar o aplicativo. Nenhuma assinatura ou entrada é necessária.
++ [Adicionar pesquisa a um site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) usa um pacote de sugestões de código-fonte aberto para conclusão de termo parcial no aplicativo cliente.
+
++ [Crie seu primeiro aplicativo em C# (lição 3 – adicionar a pesquisa conforme o tipo)](tutorial-csharp-type-ahead-and-suggestions.md) exemplo demonstra consultas sugeridas, preenchimento automático e navegação facetada. Esse código fornece suporte nativo para typeahead em vez de usar um widget.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Recomendamos o seguinte artigo para saber mais sobre como as solicitações são formuladas.
+Saiba mais sobre solicitações \ formulação.
 
 > [!div class="nextstepaction"]
 > [Adicionar preenchimento automático e sugestões ao código do cliente](search-add-autocomplete-suggestions.md)

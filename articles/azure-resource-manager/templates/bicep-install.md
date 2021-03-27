@@ -2,13 +2,13 @@
 title: Configurar ambientes de desenvolvimento e implantação do bicep
 description: Como configurar ambientes de desenvolvimento e implantação do bicep
 ms.topic: conceptual
-ms.date: 03/25/2021
-ms.openlocfilehash: 9a35355d1035943081ac58b36623af772fb8d547
-ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
+ms.date: 03/26/2021
+ms.openlocfilehash: 0e62e6a4633bee09fcbe8b783118cc95ccd5702e
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105612578"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626094"
 ---
 # <a name="install-bicep-preview"></a>Instalar o bicep (versão prévia)
 
@@ -19,21 +19,25 @@ Saiba como configurar ambientes de desenvolvimento e implantação do bicep.
 Para obter a melhor experiência de criação de bicep, você precisa de dois componentes:
 
 - **Extensão bicep para Visual Studio Code**. Para criar arquivos bicep, você precisa de um bom editor de bicep. É recomendável [Visual Studio Code](https://code.visualstudio.com/) com a [extensão bicep](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep). Essas ferramentas fornecem suporte a idiomas e preenchimento automático de recursos. Eles ajudam a criar e validar arquivos bicep. Para obter mais informações sobre como usar Visual Studio Code e a extensão bicep, consulte [início rápido: criar arquivos bicep com Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
-- **BICEP CLI**. Use a CLI bicep para compilar arquivos bicep para modelos de JSON de ARM e descompilar modelos JSON de ARM para arquivos bicep. Para obter mais informações, consulte [install BICEP CLI](#install-bicep-cli).
+- **BICEP CLI**. Use a CLI bicep para compilar arquivos bicep para modelos de JSON de ARM e descompilar modelos JSON de ARM para arquivos bicep. Para obter as instruções de instalação, consulte [instalar a CLI do bicep](#install-manually).
 
 ## <a name="deployment-environment"></a>Ambiente de implantação
 
-Você pode implantar arquivos bicep usando CLI do Azure ou Azure PowerShell. Por CLI do Azure, você precisa da versão 2.20.0 ou posterior; por Azure PowerShell, você precisa da versão 5.6.0 ou posterior. Para obter as instruções de instalação, confira:
+Para implantar arquivos bicep locais, você precisa de dois componentes:
 
-- [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
-- [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
-- [Instalar a CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
-- [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
+- **CLI do Azure versão 2.20.0 ou posterior, ou Azure PowerShell versão 5.6.0 ou posterior**. Para obter as instruções de instalação, confira:
 
-> [!NOTE]
-> Atualmente, tanto CLI do Azure quanto Azure PowerShell só podem implantar arquivos bicep locais. Para obter mais informações sobre como implantar arquivos bicep usando CLI do Azure, consulte [Deploy-CLI](./deploy-cli.md#deploy-remote-template). Para obter mais informações sobre como implantar arquivos bicep usando Azure PowerShell, consulte [Deploy-PowerShell]( ./deploy-powershell.md#deploy-remote-template).
+  - [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
+  - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
+  - [Instalar a CLI do Azure no Linux](/cli/azure/install-azure-cli-linux)
+  - [Instalar a CLI do Azure no macOS](/cli/azure/install-azure-cli-macos)
 
-Depois que a versão com suporte do Azure PowerShell ou CLI do Azure estiver instalada, você poderá implantar um arquivo bicep com:
+  > [!NOTE]
+  > Atualmente, tanto CLI do Azure quanto Azure PowerShell só podem implantar arquivos bicep locais. Para obter mais informações sobre como implantar arquivos bicep usando CLI do Azure, consulte [Deploy-CLI](./deploy-cli.md#deploy-remote-template). Para obter mais informações sobre como implantar arquivos bicep usando Azure PowerShell, consulte [Deploy-PowerShell]( ./deploy-powershell.md#deploy-remote-template).
+
+- **BICEP CLI**. A CLI do bicep é necessária para compilar arquivos bicep para modelos JSON antes da implantação. Para obter as instruções de instalação, consulte [instalar a CLI do bicep](#install-bicep-cli).
+
+Depois que os componentes são instalados, você pode implantar um arquivo bicep com:
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -59,11 +63,23 @@ az deployment group create \
 
 ## <a name="install-bicep-cli"></a>Instalar a CLI do bicep
 
-Você pode instalar a CLI do bicep usando o CLI do Azure, usando Azure PowerShell ou manualmente.
+- Para usar a CLI do bicep para compilar e descompilar arquivos do bicep, consulte [instalar manualmente](#install-manually).
+- Para usar CLI do Azure para implantar arquivos bicep, consulte [usar com CLI do Azure](#use-with-azure-cli).
+- Para usar Azure PowerShell para implantar arquivos bicep, consulte [usar com Azure PowerShell](#use-with-azure-powershell).
 
-### <a name="use-azure-cli"></a>Usar a CLI do Azure
+### <a name="use-with-azure-cli"></a>Usar com CLI do Azure
 
-Com AZ CLI versão 2.20.0 ou posterior instalado, a CLI do bicep é instalada automaticamente quando um comando que depende dele é executado. Por exemplo, `az deployment ... -f *.bicep` ou `az bicep ...`.
+Com CLI do Azure versão 2.20.0 ou posterior instalada, a CLI do bicep é instalada automaticamente quando um comando que depende dele é executado. Por exemplo:
+
+```azurecli
+az deployment group create --template-file azuredeploy.bicep --resource-group myResourceGroup
+```
+
+ou
+
+```azurecli
+az bicep ...
+```
 
 Você também pode instalar manualmente a CLI usando os comandos internos:
 
@@ -80,17 +96,11 @@ az bicep upgrade
 Para instalar uma versão específica:
 
 ```bash
-az bicep install --version v0.2.212
+az bicep install --version v0.3.126
 ```
 
-> [!NOTE]
-> AZ CLI instala uma versão separada da CLI do bicep que não está em conflito com qualquer outra instalação do bicep que você tenha, e AZ CLI não adiciona bicep ao seu caminho.
-
-Para mostrar as versões instaladas:
-
-```bash
-az bicep version
-```
+> [!IMPORTANT]
+> CLI do Azure instala uma versão separada da CLI do bicep que não está em conflito com qualquer outra instalação do bicep que você tenha e CLI do Azure não adiciona a CLI do bicep ao seu caminho. Para usar a CLI do bicep para compilar/descompilar arquivos do bicep ou para usar Azure PowerShell para implantar arquivos do bicep, consulte [instalar manualmente](#install-manually) ou [usar com o Azure PowerShell](#use-with-azure-powershell).
 
 Para listar todas as versões disponíveis da CLI do bicep:
 
@@ -98,9 +108,30 @@ Para listar todas as versões disponíveis da CLI do bicep:
 az bicep list-versions
 ```
 
-### <a name="use-azure-powershell"></a>Usar PowerShell do Azure
+Para mostrar as versões instaladas:
 
-Azure PowerShell não tem a capacidade de instalar a CLI do bicep ainda. Azure PowerShell (v 5.6.0 ou posterior) espera que a CLI do bicep já esteja instalada e disponível no caminho. Siga um dos [métodos de instalação manual](#install-manually). Depois que a CLI do bicep for instalada, a CLI do bicep será chamada sempre que for necessária para um cmdlet de implantação. Por exemplo, `New-AzResourceGroupDeployment ... -TemplateFile main.bicep`.
+```bash
+az bicep version
+```
+
+### <a name="use-with-azure-powershell"></a>Usar com Azure PowerShell
+
+Azure PowerShell não tem a capacidade de instalar a CLI do bicep ainda. Azure PowerShell (v 5.6.0 ou posterior) espera que a CLI do bicep já esteja instalada e disponível no caminho. Siga um dos [métodos de instalação manual](#install-manually).
+
+Para implantar arquivos bicep, a CLI do bicep versão 0.3.1 ou posterior é necessária. Para verificar a versão da CLI do bicep:
+
+```cmd
+bicep --version
+```
+
+> [!IMPORTANT]
+> CLI do Azure instala sua própria versão independente da CLI do bicep. Azure PowerShell implantação falha mesmo que você tenha as versões necessárias instaladas para CLI do Azure.
+
+Depois que a CLI do bicep for instalada, a CLI do bicep será chamada sempre que for necessária para um cmdlet de implantação. Por exemplo:
+
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName myResourceGroup -TemplateFile azuredeploy.bicep
+```
 
 ### <a name="install-manually"></a>Instalar manualmente
 

@@ -6,12 +6,12 @@ ms.author: panshar
 ms.manager: abhemraj
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: b9ea447b0204ad91065f27d265584c8787167fc2
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: af0b8a4d3dfbce32e412f5294fb19ade61fd7661
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104870714"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105628162"
 ---
 # <a name="azure-migrate-support-matrix"></a>Matriz de suporte das Migrações para Azure
 
@@ -44,7 +44,7 @@ Migrações para Azure: Migração de Servidor | N/D | Migre [VMs do VMware](tut
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos e outras cargas de trabalho de nuvem. | N/D
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Avaliar VMs do VMware, VMs do Hyper-V, servidor físico areia outras cargas de trabalho de nuvem. |  Migrar VMs do VMware, VMs do Hyper-V, servidores físicos e cargas de trabalho de nuvem pública.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Avalie as VMs do VMware, VMs do Hyper-V, servidores físicos e outras cargas de trabalho de nuvem.| N/D
-[DMA](/sql/dma/dma-overview?view=sql-server-2017) | Avaliar SQL Server bancos de dados. | N/D
+[DMA](/sql/dma/dma-overview) | Avaliar SQL Server bancos de dados. | N/D
 [DMS](../dms/dms-overview.md) | N/D | Migrar SQL Server, Oracle, MySQL, PostgreSQL, MongoDB. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Avaliar a infraestrutura de área de trabalho virtual (VDI) | N/D
 [Movere](https://www.movere.io/) | Avalie as VMs do VMware, VMs do Hyper-V, VMs Xen, servidores físicos, estações de trabalho (incluindo VDI) e outras cargas de trabalho de nuvem. | N/D
