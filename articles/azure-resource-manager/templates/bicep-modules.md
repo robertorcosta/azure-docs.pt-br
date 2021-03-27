@@ -2,15 +2,15 @@
 title: Módulos bicep
 description: Descreve como definir e consumir um módulo e como usar escopos de módulo.
 ms.topic: conceptual
-ms.date: 03/17/2021
-ms.openlocfilehash: 2edeb5c96f771867f964963b2d27768291ae2d4a
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.date: 03/25/2021
+ms.openlocfilehash: 7a680e8aa0fa4d5ef9cac7f9e7ba07a3aa4ee1e2
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104889698"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611728"
 ---
-# <a name="use-bicep-modules"></a>Usar módulos bicep
+# <a name="use-bicep-modules-preview"></a>Usar módulos bicep (versão prévia)
 
 O bicep permite dividir uma solução complexa em módulos. Um módulo bicep é um conjunto de um ou mais recursos a serem implantados juntos. Os módulos abstraem detalhes complexos da declaração de recursos brutos, o que pode aumentar a legibilidade. Você pode reutilizar esses módulos e compartilhá-los com outras pessoas. Combinado com as [especificações de modelo](./template-specs.md), ele cria uma maneira de modularidade e reutilização de código. Para obter um tutorial, consulte [tutorial: Adicionar módulos bicep](./bicep-tutorial-add-modules.md).
 

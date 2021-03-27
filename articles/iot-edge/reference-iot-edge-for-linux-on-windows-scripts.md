@@ -9,12 +9,12 @@ ms.topic: reference
 ms.service: iot-edge
 services: iot-edge
 monikerRange: =iotedge-2018-06
-ms.openlocfilehash: 5286362369e0c4881cdf0c56bc13d1d340056be1
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 41827c5db58f3d4755fb34e46067357cd0255676
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105562504"
+ms.locfileid: "105612765"
 ---
 # <a name="powershell-scripts-for-iot-edge-for-linux-on-windows"></a>Scripts do PowerShell para IoT Edge para Linux no Windows
 
@@ -46,12 +46,15 @@ O comando **Deploy-eFlow** é o principal método de implantação. O comando de
 | vmSizeDefintion | Não mais de 30 caracteres | Definição do número de núcleos e RAM disponível para a máquina virtual. **Valor padrão**: Standard_K8S_v1. |
 | vmDiskSize | Entre 8 GB e 256 GB | Tamanho máximo do disco do disco rígido virtual de expansão dinâmica. **Valor padrão**: 16 GB. |
 | vmUser | Não mais de 30 caracteres | Nome de usuário para fazer logon na máquina virtual. |
-| vnetType | **Transparente** ou **ICS** | O tipo de comutador virtual. **Valor padrão**: transparente. |
+| vnetType | **Transparente** ou **ICS** | O tipo de comutador virtual. **Valor padrão**: transparente. Transparente refere-se a um comutador externo, enquanto o ICS se refere a um comutador interno. |
 | vnetName | Não mais de 64 caracteres | O nome do comutador virtual. **Valor padrão**: externo. |
 | enableVtpm | Nenhum | **Parâmetro de opção**. Crie a máquina virtual com o TPM habilitado ou desabilitado. |
 | mobyPackageVersion | Não mais de 30 caracteres |  Versão do pacote Moby a ser verificada ou instalada na máquina virtual.  **Valor padrão:** 19.03.11. |
 | iotedgePackageVersion | Não mais de 30 caracteres | Versão do pacote de IoT Edge a ser verificada ou instalada na máquina virtual. **Valor padrão:** 1.1.0. |
 | installPackages | Nenhum | **Parâmetro de opção**. Quando alternado, o script tentará instalar os pacotes Moby e IoT Edge em vez de apenas verificar se os pacotes estão presentes. |
+
+>[!NOTE]
+>Por padrão, se o processo não encontrar um comutador externo com o nome `External` , ele pesquisará qualquer comutador externo existente por meio do qual obter um endereço IP. Se não houver nenhum comutador externo disponível, ele procurará um comutador interno. Se não houver nenhum comutador interno disponível, ele tentará criar o comutador padrão por meio do qual obter um endereço IP.
 
 ## <a name="verify-eflowvm"></a>Verify-EflowVm
 

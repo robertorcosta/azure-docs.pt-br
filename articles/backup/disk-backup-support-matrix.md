@@ -4,12 +4,12 @@ description: Fornece um resumo das configurações de suporte e limitações do 
 ms.topic: conceptual
 ms.date: 01/07/2021
 ms.custom: references_regions
-ms.openlocfilehash: 38c35824118979c900dacd9c103ae8f9ec11ad65
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 88ec26837cc8f69c1e84c77ea6b57ce16e462e0a
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105107271"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612850"
 ---
 # <a name="azure-disk-backup-support-matrix"></a>Matriz de suporte de Backup de Disco do Azure
 
@@ -51,7 +51,7 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - Atualmente, a experiência de portal do Azure para configurar o backup de discos é limitada a um máximo de 20 discos da mesma assinatura.
 
-- No momento (durante a versão prévia), o uso do PowerShell e do CLI do Azure para configurar o backup e a restauração de discos não é suportado.
+- O backup em disco do Azure dá suporte ao PowerShell. No momento, não há suporte para CLI do Azure.
 
 - Ao configurar o backup, o disco selecionado para backup e o grupo de recursos de instantâneo em que os instantâneos devem ser armazenados deve fazer parte da mesma assinatura. Você não pode criar um instantâneo incremental para um disco específico fora da assinatura desse disco. Saiba mais sobre [instantâneos incrementais](../virtual-machines/disks-incremental-snapshots.md#restrictions) do disco gerenciado. Para obter mais informações sobre como escolher um grupo de recursos de instantâneo, consulte  [Configurar backup](backup-managed-disks.md#configure-backup).
 
@@ -61,7 +61,7 @@ Mais regiões serão anunciadas quando forem disponibilizadas.
 
 - O suporte a [links privados](../virtual-machines/disks-enable-private-links-for-import-export-portal.md) para discos gerenciados permite que você restrinja a exportação e a importação de discos gerenciados para que ele ocorra apenas dentro de sua rede virtual do Azure. O backup em disco do Azure dá suporte ao backup de discos que têm pontos de extremidade privados habilitados. Isso não inclui os dados de backup ou instantâneos para serem acessíveis por meio do ponto de extremidade privado.
 
-- Durante a versão prévia, não é possível desabilitar o backup, portanto a opção **parar backup e reter os dados de backup** não tem suporte. Você pode excluir uma instância de backup, o que só interromperá o backup, mas também excluirá todos os dados de backup.
+- Você pode excluir uma instância de backup, que irá parar o backup e também excluir todos os dados de backup. No momento, não é possível desabilitar um backup, pois a opção **parar o backup e reter os dados de backup** não é suportada.
 
 ## <a name="next-steps"></a>Próximas etapas
 

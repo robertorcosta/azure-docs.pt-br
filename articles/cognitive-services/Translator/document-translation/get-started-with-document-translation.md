@@ -6,12 +6,12 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 03/05/2021
-ms.openlocfilehash: 70c8bce840bca6f2e99b29dc32f5e71bbad8d379
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 780e6defe4f7d09e2d136c080525447ffd29bbb4
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105047228"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612374"
 ---
 # <a name="get-started-with-document-translation-preview"></a>Introdução à tradução do documento (visualização)
 
@@ -37,8 +37,8 @@ Para começar, você precisará de:
 
 > [!IMPORTANT]
 >
-> * Você não usará o ponto de extremidade encontrado em suas chaves de recurso portal do Azure e na página de _ponto de extremidade_ nem no ponto de extremidade do tradutor global — `api.cognitive.microsofttranslator.com` – para fazer solicitações HTTP para a tradução do documento.
 > * **Todas as solicitações de API para o serviço de tradução de documentos exigem um ponto de extremidade de domínio personalizado**.
+> * Você não usará o ponto de extremidade encontrado em suas chaves de recurso portal do Azure e na página de _ponto de extremidade_ nem no ponto de extremidade do tradutor global — `api.cognitive.microsofttranslator.com` – para fazer solicitações HTTP para a tradução do documento.
 
 ### <a name="what-is-the-custom-domain-endpoint"></a>O que é o ponto de extremidade de domínio personalizado?
 
@@ -93,7 +93,7 @@ Os `sourceUrl` `targetUrl` opcionais, e `glossaryUrl`  devem incluir um token de
 
 * Criar um novo projeto.
 * Substitua Program.cs pelo C# código mostrado abaixo.
-* Defina seu ponto de extremidade. chave de assinatura e valores de URL de contêiner em Program. cs.
+* Defina seus valores de ponto de extremidade, chave de assinatura e URL de contêiner em Program. cs.
 * Para processar dados JSON, adicione [Newtonsoft.Jsno pacote usando a CLI do .net](https://www.nuget.org/packages/Newtonsoft.Json/).
 * Execute o programa a partir do diretório do projeto.
 
@@ -101,7 +101,7 @@ Os `sourceUrl` `targetUrl` opcionais, e `glossaryUrl`  devem incluir um token de
 
 * Crie um novo projeto Node.js.
 * Instale a biblioteca axios com `npm i axios` .
-* Copiar Cole o código abaixo em seu projeto.
+* Copie/cole o código abaixo em seu projeto.
 * Defina os valores de ponto de extremidade, chave de assinatura e URL do contêiner.
 * executar o programa.
 
@@ -174,7 +174,7 @@ gradle run
 * Defina os valores de ponto de extremidade, chave de assinatura e URL do contêiner.
 * Salve o arquivo com uma extensão ".go".
 * Abra um prompt de comando em um computador com o Go instalado.
-* Compile o arquivo, por exemplo: 'go build example-code.go'.
+* Crie o arquivo. Por exemplo: ' go compilar exemplo-código. go '.
 * Execute o arquivo, por exemplo: 'example-code'.
 
  ---
@@ -207,26 +207,49 @@ Os seguintes cabeçalhos estão incluídos em cada solicitação de API do tradu
 ## <a name="post-a-translation-request"></a>POSTAR uma solicitação de tradução
 
 <!-- markdownlint-disable MD024 -->
-### <a name="post-request-body-without-optional-glossaryurl"></a>Corpo da solicitação POST sem glossaryURL opcional
+### <a name="post-request-body-to-translate-all-documents-in-a-container"></a>POSTAR o corpo da solicitação para converter todos os documentos em um contêiner
 
 ```json
 {
     "inputs": [
         {
             "source": {
-                "sourceUrl": "<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-                "storageSource": "AzureBlob",
-                "filter": {
-                    "prefix": "News",
-                    "suffix": ".txt"
-                },
-                "language": "en"
+                "sourceUrl": https://my.blob.core.windows.net/source-en?sv=2019-12-12&st=2021-03-05T17%3A45%3A25Z&se=2021-03-13T17%3A45%3A00Z&sr=c&sp=rl&sig=SDRPMjE4nfrH3csmKLILkT%2Fv3e0Q6SWpssuuQl1NmfM%3D
             },
             "targets": [
                 {
-                    "targetUrl": "<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-                    "storageSource": "AzureBlob",
-                    "category": "general",
+                    "targetUrl": https://my.blob.core.windows.net/target-fr?sv=2019-12-12&st=2021-03-05T17%3A49%3A02Z&se=2021-03-13T17%3A49%3A00Z&sr=c&sp=wdl&sig=Sq%2BYdNbhgbq4hLT0o1UUOsTnQJFU590sWYo4BOhhQhs%3D,
+                    "language": "fr"
+                }
+            ]
+        }
+    ]
+}
+```
+
+
+### <a name="post-request-body-to-translate-a-specific-document-in-a-container"></a>POSTAR o corpo da solicitação para traduzir um documento específico em um contêiner
+
+* Verifique se você especificou "storagetype": "File"
+* Verifique se você criou a URL de origem & token SAS para o blob/documento específico (não para o contêiner) 
+* Verifique se você especificou o nome de arquivo de destino como parte da URL de destino – embora o token SAS ainda seja para o contêiner.
+* Exemplo de solicitação abaixo mostra um único documento sendo traduzido em duas linguagens de destino
+
+```json
+{
+    "inputs": [
+        {
+            "storageType": "File",
+            "source": {
+                "sourceUrl": https://my.blob.core.windows.net/source-en/source-english.docx?sv=2019-12-12&st=2021-01-26T18%3A30%3A20Z&se=2021-02-05T18%3A30%3A00Z&sr=c&sp=rl&sig=d7PZKyQsIeE6xb%2B1M4Yb56I%2FEEKoNIF65D%2Fs0IFsYcE%3D
+            },
+            "targets": [
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-Spanish.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
+                    "language": "es"
+                },
+                {
+                    "targetUrl": https://my.blob.core.windows.net/target/try/Target-German.docx?sv=2019-12-12&st=2021-01-26T18%3A31%3A11Z&se=2021-02-05T18%3A31%3A00Z&sr=c&sp=wl&sig=AgddSzXLXwHKpGHr7wALt2DGQJHCzNFF%2F3L94JHAWZM%3D,
                     "language": "de"
                 }
             ]
@@ -235,44 +258,10 @@ Os seguintes cabeçalhos estão incluídos em cada solicitação de API do tradu
 }
 ```
 
-### <a name="post-request-body-with-optional-glossaryurl"></a>POSTAR o corpo da solicitação com glossaryURL opcional
-
-```json
-{
-  "inputs":[
-    {
-      "source":{
-        "sourceUrl":"<https://YOUR-SOURCE-URL-WITH-READ-LIST-ACCESS-SAS>",
-        "storageSource":"AzureBlob",
-        "filter":{
-          "prefix":"News",
-          "suffix":".txt"
-        },
-        "language":"en"
-      },
-      "targets":[
-        {
-          "targetUrl":"<https://YOUR-SOURCE-URL-WITH-WRITE-LIST-ACCESS-SAS>",
-          "storageSource":"AzureBlob",
-          "category":"general",
-          "language":"de",
-          "glossaries":[
-            {
-              "glossaryUrl":"<https://YOUR-GLOSSARY-URL-WITH-READ-LIST-ACCESS-SAS>",
-              "format":"xliff",
-              "version":"1.2"
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
 
 > [!IMPORTANT]
 >
-> Para obter os exemplos de código abaixo, você codificará sua chave e o ponto de extremidade, quando indicado; Lembre-se de remover a chave do seu código quando terminar e nunca publicá-la publicamente.  Consulte [segurança de serviços cognitivas do Azure](../../cognitive-services-security.md?tabs=command-line%2ccsharp) para obter maneiras de armazenar e acessar com segurança suas credenciais.
+> Para obter os exemplos de código abaixo, você codificará sua chave e o ponto de extremidade, quando indicado; Lembre-se de remover a chave do seu código quando terminar e nunca publicá-la publicamente.  Consulte [segurança de serviços cognitivas do Azure](/azure/cognitive-services/cognitive-services-security?tabs=command-line%2Ccsharp) para obter maneiras de armazenar e acessar com segurança suas credenciais.
 >
 > Talvez seja necessário atualizar os seguintes campos, dependendo da operação:
 >>>
@@ -1247,7 +1236,7 @@ func main() {
 
 ## <a name="content-limits"></a>Limites de conteúdo
 
-A tabela a seguir lista os limites para os dados que você envia para a tradução de documentos.
+A tabela a seguir lista os limites de dados que você envia para a tradução de documentos (versão prévia).
 
 |Atributo | Limite|
 |---|---|

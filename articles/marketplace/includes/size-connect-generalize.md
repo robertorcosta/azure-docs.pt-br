@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 10/20/2020
-ms.openlocfilehash: c60d2a9b13cce9251ff0f730081a9d677206770d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.date: 03/25/2021
+ms.openlocfilehash: 8898a762e8a1e7a2d5c104f99d12032c676a5ca4
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102630089"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105630051"
 ---
 ## <a name="generalize-the-image"></a>Generalizar a imagem
 
@@ -52,7 +52,9 @@ Quando sua VM estiver pronta, você poderá capturá-la em uma galeria de imagen
 8. Selecione **Examinar + criar** para examinar suas opções.
 9. Depois que a validação for aprovada, selecione **criar**.
 
-Para publicar, a conta do Publicador deve ter acesso de proprietário ao SIG. Para conceder acesso:
+A assinatura do Azure que contém o SIG deve estar no mesmo locatário que a conta de editor para publicar. Além disso, a conta do Publicador deve ter um proprietário de acesso ao SIG. 
+
+Para conceder acesso:
 
 1. Vá para a Galeria de imagens compartilhadas.
 2. Selecione **controle de acesso** (iam) no painel esquerdo.
@@ -60,7 +62,7 @@ Para publicar, a conta do Publicador deve ter acesso de proprietário ao SIG. Pa
 4. Selecione uma **função** ou **proprietário**.
 5. Em **atribuir acesso para** selecionar **usuário, grupo ou entidade de serviço**.
 6. Selecione o email do Azure da pessoa que publicará a imagem.
-7. Clique em **Salvar**.
+7. Selecione **Salvar**.
 
 :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="Exibe a janela Adicionar atribuição de função.":::
 

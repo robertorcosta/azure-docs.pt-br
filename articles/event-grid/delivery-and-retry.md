@@ -3,12 +3,12 @@ title: Entrega e repetição da Grade de Eventos do Azure
 description: Descreve como a Grade de Eventos do Azure entrega eventos e como ela trata mensagens não entregues.
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: 3c4ed6ec2c9eae4dbcf70a831e3e7f70a28a57a0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: e7fa627464ddb85ebded3ae99229b7fe8dd3fde3
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98247362"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105629267"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos
 
@@ -97,7 +97,7 @@ Por padrão, a Grade de Eventos expira todos os eventos que não são entregues 
 
 Como um ponto de extremidade apresenta falhas de entrega, a grade de eventos começará a atrasar a entrega e a repetição de eventos para esse ponto de extremidade. Por exemplo, se os 10 primeiros eventos publicados em um ponto de extremidade falharem, a grade de eventos presumirá que o ponto de extremidade está apresentando problemas e atrasará todas as novas tentativas subsequentes *e novos* entregas por algum tempo, em alguns casos, até várias horas.
 
-A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros, bem como o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
+A finalidade funcional da entrega atrasada é proteger pontos de extremidade não íntegros e o sistema de grade de eventos. Sem retirada e atraso de entrega para pontos de extremidade não íntegros, a política de repetição da grade de eventos e os recursos de volume podem facilmente sobrecarregar um sistema.
 
 ## <a name="dead-letter-events"></a>Eventos de mensagens mortas
 Quando a grade de eventos não pode entregar um evento dentro de um determinado período de tempo ou depois de tentar entregar o evento um determinado número de vezes, ele pode enviar o evento não entregue a uma conta de armazenamento. Esse processo é conhecido como **mensagens mortas**. A grade de eventos não segue um evento quando **uma das condições a seguir** é atendida. 
@@ -288,6 +288,15 @@ Todos os outros códigos que não estão no conjunto acima (200-204) são consid
 | 503 Serviço Indisponível | Tentar novamente após 30 segundos ou mais |
 | Todos os outros | Tentar novamente após 10 segundos ou mais |
 
+## <a name="delivery-with-custom-headers"></a>Entrega com cabeçalhos personalizados
+As assinaturas de evento permitem que você configure cabeçalhos HTTP que estão incluídos nos eventos entregues. Essa funcionalidade permite que você defina cabeçalhos personalizados que são exigidos por um destino. Você pode configurar até 10 cabeçalhos ao criar uma assinatura de evento. Cada valor de cabeçalho não deve ser maior que 4.096 (4K) bytes. Você pode definir cabeçalhos personalizados nos eventos que são entregues aos seguintes destinos:
+
+- Webhooks
+- Tópicos e filas do barramento de serviço do Azure
+- Hubs de eventos do Azure
+- Conexões Híbridas de retransmissão
+
+Para obter mais informações, consulte [entrega com cabeçalhos personalizados](delivery-properties.md). 
 
 ## <a name="next-steps"></a>Próximas etapas
 

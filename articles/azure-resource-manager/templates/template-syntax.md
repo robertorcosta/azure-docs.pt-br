@@ -2,13 +2,13 @@
 title: Estrutura e sintaxe do modelo
 description: Descreve a estrutura e as propriedades de modelos de Azure Resource Manager (modelos ARM) usando a sintaxe JSON declarativa.
 ms.topic: conceptual
-ms.date: 03/03/2021
-ms.openlocfilehash: da64eb8abeaf45f58933dfbddaf954cad8e66f4a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.date: 03/26/2021
+ms.openlocfilehash: 42b893e25155bb3ebe66e0deac180698446a2c9b
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102120405"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105612170"
 ---
 # <a name="understand-the-structure-and-syntax-of-arm-templates"></a>Noções básicas de estrutura e sintaxe dos modelos ARM
 
@@ -72,7 +72,7 @@ As propriedades disponíveis para um parâmetro são:
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
 | nome do parâmetro |Sim |Nome do parâmetro. Deve ser um identificador JavaScript válido. |
-| type |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. Consulte [tipos de dados em modelos ARM](data-types.md). |
+| tipo |Sim |Tipo do valor do parâmetro. Os valores e tipos permitidos são **cadeia de caracteres**, **securestring**, **int**, **bool**, **objeto**, **secureObject**, e **matriz**. Consulte [tipos de dados em modelos ARM](data-types.md). |
 | defaultValue |Não |Valor padrão do parâmetro, se nenhum valor for fornecido para o parâmetro. |
 | allowedValues |Não |Matriz de valores permitidos para o parâmetro para garantir que o valor correto seja fornecido. |
 | minValue |Não |O valor mínimo para parâmetros de tipo int, esse valor é inclusivo. |
@@ -193,6 +193,7 @@ Você define recursos com a seguinte estrutura:
           "capacity": <sku-capacity>
       },
       "kind": "<type-of-resource>",
+      "scope": "<target-scope-for-extension-resources>",
       "copy": {
           "name": "<name-of-copy-loop>",
           "count": <number-of-iterations>,
@@ -226,7 +227,7 @@ Você define recursos com a seguinte estrutura:
 | Nome do elemento | Obrigatório | Descrição |
 |:--- |:--- |:--- |
 | condition | Não | Valor booliano que indica se o recurso será provisionado durante esta implantação. Quando for `true`, o recurso será criado durante a implantação. Quando `false`, o recurso será ignorado para essa implantação. Consulte a [condição](conditional-resource-deployment.md). |
-| type |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como `Microsoft.Storage/storageAccounts` ). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
+| tipo |Sim |Tipo do recurso. Esse valor é uma combinação do namespace do provedor de recursos e do tipo de recurso (como `Microsoft.Storage/storageAccounts` ). Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). Para um recurso filho, o formato do tipo depende de se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
 | apiVersion |Sim |Versão da API REST a ser usada para criar o recurso. Ao criar um novo modelo, defina esse valor para a versão mais recente do recurso que você está implantando. Desde que o modelo funcione conforme necessário, continue usando a mesma versão de API. Ao continuar a usar a mesma versão de API, você minimiza o risco de uma nova versão de API alterar a forma como o modelo funciona. Considere atualizar a versão da API somente quando desejar usar um novo recurso que é introduzido em uma versão posterior. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
 | name |Sim |Nome do recurso. O nome deve seguir as restrições de componente URI definidas em RFC3986. Os serviços do Azure que expõem o nome do recurso a partes externas validam o nome para verificar se não há uma tentativa de falsificar outra identidade. Para um recurso filho, o formato do nome depende se ele está aninhado dentro do recurso pai ou definido fora do recurso pai. Confira [Definir o nome e o tipo de recursos filho](child-resource-name-type.md). |
 | comments |Não |Suas anotações para documentar os recursos no modelo. Para obter mais informações, confira [Comentários em modelos](template-syntax.md#comments). |
@@ -235,6 +236,7 @@ Você define recursos com a seguinte estrutura:
 | marcas |Não |Marcas que são associadas ao recurso. Aplique marcas para organizar recursos logicamente em toda a sua assinatura. |
 | sku | Não | Alguns recursos permitem que os valores definam a SKU para implantar. Por exemplo, você pode especificar o tipo de redundância para uma conta de armazenamento. |
 | kind | Não | Alguns recursos permitem que um valor defina o tipo de recurso que você implantar. Por exemplo, você pode especificar o tipo de Cosmos DB para criar. |
+| scope | Não | A Propriedade Scope só está disponível para [tipos de recursos de extensão](../management/extension-resource-types.md). Use-o ao especificar um escopo diferente do escopo de implantação. Consulte [definindo o escopo para recursos de extensão em modelos ARM](scope-extension-resources.md). |
 | copy |Não |Se mais de uma instância for necessária, o número de recursos a serem criados. O modo padrão é paralelo. Especifica o modo serial quando você não deseja que todos os recursos sejam implantados ao mesmo tempo. Para obter mais informações, consulte [Criar várias instâncias de recursos no Azure Resource Manager](copy-resources.md). |
 | plan | Não | Alguns recursos permitem que um valor defina o plano para implantar. Por exemplo, você pode especificar a imagem do marketplace para uma máquina virtual. |
 | properties |Não |Definições de configuração específicas do recurso. Os valores para as propriedades são iguais aos valores que você fornece no corpo da solicitação para a operação da API REST (método PUT) para criar o recurso. Especifique também uma matriz de cópia para criar várias instâncias de uma propriedade. Para determinar os valores disponíveis, consulte [referência de modelo](/azure/templates/). |
@@ -264,8 +266,8 @@ O exemplo a seguir mostra a estrutura de uma definição de saída:
 |:--- |:--- |:--- |
 | nome de saída |Sim |Nome do valor de saída. Deve ser um identificador JavaScript válido. |
 | condition |Não | Valor booliano que indica se esse valor de saída é retornado. Quando `true`, o valor é incluído na saída para a implantação. Quando `false`, o valor de saída é ignorado para esta implantação. Quando não especificado, o valor padrão é `true`. |
-| type |Sim |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. Se você especificar **SecureString** para o tipo de saída, o valor não será exibido no histórico de implantação e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e referencie o segredo no arquivo de parâmetro. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md). |
-| valor |Não |Expressão de linguagem do modelo avaliada e retornada como valor de saída. Especifique o **valor** ou a **cópia**. |
+| tipo |Sim |Tipo do valor de saída. Valores de saída oferecem suporte aos mesmos tipos que os parâmetros de entrada do modelo. Se você especificar **SecureString** para o tipo de saída, o valor não será exibido no histórico de implantação e não poderá ser recuperado de outro modelo. Para usar um valor secreto em mais de um modelo, armazene o segredo em um Key Vault e referencie o segredo no arquivo de parâmetro. Para saber mais, confira [Usar o Azure Key Vault para passar um valor de parâmetro seguro durante a implantação](key-vault-parameter.md). |
+| value |Não |Expressão de linguagem do modelo avaliada e retornada como valor de saída. Especifique o **valor** ou a **cópia**. |
 | copy |Não | Usado para retornar mais de um valor para uma saída. Especifique o **valor** ou a **cópia**. Para obter mais informações, consulte [Iteration de saída em modelos ARM](copy-outputs.md). |
 
 Para obter exemplos de como usar saídas, consulte [saídas no modelo ARM](template-outputs.md).

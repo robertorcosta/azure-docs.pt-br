@@ -6,12 +6,12 @@ ms.author: anvar
 ms.manager: bsiva
 ms.topic: how-to
 ms.date: 03/02/2021
-ms.openlocfilehash: 634eb2d22e3fa570ac9412d4fb8afd917b5c2eaa
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 5ca821cb4f85deb77595e4a9029cc10298dbb884
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 03/26/2021
-ms.locfileid: "105563997"
+ms.locfileid: "105611966"
 ---
 # <a name="scale-agentless-migration-of-vmware-virtual-machines-to-azure"></a>Dimensionar a migração sem agente de máquinas virtuais VMware para o Azure
 
@@ -43,8 +43,8 @@ Para saber como executar as informações acima, consulte o tutorial sobre como 
 
 Para adicionar um dispositivo de expansão, siga as etapas mencionadas abaixo:
 
-1. Clique em **descobrir**  >  **são computadores virtualizados?** 
-1. Selecione **Sim, com o hipervisor do VMware vSphere.**
+1. Clique em **descobrir**  >  **seus computadores são virtualizados?** 
+1. Selecione **Sim, com VMware vSphere hipervisor.**
 1. Selecione replicação sem agente na próxima etapa.
 1. Selecione **escalar horizontalmente um dispositivo primário existente** no menu Selecionar o tipo de dispositivo.
 1. Selecione o dispositivo primário (o dispositivo que usa a descoberta que foi realizada) que você deseja expandir.
@@ -54,7 +54,7 @@ Para adicionar um dispositivo de expansão, siga as etapas mencionadas abaixo:
 ### <a name="1-generate-the-azure-migrate-project-key"></a>1. Gerar a chave do projeto das Migrações para Azure
 
 1. Em **gerar chave de projeto de migrações para Azure**, forneça um nome de sufixo para o dispositivo de expansão. O sufixo pode conter apenas caracteres alfanuméricos e tem um limite de tamanho de 14 caracteres.
-2. Clique em **gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página Descobrir durante a criação de recursos.
+2. Clique em **gerar chave** para iniciar a criação dos recursos do Azure necessários. Não feche a página de descoberta durante a criação de recursos.
 3. Copie a chave gerada. Você precisará da chave mais tarde para concluir o registro do dispositivo de expansão.
 
 ### <a name="2-download-the-installer-for-the-scale-out-appliance"></a>2. Baixe o instalador para o dispositivo de expansão
@@ -68,8 +68,8 @@ Em **baixar dispositivo de migrações para Azure**, clique em  **baixar**. Voc�
 > 1. Abrir o prompt de comando como administrador
 > 2. Execute o seguinte comando para gerar o hash para o arquivo zip:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Exemplo de uso da nuvem pública: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
-> 3. Baixe a versão mais recente do instalador do dispositivo de expansão no portal se o valor de hash calculado não corresponder a esta cadeia de caracteres: e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+    - Exemplo de uso da nuvem pública: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+> 3. Baixe a versão mais recente do instalador do dispositivo de expansão no portal se o valor de hash calculado não corresponder a esta cadeia de caracteres: 1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
 
 ### <a name="3-run-the-azure-migrate-installer-script"></a>3. Executar o script de instalador de Migrações para Azure
 O script do instalador faz o seguinte:
@@ -108,7 +108,7 @@ Antes de começar, verifique se [esses pontos de extremidade do Azure](migrate-a
 - Aceite os **termos de licença** e leia as informações de terceiros.
 - No Configuration Manager > **Configurar pré-requisitos**, siga estas etapas:
    - **Conectividade**: o dispositivo verifica se o servidor tem acesso à Internet. Se o servidor usar um proxy:
-     1. Clique em **Configurar proxy** para especificar o endereço de proxy (na forma http://ProxyIPAddress ou http://ProxyFQDN) e na porta de escuta).
+     1. Clique em **Configurar proxy** para especificar o endereço do proxy (no formulário http://ProxyIPAddress ou http://ProxyFQDN) porta de escuta.
      2. Especifique as credenciais caso o proxy exija autenticação.
      3. Há suporte apenas para o proxy HTTP.
      4. Se você tiver adicionado detalhes de proxy ou desabilitado o proxy e/ou a autenticação, clique em **Salvar** para disparar a verificação de conectividade novamente.
@@ -124,7 +124,7 @@ Antes de começar, verifique se [esses pontos de extremidade do Azure](migrate-a
 :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Janela restrita mostrando o código do dispositivo":::
 
 1. Clique em **Copiar código e Fazer logon** para copiar o código do dispositivo e abrir um prompt de logon do Azure em uma nova guia do navegador. Se essa opção não for exibida, verifique se você desabilitou o bloqueador de pop-ups no navegador.
-1. Na nova guia, cole o código do dispositivo e entre usando seu nome de usuário e sua senha do Azure.
+1. Na guia novo, Cole o código do dispositivo e entre usando seu nome de usuário e senha do Azure.
    
    Não há suporte para a entrada com um PIN.
 3. Caso feche a guia de logon por engano sem fazer logon, você precisará atualizar a guia do navegador do gerenciador de configuração do dispositivo para habilitar novamente o botão Logon.

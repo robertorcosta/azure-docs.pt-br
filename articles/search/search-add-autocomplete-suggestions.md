@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 03/24/2021
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: a46c7f35e30b2dda7b4800ed553447cef5bb5d33
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 6bc45bb6eec9dbf46e039dd1e2c32197820bb09d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105609346"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105626700"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps-using-azure-cognitive-search"></a>Adicionar preenchimento automático e sugestões para aplicativos cliente usando o Azure Pesquisa Cognitiva
 
@@ -81,13 +81,15 @@ Os seguintes parâmetros adicionais se aplicam a AutoCompletar e sugestões, mas
 
 O preenchimento automático de um termo de consulta ou a remoção de uma lista de links correspondentes requer o código de interação do usuário, normalmente o JavaScript, que pode consumir solicitações de fontes externas, como preenchimento automático ou consultas de sugestão em um Azure Search índice cognitiva.
 
-Embora você possa escrever esse código nativamente, é muito mais fácil usar funções da biblioteca JavaScript existente. Este artigo menciona dois, um para sugestões e outro para preenchimento automático. 
+Embora você possa escrever esse código nativamente, é muito mais fácil usar funções da biblioteca JavaScript existente, como uma das opções a seguir. 
 
 + O [widget preenchimento automático (IU do jQuery)](https://jqueryui.com/autocomplete/) aparece no trecho de código de sugestão. Você pode criar uma caixa de pesquisa e, em seguida, referenciá-la em uma função JavaScript que usa o widget preenchimento automático. As propriedades no widget definem a origem (uma função de AutoCompletar ou de sugestões), o comprimento mínimo dos caracteres de entrada antes que a ação seja executada e o posicionamento.
 
 + O [plug-in de preenchimento automático do XDSoft](https://xdsoft.net/jqplugins/autocomplete/) aparece no trecho de código de preenchimento automático.
 
-Usamos essas bibliotecas para criar a caixa de pesquisa com suporte para sugestões e preenchimento automático. As entradas coletadas na caixa de pesquisa são emparelhadas com sugestões e ações de preenchimento automático.
++ as [sugestões](https://www.npmjs.com/package/suggestions) são exibidas no [tutorial do JavaScript](tutorial-javascript-overview.md) e no exemplo de código.
+
+Use essas bibliotecas no cliente para criar uma caixa de pesquisa com suporte a sugestões e preenchimento automático. As entradas coletadas na caixa de pesquisa podem ser emparelhadas com sugestões e ações de preenchimento automático no serviço de pesquisa.
 
 ## <a name="suggestions"></a>Sugestões
 
@@ -247,7 +249,7 @@ A função Autocomplete usa a entrada do termo de pesquisa. O método cria um [o
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Siga estes links para obter instruções de ponta a ponta ou código que demonstram experiências de pesquisa conforme o tipo. O exemplo demonstra as implementações híbridas de sugestões e o preenchimento automático em conjunto.
+Siga estes links para obter instruções de ponta a ponta ou código que demonstram experiências de pesquisa conforme o tipo. O exemplo demonstra a implementação híbrida de sugestões e o preenchimento automático em conjunto.
 
-+ [Tutorial: criar seu primeiro aplicativo em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Exemplo de código C#: Azure-Search-dotnet-Samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
++ [Adicionar pesquisa a um site (JavaScript)](tutorial-javascript-search-query-integration.md#azure-function-suggestions-from-the-catalog) usa um pacote de sugestões de código-fonte aberto para conclusão de termo parcial no aplicativo cliente.
++ [Tutorial: Crie seu primeiro aplicativo em C# (lição 3)](tutorial-csharp-type-ahead-and-suggestions.md) com o  [exemplo de código do c# associado: Azure-Search-dotnet-Samples/Create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead) demonstre o suporte nativo para typeahead.

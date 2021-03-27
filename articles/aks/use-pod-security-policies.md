@@ -3,27 +3,20 @@ title: Usar políticas de segurança de Pod no serviço kubernetes do Azure (AKS
 description: Saiba como controlar as inmissões Pod usando o PodSecurityPolicy no serviço kubernetes do Azure (AKS)
 services: container-service
 ms.topic: article
-ms.date: 02/12/2021
-ms.openlocfilehash: cf520f4b0dc2f51e6431d65ef178b6635d7fd857
-ms.sourcegitcommit: 44edde1ae2ff6c157432eee85829e28740c6950d
+ms.date: 03/25/2021
+ms.openlocfilehash: d95cdb51136511bdd8529c829c3f680d19e14ba9
+ms.sourcegitcommit: c94e282a08fcaa36c4e498771b6004f0bfe8fb70
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105544240"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105611762"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>Visualização – Proteja seu cluster usando políticas de segurança pod no serviço de kubernetes do Azure (AKS)
 
 > [!WARNING]
-> **O recurso descrito neste documento, política de segurança Pod (versão prévia), está definido para substituição e não estará mais disponível após 30 de junho de 2021** em favor de [Azure Policy para AKs](use-azure-policy.md). A data de reprovação foi estendida da data anterior de 15 de outubro de 2020.
+> **O recurso descrito neste documento, política de segurança de Pod (versão prévia), começará a ser reprovada com a versão 1,21 do kubernetes, com sua remoção na versão 1,25.** Como o kubernetes upstream se aproxima da etapa, a Comunidade do kubernetes estará trabalhando para documentar alternativas viáveis. O anúncio de substituição anterior foi feito no momento, pois não havia uma opção viável para os clientes. Agora que a Comunidade kubernetes está trabalhando em uma alternativa, não há mais a necessidade de se preterir à frente do kubernetes.
 >
 > Depois que a política de segurança de pods (versão prévia) for preterida, você precisará desabilitar o recurso em todos os clusters existentes usando o recurso preterido para realizar futuras atualizações de cluster e permanecer dentro do suporte do Azure.
->
-> É altamente recomendável começar a testar cenários com o Azure Policy para AKS, que oferece políticas internas para proteger pods e iniciativas internas que mapeiam para políticas de segurança Pod. Para migrar da política de segurança de Pod, você precisa executar as seguintes ações em um cluster.
-> 
-> 1. [Desabilitar política de segurança de Pod](#clean-up-resources) no cluster
-> 1. Habilitar o [complemento de Azure Policy][azure-policy-add-on]
-> 1. Habilitar as políticas do Azure desejadas de [políticas internas disponíveis][policy-samples]
-> 1. Examinar [as alterações de comportamento entre a política de segurança de Pod e Azure Policy](#behavior-changes-between-pod-security-policy-and-azure-policy)
 
 Para melhorar a segurança do cluster AKS, você pode limitar o que o pods pode ser agendado. Os pods que solicitam recursos que você não permitir não podem ser executados no cluster AKS. Você define esse acesso usando políticas de segurança de Pod. Este artigo mostra como usar políticas de segurança de pod para limitar a implantação de pods em AKS.
 

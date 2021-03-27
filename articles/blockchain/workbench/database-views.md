@@ -4,16 +4,16 @@ description: Visão geral das exibições do banco de dados SQL do Azure Blockch
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
-ms.openlocfilehash: e715bd2297c1e051ae92b15d73c945c9e80c3d94
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 6c7fba590c9c8951e1862c28cb24dbde52c8da8d
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "87003314"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625527"
 ---
 # <a name="azure-blockchain-workbench-database-views"></a>Exibições do banco de dados do Azure Blockchain Workbench
 
-A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017), para interagir com os dados do blockchain.
+A visualização do Azure Blockchain Workbench fornece dados de razões distribuídas para um banco de dados SQL DB *fora da cadeia* . O banco de dados fora da cadeia torna possível usar o SQL e as ferramentas existentes, como [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), para interagir com os dados do blockchain.
 
 O Azure Blockchain Workbench fornece um conjunto de exibições de banco de dados que fornecem acesso a dados que poderão ser úteis ao executar as consultas. Essas exibições são extremamente desnormalizadas para tornar mais fácil de obter rapidamente iniciadas criando relatórios, análise e caso contrário consumir dados blockchain com as ferramentas existentes e sem a necessidade de treinar novamente a equipe de banco de dados.
 
@@ -27,7 +27,7 @@ Esta seção inclui uma visão geral das exibições de banco de dados e os dado
 
 Essa exibição fornece detalhes sobre **Aplicativos** que tenham sido carregados no Azure Blockchain Workbench.
 
-| Nome                             | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Nome                             | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |----------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                    | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName                  | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -48,7 +48,7 @@ Essa exibição fornece detalhes sobre as funções que foram definidas nos apli
 
 No aplicativo *Transferir Ativo*, por exemplo, funções como *Comprador* e *Vendedor* podem ser definidas.
 
-| Nome                   | Tipo             | Pode ser nulo | Descrição                                       |
+| Nome                   | Type             | Pode ser nulo | Descrição                                       |
 |------------------------|------------------|-------------|---------------------------------------------------|
 | ApplicationId          | int              | Não          | Um identificador exclusivo para o aplicativo           |
 | ApplicationName        | nvarchar (50)     | Não          | O nome do aplicativo                       |
@@ -64,7 +64,7 @@ Essa exibição fornece detalhes sobre as funções que foram definidas nos apli
 
 Em um aplicativo *Transferir ativo*, por exemplo, *John Smith* pode estar associado a função *Comprador*.
 
-| Nome                       | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
+| Nome                       | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
 |----------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId              | int           | Não          | Um identificador exclusivo para o aplicativo                                                                                                                                                                                               |
 | ApplicationName            | nvarchar (50)  | Não          | O nome do aplicativo                                                                                                                                                                                                           |
@@ -87,7 +87,7 @@ Esta exibição fornece detalhes sobre as conexões que foram definidas no Azure
 -   Detalhes do razão associado
 -   Informações do usuário associado
 
-| Nome                     | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
+| Nome                     | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                           |
 |--------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConnectionId             | int           | Não          | O identificador exclusivo para uma conexão no Azure Blockchain Workbench |
 | ConnectionEndpointUrl    | nvarchar (50)  | Não          | A URL do ponto de extremidade para uma conexão |
@@ -112,7 +112,7 @@ Esta exibição fornece detalhes sobre os contratos implantados. Para cada contr
 -   Detalhes do usuário que iniciou a ação
 -   Detalhes relacionados ao bloco de blockchain e transações
 
-| Nome                                     | Tipo           | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Nome                                     | Type           | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |------------------------------------------|----------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ConnectionId                             | int            | Não          | O identificador exclusivo para uma conexão no Azure Blockchain Workbench.                                                                                                                                                                                         |
 | ConnectionEndpointUrl                    | nvarchar (50)   | Não          | A URL do ponto de extremidade para uma conexão |
@@ -153,7 +153,7 @@ Esta exibição representa a maioria das informações relacionadas às ações 
 -   Detalhes do usuário que iniciou a ação
 -   Detalhes relacionados ao bloco de blockchain e transações
 
-| Nome                                     | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                                                    |
+| Nome                                     | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                                                    |
 |------------------------------------------|---------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                            | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName                          | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -212,7 +212,7 @@ Esta exibição representa a maioria das informações relacionadas às propried
 -   Valores de instância específica de propriedades
 -   Detalhes da propriedade estado do contrato
 
-| Nome                               | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
+| Nome                               | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName                    | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -252,7 +252,7 @@ Esta exibição representa a maioria das informações relacionadas ao estado de
 -   Definição de propriedade de contrato inteligente associado
 -   Detalhes da propriedade estado do contrato
 
-| Nome                               | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
+| Nome                               | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                                        |
 |------------------------------------|---------------|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                      | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName                    | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -287,7 +287,7 @@ Esta exibição representa a maioria das informações relacionadas ao estado de
 
 Essa exibição fornece detalhes sobre os membros do consórcio que são provisionados para usar o Azure Blockchain Workbench. Por padrão, os dados são preenchidos por meio do provisionamento inicial do usuário.
 
-| Nome               | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                               |
+| Nome               | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                               |
 |--------------------|---------------|-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ID                 | int           | Não          | Um identificador exclusivo de um usuário |
 | ExternalId         | nvarchar (255) | Não          | Um identificador externo de um usuário. Por padrão, essa ID é o GUID que representa a ID de Azure Active Directory para o usuário. |
@@ -298,13 +298,13 @@ Essa exibição fornece detalhes sobre os membros do consórcio que são provisi
 
 ## <a name="vwworkflow"></a>vwWorkflow
 
-Esta exibição representa os detalhes dos metadados do fluxo de trabalho de núcleo bem como as funções e parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada fluxo de trabalho, essa exibição contém os seguintes dados:
+Essa exibição representa os detalhes principais metadados do fluxo de trabalho, bem como as funções e os parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada fluxo de trabalho, essa exibição contém os seguintes dados:
 
 -   Definição de aplicativo associado
 -   Definição de fluxo de trabalho associado
 -   Associado a informações de estado de início do fluxo de trabalho
 
-| Nome                              | Tipo          | Pode ser nulo | Descrição                                                                                                                                |
+| Nome                              | Type          | Pode ser nulo | Descrição                                                                                                                                |
 |-----------------------------------|---------------|-------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                     | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName                   | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -325,13 +325,13 @@ Esta exibição representa os detalhes dos metadados do fluxo de trabalho de nú
 
 ## <a name="vwworkflowfunction"></a>vwWorkflowFunction
 
-Esta exibição representa os detalhes dos metadados do fluxo de trabalho de núcleo bem como as funções e parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada função de fluxo de trabalho, essa exibição contém os seguintes dados:
+Essa exibição representa os detalhes principais metadados do fluxo de trabalho, bem como as funções e os parâmetros do fluxo de trabalho. Projetado para emissão de relatórios, ele também contém metadados sobre o aplicativo associado ao fluxo de trabalho. Essa exibição contém dados de várias tabelas subjacentes para facilitar a emissão de relatórios sobre fluxos de trabalho. Para cada função de fluxo de trabalho, essa exibição contém os seguintes dados:
 
 -   Definição de aplicativo associado
 -   Definição de fluxo de trabalho associado
 -   Detalhes da função de fluxo de trabalho
 
-| Nome                                 | Tipo          | Pode ser nulo | Descrição                                                                          |
+| Nome                                 | Type          | Pode ser nulo | Descrição                                                                          |
 |--------------------------------------|---------------|-------------|--------------------------------------------------------------------------------------|
 | ApplicationId                        | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName                      | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -360,7 +360,7 @@ Esta exibição representa as propriedades definidas para um fluxo de trabalho. 
 -   Definição de fluxo de trabalho associado
 -   Detalhes da propriedade de fluxo de trabalho
 
-| Nome                         | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Nome                         | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName              | nvarchar (50)  | Não          | O nome do aplicativo |
@@ -387,7 +387,7 @@ Esta exibição representa as propriedades associadas ao fluxo de trabalho. Para
 -   Definição de fluxo de trabalho associado
 -   Informações do estado do fluxo de trabalho
 
-| Nome                         | Tipo          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
+| Nome                         | Type          | Pode ser nulo | Descrição                                                                                                                                                                                                                                                   |
 |------------------------------|---------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ApplicationId                | int           | Não          | Um identificador exclusivo para o aplicativo |
 | ApplicationName              | nvarchar (50)  | Não          | O nome do aplicativo |

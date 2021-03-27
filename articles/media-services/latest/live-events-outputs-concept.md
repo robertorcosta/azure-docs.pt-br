@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: conceptual
 ms.date: 10/23/2020
 ms.author: inhenkel
-ms.openlocfilehash: a66532856263d31e9070bc99f297ae105ca48312
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 1ef49b66e6bba7c829abd35f6c8cc4169a2c14a0
+ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102454780"
+ms.lasthandoff: 03/27/2021
+ms.locfileid: "105625289"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventos e saídas ao vivo nos Serviços de Mídia
 
@@ -117,47 +117,68 @@ Consulte também [convenções de nomenclatura de pontos de extremidade de strea
 Depois que o evento ao vivo for criado, você poderá obter URLs de ingestão que você fornecerá ao codificador local em tempo real. O codificador dinâmico usa essas URLs para gerar a entrada de um fluxo ao vivo. Para obter mais informações, consulte [codificadores ativos locais recomendados](recommended-on-premises-live-encoders.md).
 
 >[!NOTE]
-> A partir da versão da API 2020-05-01, as URLs do intuitivo são conhecidas como nomes de host estáticos
+> A partir da versão da API 2020-05-01, as URLs "intuitivo" são conhecidas como nomes de host estáticos (useStaticHostname: true)
 
-Você pode usar URLs intuitivas ou não intuitivas.
 
 > [!NOTE]
-> Para que uma URL de ingestão seja preditiva, defina o modo de "personalização".
+> Para que uma URL de ingestão seja estática e previsível para uso em uma configuração de codificador de hardware, defina a propriedade **useStaticHostname** como true e defina a propriedade **accessToken** como o mesmo GUID em cada criação. 
 
-* URL não intuitiva
+### <a name="example-liveevent-and-liveeventinput-configuration-settings-for-a-static-non-random-ingest-rtmp-url"></a>Exemplo de definições de configuração LiveEvent e LiveEventInput para uma URL RTMP de ingestão estática (não aleatória).
 
-    A URL não intuitivo é o modo padrão no Media Services V3. Você potencialmente Obtém o evento ao vivo rapidamente, mas a URL de ingestão é conhecida somente quando o evento ao vivo é iniciado. A URL será alterada se você parar/iniciar o evento ao vivo. Não intuitivo é útil em cenários quando um usuário final deseja transmitir usando um aplicativo em que o aplicativo deseja obter um evento ao vivo e ter uma URL de ingestão dinâmica não é um problema.
+```csharp
+             LiveEvent liveEvent = new LiveEvent(
+                    location: mediaService.Location,
+                    description: "Sample LiveEvent from .NET SDK sample",
+                    // Set useStaticHostname to true to make the ingest and preview URL host name the same. 
+                    // This can slow things down a bit. 
+                    useStaticHostname: true,
+
+                    // 1) Set up the input settings for the Live event...
+                    input: new LiveEventInput(
+                        streamingProtocol: LiveEventInputProtocol.RTMP,  // options are RTMP or Smooth Streaming ingest format.
+                                                                         // This sets a static access token for use on the ingest path. 
+                                                                         // Combining this with useStaticHostname:true will give you the same ingest URL on every creation.
+                                                                         // This is helpful when you only want to enter the URL into a single encoder one time for this Live Event name
+                        accessToken: "acf7b6ef-8a37-425f-b8fc-51c2d6a5a86a",  // Use this value when you want to make sure the ingest URL is static and always the same. If omitted, the service will generate a random GUID value.
+                        accessControl: liveEventInputAccess, // controls the IP restriction for the source encoder.
+                        keyFrameIntervalDuration: "PT2S" // Set this to match the ingest encoder's settings
+                    ),
+```
+
+* Nome de host não estático
+
+    Um nome de host não estático é o modo padrão nos serviços de mídia v3 ao criar um **LiveEvent**. Você pode obter o evento ao vivo alocado um pouco mais rapidamente, mas a URL de ingestão necessária para seu hardware ou software de codificação ao vivo será aleatória. A URL será alterada se você parar/iniciar o evento ao vivo. Nomes de host não estáticos são úteis apenas em cenários em que um usuário final deseja transmitir usando um aplicativo que precisa obter um evento ao vivo rapidamente e ter uma URL de ingestão dinâmica não é um problema.
 
     Se um aplicativo cliente não precisar gerar previamente uma URL de ingestão antes que o evento ao vivo seja criado, permita que os serviços de mídia gerem automaticamente o token de acesso para o evento ao vivo.
 
-* URL intuitiva
+* Nomes de host estáticos 
 
-    O modo intuitivo é preferido por difusores de mídia grandes que usam codificadores de difusão de hardware e não desejam reconfigurar seus codificadores quando eles iniciam o evento ao vivo. Esses difusores desejam uma URL de ingestão preditiva que não é alterada ao longo do tempo.
+    O modo de nome de host estático é preferencial pela maioria dos operadores que desejam pré-configurar seu hardware ou software de codificação ao vivo com uma URL de ingestão RTMP que nunca muda na criação ou na parada/início de um evento ao vivo específico. Esses operadores desejam uma URL de ingestão RTMP preditiva que não é alterada ao longo do tempo. Isso também é muito útil quando você precisa enviar por push uma URL de ingestão RTMP estática para as definições de configuração de um dispositivo de codificação de hardware como o BlackMagic Atem mini pro ou ferramentas de produção e de codificação de hardware semelhantes. 
 
     > [!NOTE]
-    > No portal do Azure, a URL intuitivo é denominada "*prefixo de nome de host estático*".
+    > No portal do Azure, a URL do nome de host estático é chamada "*prefixo de nome de host estático*".
 
     Para especificar esse modo na API, defina `useStaticHostName` como `true` no momento da criação (o padrão é `false` ). Quando `useStaticHostname` é definido como true, o `hostnamePrefix` especifica a primeira parte do nome de host atribuído aos pontos de extremidade de visualização e ingestão de eventos ao vivo. O hostname final seria uma combinação desse prefixo, o nome da conta do serviço de mídia e um código curto para os data center dos serviços de mídia do Azure.
 
     Para evitar um token aleatório na URL, você também precisa passar seu próprio token de acesso ( `LiveEventInput.accessToken` ) no momento da criação.  O token de acesso deve ser uma cadeia de caracteres GUID válida (com ou sem os hifens). Depois que o modo for definido, ele não poderá ser atualizado.
 
-    O token de acesso precisa ser exclusivo em seu data center. Se seu aplicativo precisar usar uma URL intuitivo, é recomendável sempre criar uma nova instância de GUID para seu token de acesso (em vez de reutilizar qualquer GUID existente).
+    O token de acesso precisa ser exclusivo na sua região do Azure e na conta dos serviços de mídia. Se seu aplicativo precisar usar uma URL de ingestão de nome de host estático, é recomendável sempre criar uma nova instância GUID para uso com uma combinação específica de região, conta de serviços de mídia e evento ao vivo.
 
-    Use as seguintes APIs para habilitar a URL intuitivo e definir o token de acesso para um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
+    Use as APIs a seguir para habilitar a URL de nome de host estático e definir o token de acesso para um GUID válido (por exemplo, `"accessToken": "1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"` ).  
 
-    |Idioma|Habilitar URL intuitivo|Definir token de acesso|
+    |Linguagem|Habilitar URL de nome de host estático|Definir token de acesso|
     |---|---|---|
-    |REST|[Properties. vanityUrl](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--intuitivo-URL](/cli/azure/ams/live-event#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event#optional-parameters)|
-    |.NET|[LiveEvent. VanityUrl](/dotnet/api/microsoft.azure.management.media.models.liveevent#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST|[Properties. useStaticHostname](/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.useStaticHostname](/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--Use-static-hostname](/cli/azure/ams/live-event#az-ams-live-event-create)|[--Access-token](/cli/azure/ams/live-event#optional-parameters)|
+    |.NET|[LiveEvent. useStaticHostname](/dotnet/api/microsoft.azure.management.media.models.liveevent.usestatichostname?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_UseStaticHostname)|[LiveEventInput. AccessToken](/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
 
 ### <a name="live-ingest-url-naming-rules"></a>Regras de nomenclatura de URL de ingestão dinâmica
 
 * A cadeia de caracteres *aleatória* abaixo é um número hexadecimal de 128 bits composto de 32 caracteres de “0” a “9” e “a” a “f”.
-* *seu token de acesso*: a cadeia de caracteres GUID válida que você define ao usar o modo intuitivo. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* *seu token de acesso*: a cadeia de caracteres GUID válida que você define ao usar a configuração de nome de host estático. Por exemplo, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
 * *nome do fluxo*: indica o nome do fluxo para uma conexão específica. O valor do nome do fluxo geralmente é adicionado pelo codificador ao vivo que você usa. Você pode configurar o codificador ao vivo para usar qualquer nome para descrever a conexão, por exemplo: "video1_audio1", "video2_audio1", "fluxo".
 
-#### <a name="non-vanity-url"></a>URL não intuitiva
+#### <a name="non-static-hostname-ingest-url"></a>URL de ingestão de nome de host não estático
 
 ##### <a name="rtmp"></a>RTMP
 
@@ -171,7 +192,7 @@ Você pode usar URLs intuitivas ou não intuitivas.
 `http://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 `https://<random 128bit hex string>.channel.media.azure.net/<auto-generated access token>/ingest.isml/streams(<stream name>)`<br/>
 
-#### <a name="vanity-url"></a>URL intuitiva
+#### <a name="static-hostname-ingest-url"></a>URL de ingestão de nome de host estático
 
 Nos caminhos a seguir, `<live-event-name>` significa o nome fornecido ao evento ou o nome personalizado usado na criação do evento ao vivo.
 
