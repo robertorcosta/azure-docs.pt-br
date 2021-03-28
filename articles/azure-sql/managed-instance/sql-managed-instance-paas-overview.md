@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, vanto
 ms.date: 01/14/2021
-ms.openlocfilehash: dca4d699ac1253753c82949cb480d95a1dde26e2
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 5d49a5b57ff4b59005461f2bb13451822723b039
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104594097"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644989"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>O que é Instância Gerenciada de SQL do Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -49,7 +49,7 @@ A Instância Gerenciada de SQL combina os melhores recursos disponíveis no Banc
 | --- | --- |
 |Sem gerenciamento e compra de hardware <br>Sem sobrecarga de gerenciamento para gerenciar infraestrutura subjacente <br>Rápido provisionamento e dimensionamento de serviço <br>Aplicação de patch automatizado e atualização da versão <br>Integração com outros serviços de dados PaaS |99,99% do SLA de tempo de atividade  <br>[Alta disponibilidade](../database/high-availability-sla.md) interna <br>Dados protegidos com [backups automatizados](../database/automated-backups-overview.md) <br>Período de retenção de backup configurável pelo cliente <br>[Backups](/sql/t-sql/statements/backup-transact-sql?preserve-view=true&view=azuresqldb-mi-current) iniciados pelo usuário <br>Capacidade de [restauração pontual do banco de dados](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Segurança e conformidade** | **Gerenciamento**|
-|Ambiente isolado ([Integração de VNet](connectivity-architecture-overview.md), serviço de locatário único, computação e armazenamento dedicados) <br>[Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD (Azure Active Directory)](../database/authentication-aad-overview.md), suporte de logon único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">Entidades de segurança do servidor do Azure AD (logons)</a>  <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](auditing-configure.md) <br>[Proteção Avançada contra Ameaças](threat-detection-configure.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
+|Ambiente isolado ([Integração de VNet](connectivity-architecture-overview.md), serviço de locatário único, computação e armazenamento dedicados) <br>[Transparent data encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticação do Azure AD (Azure Active Directory)](../database/authentication-aad-overview.md), suporte de logon único <br> [Entidades de segurança do servidor do Azure AD (logons)](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) <br>Cumpre os padrões de conformidade assim como o Banco de Dados SQL do Azure <br>[Auditoria do SQL](auditing-configure.md) <br>[Proteção Avançada contra Ameaças](threat-detection-configure.md) |API do Azure Resource Manager para automatizar o dimensionamento e provisionamento do serviço <br>Funcionalidade do Portal do Azure para dimensionamento e provisionamento manual do serviço <br>Serviço de Migração de Dados
 
 > [!IMPORTANT]
 > A Instância Gerenciada de SQL do Azure foi certificada em relação a vários padrões de conformidade. Para saber mais, confira as [Ofertas de Conformidade do Microsoft Azure](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuideV3?command=Download&downloadType=Document&downloadId=44bbae63-bf4d-4e3b-9d3d-c96fb25ec363&tab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb&docTab=7027ead0-3d6b-11e9-b9e1-290b1eb4cdeb_FAQ_and_White_Papers), em que é possível encontrar a lista mais atual de certificações de conformidade da Instância Gerenciada de SQL, listadas em **Banco de Dados SQL**.
@@ -161,7 +161,7 @@ Há suporte para a migração de um banco de dados criptografado para a Instânc
 
 A Instância Gerenciada de SQL dá suporte a logons do mecanismo de banco de dados do SQL Server e logons integrados ao Azure AD. As entidades de servidor do Azure AD (logons) (**versão prévia pública**) são uma versão de nuvem do Azure de logons de banco de dados locais que você está usando no ambiente local. As entidades de servidor do Azure AD (logons) permitem que você especifique usuários e grupos de seu locatário do Azure AD como verdadeiras entidades de segurança com escopo de instância, capazes de executar qualquer operação no nível da instância, incluindo consultas entre bancos de dados dentro da mesma instância gerenciada.
 
-Uma nova sintaxe é introduzida para criar entidades de servidor do Azure AD (logons) **DE UM PROVEDOR EXTERNO**. Para obter mais informações sobre a sintaxe, confira <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">CREATE LOGIN</a> e examine o artigo [Provisionar um administrador do Azure Active Directory para a Instância Gerenciada de SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
+Uma nova sintaxe é introduzida para criar entidades de servidor do Azure AD (logons) **DE UM PROVEDOR EXTERNO**. Para obter mais informações sobre a sintaxe, confira [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) e examine o artigo [Provisionar um administrador do Azure Active Directory para a Instância Gerenciada de SQL](../database/authentication-aad-configure.md#provision-azure-ad-admin-sql-managed-instance).
 
 ### <a name="azure-active-directory-integration-and-multi-factor-authentication"></a>Integração do Azure Active Directory e autenticação multifator
 

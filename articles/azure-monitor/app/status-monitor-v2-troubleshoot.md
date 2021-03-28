@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: be202a6016842ee82b3230c2841d416d3b53ea15
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 2641218fa9ddef65c45f2f1a9c9ce807cef35048
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102505572"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642738"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Solucionando problemas do agente de Application Insights (anteriormente denominado Status Monitor v2)
 
@@ -153,7 +153,15 @@ Examine a [referência da API](status-monitor-v2-api-reference.md) para obter um
 4. Tente navegar até seu aplicativo.
 5. Depois que o aplicativo for carregado, retorne para PerfView e selecione **parar coleta**.
 
+### <a name="how-to-capture-full-sql-command-text"></a>Como capturar texto completo do comando SQL
 
+Para capturar o texto do comando SQL completo, você precisa modificar o arquivo de applicationinsights.config com o seguinte:
+
+```xml
+<Add Type="Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule, Microsoft.AI.DependencyCollector">,
+<EnableSqlCommandTextInstrumentation>true</EnableSqlCommandTextInstrumentation>
+</Add>
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 

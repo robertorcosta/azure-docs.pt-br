@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 02/18/2020
-ms.openlocfilehash: 529bc5468c74ac9d50f64decad29fd070a7bda83
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: a3876b63e9dc41a22ac6e95b31f34665a0d0bdd8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105566924"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642342"
 ---
 # <a name="migration-overview-sql-server-to-azure-sql-managed-instance"></a>Visão geral da migração: SQL Server para SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlmi.md)]
@@ -236,7 +236,7 @@ Para obter assistência adicional, consulte os recursos a seguir que foram desen
 |[Automação de coleta de dados de Perfmon usando logman](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Perfmon%20Data%20Collection%20Automation%20Using%20Logman)|Uma ferramenta que coleta dados de execução para entender o desempenho de linha de base que auxilia na recomendação de destino de migração. Essa ferramenta que usa logman.exe para criar o comando que irá criar, iniciar, parar e excluir contadores de desempenho definidos em um SQL Server remoto.|
 |[White Paper-migração de banco de dados para o Azure SQL Instância Gerenciada Restaurando backups completos e diferenciais](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Database%20migrations%20to%20Azure%20SQL%20DB%20Managed%20Instance%20-%20%20Restore%20with%20Full%20and%20Differential%20backups.pdf)|Este white paper fornece orientações e etapas para ajudar a acelerar as migrações de SQL Server para o SQL do Azure Instância Gerenciada se você tiver apenas backups totais e diferenciais (e nenhum recurso de backup de log).|
 
-Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
+A equipe de engenharia de SQL de dados desenvolveu esses recursos. O principal compromisso desta equipe é desbloquear e acelerar a modernização complexa para projetos de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft.
 
 
 ## <a name="next-steps"></a>Próximas etapas

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: b0a96443e1f8596c48882bbdd92b9bb4b910beff
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: c4e70c7f74c202b7de44a259b8a680f57aeaa041
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105567977"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645035"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Melhorar a síntese com a linguagem de marcação de síntese de fala (SSML)
 
@@ -399,7 +399,7 @@ Use o `break` elemento para inserir pausas (ou interrupções) entre palavras ou
 | `strength` | Especifica a duração relativa de uma pausa usando um dos seguintes valores:<ul><li>nenhum</li><li>x-fraco</li><li>baixas</li><li>médio (padrão)</li><li>forte</li><li>x-Strong</li></ul> | Opcional |
 | `time` | Especifica a duração absoluta de uma pausa em segundos ou milissegundos, e esse valor deve ser definido como menor que 5000ms. Exemplos de valores válidos são `2s` e `500ms` | Opcional |
 
-| Segurança                      | Description |
+| Segurança                      | Descrição |
 |-------------------------------|-------------|
 | Nenhum, ou se nenhum valor for fornecido | 0 ms        |
 | x-fraco                        | 250 ms      |
@@ -877,7 +877,7 @@ Não vamos ler os elementos de indicador.
 O elemento Bookmark pode ser usado para fazer referência a um local específico na sequência de texto ou de marca.
 
 > [!NOTE]
-> `bookmark` o elemento funciona apenas para `en-US-AriaNeural` voz na região oeste dos EUA 2 ( `westus2` ) por enquanto.
+> `bookmark` o elemento funciona apenas para `en-US-AriaNeural` voz por enquanto.
 
 **Sintaxe**
 

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/11/2021
 ms.author: normesta
-ms.openlocfilehash: 769163dd09ec29c2c206d0273e71de27732fb9db
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c9eb1aa2e88019609f5ab26c2e995e4e43063ca
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100516271"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640814"
 ---
 # <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Recursos de armazenamento de blobs no Azure Data Lake Storage Gen2
 
@@ -50,7 +50,7 @@ A tabela a seguir mostra como cada recurso de armazenamento de BLOBs tem suporte
 |Acesso público anônimo |Disponível para o público geral|Disponível para o público geral| Consulte [Configurar acesso de leitura público anônimo para contêineres e blobs](anonymous-read-access-configure.md).|
 |Failover de conta gerenciada pelo cliente|Ainda não compatível|Ainda não compatível|[Recuperação de desastre e failover de conta](../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Chaves fornecidas pelo cliente|Ainda não compatível|Ainda não compatível|[Fornecer uma chave de criptografia em uma solicitação para o armazenamento de BLOBs](encryption-customer-provided-keys.md)|
-|Escopos de criptografia|Ainda não compatível|Ainda não compatível|[Criar e gerenciar escopos de criptografia (visualização)](encryption-scope-manage.md)|
+|Escopos de criptografia|Ainda não compatível|Ainda não compatível|[Criar e gerenciar escopos de criptografia](encryption-scope-manage.md)|
 |Feed de alteração|Ainda não compatível|Ainda não compatível|[Suporte ao feed de alterações no armazenamento de blobs do Azure](storage-blob-change-feed.md)|
 |Replicação de objeto|Ainda não compatível|Ainda não compatível|[Configurar a replicação de objeto para BLOBs de blocos](object-replication-configure.md)|
 |Controle de versão de BLOB|Ainda não compatível|Ainda não compatível|[Habilitar e gerenciar o controle de versão de blob](versioning-enable.md)|

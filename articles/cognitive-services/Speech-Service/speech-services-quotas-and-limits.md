@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/15/2021
+ms.date: 03/27/2021
 ms.author: alexeyo
-ms.openlocfilehash: 78e40250710c133cbed53c05137971247663b0df
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7fe2942250e165606175392d7749becda0cff23b
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103564415"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645111"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Cotas e limites de serviços de fala
 
@@ -39,7 +39,7 @@ Para o uso com o [SDK de fala](speech-sdk.md) e/ou a [API REST de fala em texto 
 #### <a name="batch-transcription"></a>Transcrição em lote
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| Limite da API REST | A transcrição do lote não está disponível para F0 | 300 solicitações por minuto |
+| Limite da [API REST de conversão de fala em texto v 2.0 e v 3.0](rest-speech-to-text.md#speech-to-text-rest-api-v30) | A transcrição do lote não está disponível para F0 | 300 solicitações por minuto |
 | Tamanho máximo do arquivo de entrada de áudio | N/D | 1 GB |
 | Tamanho máximo de blob de entrada (pode conter mais de um arquivo, por exemplo, em um arquivo zip; certifique-se de anotar o limite de tamanho de arquivo acima) | N/D | 2,5 GB |
 | Tamanho máximo do contêiner de BLOB | N/D | 5 GB |
@@ -112,9 +112,9 @@ O valor existente do parâmetro de limite de solicitação simultânea **não** 
 #### <a name="have-the-required-information-ready"></a>Ter as informações necessárias prontas:
 - Para o **modelo base**:
   - ID do recurso de fala
-  - Região
+  - Region
 - Para o **modelo personalizado**: 
-  - Região
+  - Region
   - ID do ponto de extremidade personalizado
 
 - **Como obter informações (modelo base)**:  

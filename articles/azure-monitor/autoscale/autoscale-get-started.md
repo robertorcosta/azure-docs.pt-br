@@ -4,12 +4,12 @@ description: Saiba como dimensionar seu aplicativo Web de recursos, serviço de 
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: 081e06fbd6506c76a068d7207e29efb66502a9dd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: edc58ed4af3475a45804e3833424bec79d50ff89
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101726046"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641541"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introdução ao dimensionamento automático no Azure
 Este artigo descreve como configurar o dimensionamento automático para seu recurso no Portal do Microsoft Azure.
@@ -113,6 +113,10 @@ Agora, você pode definir o número de instâncias para o qual deseja dimensiona
 
 Você sempre pode retornar para o dimensionamento automático clicando em **Habilitar dimensionamento automático** e **Salvar**.
 
+### <a name="cool-down-period-effects"></a>Efeitos de período de resfriamento
+
+O dimensionamento automático usa um período de resfriamento para evitar "oscilação", que é o dimensionamento rápido, repetative cima e para baixo das instâncias.  Para obter mais informações, consulte [etapas de avaliação de dimensionamento automático](autoscale-understanding-settings.md#autoscale-evaluation).  Outras informações valiosas sobre oscilação e compreensão de como monitorar o mecanismo de dimensionamento automático podem ser encontradas em [práticas recomendadas de dimensionamento automático](autoscale-best-practices.md#choose-the-thresholds-carefully-for-all-metric-types) e [solução de problemas de dimensionamento automático](autoscale-troubleshoot.md) , respectivamente. 
+
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Rotear o tráfego para instâncias íntegras (serviço de aplicativo)
 
 <a id="health-check-path"></a>
@@ -136,6 +140,7 @@ Para saber mais sobre como mover recursos entre regiões e recuperação de desa
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert)
+
 
 <!--Reference-->
 [1]:https://portal.azure.com

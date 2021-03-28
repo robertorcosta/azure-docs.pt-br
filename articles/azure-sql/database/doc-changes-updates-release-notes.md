@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: sstein
-ms.openlocfilehash: 0ddd2c96be3513d253537cefd5b9eb83da2b3c12
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 9827a40b2ebc91c17ad7b5457259b8d82565edee
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102634831"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640088"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>O que há de novo no banco de dados SQL do Azure & SQL Instância Gerenciada?
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -61,12 +61,12 @@ Esta tabela fornece uma comparação rápida para a alteração na terminologia:
 
 | Recurso | Detalhes |
 | ---| --- |
-| <a href="/azure/azure-sql/database/elastic-transactions-overview">Transações distribuídas</a> | Transações distribuídas entre instâncias gerenciadas. |
-| <a href="/azure/sql-database/sql-database-instance-pools">Pools da instância</a> | Uma maneira conveniente e econômica de migrar instâncias do SQL menores para a nuvem. |
-| <a href="/en-gb/sql/t-sql/statements/create-login-transact-sql">Entidades de segurança do servidor do Azure AD (logons) de nível de entidade</a> | Crie logons em nível de instância usando uma instrução <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true">Create login from external Provider</a> . |
+| [Transações distribuídas](/azure/azure-sql/database/elastic-transactions-overview) | Transações distribuídas entre instâncias gerenciadas. |
+| [Pools da instância](/azure/sql-database/sql-database-instance-pools) | Uma maneira conveniente e econômica de migrar instâncias do SQL menores para a nuvem. |
+| [Entidades de segurança do servidor do Azure AD (logons) de nível de entidade](/sql/t-sql/statements/create-login-transact-sql) | Crie logons em nível de instância usando uma instrução [Create login from external Provider](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) . |
 | [Replicação transacional](../managed-instance/replication-transactional-overview.md) | Replique as alterações de suas tabelas em outros bancos de dados do SQL Instância Gerenciada, do SQL Database ou do SQL Server. Ou atualize suas tabelas quando algumas linhas forem alteradas em outras instâncias do SQL Instância Gerenciada ou SQL Server. Para obter informações, consulte [Configurar a replicação no Azure SQL instância gerenciada](../managed-instance/replication-between-two-instances-configure-tutorial.md). |
 | Detecção de ameaças |Para obter informações, consulte [Configurar a detecção de ameaças no Azure SQL instância gerenciada](../managed-instance/threat-detection-configure.md).|
-| Retenção de backup de longo prazo | Para obter informações, consulte [Configurar retenção de backup de longo prazo no Azure SQL instância gerenciada](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em visualização pública limitada. | 
+| Retenção de backup de longo prazo | Para obter informações, consulte [Configurar retenção de backup de longo prazo no Azure SQL instância gerenciada](../managed-instance/long-term-backup-retention-configure.md), que está atualmente em visualização pública limitada. |
 
 ---
 

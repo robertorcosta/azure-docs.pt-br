@@ -8,12 +8,12 @@ ms.service: private-link
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: allensu
-ms.openlocfilehash: 4fe43ec7661cfad25c48819183742c3f33951d92
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: c3218d8781377e76f05d10a8da2c954ac0b685a7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105108138"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641985"
 ---
 # <a name="use-azure-firewall-to-inspect-traffic-destined-to-a-private-endpoint"></a>Usar o Firewall do Azure para inspecionar o tráfego destinado a um ponto de extremidade privado
 
@@ -117,6 +117,7 @@ Crie três redes virtuais e suas sub-redes correspondentes para:
 Substitua os seguintes parâmetros nas etapas com as informações abaixo:
 
 ### <a name="azure-firewall-network"></a>Rede de firewall do Azure
+
 | Parâmetro                   | Valor                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -127,6 +128,7 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
 | **\<subnet-address-range>** | 10.0.0.0/24          |
 
 ### <a name="virtual-machine-network"></a>Rede de máquinas virtuais
+
 | Parâmetro                   | Valor                |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
@@ -137,13 +139,14 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
 | **\<subnet-address-range>** | 10.1.0.0/24          |
 
 ### <a name="private-endpoint-network"></a>Rede de ponto de extremidade privado
+
 | Parâmetro                   | Valor                 |
 |-----------------------------|----------------------|
 | **\<resource-group-name>**  | myResourceGroup |
 | **\<virtual-network-name>** | myPEVNet         |
 | **\<region-name>**          | Centro-Sul dos Estados Unidos      |
 | **\<IPv4-address-space>**   | 10.2.0.0/16          |
-| **\<subnet-name>**          | PrivateEndpointSubnet    |        |
+| **\<subnet-name>**          | PrivateEndpointSubnet |
 | **\<subnet-address-range>** | 10.2.0.0/24          |
 
 [!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
@@ -212,7 +215,7 @@ Substitua os seguintes parâmetros nas etapas com as informações abaixo:
     | Resource group | Selecione **myResourceGroup**.  |
     | **Detalhes da instância** |  |
     | Nome | Insira **myAzureFirewall**. |
-    | Região | Selecione **EUA Central do Sul**. |
+    | Region | Selecione **EUA Central do Sul**. |
     | Zona de disponibilidade | Deixar o padrão **Nenhum**. |
     | Escolher uma rede virtual    |    Selecione **usar existente**.    |
     | Rede virtual    |    Selecione **myAzFwVNet**.    |
@@ -237,7 +240,7 @@ Nesta seção, você habilita os logs no firewall.
 
 5. Em **configuração de diagnóstico**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome da configuração de diagnóstico | Insira **myDiagSetting**. |
     | Detalhes da categoria | |
@@ -256,7 +259,7 @@ Nesta seção, você criará um banco de dados SQL privado.
 
 2. Em **criar banco de dados SQL-noções básicas**, insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -268,7 +271,7 @@ Nesta seção, você criará um banco de dados SQL privado.
     | Logon de administrador do servidor | Insira um nome de sua escolha. |
     | Senha    |    Insira uma senha de sua escolha.    |
     | Confirmar Senha | Insira novamente a senha    |
-    | Localização    | Marque **(US) EUA Central do Sul**.    |
+    | Location    | Marque **(US) EUA Central do Sul**.    |
     | Deseja usar o pool elástico do SQL    | Deixe o padrão **Não**. |
     | Computação + armazenamento | Deixe o padrão **uso geral Gen5, 2 vCores, 32 GB de armazenamento**. |
     |||
@@ -291,20 +294,20 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
 
 5. Em **criar um ponto de extremidade privado**, insira ou selecione essas informações na guia **noções básicas** :
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
     | Resource group | Selecione **myResourceGroup**. |
     | **Detalhes da instância** | |
     | Nome | Insira **SQLPrivateEndpoint**. |
-    | Região | Marque **(US) EUA Central do Sul.** |
+    | Region | Marque **(US) EUA Central do Sul.** |
 
 6. Selecione a guia **recurso** ou selecione **próximo: recurso** na parte inferior da página.
 
 7. Na guia **recurso** , insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Método de conexão | Selecione **Conectar-se a um recurso do Azure em meu diretório**. |
     | Subscription | Selecione sua assinatura. |
@@ -316,7 +319,7 @@ Nesta seção, você cria um ponto de extremidade privado para o banco de dados 
 
 9. Na guia **configuração** , insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Rede** | |
     | Rede virtual | Selecione **myPEVnet**. |
@@ -346,7 +349,7 @@ Nesta seção, conectaremos as redes virtuais **myVMVNet** e **myPEVNet** ao **m
 
 3. Em **Adicionar emparelhamento** , insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome do emparelhamento de myAzFwVNet para rede virtual remota | Insira **myAzFwVNet-to-myVMVNet**. |
     | **Detalhes do par** |  |
@@ -372,7 +375,7 @@ Nesta seção, conectaremos as redes virtuais **myVMVNet** e **myPEVNet** ao **m
 
 6. Em **Adicionar emparelhamento** , insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome do emparelhamento de myAzFwVNet para rede virtual remota | Insira **myAzFwVNet-to-myPEVNet**. |
     | **Detalhes do par** |  |
@@ -412,7 +415,7 @@ O link é necessário para que a VM e o firewall resolvam o FQDN do banco de dad
 
 5. Em **Adicionar link de rede virtual** , insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome do link | Insira **link-to-myVMVNet**. |
     | **Detalhes da rede virtual** |  |
@@ -443,7 +446,7 @@ Essa regra permite a comunicação por meio do firewall que criamos nas etapas a
 
 6. Em **Adicionar coleção de regras de aplicativo** , insira ou selecione as seguintes informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome | Insira **SQLPrivateEndpoint**. |
     | Prioridade | Insira **100**. |
@@ -480,7 +483,7 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
 
 4. Na página **criar tabela de rotas** , use a tabela a seguir para configurar a tabela de rotas:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | **Detalhes do projeto** | |
     | Subscription | Selecione sua assinatura. |
@@ -502,7 +505,7 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
 
 10. Na página **Adicionar rota** , insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Nome da rota | Insira **myVMsubnet-to-privateendpoint**. |
     | Prefixo de endereço | Insira **10.2.0.0/16**.  |
@@ -517,7 +520,7 @@ A rota envia o tráfego da sub-rede **myVM** para o espaço de endereço da rede
 
 14. Na página **associar sub-rede** , insira ou selecione estas informações:
 
-    | Setting | Valor |
+    | Configuração | Valor |
     | ------- | ----- |
     | Rede virtual | Selecione **myVMVNet**. |
     | Sub-rede | Selecione **VMSubnet**.  |
@@ -564,7 +567,7 @@ Nesta seção, você se conectará de modo privado ao banco de dados SQL usando 
     Address: 10.2.0.4
     ```
 
-2. Instale [SQL Server ferramentas de linha de comando](/sql/linux/quickstart-install-connect-ubuntu?view=sql-server-ver15#tools).
+2. Instale [SQL Server ferramentas de linha de comando](/sql/linux/quickstart-install-connect-ubuntu#tools).
 
 3. Execute o comando a seguir para se conectar ao SQL Server. Use o administrador do servidor e a senha que você definiu quando criou o SQL Server nas etapas anteriores.
 

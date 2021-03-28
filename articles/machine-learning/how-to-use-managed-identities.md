@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: a7efd57100ad89fa9824b7a635e11698515e13ae
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 3246f6668a653c05599001a2f8d8fc8d376936ce
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521009"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642422"
 ---
 # <a name="use-managed-identities-with-azure-machine-learning-preview"></a>Usar identidades gerenciadas com Azure Machine Learning (versão prévia)
 
@@ -234,7 +234,7 @@ Depois de configurar o ACR sem o usuário administrador, conforme descrito anter
 
 Ao criar o espaço de trabalho, você pode especificar uma identidade gerenciada atribuída pelo usuário que será usada para acessar os recursos associados: ACR, keyvault, armazenamento e insights do aplicativo.
 
-Primeiro, [crie uma identidade gerenciada atribuída pelo usuário](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli])e anote a ID de recurso do ARM da identidade gerenciada.
+Primeiro, [crie uma identidade gerenciada atribuída pelo usuário](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli)e anote a ID de recurso do ARM da identidade gerenciada.
 
 Em seguida, use CLI do Azure ou o SDK do Python para criar o espaço de trabalho. Ao usar a CLI, especifique a ID usando o `--primary-user-assigned-identity` parâmetro. Ao usar o SDK, use `primary_user_assigned_identity` . Veja a seguir exemplos de como usar o CLI do Azure e o Python para criar um novo espaço de trabalho usando estes parâmetros:
 

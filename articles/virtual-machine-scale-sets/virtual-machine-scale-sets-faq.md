@@ -9,12 +9,12 @@ ms.subservice: faq
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 3bc259f9ee6cb1e6fd927af82a1740403d3ae7d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fc394550cf5eb28ce3a30af4afcb3deca4223fe3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100587952"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642444"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -304,7 +304,7 @@ Se você criar uma VM e atualizar o segredo no cofre de chaves, o novo certifica
 
 Para implantar as chaves públicas .cer em um conjunto de dimensionamento de máquinas virtuais, você pode gerar um arquivo .pfx que contém somente arquivos .cer. Para fazer isso, use `X509ContentType = Pfx`. Por exemplo, carregue o arquivo .cer como um objeto x509Certificate2 no C# ou no PowerShell, em seguida, chame o método.
 
-Para obter mais informações, consulte [Método X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?view=netcore-3.1#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
+Para obter mais informações, consulte [Método X509Certificate.Export (X509ContentType, String)](/dotnet/api/system.security.cryptography.x509certificates.x509certificate.export?#system_security_cryptography_x509certificates_x509certificate_export_system_security_cryptography_x509certificates_x509contenttype_system_string_).
 
 ### <a name="how-do-i-pass-in-certificates-as-base64-strings"></a>Como fazer transmitir certificados como cadeias de caracteres Base64?
 
@@ -515,7 +515,7 @@ Se você tiver dois conjuntos de dimensionamento de máquina virtual com front-e
 
 Os endereços IPs são selecionados em uma sub-rede que você especifica.
 
-O método de alocação dos endereços IP do conjunto de dimensionamento de máquinas virtuais é sempre "dinâmico", mas isso não significa que esses endereços IP podem mudar. Neste caso, "dinâmico" significa apenas que você não especifica o endereço IP em uma solicitação PUT. Especifique conjunto estático usando a sub-rede.
+O método de alocação dos endereços IP do conjunto de dimensionamento de máquinas virtuais é sempre "dinâmico", mas isso não significa que esses endereços IP podem ser alterados. Neste caso, "dinâmico" significa apenas que você não especifica o endereço IP em uma solicitação PUT. Especifique conjunto estático usando a sub-rede.
 
 ### <a name="how-do-i-deploy-a-virtual-machine-scale-set-to-an-existing-azure-virtual-network"></a>Como implanto um conjunto de dimensionamento de máquinas virtuais para uma rede virtual do Azure existente?
 
@@ -523,7 +523,7 @@ Para implantar um conjunto de dimensionamento de máquinas virtuais para uma red
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>Posso usar conjuntos de escala com Rede Acelerada?
 
-Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo,
+Sim. Para usar a rede acelerada, defina enableAcceleratedNetworking como true nas configurações de networkInterfaceConfigurations do conjunto de dimensionamento. Por exemplo
 
 ```json
 "networkProfile": {
@@ -572,7 +572,7 @@ Sim. Você pode adicionar as IDs de recurso para vários pools de endereços de 
 
 ### <a name="in-what-case-would-i-create-a-virtual-machine-scale-set-with-fewer-than-two-vms"></a>No qual situação eu criaria um conjunto de dimensionamento de máquinas virtuais com menos de duas VMs?
 
-Um motivo para criar um conjunto de dimensionamento de máquinas virtuais com menos de duas VMs seria para usar as propriedades elásticas de um conjunto de dimensionamento. Por exemplo, você pode implantar um conjunto de dimensionamento de máquinas virtuais com zero VM para definir a infraestrutura sem pagar os custos de execução da VM. Então, quando você estiver pronto para implantar as VMs, aumente a "capacidade" do conjunto de dimensionamento de máquinas virtuais para a contagem das instâncias de produção.
+Um motivo para criar um conjunto de dimensionamento de máquinas virtuais com menos de duas VMs seria para usar as propriedades elásticas de um conjunto de dimensionamento. Por exemplo, você pode implantar um conjunto de dimensionamento de máquinas virtuais com zero VM para definir a infraestrutura sem pagar os custos de execução da VM. Em seguida, quando você estiver pronto para implantar VMs, aumente a "capacidade" do conjunto de dimensionamento de máquinas virtuais para a contagem de instâncias de produção.
 
 Outro motivo para criar um conjunto de dimensionamento de máquinas virtuais com menos de duas VMs é se você estiver menos preocupado com disponibilidade do que com o uso de um conjunto de disponibilidade com VMs separadas. Os conjuntos de dimensionamento de máquinas virtuais fornecem uma maneira de trabalhar com unidades de computação não diferenciadas que são intercambiáveis. Essa uniformidade é um diferencial importante para os conjuntos de dimensionamento de máquinas virtuais versus os conjuntos de disponibilidade. Muitas cargas de trabalho sem estado não controlam as unidades individuais. Se a carga de trabalho cair, você poderá reduzir verticalmente para uma unidade de computação e escalar verticalmente para muitas quando a carga de trabalho aumentar.
 
@@ -700,7 +700,7 @@ Você pode definir essa propriedade para **false**. Para os conjuntos de dimensi
 
 ### <a name="what-is-the-difference-between-deleting-a-vm-in-a-virtual-machine-scale-set-and-deallocating-the-vm-when-should-i-choose-one-over-the-other"></a>Qual é a diferença entre excluir uma VM em um conjunto de dimensionamento de máquinas virtuais versus desalocar a VM? Quando devo escolher um ou o outro?
 
-A principal diferença entre excluir uma VM em um conjunto de dimensionamento de máquinas virtuais e desalocar a VM é que `deallocate` não exclui os discos rígidos virtuais (VHDs). Existem custos de armazenamento associados à execução de `stop deallocate`. Você pode usar um ou outro por um dos seguintes motivos:
+A principal diferença entre excluir uma VM em um conjunto de dimensionamento de máquinas virtuais e desalocar a VM é que `deallocate` o não exclui os VHDs (discos rígidos virtuais). Existem custos de armazenamento associados à execução de `stop deallocate`. Você pode usar um ou outro por um dos seguintes motivos:
 
 - Você deseja parar de pagar pela computação, mas quer manter o estado do disco das VMs.
 - Você deseja iniciar um conjunto de VMs mais rapidamente do que pode escalar horizontalmente um conjunto de dimensionamento de máquinas virtuais.

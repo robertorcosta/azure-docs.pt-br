@@ -7,12 +7,12 @@ ms.reviewer: jburchel
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 07/13/2020
-ms.openlocfilehash: 04aba71e49fedc8a4ca22aed576aaa978f733336
-ms.sourcegitcommit: f611b3f57027a21f7b229edf8a5b4f4c75f76331
+ms.openlocfilehash: 55b2fd911b32eae4f04ad9690de091e9dbd46ea4
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104783635"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643962"
 ---
 # <a name="monitor-and-alert-data-factory-by-using-azure-monitor"></a>Monitorar e alertar Data Factory usando Azure Monitor
 
@@ -76,7 +76,7 @@ Crie ou adicione configurações de diagnóstico para seu data factory.
    ![Nomeie suas configurações e selecione um espaço de trabalho do log Analytics](media/data-factory-monitor-oms/monitor-oms-image2.png)
 
     > [!NOTE]
-    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [referência de logs do AzureDiagnostics](/azure-monitor/reference/tables/azurediagnostics#additionalfields-column).
+    > Como uma tabela de log do Azure não pode ter mais de 500 colunas, é **altamente recomendável** selecionar o _modo específico do recurso_. Para obter mais informações, consulte [referência de logs do AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Selecione **Salvar**.
 
@@ -832,8 +832,8 @@ Log Analytics herda o esquema do monitor com as seguintes exceções:
     | $. Properties. Entrada | Entrada | Dinâmico |
     | $. Properties. Der | Saída | Dinâmico |
     | $. Properties. Erro. errorCode | ErrorCode | INT |
-    | $. Properties. Erro. mensagem | ErrorMessage | Cadeia de caracteres |
-    | $. Properties. Ao | Error | Dinâmico |
+    | $. Properties. Erro. mensagem | ErrorMessage | string |
+    | $. Properties. Ao | Erro | Dinâmico |
     | $. Properties. Predecessores | Predecessores | Dinâmico |
     | $. Properties. Parâmetro | Parâmetros | Dinâmico |
     | US $.properties.SystemParameters | SystemParameters | Dinâmico |

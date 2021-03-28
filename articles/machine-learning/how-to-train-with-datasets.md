@@ -12,12 +12,12 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, data4ml
-ms.openlocfilehash: 15bad877be00e143ce6f6956a4e1f23378c275c0
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 8b984a17c8c10c3dff7c57b7d0223ba8b4197012
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521771"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640113"
 ---
 # <a name="train-models-with-azure-machine-learning-datasets"></a>Treinar modelos com conjuntos de Azure Machine Learning 
 
@@ -38,7 +38,7 @@ Para criar e treinar com conjuntos de os, você precisa:
 * O [SDK do Azure Machine Learning para Python instalado](/python/api/overview/azure/ml/install) (>= 1.13.0), que inclui o `azureml-datasets` pacote.
 
 > [!Note]
-> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](/python/api/azureml-dataprep/) . Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) . Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="consume-datasets-in-machine-learning-training-scripts"></a>Consumir conjuntos de informações em scripts de treinamento do Machine Learning
 

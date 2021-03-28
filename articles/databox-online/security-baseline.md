@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/18/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: d88284f3b9759ce04af9e44ae591c4796dde4e84
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 335056260ddea0c15db761df109e69333ef474f3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105565190"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641375"
 ---
 # <a name="azure-security-baseline-for-azure-stack-edge"></a>Linha de base de segurança do Azure para Azure Stack Edge
 
@@ -36,7 +36,7 @@ O tráfego interno é mais protegido por:
 
 - Somente um dispositivo autorizado Azure Stack Edge Pro tem permissão para ingressar no serviço do Azure Stack Edge que o cliente cria em sua assinatura do Azure.
 
-Informações adicionais estão disponíveis nos links referenciados.
+Há informações adicionais disponíveis nos links referenciados.
  
 - [Configurar o TLS 1,2 em clientes Windows acessando Azure Stack dispositivo de GPU pro de borda](./azure-stack-edge-gpu-configure-tls-settings.md)
 
@@ -298,7 +298,7 @@ Observe que podem ser necessárias permissões adicionais para obter visibilidad
 
 **Diretrizes**: somente usuários autorizados, por exemplo, o ' EdgeArmUser ', podem acessar as APIs de dispositivo do Azure Stack Edge por meio do Azure Resource Manager local. As senhas de conta de usuário só podem ser gerenciadas no portal do Azure. 
 
-- [Configurar a senha do Azure Resource Manager](/azure/azure-stack-edge-gpu-set-azure-resource-manager-password)
+- [Configurar a senha do Azure Resource Manager](/azure/databox-online/azure-stack-edge-gpu-set-azure-resource-manager-password)
 
 **Monitoramento da Central de Segurança do Azure**: Não disponível no momento
 
@@ -577,7 +577,7 @@ Siga as Regras de Participação no Teste de Penetração do Microsoft Cloud par
 
 Soluções de proteção de dados de terceiros, como Cohesity, CommVault e Veritas, também podem fornecer uma solução de backup para os dados nos compartilhamentos SMB locais ou NFS,. 
 
-Informações adicionais estão disponíveis nos links referenciados.
+Há informações adicionais disponíveis nos links referenciados.
 
 - [Preparar para uma falha do dispositivo](azure-stack-edge-gpu-prepare-device-failure.md)
 

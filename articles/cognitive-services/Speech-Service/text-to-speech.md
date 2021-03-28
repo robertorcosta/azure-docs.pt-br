@@ -12,18 +12,18 @@ ms.date: 09/01/2020
 ms.author: trbye
 ms.custom: cog-serv-seo-aug-2020
 keywords: conversão de texto em fala
-ms.openlocfilehash: e42f81ce0f06b3782972dbf4322f0590763d8704
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 45977faec9ab54fed0c1e7054c567b4d18b11f50
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105026318"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645011"
 ---
 # <a name="what-is-text-to-speech"></a>O que é conversão de texto em fala?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Nesta visão geral, você aprenderá sobre os benefícios e capacidades do serviço de conversão de texto em fala, que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada pelo tipo humano. Escolha entre vozes padrão e neural ou crie uma voz personalizada exclusiva para seu produto ou marca. 75 vozes padrão estão disponíveis em mais de 45 idiomas e localidades, e 5 vozes neurais estão disponíveis em um número selecionado de idiomas e localidades. Para obter uma lista completa de vozes, idiomas e localidades com suporte, consulte [idiomas com suporte](language-support.md#text-to-speech).
+Nesta visão geral, você aprenderá sobre os benefícios e capacidades do serviço de conversão de texto em fala, que permite que seus aplicativos, ferramentas ou dispositivos convertam texto em fala sintetizada pelo tipo humano. Escolha entre vozes padrão e neurais ou crie uma voz personalizada exclusiva para seu produto ou marca. Há 75 vozes padrão disponíveis em mais de 45 idiomas e localidades e cinco vozes neurais estão disponíveis em um número selecionado de idiomas e localidades. Para obter uma lista completa de vozes, idiomas e localidades com suporte, consulte [idiomas com suporte](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Fala do Bing foi encerrado em 15 de outubro de 2019. Se seus aplicativos, ferramentas ou produtos estiverem usando o Fala do Bing APIs ou Fala Personalizada, criamos guias para ajudá-lo a migrar para o serviço de fala.
@@ -44,7 +44,7 @@ Nesta visão geral, você aprenderá sobre os benefícios e capacidades do servi
 * Visemes- [visemes](how-to-speech-synthesis-viseme.md) são as principais representam a fala observada, incluindo a posição dos Lips, a Jaw e a língua ao produzir um fonema específico. Visemes têm uma forte correlação com vozes e fonemas. Usando eventos viseme no SDK de fala, você pode gerar dados de animação facial, que podem ser usados para animar rostos em comunicação, educação, entretenimento e serviço de atendimento ao cliente do Lip.
 
 > [!NOTE]
-> Viseme só funciona para `en-US-AriaNeural` voz na região oeste dos EUA 2 ( `westus2` ) por enquanto.
+> O viseme só funciona para `en-US-AriaNeural` voz por enquanto.
 
 ## <a name="get-started"></a>Introdução
 

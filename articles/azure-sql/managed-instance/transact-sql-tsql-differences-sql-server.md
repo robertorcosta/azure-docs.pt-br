@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 3/16/2021
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1afd5a0e24e144169280e683321b5843e9766136
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 227b573d3771efd3fd36e6d3d6222696647849f7
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103601348"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644922"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Diferenças de T-SQL entre SQL Server & SQL do Azure Instância Gerenciada
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -139,7 +139,7 @@ O SQL Instância Gerenciada não pode acessar arquivos, portanto, os provedores 
 ### <a name="logins-and-users"></a>Logons e usuários
 
 - Logons do SQL criados usando `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` e `FROM SID` são compatíveis. Consulte [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql).
-- Os principais do servidor do Azure Active Directory (Azure AD) (logons) criadas com a sintaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) ou [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) não são compatíveis. Esses são logons são criados no nível do servidor.
+- Os principais do servidor do Azure Active Directory (Azure AD) (logons) criadas com a sintaxe [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true) ou [CREATE USER FROM LOGIN [Azure AD Login]](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true) não são compatíveis. Esses são logons são criados no nível do servidor.
 
     O SQL Instância Gerenciada dá suporte a entidades de banco de dados do Azure AD com a sintaxe `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER` . Isso também é conhecido como usuários de banco de dados contidos do Azure AD.
 
@@ -466,12 +466,12 @@ Para obter informações sobre instruções de restauração, consulte [instruç
 
 ### <a name="service-broker"></a>Service Broker
 
-A troca de mensagens de instância cruzada do Service Broker só tem suporte entre instâncias gerenciadas do SQL do Azure:
+A troca de mensagens do Service Broker entre instâncias tem suporte apenas entre Instâncias Gerenciadas de SQL do Azure:
 
 - `CREATE ROUTE`: Você não pode usar `CREATE ROUTE` com `ADDRESS` outro `LOCAL` nome DNS ou de outro instância gerenciada do SQL.
 - `ALTER ROUTE`: Você não pode usar `ALTER ROUTE` com `ADDRESS` outro `LOCAL` nome DNS ou de outro instância gerenciada do SQL.
 
-A segurança de transporte tem suporte, a segurança da caixa de diálogo não é:
+Há suporte para a segurança do transporte, mas não para a segurança da caixa de diálogo:
 - Não há suporte para `CREATE REMOTE SERVICE BINDING`.
 
 O Service Broker está habilitado por padrão e não pode ser desabilitado. Não há suporte para as seguintes opções ALTER bancos:
@@ -525,7 +525,7 @@ Os bancos de dados do sistema não são replicados para a instância secundária
 ### <a name="tempdb"></a>TEMPDB
 - O tamanho máximo do arquivo de `tempdb` não pode ser maior que 24 GB por núcleo em uma camada de Uso Geral. O `tempdb` tamanho máximo em uma camada de comercialmente crítico é limitado pelo tamanho do armazenamento de instância gerenciada do SQL. O tamanho do arquivo de log `Tempdb` é limitado a 120 GB na camada uso geral. Algumas consultas podem retornar um erro se precisarem de mais de 24 GB por núcleo em `tempdb` ou se produzirem mais de 120 GB de dados de log.
 - `Tempdb` sempre é dividido em 12 arquivos de dados: 1 primário, também chamado de mestre, arquivo de dados e 11 arquivos de dados não primários. A estrutura do arquivo não pode ser alterada e novos arquivos não podem ser adicionados ao `tempdb` . 
-- Não há suporte para os [ `tempdb` metadados com otimização de memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15#memory-optimized-tempdb-metadata), um novo SQL Server o recurso de banco de dados em memória do 2019.
+- Não há suporte para os [ `tempdb` metadados com otimização de memória](/sql/relational-databases/databases/tempdb-database?view=sql-server-ver15&preserve-view=true#memory-optimized-tempdb-metadata), um novo SQL Server o recurso de banco de dados em memória do 2019.
 - Os objetos criados no banco de dados modelo não podem ser criados automaticamente no `tempdb` após uma reinicialização ou um failover porque `tempdb` o não obtém sua lista inicial de objetos do banco de dados modelo. Você deve criar objetos `tempdb` manualmente após cada reinicialização ou um failover.
 
 ### <a name="msdb"></a>MSDB
@@ -534,13 +534,13 @@ Os seguintes esquemas MSDB no SQL Instância Gerenciada devem ser de propriedade
 
 - Funções gerais
   - TargetServersRole
-- [Funções de banco de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15)
+- [Funções de banco de dados fixas](/sql/ssms/agent/sql-server-agent-fixed-database-roles?view=sql-server-ver15&preserve-view=true)
   - SQLAgentUserRole
   - SQLAgentReaderRole
   - SQLAgentOperatorRole
-- [Funções de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15#DBProfile):
+- [Funções de DatabaseMail](/sql/relational-databases/database-mail/database-mail-configuration-objects?view=sql-server-ver15&preserve-view=true#DBProfile):
   - DatabaseMailUserRole
-- [Funções do Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15):
+- [Funções do Integration Services](/sql/integration-services/security/integration-services-roles-ssis-service?view=sql-server-ver15&preserve-view=true):
   - db_ssisadmin
   - db_ssisltduser
   - db_ssisoperator

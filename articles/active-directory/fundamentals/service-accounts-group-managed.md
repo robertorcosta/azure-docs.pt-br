@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd4c1adddbf4b13f8e299bd656443c9aaab1d55b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: f6f91adf499c62fef56a30c5f2945ba7a90a0b29
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101644820"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640074"
 ---
 # <a name="securing-group-managed-service-accounts"></a>Protegendo contas de serviço gerenciado de grupo
 
@@ -41,7 +41,7 @@ a gMSAs oferece uma solução de identidade única com maior segurança e, ao me
 Use gMSAs como o tipo de conta preferencial para serviços locais, a menos que um serviço, como clustering de failover, não ofereça suporte a ele.
 
 > [!IMPORTANT]
-> Você deve testar seu serviço com o gMSAs antes da implantação na produção. Para fazer isso, configure um ambiente de teste e verifique se o aplicativo pode usar o gMSA e acesse os recursos que ele precisa para acessar. Para obter mais informações, consulte [suporte para contas de serviço gerenciado de grupo](/system-center/scom/support-group-managed-service-accounts?view=sc-om-2019).
+> Você deve testar seu serviço com o gMSAs antes da implantação na produção. Para fazer isso, configure um ambiente de teste e verifique se o aplicativo pode usar o gMSA e acesse os recursos que ele precisa para acessar. Para obter mais informações, consulte [suporte para contas de serviço gerenciado de grupo](/system-center/scom/support-group-managed-service-accounts).
 
 
 Se um serviço não oferecer suporte ao uso de gMSAs, sua próxima melhor opção é usar uma conta de serviço gerenciado autônomo (sMSA). o sMSAs fornece a mesma funcionalidade que um gMSA, mas destina-se à implantação somente em um único servidor.
@@ -86,7 +86,7 @@ Get-ADServiceAccount -Filter *
 
 # To filter results to only gMSAs:
 
-Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount”}
+Get-ADServiceAccount –Filter * | where $_.ObjectClass -eq "msDS-GroupManagedServiceAccount"}
 ```
 
 ## <a name="manage-gmsas"></a>Gerenciar gMSAs
