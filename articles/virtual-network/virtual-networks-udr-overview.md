@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/26/2017
+ms.date: 03/26/2021
 ms.author: aldomel
-ms.openlocfilehash: bd46a09653f4d479ed0a09b73868d938aff1b825
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: c8d188c7bb7034cda450049c3d4912cc1517dae5
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105605205"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105645266"
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -96,10 +96,12 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
 
 Não é possível especificar **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** como o tipo do próximo salto em rotas definidas pelo usuário. Rotas com os tipos do próximo salto **Emparelhamento VNet** ou **VirtualNetworkServiceEndpoint** são criadas somente pelo Azure, quando você configurar uma emparelhamento de rede virtual ou um ponto de extremidade de serviço.
 
-### <a name="service-tags-for-user-defined-routes-public-preview"></a>Marcas de serviço para rotas definidas pelo usuário (visualização pública)
+### <a name="service-tags-for-user-defined-routes-preview"></a>Marcas de serviço para rotas definidas pelo usuário (versão prévia)
 
 Agora você pode especificar uma [marca de serviço](service-tags-overview.md) como o prefixo de endereço para uma rota definida pelo usuário em vez de um intervalo de IP explícito. Uma marca de serviço representa um grupo de prefixos de endereço IP de um determinado serviço do Azure. A Microsoft gerencia os prefixos de endereço abordados pela marca de serviço e atualiza automaticamente a marca de serviço à medida que os endereços são alterados, minimizando a complexidade de atualizações frequentes para rotas definidas pelo usuário e reduzindo o número de rotas que você precisa criar. No momento, você pode criar 25 ou menos rotas com marcas de serviço em cada tabela de rotas. </br>
 
+> [!IMPORTANT]
+> As marcas de serviço para rotas definidas pelo usuário estão atualmente em visualização. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendada para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 #### <a name="exact-match"></a>Correspondência exata
 Quando há uma correspondência de prefixo exata entre uma rota com um prefixo de IP explícito e uma rota com uma marca de serviço, a preferência é dada à rota com o prefixo explícito. Quando várias rotas com marcas de serviço tiverem prefixos IP correspondentes, as rotas serão avaliadas na seguinte ordem: 

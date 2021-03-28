@@ -13,12 +13,12 @@ ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
-ms.openlocfilehash: 4fbb09a2687673ef96252d8bdb0523d0c5f235ae
-ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
+ms.openlocfilehash: ccad323c1834894367cca0ef0d3f98eb1b1b1ec3
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/22/2021
-ms.locfileid: "104772018"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639913"
 ---
 # <a name="embedded-sign-in-experience"></a>Experiência de entrada inserida
 
@@ -45,7 +45,7 @@ O elemento de quadro embutido `<iframe>` é usado para inserir um documento em u
 Ao usar o iframe, considere o seguinte:
 
 - A entrada inserida só dá suporte a contas locais. A maioria dos provedores de identidade social (por exemplo, Google e Facebook) bloqueiam suas páginas de entrada de serem renderizadas em quadros embutidos.
-- Como Azure AD B2C cookies de sessão em um iframe são considerados cookies de terceiros, determinados navegadores (por exemplo, Safari ou Chrome no modo Incognito) bloqueiam ou desmarcam esses cookies, resultando em uma experiência de usuário indesejável. Para evitar esse problema, verifique se o nome de domínio do aplicativo e seu domínio Azure AD B2C têm a *mesma origem*. Para usar a mesma origem, [habilite domínios personalizados](custom-domain.md) para Azure ad B2C locatário e, em seguida, configure seu aplicativo Web com a mesma origem. Por exemplo, um aplicativo hospedado no https://app.contoso.com tem a mesma origem que Azure ad B2C em execução https://login.contoso.com .
+- Como Azure AD B2C cookies de sessão em um iframe são considerados cookies de terceiros, determinados navegadores (por exemplo, Safari ou Chrome no modo Incognito) bloqueiam ou desmarcam esses cookies, resultando em uma experiência de usuário indesejável. Para evitar esse problema, verifique se o nome de domínio do aplicativo e seu domínio Azure AD B2C têm a *mesma origem*. Para usar a mesma origem, [habilite domínios personalizados](custom-domain.md) para Azure ad B2C locatário e, em seguida, configure seu aplicativo Web com a mesma origem. Por exemplo, um aplicativo hospedado em ' https://app.contoso.com ' tem a mesma origem que Azure ad B2C em execução em ' https://login.contoso.com '.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

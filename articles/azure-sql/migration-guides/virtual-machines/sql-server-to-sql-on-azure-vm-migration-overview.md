@@ -10,12 +10,12 @@ author: markjones-msft
 ms.author: markjon
 ms.reviewer: mathoma
 ms.date: 11/06/2020
-ms.openlocfilehash: e237cf09616cb645bfc4659af4439086979b2565
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
+ms.openlocfilehash: 2702451aa3645b2702f8f38c37574a6601249dac
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105023615"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641410"
 ---
 # <a name="migration-overview-sql-server-to-sql-server-on-azure-vms"></a>Visão geral da migração: SQL Server para SQL Server em VMs do Azure
 [!INCLUDE[appliesto--sqlmi](../../includes/appliesto-sqlvm.md)]
@@ -77,7 +77,7 @@ A tabela a seguir detalha o método disponível para a estratégia de migração
 | --- | --- | --- | --- | --- |
 | [Migrações para Azure](../../../migrate/index.yml) | SQL Server 2008 SP4| SQL Server 2008 SP4| [Limite de armazenamento da VM do Azure](../../../index.yml) |  SQL Server existente a ser movido no estado em que se encontra em uma instância de SQL Server em uma VM do Azure. Pode dimensionar as cargas de trabalho de migração de até 35.000 VMs. <br /><br /> Os servidores de origem permanecem online e atendem às solicitações durante a sincronização de dados do servidor, minimizando o tempo de inatividade. <br /><br /> **Script de & de automação**: [scripts de Azure site Recovery](../../../migrate/how-to-migrate-at-scale.md) e [exemplo de migração e planejamento em escala para o Azure](/azure/cloud-adoption-framework/migrate/azure-best-practices/contoso-migration-scale)|
 
-## <a name="migrate"></a>Migrações  
+## <a name="migrate"></a>Migrar  
 
 Devido à facilidade de instalação, a abordagem de migração recomendada é pegar um [backup](/sql/t-sql/statements/backup-transact-sql) de SQL Server nativo localmente e, em seguida, copiar o arquivo para o Azure. Esse método dá suporte a bancos de dados maiores (>1 TB) para todas as versões do SQL Server a partir de 2008 e backups de bancos de dados maiores (>1 TB). No entanto, para bancos de dados que começam no SQL Server 2014, que são menores que 1 TB e que têm boa conectividade com o Azure, [SQL Server Backup para URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) é a melhor abordagem. 
 
@@ -140,7 +140,7 @@ Para obter assistência adicional, consulte os recursos a seguir que foram desen
 |[Multiple-SQL-VM-VNet-ILB](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/ARM%20Templates/Multiple-SQL-VM-VNet-ILB)|Este white paper descreve as etapas para configurar várias máquinas virtuais do Azure em um SQL Server Always On configuração de grupo de disponibilidade.|
 |[Máquinas virtuais do Azure com suporte a SSD Ultra por região](https://github.com/microsoft/DataMigrationTeam/tree/master/IP%20and%20Scripts/Find%20Azure%20VMs%20supporting%20Ultra%20SSD)|Esses scripts do PowerShell fornecem uma opção programática para recuperar a lista de regiões que dão suporte a máquinas virtuais do Azure com suporte a ultra SSDs.|
 
-Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
+A equipe de engenharia de SQL de dados desenvolveu esses recursos. O principal compromisso desta equipe é desbloquear e acelerar a modernização complexa para projetos de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

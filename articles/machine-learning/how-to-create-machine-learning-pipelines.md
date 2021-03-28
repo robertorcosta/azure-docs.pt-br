@@ -11,12 +11,12 @@ author: NilsPohlmann
 ms.date: 03/02/2021
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperf-fy21q1
-ms.openlocfilehash: 188df9564905443b8f975eb743b24885b5d03c32
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 38fd5b779c3a8ae71c2e4fafcaf65921b1be3f93
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102618195"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642263"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Crie e execute pipelines de machine learning com o SDK do Azure Machine Learning
 
@@ -89,7 +89,7 @@ from azureml.core import Dataset
 my_dataset = Dataset.File.from_files([(def_blob_store, 'train-images/')])
 ```
 
-Os dados intermediários (ou a saída de uma etapa) são representados por um objeto [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.output_dataset_config.outputfiledatasetconfig) . `output_data1` é produzido como a saída de uma etapa. Opcionalmente, esses dados podem ser registrados como um dataset chamando `register_on_complete` . Se você criar um `OutputFileDatasetConfig` em uma etapa e usá-lo como uma entrada para outra etapa, essa dependência de dados entre etapas criará uma ordem de execução implícita no pipeline.
+Os dados intermediários (ou a saída de uma etapa) são representados por um objeto [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.output_dataset_config.outputfiledatasetconfig) . `output_data1` é produzido como a saída de uma etapa. Opcionalmente, esses dados podem ser registrados como um dataset chamando `register_on_complete` . Se você criar um `OutputFileDatasetConfig` em uma etapa e usá-lo como uma entrada para outra etapa, essa dependência de dados entre etapas criará uma ordem de execução implícita no pipeline.
 
 `OutputFileDatasetConfig` os objetos retornam um diretório e, por padrão, grava a saída no repositório de armazenamento padrão do espaço de trabalho.
 
@@ -106,7 +106,7 @@ output_data_dataset = output_data1.register_on_complete(name = 'prepared_output_
 > Você deve excluir programaticamente os dados intermediários no final de uma execução de pipeline, usar um armazenamento de dados com uma política de retenção de dados curta ou regularmente fazer uma limpeza manual.
 
 > [!TIP]
-> Carregue somente arquivos pertinentes para o trabalho em questão. Qualquer alteração nos arquivos no diretório de dados será vista como motivo para executar a etapa novamente na próxima vez que o pipeline for executado, mesmo se a reutilização for especificada. 
+> Carregue somente arquivos pertinentes para o trabalho em questão. Qualquer alteração nos arquivos do diretório de dados será vista como motivo para executar a etapa novamente na próxima vez que o pipeline for executado, mesmo que a reutilização seja especificada. 
 
 ## <a name="set-up-a-compute-target"></a>Configurar um destino de computação
 
@@ -247,7 +247,7 @@ pipeline1 = Pipeline(workspace=ws, steps=[compare_models])
 
 ### <a name="use-a-dataset"></a>Usar um conjunto de dados 
 
-Conjuntos de dados criados a partir do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure e Azure Database para PostgreSQL podem ser usados como entrada para qualquer etapa de pipeline. Você pode gravar a saída em um [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)ou se quiser gravar dados em um repositório de armazenamento específico usar [OutputFileDatasetConfig](/python/api/azureml-pipeline-core/azureml.data.outputfiledatasetconfig). 
+Conjuntos de dados criados a partir do armazenamento de BLOBs do Azure, arquivos do Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, banco de dados SQL do Azure e Azure Database para PostgreSQL podem ser usados como entrada para qualquer etapa de pipeline. Você pode gravar a saída em um [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep), [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep)ou se quiser gravar dados em um repositório de armazenamento específico usar [OutputFileDatasetConfig](/python/api/azureml-core/azureml.data.outputfiledatasetconfig). 
 
 > [!IMPORTANT]
 > A gravação de dados de saída de volta em um datastore usando `OutputFileDatasetConfig` só tem suporte para o blob do Azure, o compartilhamento de arquivos do Azure, os repositórios de dados Gen 1 e Gen 2 do ADLS. 

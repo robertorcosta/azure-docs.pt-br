@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 08/25/2020
-ms.openlocfilehash: 62b1924a1aeb1c1e5bc06ec0783d83d6918d162c
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 65307baa6e7d3216f011b82b177602da532d3fc6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105557914"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644935"
 ---
 # <a name="migration-guide-oracle-to-azure-sql-database"></a>Guia de migração: Oracle para banco de dados SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -80,7 +80,7 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 1. Selecione **Configurações do Projeto**. 
 1. Selecione a guia **mapeamentos de tipo** : 
 
-   ![Mapeamentos de tipo](./media/oracle-to-sql-database-guide/type-mappings.png)
+   ![Mapeamentos de Tipo](./media/oracle-to-sql-database-guide/type-mappings.png)
 
 1. Você pode alterar o mapeamento de tipo para cada tabela selecionando a tabela no **Gerenciador de metadados Oracle**.
 
@@ -121,7 +121,7 @@ Para publicar o esquema e migrar seus dados, siga estas etapas:
 
 1. Publicar o esquema: clique com o botão direito do mouse no banco de dados do nó **bancos** de dados no **Gerenciador de metadados do banco de dados SQL do Azure** e escolha **sincronizar com o banco de dados**:
 
-   ![Sincronizar com Banco de dados](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
+   ![Sincronizar com o Banco de Dados](./media/oracle-to-sql-database-guide/synchronize-with-database.png)
 
    Examine o mapeamento entre seu projeto de origem e seu destino:
 
@@ -192,7 +192,7 @@ Para obter assistência adicional com a conclusão desse cenário de migração,
 | [Erros comuns do SSMA para Oracle e como corrigi-los](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Com o Oracle, você pode atribuir uma condição não escalar na cláusula WHERE. No entanto, SQL Server não dá suporte a esse tipo de condição. Como resultado, o SSMA (Assistente de Migração do SQL Server) para Oracle não converte consultas com uma condição não escalar na cláusula WHERE, em vez de gerar um erro O2SS0001. Este white paper fornece mais detalhes sobre o problema e as maneiras de resolvê-lo.          |
 | [Manual de migração do Oracle para SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se concentra nas tarefas associadas à migração de um esquema do Oracle para a versão mais recente da base do SQL Server. Se a migração exigir alterações nos recursos/funcionalidades, o possível impacto de cada alteração nos aplicativos que usam o banco de dados precisa ser considerado com cuidado.                                                     |
 
-Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
+A equipe de engenharia de SQL de dados desenvolveu esses recursos. O principal compromisso desta equipe é desbloquear e acelerar a modernização complexa para projetos de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

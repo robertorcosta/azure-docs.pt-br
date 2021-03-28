@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ea3d895970c6a18286d719471a693f774efaa387
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aecae72b0bea07a0d8e240b3dcae7ee9b9662f95
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98955217"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640722"
 ---
 # <a name="offline-playready-streaming-for-windows-10-with-media-services-v3"></a>Streaming do PlayReady offline para Windows 10 com os serviços de mídia v3
 
@@ -34,7 +34,7 @@ Os serviços de mídia do Azure dão suporte offline ao download/reprodução co
 > [!NOTE]
 > O DRM offline é cobrado apenas para fazer uma única solicitação de licença quando você baixa o conteúdo. Quaisquer erros não são cobrados.
 
-## <a name="overview"></a>Visão geral
+## <a name="background-on-offline-mode-playback"></a>Plano de fundo na reprodução do modo offline
 
 Esta seção fornece algumas informações básicas sobre a reprodução de modo offline, especialmente porque:
 
@@ -61,12 +61,12 @@ Há duas opções para hospedar o MP4 protegido por PlayReady para fazer o downl
 
 Abaixo estão dois conjuntos de ativos de teste, o primeiro deles usa a entrega de licença do PlayReady nos Serviços de Mídia do Azure enquanto o segundo usa o meu servidor de licença do PlayReady hospedado em uma máquina virtual do Azure:
 
-Ativo #1:
+## <a name="asset-1"></a>#1 de ativos
 
 * URL de download progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/8d078cf8-d621-406c-84ca-88e6b9454acc/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * PlayReady da LA_URL (Serviços de Mídia do Azure): `https://willzhanmswest.keydelivery.mediaservices.windows.net/PlayReady/`
 
-Ativo #2:
+## <a name="asset-2"></a>#2 de ativos
 
 * URL de download progressivo: [https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4](https://willzhanmswest.streaming.mediaservices.windows.net/7c085a59-ae9a-411e-842c-ef10f96c3f89/20150807-bridges-2500_H264_1644kbps_AAC_und_ch2_256kbps.mp4)
 * LA_URL PlayReady (local): `https://willzhan12.cloudapp.net/playready/rightsmanager.asmx`
@@ -124,7 +124,3 @@ Em resumo, atingimos o modo offline nos Serviços de Mídia do Azure:
 * O conteúdo pode ser hospedado em Serviços de Mídia do Azure ou no Armazenamento do Azure para fazer o download progressivo;
 * A entrega de licença do PlayReady pode ser nos Serviços de Mídia do Azure ou em outro lugar;
 * O conteúdo de streaming suave preparado ainda pode ser usado para streaming online por meio de DASH ou smooth com o PlayReady, como o gerenciamento de direitos digitais.
-
-## <a name="next-steps"></a>Próximas etapas
-
-[Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso](design-multi-drm-system-with-access-control.md)

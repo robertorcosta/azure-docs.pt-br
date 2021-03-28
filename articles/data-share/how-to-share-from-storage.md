@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 02/23/2021
-ms.openlocfilehash: dc309e85373193e4f5d431f543ff3e59ea5bebc7
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c94d6f7d4d06d7dbaa6a2ad54f94575a6cc85d33
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101739255"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644666"
 ---
 # <a name="share-and-receive-data-from-azure-blob-storage-and-azure-data-lake-storage"></a>Compartilhar e receber dados do Armazenamento de Blobs do Azure e do Azure Data Lake Storage
 
@@ -178,7 +178,7 @@ Siga as etapas nesta seção para configurar um local para receber dados.
 
    ![Captura de tela mostrando onde selecionar uma conta de armazenamento de destino.](./media/map-target.png "Armazenamento de destino.") 
 
-1. Para o compartilhamento baseado em instantâneo, se o provedor de dados usar um agendamento de instantâneo para atualizar regularmente os dados, você poderá habilitar a agenda na guia **agendamento de instantâneo** . Selecione a caixa ao lado do agendamento do instantâneo. Em seguida, selecione **Habilitar**.
+1. Para o compartilhamento baseado em instantâneo, se o provedor de dados usar um agendamento de instantâneo para atualizar regularmente os dados, você poderá habilitar a agenda na guia **agendamento de instantâneo** . Selecione a caixa ao lado do agendamento do instantâneo. Em seguida, selecione **Habilitar**. Observe que o primeiro instantâneo agendado começará dentro de um minuto após o tempo de agendamento e os instantâneos subsequentes serão iniciados em segundos da hora agendada.
 
    ![Captura de tela mostrando como habilitar uma agenda de instantâneo.](./media/enable-snapshot-schedule.png "Habilitar agendamento de instantâneo.")
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: bb43396260e1b914f9f5b9e9ae489e87042a3154
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 057a284f99dd7c3713249b19e8fc39212d9e6003
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101092437"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640273"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Criação de um sistema de proteção de conteúdo de DRM múltiplo com controle de acesso
 
@@ -53,7 +53,7 @@ A tabela a seguir resume o suporte DRM nativo em diferentes plataformas e suport
 | **Windows 10** | PlayReady | Microsoft Edge/IE11 para PlayReady|
 | **Dispositivos Android (telefone, tablet, TV)** |Widevine |Chrome para Widevine |
 | **iOS** | FairPlay | Safari para FairPlay (desde o iOS 11.2) |
-| **macOS** | FairPlay | Safari para FairPlay (desde o Safari 9 + no Mac OS X 10.11 e posteriores El Capitan)|
+| **macOS** | FairPlay | Safari para FairPlay (desde o Safari 9 + no macOS X 10.11 + El Capitan)|
 | **tvOS** | FairPlay | |
 
 Considerando o estado atual da implantação para cada DRM, um serviço geralmente deseja implementar dois ou três DRMs para se certificar de que você resolva todos os tipos de ponto de extremidade da melhor maneira.
@@ -357,9 +357,3 @@ A captura de tela a seguir mostra um cenário que usa uma chave assimétrica por
 ![STS personalizado com uma chave assimétrica](./media/design-multi-drm-system-with-access-control/media-services-running-sts2.png)
 
 Nos dois casos anteriores, a autenticação do usuário permanece a mesma. Ela ocorre por meio do Azure AD. A única diferença é que os JWTs são emitidos pelo STS personalizado em vez do Azure AD. Ao configurar a proteção por CENC dinâmica, a restrição do serviço de entrega de licença especifica o tipo de JWT, sendo uma chave simétrica ou assimétrica.
-
-## <a name="next-steps"></a>Próximas etapas
-
-* [Perguntas frequentes](frequently-asked-questions.md)
-* [Visão geral de proteção do conteúdo](content-protection-overview.md)
-* [Proteger o conteúdo com o DRM](protect-with-drm.md)

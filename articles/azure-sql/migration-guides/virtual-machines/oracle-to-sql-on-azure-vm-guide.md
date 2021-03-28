@@ -10,12 +10,12 @@ author: mokabiru
 ms.author: mokabiru
 ms.reviewer: MashaMSFT
 ms.date: 11/06/2020
-ms.openlocfilehash: 4173fe34c6966514ef4f150527cd712c9d95ab7e
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 8f034492568a7525f8f75f5f2add1a732c3ad896
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105561705"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105644281"
 ---
 # <a name="migration-guide-oracle-to-sql-server-on-azure-vm"></a>Guia de migração: Oracle para SQL Server na VM do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Para usar o MAP Toolkit para executar uma verificação de inventário, siga est
 
 1. Escolha a opção de pesquisa de computador mais adequada às suas necessidades de negócios e ao seu ambiente e, em seguida, selecione **Avançar**: 
 
-   ![Escolha a opção de pesquisa de computador mais adequada às suas necessidades de negócios](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
+   ![Escolha a opção de pesquisa do computador mais adequada às suas necessidades de negócios](./media/oracle-to-sql-on-azure-vm-guide/choose-search-option.png)
 
 1. Insira as credenciais ou crie novas credenciais para os sistemas que você deseja explorar e, em seguida, selecione **Avançar**:
 
@@ -84,7 +84,7 @@ Para usar o MAP Toolkit para executar uma verificação de inventário, siga est
 
 1. Verifique seu resumo de seleção e, em seguida, selecione **concluir**:
 
-   ![Resumo da revisão](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
+   ![Examinar o resumo](./media/oracle-to-sql-on-azure-vm-guide/review-summary.png)
 
 1. Depois que a verificação for concluída, exiba o relatório resumido da **Coleta de dados**. A verificação pode levar alguns minutos e depende do número de bancos de dados. Selecione **fechar** quando terminar:
 
@@ -118,12 +118,12 @@ Para criar uma avaliação, siga estas etapas:
 
    ![Criar Relatório](./media/oracle-to-sql-on-azure-vm-guide/create-report.png)
 
-1. No **Gerenciador de metadados Oracle**, selecione o esquema Oracle e, em seguida, selecione **criar relatório** para gerar um relatório HTML com estatísticas de conversão e erros/avisos, se houver.
+1. No **Gerenciador de Metadados do Oracle**, selecione o esquema do Oracle e selecione **Criar Relatório** para gerar um relatório HTML com estatísticas de conversão e erros/avisos, se houver.
 1. Examine o relatório HTML para entender as estatísticas de conversão e outros erros ou avisos. Você também pode abrir o relatório no Excel para obter um inventário dos objetos Oracle e o esforço necessário para executar conversões de esquema. O local padrão do relatório está na pasta de relatório em SSMAProjects. 
 
    Por exemplo: `drive:\<username>\Documents\SSMAProjects\MyOracleMigration\report\report_2016_11_12T02_47_55\`
     
-   ![Relatório de conversão](./media/oracle-to-sql-on-azure-vm-guide/conversion-report.png)
+   ![Relatório de Conversão](./media/oracle-to-sql-on-azure-vm-guide/conversion-report.png)
 
 ### <a name="validate-data-types"></a>Validar tipos de dados
 
@@ -133,7 +133,7 @@ Valide os mapeamentos de tipo de dados padrão e altere-os com base nos requisit
 1. Selecione **Configurações do Projeto**. 
 1. Selecione a guia **mapeamentos de tipo** :
 
-   ![Mapeamentos de tipo](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
+   ![Mapeamentos de Tipo](./media/oracle-to-sql-on-azure-vm-guide/type-mappings.png)
 
 1. Você pode alterar o mapeamento de tipo de cada tabela selecionando a tabela no **Gerenciador de Metadados do Oracle**. 
 
@@ -246,7 +246,7 @@ Para obter assistência adicional com a conclusão desse cenário de migração,
 | [Erros comuns do SSMA para Oracle e como corrigi-los](https://aka.ms/dmj-wp-ssma-oracle-errors)                                                           | Com o Oracle, você pode atribuir uma condição não escalar na cláusula WHERE. No entanto, SQL Server não dá suporte a esse tipo de condição. Como resultado, o SSMA (Assistente de Migração do SQL Server) para Oracle não converte consultas com uma condição não escalar na cláusula WHERE, em vez de gerar um erro O2SS0001. Este white paper fornece mais detalhes sobre o problema e as maneiras de resolvê-lo.          |
 | [Manual de migração do Oracle para SQL Server](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20SQL%20Server%20Migration%20Handbook.pdf)                | Este documento se concentra nas tarefas associadas à migração de um esquema Oracle para a versão mais recente do SQL Server. Se a migração exigir alterações nos recursos/funcionalidades, o possível impacto de cada alteração nos aplicativos que usam o banco de dados precisa ser considerado com cuidado.                                                     |
 
-Esses recursos foram desenvolvidos como parte do programa Data SQL Ninja, que é patrocinado pela equipe de engenharia do Grupo de Dados do Azure. A principal responsabilidade do programa Data SQL Ninja é desbloquear e acelerar as oportunidades complexas e diversas de migração da plataforma de dados para a plataforma de Dados do Azure da Microsoft. Se você acredita que sua organização tem interesse em participar do programa Data SQL Ninja, entre em contato com sua equipe de contas e peça que eles enviem uma indicação.
+A equipe de engenharia de SQL de dados desenvolveu esses recursos. O principal compromisso desta equipe é desbloquear e acelerar a modernização complexa para projetos de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

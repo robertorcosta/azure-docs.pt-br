@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/28/2021
-ms.openlocfilehash: ccee8537c2543b67c1bb60711737ec761ebc8cbf
-ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
+ms.openlocfilehash: 4fdc222fa20aef6639bf6d5d485f7dcf6b6ca535
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105043063"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105641140"
 ---
 # <a name="efficiently-scale-out-a-custom-skill"></a>Escale com eficiência uma habilidade personalizada
 
@@ -26,7 +26,7 @@ Habilidades personalizadas são APIs Web que implementam uma interface específi
 
 + Examine a [interface de habilidade personalizada](cognitive-search-custom-skill-interface.md) para obter uma introdução à interface de entrada/saída que deve ser implementada por uma habilidade personalizada.
 
-+ Configure seu ambiente. Você pode começar com [este tutorial de ponta a ponta](/python/tutorial-vs-code-serverless-python-01) para configurar a função do Azure sem servidor usando as extensões Visual Studio Code e Python.
++ Configure seu ambiente. Você pode começar com [este tutorial de ponta a ponta](/azure/azure-functions/create-first-function-vs-code-python) para configurar a função do Azure sem servidor usando as extensões Visual Studio Code e Python.
 
 ## <a name="skillset-configuration"></a>Configuração do skillset
 
@@ -88,7 +88,7 @@ Comece testando sua habilidade personalizada com um cliente de API REST para val
 
 Crie uma [sessão de depuração](cognitive-search-debug-session.md) para adicionar sua habilidade ao contextset e certifique-se de que ela produz um enriquecimento válido. Embora uma sessão de depuração não permita que você ajuste o desempenho da habilidade, ela permite que você verifique se a habilidade está configurada com valores válidos e retorna os objetos aprimorados esperados.
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="best-practices"></a>Melhores práticas
 
 * Embora as habilidades possam aceitar e retornar cargas maiores, considere limitar a resposta a 150 MB ou menos ao retornar JSON.
 

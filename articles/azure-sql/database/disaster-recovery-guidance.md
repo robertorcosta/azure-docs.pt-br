@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 06/21/2019
-ms.openlocfilehash: 322ef3b8ca30396bd4772850ff651f7545a21257
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 11c83a6ec364865eb3478112c9f33add22a5c09d
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100580759"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643263"
 ---
 # <a name="restore-your-azure-sql-database-or-failover-to-a-secondary"></a>Restaurar o banco de dados SQL do Azure ou fazer failover para um secundário
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -66,7 +66,7 @@ Use [Obter Banco de Dados Recuperável](/previous-versions/azure/reference/dn800
 
 ## <a name="wait-for-service-recovery"></a>Aguarde a recuperação de serviço
 
-As equipes do Azure trabalham cuidadosamente para restaurar a disponibilidade do serviço o mais rapidamente possível, mas dependendo da causa raiz, isso pode levar horas ou dias.  Se seu aplicativo pode tolerar tempo de inatividade significativo, você pode simplesmente esperar a conclusão da recuperação. Nesse caso, nenhuma ação sua é necessária. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço Azure](https://azure.microsoft.com/status/). Após a recuperação da região, a disponibilidade do aplicativo será restaurada.
+As equipes do Azure trabalham cuidadosamente para restaurar a disponibilidade do serviço o mais rapidamente possível, mas dependendo da causa raiz, isso pode levar horas ou dias.  Se seu aplicativo pode tolerar tempo de inatividade significativo, você pode simplesmente esperar a conclusão da recuperação. Nesse caso, nenhuma ação sua é necessária. Você pode ver o status atual do serviço no nosso [Painel de Integridade do Serviço Azure](https://azure.microsoft.com/status/). Após a recuperação da região, a disponibilidade do aplicativo é restaurada.
 
 ## <a name="fail-over-to-geo-replicated-secondary-server-in-the-failover-group"></a>Fazer failover para servidor secundário replicado geograficamente no grupo de failover
 
@@ -78,7 +78,7 @@ Use um dos guias a seguir para fazer failover para um banco de dados secundário
 
 - [Fazer failover para um servidor secundário replicado geograficamente usando o portal do Azure](active-geo-replication-configure-portal.md)
 - [Failover para o servidor secundário usando o PowerShell](scripts/setup-geodr-and-failover-database-powershell.md)
-- [Fazer failover para um servidor secundário usando Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
+- [Fazer failover para um servidor secundário usando Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Recuperação usando a restauração geográfica
 
@@ -90,7 +90,7 @@ Se estiver usando a restauração geográfica para se recuperar de uma interrup�
 
 ### <a name="update-connection-strings"></a>Atualizar cadeias de conexão
 
-Já que o banco de dados recuperado residirá em um servidor diferente, você precisa atualizar a cadeia de conexão do seu aplicativo para apontar para esse servidor.
+Como o banco de dados recuperado reside em um servidor diferente, você precisa atualizar a cadeia de conexão do aplicativo para apontar para esse servidor.
 
 Para saber mais sobre como alterar as cadeias de conexão, confira a linguagem de desenvolvimento apropriada para sua [biblioteca de conexão](connect-query-content-reference-guide.md#libraries).
 
