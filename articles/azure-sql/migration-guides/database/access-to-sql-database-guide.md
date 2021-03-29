@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author: mathoma
 ms.date: 03/19/2021
-ms.openlocfilehash: 48fe734b382d661f96a86ede181a1258e38120a1
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: f9fa2426e371ab9fd99e88979cbcbbb34adb00d6
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105626530"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105643595"
 ---
 # <a name="migration-guide-access-to-azure-sql-database"></a>Guia de migração: acesso ao banco de dados SQL do Azure
 
@@ -171,7 +171,7 @@ Para obter mais assistência com a conclusão deste cenário de migração, cons
 | --- | --- |
 | [Modelo e ferramenta de avaliação de carga de trabalho de dados](https://github.com/Microsoft/DataMigrationTeam/tree/master/Data%20Workload%20Assessment%20Model%20and%20Tool) | Fornece plataformas de destino "melhor ajuste" sugeridas, preparação para a nuvem e níveis de correção de aplicativo/banco de dados para cargas de trabalho especificadas. Ele oferece um cálculo simples, com um clique e geração de relatórios que ajuda a acelerar avaliações de grandes imóveis fornecendo um processo de decisão de plataforma de destino automatizado e uniforme. |
 
-A equipe de engenharia de SQL de dados desenvolveu esse recurso. O principal compromisso da equipe é desbloquear e acelerar a modernização complexa para projetos de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft.
+A equipe de engenharia de SQL de dados desenvolveu esses recursos. O principal compromisso desta equipe é desbloquear e acelerar a modernização complexa para projetos de migração da plataforma de dados para a plataforma de dados do Azure da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 

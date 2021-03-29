@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 3f348a5005f28fdd1d02be706ca2742d77368288
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: aa224a09317aafd49ae10c89ae0c50455ddd4602
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100592371"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709915"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorar operações e atividades do Azure Pesquisa Cognitiva
 
@@ -38,9 +38,9 @@ A captura de tela a seguir o ajuda a localizar informações de monitoramento no
 
 * Guia **monitoramento** , na página Visão geral principal, mostra volume de consulta, latência e se o serviço está sob pressão.
 * O **log de atividades**, no painel de navegação esquerdo, está conectado a Azure Resource Manager. O log de atividades relata sobre as ações realizadas pelo Resource Manager: disponibilidade e status do serviço, alterações de capacidade (réplicas e partições) e atividades relacionadas à chave de API.
-* As configurações de **monitoramento** , mais adiante, fornecem alertas, métricas e logs de diagnóstico configuráveis. Crie-os quando precisar deles. Depois que os dados são coletados e armazenados, você pode consultar ou visualizar as informações de insights.
+* As configurações de **monitoramento** , mais adiante, fornecem alertas configuráveis, visualização de métricas e logs de diagnóstico. Crie-os quando precisar deles. Depois que os dados são coletados e armazenados, você pode consultar ou visualizar as informações de insights.
 
-![Integração de Azure Monitor em um serviço de pesquisa](./media/search-monitor-usage/azure-monitor-search.png
+  ![Integração de Azure Monitor em um serviço de pesquisa](./media/search-monitor-usage/azure-monitor-search.png
  "Integração de Azure Monitor em um serviço de pesquisa")
 
 > [!NOTE]
@@ -94,7 +94,7 @@ Azure Monitor tem sua própria estrutura de cobrança e os logs de diagnóstico 
 
 ## <a name="monitor-user-access"></a>Monitorar o acesso do usuário
 
-Como os índices de pesquisa são um componente de um aplicativo cliente maior, não há nenhuma metodologia interna para controlar ou monitorar o acesso por usuário a um índice. As solicitações são consideradas provenientes de um aplicativo cliente, para solicitações de administrador ou de consulta. As operações de leitura/gravação do administrador incluem a criação, a atualização e a exclusão de objetos em todo o serviço. Operações somente leitura são consultas em relação à coleção de documentos, com escopo para um único índice. 
+Como os índices de pesquisa são um componente de um aplicativo cliente maior, não há nenhuma metodologia interna para controlar ou monitorar o acesso por usuário a um índice. As solicitações são consideradas provenientes de um aplicativo cliente que apresenta uma solicitação de administrador ou de consulta. As operações de leitura/gravação do administrador incluem a criação, a atualização e a exclusão de objetos em todo o serviço. Operações somente leitura são consultas em relação à coleção de documentos, com escopo para um único índice. 
 
 Assim, o que você verá nos logs de atividade são referências a chamadas usando chaves de administração ou chaves de consulta. A chave apropriada é incluída em solicitações originadas do código do cliente. O serviço não está equipado para manipular tokens de identidade ou representação.
 

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a397c17821d16594ccfb48175a8a141cb9f390b
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: d2e9acda136654a0dd654eded7b4c17e560fc0aa
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101687814"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709694"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Adicionar o Google como provedor de identidade para usuários convidados B2B
 
@@ -108,7 +108,7 @@ Primeiro, crie um novo projeto no console de desenvolvedores do Google para obte
 
    ![Captura de tela que mostra a seção domínios autorizados.](media/google-federation/google-oauth-authorized-domains.PNG)
 
-9. Clique em **Salvar**.
+9. Selecione **Salvar**.
 
 10. Selecione **Credenciais**. No menu **Criar credenciais**, selecione **ID do cliente OAuth**:
 
@@ -147,7 +147,7 @@ Agora você vai definir a ID do cliente Google e o segredo do cliente. Você pod
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId <client ID> -ClientSecret <client secret>`
  
    > [!NOTE]
-   > Use a ID do cliente e o segredo do cliente do aplicativo criado em "etapa 1: configurar um projeto de desenvolvedor do Google". Para obter mais informações, consulte [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview). 
+   > Use a ID do cliente e o segredo do cliente do aplicativo criado em "etapa 1: configurar um projeto de desenvolvedor do Google". Para obter mais informações, consulte [New-AzureADMSIdentityProvider](/powershell/module/azuread/new-azureadmsidentityprovider?view=azureadps-2.0-preview&preserve-view=true). 
  
 ## <a name="how-do-i-remove-google-federation"></a>Como fazer a remoção da federação do Google?
 É possível excluir sua configuração da federação do Google. Se você fizer isso, os usuários convidados do Google que já tiverem resgatado os respectivos convites não conseguirão entrar. Mas você pode permitir a eles acesso a seus recursos novamente, excluindo-os do diretório e convidando-os novamente. 
@@ -171,4 +171,4 @@ Agora você vai definir a ID do cliente Google e o segredo do cliente. Você pod
     `Remove-AzureADMSIdentityProvider -Id Google-OAUTH`
 
    > [!NOTE]
-   > Para obter mais informações, consulte [AzureADMSIdentityProvider remover](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview).
+   > Para obter mais informações, consulte [AzureADMSIdentityProvider remover](/powershell/module/azuread/Remove-AzureADMSIdentityProvider?view=azureadps-2.0-preview&preserve-view=true).

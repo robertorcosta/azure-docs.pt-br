@@ -1,24 +1,21 @@
 ---
-title: Use monitorar o monitor de área de trabalho virtual do Windows Preview-Azure
+title: Usar monitor de área de trabalho virtual do Windows monitor – Azure
 description: Como usar Azure Monitor para área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1c87763cb2ca482fc8ee15588d7287f0d9275fff
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 1b93e0c0d61eaa390eda66da2a583a4f429ddd79
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627159"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709541"
 ---
-# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment-preview"></a>Usar Azure Monitor para área de trabalho virtual do Windows para monitorar sua implantação (versão prévia)
+# <a name="use-azure-monitor-for-windows-virtual-desktop-to-monitor-your-deployment"></a>Usar Azure Monitor para área de trabalho virtual do Windows para monitorar sua implantação
 
->[!IMPORTANT]
->O Azure Monitor para área de trabalho virtual do Windows está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Azure Monitor para área de trabalho virtual do Windows (versão prévia) é um Dashboard criado em pastas de trabalho do Azure Monitor que ajuda os profissionais de ti a compreender seus ambientes de área de trabalho virtual do Windows. Este artigo explicará como configurar Azure Monitor para área de trabalho virtual do Windows para monitorar seus ambientes de área de trabalho virtual do Windows.
+O Azure Monitor para área de trabalho virtual do Windows é um Dashboard criado em pastas de trabalho do Azure Monitor que ajuda os profissionais de ti a compreender seus ambientes de área de trabalho virtual do Windows Este tópico explicará como configurar Azure Monitor para área de trabalho virtual do Windows para monitorar seus ambientes de área de trabalho virtual do Windows.
 
 ## <a name="requirements"></a>Requisitos
 

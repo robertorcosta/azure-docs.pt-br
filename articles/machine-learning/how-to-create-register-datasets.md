@@ -12,12 +12,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 54b1fd14f97855dd42afde9a4bb34795373ff229
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 81779d942b31f940d579de623ecb39c35d3a8b14
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103417630"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642149"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Criar conjuntos de dados no Azure Machine Learning
 
@@ -52,7 +52,7 @@ Para criar e trabalhar com conjuntos de os, você precisa de:
     * Trabalhe em seu próprio notebook Jupyter e instale o SDK com [estas instruções](/python/api/overview/azure/ml/install).
 
 > [!NOTE]
-> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](/python/api/azureml-dataprep/) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7). Se você estiver usando distribuições sem suporte, siga [este guia](/dotnet/core/install/linux) para instalar o .net Core 2,1 para continuar. 
+> Algumas classes de conjunto de objetos têm dependências no pacote [azureml-dataprep](https://pypi.org/project/azureml-dataprep/) , que é compatível apenas com Python de 64 bits. Para usuários do Linux, essas classes têm suporte apenas nas seguintes distribuições: Red Hat Enterprise Linux (7, 8), Ubuntu (14, 4, 16, 4, 18, 4), Fedora (27, 28), Debian (8, 9) e CentOS (7). Se você estiver usando distribuições sem suporte, siga [este guia](/dotnet/core/install/linux) para instalar o .net Core 2,1 para continuar. 
 
 ## <a name="compute-size-guidance"></a>Diretrizes de tamanho de computação
 
@@ -178,7 +178,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Para reutilizar e compartilhar conjuntos de testes entre experimentos em seu espaço de trabalho, [Registre seu conjunto de registros](#register-datasets).
 
@@ -258,7 +258,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|Falso|3|Braund, Sr. Owen Harris|masculino|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Sra. John Bradley (Florence Briggs th...|feminino|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Verdadeiro|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|True|3|Heikkinen, erro. Laina|feminino|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 ## <a name="create-a-dataset-from-pandas-dataframe"></a>Criar um conjunto de uma série de dataframe do pandas
 

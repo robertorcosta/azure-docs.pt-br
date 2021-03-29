@@ -1,24 +1,21 @@
 ---
-title: Glossário do monitor de visualização da área de trabalho virtual do Windows – Azure
+title: Glossário do monitor da área de trabalho virtual do Windows – Azure
 description: Um glossário de termos e conceitos relacionados a Azure Monitor para área de trabalho virtual do Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 3/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7b824bc13bc4f553d22358b69237173effb51594
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: 38f34324a0cda518645f8b9231e08bafbd75cca0
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105627125"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709524"
 ---
-# <a name="azure-monitor-for-windows-virtual-desktop-preview-glossary"></a>Azure Monitor para o Glossário da área de trabalho virtual do Windows (versão prévia)
-
->[!IMPORTANT]
->O Azure Monitor para área de trabalho virtual do Windows está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+# <a name="azure-monitor-for-windows-virtual-desktop-glossary"></a>Glossário do Azure Monitor para área de trabalho virtual do Windows
 
 Este artigo lista e descreve brevemente os principais termos e conceitos relacionados ao Azure Monitor para área de trabalho virtual do Windows (versão prévia).
 

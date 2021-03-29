@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2038587aebe8fe98bd1adcccef6b895ec7370656
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5c7f3de20ea3e86e3b56dc71d698354f7eaf782d
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176851"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709711"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Migrar para a autenticação de nuvem usando a distribuição em etapas (versão prévia)
 
@@ -98,7 +98,7 @@ Os cenários a seguir não têm suporte para distribuição em etapas.
 
 Para testar a *sincronização de hash de senha*, entre usando a distribuição em etapas e siga as instruções de preparação da próxima seção.
 
-Para obter informações sobre quais cmdlets do PowerShell devem ser usados, consulte [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Para obter informações sobre quais cmdlets do PowerShell devem ser usados, consulte [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Preparação para a sincronização de hash de senha
 
@@ -251,9 +251,9 @@ R: não, esse recurso foi projetado para testar a autenticação na nuvem. Após
 
 **P: Posso usar o PowerShell para executar a distribuição em etapas?**
 
-A: Sim. Para saber como usar o PowerShell para executar a distribuição em etapas, consulte [Versão prévia do Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Sim. Para saber como usar o PowerShell para executar a distribuição em etapas, consulte [Versão prévia do Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout).
 
 ## <a name="next-steps"></a>Próximas etapas
-- [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Versão prévia do Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true#staged_rollout )
 - [Alterar o método de entrada para a sincronização de hash de senha](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)
 - [Alterar o método de entrada para autenticação de passagem](plan-migrate-adfs-password-hash-sync.md#step-3-change-the-sign-in-method-to-password-hash-synchronization-and-enable-seamless-sso)

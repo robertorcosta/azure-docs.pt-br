@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
-ms.openlocfilehash: 8173da37792948e267aae2078fee9f864bf7bdc9
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 744d302afd21e6521fb17bf7bef6e68d21fb8372
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103011146"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105639384"
 ---
 # <a name="create-advanced-encoding-workflows-with-workflow-designer"></a>Criar fluxos de trabalho de codificação avançada com o Designer de Fluxo de Trabalho
 
@@ -45,7 +45,7 @@ Essa ferramenta também pode ser usada para modificar qualquer um dos [fluxos de
 Quando um arquivo de fluxo de trabalho é criado, ele pode ser carregado como um Ativo e, em seguida, ser usado para codificar arquivos de mídia. Para saber mais sobre como codificar com o **Fluxo de Trabalho do Media Encoder Premium** usando **.NET**, consulte [Codificação avançada com Fluxo de Trabalho do Media Encoder Premium](media-services-encode-with-premium-workflow.md).
 
 ## <a name="modify-existing-workflows"></a><a id="existing_workflows"></a>Modificar fluxos de trabalho existentes
-Os [fluxos de trabalho publicados](media-services-workflow-designer.md#existing_workflows) padrão podem ser modificados usando a ferramenta de designer. Você pode obter arquivos de fluxo de trabalho padrão [aqui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). A pasta também contém a descrição desses arquivos.
+Os [fluxos de trabalho publicados](media-services-workflow-designer.md#existing_workflows) padrão podem ser modificados usando a ferramenta de designer. Você pode obter arquivos de fluxo de trabalho padrão [aqui](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md). A pasta também contém a descrição desses arquivos.
 
 Os vídeos a seguir mostram como usar o designer.
 

@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 12/05/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 67a521886f5ff7e7e68f82c80004e0cf2649e652
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: c2da1885d975ea6b4daf26714e430143dd89da42
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102565624"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709762"
 ---
 # <a name="get-all-application-proxy-apps-with-a-token-lifetime-policy"></a>Obter todos os aplicativos do Proxy de Aplicativo com uma política de tempo de vida de token
 
@@ -40,8 +40,8 @@ Este exemplo requer a [Versão prévia do módulo do PowerShell do AzureAD v2 pa
 |---|---|
 |[Get-AzureADServicePrincipal](/powershell/module/azuread/get-azureadserviceprincipal) | Obtém uma entidade de serviço. |
 |[Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication) | Obtém um aplicativo do Azure AD. |
-|[Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) | Obtém uma política no Azure AD. |
-|[Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview) | Obtém a política de uma entidade de serviço no Azure AD. |
+|[Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém uma política no Azure AD. |
+|[Get-AzureADServicePrincipalPolicy](/powershell/module/azuread/get-azureadserviceprincipalpolicy?view=azureadps-2.0-preview&preserve-view=true) | Obtém a política de uma entidade de serviço no Azure AD. |
 
 
 ## <a name="next-steps"></a>Próximas etapas

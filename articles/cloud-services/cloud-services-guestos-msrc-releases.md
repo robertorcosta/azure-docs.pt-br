@@ -10,47 +10,44 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 3/12/2021
+ms.date: 3/28/2021
 ms.author: gunnarc
-ms.openlocfilehash: 8cdec61b971e7028326a22ac7f7bd6046376427b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: c9a4a5229629b2a65b167a80fce8e502612dcf3c
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105559104"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709898"
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] específica na qual foram introduzidas.
 
 ## <a name="march-2021-guest-os"></a>SO convidado de março de 2021
 
->[!NOTE] 
-
->O SO convidado de março está sendo lançado no momento para VMs de serviço de nuvem configuradas para atualizações automáticas. Quando a distribuição estiver concluída, essa versão será disponibilizada para atualizações manuais por meio do portal do Azure e dos arquivos de configuração. Os patches a seguir estão incluídos no sistema operacional convidado de março. Esta lista está sujeita a alterações. 
 
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
-|  Rel 21-03 |  [5000822]  |  Atualização cumulativa mais recente (LCU) | 6,29 | 9 de março de 2021 |
-|  Rel 21-03 |  [4580325]  |  Atualização do flash | 3,95, 4,88, 5,53, 6,29 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [5000800]  |  Atualizações cumulativas do IE | 2,108, 3,95, 4,88 | 9 de março de 2021 |
-|  Rel 21-03 |  [5000803]  |  Atualização cumulativa mais recente (LCU) | 5,53 | 9 de março de 2021 |
-|  Rel 21-03 |  [4578952]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5  | 2,108 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2  | 2,108 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5  | 4,88 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2  | 4,88 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5  | 3,95 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [4578954]  |  . ROLLUP de qualidade e segurança do 4.5.2 do .NET Framework  | 3,95 | 13 de outubro de 2020 |
-|  Rel 21-03 |  [4601060]  |  . Atualização cumulativa do .NET Framework 3,5 e 4.7.2  | 6,29 | 9 de fevereiro de 2021 |
-|  Rel 21-03 |  [5000841]  |  Rollup mensal  | 2,108 | 9 de março de 2021 |
-|  Rel 21-03 |  [5000847]  |  Rollup mensal  | 3,95 | 9 de março de 2021 |
-|  Rel 21-03 |  [5000848]  |  Rollup mensal  | 4,88 | 9 de março de 2021 |
-|  Rel 21-03 |  [4566426]  |  Atualização da pilha de manutenção  | 3,95 | 14 de julho de 2020 |
-|  Rel 21-03 |  [4566425]  |  Atualização da pilha de manutenção  | 4,88 | 14 de julho de 2020 |
-|  OOB 21-03 Rel |  [4578013]  |  Atualização de segurança autônoma  | 4,88 | 19 de agosto de 2020 |
-|  Rel 21-03 |  [4592510]  |  Atualização da pilha de manutenção  | 2,108 | 8 de dezembro de 2020 |
-|  Rel 21-03 |  [5000859]  |  Atualização da pilha de manutenção  | 6,29 | 9 de março de 2021 |
-|  Rel 21-03 |  [4494175]  |  Microcódigo  | 5,53 | 1 de setembro de 2020 |
-|  Rel 21-03 |  [4494174]  |  Microcódigo  | 6,29 | 1 de setembro de 2020 |
+|  Rel 21-03 |  [5000822]  |  Atualização cumulativa mais recente (LCU) | [6,29] | 9 de março de 2021 |
+|  Rel 21-03 |  [4580325]  |  Atualização do flash | [3,95], [4,88], [5,53], [6,29] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [5000800]  |  Atualizações cumulativas do IE | [2,108], [3,95], [4,88] | 9 de março de 2021 |
+|  Rel 21-03 |  [5000803]  |  Atualização cumulativa mais recente (LCU) | [5,53] | 9 de março de 2021 |
+|  Rel 21-03 |  [4578952]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5  | [2,108] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [4578955]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2  | [2,108] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [4578953]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5  | [4,88] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [4578956]  |  .NET Framework o rollup de segurança e qualidade do 4.5.2  | [4,88] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [4578950]  |  .NET Framework o acúmulo de qualidade e segurança do 3,5  | [3,95] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [4578954]  |  . ROLLUP de qualidade e segurança do 4.5.2 do .NET Framework  | [3,95] | 13 de outubro de 2020 |
+|  Rel 21-03 |  [4601060]  |  . Atualização cumulativa do .NET Framework 3,5 e 4.7.2  | [6,29] | 9 de fevereiro de 2021 |
+|  Rel 21-03 |  [5000841]  |  Rollup mensal  | [2,108] | 9 de março de 2021 |
+|  Rel 21-03 |  [5000847]  |  Rollup mensal  | [3,95] | 9 de março de 2021 |
+|  Rel 21-03 |  [5000848]  |  Rollup mensal  | [4,88] | 9 de março de 2021 |
+|  Rel 21-03 |  [4566426]  |  Atualização da pilha de manutenção  | [3,95] | 14 de julho de 2020 |
+|  Rel 21-03 |  [4566425]  |  Atualização da pilha de manutenção  | [4,88] | 14 de julho de 2020 |
+|  OOB 21-03 Rel |  [4578013]  |  Atualização de segurança autônoma  | [4,88] | 19 de agosto de 2020 |
+|  Rel 21-03 |  [4592510]  |  Atualização da pilha de manutenção  | [2,108] | 8 de dezembro de 2020 |
+|  Rel 21-03 |  [5000859]  |  Atualização da pilha de manutenção  | [6,29] | 9 de março de 2021 |
+|  Rel 21-03 |  [4494175]  |  Microcódigo  | [5,53] | 1 de setembro de 2020 |
+|  Rel 21-03 |  [4494174]  |  Microcódigo  | [6,29] | 1 de setembro de 2020 |
 
 [5000822]: https://support.microsoft.com/kb/5000822
 [4580325]: https://support.microsoft.com/kb/4580325
@@ -73,7 +70,11 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 [5000859]: https://support.microsoft.com/kb/5000859
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-
+[2,108]: ./cloud-services-guestos-update-matrix.md#family-2-releases
+[3,95]: ./cloud-services-guestos-update-matrix.md#family-3-releases
+[4,88]: ./cloud-services-guestos-update-matrix.md#family-4-releases
+[5,53]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6,29]: ./cloud-services-guestos-update-matrix.md#family-6-releases
 
 ## <a name="february-2021-guest-os"></a>SO convidado de fevereiro de 2021
 

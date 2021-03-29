@@ -1,24 +1,21 @@
 ---
-title: Solucionar problemas de monitorar o Windows Virtual Desktop Preview-Azure
+title: Solucionar problemas de monitorar área de trabalho virtual do Windows-Azure
 description: Como solucionar problemas com Azure Monitor para área de trabalho virtual do Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 03/25/2020
+ms.date: 03/29/2021
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: a07d7536d3d71b121c1dde761d8c290b8be01fe7
-ms.sourcegitcommit: a9ce1da049c019c86063acf442bb13f5a0dde213
+ms.openlocfilehash: dda58868432248fe93a9fbc83d1e538dfc9b61ba
+ms.sourcegitcommit: dae6b628a8d57540263a1f2f1cdb10721ed1470d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/27/2021
-ms.locfileid: "105628451"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105709439"
 ---
-# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop-preview"></a>Solucionar problemas de Azure Monitor para área de trabalho virtual do Windows (versão prévia)
+# <a name="troubleshoot-azure-monitor-for-windows-virtual-desktop"></a>Solucionar problemas de Azure Monitor para área de trabalho virtual do Windows
 
->[!IMPORTANT]
->O Azure Monitor para área de trabalho virtual do Windows está atualmente em visualização pública. Essa versão prévia é fornecida sem um contrato de nível de serviço e não é recomendamos usá-la para cargas de trabalho de produção. Alguns recursos podem não ter suporte ou podem ter restrição de recursos. Para obter mais informações, consulte [Termos de Uso Complementares de Versões Prévias do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-Este artigo apresenta problemas conhecidos e soluções para problemas comuns em Azure Monitor para área de trabalho virtual do Windows (versão prévia).
+Este artigo apresenta problemas conhecidos e soluções para problemas comuns em Azure Monitor para área de trabalho virtual do Windows.
 
 ## <a name="issues-with-configuration-and-setup"></a>Problemas com configuração e configuração
 

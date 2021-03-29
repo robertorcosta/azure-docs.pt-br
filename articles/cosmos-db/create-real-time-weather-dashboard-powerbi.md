@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 07a3deaf67c4f269b01d62ea25ddb212c1e01f6f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 73251fcbe9f149979d3fd62d14bbca86d77027f2
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "101657529"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105640137"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Criar um painel em tempo real usando Azure Cosmos DB e Power BI
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -72,7 +72,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
    
    |Propriedade  |Tipo de dados  |Filtrar  |
    |---------|---------|---------|
-   |_ts     |   Numérico      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
+   |_ts        |   Numérico      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |Data (por exemplo:-2019-08-19)     |   String      | [Document. Date] > DateTime. totext (RangeStart, "YYYY-MM-DD") e [Document. Date] < DateTime. totext (RangeEnd, "aaaa-MM-DD")        |
    |Data (por exemplo:-2019-08-11 12:00:00)   |  String       |  [Document. Date] > DateTime. totext (RangeStart, "aaaa-mm-dd HH: mm: SS") e [Document. Date] < DateTime. totext (RangeEnd, "aaaa-mm-dd HH: mm: SS")       |
 
@@ -100,7 +100,7 @@ Configure um pipeline de ingestão para carregar [dados meteorológicos](https:/
 
 1. **Criar um novo cluster Azure Analysis Services**  -  [Crie uma instância do Azure Analysis Services](../analysis-services/analysis-services-create-server.md) na mesma região que a conta do Azure Cosmos e o cluster do databricks.
 
-1. **Criar um novo projeto de tabela Analysis Services no Visual Studio**  -   [Instale o SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017&preserve-view=true) e crie um Analysis Services projeto de tabela no Visual Studio.
+1. **Criar um novo projeto de tabela Analysis Services no Visual Studio**  -   [Instale o SQL Server Data Tools (SSDT)](/sql/ssdt/download-sql-server-data-tools-ssdt) e crie um Analysis Services projeto de tabela no Visual Studio.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-project.png" alt-text="Criar Azure Analysis Services projeto":::
 
