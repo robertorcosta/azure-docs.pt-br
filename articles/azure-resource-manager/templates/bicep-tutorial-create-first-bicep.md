@@ -2,16 +2,16 @@
 title: Tutorial – Criar e implantar os arquivos Bicep do Azure Resource Manager
 description: Crie seu primeiro arquivo Bicep para implantar recursos do Azure. No tutorial, você aprenderá sobre a sintaxe do arquivo Bicep e como implantar uma conta de armazenamento.
 author: mumian
-ms.date: 03/03/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 6a335b554fa0cfc2e12c8ddbe3e24a50fdedec0f
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 8979585d7ec0fa6eac1866375fe1e80214f2d2e2
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102036279"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594267"
 ---
 # <a name="tutorial-create-and-deploy-first-azure-resource-manager-bicep-file"></a>Tutorial: criar e implantar seu primeiro arquivo Bicep do Azure Resource Manager
 
@@ -31,11 +31,11 @@ Vamos começar verificando se você tem as ferramentas necessárias para criar e
 
 ### <a name="editor"></a>Editor
 
-Para criar arquivos Bicep, você precisará de um bom editor. Recomendamos o Visual Studio Code com a extensão Bicep. Se você precisar instalar essas ferramentas, confira [Início Rápido: criar arquivos Bicep com o Visual Studio Code](quickstart-create-bicep-use-visual-studio-code.md).
+Para criar arquivos Bicep, você precisará de um bom editor. Recomendamos o Visual Studio Code com a extensão Bicep. Se você precisar instalar essas ferramentas, confira [Configurar ambiente de desenvolvimento do Bicep](./bicep-install.md#development-environment).
 
 ### <a name="command-line-deployment"></a>Implantação de linha de comando
 
-Você também precisa do Azure PowerShell ou da CLI do Azure mais recente para implantar o arquivo Bicep. Para obter as instruções de instalação, confira:
+Você pode implantar arquivos Bicep usando a CLI do Azure ou o Azure PowerShell. Para a CLI do Azure, você precisa da versão 2.20.0 ou posterior; para o Azure PowerShell, você precisa da versão 5.6.0 ou posterior. Para obter as instruções de instalação, confira:
 
 - [Instale o Azure PowerShell](/powershell/azure/install-az-ps)
 - [Instalar a CLI do Azure no Windows](/cli/azure/install-azure-cli-windows)
@@ -76,7 +76,7 @@ Ok, você está pronto para começar a aprender sobre o Bicep.
     A declaração de recurso tem quatro componentes:
 
     - **recurso**: palavra-chave.
-    - **nome simbólico** (stg): um nome simbólico é um identificador para referenciar o recurso em todo o arquivo Bicep. Não se trata de qual será o nome do recurso quando for implantado. O nome do recurso é definido pela propriedade **Name**.  Confira o quarto componente desta lista. Para facilitar o acompanhamento dos tutoriais, o **stg** é usado como o nome simbólico para o recurso de conta de armazenamento nesta série de tutoriais.
+    - **nome simbólico** (stg): um nome simbólico é um identificador para referenciar o recurso em todo o arquivo Bicep. Não se trata de qual será o nome do recurso quando for implantado. O nome do recurso é definido pela propriedade **Name**.  Confira o quarto componente desta lista. Para facilitar o acompanhamento dos tutoriais, o **stg** é usado como o nome simbólico para o recurso de conta de armazenamento nesta série de tutoriais. Para ver como usar o nome simbólico para obter uma lista completa das propriedades do objeto, confira [Adicionar saídas](./bicep-tutorial-add-outputs.md).
     - **tipo de recurso** (Microsoft.Storage/storageAccounts@2019-06-01): é composto pelo provedor de recursos (Microsoft.Storage), tipo de recurso (StorageAccounts) e apiVersion (2019-06-01). Cada provedor de recursos publica as próprias versões de API, portanto, esse valor é específico para o tipo. Você pode encontrar mais tipos e apiVersions para vários recursos do Azure da [referência de modelo do ARM](/azure/templates/).
     - **propriedades** (tudo dentro de = {...}): são as propriedades específicas que você gostaria de especificar para o tipo de recurso fornecido. São exatamente as mesmas propriedades disponíveis em um modelo do ARM. Cada recurso tem uma propriedade `name`. A maioria dos recursos também tem uma propriedade `location`, que define a região em que o recurso é implantado. As outras propriedades variam por tipo de recurso e versão de API. É importante entender a conexão entre a versão da API e as propriedades disponíveis, então vamos ver isso em mais detalhes.
 
@@ -161,7 +161,7 @@ Bicep é uma abstração transparente sobre os modelos do ARM (modelos do Azure 
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Para executar esse cmdlet de implantação, você precisará ter a [versão mais recente](/powershell/azure/install-az-ps) do Azure PowerShell.
+Para executar esse cmdlet de implantação, você precisa ter a [versão mais recente](/powershell/azure/install-az-ps) do Azure PowerShell.
 
 ```azurepowershell
 $bicepFile = "{provide-the-path-to-the-bicep-file}"

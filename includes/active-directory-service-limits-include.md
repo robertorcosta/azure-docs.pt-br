@@ -5,22 +5,22 @@ services: active-directory
 author: curtand
 ms.service: active-directory
 ms.topic: include
-ms.date: 12/11/2020
+ms.date: 03/12/2021
 ms.author: curtand
 ms.custom: include file
-ms.openlocfilehash: 9be85a7da67fa659e29d802d1f77fa09008f4428
-ms.sourcegitcommit: 1bdcaca5978c3a4929cccbc8dc42fc0c93ca7b30
+ms.openlocfilehash: 1102bcc18165d3bc705755f1bbb6faecddec4e91
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2020
-ms.locfileid: "97371298"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104612020"
 ---
 Aqui estão as restrições de uso e outros limites de serviço para o serviço Microsoft Azure Active Directory (Azure AD).
 
 | Categoria | Limite |
 | --- | --- |
 | Locatários | Um usuário pode pertencer a no máximo 500 locatários do Azure AD como um membro ou convidado.<br/>Um usuário pode criar no máximo 200 diretórios. |
-| Domínios | É possível adicionar no máximo 900 nomes de domínio gerenciados. Se você configurar todos os domínios para a federação com o Active Directory local, poderá adicionar no máximo 450 nomes de domínio em cada locatário. |
+| Domínios | É possível adicionar, no máximo, cinco mil nomes de domínios gerenciados. Se você configurar todos os domínios para a federação com o Active Directory local, poderá adicionar, no máximo, 2.500 nomes de domínio em cada locatário. |
 |Recursos |<ul><li>Os usuários da edição Gratuita do Azure Active Directory podem criar no máximo 50 mil recursos do Azure AD em um locatário por padrão. Se você tiver pelo menos um domínio verificado, a cota de serviço padrão do Azure AD da sua organização será estendida para 300 mil recursos do Azure AD. A cota de serviço do Azure AD para organizações criadas pela inscrição de autoatendimento permanecerá em 50 mil recursos do Azure AD, mesmo após um administrador interno assumir o controle e a organização ser convertida em um locatário gerenciado com pelo menos um domínio verificado. Esse limite de serviço não está relacionado ao limite do tipo de preço de 500 mil recursos na página de preços do Azure AD. Para ir além da cota padrão, você precisa entrar em contato com Suporte da Microsoft.</li><li>Um usuário não administrador pode criar até 250 recursos do Azure AD. Os recursos ativos e excluídos que estão disponíveis para restauração são contabilizados nessa cota. Somente os recursos excluídos do Azure AD há menos de 30 dias estão disponíveis para restauração. Os recursos do Azure AD que não estão mais disponíveis para restauração são contabilizados nessa cota a um valor de um quarto por 30 dias. Se você tiver desenvolvedores que provavelmente excederão repetidamente essa cota no decorrer das suas tarefas cotidianas, poderá [criar e atribuir uma função personalizada](../articles/active-directory/roles/quickstart-app-registration-limits.md) com permissão para criar um número ilimitado de registros de aplicativo.</li></ul> |
 | Extensões de esquema |<ul><li>As extensões do tipo cadeia de caracteres podem ter no máximo 256 caracteres. </li><li>As extensões do tipo binário são limitadas a 256 bytes.</li><li>Apenas 100 valores de extensão, entre *todos* os tipos e *todos* os aplicativos, podem ser gravados em um recurso do Azure AD.</li><li>Somente as entidades Grupo, TenantDetail, Dispositivo, Aplicativo e ServicePrincipal podem ser estendidas com atributos de valor único do tipo cadeia de caracteres ou binário.</li><li>As extensões de esquema estão disponíveis somente na API do Graph versão 1.21 – versão prévia. O aplicativo precisa obter acesso de gravação para registrar uma extensão.</li></ul> |
 | Aplicativos | <ul><li>Um máximo de 100 usuários podem ser proprietários de um único aplicativo.</li><li>O aplicativo de SSO baseado em senha tem um limite de 48 usuários, o que significa que há um limite de 48 chaves para pares nome de usuário/senha por aplicativo. Se você quiser adicionar usuários, confira as instruções de solução de problemas em [Solucionar problemas de logon único baseado em senha no Azure AD](../articles/active-directory/manage-apps/troubleshoot-password-based-sso.md#i-cant-add-another-user-to-my-password-based-sso-app).</li></ul> |

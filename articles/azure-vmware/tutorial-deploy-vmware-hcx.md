@@ -3,12 +3,12 @@ title: Tutorial – Implantar e configurar o VMware HCX
 description: Saiba como implantar e configurar uma solução VMware HCX para sua nuvem privada da Solução VMware no Azure.
 ms.topic: tutorial
 ms.date: 03/13/2021
-ms.openlocfilehash: d1b0792ab9b9975edf45ab8addb81410e1da4107
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.openlocfilehash: ab59b4a29f8ba372c1892613d5e0461bf3fdc512
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
-ms.locfileid: "103462279"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104869082"
 ---
 # <a name="deploy-and-configure-vmware-hcx"></a>Implantar e configurar o VMware HCX
 
@@ -265,7 +265,7 @@ Para obter uma visão geral de ponta a ponta desse procedimento, assista ao víd
 1. Em **Selecionar os Comutadores Distribuídos para Extensões de Rede**, selecione os comutadores que contêm as máquinas virtuais a serem migradas para a Solução VMware no Azure em uma rede estendida da camada 2. Depois selecione **Continuar**.
 
    > [!NOTE]
-   > Se você não estiver migrando máquinas virtuais em redes estendidas de camada 2, ignore esta etapa.
+   > Se você não estiver migrando máquinas virtuais em redes estendidas de camada 2 (L2), ignore esta etapa.
    
    :::image type=" content" source="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png" alt-text="Captura de tela que mostra a seleção de um comutador virtual distribuído e o botão Continuar." lightbox="media/tutorial-vmware-hcx/select-layer-2-distributed-virtual-switch.png":::
 
@@ -376,3 +376,4 @@ Para obter mais informações sobre como usar o HCX, acesse a documentação té
 * [Documentação do VMware HCX](https://docs.vmware.com/en/VMware-HCX/index.html)
 * [Como migrar máquinas virtuais com o VMware HCX](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-D0CD0CC6-3802-42C9-9718-6DA5FEC246C6.html?hWord=N4IghgNiBcIBIGEAaACAtgSwOYCcwBcMB7AOxAF8g)
 * [Portas necessárias do HCX](https://ports.vmware.com/home/VMware-HCX)
+* [Configurar um servidor proxy do HCX antes de aprovar a chave de licença](https://docs.vmware.com/en/VMware-HCX/services/user-guide/GUID-920242B3-71A3-4B24-9ACF-B20345244AB2.html?hWord=N4IghgNiBcIA4CcD2APAngAgBIGEAaIAvkA)

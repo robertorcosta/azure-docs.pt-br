@@ -10,15 +10,15 @@ ms.service: batch
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
-ms.date: 01/13/2021
+ms.date: 02/16/2021
 ms.author: jenhayes
 ms.custom: include file
-ms.openlocfilehash: c625253585cc99c035852b8b9042f939284bad19
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: baf146bdd89d45c5d7e1ed359822a35d383b7b6c
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101750943"
+ms.lasthandoff: 03/20/2021
+ms.locfileid: "103561900"
 ---
 ### <a name="general-requirements"></a>Requisitos gerais
 
@@ -42,10 +42,10 @@ Os requisitos da VNet adicionais diferem, dependendo do pool do Lote estar na co
 
 **Permissões** - verifique se suas políticas de segurança ou bloqueios no grupo de recursos ou na assinatura da VNet restringem as permissões de um usuário para gerenciar a VNet.
 
-**Recursos de rede adicionais** - o lote aloca automaticamente os recursos de rede adicionais no grupo de recursos que contém a VNet.
+**Recursos de rede adicionais** – o Lote cria automaticamente os recursos de rede adicionais no grupo de recursos que contém a VNet.
 
 > [!IMPORTANT]
-> Para cada 100 nós dedicados ou de baixa prioridade, o Lote aloca: um NSG (grupo de segurança de rede), um endereço IP público e um balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para pools grandes, talvez você precise solicitar um aumento de cota para um ou mais desses recursos.
+> Para cada 100 nós dedicados ou de baixa prioridade, o Lote cria: um NSG (grupo de segurança de rede), um endereço IP público e um balanceador de carga. Esses recursos são limitados pelas [cotas de recursos](../articles/azure-resource-manager/management/azure-subscription-service-limits.md) da assinatura. Para pools grandes, talvez você precise solicitar um aumento de cota para um ou mais desses recursos.
 
 #### <a name="network-security-groups-batch-default"></a>Grupos de segurança de rede: Padrão do Lote
 

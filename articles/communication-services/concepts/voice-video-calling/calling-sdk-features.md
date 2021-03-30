@@ -6,15 +6,15 @@ author: mikben
 manager: jken
 services: azure-communication-services
 ms.author: mikben
-ms.date: 03/04/2021
+ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: fe1e08434a9137fced3dc8aa061affc2d6580b67
-ms.sourcegitcommit: 8d1b97c3777684bd98f2cfbc9d440b1299a02e8f
+ms.openlocfilehash: e154e43f9e9378d6cccd23e2e5892f2a8ccf9a1e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102489269"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104598874"
 ---
 # <a name="calling-client-library-overview"></a>Visão geral da biblioteca de clientes de chamada
 
@@ -86,7 +86,7 @@ A tabela a seguir representa um conjunto de navegadores compatíveis que atualme
 | Windows***                       |  ✔️    | ❌     | ✔️             |
 | Ubuntu/Linux                     |  ✔️    | ❌     | ❌             |
 
-*As versões 13.1+ do Safari são compatíveis. 
+*As versões do Safari 13.1+ têm suporte, chamadas individuais no Safari não têm suporte. 
 
 **O Safari 14+ e o macOS 11+ são necessários para obter suporte ao vídeo de saída. 
 
@@ -120,8 +120,8 @@ A biblioteca de clientes de chamada dos Serviços de Comunicação dá suporte �
 
 |           |Web | Android/iOS|
 |-----------|----|------------|
-|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo + 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
-|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo + 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
+|**Nº de fluxos de saída que podem ser enviados simultaneamente** |1 vídeo ou 1 compartilhamento de tela | 1 vídeo + 1 compartilhamento de tela|
+|**Nº de fluxos de entrada que podem ser renderizados simultaneamente** |1 vídeo ou 1 compartilhamento de tela| 6 vídeos + 1 compartilhamento de tela |
 
 
 ## <a name="next-steps"></a>Próximas etapas

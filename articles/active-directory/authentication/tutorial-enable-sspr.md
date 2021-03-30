@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: tutorial
-ms.date: 07/13/2020
+ms.date: 03/23/2021
 ms.author: justinha
 author: justinha
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cd1a68b06814d13c386b873ed715f3b03a7b827
-ms.sourcegitcommit: dda0d51d3d0e34d07faf231033d744ca4f2bbf4a
+ms.openlocfilehash: 253aa080b9c160141a274c57e0895291c78d2048
+ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102198482"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104887760"
 ---
 # <a name="tutorial-enable-users-to-unlock-their-account-or-reset-passwords-using-azure-active-directory-self-service-password-reset"></a>Tutorial: Permitir que os usuários desbloqueiem sua conta ou redefinam senhas usando a redefinição de senha por autoatendimento do Microsoft Azure Active Directory
 
@@ -138,6 +138,22 @@ Se não desejar mais usar a funcionalidade de SSPR configurada como parte deste 
 1. Procure e selecione **Azure Active Directory**. Em seguida, escolha **Redefinição de senha** no menu no lado esquerdo.
 1. Na página **Propriedades**, na opção *Redefinição de senha por autoatendimento habilitada*, escolha **Nenhum**.
 1. Para aplicar a alteração de SSPR, selecione **Salvar**.
+
+## <a name="faqs"></a>Perguntas frequentes
+
+Esta seção explica perguntas comuns de administradores e usuários finais que experimentam o SSPR:
+
+- Por que usuários federados esperam até dois minutos após verem **Sua senha foi redefinida** até que possam usar senhas sincronizadas do local?
+
+  Para usuários federados cujas senhas são sincronizadas, a origem da autoridade das senhas é local. Como resultado, o SSPR atualiza apenas as senhas locais. A sincronização de hash de senha com o Azure AD está agendada para ocorrer a cada dois minutos.
+
+- Quando um usuário recém-criado que foi pré-populado com os dados do SSPR, como telefone e email, visita a página de registro do SSPR, **Não perca o acesso à sua conta!** aparece como título da página. Por que outros usuários que têm dados do SSPR pré-populados não veem a mensagem?
+
+  Um usuário que vê **Não perca o acesso à sua conta!** é membro de grupos de registro de SSPR/combinado que estão configurados para o locatário. Usuários que não veem **Não perca o acesso à sua conta!** não fazem parte dos grupos de registro de SSPR/combinado.
+
+- Quando alguns usuários passam pelo processo de SSPR e redefinem sua senha, por que eles não veem o indicador de força de senha?
+
+  Os usuários que não veem a força de senha fraca/forte têm o write-back de senha sincronizado habilitado. Como o SSPR não pode determinar a política de senha do ambiente local do cliente, ele não pode validar a força ou a fraqueza da senha. 
 
 ## <a name="next-steps"></a>Próximas etapas
 
