@@ -9,18 +9,34 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: sql
 ms.topic: tutorial
-ms.date: 12/31/2020
-ms.openlocfilehash: 54b650d598cf19e061465b3a4fa18d50808e7f29
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/18/2020
+ms.openlocfilehash: f03fa84c02c4b3894efe069289b0ecbb9e90dfdb
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102426154"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104654621"
 ---
 # <a name="analyze-data-with-dedicated-sql-pools"></a>Analisar dados com pools de SQL dedicados
 
-O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de SQL dedicado. Neste tutorial, você usará os dados de táxis de Nova York para explorar as funcionalidades do pool de SQL dedicado.
+Neste tutorial, você usará os dados de táxis de Nova York para explorar as funcionalidades do pool de SQL dedicado.
 
+## <a name="create-a-dedicated-sql-pool"></a>Criar um pool de SQL dedicado
+
+1. No Synapse Studio, no painel do lado esquerdo, selecione **Gerenciar** > **Pools de SQL**.
+1. Selecione **Novo**
+1. Em **Nome do pool de SQL**, selecione **SQLPOOL1**
+1. Em **Nível de desempenho**, escolha **DW100C**
+1. Selecione **Examinar + criar** > **Criar**. Seu pool de SQL dedicado estará pronto em alguns minutos. 
+
+O pool de SQL dedicado é associado a um Banco de Dados SQL também chamado **SQLPOOL1**.
+1. Acesse **Dados** > **Workspace**.
+1. Você deverá ver um banco de dados chamado **SQLPOOL1**. Se você não vir o comando, clique em **Atualizar**.
+
+Um pool de SQL dedicado consome recursos faturáveis desde que ele esteja ativo. Você pode pausar o pool posteriormente para reduzir custos.
+
+> [!NOTE] 
+> Quando você criar um pool de SQL dedicado (antigo SQL DW) em seu workspace, a página de provisionamento do pool de SQL dedicado será aberta. O provisionamento ocorrerá no SQL Server lógico.
 ## <a name="load-the-nyc-taxi-data-into-sqlpool1"></a>Carregar os dados de Táxi de Nova York no SQLPOOL1
 
 1. No Synapse Studio, procure o hub **Desenvolver**, clique no botão **+** para adicionar um novo recurso e crie um script SQL.
@@ -77,7 +93,6 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
 ## <a name="explore-the-nyc-taxi-data-in-the-dedicated-sql-pool"></a>Explorar os dados de táxis de Nova York no pool de SQL dedicado
 
 1. No Synapse Studio, acesse o hub **Dados**.
-1. Você deverá ver um banco de dados chamado **SQLPOOL1**. Se você não vir o comando, clique em **Atualizar**.
 1. Acesse **SQLPOOL1** > **Tabelas**. 
 3. Clique com o botão direito do mouse na tabela **dbo.Trip** e selecione **Novo Script de SQL** > **Selecionar as Primeiras 100 Linhas**.
 4. Aguarde enquanto um novo script SQL é criado e executado.
@@ -103,4 +118,4 @@ O Azure Synapse Analytics fornece a capacidade de analisar dados com o pool de S
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Analisar usando o Spark](get-started-analyze-spark.md)
+> [Analisar dados em uma conta do Armazenamento do Azure](get-started-analyze-storage.md)

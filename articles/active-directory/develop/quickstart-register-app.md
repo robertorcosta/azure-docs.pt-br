@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: c72ae2a2e6dbd2278bdd78f26c145386be22764e
-ms.sourcegitcommit: 24a12d4692c4a4c97f6e31a5fbda971695c4cd68
+ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102175423"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104578797"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -89,7 +89,7 @@ Para definir as configurações do aplicativo com base na plataforma ou no dispo
     | **Aplicativo de página única** | Insira um **URI de Redirecionamento** para o aplicativo. Esse URI é a localização para a qual a plataforma de identidade da Microsoft redireciona o cliente de um usuário e envia tokens de segurança após a autenticação.<br/><br/>Selecione essa plataforma se você estiver criando um aplicativo Web do lado do cliente usando JavaScript ou uma estrutura como o Angular, o Vue.js, o React.js ou o Blazor WebAssembly. |
     | **iOS/macOS** | Insira a **ID do pacote** do aplicativo. Encontre-a nas **Configurações de Build** ou no Xcode em *Info.plist*.<br/><br/>Um URI de redirecionamento é gerado para você quando você especifica uma **ID do Pacote**. |
     | **Android** | Insira o **Nome do pacote** do aplicativo. Encontre-o no arquivo *AndroidManifest.xml*. Gere e insira também o **Hash de assinatura**.<br/><br/>Um URI de redirecionamento é gerado para você quando você especifica essas configurações. |
-    | **Aplicativos móveis e para desktop** | Selecione um dos **URIs de redirecionamento sugeridos**. Ou, então, especifique um **URI de redirecionamento personalizado**.<br/><br/>Para aplicativos desktop, recomendamos<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selecionar essa plataforma para aplicativos móveis que não estão usando a MSAL (Biblioteca de Autenticação da Microsoft) mais recente ou que não estão usando um agente. Selecione também essa plataforma para aplicativos de desktop. |
+    | **Aplicativos móveis e para desktop** | Selecione um dos **URIs de redirecionamento sugeridos**. Ou, então, especifique um **URI de redirecionamento personalizado**.<br/><br/>Para aplicativos de desktop usando o navegador incorporado, recomendamos<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Para aplicativos de desktop usando o navegador do sistema, recomendamos<br/>`http://localhost`<br/><br/>Selecionar essa plataforma para aplicativos móveis que não estão usando a MSAL (Biblioteca de Autenticação da Microsoft) mais recente ou que não estão usando um agente. Selecione também essa plataforma para aplicativos de desktop. |
 1. Selecione **Configurar** para concluir a configuração da plataforma.
 
 ### <a name="redirect-uri-restrictions"></a>Restrições do URI de redirecionamento

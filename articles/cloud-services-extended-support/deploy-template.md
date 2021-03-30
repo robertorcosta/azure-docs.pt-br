@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 71217e6379c02191311f5d93cb439d9da20080bc
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
+ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101706955"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104865580"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implantar um Serviço de Nuvem (suporte estendido) usando modelos do ARM
 
@@ -44,6 +44,9 @@ Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templ
 
 ## <a name="deploy-a-cloud-service-extended-support"></a>Implantar um Serviço de Nuvem (suporte estendido)
 
+> [!NOTE]
+> Uma forma mais fácil e mais rápida de gerar o modelo do ARM e o arquivo de parâmetro é usando o [portal do Azure](https://portal.azure.com). Você pode [baixar o modelo do ARM gerado](generate-template-portal.md) por meio do portal para criar seu serviço de nuvem por meio do PowerShell
+ 
 1. Crie a rede virtual. O nome da rede virtual deve corresponder às referências no arquivo de Configuração de Serviço (.cscfg). Se estiver usando uma rede virtual existente, omita esta seção do modelo do ARM.
 
     ```json
@@ -138,7 +141,7 @@ Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templ
     ```
  
 
-4. Adicione a referência do cofre de chaves na seção `OsProfile` do modelo do ARM. O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados ao Key Vault e referencie as impressões digitais do certificado no arquivo de Configuração do Serviço (.cscfg). Você também precisa habilitar o Key Vault para as permissões adequadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. O Key Vault precisa estar localizado na mesma região e assinatura que o Serviço de Nuvem e ter um nome exclusivo. Para obter mais informações, confira [Usando certificados com os Serviços de Nuvem (suporte estendido)](certificates-and-key-vault.md).
+4. Adicione a referência do cofre de chaves na seção `OsProfile` do modelo do ARM. O Key Vault é usado para armazenar certificados associados aos Serviços de Nuvem (suporte estendido). Adicione os certificados ao Key Vault e referencie as impressões digitais do certificado no arquivo de Configuração do Serviço (.cscfg). Você também precisa habilitar as Políticas de acesso do Key Vault para as Máquinas Virtuais do Azure para implantação (no portal) para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado armazenado como segredos do Key Vault. O Key Vault precisa estar localizado na mesma região e assinatura que o Serviço de Nuvem e ter um nome exclusivo. Para obter mais informações, confira [Usando certificados com os Serviços de Nuvem (suporte estendido)](certificates-and-key-vault.md).
      
     ```json
     "osProfile": { 
@@ -188,7 +191,9 @@ Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templ
     ```
 
 6. (Opcional) Crie um perfil de extensão para adicionar extensões ao serviço de nuvem. Para este exemplo, estamos adicionando a Área de Trabalho Remota e a extensão de diagnóstico do Microsoft Azure.
-    
+   > [!Note] 
+   > A senha da área de trabalho remota precisa ter entre 8 e 123 caracteres e deve satisfazer a pelo menos 3 dos requisitos de complexidade de senha a seguir: 1) Conter um caractere maiúsculo 2) Conter um caractere minúsculo 3) Conter um dígito numérico 4) Conter um caractere especial 5) Caracteres de controle não são permitidos
+
     ```json
         "extensionProfile": {
           "extensions": [

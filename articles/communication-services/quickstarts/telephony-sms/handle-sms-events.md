@@ -1,5 +1,5 @@
 ---
-title: Início rápido – Manipular eventos de SMS
+title: Início Rápido – manipular eventos de SMS para relatórios de entrega e mensagens de entrada
 titleSuffix: An Azure Communication Services quickstart
 description: Saiba como manipular eventos de SMS usando os Serviços de Comunicação do Azure.
 author: mikben
@@ -9,17 +9,14 @@ ms.author: mikben
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 6db817999b415ebe2c4bb7cb4216ed1e9ad9c325
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 7a88d8a0065ca7f5cb054d23295e5cfbc23489ca
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104655981"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105728582"
 ---
-# <a name="quickstart-handle-sms-events"></a>Início Rápido: Manipular eventos de SMS
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
+# <a name="quickstart-handle-sms-events-for-delivery-reports-and-inbound-messages"></a>Início Rápido: manipular eventos de SMS para relatórios de entrega e mensagens de entrada
 
 [!INCLUDE [Regional Availability Notice](../../includes/regional-availability-include.md)]
 
@@ -117,6 +114,7 @@ Neste guia de início rápido, você aprendeu a consumir eventos de SMS. Você p
 > [Enviar SMS](../telephony-sms/send.md)
 
 Você também pode querer:
+
 
  - [Saber mais sobre os conceitos de manipulação de eventos](../../../event-grid/event-schema-communication-services.md)
  - [Saber mais sobre a Grade de Eventos](../../../event-grid/overview.md)

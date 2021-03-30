@@ -2,16 +2,16 @@
 title: Tutorial – adicionar saídas ao arquivo Bicep do Azure Resource Manager
 description: Adicione saídas ao seu arquivo Bicep para simplificar a sintaxe.
 author: mumian
-ms.date: 03/01/2021
+ms.date: 03/17/2021
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: ''
-ms.openlocfilehash: 279417f22ded89db21abddad7a91a4cce520c6bd
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4b7d7a1414091c516dba2c474e1681ba357b55a1
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101742771"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104594301"
 ---
 # <a name="tutorial-add-outputs-to-azure-resource-manager-bicep-file"></a>Tutorial: Adicionar saídas ao arquivo Bicep do Azure Resource Manager
 
@@ -37,7 +37,7 @@ Ele implanta uma conta de armazenamento, mas não retorna nenhuma informação s
 
 Você pode usar saídas para retornar valores da implantação. Por exemplo, pode ser útil obter os pontos de extremidade para sua nova conta de armazenamento.
 
-O exemplo a seguir realça a alteração no seu arquivo Bicep para adicionar um valor de saída. Copie o arquivo inteiro e substitua o arquivo Bicep pelo conteúdo dele.
+O exemplo a seguir mostra a alteração no seu arquivo Bicep para adicionar um valor de saída. Copie o arquivo inteiro e substitua o arquivo Bicep pelo conteúdo dele.
 
 :::code language="bicep" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.bicep" range="1-33" highlight="33":::
 
@@ -45,7 +45,9 @@ Há alguns itens importantes a serem observados sobre o valor de saída adiciona
 
 O tipo de valor retornado é definido como `object`, o que significa que ele retorna um objeto de modelo.
 
-Para obter a propriedade `primaryEndpoints` da conta de armazenamento, use o nome simbólico da conta de armazenamento.
+Para obter a propriedade `primaryEndpoints` da conta de armazenamento, use o nome simbólico da conta de armazenamento. O recurso de preenchimento automático do Visual Studio Code apresenta a você uma lista completa das propriedades:
+
+   ![Propriedades do objeto de nome simbólico do bicep do Visual Studio Code](./media/bicep-tutorial-add-outputs/visual-studio-code-bicep-output-properties.png)
 
 ## <a name="deploy-bicep-file"></a>Implantar o arquivo Bicep
 

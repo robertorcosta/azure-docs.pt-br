@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/09/2021
 ms.author: aahi
-ms.openlocfilehash: 8444ae08aa2c25c20723b2f8c571422af3b24bc8
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 47feddb88fd7ddae1f8be54709019b4c339d177d
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101736671"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104599163"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integrar o Power BI ao Serviço Cognitivo de Análise de Texto
 
@@ -190,7 +190,7 @@ Agora você usará esta coluna para gerar uma nuvem de palavras. Para começar, 
 > [!NOTE]
 > Por que usar frases-chave extraídas para gerar uma nuvem de palavras em vez de usar o texto completo de cada comentário? As frases-chave nos fornecem as palavras *importantes* dos comentários dos clientes, não apenas as palavras *mais comuns*. Além disso, o dimensionamento das palavras na nuvem gerada não é distorcido pelo uso frequente de uma palavra em um número relativamente pequeno de comentários.
 
-Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências ( **...** ) e escolha **Importar da Store**. Em seguida, pesquise "nuvem" e clique no botão **Adicionar** ao lado do objeto visual Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
+Se você ainda não tem o objeto visual personalizado da Nuvem de Palavras instalado, instale-o. No painel Visualizações à direita do workspace, clique nas reticências ( **...** ) e escolha **Importar do Mercado**. Se a palavra "nuvem" não estiver entre as ferramentas de visualização exibidas na lista, você poderá pesquisar por "nuvem" e clicar no botão **Adicionar** ao lado do Visual de Nuvem de Palavras. O Power BI instala o objeto visual Nuvem de Palavras e avisa que ele foi instalado com êxito.
 
 ![[adicionando um objeto visual personalizado]](../media/tutorials/power-bi/add-custom-visuals.png)<br><br>
 
@@ -200,7 +200,7 @@ Primeiro, clique no ícone da Nuvem de Palavras no painel Visualizações.
 
 Um novo relatório aparece no workspace. Arraste o campo `keyphrases` do painel Campos para o campo Categoria no painel Visualizações. A nuvem de palavras é exibida no relatório.
 
-Agora, alterne para a página Formato do painel Visualizações. Na categoria Palavras irrelevantes, ative **Palavras Irrelevantes Padrão** para eliminar palavras curtas e comuns como "de" da nuvem. 
+Agora, alterne para a página Formato do painel Visualizações. Na categoria Palavras irrelevantes, ative **Palavras Irrelevantes Padrão** para eliminar palavras curtas e comuns como "de" da nuvem. No entanto, como estamos visualizando frases-chave, elas talvez não contenham palavras de parada.
 
 ![[ativando palavras irrelevantes padrão]](../media/tutorials/power-bi/default-stop-words.png)
 
@@ -232,8 +232,7 @@ A função Análise de Sentimento abaixo retorna uma pontuação que indica o gr
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    sentiment   = jsonresp[documents]{0}[confidenceScores]
-in  sentiment
+    sentiment   = jsonresp[documents]{0}[detectedLanguage][confidenceScore] in  sentiment
 ```
 
 Aqui estão duas versões de uma função Detecção de Idioma. A primeira retorna o código de idioma ISO (por exemplo, `en` para inglês) e a segunda retorna o nome "amigável" (por exemplo, `English`). Você deve notar que a última linha do corpo é diferente entre as duas versões.
@@ -249,8 +248,7 @@ Aqui estão duas versões de uma função Detecção de Idioma. A primeira retor
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[iso6391Name]
-in  language
+    language    = jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 ```fsharp
 // Returns the name (for example, 'English') of the language in which the text is written
@@ -263,8 +261,7 @@ in  language
     headers     = [#"Ocp-Apim-Subscription-Key" = apikey],
     bytesresp   = Web.Contents(endpoint, [Headers=headers, Content=bytesbody]),
     jsonresp    = Json.Document(bytesresp),
-    language    = jsonresp[documents]{0}[detectedLanguages]{0}[name]
-in  language
+    language    jsonresp [documents]{0}[detectedLanguage] [iso6391Name] in language 
 ```
 
 Por fim, aqui está uma variante da função Frases-chave já apresentada que retorna as frases como um objeto de lista, em vez de uma única cadeia de caracteres de frases separada por vírgulas. 
