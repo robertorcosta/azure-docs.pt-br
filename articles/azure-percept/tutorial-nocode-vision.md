@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: tutorial
 ms.date: 02/10/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 6de86cbc065b5352b3b643708dd55c6856b37dd7
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 49e5db729dab7abaa440b1adf6a61e9e52a1efbc
+ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102097900"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105023122"
 ---
 # <a name="create-a-no-code-vision-solution-in-azure-percept-studio"></a>Criar uma solução de pesquisa visual sem código no Azure Percept Studio
 
@@ -106,7 +106,7 @@ Antes de treinar o modelo, adicione rótulos às imagens.
 
 1. No lado esquerdo da página **Visão Personalizada**, clique em **Sem Marcas** em **Marcas** para exibir as imagens recém-coletadas na etapa anterior. Selecione uma ou mais das imagens sem marcas.
 
-1. Na janela **Detalhes da imagem**, clique na imagem para começar a marcação. Se você tiver selecionado detecção de objetos como o tipo de projeto, precisará também desenhar uma [caixa delimitadora](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#upload-and-tag-images) nos objetos específicos que quiser marcar. Ajuste a caixa delimitadora conforme necessário. Digite a marca de objeto e clique **+** para aplicar a marca. Por exemplo, se você estiver criando uma solução de pesquisa visual que notifique você quando uma prateleira de loja precisar ser reabastecida, adicione a marca "Prateleira vazia" a imagens de prateleiras vazias e adicione a marca "Prateleira cheia" a imagens de prateleiras totalmente abastecidas. Repita para todas as imagens sem marcas.
+1. Na janela **Detalhes da imagem**, clique na imagem para começar a marcação. Se você tiver selecionado detecção de objetos como o tipo de projeto, precisará também desenhar uma [caixa delimitadora](../cognitive-services/custom-vision-service/get-started-build-detector.md#upload-and-tag-images) nos objetos específicos que quiser marcar. Ajuste a caixa delimitadora conforme necessário. Digite a marca de objeto e clique **+** para aplicar a marca. Por exemplo, se você estiver criando uma solução de pesquisa visual que notifique você quando uma prateleira de loja precisar ser reabastecida, adicione a marca "Prateleira vazia" a imagens de prateleiras vazias e adicione a marca "Prateleira cheia" a imagens de prateleiras totalmente abastecidas. Repita para todas as imagens sem marcas.
 
     :::image type="content" source="./media/tutorial-nocode-vision/image-tagging.png" alt-text="Tela de marcação de imagem na Visão Personalizada.":::
 
@@ -116,7 +116,7 @@ Antes de treinar o modelo, adicione rótulos às imagens.
 
     :::image type="content" source="./media/tutorial-nocode-vision/train-model.png" alt-text="Seleção de imagem de treinamento com o botão treinar realçado.":::
 
-1. Quando o treinamento for concluído, sua tela mostrará o desempenho do modelo. Para obter mais informações sobre como avaliar esses resultados, confira a [documentação de avaliação do modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/get-started-build-detector#evaluate-the-detector). Após o treinamento, convém que você [teste o modelo](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/test-your-model) com imagens adicionais e treine-o novamente conforme necessário. Cada vez que você treinar o modelo, ele será salvo como uma nova iteração. Confira a [documentação da Visão Personalizada](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) para obter informações adicionais sobre como aprimorar o desempenho do modelo.
+1. Quando o treinamento for concluído, sua tela mostrará o desempenho do modelo. Para obter mais informações sobre como avaliar esses resultados, confira a [documentação de avaliação do modelo](../cognitive-services/custom-vision-service/get-started-build-detector.md#evaluate-the-detector). Após o treinamento, convém que você [teste o modelo](../cognitive-services/custom-vision-service/test-your-model.md) com imagens adicionais e treine-o novamente conforme necessário. Cada vez que você treinar o modelo, ele será salvo como uma nova iteração. Confira a [documentação da Visão Personalizada](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) para obter informações adicionais sobre como aprimorar o desempenho do modelo.
 
     :::image type="content" source="./media/tutorial-nocode-vision/iteration.png" alt-text="Resultados do treinamento de modelo.":::
 
@@ -143,7 +143,7 @@ Depois de fechar esta janela, você pode voltar e editar seu projeto de pesquisa
 
 ## <a name="improve-your-model-by-setting-up-retraining"></a>Configure o retreinamento para aprimorar seu modelo
 
-Depois de treinar e implantar seu modelo no dispositivo, você poderá melhorar o desempenho dele por meio da configuração dos parâmetros de readaptação para capturar mais dados de treinamento. Esse recurso é usado para melhorar o desempenho de um modelo treinado, dando a você a capacidade de capturar imagens com base em um intervalo de probabilidade. Por exemplo, você pode definir seu dispositivo para capturar imagens de treinamento apenas quando a probabilidade for baixa. Eis algumas [diretrizes adicionais](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-improving-your-classifier) sobre como adicionar mais imagens e equilibrar dados de treinamento.
+Depois de treinar e implantar seu modelo no dispositivo, você poderá melhorar o desempenho dele por meio da configuração dos parâmetros de readaptação para capturar mais dados de treinamento. Esse recurso é usado para melhorar o desempenho de um modelo treinado, dando a você a capacidade de capturar imagens com base em um intervalo de probabilidade. Por exemplo, você pode definir seu dispositivo para capturar imagens de treinamento apenas quando a probabilidade for baixa. Eis algumas [diretrizes adicionais](../cognitive-services/custom-vision-service/getting-started-improving-your-classifier.md) sobre como adicionar mais imagens e equilibrar dados de treinamento.
 
 1. Para configurar o retreinamento, volte ao seu **Projeto** e, depois, vá para **Resumo do Projeto**
 1. Na guia **Captura de imagem**, selecione **Captura automática de imagem** e **Configure o retreinamento**.
@@ -161,6 +161,16 @@ Se você criou um recurso do Azure para este tutorial e não deseja mais desenvo
 1. Clique em **Todos os recursos**.
 1. Clique na caixa de seleção ao lado do recurso criado durante este tutorial. O tipo de recurso será listado como **Serviços Cognitivos**.
 1. Clique no ícone **Excluir** próximo à parte superior da tela.
+
+## <a name="video-walkthrough"></a>Passo a passo em vídeo
+
+Para obter um passo a passo visual das etapas descritas acima, assista ao seguinte vídeo:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/9LvafyazlJM]
+
+</br>
 
 ## <a name="next-steps"></a>Próximas etapas
 

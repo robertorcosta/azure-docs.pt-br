@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-azurecli
 ms.date: 01/27/2021
 ms.author: mbaldwin
-ms.openlocfilehash: e84a9fe15f648311c22fb0f7e8f8374454f5668a
-ms.sourcegitcommit: 7e117cfec95a7e61f4720db3c36c4fa35021846b
+ms.openlocfilehash: 1443ab37beb28706227159c53d336384216d8387
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/09/2021
-ms.locfileid: "99989159"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104582435"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>Início Rápido: Definir e recuperar um segredo do Azure Key Vault usando a CLI do Azure
 
@@ -39,7 +39,7 @@ Neste guia de início rápido, você cria um cofre de chaves no Azure Key Vault 
 
 Para adicionar um segredo ao cofre, basta executar algumas etapas adicionais. Essa senha pode ser usada por um aplicativo. A senha será chamada **ExamplePassword** e armazenará o valor **hVFkk965BuUv** nela.
 
-Digite os comandos abaixo para criar um segredo no Key Vault chamado **ExamplePassword** que armazenará o valor **hVFkk965BuUv**:
+Use o comando [az keyvault secret set](/cli/azure/keyvault/secret#az_keyvault_secret_set) da CLI do Azure abaixo para criar um segredo no Key Vault chamado **ExamplePassword** que armazenará o valor **hVFkk965BuUv**:
 
 ```azurecli
 az keyvault secret set --vault-name "<your-unique-keyvault-name>" --name "ExamplePassword" --value "hVFkk965BuUv"
@@ -64,5 +64,6 @@ Agora, você criou um Key Vault, armazenou um segredo e o recuperou.
 Neste início rápido, você criou um Key Vault e armazenou um segredo nele. Para saber mais sobre o Key Vault e como integrá-lo a seus aplicativos, confira os artigos abaixo.
 
 - Leia uma [Visão geral do Azure Key Vault](../general/overview.md)
+- Saiba como [armazenar segredos de várias linhas no Key Vault](multiline-secrets.md)
 - Confira a referência dos [comandos az keyvault da CLI do Azure](/cli/azure/keyvault)
 - Examine a [Visão geral de segurança do Key Vault](../general/security-overview.md)

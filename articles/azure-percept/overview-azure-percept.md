@@ -5,14 +5,14 @@ author: elqu20
 ms.author: v-elqu
 ms.service: azure-percept
 ms.topic: overview
-ms.date: 02/18/2021
+ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: eca0c28b016b2e57f6fe47495c90bf113f0179a6
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103490102"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104953578"
 ---
 # <a name="introduction-to-azure-percept"></a>Introdução ao Azure Percept
 
@@ -22,30 +22,30 @@ Os desafios de integração enfrentados ao tentar implantar soluções de IA de 
 
 - Identificação e seleção do processador correto para impulsionar as soluções.
 - Garantir a segurança coletiva do hardware, do software, dos modelos e dos dados.
-- A capacidade de criar e gerenciar soluções que funcionam de maneira contínua, em escala.
+- A capacidade de criar e gerenciar soluções que funcionam em escala de modo contínuo.
 
 ## <a name="components-of-azure-percept"></a>Componentes do Azure Percept
 
 Os componentes principais do Azure Percept são:
 
-1. Programas de design e certificação de referência de hardware de IA.
+1. [Azure Percept DK.](./overview-azure-percept-dk.md)
 
-    - Fornece o ecossistema de desenvolvedores de hardware com padrões e práticas recomendadas para o desenvolvimento de hardware de IA de borda que pode ser integrado facilmente aos serviços de IoT e IA do Azure.
-
-2. Azure Percept DK (devkit).
-
-    - Um kit de desenvolvimento que é flexível o suficiente para dar suporte a uma ampla variedade de cenários de criação de protótipos para criadores de dispositivos, criadores de soluções e clientes.
+    - Um kit de desenvolvimento flexível o suficiente para dar suporte a uma ampla variedade de cenários de prototipagem para criadores de dispositivos, bem como criadores e clientes de soluções.
 
         > [!div class="nextstepaction"]
         > [Comprar agora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-3. Serviços e fluxos de trabalho para acelerar o desenvolvimento de soluções e modelos de IA de borda.
+1. Serviços e fluxos de trabalho que aceleram o desenvolvimento de soluções e modelos de IA do Edge.
 
     - Fluxos de trabalho de desenvolvimento e modelos predefinidos que podem ser acessados no [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Serviços de desenvolvimento de modelo.
-    - Serviços de gerenciamento de dispositivo para escala.
+    - Serviços de gerenciamento de dispositivos para colocação em escala.
     - Segurança de ponta a ponta.
+
+1. Programas de design e certificação de referência de hardware de IA.
+
+    - Fornece o ecossistema de desenvolvedores de hardware com padrões e práticas recomendadas para o desenvolvimento de hardware de IA de borda que pode ser integrado facilmente aos serviços de IoT e IA do Azure.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Introdução ao [Azure Percept DK](./overview-azure-percept-dk.md). 
+Saiba mais sobre o [Azure Percept DK](./overview-azure-percept-dk.md) e o [Azure Percept Studio](./overview-azure-percept-studio.md).

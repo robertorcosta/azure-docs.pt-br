@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f346b997b5e0c785d066ce3a1edaab8cbea10212
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 28cc8a858d1779e17c893d64eda5f907bb4c808e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644112"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577981"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutorial: configurar manualmente dispositivos ingressados no Azure Active Directory híbrido
 
@@ -74,6 +74,9 @@ Se sua organização usar a instalação gerenciada (não federada) com o Active
 Para dispositivos Windows 10 na versão 1703 ou anterior, se a sua organização exigir acesso à Internet por meio de um proxy de saída, será necessário implementar a WPAD (Descoberta Automática de Proxy da Web) para permitir que computadores com Windows 10 sejam registrados no Azure AD.
 
 A partir do Windows 10 1803, mesmo se a tentativa de ingresso no Azure AD híbrido por um dispositivo em um domínio federado usando o AD FS falhar e se o Azure AD Connect estiver configurado para sincronizar os objetos de computador/dispositivo com o Azure AD, o dispositivo tentará concluir o ingresso no Azure AD híbrido usando o computador/dispositivo sincronizado.
+
+> [!NOTE]
+> Para que a junção de sincronização de registro de dispositivo tenha sucesso, como parte da configuração de registro de dispositivo, não exclua os atributos de dispositivo padrão da configuração de sincronização do Azure AD Connect. Para saber mais sobre os atributos de dispositivo padrão sincronizados com o Azure AD, confira [Atributos sincronizados pelo Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Para verificar se o dispositivo é capaz de acessar os recursos da Microsoft mencionados acima na conta do sistema, você pode usar o script de [conectividade de registro de dispositivo de teste](/samples/azure-samples/testdeviceregconnectivity/testdeviceregconnectivity/).
 

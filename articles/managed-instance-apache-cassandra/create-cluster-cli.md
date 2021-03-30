@@ -5,13 +5,13 @@ author: TheovanKraay
 ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
-ms.date: 03/02/2021
-ms.openlocfilehash: 86fa7e2e45dacb86b6601b699dca46b1b909fd08
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.date: 03/15/2021
+ms.openlocfilehash: b719310a331044df363efcc6b79be323faf49247
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424692"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562096"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-using-azure-cli-preview"></a>Início Rápido: criar um cluster da Instância Gerenciada do Azure para Apache Cassandra usando a CLI do Azure (versão prévia)
 
@@ -26,12 +26,12 @@ Este início rápido demonstra como usar comandos da CLI do Azure para criar um 
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* Este artigo exige a CLI do Azure versão 2.12.1 ou posterior. Se você está usando o Azure Cloud Shell, a última versão já está instalada.
-
-* [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com conectividade com o ambiente local ou auto-hospedado. Para saber mais sobre como conectar ambientes locais ao Azure, confira o artigo [Conectar uma rede local ao Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/).
+* [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com conectividade com o ambiente local ou auto-hospedado. Para saber mais sobre como conectar ambientes locais ao Azure, confira o artigo [Conectar uma rede local ao Azure](/azure/architecture/reference-architectures/hybrid-networking/).
 
 * Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
+> [!IMPORTANT]
+> Este artigo exige a CLI do Azure versão 2.17.1 ou posterior. Se você está usando o Azure Cloud Shell, a última versão já está instalada.
 
 ## <a name="create-a-managed-instance-cluster"></a><a id="create-cluster"></a>Criar um cluster de instância gerenciada
 
@@ -56,15 +56,18 @@ Este início rápido demonstra como usar comandos da CLI do Azure para criar um 
    ```
 
    > [!NOTE]
-   > Os valores `assignee` e `role` no comando anterior são identificadores de função e de princípio de serviço fixos, respectivamente.
+   > Os valores de `assignee` e `role` no comando anterior são valores fixos; insira-os exatamente como mencionados no comando. Deixar de fazer isso levará a erros ao criar o cluster. Se você encontrar erros ao executar este comando, talvez não tenha permissões para executá-lo; entre em contato com seu administrador para obter permissões.
 
-1. Em seguida, crie o cluster na rede virtual recém-criada. Execute o seguinte comando e use o valor `Resource ID` recuperado no comando anterior como o valor da variável `delegatedManagementSubnetId`:
+1. Em seguida, crie o cluster na Rede Virtual recém-criada usando o comando [az managed-cassandra cluster create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/cluster?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_cluster_create). Execute o seguinte comando no valor da variável `delegatedManagementSubnetId`:
+
+   > [!NOTE]
+   > O valor da variável `delegatedManagementSubnetId` que você fornecerá abaixo é exatamente o mesmo que o valor `--scope` fornecido no comando acima:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
    clusterName='<Cluster_Name>'
    location='eastus2'
-   delegatedManagementSubnetId='<Resource_ID>'
+   delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
    initialCassandraAdminPassword='myPassword'
     
    az managed-cassandra cluster create \
@@ -76,30 +79,28 @@ Este início rápido demonstra como usar comandos da CLI do Azure para criar um 
       --debug
    ```
 
-1. Por fim, crie um datacenter para o cluster, com três nós:
+1. Por fim, crie um datacenter para o cluster, com três nós usando o comando [az managed-cassandra datacenter create](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_create):
 
    ```azurecli-interactive
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-   delegatedSubnetId='<Resource_ID>'
     
    az managed-cassandra datacenter create \
       --resource-group $resourceGroupName \
       --cluster-name $clusterName \
       --data-center-name $dataCenterName \
       --data-center-location $dataCenterLocation \
-      --delegated-subnet-id $delegatedSubnetId \
+      --delegated-subnet-id $delegatedManagementSubnetId \
       --node-count 3 
    ```
 
-1. Depois que o datacenter for criado, se você quiser escalar ou reduzir verticalmente os nós no datacenter, execute o comando a seguir. Altere o valor do parâmetro `node-count` para o valor desejado:
+1. Depois que o datacenter for criado, se quiser escalar ou reduzir verticalmente os nós no datacenter, execute o comando [az managed-cassandra datacenter update](/cli/azure/ext/cosmosdb-preview/managed-cassandra/datacenter?view=azure-cli-latest&preserve-view=true#ext_cosmosdb_preview_az_managed_cassandra_datacenter_update). Altere o valor do parâmetro `node-count` para o valor desejado:
 
    ```azurecli-interactive
    resourceGroupName='<Resource_Group_Name>'
    clusterName='<Cluster Name>'
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-   delegatedSubnetId= '<Resource_ID>'
     
    az managed-cassandra datacenter update \
       --resource-group $resourceGroupName \
@@ -131,6 +132,15 @@ export SSL_VALIDATE=false
 host=("<IP>" "<IP>" "<IP>")
 cqlsh $host 9042 -u cassandra -p cassandra --ssl
 ```
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se você encontrar um erro ao aplicar permissões à Rede Virtual, como *Não é possível localizar o usuário ou entidade de serviço no banco de dados de grafo para 'e5007d2c-4b13-4a74-9b6a-605d99f03501'* , poderá aplicar a mesma permissão manualmente no portal do Azure. Para aplicar permissões do portal, vá para o painel **Controle de acesso (IAM)** da sua rede virtual existente e adicione uma atribuição de função para "Azure Cosmos DB" à função de "Administrador de Rede". Se duas entradas aparecerem quando você pesquisar por "Azure Cosmos DB", adicione as duas entradas, conforme mostrado na seguinte imagem: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Aplicar permissões" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> A atribuição de função Azure Cosmos DB é usada somente para fins de implantação. A Instância Gerenciada do Azure para Apache Cassandra não tem nenhuma dependência de back-end no Azure Cosmos DB.  
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

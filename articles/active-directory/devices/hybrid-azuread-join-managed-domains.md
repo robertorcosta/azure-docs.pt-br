@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7338fb480f76ed1a5edbf9502dc0946d08618a63
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 4545e92767a427b8cd89af07ed4d06053685977a
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101644911"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577998"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutorial: Configurar o ingresso no Azure Active Directory híbrido para os domínios gerenciados
 
@@ -58,6 +58,9 @@ Familiarize-se com estes artigos:
 > O Azure Active Directory não dá suporte a cartões inteligentes ou certificados em domínios gerenciados.
 
 Verifique se o Azure AD Connect sincronizou os objetos de computador dos dispositivos que você quer que sejam unidos ao Azure AD híbrido com o Azure AD. Se os objetos de computador pertencerem a UOs (unidades organizacionais) específicas, configure as UOs para sincronizarem no Azure AD Connect. Para saber mais sobre como sincronizar objetos de computador usando o Azure AD Connect, veja [Filtragem baseada em unidade organizacional](../hybrid/how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering).
+
+> [!NOTE]
+> Para que a junção de sincronização de registro de dispositivo tenha sucesso, como parte da configuração de registro de dispositivo, não exclua os atributos de dispositivo padrão da configuração de sincronização do Azure AD Connect. Para saber mais sobre os atributos de dispositivo padrão sincronizados com o AAD, confira [Atributos sincronizados pelo Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-attributes-synchronized#windows-10).
 
 Na versão 1.1.819.0 e em versões posteriores, o Azure AD Connect inclui um assistente para configurar o ingresso no Azure AD híbrido. O assistente simplifica significativamente o processo de configuração. O assistente configura os SCPs (pontos de conexão do serviço) para registro do dispositivo.
 

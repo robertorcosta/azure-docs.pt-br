@@ -7,19 +7,19 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b130fd3f85b676f0a394ad95730181ff499dac96
-ms.sourcegitcommit: f7eda3db606407f94c6dc6c3316e0651ee5ca37c
+ms.openlocfilehash: b83905280faf4486d2febfbd81514e1d85273ad5
+ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/05/2021
-ms.locfileid: "102216489"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "104950749"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
 > [!IMPORTANT]
-> O driver da Secrets Store CSI é um projeto de software livre não compatível com o suporte técnico do Azure. Informe todos os comentários e problemas relacionados à integração do Key Vault do Driver do CSI no link do GitHub na parte inferior da página. Essa ferramenta é fornecida para que os usuários se instalem em clusters e obtenham comentários de nossa comunidade.
+> O driver da Secrets Store CSI é um projeto de software livre não compatível com o suporte técnico do Azure. Informe todos os comentários e problemas relacionados à integração do driver da CSI com o Key Vault no [GitHub](https://github.com/kubernetes-sigs/secrets-store-csi-driver) do driver da CSI. Essa ferramenta é fornecida para que os usuários se instalem em clusters e obtenham comentários de nossa comunidade.
 
-Neste tutorial, você acessa o Azure Key Vault e recupera segredos dele usando o driver da Secrets Store CSI (Container Storage Interface, Interface de armazenamento de contêiner) para, depois, montar os segredos em pods do Kubernetes.
+Neste tutorial, você acessa o Azure Key Vault e recupera segredos dele usando o driver da Secrets Store CSI (Interface de Armazenamento de Contêiner) para montar os segredos em pods do Kubernetes como um volume.
 
 Neste tutorial, você aprenderá como:
 

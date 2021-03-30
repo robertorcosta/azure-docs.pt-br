@@ -1,5 +1,5 @@
 ---
-title: 'CLI: Conectar um aplicativo a uma conta de armazenamento'
+title: 'CLI: conectar um aplicativo a uma conta de armazenamento'
 description: Saiba como usar a CLI do Azure para automatizar a implantação e o gerenciamento do seu aplicativo do Serviço de Aplicativo. Esta amostra descreve como conectar um aplicativo a uma conta de armazenamento.
 author: msangapu-msft
 tags: azure-service-management
@@ -10,10 +10,10 @@ ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: mvc, seodec18
 ms.openlocfilehash: 508fef1a7467af6874271b5ef37c30a9a16dec95
-ms.sourcegitcommit: 273c04022b0145aeab68eb6695b99944ac923465
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/10/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "97006303"
 ---
 # <a name="connect-an-app-service-app-to-a-storage-account-using-cli"></a>Conectar um aplicativo do Serviço de Aplicativo a uma conta de armazenamento usando a CLI

@@ -7,12 +7,12 @@ ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
 ms.custom: references_regions
-ms.openlocfilehash: d94bedad1ba7a2c6d814021b733404ccc58148ed
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: cb555eefb19b5db7ed7eb0792a813c295a4bf38b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102424675"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588606"
 ---
 # <a name="quickstart-create-an-azure-managed-instance-for-apache-cassandra-cluster-from-the-azure-portal-preview"></a>Guia de início rápido: criar uma Instância Gerenciada do Azure para o cluster do Apache Cassandra a partir do portal do Azure (versão prévia)
  
@@ -70,7 +70,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
    ```
 
    > [!NOTE]
-   > Os valores `assignee` e `role` no comando anterior são identificadores de função e de princípio de serviço fixos, respectivamente.
+   > Os valores de `assignee` e `role` no comando anterior são valores fixos; insira-os exatamente como mencionados no comando. Deixar de fazer isso levará a erros ao criar o cluster. Se você encontrar erros ao executar este comando, talvez não tenha permissões para executá-lo; entre em contato com seu administrador para obter permissões.
 
 1. Agora que você concluiu as etapas da rede, clique em **Revisar + criar** > **Criar**
 
@@ -87,7 +87,6 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 1. Para navegar pelos nós de cluster, vá até o painel Rede Virtual que você usou para criar o cluster e abra o painel **Visão geral** para exibi-los:
 
    :::image type="content" source="./media/create-cluster-portal/resources.png" alt-text="Exibir os recursos de cluster." lightbox="./media/create-cluster-portal/resources.png" border="true":::
-
 
 
 ## <a name="connecting-to-your-cluster"></a>Como se conectar ao cluster
@@ -113,6 +112,15 @@ export SSL_VALIDATE=false
 host=("<IP>" "<IP>" "<IP>")
 cqlsh $host 9042 -u cassandra -p cassandra --ssl
 ```
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se você encontrar um erro ao aplicar permissões à Rede Virtual, como *Não é possível localizar o usuário ou entidade de serviço no banco de dados de grafo para 'e5007d2c-4b13-4a74-9b6a-605d99f03501'* , poderá aplicar a mesma permissão manualmente no portal do Azure. Para aplicar permissões do portal, vá para o painel **Controle de acesso (IAM)** da sua rede virtual existente e adicione uma atribuição de função para "Azure Cosmos DB" à função de "Administrador de Rede". Se duas entradas aparecerem quando você pesquisar por "Azure Cosmos DB", adicione as duas entradas, conforme mostrado na seguinte imagem: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Aplicar permissões" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> A atribuição de função Azure Cosmos DB é usada somente para fins de implantação. A Instância Gerenciada do Azure para Apache Cassandra não tem nenhuma dependência de back-end no Azure Cosmos DB.   
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 

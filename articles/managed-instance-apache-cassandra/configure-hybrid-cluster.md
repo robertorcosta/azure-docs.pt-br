@@ -6,12 +6,12 @@ ms.author: thvankra
 ms.service: managed-instance-apache-cassandra
 ms.topic: quickstart
 ms.date: 03/02/2021
-ms.openlocfilehash: 11daa548e90aa1906ba87e081fa1e0be6fe6aff8
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: b022bff9db87c248881cd18cc21569aaef8f404a
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102430761"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105562113"
 ---
 # <a name="quickstart-configure-a-hybrid-cluster-with-azure-managed-instance-for-apache-cassandra-preview"></a>Início Rápido: configurar um cluster híbrido com a Instância Gerenciada do Azure para Apache Cassandra (versão prévia)
 
@@ -28,7 +28,7 @@ Este início rápido demonstra como usar os comandos da CLI do Azure para config
 
 * Este artigo exige a CLI do Azure versão 2.12.1 ou posterior. Se você está usando o Azure Cloud Shell, a última versão já está instalada.
 
-* [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com conectividade com o ambiente local ou auto-hospedado. Para saber mais sobre como conectar ambientes locais ao Azure, confira o artigo [Conectar uma rede local ao Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/).
+* [Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md) com conectividade com o ambiente local ou auto-hospedado. Para saber mais sobre como conectar ambientes locais ao Azure, confira o artigo [Conectar uma rede local ao Azure](/azure/architecture/reference-architectures/hybrid-networking/).
 
 ## <a name="configure-a-hybrid-cluster"></a><a id="create-account"></a>Configurar um cluster híbrido
 
@@ -48,16 +48,17 @@ Este início rápido demonstra como usar os comandos da CLI do Azure para config
    > [!NOTE]
    > Os valores `assignee` e `role` no comando anterior são identificadores de função e de princípio de serviço fixos, respectivamente.
 
-1. Em seguida, configuraremos os recursos para nosso cluster híbrido. Como você já tem um cluster, o nome do cluster aqui será apenas um recurso lógico para identificar o nome do cluster existente. Use o nome do cluster existente ao definir as variáveis `clusterName` e `clusterNameOverride` no script a seguir.
+1. Em seguida, configuraremos os recursos para nosso cluster híbrido. Como você já tem um cluster, o nome do cluster aqui será apenas um recurso lógico para identificar o nome do cluster existente. Use o nome do cluster existente ao definir as variáveis `clusterName` e `clusterNameOverride` no script a seguir. Você precisa também dos nós semente, dos certificados do cliente público (se tiver configurado uma chave pública/privada no ponto de extremidade do Cassandra) e dos certificados gossip do cluster existente.
 
-   Você precisa também dos nós semente, dos certificados do cliente público (se tiver configurado uma chave pública/privada no ponto de extremidade do Cassandra) e dos certificados gossip do cluster existente. Você também precisará usar a ID do recurso que copiou acima para definir a variável `delegatedManagementSubnetId`.
+   > [!NOTE]
+   > O valor da variável `delegatedManagementSubnetId` que você fornecerá abaixo é exatamente o mesmo que o valor `--scope` fornecido no comando acima:
 
    ```azurecli-interactive
    resourceGroupName='MyResourceGroup'
    clusterName='cassandra-hybrid-cluster-legal-name'
    clusterNameOverride='cassandra-hybrid-cluster-illegal-name'
    location='eastus2'
-   delegatedManagementSubnetId='<Resource ID>'
+   delegatedManagementSubnetId='/subscriptions/<subscription ID>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualNetworks/<VNet name>/subnets/<subnet name>'
     
    # You can override the cluster name if the original name is not legal for an Azure resource:
    # overrideClusterName='ClusterNameIllegalForAzureResource'
@@ -99,14 +100,13 @@ Este início rápido demonstra como usar os comandos da CLI do Azure para config
    clusterName='cassandra-hybrid-cluster'
    dataCenterName='dc1'
    dataCenterLocation='eastus2'
-   delegatedSubnetId= '<Resource ID>'
     
    az managed-cassandra datacenter create \
        --resource-group $resourceGroupName \
        --cluster-name $clusterName \
        --data-center-name $dataCenterName \
        --data-center-location $dataCenterLocation \
-       --delegated-subnet-id $delegatedSubnetId \
+       --delegated-subnet-id $delegatedManagementSubnetId \
        --node-count 9 
    ```
 
@@ -141,6 +141,15 @@ Este início rápido demonstra como usar os comandos da CLI do Azure para config
    ```bash
     ALTER KEYSPACE "system_auth" WITH REPLICATION = {'class': 'NetworkTopologyStrategy', ‘on-premise-dc': 3, ‘managed-instance-dc': 3}
    ```
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se você encontrar um erro ao aplicar permissões à Rede Virtual, como *Não é possível localizar o usuário ou entidade de serviço no banco de dados de grafo para 'e5007d2c-4b13-4a74-9b6a-605d99f03501'* , poderá aplicar a mesma permissão manualmente no portal do Azure. Para aplicar permissões do portal, vá para o painel **Controle de acesso (IAM)** da sua rede virtual existente e adicione uma atribuição de função para "Azure Cosmos DB" à função de "Administrador de Rede". Se duas entradas aparecerem quando você pesquisar por "Azure Cosmos DB", adicione as duas entradas, conforme mostrado na seguinte imagem: 
+
+   :::image type="content" source="./media/create-cluster-cli/apply-permissions.png" alt-text="Aplicar permissões" lightbox="./media/create-cluster-cli/apply-permissions.png" border="true":::
+
+> [!NOTE] 
+> A atribuição de função Azure Cosmos DB é usada somente para fins de implantação. A Instância Gerenciada do Azure para Apache Cassandra não tem nenhuma dependência de back-end no Azure Cosmos DB.  
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
