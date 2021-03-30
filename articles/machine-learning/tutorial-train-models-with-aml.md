@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 09/28/2020
 ms.custom: seodec18, devx-track-python
-ms.openlocfilehash: 3191987ea2d110487321beb0b11428f446f2b7a6
-ms.sourcegitcommit: 15d27661c1c03bf84d3974a675c7bd11a0e086e6
+ms.openlocfilehash: 85dea807ee09338e7f0e9e388f6b196fd3beef33
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/09/2021
-ms.locfileid: "102503871"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104588657"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn"></a>Tutorial: Treinar modelos de classificação de imagem usando dados MNIST e scikit-learn 
 
@@ -91,6 +91,9 @@ Crie um objeto de workspace a partir do workspace existente. `Workspace.from_con
 ws = Workspace.from_config()
 print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
+
+>[!NOTE]
+> Talvez seja solicitado que você autentique o workspace na primeira vez em que executar o código a seguir. Siga as instruções na tela.
 
 ### <a name="create-an-experiment"></a>Criar uma experiência
 
