@@ -5,12 +5,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/07/2020
-ms.openlocfilehash: 06a73b495cefc361db88d80413f4f4be50e105d1
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: a5788e5ac64c1c74a06c94c5634a05315ee098b8
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102041137"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104799285"
 ---
 # <a name="log-analytics-tutorial"></a>Tutorial do Log Analytics
 O Log Analytics é uma ferramenta do portal do Azure usada para editar e executar consultas de log dos dados coletados pelos logs do Azure Monitor e analisar os resultados de maneira interativa. Use as consultas do Log Analytics para recuperar registros que correspondem a critérios específicos, identificar tendências, analisar padrões e fornecer uma variedade de insights sobre seus dados. 
@@ -72,7 +72,7 @@ Uma instrução **where** é adicionada à consulta com o valor selecionado. Ago
 ## <a name="time-range"></a>Intervalo de horas
 Todas as tabelas de um workspace do Log Analytics têm uma coluna chamada **TimeGenerated**, que é a hora em que o registro foi criado. Todas as consultas têm um intervalo de tempo que limita os resultados aos registros com um valor **TimeGenerated** dentro desse intervalo. O intervalo de tempo pode ser definido na consulta ou com o seletor na parte superior da tela.
 
-Por padrão, a consulta retornará os registros das últimas 24 horas. Selecione a lista suspensa **Intervalo de tempo** e altere-o para **7 dias**. Clique em **Executar** novamente para retornar os resultados. Você pode ver que os resultados são retornados, mas temos uma mensagem aqui que indica que não estamos vendo todos os resultados. Isso ocorre porque o Log Analytics pode retornar, no máximo, 10 mil registros, e nossa consulta retornou mais registros do que esse número. 
+Por padrão, a consulta retornará os registros das últimas 24 horas. Selecione a lista suspensa **Intervalo de tempo** e altere-o para **7 dias**. Clique em **Executar** novamente para retornar os resultados. Você pode ver que os resultados são retornados, mas temos uma mensagem aqui que indica que não estamos vendo todos os resultados. Isso ocorre porque o Log Analytics pode retornar, no máximo, 30 mil registros, e nossa consulta retornou mais registros que isso. 
 
 [![Intervalo de tempo](media/log-analytics-tutorial/query-results-max.png)](media/log-analytics-tutorial/query-results-max.png#lightbox)
 

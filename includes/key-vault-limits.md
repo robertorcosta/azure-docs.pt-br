@@ -4,12 +4,12 @@ ms.service: key-vault
 ms.topic: include
 ms.date: 03/09/2021
 ms.author: ambapat
-ms.openlocfilehash: d934d40cad5f4eec929cfd273b6e30ea291e48d5
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: c2548b1669366564809ed2fde725cb3399922a29
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103010942"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104803284"
 ---
 O serviço do Azure Key Vault é compatível com dois tipos de recursos: cofres e HSMs gerenciados. As duas seções a seguir descrevem os limites de serviço de cada um deles, respectivamente.
 
@@ -50,6 +50,17 @@ Esta seção descreve os limites de serviço para o tipo de recurso `vaults`.
 Para obter informações sobre como lidar com a limitação quando esses limites forem excedidos, confira [Diretrizes de limitação do Azure Key Vault](../articles/key-vault/general/overview-throttling.md).
 
 <sup>1</sup> O limite de assinaturas para todos os tipos de transações será cinco vezes o limite do cofre de chaves. Por exemplo, outras transações HSM por assinatura são limitadas a 5.000 transações a cada 10 segundos por assinatura.
+
+#### <a name="backup-keys-secrets-certificates"></a>Chaves de backup, segredos, certificados
+
+Quando você fizer backup de um objeto do cofre de chaves, como um segredo, uma chave ou um certificado, a operação de backup baixará o objeto como um blob criptografado. Esse blob não poderá ser descriptografado fora do Azure. Para obter dados utilizáveis desse blob, restaure o blob em um cofre de chaves na mesma assinatura e geografia do Azure
+
+| Tipo de transação | Máximo permitido de versões de objeto do cofre de chaves |
+| --- | --- |
+| Fazer backup de chave, segredo e certificado individual |500 |
+
+> [!NOTE]
+> A tentativa de fazer backup de um objeto de chave, segredo ou certificado com mais versões do que o limite acima resultará em um erro. Não é possível excluir versões anteriores de uma chave, um segredo ou um certificado. 
 
 #### <a name="azure-private-link-integration"></a>Integração de Link Privado do Azure
 
