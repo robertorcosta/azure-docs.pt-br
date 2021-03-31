@@ -4,10 +4,10 @@ description: Esse padrão do Azure Policy fornece um exemplo de como usar o oper
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 1339dff7f8bc92a8e38ec5635690cc2069dd8df4
-ms.sourcegitcommit: a43a59e44c14d349d597c3d2fd2bc779989c71d7
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/25/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "96005411"
 ---
 # <a name="azure-policy-pattern-the-count-operator"></a>Padrão do Azure Policy: o operador count

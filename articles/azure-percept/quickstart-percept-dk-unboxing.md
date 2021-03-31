@@ -7,12 +7,12 @@ ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 02/16/2021
 ms.custom: template-quickstart
-ms.openlocfilehash: 40751401760d877fe3feab39f3fea1f2fbeee54b
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: efa255ba38f7e00785335bf458ecc0ed91da646b
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101664153"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104608173"
 ---
 # <a name="quickstart-unbox-and-assemble-your-azure-percept-dk-components"></a>Início Rápido: desembalar e montar os componentes do Azure Percept DK
 
@@ -32,7 +32,7 @@ Depois de receber o Azure Percept DK, confira este guia para obter informações
 1. Conecte os componentes do devkit.
 
     > [!NOTE]
-    > A porta do adaptador de energia está localizada no lado direito da placa base. As portas restantes (2x USB-A, 1x USB-C, 1x HDMI e 1x Ethernet) e o botão de redefinição estão localizados no lado esquerdo da placa base.
+    > A porta do adaptador de energia está localizada no lado direito da placa base. As portas restantes (duas USB-A, uma USB-C e uma Ethernet) e o botão de energia estão localizados no lado esquerdo da placa base.
 
     1. Rosqueie as duas antenas de Wi-Fi na placa base.
 
@@ -44,11 +44,17 @@ Depois de receber o Azure Percept DK, confira este guia para obter informações
 
     1. Conecte o cabo/adaptador de energia à placa base e a uma tomada de parede. Para proteger totalmente o conector do cabo de alimentação para a placa base, use uma chave de fenda P7 (não incluída no devkit) para apertar os parafusos do conector.
 
-    1. Depois de conectar o cabo de alimentação a uma tomada de parede, o dispositivo será ligado automaticamente. O botão de reinicialização no lado esquerdo da placa base será iluminado. Aguarde algum tempo para o dispositivo inicializar.
+    1. Depois de conectar o cabo de alimentação a uma tomada de parede, o dispositivo será ligado automaticamente. O botão de energia no lado esquerdo da placa base ficará iluminado. Aguarde algum tempo para o dispositivo inicializar.
 
         > [!NOTE]
-        > O botão reinicializar é para desligar ou reinicializar o dispositivo enquanto ele estiver conectado a uma tomada de energia. No caso de uma interrupção de energia, o dispositivo será reinicializado automaticamente e voltará a ligar.
+        > O botão de energia serve para desligar ou reinicializar o dispositivo enquanto ele estiver conectado a uma tomada. No caso de uma interrupção de energia, o dispositivo será reinicializado automaticamente.
+
+Para obter uma demonstração visual do assembly do kit de desenvolvimento, assista aos trechos 0:00 a 0:50 do seguinte vídeo:
+
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/-dmcE2aQkDE]
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que seu devkit está conectado e ligado, confira a experiência de configuração do Azure Percept DK para concluir a configuração do dispositivo. A experiência de configuração permite que você conecte o devkit a uma rede Wi-Fi, configure um logon SSH, crie um Hub IoT e provisione o devkit para a sua conta do Azure. Depois que concluir a configuração do dispositivo, você estará pronto para começar a criar protótipos.
+Agora que o seu kit de desenvolvimento está conectado e ativado, confira o [passo a passo de experiência de configuração do Azure Percept DK](./quickstart-percept-dk-set-up.md) para concluir a configuração do dispositivo. A experiência de configuração permite que você conecte o devkit a uma rede Wi-Fi, configure um logon SSH, crie um Hub IoT e provisione o devkit para a sua conta do Azure. Depois que concluir a configuração do dispositivo, você estará pronto para começar a criar protótipos.

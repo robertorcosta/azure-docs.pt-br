@@ -9,16 +9,14 @@ ms.author: mikben
 ms.date: 09/30/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: b275c3af2e92dc5af677120b5082751d19676b2e
-ms.sourcegitcommit: bed20f85722deec33050e0d8881e465f94c79ac2
+ms.openlocfilehash: 1d40d90f0f64328bbf7103015f52ea4b132d2e51
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/25/2021
-ms.locfileid: "105110807"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729619"
 ---
 # <a name="chat-sdk-overview"></a>Visão geral do SDK de chat 
-
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]    
 
 Os SDKs de chat dos Serviços de Comunicação do Azure podem ser usados para adicionar um chat sofisticado e em tempo real aos seus aplicativos.
     
@@ -28,7 +26,7 @@ A lista a seguir apresenta o conjunto de recursos que estão atualmente disponí
 
 | Grupo de recursos | Funcionalidade | JavaScript  | Java | .NET | Python | iOS | Android |
 |-----------------|-------------------|---|-----|----|-----|----|----|
-| Principais funcionalidades | Criar uma conversa de chat entre dois ou mais usuários (até 250 usuários)                                                       | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
+| Principais funcionalidades | Criar uma conversa de chat entre dois ou mais usuários                                                     | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |    
 |                   | Atualizar o tópico de uma conversa de chat                                                                              | ✔️   | ✔️ | ✔️    | ✔️   |  ✔️    | ✔️   |   
 |                   | Adicionar ou remover participantes de uma conversa de chat                                                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
 |                   | Escolher se deseja compartilhar o histórico de mensagens de chat com o participante que está sendo adicionado                                   | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   | 
@@ -37,16 +35,16 @@ A lista a seguir apresenta o conjunto de recursos que estão atualmente disponí
 |                   | Dado um usuário de comunicação, obtenha a lista de conversas de chat do qual o usuário faz parte                                           | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 |                   | Obter informações de uma conversa de chat específica                                                                              | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
 |                   | Enviar e receber mensagens em uma conversa de chat                                                                            | ✔️   | ✔️   | ✔️    | ✔️  |  ✔️    | ✔️   |   
-|                   | Editar o conteúdo de uma mensagem enviada                                                                                | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Excluir uma mensagem                                                                                                       | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |   
-|                   | Confirmações de leitura de mensagens que foram lidas por outros participantes em um chat <br/> *Não disponível quando há mais de 20 participantes em uma conversa de chat*    | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
-|                   | Receber notificação quando os participantes estiverem digitando ativamente uma mensagem em uma conversa de chat <br/> *Não disponível quando há mais de 20 membros em uma conversa de chat*      | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
-|                   | Obter todas as mensagens de uma conversa de chat <br/>                                                                         | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Atualizar o conteúdo da mensagem enviada                                                                               | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Excluir uma mensagem que você enviou anteriormente                                                                                                      | ✔️   | ✔️  | ✔️ | ✔️ |  ✔️    | ✔️   |    
+|                   | Confirmações de leitura de mensagens que foram lidas por outros participantes em um chat                                        | ✔️   | ✔️  | ✔️    | ✔️   |  ✔️    | ✔️   |   
+|                   | Receber notificação quando os participantes estiverem digitando ativamente uma mensagem em uma conversa de chat                                         | ✔️   | ✔️   | ✔️    | ✔️    |  ✔️    | ✔️   | 
+|                   | Obter todas as mensagens de uma conversa de chat                                                                        | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   | 
 |                   | Enviar emojis Unicode como parte do conteúdo da mensagem                                                                            | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|Sinalização em tempo real (habilitada pelo pacote de sinalização proprietário**)|  Assine para obter atualizações em tempo real de mensagens de entrada e outras operações em seu aplicativo de chat. Para ver uma lista de atualizações com suporte para sinalização em tempo real, confira [Conceitos de chat](concepts.md#real-time-signaling)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  |    
-| Suporte à Grade de Eventos             | Use a integração com a Grade de Eventos do Azure e configure seu serviço de comunicação para executar a lógica de negócios com base na atividade de chat ou para conectar um serviço de notificação por push personalizado   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
-| Monitoramento        | Usar as métricas de solicitação de API emitidas no portal do Azure para criar painéis, monitorar a integridade de seu aplicativo de chat e definir alertas para detectar anormalidades      | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
-|                   | Configurar o recurso de Serviços de Comunicação para receber logs operacionais de chat para fins de monitoramento e diagnóstico          | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|Notificações em tempo real (habilitadas pelo pacote de sinalização do proprietário**)|  Os clientes de chat podem inscrever-se para obter atualizações em tempo real de mensagens de entrada e de outras operações que ocorrem em uma conversa de chat. Para ver uma lista de atualizações com suporte para notificações em tempo real, confira [Conceitos de chat](concepts.md#real-time-notifications)                                     | ✔️   | ❌    | ❌  | ❌  | ❌  | ❌  | 
+| Integração com a Grade de Eventos do Azure             | Use os eventos de chat disponíveis na Grade de Eventos do Azure para conectar os serviços de notificação personalizados ou postar o evento em um webhook para executar uma lógica de negócios como a atualização de registros do CRM após a conclusão de um chat   | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |    
+| Relatórios </br>(Essas informações estão disponíveis na guia Monitoramento do recurso Serviços de Comunicação no portal do Azure)      | Entenda o tráfego de API do seu aplicativo de chat monitorando as métricas publicadas no Metrics Explorer do Azure e defina alertas para detectar anormalidades     | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |  
+|                   | Monitorar e depurar a solução de Serviços de Comunicação habilitando o log de diagnósticos para o recurso    | ✔️   | ✔️  | ✔️    | ✔️  |  ✔️    | ✔️   |   
 
 
 **O pacote de sinalização proprietário é implementado usando soquetes Web. Ele fará o fallback para a sondagem longa se não houver suporte para soquetes Web.  
@@ -68,3 +66,4 @@ A tabela a seguir representa o conjunto de navegadores e versões com suporte di
 
 Os seguintes documentos podem ser do seu interesse:  
 - Familiarize-se com os [conceitos de chat](../chat/concepts.md)
+- Entenda como o [preço](../pricing.md#chat) funciona para o chat

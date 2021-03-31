@@ -2,14 +2,14 @@
 author: msftradford
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 2/3/21
+ms.date: 03/18/2021
 ms.author: parkerra
-ms.openlocfilehash: f6c2780ccbb914228a9870cb3b5fe4b0e3d0b214
-ms.sourcegitcommit: f82e290076298b25a85e979a101753f9f16b720c
+ms.openlocfilehash: d91c0aeda2b7ae2f133d2099cbc9d238fd19d287
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/04/2021
-ms.locfileid: "99569482"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104719932"
 ---
 Para baixar os pacotes exigidos, será necessário ter o <a href="https://www.npmjs.com/get-npm" target="_blank">NPM</a> instalado.
 
@@ -25,6 +25,9 @@ npm pack com.microsoft.azure.spatial-anchors-sdk.core@<version_number> --registr
 > ```bash
 > npm view com.microsoft.azure.spatial-anchors-sdk.core --registry https://api.bintray.com/npm/microsoft/AzureMixedReality-NPM versions
 > ```
+
+> [!WARNING]
+> O SDK 2.7.0 do ASA é a versão mínima compatível. Se você está usando o Unity 2020, o SDK 2.9.0 do ASA é a versão mínima compatível.
 
 O pacote principal das Âncoras Espaciais do Azure será baixado para a pasta em que você executou o comando.
 

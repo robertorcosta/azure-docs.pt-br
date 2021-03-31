@@ -6,16 +6,21 @@ manager: nitinme
 ms.author: lajanuar
 author: laujan
 ms.date: 02/11/2021
-ms.openlocfilehash: fc75bfc3b79cd6aed51a44fc47787532a9d61e8b
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 692033e323880db1699d7265a991775d41b05f7f
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101713007"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104655998"
 ---
 # <a name="what-is-document-translation-preview"></a>O que é a Tradução de Documento (versão prévia)?
 
 A Tradução de Documento é um recurso baseado em nuvem do serviço [Tradutor do Azure](../translator-info-overview.md) e faz parte da família dos Serviços Cognitivos do Azure de APIs REST. A API de Tradução de Documentos traduz documentos de e para 90 idiomas e dialetos com a preservação da estrutura do documento e do formato dos dados.
+
+Esta documentação contém os seguintes tipos de artigos:  
+
+* Os [**guias de início rápido**](get-started-with-document-translation.md) são instruções de introdução que orientam sobre como fazer solicitações ao serviço.
+* Os [**guias de instruções**](create-sas-tokens.md) contêm instruções de uso do recurso de maneiras mais específicas ou personalizadas.  
 
 ## <a name="document-translation-key-features"></a>Principais recursos da Tradução de Documento
 
@@ -64,5 +69,3 @@ A Tradução de Documento dá suporte aos seguintes tipos de arquivo de glossár
 
 > [!div class="nextstepaction"]
 > [Introdução à Tradução de Documento](get-started-with-document-translation.md)
->
->
