@@ -5,10 +5,10 @@ ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: chroyal
 ms.openlocfilehash: 78c93880007259267b26cf53e93de722be1c7323
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "77209436"
 ---
 # <a name="what-is-blockchain-data-manager-for-azure-blockchain-service"></a>O que é o Gerenciador de Dados Blockchain para o Azure Blockchain Service?
@@ -25,7 +25,7 @@ O Gerenciador de Dados de Blockchain executa três funções principais: captura
 
 Cada instância do Gerenciador de Dados de Blockchain se conecta a um nó de transação membro do Azure Blockchain Service. Somente os usuários com acesso ao nó de transação podem criar uma conexão garantindo o controle de acesso apropriado aos dados do cliente. Uma instância do Gerenciador de Dados de Blockchain captura de forma confiável todos os dados brutos de bloco e transação do nó de transação e pode redimensionar para dar suporte a cargas de trabalho empresariais.
 
-## <a name="transform"></a>Transform
+## <a name="transform"></a>Transformar
 
 Você pode usar o Gerenciador de Dados de Blockchain para decodificar eventos e o estado da propriedade configurando aplicativos de contrato inteligente dentro do Gerenciador de Dados de Blockchain. Para adicionar um contrato inteligente, você fornece a ABI e o código de bytes do contrato. O Gerenciador de Dados de Blockchain usa os artefatos do contrato inteligente para decodificar e descobrir endereços de contrato. Depois de adicionar o aplicativo de blockchain à instância, o Gerenciador de Dados de Blockchain descobre dinamicamente o endereço do contrato inteligente quando o contrato inteligente é implantado no consórcio e envia o evento e o estado da propriedade decodificados aos destinos configurados.
 
