@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
 ms.openlocfilehash: a97bd6bfc1cb7a0760894faaf3fd0617e6165f58
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96351190"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Idiomas e regiões compatíveis com a API de Verificação Ortográfica do Bing
@@ -71,7 +71,7 @@ Observe que para trabalhar com qualquer outro idioma diferente de `en-US`, o `mk
 | Sueco     | `sv`          |
 | Turco     | `tr`          |
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 
 - [Página Documentação dos Serviços Cognitivos](../index.yml)
 - [Página do Produto de Serviços Cognitivos](https://azure.microsoft.com/services/cognitive-services/)
