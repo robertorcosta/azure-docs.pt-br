@@ -5,10 +5,10 @@ ms.topic: tutorial
 ms.date: 05/11/2018
 ms.custom: mvc
 ms.openlocfilehash: c7a18b0dcdc04bdf66ac4b36ce7376ee018eb238
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91842896"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Tutorial: Criar infraestrutura AWS para hospedar um cluster do Service Fabric
@@ -87,7 +87,7 @@ Para as últimas duas regras do Service Fabric, abra-o para o mundo para que voc
 
 Por fim, precisamos apenas abrir a porta 8080 para que você possa ver o aplicativo quando ele for implantado. Selecione **Adicionar Regra**, na lista suspensa, selecione **Regra TCP Personalizada**, no intervalo de porta, insira `8080`, depois altere a lista suspensa Origem para Qualquer lugar.
 
-Agora todas as regras foram inseridas. Clique em **Salvar**.
+Agora todas as regras foram inseridas. Selecione **Salvar**.
 
 ## <a name="connect-to-an-instance-and-validate-connectivity"></a>Conectar-se a uma instância e validar a conectividade
 
