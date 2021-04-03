@@ -1,17 +1,17 @@
 ---
-title: 'Início Rápido: Enviar eventos personalizados para os Hubs de Eventos – Grade de Eventos, CLI do Azure'
+title: 'Guia de início rápido: enviar eventos personalizados aos Hubs de Eventos – Grade de Eventos e CLI do Azure'
 description: 'Início Rápido: Use a Grade de Eventos do Azure e a CLI do Azure para publicar um tópico e assinar esse evento. Um hub de eventos é usado para o ponto de extremidade.'
 ms.date: 07/07/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: 7c236025f31e10c00b324e5ff3374bd6504b2b7e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "91324103"
 ---
-# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Início Rápido: Encaminhar eventos personalizados para os Hubs de Eventos do Azure com a CLI do Azure e a Grade de Eventos
+# <a name="quickstart-route-custom-events-to-azure-event-hubs-with-azure-cli-and-event-grid"></a>Guia de início rápido: encaminhar eventos personalizados aos Hubs de Eventos do Azure usando a CLI do Azure e a Grade de Eventos
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Os Hubs de Eventos do Azure é um dos manipuladores de eventos com suporte. Neste artigo, você usa a CLI do Azure para criar um tópico personalizado, assinar esse tópico e disparar o evento para exibir o resultado. Os eventos devem ser enviados para um hub de eventos.
 
