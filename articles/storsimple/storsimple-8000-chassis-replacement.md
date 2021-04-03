@@ -15,10 +15,10 @@ ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: de0f6299f35f9d76fdade976bf70456426e5ec51
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "85513435"
 ---
 # <a name="replace-the-chassis-on-your-storsimple-device"></a>Substituir o chassi em seu dispositivo StorSimple
@@ -41,7 +41,7 @@ Execute as seguintes etapas para remover o chassi em seu dispositivo StorSimple.
 4. Remova cada uma das unidades e observe os slots do quais são removidas. Para obter mais informações, consulte [Remover a unidade de disco](storsimple-8000-disk-drive-replacement.md#remove-the-disk-drive).
 5. No compartimento EBOD (se for o chassi com falha), remova os módulos do controlador EBOD. Para obter mais informações, consulte [Remover um controlador EBOD](storsimple-8000-ebod-controller-replacement.md#remove-an-ebod-controller).
    
-    No compartimento primário (se for o chassi com falha), remova os controladores e observe os slots dos quais são removidos. Para obter mais informações, consulte [remover um controlador](storsimple-8000-controller-replacement.md#remove-a-controller).
+    No compartimento primário (se for o chassi com falha), remova os controladores e observe os slots dos quais são removidos. Para obter mais informações, consulte [Remover um controlador](storsimple-8000-controller-replacement.md#remove-a-controller).
 
 ## <a name="install-the-chassis"></a>Instalar o chassi
 Execute as seguintes etapas para instalar o chassi em seu dispositivo StorSimple.

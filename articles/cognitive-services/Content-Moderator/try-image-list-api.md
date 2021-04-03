@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
 ms.openlocfilehash: 0035d367017c92bd151c27e14d744ef41eace069
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "85800141"
 ---
 # <a name="moderate-with-custom-image-lists-in-the-api-console"></a>Moderar com as listas de imagem personalizada no console de API
@@ -36,7 +36,7 @@ Você pode usar a API de Gerenciamento de Lista para fazer as seguintes tarefas:
 - Atualizar o índice para que as alterações da lista sejam incluídas em uma nova verificação.
 
 ## <a name="use-the-api-console"></a>Usar o console de API
-Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [visão geral](overview.md).
+Antes de testar a API no console online, você precisa da chave de assinatura. Ela está localizada na guia **Configurações**, na caixa **Ocp-Apim-Subscription-Key**. Para obter mais informações, consulte [Visão Geral](overview.md).
 
 ## <a name="refresh-search-index"></a>Atualizar o índice de pesquisa
 
