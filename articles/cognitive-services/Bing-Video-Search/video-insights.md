@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: scottwhi
 ms.openlocfilehash: cbbde354c1bc68a2b1017c3ccba61b846fa62916
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "94380752"
 ---
 # <a name="get-insights-about-a-video"></a>Obter insights sobre um vídeo
@@ -102,4 +102,4 @@ A resposta a essa solicitação terá um objeto de nível superior [VideoDetails
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Pesquisar vídeos de tendências](trending-videos.md)
+> [Pesquise vídeos populares](trending-videos.md)
