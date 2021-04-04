@@ -15,10 +15,10 @@ manager: cgronlun
 ms.date: 05/29/2019
 ROBOTS: NOINDEX
 ms.openlocfilehash: 2e32a4abeae78aa7105f21ecffbb18c2eae841a4
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96185616"
 ---
 # <a name="quickstart-use-r-with-azure-sql-database-machine-learning-services-preview-to-query-a-database"></a>Início Rápido: Usar o R com os Serviços de Machine Learning do Banco de Dados SQL do Azure (versão prévia) para consultar um banco de dados 
