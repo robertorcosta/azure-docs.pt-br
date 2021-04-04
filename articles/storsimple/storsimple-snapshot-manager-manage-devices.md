@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 06/05/2017
 ms.author: alkohli
 ms.openlocfilehash: dbb7e835d110bcb6cb81fd5425a2aafbb578e692
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "96022965"
 ---
 # <a name="use-storsimple-snapshot-manager-to-connect-and-manage-storsimple-devices"></a>Usar o StorSimple Snapshot Manager para conectar e gerenciar dispositivos StorSimple
@@ -34,7 +34,7 @@ Dependendo de suas seleções de **Exibição**, o painel **Resultados** mostra 
 | Coluna de resultados | Descrição |
 |:--- |:--- |
 | Nome |O nome do dispositivo conforme configurado no Portal Clássico do Azure |
-| Modelo |O número do modelo do dispositivo |
+| Modelar |O número do modelo do dispositivo |
 | Versão |A versão do software instalado no dispositivo |
 | Status |Se o dispositivo está disponível |
 | Sincronizado pela última vez |Data e hora em que o dispositivo foi sincronizado pela última vez |
@@ -166,7 +166,7 @@ Você deve inserir uma senha para autenticar um dispositivo StorSimple com o Sto
 
 #### <a name="to-change-the-expired-password"></a>Para alterar a senha expirada
 1. No portal clássico do Azure, inicie o serviço StorSimple Manager.
-2. Clique em **dispositivos**  >  **Configurar** para o dispositivo.
+2. Clique em **Dispositivos** > **Configurar** para o dispositivo.
 3. Role até a seção do StorSimple Snapshot Manager. Insira uma senha que tenha 14 ou 15 caracteres. Verifique se a senha contém uma mistura destas quatro opções: caracteres maiúsculos, minúsculos, numéricos e especiais.
 4. Reinsira a senha para confirmá-la.
 5. Na parte inferior da página, clique em **Salvar** .
