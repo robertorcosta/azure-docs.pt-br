@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 03/03/2019
 ms.author: aahi
 ms.openlocfilehash: 1a3f479fbbe68c8880cd7fefb3b57c77d4cfbbfe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "96349564"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>Termos de pesquisa de Sugestão Automática do Bing no aplicativo
@@ -46,6 +46,6 @@ Você pode usar essas informações para, ao exibir os resultados da pesquisa, i
 
 * Revise o exemplo [Respostas da API de Pesquisa na Web do Bing](search-responses.md).  
 
-## <a name="see-also"></a>Veja também  
+## <a name="see-also"></a>Confira também  
 
 * [Referência da API de Pesquisa na Web do Bing](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference)
