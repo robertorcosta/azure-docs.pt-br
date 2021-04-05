@@ -16,13 +16,13 @@ ms.date: 06/14/2018
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.openlocfilehash: e0d43ae8f76e89ffe429ec1778922ee465ad7db4
-ms.sourcegitcommit: e2dc549424fb2c10fcbb92b499b960677d67a8dd
+ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "94696472"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exemplo de script da CLI do Azure: Balancear a carga do tráfego para as VMs em uma zona de disponibilidade específica
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Exemplo de script da CLI do Azure: balancear a carga do tráfego para VMs em uma zona de disponibilidade específica
 
 Este exemplo de script da CLI do Azure cria todos os componentes necessários para executar várias máquinas virtuais Ubuntu definidas em uma configuração de alta disponibilidade e balanceamento de carga em uma zona de disponibilidade específica. Após a execução do script, você terá três máquinas virtuais em zonas de disponibilidade única em uma região e que são acessíveis por meio de um Standard Load Balancer do Azure. 
 
