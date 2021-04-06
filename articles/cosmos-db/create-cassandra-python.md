@@ -10,10 +10,10 @@ ms.topic: quickstart
 ms.date: 08/13/2020
 ms.custom: devx-track-python
 ms.openlocfilehash: 8a76a37de64733ba3e0126c7885d8690d2d83c1b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "93099709"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-sdk-and-azure-cosmos-db"></a>Início Rápido: compilar um aplicativo do Cassandra com o SDK do Python e o Azure Cosmos DB
@@ -121,7 +121,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     Agora a linha 8 deve ser semelhante a
 
-    `'password' = '2Ggkr662ifxz2Mg==`';`
+    `'password' = '2Ggkr662ifxz2Mg==`';'
 
 1. Salve o arquivo *config.py*.
     
