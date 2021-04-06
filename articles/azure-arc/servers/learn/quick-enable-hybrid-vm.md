@@ -4,10 +4,10 @@ description: Saiba como se conectar e registrar o seu computador híbrido com os
 ms.topic: quickstart
 ms.date: 12/15/2020
 ms.openlocfilehash: c52b8d1f7098a7a2a88a9770a3b768b7fea31775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101646819"
 ---
 # <a name="quickstart-connect-hybrid-machines-with-azure-arc-enabled-servers"></a>Início Rápido: Conectar computadores híbridos com os servidores habilitados para Azure Arc
