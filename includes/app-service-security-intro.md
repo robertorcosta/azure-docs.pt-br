@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 04/15/2020
 ms.author: cephalin
 ms.openlocfilehash: 0fccb1ed092190f88d197c9bf2cd17678a4d1731
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "83649036"
 ---
 Os componentes de plataforma do Serviço de Aplicativo, incluindo VMs do Azure, armazenamento, conexões de rede, estruturas da Web, recursos de integração e gerenciamento, são ativamente seguros e protegidos. O Serviço de Aplicativo passa por verificações de conformidade rigorosas continuamente para garantir que:
