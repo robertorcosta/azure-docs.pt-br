@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 849236b9ac33cec92cc145bb32b4271b73476057
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "97608809"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-timeoffmanager"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao TimeOffManager
@@ -140,13 +140,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-timeoffmanager-sso"></a>Configurar o SSO do TimeOffManager
+## <a name="configure-timeoffmanager-sso&quot;></a>Configurar o SSO do TimeOffManager
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa TimeOffManager como um administrador.
 
 2. Vá para **Conta \> Opções da Conta \> Configurações de Logon Único**.
    
-    ![A captura de tela mostra a opção Configurações de Logon Único selecionada nas Opções de Conta.](./media/timeoffmanager-tutorial/ic795917.png "Configurações de logon único")
+    ![A captura de tela mostra a opção Configurações de Logon Único selecionada nas Opções de Conta.](./media/timeoffmanager-tutorial/ic795917.png &quot;Configurações de logon único")
 
 3. Na seção **Configurações de Logon Único** , realize as seguintes etapas:
    
