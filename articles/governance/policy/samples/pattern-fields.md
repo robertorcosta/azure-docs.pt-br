@@ -1,13 +1,13 @@
 ---
-title: 'Padrão: Propriedades de campo em uma definição de política'
+title: 'Padrão: propriedades de campo em uma definição de política'
 description: Esse padrão do Azure Policy fornece um exemplo de como usar propriedades de campo em uma definição de política.
 ms.date: 10/14/2020
 ms.topic: sample
 ms.openlocfilehash: 267c687f78f0bbb100843faee40ab6f3d3cbb64c
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/15/2020
+ms.lasthandoff: 03/19/2021
 ms.locfileid: "92072961"
 ---
 # <a name="azure-policy-pattern-field-properties"></a>Padrão do Azure Policy: propriedades de campo
@@ -28,7 +28,7 @@ O operador **campo** é usado três vezes dentro do [operador lógico](../concep
 
 - O primeiro uso avalia a propriedade `location` com a condição de **notIn** para o parâmetro **listOfAllowedLocations**. **notIn** funciona como se espera de uma _matriz_ e o parâmetro é uma _matriz_. Se o `location` do recurso criado ou atualizado não estiver na lista aprovada, esse elemento será avaliado como true.
 - O segundo uso também avalia a propriedade `location`, mas usa a condição de **notEquals** para ver se o recurso é _global_. Se o `location` do recurso criado ou atualizado não for _global_, esse elemento será avaliado como true.
-- O último uso avalia a propriedade `type` e usa a condição **notEquals** para validar o tipo de recurso que não é _Microsoft.AzureActiveDirectory/b2cDirectories_ . Se não for, esse elemento será avaliado como true.
+- O último uso avalia a propriedade `type` e usa a condição **notEquals** para validar o tipo de recurso que não é _Microsoft.AzureActiveDirectory/b2cDirectories_. Se não for, esse elemento será avaliado como true.
 
 Se todas as três instruções de condição no operador lógico **allOf** forem avaliadas como true, a criação ou atualização de recurso será bloqueada pela Política do Azure.
 
