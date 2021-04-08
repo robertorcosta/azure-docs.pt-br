@@ -6,10 +6,10 @@ ms.service: data-lake-analytics
 ms.topic: how-to
 ms.date: 05/20/2018
 ms.openlocfilehash: b95d4b0a082e8eac191d610c9516e5ce72180b4c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92219166"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Solucionar problemas de um trabalho recorrente anormal
@@ -29,7 +29,7 @@ Para usar a Exibição de Trabalho Relacionado para solucionar um problema de tr
 
 ### <a name="case-1-you-have-the-url-for-the-recurring-job"></a>Caso 1: você tem a URL do trabalho recorrente
 
-Por meio das **ferramentas**  >  **Data Lake**  >  **exibição de trabalho**, você pode colar a URL do trabalho para abrir o modo de exibição de trabalho no Visual Studio. Selecione **Exibir trabalhos relacionados** para abrir a Exibição de Trabalhos Relacionados.
+Por meio de **Ferramentas** > **Data Lake** > **Exibição Trabalho**, você pode colar a URL de trabalho para abrir a Exibição de Trabalho no Visual Studio. Selecione **Exibir trabalhos relacionados** para abrir a Exibição de Trabalhos Relacionados.
 
 ![Exibir link de Trabalhos Relacionados nas Ferramentas do Data Lake Analytics](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/view-related-job.png)
  
