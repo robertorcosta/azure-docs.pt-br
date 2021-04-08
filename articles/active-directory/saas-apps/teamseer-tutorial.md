@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92521162"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: integração do Azure Active Directory ao TeamSeer
@@ -120,13 +120,13 @@ Para configurar o logon único do Azure AD com o TeamSeer, execute as seguintes 
 
     c. URL de logoff
 
-### <a name="configure-teamseer-single-sign-on"></a>Configurar logon único do TeamSeer
+### <a name="configure-teamseer-single-sign-on&quot;></a>Configurar logon único do TeamSeer
 
 1. Em outra janela do navegador da Web, entre no site da empresa TeamSeer como administrador.
 
 1. Vá para **Administrador de RH**.
 
-    ![A captura de tela mostra a opção Administrador de RH selecionada na janela do TeamSeer.](./media/teamseer-tutorial/ic789634.png "Administrador de RH")
+    ![A captura de tela mostra a opção Administrador de RH selecionada na janela do TeamSeer.](./media/teamseer-tutorial/ic789634.png &quot;Administrador de RH")
 
 1. Clique em **Instalação**.
 
@@ -205,7 +205,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-teamseer-test-user"></a>Criar usuário de teste do TeamSeer
+### <a name="create-teamseer-test-user&quot;></a>Criar usuário de teste do TeamSeer
 
 Para permitir que os usuários do Azure AD entrem no TeamSeer, eles devem ser provisionados no ShiftPlanning. No caso do TeamSeer, o provisionamento é uma tarefa manual.
 
@@ -215,7 +215,7 @@ Para permitir que os usuários do Azure AD entrem no TeamSeer, eles devem ser pr
 
 1. Acesse **Usuários \> Administradores de RH** e, em seguida, clique em **Executar o Assistente de novo usuário**.
 
-    ![A captura de tela mostra a guia Administrador de RH, em que você pode selecionar um assistente para ser executado.](./media/teamseer-tutorial/ic789640.png "Administrador de RH")
+    ![A captura de tela mostra a guia Administrador de RH, em que você pode selecionar um assistente para ser executado.](./media/teamseer-tutorial/ic789640.png &quot;Administrador de RH")
 
 1. Na seção **Detalhes do Usuário** , realize as seguintes etapas:
 
