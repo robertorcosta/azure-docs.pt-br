@@ -22,7 +22,7 @@ A API do Azure para FHIR permite a troca rápida de dados por meio de APIs do FH
 - Serviço FHIR gerenciado, provisionado na nuvem em minutos 
 - Ponto de extremidade baseado em FHIR® de nível empresarial no Azure para acesso a dados e armazenamento no formato FHIR®
 - Alto desempenho, baixa latência
-- Gerenciamento seguro de PHI (informações de integridade protegidas) em um ambiente de nuvem em conformidade
+- Gerenciamento seguro de PHI (Informação de Integridade Protegida) em um ambiente de nuvem em conformidade
 - SMART on FHIR para implementações móveis e da Web
 - Controlar seus dados em escala com RBAC (controle de acesso baseado em função)
 - Acompanhamento de log de auditoria para acesso, criação, modificação e leituras em cada armazenamento de dados

@@ -5,10 +5,10 @@ ms.topic: conceptual
 ms.date: 12/18/2017
 ms.subservice: autoscale
 ms.openlocfilehash: a914f6d71c013acea8dfde0f6578985bc009bb26
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100605759"
 ---
 # <a name="understand-autoscale-settings"></a>Compreender configurações de Autoescala
@@ -106,7 +106,7 @@ Para ilustrar o esquema de configuração de Autoescala, a seguinte configuraç�
 | metricTrigger | timeAggregation | O método de agregação usado para agregar as métricas amostradas. Por exemplo, **TimeAggregation = “Average”** deve agregar as métricas amostradas obtendo a média. No caso anterior, é obtida a média das dez amostras de um minuto. |
 | regra | scaleAction | A ação a ser executada quando o metricTrigger da regra for acionado. |
 | scaleAction | direction | "Increase" para escalar horizontalmente ou "Decrease" para reduzir horizontalmente.|
-| scaleAction | valor | Quanto aumentar ou diminuir a capacidade do recurso. |
+| scaleAction | value | Quanto aumentar ou diminuir a capacidade do recurso. |
 | scaleAction | cooldown | O período de tempo a esperar após uma operação de dimensionamento antes de escalonar novamente. Por exemplo, se **cooldown = “PT10M”**, a Autoescala não tentará escalonar novamente nos próximos 10 minutos. O resfriamento deve permitir que as métricas se estabilizem após a adição ou a remoção de instâncias. |
 
 ## <a name="autoscale-profiles"></a>Perfis de dimensionamento automático
