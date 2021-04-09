@@ -1,9 +1,9 @@
 ---
 ms.openlocfilehash: dfb887004cd29b5bd9f1d9886b7dfa5f43c83dbe
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "99531215"
 ---
 Os arquivos MP4 são gravados em um diretório no dispositivo de borda que você configurou no arquivo *.env* usando a chave VIDEO_OUTPUT_FOLDER_ON_DEVICE. Se você usou o valor padrão, os resultados devem estar na pasta */var/media/* .
