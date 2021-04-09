@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/18/2021
 ms.author: jeedes
 ms.openlocfilehash: 9a3117b64c516120f8556b7b63b24e5ef906f973
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101648553"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-pagerduty"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao PagerDuty
@@ -95,7 +95,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
@@ -107,7 +107,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá a B.Fernandes acesso ao PagerDuty, que permitirá o uso do logon único do Azure.
 
@@ -119,13 +119,13 @@ Nesta seção, você permitirá a B.Fernandes acesso ao PagerDuty, que permitir�
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-pagerduty-sso"></a>Configurar o SSO do PagerDuty
+## <a name=&quot;configure-pagerduty-sso&quot;></a>Configurar o SSO do PagerDuty
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do PagerDuty como administrador.
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
 
-    ![Configurações da Conta](./media/pagerduty-tutorial/ic778535.png "Configurações da Conta")
+    ![Configurações da Conta](./media/pagerduty-tutorial/ic778535.png &quot;Configurações da Conta")
 
 3. Clique em **Logon Único**.
 

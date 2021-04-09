@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 12/18/2020
 ms.author: jeedes
 ms.openlocfilehash: 3f825e247aff5c8fc53eb8610f33bd8e0b7fce3d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98735606"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-one"></a>Tutorial: integração do Azure Active Directory com o Zscaler One
@@ -189,14 +189,14 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 
     b. Clique em **Ativar**.
 
-## <a name="configuring-proxy-settings"></a>Definindo as configurações de proxy
-### <a name="to-configure-the-proxy-settings-in-internet-explorer"></a>Para definir as configurações de proxy no Internet Explorer
+## <a name="configuring-proxy-settings&quot;></a>Definindo as configurações de proxy
+### <a name=&quot;to-configure-the-proxy-settings-in-internet-explorer&quot;></a>Para definir as configurações de proxy no Internet Explorer
 
 1. Inicie o **Internet Explorer**.
 
 2. Selecione **Opções da Internet** no menu **Ferramentas** para abrir a caixa de diálogo **Opções da Internet**.   
 
-    ![Opções da Internet](./media/zscaler-one-tutorial/ic769492.png "Opções da Internet")
+    ![Opções da Internet](./media/zscaler-one-tutorial/ic769492.png &quot;Opções da Internet")
 
 3. Clique na guia **Conexões** .   
 
