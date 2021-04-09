@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 11/25/2020
 ms.author: jeedes
 ms.openlocfilehash: 77f72d6c63231f0854b58470f86c65ffc81c9775
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "98731913"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-greenhouse"></a>Tutorial: integração do Active Directory do Azure ao Greenhouse
@@ -146,7 +146,7 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
     >[!NOTE]
     >Como alternativa, você também pode carregar o arquivo **XML de Metadados de Federação** clicando na opção **Escolher Arquivo**.
 
-### <a name="create-greenhouse-test-user"></a>Criar um usuário de teste do Greenhouse
+### <a name="create-greenhouse-test-user&quot;></a>Criar um usuário de teste do Greenhouse
 
 Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles devem ser provisionados no Greenhouse. No caso do Greenhouse, o provisionamento é uma tarefa manual.
 
@@ -159,7 +159,7 @@ Para permitir que os usuários do Azure AD façam logon no Greenhouse, eles deve
 
 2. Acesse **Configurar > Usuários > Novos Usuários**
    
-    ![Usuários](./media/greenhouse-tutorial/create-user-1.png "Usuários")
+    ![Usuários](./media/greenhouse-tutorial/create-user-1.png &quot;Usuários")
 
 4. Na seção **Adicionar Novos Usuários**, execute as etapas a seguir:
    
