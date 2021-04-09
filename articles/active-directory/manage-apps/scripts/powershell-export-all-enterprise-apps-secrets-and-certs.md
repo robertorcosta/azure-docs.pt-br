@@ -12,10 +12,10 @@ ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
 ms.openlocfilehash: 20caefe74a7c047fb8690bb1d9e6f4eb9da7e9b7
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102635188"
 ---
 # <a name="export-secrets-and-certificates-for-enterprise-apps"></a>Exportar segredos e certificados para aplicativos empresariais
@@ -44,4 +44,4 @@ Você pode modificar a variável "$Path" diretamente no PowerShell, com um camin
 
 Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](/powershell/azure/active-directory/overview).
 
-Confira outros exemplos do PowerShell para o Gerenciamento de Aplicativos em [Exemplos do PowerShell do Azure AD para o Gerenciamento de Aplicativos](../app-management-powershell-samples.md).
+Confira outros exemplos do PowerShell para o Gerenciamento de Aplicativo em [Exemplos do PowerShell do Azure AD para o Gerenciamento de Aplicativo](../app-management-powershell-samples.md).

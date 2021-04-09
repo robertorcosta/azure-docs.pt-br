@@ -4,10 +4,10 @@ description: Mapeamento de controle do exemplo de blueprint do FedRAMP Moderado.
 ms.date: 01/08/2021
 ms.topic: sample
 ms.openlocfilehash: 7a78ebf631d2c7eb21fea64b0b6aa307bb500e0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100594698"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>Mapeamento de controle do exemplo de blueprint do FedRAMP Moderado
