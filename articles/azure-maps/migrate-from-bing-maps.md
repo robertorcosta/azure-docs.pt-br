@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendle
 ms.custom: ''
 ms.openlocfilehash: 9bd0516889733a666bf15668cffd124dcc468f3e
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100388950"
 ---
 # <a name="tutorial-migrate-from-bing-maps-to-azure-maps"></a>Tutorial: Migrar do Bing Maps para o Azure Mapas
@@ -136,7 +136,7 @@ A lista a seguir contém os termos comuns do Bing Mapas e os termos corresponden
 | Sobreposição terrestre                    | Camada de imagem                                                    |
 | Híbrido (em referência ao tipo de mapa) | Satélite com estradas                                           |
 | Infobox                           | Pop-up                                                          |
-| Location                          | Posição                                                       |
+| Local                          | Posição                                                       |
 | `LocationRect`                    | Caixa delimitadora                                                   |
 | Tipo de mapa                          | Estilo de mapa                                                      |
 | Barra de navegação                    | Seletor de estilo de mapa, controle de zoom, controle de inclinação e controle de bússola |
