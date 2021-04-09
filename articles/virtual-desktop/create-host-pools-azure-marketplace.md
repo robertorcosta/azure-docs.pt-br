@@ -8,10 +8,10 @@ ms.date: 03/10/2021
 ms.author: helohr
 manager: lizross
 ms.openlocfilehash: 60566b95447c1b69fb257435f45a11524ac5d8b2
-ms.sourcegitcommit: d135e9a267fe26fbb5be98d2b5fd4327d355fe97
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102617329"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Tutorial: Criar um pool de host com o portal do Azure
@@ -173,7 +173,7 @@ O processo de instalação do pool de host cria um grupo de aplicativos de deskt
 
 Para registrar o grupo de aplicativos da área de trabalho em um workspace:
 
-1. Selecione **Sim** na barra superior.
+1. Selecione **Sim**.
 
    Se você selecionar **Não**, poderá registrar o grupo de aplicativos mais tarde, mas recomendamos que você faça o registro do workspace assim que puder para que seu pool de host funcione corretamente.
 

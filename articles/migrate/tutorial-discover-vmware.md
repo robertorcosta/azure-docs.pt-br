@@ -5,14 +5,14 @@ author: vineetvikram
 ms.author: vivikram
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 03/17/2021
+ms.date: 03/25/2021
 ms.custom: mvc
-ms.openlocfilehash: f394fd4b1b4124c259489580fb5dc320fedf73fa
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 09b04c67519bfa920a3781612823c5755cbc6d2d
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104863642"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105627788"
 ---
 # <a name="tutorial-discover-servers-running-in-vmware-environment-with-azure-migrate-discovery-and-assessment"></a>Tutorial: Descobrir servidores em execução no ambiente do VMware com a ferramenta Migrações para Azure: descoberta e avaliação
 
@@ -34,11 +34,9 @@ Neste tutorial, você aprenderá como:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
-
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Antes de iniciar este tutorial, verifique se estes pré-requisitos estão em vigor.
-
 
 **Requisito** | **Detalhes**
 --- | ---
@@ -98,7 +96,6 @@ No Cliente Web vSphere, configure uma conta da seguinte maneira:
 
     :::image type="content" source="./media/tutorial-discover-vmware/guest-operations.png" alt-text="Use a caixa de seleção para permitir operações de convidado na função Somente Leitura":::
 
-
 > [!NOTE]
 > Você pode limitar a descoberta a data centers vCenter Server específicos, clusters, uma pasta de clusters, hosts, uma pasta de hosts ou servidores individuais definindo o escopo da conta do vCenter Server. [**Saiba mais**](set-discovery-scope.md) sobre como definir o escopo da conta de usuário do vCenter Server.
 
@@ -106,7 +103,7 @@ No Cliente Web vSphere, configure uma conta da seguinte maneira:
 
 Você precisa de uma conta de usuário com os privilégios necessários nos servidores para executar a descoberta de aplicativos instalados, a análise de dependências sem agente e a descoberta de instâncias e bancos de dados do SQL Server. Você pode fornecer a conta de usuário no gerenciador de configurações do dispositivo. O dispositivo não instala nenhum agente nos servidores.
 
-1. Para servidores do Windows, crie uma conta (local ou domínio) com permissões administrativas nos servidores. Para descobrir instâncias e bancos de dados do SQL Server, você precisa que a conta do Windows ou do SQL Server seja membro da função de servidor sysadmin. [Saiba mais](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/server-level-roles) sobre como atribuir a função necessária à conta de usuário.
+1. Para servidores do Windows, crie uma conta (local ou domínio) com permissões administrativas nos servidores. Para descobrir instâncias e bancos de dados do SQL Server, você precisa que a conta do Windows ou do SQL Server seja membro da função de servidor sysadmin. [Saiba mais](/sql/relational-databases/security/authentication-access/server-level-roles) sobre como atribuir a função necessária à conta de usuário.
 2. Para servidores Linux, crie uma conta com privilégios de raiz. Como alternativa, você pode criar uma conta com estas permissões nos arquivos /bin/netstat e /bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
 
 > [!NOTE]
@@ -118,7 +115,7 @@ Configure um novo projeto.
 
 1. No portal do Azure > **Todos os serviços**, pesquise **Migrações para Azure**.
 2. Em **Serviços**, selecione **Migrações para Azure**.
-3. Em **Visão geral**, selecione **Criar projeto**.
+3. Em **Visão geral** > selecione uma opção de acordo com suas metas de migração: **Windows, Linux e SQL Server** ou **SQL Server (somente)** ou **Explorar mais cenários** > selecione **Criar projeto**.
 5. Em **Criar projeto**, selecione sua assinatura do Azure e o grupo de recursos. Crie um grupo de recursos, caso ainda não tenha um.
 6. Em **Detalhes do Projeto**, especifique o nome do projeto e a geografia em que deseja criá-lo. Examine as geografias compatíveis para [nuvens públicas](migrate-support-matrix.md#supported-geographies-public-cloud) e [governamentais](migrate-support-matrix.md#supported-geographies-azure-government).
 
@@ -197,11 +194,9 @@ Importar o arquivo baixado e criar um servidor no ambiente VMware
 8. Em **Mapeamento de Rede**, especifique a rede à qual o servidor se conectará. A rede precisa de conectividade com a Internet para poder enviar metadados para as Migrações para Azure.
 9. Revise e confirme as configurações e clique em **Concluir**.
 
-
 ### <a name="verify-appliance-access-to-azure"></a>Verificar o acesso do dispositivo ao Azure
 
 Verifique se o servidor do dispositivo pode se conectar às URLs do Azure para as nuvens [pública](migrate-appliance.md#public-cloud-urls) e [governamental](migrate-appliance.md#government-cloud-urls).
-
 
 ### <a name="4-configure-the-appliance"></a>4. Configurar o dispositivo
 
@@ -282,6 +277,8 @@ Se quiser usar esses recursos, você poderá fornecer as credenciais do servidor
 - Você pode ver o **Status de validação** de todas as credenciais de domínio na tabela de credenciais. Somente as credenciais de domínio serão validadas.
 - Se a validação falhar, você poderá clicar no status **Com falha** para ver o erro encontrado e clicar em **Revalidar credenciais** após corrigir o problema para validar as credenciais de domínio com falha novamente.
 
+     :::image type="content" source="./media/tutorial-discover-vmware/add-server-credentials-multiple.png" alt-text="Painel 3 no Gerenciador de configuração do dispositivo para o fornecimento de várias credenciais":::
+
 ### <a name="start-discovery"></a>Iniciar descoberta
 
 1. Clique em **Iniciar descoberta** para iniciar a descoberta do vCenter Server. Depois que a descoberta for iniciada com êxito, você poderá verificar o status da descoberta com relação ao endereço IP/FQDN do vCenter Server na tabela de origens.
@@ -290,8 +287,8 @@ Se quiser usar esses recursos, você poderá fornecer as credenciais do servidor
 1. Durante o inventário de software, as credenciais dos servidores adicionados serão iteradas em relação aos servidores e validadas para análise de dependências sem agente. Você pode habilitar a análise de dependências sem agente para servidores do portal. Somente os servidores em que a validação é realizada com sucesso podem ser selecionados para habilitar a análise de dependências sem agente.
 
 > [!Note]
->As Migrações para Azure criptografarão a comunicação entre o dispositivo das Migrações para Azure e as instâncias do SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [**TrustServerCertificate**](https://docs.microsoft.com/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como TRUE); a camada de transporte usará o SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor do dispositivo precisa ser configurado para [**confiar na autoridade raiz do certificado**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
-Se nenhum certificado tiver sido provisionado no servidor quando ele foi inicializado, o SQL Server vai gerar um certificado autoassinado usado para criptografar pacotes de logon. [**Saiba mais**](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
+>As Migrações para Azure criptografarão a comunicação entre o dispositivo das Migrações para Azure e as instâncias do SQL Server de origem (com a propriedade de conexão Encrypt definida como TRUE). Essas conexões são criptografadas com [**TrustServerCertificate**](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder.trustservercertificate) (definido como TRUE); a camada de transporte usará o SSL para criptografar o canal e ignorar a cadeia de certificados para validar a confiança. O servidor do dispositivo precisa ser configurado para [**confiar na autoridade raiz do certificado**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).<br/>
+Se nenhum certificado tiver sido provisionado no servidor quando ele foi inicializado, o SQL Server vai gerar um certificado autoassinado usado para criptografar pacotes de logon. [**Saiba mais**](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine).
 
 A descoberta funciona da seguinte maneira:
 
