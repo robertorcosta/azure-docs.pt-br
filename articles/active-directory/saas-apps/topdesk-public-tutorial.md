@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
 ms.openlocfilehash: 3688dc2db67c0c1343a74be4652cb52466ef762e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92520429"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Tutorial: integração do Azure Active Directory com o TOPdesk – Public
@@ -137,13 +137,13 @@ Para configurar o logon único do Azure AD com o TOPdesk – Public, execute as 
 
     c. URL de logoff
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Configurar o logon único do TOPdesk – Public
+### <a name="configure-topdesk---public-single-sign-on&quot;></a>Configurar o logon único do TOPdesk – Public
 
 1. Entrar no seu site da empresa **TOPdesk - Público** como um administrador.
 
 2. No menu **TOPdesk**, clique em **Configurações**.
    
-    ![Configurações](./media/topdesk-public-tutorial/ic790598.png "Configurações")
+    ![Configurações](./media/topdesk-public-tutorial/ic790598.png &quot;Configurações")
 
 3. Clique em **Configurações de Logon**.
    
@@ -247,17 +247,17 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-topdesk---public-test-user"></a>Criar usuário de teste do TOPdesk – Public
+### <a name="create-topdesk---public-test-user&quot;></a>Criar usuário de teste do TOPdesk – Public
 
 Para permitir que os usuários do Azure AD se conectem ao TOPdesk – Public, eles deverão ser provisionados no TOPdesk – Public. No caso do TOPdesk - Público, o provisionamento é uma tarefa manual.
 
-### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
+### <a name=&quot;to-configure-user-provisioning-perform-the-following-steps&quot;></a>Para configurar o provisionamento de usuários, execute as seguintes etapas:
 
 1. Faça logon em seu site de empresa do **TOPdesk - Public** como administrador.
 
 2. No menu na parte superior, clique em **TOPdesk \> Novo \> Arquivos de Suporte \> Pessoa**.
    
-    ![Person](./media/topdesk-public-tutorial/ic790628.png "Pessoa")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png &quot;Pessoa")
 
 3. Na caixa de diálogo Nova Pessoa, execute as seguintes etapas:
    

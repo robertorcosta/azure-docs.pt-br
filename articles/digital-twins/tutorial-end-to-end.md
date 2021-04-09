@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: aec60218774f3f8e293a5e5ab8c03707d117c2a0
-ms.sourcegitcommit: b572ce40f979ebfb75e1039b95cea7fce1a83452
+ms.openlocfilehash: b7883d6c541558e26793f94e37014a20b14d761e
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "102634967"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104577242"
 ---
 # <a name="tutorial-build-out-an-end-to-end-solution"></a>Tutorial: Criar uma solução de ponta a ponta
 
@@ -121,35 +121,51 @@ De volta à janela do Visual Studio em que o projeto _**AdtE2ESample**_ está ab
 
 [!INCLUDE [digital-twins-publish-azure-function.md](../../includes/digital-twins-publish-azure-function.md)]
 
-Para que o seu aplicativo de funções possa acessar os Gêmeos Digitais do Azure, será necessário ter uma identidade gerenciada pelo sistema com permissões para acessar a sua instância dos Gêmeos Digitais do Azure. Você vai configurar tudo isso a seguir.
+Para que o seu aplicativo de funções possa acessar os Gêmeos Digitais do Azure, será necessário ter permissões para acessar a sua instância dos Gêmeos Digitais do Azure e o nome do host da instância. Você vai configurá-los em seguida.
 
-### <a name="assign-permissions-to-the-function-app"></a>Atribuir permissões ao aplicativo de funções
+### <a name="configure-permissions-for-the-function-app"></a>Configurar permissões para o aplicativo de funções
 
-Para permitir que o aplicativo de funções acesse os Gêmeos Digitais do Azure, a próxima etapa é definir uma configuração do aplicativo, atribuir a ele uma identidade do Azure AD gerenciada pelo sistema e dar a essa identidade a função *Proprietário de Dados dos Gêmeos Digitais do Azure* na instância dos Gêmeos Digitais do Azure. Essa função é necessária para qualquer usuário ou função que queira executar muitas atividades de plano de dados na instância. Você pode ler mais sobre atribuições de função e segurança em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md).
+Há duas configurações que precisam ser definidas para que o aplicativo de funções acesse a instância dos Gêmeos Digitais do Azure. Elas podem ser realizadas por meio de comandos no [Azure Cloud Shell](https://shell.azure.com). 
 
-No Azure Cloud Shell, use o comando a seguir para definir uma configuração de aplicativo que seu aplicativo de funções usará para fazer referência à sua instância de Gêmeos Digitais do Azure. Preencha os espaços reservados com os detalhes de seus recursos (lembre-se de que a URL da instância dos Gêmeos Digitais do Azure é o nome do host precedido por *https://* ).
+#### <a name="assign-access-role"></a>Atribuir função de acesso
+
+A primeira configuração fornece a função de **proprietário de dados dos Gêmeos Digitais do Azure** ao aplicativo de funções na instância dos Gêmeos Digitais do Azure. Essa função é necessária para qualquer usuário ou função que queira executar muitas atividades de plano de dados na instância. Você pode ler mais sobre atribuições de função e segurança em [*Conceitos: segurança para soluções dos Gêmeos Digitais do Azure*](concepts-security.md). 
+
+1. Use o comando a seguir para ver os detalhes da identidade gerenciada pelo sistema para a função. Anote o campo **principalId** na saída.
+
+    ```azurecli-interactive 
+    az functionapp identity show -g <your-resource-group> -n <your-App-Service-(function-app)-name> 
+    ```
+
+    >[!NOTE]
+    > Se o resultado estiver vazio em vez de mostrar detalhes de uma identidade, crie uma identidade gerenciada pelo sistema para a função usando este comando:
+    > 
+    >```azurecli-interactive    
+    >az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>  
+    >```
+    >
+    > A saída exibirá detalhes da identidade, incluindo o valor **principalId** necessário para a próxima etapa. 
+
+1. Use o valor de **principalId** no comando a seguir para atribuir a identidade do aplicativo de funções à função de **Proprietário de Dados dos Gêmeos Digitais do Azure** para sua instância dos Gêmeos Digitais do Azure.
+
+    ```azurecli-interactive 
+    az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
+    ```
+
+O resultado desse comando são informações de saída sobre a atribuição de função que você criou. Agora, o aplicativo de funções tem permissões para acessar dados em sua instância dos Gêmeos Digitais do Azure.
+
+#### <a name="configure-application-settings"></a>Definir as configurações do aplicativo
+
+A segunda configuração cria uma **variável de ambiente** para a função com a URL da instância dos Gêmeos Digitais do Azure. O código de função usará isso para fazer referência à sua instância. Para obter mais informações sobre variáveis de ambiente, confira [*Gerenciar o seu aplicativo de funções*](../azure-functions/functions-how-to-use-azure-function-app-settings.md?tabs=portal). 
+
+Execute o comando a seguir, preenchendo os espaços reservados com os detalhes dos recursos.
 
 ```azurecli-interactive
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=<your-Azure-Digital-Twins-instance-URL>"
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
 ```
 
 A saída é a lista de configurações para a Função do Azure, que agora deve conter uma entrada chamada **ADT_SERVICE_URL**.
 
-Use o comando a seguir para criar a identidade gerenciada pelo sistema. Procure o campo **principalId** na saída.
-
-```azurecli-interactive
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Use o valor **principalId** da saída no comando a seguir a fim de atribuir a identidade do aplicativo de funções à função de *Proprietário de Dados dos Gêmeos Digitais do Azure* para sua instância dos Gêmeos Digitais do Azure.
-
-[!INCLUDE [digital-twins-permissions-required.md](../../includes/digital-twins-permissions-required.md)]
-
-```azurecli-interactive
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Data Owner"
-```
-
-O resultado desse comando são informações de saída sobre a atribuição de função que você criou. Agora, o aplicativo de funções tem permissões para acessar sua instância dos Gêmeos Digitais do Azure.
 
 ## <a name="process-simulated-telemetry-from-an-iot-hub-device"></a>Processar telemetria simulada de um dispositivo do Hub IoT
 
