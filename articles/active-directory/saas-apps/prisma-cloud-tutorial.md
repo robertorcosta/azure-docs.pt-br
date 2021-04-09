@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/08/2021
 ms.author: jeedes
 ms.openlocfilehash: d92ca345b0800523d86ce7b42220209a1f237103
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101651386"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-prisma-cloud-sso"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory com o SSO do Prisma Cloud
