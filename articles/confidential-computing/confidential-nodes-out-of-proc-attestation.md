@@ -2,16 +2,17 @@
 title: Suporte a um atestado out-of-proc usando um DaemonSet do auxiliar de cotação do Intel SGX no Azure (versão prévia)
 description: DaemonSet para gerar a cotação out-of-proc do aplicativo SGX. Este artigo explicará de que modo um recurso do atestado out-of-proc será fornecido para cargas de trabalho confidenciais em execução dentro de um contêiner.
 ms.service: container-service
+ms.subservice: confidential-computing
 author: agowdamsft
 ms.topic: overview
 ms.date: 2/12/2021
 ms.author: amgowda
-ms.openlocfilehash: 5d872032ea5b4e08c3f436dd3bfc202786d8514d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 0ebeb96557b7e20d123577c0ab9c8fc392abbfba
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102553248"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105932617"
 ---
 # <a name="platform-software-management-with-sgx-quote-helper-daemon-set-preview"></a>Gerenciamento de Software de Plataforma usando um DaemonSet do auxiliar de cotação do SGX (versão prévia)
 

@@ -7,12 +7,12 @@ ms.author: dademath
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: 6f4a8e8f26e88a73fc73c309ef336813282589f3
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 336059007cfca40a74ad5a4395c6f9a59215bb58
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103488169"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105825774"
 ---
 # <a name="quickstart-get-started-with-ui-framework-base-components"></a>Início rápido: Introdução aos componentes base da estrutura da IU
 
@@ -52,7 +52,7 @@ No final deste processo, você deve ter um aplicativo completo dentro da pasta `
 
 ### <a name="install-the-package"></a>Instalar o pacote
 
-Use o comando `npm install` para instalar a biblioteca de clientes de Chamada dos Serviços de Comunicação do Azure para JavaScript. Mova o tarball fornecido (versão prévia privada) para o diretório my-app.
+Use o comando `npm install` para instalar o SDK de Chamada dos Serviços de Comunicação do Azure para JavaScript. Mova o tarball fornecido (versão prévia privada) para o diretório my-app.
 
 ```console
 
@@ -76,9 +76,9 @@ npm run start
 
 ## <a name="object-model"></a>Modelo de objeto
 
-As seguintes classes e as interfaces administram alguns dos principais recursos da biblioteca de clientes da interface do usuário dos Serviços de Comunicação do Azure:
+As seguintes classes e interfaces cuidam de alguns dos principais recursos do SDK da Interface do Usuário dos Serviços de Comunicação do Azure:
 
-| Name                                  | Descrição                                                  |
+| Nome                                  | Descrição                                                  |
 | ------------------------------------- | ------------------------------------------------------------ |
 | Provedor| Provedor da interface do usuário do Fluent que permite que os desenvolvedores modifiquem os componentes subjacentes da interface do usuário do Fluent|
 | CallingProvider| O provedor de chamadas que cria uma instância de uma chamada. Necessário para adicionar componentes extras|
