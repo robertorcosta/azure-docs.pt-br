@@ -8,16 +8,14 @@ ms.author: chpalm
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 933b5605cf38be90d419673a94e23e4c36f0ef36
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: beb8b81710cf4728259a8eb1df920cd74efce3ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103495701"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105728123"
 ---
 # <a name="region-availability-and-data-residency"></a>Disponibilidade de região e residência de dados
-
-[!INCLUDE [Public Preview Notice](../includes/public-preview-include.md)]
 
 Os Serviços de Comunicação do Azure estão comprometidos em ajudar nossos clientes a atender aos requisitos de privacidade e de dados pessoais deles. Como desenvolvedor usando os Serviços de Comunicação com uma relação direta com os seres humanos que usam o aplicativo, você é potencialmente um controlador dos dados deles. Como os Serviços de Comunicação do Azure estão armazenando e criptografando esses dados inativos em seu nome, provavelmente somos o processador desses dados. Esta página resume como o serviço retém os dados e como você pode identificar, exportar e excluir esses dados.
 
@@ -58,10 +56,12 @@ Os Serviços de Comunicação do Azure mantêm um diretório de números de tele
 
 ### <a name="chat"></a>Chat
 
-Os threads e as mensagens do chat são retidos até que sejam explicitamente excluídos. Um thread totalmente ocioso será excluído automaticamente após 30 dias. Use [APIs de Chat](/rest/api/communication/chat/chatthread) para obter, listar, atualizar e excluir mensagens.
+Os threads e as mensagens do chat são retidos até que sejam explicitamente excluídos. Um thread totalmente ocioso, sem participantes, será excluído automaticamente após 30 dias. Use [APIs de Chat](/rest/api/communication/chat/chatthread) para obter, listar, atualizar e excluir mensagens.
 
 - `Get Thread`
 - `Get Message`
+- `List Messages`
+- `Update Message`
 - `Delete Thread`
 - `Delete Message`
 

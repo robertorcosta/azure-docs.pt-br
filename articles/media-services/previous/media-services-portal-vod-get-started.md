@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: fc908f909cdb64e968db78b2c98b8f0edf1c61dd
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009684"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introdução ao fornecimento de conteúdo sob demanda usando o portal do Azure
@@ -33,8 +33,8 @@ Este tutorial o orienta ao longo das etapas de implementação de um serviço b�
 ## <a name="prerequisites"></a>Pré-requisitos
 Os seguintes itens são necessários para concluir o tutorial:
 
-* Uma conta do Azure. Para obter detalhes, consulte [avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
-* Uma conta dos Serviços de Mídia. Para criar uma conta de serviços de mídia, consulte [como criar uma conta de serviços de mídia](media-services-portal-create-account.md).
+* Uma conta do Azure. Para obter detalhes, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/). 
+* Uma conta dos Serviços de Mídia. Para criar uma conta de Serviços de Mídia, confira [Como criar uma conta dos Serviços de Mídia](media-services-portal-create-account.md).
 
 Este tutorial inclui as seguintes tarefas:
 
@@ -54,8 +54,8 @@ Um dos cenários mais comuns ao se trabalhar com os Serviços de Mídia do Azure
 Para iniciar o ponto de extremidade de streaming:
 
 1. Entre no [portal do Azure](https://portal.azure.com/).
-2. Selecione **configurações**  >  **pontos de extremidade de streaming**. 
-3. Selecione o ponto de extremidade de streaming padrão. A janela **detalhes do ponto de extremidade de streaming padrão** é exibida.
+2. Selecione **Configurações** > **Pontos de extremidade de streaming**. 
+3. Selecione o ponto de extremidade de streaming padrão. A janela **DETALHES DO PONTO DE EXTREMIDADE DE STREAMING PADRÃO** é exibida.
 4. Selecione o ícone **Iniciar**.
 5. Selecione o botão **Salvar**.
 

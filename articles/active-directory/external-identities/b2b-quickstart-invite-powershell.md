@@ -1,5 +1,5 @@
 ---
-title: 'Início Rápido: Adicionar um usuário convidado com o PowerShell – Azure AD'
+title: 'Guia de início rápido: adicionar um usuário participante usando o PowerShell – Azure AD'
 description: Este início rápido ensinará a usar o PowerShell para enviar um convite para um usuário de colaboração do Azure AD B2B.
 services: active-directory
 ms.service: active-directory
@@ -12,14 +12,14 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0faaf0394bddc2e443afc194bbd0ecef72625f9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 07fa0551aee6241594b9c7d043666dad001adb62
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87910426"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106056701"
 ---
-# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início Rápido: Adicionar um usuário convidado com o PowerShell
+# <a name="quickstart-add-a-guest-user-with-powershell"></a>Início rápido: adicionar um usuário convidado com o PowerShell
 
 Existem várias maneiras de convidar parceiros externos para aplicativos e serviços com a colaboração B2B do Azure Active Directory. No início rápido anterior, você aprendeu como adicionar usuários convidados diretamente no portal de administração do Azure Active Directory. Também é possível usar o PowerShell para adicionar usuários convidados, um de cada vez ou em massa. Neste início rápido, você usará o comando New-AzureADMSInvitation para adicionar um usuário convidado ao seu locatário do Azure.
 
@@ -95,7 +95,7 @@ Insira suas credenciais quando solicitado.
 
    ![Saída do PowerShell exibindo o usuário convidado adicionado](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 É possível excluir a conta de usuário de teste no diretório quando ela não for mais necessária. Execute o comando a seguir para excluir uma conta de usuário:
 

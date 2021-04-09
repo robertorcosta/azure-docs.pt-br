@@ -3,12 +3,12 @@ title: 'Início Rápido: Criar um blueprint com o PowerShell'
 description: Neste início rápido, você usará o Azure Blueprints para criar, definir e implantar artefatos usando o PowerShell.
 ms.date: 01/27/2021
 ms.topic: quickstart
-ms.openlocfilehash: 65d573d0aec7d5f292bc985483e1f12c350ae03a
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 002ba6fcf20b10bcc44fb486a85bc24bfdd12ae3
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98918272"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105559019"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>Início Rápido: Definir e atribuir um Azure Blueprint com o PowerShell
 
@@ -307,7 +307,7 @@ O valor de `{BlueprintVersion}` é uma cadeia de caracteres de letras, números 
 
 Depois que um blueprint é publicado usando o PowerShell, ele pode ser atribuído a uma assinatura. Atribua o blueprint que você criou a uma das assinaturas em sua hierarquia do grupo de gerenciamento. Se o blueprint for salvo em uma assinatura, ele só poderá ser atribuído a essa assinatura. O parâmetro **Blueprint** especifica o blueprint a ser atribuído. Para fornecer parâmetros de nome, localização, identidade, bloqueio e blueprint, use os parâmetros correspondentes do PowerShell no cmdlet `New-AzBlueprintAssignment` ou forneça-os no arquivo JSON do parâmetro **AssignmentFile**.
 
-1. Execute a implantação do blueprint atribuindo-o uma assinatura. Como os parâmetros **contributors** e **owners** exigem que uma matriz de objectIds das entidades de segurança seja concedida à atribuição de função, use a [API do Graph do Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) para coletar as objectIds a serem usadas no **AssignmentFile** de seus usuários, grupos ou entidades de serviço.
+1. Execute a implantação do blueprint atribuindo-o uma assinatura. Como os parâmetros **contributors** e **owners** exigem que uma matriz de objectIds das entidades de segurança seja concedida à atribuição de função, use a [API do Graph do Azure Active Directory](/graph/migrate-azure-ad-graph-planning-checklist) para coletar as objectIds a serem usadas no **AssignmentFile** de seus usuários, grupos ou entidades de serviço.
 
    - Arquivo JSON – blueprintAssignment.json
 
