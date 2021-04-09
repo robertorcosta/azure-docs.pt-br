@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 4f6eeb5265d99a17ed18ace91fa5f2d2f744dbb2
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: db63d763da8cfe13a07cab15f7f18ad6e2e73eb7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100597010"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105026284"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Usar o Azure Application Insights para entender como os clientes estão usando o seu aplicativo
 
@@ -38,7 +38,7 @@ Para concluir este tutorial:
 - Baixe e instale o [Depurador de Instantâneo do Visual Studio](https://aka.ms/snapshotdebugger).
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](../app/asp-net.md). 
 - [Enviar telemetria do seu aplicativo](../app/usage-overview.md#send-telemetry-from-your-app) para adicionar exibições de página/eventos personalizadas
-- Enviar [contexto de usuário](../app/usage-send-user-context.md) para acompanhar o que um usuário faz ao longo do tempo e utilizar totalmente os recursos de uso.
+- Enviar [contexto de usuário](./usage-overview.md) para acompanhar o que um usuário faz ao longo do tempo e utilizar totalmente os recursos de uso.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 Faça logon no Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -165,4 +165,3 @@ Agora que você aprendeu a analisar seus usuários, avance para o próximo tutor
 
 > [!div class="nextstepaction"]
 > [Criar painéis personalizados](./tutorial-app-dashboards.md)
-

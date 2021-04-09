@@ -4,12 +4,12 @@ description: Neste tutorial, você usará um servidor de modelo de IA fornecido 
 ms.topic: tutorial
 ms.date: 09/08/2020
 titleSuffix: Azure
-ms.openlocfilehash: 68b5b7561cc31e156a745bcfb07e3203de10d425
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5751184493fffeeaf647507e9e9b00834f63ab5e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101702208"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557251"
 ---
 # <a name="tutorial-analyze-live-video-by-using-openvino-model-server--ai-extension-from-intel"></a>Tutorial: Analisar vídeos ao vivo usando o OpenVINO™ Model Server – Extensão de IA da Intel 
 
@@ -51,7 +51,7 @@ Neste guia de início rápido, você usará a Análise Dinâmica de Vídeo no Io
 
 O diagrama mostra como os sinais fluem neste guia de início rápido. Um [módulo de borda](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) simula uma câmera IP que hospeda um servidor RTSP (Real-Time Streaming Protocol). Um nó de [origem RTSP](media-graph-concept.md#rtsp-source) efetua pull do feed de vídeo desse servidor e envia quadros de vídeo para o nó do [processador de extensão HTTP](media-graph-concept.md#http-extension-processor). 
 
-O nó de extensão HTTP desempenha a função de um proxy. Ele amostra os quadros de vídeo de entrada definidos por você, campo `samplingOptions`, e também converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-edge/iot-edge-glossary.md#iot-edge-hub).
+O nó de extensão HTTP desempenha a função de um proxy. Ele amostra os quadros de vídeo de entrada definidos por você, campo `samplingOptions`, e também converte os quadros de vídeo no tipo de imagem especificado. Em seguida, ele retransmite a imagem por REST para outro módulo do Edge que executa modelos de IA por trás de um ponto de extremidade HTTP. Neste exemplo, esse módulo do Edge é o OpenVINO™ Model Server – Extensão de IA da Intel. O nó de processador de extensão HTTP reúne os resultados da detecção e publica eventos no nó do [coletor do Hub IoT](media-graph-concept.md#iot-hub-message-sink). Em seguida, o nó envia esses eventos para o [Hub do IoT Edge](../../iot-fundamentals/iot-glossary.md#iot-edge-hub).
 
 Neste tutorial, você irá:
 
@@ -219,7 +219,7 @@ Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta 
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
 {
   "body": {
-    "sdp": "SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
+    "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1586450538111534 1 IN IP4 nnn.nn.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/lots_015.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.03.06\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-300.000\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/lots_015.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=4D0029;sprop-parameter-sets=Z00AKeKQCgC3YC3AQEBpB4kRUA==,aO48gA==\r\na=control:track1\r\n"
   },
   "applicationProperties": {
     "dataVersion": "1.0",
@@ -290,7 +290,7 @@ No exemplo a seguir, dois veículos foram detectados com valores de confiança a
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
     "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-07-24T16:43:18.1280000Z"
+    "eventTime&quot;: &quot;2020-07-24T16:43:18.1280000Z"
   }
 }
 ```
@@ -351,7 +351,7 @@ Agora, você pode repetir as etapas acima para executar o programa de exemplo no
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
     "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-07-24T16:44:18.1280000Z"
+    "eventTime&quot;: &quot;2020-07-24T16:44:18.1280000Z"
   }
 }
 ```
@@ -388,7 +388,7 @@ Agora, você pode repetir as etapas acima para executar o programa de exemplo no
     "topic": "/subscriptions/{subscriptionID}/resourceGroups/{name}/providers/microsoft.media/mediaservices/hubname",
     "subject": "/graphInstances/GRAPHINSTANCENAMEHERE/processors/inferenceClient",
     "eventType": "Microsoft.Media.Graph.Analytics.Inference",
-    "eventTime": "2020-07-24T16:54:18.1280000Z"
+    "eventTime&quot;: &quot;2020-07-24T16:54:18.1280000Z"
   }
 }
 ```
