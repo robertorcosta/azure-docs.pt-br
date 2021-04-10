@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/17/2020
 ms.author: hahamil
 ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
-ms.openlocfilehash: dcb82e6cc50a2ff3291d5a900ec9367d69dcdde6
-ms.sourcegitcommit: 94c3c1be6bc17403adbb2bab6bbaf4a717a66009
+ms.openlocfilehash: 1e99e8ff25d895ba2248ddd1ba2520e9f14871a7
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
-ms.locfileid: "103224904"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105022799"
 ---
 # <a name="quickstart-sign-in-users-and-get-an-access-token-in-a-javascript-spa-using-the-auth-code-flow-with-pkce"></a>Guia de início rápido: conecte usuários e obtenha um token de acesso em um SPA JavaScript usando o fluxo de código de autenticação com o PKCE 
 
@@ -25,7 +25,7 @@ Neste guia de início rápido, você baixará e executará um exemplo de código
 
 Confira [Como o exemplo funciona](#how-the-sample-works) para ver uma ilustração.
 
-Este início rápido usa o MSAL.js 2.0 com o fluxo de código de autorização. Para ver um início rápido semelhante que usa o MSAL.js 1.0 com o fluxo implícito, confira [Início rápido: Conectar usuários em aplicativos de página única JavaScript](./quickstart-v2-javascript.md).
+Este guia de início rápido usa o MSAL.js v2 com o fluxo de código de autorização. Para obter um guia de início rápido semelhante que usa o MSAL.js v1 com o fluxo implícito, confira [Guia de início rápido: Conectar usuários em aplicativos de página única JavaScript](./quickstart-v2-javascript.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
