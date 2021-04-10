@@ -1,6 +1,6 @@
 ---
 title: H264 Taxa de Bits Única de Baixa Qualidade SD para Android | Microsoft Docs
-description: O tópico fornece uma visão geral da predefinição de tarefa **H264 taxa de bits única de baixa qualidade SD para Android** .
+description: O tópico fornece uma visão geral da predefinição de tarefa **H264 Taxa de Bits Única de Baixa Qualidade SD para Android**.
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: 4c32fc01b2011d49dc50a67edc98227f5b31750c
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103011673"
 ---
 # <a name="h264-single-bitrate-low-quality-sd-for-android"></a>H264 Taxa de Bits Única de Baixa Qualidade SD para Android

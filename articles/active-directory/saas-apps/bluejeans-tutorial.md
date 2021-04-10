@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/09/2020
 ms.author: jeedes
 ms.openlocfilehash: a920abacb0df030f7d38aed11e04a693cfa352a6
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101686562"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-bluejeans-for-azure-ad"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao BlueJeans para Azure AD
@@ -144,13 +144,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure perm
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-bluejeans-for-azure-ad-sso"></a>Configurar o SSO do BlueJeans para Azure AD
+## <a name="configure-bluejeans-for-azure-ad-sso&quot;></a>Configurar o SSO do BlueJeans para Azure AD
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do **BlueJeans para Azure AD** como administrador.
 
 2. Acesse **ADMINISTRADOR \> CONFIGURAÇÕES DE GRUPO \> SEGURANÇA**.
 
-    ![Captura de tela que mostra parte de uma janela do navegador com a guia Administrador selecionada, com Configurações de Grupo e Segurança selecionados.](./media/bluejeans-tutorial/ic785868.png "Admin")
+    ![Captura de tela que mostra parte de uma janela do navegador com a guia Administrador selecionada, com Configurações de Grupo e Segurança selecionados.](./media/bluejeans-tutorial/ic785868.png &quot;Admin")
 
 3. Na seção **SEGURANÇA**, execute as seguintes etapas:
 

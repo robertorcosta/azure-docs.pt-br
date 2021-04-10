@@ -7,10 +7,10 @@ ms.author: daviste
 ms.date: 05/03/2017
 ms.reviewer: mbullwin
 ms.openlocfilehash: 45f3a7152add8d64d961feb055413760df01eb94
-ms.sourcegitcommit: a8ff4f9f69332eef9c75093fd56a9aae2fe65122
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "105025604"
 ---
 # <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Análise de retenção de usuários para aplicativos Web com o Application Insights
@@ -36,7 +36,7 @@ Caso ainda não veja dados na ferramenta de retenção do portal do Application 
 
 Os usuários podem focalize células sobre a ferramenta de retenção para acessar as dicas de ferramenta e o botão de análise explicando o que significa que a célula. Botão análise leva o usuário para a ferramenta de análise com uma consulta preenchida previamente para gerar os usuários da célula. 
 
-## <a name="use-business-events-to-track-retention"></a>Usar eventos de negócios para monitorar a retenção
+## <a name="use-business-events-to-track-retention&quot;></a>Usar eventos de negócios para monitorar a retenção
 
 Para obter a análise de retenção mais útil, meça eventos que representam atividades de negócios significativas. 
 
@@ -45,7 +45,7 @@ Por exemplo, muitos usuários podem abrir uma página em seu aplicativo sem joga
 É uma boa prática codificar eventos personalizados que representam ações de negócios essenciais e usá-los para sua análise de retenção. Para capturar o resultado do jogo, você precisa escrever uma linha de código para enviar um evento personalizado para o Application Insights. Se você a escrever no código da página da Web ou no Node.JS, ela fica assim:
 
 ```JavaScript
-    appinsights.trackEvent("won game");
+    appinsights.trackEvent(&quot;won game");
 ```
 
 Ou no código de servidor do ASP.NET:
