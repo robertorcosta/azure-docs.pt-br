@@ -12,10 +12,10 @@ ms.author: danil
 ms.reviewer: sstein
 ms.date: 1/29/2021
 ms.openlocfilehash: d356cad1b4754875574e19be732fdf6481c61e22
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101691205"
 ---
 # <a name="quickstart-create-an-azure-sql-managed-instance"></a>Início Rápido: Criar uma Instância Gerenciada do SQL Azure
@@ -106,7 +106,7 @@ Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://a
    | ------ | --------------- | ----------- |
    | **Ordenação** | Escolha a ordenação que deseja usar para a instância gerenciada. Se estiver migrando bancos de dados do SQL Server, verifique a ordenação de origem usando `SELECT SERVERPROPERTY(N'Collation')` e use esse valor.| Para obter informações sobre ordenações, confira [Definir ou alterar a ordenação do servidor](/sql/relational-databases/collations/set-or-change-the-server-collation).|   
    | **Fuso horário** | Selecione o fuso horário que sua instância gerenciada observará.|Para obter mais informações, confira [Fusos horários](timezones-overview.md).|
-   | **Usar como secundário de failover** | Selecione **Sim** na barra superior. | Habilite esta opção para usar a instância gerenciada como o secundário de um grupo de failover.|
+   | **Usar como secundário de failover** | Selecione **Sim**. | Habilite esta opção para usar a instância gerenciada como o secundário de um grupo de failover.|
    | **Instância Gerenciada Primária de SQL** (se a opção **Usar como secundário de failover** estiver definida como **Sim**) | Escolha uma instância gerenciada primária existente que será ingressada na mesma zona DNS que a instância gerenciada que você está criando. | Esta etapa habilitará a configuração pós-criação do grupo de failover. Para saber mais, confira [Tutorial: adicionar uma instância gerenciada a um grupo de failover](failover-group-add-instance-tutorial.md).|
 
 - Selecione **Revisar + criar** para revisar suas escolhas antes de criar uma instância gerenciada. Ou, então, configure as marcas do Azure selecionando **Avançar: Marcas** (recomendado).

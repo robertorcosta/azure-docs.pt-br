@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.openlocfilehash: e93d03ac9ec404a18b480a0cd1bfe289944b60d8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101689089"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>Tutorial: integração do Azure Active Directory ao Bonusly
@@ -124,13 +124,13 @@ Para configurar o logon único do Azure AD com o Bonusly, realize as seguintes e
 
     c. URL de logoff
 
-### <a name="configure-bonusly-single-sign-on"></a>Configurar o logon único do Bonusly
+### <a name="configure-bonusly-single-sign-on&quot;></a>Configurar o logon único do Bonusly
 
 1. Em outra janela do navegador, conecte-se ao seu locatário do **Bonusly**.
 
 1. Na barra de ferramentas na parte superior, clique em **Configurações** e selecione **Integrações e aplicativos**.
 
-    ![Seção Social do Bonusly](./media/bonus-tutorial/ic773686.png "Bonusly")
+    ![Seção Social do Bonusly](./media/bonus-tutorial/ic773686.png &quot;Bonusly")
 1. Em **Logon Único**, selecione **SAML**.
 
 1. Na página do diálogo **SAML** , realize as seguintes etapas:
@@ -197,7 +197,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 7. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-### <a name="create-bonusly-test-user"></a>Criar um usuário de teste do Bonusly
+### <a name="create-bonusly-test-user&quot;></a>Criar um usuário de teste do Bonusly
 
 Para permitir que os usuários do Azure AD se conectem ao Bonusly, eles precisam estar provisionados no Bonusly. No caso do Bonusly, o provisionamento é uma tarefa manual.
 
@@ -210,7 +210,7 @@ Para permitir que os usuários do Azure AD se conectem ao Bonusly, eles precisam
 
 1. Clique em **Configurações**.
 
-    ![Configurações](./media/bonus-tutorial/ic781041.png "Configurações")
+    ![Configurações](./media/bonus-tutorial/ic781041.png &quot;Configurações")
 
 1. Clique na guia **Usuários e bônus** .
 
