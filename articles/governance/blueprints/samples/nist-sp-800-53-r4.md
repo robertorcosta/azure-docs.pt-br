@@ -4,10 +4,10 @@ description: Visão geral da amostra de blueprint NIST SP 800-53 R4. Este exempl
 ms.date: 01/27/2021
 ms.topic: sample
 ms.openlocfilehash: cff59a53642bcaf0828d9d6a99052bca4d651f31
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100577132"
 ---
 # <a name="nist-sp-800-53-r4-blueprint-sample"></a>Amostra de blueprint de NIST SP 800-53 R4
