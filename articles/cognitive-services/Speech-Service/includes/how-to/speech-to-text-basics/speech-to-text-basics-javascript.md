@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/04/2021
 ms.author: trbye
 ms.custom: devx-track-js
-ms.openlocfilehash: dd92cf24cf007418e52cb5091eb390b46d7a5571
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 5a8065daca11e5b79f02510f82ab622c8fb1af2d
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104987836"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729781"
 ---
 Um dos principais recursos do serviço de Fala é a capacidade de reconhecer e transcrever a fala humana (frequentemente denominada conversão de fala em texto). Neste guia de início rápido, você aprende a usar o SDK de Fala em seus aplicativos e produtos para executar uma conversão de fala em texto de alta qualidade.
 
@@ -26,7 +26,7 @@ Este artigo pressupõe que você tem uma conta do Azure e uma assinatura do Serv
 
 ## <a name="install-the-speech-sdk"></a>Instalar o SDK de Fala
 
-Antes de fazer qualquer coisa, instale o SDK de Fala para Node.js. Se você quiser apenas o nome do pacote a ser instalado, execute `npm install microsoft-cognitiveservices-speech-sdk`. Para obter instruções de instalação guiada, confira o artigo de [introdução](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet%2Clinux%2Cjre%2Cnodejs&pivots=programming-language-javascript).
+Antes de fazer qualquer coisa, instale o SDK de Fala para Node.js. Se você quiser apenas o nome do pacote a ser instalado, execute `npm install microsoft-cognitiveservices-speech-sdk`. Para obter instruções de instalação guiada, confira o artigo de [introdução](../../../quickstarts/setup-platform.md?pivots=programming-language-javascript&tabs=dotnet%2clinux%2cjre%2cnodejs).
 
 Use a instrução `require` a seguir para importar o SDK.
 
@@ -62,7 +62,7 @@ O reconhecimento de fala de um microfone **não é compatível com o Node.js**, 
 
 ## <a name="recognize-from-file"></a>Reconhecer do arquivo 
 
-Crie um `AudioConfig` usando `fromWavFileInput()`, que aceitará um objeto `Buffer` para executar o reconhecimento de fala de um arquivo de áudio. Em seguida, inicialize um [`SpeechRecognizer`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer?view=azure-node-latest), passando `audioConfig` e `speechConfig`.
+Crie um `AudioConfig` usando `fromWavFileInput()`, que aceitará um objeto `Buffer` para executar o reconhecimento de fala de um arquivo de áudio. Em seguida, inicialize um [`SpeechRecognizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechrecognizer), passando `audioConfig` e `speechConfig`.
 
 ```javascript
 const fs = require('fs');
