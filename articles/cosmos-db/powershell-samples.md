@@ -8,10 +8,10 @@ ms.topic: sample
 ms.date: 01/20/2021
 ms.author: mjbrown
 ms.openlocfilehash: ab9904127d085113ba09bf6fcd3616842dade14d
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102503293"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Exemplos do Azure PowerShell para a API de Núcleo (SQL) do Azure Cosmos DB
