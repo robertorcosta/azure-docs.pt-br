@@ -6,10 +6,10 @@ ms.topic: include
 ms.date: 10/22/2020
 ms.author: baanders
 ms.openlocfilehash: fb148551db798207a52bd7aef629da79dd3341e1
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102212800"
 ---
 Com `DefaultAzureCredential`, o exemplo pesquisará as credenciais no ambiente local, como uma conexão do Azure em uma [CLI do Azure](/cli/azure/install-azure-cli) local ou no Visual Studio ou Visual Studio Code. Por isso, será necessário *entrar no Azure localmente* por meio de um desses mecanismos para configurar as credenciais do exemplo.
