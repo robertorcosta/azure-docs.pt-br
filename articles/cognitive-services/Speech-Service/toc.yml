@@ -456,7 +456,84 @@
                   href: windows-voice-assistants-best-practices.md
                 - name: Exemplos e perguntas frequentes
                   href: windows-voice-assistants-faq.md
-- name: Ferramentas
+- name: Guias de instruções
+  items:
+    - name: Habilitar o registro em log
+      href: how-to-use-logging.md
+    - name: Acompanhar o uso de memória
+      href: how-to-track-speech-sdk-memory-usage.md
+    - name: Habilitar ponto de extremidade privado
+      href: speech-services-private-link.md
+    - name: Configurar o OpenSSL para Linux
+      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
+      href: how-to-configure-openssl-linux.md
+    - name: Configurar o RHEL/CentOS 7
+      href: how-to-configure-rhel-centos-7.md
+      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
+    - name: Contêineres
+      items:
+        - name: Instalar e executar contêineres de Fala
+          displayName: 'containers,install container,run container'
+          href: speech-container-howto.md
+        - name: Configurar contêineres de fala
+          displayName: 'containers,configure containers,container config,configuration'
+          href: speech-container-configuration.md
+        - name: Processamento em lotes com contêineres de fala
+          href: speech-container-batch-processing.md
+        - name: Contêineres de Fala com o Kubernetes e o Helm
+          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+          href: speech-container-howto-on-premises.md
+        - name: Contêineres de Fala em instâncias de contêiner do Azure
+          displayName: 'ACI,azure container instances,container instances,containers'
+          maintainContext: true
+          href: ../containers/azure-container-instance-recipe.md
+        - name: Perguntas frequentes sobre contêineres
+          href: speech-container-faq.md
+        - name: Documentação sobre contêineres dos Serviços Cognitivos
+          href: ../containers/index.yml
+    - name: Migração
+      items:
+        - name: Da Fala do Bing
+          href: how-to-migrate-from-bing-speech.md
+        - name: Da API de Tradução de Fala
+          href: how-to-migrate-from-translator-speech-api.md
+- name: Dispositivos
+  items:
+    - name: Documentação dos dispositivos de fala
+      href: index-devices.yml
+    - name: Visão geral
+      items:
+        - name: O que é o SDK dos dispositivos de Fala?
+          href: speech-devices-sdk.md
+        - name: Obter o SDK dos dispositivos de Fala
+          href: get-speech-devices-sdk.md
+        - name: Amostras do SDK de dispositivos de Fala (GitHub)
+          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
+    - name: Hardware
+      items:
+        - name: Recomendações de matriz de microfone
+          href: speech-devices-sdk-microphone.md
+        - name: Detalhes do Roobo v1
+          href: speech-devices-sdk-roobo-v1.md
+        - name: Detalhes do Roobo v2
+          href: speech-devices-sdk-roobo-v2.md
+    - name: Guias de instruções
+      items:
+        - name: Como configurar uma Matriz de Microfone
+          href: how-to-devices-microphone-array-configuration.md
+    - name: Guia de Início Rápido
+      items:
+        - name: Usar o SDK dos dispositivos de Fala
+          href: speech-devices-sdk-quickstart.md
+    - name: Recursos
+      items:
+        - name: Solução de problemas do SDK de dispositivos de Fala
+          href: speech-devices-sdk-troubleshooting.md
+    - name: Referência
+      items:
+        - name: Notas sobre a versão do SDK de dispositivos de Fala
+          href: devices-sdk-release-notes.md
+- name: Recursos
   items:
     - name: SDK de fala
       items:
@@ -505,85 +582,6 @@
           href: 'https://speech.microsoft.com'
         - name: Criar um aplicativo de comandos personalizados com o Estúdio de Fala
           href: ./quickstart-custom-commands-application.md
-- name: Implantar
-  items:
-    - name: Habilitar o registro em log
-      href: how-to-use-logging.md
-    - name: Acompanhar o uso de memória
-      href: how-to-track-speech-sdk-memory-usage.md
-    - name: Habilitar ponto de extremidade privado
-      href: speech-services-private-link.md
-    - name: Configurar o OpenSSL para Linux
-      displayName: 'memory usage, memory consumption, object logging, object tracking, memory, openssl'
-      href: how-to-configure-openssl-linux.md
-    - name: Configurar o RHEL/CentOS 7
-      href: how-to-configure-rhel-centos-7.md
-      displayName: 'RHEL, CentOS 7, CentOS, Configure RHEL, Configure CentO'
-    - name: Contêineres
-      items:
-        - name: Instalar e executar contêineres de Fala
-          displayName: 'containers,install container,run container'
-          href: speech-container-howto.md
-        - name: Configurar contêineres de fala
-          displayName: 'containers,configure containers,container config,configuration'
-          href: speech-container-configuration.md
-        - name: Processamento em lotes com contêineres de fala
-          href: speech-container-batch-processing.md
-        - name: Contêineres de Fala com o Kubernetes e o Helm
-          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-          href: speech-container-howto-on-premises.md
-        - name: Contêineres de Fala em instâncias de contêiner do Azure
-          displayName: 'ACI,azure container instances,container instances,containers'
-          maintainContext: true
-          href: ../containers/azure-container-instance-recipe.md
-        - name: Perguntas frequentes sobre contêineres
-          href: speech-container-faq.md
-        - name: Documentação sobre contêineres dos Serviços Cognitivos
-          href: ../containers/index.yml
-- name: Dispositivos
-  items:
-    - name: Documentação dos dispositivos de fala
-      href: index-devices.yml
-    - name: Visão geral
-      items:
-        - name: O que é o SDK dos dispositivos de Fala?
-          href: speech-devices-sdk.md
-        - name: Obter o SDK dos dispositivos de Fala
-          href: get-speech-devices-sdk.md
-        - name: Amostras do SDK de dispositivos de Fala (GitHub)
-          href: 'https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK'
-    - name: Hardware
-      items:
-        - name: Recomendações de matriz de microfone
-          href: speech-devices-sdk-microphone.md
-        - name: Detalhes do Roobo v1
-          href: speech-devices-sdk-roobo-v1.md
-        - name: Detalhes do Roobo v2
-          href: speech-devices-sdk-roobo-v2.md
-    - name: Guias de instruções
-      items:
-        - name: Como configurar uma Matriz de Microfone
-          href: how-to-devices-microphone-array-configuration.md
-    - name: Guia de Início Rápido
-      items:
-        - name: Usar o SDK dos dispositivos de Fala
-          href: speech-devices-sdk-quickstart.md
-    - name: Recursos
-      items:
-        - name: Solução de problemas do SDK de dispositivos de Fala
-          href: speech-devices-sdk-troubleshooting.md
-    - name: Referência
-      items:
-        - name: Notas sobre a versão do SDK de dispositivos de Fala
-          href: devices-sdk-release-notes.md
-- name: Migração
-  items:
-    - name: Da Fala do Bing
-      href: how-to-migrate-from-bing-speech.md
-    - name: Da API de Tradução de Fala
-      href: how-to-migrate-from-translator-speech-api.md
-- name: Recursos
-  items:
     - name: Opções de Ajuda e suporte
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/speech-service/context/context
     - name: Documentação do Swagger

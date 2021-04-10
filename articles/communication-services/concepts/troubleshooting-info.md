@@ -8,12 +8,12 @@ ms.author: manoskow
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: daa89380894a57e58191edd95303a2160846da04
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 80db53a5ed8d2edc90bc847578d5df4d603cc437
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103492686"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105107220"
 ---
 # <a name="troubleshooting-in-azure-communication-services"></a>Solução de problemas nos Serviços de Comunicação do Azure
 
@@ -33,11 +33,11 @@ Para ajudá-lo a solucionar determinados tipos de problemas, você pode ser soli
 
 ## <a name="access-your-ms-cv-id"></a>Acessar sua ID do MS-CV
 
-A ID do MS-CV pode ser acessada configurando o diagnóstico na instância do objeto `clientOptions` ao inicializar suas bibliotecas de cliente. O diagnóstico pode ser configurado para qualquer uma das bibliotecas de cliente do Azure, incluindo chat, identidade e chamadas de voz por IP.
+A ID do MS-CV pode ser acessada configurando o diagnóstico na instância do objeto `clientOptions` ao inicializar os SDKs. O diagnóstico pode ser configurado para qualquer um dos SDKs do Azure, incluindo chat, identidade e chamadas de voz por IP.
 
 ### <a name="client-options-example"></a>Exemplo das opções do cliente
 
-Os trechos de código a seguir demonstram a configuração de diagnóstico. Quando as bibliotecas de cliente são usadas com o diagnóstico habilitado, os detalhes do diagnóstico serão emitidos para o ouvinte de evento configurado:
+Os trechos de código a seguir demonstram a configuração de diagnóstico. Quando os SDKs são usados com o diagnóstico habilitado, os detalhes do diagnóstico serão emitidos para o ouvinte de evento configurado:
 
 # <a name="c"></a>[C#](#tab/csharp)
 ```
@@ -79,7 +79,7 @@ chat_client = ChatClient(
 
 ## <a name="access-your-call-id"></a>Acessar sua ID de chamada
 
-Ao fazer o arquivamento de uma solicitação de suporte por meio do portal do Azure relacionado à chamada de problemas, você pode ser solicitado a fornecer a ID da chamada à qual está se referindo. Isso pode ser acessado por meio da biblioteca de cliente de chamada:
+Ao fazer o arquivamento de uma solicitação de suporte por meio do portal do Azure relacionado à chamada de problemas, você pode ser solicitado a fornecer a ID da chamada à qual está se referindo. Isso pode ser acessado por meio do SDK de Chamada:
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 ```javascript
@@ -127,7 +127,7 @@ console.log(result); // your message ID will be in the result
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-O seguinte código pode ser usado a fim de configurar `AzureLogger` para gerar logs no console usando a biblioteca de cliente JavaScript:
+O seguinte código pode ser usado a fim de configurar `AzureLogger` para gerar logs no console usando o SDK do JavaScript:
 
 ```javascript
 import { AzureLogger } from '@azure/logger';
@@ -157,16 +157,16 @@ No Android Studio, navegue até o Explorador de Arquivos do Dispositivo selecion
 
 ---
 
-## <a name="calling-client-library-error-codes"></a>Chamar códigos de erros de biblioteca de clientes
+## <a name="calling-sdk-error-codes"></a>Como chamar códigos de erro do SDK
 
-A biblioteca de clientes de chamada dos Serviços de Comunicação do Azure usa os códigos de erro a seguir para ajudar você a solucionar problemas de chamada. Esses códigos de erro são expostos por meio da propriedade `call.callEndReason` depois que uma chamada é encerrada.
+O SDK de Chamada dos Serviços de Comunicação do Azure usa os códigos de erro a seguir para ajudar você a solucionar problemas de chamada. Esses códigos de erro são expostos por meio da propriedade `call.callEndReason` depois que uma chamada é encerrada.
 
 | Código do erro | Descrição | Ação a ser tomada |
 | -------- | ---------------| ---------------|
 | 403 | Proibido/Falha na autenticação. | Verifique se o token dos Serviços de Comunicação é válido e se não expirou. |
 | 404 | Chamada não encontrada. | Verifique se o número que você está chamando (ou a chamada em que está ingressando) existe. |
 | 408 | O controlador de chamada atingiu o tempo limite. | O controlador de chamada atingiu o tempo limite aguardando as mensagens de protocolo dos pontos de extremidade do usuário. Verifique se os clientes estão conectados e disponíveis. |
-| 410 | Erro de pilha de mídia local ou infraestrutura de mídia. | Verifique se você está usando a biblioteca de cliente mais recente em um ambiente com suporte. |
+| 410 | Erro de pilha de mídia local ou infraestrutura de mídia. | Verifique se você está usando o SDK mais recente em um ambiente com suporte. |
 | 430 | Não foi possível entregar a mensagem ao aplicativo cliente. | Verifique se o aplicativo cliente está em execução e disponível. |
 | 480 | Ponto de extremidade de cliente remoto não registrado. | Verifique se o ponto de extremidade remoto está disponível. |
 | 481 | Falha na manipulação da chamada de entrada. | Abra uma solicitação de suporte por meio do portal do Azure. |

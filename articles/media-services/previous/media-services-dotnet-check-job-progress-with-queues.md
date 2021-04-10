@@ -16,10 +16,10 @@ ms.date: 03/10/2021
 ms.author: inhenkel
 ms.custom: devx-track-csharp
 ms.openlocfilehash: dc6ab94b3685e55125032b0afa52076eae72ba5b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103016207"
 ---
 # <a name="use-azure-queue-storage-to-monitor-media-services-job-notifications-with-net"></a>Usar o Armazenamento de Fila do Azure para monitorar as notificações de trabalho dos Serviços de Mídia com .NET
@@ -67,13 +67,13 @@ O exemplo de código nesta seção faz o seguinte:
 > [!NOTE]
 > A maneira recomendada de monitorar o estado de um trabalho é ouvir mensagens de notificação, conforme mostrado no exemplo a seguir:
 >
-> Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State** .  Uma mensagem de notificação sobre a conclusão de um trabalho poderá chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob. State**  reflete o estado preciso com um ligeiro atraso.
+> Como alternativa, você pode verificar o estado de um trabalho usando a propriedade **IJob.State** .  Uma mensagem de notificação sobre a conclusão de um trabalho poderá chegar antes que o estado em **IJob** seja definido como **Concluído**. A propriedade **IJob.State** reflete o estado preciso com um pequeno atraso.
 >
 >
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Configure seu ambiente de desenvolvimento e preencha o arquivo de app.config com informações de conexão, conforme descrito em [desenvolvimento de serviços de mídia com o .net](media-services-dotnet-how-to-use.md). 
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
 2. Crie uma nova pasta (a pasta pode estar em qualquer lugar na unidade local) e copie um arquivo .mp4 que você deseja codificar e transmitir ou fazer o download progressivamente. Neste exemplo, o caminho "C:\Media" é usado.
 3. Adicione uma referência para a biblioteca **System.Runtime.Serialization**.
 

@@ -4,16 +4,16 @@ description: Saiba mais sobre o Azure Analysis Services, uma PaaS (plataforma co
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 01/20/2021
+ms.date: 03/29/2021
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 9f8de6ed4f0312a342526fb2ba5d100dfd9ec91f
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c3b95b92f2b76e669b4e207163f76f8cec2d3244
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100582625"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105731676"
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 
@@ -85,6 +85,7 @@ O Azure Analysis Services tem suporte em regiões do mundo todo. Os planos com s
 |Canadá Central    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
 |Canadá Central     |     S8v2, S9v2   |    1    |
 |Leste dos EUA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|Leste dos EUA     |     S8v2, S9v2   |    1    |
 |Leste dos EUA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
 |Leste dos EUA 2     |     S8v2, S9v2   |    1    |
 |Centro-Norte dos EUA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
