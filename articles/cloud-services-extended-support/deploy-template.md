@@ -8,12 +8,12 @@ ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 10/13/2020
 ms.custom: ''
-ms.openlocfilehash: 6d54216d8992b5bb233c79919284f96b24385651
-ms.sourcegitcommit: 42e4f986ccd4090581a059969b74c461b70bcac0
+ms.openlocfilehash: 6cb4abd536cc0d4177df424ac6a774e4e2e328d7
+ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104865580"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105564748"
 ---
 # <a name="deploy-a-cloud-service-extended-support-using-arm-templates"></a>Implantar um Serviço de Nuvem (suporte estendido) usando modelos do ARM
 
@@ -29,15 +29,15 @@ Este tutorial explica como usar [modelos do ARM](../azure-resource-manager/templ
 
 1. Examine os [pré-requisitos de implantação](deploy-prerequisite.md) dos Serviços de Nuvem (suporte estendido) e crie os recursos associados.
 
-2. Crie um grupo de recursos usando o [portal do Azure](/azure/azure-resource-manager/management/manage-resource-groups-portal) ou o [PowerShell](/azure/azure-resource-manager/management/manage-resource-groups-powershell). Essa etapa é opcional se você está usando um grupo de recursos existente.
+2. Crie um grupo de recursos usando o [portal do Azure](../azure-resource-manager/management/manage-resource-groups-portal.md) ou o [PowerShell](../azure-resource-manager/management/manage-resource-groups-powershell.md). Essa etapa é opcional se você está usando um grupo de recursos existente.
  
-3. Crie uma conta de armazenamento usando o [portal do Azure](/azure/storage/common/storage-account-create?tabs=azure-portal) ou o [PowerShell](/azure/storage/common/storage-account-create?tabs=azure-powershell). Essa etapa é opcional se você está usando uma conta de armazenamento existente.
+3. Crie uma conta de armazenamento usando o [portal do Azure](../storage/common/storage-account-create.md?tabs=azure-portal) ou o [PowerShell](../storage/common/storage-account-create.md?tabs=azure-powershell). Essa etapa é opcional se você está usando uma conta de armazenamento existente.
 
-4. Carregue os arquivos de Definição de Serviço (.csdef) e de Configuração de Serviço (.cscfg) para a conta de armazenamento usando o [portal do Azure](/azure/storage/blobs/storage-quickstart-blobs-portal#upload-a-block-blob), [AzCopy](/azure/storage/common/storage-use-azcopy-blobs-upload?toc=/azure/storage/blobs/toc.json) ou o [PowerShell](/azure/storage/blobs/storage-quickstart-blobs-powershell#upload-blobs-to-the-container). Obtenha os URIs de SAS dos dois arquivos a serem adicionados ao modelo do ARM posteriormente neste tutorial.
+4. Carregue os arquivos de Definição de Serviço (.csdef) e de Configuração de Serviço (.cscfg) para a conta de armazenamento usando o [portal do Azure](../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob), [AzCopy](../storage/common/storage-use-azcopy-blobs-upload.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) ou o [PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md#upload-blobs-to-the-container). Obtenha os URIs de SAS dos dois arquivos a serem adicionados ao modelo do ARM posteriormente neste tutorial.
 
 5. (Opcional) Criar um cofre de chaves e carregar um certificado.
 
-    -  Certificados podem ser anexados aos serviços de nuvem para habilitar a comunicação segura com o serviço. Para usar certificados, suas impressões digitais devem ser especificadas no arquivo de Configuração do Serviço (.cscfg) e carregadas em um Key Vault. Um Key Vault pode ser criado por meio do [portal do Azure](/azure/key-vault/general/quick-create-portal) ou do [PowerShell](/azure/key-vault/general/quick-create-powershell).
+    -  Certificados podem ser anexados aos serviços de nuvem para habilitar a comunicação segura com o serviço. Para usar certificados, suas impressões digitais devem ser especificadas no arquivo de Configuração do Serviço (.cscfg) e carregadas em um Key Vault. Um Key Vault pode ser criado por meio do [portal do Azure](../key-vault/general/quick-create-portal.md) ou do [PowerShell](../key-vault/general/quick-create-powershell.md).
     - O Key Vault associado precisa estar localizado na mesma região e assinatura que o serviço de nuvem.
     - O Key Vault associado deve receber as permissões apropriadas para que o recurso dos Serviços de Nuvem (suporte estendido) possa recuperar o certificado dele. Para saber mais, confira [Certificados e o Key Vault](certificates-and-key-vault.md)
     - O Key Vault precisa ser referenciado na seção OsProfile do modelo do ARM mostrado nas etapas a seguir.
