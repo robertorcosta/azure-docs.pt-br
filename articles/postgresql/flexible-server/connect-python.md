@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Conectar-se usando o Python – Banco de Dados do Azure para PostgreSQL – Servidor Flexível'
 description: Este guia de início rápido fornece vários exemplos de código Python que você pode usar para se conectar e consultar dados do Banco de Dados do Azure para PostgreSQL – Servidor Flexível.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: postgresql
 ms.custom: mvc
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.openlocfilehash: 89dc36a9b1b1fee9ad10d55945c7fc17bf72f476
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 948972c1d47e550395a280e62c0491800e716663
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "90943563"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106550635"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-postgresql---flexible-server"></a>Início Rápido: Usar o Python para se conectar e consultar dados no Banco de Dados do Azure para PostgreSQL – Servidor Flexível
 
@@ -28,7 +28,7 @@ Este artigo pressupõe que você está familiarizado com o desenvolvimento usand
 
 * Uma conta do Azure com uma assinatura ativa. [Crie uma conta gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * Um Banco de Dados do Azure para PostgreSQL – Servidor Flexível. Para criar um servidor flexível, confira [Criar um Banco de Dados do Azure para PostgreSQL – Servidor Flexível usando o portal do Azure](./quickstart-create-server-portal.md).
-* [Python](https://www.python.org/downloads/) 2.7.9+ ou 3.4+.
+* [Python](https://www.python.org/downloads/) 2.7 ou 3.6+.
 * Instalador do pacote [pip](https://pip.pypa.io/en/stable/installing/) mais recente.
 
 ## <a name="preparing-your-client-workstation"></a>Como preparar sua estação de trabalho cliente

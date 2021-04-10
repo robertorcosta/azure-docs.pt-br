@@ -3,12 +3,12 @@ title: Tutorial de gravação de vídeo baseada em eventos para a nuvem e reprod
 description: Neste tutorial, você aprenderá a usar a Análise de Vídeo ao vivo do Azure no Azure IoT Edge para registrar uma gravação de vídeo baseada em eventos para a nuvem e a reproduzir com origem na nuvem.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: ea98b4c8981be9fffe7911e4c8402a8f522976f9
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: de1a4d423108ddb18af4f8478c9bac60672d6062
+ms.sourcegitcommit: 02bc06155692213ef031f049f5dcf4c418e9f509
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "101702310"
+ms.lasthandoff: 04/03/2021
+ms.locfileid: "106279809"
 ---
 # <a name="tutorial-event-based-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Tutorial: Gravação de vídeo baseada em eventos para a nuvem e reprodução com origem na nuvem
 
@@ -426,7 +426,7 @@ Você vai poder examinar o ativo de Serviços de Mídia criado pelo grafo de mí
 1. No assistente que é aberto, aceite as opções padrão e selecione **Adicionar**. Para obter mais informações, confira [reprodução de vídeo](video-playback-concept.md).
 
     > [!TIP]
-    > Verifique se o [ponto de extremidade de streaming está em execução](../latest/streaming-endpoint-concept.md).
+    > Verifique se o [ponto de extremidade de streaming está em execução](../latest/stream-streaming-endpoint-concept.md).
 1. O player deve carregar o vídeo. Selecione **Reproduzir** para exibi-lo.
 
 > [!NOTE]

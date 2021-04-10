@@ -5,12 +5,12 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 14197516c0669055f756614b9559f1423703c6a8
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: 9acc6de84c3e5bc43f482d36ade242d2315a2a4f
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053428"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105565105"
 ---
 # <a name="create-an-azure-sql-assessment"></a>Criar uma avaliação do SQL do Azure
 
@@ -18,7 +18,7 @@ Como parte de sua jornada de migração para o Azure, é necessário avaliar sua
 Este artigo mostra como avaliar as instâncias SQL descobertas em preparação para migração para o SQL do Azure usando a ferramenta Migrações para Azure: Descoberta e avaliação.
 
 > [!Note]
-> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
+> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Veja uma introdução [neste tutorial](tutorial-discover-vmware.md). Caso deseje experimentar esse recurso em um projeto existente, verifique se você concluiu os [pré-requisitos](how-to-discover-sql-existing-project.md) deste artigo.
 
 ## <a name="before-you-start"></a>Antes de começar
 
@@ -192,4 +192,4 @@ A classificação de confiança ajuda a estimar a confiabilidade das recomendaç
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais](concepts-azure-sql-assessment-calculation.md) sobre como as avaliações do SQL do Azure são calculadas.
-- Comece a migrar instâncias e bancos de dados SQL usando o [Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview).
+- Comece a migrar instâncias e bancos de dados SQL usando o [Serviço de Migração de Banco de Dados do Azure](../dms/dms-overview.md).
