@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - mvc
 - devx-track-python
-ms.openlocfilehash: e3792a88104c359b014a7a12cf6e48e690c2a865
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e213ec7aee7172bb5ebb49097ad9fd09f9106255
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "88511007"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046803"
 ---
 # <a name="quickstart-use-python-api-to-run-an-azure-batch-job"></a>Início Rápido: Usar a API do Python para executar um trabalho do Lote do Azure
 
@@ -28,7 +28,7 @@ Depois de concluir este guia de início rápido, você entenderá os principais 
 
 - Uma conta do Lote e uma conta de Armazenamento do Azure vinculada. Para criar essas contas, consulte os guias de início rápido do Lote usando o [portal do Azure](quick-create-portal.md) ou a [CLI do Azure](quick-create-cli.md).
 
-- [Python](https://python.org/downloads) versão 2.7 ou 3.3 ou posterior, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
+- [Python](https://python.org/downloads) versão 2.7 ou 3.6, incluindo o gerenciador de pacotes do [pip](https://pip.pypa.io/en/stable/installing/)
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 
