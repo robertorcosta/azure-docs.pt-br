@@ -10,10 +10,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, devx-track-csharp
 ms.openlocfilehash: 85bc54402237ff8e9c82c43ab9cdbe2dc6658af1
-ms.sourcegitcommit: afb9e9d0b0c7e37166b9d1de6b71cd0e2fb9abf5
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/14/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103464098"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutorial: Implantar o Azure Functions como módulos do IoT Edge
@@ -77,7 +77,7 @@ Crie um modelo de solução de Função C# que possa ser personalizado com seu p
 
    ![Fornecer o repositório de imagem do Docker](./media/tutorial-deploy-function/repository.png)
 
-### <a name="add-your-registry-credentials"></a>Adicionar suas credenciais de registro
+### <a name="add-your-registry-credentials&quot;></a>Adicionar suas credenciais de registro
 
 O arquivo do ambiente armazena as credenciais para o registro de contêiner e as compartilha com o runtime do IoT Edge. O runtime precisa dessas credenciais para efetuar pull de imagens privadas para o dispositivo IoT Edge.
 
@@ -87,7 +87,7 @@ A extensão do IoT Edge tenta efetuar pull de suas credenciais de Registro de Co
 2. Atualize os campos com os valores de **nome de usuário** e **senha** que você copiou do registro de contêiner do Azure.
 3. Salve o arquivo.
 
-### <a name="select-your-target-architecture"></a>Selecione sua arquitetura de destino
+### <a name=&quot;select-your-target-architecture&quot;></a>Selecione sua arquitetura de destino
 
 No momento, o Visual Studio Code pode desenvolver módulos em C para os dispositivos Linux AMD64 e Linux ARM32v7. É necessário selecionar qual arquitetura você deseja usar para cada solução, porque o contêiner é criado e executado de maneira diferente para cada tipo de arquitetura. O padrão é o Linux AMD64.
 
@@ -95,7 +95,7 @@ No momento, o Visual Studio Code pode desenvolver módulos em C para os disposit
 
 2. Na paleta de comandos, selecione a arquitetura de destino na lista de opções. Para este tutorial, estamos usando uma máquina virtual Ubuntu como o dispositivo IoT Edge, portanto, manteremos o padrão **amd64**.
 
-### <a name="update-the-module-with-custom-code"></a>Atualizar o módulo com código personalizado
+### <a name=&quot;update-the-module-with-custom-code&quot;></a>Atualizar o módulo com código personalizado
 
 Vamos adicionar algum código adicional para que o módulo processe as mensagens na borda antes de encaminhá-las ao Hub IoT.
 
@@ -120,7 +120,7 @@ Vamos adicionar algum código adicional para que o módulo processe as mensagens
    {
        public static class CSharpFunction
        {
-           [FunctionName("CSharpFunction")]
+           [FunctionName(&quot;CSharpFunction")]
            public static async Task FilterMessageAndSendMessage(
                [EdgeHubTrigger("input1")] Message messageReceived,
                [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,

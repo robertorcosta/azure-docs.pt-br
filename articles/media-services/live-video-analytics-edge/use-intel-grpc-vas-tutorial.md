@@ -6,12 +6,12 @@ ms.date: 02/04/2021
 ms.service: media-services
 ms.author: faneerde
 author: fvneerden
-ms.openlocfilehash: 20a22d11973f5bb01e2c1345538d5d94ce311dc7
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 07a7daf6363f0e528f84635ed6713ac462f89ca5
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103465752"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105562844"
 ---
 # <a name="tutorial-analyze-live-video-by-using-intel-openvino-dl-streamer--edge-ai-extension"></a>Tutorial: Analisar vídeo ao vivo usando o OpenVINO™ DL Streamer – Extensão de IA do Edge da Intel 
 
@@ -66,7 +66,7 @@ Neste tutorial, você irá:
 
 O módulo OpenVINO™ DL Streamer – Extensão de IA do Edge é um microsserviço baseado no Fornecimento de VA (Fornecimento de Análise de Vídeo) da Intel que fornece pipelines de análise de vídeo criados com o OpenVINO™ DL Streamer. Os desenvolvedores podem enviar quadros de vídeo decodificados para o módulo de extensão de IA que executa a detecção, a classificação ou o acompanhamento e retorna os resultados. O módulo de extensão de IA expõe APIs gRPC compatíveis com plataformas de análise de vídeo, como a Análise Dinâmica de Vídeo no IoT Edge da Microsoft. 
 
-Para criar soluções de análise dinâmica de vídeo complexas de alto desempenho, a Análise Dinâmica de Vídeo no módulo do IoT Edge deve ser emparelhada com um poderoso mecanismo de inferência que pode aproveitar a escala na borda. Neste tutorial, solicitações de inferência são enviadas ao [OpenVINO™ DL Streamer – Extensão de IA do Edge da Intel](https://aka.ms/lva-intel-openvino-dl-streamer), um módulo do Edge projetado para trabalhar com a Análise Dinâmica de Vídeo no IoT Edge. 
+Para criar soluções de análise dinâmica de vídeo complexas de alto desempenho, a Análise Dinâmica de Vídeo no módulo do IoT Edge deve ser emparelhada com um poderoso mecanismo de inferência que pode aproveitar a escala na borda. Neste tutorial, solicitações de inferência são enviadas ao [OpenVINO™ DL Streamer – Extensão de IA do Edge da Intel](), um módulo do Edge projetado para trabalhar com a Análise Dinâmica de Vídeo no IoT Edge. 
 
 Na versão inicial desse servidor de inferência, você tem acesso aos seguintes [modelos](https://github.com/intel/video-analytics-serving/tree/master/samples/lva_ai_extension#edge-ai-extension-module-options):
 
@@ -254,7 +254,7 @@ Quando a instância de um grafo de mídia é criada, o nó de origem RTSP tenta 
 ```
 [IoTHubMonitor] [9:42:18 AM] Message received from [lvaedgesample/lvaEdge]:
 {
-  "sdp": "SDP:\nv=0\r\no=- 1612432131600584 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/homes_00425.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-214.166\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/homes_00425.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=64001F;sprop-parameter-sets=Z2QAH6zZQFAFuwFsgAAAAwCAAAAeB4wYyw==,aOvhEsiw\r\na=control:track1\r\n"
+  "sdp&quot;: &quot;SDP:\nv=0\r\no=- 1612432131600584 1 IN IP4 172.18.0.6\r\ns=Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\ni=media/homes_00425.mkv\r\nt=0 0\r\na=tool:LIVE555 Streaming Media v2020.08.19\r\na=type:broadcast\r\na=control:*\r\na=range:npt=0-214.166\r\na=x-qt-text-nam:Matroska video+audio+(optional)subtitles, streamed by the LIVE555 Media Server\r\na=x-qt-text-inf:media/homes_00425.mkv\r\nm=video 0 RTP/AVP 96\r\nc=IN IP4 0.0.0.0\r\nb=AS:500\r\na=rtpmap:96 H264/90000\r\na=fmtp:96 packetization-mode=1;profile-level-id=64001F;sprop-parameter-sets=Z2QAH6zZQFAFuwFsgAAAAwCAAAAeB4wYyw==,aOvhEsiw\r\na=control:track1\r\n"
 }
 ```
 
@@ -304,7 +304,7 @@ No exemplo a seguir, você vê que ele identificou um veículo, o tipo do veícu
           "w": 0.48403296,
           "h": 0.94352424
         },
-        "id": "1"
+        "id&quot;: &quot;1"
       }
     }
 }
