@@ -10,10 +10,10 @@ ms.topic: tutorial
 ms.date: 03/02/2021
 ms.custom: template-tutorial
 ms.openlocfilehash: 82b5892b027627871e5492e3c6cd3776a923632b
-ms.sourcegitcommit: 7edadd4bf8f354abca0b253b3af98836212edd93
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/10/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "102553435"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-the-azure-portal"></a>Tutorial: Criar um gateway da NAT usando o portal do Azure
@@ -51,7 +51,7 @@ Antes de implantar uma VM e usar o gateway da NAT, precisamos criar o grupo de r
     | Grupo de recursos   | Selecione **Criar novo**. </br> Insira a opção **myResourceGroupNAT**. </br> Selecione **OK**. |
     | **Detalhes da instância** |                                                                 |
     | Nome             | Insira **myVNet**                                    |
-    | Região           | Selecione **Oeste da Europa** |
+    | Região           | Selecione **(Europa) Oeste da Europa** |
 
 5. Selecione a guia **Endereços IP** ou selecione o botão **Avançar: Endereços IP** na parte inferior da página.
 
