@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/25/2020
-ms.openlocfilehash: b83905280faf4486d2febfbd81514e1d85273ad5
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 6cf76e980fab4e5be3f8c2c6d72baff05ab03815
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104950749"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106108380"
 ---
 # <a name="tutorial-configure-and-run-the-azure-key-vault-provider-for-the-secrets-store-csi-driver-on-kubernetes"></a>Tutorial: Configurar e executar o provedor do Azure Key Vault para o driver da Secrets Store CSI no Kubernetes
 
@@ -164,11 +164,14 @@ A imagem a seguir mostra a saída do console para **az keyvault show --name cont
     A documentação para todas as atribuições de função obrigatórias com a identidade de Pod do Azure AD (Active Directory) está disponível aqui: [link](https://azure.github.io/aad-pod-identity/docs/getting-started/role-assignment/)
 
     ```azurecli
-    RESOURCE_GROUP=contosoResourceGroup
+    VAULT_RESOURCE_GROUP=contosoResourceGroup
+    NODE_RESOURCE_GROUP=contosoResourceGroup
     
-    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$VAULT_RESOURCE_GROUP
     
-    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$RESOURCE_GROUP
+    az role assignment create --role "Managed Identity Operator" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$NODE_RESOURCE_GROUP
+    
+    az role assignment create --role "Virtual Machine Contributor" --assignee $clientId --scope /subscriptions/<SUBID>/resourcegroups/$NODE_RESOURCE_GROUP
     ```
 
 2. Instale a identidade do Azure AD (Azure Active Directory) no AKS.
@@ -292,7 +295,11 @@ kubectl exec nginx-secrets-store-inline -- cat /mnt/secrets-store/secret1
 
 Verifique se o conteúdo do segredo é exibido.
 
-## <a name="next-steps"></a>Próximas etapas
+## <a name="resources"></a>Recursos
+[Sobre o Azure Key Vault](overview.md)
+[Guia do desenvolvedor do Azure Key Vault](developers-guide.md)
+[Driver de Segredos do CSI](https://secrets-store-csi-driver.sigs.k8s.io/introduction.html)
+
 
 Para ajudar a garantir que o cofre de chaves seja recuperável, confira:
 > [!div class="nextstepaction"]
