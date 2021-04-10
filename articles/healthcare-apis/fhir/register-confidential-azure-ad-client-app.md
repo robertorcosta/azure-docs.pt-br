@@ -6,43 +6,46 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/16/2021
 ms.author: matjazl
-ms.openlocfilehash: 8021fb3fa9f11ef895569f48a2ae21b3f7adcd36
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: fbc683c98eb0124e8d879eada276593ca9bf7042
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017566"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105934676"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente confidencial no Azure Active Directory
 
-Neste tutorial, você aprenderá a registrar um aplicativo cliente confidencial no Azure Active Directory. 
+Neste tutorial, você aprenderá a registrar um aplicativo cliente confidencial no Azure Active Directory (Azure AD).  
 
-Um registro de aplicativo cliente é uma representação Azure Active Directory de um aplicativo que pode ser usado para autenticar em nome de um usuário e solicitar acesso a [aplicativos de recursos](register-resource-azure-ad-client-app.md). Um aplicativo cliente confidencial é um aplicativo que pode ser confiável para manter um segredo e apresentar esse segredo ao solicitar tokens de acesso. Exemplos de aplicativos confidenciais são aplicativos do lado do servidor.
+Um registro de aplicativo cliente é uma representação do Azure AD de um aplicativo que pode ser usado para autenticar em nome de um usuário e solicitar acesso a [aplicativos de recursos](register-resource-azure-ad-client-app.md). Um aplicativo cliente confidencial é um aplicativo que pode ser confiável para manter um segredo e apresentar esse segredo ao solicitar tokens de acesso. Exemplos de aplicativos confidenciais são aplicativos do lado do servidor. 
 
-Para registrar um novo aplicativo confidencial no portal, siga estas etapas.
+Para registrar um novo aplicativo cliente confidencial, consulte as etapas abaixo. 
 
 ## <a name="register-a-new-application"></a>Registrar um novo aplicativo
 
-1. Na [portal do Azure](https://portal.azure.com), navegue até **Azure Active Directory**.
+1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 
-1. Selecione **Registros do Aplicativo**.
+1. Selecione **Registros do Aplicativo**. 
 
-    ![portal do Azure. Novo registro de aplicativo.](media/how-to-aad/portal-aad-new-app-registration.png)
+    ![Portal do Azure. Novo registro de aplicativo.](media/how-to-aad/portal-aad-new-app-registration.png)
 
 1. Selecione **Novo registro**.
 
-1. Dê ao aplicativo um nome de exibição.
+1. Dê ao aplicativo um nome de exibição voltado para o usuário.
 
-1. Forneça uma URL de resposta. Esses detalhes podem ser alterados mais tarde, mas se você souber a URL de resposta do seu aplicativo, insira-o agora.
+1. Para **tipos de conta com suporte**, selecione quem pode usar o aplicativo ou acessar a API.
+
+1. Adicional Forneça um **URI de redirecionamento**. Esses detalhes podem ser alterados mais tarde, mas se você souber a URL de resposta do seu aplicativo, insira-o agora.
 
     ![Novo registro de aplicativo cliente confidencial.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+
 1. Selecione **Registrar**.
 
 ## <a name="api-permissions"></a>Permissões de API
 
-Agora que você registrou seu aplicativo, precisará selecionar quais permissões de API esse aplicativo deve ser capaz de solicitar em nome dos usuários:
+Agora que você registrou seu aplicativo, deve selecionar quais permissões de API esse aplicativo deve solicitar em nome dos usuários.
 
 1. Selecione **Permissões de API**.
 
@@ -50,7 +53,7 @@ Agora que você registrou seu aplicativo, precisará selecionar quais permissõe
 
 1. Selecione **Adicionar uma permissão**.
 
-    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando as **APIs de assistência médica do Azure** em **APIs que minha organização usa**. Você só poderá encontrá-lo se já tiver [implantado a API do Azure para FHIR](fhir-paas-powershell-quickstart.md).
+    Se estiver usando a API do Azure para FHIR, você adicionará uma permissão às APIs de assistência médica do Azure pesquisando a **API de assistência médica do Azure** em **APIs que minha organização usa**. O resultado da pesquisa para a API de assistência médica do Azure retornará somente se você já tiver [implantado a API do Azure para FHIR](fhir-paas-powershell-quickstart.md).
 
     Se você estiver fazendo referência a um aplicativo de recurso diferente, selecione o [registro de aplicativo do recurso de API do FHIR](register-resource-azure-ad-client-app.md) que você criou anteriormente em **minhas APIs**.
 
@@ -58,24 +61,31 @@ Agora que você registrou seu aplicativo, precisará selecionar quais permissõe
     :::image type="content" source="media/conf-client-app/confidential-client-org-api.png" alt-text="Cliente confidencial. Minhas APIs org." lightbox="media/conf-client-app/confidential-app-org-api-expanded.png":::
     
 
-3. Selecione os escopos (permissões) que o aplicativo confidencial deve ser capaz de solicitar em nome de um usuário:
+1. Selecione os escopos (permissões) que o aplicativo cliente confidencial pedirá em nome de um usuário. Selecione **user_impersonation** e, em seguida, selecione **Adicionar permissões**.
 
     :::image type="content" source="media/conf-client-app/confidential-client-add-permission.png" alt-text="Cliente confidencial. Permissões delegadas":::
 
+
 ## <a name="application-secret"></a>Segredo do aplicativo
 
-1. Selecione **Certificados e segredos**.
-1. Selecione **Novo segredo do cliente**. 
+1. Selecione **certificados & segredos** e, em seguida, selecione **novo segredo do cliente**. 
 
     ![Cliente confidencial. Segredo do aplicativo](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
 
-2. Forneça uma descrição e a duração do segredo (1 ano, 2 anos ou nunca).
+1. Insira uma **Descrição** para o segredo do cliente. Selecione a expiração (em 1 ano, em 2 anos ou nunca) e, em seguida, clique em **Adicionar**.
 
-3. Depois de gerado, ele será exibido no portal apenas uma vez. Anote-o e armazene-o com segurança.
+   ![Adicionar um segredo do cliente](media/how-to-aad/add-a-client-secret.png)
 
+1. Após a criação da cadeia de caracteres de segredo do cliente, copie seu **valor** e **ID** e armazene-os em um local seguro de sua escolha.
+
+   :::image type="content" source="media/how-to-aad/client-secret-string-password.png" alt-text="Cadeia de caracteres secreta do cliente."::: 
+
+> [!NOTE]
+>A cadeia de caracteres secreta do cliente é visível apenas uma vez no portal do Azure. Quando você navega para fora da página da Web certificados & segredos e retorna de volta para ele, a cadeia de caracteres de valor se torna mascarada. É importante fazer uma cópia da cadeia de caracteres secreta do cliente imediatamente após sua geração. Se você não tiver uma cópia de backup do segredo do cliente, deverá repetir as etapas acima para gerá-lo novamente.
+ 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como registrar um aplicativo cliente confidencial no Azure Active Directory. Em seguida, você pode acessar o servidor FHIR usando o postmaster
+Neste artigo, você foi guiado pelas etapas de como registrar um aplicativo cliente confidencial no Azure AD. Você também foi guiado pelas etapas de como adicionar permissões de API à API de assistência médica do Azure. Por fim, você mostrou como criar um segredo do aplicativo. Além disso, você pode aprender a acessar seu servidor FHIR usando o postmaster.
  
 >[!div class="nextstepaction"]
 >[Acessar a API do Azure para FHIR com o Postman](access-fhir-postman-tutorial.md)
