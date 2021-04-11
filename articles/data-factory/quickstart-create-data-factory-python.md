@@ -3,18 +3,18 @@ title: 'Início Rápido: criar um Azure Data Factory usando Python'
 description: Use um data factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local.
 author: dcstwh
 ms.author: weetok
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/15/2021
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: f92a09e78d65f3723b9dfa83574f603dc113ebeb
-ms.sourcegitcommit: d4734bc680ea221ea80fdea67859d6d32241aefc
+ms.openlocfilehash: 6b15585f029f9289736d8d498b61a3e0ba40f009
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/14/2021
-ms.locfileid: "100372358"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104889409"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Início Rápido: Criar um data factory e pipeline usando o Python
 
@@ -34,7 +34,7 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
 
 * Uma conta do Azure com uma assinatura ativa. [Crie um gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-* [Python 3.4+](https://www.python.org/downloads/).
+* O [Python 3.6+](https://www.python.org/downloads/).
 
 * [Uma conta de Armazenamento do Azure](../storage/common/storage-account-create.md).
 
@@ -66,7 +66,7 @@ Pipelines podem ingerir dados de armazenamentos de dados diferentes. Pipelines p
     pip install azure-mgmt-datafactory
     ```
 
-    O [SDK do Python para Data Factory](https://github.com/Azure/azure-sdk-for-python) dá suporte a Python 2.7, 3.3, 3.4, 3.5, 3.6 e 3.7.
+    O [SDK do Python para o Data Factory](https://github.com/Azure/azure-sdk-for-python) é compatível com o Python 2.7 e 3.6+.
 
 4. Para instalar o pacote do Python para a autenticação da Identidade do Azure, execute o seguinte comando:
 
