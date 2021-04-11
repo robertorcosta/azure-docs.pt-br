@@ -10,13 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: sudbalas
-Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 97956b8c6f18d37acd07543b8921b4973be3bda9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93285204"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106066646"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Mover um cofre de chaves do Azure entre regiões
 
@@ -35,7 +34,7 @@ Antes de começar, lembre-se dos seguintes conceitos:
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Opção 1: Usar os comandos de backup e restauração do cofre de chaves
 
-É possível fazer backup de cada segredo, chave e certificado individual em seu cofre usando o comando de backup. Seus segredos são baixados como um blob criptografado. Em seguida, é possível restaurar o blob em seu novo cofre de chaves. Para obter uma lista de comandos, consulte [Comandos do Azure Key Vault](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+É possível fazer backup de cada segredo, chave e certificado individual em seu cofre usando o comando de backup. Seus segredos são baixados como um blob criptografado. Em seguida, é possível restaurar o blob em seu novo cofre de chaves. Para obter uma lista de comandos, consulte [Comandos do Azure Key Vault](/powershell/module/azurerm.keyvault#key_vault).
 
 O uso dos comandos de backup e restauração tem duas limitações:
 
