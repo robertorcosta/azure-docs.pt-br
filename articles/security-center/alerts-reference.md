@@ -7,12 +7,12 @@ ms.service: security-center
 ms.topic: reference
 ms.date: 03/04/2021
 ms.author: memildin
-ms.openlocfilehash: 0c14b9a0c927ef9ed96853ddeed64b161df0d277
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: c0ae5ae4a66ce55da40eae3959945c96013af3ea
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102176698"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106075637"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Alertas de segurança – um guia de referência
 
@@ -510,7 +510,7 @@ As tentativas de kill chain com suporte da Central de Segurança são baseadas n
 | **Exfiltração**        | A exfiltração refere-se a técnicas e atributos que ajudam o adversário a remover arquivos e informações de uma rede de destino ou resultam nessa ação. Essa categoria também aborda locais em um sistema ou rede em que o adversário pode procurar informações para exportar.                                                                                                                                                                                                                                                                                                                                  |
 | **CommandAndControl**   | A tática de comando e controle representa como os adversários se comunicam com os sistemas que estão controlando em uma rede de destino.                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | **Impacto**              | Os eventos de impacto tentam principalmente reduzir diretamente a disponibilidade ou a integridade de um sistema, um serviço ou uma rede, incluindo a manipulação de dados para afetar um processo comercial ou operacional. Geralmente se refere a técnicas como ransomware, desfiguração, manipulação de dados e outros.                                                                                                                                                                                                                                                                                                     |
-|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |  |
+|                         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | 
 
 > [!NOTE]
 > Para alertas que estão em versão prévia: [!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]

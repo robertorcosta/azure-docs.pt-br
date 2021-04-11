@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Criar uma definição de política personalizada'
 description: Neste tutorial, você cria uma definição de política personalizada do Azure Policy para impor regras de negócios personalizadas nos seus recursos do Azure.
-ms.date: 10/05/2020
+ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 817e6f494b024b9a789f39a4101236f64d8fa0cd
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c6c4fbe05b6df8a6f8521a0551fe276c893bb6be
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "97882884"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092782"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Tutorial: Criar uma definição de política personalizada
 
