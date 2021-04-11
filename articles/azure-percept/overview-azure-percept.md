@@ -1,18 +1,18 @@
 ---
 title: Visão geral do Azure Percept
 description: Saiba mais sobre a plataforma do Azure Percept
-author: elqu20
-ms.author: v-elqu
+author: mimcco
+ms.author: mimcco
 ms.service: azure-percept
 ms.topic: overview
 ms.date: 03/23/2021
 ms.custom: template-overview
-ms.openlocfilehash: 12ca7dff7d106941cc8947d9d3040bcefefde00a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 09ee8346b62f868be3811ebfb6b3dc36ff9d0f83
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104953578"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105567654"
 ---
 # <a name="introduction-to-azure-percept"></a>Introdução ao Azure Percept
 
@@ -28,21 +28,21 @@ Os desafios de integração enfrentados ao tentar implantar soluções de IA de 
 
 Os componentes principais do Azure Percept são:
 
-1. [Azure Percept DK.](./overview-azure-percept-dk.md)
+- [Azure Percept DK.](./overview-azure-percept-dk.md)
 
     - Um kit de desenvolvimento flexível o suficiente para dar suporte a uma ampla variedade de cenários de prototipagem para criadores de dispositivos, bem como criadores e clientes de soluções.
 
         > [!div class="nextstepaction"]
         > [Comprar agora](https://go.microsoft.com/fwlink/p/?LinkId=2155270)
 
-1. Serviços e fluxos de trabalho que aceleram o desenvolvimento de soluções e modelos de IA do Edge.
+- Serviços e fluxos de trabalho que aceleram o desenvolvimento de soluções e modelos de IA do Edge.
 
     - Fluxos de trabalho de desenvolvimento e modelos predefinidos que podem ser acessados no [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819).
     - Serviços de desenvolvimento de modelo.
     - Serviços de gerenciamento de dispositivos para colocação em escala.
     - Segurança de ponta a ponta.
 
-1. Programas de design e certificação de referência de hardware de IA.
+- Programas de design e certificação de referência de hardware de IA.
 
     - Fornece o ecossistema de desenvolvedores de hardware com padrões e práticas recomendadas para o desenvolvimento de hardware de IA de borda que pode ser integrado facilmente aos serviços de IoT e IA do Azure.
 
