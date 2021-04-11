@@ -5,20 +5,17 @@ author: rashi-ms
 ms.author: rajosh
 ms.topic: tutorial
 ms.date: 02/07/2021
-ms.openlocfilehash: 9b33890d53f67eee870b42462a65b4a0b7ba9981
-ms.sourcegitcommit: f3ec73fb5f8de72fe483995bd4bbad9b74a9cc9f
+ms.openlocfilehash: d4078d1403df01475c6055dded2bd012e97af98e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102053443"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557982"
 ---
 # <a name="tutorial-assess-sql-instances-for-migration-to-azure-sql"></a>Tutorial: Avaliar instâncias SQL para migração para o SQL do Azure
 
 Como parte de sua jornada de migração para o Azure, é necessário avaliar suas cargas de trabalho locais para medir a prontidão para a nuvem, identificar riscos e estimar custos e complexidade.
 Este artigo mostra como avaliar os bancos de dados de instâncias do SQL Server descobertos em preparação para migração para o SQL do Azure usando a ferramenta Migrações para Azure: Descoberta e avaliação.
-
-> [!Note]
-> A descoberta e a avaliação de instâncias e bancos de dados do SQL Server em execução no ambiente VMware já estão em versão prévia. Para experimentar esse recurso, use [**este link**](https://aka.ms/AzureMigrate/SQL) para criar um projeto na região **Leste da Austrália**. Se você já tiver um projeto no Leste da Austrália e quiser experimentar esse recurso, verifique se concluiu esses [**pré-requisitos**](how-to-discover-sql-existing-project.md) no portal.
 
 Neste tutorial, você aprenderá como:
 
@@ -35,6 +32,8 @@ Neste tutorial, você aprenderá como:
 - Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de começar.
 
 - Antes de seguir este tutorial para avaliar suas instâncias do SQL Server para migração para o SQL do Azure, verifique se você descobriu as instâncias SQL que deseja avaliar usando o dispositivo de Migrações para Azure [seguindo este tutorial](tutorial-discover-vmware.md)
+- Caso deseje experimentar esse recurso em um projeto existente, verifique se você concluiu os [pré-requisitos](how-to-discover-sql-existing-project.md) deste artigo.
+
 
 ## <a name="run-an-assessment"></a>Ler uma avaliação
 Execute uma avaliação da seguinte maneira:
@@ -194,4 +193,4 @@ A classificação de confiança ajuda a estimar a confiabilidade das recomendaç
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Saiba mais](concepts-azure-sql-assessment-calculation.md) sobre como as avaliações do SQL do Azure são calculadas.
-- Comece a migrar instâncias e bancos de dados SQL usando o [Serviço de Migração de Banco de Dados do Azure](https://docs.microsoft.com/azure/dms/dms-overview).
+- Comece a migrar instâncias e bancos de dados SQL usando o [Serviço de Migração de Banco de Dados do Azure](../dms/dms-overview.md).
