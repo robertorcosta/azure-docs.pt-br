@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 37f6a779e7dd83a6aa61de9850ad3b49b57393f9
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: 76aadd667691e12c61e0e5e13c13ca0241a9f0ce
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103010418"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045494"
 ---
 # <a name="register-and-scan-oracle-source-preview"></a>Registrar e verificar a fonte do Oracle (versão prévia)
 
@@ -25,7 +25,7 @@ A fonte do Oracle dá suporte à **Verificação completa** para extrair metadad
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1.  Configure o [runtime de integração auto-hospedada](https://www.microsoft.com/download/details.aspx?id=39717) mais recente.
-    Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Verifique se o [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado na máquina virtual em que o runtime de integração auto-hospedada está instalado.
 
@@ -105,7 +105,7 @@ Na tela **Registrar fontes (Oracle)** , faça o seguinte:
 
 Para criar e executar uma nova verificação, faça o seguinte:
 
-1.  No Centro de Gerenciamento, clique em Runtimes de integração. Verifique se um runtime de integração auto-hospedada está configurado. Caso não esteja configurado, use as etapas mencionadas [aqui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) para criar um runtime de integração auto-hospedada.
+1.  No Centro de Gerenciamento, clique em Runtimes de integração. Verifique se um runtime de integração auto-hospedada está configurado. Caso não esteja configurado, use as etapas mencionadas [aqui](./manage-integration-runtimes.md) para criar um runtime de integração auto-hospedada.
 
 2.  Navegue até **Fontes**.
 

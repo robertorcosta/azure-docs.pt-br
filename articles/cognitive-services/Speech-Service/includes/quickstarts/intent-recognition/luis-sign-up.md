@@ -5,12 +5,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: trbye
-ms.openlocfilehash: 42dc7eb1a74bf2e376f834ee3198ad6a492226e9
-ms.sourcegitcommit: ba676927b1a8acd7c30708144e201f63ce89021d
+ms.openlocfilehash: ab22ad75b5b49588bbdcedf5fc995ce65fe4e690
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/07/2021
-ms.locfileid: "102444932"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105104154"
 ---
 Para concluir o início rápido do reconhecimento de intenção, você precisará criar uma conta do LUIS e um projeto usando a versão prévia do portal do LUIS. Este início rápido requer apenas uma assinatura do LUIS. *Não é* necessário ter uma assinatura do serviço de Fala.
 
@@ -18,7 +18,7 @@ A primeira coisa que você precisará fazer é criar uma conta e um aplicativo d
 
 Siga estas instruções para criar seu aplicativo LUIS:
 
-* <a href="https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Início Rápido: criar um aplicativo de domínio predefinido </a>
+* <a href="/azure/cognitive-services/luis/luis-get-started-create-app" target="_blank">Início Rápido: criar um aplicativo de domínio predefinido </a>
 
 Quando terminar, você precisará de quatro itens:
 

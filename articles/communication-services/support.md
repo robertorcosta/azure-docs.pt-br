@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: 204a7ff77b4dd32ef62e1a06c66d50d7b30fcfc4
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: e403fb8bcd25d1274eda287bc62465bacdb9b613
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "103496126"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105045460"
 ---
 # <a name="help-and-support-options-for-azure-communication-services"></a>Opções de ajuda e suporte para os Serviços de Comunicação do Azure
 
@@ -24,9 +24,9 @@ Há muitas [opções e planos de suporte](https://azure.microsoft.com/support/pl
 
 ## <a name="post-a-question-to-microsoft-qa"></a>Postar uma pergunta em Microsoft Q&A
 
-Para obter respostas rápidas e confiáveis para perguntas técnicas ou de produtos que você pode ter sobre os Serviços de Comunicação do Azure dos engenheiros da Microsoft, dos MVPs (profissionais mais valiosos) do Azure ou da nossa comunidade, entre em contato conosco no [Microsoft Q&A](https://docs.microsoft.com/answers/products/azure). 
+Para obter respostas rápidas e confiáveis para perguntas técnicas ou de produtos que você pode ter sobre os Serviços de Comunicação do Azure dos engenheiros da Microsoft, dos MVPs (profissionais mais valiosos) do Azure ou da nossa comunidade, entre em contato conosco no [Microsoft Q&A](/answers/products/azure). 
 
-Se não conseguir encontrar uma resposta para o problema por meio da pesquisa, envie uma nova pergunta ao Microsoft Q&A. Ao criar uma pergunta, use a [Marca de Serviços de Comunicação do Azure](https://docs.microsoft.com/answers/topics/azure-communication-services.html).
+Se não conseguir encontrar uma resposta para o problema por meio da pesquisa, envie uma nova pergunta ao Microsoft Q&A. Ao criar uma pergunta, use a [Marca de Serviços de Comunicação do Azure](/answers/topics/azure-communication-services.html).
 
 ## <a name="post-a-question-on-stack-overflow"></a>Postar uma pergunta no Stack Overflow
 
