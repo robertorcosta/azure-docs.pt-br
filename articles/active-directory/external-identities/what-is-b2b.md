@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 03/02/2021
+ms.date: 03/19/2021
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bee6a007004253106703ae2c19b940bf3de5d44
-ms.sourcegitcommit: b4647f06c0953435af3cb24baaf6d15a5a761a9c
+ms.openlocfilehash: 231d3ab81c2376aa8a2a4bf182e1b5e9799e51d5
+ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/02/2021
-ms.locfileid: "101649284"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104669773"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>O que é o acesso de usuários convidados na colaboração B2B do Azure Active Directory?
 
@@ -80,7 +80,7 @@ Integre seus parceiros externos de modo personalizado às necessidades de sua or
 
 ## <a name="integrate-with-identity-providers"></a>Integrar-se aos Provedores de identidade
 
-O Azure AD dá suporte a provedores de identidade externos como Facebook, contas da Microsoft, Google ou provedores de identidade corporativa. Você pode configurar a federação com provedores de identidade para que os usuários externos possam entrar com suas contas sociais ou corporativas existentes, em vez de criar uma nova conta apenas para seu aplicativo. Saiba mais sobre os provedores de identidade para Identidades Externas.
+O Azure AD dá suporte a provedores de identidade externos como Facebook, contas da Microsoft, Google ou provedores de identidade corporativa. Você pode configurar a federação com provedores de identidade para que os usuários externos possam entrar com suas contas sociais ou corporativas existentes, em vez de criar uma nova conta apenas para seu aplicativo. Saiba mais sobre os [provedores de identidade para Identidades Externas](identity-providers.md).
 
 ![Captura de tela mostrando a página Provedores de identidade](media/what-is-b2b/identity-providers.png)
 
