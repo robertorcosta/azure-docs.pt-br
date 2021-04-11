@@ -4,15 +4,15 @@ description: Este artigo listará as recomendações de segurança da Central de
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 03/22/2021
+ms.date: 04/06/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: a44a5e4e715238c42e51e65dfe16d4f70dfcf54d
+ms.sourcegitcommit: c2a41648315a95aa6340e67e600a52801af69ec7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104801445"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106504798"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -58,12 +58,15 @@ A classificação de segurança é baseada na quantidade de recomendações da C
 
 ## <a name="deprecated-recommendations"></a>Recomendações preteridas
 
-|Recomendação|Descrição e política relacionada|Severity|Correção rápida habilitada? ([Saiba mais](security-center-remediate-recommendations.md#quick-fix-remediation))|Tipo de recurso|
-|----|----|----|----|----|
-|**O acesso aos Serviços de Aplicativos deve ser restrito**|Restrinja o acesso aos Serviços de Aplicativos alterando a configuração de rede, para negar o tráfego de entrada de intervalos muito amplos.<br>(Política relacionada: [versão prévia]: O acesso aos Serviços de Aplicativos deve ser restrito)|Alta|N|serviço de aplicativo|
-|**As regras para aplicativos Web nos NSGs da IaaS devem ser fortalecidas**|Proteger o NSG (grupo de segurança de rede) das suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.<br>(Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser fortalecidas)|Alta|N|Máquina virtual|
-|**As políticas de segurança de pods devem ser definidas para reduzir o vetor de ataque removendo privilégios de aplicativo desnecessários (versão prévia)**|Defina políticas de segurança de pods para reduzir o vetor de ataque removendo privilégios de aplicativo desnecessários. Recomendamos configurar políticas de segurança de pods para que apenas os pods possam acessar os recursos aos quais eles têm permissões de acesso.<br>(Política relacionada: [versão prévia]: as políticas de segurança de pods devem ser definidas nos Serviços de Kubernetes)|Médio|N|Recursos de computação (contêineres)|
-|**Instalar o módulo de segurança da Central de Segurança do Azure para IoT para obter mais visibilidade dos seus dispositivos IoT**|Instale o módulo de segurança da Central de Segurança do Azure para IoT para obter mais visibilidade dos seus dispositivos IoT.|Baixo|N|Dispositivo IoT|
+|Recomendação|Descrição e política relacionada|Severity|
+|----|----|----|
+|O acesso aos Serviços de Aplicativos deve ser restrito|Restrinja o acesso aos Serviços de Aplicativos alterando a configuração de rede, para negar o tráfego de entrada de intervalos muito amplos.<br>(Política relacionada: [versão prévia]: O acesso aos Serviços de Aplicativos deve ser restrito)|Alta|
+|As regras para aplicativos Web nos NSGs da IaaS devem ser fortalecidas|Proteger o NSG (grupo de segurança de rede) das suas máquinas virtuais que estão executando aplicativos Web, com regras do NSG que são excessivamente permissivas com relação às portas do aplicativo Web.<br>(Política relacionada: as regras de NSGs para aplicativos Web em IaaS devem ser fortalecidas)|Alta|
+|As políticas de segurança de pods devem ser definidas para reduzir o vetor de ataque removendo privilégios de aplicativo desnecessários (versão prévia)|Defina políticas de segurança de pods para reduzir o vetor de ataque removendo privilégios de aplicativo desnecessários. Recomendamos configurar políticas de segurança de pods para que apenas os pods possam acessar os recursos aos quais eles têm permissões de acesso.<br>(Política relacionada: [versão prévia]: as políticas de segurança de pods devem ser definidas nos Serviços de Kubernetes)|Médio|
+|Instalar o módulo de segurança da Central de Segurança do Azure para IoT para obter mais visibilidade dos seus dispositivos IoT|Instale o módulo de segurança da Central de Segurança do Azure para IoT para obter mais visibilidade dos seus dispositivos IoT.|Baixo|
+|Seus computadores devem ser reiniciados para que as atualizações do sistema sejam aplicadas|Reinicie suas máquinas para aplicar as atualizações do sistema e proteger a máquina contra vulnerabilidades. (Política relacionada: As atualizações do sistema devem ser instaladas em suas máquinas)|Médio|
+| O agente de monitoramento deve ser instalado em seus computadores|Esta ação instala um agente de monitoramento nas máquinas virtuais selecionadas. Selecione um workspace ao qual o agente se reportará. (Não há política relacionada)|Alto|
+||||
 
 ## <a name="next-steps"></a>Próximas etapas
 
