@@ -4,12 +4,12 @@ ms.service: azure-object-anchors
 ms.topic: include
 ms.date: 02/18/2021
 ms.author: crtreasu
-ms.openlocfilehash: 4345810292896cf88de19baf419eee025ba5853f
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: ada83d6263ef033208200d810c53c5f045acc9a7
+ms.sourcegitcommit: ed7376d919a66edcba3566efdee4bc3351c57eda
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102044535"
+ms.lasthandoff: 03/24/2021
+ms.locfileid: "105105236"
 ---
 A próxima etapa é baixar o pacote de Âncoras de Objeto do Azure para o Unity.
 
@@ -38,6 +38,6 @@ O pacote das Âncoras de Objeto do Azure será baixado para a pasta em que você
 
 # <a name="install-with-mixed-reality-feature-tool-beta"></a>[Instalar com a Ferramenta de Recurso de Realidade Misturada (beta)](#tab/unity-package-mixed-reality-feature-tool)
 
-Siga para a próxima etapa. Você usará a <a a href="https://aka.ms/MRFeatureToolDocs" target="_blank">Ferramenta de Recurso de Realidade Misturada</a> em uma etapa posterior.
+Siga para a próxima etapa. Você usará a <a a href="/windows/mixed-reality/develop/unity/welcome-to-mr-feature-tool" target="_blank">Ferramenta de Recurso de Realidade Misturada</a> em uma etapa posterior.
 
 ---

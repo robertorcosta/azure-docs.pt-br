@@ -7,12 +7,12 @@ ms.topic: include
 ms.date: 03/14/2019
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 54ce9438f768e347e306432a1874ab1816a1ae95
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d1b2cbefe64add5048d4e3c7946277b1461a5434
+ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104719599"
+ms.lasthandoff: 03/26/2021
+ms.locfileid: "105607075"
 ---
 Definições de configuração para [Funções Duráveis](../articles/azure-functions/durable/durable-functions-overview.md).
 
@@ -121,7 +121,7 @@ Nomes de hubs de tarefas devem começar com uma letra e devem ser compostos some
 |eventGridPublishRetryInterval|5 minutos|A Grade de Eventos publica o intervalo de repetição no formato *hh:mm:ss*.|
 |eventGridPublishEventTypes||Uma lista de tipos de eventos a serem publicados na Grade de Eventos. Se não for especificada, todos os tipos de evento serão publicados. Os valores permitidos incluem `Started`, `Completed`, `Failed`, `Terminated`.|
 |useAppLease|true|Quando configurado como `true`, os aplicativos exigirão adquirir uma concessão de blob de nível de aplicativo antes de processar mensagens do hub de tarefas. Para obter mais informações, consulte a documentação [recuperação de desastre e distribuição geográfica](../articles/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md). Disponível a partir da v2.3.0.
-|useLegacyPartitionManagement|true|Quando definido como `false`, ele usa um algoritmo de gerenciamento de partição que reduz a possibilidade de execução de função duplicada ao expandir.  Disponível a partir da v2.3.0. O padrão será alterado para `false` em uma versão futura.|
+|useLegacyPartitionManagement|false|Quando definido como `false`, ele usa um algoritmo de gerenciamento de partição que reduz a possibilidade de execução de função duplicada ao expandir.  Disponível a partir da v2.3.0.|
 |useGracefulShutdown|false|(Versão Prévia) Habilite o desligamento normal para reduzir a chance de desligamentos de host falharem em execuções de função em processo.|
 
 Muitas dessas configurações servem para otimizar o desempenho. Para obter mais informações, consulte [Desempenho e escala](../articles/azure-functions/durable/durable-functions-perf-and-scale.md).

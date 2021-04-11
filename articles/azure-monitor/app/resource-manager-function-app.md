@@ -1,17 +1,16 @@
 ---
 title: Exemplos de modelo do Resource Manager para o Aplicativo de Funções do Azure + Recursos do Application Insights
 description: Modelos do Azure Resource Manager de exemplo para implantar um Aplicativo de Funções do Azure com um recurso do Application Insights.
-ms.subservice: application-insights
 ms.topic: sample
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 08/06/2020
-ms.openlocfilehash: 85829052f2e9179b0a721efce720763f82d6402c
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 783ab811c91ae52b51a8be516ad2ddd9f73d4410
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100597189"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383331"
 ---
 # <a name="resource-manager-template-sample-for-creating-azure-function-apps-with-application-insights-monitoring"></a>Exemplo de modelo do Resource Manager para criar aplicativos de Funções do Azure com monitoramento do Application Insights
 

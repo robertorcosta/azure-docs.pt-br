@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 6d31bd0911b5cf765215e6a482a39b2458c4ba0d
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 7e00332eca076b55a884682240ef26ea3a4546d1
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "101696033"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105046055"
 ---
 # <a name="register-and-scan-a-sap-s4hana-source-preview"></a>Registrar e verificar uma fonte do SAP S/4HANA (versão prévia)
 
@@ -25,7 +25,7 @@ A fonte do SAP S/4HANA dá suporte à **Verificação completa** para extrair me
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1.  Configure o [runtime de integração auto-hospedada](https://www.microsoft.com/download/details.aspx?id=39717) mais recente.
-    Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Verifique se o [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado na máquina virtual em que o runtime de integração auto-hospedada está instalado.
 
@@ -78,7 +78,7 @@ Na tela **Registrar fontes (SAP S/4HANA)** , faça o seguinte:
 
 Para criar e executar uma nova verificação, faça o seguinte:
 
-1.  No Centro de Gerenciamento, clique em Runtimes de integração. Verifique se um runtime de integração auto-hospedada está configurado. Caso não esteja configurado, use as etapas mencionadas [aqui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) para criar um runtime de integração auto-hospedada
+1.  No Centro de Gerenciamento, clique em Runtimes de integração. Verifique se um runtime de integração auto-hospedada está configurado. Caso não esteja configurado, use as etapas mencionadas [aqui](./manage-integration-runtimes.md) para criar um runtime de integração auto-hospedada
 
 2.  Navegue até **Fontes.**
 
