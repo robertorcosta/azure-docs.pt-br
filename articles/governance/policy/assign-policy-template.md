@@ -1,15 +1,15 @@
 ---
 title: Nova atribuição de política com os modelos
 description: Neste início rápido, você usa um modelo do ARM (modelo do Azure Resource Manager) para criar uma atribuição de política para identificar recursos que não estão em conformidade.
-ms.date: 08/17/2020
+ms.date: 03/31/2021
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.openlocfilehash: c32f833520a811d47129196ae4d67c92bad7e21f
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: b61198fecf0c3a6ba9aad19abc60bc042b68c29c
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "89651429"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096607"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-an-arm-template"></a>Criar uma atribuição de política para identificar recursos sem conformidade usando um modelo ARM
 

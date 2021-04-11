@@ -3,12 +3,12 @@ title: Logs de diagnóstico para Conexões Híbridas
 description: Este artigo fornece uma visão geral de todos os logs de atividade e de diagnóstico que estão disponíveis para a Retransmissão do Azure.
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: 9b459750ad1445da89a8e89a10a35b878bfb64e1
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.openlocfilehash: 7ca6dc95567a4867d3c58e0efad0fc74289e586c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100590868"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106079090"
 ---
 # <a name="enable-diagnostics-logs-for-azure-relay-hybrid-connections"></a>Habilitar logs de diagnóstico para conexões híbridas de Retransmissão do Azure
 Ao começar a usar as conexões híbridas de Retransmissão do Azure, convém monitorar como e quando seus ouvintes e remetentes são abertos e fechados e como suas conexões híbridas são criadas e as mensagens são enviadas. Este artigo fornece uma visão geral dos logs de atividade e de diagnóstico fornecidos pelo serviço de Retransmissão do Azure. 
@@ -80,29 +80,29 @@ Veja um exemplo de evento de conexões híbridas no formato JSON.
 
 ## <a name="events-and-operations-captured-in-diagnostic-logs"></a>Eventos e operações capturados nos logs de diagnóstico
 
-| Operação | Descrição | 
-| --------- | ----------- | 
-| AuthorizationFailed | Falha na autorização.|
-| InvalidSasToken | Token SAS inválido. | 
-| ListenerAcceptingConnection | O ouvinte está aceitando a conexão. |
-| ListenerAcceptingConnectionTimeout | O tempo limite para aceitação da conexão pelo ouvinte foi atingido. |
-| ListenerAcceptingHttpRequestFailed | Falha na aceitação de solicitação HTTP pelo ouvinte devido a uma exceção. |
-| ListenerAcceptingRequestTimeout | O tempo limite para aceitação da solicitação pelo ouvinte foi atingido. |  
-| ListenerClosingFromExpiredToken | O ouvinte está fechando porque o token de segurança expirou. | 
-| ListenerRejectedConnection | O ouvinte rejeitou a conexão. |
-| ListenerReturningHttpResponse | O ouvinte está retornando uma resposta HTTP. |  
-| ListenerReturningHttpResponseFailed | O ouvinte está retornando uma resposta HTTP com um código de falha. | 
- ListenerSentHttpResponse | O serviço de Retransmissão recebeu uma resposta HTTP do ouvinte. | 
-| ListenerUnregistered | O registro do ouvinte foi cancelado. | 
-| ListenerUnresponsive | O ouvinte não está respondendo ao retornar uma resposta. | 
-| MessageSendingToListener | A mensagem está sendo enviada para o ouvinte. |
-| MessageSentToListener | A mensagem foi enviada ao ouvinte. | 
-| NewListenerRegistered | Novo ouvinte registrado. |
-| NewSenderRegistering | O novo remetente está se registrando. | 
-| ProcessingRequestFailed | Falha no processamento de uma operação de conexão híbrida. | 
-| SenderConnectionClosed | A conexão do remetente está fechada. |
-| SenderListenerConnectionEstablished | O remetente e o ouvinte estabeleceram a conexão com êxito. |
-| SenderSentHttpRequest | O remetente enviou uma solicitação HTTP. | 
+| Operação                           | Descrição                                                     |
+|-------------------------------------|-----------------------------------------------------------------|
+| AuthorizationFailed                 | Falha na autorização.                                           |
+| InvalidSasToken                     | Token SAS inválido.                                              |
+| ListenerAcceptingConnection         | O ouvinte está aceitando a conexão.                           |
+| ListenerAcceptingConnectionTimeout  | O tempo limite para aceitação da conexão pelo ouvinte foi atingido.                |
+| ListenerAcceptingHttpRequestFailed  | Falha na aceitação de solicitação HTTP pelo ouvinte devido a uma exceção. |
+| ListenerAcceptingRequestTimeout     | O tempo limite para aceitação da solicitação pelo ouvinte foi atingido.                   |
+| ListenerClosingFromExpiredToken     | O ouvinte está fechando porque o token de segurança expirou. |
+| ListenerRejectedConnection          | O ouvinte rejeitou a conexão.                       |
+| ListenerReturningHttpResponse       | O ouvinte está retornando uma resposta HTTP.                     |
+| ListenerReturningHttpResponseFailed | O ouvinte está retornando uma resposta HTTP com um código de falha. |
+| ListenerSentHttpResponse            | O serviço de Retransmissão recebeu uma resposta HTTP do ouvinte.  |
+| ListenerUnregistered                | O registro do ouvinte foi cancelado.                                   |
+| ListenerUnresponsive                | O ouvinte não está respondendo ao retornar uma resposta.         |
+| MessageSendingToListener            | A mensagem está sendo enviada para o ouvinte.                              |
+| MessageSentToListener               | A mensagem foi enviada ao ouvinte.                                    |
+| NewListenerRegistered               | Novo ouvinte registrado.                                        |
+| NewSenderRegistering                | O novo remetente está se registrando.                                      |
+| ProcessingRequestFailed             | Falha no processamento de uma operação de conexão híbrida.     |
+| SenderConnectionClosed              | A conexão do remetente está fechada.                                |
+| SenderListenerConnectionEstablished | O remetente e o ouvinte estabeleceram a conexão com êxito.    |
+| SenderSentHttpRequest               | O remetente enviou uma solicitação HTTP.                                |
 
 
 ## <a name="next-steps"></a>Próximas etapas
