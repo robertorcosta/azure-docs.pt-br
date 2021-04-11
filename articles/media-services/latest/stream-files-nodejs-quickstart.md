@@ -11,12 +11,12 @@ ms.workload: media
 ms.topic: tutorial
 ms.date: 02/17/2021
 ms.author: inhenkel
-ms.openlocfilehash: b7efa37747e6d116b4cf26b4cf54377037f22cdd
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 5bb061af37f6f6d7e6e27cf25f0faa63bca7353c
+ms.sourcegitcommit: 5fd1f72a96f4f343543072eadd7cdec52e86511e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102212749"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106109179"
 ---
 # <a name="how-to-encode-and-stream-video-files-with-nodejs"></a>Como codificar e transmitir arquivos de vídeo com o Node.JS
 
@@ -58,7 +58,7 @@ Abra o [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutori
 
 O exemplo executa as ações a seguir:
 
-1. Cria uma **Transformação** com uma [Predefinição de Codificação com Reconhecimento de Conteúdo](./content-aware-encoding.md). Primeiro, ele verifica se a Transformação especificada existe.
+1. Cria uma **Transformação** com uma [Predefinição de Codificação com Reconhecimento de Conteúdo](./encode-content-aware-concept.md). Primeiro, ele verifica se a Transformação especificada existe.
 1. Cria um **Ativo** de saída que é usado pelo **Trabalho** de codificação para conter a saída
 1. Opcionalmente, carrega um arquivo local usando o SDK de Armazenamento de Blobs
 1. Cria a entrada do **Trabalho** com base em uma URL HTTPS ou arquivo carregado
@@ -71,7 +71,7 @@ O exemplo executa as ações a seguir:
 
 ## <a name="run-the-sample"></a>Execute o exemplo
 
-1. O aplicativo baixa arquivos codificados. Crie uma pasta na qual deseja colocar os arquivos de saída e atualize o valor da variável **outputFolder** no arquivo [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.js#L59). Ele é definido como "Temp" por padrão.
+1. O aplicativo baixa arquivos codificados. Crie uma pasta na qual deseja colocar os arquivos de saída e atualize o valor da variável **outputFolder** no arquivo [index.js](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59). Ele é definido como "Temp" por padrão.
 1. Abra **prompt de comando** e navegue até o diretório do exemplo.
 1. Altere o diretório na pasta AMSv3Samples.
 
