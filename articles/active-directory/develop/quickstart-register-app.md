@@ -12,12 +12,12 @@ ms.date: 09/03/2020
 ms.author: marsma
 ms.custom: aaddev, identityplatformtop40, contperf-fy21q1, contperf-fy21q2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 413f0be32b54ee6da39934cf3f8753246fbce924
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7b7adde8a6e60042bec7695e4553d6470e548316
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104578797"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106055664"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Início Rápido: Registrar um aplicativo na plataforma de identidade da Microsoft
 
@@ -56,7 +56,10 @@ Siga estas etapas para criar o registro do aplicativo:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Captura de tela do portal do Azure em um navegador da Web mostrando o painel Registrar um aplicativo.":::
 
-Quando o registro for concluído, o portal do Azure exibirá o painel **Visão geral** do registro de aplicativo. Você verá a **ID do Aplicativo (cliente)** . Também chamada de *ID do cliente*, esse valor identifica exclusivamente seu aplicativo na plataforma de identidade da Microsoft.
+Quando o registro for concluído, o portal do Azure exibirá o painel **Visão geral** do registro de aplicativo. Você verá a **ID do Aplicativo (cliente)** . Também chamada de *ID do cliente*, esse valor identifica exclusivamente seu aplicativo na plataforma de identidade da Microsoft. 
+
+> [!IMPORTANT]
+> Novos registros de aplicativos ficam ocultos para os usuários por padrão. Quando estiver pronto para que os usuários vejam o aplicativo na [página Meus Aplicativos](../user-help/my-apps-portal-end-user-access.md), você poderá habilitá-lo. Para habilitar o aplicativo, no portal do Azure, navegue até **Azure Active Directory** > **Aplicativos empresariais** e selecione o aplicativo. Na página **Propriedades**, alterne **Visível para os usuários?** para Sim.
 
 O código do aplicativo ou mais geralmente uma biblioteca de autenticação usada no aplicativo também usa a ID do cliente. A ID é usada como parte da validação dos tokens de segurança que ela recebe da plataforma de identidade.
 

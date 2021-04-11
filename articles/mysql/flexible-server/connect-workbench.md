@@ -1,18 +1,18 @@
 ---
 title: 'Início Rápido: Conectar – MySQL Workbench – Banco de Dados do Azure para MySQL – Servidor Flexível'
 description: Este Início Rápido fornecerá as etapas necessárias para usar o MySQL Workbench para se conectar ao Banco de Dados do Azure para MySQL – Servidor Flexível e consultar dados dele.
-author: ambhatna
-ms.author: ambhatna
+author: rothja
+ms.author: jroth
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: d604ca8c8979ec98b990f8002ce29d0df92ac2af
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: 2dae75cf7c4d28e16dd2144067bb15ed343e5cd1
+ms.sourcegitcommit: b0557848d0ad9b74bf293217862525d08fe0fc1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "90943573"
+ms.lasthandoff: 04/07/2021
+ms.locfileid: "106551978"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server-preview"></a>Início Rápido: Usar o MySQL Workbench para se conectar ao Banco de Dados do Azure para MySQL – Servidor Flexível (Versão Prévia) e consultar dados dele
 
