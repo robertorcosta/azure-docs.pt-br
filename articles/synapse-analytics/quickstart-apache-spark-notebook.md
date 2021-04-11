@@ -10,10 +10,10 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.date: 10/16/2020
 ms.openlocfilehash: 060c78621b82f4698d4596383cd155d85d483d8e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101669496"
 ---
 # <a name="quickstart-create-a-serverless-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Início Rápido: Criar um Pool do Apache Spark sem servidor no Azure Synapse Analytics usando ferramentas da Web
@@ -82,9 +82,9 @@ Um notebook é um ambiente interativo que dá suporte a várias linguagens de pr
 
     Se você usar o gerenciador de armazenamento, poderá ver o impacto das duas maneiras diferentes de gravar um arquivo usadas acima. Quando nenhum sistema de arquivos for especificado, o padrão será usado, nesse caso, `default>user>trusted-service-user>demo_df`. Os dados são salvos na localização do sistema de arquivos especificada.
 
-    Observe que, nos formatos "CSV" e "Parquet", as operações de gravação com a qual um diretório é criado com muitos arquivos particionados.
+    Observe que, nos formatos "CSV&quot; e &quot;Parquet&quot;, as operações de gravação com a qual um diretório é criado com muitos arquivos particionados.
 
-    ![Exibição do gerenciador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png "Exibição do gerenciador de armazenamento da saída")
+    ![Exibição do gerenciador de armazenamento da saída](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage.png &quot;Exibição do gerenciador de armazenamento da saída")
 
     ![Captura de tela que realça o caminho padrão > demodata > demo_df.](./media/quickstart-apache-spark-notebook/spark-get-started-default-storage2.png "Exibição do gerenciador de armazenamento da saída")
 
