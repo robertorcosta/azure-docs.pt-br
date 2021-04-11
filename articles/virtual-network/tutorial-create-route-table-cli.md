@@ -7,7 +7,6 @@ author: KumudD
 manager: mtillman
 editor: ''
 tags: azure-resource-manager
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
@@ -17,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: kumud
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 043d450a1b968174ad263579d39de06a296a98e4
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
-ms.translationtype: MT
+ms.openlocfilehash: ed2a97ccfb0a3b9b4b43021ab0fff1460919c9b9
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94741460"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106060688"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Rotear tráfego com uma tabela de rotas utilizando a CLI do Azure
 
@@ -210,7 +209,7 @@ Anote o **publicIpAddress**. Esse endereço será usado para acessar a VM da int
 
 ## <a name="route-traffic-through-an-nva"></a>Rotear o tráfego por meio de uma NVA
 
-Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público da sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
+Use o comando a seguir para criar uma sessão SSH com a VM *myVmPrivate*. Substitua *\<publicIpAddress>* pelo endereço IP público de sua VM. No exemplo acima, o endereço IP é *13.90.242.231*.
 
 ```bash
 ssh azureuser@<publicIpAddress>
@@ -269,7 +268,7 @@ Você pode ver que o primeiro salto é 10.0.2.4, que é o endereço IP privado d
 
 Feche as sessões SSH para as VMs *myVmPublic* e *myVmPrivate*.
 
-## <a name="clean-up-resources"></a>Limpar os recursos
+## <a name="clean-up-resources"></a>Limpar recursos
 
 Quando não for mais necessário, use [az group delete](/cli/azure/group) para remover o grupo de recursos e todos os recursos que ele contém.
 
