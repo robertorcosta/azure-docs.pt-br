@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 03/25/2021
 ms.author: keithp
-ms.openlocfilehash: 11118c9bd745480dc88380e718a9ab348ab1a3e3
-ms.sourcegitcommit: 73d80a95e28618f5dfd719647ff37a8ab157a668
+ms.openlocfilehash: 0791f2e8d5119c2087286a24cf83b4259ee9e7af
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105606939"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105611643"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Solução de problemas do serviço de HSM Dedicado do Azure
 
@@ -33,7 +33,7 @@ O HSM dedicado não está disponível gratuitamente para uso, pois ele está for
 
 ### <a name="getting-access-to-dedicated-hsm"></a>Como obter acesso ao HSM dedicado
 
-Primeiro, pergunte-se quais casos de uso você tem que não podem ser resolvidos pelo [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/overview) ou pelo [HSM gerenciado do Azure](https://docs.microsoft.com/en-us/azure/key-vault/managed-hsm/overview). Depois, se você acreditar que somente o HSM Dedicado será adequado aos seus requisitos de armazenamento de chaves, envie um email para HSMrequest@microsoft.com para solicitar acesso. Descreva seu aplicativo e os casos de uso, as regiões em que você gostaria de ter os HSMs e o volume de HSMs que está procurando. Se você trabalha com um representante da Microsoft, como um executivo de conta ou arquiteto de soluções de nuvem, inclua-o em qualquer solicitação.
+Primeiro, pergunte-se quais casos de uso você tem que não podem ser resolvidos pelo [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/overview) ou pelo [HSM gerenciado do Azure](https://docs.microsoft.com/azure/key-vault/managed-hsm/overview). Depois, se você acreditar que somente o HSM Dedicado será adequado aos seus requisitos de armazenamento de chaves, envie um email para HSMrequest@microsoft.com para solicitar acesso. Descreva seu aplicativo e os casos de uso, as regiões em que você gostaria de ter os HSMs e o volume de HSMs que está procurando. Se você trabalha com um representante da Microsoft, como um executivo de conta ou arquiteto de soluções de nuvem, inclua-o em qualquer solicitação.
 
 ## <a name="hsm-provisioning"></a>Provisionamento de HSM
 
