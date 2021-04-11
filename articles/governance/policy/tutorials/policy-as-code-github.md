@@ -1,14 +1,14 @@
 ---
 title: 'Tutorial: Implementar o Azure Policy como código com o GitHub'
 description: Neste tutorial, você implementará um fluxo de trabalho de Azure Policy como Código com exportação, GitHub Actions e fluxos de trabalho do GitHub
-ms.date: 10/20/2020
+ms.date: 03/31/2021
 ms.topic: tutorial
-ms.openlocfilehash: 76a46adc3fc8efab4f7a2d6e656e83c2537dd037
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 64957671597ad6df237f92176e10280dc45018c9
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92325832"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092748"
 ---
 # <a name="tutorial-implement-azure-policy-as-code-with-github"></a>Tutorial: Implementar o Azure Policy como código com o GitHub
 
