@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b5c65035f8b51b53f617d4562fe1982f53f0deec
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 91556087cd3e7ccd85550c721f70b8608fdc4ffd
+ms.sourcegitcommit: d23602c57d797fb89a470288fcf94c63546b1314
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "98678265"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106168443"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-by-using-azure-maps"></a>Tutorial: implementar análise espacial de IoT usando os Azure Mapas
 
@@ -282,7 +282,7 @@ Para obter uma lista completa das APIs REST do Azure Mapas, confira:
 
 Para obter uma lista de dispositivos certificados pelo Azure para IoT, visite:
 
-* [Dispositivos certificados pelo Azure](https://catalog.azureiotsolutions.com/)
+* [Dispositivos certificados pelo Azure](https://devicecatalog.azure.com/)
 
 ## <a name="clean-up-resources"></a>Limpar os recursos
 
