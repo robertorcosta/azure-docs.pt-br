@@ -1,18 +1,17 @@
 ---
 title: Criar painéis personalizados no Azure Application Insights | Microsoft Docs
 description: Tutorial para criar painéis de KPI personalizados usando o Azure Application Insights.
-ms.subservice: application-insights
 ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/30/2020
 ms.custom: mvc, contperf-fy21q1
-ms.openlocfilehash: 701480300101b019830c57d9aa000534fa63bb6a
-ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.openlocfilehash: ebe34735a84e44526e6b96821a2a1da090884886
+ms.sourcegitcommit: 77d7639e83c6d8eb6c2ce805b6130ff9c73e5d29
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/29/2021
-ms.locfileid: "100597031"
+ms.lasthandoff: 04/05/2021
+ms.locfileid: "106383245"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Criar painéis de KPI personalizados usando o Azure Application Insights
 
