@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: conceptual
-ms.date: 08/03/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 581afbb5cec166f0ef5048b6ecc89f8ff95fd794
-ms.sourcegitcommit: 225e4b45844e845bc41d5c043587a61e6b6ce5ae
+ms.openlocfilehash: e43b5068544927ba4d04c86b16d3a15510c32bed
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103017701"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448465"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelos de mapeamento do Conector IoT do Azure para FHIR (versão prévia)
 Este artigo fornece detalhes sobre como configurar o conector IoT do Azure para recursos de interoperabilidade do Fast Healthcare (FHIR&#174;) * usando modelos de mapeamento.
@@ -32,7 +32,7 @@ O mapeamento de dispositivo fornece a funcionalidade de mapeamento para extrair 
 | - | - |
 |**Tipo**|O nome/tipo para classificar a medida. Esse valor é usado para associar ao modelo de mapeamento FHIR necessário.  Vários modelos podem gerar saída para o mesmo tipo, permitindo que você mapeie diferentes representações em vários dispositivos para uma única saída comum.|
 |**OccurenceTimeUtc**|A hora em que a medição ocorreu.|
-|**DeviceId**|O identificador do dispositivo. Esse valor deve corresponder a um identificador no recurso do dispositivo que existe no servidor de FHIR de destino.|
+|**deviceId**|O identificador do dispositivo. Esse valor deve corresponder a um identificador no recurso do dispositivo que existe no servidor de FHIR de destino.|
  |**Propriedades**|Extraia pelo menos uma propriedade para que o valor possa ser salvo no recurso de observação criado.  As propriedades são uma coleção de pares chave-valor extraídos durante a normalização.|
 
 Veja abaixo um exemplo conceitual do que acontece durante a normalização.
@@ -81,7 +81,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 ---
 **Taxa de coração**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -115,7 +115,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 ---
 **Pressão sanguínea**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -133,7 +133,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 {
     "typeName": "bloodpressure",
     "typeMatchExpression": "$..[?(@systolic && @diastolic)]",
-    "deviceIdExpression": "$.deviceid",
+    "deviceIdExpression": "$.deviceId",
     "timestampExpression": "$.endDate",
     "values": [
         {
@@ -153,7 +153,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 
 **Projetar várias medições a partir de uma única mensagem**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -208,7 +208,7 @@ O JsonPathContentTemplate permite a correspondência e a extração de valores d
 
 **Projetar várias medidas da matriz na mensagem**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": [
@@ -263,7 +263,7 @@ A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas
 ---
 **Taxa de coração**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -299,7 +299,7 @@ A suposição ao usar esse modelo é que as mensagens que estão sendo avaliadas
 ---
 **Pressão sanguínea**
 
-*Mensagem*
+*Message*
 ```json
 {
     "Body": {
@@ -343,7 +343,7 @@ O IotCentralJsonPathContentTemplate também não exige o DeviceIdExpression e o 
 ---
 **Taxa de coração**
 
-*Mensagem*
+*Message*
 ```json
 {
     "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",
@@ -383,7 +383,7 @@ O IotCentralJsonPathContentTemplate também não exige o DeviceIdExpression e o 
 ---
 **Pressão sanguínea**
 
-*Mensagem*
+*Message*
 ```json
 {
     "applicationId": "1dffa667-9bee-4f16-b243-25ad4151475e",

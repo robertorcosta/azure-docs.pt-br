@@ -7,17 +7,19 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.openlocfilehash: 4926aa40831056556060cbf564022fa7f5e3aa7a
-ms.sourcegitcommit: ac035293291c3d2962cee270b33fca3628432fac
+ms.openlocfilehash: 160797367e2daf0cb6fe708d626cbf217c9992c8
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "104962756"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106448586"
 ---
 # <a name="quickstart-connect-an-mxchip-az3166-devkit-to-iot-central"></a>Guia de início rápido: conectar um Kit de Desenvolvimento MXCHIP AZ3166 à IoT Central
 
 **Aplica-se a**: [desenvolvimento de dispositivos inseridos](about-iot-develop.md#embedded-device-development)<br>
 **Tempo total de conclusão**: 30 minutos
+
+[![Procurar código](media/common/browse-code.svg)](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166)
 
 Neste tutorial, você usará o Azure RTOS para conectar um Kit de Desenvolvimento de IoT MXCHIP AZ3166 (doravante chamado Kit de Desenvolvimento MXCHIP) à IoT do Azure. Este artigo faz parte da série [Introdução ao desenvolvimento de um dispositivo inserido na IoT do Azure](quickstart-device-development.md). A série apresenta os desenvolvedores de dispositivos ao Azure RTOS e mostra de que modo conectar vários kits de avaliação de dispositivos à IoT do Azure.
 
@@ -26,9 +28,6 @@ Você realizará as seguintes tarefas:
 * Instalar um conjunto de ferramentas de desenvolvimento inseridas para programar um Kit de Desenvolvimento MXCHIP em C
 * Criar e instalar uma imagem no Kit de Desenvolvimento MXCHIP
 * Usar o Azure IoT Central para criar componentes de nuvem, exibir propriedades e a telemetria do dispositivo, bem como executar uma chamada aos comandos diretos
-
-> [!NOTE]
-> Caso prefira exibir somente o código, em vez de concluir este artigo, confira um exemplo em [Conectar um MXCHIP AZ3166 à IoT do Azure](https://github.com/azure-rtos/getting-started/tree/master/MXChip/AZ3166). Caso planeje concluir este artigo, será necessário clonar o repositório GitHub em uma etapa posterior.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
