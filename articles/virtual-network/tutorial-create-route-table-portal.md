@@ -5,7 +5,6 @@ description: Neste tutorial, aprenda a rotear tráfego de rede com uma tabela de
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
@@ -13,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 03/16/2021
 ms.author: kumud
-ms.openlocfilehash: f8090ea9c0d307d1bd290c4cf4dac9bfaabf7c4b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 7da59e996ec37d3653dbde68c5f56caa9e8261ee
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104576298"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106061903"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>Tutorial: Rotear tráfego com uma tabela de rotas utilizando o Portal do Azure
 
@@ -34,7 +33,9 @@ O Azure roteia tráfego entre todas as sub-redes contidas em uma rede virtual po
 
 Este tutorial usa o [portal do Azure](https://portal.azure.com). Você também pode usar a [CLI do Azure](tutorial-create-route-table-cli.md) ou o [Azure PowerShell](tutorial-create-route-table-powershell.md).
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+## <a name="prerequisites"></a>Pré-requisitos
+
+Antes de começar, você precisa ter uma conta do Azure com uma assinatura ativa. Caso não tenha uma, [crie uma conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

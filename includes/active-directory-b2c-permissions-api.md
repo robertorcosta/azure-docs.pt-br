@@ -5,12 +5,12 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 04/04/2020
 ms.author: mimart
-ms.openlocfilehash: c1628894205754c1b8f1fc954796009afbdc8ed4
-ms.sourcegitcommit: a67b972d655a5a2d5e909faa2ea0911912f6a828
+ms.openlocfilehash: dd301cb3b18df5d3eb57ac38e9fb6432411d084b
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "95994292"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106073259"
 ---
 #### <a name="app-registrations"></a>[Registros de aplicativo](#tab/app-reg-ga/) 
 
@@ -23,7 +23,7 @@ ms.locfileid: "95994292"
 1. Selecione **Adicionar Permissões**.
 1. Selecione **Fornecer o consentimento do administrador para (nome do seu locatário)** .
 1. Se for solicitado a selecionar uma conta, selecione a conta de administrador conectada no momento ou entre com uma conta no seu locatário do Azure AD B2C que tenha recebido, pelo menos, a função *Administrador de aplicativos de nuvem*.
-1. Selecione **Sim** na barra superior.
+1. Selecione **Sim**.
 1. Selecione **Atualizar** e, em seguida, verifique se "Concedido para..." aparece em **Status** para ambos os escopos.
 
 #### <a name="applications-legacy"></a>[Aplicativos (Herdado)](#tab/applications-legacy/)
