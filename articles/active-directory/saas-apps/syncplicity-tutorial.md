@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
 ms.openlocfilehash: 3c665795325ed3863583eb0f21f3e0d3f534154a
-ms.sourcegitcommit: 5f32f03eeb892bf0d023b23bd709e642d1812696
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/12/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103201449"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>Tutorial: Integrar o Syncplicity ao Azure Active Directory
@@ -95,13 +95,13 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
    ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="configure-syncplicity-sso"></a>Configurar SSO do Syncplicity
+### <a name="configure-syncplicity-sso&quot;></a>Configurar SSO do Syncplicity
 
 1. Entre no seu locatário do **Syncplicity**.
 
 1. No menu, na parte superior, clique em **Administrador**, selecione **Configurações** e clique em **Domínio personalizado e logon único**.
 
-    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png "Syncplicity")
+    ![Syncplicity](./media/syncplicity-tutorial/ic769545.png &quot;Syncplicity")
 
 1. Na página da caixa de diálogo **Logon Único (SSO)**, execute as etapas a seguir:
 

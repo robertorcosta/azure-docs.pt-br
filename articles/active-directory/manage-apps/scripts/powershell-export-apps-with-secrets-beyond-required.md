@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
-ms.openlocfilehash: 9c0e5508830343561833785fbce31f547a8a7428
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.openlocfilehash: daeea48758a9f08e7eedbfcaddcde3815f5c1e16
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
-ms.locfileid: "103149674"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105729092"
 ---
 # <a name="export-apps-with-secrets-and-certificates-expiring-beyond-the-required-date"></a>Exportar aplicativos com segredos e certificados com data de expiração além da data necessária
 
@@ -37,10 +37,10 @@ O comando "Add-Member" é responsável por criar as colunas no arquivo CSV.
 
 | Comando | Observações |
 |---|---|
-| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1) | Envia solicitações HTTP e HTTPS a uma página da Web ou serviço Web. Ele analisa a resposta e retorna conjuntos de links, imagens e outros elementos HTML significativos. |
+| [Invoke-WebRequest](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7.1&preserve-view=true) | Envia solicitações HTTP e HTTPS a uma página da Web ou serviço Web. Ele analisa a resposta e retorna conjuntos de links, imagens e outros elementos HTML significativos. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](/powershell/azure/active-directory/overview).
 
-Confira outros exemplos do PowerShell para o Gerenciamento de Aplicativos em [Exemplos do PowerShell do Azure AD para o Gerenciamento de Aplicativos](../app-management-powershell-samples.md).
+Confira outros exemplos do PowerShell para o Gerenciamento de Aplicativo em [Exemplos do PowerShell do Azure AD para o Gerenciamento de Aplicativo](../app-management-powershell-samples.md).

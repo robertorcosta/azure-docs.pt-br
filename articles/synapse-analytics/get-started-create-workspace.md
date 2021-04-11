@@ -10,12 +10,12 @@ ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 03/17/2021
-ms.openlocfilehash: ee8a192bcfe20c77e47ee9c89dfc3286a979e358
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: fb30913d71df46f4c0afedd475d40205c1429258
+ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "104722286"
+ms.lasthandoff: 04/01/2021
+ms.locfileid: "106122196"
 ---
 # <a name="creating-a-synapse-workspace"></a>Como criar um workspace do Azure Synapse
 
@@ -33,24 +33,26 @@ Para concluir as etapas deste tutorial, você precisará ter acesso a um grupo d
 1. Selecione **Adicionar** para criar um workspace.
 
 ## <a name="basics-tab--project-details"></a>Guia Informações Básicas > Detalhes do Projeto
-1. Na guia **Básico**, em **Detalhes do Projeto**, preencha os seguintes campos:
-      1. **Assinatura** – Escolha qualquer assinatura.
-      2. **Grupo de recursos** – Use qualquer grupo de recursos.
-      3. **Grupo de recursos** – Deixe em branco.
+Preencha os campos a seguir:
+
+1. **Assinatura** – Escolha qualquer assinatura.
+1. **Grupo de recursos** – Use qualquer grupo de recursos.
+1. **Grupo de recursos** – Deixe em branco.
 
 
 ## <a name="basics-tab--workspace-details"></a>Guia Informações Básicas > Detalhes do Workspace
-1. Na guia **Básico**, em **Detalhes do workspace**, preencha os seguintes campos:
-      1. **Nome do workspace** – Escolha qualquer nome exclusivo globalmente. Neste tutorial, usaremos **myworkspace**.
-      1. **Região** – Escolha qualquer região.
-      1. **Selecionar o Data Lake Storage Gen2**
-        1. Clique no botão **Da assinatura**.
-        1. Em **Nome da conta**, clique em **Criar** e nomeie a nova conta de armazenamento **contosolake** ou outro nome semelhante, pois esse nome precisa ser exclusivo.
-        1. Em **Nome do sistema de arquivos**, clique em **Criar** e nomeie-o **usuários**. Isso criará um contêiner de armazenamento chamado **usuários**. O workspace usará essa conta de armazenamento como a conta de armazenamento "primária" para os logs do aplicativo e as tabelas do Spark.
-        1. Marque a caixa "Atribuir a função Colaborador de Dados do Blob de Armazenamento a mim mesmo na conta do Data Lake Storage Gen2". 
+Preencha os campos a seguir:
 
-### <a name="completing-the-process"></a>Conclusão do processo
-5. Selecione **Examinar + criar** > **Criar**. Seu workspace fica pronto em alguns minutos.
+1. **Nome do workspace** – Escolha qualquer nome exclusivo globalmente. Neste tutorial, usaremos **myworkspace**.
+1. **Região** – Escolha qualquer região.
+1. **Selecionar o Data Lake Storage Gen2**
+1. Clique no botão **Da assinatura**.
+1. Em **Nome da conta**, clique em **Criar** e nomeie a nova conta de armazenamento **contosolake** ou outro nome semelhante, pois esse nome precisa ser exclusivo.
+1. Em **Nome do sistema de arquivos**, clique em **Criar** e nomeie-o **usuários**. Isso criará um contêiner de armazenamento chamado **usuários**. O workspace usará essa conta de armazenamento como a conta de armazenamento "primária" para os logs do aplicativo e as tabelas do Spark.
+1. Marque a caixa "Atribuir a função Colaborador de Dados do Blob de Armazenamento a mim mesmo na conta do Data Lake Storage Gen2". 
+
+## <a name="completing-the-process"></a>Conclusão do processo
+Selecione **Examinar + criar** > **Criar**. Seu workspace fica pronto em alguns minutos.
 
 > [!NOTE]
 > Para habilitar recursos de workspace de um pool de SQL dedicado existente (antigo SQL DW), veja [Como habilitar um workspace para seu pool de SQL dedicado (antigo SQL DW)](./sql-data-warehouse/workspace-connected-create.md).
@@ -62,16 +64,6 @@ Após criar o workspace do Azure Synapse, você tem duas maneiras de abrir o Syn
 
 * Abra o workspace do Azure Synapse no [portal do Azure](https://portal.azure.com) e, na seção **Visão geral** do workspace do Azure Synapse, selecione **Abrir** na caixa Abrir Synapse Studio.
 * Acesse `https://web.azuresynapse.net` e entre no seu workspace.
-
-
-
-
-
-
-
-
-
-
 
 ## <a name="next-steps"></a>Próximas etapas
 

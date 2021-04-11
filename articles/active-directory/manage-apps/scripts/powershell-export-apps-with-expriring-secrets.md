@@ -12,10 +12,10 @@ ms.date: 03/09/2021
 ms.author: kenwith
 ms.reviewer: mifarca
 ms.openlocfilehash: def9b55a1d873cccda5d1c48921e3f098beeced1
-ms.sourcegitcommit: 6776f0a27e2000fb1acb34a8dddc67af01ac14ac
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/11/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103149691"
 ---
 # <a name="export-apps-with-expiring-secrets-and-certificates"></a>Exportar aplicativos com segredos e certificados com data de expiração
@@ -40,11 +40,11 @@ Você pode modificar a variável "$Path" diretamente no PowerShell, com um camin
 
 | Comando | Observações |
 |---|---|
-| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Recupera um aplicativo de seu diretório. |
-| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Recupera os proprietários de um aplicativo de seu diretório. |
+| [Get-AzureADApplication](/powershell/module/azuread/get-azureadapplication?view=azureadps-2.0&preserve-view=true) | Recupera um aplicativo do diretório. |
+| [Get-AzureADApplicationOwner](/powershell/module/azuread/Get-AzureADApplicationOwner?view=azureadps-2.0&preserve-view=true) | Recupera os proprietários de um aplicativo do diretório. |
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter mais informações sobre o módulo do PowerShell do Azure AD, confira [Visão geral do módulo do PowerShell do Azure AD](/powershell/azure/active-directory/overview).
 
-Confira outros exemplos do PowerShell para o Gerenciamento de Aplicativos em [Exemplos do PowerShell do Azure AD para o Gerenciamento de Aplicativos](../app-management-powershell-samples.md).
+Confira outros exemplos do PowerShell para o Gerenciamento de Aplicativo em [Exemplos do PowerShell do Azure AD para o Gerenciamento de Aplicativo](../app-management-powershell-samples.md).
