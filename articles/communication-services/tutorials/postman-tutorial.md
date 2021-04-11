@@ -8,12 +8,12 @@ ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: c21d8696c0c4edd743aab6cbe7866d27ce46a314
-ms.sourcegitcommit: 4bda786435578ec7d6d94c72ca8642ce47ac628a
+ms.openlocfilehash: 5805734a9253962d672a4236a5650e9de8b37f0a
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/16/2021
-ms.locfileid: "103492601"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105044287"
 ---
 # <a name="tutorial-sign-and-make-requests-with-postman"></a>Tutorial: Assinar e fazer solicitações com o Postman
 Neste tutorial, vamos configurar e usar o Postman para fazer uma solicitação para o ACS (Serviços de Comunicação do Azure) usando HTTP. Ao final deste tutorial, você terá enviado com êxito uma mensagem SMS usando o ACS e o Postman e poderá usar o Postman para explorar outras APIs no ACS.
@@ -68,7 +68,7 @@ Saiba mais sobre variáveis lendo a [Documentação do Postman sobre elas](https
 
 ### <a name="creating-a-pre-request-script"></a>Criando um script pré-solicitação
 
-A próxima etapa é criar um Script pré-solicitação no Postman. Um script pré-solicitação é um script que é executado antes de cada solicitação no Postman e pode modificar ou alterar parâmetros de solicitação em seu nome. Nós o usaremos para assinar nossas solicitações HTTP para que elas possam ser autorizadas pelos Serviços do ACS. Para saber mais sobre os requisitos de Assinatura, você pode [ler nosso guia sobre autenticação](https://docs.microsoft.com/rest/api/communication/authentication).
+A próxima etapa é criar um Script pré-solicitação no Postman. Um script pré-solicitação é um script que é executado antes de cada solicitação no Postman e pode modificar ou alterar parâmetros de solicitação em seu nome. Nós o usaremos para assinar nossas solicitações HTTP para que elas possam ser autorizadas pelos Serviços do ACS. Para saber mais sobre os requisitos de Assinatura, você pode [ler nosso guia sobre autenticação](/rest/api/communication/authentication).
 
 Vamos criar esse script dentro da Coleção de modo que ele seja executado em qualquer solicitação dentro dela. Para fazer isso, na guia da coleção, clique na subguia "Script Pré-solicitação".
 
@@ -186,7 +186,7 @@ Agora que tudo está configurado, estamos prontos para criar uma solicitação d
 
 :::image type="content" source="media/postman/create-request.png" alt-text="Botão de adição do Postman.":::
 
-Isso criará uma guia para nossa solicitação no Postman. Com ela criada, precisamos configurá-la. Faremos uma solicitação para a API de Envio de SMS, portanto, confira a [documentação dessa API para obter assistência](https://docs.microsoft.com/rest/api/communication/sms/send). Vamos configurar a solicitação do Postman.
+Isso criará uma guia para nossa solicitação no Postman. Com ela criada, precisamos configurá-la. Faremos uma solicitação para a API de Envio de SMS, portanto, confira a [documentação dessa API para obter assistência](/rest/api/communication/sms/send). Vamos configurar a solicitação do Postman.
 
 Comece definindo o tipo de solicitação para `POST` e inserindo `{{endpoint}}/sms?api-version=2021-03-07` no campo de URL da solicitação. Essa URL usa nossa variável `endpoint` criada anteriormente para enviá-la automaticamente para o Recurso do ACS.
 
@@ -238,8 +238,8 @@ O celular, ao qual pertence ao número que você forneceu no valor "para", tamb�
 ## <a name="next-steps"></a>Próximas etapas
 
 > [!div class="nextstepaction"]
-> [Explorar APIs do ACS](https://docs.microsoft.com/rest/api/communication/)
-> [Leia mais sobre Autenticação](https://docs.microsoft.com/rest/api/communication/authentication)
+> [Explorar APIs do ACS](/rest/api/communication/)
+> [Leia mais sobre Autenticação](/rest/api/communication/authentication)
 > [Saiba mais sobre o Postman](https://learning.postman.com/)
 
 Talvez seja necessário também:
