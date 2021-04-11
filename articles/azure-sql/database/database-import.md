@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/29/2020
-ms.openlocfilehash: b88c7aabe135b8e64869980b806852d92191440b
-ms.sourcegitcommit: f0a3ee8ff77ee89f83b69bc30cb87caa80f1e724
+ms.openlocfilehash: 2412d3d2851d1b4d251b50ff3068b7dcafcccee8
+ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/26/2021
-ms.locfileid: "105568674"
+ms.lasthandoff: 03/28/2021
+ms.locfileid: "105642045"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Guia de início rápido: Importar um arquivo BACPAC para um banco de dados no Banco de Dados SQL do Azure ou na Instância Gerenciada de SQL do Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -48,7 +48,7 @@ Para migrar um banco de dados para uma [Instância Gerenciada de SQL do Azure](.
 
 1. Selecione a conta de armazenamento e o contêiner para o arquivo BACPAC e, em seguida, selecione o arquivo BACPAC do qual importar.
 
-1. Especifique o tamanho do novo banco de dados (normalmente, o mesmo que o original) e forneça as credenciais do SQL Server de destino. Para obter uma lista de valores possíveis para um novo banco de dados do Banco de Dados SQL do Azure, confira [Criar Banco de Dados](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current).
+1. Especifique o tamanho do novo banco de dados (normalmente, o mesmo que o original) e forneça as credenciais do SQL Server de destino. Para obter uma lista de valores possíveis para um novo banco de dados do Banco de Dados SQL do Azure, confira [Criar Banco de Dados](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true).
 
    ![Banco de dados import2](./media/database-import/sql-server-import-database-settings.png)
 

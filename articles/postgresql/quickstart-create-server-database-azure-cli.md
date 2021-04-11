@@ -1,19 +1,19 @@
 ---
 title: 'Início Rápido: Criar servidor – CLI do Azure – Banco de Dados do Azure para PostgreSQL – servidor único'
 description: Neste guia de início rápido, você criará um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: d174e410aaef876dfe97af62750322641de95fd3
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 1d7b6cd6d61be6df66d215613222c12a0f2c9c5e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "94659447"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105606701"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Início Rápido: Criar um servidor do Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 
