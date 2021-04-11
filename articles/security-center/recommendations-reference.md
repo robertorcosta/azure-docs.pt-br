@@ -4,15 +4,15 @@ description: Este artigo listará as recomendações de segurança da Central de
 author: memildin
 ms.service: security-center
 ms.topic: reference
-ms.date: 02/16/2021
+ms.date: 03/22/2021
 ms.author: memildin
 ms.custom: generated
-ms.openlocfilehash: d484802b35ffec26d1248e51b365ac9041fc7934
-ms.sourcegitcommit: 4b7a53cca4197db8166874831b9f93f716e38e30
+ms.openlocfilehash: 2d9f76bd3c6ad0060a90f52abba1c7378b310e67
+ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102100399"
+ms.lasthandoff: 03/23/2021
+ms.locfileid: "104801445"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Recomendações de segurança – um guia de referência
 
@@ -28,9 +28,17 @@ A classificação de segurança é baseada na quantidade de recomendações da C
 > Se a descrição de uma recomendação disser "Nenhuma política relacionada", isso geralmente ocorrerá porque essa recomendação depende de uma recomendação diferente e _sua_ política. Por exemplo, a recomendação "As falhas de integridade de Endpoint protection devem ser corrigidas...", depende da recomendação que verifica se uma solução de proteção de ponto de extremidade ainda está _instalada_ ("A solução de Endpoint protection deve estar instalada..."). A recomendação subjacente _tem_ uma política.
 > Limitar as políticas a apenas a recomendação básica simplifica o gerenciamento de políticas.
 
+## <a name="appservices-recommendations"></a><a name='recs-appservices'></a>Recomendações de AppServices
+
+[!INCLUDE [asc-recs-appservices](../../includes/asc-recs-appservices.md)]
+
 ## <a name="compute-recommendations"></a><a name='recs-compute'></a>Recomendações de computação
 
 [!INCLUDE [asc-recs-compute](../../includes/asc-recs-compute.md)]
+
+## <a name="container-recommendations"></a><a name='recs-container'></a>Recomendações do contêiner
+
+[!INCLUDE [asc-recs-container](../../includes/asc-recs-container.md)]
 
 ## <a name="data-recommendations"></a><a name='recs-data'></a>Recomendações de dados
 
@@ -39,6 +47,10 @@ A classificação de segurança é baseada na quantidade de recomendações da C
 ## <a name="identityandaccess-recommendations"></a><a name='recs-identityandaccess'></a>Recomendações de IdentityAndAccess
 
 [!INCLUDE [asc-recs-identityandaccess](../../includes/asc-recs-identityandaccess.md)]
+
+## <a name="iot-recommendations"></a><a name='recs-iot'></a>Recomendações de IoT
+
+[!INCLUDE [asc-recs-iot](../../includes/asc-recs-iot.md)]
 
 ## <a name="networking-recommendations"></a><a name='recs-networking'></a>Recomendações de rede
 
