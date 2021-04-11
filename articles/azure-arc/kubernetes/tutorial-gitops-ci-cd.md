@@ -7,12 +7,12 @@ ms.service: azure-arc
 ms.topic: tutorial
 ms.date: 03/03/2021
 ms.custom: template-tutorial
-ms.openlocfilehash: 72caca47cde960eb7298ec2cf0c6994755cb3159
-ms.sourcegitcommit: dac05f662ac353c1c7c5294399fca2a99b4f89c8
+ms.openlocfilehash: a94784f2f3fc622e0232033d63bc957279a7d34c
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/04/2021
-ms.locfileid: "102121602"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076285"
 ---
 # <a name="tutorial-implement-cicd-with-gitops-using-azure-arc-enabled-kubernetes-clusters"></a>Tutorial: implementar CI/CD com GitOps usando clusters do Kubernetes habilitados para Azure Arc
 
@@ -37,12 +37,12 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Este tutorial pressupõe familiaridade com o Azure DevOps, Azure Repos, Pipelines e a CLI do Azure.
 
 * Entre no [Azure DevOps Services](https://dev.azure.com/).
-* Conclua o [tutorial anterior](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) para aprender a implantar o GitOps no seu ambiente de CI/CD.
-* Entenda os [benefícios e a arquitetura](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-configurations) desse recurso.
+* Conclua o [tutorial anterior](./tutorial-use-gitops-connected-cluster.md) para aprender a implantar o GitOps no seu ambiente de CI/CD.
+* Entenda os [benefícios e a arquitetura](./conceptual-configurations.md) desse recurso.
 * Verifique se você tem:
-  * Um [cluster do Kubernetes habilitado para Azure Arc conectado](https://docs.microsoft.com/azure/azure-arc/kubernetes/quickstart-connect-cluster#connect-an-existing-kubernetes-cluster) chamado **arc-cicd-cluster**.
-  * Um ACR (Registro de Contêiner do Azure) conectado com a [integração do AKS](https://docs.microsoft.com/azure/aks/cluster-container-registry-integration) ou a [autenticação de cluster não AKS](https://docs.microsoft.com/azure/container-registry/container-registry-auth-kubernetes).
-  * Permissões de "Administrador de Build" e "Administrador de Projeto" para [Azure Repos](https://docs.microsoft.com/azure/devops/repos/get-started/what-is-repos) e [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/pipelines-get-started).
+  * Um [cluster do Kubernetes habilitado para Azure Arc conectado](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) chamado **arc-cicd-cluster**.
+  * Um ACR (Registro de Contêiner do Azure) conectado com a [integração do AKS](../../aks/cluster-container-registry-integration.md) ou a [autenticação de cluster não AKS](../../container-registry/container-registry-auth-kubernetes.md).
+  * Permissões de "Administrador de Build" e "Administrador de Projeto" para [Azure Repos](/azure/devops/repos/get-started/what-is-repos) e [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Instale as seguintes extensões da CLI do Kubernetes habilitado para Azure Arc de versões iguais ou superiores a 1.0.0:
 
   ```azurecli
@@ -58,7 +58,7 @@ Este tutorial pressupõe familiaridade com o Azure DevOps, Azure Repos, Pipeline
 
 ## <a name="import-application-and-gitops-repos-into-azure-repos"></a>Importar repositório de aplicativos e do GitOps no Azure Repos
 
-Importe um [repositório de aplicativos](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#application-repo) e um [repositório do GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd#gitops-repo) no Azure Repos. Para este tutorial, use o seguinte repositório de amostra:
+Importe um [repositório de aplicativos](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#application-repo) e um [repositório do GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd#gitops-repo) no Azure Repos. Para este tutorial, use o seguinte repositório de amostra:
 
 * Repositório de aplicativos **arc-cicd-demo-src**
    * URL: https://github.com/Azure/arc-cicd-demo-src
@@ -67,7 +67,7 @@ Importe um [repositório de aplicativos](https://docs.microsoft.com/azure/azure-
    * URL: https://github.com/Azure/arc-cicd-demo-gitops
    * Funciona como uma base para os recursos de cluster que hospedam o aplicativo Azure Vote.
 
-Saiba mais sobre [a importação do repositório Git](https://docs.microsoft.com/azure/devops/repos/git/import-git-repository).
+Saiba mais sobre [a importação do repositório Git](/azure/devops/repos/git/import-git-repository).
 
 >[!NOTE]
 > Importar e usar dois repositórios separados para repositórios de aplicativos e do GitOps pode aumentar a segurança e a simplicidade. As permissões e a visibilidade dos repositórios de aplicativos e do GitOps podem ser ajustadas individualmente.
@@ -86,7 +86,7 @@ A conexão do GitOps que você criar fará o seguinte automaticamente:
 O fluxo de trabalho de CI/CD preencherá o diretório de manifesto com manifestos adicionais para implantar o aplicativo.
 
 
-1. [Crie uma conexão do GitOps](https://docs.microsoft.com/azure/azure-arc/kubernetes/tutorial-use-gitops-connected-cluster) com seu repositório **arc-cicd-demo-gitops** importado recentemente no Azure Repos.
+1. [Crie uma conexão do GitOps](./tutorial-use-gitops-connected-cluster.md) com seu repositório **arc-cicd-demo-gitops** importado recentemente no Azure Repos.
 
    ```azurecli
    az k8sconfiguration create \
@@ -172,7 +172,7 @@ kubectl create secret docker-registry <secret-name> \
 ## <a name="create-environment-variable-groups"></a>Criar grupos de variáveis de ambiente
 
 ### <a name="app-repo-variable-group"></a>Grupo de variáveis do repositório de aplicativos
-[Crie um grupo de variáveis](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups) chamado **az-vote-app-dev**. Defina os seguintes valores:
+[Crie um grupo de variáveis](/azure/devops/pipelines/library/variable-groups) chamado **az-vote-app-dev**. Defina os seguintes valores:
 
 | Variável | Valor |
 | -------- | ----- |
@@ -182,13 +182,13 @@ kubectl create secret docker-registry <secret-name> \
 | ENVIRONMENT_NAME | Desenvolvimento |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_REPO | A cadeia de conexão Git para seu repositório GitOps |
-| PAT | Um [token PAT criado](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?#create-a-pat) com permissões de leitura/gravação da origem. Salve-o para uso posterior ao criar o grupo de variáveis `stage`. |
+| PAT | Um [token PAT criado](/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate#create-a-pat) com permissões de leitura/gravação da origem. Salve-o para uso posterior ao criar o grupo de variáveis `stage`. |
 | SRC_FOLDER | `azure-vote` | 
 | TARGET_CLUSTER | `arc-cicd-cluster` |
 | TARGET_NAMESPACE | `dev` |
 
 > [!IMPORTANT]
-> Marque seu PAT como um tipo secreto. Em seus aplicativos, considere a vinculação de segredos de um [Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
+> Marque seu PAT como um tipo secreto. Em seus aplicativos, considere a vinculação de segredos de um [Azure Key Vault](/azure/devops/pipelines/library/variable-groups#link-secrets-from-an-azure-key-vault).
 >
 ### <a name="stage-environment-variable-group"></a>Preparar grupos de variáveis de ambiente
 
@@ -255,7 +255,7 @@ Se o ambiente de desenvolvimento revelar uma interrupção após a implantação
 1. Forneça os aprovadores e uma mensagem opcional.
 1. Selecione **Criar** novamente para concluir a adição da verificação de aprovação manual.
 
-Para obter mais detalhes, confira o tutorial [Definir aprovação e verificações](https://docs.microsoft.com/azure/devops/pipelines/process/approvals).
+Para obter mais detalhes, confira o tutorial [Definir aprovação e verificações](/azure/devops/pipelines/process/approvals).
 
 Na próxima vez que o pipeline de CD for executado, ele será pausado após a criação da PR do GitOps. Verifique se a alteração foi sincronizada corretamente e transmite a funcionalidade básica. Aprove a verificação do pipeline para permitir que a alteração vá para o próximo ambiente.
 
@@ -291,7 +291,7 @@ Erros encontrados durante a execução do pipeline aparecem na seção de result
 Depois que a execução do pipeline for concluída, você terá garantido a qualidade do código do aplicativo e do modelo que o implantará. Agora você pode aprovar e concluir a PR. A CI será executada novamente, regenerando os modelos e manifestos antes de disparar o pipeline de CD.
 
 > [!TIP]
-> Em um ambiente real, não se esqueça de definir as políticas de branch para garantir que a PR transmita suas verificações de qualidade. Para obter mais informações, confira o artigo [Definir políticas de branch](https://docs.microsoft.com/azure/devops/repos/git/branch-policies).
+> Em um ambiente real, não se esqueça de definir as políticas de branch para garantir que a PR transmita suas verificações de qualidade. Para obter mais informações, confira o artigo [Definir políticas de branch](/azure/devops/repos/git/branch-policies).
 
 ## <a name="cd-process-approvals"></a>Aprovações do processo de CD
 
@@ -338,4 +338,4 @@ Neste tutorial, você configurou um fluxo de trabalho completo de CI/CD que impl
 Prossiga para nosso artigo conceitual para saber mais sobre GitOps e configurações com Kubernetes habilitado para o Azure Arc.
 
 > [!div class="nextstepaction"]
-> [Fluxo de trabalho de CI/CD usando GitOps – Kubernetes habilitado para Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-cicd)
+> [Fluxo de trabalho de CI/CD usando GitOps – Kubernetes habilitado para Azure Arc](https://docs.microsoft.com/azure/azure-arc/kubernetes/conceptual-gitops-ci-cd)
