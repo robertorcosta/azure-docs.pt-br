@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 50544507f9d83c216bb6c18e004c5ce7ad1ca346
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92788614"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105639850"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Tutorial: Segurança na Instância Gerenciada de SQL do Azure usando entidades de servidor (logons) do Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -106,7 +106,7 @@ Leia os seguintes artigos para obter exemplos de como conectar-se à Instância 
 
     ![Captura de tela da guia Resultados no Pesquisador de Objetos do SSMS mostrando o nome, a principal_id, a sid, o tipo e o type_desc do logon recém-adicionado.](./media/aad-security-configure-tutorial/native-login.png)
 
-Para obter mais informações, confira [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+Para obter mais informações, confira [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 ## <a name="grant-permissions-to-create-logins"></a>Conceder permissões para criar logons
 
@@ -182,7 +182,7 @@ Depois que a entidade de servidor (logon) do Azure AD tiver sido criado e recebi
     GO
     ```
 
-1. Crie um banco de dados na instância gerenciada usando a sintaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Esse banco de dados será usado para testar os logons de usuário na próxima seção.
+1. Crie um banco de dados na instância gerenciada usando a sintaxe [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current&preserve-view=true). Esse banco de dados será usado para testar os logons de usuário na próxima seção.
     1. No **Pesquisador de Objetos**, clique com o botão direito do mouse no servidor e escolha **Nova Consulta**.
     1. Na janela de consulta, use a sintaxe a seguir para criar um banco de dados denominado **MyMITestDB**.
 
@@ -264,7 +264,7 @@ Para obter mais informações sobre como conceder permissões de banco de dados,
     > [!IMPORTANT]
     > Ao criar um **USER** a partir de uma entidade de segurança do servidor (logon) do Azure AD, especifique o user_name como o mesmo login_name de **LOGON**.
 
-    Para obter mais informações, confira [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
+    Para obter mais informações, confira [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 1. Em uma nova janela de consulta, crie uma tabela de teste usando o seguinte comando T-SQL:
 

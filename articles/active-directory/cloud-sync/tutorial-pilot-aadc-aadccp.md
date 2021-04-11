@@ -11,12 +11,12 @@ ms.date: 03/22/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50eac71203a94ffb5c7dddc8995b56980c3f8815
-ms.sourcegitcommit: ba3a4d58a17021a922f763095ddc3cf768b11336
+ms.openlocfilehash: e5053bd0c3d63b13b1021476a09dca39dd08f581
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/23/2021
-ms.locfileid: "104798707"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105108750"
 ---
 # <a name="pilot-cloud-sync-for-an-existing-synced-ad-forest"></a>Sincronização de nuvem piloto para uma floresta do AD sincronizada existente 
 
@@ -39,7 +39,7 @@ Antes de tentar este tutorial, considere os itens a seguir:
 A seguir estão os pré-requisitos necessários para concluir este tutorial
 - Um ambiente de teste com a versão de sincronização 1.4.32.0 ou posterior do Azure AD Connect
 - Uma UO ou grupo que esteja no escopo da sincronização e que possa ser usado pelo piloto. Recomenda-se começar com um pequeno conjunto de objetos.
-- Um servidor que executa o Windows Server 2012 R2 ou posterior que hospedará o agente de provisionamento.  Este não pode ser o mesmo servidor que o do Azure AD Connect.
+- Um servidor que executa o Windows Server 2012 R2 ou posterior que hospedará o agente de provisionamento.
 - A âncora de origem para a sincronização do Azure AD Connect deve ser *objectGuid* ou *ms-ds-consistencyGUID*
 
 ## <a name="update-azure-ad-connect"></a>Atualizar o Azure AD Connect

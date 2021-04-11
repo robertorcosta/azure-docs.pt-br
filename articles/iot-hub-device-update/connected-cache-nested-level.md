@@ -7,18 +7,18 @@ ms.author: andyriv
 ms.date: 2/16/2021
 ms.topic: tutorial
 ms.service: iot-hub-device-update
-ms.openlocfilehash: 0128d0de4f078b62bc9571c8758d80cb26585354
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: 7facb74cd407c576b2a7b119f19427dcd185f04e
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102615373"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105568810"
 ---
 # <a name="microsoft-connected-cache-preview-deployment-scenario-sample-two-level-nested-azure-iot-edge-gateway-with-outbound-unauthenticated-proxy"></a>Exemplo de cenário de implantação de visualização do Cache Conectado da Microsoft: gateway do Azure IoT Edge aninhado de dois níveis com proxy não autenticado de saída
 
 Considerando o diagrama abaixo, neste cenário há um gateway do Azure IoT Edge e um dispositivo downstream do Azure IoT Edge, um gateway pai do Azure IoT Edge para outro gateway do Azure IoT Edge e um servidor proxy na DMZ de TI. Veja abaixo um exemplo das variáveis de ambiente do Cache Conectado da Microsoft que seriam definidas no portal do Azure UX para ambos os módulos MCC implantados nos gateways do Azure IoT Edge. O exemplo fornecido demonstra a configuração de dois níveis de gateways do Azure IoT Edge, mas não há limite para a profundidade de hosts upstream para os quais o Cache Conectado da Microsoft dará suporte. Não há nenhuma diferença nas opções de criação de contêiner do MCC dos exemplos anteriores.
 
-Confira a documentação [Conectar dispositivos IoT Edge downstream – Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-to-connect-downstream-iot-edge-device?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true) para obter mais detalhes sobre como configurar implantações em camadas de gateways do Azure IoT Edge. Além disso, observe que, ao implantar o Azure IoT Edge – o Cache Conectado da Microsoft – e os módulos personalizados, todos os módulos devem residir no mesmo registro de contêiner.
+Confira a documentação [Conectar dispositivos IoT Edge downstream – Azure IoT Edge](../iot-edge/how-to-connect-downstream-iot-edge-device.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11) para obter mais detalhes sobre como configurar implantações em camadas de gateways do Azure IoT Edge. Além disso, observe que, ao implantar o Azure IoT Edge – o Cache Conectado da Microsoft – e os módulos personalizados, todos os módulos devem residir no mesmo registro de contêiner.
 
 O diagrama a seguir descreve o cenário em que um gateway do Azure IoT Edge de acesso direto aos recursos da CDN está atuando como o pai de outro gateway do Azure IoT Edge que, por sua vez, está atuando como o pai de um dispositivo de folha do Azure IoT, como um Raspberry Pi. Somente o gateway do Azure IoT Edge pai tem conectividade com a Internet para os recursos da CDN, e o Azure IoT Edge filho e o dispositivo IoT do Azure estão isolados da Internet. 
 
@@ -70,7 +70,7 @@ O diagrama a seguir descreve o cenário em que um gateway do Azure IoT Edge de a
 ## <a name="child-gateway-configuration"></a>Configuração do gateway filho
 
 >[!Note]
->Caso tenha replicado contêineres usados na configuração em seu próprio registro privado, você precisará modificar as configurações de config.toml e as configurações de tempo de execução na implantação do seu módulo. Para obter mais informações detalhadas, confira o [Tutorial – Criar uma hierarquia de dispositivos IoT Edge — Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-nested-iot-edge?view=iotedge-2020-11&tabs=azure-portal&preserve-view=true#deploy-modules-to-the-lower-layer-device).
+>Caso tenha replicado contêineres usados na configuração em seu próprio registro privado, você precisará modificar as configurações de config.toml e as configurações de tempo de execução na implantação do seu módulo. Para obter mais informações detalhadas, confira o [Tutorial – Criar uma hierarquia de dispositivos IoT Edge — Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md?preserve-view=true&tabs=azure-portal&view=iotedge-2020-11#deploy-modules-to-the-lower-layer-device).
 
 1. Modifique o caminho da imagem para o agente do Edge, conforme demonstrado no exemplo abaixo:
 
