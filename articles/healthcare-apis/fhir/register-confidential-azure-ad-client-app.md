@@ -6,14 +6,14 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 03/16/2021
+ms.date: 04/08/2021
 ms.author: matjazl
-ms.openlocfilehash: fbc683c98eb0124e8d879eada276593ca9bf7042
-ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
+ms.openlocfilehash: c10b27d375e2bfb8c64130eceb416a633241cf68
+ms.sourcegitcommit: c6a2d9a44a5a2c13abddab932d16c295a7207d6a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/30/2021
-ms.locfileid: "105934676"
+ms.lasthandoff: 04/09/2021
+ms.locfileid: "107284419"
 ---
 # <a name="register-a-confidential-client-application-in-azure-active-directory"></a>Registrar um aplicativo cliente confidencial no Azure Active Directory
 
@@ -27,9 +27,9 @@ Para registrar um novo aplicativo cliente confidencial, consulte as etapas abaix
 
 1. No [portal do Azure](https://portal.azure.com), selecione **Azure Active Directory**.
 
-1. Selecione **Registros do Aplicativo**. 
+1. Selecione **Registros de aplicativo**. 
 
-    ![Portal do Azure. Novo registro de aplicativo.](media/how-to-aad/portal-aad-new-app-registration.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-new-app-registration.png" alt-text="portal do Azure. Novo registro de aplicativo.":::
 
 1. Selecione **Novo registro**.
 
@@ -39,7 +39,7 @@ Para registrar um novo aplicativo cliente confidencial, consulte as etapas abaix
 
 1. Adicional Forneça um **URI de redirecionamento**. Esses detalhes podem ser alterados mais tarde, mas se você souber a URL de resposta do seu aplicativo, insira-o agora.
 
-    ![Novo registro de aplicativo cliente confidencial.](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT.png" alt-text="Novo registro de aplicativo cliente confidencial.":::
 
 1. Selecione **Registrar**.
 
@@ -49,7 +49,7 @@ Agora que você registrou seu aplicativo, deve selecionar quais permissões de A
 
 1. Selecione **Permissões de API**.
 
-    ![Cliente confidencial. Permissões da API](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-API-Permissions.png" alt-text="Cliente confidencial. Permissões de API.":::
 
 1. Selecione **Adicionar uma permissão**.
 
@@ -70,11 +70,11 @@ Agora que você registrou seu aplicativo, deve selecionar quais permissões de A
 
 1. Selecione **certificados & segredos** e, em seguida, selecione **novo segredo do cliente**. 
 
-    ![Cliente confidencial. Segredo do aplicativo](media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png)
+    :::image type="content" source="media/how-to-aad/portal-aad-register-new-app-registration-CONF-CLIENT-SECRET.png" alt-text="Cliente confidencial. Segredo do aplicativo.":::
 
-1. Insira uma **Descrição** para o segredo do cliente. Selecione a expiração (em 1 ano, em 2 anos ou nunca) e, em seguida, clique em **Adicionar**.
+1. Insira uma **Descrição** para o segredo do cliente. Selecione o menu suspenso **expira** para escolher um período de expiração e clique em **Adicionar**.
 
-   ![Adicionar um segredo do cliente](media/how-to-aad/add-a-client-secret.png)
+   :::image type="content" source="media/how-to-aad/add-a-client-secret.png" alt-text="Adicione um segredo do cliente.":::
 
 1. Após a criação da cadeia de caracteres de segredo do cliente, copie seu **valor** e **ID** e armazene-os em um local seguro de sua escolha.
 
