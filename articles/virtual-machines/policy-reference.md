@@ -1,19 +1,19 @@
 ---
 title: Definições de políticas internas para as Máquinas Virtuais do Azure
 description: Lista as definições de políticas internas do Azure Policy para as Máquinas Virtuais do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: cynthn
 ms.author: cynthn
 ms.service: virtual-machines
 ms.subservice: security
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 0824b15266cbc68b47723e0c5f4e2559fe54a24e
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: 95f604659212935017ef09cde713bd1f8cf09395
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105033972"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106096132"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machines"></a>Definições internas do Azure Policy para máquinas virtuais do Microsoft Azure
 

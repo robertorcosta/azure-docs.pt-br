@@ -3,18 +3,17 @@ title: 'Início Rápido: Configurar os logs de fluxo do grupo de segurança de r
 description: Saiba como habilitar programaticamente os logs de fluxo do NSG (grupo de segurança de rede) usando um modelo do ARM (Azure Resource Manager) e o Azure PowerShell.
 services: network-watcher
 author: damendo
-Customer intent: I need to enable the network security group flow logs by using an Azure Resource Manager template.
 ms.service: network-watcher
 ms.topic: quickstart
 ms.date: 01/07/2021
 ms.author: damendo
 ms.custom: subject-armqs
-ms.openlocfilehash: bc075e5074fe39ad38e45235af932b40fef78fce
-ms.sourcegitcommit: e6de1702d3958a3bea275645eb46e4f2e0f011af
+ms.openlocfilehash: df7f33d9aed307bdf85a571c8169d1b0dbe863e5
+ms.sourcegitcommit: 73fb48074c4c91c3511d5bcdffd6e40854fb46e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102521859"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106063790"
 ---
 # <a name="quickstart-configure-network-security-group-flow-logs-by-using-an-arm-template"></a>Início Rápido: configurar os logs de fluxo do grupo de segurança de rede usando um modelo do ARM
 

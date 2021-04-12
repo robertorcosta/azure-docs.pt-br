@@ -64,8 +64,8 @@ Os tutoriais mostram os procedimentos baseados em cenário para algumas das prin
 * [Codificar o arquivo remoto e o fluxo de vídeo – REST](stream-files-tutorial-with-rest.md)
 * [Codificar o arquivo carregado e o fluxo de vídeo – .NET](stream-files-tutorial-with-api.md)
 * [Transmitir ao vivo – .NET](stream-live-tutorial-with-api.md)
-* [Analisar vídeo – .NET](analyze-videos-tutorial-with-api.md)
-* [Criptografia dinâmica AES-128 – .NET](protect-with-aes128.md)
+* [Analisar vídeo – .NET](analyze-videos-tutorial.md)
+* [Criptografia dinâmica AES-128 – .NET](drm-playready-license-template-concept.md)
 
 ### <a name="samples"></a>Exemplos
 
@@ -75,12 +75,12 @@ Use [este navegador de exemplo](/samples/browse/?products=azure-media-services) 
 
 Os guias de instruções contêm exemplos de código que demonstram como concluir uma tarefa. Você encontrará vários exemplos nesta seção. Veja algumas opções:
 
-* [Criar uma conta – CLI](./create-account-howto.md)
+* [Criar uma conta – CLI](./account-create-how-to.md)
 * [Acessar as APIs – CLI](./access-api-howto.md)
 * [Codificar com HTTPS como entrada de trabalho – .NET](job-input-from-http-how-to.md)  
 * [Monitorar eventos – Portal](monitoring/monitor-events-portal-how-to.md)
-* [Criptografar dinamicamente com vários DRM – .NET](protect-with-drm.md) 
-* [Como codificar com uma transformação personalizada – CLI](custom-preset-cli-howto.md)
+* [Criptografar dinamicamente com vários DRM – .NET](drm-protect-with-drm-tutorial.md) 
+* [Como codificar com uma transformação personalizada – CLI](transform-custom-preset-cli-how-to.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>Fazer perguntas, comentar, obter atualizações
 
