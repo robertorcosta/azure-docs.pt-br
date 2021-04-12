@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/04/2021
+ms.date: 03/23/2021
 ms.author: justinha
-ms.openlocfilehash: fec2695c9e196a652a4166161bf012b22b0d00e6
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
+ms.openlocfilehash: 928b1a6dcff7ad186bf5fe9ce07d1a886d429867
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104579545"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105933331"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>Tutorial: Configurar o LDAP Seguro para um domínio gerenciado do Azure Active Directory Domain Services
 
@@ -298,6 +298,21 @@ Se você adicionou uma entrada DNS ao arquivo de hosts local do computador para 
 1. No computador local, abra o *Bloco de notas* como administrador
 1. Procure e abra o arquivo *C:\Windows\System32\drivers\etc\hosts*
 1. Exclua a linha do registro adicionado, como `168.62.205.103    ldaps.aaddscontoso.com`
+
+## <a name="troubleshooting"></a>Solução de problemas
+
+Se você receber um erro informando que o LDAP.exe não pode se conectar, tente trabalhar com os diferentes aspectos de obter a conexão: 
+
+1. Como configurar o controlador de domínio
+1. Como configurar o cliente
+1. Rede
+1. Como estabelecer a sessão TLS
+
+Para a correspondência do nome da entidade do certificado, o controlador de domínio usará o nome de domínio do Azure AD DS (não o nome de domínio do Azure AD) para pesquisar o certificado no repositório de certificados. Erros de ortografia, por exemplo, impedem que o controlador de domínio selecione o certificado correto. 
+
+O cliente tenta estabelecer a conexão TLS usando o nome fornecido. O tráfego precisa chegar até o destino. O controlador de domínio envia a chave pública do certificado de autenticação do servidor. O certificado precisa ter o uso correto no certificado, o nome assinado no nome da entidade precisa ser compatível para que o cliente confie que o servidor é o nome DNS ao qual você está se conectando (ou seja, um curinga funcionará, sem erros de ortografia) e o cliente precisa confiar no emissor. Você pode verificar se há algum problema na cadeia no log do sistema em Visualizador de Eventos e filtrar os eventos em que a origem é igual a schannel. Depois que essas partes estiverem no lugar, elas formarão uma chave da sessão.  
+
+Para obter mais informações, confira [Handshake de TLS](https://docs.microsoft.com/windows/win32/secauthn/tls-handshake-protocol).
 
 ## <a name="next-steps"></a>Próximas etapas
 
