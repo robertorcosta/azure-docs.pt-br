@@ -9,12 +9,12 @@ ms.workload: media
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: inhenkel
-ms.openlocfilehash: ba50fbd28ac5d5f66533eec76b51dfb3b8c0cf5d
-ms.sourcegitcommit: 9f4510cb67e566d8dad9a7908fd8b58ade9da3b7
+ms.openlocfilehash: c2ffda7400109e16cf1110a4e14ecbc3604a7ecf
+ms.sourcegitcommit: bfa7d6ac93afe5f039d68c0ac389f06257223b42
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 04/01/2021
-ms.locfileid: "106121227"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106492300"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Empacotamento dinâmico nos Serviços de Mídia v3
 
@@ -22,7 +22,7 @@ ms.locfileid: "106121227"
 
 Os Serviços de Mídia do Microsoft Azure servem para codificar vários formatos de arquivo de origem de mídia. O recurso é fornecido por meio de diferentes protocolos de streaming, com ou sem proteção de conteúdo, para alcançar todos os principais dispositivos, como iOS e Android. Esses clientes entendem os diferentes protocolos. Por exemplo, o iOS exige que os fluxos sejam entregues no formato HLS (HTTP Live Streaming), ao passo que os dispositivos Android dão suporte a HLS e a MPEG-DASH.
 
-Nos Serviços de Mídia, um [ponto de extremidade de streaming](streaming-endpoint-concept.md) (origem) representa um serviço de origem e empacotamento dinâmico (just-in-time) que pode enviar conteúdo ativo e sob demanda diretamente para um aplicativo de player do cliente. Ele usa um dos protocolos de streaming de mídia comuns mencionados na seção a seguir. O *Empacotamento dinâmico* é um recurso que vem por padrão em todos os pontos de extremidade de streaming.
+Nos Serviços de Mídia, um [ponto de extremidade de streaming](stream-streaming-endpoint-concept.md) (origem) representa um serviço de origem e empacotamento dinâmico (just-in-time) que pode enviar conteúdo ativo e sob demanda diretamente para um aplicativo de player do cliente. Ele usa um dos protocolos de streaming de mídia comuns mencionados na seção a seguir. O *Empacotamento dinâmico* é um recurso que vem por padrão em todos os pontos de extremidade de streaming.
 
 ## <a name="to-prepare-your-source-files-for-delivery"></a>Preparar os arquivos de origem para entrega
 
@@ -33,7 +33,7 @@ O empacotamento dinâmico dos Serviços de Mídia do Azure dá suporte apenas a 
 > [!TIP]
 > Uma maneira de obter o MP4 e transmitir os arquivos de configuração é [codificar o arquivo mezanino com os Serviços de Mídia](#encode-to-adaptive-bitrate-mp4s). 
 
-Para fazer vídeos no ativo codificado disponível para clientes de reprodução, é necessário criar um [Localizador de Streaming](streaming-locators-concept.md) e URLs de streaming. Em seguida, com base no formato especificado no manifesto do cliente de streaming (HLS, MPEG, DASH ou Smooth Streaming), você receberá o fluxo no protocolo escolhido.
+Para fazer vídeos no ativo codificado disponível para clientes de reprodução, é necessário criar um [Localizador de Streaming](stream-streaming-locators-concept.md) e URLs de streaming. Em seguida, com base no formato especificado no manifesto do cliente de streaming (HLS, MPEG, DASH ou Smooth Streaming), você receberá o fluxo no protocolo escolhido.
 
 Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente.
 
@@ -81,14 +81,14 @@ Os procedimentos a seguir mostram um fluxo de trabalho de streaming comum dos Se
 1. [Codifique](#encode-to-adaptive-bitrate-mp4s) seu arquivo de mezanino em um conjunto de taxa de bits adaptável H.264/AAC MP4.
 
     Se já tiver arquivos codificados e quiser apenas copiar e transmitir os arquivos, use: APIs [CopyVideo](/rest/api/media/transforms/createorupdate#copyvideo) e [CopyAudio](/rest/api/media/transforms/createorupdate#copyaudio). Um novo arquivo MP4 com um manifesto de streaming (arquivo .ism) será criado como resultado.
-1. Publicar o ativo de saída que contém o conjunto MP4 de taxa de bits adaptável. Você publica criando um [localizador de streaming](streaming-locators-concept.md).
+1. Publicar o ativo de saída que contém o conjunto MP4 de taxa de bits adaptável. Você publica criando um [localizador de streaming](stream-streaming-locators-concept.md).
 1. Criar URLs que segmentam diferentes formatos (HLS, MPEG-DASH e Smooth Streaming). O *ponto de extremidade de streaming* cuidaria de servir o manifesto correto e solicitações para todos esses formatos diferentes.
     
 O diagrama a seguir mostra o streaming sob demanda com o fluxo de trabalho do empacotamento dinâmico.
 
 ![Diagrama de um fluxo de trabalho para streaming sob demanda com empacotamento dinâmico](./media/encode-dynamic-packaging-concept/media-services-dynamic-packaging.svg)
 
-O caminho de download está presente na imagem acima apenas para mostrar que é possível baixar um arquivo MP4 diretamente por meio do *ponto de extremidade de streaming* (origem) (você especifica a [política de streaming](streaming-policy-concept.md) para download no localizador de streaming).<br/>O empacotador dinâmico não está alterando o arquivo. Opcionalmente, você pode usar as APIs do Armazenamento de Blobs do Azure para acessar um MP4 diretamente para download progressivo se deseja ignorar os recursos do *ponto de extremidade de streaming* (origem). 
+O caminho de download está presente na imagem acima apenas para mostrar que é possível baixar um arquivo MP4 diretamente por meio do *ponto de extremidade de streaming* (origem) (você especifica a [política de streaming](stream-streaming-policy-concept.md) para download no localizador de streaming).<br/>O empacotador dinâmico não está alterando o arquivo. Opcionalmente, você pode usar as APIs do Armazenamento de Blobs do Azure para acessar um MP4 diretamente para download progressivo se deseja ignorar os recursos do *ponto de extremidade de streaming* (origem). 
 
 ### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codificar para MP4s de taxa de bits adaptável
 
@@ -96,7 +96,7 @@ Os artigos a seguir mostram exemplos de [como codificar um vídeo com os Serviç
 
 * [Codificar de uma URL HTTPS usando predefinições internas](job-input-from-http-how-to.md).
 * [Codificar um arquivo local usando predefinições internas](job-input-from-local-file-how-to.md).
-* [Criar uma predefinição personalizada para segmentar um cenário específico ou requisitos de dispositivo](encode-custom-presets-how-to.md).
+* [Criar uma predefinição personalizada para segmentar um cenário específico ou requisitos de dispositivo](transform-custom-presets-how-to.md).
 
 Confira a lista de [codecs e formatos](encode-media-encoder-standard-formats-reference.md) do Encoder Standard.
 

@@ -1,18 +1,18 @@
 ---
 title: Definições de políticas internas para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 description: Lista as definições de políticas internas do Azure Policy para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure. Essas definições de políticas internas fornecem abordagens comuns para gerenciar seus recursos do Azure.
-ms.date: 03/24/2021
+ms.date: 03/31/2021
 ms.topic: reference
 author: ju-shim
 ms.author: jushiman
 ms.service: virtual-machine-scale-sets
 ms.custom: subject-policy-reference
-ms.openlocfilehash: bb2e68fe379fdd1d2ce183c90f14e1be148a35ef
-ms.sourcegitcommit: bb330af42e70e8419996d3cba4acff49d398b399
-ms.translationtype: MT
+ms.openlocfilehash: b42d6355a5f3fad3ae88239229cf588e449c1e2b
+ms.sourcegitcommit: 99fc6ced979d780f773d73ec01bf651d18e89b93
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/24/2021
-ms.locfileid: "105036094"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106092188"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-virtual-machine-scale-sets"></a>Definições internas do Azure Policy para Conjuntos de Dimensionamento de Máquinas Virtuais do Azure
 
