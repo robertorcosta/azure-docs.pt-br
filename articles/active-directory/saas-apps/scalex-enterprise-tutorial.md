@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: fecb7381786c36b077d329f68ca48ab10f65a984
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "92895047"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105642966"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao ScaleX Enterprise
 
@@ -87,7 +87,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
     Na caixa de texto **URL de logon**, digite um URL usando o seguinte padrão: `https://platform.rescale.com/saml2/<company id>/sso/`
 
     > [!NOTE]
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do ScaleX Enterprise](https://info.rescale.com/contact_sales) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
+    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte ao Cliente do ScaleX Enterprise](https://about.rescale.com/contactus.html) para obter esses valores. Você também pode consultar os padrões exibidos na seção **Configuração Básica de SAML** no portal do Azure.
 
 1. O aplicativo ScaleX Enterprise espera as declarações do SAML em um formato específico, o que exige a adição de mapeamentos de atributo personalizado para a configuração de atributos de token SAML. A captura de tela a seguir mostra a lista de atributos padrão, em que **emailaddress** é mapeado com **user.mail**. O aplicativo ScaleX Enterprise espera que **emailaddress** seja mapeado com **user.userprincipalname**. Portanto, você precisa editar o mapeamento de atributo clicando no ícone **Editar** e alterando-o.
 
