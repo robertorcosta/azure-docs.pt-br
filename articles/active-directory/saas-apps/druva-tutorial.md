@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 03/06/2020
 ms.author: jeedes
 ms.openlocfilehash: a7868d702ff3f1190d7f51e4ad7316508d453015
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "92454517"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-druva"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao Druva
@@ -136,13 +136,13 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Se você estiver esperando um valor de função na declaração SAML, na caixa de diálogo **Selecionar Função**, escolha a função apropriada para o usuário da lista e, em seguida, clique no botão **Escolher** na parte inferior da tela.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-druva-sso"></a>Configurar o SSO do Druva
+## <a name="configure-druva-sso&quot;></a>Configurar o SSO do Druva
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do Druva como administrador.
 
 1. Clique no logotipo do Druva no canto superior esquerdo e, em seguida, clique em **Configurações de Nuvem do Druva**.
 
-    ![Configurações](./media/druva-tutorial/ic795091.png "Configurações")
+    ![Configurações](./media/druva-tutorial/ic795091.png &quot;Configurações")
 
 1. Na guia **Logon Único**, clique em **Editar**.
 

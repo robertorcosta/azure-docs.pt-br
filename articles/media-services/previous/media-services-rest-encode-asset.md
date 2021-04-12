@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
 ms.openlocfilehash: d4b7a188a9509c3510de2843b232f57e3437177b
-ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/30/2021
 ms.locfileid: "103009820"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
@@ -62,7 +62,7 @@ Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Se
 > [!NOTE]
 > Ao trabalhar com a API REST dos Serviços de Mídia, as seguintes considerações se aplicam:
 >
-> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [configuração para desenvolvimento da API REST dos serviços de mídia](media-services-rest-how-to-use.md).
+> Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
 >
 > Ao usar o JSON e especificar o uso da palavra-chave **__metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), é necessário definir o cabeçalho **Accept** como [formato JSON Detalhado](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
@@ -295,5 +295,5 @@ HTTP/1.1 201 Created
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você sabe como criar um trabalho para codificar um ativo, consulte [Como verificar o andamento do trabalho com os Serviços de Mídia](media-services-rest-check-job-progress.md).
 
-## <a name="see-also"></a>Veja também
+## <a name="see-also"></a>Confira também
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)

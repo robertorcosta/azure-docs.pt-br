@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 02/02/2021
 ms.author: jeedes
 ms.openlocfilehash: a2c149bfdf79102779abf7544fed9fb78796a50e
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "101649935"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-new-relic-by-account"></a>Tutorial: Integração do SSO (logon único) do Azure Active Directory ao New Relic by Account
@@ -89,7 +89,7 @@ Siga estas etapas para habilitar o SSO do Azure AD no portal do Azure.
 
     ![Copiar URLs de configuração](common/copy-configuration-urls.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+### <a name="create-an-azure-ad-test-user&quot;></a>Criar um usuário de teste do Azure AD
 
 Nesta seção, você criará um usuário de teste no portal do Azure chamado B.Fernandes.
 
@@ -101,7 +101,7 @@ Nesta seção, você criará um usuário de teste no portal do Azure chamado B.F
    1. Marque a caixa de seleção **Mostrar senha** e, em seguida, anote o valor exibido na caixa **Senha**.
    1. Clique em **Criar**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+### <a name=&quot;assign-the-azure-ad-test-user&quot;></a>Atribuir o usuário de teste do Azure AD
 
 Nesta seção, você permitirá que B.Fernandes use o logon único do Azure concedendo-lhe acesso ao New Relic by Account.
 
@@ -110,16 +110,16 @@ Nesta seção, você permitirá que B.Fernandes use o logon único do Azure conc
 1. Na página de visão geral do aplicativo, localize a seção **Gerenciar** e escolha **Usuários e grupos**.
 1. Escolha **Adicionar usuário** e, em seguida, **Usuários e grupos** na caixa de diálogo **Adicionar Atribuição**.
 1. Na caixa de diálogo **Usuários e grupos**, selecione **B.Fernandes** na lista Usuários e clique no botão **Selecionar** na parte inferior da tela.
-1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função "Acesso Padrão" selecionada.
+1. Se você estiver esperando que uma função seja atribuída aos usuários, escolha-a na lista suspensa **Selecionar uma função**. Se nenhuma função tiver sido configurada para esse aplicativo, você verá a função &quot;Acesso Padrão&quot; selecionada.
 1. Na caixa de diálogo **Adicionar atribuição**, clique no botão **Atribuir**.
 
-## <a name="configure-new-relic-by-account-sso"></a>Configurar o SSO do New Relic by Account
+## <a name=&quot;configure-new-relic-by-account-sso&quot;></a>Configurar o SSO do New Relic by Account
 
 1. Em outra janela do navegador da Web, entre em seu site de empresa do **New Relic by Account** como administrador.
 
 2. No menu na parte superior, clique em **Configurações de Conta**.
    
-    ![A captura de tela mostra a página inicial com a opção Configurações de Conta selecionada.](./media/new-relic-tutorial/settings.png "Configurações da Conta")
+    ![A captura de tela mostra a página inicial com a opção Configurações de Conta selecionada.](./media/new-relic-tutorial/settings.png &quot;Configurações da Conta")
 
 3. Clique na guia **Segurança e autenticação** e na guia **Logon único**.
    

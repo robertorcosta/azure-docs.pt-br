@@ -7,12 +7,12 @@ ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: overview
 ms.date: 2/25/2021
-ms.openlocfilehash: 2008e014e9f160b643ed5f591fff81c0b215e24a
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8f300f214ed36b7a5257b7276364027b91edc746
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "102175018"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105048095"
 ---
 # <a name="register-and-scan-teradata-source-preview"></a>Registrar e examinar fonte de Teradata (versão prévia)
 
@@ -25,7 +25,7 @@ A fonte de Teradata dá suporte ao **Exame completo** para extrair metadados de 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 1.  Configure o [runtime de integração auto-hospedada](https://www.microsoft.com/download/details.aspx?id=39717) mais recente.
-    Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime).
+    Para obter mais informações, confira [Criar e configurar um runtime de integração auto-hospedada](../data-factory/create-self-hosted-integration-runtime.md).
 
 2.  Verifique se o [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) está instalado na máquina virtual em que o runtime de integração auto-hospedada está instalado.
 
@@ -70,7 +70,7 @@ Na tela **Registrar fontes (Teradata)** , faça o seguinte:
 
 Para criar e executar uma nova verificação, faça o seguinte:
 
-1.  No Centro de Gerenciamento, clique em **Runtimes de integração**. Verifique se um runtime de integração auto-hospedada está configurado. Caso não esteja configurado, use as etapas mencionadas [aqui](https://docs.microsoft.com/azure/purview/manage-integration-runtimes) para configurar um runtime de integração auto-hospedada
+1.  No Centro de Gerenciamento, clique em **Runtimes de integração**. Verifique se um runtime de integração auto-hospedada está configurado. Caso não esteja configurado, use as etapas mencionadas [aqui](./manage-integration-runtimes.md) para configurar um runtime de integração auto-hospedada
 
 2.  Navegue até as **Fontes**
 
@@ -90,7 +90,7 @@ Para criar e executar uma nova verificação, faça o seguinte:
     -   Para se conectar ao servidor de banco de dados, forneça um nome de usuário no campo de entrada Nome de usuário
     -   Armazene a senha do servidor de banco de dados na chave secreta.
 
-        Para entender mais sobre credenciais, confira este link [aqui](https://docs.microsoft.com/azure/purview/manage-credentials)
+        Para entender mais sobre credenciais, confira este link [aqui](./manage-credentials.md)
 
 6.  **Esquema**: liste o subconjunto de esquemas a serem importados expressos como uma lista separada por ponto e vírgula. Por exemplo, schema1; schema2. Todos os esquemas de usuário serão importados se essa lista estiver vazia. Todos os esquemas (por exemplo, SysAdmin) e objetos do sistema são ignorados por padrão. Quando a lista estiver vazia, todos os esquemas disponíveis serão importados.
 

@@ -6,14 +6,14 @@ author: ms-puneet-nagpal
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: quickstart
-ms.date: 11/13/2020
+ms.date: 04/05/2021
 ms.author: punagpal
-ms.openlocfilehash: 3e293782e6f00852a51e0617a07eebd5d8c56261
-ms.sourcegitcommit: c8b50a8aa8d9596ee3d4f3905bde94c984fc8aa2
+ms.openlocfilehash: 0a382ad948e7fd2efc6ab59eb94da3d6cbb210d7
+ms.sourcegitcommit: 56b0c7923d67f96da21653b4bb37d943c36a81d6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/28/2021
-ms.locfileid: "105644840"
+ms.lasthandoff: 04/06/2021
+ms.locfileid: "106443757"
 ---
 # <a name="quickstart-deploy-azure-iot-connector-for-fhir-preview-using-azure-portal"></a>Início Rápido: Implantar o Conector IoT do Azure para FHIR (versão prévia) usando o portal do Azure
 
@@ -171,6 +171,11 @@ Implante o [Modelo de aplicativo de monitoramento contínuo de pacientes](../../
 ## <a name="connect-your-iot-data-with-the-azure-iot-connector-for-fhir-preview"></a>Conectar seus dados de IoT com o Conector IoT do Azure para FHIR (versão prévia)
 
 Depois de implantar seu aplicativo do IoT Central, seus dois dispositivos simulados prontos para uso começarão a gerar telemetria. Para este tutorial, vamos ingerir a telemetria do simulador *Patch de Sinais Vitais Inteligente* no FHIR por meio do Conector IoT do Azure para FHIR. Para exportar seus dados de IoT para o Conector IoT do Azure para FHIR, o ideal é [configurar uma exportação contínua de dados no IoT Central](../../iot-central/core/howto-export-data.md). Primeiro, precisamos criar uma conexão com o destino e, em seguida, criaremos um trabalho de exportação de dados para execução contínua: 
+
+> [!NOTE]
+> Você desejará selecionar **exportação de dados** versus **exportação de dados (herdada)** dentro das configurações do aplicativo IOT central para esta seção.
+
+[![IoT Central configurações de exportação de dados](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png)](media/quickstart-iot-fhir-portal/iot-central-data-export-dashboard.png#lightbox)
 
 Crie um novo destino:
 - Vá para a guia **destinos** e crie um novo destino.

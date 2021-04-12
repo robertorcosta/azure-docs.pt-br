@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: certificates
 ms.topic: quickstart
 ms.custom: devx-track-python, devx-track-azurecli
-ms.openlocfilehash: 6ae20c55a16b12f7543af3f08d96400a8e5f20c9
-ms.sourcegitcommit: 2aa52d30e7b733616d6d92633436e499fbe8b069
+ms.openlocfilehash: 2026b1721dbe05af1ecc52324d1dd0ebf2ec3d08
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/06/2021
-ms.locfileid: "97934910"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "104802651"
 ---
 # <a name="quickstart-azure-key-vault-certificate-client-library-for-python"></a>Início Rápido: Biblioteca de clientes do certificado do Azure Key Vault para Python
 
@@ -24,14 +24,14 @@ Comece a usar a biblioteca de clientes do certificado do Azure Key Vault para Py
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure – [crie uma gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [Python 2.7+ ou 3.5.3+](/azure/developer/python/configure-local-development-environment)
+- O [Python 2.7+ ou 3.6+](/azure/developer/python/configure-local-development-environment)
 - [CLI do Azure](/cli/azure/install-azure-cli)
 
 Este início rápido pressupõe que você está executando a [CLI do Azure](/cli/azure/install-azure-cli) em uma janela de terminal do Linux.
 
 ## <a name="set-up-your-local-environment"></a>Configurar o ambiente local
 
-Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para obter mais informações, confira [Autenticar o cliente na biblioteca de clientes de identidades do Azure](/java/api/overview/azure/identity-readme)
+Este guia de início rápido usa a biblioteca de identidades do Azure com a CLI do Azure para autenticar o usuário nos serviços do Azure. Os desenvolvedores também podem usar o Visual Studio ou o Visual Studio Code para autenticar as chamadas. Para obter mais informações, confira [Autenticar o cliente na biblioteca de clientes de identidades do Azure](/python/api/overview/azure/identity-readme)
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 

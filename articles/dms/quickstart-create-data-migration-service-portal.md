@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/29/2021
-ms.openlocfilehash: 6232c842514c10a5440e574621ca74e2f4867d86
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: 8a500104a0273b9e131815c4dc832bd33729cd51
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "99981590"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105566584"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Início Rápido: Crie uma instância do Serviço de Migração de Banco de Dados do Azure usando o Portal do Azure
 
@@ -90,6 +90,6 @@ Você pode limpar os recursos criados neste guia de início rápido excluindo o 
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Migrar o SQL Server para o Banco de Dados SQL do Azure offline](tutorial-sql-server-to-azure-sql.md)
-* [Migrar o SQL Server para o Banco de Dados SQL do Azure online](tutorial-sql-server-azure-sql-online.md)
+* [Migrar o SQL Server para o Banco de Dados SQL do Azure online](./tutorial-sql-server-to-azure-sql.md)
 * [Migrar o SQL Server para uma Instância Gerenciada de SQL do Azure offline](tutorial-sql-server-to-managed-instance.md)
 * [Migrar o SQL Server para uma Instância Gerenciada de SQL do Azure online](tutorial-sql-server-managed-instance-online.md)

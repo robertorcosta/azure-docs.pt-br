@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: cb7e047d998342125a52af5ea3ae1e88fe88d313
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: c084df60fa2293a614726be44669a1465b399d2c
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "93289898"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105557200"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gerenciar o Key Vault usando a CLI do Azure 
 
@@ -147,7 +147,7 @@ Se você já tiver uma chave em um arquivo .pem, carregue-a no Azure Key Vault. 
 az keyvault key import --vault-name "ContosoKeyVault" --name "ContosoFirstKey" --pem-file "./softkey.pem" --pem-password "hVFkk965BuUv" --protection software
 ```
 
-Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey** para sempre obter a versão atual. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] para obter essa versão específica. Por exemplo, **https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87** . 
+Agora você pode fazer referência à chave que criada ou carregada no Cofre da Chave do Azure, usando o URI. Use `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey` para sempre obter a versão atual. Use https://[keyvault-name].vault.azure.net/keys/[keyname]/[key-unique-id] para obter essa versão específica. Por exemplo, `https://ContosoKeyVault.vault.azure.net/keys/ContosoFirstKey/cgacf4f763ar42ffb0a1gca546aygd87`. 
 
 Adicione um segredo ao cofre, que é uma senha chamada SQLPassword, com o valor "hVFkk965BuUv" para Azure Key Vaults. 
 

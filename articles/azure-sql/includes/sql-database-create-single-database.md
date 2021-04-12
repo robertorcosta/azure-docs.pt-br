@@ -7,10 +7,10 @@ ms.date: 03/10/2020
 ms.author: sstein
 ms.reviewer: vanto
 ms.openlocfilehash: c7bd942b427bdbd2d8184f712f97dd2a0a57fa90
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "102178058"
 ---
 Nesta etapa, você criará um [servidor SQL lógico](../database/logical-servers.md) e um [banco de dados individual](../database/single-database-overview.md) que usa os dados de exemplo da AdventureWorksLT. Você pode criar o banco de dados usando os menus e as telas do portal do Azure ou um script da CLI do Azure ou do PowerShell no Azure Cloud Shell.

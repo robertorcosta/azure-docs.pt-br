@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/18/2021
-ms.openlocfilehash: fa251b80f8e44f48de565685a0841f57f48620f1
-ms.sourcegitcommit: c27a20b278f2ac758447418ea4c8c61e27927d6a
+ms.openlocfilehash: 4bfbd83f3f3910e1231bcce4043d9b59ccc512db
+ms.sourcegitcommit: 772eb9c6684dd4864e0ba507945a83e48b8c16f0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/03/2021
-ms.locfileid: "101724958"
+ms.lasthandoff: 03/19/2021
+ms.locfileid: "104606643"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Copiar dados de um banco de dados do SQL Server para o Armazenamento de Blobs do Azure
 
@@ -114,7 +114,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
    O nome do data factory deve ser *globalmente exclusivo*. Se a seguinte mensagem de erro for exibida para o campo nome, altere o nome do data factory (por exemplo, yournameADFTutorialDataFactory). Para ver as regras de nomenclatura para artefatos do Data Factory, confira [Data Factory – Regras de nomenclatura](naming-rules.md).
 
-   ![Novo nome do data factory](./media/doc-common-process/name-not-available-error.png)
+    :::image type="content" source="./media/doc-common-process/name-not-available-error.png" alt-text="Mensagem de erro para o nome duplicado do novo data factory.":::
 
 1. Selecione a **assinatura** do Azure na qual deseja criar o data factory.
 1. Em **Grupo de Recursos**, use uma das seguintes etapas:
@@ -130,7 +130,7 @@ Nesta etapa, você cria um data factory e inicia a interface do usuário do Data
 
 1. Depois que a criação estiver concluída, a página **Data Factory** será exibida conforme mostrado na imagem:
 
-    ![Página inicial do data factory](./media/doc-common-process/data-factory-home-page.png)
+    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page do Azure Data Factory com o bloco Criar e Monitorar.":::
 1. Selecione o bloco **Criar e Monitorar** para iniciar a interface do usuário do Data Factory em uma guia separada.
 
 
