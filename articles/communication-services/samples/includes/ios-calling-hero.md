@@ -10,16 +10,14 @@ ms.date: 03/10/2021
 ms.topic: include
 ms.custom: include file
 ms.author: mikben
-ms.openlocfilehash: cea425a3f133c54fecda06daa57e6e5e6d22a5d8
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: d6280a34b500f320d1292da524ad05d999403539
+ms.sourcegitcommit: 91361cbe8fff7c866ddc4835251dcbbe2621c055
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "104783521"
+ms.lasthandoff: 03/29/2021
+ms.locfileid: "105729852"
 ---
-[!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-O **Exemplo de Destaque de Chamadas em Grupo para iOS** dos Serviços de Comunicação do Azure demonstra como a biblioteca de clientes do iOS de Chamadas dos Serviços de Comunicação pode ser usada para criar uma experiência de chamada em grupo que inclua voz e vídeo. Neste exemplo de guia de início rápido, você aprenderá a configurar e executar o exemplo. Uma visão geral do exemplo é fornecida para o contexto.
+O **Exemplo de Destaque de Chamadas em Grupo para iOS** dos Serviços de Comunicação do Azure demonstra como o SDK de Chamada para iOS dos Serviços de Comunicação pode ser usado para criar uma experiência de chamada em grupo que inclua voz e vídeo. Neste exemplo de guia de início rápido, você aprenderá a configurar e executar o exemplo. Uma visão geral do exemplo é fornecida para o contexto.
 
 ## <a name="download-code"></a>Código de download
 
@@ -27,7 +25,7 @@ Encontre o código finalizado para este guia de início rápido no [GitHub](http
 
 ## <a name="overview"></a>Visão geral
 
-O exemplo é um aplicativo iOS nativo que usa as bibliotecas de clientes do iOS dos Serviços de Comunicação do Azure para criar uma experiência de chamada com voz e vídeo. O aplicativo usa um componente do lado do servidor para provisionar tokens de acesso que serão usados para inicializar a biblioteca de clientes dos Serviços de Comunicação do Azure. Para configurar esse componente do lado do servidor, sinta-se à vontade para seguir o tutorial [Serviço Confiável com o Azure Functions](../../tutorials/trusted-service-tutorial.md).
+O exemplo é um aplicativo iOS nativo que usa os SDKs para iOS dos Serviços de Comunicação do Azure para criar uma experiência de chamada com voz e vídeo. O aplicativo usa um componente do lado do servidor para provisionar tokens de acesso que são usados para inicializar o SDK dos Serviços de Comunicação do Azure. Para configurar esse componente do lado do servidor, sinta-se à vontade para seguir o tutorial [Serviço Confiável com o Azure Functions](../../tutorials/trusted-service-tutorial.md).
 
 Aqui está um exemplo:
 
@@ -103,7 +101,7 @@ Se quiser limpar e remover uma assinatura dos Serviços de Comunicação, exclua
 
 Para obter mais informações, consulte os seguintes artigos:
 
-- Familiarize-se com [usar a biblioteca de clientes de chamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
+- Familiarize-se com o [uso do SDK de Chamada](../../quickstarts/voice-video-calling/calling-client-samples.md)
 - Saiba mais sobre [como a chamada funciona](../../concepts/voice-video-calling/about-call-types.md)
 
 ### <a name="additional-reading"></a>Leituras adicionais

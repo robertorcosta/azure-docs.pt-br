@@ -7,12 +7,12 @@ ms.service: iot-develop
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/11/2021
-ms.openlocfilehash: d0dcca0c4be801f385a48afcd41b6a547bab3fbe
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
+ms.openlocfilehash: 5d872dd7c94a0b3ab23623bb246ff7ae81609779
+ms.sourcegitcommit: 32e0fedb80b5a5ed0d2336cea18c3ec3b5015ca1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
-ms.locfileid: "100654648"
+ms.lasthandoff: 03/30/2021
+ms.locfileid: "105047160"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-azure-iot-central-python"></a>Início Rápido: Enviar telemetria de um dispositivo ao Azure IoT Central (Python)
 
@@ -266,5 +266,5 @@ Neste guia de início rápido, você aprendeu um fluxo de trabalho básico do ap
 Como próxima etapa, explore o SDK do Python de IoT do Azure por meio de exemplos de aplicativo.
 
 - [Exemplos Assíncronos](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-hub-scenarios): esse diretório contém exemplos de Python assíncronos para cenários adicionais do Hub IoT.
-- [Exemplos Síncronos](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples): esse diretório contém exemplos de Python para uso com o Python 2.7 ou em cenários de compatibilidade síncrona com o Python 3.5 +
+- [Exemplos Síncronos](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/sync-samples): esse diretório contém exemplos do Python para uso com o Python 2.7 ou em cenários de compatibilidade síncrona com o Python 3.6 e posterior
 - [Exemplos do IoT Edge](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios): esse diretório contém exemplos de Python para trabalhar com módulos do Edge e dispositivos downstream.
