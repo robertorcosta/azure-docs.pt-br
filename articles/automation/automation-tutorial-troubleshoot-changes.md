@@ -4,15 +4,15 @@ description: Este artigo informa como solucionar problemas com alterações em u
 services: automation
 ms.subservice: change-inventory-management
 keywords: alteração, controle, controle de alterações, inventário, automação
-ms.date: 12/05/2018
+ms.date: 03/21/2021
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: a223ac4296dd160bbdd904e1d3443552d4f49a23
-ms.sourcegitcommit: e559daa1f7115d703bfa1b87da1cf267bf6ae9e8
+ms.openlocfilehash: 980740d387f9e953d1ea764327c8aa13f8650948
+ms.sourcegitcommit: 2c1b93301174fccea00798df08e08872f53f669c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 02/17/2021
-ms.locfileid: "100587938"
+ms.lasthandoff: 03/22/2021
+ms.locfileid: "104775792"
 ---
 # <a name="troubleshoot-changes-on-an-azure-vm"></a>Solucionar problemas com alterações em uma VM do Azure
 
@@ -208,15 +208,15 @@ Pode ser útil exibir as alterações no portal do Azure, mas poder ser alertado
 
 14. Para **Ações**, insira um nome para a ação, como **Administradores de Email**. 
 
-15. Para **TIPO DE AÇÃO**, selecione **Email/SMS/Push/Voz**. 
+15. Em **TIPO DE AÇÃO**, selecione **Email/SMS/mensagem/Push/Voz**. 
 
 16. Para **DETALHES**, selecione **Editar detalhes**.
 
-    ![Adicionar grupo de ações](./media/automation-tutorial-troubleshoot-changes/add-action-group.png)
+    :::image type="content" source="./media/automation-tutorial-troubleshoot-changes/add-action-group.png" alt-text="Uso e custos estimados." lightbox="./media/automation-tutorial-troubleshoot-changes/add-action-group.png":::
 
-17. No Email/SMS/Push/Voz, insira um nome, marque a caixa de seleção **Email** e insira um endereço de email válido. Quando terminar, clique em **OK** no painel e depois clique em **OK** na página Adicionar grupo de ações.
+17. No painel **Email/SMS/mensagem/Push/Voz**, insira um nome, marque a caixa de seleção **Email** e insira um endereço de email válido. Quando terminar, clique em **OK** no painel e em **OK** na página **Adicionar grupo de ações**.
 
-18. Para personalizar o assunto do email de alerta, selecione **Personalizar Ações**. 
+18. Para personalizar o assunto do email de alerta, selecione **Personalizar Ações**.
 
 19. Para **Criar regra**, selecione **Assunto do email** e escolha **Criar regra de alerta**. O alerta indica quando uma implantação de atualização for bem-sucedida e quais computadores fazem parte da execução de implantação de atualização. A imagem a seguir é um exemplo de email recebido quando o serviço W3SVC é interrompido.
 

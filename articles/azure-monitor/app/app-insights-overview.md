@@ -4,12 +4,12 @@ description: Gerenciamento de desempenho de aplicativo e acompanhamento de uso d
 ms.topic: overview
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: ac6b6f2b47df0bce9ae164c83df54adfdf00b184
-ms.sourcegitcommit: 867cb1b7a1f3a1f0b427282c648d411d0ca4f81f
+ms.openlocfilehash: f25a53cb227d6894aaabaf82033178f15f61c173
+ms.sourcegitcommit: 3ee3045f6106175e59d1bd279130f4933456d5ff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/19/2021
-ms.locfileid: "100575704"
+ms.lasthandoff: 03/31/2021
+ms.locfileid: "106076200"
 ---
 # <a name="what-is-application-insights"></a>O que é o Application Insights?
 O Application Insights, um recurso do [Azure Monitor](../overview.md), é um serviço de APM (Gerenciamento de Desempenho de Aplicativo) para desenvolvedores e profissionais de DevOps. Use-o para monitorar seus aplicativos ativos. Ele detecta automaticamente anomalias de desempenho e inclui ferramentas de análise avançadas para ajudar a diagnosticar problemas e entender o que os usuários realmente fazem com seu aplicativo.  Ele foi projetado para ajudar você a aprimorar continuamente o desempenho e a usabilidade do seu aplicativo. Ele funciona com aplicativos em uma ampla variedade de plataformas, incluindo .NET, Node.js, Java e Python, hospedadas localmente, de maneira híbrida ou em qualquer nuvem pública. Ele integra-se ao seu processo DevOps e tem pontos de conexão para uma ampla variedade de ferramentas de desenvolvimento. Ele pode monitorar e analisar a telemetria de aplicativos móveis integrando-se ao Visual Studio App Center.
@@ -47,7 +47,7 @@ O Application Insights é indicado para a equipe de desenvolvimento, para ajudá
 
 Há várias maneiras de explorar seus dados. Confira estes artigos:
 
-|  |  |
+| Descrição do artigo   | Imagem |
 | --- | --- |
 | [**Detecção inteligente e alertas manuais**](./proactive-diagnostics.md)<br/>Defina alertas automáticos que se adaptem aos padrões normais de telemetria do seu aplicativo e são disparados quando há algo fora do padrão normal. Você também pode [definir alertas](../alerts/alerts-log.md) em níveis específicos de métricas padrão ou personalizadas. |![Exemplo de alerta](./media/app-insights-overview/alerts-tn.png) |
 | [**Mapa do aplicativo**](./app-map.md)<br/>Explore os componentes de seu aplicativo, com as principais métricas e alertas. |![Mapa do aplicativo](./media/app-insights-overview/appmap-tn.png)  |

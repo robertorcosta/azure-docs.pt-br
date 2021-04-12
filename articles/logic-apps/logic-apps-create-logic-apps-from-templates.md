@@ -9,10 +9,10 @@ ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 10/15/2017
 ms.openlocfilehash: 42c592e6aede4537dc983fd2cff043a878f81f1c
-ms.sourcegitcommit: 910a1a38711966cb171050db245fc3b22abc8c5f
-ms.translationtype: MT
+ms.sourcegitcommit: f28ebb95ae9aaaff3f87d8388a09b41e0b3445b5
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 03/20/2021
+ms.lasthandoff: 03/29/2021
 ms.locfileid: "100593101"
 ---
 # <a name="create-logic-app-workflows-from-prebuilt-templates"></a>Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos
@@ -97,9 +97,9 @@ Caso você não tenha uma assinatura do Azure, [crie uma conta gratuita do Azure
    > [!NOTE] 
    > Muitos modelos incluem conectores que já podem ter as propriedades obrigatórias pré-populadas. No entanto, alguns modelos ainda podem exigir que você forneça valores para poder implantar o aplicativo lógico corretamente. Se você tentar implantá-lo sem preencher os campos de propriedades ausentes, receberá uma mensagem de erro. 
 
-## <a name="update-logic-apps-with-templates"></a>Atualizar aplicativos lógicos com modelos
+## <a name="update-logic-apps-with-templates&quot;></a>Atualizar aplicativos lógicos com modelos
 
-1. No [portal do Azure](https://portal.azure.com "Portal do Azure"), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
+1. No [portal do Azure](https://portal.azure.com &quot;Portal do Azure"), encontre e abra seu aplicativo lógico no Designer de Aplicativo Lógico.
 
 2. Na barra de ferramentas do designer, escolha **Modelos**. Essa ação descartará as alterações não salvas, por isso uma mensagem de aviso será exibida para você poder confirmar que deseja continuar. Para confirmar, escolha **OK**. Por exemplo:
 
